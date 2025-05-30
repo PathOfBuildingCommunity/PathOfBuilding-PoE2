@@ -319,6 +319,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/EndGameMapPins.dat",
 		"Data/EndGameMapContentSet.dat",
 		"Data/EndGameMapContent.dat",
+		"Data/StrongBoxPacks.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

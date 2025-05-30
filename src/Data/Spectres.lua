@@ -8966,7 +8966,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
 		"Lost Towers (Map)",
-		"Frigid Bluffs (Map)",
+		"Frigid Bluffs",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9035,7 +9035,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 		"Utzaal (Act 9)",
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
-		"Frigid Bluffs (Map)",
+		"Frigid Bluffs",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11748,7 +11748,7 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -11781,7 +11781,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 	companionReservation = 45.6,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11812,7 +11812,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger"] = {
 	companionReservation = 33,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11844,7 +11844,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 	companionReservation = 33,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11875,7 +11875,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard"] = {
 	companionReservation = 40.2,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MPSBreachEliteBoneProjectile",
@@ -11907,7 +11907,7 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite1"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"GSBreachElitePaleEliteBoltImpact",
@@ -11943,7 +11943,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -11972,7 +11972,7 @@ minions["Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider"] = {
 	companionReservation = 30,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -12001,7 +12001,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 	companionReservation = 33,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -12032,7 +12032,7 @@ minions["Metadata/Monsters/Breach/BreachFodderDemonicSpikeThrower"] = {
 	companionReservation = 32.1,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -12064,7 +12064,7 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite2"] = {
 	companionReservation = 40.2,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"Twisted Domain (Map)",
+		"Twisted Domain",
 	},
 	skillList = {
 		"GABreachEliteHellscapeStabWeb",

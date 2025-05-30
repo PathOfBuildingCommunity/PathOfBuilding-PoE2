@@ -11882,7 +11882,7 @@ return {
 			name="",
 			refTo="",
 			type="Key",
-			width=50
+			width=200
 		},
 		[97]={
 			list=false,
@@ -11973,7 +11973,7 @@ return {
 			name="",
 			refTo="",
 			type="Key",
-			width=50
+			width=150
 		},
 		[110]={
 			list=false,
@@ -16348,6 +16348,8 @@ return {
 	},
 	strongboxes={
 	},
+	strongboxpacks={
+	},
 	suicideexplosion={
 		[1]={
 			list=false,
@@ -17969,9 +17971,9 @@ return {
 		[20]={
 			list=true,
 			name="Bosses",
-			refTo="",
+			refTo="MonsterVarieties",
 			type="Key",
-			width=150
+			width=250
 		},
 		[21]={
 			list=true,
@@ -18059,7 +18061,7 @@ return {
 		},
 		[33]={
 			list=false,
-			name="",
+			name="IsHideout",
 			refTo="",
 			type="Bool",
 			width=80
@@ -18084,6 +18086,251 @@ return {
 			refTo="Tags",
 			type="Key",
 			width=150
+		},
+		[37]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[38]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[39]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[40]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[41]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[42]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[43]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[44]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[45]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[46]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[47]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[48]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[49]={
+			list=false,
+			name="Environment",
+			refTo="Environments",
+			type="Key",
+			width=150
+		},
+		[50]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[51]={
+			list=false,
+			name="TerrainPlugins",
+			refTo="TerrainPlugins",
+			type="Key",
+			width=150
+		},
+		[52]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[53]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[54]={
+			list=false,
+			name="IsEndGameArea",
+			refTo="",
+			type="Bool",
+			width=110
+		},
+		[55]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=100
+		},
+		[56]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[57]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[58]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[59]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[60]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=100
+		},
+		[61]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[62]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[63]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[64]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[65]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[66]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[67]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[68]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[69]={
+			list=true,
+			name="QuestFlags",
+			refTo="QuestFlags",
+			type="Key",
+			width=150
+		},
+		[70]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=90
+		},
+		[71]={
+			list=false,
+			name="Description",
+			refTo="",
+			type="String",
+			width=200
 		}
 	},
 	worldmaplegends={

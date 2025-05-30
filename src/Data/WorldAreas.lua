@@ -11,6 +11,7 @@ worldAreas["CharacterSelect"] = {
 	act = 1,
 	level = 0,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -22,6 +23,7 @@ worldAreas["PersonalHideout"] = {
 	act = 1,
 	level = 0,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -33,6 +35,7 @@ worldAreas["GuildHideout__"] = {
 	act = 1,
 	level = 0,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -44,6 +47,7 @@ worldAreas["HideoutCave"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -55,6 +59,7 @@ worldAreas["HideoutShipgraveyard"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -66,6 +71,7 @@ worldAreas["HideoutSpace"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -77,6 +83,7 @@ worldAreas["HideoutArenaGraveyardTrio"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -88,6 +95,7 @@ worldAreas["HideoutPillarsOfArun"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -99,6 +107,7 @@ worldAreas["HideoutAtziriArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -110,6 +119,7 @@ worldAreas["HideoutInnocenceArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -121,6 +131,7 @@ worldAreas["HideoutShaperArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -132,6 +143,7 @@ worldAreas["HideoutKaomArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -143,6 +155,7 @@ worldAreas["HideoutDaressoArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -154,6 +167,7 @@ worldAreas["HideoutDominusArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -165,6 +179,7 @@ worldAreas["HideoutPietyArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -176,6 +191,7 @@ worldAreas["HideoutLunarisSolarisArena"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -187,6 +203,7 @@ worldAreas["HideoutKitavaArenaAct10"] = {
 	act = 1,
 	level = 20,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -198,6 +215,7 @@ worldAreas["HideoutDoomguard"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -209,6 +227,7 @@ worldAreas["HideoutSunspire"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -220,6 +239,7 @@ worldAreas["HideoutDarkwood"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -231,6 +251,7 @@ worldAreas["HideoutArenaElder"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -242,6 +263,7 @@ worldAreas["HideoutChiyouSpring"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -253,6 +275,7 @@ worldAreas["HideoutBlankAbyss"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -264,6 +287,7 @@ worldAreas["HideoutBlankCity"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -275,6 +299,7 @@ worldAreas["HideoutBlankClouds"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -286,6 +311,7 @@ worldAreas["HideoutBlankDesert"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -297,6 +323,7 @@ worldAreas["HideoutBlankDirt"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -308,6 +335,7 @@ worldAreas["HideoutBlankGrass"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -319,6 +347,7 @@ worldAreas["HideoutBlankSea"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -330,6 +359,7 @@ worldAreas["HideoutBlankSnow"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -341,6 +371,7 @@ worldAreas["HideoutThaumaturgy"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -352,6 +383,7 @@ worldAreas["HideoutYaochi"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -363,6 +395,7 @@ worldAreas["HideoutHumanoidPet"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -374,6 +407,7 @@ worldAreas["HideoutRitualLeague"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -385,6 +419,7 @@ worldAreas["HideoutArenaMaven"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -396,6 +431,7 @@ worldAreas["HideoutHasina"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -407,6 +443,7 @@ worldAreas["HideoutAzuriteCave"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -418,6 +455,7 @@ worldAreas["HideoutSynthesisHub"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -429,6 +467,7 @@ worldAreas["HideoutVeritaniaArena"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -440,6 +479,7 @@ worldAreas["HideoutBlankBlack"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -451,6 +491,7 @@ worldAreas["HideoutTencentApocalypse"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -462,6 +503,7 @@ worldAreas["HideoutOlrothArena"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -473,6 +515,7 @@ worldAreas["HideoutLight"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -484,6 +527,7 @@ worldAreas["HideoutDark"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -495,6 +539,7 @@ worldAreas["HideoutArenaBlackStar_"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -506,6 +551,7 @@ worldAreas["HideoutArenaInfiniteHunger"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -517,6 +563,7 @@ worldAreas["HideoutCosmicAtlas"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -528,6 +575,7 @@ worldAreas["HideoutArenaEaterOfWorlds"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -539,6 +587,7 @@ worldAreas["HideoutArenaSearingExarch"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -550,6 +599,7 @@ worldAreas["HideoutBeaconOfSalvation"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -561,6 +611,7 @@ worldAreas["HideoutCanopy"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -572,6 +623,7 @@ worldAreas["HideoutDreadnought"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -583,6 +635,7 @@ worldAreas["HideoutFelled"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -594,6 +647,7 @@ worldAreas["HideoutShrine"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -605,6 +659,7 @@ worldAreas["HideoutLimestone"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -616,6 +671,7 @@ worldAreas["HideoutCanal"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -627,6 +683,7 @@ worldAreas["HideoutMonolith"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -638,6 +695,7 @@ worldAreas["HideoutTwisted"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -649,6 +707,7 @@ worldAreas["HideoutTranscendent"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -660,6 +719,7 @@ worldAreas["HideoutHourglass"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -671,6 +731,7 @@ worldAreas["HideoutChaos"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -682,6 +743,7 @@ worldAreas["HideoutSummit"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -693,6 +755,7 @@ worldAreas["HideoutRacetrack"] = {
 	act = 1,
 	level = 65,
 	isMap = false,
+	isHideout = true,
 	monsterVarieties = {
 	},
 }
@@ -704,6 +767,7 @@ worldAreas["G_login"] = {
 	act = 1,
 	level = 0,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -715,6 +779,7 @@ worldAreas["G1_WorldMap"] = {
 	act = 1,
 	level = 0,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -726,6 +791,7 @@ worldAreas["G2_WorldMap"] = {
 	act = 2,
 	level = 0,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -737,17 +803,19 @@ worldAreas["G3_WorldMap"] = {
 	act = 3,
 	level = 0,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["TN_WorldMap"] = {
-	name = "Atlas (Map)",
+	name = "Atlas",
 	baseName = "Atlas",
 	tags = {  },
 	act = 10,
 	level = 0,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -755,10 +823,12 @@ worldAreas["TN_WorldMap"] = {
 worldAreas["G1_town"] = {
 	name = "Clearfell Encampment (Act 1)",
 	baseName = "Clearfell Encampment",
+	description = "A bastion of hope for those who survive",
 	tags = {  },
 	act = 1,
 	level = 15,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -766,10 +836,12 @@ worldAreas["G1_town"] = {
 worldAreas["G1_1"] = {
 	name = "The Riverbank (Act 1)",
 	baseName = "The Riverbank",
+	description = "The drowned stare through muddied branches",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 1,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Drowned",
 		"Porcupine Crab",
@@ -779,10 +851,12 @@ worldAreas["G1_1"] = {
 worldAreas["G1_2"] = {
 	name = "Clearfell (Act 1)",
 	baseName = "Clearfell",
+	description = "A sickness has befallen Ogham",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 2,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Lumbering Dead",
 		"Vile Imp",
@@ -794,10 +868,12 @@ worldAreas["G1_2"] = {
 worldAreas["G1_3"] = {
 	name = "Mud Burrow (Act 1)",
 	baseName = "Mud Burrow",
+	description = "The tunnels of a tormented creature",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 3,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Wretched Rattler",
 	},
@@ -806,10 +882,12 @@ worldAreas["G1_3"] = {
 worldAreas["G1_4"] = {
 	name = "The Grelwood (Act 1)",
 	baseName = "The Grelwood",
+	description = "Forest of the Old Magicks",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 4,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Pack Werewolf",
 		"Werewolf Prowler",
@@ -823,10 +901,12 @@ worldAreas["G1_4"] = {
 worldAreas["G1_5"] = {
 	name = "The Red Vale (Act 1)",
 	baseName = "The Red Vale",
+	description = "Haunted battleground of the Phaaryl Wars",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 5,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
 		"Risen Arbalest",
@@ -837,10 +917,12 @@ worldAreas["G1_5"] = {
 worldAreas["G1_6"] = {
 	name = "The Grim Tangle (Act 1)",
 	baseName = "The Grim Tangle",
+	description = "The sickness spreads forth underground",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 6,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Fungal Zombie",
 		"Fungal Proliferator",
@@ -853,10 +935,12 @@ worldAreas["G1_6"] = {
 worldAreas["G1_7"] = {
 	name = "Cemetery of the Eternals (Act 1)",
 	baseName = "Cemetery of the Eternals",
+	description = "Built atop the Ezomyte clan graves beneath",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 7,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Frost Wraith",
 		"Hungering Stalker",
@@ -870,10 +954,12 @@ worldAreas["G1_7"] = {
 worldAreas["G1_8"] = {
 	name = "Mausoleum of the Praetor (Act 1)",
 	baseName = "Mausoleum of the Praetor",
+	description = "Resting place of Draven Sentari",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 8,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Lightning Wraith",
 		"Eternal Knight",
@@ -889,10 +975,12 @@ worldAreas["G1_8"] = {
 worldAreas["G1_9"] = {
 	name = "Tomb of the Consort (Act 1)",
 	baseName = "Tomb of the Consort",
+	description = "Resting place of Asinia Sentari",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 8,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Dread Servant",
 		"Eternal Knight",
@@ -909,6 +997,7 @@ worldAreas["G1_10"] = {
 	act = 1,
 	level = 15,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -916,10 +1005,12 @@ worldAreas["G1_10"] = {
 worldAreas["G1_11"] = {
 	name = "Hunting Grounds (Act 1)",
 	baseName = "Hunting Grounds",
+	description = "Wild bounty of Ogham",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 10,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Venomous Crab Matriarch",
 		"Bramble Ape",
@@ -932,10 +1023,12 @@ worldAreas["G1_11"] = {
 worldAreas["G1_12"] = {
 	name = "Freythorn (Act 1)",
 	baseName = "Freythorn",
+	description = "The Clanless Enclave",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 11,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Skeleton Spriggan",
 		"Cultist Warrior",
@@ -950,10 +1043,12 @@ worldAreas["G1_12"] = {
 worldAreas["G1_13_1"] = {
 	name = "Ogham Farmlands (Act 1)",
 	baseName = "Ogham Farmlands",
+	description = "Diseased crops of Ogham",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 12,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Decrepit Mercenary",
 		"Iron Thaumaturgist",
@@ -971,10 +1066,12 @@ worldAreas["G1_13_1"] = {
 worldAreas["G1_13_2"] = {
 	name = "Ogham Village (Act 1)",
 	baseName = "Ogham Village",
+	description = "The burning tragedy",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 13,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Voracious Werewolf",
 		"Werewolf Prowler",
@@ -987,10 +1084,12 @@ worldAreas["G1_13_2"] = {
 worldAreas["G1_14"] = {
 	name = "The Manor Ramparts (Act 1)",
 	baseName = "The Manor Ramparts",
+	description = "Surrounding walls of the Wolf's Den",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 14,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Death Knight",
 		"Gargoyle Demon",
@@ -1007,10 +1106,12 @@ worldAreas["G1_14"] = {
 worldAreas["G1_15"] = {
 	name = "Ogham Manor (Act 1)",
 	baseName = "Ogham Manor",
+	description = "Den of the Mad Wolf",
 	tags = { "EzomyteStrongbox" },
 	act = 1,
 	level = 15,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Blood Carrier",
 		"Blood Cretin",
@@ -1029,10 +1130,12 @@ worldAreas["G1_15"] = {
 worldAreas["G2_town"] = {
 	name = "The Ardura Caravan (Act 2)",
 	baseName = "The Ardura Caravan",
+	description = "Pride of Sekhema Asala",
 	tags = {  },
 	act = 2,
 	level = 32,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1040,10 +1143,12 @@ worldAreas["G2_town"] = {
 worldAreas["G2_1"] = {
 	name = "Vastiri Outskirts (Act 2)",
 	baseName = "Vastiri Outskirts",
+	description = "Blood-red and unforgiving sands",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 16,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
@@ -1056,10 +1161,12 @@ worldAreas["G2_1"] = {
 worldAreas["G2_2"] = {
 	name = "Traitor's Passage (Act 2)",
 	baseName = "Traitor's Passage",
+	description = "The pride and fall of Balbala",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 19,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Maraketh",
 		"Risen Arbalest",
@@ -1071,10 +1178,12 @@ worldAreas["G2_2"] = {
 worldAreas["G2_3"] = {
 	name = "The Halani Gates (Act 2)",
 	baseName = "The Halani Gates",
+	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 20,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1082,10 +1191,12 @@ worldAreas["G2_3"] = {
 worldAreas["G2_3a"] = {
 	name = "The Halani Gates (Act 2)",
 	baseName = "The Halani Gates",
+	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 20,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1093,10 +1204,12 @@ worldAreas["G2_3a"] = {
 worldAreas["G2_3s"] = {
 	name = "The Halani Gates (Act 2)",
 	baseName = "The Halani Gates",
+	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 20,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1104,10 +1217,12 @@ worldAreas["G2_3s"] = {
 worldAreas["G2_4_1"] = {
 	name = "Keth (Act 2)",
 	baseName = "Keth",
+	description = "Jewel of the Vastiri",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 21,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Tarnished Beetle",
 		"Tarnished Scarab",
@@ -1120,10 +1235,12 @@ worldAreas["G2_4_1"] = {
 worldAreas["G2_4_2"] = {
 	name = "The Lost City (Act 2)",
 	baseName = "The Lost City",
+	description = "The glory of Keth knew no bounds",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Serpent Clan",
 		"Serpent Shaman",
@@ -1138,10 +1255,12 @@ worldAreas["G2_4_2"] = {
 worldAreas["G2_4_3"] = {
 	name = "Buried Shrines (Act 2)",
 	baseName = "Buried Shrines",
+	description = "Sands settle where water once flowed",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 23,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Sand Spirit",
 		"Mar Acolyte",
@@ -1152,10 +1271,12 @@ worldAreas["G2_4_3"] = {
 worldAreas["G2_5_1"] = {
 	name = "Mastodon Badlands (Act 2)",
 	baseName = "Mastodon Badlands",
+	description = "Territory of the Lost-Men",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 21,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Gilded Cobra",
 		"Lost-men Zealot",
@@ -1170,10 +1291,12 @@ worldAreas["G2_5_1"] = {
 worldAreas["G2_5_2"] = {
 	name = "The Bone Pits (Act 2)",
 	baseName = "The Bone Pits",
+	description = "Necromantic ash tarnish the sands",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Gilded Cobra",
 		"Lost-men Zealot",
@@ -1191,10 +1314,12 @@ worldAreas["G2_5_2"] = {
 worldAreas["G2_6"] = {
 	name = "Valley of the Titans (Act 2)",
 	baseName = "Valley of the Titans",
+	description = "They remain where they slept",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 21,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Maraketh",
 		"Risen Arbalest",
@@ -1208,10 +1333,12 @@ worldAreas["G2_6"] = {
 worldAreas["G2_7"] = {
 	name = "The Titan Grotto (Act 2)",
 	baseName = "The Titan Grotto",
+	description = "Their echoes rattled the world",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Sandflesh Skeleton",
 		"Sandflesh Warrior",
@@ -1224,10 +1351,12 @@ worldAreas["G2_7"] = {
 worldAreas["G2_8"] = {
 	name = "Deshar (Act 2)",
 	baseName = "Deshar",
+	description = "The City of the Dead",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 28,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Regurgitating Vulture",
 		"Rasp Scavenger",
@@ -1241,10 +1370,12 @@ worldAreas["G2_8"] = {
 worldAreas["G2_8a"] = {
 	name = "Deshar (Act 2)",
 	baseName = "Deshar",
+	description = "The City of the Dead",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 28,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1252,10 +1383,12 @@ worldAreas["G2_8a"] = {
 worldAreas["G2_9_1"] = {
 	name = "Path of Mourning (Act 2)",
 	baseName = "Path of Mourning",
+	description = "They climb to mourn their Honoured Dead",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 29,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Maraketh",
 		"Maraketh Undead",
@@ -1266,10 +1399,12 @@ worldAreas["G2_9_1"] = {
 worldAreas["G2_9_2"] = {
 	name = "The Spires of Deshar (Act 2)",
 	baseName = "The Spires of Deshar",
+	description = "Where the Honoured Dead lie buried in the sky",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 30,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Maraketh Undead",
 		"Winged Fiend",
@@ -1279,10 +1414,12 @@ worldAreas["G2_9_2"] = {
 worldAreas["G2_10_1"] = {
 	name = "Mawdun Quarry (Act 2)",
 	baseName = "Mawdun Quarry",
+	description = "The hills of Mawdun became the Faridun foothold",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 17,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Corrupted Corpse",
 		"Plague Swarm",
@@ -1296,10 +1433,12 @@ worldAreas["G2_10_1"] = {
 worldAreas["G2_10_2"] = {
 	name = "Mawdun Mine (Act 2)",
 	baseName = "Mawdun Mine",
+	description = "Where metal veins bled for the tools of war",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 18,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Corrupted Corpse",
 		"Forsaken Miner",
@@ -1317,6 +1456,7 @@ worldAreas["G2_11"] = {
 	act = 2,
 	level = 30,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Rasp Scavenger",
 		"Corrupted Corpse",
@@ -1330,10 +1470,12 @@ worldAreas["G2_11"] = {
 worldAreas["G2_12_1"] = {
 	name = "The Dreadnought (Act 2)",
 	baseName = "The Dreadnought",
+	description = "War Caravan of the Faridun",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 31,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Faridun Crawler",
 		"Plague Swarm",
@@ -1345,10 +1487,12 @@ worldAreas["G2_12_1"] = {
 worldAreas["G2_12_2"] = {
 	name = "Dreadnought Vanguard (Act 2)",
 	baseName = "Dreadnought Vanguard",
+	description = "Forward carts of the Risen King",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 32,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Faridun Butcher",
 	},
@@ -1357,10 +1501,12 @@ worldAreas["G2_12_2"] = {
 worldAreas["G2_13"] = {
 	name = "Trial of the Sekhemas (Act 2)",
 	baseName = "Trial of the Sekhemas",
+	description = "The Winter Sekhema designed a Great Trial to challenge the worthy",
 	tags = { "MarakethStrongbox" },
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1372,6 +1518,7 @@ worldAreas["Sanctum_1"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1383,6 +1530,7 @@ worldAreas["Sanctum_1_Foyer_1"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1394,6 +1542,7 @@ worldAreas["Sanctum_1_Foyer_2"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1405,6 +1554,7 @@ worldAreas["Sanctum_1_Foyer_3"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1416,6 +1566,7 @@ worldAreas["Sanctum_2"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1427,6 +1578,7 @@ worldAreas["Sanctum_2_Foyer_1"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1438,6 +1590,7 @@ worldAreas["Sanctum_2_Foyer_2"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1449,6 +1602,7 @@ worldAreas["Sanctum_2_Foyer_3"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1460,6 +1614,7 @@ worldAreas["Sanctum_3"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1471,6 +1626,7 @@ worldAreas["Sanctum_3_Foyer_1"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1482,6 +1638,7 @@ worldAreas["Sanctum_3_Foyer_2"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1493,6 +1650,7 @@ worldAreas["Sanctum_3_Foyer_3"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1504,6 +1662,7 @@ worldAreas["Sanctum_4"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1515,6 +1674,7 @@ worldAreas["Sanctum_4_Foyer_1"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1526,6 +1686,7 @@ worldAreas["Sanctum_4_Foyer_2"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1537,6 +1698,7 @@ worldAreas["Sanctum_4_Foyer_3"] = {
 	act = 2,
 	level = 22,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1544,10 +1706,12 @@ worldAreas["Sanctum_4_Foyer_3"] = {
 worldAreas["G3_town"] = {
 	name = "Ziggurat Encampment (Act 3)",
 	baseName = "Ziggurat Encampment",
+	description = "A haven provides refuge from the jungle",
 	tags = { "area_with_water" },
 	act = 3,
 	level = 44,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1555,10 +1719,12 @@ worldAreas["G3_town"] = {
 worldAreas["G3_1"] = {
 	name = "Sandswept Marsh (Act 3)",
 	baseName = "Sandswept Marsh",
+	description = "Where thick waters stir with the rising dead",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 33,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Bogfelled Slave",
 		"Bogfelled Commoner",
@@ -1576,10 +1742,12 @@ worldAreas["G3_1"] = {
 worldAreas["G3_2_1"] = {
 	name = "Infested Barrens (Act 3)",
 	baseName = "Infested Barrens",
+	description = "Where the jungle gives way to colonies and hives",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 35,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Bane Sapling",
 		"Antlion Charger",
@@ -1590,10 +1758,12 @@ worldAreas["G3_2_1"] = {
 worldAreas["G3_2_2"] = {
 	name = "The Matlan Waterways (Act 3)",
 	baseName = "The Matlan Waterways",
+	description = "Seed of Utzaal's birth and death",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 39,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Azak Brute",
 		"Azak Fleshstabber",
@@ -1609,10 +1779,12 @@ worldAreas["G3_2_2"] = {
 worldAreas["G3_3"] = {
 	name = "Jungle Ruins (Act 3)",
 	baseName = "Jungle Ruins",
+	description = "The jungle thrives amongst overgrown structures",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 34,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Quadrilla",
 		"Alpha Primate",
@@ -1629,10 +1801,12 @@ worldAreas["G3_3"] = {
 worldAreas["G3_4"] = {
 	name = "The Venom Crypts (Act 3)",
 	baseName = "The Venom Crypts",
+	description = "Graves that once held nobility now slither and bite",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 35,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Snakethroat Shambler",
 		"Constricted Spitter",
@@ -1647,10 +1821,12 @@ worldAreas["G3_4"] = {
 worldAreas["G3_5"] = {
 	name = "Chimeral Wetlands (Act 3)",
 	baseName = "Chimeral Wetlands",
+	description = "Where beauty and death become one",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 36,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Prowling Chimeral",
 		"Ill-fated Explorer",
@@ -1662,10 +1838,12 @@ worldAreas["G3_5"] = {
 worldAreas["G3_6_1"] = {
 	name = "Jiquani's Machinarium (Act 3)",
 	baseName = "Jiquani's Machinarium",
+	description = "Where the Architect of Industry bestowed life unto stone",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 3,
 	level = 37,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Skeletal Warrior",
 		"Vaal Skeletal Squire",
@@ -1680,10 +1858,12 @@ worldAreas["G3_6_1"] = {
 worldAreas["G3_6_2"] = {
 	name = "Jiquani's Sanctum (Act 3)",
 	baseName = "Jiquani's Sanctum",
+	description = "Seat of Jiquani's rise to power",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 3,
 	level = 38,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Skeletal Warrior",
 		"Vaal Skeletal Squire",
@@ -1699,10 +1879,12 @@ worldAreas["G3_6_2"] = {
 worldAreas["G3_7"] = {
 	name = "The Azak Bog (Act 3)",
 	baseName = "The Azak Bog",
+	description = "Home of the merciless Azak savages",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 36,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Azak Throatcutter",
 		"Azak Fleshstabber",
@@ -1720,10 +1902,12 @@ worldAreas["G3_7"] = {
 worldAreas["G3_8"] = {
 	name = "The Drowned City (Act 3)",
 	baseName = "The Drowned City",
+	description = "Utzaal the drowned is now revealed",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 40,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Hunchback Clubber",
 		"Filthy Lobber",
@@ -1744,10 +1928,12 @@ worldAreas["G3_8"] = {
 worldAreas["G3_9"] = {
 	name = "The Molten Vault (Act 3)",
 	baseName = "The Molten Vault",
+	description = "Forge of the forgotten wealth of Kamasa",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 3,
 	level = 41,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
@@ -1761,10 +1947,12 @@ worldAreas["G3_9"] = {
 worldAreas["G3_10"] = {
 	name = "The Trial of Chaos (Act 3)",
 	baseName = "The Trial of Chaos",
+	description = "Where the Trialmaster tests challengers in the name of Chaos",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 3,
 	level = 38,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1772,10 +1960,12 @@ worldAreas["G3_10"] = {
 worldAreas["G3_10_Airlock"] = {
 	name = "The Temple of Chaos (Act 3)",
 	baseName = "The Temple of Chaos",
+	description = "Testing grounds for the Vaal High Priests",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 38,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -1783,10 +1973,12 @@ worldAreas["G3_10_Airlock"] = {
 worldAreas["G3_11"] = {
 	name = "Apex of Filth (Act 3)",
 	baseName = "Apex of Filth",
+	description = "The rot and mire of unspeakable centuries",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 41,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Flathead Warrior",
 		"Hunchback Clubber",
@@ -1805,10 +1997,12 @@ worldAreas["G3_11"] = {
 worldAreas["G3_12"] = {
 	name = "Temple of Kopec (Act 3)",
 	baseName = "Temple of Kopec",
+	description = "Unfathomable energy resides within the Ziggurat",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 3,
 	level = 42,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Bloodrite Priest",
 		"Bloodrite Guard",
@@ -1818,12 +2012,14 @@ worldAreas["G3_12"] = {
 }
 
 worldAreas["G_Endgame_Town"] = {
-	name = "The Ziggurat Refuge (Map)",
+	name = "The Ziggurat Refuge",
 	baseName = "The Ziggurat Refuge",
+	description = "Reinforced hideaway from the Cataclysm",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Porcupine Crab",
 		"Drowned",
@@ -2042,10 +2238,12 @@ worldAreas["G_Endgame_Town"] = {
 worldAreas["G3_14"] = {
 	name = "Utzaal (Act 3)",
 	baseName = "Utzaal",
+	description = "The Cradle of Vaal Ambition",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 43,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Guard",
 		"Vaal Excoriator",
@@ -2064,6 +2262,7 @@ worldAreas["G3_15"] = {
 	act = 3,
 	level = 43,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Overseer",
 		"Vaal Guard",
@@ -2076,10 +2275,12 @@ worldAreas["G3_15"] = {
 worldAreas["G3_16"] = {
 	name = "Aggorat (Act 3)",
 	baseName = "Aggorat",
+	description = "Salvation sought in beauty and blood",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 44,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Axeman",
 		"Vaal Goliath",
@@ -2091,10 +2292,12 @@ worldAreas["G3_16"] = {
 worldAreas["G3_17"] = {
 	name = "The Black Chambers (Act 3)",
 	baseName = "The Black Chambers",
+	description = "Doryani toiled in her name and his own",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 3,
 	level = 45,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Doryani's Elite",
 		"Brutal Transcendent",
@@ -2110,10 +2313,12 @@ worldAreas["G3_17"] = {
 worldAreas["C_G1_town"] = {
 	name = "Clearfell Encampment (Act 7)",
 	baseName = "Clearfell Encampment",
+	description = "A bastion of hope for those who survive",
 	tags = {  },
 	act = 7,
 	level = 51,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2121,10 +2326,12 @@ worldAreas["C_G1_town"] = {
 worldAreas["C_G1_1"] = {
 	name = "The Riverbank (Act 7)",
 	baseName = "The Riverbank",
+	description = "The drowned stare through muddied branches",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 45,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Porcupine Crab",
 		"Drowned",
@@ -2136,10 +2343,12 @@ worldAreas["C_G1_1"] = {
 worldAreas["C_G1_2"] = {
 	name = "Clearfell (Act 7)",
 	baseName = "Clearfell",
+	description = "A sickness has befallen Ogham",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 45,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Drowned",
 		"Vile Imp",
@@ -2151,10 +2360,12 @@ worldAreas["C_G1_2"] = {
 worldAreas["C_G1_3"] = {
 	name = "Mud Burrow (Act 7)",
 	baseName = "Mud Burrow",
+	description = "The tunnels of a tormented creature",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 46,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Wretched Rattler",
 	},
@@ -2163,10 +2374,12 @@ worldAreas["C_G1_3"] = {
 worldAreas["C_G1_4"] = {
 	name = "The Grelwood (Act 7)",
 	baseName = "The Grelwood",
+	description = "Forest of the Old Magicks",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 46,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Pack Werewolf",
 		"Werewolf Prowler",
@@ -2182,10 +2395,12 @@ worldAreas["C_G1_4"] = {
 worldAreas["C_G1_5"] = {
 	name = "The Red Vale (Act 7)",
 	baseName = "The Red Vale",
+	description = "Haunted battleground of the Phaaryl Wars",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 47,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
 		"Risen Arbalest",
@@ -2197,10 +2412,12 @@ worldAreas["C_G1_5"] = {
 worldAreas["C_G1_6"] = {
 	name = "The Grim Tangle (Act 7)",
 	baseName = "The Grim Tangle",
+	description = "The sickness spreads forth underground",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 47,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Fungal Zombie",
 		"Fungal Proliferator",
@@ -2213,10 +2430,12 @@ worldAreas["C_G1_6"] = {
 worldAreas["C_G1_7"] = {
 	name = "Cemetery of the Eternals (Act 7)",
 	baseName = "Cemetery of the Eternals",
+	description = "Built atop the Ezomyte clan graves beneath",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 47,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Frost Wraith",
 		"Hungering Stalker",
@@ -2230,10 +2449,12 @@ worldAreas["C_G1_7"] = {
 worldAreas["C_G1_8"] = {
 	name = "Mausoleum of the Praetor (Act 7)",
 	baseName = "Mausoleum of the Praetor",
+	description = "Resting place of Draven Sentari",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 48,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Lightning Wraith",
 		"Eternal Knight",
@@ -2249,10 +2470,12 @@ worldAreas["C_G1_8"] = {
 worldAreas["C_G1_9"] = {
 	name = "Tomb of the Consort (Act 7)",
 	baseName = "Tomb of the Consort",
+	description = "Resting place of Asinia Sentari",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 48,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Dread Servant",
 		"Eternal Knight",
@@ -2269,6 +2492,7 @@ worldAreas["C_G1_10"] = {
 	act = 7,
 	level = 51,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2276,10 +2500,12 @@ worldAreas["C_G1_10"] = {
 worldAreas["C_G1_11"] = {
 	name = "Hunting Grounds (Act 7)",
 	baseName = "Hunting Grounds",
+	description = "Wild bounty of Ogham",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 49,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Venomous Crab Matriarch",
 		"Bramble Ape",
@@ -2292,10 +2518,12 @@ worldAreas["C_G1_11"] = {
 worldAreas["C_G1_12"] = {
 	name = "Freythorn (Act 7)",
 	baseName = "Freythorn",
+	description = "The Clanless Enclave",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 49,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Skeleton Spriggan",
 		"Cultist Warrior",
@@ -2310,10 +2538,12 @@ worldAreas["C_G1_12"] = {
 worldAreas["C_G1_13_1"] = {
 	name = "Ogham Farmlands (Act 7)",
 	baseName = "Ogham Farmlands",
+	description = "Diseased crops of Ogham",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 49,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Decrepit Mercenary",
 		"Iron Thaumaturgist",
@@ -2331,10 +2561,12 @@ worldAreas["C_G1_13_1"] = {
 worldAreas["C_G1_13_2"] = {
 	name = "Ogham Village (Act 7)",
 	baseName = "Ogham Village",
+	description = "The burning tragedy",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 50,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Voracious Werewolf",
 		"Werewolf Prowler",
@@ -2347,10 +2579,12 @@ worldAreas["C_G1_13_2"] = {
 worldAreas["C_G1_14"] = {
 	name = "The Manor Ramparts (Act 7)",
 	baseName = "The Manor Ramparts",
+	description = "Surrounding walls of the Wolf's Den",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 50,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Death Knight",
 		"Gargoyle Demon",
@@ -2367,10 +2601,12 @@ worldAreas["C_G1_14"] = {
 worldAreas["C_G1_15"] = {
 	name = "Ogham Manor (Act 7)",
 	baseName = "Ogham Manor",
+	description = "Den of the Mad Wolf",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
 	level = 51,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Blood Carrier",
 		"Blood Cretin",
@@ -2389,10 +2625,12 @@ worldAreas["C_G1_15"] = {
 worldAreas["C_G2_town"] = {
 	name = "The Ardura Caravan (Act 8)",
 	baseName = "The Ardura Caravan",
+	description = "Pride of Sekhema Asala",
 	tags = {  },
 	act = 8,
 	level = 57,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2400,10 +2638,12 @@ worldAreas["C_G2_town"] = {
 worldAreas["C_G2_1"] = {
 	name = "Vastiri Outskirts (Act 8)",
 	baseName = "Vastiri Outskirts",
+	description = "Blood-red and unforgiving sands",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 51,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
@@ -2416,10 +2656,12 @@ worldAreas["C_G2_1"] = {
 worldAreas["C_G2_2"] = {
 	name = "Traitor's Passage (Act 8)",
 	baseName = "Traitor's Passage",
+	description = "The pride and fall of Balbala",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 52,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Maraketh",
 		"Risen Arbalest",
@@ -2431,10 +2673,12 @@ worldAreas["C_G2_2"] = {
 worldAreas["C_G2_3"] = {
 	name = "The Halani Gates (Act 8)",
 	baseName = "The Halani Gates",
+	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 53,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2442,10 +2686,12 @@ worldAreas["C_G2_3"] = {
 worldAreas["C_G2_3a"] = {
 	name = "The Halani Gates (Act 8)",
 	baseName = "The Halani Gates",
+	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 53,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2453,10 +2699,12 @@ worldAreas["C_G2_3a"] = {
 worldAreas["C_G2_3s"] = {
 	name = "The Halani Gates (Act 8)",
 	baseName = "The Halani Gates",
+	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 53,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2464,10 +2712,12 @@ worldAreas["C_G2_3s"] = {
 worldAreas["C_G2_4_1"] = {
 	name = "Keth (Act 8)",
 	baseName = "Keth",
+	description = "Jewel of the Vastiri",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 53,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Tarnished Beetle",
 		"Tarnished Scarab",
@@ -2480,10 +2730,12 @@ worldAreas["C_G2_4_1"] = {
 worldAreas["C_G2_4_2"] = {
 	name = "The Lost City (Act 8)",
 	baseName = "The Lost City",
+	description = "The glory of Keth knew no bounds",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 54,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Serpent Clan",
 		"Serpent Shaman",
@@ -2497,10 +2749,12 @@ worldAreas["C_G2_4_2"] = {
 worldAreas["C_G2_4_3"] = {
 	name = "Buried Shrines (Act 8)",
 	baseName = "Buried Shrines",
+	description = "Sands settle where water once flowed",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 54,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Sand Spirit",
 		"Mar Acolyte",
@@ -2511,10 +2765,12 @@ worldAreas["C_G2_4_3"] = {
 worldAreas["C_G2_5_1"] = {
 	name = "Mastodon Badlands (Act 8)",
 	baseName = "Mastodon Badlands",
+	description = "Territory of the Lost-Men",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 53,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Gilded Cobra",
 		"Lost-men Zealot",
@@ -2529,10 +2785,12 @@ worldAreas["C_G2_5_1"] = {
 worldAreas["C_G2_5_2"] = {
 	name = "The Bone Pits (Act 8)",
 	baseName = "The Bone Pits",
+	description = "Necromantic ash tarnish the sands",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 54,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Gilded Cobra",
 		"Lost-men Zealot",
@@ -2550,10 +2808,12 @@ worldAreas["C_G2_5_2"] = {
 worldAreas["C_G2_6"] = {
 	name = "Valley of the Titans (Act 8)",
 	baseName = "Valley of the Titans",
+	description = "They remain where they slept",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 53,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Maraketh",
 		"Risen Arbalest",
@@ -2567,10 +2827,12 @@ worldAreas["C_G2_6"] = {
 worldAreas["C_G2_7"] = {
 	name = "The Titan Grotto (Act 8)",
 	baseName = "The Titan Grotto",
+	description = "Their echoes rattled the world",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 54,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Sandflesh Skeleton",
 		"Sandflesh Warrior",
@@ -2583,10 +2845,12 @@ worldAreas["C_G2_7"] = {
 worldAreas["C_G2_8"] = {
 	name = "Deshar (Act 8)",
 	baseName = "Deshar",
+	description = "The City of the Dead",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 56,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Regurgitating Vulture",
 		"Rasp Scavenger",
@@ -2600,10 +2864,12 @@ worldAreas["C_G2_8"] = {
 worldAreas["C_G2_9_1"] = {
 	name = "Path of Mourning (Act 8)",
 	baseName = "Path of Mourning",
+	description = "They climb to mourn their Honoured Dead",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 56,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Maraketh",
 		"Maraketh Undead",
@@ -2614,10 +2880,12 @@ worldAreas["C_G2_9_1"] = {
 worldAreas["C_G2_9_2_"] = {
 	name = "The Spires of Deshar (Act 8)",
 	baseName = "The Spires of Deshar",
+	description = "Where the Honoured Dead lie buried in the sky",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 57,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Maraketh Undead",
 		"Winged Fiend",
@@ -2627,10 +2895,12 @@ worldAreas["C_G2_9_2_"] = {
 worldAreas["C_G2_10_1"] = {
 	name = "Mawdun Quarry (Act 8)",
 	baseName = "Mawdun Quarry",
+	description = "The hills of Mawdun became the Faridun foothold",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 51,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Corrupted Corpse",
 		"Plague Swarm",
@@ -2644,10 +2914,12 @@ worldAreas["C_G2_10_1"] = {
 worldAreas["C_G2_10_2"] = {
 	name = "Mawdun Mine (Act 8)",
 	baseName = "Mawdun Mine",
+	description = "Where metal veins bled for the tools of war",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 52,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Corrupted Corpse",
 		"Forsaken Miner",
@@ -2665,6 +2937,7 @@ worldAreas["C_G2_11"] = {
 	act = 8,
 	level = 57,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Rasp Scavenger",
 		"Corrupted Corpse",
@@ -2678,10 +2951,12 @@ worldAreas["C_G2_11"] = {
 worldAreas["C_G2_12_1"] = {
 	name = "The Dreadnought (Act 8)",
 	baseName = "The Dreadnought",
+	description = "War Caravan of the Faridun",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 57,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Faridun Crawler",
 		"Plague Swarm",
@@ -2693,10 +2968,12 @@ worldAreas["C_G2_12_1"] = {
 worldAreas["C_G2_12_2"] = {
 	name = "Dreadnought Vanguard (Act 8)",
 	baseName = "Dreadnought Vanguard",
+	description = "Forward carts of the Risen King",
 	tags = { "MarakethStrongbox" },
 	act = 8,
 	level = 57,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Faridun Butcher",
 	},
@@ -2705,10 +2982,12 @@ worldAreas["C_G2_12_2"] = {
 worldAreas["C_G3_town"] = {
 	name = "Ziggurat Encampment (Act 9)",
 	baseName = "Ziggurat Encampment",
+	description = "A haven provides refuge from the jungle ",
 	tags = { "area_with_water" },
 	act = 9,
 	level = 64,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2716,10 +2995,12 @@ worldAreas["C_G3_town"] = {
 worldAreas["C_G3_1"] = {
 	name = "Sandswept Marsh (Act 9)",
 	baseName = "Sandswept Marsh",
+	description = "Where thick waters stir with the rising dead",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 58,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Bogfelled Slave",
 		"Bogfelled Commoner",
@@ -2737,10 +3018,12 @@ worldAreas["C_G3_1"] = {
 worldAreas["C_G3_2_1"] = {
 	name = "Infested Barrens (Act 9)",
 	baseName = "Infested Barrens",
+	description = "Where the jungle gives way to colonies and hives",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 59,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Bane Sapling",
 		"Antlion Charger",
@@ -2751,10 +3034,12 @@ worldAreas["C_G3_2_1"] = {
 worldAreas["C_G3_2_2"] = {
 	name = "The Matlan Waterways (Act 9)",
 	baseName = "The Matlan Waterways",
+	description = "Seed of Utzaal's birth and death",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 61,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Azak Brute",
 		"Azak Fleshstabber",
@@ -2770,10 +3055,12 @@ worldAreas["C_G3_2_2"] = {
 worldAreas["C_G3_3"] = {
 	name = "Jungle Ruins (Act 9)",
 	baseName = "Jungle Ruins",
+	description = "The jungle thrives amongst overgrown structures",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 58,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Quadrilla",
 		"Alpha Primate",
@@ -2790,10 +3077,12 @@ worldAreas["C_G3_3"] = {
 worldAreas["C_G3_4"] = {
 	name = "The Venom Crypts (Act 9)",
 	baseName = "The Venom Crypts",
+	description = "Graves that once held nobility now slither and bite",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 59,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Snakethroat Shambler",
 		"Constricted Spitter",
@@ -2808,10 +3097,12 @@ worldAreas["C_G3_4"] = {
 worldAreas["C_G3_5"] = {
 	name = "Chimeral Wetlands (Act 9)",
 	baseName = "Chimeral Wetlands",
+	description = "Where beauty and death become one",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 59,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Prowling Chimeral",
 		"Ill-fated Explorer",
@@ -2823,10 +3114,12 @@ worldAreas["C_G3_5"] = {
 worldAreas["C_G3_6_1"] = {
 	name = "Jiquani's Machinarium (Act 9)",
 	baseName = "Jiquani's Machinarium",
+	description = "Where the Architect of Industry bestowed life unto stone",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 9,
 	level = 60,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Skeletal Warrior",
 		"Vaal Skeletal Squire",
@@ -2841,10 +3134,12 @@ worldAreas["C_G3_6_1"] = {
 worldAreas["C_G3_6_2"] = {
 	name = "Jiquani's Sanctum (Act 9)",
 	baseName = "Jiquani's Sanctum",
+	description = "Seat of Jiquani's rise to power",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 9,
 	level = 60,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Skeletal Warrior",
 		"Vaal Skeletal Squire",
@@ -2860,10 +3155,12 @@ worldAreas["C_G3_6_2"] = {
 worldAreas["C_G3_7"] = {
 	name = "The Azak Bog (Act 9)",
 	baseName = "The Azak Bog",
+	description = "Home of the merciless Azak savages",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 60,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Azak Throatcutter",
 		"Azak Fleshstabber",
@@ -2881,10 +3178,12 @@ worldAreas["C_G3_7"] = {
 worldAreas["C_G3_8"] = {
 	name = "The Drowned City (Act 9)",
 	baseName = "The Drowned City",
+	description = "Utzaal the drowned is now revealed",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 61,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Hunchback Clubber",
 		"Filthy Lobber",
@@ -2905,10 +3204,12 @@ worldAreas["C_G3_8"] = {
 worldAreas["C_G3_9"] = {
 	name = "The Molten Vault (Act 9)",
 	baseName = "The Molten Vault",
+	description = "Forge of the forgotten wealth of Kamasa",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 9,
 	level = 62,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
@@ -2922,10 +3223,12 @@ worldAreas["C_G3_9"] = {
 worldAreas["C_G3_10_Airlock"] = {
 	name = "The Temple of Chaos (Act 9)",
 	baseName = "The Temple of Chaos",
+	description = "Testing grounds for the Vaal High Priests",
 	tags = {  },
 	act = 9,
 	level = 60,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -2933,10 +3236,12 @@ worldAreas["C_G3_10_Airlock"] = {
 worldAreas["C_G3_11"] = {
 	name = "Apex of Filth (Act 9)",
 	baseName = "Apex of Filth",
+	description = "The rot and mire of unspeakable centuries",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 61,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Flathead Warrior",
 		"Hunchback Clubber",
@@ -2955,10 +3260,12 @@ worldAreas["C_G3_11"] = {
 worldAreas["C_G3_12"] = {
 	name = "Temple of Kopec (Act 9)",
 	baseName = "Temple of Kopec",
+	description = "Unfathomable energy resides within the Ziggurat",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 9,
 	level = 62,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Bloodrite Priest",
 		"Bloodrite Guard",
@@ -2970,10 +3277,12 @@ worldAreas["C_G3_12"] = {
 worldAreas["C_G3_14"] = {
 	name = "Utzaal (Act 9)",
 	baseName = "Utzaal",
+	description = "The Cradle of Vaal Ambition",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 62,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Guard",
 		"Vaal Excoriator",
@@ -2992,6 +3301,7 @@ worldAreas["C_G3_15"] = {
 	act = 9,
 	level = 63,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Overseer",
 		"Vaal Guard",
@@ -3004,10 +3314,12 @@ worldAreas["C_G3_15"] = {
 worldAreas["C_G3_16_"] = {
 	name = "Aggorat (Act 9)",
 	baseName = "Aggorat",
+	description = "Salvation sought in beauty and blood",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 63,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Axeman",
 		"Vaal Goliath",
@@ -3019,10 +3331,12 @@ worldAreas["C_G3_16_"] = {
 worldAreas["C_G3_17"] = {
 	name = "The Black Chambers (Act 9)",
 	baseName = "The Black Chambers",
+	description = "Doryani toiled in her name and his own",
 	tags = { "area_with_water", "VaalStrongbox" },
 	act = 9,
 	level = 64,
 	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"Doryani's Elite",
 		"Brutal Transcendent",
@@ -3036,12 +3350,13 @@ worldAreas["C_G3_17"] = {
 }
 
 worldAreas["MapLeaguePortal"] = {
-	name = "The Realmgate (Map)",
+	name = "The Realmgate",
 	baseName = "The Realmgate",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3053,6 +3368,7 @@ worldAreas["MapVoidReliquary"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3064,6 +3380,7 @@ worldAreas["MapSpiderJungle"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3075,6 +3392,7 @@ worldAreas["MapRustbowl"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
 		"Risen Arbalest",
@@ -3088,6 +3406,7 @@ worldAreas["MapRustbowl_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
 		"Risen Arbalest",
@@ -3101,6 +3420,7 @@ worldAreas["MapBackwash"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Foul Blacksmith",
 		"Flathead Clubber",
@@ -3121,6 +3441,7 @@ worldAreas["MapBackwash_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Foul Blacksmith",
 		"Flathead Clubber",
@@ -3141,6 +3462,7 @@ worldAreas["MapBurialBog"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bogfelled Slave",
 		"Bogfelled Commoner",
@@ -3155,6 +3477,7 @@ worldAreas["MapBurialBog_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bogfelled Slave",
 		"Bogfelled Commoner",
@@ -3169,6 +3492,7 @@ worldAreas["MapInferno"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3180,6 +3504,7 @@ worldAreas["MapInferno_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Burning Dead",
 	},
@@ -3192,6 +3517,7 @@ worldAreas["MapWetlands"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bramble Burrower",
 		"Venomous Crab Matriarch",
@@ -3205,6 +3531,7 @@ worldAreas["MapWetlands_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bramble Burrower",
 		"Venomous Crab Matriarch",
@@ -3218,6 +3545,7 @@ worldAreas["MapBloomingField"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bloom Serpent",
 	},
@@ -3230,6 +3558,7 @@ worldAreas["MapBloomingField_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bloom Serpent",
 	},
@@ -3242,6 +3571,7 @@ worldAreas["MapCrimsonShores"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Brimstone Crab",
 	},
@@ -3254,6 +3584,7 @@ worldAreas["MapCrimsonShores_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Brimstone Crab",
 	},
@@ -3266,6 +3597,7 @@ worldAreas["MapCenotes"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3277,6 +3609,7 @@ worldAreas["MapCenotes_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bogfelled Slave",
 		"Bogfelled Commoner",
@@ -3292,6 +3625,7 @@ worldAreas["MapSavanna"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
@@ -3305,6 +3639,7 @@ worldAreas["MapSavanna_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
@@ -3318,6 +3653,7 @@ worldAreas["MapFortress"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Skeletal Priest",
 		"Vaal Skeletal Squire",
@@ -3331,6 +3667,7 @@ worldAreas["MapFortress_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Skeletal Priest",
 		"Vaal Skeletal Squire",
@@ -3344,6 +3681,7 @@ worldAreas["MapPenitentiary"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Lost-men Zealot",
 		"Gilded Cobra",
@@ -3357,6 +3695,7 @@ worldAreas["MapPenitentiary_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Lost-men Zealot",
 		"Gilded Cobra",
@@ -3370,6 +3709,7 @@ worldAreas["MapLostTowers"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Blood Zealot",
 		"Blood Priest",
@@ -3385,6 +3725,7 @@ worldAreas["MapLostTowers_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Blood Zealot",
 		"Blood Priest",
@@ -3400,6 +3741,7 @@ worldAreas["MapBloodwood"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Blood Cretin",
 		"Blood Collector",
@@ -3414,6 +3756,7 @@ worldAreas["MapBloodwood_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Blood Cretin",
 		"Blood Collector",
@@ -3428,6 +3771,7 @@ worldAreas["MapSandspit"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3439,6 +3783,7 @@ worldAreas["MapSandspit_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Venomous Crab Matriarch",
 	},
@@ -3451,6 +3796,7 @@ worldAreas["MapForge"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Goliath",
 	},
@@ -3463,6 +3809,7 @@ worldAreas["MapForge_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Goliath",
 	},
@@ -3475,6 +3822,7 @@ worldAreas["MapSulphuricCaverns"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Orok Hunter",
 		"Orok Fleshstabber",
@@ -3490,6 +3838,7 @@ worldAreas["MapSulphuricCaverns_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Orok Hunter",
 		"Orok Fleshstabber",
@@ -3505,6 +3854,7 @@ worldAreas["MapMire"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Cultist Daggerdancer",
 		"Cultist Archer",
@@ -3518,6 +3868,7 @@ worldAreas["MapMire_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Cultist Daggerdancer",
 		"Cultist Archer",
@@ -3531,6 +3882,7 @@ worldAreas["MapAugury"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Slitherspitter",
 		"Constricted Spitter",
@@ -3544,6 +3896,7 @@ worldAreas["MapAugury_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Slitherspitter",
 		"Constricted Spitter",
@@ -3557,6 +3910,7 @@ worldAreas["MapWoodland"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Antlion Charger",
 	},
@@ -3569,6 +3923,7 @@ worldAreas["MapWoodland_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Antlion Charger",
 	},
@@ -3581,6 +3936,7 @@ worldAreas["MapSump"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Ill-fated Explorer",
 		"Diretusk Boar",
@@ -3594,6 +3950,7 @@ worldAreas["MapSump_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Ill-fated Explorer",
 		"Diretusk Boar",
@@ -3607,6 +3964,7 @@ worldAreas["MapWillow"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Lightning Wraith",
 	},
@@ -3619,6 +3977,7 @@ worldAreas["MapWillow_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Lightning Wraith",
 	},
@@ -3631,6 +3990,7 @@ worldAreas["MapHive"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3642,6 +4002,7 @@ worldAreas["MapHive_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bane Sapling",
 	},
@@ -3654,6 +4015,7 @@ worldAreas["MapHeadland"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Pale-stitched Stalker",
 	},
@@ -3666,6 +4028,7 @@ worldAreas["MapHeadland_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Pale-stitched Stalker",
 	},
@@ -3678,6 +4041,7 @@ worldAreas["MapLoftySummit"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Frost Wraith",
 	},
@@ -3690,6 +4054,7 @@ worldAreas["MapLoftySummit_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Frost Wraith",
 	},
@@ -3702,6 +4067,7 @@ worldAreas["MapNecropolis"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Death Knight",
 	},
@@ -3714,6 +4080,7 @@ worldAreas["MapNecropolis_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Death Knight",
 	},
@@ -3726,6 +4093,7 @@ worldAreas["MapCrypt"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Knight-Gaunt",
 	},
@@ -3738,6 +4106,7 @@ worldAreas["MapCrypt_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Knight-Gaunt",
 	},
@@ -3750,6 +4119,7 @@ worldAreas["MapHiddenGrotto"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3761,6 +4131,7 @@ worldAreas["MapHiddenGrotto_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3772,6 +4143,7 @@ worldAreas["MapSteamingSprings"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bramble Rhoa",
 	},
@@ -3784,6 +4156,7 @@ worldAreas["MapSteamingSprings_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bramble Rhoa",
 	},
@@ -3796,6 +4169,7 @@ worldAreas["MapSeepage"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Fungal Rattler",
 		"Fungal Proliferator",
@@ -3810,6 +4184,7 @@ worldAreas["MapSeepage_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Fungal Rattler",
 		"Fungal Proliferator",
@@ -3824,6 +4199,7 @@ worldAreas["MapRiverside"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Quadrilla",
 		"Scorpion Monkey",
@@ -3837,6 +4213,7 @@ worldAreas["MapRiverside_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Quadrilla",
 		"Scorpion Monkey",
@@ -3850,6 +4227,7 @@ worldAreas["MapRavine"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Snakethroat Shambler",
 		"Constricted Spitter",
@@ -3863,6 +4241,7 @@ worldAreas["MapRavine_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Snakethroat Shambler",
 		"Constricted Spitter",
@@ -3876,6 +4255,7 @@ worldAreas["MapSpiderWoods"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Vault Lurker",
 	},
@@ -3888,6 +4268,7 @@ worldAreas["MapSpiderWoods_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Vault Lurker",
 	},
@@ -3900,6 +4281,7 @@ worldAreas["MapAbyss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Arbalest",
 		"Mar Acolyte",
@@ -3913,6 +4295,7 @@ worldAreas["MapAbyss_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Risen Arbalest",
 		"Mar Acolyte",
@@ -3926,6 +4309,7 @@ worldAreas["MapGrimhaven"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Iron Thaumaturgist",
 	},
@@ -3938,6 +4322,7 @@ worldAreas["MapGrimhaven_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Iron Thaumaturgist",
 	},
@@ -3950,6 +4335,7 @@ worldAreas["MapVaalVillage"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Vaal Goliath",
 	},
@@ -3962,6 +4348,7 @@ worldAreas["MapVaalOutskirts"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3973,6 +4360,7 @@ worldAreas["MapSlick"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -3984,6 +4372,7 @@ worldAreas["MapSlick_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Undead Vaal Guard",
 	},
@@ -3996,6 +4385,7 @@ worldAreas["MapVaalCity"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4007,6 +4397,7 @@ worldAreas["MapVaalCity_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4018,6 +4409,7 @@ worldAreas["MapSteppe"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4029,6 +4421,7 @@ worldAreas["MapSteppe_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Diretusk Boar",
 	},
@@ -4041,6 +4434,7 @@ worldAreas["MapSwampTower"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Filthy Crone",
 		"Flathead Clubber",
@@ -4055,6 +4449,7 @@ worldAreas["MapSwampTower_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Filthy Crone",
 		"Flathead Clubber",
@@ -4069,6 +4464,7 @@ worldAreas["MapRockpools"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4080,6 +4476,7 @@ worldAreas["MapRockpools_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Constricted Shambler",
 		"Snakethroat Shambler",
@@ -4094,6 +4491,7 @@ worldAreas["MapCreek"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"River Drake",
 	},
@@ -4106,6 +4504,7 @@ worldAreas["MapCreek_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"River Drake",
 	},
@@ -4118,6 +4517,7 @@ worldAreas["MapDerelictMansion_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Tendril Sentinel",
 	},
@@ -4130,6 +4530,7 @@ worldAreas["MapOutlands"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4141,6 +4542,7 @@ worldAreas["MapOutlands_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4152,6 +4554,7 @@ worldAreas["MapBastille"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Decrepit Mercenary",
 		"Iron Guard",
@@ -4165,6 +4568,7 @@ worldAreas["MapBastille_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Decrepit Mercenary",
 		"Iron Guard",
@@ -4178,6 +4582,7 @@ worldAreas["MapDecay"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Fungal Zombie",
 		"Fungal Proliferator",
@@ -4192,6 +4597,7 @@ worldAreas["MapDecay_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Fungal Zombie",
 		"Fungal Proliferator",
@@ -4206,6 +4612,7 @@ worldAreas["MapMineshaft"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Forsaken Miner",
 	},
@@ -4218,6 +4625,7 @@ worldAreas["MapMineshaft_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Forsaken Miner",
 	},
@@ -4230,6 +4638,7 @@ worldAreas["MapDeserted"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Living Sand",
 		"Desiccated Lich",
@@ -4243,6 +4652,7 @@ worldAreas["MapDeserted_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Living Sand",
 		"Desiccated Lich",
@@ -4256,6 +4666,7 @@ worldAreas["MapOasis"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4267,6 +4678,7 @@ worldAreas["MapOasis_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4278,6 +4690,7 @@ worldAreas["MapBastion"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4289,6 +4702,7 @@ worldAreas["MapBastion_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4300,6 +4714,7 @@ worldAreas["MapRefuge"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4311,6 +4726,7 @@ worldAreas["MapRefuge_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4322,6 +4738,7 @@ worldAreas["MapAlpineRidge"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Winged Fiend",
 	},
@@ -4334,6 +4751,7 @@ worldAreas["MapAlpineRidge_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Winged Fiend",
 	},
@@ -4346,6 +4764,7 @@ worldAreas["MapSunTemple"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bloodrite Priest",
 		"Priest of the Sun",
@@ -4360,6 +4779,7 @@ worldAreas["MapSunTemple_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bloodrite Priest",
 		"Priest of the Sun",
@@ -4374,6 +4794,7 @@ worldAreas["MapChannel"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Sand Spirit",
 		"Mar Acolyte",
@@ -4387,6 +4808,7 @@ worldAreas["MapChannel_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Sand Spirit",
 		"Mar Acolyte",
@@ -4400,6 +4822,7 @@ worldAreas["MapVaalFoundry"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
@@ -4414,6 +4837,7 @@ worldAreas["MapVaalFoundry_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
@@ -4428,6 +4852,7 @@ worldAreas["MapVaalFactory"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4439,6 +4864,7 @@ worldAreas["MapVaalFactory_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4450,6 +4876,7 @@ worldAreas["MapMesa"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
@@ -4463,6 +4890,7 @@ worldAreas["MapMesa_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
@@ -4476,6 +4904,7 @@ worldAreas["MapBluff"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Entrailhome Shambler",
 		"Constricted Spitter",
@@ -4490,6 +4919,7 @@ worldAreas["MapBluff_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Entrailhome Shambler",
 		"Constricted Spitter",
@@ -4504,6 +4934,7 @@ worldAreas["MapPerch"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4515,6 +4946,7 @@ worldAreas["MapPerch_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4526,6 +4958,7 @@ worldAreas["MapUniqueUntaintedParadise"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Caustic Crab",
 		"Quill Crab",
@@ -4543,6 +4976,7 @@ worldAreas["MapUniqueVault"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4554,6 +4988,7 @@ worldAreas["MapUniqueCastaway"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Searot Skeleton",
 		"Searot Sniper",
@@ -4579,6 +5014,7 @@ worldAreas["MapUniqueMegalith"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
 		"Risen Arbalest",
@@ -4597,6 +5033,7 @@ worldAreas["MapUniqueLake"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4608,6 +5045,7 @@ worldAreas["MapUniqueSelenite"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4619,6 +5057,7 @@ worldAreas["MapUniqueMerchant01_Chimeral"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4630,6 +5069,7 @@ worldAreas["MapUniqueMerchant01_Oasis"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4641,6 +5081,7 @@ worldAreas["MapUniqueMerchant01_Sandswept"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4652,6 +5093,7 @@ worldAreas["MapUniqueMerchant02_Crimson"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4663,6 +5105,7 @@ worldAreas["MapUniqueMerchant02_Farmland"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4674,6 +5117,7 @@ worldAreas["MapUniqueMerchant02_Riverbank"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4685,6 +5129,7 @@ worldAreas["MapUniqueMerchant03_Beach"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4696,6 +5141,7 @@ worldAreas["MapUniqueMerchant03_Tropical"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4707,6 +5153,7 @@ worldAreas["MapUniqueMerchant03_Raft"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4718,6 +5165,7 @@ worldAreas["MapUniqueMerchant04_PirateShip"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4729,6 +5177,7 @@ worldAreas["MapUniqueWildwood"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4740,6 +5189,7 @@ worldAreas["MapUberBoss_IronCitadel"] = {
 	act = 10,
 	level = 80,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Iron Spearman",
 		"Iron Sharpshooter",
@@ -4753,6 +5203,7 @@ worldAreas["MapUberBoss_CopperCitadel"] = {
 	act = 10,
 	level = 80,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Faridun Butcher",
 	},
@@ -4765,6 +5216,7 @@ worldAreas["MapUberBoss_StoneCitadel"] = {
 	act = 10,
 	level = 80,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 		"Bladelash Transcendent",
 		"Surgical Experimentalist",
@@ -4776,153 +5228,168 @@ worldAreas["MapUberBoss_StoneCitadel"] = {
 worldAreas["MapUberBoss_Monolith"] = {
 	name = "The Burning Monolith (Map)",
 	baseName = "The Burning Monolith",
+	description = "Flaming rite of the Fourth Edict",
 	tags = { "map", "lightning", "maraketh", "bloodbather", "area_with_water", "machinarium", "giant", "earth_elemental", "construct", "bones", "reptile_beast", "beach", "vaal", "devourer", "rodent_beast", "insect", "demon", "rust", "cultist", "mutewind", "avian_beast", "spider", "stone_construct", "corrupted", "chaos", "gardens", "desert_area", "inca", "forest", "undead", "mammal_beast", "primate_beast", "cenobite", "amphibian_beast", "skeleton", "snake", "cavern", "feline_beast", "crustacean_beast", "canine_beast", "urban", "cold", "fire", "swamp", "ghost", "werewolf" },
 	act = 10,
 	level = 80,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionLogBook_Peninsula"] = {
-	name = "Craggy Peninsula (Map)",
+	name = "Craggy Peninsula",
 	baseName = "Craggy Peninsula",
 	tags = { "area_with_water", "EzomyteStrongbox" },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionLogBook_Tropical"] = {
-	name = "Lush Isle (Map)",
+	name = "Lush Isle",
 	baseName = "Lush Isle",
 	tags = { "area_with_water", "EzomyteStrongbox" },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionLogBook_Tundra"] = {
-	name = "Frigid Bluffs (Map)",
+	name = "Frigid Bluffs",
 	baseName = "Frigid Bluffs",
 	tags = { "area_with_water", "EzomyteStrongbox" },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionLogBook_Atoll"] = {
-	name = "Barren Atoll (Map)",
+	name = "Barren Atoll",
 	baseName = "Barren Atoll",
 	tags = { "area_with_water", "EzomyteStrongbox" },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionLogBook_Digsite"] = {
-	name = "Abandonded Excavation (Map)",
+	name = "Abandonded Excavation",
 	baseName = "Abandonded Excavation",
 	tags = { "area_with_water", "EzomyteStrongbox" },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionSubArea_Cavern"] = {
-	name = "Smuggler's Den (Map)",
+	name = "Smuggler's Den",
 	baseName = "Smuggler's Den",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionSubArea_Kalguur"] = {
-	name = "Kalguuran Tomb (Map)",
+	name = "Kalguuran Tomb",
 	baseName = "Kalguuran Tomb",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionSubArea_OlrothBoss"] = {
-	name = "Kalguuran Tomb (Map)",
+	name = "Kalguuran Tomb",
 	baseName = "Kalguuran Tomb",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionSubArea_Shrike"] = {
-	name = "Rancid Nest (Map)",
+	name = "Rancid Nest",
 	baseName = "Rancid Nest",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionSubArea_Siren"] = {
-	name = "Hidden Aquifer (Map)",
+	name = "Hidden Aquifer",
 	baseName = "Hidden Aquifer",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["ExpeditionSubArea_Volcano"] = {
-	name = "Sulphur Mines (Map)",
+	name = "Sulphur Mines",
 	baseName = "Sulphur Mines",
 	tags = {  },
 	act = 10,
 	level = 65,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["Delirium_Act1Town"] = {
-	name = "Clearfell Lumbermill (Map)",
+	name = "Clearfell Lumbermill",
 	baseName = "Clearfell Lumbermill",
 	tags = {  },
 	act = 10,
 	level = 80,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
 
 worldAreas["BreachDomain_01"] = {
-	name = "Twisted Domain (Map)",
+	name = "Twisted Domain",
 	baseName = "Twisted Domain",
 	tags = {  },
 	act = 10,
 	level = 80,
-	isMap = true,
+	isMap = false,
+	isHideout = false,
 	monsterVarieties = {
 		"It That Grasps",
 		"It That Crawls",
@@ -4945,6 +5412,7 @@ worldAreas["RitualLeagueBoss"] = {
 	act = 10,
 	level = 80,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4956,6 +5424,7 @@ worldAreas["MapHideoutFelled_Claimable"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4967,6 +5436,7 @@ worldAreas["MapHideoutLimestone_Claimable"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4978,6 +5448,7 @@ worldAreas["MapHideoutShrine_Claimable"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -4989,6 +5460,7 @@ worldAreas["MapHideoutCanal_Claimable"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -5000,6 +5472,7 @@ worldAreas["MapAzmerianRanges_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -5011,6 +5484,7 @@ worldAreas["MapAzmerianRanges"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -5022,6 +5496,7 @@ worldAreas["MapTrenches"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -5033,6 +5508,7 @@ worldAreas["MapTrenches_Noboss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -5044,6 +5520,7 @@ worldAreas["MapFrozenFalls"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }
@@ -5055,6 +5532,7 @@ worldAreas["MapFrozenFalls_NoBoss"] = {
 	act = 10,
 	level = 65,
 	isMap = true,
+	isHideout = false,
 	monsterVarieties = {
 	},
 }

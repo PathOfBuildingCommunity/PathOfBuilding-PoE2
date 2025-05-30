@@ -59,7 +59,7 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 				if i == 1 then
 					tooltip:AddLine(14, s_format("^7Spawn: %s", spawn))
 				else
-					tooltip:AddLine(14, s_format("^7%s%s", "            ", spawn)) -- Indented so all locations line up vertically in toolip
+					tooltip:AddLine(14, s_format("^7%s%s", "            ", spawn)) -- Indented so all locations line up vertically in tooltip
 				end
 			end
 		end
@@ -139,7 +139,10 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 		end
 		if foundArea then
 			tooltip:AddLine(18, foundArea.name)
-			tooltip:AddLine(14, "Level: "..foundArea.level)
+			tooltip:AddLine(14, "Area Level: "..foundArea.level)
+			if foundArea.description and foundArea.description ~= "" then
+				tooltip:AddLine(14, colorCodes.CURRENCY .. '"' .. foundArea.description .. '"^7')
+			end
 			local biomeNameMap = {
 				water_biome = "Water",
 				mountain_biome = "Mountain",
@@ -147,17 +150,20 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 				forest_biome = "Forest",
 				swamp_biome = "Swamp",
 				desert_biome = "Desert",
+				faridun_city = "Faridun City",
+				ezomyte_city = "Ezomyte City",
+				vaal_city = "Vaal City",
 			}
 			if #foundArea.tags > 0 then
-				local friendlyTags = {}
+				local biomeNameList = {}
 				for _, tag in ipairs(foundArea.tags) do
-					local friendlyName = biomeNameMap[tag]
-					if friendlyName then
-						table.insert(friendlyTags, friendlyName)
+					local biomeName = biomeNameMap[tag]
+					if biomeName then
+						table.insert(biomeNameList, biomeName)
 					end
 				end
-				if #friendlyTags > 0 then
-					tooltip:AddLine(14, "Biome: " .. table.concat(friendlyTags, ", "))
+				if #biomeNameList > 0 then
+					tooltip:AddLine(14, "Biome: " .. table.concat(biomeNameList, ", "))
 				end
 			end
 			if #foundArea.monsterVarieties > 0 and foundArea.baseName ~= "The Ziggurat Refuge" then

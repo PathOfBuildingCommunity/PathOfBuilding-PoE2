@@ -126,18 +126,32 @@ for area in dat("WorldAreas"):Rows() do
 	if area.Name and area.Name ~= "NULL" and area.Id then
 		local monsters = areaIdToMonsters[area.Id] or {}
 		local tags = {}
+		local isMap = false
 		if area.Tags and #area.Tags > 0 then
 			for _, tag in ipairs(area.Tags) do
 				table.insert(tags, '"' .. tag.Id .. '"')
+				if tag.Id == "map" then
+					isMap = true
+				end
 			end
 		end
 		out:write('worldAreas["' .. area.Id .. '"] = {\n')
-		out:write('\tname = "' .. area.Name .. ' (' .. (area.Act == 10 and "Map" or "Act " .. tostring(area.Act)) .. ')",\n')
+		local suffix = ""
+		if isMap then
+			suffix = " (Map)"
+		elseif area.Act and area.Act ~= 10 then
+			suffix = " (Act " .. tostring(area.Act) .. ")"
+		end
+		out:write('\tname = "' .. area.Name .. suffix .. '",\n')
 		out:write('\tbaseName = "' .. area.Name .. '",\n')
+		if area.Description and area.Description ~= "" then
+			out:write('\tdescription = "' .. area.Description .. '",\n')
+		end
 		out:write('\ttags = { ' .. table.concat(tags, ", ") .. ' },\n')
 		out:write('\tact = ' .. tostring(area.Act or 0) .. ',\n')
 		out:write('\tlevel = ' .. tostring(area.AreaLevel or 1) .. ',\n')
-		out:write('\tisMap = ' .. tostring(area.Act == 10) .. ',\n')
+		out:write('\tisMap = ' .. tostring(isMap) .. ',\n')
+		out:write('\tisHideout = ' .. tostring(area.IsHideout) .. ',\n')
 		out:write('\tmonsterVarieties = {\n')
 		local seen = {}
 		for _, name in ipairs(monsters) do

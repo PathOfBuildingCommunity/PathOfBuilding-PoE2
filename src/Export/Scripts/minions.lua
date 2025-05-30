@@ -161,7 +161,18 @@ directiveTable.emit = function(state, args, out)
 			for _, worldAreaRef in ipairs(pack.WorldAreas) do
 				local area = dat("WorldAreas"):GetRow("Id", worldAreaRef.Id)
 				if area and area.Name ~= "NULL" then
-					local displayName = area.Name .. " (" .. (area.Act == 10 and "Map" or "Act " .. tostring(area.Act)) .. ")"
+					local isMap = false
+					for _, tag in ipairs(area.Tags or {}) do
+						if tag.Id == "map" then
+							isMap = true
+						end
+					end
+					local displayName = area.Name
+					if isMap then
+						displayName = displayName .. " (Map)"
+					elseif area.Act and area.Act ~= 10 then
+						displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
+					end
 					if not seenAreas[displayName] then
 						table.insert(worldAreaNames, displayName)
 						seenAreas[displayName] = true
@@ -176,7 +187,18 @@ directiveTable.emit = function(state, args, out)
 					if nativePack.Id == packId then
 						local area = dat("WorldAreas"):GetRow("Id", mapRow.WorldArea.Id)
 						if area and area.Name ~= "NULL" then
-							local displayName = area.Name .. " (" .. (area.Act == 10 and "Map" or "Act " .. tostring(area.Act)) .. ")"
+							local isMap = false
+							for _, tag in ipairs(area.Tags or {}) do
+								if tag.Id == "map" then
+									isMap = true
+								end
+							end
+							local displayName = area.Name
+							if isMap then
+								displayName = displayName .. " (Map)"
+							elseif area.Act and area.Act ~= 10 then
+								displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
+							end
 							if not seenAreas[displayName] then
 								table.insert(worldAreaNames, displayName)
 								seenAreas[displayName] = true
@@ -251,7 +273,7 @@ directiveTable.emit = function(state, args, out)
 	end
 	out:write('\tspawnLocation = {\n')
 	for _, name in ipairs(worldAreaNames) do
-		if name ~= "The Ziggurat Refuge (Map)" then
+		if name ~= "The Ziggurat Refuge" then
 			out:write('\t\t"', name, '",\n')
 		end
 	end
