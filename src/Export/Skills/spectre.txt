@@ -768,14 +768,14 @@ statMap = {
 
 #skill SpookyGhostLightningBounce Basic Spell
 #set SpookyGhostLightningBounce
-#flags striggerable spell projectile
+#flags triggerable spell projectile
 #mods
 #skillEnd
 
 #addSkillTypes Projectile
 #skill SpookyWraithProjectileExplosionCold Basic Spell
 #set SpookyWraithProjectileExplosionCold
-#flags striggerable spell projectile
+#flags triggerable spell projectile
 #mods
 #skillEnd
 

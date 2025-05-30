@@ -132,9 +132,16 @@ directiveTable.emit = function(state, args, out)
 	-- Step 2: Check if monster is in AdditionalMonsters within MonsterPacks
 	for packId in pairs(allMonsterPackIds) do
 		local pack = dat("MonsterPacks"):GetRow("Id", tostring(packId))
-		if pack and pack.AdditionalMonsters then
+		if pack.AdditionalMonsters then
 			for _, addMon in ipairs(pack.AdditionalMonsters) do
 				if addMon.Name == monsterVariety.Name then
+					table.insert(matchingEntries, pack.Id)
+				end
+			end
+		end
+		if pack.BossMonsters then
+			for _, bossMon in ipairs(pack.BossMonsters) do
+				if bossMon.Name == monsterVariety.Name then
 					table.insert(matchingEntries, pack.Id)
 				end
 			end
@@ -152,6 +159,20 @@ directiveTable.emit = function(state, args, out)
 				if area and area.Name ~= "NULL" and not seenAreas[area.Name] then
 					 table.insert(worldAreaNames, area.Name)
 					 seenAreas[area.Name] = true
+				end
+			end
+		end
+		-- Check every EndGameMap for NativePacks containing this packId
+		for mapRow in dat("EndGameMaps"):Rows() do
+			if mapRow.NativePacks then
+				for _, nativePack in ipairs(mapRow.NativePacks) do
+					if nativePack.Id == packId then
+						local area = dat("WorldAreas"):GetRow("Id", mapRow.WorldArea.Id)
+						if area and area.Name ~= "NULL" and not seenAreas[area.Name] then
+							table.insert(worldAreaNames, area.Name)
+							seenAreas[area.Name] = true
+						end
+					end
 				end
 			end
 		end

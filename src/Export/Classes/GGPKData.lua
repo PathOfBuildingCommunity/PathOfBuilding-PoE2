@@ -311,6 +311,14 @@ function GGPKClass:GetNeededFiles()
 		"Data/MonsterPacks.dat",
 		"Data/WorldAreas.dat",
 		"Data/SpectreOverrides.dat",
+		"Data/MonsterProjectileAttack.dat",
+		"Data/MonsterProjectileSpell.dat",
+		"Data/MonsterMortar.dat",
+		"Data/EndGameMaps.dat",
+		"Data/EndGameMapBiomes.dat",
+		"Data/EndGameMapPins.dat",
+		"Data/EndGameMapContentSet.dat",
+		"Data/EndGameMapContent.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
