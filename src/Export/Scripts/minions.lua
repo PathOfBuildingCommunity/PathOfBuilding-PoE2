@@ -114,6 +114,10 @@ end
 directiveTable.emit = function(state, args, out)
 
 	local monsterVariety = dat("MonsterVarieties"):GetRow("Id", state.varietyId)
+	if not monsterVariety then
+		print("Invalid Variety: "..state.varietyId)
+		return
+	end
 	local matchingEntries = {}
 	local allMonsterPackIds = {}
 
@@ -156,9 +160,12 @@ directiveTable.emit = function(state, args, out)
 		if pack and pack.WorldAreas then
 			for _, worldAreaRef in ipairs(pack.WorldAreas) do
 				local area = dat("WorldAreas"):GetRow("Id", worldAreaRef.Id)
-				if area and area.Name ~= "NULL" and not seenAreas[area.Name] then
-					 table.insert(worldAreaNames, area.Name)
-					 seenAreas[area.Name] = true
+				if area and area.Name ~= "NULL" then
+					local displayName = area.Name .. " (" .. (area.Act == 10 and "Map" or "Act " .. tostring(area.Act)) .. ")"
+					if not seenAreas[displayName] then
+						table.insert(worldAreaNames, displayName)
+						seenAreas[displayName] = true
+					end
 				end
 			end
 		end
@@ -168,19 +175,17 @@ directiveTable.emit = function(state, args, out)
 				for _, nativePack in ipairs(mapRow.NativePacks) do
 					if nativePack.Id == packId then
 						local area = dat("WorldAreas"):GetRow("Id", mapRow.WorldArea.Id)
-						if area and area.Name ~= "NULL" and not seenAreas[area.Name] then
-							table.insert(worldAreaNames, area.Name)
-							seenAreas[area.Name] = true
+						if area and area.Name ~= "NULL" then
+							local displayName = area.Name .. " (" .. (area.Act == 10 and "Map" or "Act " .. tostring(area.Act)) .. ")"
+							if not seenAreas[displayName] then
+								table.insert(worldAreaNames, displayName)
+								seenAreas[displayName] = true
+							end
 						end
 					end
 				end
 			end
 		end
-	end
-
-	if not monsterVariety then
-		print("Invalid Variety: "..state.varietyId)
-		return
 	end
 	out:write('minions["', state.name, '"] = {\n')
 	out:write('\tname = "', monsterVariety.Name, '",\n')
@@ -246,7 +251,9 @@ directiveTable.emit = function(state, args, out)
 	end
 	out:write('\tspawnLocation = {\n')
 	for _, name in ipairs(worldAreaNames) do
-		out:write('\t\t"', name, '",\n')
+		if name ~= "The Ziggurat Refuge (Map)" then
+			out:write('\t\t"', name, '",\n')
+		end
 	end
 	out:write('\t},\n')
 	out:write('\tskillList = {\n')

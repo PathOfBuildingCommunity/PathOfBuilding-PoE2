@@ -55,7 +55,13 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 			for _, location in ipairs(minion.spawnLocation) do
 				table.insert(coloredLocations, colorCodes.RELIC .. location)
 			end
-			tooltip:AddLine(14, s_format("^7Spawn: %s", table.concat(coloredLocations, ", ")))
+			for i, spawn in ipairs(coloredLocations) do
+				if i == 1 then
+					tooltip:AddLine(14, s_format("^7Spawn: %s", spawn))
+				else
+					tooltip:AddLine(14, s_format("^7%s%s", "            ", spawn)) -- Indented so all locations line up vertically in toolip
+				end
+			end
 		end
 		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, tostring(minion.spectreReservation)))
 		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%s%%", colorCodes.SPIRIT, tostring(minion.companionReservation)))
@@ -110,5 +116,60 @@ function MinionListClass:OnSelDelete(index, minionId)
 		t_remove(self.list, index)
 		self.selIndex = nil
 		self.selValue = nil
+	end
+end
+
+local SpawnListClass = newClass("SpawnListControl", "ListControl", function(self, anchor, rect, data, list, label)
+	self.ListControl(anchor, rect, 16, "VERTICAL", false)
+	self.data = data
+	self.label = label or "^7Available Items:"
+end)
+
+function SpawnListClass:GetRowValue(column, index, spawnLocation)
+		return spawnLocation
+end
+function SpawnListClass:AddValueTooltip(tooltip, index, value)
+	if tooltip:CheckForUpdate(value) then
+		local foundArea = nil
+		for _, area in pairs(data.worldAreas) do
+			if area.name == value then
+				foundArea = area
+				break
+			end
+		end
+		if foundArea then
+			tooltip:AddLine(18, foundArea.name)
+			tooltip:AddLine(14, "Level: "..foundArea.level)
+			local biomeNameMap = {
+				water_biome = "Water",
+				mountain_biome = "Mountain",
+				grass_biome = "Grass",
+				forest_biome = "Forest",
+				swamp_biome = "Swamp",
+				desert_biome = "Desert",
+			}
+			if #foundArea.tags > 0 then
+				local friendlyTags = {}
+				for _, tag in ipairs(foundArea.tags) do
+					local friendlyName = biomeNameMap[tag]
+					if friendlyName then
+						table.insert(friendlyTags, friendlyName)
+					end
+				end
+				if #friendlyTags > 0 then
+					tooltip:AddLine(14, "Biome: " .. table.concat(friendlyTags, ", "))
+				end
+			end
+			if #foundArea.monsterVarieties > 0 and foundArea.baseName ~= "The Ziggurat Refuge" then
+				tooltip:AddLine(14, "Spectres:")
+				for _, monsterName in ipairs(foundArea.monsterVarieties) do
+					tooltip:AddLine(14, " - " .. monsterName)
+				end
+			else
+				tooltip:AddLine(14, "No monsters listed")
+			end
+		else
+			tooltip:AddLine(18, "World area not found: " .. tostring(value))
+		end
 	end
 end

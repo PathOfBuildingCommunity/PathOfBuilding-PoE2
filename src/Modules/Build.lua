@@ -1457,6 +1457,12 @@ function buildMode:OpenSpectreLibrary(library)
 				end
 			end
 		end
+		local spawnLocationList = {}
+		if minion.spawnLocation then
+			for _, spawn in ipairs(minion.spawnLocation) do
+				t_insert(spawnLocationList, spawn)
+			end
+		end
 		local movementSpeed = minion.baseMovementSpeed / 10 .. " m/s"
 		controls.minionNameLabel.labelText = "^7" .. minion.name
 		controls.lifeLabel.lifeValue = round(totalLife)
@@ -1464,6 +1470,7 @@ function buildMode:OpenSpectreLibrary(library)
 		controls.armourLabel.armourValue = round(totalArmour)
 		controls.blockLabel.blockValue = blockChance
 		controls.evasionLabel.evasionValue = round(totalEvasion)
+		controls.spawnLocations.list = spawnLocationList
 		controls.resistsLabel.resistsValue = (
 			colorCodes.FIRE..minion.fireResist.."^7 / "..
 			colorCodes.COLD..minion.coldResist.."^7 / "..
@@ -1518,7 +1525,7 @@ function buildMode:OpenSpectreLibrary(library)
 	end
 	controls.sortMonsterCheckboxShowAll = new("CheckBoxControl", {"TOPLEFT", controls.source, "BOTTOMLEFT"}, {153, 2, 26, 26}, "", monsterTypeCheckboxChange("recommendedList"), "Show All " .. firstToUpper(library) .. "s", false)
 	controls.showAllLabel = new("LabelControl", {"RIGHT",controls.sortMonsterCheckboxShowAll,"LEFT"}, {-5, 0, 0, 16}, "Show All " .. firstToUpper(library) .. "s:")
-	controls.save = new("ButtonControl", nil, {-45, 410, 80, 20}, "Save", function()
+	controls.save = new("ButtonControl", nil, {-45, 420, 80, 20}, "Save", function()
 		if library == "beast" then
 			self.beastList = destList
 		else
@@ -1528,7 +1535,7 @@ function buildMode:OpenSpectreLibrary(library)
 		self.buildFlag = true
 		main:ClosePopup()
 	end)
-	controls.cancel = new("ButtonControl", nil, {45, 410, 80, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl", nil, {45, 420, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
 	local spectrePopup
@@ -1553,7 +1560,7 @@ function buildMode:OpenSpectreLibrary(library)
 		SetDrawColor(1, 1, 1)
 		DrawString(xPos + 45, yPos, "CENTER_X", 18, "VAR BOLD", self.labelText or "Monster Stats")
 	end
-	controls.minionGemLevelLabel = new("LabelControl", {"BOTTOM", controls.minionNameLabel, "TOP"}, {-40, 275, 0, 16}, "Gem Level:")
+	controls.minionGemLevelLabel = new("LabelControl", {"BOTTOM", controls.minionNameLabel, "TOP"}, {24, 271, 0, 16}, "Gem Level:")
 	controls.minionGemLevel = new("EditControl", {"LEFT", controls.minionGemLevelLabel, "RIGHT"}, {4, 0, 60, 20}, 20, nil, "%D", 3, function()
 		if self.lastSelectedMinion then
 			UpdateMinionDisplay(self.lastSelectedMinion)
@@ -1676,8 +1683,9 @@ function buildMode:OpenSpectreLibrary(library)
 		DrawString(xPos + labelWidth / 2, yPos, "CENTER_X", 16, "VAR BOLD", "MOVEMENT SPEED")
 		if self.movementSpeedValue then
 			DrawString(xPos + (labelWidth / 2), yPos + 24, "CENTER_X", 16, "VAR", self.movementSpeedValue)
-		end
+		end	
 	end
+	controls.spawnLocations = new("SpawnListControl", {"TOP", controls.movementSpeedLabel, "TOP"}, {2, 73, 244, 68}, self.data, nil, "Spawns:")
 end
 
 function buildMode:OpenSimilarPopup()
