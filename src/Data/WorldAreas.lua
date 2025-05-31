@@ -859,9 +859,9 @@ worldAreas["G1_2"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Lumbering Dead",
-		"Vile Imp",
-		"Vile Hag",
 		"Rotten Wolf",
+		"Vile Hag",
+		"Vile Imp",
 	},
 }
 
@@ -875,6 +875,8 @@ worldAreas["G1_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Flesh Larva",
+		"Mud Simulacrum",
 		"Wretched Rattler",
 	},
 }
@@ -889,12 +891,13 @@ worldAreas["G1_4"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Pack Werewolf",
-		"Werewolf Prowler",
-		"Vile Imp",
-		"Vile Hag",
-		"Fungal Zombie",
 		"Fungal Proliferator",
+		"Fungal Rattler",
+		"Fungal Zombie",
+		"Pack Werewolf",
+		"Vile Hag",
+		"Vile Imp",
+		"Werewolf Prowler",
 	},
 }
 
@@ -909,8 +912,9 @@ worldAreas["G1_5"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
-		"Risen Arbalest",
+		"Bloom Serpent",
 		"Maw Demon",
+		"Risen Arbalest",
 	},
 }
 
@@ -924,11 +928,11 @@ worldAreas["G1_6"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Fungal Zombie",
+		"Fungal Artillery",
 		"Fungal Proliferator",
 		"Fungal Rattler",
-		"Fungal Artillery",
 		"Fungal Wolf",
+		"Fungal Zombie",
 	},
 }
 
@@ -942,11 +946,12 @@ worldAreas["G1_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Frost Wraith",
-		"Hungering Stalker",
 		"Bearer of Penitence",
 		"Burdened Wretch",
 		"Death Knight",
+		"Frost Wraith",
+		"Hungering Stalker",
+		"Risen Rattler",
 		"Undertaker",
 	},
 }
@@ -961,14 +966,14 @@ worldAreas["G1_8"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Lightning Wraith",
-		"Eternal Knight",
 		"Blood Cretin",
 		"Courtesan",
-		"Wheelbound Hag",
+		"Eternal Knight",
+		"Ghoul Commander",
+		"Lightning Wraith",
 		"Risen Rattler",
 		"Skulking Ghoul",
-		"Ghoul Commander",
+		"Wheelbound Hag",
 	},
 }
 
@@ -982,11 +987,11 @@ worldAreas["G1_9"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Bone Stalker",
 		"Dread Servant",
 		"Eternal Knight",
-		"Risen Rattler",
 		"Knight-Gaunt",
-		"Bone Stalker",
+		"Risen Rattler",
 	},
 }
 
@@ -1012,11 +1017,12 @@ worldAreas["G1_11"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Venomous Crab Matriarch",
 		"Bramble Ape",
-		"Bramble Hulk",
 		"Bramble Burrower",
+		"Bramble Hulk",
 		"Bramble Rhoa",
+		"Venomous Crab",
+		"Venomous Crab Matriarch",
 	},
 }
 
@@ -1030,13 +1036,15 @@ worldAreas["G1_12"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Skeleton Spriggan",
-		"Cultist Warrior",
-		"Cultist Brute",
 		"Cultist Archer",
-		"Cultist Witch",
+		"Cultist Brute",
 		"Cultist Daggerdancer",
+		"Cultist Warrior",
+		"Cultist Witch",
 		"Ribrattle",
+		"Skeleton Spriggan",
+		"Skullslinger",
+		"Spinesnatcher",
 	},
 }
 
@@ -1051,15 +1059,15 @@ worldAreas["G1_13_1"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Decrepit Mercenary",
-		"Iron Thaumaturgist",
 		"Iron Guard",
-		"Voracious Werewolf",
+		"Iron Thaumaturgist",
 		"Pack Werewolf",
-		"Werewolf Prowler",
+		"Rabid Dog",
+		"Risen Farmhand",
 		"Rotting Crow",
 		"Scarecrow Beast",
-		"Risen Farmhand",
-		"Rabid Dog",
+		"Voracious Werewolf",
+		"Werewolf Prowler",
 	},
 }
 
@@ -1073,11 +1081,12 @@ worldAreas["G1_13_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Blood Collector",
+		"Blood Cretin",
+		"Burning Dead",
+		"Decrepit Mercenary",
 		"Voracious Werewolf",
 		"Werewolf Prowler",
-		"Blood Cretin",
-		"Blood Collector",
-		"Burning Dead",
 	},
 }
 
@@ -1091,15 +1100,16 @@ worldAreas["G1_14"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Death Knight",
-		"Gargoyle Demon",
 		"Blood Carrier",
-		"Blood Cretin",
 		"Blood Collector",
+		"Blood Cretin",
 		"Courtesan",
-		"Iron Thaumaturgist",
-		"Iron Spearman",
+		"Death Knight",
+		"Decrepit Mercenary",
+		"Gargoyle Demon",
 		"Iron Guard",
+		"Iron Spearman",
+		"Iron Thaumaturgist",
 	},
 }
 
@@ -1114,16 +1124,16 @@ worldAreas["G1_15"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Blood Carrier",
-		"Blood Cretin",
 		"Blood Collector",
+		"Blood Cretin",
 		"Courtesan",
-		"Tendril Prowler",
-		"Tendril Sentinel",
-		"Iron Spearman",
-		"Iron Thaumaturgist",
-		"Iron Sharpshooter",
 		"Iron Enforcer",
 		"Iron Guard",
+		"Iron Sharpshooter",
+		"Iron Spearman",
+		"Iron Thaumaturgist",
+		"Tendril Prowler",
+		"Tendril Sentinel",
 	},
 }
 
@@ -1150,11 +1160,12 @@ worldAreas["G2_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Hyena Demon",
-		"Sun Clan Scavenger",
+		"Brimstone Crab",
 		"Crag Leaper",
-		"Sandscoured Dead",
+		"Hyena Demon",
 		"Rotting Hulk",
+		"Sandscoured Dead",
+		"Sun Clan Scavenger",
 	},
 }
 
@@ -1168,10 +1179,13 @@ worldAreas["G2_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
-		"Risen Arbalest",
 		"Desiccated Lich",
+		"Quake Golem",
+		"Risen Arbalest",
+		"Risen Maraketh",
+		"Skitter Golem",
 		"Tombshrieker",
+		"Vault Lurker",
 	},
 }
 
@@ -1185,6 +1199,17 @@ worldAreas["G2_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Boulder Ant",
+		"Faridun Bladedancer",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 	},
 }
 
@@ -1224,11 +1249,13 @@ worldAreas["G2_4_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Tarnished Beetle",
-		"Tarnished Scarab",
+		"Desiccated Lich",
+		"Living Sand",
+		"Risen Maraketh",
 		"Serpent Clan",
 		"Serpent Shaman",
-		"Desiccated Lich",
+		"Tarnished Beetle",
+		"Tarnished Scarab",
 	},
 }
 
@@ -1242,13 +1269,14 @@ worldAreas["G2_4_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Adorned Beetle",
+		"Adorned Scarab",
+		"Risen Arbalest",
+		"Risen Maraketh",
+		"Sand Spirit",
 		"Serpent Clan",
 		"Serpent Shaman",
-		"Risen Arbalest",
-		"Adorned Beetle",
 		"Tarnished Beetle",
-		"Adorned Scarab",
-		"Sand Spirit",
 	},
 }
 
@@ -1262,9 +1290,11 @@ worldAreas["G2_4_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Sand Spirit",
 		"Mar Acolyte",
 		"Risen Arbalest",
+		"Risen Maraketh",
+		"Sand Spirit",
+		"Vesper Bat",
 	},
 }
 
@@ -1279,12 +1309,13 @@ worldAreas["G2_5_1"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Gilded Cobra",
+		"Lost-men Brute",
+		"Lost-men Necromancer",
 		"Lost-men Zealot",
+		"Ribrattle",
+		"Sabre Spider",
 		"Skullslinger",
 		"Spinesnatcher",
-		"Lost-men Necromancer",
-		"Lost-men Brute",
-		"Sabre Spider",
 	},
 }
 
@@ -1298,16 +1329,17 @@ worldAreas["G2_5_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Drudge Osseodon",
 		"Gilded Cobra",
+		"Hyena Demon",
+		"Lost-men Brute",
+		"Lost-men Necromancer",
+		"Lost-men Subjugator",
 		"Lost-men Zealot",
+		"Ribrattle",
 		"Skullslinger",
 		"Spinesnatcher",
-		"Lost-men Necromancer",
-		"Lost-men Brute",
-		"Hyena Demon",
 		"Sun Clan Scavenger",
-		"Lost-men Subjugator",
-		"Drudge Osseodon",
 	},
 }
 
@@ -1321,12 +1353,14 @@ worldAreas["G2_6"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
-		"Risen Arbalest",
 		"Desiccated Lich",
-		"Walking Goliath",
 		"Dune Lurker",
 		"Mantis Rat",
+		"Quake Golem",
+		"Risen Arbalest",
+		"Risen Maraketh",
+		"Skitter Golem",
+		"Walking Goliath",
 	},
 }
 
@@ -1340,11 +1374,11 @@ worldAreas["G2_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Goliath",
+		"Sandflesh Mage",
 		"Sandflesh Skeleton",
 		"Sandflesh Warrior",
-		"Sandflesh Mage",
 		"Winged Horror",
-		"Goliath",
 	},
 }
 
@@ -1358,12 +1392,12 @@ worldAreas["G2_8"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Regurgitating Vulture",
-		"Rasp Scavenger",
 		"Maraketh Undead",
-		"Vile Vulture",
 		"Porcupine Goliath",
+		"Rasp Scavenger",
+		"Regurgitating Vulture",
 		"Sabre Spider",
+		"Vile Vulture",
 	},
 }
 
@@ -1390,8 +1424,8 @@ worldAreas["G2_9_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
 		"Maraketh Undead",
+		"Risen Maraketh",
 		"Risen Tale-woman",
 	},
 }
@@ -1406,6 +1440,17 @@ worldAreas["G2_9_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Bladedancer",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Impaler",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 		"Maraketh Undead",
 		"Winged Fiend",
 	},
@@ -1421,12 +1466,13 @@ worldAreas["G2_10_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Corrupted Corpse",
-		"Plague Swarm",
-		"Plague Harvester",
 		"Armoured Rhex",
+		"Corrupted Corpse",
+		"Faridun Crawler",
 		"Forsaken Hulk",
 		"Forsaken Miner",
+		"Plague Harvester",
+		"Plague Swarm",
 	},
 }
 
@@ -1441,11 +1487,13 @@ worldAreas["G2_10_2"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Corrupted Corpse",
+		"Faridun Crawler",
+		"Forgotten Crawler",
+		"Forgotten Satyr",
+		"Forgotten Stalker",
 		"Forsaken Miner",
 		"Mantis Rat",
-		"Forgotten Crawler",
-		"Forgotten Stalker",
-		"Forgotten Satyr",
+		"Plague Nymph",
 	},
 }
 
@@ -1458,11 +1506,12 @@ worldAreas["G2_11"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Rasp Scavenger",
 		"Corrupted Corpse",
+		"Plague Harvester",
 		"Plague Nymph",
 		"Plague Swarm",
-		"Plague Harvester",
+		"Porcupine Goliath",
+		"Rasp Scavenger",
 		"Rhex",
 	},
 }
@@ -1477,10 +1526,20 @@ worldAreas["G2_12_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Bladedancer",
 		"Faridun Crawler",
-		"Plague Swarm",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
 		"Faridun Plaguebringer",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 		"Plague Harvester",
+		"Plague Swarm",
 	},
 }
 
@@ -1494,7 +1553,17 @@ worldAreas["G2_12_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Bladedancer",
 		"Faridun Butcher",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 	},
 }
 
@@ -1520,6 +1589,15 @@ worldAreas["Sanctum_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Boulder Ant",
+		"Brimstone Crab",
+		"Quake Golem",
+		"Rasp Scavenger",
+		"Serpent Clan",
+		"Serpent Shaman",
+		"Skitter Golem",
+		"Tombshrieker",
+		"Vault Lurker",
 	},
 }
 
@@ -1568,6 +1646,15 @@ worldAreas["Sanctum_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Adorned Beetle",
+		"Adorned Scarab",
+		"Desiccated Lich",
+		"Mar Acolyte",
+		"Risen Arbalest",
+		"Risen Maraketh",
+		"Risen Tale-woman",
+		"Sand Spirit",
+		"Urnwalker",
 	},
 }
 
@@ -1616,6 +1703,19 @@ worldAreas["Sanctum_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Adorned Beetle",
+		"Adorned Scarab",
+		"Brimstone Crab",
+		"Desiccated Lich",
+		"Dune Lurker",
+		"Porcupine Goliath",
+		"Rasp Scavenger",
+		"Sand Spirit",
+		"Serpent Clan",
+		"Serpent Shaman",
+		"Urnwalker",
+		"Vesper Bat",
+		"Walking Goliath",
 	},
 }
 
@@ -1664,6 +1764,15 @@ worldAreas["Sanctum_4"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Desiccated Lich",
+		"Frost Wraith",
+		"Goliath",
+		"Risen Tale-woman",
+		"Sand Spirit",
+		"Sandflesh Mage",
+		"Urnwalker",
+		"Walking Goliath",
+		"Winged Horror",
 	},
 }
 
@@ -1726,16 +1835,16 @@ worldAreas["G3_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bogfelled Slave",
-		"Bogfelled Commoner",
-		"Dredge Fiend",
-		"Bloodthief Wasp",
 		"Bloodthief Queen",
-		"Rotting Hulk",
-		"Orok Hunter",
+		"Bloodthief Wasp",
+		"Bogfelled Commoner",
+		"Bogfelled Slave",
+		"Dredge Fiend",
 		"Orok Fleshstabber",
-		"Orok Throatcutter",
+		"Orok Hunter",
 		"Orok Shaman",
+		"Orok Throatcutter",
+		"Rotting Hulk",
 	},
 }
 
@@ -1749,9 +1858,10 @@ worldAreas["G3_2_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bane Sapling",
 		"Antlion Charger",
+		"Bane Sapling",
 		"Diretusk Boar",
+		"Ill-fated Explorer",
 	},
 }
 
@@ -1767,12 +1877,14 @@ worldAreas["G3_2_2"] = {
 	monsterVarieties = {
 		"Azak Brute",
 		"Azak Fleshstabber",
+		"Azak Mongrelmaster",
 		"Azak Shaman",
+		"Azak Spearthrower",
 		"Azak Stalker",
 		"Azak Throatcutter",
-		"Azak Spearthrower",
-		"Azak Mongrelmaster",
 		"Chaw Mongrel",
+		"Chyme Skitterer",
+		"River Drake",
 	},
 }
 
@@ -1786,15 +1898,15 @@ worldAreas["G3_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Quadrilla",
 		"Alpha Primate",
-		"Feral Primate",
+		"Antlion Charger",
+		"Bane Sapling",
 		"Constricted Shambler",
 		"Constricted Spitter",
-		"Snakethroat Shambler",
 		"Entwined Hulk",
-		"Bane Sapling",
-		"Antlion Charger",
+		"Feral Primate",
+		"Quadrilla",
+		"Snakethroat Shambler",
 	},
 }
 
@@ -1808,13 +1920,14 @@ worldAreas["G3_4"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Snakethroat Shambler",
-		"Constricted Spitter",
 		"Constricted Shambler",
-		"Entwined Hulk",
+		"Constricted Spitter",
 		"Entrailhome Shambler",
-		"Slitherspitter",
+		"Entwined Hulk",
+		"Rotted Rat",
 		"Scorpion Monkey",
+		"Slitherspitter",
+		"Snakethroat Shambler",
 	},
 }
 
@@ -1828,10 +1941,11 @@ worldAreas["G3_5"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Prowling Chimeral",
-		"Ill-fated Explorer",
 		"Bloom Serpent",
 		"Diretusk Boar",
+		"Ill-fated Explorer",
+		"Prowling Chimeral",
+		"River Drake",
 	},
 }
 
@@ -1845,13 +1959,15 @@ worldAreas["G3_6_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Skeletal Warrior",
-		"Vaal Skeletal Squire",
-		"Vaal Skeletal Priest",
-		"Vaal Skeletal Archer",
-		"Rotted Rat",
+		"Crawler Sentinel",
 		"Pale-stitched Stalker",
+		"Rotted Rat",
 		"Rusted Dyna Golem",
+		"Rusted Reconstructor",
+		"Vaal Skeletal Archer",
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
+		"Vaal Skeletal Warrior",
 	},
 }
 
@@ -1865,14 +1981,14 @@ worldAreas["G3_6_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Skeletal Warrior",
-		"Vaal Skeletal Squire",
-		"Vaal Skeletal Archer",
-		"Vaal Skeletal Priest",
 		"Pale-stitched Stalker",
+		"Prowling Shade",
 		"Undead Vaal Bladedancer",
 		"Undead Vaal Guard",
-		"Prowling Shade",
+		"Vaal Skeletal Archer",
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
+		"Vaal Skeletal Warrior",
 	},
 }
 
@@ -1886,16 +2002,16 @@ worldAreas["G3_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Azak Throatcutter",
-		"Azak Fleshstabber",
 		"Azak Brute",
 		"Azak Fledgling",
-		"Chaw Mongrel",
-		"Azak Stalker",
-		"Azak Shaman",
+		"Azak Fleshstabber",
 		"Azak Mauler",
-		"Azak Torchbearer",
+		"Azak Shaman",
 		"Azak Spearthrower",
+		"Azak Stalker",
+		"Azak Throatcutter",
+		"Azak Torchbearer",
+		"Chaw Mongrel",
 	},
 }
 
@@ -1909,19 +2025,20 @@ worldAreas["G3_8"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Hunchback Clubber",
-		"Filthy Lobber",
+		"Chyme Skitterer",
+		"Drowned Crawler",
+		"Drowned Explorer",
+		"Filthy Crone",
 		"Filthy First-born",
+		"Filthy Lobber",
+		"Flathead Clubber",
 		"Flathead Warrior",
-		"Foul Sage",
 		"Foul Blacksmith",
 		"Foul Mauler",
-		"Filthy Crone",
-		"Flathead Clubber",
-		"Chyme Skitterer",
-		"Drowned Explorer",
+		"Foul Sage",
+		"Hunchback Clubber",
+		"River Drake",
 		"River Hag",
-		"Drowned Crawler",
 	},
 }
 
@@ -1935,11 +2052,13 @@ worldAreas["G3_9"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Gold-Melted Sentinel",
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
-		"Vaal Embalmed Axeman",
-		"Vaal Embalmed Rogue",
 		"Vaal Embalmed Archer",
+		"Vaal Embalmed Axeman",
+		"Vaal Embalmed Bearer",
+		"Vaal Embalmed Rogue",
 		"Vaal Embalmed Spearman",
 	},
 }
@@ -1980,17 +2099,17 @@ worldAreas["G3_11"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Flathead Warrior",
-		"Hunchback Clubber",
-		"Foul Sage",
-		"Flathead Youngling",
-		"Pyromushroom Cultivator",
 		"Filthy Crone",
-		"Foul Blacksmith",
-		"Flathead Clubber",
 		"Filthy First-born",
 		"Filthy Lobber",
+		"Flathead Clubber",
+		"Flathead Warrior",
+		"Flathead Youngling",
+		"Foul Blacksmith",
 		"Foul Mauler",
+		"Foul Sage",
+		"Hunchback Clubber",
+		"Pyromushroom Cultivator",
 	},
 }
 
@@ -2004,9 +2123,9 @@ worldAreas["G3_12"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bloodrite Priest",
-		"Bloodrite Guard",
 		"Adorned Miscreation",
+		"Bloodrite Guard",
+		"Bloodrite Priest",
 		"Priest of the Sun",
 	},
 }
@@ -2021,217 +2140,230 @@ worldAreas["G_Endgame_Town"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Porcupine Crab",
-		"Drowned",
-		"Vile Imp",
-		"Vile Hag",
-		"Rotten Wolf",
-		"Wretched Rattler",
-		"Rattling Gibbet",
-		"Pack Werewolf",
-		"Werewolf Prowler",
-		"Fungal Zombie",
-		"Fungal Proliferator",
-		"Fungal Artillery",
-		"Bloom Serpent",
-		"Ancient Ezomyte",
-		"Risen Arbalest",
-		"Fungal Rattler",
-		"Fungal Wolf",
-		"Frost Wraith",
-		"Burdened Wretch",
-		"Bearer of Penitence",
-		"Death Knight",
-		"Dread Servant",
-		"Lightning Wraith",
-		"Blood Cretin",
-		"Blood Collector",
-		"Courtesan",
-		"Eternal Knight",
-		"Knight-Gaunt",
-		"Undertaker",
-		"Bone Stalker",
-		"Venomous Crab Matriarch",
-		"Bramble Ape",
-		"Bramble Hulk",
-		"Skeleton Spriggan",
-		"Decrepit Mercenary",
-		"Iron Guard",
-		"Gargoyle Demon",
-		"Blood Carrier",
-		"Tendril Prowler",
-		"Tendril Sentinel",
-		"Bramble Burrower",
-		"Bramble Rhoa",
-		"Iron Thaumaturgist",
-		"Iron Spearman",
-		"Iron Sharpshooter",
-		"Iron Enforcer",
-		"Burning Dead",
-		"Scarecrow Beast",
-		"Rotting Crow",
-		"Risen Farmhand",
-		"Rabid Dog",
-		"Cultist Warrior",
-		"Cultist Witch",
-		"Cultist Daggerdancer",
-		"Cultist Archer",
-		"Cultist Brute",
-		"Faridun Crawler",
-		"Hyena Demon",
-		"Sun Clan Scavenger",
-		"Brimstone Crab",
-		"Crag Leaper",
-		"Rotting Hulk",
-		"Sandscoured Dead",
-		"Risen Maraketh",
-		"Vault Lurker",
-		"Tombshrieker",
-		"Tarnished Beetle",
-		"Tarnished Scarab",
-		"Serpent Clan",
-		"Serpent Shaman",
-		"Faridun Heavy Infantry",
-		"Faridun Spearman",
-		"Faridun Neophyte",
-		"Faridun Swordsman",
-		"Faridun Infantry",
-		"Faridun Javelineer",
-		"Faridun Fledgling",
-		"Faridun Bladedancer",
 		"Adorned Beetle",
-		"Adorned Scarab",
-		"Sand Spirit",
-		"Mar Acolyte",
-		"Living Sand",
-		"Desiccated Lich",
-		"Gilded Cobra",
-		"Lost-men Zealot",
-		"Lost-men Necromancer",
-		"Skullslinger",
-		"Spinesnatcher",
-		"Lost-men Brute",
-		"Sabre Spider",
-		"Lost-men Subjugator",
-		"Drudge Osseodon",
-		"Walking Goliath",
-		"Dune Lurker",
-		"Mantis Rat",
-		"Sandflesh Skeleton",
-		"Sandflesh Warrior",
-		"Sandflesh Mage",
-		"Winged Horror",
-		"Goliath",
-		"Rasp Scavenger",
-		"Maraketh Undead",
-		"Risen Tale-woman",
-		"Vile Vulture",
-		"Regurgitating Vulture",
-		"Porcupine Goliath",
-		"Winged Fiend",
-		"Corrupted Corpse",
-		"Plague Nymph",
-		"Plague Swarm",
-		"Faridun Plaguebringer",
-		"Plague Harvester",
-		"Faridun Butcher",
-		"Rhex",
-		"Armoured Rhex",
-		"Forsaken Hulk",
-		"Forsaken Miner",
-		"Forgotten Crawler",
-		"Forgotten Stalker",
-		"Forgotten Satyr",
-		"Entwined Hulk",
-		"Scorpion Monkey",
-		"Entrailhome Shambler",
-		"Constricted Spitter",
-		"Slitherspitter",
-		"Quadrilla",
-		"Vaal Overseer",
-		"Vaal Excoriator",
-		"Vaal Guard",
-		"Gold-Melted Shambler",
-		"Gold-melted Blacksmith",
-		"Vaal Embalmed Axeman",
-		"Vaal Embalmed Rogue",
-		"Vaal Embalmed Spearman",
-		"Vaal Embalmed Archer",
-		"Gold-Melted Sentinel",
-		"Hunchback Clubber",
-		"Filthy Lobber",
-		"Filthy First-born",
-		"Flathead Clubber",
-		"Flathead Warrior",
-		"Chyme Skitterer",
-		"River Drake",
-		"Drowned Explorer",
-		"River Hag",
-		"Drowned Crawler",
-		"Blood Zealot",
-		"Blood Priest",
-		"Blood Priestess",
-		"Vaal Formshifter",
-		"Powered Zealot",
-		"Surgical Experimentalist",
-		"Chaotic Zealot",
-		"Vaal Goliath",
-		"Gelid Zealot",
-		"Prowling Shade",
-		"Fiery Zealot",
-		"Priest of the Sun",
-		"Bloodrite Priest",
-		"Bloodrite Guard",
 		"Adorned Miscreation",
-		"Foul Sage",
-		"Foul Blacksmith",
-		"Foul Mauler",
-		"Filthy Crone",
-		"Pyromushroom Cultivator",
-		"Flathead Youngling",
-		"Doryani's Elite",
-		"Brutal Transcendent",
-		"Warrior Transcendent",
-		"Bladelash Transcendent",
-		"Fused Swordsman",
-		"Goliath Transcendent",
-		"Shielded Transcendent",
-		"Bogfelled Slave",
-		"Bogfelled Commoner",
-		"Dredge Fiend",
-		"Bloodthief Wasp",
-		"Bloodthief Queen",
-		"Swamp Golem",
-		"Orok Hunter",
-		"Orok Fleshstabber",
-		"Orok Throatcutter",
-		"Orok Shaman",
-		"Feral Primate",
+		"Adorned Scarab",
 		"Alpha Primate",
-		"Constricted Shambler",
-		"Snakethroat Shambler",
+		"Ancient Ezomyte",
 		"Antlion Charger",
-		"Prowling Chimeral",
-		"Ill-fated Explorer",
-		"Diretusk Boar",
-		"Azak Throatcutter",
-		"Azak Fleshstabber",
+		"Armoured Rhex",
 		"Azak Brute",
 		"Azak Fledgling",
-		"Chaw Mongrel",
-		"Azak Stalker",
-		"Azak Shaman",
+		"Azak Fleshstabber",
 		"Azak Mauler",
+		"Azak Shaman",
 		"Azak Spearthrower",
-		"Vaal Skeletal Warrior",
-		"Vaal Skeletal Squire",
-		"Vaal Skeletal Priest",
-		"Vaal Skeletal Archer",
-		"Rotted Rat",
+		"Azak Stalker",
+		"Azak Throatcutter",
+		"Bearer of Penitence",
+		"Bladelash Transcendent",
+		"Blood Carrier",
+		"Blood Collector",
+		"Blood Cretin",
+		"Blood Priest",
+		"Blood Priestess",
+		"Blood Zealot",
+		"Bloodrite Guard",
+		"Bloodrite Priest",
+		"Bloodthief Queen",
+		"Bloodthief Wasp",
+		"Bloom Serpent",
+		"Bogfelled Commoner",
+		"Bogfelled Slave",
+		"Bone Stalker",
+		"Boulder Ant",
+		"Bramble Ape",
+		"Bramble Burrower",
+		"Bramble Hulk",
+		"Bramble Rhoa",
+		"Brimstone Crab",
+		"Brutal Transcendent",
+		"Burdened Wretch",
+		"Burning Dead",
+		"Chaotic Zealot",
+		"Chaw Mongrel",
+		"Chyme Skitterer",
+		"Constricted Shambler",
+		"Constricted Spitter",
+		"Corrupted Corpse",
+		"Courtesan",
+		"Crag Leaper",
+		"Cultist Archer",
+		"Cultist Brute",
+		"Cultist Daggerdancer",
+		"Cultist Warrior",
+		"Cultist Witch",
+		"Cultivated Grove",
+		"Death Knight",
+		"Decrepit Mercenary",
+		"Desiccated Lich",
+		"Diretusk Boar",
+		"Doryani's Elite",
+		"Dread Servant",
+		"Dredge Fiend",
+		"Drowned",
+		"Drowned Crawler",
+		"Drowned Explorer",
+		"Drudge Osseodon",
+		"Dune Lurker",
+		"Entrailhome Shambler",
+		"Entwined Hulk",
+		"Eternal Knight",
+		"Faridun Bladedancer",
+		"Faridun Butcher",
+		"Faridun Crawler",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Plaguebringer",
+		"Faridun Spearman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
+		"Feral Primate",
+		"Fiery Zealot",
+		"Filthy Crone",
+		"Filthy First-born",
+		"Filthy Lobber",
+		"Flathead Clubber",
+		"Flathead Warrior",
+		"Flathead Youngling",
+		"Flesh Larva",
+		"Forgotten Crawler",
+		"Forgotten Satyr",
+		"Forgotten Stalker",
+		"Forsaken Hulk",
+		"Forsaken Miner",
+		"Foul Blacksmith",
+		"Foul Mauler",
+		"Foul Sage",
+		"Frost Wraith",
+		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Rattler",
+		"Fungal Wolf",
+		"Fungal Zombie",
+		"Fused Swordsman",
+		"Gargoyle Demon",
+		"Gelid Zealot",
+		"Gilded Cobra",
+		"Gold-Melted Sentinel",
+		"Gold-Melted Shambler",
+		"Gold-melted Blacksmith",
+		"Goliath",
+		"Goliath Transcendent",
+		"Hunchback Clubber",
+		"Hyena Demon",
+		"Ill-fated Explorer",
+		"Iron Enforcer",
+		"Iron Guard",
+		"Iron Sharpshooter",
+		"Iron Spearman",
+		"Iron Thaumaturgist",
+		"Knight-Gaunt",
+		"Lightning Wraith",
+		"Living Sand",
+		"Lost-men Brute",
+		"Lost-men Necromancer",
+		"Lost-men Subjugator",
+		"Lost-men Zealot",
+		"Mantis Rat",
+		"Mar Acolyte",
+		"Maraketh Undead",
+		"Mud Simulacrum",
+		"Orok Fleshstabber",
+		"Orok Hunter",
+		"Orok Shaman",
+		"Orok Throatcutter",
+		"Pack Werewolf",
 		"Pale-stitched Stalker",
+		"Plague Harvester",
+		"Plague Nymph",
+		"Plague Swarm",
+		"Porcupine Crab",
+		"Porcupine Goliath",
+		"Powered Zealot",
+		"Priest of the Sun",
+		"Prowling Chimeral",
+		"Prowling Shade",
+		"Pyromushroom Cultivator",
+		"Quadrilla",
+		"Quake Golem",
+		"Rabid Dog",
+		"Rasp Scavenger",
+		"Rattling Gibbet",
+		"Regurgitating Vulture",
+		"Rhex",
+		"Ribrattle",
+		"Risen Arbalest",
+		"Risen Farmhand",
+		"Risen Maraketh",
+		"Risen Rattler",
+		"Risen Tale-woman",
+		"River Drake",
+		"River Hag",
+		"Rotted Rat",
+		"Rotten Wolf",
+		"Rotting Crow",
+		"Rotting Hulk",
 		"Rusted Dyna Golem",
+		"Sabre Spider",
+		"Sand Spirit",
+		"Sandflesh Mage",
+		"Sandflesh Skeleton",
+		"Sandflesh Warrior",
+		"Sandscoured Dead",
+		"Scarecrow Beast",
+		"Scorpion Monkey",
+		"Serpent Clan",
+		"Serpent Shaman",
+		"Shielded Transcendent",
+		"Skeleton Spriggan",
+		"Skitter Golem",
+		"Skullslinger",
+		"Slitherspitter",
+		"Snakethroat Shambler",
+		"Spinesnatcher",
+		"Sun Clan Scavenger",
+		"Surgical Experimentalist",
+		"Swamp Golem",
+		"Tarnished Beetle",
+		"Tarnished Scarab",
+		"Tendril Prowler",
+		"Tendril Sentinel",
+		"Tombshrieker",
 		"Undead Vaal Bladedancer",
 		"Undead Vaal Guard",
+		"Undertaker",
+		"Vaal Axeman",
+		"Vaal Embalmed Archer",
+		"Vaal Embalmed Axeman",
+		"Vaal Embalmed Bearer",
+		"Vaal Embalmed Rogue",
+		"Vaal Embalmed Spearman",
+		"Vaal Excoriator",
+		"Vaal Formshifter",
+		"Vaal Goliath",
+		"Vaal Guard",
+		"Vaal Overseer",
+		"Vaal Skeletal Archer",
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
+		"Vaal Skeletal Warrior",
+		"Vault Lurker",
+		"Venomous Crab",
+		"Venomous Crab Matriarch",
+		"Vile Hag",
+		"Vile Imp",
+		"Vile Vulture",
+		"Viper Legionnaire",
+		"Walking Goliath",
+		"Warrior Transcendent",
+		"Werewolf Prowler",
+		"Winged Fiend",
+		"Winged Horror",
+		"Wretched Rattler",
 	},
 }
 
@@ -2245,13 +2377,14 @@ worldAreas["G3_14"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Guard",
-		"Vaal Excoriator",
-		"Loyal Jaguar",
 		"Chaotic Zealot",
-		"Vaal Overseer",
-		"Vaal Goliath",
 		"Gelid Zealot",
+		"Loyal Jaguar",
+		"Vaal Excoriator",
+		"Vaal Goliath",
+		"Vaal Guard",
+		"Vaal Overseer",
+		"Viper Legionnaire",
 	},
 }
 
@@ -2264,10 +2397,10 @@ worldAreas["G3_15"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Overseer",
-		"Vaal Guard",
 		"Vaal Enforcer",
 		"Vaal Excoriator",
+		"Vaal Guard",
+		"Vaal Overseer",
 		"Vaal Researcher",
 	},
 }
@@ -2282,10 +2415,16 @@ worldAreas["G3_16"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Axeman",
-		"Vaal Goliath",
+		"Bannerbearing Zealot",
 		"Blood Priest",
 		"Blood Priestess",
+		"Blood Zealot",
+		"Chaotic Zealot",
+		"Fiery Zealot",
+		"Gelid Zealot",
+		"Vaal Axeman",
+		"Vaal Formshifter",
+		"Vaal Goliath",
 	},
 }
 
@@ -2299,14 +2438,14 @@ worldAreas["G3_17"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Doryani's Elite",
+		"Bladelash Transcendent",
 		"Brutal Transcendent",
+		"Doryani's Elite",
+		"Fused Swordsman",
+		"Goliath Transcendent",
+		"Shielded Transcendent",
 		"Surgical Experimentalist",
 		"Warrior Transcendent",
-		"Bladelash Transcendent",
-		"Goliath Transcendent",
-		"Fused Swordsman",
-		"Shielded Transcendent",
 	},
 }
 
@@ -2333,10 +2472,10 @@ worldAreas["C_G1_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Porcupine Crab",
 		"Drowned",
-		"River Hag",
 		"Drowned Crawler",
+		"Porcupine Crab",
+		"River Hag",
 	},
 }
 
@@ -2351,9 +2490,9 @@ worldAreas["C_G1_2"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Drowned",
-		"Vile Imp",
-		"Vile Hag",
 		"Rotten Wolf",
+		"Vile Hag",
+		"Vile Imp",
 	},
 }
 
@@ -2367,6 +2506,10 @@ worldAreas["C_G1_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Flesh Larva",
+		"Mud Simulacrum",
+		"Plague Nymph",
+		"Rotted Rat",
 		"Wretched Rattler",
 	},
 }
@@ -2381,14 +2524,16 @@ worldAreas["C_G1_4"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Pack Werewolf",
-		"Werewolf Prowler",
-		"Vile Imp",
-		"Vile Hag",
-		"Fungal Rattler",
-		"Fungal Proliferator",
+		"Cultivated Grove",
 		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Rattler",
 		"Fungal Zombie",
+		"Pack Werewolf",
+		"Skeleton Spriggan",
+		"Vile Hag",
+		"Vile Imp",
+		"Werewolf Prowler",
 	},
 }
 
@@ -2403,9 +2548,10 @@ worldAreas["C_G1_5"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
-		"Risen Arbalest",
-		"Maw Demon",
+		"Bloom Serpent",
 		"Knight-Gaunt",
+		"Maw Demon",
+		"Risen Arbalest",
 	},
 }
 
@@ -2419,11 +2565,11 @@ worldAreas["C_G1_6"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Fungal Zombie",
+		"Fungal Artillery",
 		"Fungal Proliferator",
 		"Fungal Rattler",
-		"Fungal Artillery",
 		"Fungal Wolf",
+		"Fungal Zombie",
 	},
 }
 
@@ -2437,11 +2583,12 @@ worldAreas["C_G1_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Frost Wraith",
-		"Hungering Stalker",
 		"Bearer of Penitence",
 		"Burdened Wretch",
 		"Death Knight",
+		"Frost Wraith",
+		"Hungering Stalker",
+		"Risen Rattler",
 		"Undertaker",
 	},
 }
@@ -2456,14 +2603,14 @@ worldAreas["C_G1_8"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Lightning Wraith",
-		"Eternal Knight",
 		"Blood Cretin",
 		"Courtesan",
-		"Wheelbound Hag",
+		"Eternal Knight",
+		"Ghoul Commander",
+		"Lightning Wraith",
 		"Risen Rattler",
 		"Skulking Ghoul",
-		"Ghoul Commander",
+		"Wheelbound Hag",
 	},
 }
 
@@ -2477,11 +2624,11 @@ worldAreas["C_G1_9"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Bone Stalker",
 		"Dread Servant",
 		"Eternal Knight",
-		"Risen Rattler",
 		"Knight-Gaunt",
-		"Bone Stalker",
+		"Risen Rattler",
 	},
 }
 
@@ -2507,11 +2654,12 @@ worldAreas["C_G1_11"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Venomous Crab Matriarch",
 		"Bramble Ape",
-		"Bramble Hulk",
 		"Bramble Burrower",
+		"Bramble Hulk",
 		"Bramble Rhoa",
+		"Venomous Crab",
+		"Venomous Crab Matriarch",
 	},
 }
 
@@ -2525,13 +2673,15 @@ worldAreas["C_G1_12"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Skeleton Spriggan",
-		"Cultist Warrior",
-		"Cultist Brute",
 		"Cultist Archer",
-		"Cultist Witch",
+		"Cultist Brute",
 		"Cultist Daggerdancer",
+		"Cultist Warrior",
+		"Cultist Witch",
 		"Ribrattle",
+		"Skeleton Spriggan",
+		"Skullslinger",
+		"Spinesnatcher",
 	},
 }
 
@@ -2546,15 +2696,15 @@ worldAreas["C_G1_13_1"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Decrepit Mercenary",
-		"Iron Thaumaturgist",
 		"Iron Guard",
-		"Voracious Werewolf",
+		"Iron Thaumaturgist",
 		"Pack Werewolf",
-		"Werewolf Prowler",
+		"Rabid Dog",
+		"Risen Farmhand",
 		"Rotting Crow",
 		"Scarecrow Beast",
-		"Risen Farmhand",
-		"Rabid Dog",
+		"Voracious Werewolf",
+		"Werewolf Prowler",
 	},
 }
 
@@ -2568,11 +2718,13 @@ worldAreas["C_G1_13_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Blood Collector",
+		"Blood Cretin",
+		"Burning Dead",
+		"Courtesan",
+		"Decrepit Mercenary",
 		"Voracious Werewolf",
 		"Werewolf Prowler",
-		"Blood Cretin",
-		"Blood Collector",
-		"Courtesan",
 	},
 }
 
@@ -2586,15 +2738,16 @@ worldAreas["C_G1_14"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Death Knight",
-		"Gargoyle Demon",
 		"Blood Carrier",
-		"Blood Cretin",
 		"Blood Collector",
+		"Blood Cretin",
 		"Courtesan",
-		"Iron Thaumaturgist",
-		"Iron Spearman",
+		"Death Knight",
+		"Decrepit Mercenary",
+		"Gargoyle Demon",
 		"Iron Guard",
+		"Iron Spearman",
+		"Iron Thaumaturgist",
 	},
 }
 
@@ -2609,16 +2762,16 @@ worldAreas["C_G1_15"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Blood Carrier",
-		"Blood Cretin",
 		"Blood Collector",
+		"Blood Cretin",
 		"Courtesan",
-		"Tendril Prowler",
-		"Tendril Sentinel",
-		"Iron Spearman",
-		"Iron Thaumaturgist",
-		"Iron Sharpshooter",
 		"Iron Enforcer",
 		"Iron Guard",
+		"Iron Sharpshooter",
+		"Iron Spearman",
+		"Iron Thaumaturgist",
+		"Tendril Prowler",
+		"Tendril Sentinel",
 	},
 }
 
@@ -2645,11 +2798,12 @@ worldAreas["C_G2_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Hyena Demon",
-		"Sun Clan Scavenger",
+		"Brimstone Crab",
 		"Crag Leaper",
-		"Sandscoured Dead",
+		"Hyena Demon",
 		"Rotting Hulk",
+		"Sandscoured Dead",
+		"Sun Clan Scavenger",
 	},
 }
 
@@ -2663,10 +2817,13 @@ worldAreas["C_G2_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
-		"Risen Arbalest",
 		"Desiccated Lich",
+		"Quake Golem",
+		"Risen Arbalest",
+		"Risen Maraketh",
+		"Skitter Golem",
 		"Tombshrieker",
+		"Vault Lurker",
 	},
 }
 
@@ -2680,6 +2837,17 @@ worldAreas["C_G2_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Boulder Ant",
+		"Faridun Bladedancer",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 	},
 }
 
@@ -2719,11 +2887,13 @@ worldAreas["C_G2_4_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Tarnished Beetle",
-		"Tarnished Scarab",
+		"Desiccated Lich",
+		"Living Sand",
+		"Risen Maraketh",
 		"Serpent Clan",
 		"Serpent Shaman",
-		"Desiccated Lich",
+		"Tarnished Beetle",
+		"Tarnished Scarab",
 	},
 }
 
@@ -2737,12 +2907,13 @@ worldAreas["C_G2_4_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Adorned Beetle",
+		"Adorned Scarab",
+		"Risen Arbalest",
+		"Risen Maraketh",
 		"Serpent Clan",
 		"Serpent Shaman",
-		"Risen Arbalest",
-		"Adorned Beetle",
 		"Tarnished Beetle",
-		"Adorned Scarab",
 	},
 }
 
@@ -2756,9 +2927,11 @@ worldAreas["C_G2_4_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Sand Spirit",
 		"Mar Acolyte",
 		"Risen Arbalest",
+		"Risen Maraketh",
+		"Sand Spirit",
+		"Vesper Bat",
 	},
 }
 
@@ -2773,12 +2946,13 @@ worldAreas["C_G2_5_1"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Gilded Cobra",
+		"Lost-men Brute",
+		"Lost-men Necromancer",
 		"Lost-men Zealot",
+		"Ribrattle",
+		"Sabre Spider",
 		"Skullslinger",
 		"Spinesnatcher",
-		"Lost-men Necromancer",
-		"Lost-men Brute",
-		"Sabre Spider",
 	},
 }
 
@@ -2792,16 +2966,17 @@ worldAreas["C_G2_5_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Drudge Osseodon",
 		"Gilded Cobra",
+		"Hyena Demon",
+		"Lost-men Brute",
+		"Lost-men Necromancer",
+		"Lost-men Subjugator",
 		"Lost-men Zealot",
+		"Ribrattle",
 		"Skullslinger",
 		"Spinesnatcher",
-		"Lost-men Necromancer",
-		"Lost-men Brute",
-		"Hyena Demon",
 		"Sun Clan Scavenger",
-		"Lost-men Subjugator",
-		"Drudge Osseodon",
 	},
 }
 
@@ -2815,12 +2990,14 @@ worldAreas["C_G2_6"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
-		"Risen Arbalest",
 		"Desiccated Lich",
-		"Walking Goliath",
 		"Dune Lurker",
 		"Mantis Rat",
+		"Quake Golem",
+		"Risen Arbalest",
+		"Risen Maraketh",
+		"Skitter Golem",
+		"Walking Goliath",
 	},
 }
 
@@ -2834,11 +3011,11 @@ worldAreas["C_G2_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Goliath",
+		"Sandflesh Mage",
 		"Sandflesh Skeleton",
 		"Sandflesh Warrior",
-		"Sandflesh Mage",
 		"Winged Horror",
-		"Goliath",
 	},
 }
 
@@ -2852,12 +3029,12 @@ worldAreas["C_G2_8"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Regurgitating Vulture",
-		"Rasp Scavenger",
 		"Maraketh Undead",
-		"Vile Vulture",
 		"Porcupine Goliath",
+		"Rasp Scavenger",
+		"Regurgitating Vulture",
 		"Sabre Spider",
+		"Vile Vulture",
 	},
 }
 
@@ -2871,8 +3048,8 @@ worldAreas["C_G2_9_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Maraketh",
 		"Maraketh Undead",
+		"Risen Maraketh",
 		"Risen Tale-woman",
 	},
 }
@@ -2887,6 +3064,17 @@ worldAreas["C_G2_9_2_"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Bladedancer",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Impaler",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 		"Maraketh Undead",
 		"Winged Fiend",
 	},
@@ -2902,12 +3090,13 @@ worldAreas["C_G2_10_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Corrupted Corpse",
-		"Plague Swarm",
-		"Plague Harvester",
 		"Armoured Rhex",
+		"Corrupted Corpse",
+		"Faridun Crawler",
 		"Forsaken Hulk",
 		"Forsaken Miner",
+		"Plague Harvester",
+		"Plague Swarm",
 	},
 }
 
@@ -2922,11 +3111,13 @@ worldAreas["C_G2_10_2"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Corrupted Corpse",
+		"Faridun Crawler",
+		"Forgotten Crawler",
+		"Forgotten Satyr",
+		"Forgotten Stalker",
 		"Forsaken Miner",
 		"Mantis Rat",
-		"Forgotten Crawler",
-		"Forgotten Stalker",
-		"Forgotten Satyr",
+		"Plague Nymph",
 	},
 }
 
@@ -2939,11 +3130,12 @@ worldAreas["C_G2_11"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Rasp Scavenger",
 		"Corrupted Corpse",
+		"Plague Harvester",
 		"Plague Nymph",
 		"Plague Swarm",
-		"Plague Harvester",
+		"Porcupine Goliath",
+		"Rasp Scavenger",
 		"Rhex",
 	},
 }
@@ -2958,10 +3150,20 @@ worldAreas["C_G2_12_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Bladedancer",
 		"Faridun Crawler",
-		"Plague Swarm",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
 		"Faridun Plaguebringer",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 		"Plague Harvester",
+		"Plague Swarm",
 	},
 }
 
@@ -2975,7 +3177,17 @@ worldAreas["C_G2_12_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Bladedancer",
 		"Faridun Butcher",
+		"Faridun Fledgling",
+		"Faridun Heavy Infantry",
+		"Faridun Infantry",
+		"Faridun Javelineer",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Spearwoman",
+		"Faridun Swordsman",
+		"Faridun Wind-slicer",
 	},
 }
 
@@ -3002,16 +3214,16 @@ worldAreas["C_G3_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bogfelled Slave",
-		"Bogfelled Commoner",
-		"Dredge Fiend",
-		"Bloodthief Wasp",
 		"Bloodthief Queen",
-		"Rotting Hulk",
-		"Orok Hunter",
+		"Bloodthief Wasp",
+		"Bogfelled Commoner",
+		"Bogfelled Slave",
+		"Dredge Fiend",
 		"Orok Fleshstabber",
-		"Orok Throatcutter",
+		"Orok Hunter",
 		"Orok Shaman",
+		"Orok Throatcutter",
+		"Rotting Hulk",
 	},
 }
 
@@ -3025,9 +3237,10 @@ worldAreas["C_G3_2_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bane Sapling",
 		"Antlion Charger",
+		"Bane Sapling",
 		"Diretusk Boar",
+		"Ill-fated Explorer",
 	},
 }
 
@@ -3043,12 +3256,14 @@ worldAreas["C_G3_2_2"] = {
 	monsterVarieties = {
 		"Azak Brute",
 		"Azak Fleshstabber",
+		"Azak Mongrelmaster",
 		"Azak Shaman",
+		"Azak Spearthrower",
 		"Azak Stalker",
 		"Azak Throatcutter",
-		"Azak Spearthrower",
-		"Azak Mongrelmaster",
 		"Chaw Mongrel",
+		"Chyme Skitterer",
+		"River Drake",
 	},
 }
 
@@ -3062,15 +3277,15 @@ worldAreas["C_G3_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Quadrilla",
 		"Alpha Primate",
-		"Feral Primate",
+		"Antlion Charger",
+		"Bane Sapling",
 		"Constricted Shambler",
 		"Constricted Spitter",
-		"Snakethroat Shambler",
 		"Entwined Hulk",
-		"Bane Sapling",
-		"Antlion Charger",
+		"Feral Primate",
+		"Quadrilla",
+		"Snakethroat Shambler",
 	},
 }
 
@@ -3084,13 +3299,14 @@ worldAreas["C_G3_4"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Snakethroat Shambler",
-		"Constricted Spitter",
 		"Constricted Shambler",
-		"Entwined Hulk",
+		"Constricted Spitter",
 		"Entrailhome Shambler",
-		"Slitherspitter",
+		"Entwined Hulk",
+		"Rotted Rat",
 		"Scorpion Monkey",
+		"Slitherspitter",
+		"Snakethroat Shambler",
 	},
 }
 
@@ -3104,10 +3320,11 @@ worldAreas["C_G3_5"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Prowling Chimeral",
-		"Ill-fated Explorer",
 		"Bloom Serpent",
 		"Diretusk Boar",
+		"Ill-fated Explorer",
+		"Prowling Chimeral",
+		"River Drake",
 	},
 }
 
@@ -3121,13 +3338,15 @@ worldAreas["C_G3_6_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Skeletal Warrior",
-		"Vaal Skeletal Squire",
-		"Vaal Skeletal Priest",
-		"Vaal Skeletal Archer",
-		"Rotted Rat",
+		"Crawler Sentinel",
 		"Pale-stitched Stalker",
+		"Rotted Rat",
 		"Rusted Dyna Golem",
+		"Rusted Reconstructor",
+		"Vaal Skeletal Archer",
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
+		"Vaal Skeletal Warrior",
 	},
 }
 
@@ -3141,14 +3360,14 @@ worldAreas["C_G3_6_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Skeletal Warrior",
-		"Vaal Skeletal Squire",
-		"Vaal Skeletal Archer",
-		"Vaal Skeletal Priest",
 		"Pale-stitched Stalker",
+		"Prowling Shade",
 		"Undead Vaal Bladedancer",
 		"Undead Vaal Guard",
-		"Prowling Shade",
+		"Vaal Skeletal Archer",
+		"Vaal Skeletal Priest",
+		"Vaal Skeletal Squire",
+		"Vaal Skeletal Warrior",
 	},
 }
 
@@ -3162,16 +3381,16 @@ worldAreas["C_G3_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Azak Throatcutter",
-		"Azak Fleshstabber",
 		"Azak Brute",
 		"Azak Fledgling",
-		"Chaw Mongrel",
-		"Azak Stalker",
-		"Azak Shaman",
+		"Azak Fleshstabber",
 		"Azak Mauler",
-		"Azak Torchbearer",
+		"Azak Shaman",
 		"Azak Spearthrower",
+		"Azak Stalker",
+		"Azak Throatcutter",
+		"Azak Torchbearer",
+		"Chaw Mongrel",
 	},
 }
 
@@ -3185,19 +3404,20 @@ worldAreas["C_G3_8"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Hunchback Clubber",
-		"Filthy Lobber",
+		"Chyme Skitterer",
+		"Drowned Crawler",
+		"Drowned Explorer",
+		"Filthy Crone",
 		"Filthy First-born",
+		"Filthy Lobber",
+		"Flathead Clubber",
 		"Flathead Warrior",
-		"Foul Sage",
 		"Foul Blacksmith",
 		"Foul Mauler",
-		"Filthy Crone",
-		"Flathead Clubber",
-		"Chyme Skitterer",
-		"Drowned Explorer",
+		"Foul Sage",
+		"Hunchback Clubber",
+		"River Drake",
 		"River Hag",
-		"Drowned Crawler",
 	},
 }
 
@@ -3211,11 +3431,13 @@ worldAreas["C_G3_9"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Gold-Melted Sentinel",
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
-		"Vaal Embalmed Axeman",
-		"Vaal Embalmed Rogue",
 		"Vaal Embalmed Archer",
+		"Vaal Embalmed Axeman",
+		"Vaal Embalmed Bearer",
+		"Vaal Embalmed Rogue",
 		"Vaal Embalmed Spearman",
 	},
 }
@@ -3243,17 +3465,17 @@ worldAreas["C_G3_11"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Flathead Warrior",
-		"Hunchback Clubber",
-		"Foul Sage",
-		"Flathead Youngling",
-		"Pyromushroom Cultivator",
 		"Filthy Crone",
-		"Foul Blacksmith",
-		"Flathead Clubber",
 		"Filthy First-born",
 		"Filthy Lobber",
+		"Flathead Clubber",
+		"Flathead Warrior",
+		"Flathead Youngling",
+		"Foul Blacksmith",
 		"Foul Mauler",
+		"Foul Sage",
+		"Hunchback Clubber",
+		"Pyromushroom Cultivator",
 	},
 }
 
@@ -3267,9 +3489,9 @@ worldAreas["C_G3_12"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bloodrite Priest",
-		"Bloodrite Guard",
 		"Adorned Miscreation",
+		"Bloodrite Guard",
+		"Bloodrite Priest",
 		"Priest of the Sun",
 	},
 }
@@ -3284,13 +3506,14 @@ worldAreas["C_G3_14"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Guard",
-		"Vaal Excoriator",
-		"Loyal Jaguar",
 		"Chaotic Zealot",
-		"Vaal Overseer",
-		"Vaal Goliath",
 		"Gelid Zealot",
+		"Loyal Jaguar",
+		"Vaal Excoriator",
+		"Vaal Goliath",
+		"Vaal Guard",
+		"Vaal Overseer",
+		"Viper Legionnaire",
 	},
 }
 
@@ -3303,10 +3526,10 @@ worldAreas["C_G3_15"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Overseer",
-		"Vaal Guard",
 		"Vaal Enforcer",
 		"Vaal Excoriator",
+		"Vaal Guard",
+		"Vaal Overseer",
 		"Vaal Researcher",
 	},
 }
@@ -3321,10 +3544,16 @@ worldAreas["C_G3_16_"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Vaal Axeman",
-		"Vaal Goliath",
+		"Bannerbearing Zealot",
 		"Blood Priest",
 		"Blood Priestess",
+		"Blood Zealot",
+		"Chaotic Zealot",
+		"Fiery Zealot",
+		"Gelid Zealot",
+		"Vaal Axeman",
+		"Vaal Formshifter",
+		"Vaal Goliath",
 	},
 }
 
@@ -3338,14 +3567,14 @@ worldAreas["C_G3_17"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Doryani's Elite",
+		"Bladelash Transcendent",
 		"Brutal Transcendent",
+		"Doryani's Elite",
+		"Fused Swordsman",
+		"Goliath Transcendent",
+		"Shielded Transcendent",
 		"Surgical Experimentalist",
 		"Warrior Transcendent",
-		"Bladelash Transcendent",
-		"Goliath Transcendent",
-		"Fused Swordsman",
-		"Shielded Transcendent",
 	},
 }
 
@@ -3422,15 +3651,15 @@ worldAreas["MapBackwash"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Foul Blacksmith",
-		"Flathead Clubber",
-		"Pyromushroom Cultivator",
+		"Filthy Crone",
 		"Filthy First-born",
 		"Filthy Lobber",
+		"Flathead Clubber",
 		"Flathead Warrior",
-		"Foul Sage",
+		"Foul Blacksmith",
 		"Foul Mauler",
-		"Filthy Crone",
+		"Foul Sage",
+		"Pyromushroom Cultivator",
 	},
 }
 
@@ -3443,15 +3672,15 @@ worldAreas["MapBackwash_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Foul Blacksmith",
-		"Flathead Clubber",
-		"Pyromushroom Cultivator",
+		"Filthy Crone",
 		"Filthy First-born",
 		"Filthy Lobber",
+		"Flathead Clubber",
 		"Flathead Warrior",
-		"Foul Sage",
+		"Foul Blacksmith",
 		"Foul Mauler",
-		"Filthy Crone",
+		"Foul Sage",
+		"Pyromushroom Cultivator",
 	},
 }
 
@@ -3464,8 +3693,8 @@ worldAreas["MapBurialBog"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bogfelled Slave",
 		"Bogfelled Commoner",
+		"Bogfelled Slave",
 		"Dredge Fiend",
 	},
 }
@@ -3479,8 +3708,8 @@ worldAreas["MapBurialBog_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bogfelled Slave",
 		"Bogfelled Commoner",
+		"Bogfelled Slave",
 		"Dredge Fiend",
 	},
 }
@@ -3611,10 +3840,10 @@ worldAreas["MapCenotes_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bogfelled Slave",
 		"Bogfelled Commoner",
-		"Swamp Golem",
+		"Bogfelled Slave",
 		"Rotting Hulk",
+		"Swamp Golem",
 	},
 }
 
@@ -3683,8 +3912,8 @@ worldAreas["MapPenitentiary"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Lost-men Zealot",
 		"Gilded Cobra",
+		"Lost-men Zealot",
 	},
 }
 
@@ -3697,8 +3926,8 @@ worldAreas["MapPenitentiary_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Lost-men Zealot",
 		"Gilded Cobra",
+		"Lost-men Zealot",
 	},
 }
 
@@ -3711,9 +3940,9 @@ worldAreas["MapLostTowers"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Blood Zealot",
 		"Blood Priest",
 		"Blood Priestess",
+		"Blood Zealot",
 		"Vaal Formshifter",
 	},
 }
@@ -3727,9 +3956,9 @@ worldAreas["MapLostTowers_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Blood Zealot",
 		"Blood Priest",
 		"Blood Priestess",
+		"Blood Zealot",
 		"Vaal Formshifter",
 	},
 }
@@ -3743,8 +3972,8 @@ worldAreas["MapBloodwood"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Blood Cretin",
 		"Blood Collector",
+		"Blood Cretin",
 		"Courtesan",
 	},
 }
@@ -3758,8 +3987,8 @@ worldAreas["MapBloodwood_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Blood Cretin",
 		"Blood Collector",
+		"Blood Cretin",
 		"Courtesan",
 	},
 }
@@ -3785,6 +4014,7 @@ worldAreas["MapSandspit_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Venomous Crab",
 		"Venomous Crab Matriarch",
 	},
 }
@@ -3824,10 +4054,10 @@ worldAreas["MapSulphuricCaverns"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Orok Hunter",
 		"Orok Fleshstabber",
-		"Orok Throatcutter",
+		"Orok Hunter",
 		"Orok Shaman",
+		"Orok Throatcutter",
 	},
 }
 
@@ -3840,10 +4070,10 @@ worldAreas["MapSulphuricCaverns_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Orok Hunter",
 		"Orok Fleshstabber",
-		"Orok Throatcutter",
+		"Orok Hunter",
 		"Orok Shaman",
+		"Orok Throatcutter",
 	},
 }
 
@@ -3856,8 +4086,8 @@ worldAreas["MapMire"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Cultist Daggerdancer",
 		"Cultist Archer",
+		"Cultist Daggerdancer",
 	},
 }
 
@@ -3870,8 +4100,8 @@ worldAreas["MapMire_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Cultist Daggerdancer",
 		"Cultist Archer",
+		"Cultist Daggerdancer",
 	},
 }
 
@@ -3884,8 +4114,8 @@ worldAreas["MapAugury"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Slitherspitter",
 		"Constricted Spitter",
+		"Slitherspitter",
 	},
 }
 
@@ -3898,8 +4128,8 @@ worldAreas["MapAugury_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Slitherspitter",
 		"Constricted Spitter",
+		"Slitherspitter",
 	},
 }
 
@@ -3913,6 +4143,7 @@ worldAreas["MapWoodland"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Antlion Charger",
+		"Ill-fated Explorer",
 	},
 }
 
@@ -3926,6 +4157,7 @@ worldAreas["MapWoodland_NoBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Antlion Charger",
+		"Ill-fated Explorer",
 	},
 }
 
@@ -3938,8 +4170,8 @@ worldAreas["MapSump"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ill-fated Explorer",
 		"Diretusk Boar",
+		"Ill-fated Explorer",
 	},
 }
 
@@ -3952,8 +4184,8 @@ worldAreas["MapSump_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Ill-fated Explorer",
 		"Diretusk Boar",
+		"Ill-fated Explorer",
 	},
 }
 
@@ -3967,6 +4199,7 @@ worldAreas["MapWillow"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Lightning Wraith",
+		"Risen Rattler",
 	},
 }
 
@@ -3980,6 +4213,7 @@ worldAreas["MapWillow_NoBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Lightning Wraith",
+		"Risen Rattler",
 	},
 }
 
@@ -4044,6 +4278,7 @@ worldAreas["MapLoftySummit"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Frost Wraith",
+		"Risen Rattler",
 	},
 }
 
@@ -4057,6 +4292,7 @@ worldAreas["MapLoftySummit_NoBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Frost Wraith",
+		"Risen Rattler",
 	},
 }
 
@@ -4070,6 +4306,7 @@ worldAreas["MapNecropolis"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Death Knight",
+		"Risen Rattler",
 	},
 }
 
@@ -4083,6 +4320,7 @@ worldAreas["MapNecropolis_NoBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Death Knight",
+		"Risen Rattler",
 	},
 }
 
@@ -4096,6 +4334,7 @@ worldAreas["MapCrypt"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Knight-Gaunt",
+		"Risen Rattler",
 	},
 }
 
@@ -4109,6 +4348,7 @@ worldAreas["MapCrypt_NoBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Knight-Gaunt",
+		"Risen Rattler",
 	},
 }
 
@@ -4121,6 +4361,8 @@ worldAreas["MapHiddenGrotto"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Quake Golem",
+		"Skitter Golem",
 	},
 }
 
@@ -4133,6 +4375,8 @@ worldAreas["MapHiddenGrotto_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Quake Golem",
+		"Skitter Golem",
 	},
 }
 
@@ -4171,9 +4415,9 @@ worldAreas["MapSeepage"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Fungal Rattler",
-		"Fungal Proliferator",
 		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Rattler",
 	},
 }
 
@@ -4186,9 +4430,9 @@ worldAreas["MapSeepage_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Fungal Rattler",
-		"Fungal Proliferator",
 		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Rattler",
 	},
 }
 
@@ -4229,8 +4473,8 @@ worldAreas["MapRavine"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Snakethroat Shambler",
 		"Constricted Spitter",
+		"Snakethroat Shambler",
 	},
 }
 
@@ -4243,8 +4487,8 @@ worldAreas["MapRavine_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Snakethroat Shambler",
 		"Constricted Spitter",
+		"Snakethroat Shambler",
 	},
 }
 
@@ -4283,8 +4527,9 @@ worldAreas["MapAbyss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Arbalest",
 		"Mar Acolyte",
+		"Risen Arbalest",
+		"Risen Maraketh",
 	},
 }
 
@@ -4297,8 +4542,9 @@ worldAreas["MapAbyss_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Risen Arbalest",
 		"Mar Acolyte",
+		"Risen Arbalest",
+		"Risen Maraketh",
 	},
 }
 
@@ -4311,6 +4557,7 @@ worldAreas["MapGrimhaven"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Decrepit Mercenary",
 		"Iron Thaumaturgist",
 	},
 }
@@ -4324,6 +4571,7 @@ worldAreas["MapGrimhaven_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Decrepit Mercenary",
 		"Iron Thaumaturgist",
 	},
 }
@@ -4387,6 +4635,7 @@ worldAreas["MapVaalCity"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Viper Legionnaire",
 	},
 }
 
@@ -4399,6 +4648,7 @@ worldAreas["MapVaalCity_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Viper Legionnaire",
 	},
 }
 
@@ -4479,8 +4729,8 @@ worldAreas["MapRockpools_NoBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Constricted Shambler",
-		"Snakethroat Shambler",
 		"Constricted Spitter",
+		"Snakethroat Shambler",
 	},
 }
 
@@ -4532,6 +4782,10 @@ worldAreas["MapOutlands"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
 	},
 }
 
@@ -4544,6 +4798,10 @@ worldAreas["MapOutlands_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
 	},
 }
 
@@ -4584,9 +4842,9 @@ worldAreas["MapDecay"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Fungal Zombie",
-		"Fungal Proliferator",
 		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Zombie",
 	},
 }
 
@@ -4599,9 +4857,9 @@ worldAreas["MapDecay_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Fungal Zombie",
-		"Fungal Proliferator",
 		"Fungal Artillery",
+		"Fungal Proliferator",
+		"Fungal Zombie",
 	},
 }
 
@@ -4640,8 +4898,8 @@ worldAreas["MapDeserted"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Living Sand",
 		"Desiccated Lich",
+		"Living Sand",
 	},
 }
 
@@ -4654,8 +4912,8 @@ worldAreas["MapDeserted_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Living Sand",
 		"Desiccated Lich",
+		"Living Sand",
 	},
 }
 
@@ -4668,6 +4926,10 @@ worldAreas["MapOasis"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
 	},
 }
 
@@ -4680,6 +4942,10 @@ worldAreas["MapOasis_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Faridun Heavy Infantry",
+		"Faridun Neophyte",
+		"Faridun Spearman",
+		"Faridun Swordsman",
 	},
 }
 
@@ -4766,9 +5032,9 @@ worldAreas["MapSunTemple"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Bloodrite Guard",
 		"Bloodrite Priest",
 		"Priest of the Sun",
-		"Bloodrite Guard",
 	},
 }
 
@@ -4781,9 +5047,9 @@ worldAreas["MapSunTemple_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Bloodrite Guard",
 		"Bloodrite Priest",
 		"Priest of the Sun",
-		"Bloodrite Guard",
 	},
 }
 
@@ -4796,8 +5062,8 @@ worldAreas["MapChannel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Sand Spirit",
 		"Mar Acolyte",
+		"Sand Spirit",
 	},
 }
 
@@ -4810,8 +5076,8 @@ worldAreas["MapChannel_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Sand Spirit",
 		"Mar Acolyte",
+		"Sand Spirit",
 	},
 }
 
@@ -4824,9 +5090,9 @@ worldAreas["MapVaalFoundry"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Gold-Melted Sentinel",
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
-		"Gold-Melted Sentinel",
 	},
 }
 
@@ -4839,9 +5105,9 @@ worldAreas["MapVaalFoundry_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Gold-Melted Sentinel",
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
-		"Gold-Melted Sentinel",
 	},
 }
 
@@ -4906,8 +5172,8 @@ worldAreas["MapBluff"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Entrailhome Shambler",
 		"Constricted Spitter",
+		"Entrailhome Shambler",
 		"Slitherspitter",
 	},
 }
@@ -4921,8 +5187,8 @@ worldAreas["MapBluff_NoBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Entrailhome Shambler",
 		"Constricted Spitter",
+		"Entrailhome Shambler",
 		"Slitherspitter",
 	},
 }
@@ -4960,12 +5226,12 @@ worldAreas["MapUniqueUntaintedParadise"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Caustic Crab",
-		"Quill Crab",
 		"Bramble Ape",
+		"Bramble Burrower",
 		"Bramble Hulk",
 		"Bramble Rhoa",
-		"Bramble Burrower",
+		"Caustic Crab",
+		"Quill Crab",
 	},
 }
 
@@ -4990,20 +5256,20 @@ worldAreas["MapUniqueCastaway"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Searot Skeleton",
-		"Searot Sniper",
-		"Searot Ensnarer",
-		"Searot Harpooner",
-		"Drowned Explorer",
-		"Drowned Bearer",
 		"Bloated Anchorman",
+		"Drowned Bearer",
 		"Drowned Crawler",
+		"Drowned Explorer",
 		"Gull Shrike",
 		"Man o' War",
+		"Rotting Cannoneer",
+		"Rotting Demolitionist",
 		"Rotting Grenadier",
 		"Rotting Soulcatcher",
-		"Rotting Demolitionist",
-		"Rotting Cannoneer",
+		"Searot Ensnarer",
+		"Searot Harpooner",
+		"Searot Skeleton",
+		"Searot Sniper",
 	},
 }
 
@@ -5017,12 +5283,12 @@ worldAreas["MapUniqueMegalith"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Ancient Ezomyte",
-		"Risen Arbalest",
 		"Pack Werewolf",
-		"Werewolf Prowler",
-		"Vile Imp",
-		"Vile Hag",
+		"Risen Arbalest",
 		"Skeleton Spriggan",
+		"Vile Hag",
+		"Vile Imp",
+		"Werewolf Prowler",
 	},
 }
 
@@ -5179,6 +5445,24 @@ worldAreas["MapUniqueWildwood"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Cultist Archer",
+		"Cultist Brute",
+		"Cultist Daggerdancer",
+		"Cultist Warrior",
+		"Cultist Witch",
+		"Forgotten Stag",
+		"Nameless Burrower",
+		"Nameless Dweller",
+		"Nameless Horror",
+		"Nameless Hulk",
+		"Nameless Lurker",
+		"Nameless Vermin",
+		"Treant Foulspawn",
+		"Treant Fungalreaver",
+		"Treant Hookhorror",
+		"Treant Mystic",
+		"Treant Sage",
+		"Treant Spriggan",
 	},
 }
 
@@ -5191,8 +5475,8 @@ worldAreas["MapUberBoss_IronCitadel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Iron Spearman",
 		"Iron Sharpshooter",
+		"Iron Spearman",
 	},
 }
 
@@ -5206,6 +5490,7 @@ worldAreas["MapUberBoss_CopperCitadel"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Faridun Butcher",
+		"Faridun Infantry",
 	},
 }
 
@@ -5219,9 +5504,9 @@ worldAreas["MapUberBoss_StoneCitadel"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Bladelash Transcendent",
+		"Brutal Transcendent",
 		"Surgical Experimentalist",
 		"Warrior Transcendent",
-		"Brutal Transcendent",
 	},
 }
 
@@ -5271,6 +5556,8 @@ worldAreas["ExpeditionLogBook_Tundra"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Blood Zealot",
+		"Gelid Zealot",
 	},
 }
 
@@ -5391,17 +5678,17 @@ worldAreas["BreachDomain_01"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"It That Grasps",
-		"It That Crawls",
-		"It That Watches",
-		"It That Hunts",
-		"It That Hates",
-		"It That Shreds",
-		"It That Lashes",
-		"It That Guards",
 		"It That Controls",
+		"It That Crawls",
 		"It That Creeps",
+		"It That Grasps",
+		"It That Guards",
+		"It That Hates",
+		"It That Hunts",
+		"It That Lashes",
+		"It That Shreds",
 		"It That Stalks",
+		"It That Watches",
 	},
 }
 

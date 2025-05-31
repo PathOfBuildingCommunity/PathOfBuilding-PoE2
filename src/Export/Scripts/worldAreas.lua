@@ -4,27 +4,30 @@
 -- World Area Data (c) Grinding Gear Games
 --
 
--- Step 0: Read Spectres.lua to get spectre IDs
+
 local importedSpectres = {}
+
 local file = io.open("../Data/Spectres.lua", "r")
 if file then
+	local currentSpectreName = nil
 	for line in file:lines() do
-		local id = line:match('minions%[%"(.-)%"%]')
-		if id then
-			importedSpectres[id] = true
+		-- Try to capture the name line inside the spectre table:
+		local name = line:match('name%s*=%s*"(.-)"')
+		if name then
+			importedSpectres[name] = true
 		end
 	end
 	file:close()
 end
 
--- Step 1: Build packId -> monster names (spectre-eligible + imported only)
-local packIdToMonsters = {}
 
+-- Step 1: Build packId -> monster names
+local packIdToMonsters = {}
 for entry in dat("MonsterPackEntries"):Rows() do
 	if entry.MonsterPacksKey and entry.MonsterVarietiesKey then
 		local packId = entry.MonsterPacksKey.Id
 		local monVar = entry.MonsterVarietiesKey
-		if packId and monVar and monVar.Name and monVar.Name ~= "" and not monVar.NotSpectre and importedSpectres[monVar.Id] then
+		if packId and monVar and monVar.Name and monVar.Name ~= "" then
 			packIdToMonsters[packId] = packIdToMonsters[packId] or {}
 			table.insert(packIdToMonsters[packId], monVar.Name)
 		end
@@ -40,7 +43,7 @@ for pack in dat("MonsterPacks"):Rows() do
 	end
 
 	local function addIfSpectre(mon)
-		if mon and mon.Name and mon.Name ~= "" and not mon.NotSpectre and importedSpectres[mon.Id] and not seen[mon.Name] then
+		if mon.Name ~= "" and not seen[mon.Name] then
 			table.insert(list, mon.Name)
 			seen[mon.Name] = true
 		end
@@ -154,8 +157,9 @@ for area in dat("WorldAreas"):Rows() do
 		out:write('\tisHideout = ' .. tostring(area.IsHideout) .. ',\n')
 		out:write('\tmonsterVarieties = {\n')
 		local seen = {}
+		table.sort(monsters)
 		for _, name in ipairs(monsters) do
-			if not seen[name] then
+			if importedSpectres[name] and not seen[name] then
 				out:write('\t\t"' .. name .. '",\n')
 				seen[name] = true
 			end

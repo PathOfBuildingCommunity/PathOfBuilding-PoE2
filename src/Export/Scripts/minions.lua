@@ -272,6 +272,7 @@ directiveTable.emit = function(state, args, out)
 		out:write('\tmonsterCategory = "', (monsterVariety.MonsterCategory.Type), '",\n')
 	end
 	out:write('\tspawnLocation = {\n')
+	table.sort(worldAreaNames)
 	for _, name in ipairs(worldAreaNames) do
 		if name ~= "The Ziggurat Refuge" then
 			out:write('\t\t"', name, '",\n')

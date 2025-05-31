@@ -428,7 +428,6 @@ Metadata/Monsters/MudBurrower/MudBurrowerTailBoss_                              
 Metadata/Monsters/BitterGuy/BitterGuyWifeGhost                                            		----		Isabel, Mourning Wife
 Metadata/Monsters/BitterGuy/BitterGuyChild1Surge_                                         		----		Calum, Weeping Child
 Metadata/Monsters/BitterGuy/BitterGuyChild2Surge                                          		----		Torcall, Sobbing Child
-Metadata/Monsters/QuillCrab/QuillCrabPoison                                               		----		Venomous Crab
 Metadata/Monsters/Bird/MutantBird                                                         		----		Scourge of the Skies
 Metadata/Monsters/Bird/MutantBirdDog                                                      		----		Flesh Pup
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                                   		----		Emal

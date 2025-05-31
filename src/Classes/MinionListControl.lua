@@ -50,19 +50,7 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 	if tooltip:CheckForUpdate(minionId) then
 		local minion = self.data.minions[minionId]
 		tooltip:AddLine(18, "^7"..minion.name)
-		if #minion.spawnLocation > 0 then
-			local coloredLocations = {}
-			for _, location in ipairs(minion.spawnLocation) do
-				table.insert(coloredLocations, colorCodes.RELIC .. location)
-			end
-			for i, spawn in ipairs(coloredLocations) do
-				if i == 1 then
-					tooltip:AddLine(14, s_format("^7Spawn: %s", spawn))
-				else
-					tooltip:AddLine(14, s_format("^7%s%s", "            ", spawn)) -- Indented so all locations line up vertically in tooltip
-				end
-			end
-		end
+		tooltip:AddSeparator(10)
 		tooltip:AddLine(14, s_format("^7Spectre Reservation: %s%d", colorCodes.SPIRIT, tostring(minion.spectreReservation)))
 		tooltip:AddLine(14, s_format("^7Companion Reservation: %s%s%%", colorCodes.SPIRIT, tostring(minion.companionReservation)))
 		tooltip:AddLine(14, "^7Category: "..minion.monsterCategory)
@@ -88,6 +76,21 @@ function MinionListClass:AddValueTooltip(tooltip, index, minionId)
 		for _, skillId in ipairs(minion.skillList) do
 			if self.data.skills[skillId] then
 				tooltip:AddLine(14, "^7Skill: "..self.data.skills[skillId].name)
+			end
+		end
+		tooltip:AddSeparator(10)
+		if #minion.spawnLocation > 0 then
+			local coloredLocations = {}
+			for _, location in ipairs(minion.spawnLocation) do -- Print (Map) or (Act 7) in white, and map name in green. 
+				local mainText, bracket = location:match("^(.-)%s*(%b())%s*$")
+				table.insert(coloredLocations, bracket and (colorCodes.RELIC .. mainText .. " " .. "^7" .. bracket) or (colorCodes.RELIC .. location))
+			end
+			for i, spawn in ipairs(coloredLocations) do
+				if i == 1 then
+					tooltip:AddLine(14, s_format("^7Spawn: %s", spawn))
+				else
+					tooltip:AddLine(14, s_format("^7%s%s", "            ", spawn)) -- Indented so all locations line up vertically in tooltip
+				end
 			end
 		end
 	end
@@ -139,10 +142,10 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 		end
 		if foundArea then
 			tooltip:AddLine(18, foundArea.name)
-			tooltip:AddLine(14, "Area Level: "..foundArea.level)
 			if foundArea.description and foundArea.description ~= "" then
-				tooltip:AddLine(14, colorCodes.CURRENCY .. '"' .. foundArea.description .. '"^7')
+				tooltip:AddLine(14, colorCodes.CURRENCY .. '"' .. foundArea.description)
 			end
+			tooltip:AddLine(14, "^7Area Level: "..foundArea.level)
 			local biomeNameMap = {
 				water_biome = "Water",
 				mountain_biome = "Mountain",
@@ -163,19 +166,20 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 					end
 				end
 				if #biomeNameList > 0 then
-					tooltip:AddLine(14, "Biome: " .. table.concat(biomeNameList, ", "))
+					tooltip:AddLine(14, "^7Biome: " .. table.concat(biomeNameList, ", "))
 				end
 			end
+			tooltip:AddSeparator(10)
 			if #foundArea.monsterVarieties > 0 and foundArea.baseName ~= "The Ziggurat Refuge" then
-				tooltip:AddLine(14, "Spectres:")
+				tooltip:AddLine(14, "^7Spectres:")
 				for _, monsterName in ipairs(foundArea.monsterVarieties) do
 					tooltip:AddLine(14, " - " .. monsterName)
 				end
 			else
-				tooltip:AddLine(14, "No monsters listed")
+				tooltip:AddLine(14, "^7No monsters listed")
 			end
 		else
-			tooltip:AddLine(18, "World area not found: " .. tostring(value))
+			tooltip:AddLine(18, "^7World area not found: " .. tostring(value))
 		end
 	end
 end

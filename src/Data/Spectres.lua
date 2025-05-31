@@ -682,8 +682,8 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
-		"Infested Barrens (Act 3)",
 		"Chimeral Wetlands (Act 9)",
+		"Infested Barrens (Act 3)",
 		"Infested Barrens (Act 9)",
 		"Steppe (Map)",
 		"Sump (Map)",
@@ -759,6 +759,40 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 		"QuillCrabSpikeBurst",
 		"QuillCrabSpikeShrapnelAudio",
 		"QuillCrabSpikeShrapnel",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/QuillCrab/QuillCrabPoison"] = {
+	name = "Venomous Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "insect", "monster_applies_poison", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 40,
+	accuracy = 1,
+	baseMovementSpeed = 23,
+	spectreReservation = 40,
+	companionReservation = 25.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Hunting Grounds (Act 1)",
+		"Hunting Grounds (Act 7)",
+		"Sandspit (Map)",
+	},
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstPoison",
+		"QuillCrabSpikeShrapnelAudioPoison",
+		"QuillCrabSpikeShrapnelPoison",
 	},
 	modList = {
 	},
@@ -860,10 +894,10 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	companionReservation = 32.1,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Crimson Shores (Map)",
+		"Trial of the Sekhemas (Act 2)",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
-		"Crimson Shores (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1010,9 +1044,9 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Viridian Wildwood (Map)",
 		"Freythorn (Act 1)",
 		"Freythorn (Act 7)",
+		"The Viridian Wildwood (Map)",
 	},
 	skillList = {
 		"MPSAzmeriPictStaffProj",
@@ -1312,16 +1346,16 @@ minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Dreadnought Vanguard (Act 2)",
+		"Dreadnought Vanguard (Act 8)",
+		"Oasis (Map)",
+		"Outlands (Map)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
-		"The Dreadnought (Act 2)",
-		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
-		"Dreadnought Vanguard (Act 8)",
-		"Oasis (Map)",
-		"Outlands (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1352,14 +1386,14 @@ minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Spires of Deshar (Act 2)",
-		"The Spires of Deshar (Act 8)",
+		"Dreadnought Vanguard (Act 2)",
+		"Dreadnought Vanguard (Act 8)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
-		"The Dreadnought (Act 2)",
-		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
-		"Dreadnought Vanguard (Act 8)",
+		"The Spires of Deshar (Act 2)",
+		"The Spires of Deshar (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1395,16 +1429,16 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Spires of Deshar (Act 2)",
-		"The Spires of Deshar (Act 8)",
-		"The Halani Gates (Act 2)",
-		"The Halani Gates (Act 8)",
-		"The Dreadnought (Act 2)",
 		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
 		"Dreadnought Vanguard (Act 8)",
 		"Oasis (Map)",
 		"Outlands (Map)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
+		"The Halani Gates (Act 2)",
+		"The Halani Gates (Act 8)",
+		"The Spires of Deshar (Act 2)",
+		"The Spires of Deshar (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1437,16 +1471,16 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Dreadnought Vanguard (Act 2)",
+		"Dreadnought Vanguard (Act 8)",
+		"Oasis (Map)",
+		"Outlands (Map)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
-		"The Dreadnought (Act 2)",
-		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
-		"Dreadnought Vanguard (Act 8)",
-		"Oasis (Map)",
-		"Outlands (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1479,16 +1513,16 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Spires of Deshar (Act 2)",
-		"The Spires of Deshar (Act 8)",
-		"The Halani Gates (Act 2)",
-		"The Halani Gates (Act 8)",
-		"The Dreadnought (Act 2)",
 		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
 		"Dreadnought Vanguard (Act 8)",
 		"Oasis (Map)",
 		"Outlands (Map)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
+		"The Halani Gates (Act 2)",
+		"The Halani Gates (Act 8)",
+		"The Spires of Deshar (Act 2)",
+		"The Spires of Deshar (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1524,14 +1558,14 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 	companionReservation = 30.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Spires of Deshar (Act 2)",
-		"The Spires of Deshar (Act 8)",
+		"Dreadnought Vanguard (Act 2)",
+		"Dreadnought Vanguard (Act 8)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
-		"The Dreadnought (Act 2)",
-		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
-		"Dreadnought Vanguard (Act 8)",
+		"The Spires of Deshar (Act 2)",
+		"The Spires of Deshar (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1563,14 +1597,14 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Dreadnought Vanguard (Act 2)",
+		"Dreadnought Vanguard (Act 8)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
-		"The Dreadnought (Act 2)",
-		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
-		"Dreadnought Vanguard (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1606,14 +1640,14 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 	companionReservation = 30.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Dreadnought Vanguard (Act 2)",
+		"Dreadnought Vanguard (Act 8)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
-		"The Dreadnought (Act 2)",
-		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
-		"Dreadnought Vanguard (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1694,14 +1728,14 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Dreadnought Vanguard (Act 2)",
+		"Dreadnought Vanguard (Act 8)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
-		"The Dreadnought (Act 2)",
-		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
-		"Dreadnought Vanguard (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1742,15 +1776,15 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Spires of Deshar (Act 2)",
-		"The Spires of Deshar (Act 8)",
-		"The Halani Gates (Act 2)",
-		"The Halani Gates (Act 8)",
-		"The Dreadnought (Act 2)",
 		"Dreadnought Vanguard (Act 2)",
-		"The Dreadnought (Act 8)",
 		"Dreadnought Vanguard (Act 8)",
 		"The Copper Citadel (Map)",
+		"The Dreadnought (Act 2)",
+		"The Dreadnought (Act 8)",
+		"The Halani Gates (Act 2)",
+		"The Halani Gates (Act 8)",
+		"The Spires of Deshar (Act 2)",
+		"The Spires of Deshar (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1787,11 +1821,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Drowned City (Act 3)",
-		"The Drowned City (Act 9)",
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Backwash (Map)",
+		"The Drowned City (Act 3)",
+		"The Drowned City (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1895,9 +1929,9 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteS
 	spawnLocation = {
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
+		"The Iron Citadel (Map)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
-		"The Iron Citadel (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1932,13 +1966,13 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantB/CorruptedEliteT
 	companionReservation = 36.6,
 	monsterCategory = "Demon",
 	spawnLocation = {
+		"Bastille (Map)",
+		"Ogham Farmlands (Act 1)",
+		"Ogham Farmlands (Act 7)",
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
-		"Ogham Farmlands (Act 1)",
-		"Ogham Farmlands (Act 7)",
-		"Bastille (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1969,13 +2003,13 @@ minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Corrupt
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Grimhaven (Map)",
+		"Ogham Farmlands (Act 1)",
+		"Ogham Farmlands (Act 7)",
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
-		"Ogham Farmlands (Act 1)",
-		"Ogham Farmlands (Act 7)",
-		"Grimhaven (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2007,10 +2041,10 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Forge (Map)",
 		"The Titan Grotto (Act 2)",
 		"The Titan Grotto (Act 8)",
 		"Trial of the Sekhemas (Act 2)",
-		"Forge (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2043,8 +2077,8 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecro
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
 		"Mastodon Badlands (Act 8)",
+		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
 	},
 	skillList = {
@@ -2076,10 +2110,10 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 	companionReservation = 34.8,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Penitentiary (Map)",
 		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
 		"Mastodon Badlands (Act 8)",
+		"Penitentiary (Map)",
+		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
 	},
 	skillList = {
@@ -2111,10 +2145,10 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02"
 	companionReservation = 34.8,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Penitentiary (Map)",
 		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
 		"Mastodon Badlands (Act 8)",
+		"Penitentiary (Map)",
+		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
 	},
 	skillList = {
@@ -2247,8 +2281,8 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
 		"Mastodon Badlands (Act 8)",
+		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
 	},
 	skillList = {
@@ -2474,11 +2508,11 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Jiquani's Sanctum (Act 3)",
-		"Jiquani's Sanctum (Act 9)",
 		"Fortress (Map)",
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Machinarium (Act 9)",
+		"Jiquani's Sanctum (Act 3)",
+		"Jiquani's Sanctum (Act 9)",
 	},
 	skillList = {
 		"MMSBoneRabbleMortar",
@@ -2509,11 +2543,11 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Fortress (Map)",
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Machinarium (Act 9)",
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
-		"Fortress (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2545,11 +2579,11 @@ minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"The Grim Tangle (Act 1)",
-		"The Grim Tangle (Act 7)",
-		"The Grelwood (Act 7)",
 		"Seepage (Map)",
 		"The Grelwood (Act 1)",
+		"The Grelwood (Act 7)",
+		"The Grim Tangle (Act 1)",
+		"The Grim Tangle (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2609,20 +2643,20 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Traitor's Passage (Act 2)",
-		"Traitor's Passage (Act 8)",
-		"Valley of the Titans (Act 2)",
-		"Valley of the Titans (Act 8)",
-		"Path of Mourning (Act 2)",
-		"Path of Mourning (Act 8)",
-		"Keth (Act 2)",
-		"Keth (Act 8)",
-		"The Lost City (Act 2)",
-		"The Lost City (Act 8)",
+		"Abyss (Map)",
 		"Buried Shrines (Act 2)",
 		"Buried Shrines (Act 8)",
+		"Keth (Act 2)",
+		"Keth (Act 8)",
+		"Path of Mourning (Act 2)",
+		"Path of Mourning (Act 8)",
+		"The Lost City (Act 2)",
+		"The Lost City (Act 8)",
+		"Traitor's Passage (Act 2)",
+		"Traitor's Passage (Act 8)",
 		"Trial of the Sekhemas (Act 2)",
-		"Abyss (Map)",
+		"Valley of the Titans (Act 2)",
+		"Valley of the Titans (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2684,10 +2718,10 @@ minions["Metadata/Monsters/SkeletonSoldier/Rusted/RustedSoldierOneHandSword"] = 
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"The Red Vale (Act 1)",
-		"The Red Vale (Act 7)",
 		"Rustbowl (Map)",
 		"The Phaaryl Megalith (Map)",
+		"The Red Vale (Act 1)",
+		"The Red Vale (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2724,9 +2758,9 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 	spawnLocation = {
 		"Keth (Act 2)",
 		"Keth (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
+		"Trial of the Sekhemas (Act 2)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2944,9 +2978,9 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Lost Towers (Map)",
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
+		"Lost Towers (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3054,10 +3088,10 @@ minions["Metadata/Monsters/Werewolves/WerewolfMoonClan1"] = {
 	companionReservation = 30.6,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Ogham Village (Act 1)",
-		"Ogham Village (Act 7)",
 		"Ogham Farmlands (Act 1)",
 		"Ogham Farmlands (Act 7)",
+		"Ogham Village (Act 1)",
+		"Ogham Village (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3086,10 +3120,10 @@ minions["Metadata/Monsters/Werewolves/WerewolfPack1"] = {
 	companionReservation = 30.6,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"The Grelwood (Act 1)",
-		"The Grelwood (Act 7)",
 		"Ogham Farmlands (Act 1)",
 		"Ogham Farmlands (Act 7)",
+		"The Grelwood (Act 1)",
+		"The Grelwood (Act 7)",
 		"The Phaaryl Megalith (Map)",
 	},
 	skillList = {
@@ -3120,13 +3154,13 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 	companionReservation = 35.4,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Ogham Farmlands (Act 1)",
+		"Ogham Farmlands (Act 7)",
+		"Ogham Village (Act 1)",
+		"Ogham Village (Act 7)",
 		"The Grelwood (Act 1)",
 		"The Grelwood (Act 7)",
 		"The Phaaryl Megalith (Map)",
-		"Ogham Village (Act 1)",
-		"Ogham Village (Act 7)",
-		"Ogham Farmlands (Act 7)",
-		"Ogham Farmlands (Act 1)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3297,8 +3331,8 @@ minions["Metadata/Monsters/MudBurrower/BrambleBurrower"] = {
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
 		"Hunting Grounds (Act 7)",
-		"Wetlands (Map)",
 		"Untainted Paradise (Map)",
+		"Wetlands (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3369,8 +3403,8 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
-		"Trial of the Sekhemas (Act 2)",
 		"Lofty Summit (Map)",
+		"Trial of the Sekhemas (Act 2)",
 	},
 	skillList = {
 		"SpookyWraithProjectileCold",
@@ -3434,11 +3468,11 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 	companionReservation = 32.1,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Decay (Map)",
 		"The Grelwood (Act 1)",
+		"The Grelwood (Act 7)",
 		"The Grim Tangle (Act 1)",
 		"The Grim Tangle (Act 7)",
-		"Decay (Map)",
-		"The Grelwood (Act 7)",
 	},
 	skillList = {
 		"FungusZombieCausticOnDeathMedium",
@@ -3469,12 +3503,12 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"The Grelwood (Act 7)",
 		"Decay (Map)",
-		"The Grelwood (Act 1)",
-		"The Grim Tangle (Act 7)",
-		"The Grim Tangle (Act 1)",
 		"Seepage (Map)",
+		"The Grelwood (Act 1)",
+		"The Grelwood (Act 7)",
+		"The Grim Tangle (Act 1)",
+		"The Grim Tangle (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3535,9 +3569,9 @@ minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Deserted (Map)",
 		"Keth (Act 2)",
 		"Keth (Act 8)",
-		"Deserted (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3566,9 +3600,9 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Clearfell (Act 7)",
 		"The Riverbank (Act 1)",
 		"The Riverbank (Act 7)",
-		"Clearfell (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3667,11 +3701,11 @@ minions["Metadata/Monsters/Hags/UrchinHag1"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Phaaryl Megalith (Map)",
-		"Clearfell (Act 7)",
 		"Clearfell (Act 1)",
+		"Clearfell (Act 7)",
 		"The Grelwood (Act 1)",
 		"The Grelwood (Act 7)",
+		"The Phaaryl Megalith (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3703,9 +3737,9 @@ minions["Metadata/Monsters/Hags/TrenchHag"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Riverbank (Act 7)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"The Riverbank (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3803,14 +3837,14 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Bloodwood (Map)",
 		"Mausoleum of the Praetor (Act 1)",
 		"Mausoleum of the Praetor (Act 7)",
-		"Bloodwood (Map)",
-		"The Manor Ramparts (Act 1)",
 		"Ogham Manor (Act 1)",
-		"The Manor Ramparts (Act 7)",
 		"Ogham Manor (Act 7)",
 		"Ogham Village (Act 7)",
+		"The Manor Ramparts (Act 1)",
+		"The Manor Ramparts (Act 7)",
 	},
 	skillList = {
 		"LivingBloodGroundSmall",
@@ -3846,10 +3880,10 @@ minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"The Manor Ramparts (Act 1)",
 		"Ogham Manor (Act 1)",
-		"The Manor Ramparts (Act 7)",
 		"Ogham Manor (Act 7)",
+		"The Manor Ramparts (Act 1)",
+		"The Manor Ramparts (Act 7)",
 	},
 	skillList = {
 		"LivingBloodGroundLarger",
@@ -3881,15 +3915,15 @@ minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
+		"Bloodwood (Map)",
 		"Mausoleum of the Praetor (Act 1)",
 		"Mausoleum of the Praetor (Act 7)",
+		"Ogham Manor (Act 1)",
+		"Ogham Manor (Act 7)",
 		"Ogham Village (Act 1)",
 		"Ogham Village (Act 7)",
 		"The Manor Ramparts (Act 1)",
-		"Ogham Manor (Act 1)",
 		"The Manor Ramparts (Act 7)",
-		"Ogham Manor (Act 7)",
-		"Bloodwood (Map)",
 	},
 	skillList = {
 		"LivingBloodGroundSmall",
@@ -3921,13 +3955,13 @@ minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 	companionReservation = 34.8,
 	monsterCategory = "Demon",
 	spawnLocation = {
+		"Bloodwood (Map)",
+		"Ogham Manor (Act 1)",
+		"Ogham Manor (Act 7)",
+		"Ogham Village (Act 1)",
 		"Ogham Village (Act 7)",
 		"The Manor Ramparts (Act 1)",
-		"Ogham Manor (Act 1)",
 		"The Manor Ramparts (Act 7)",
-		"Ogham Manor (Act 7)",
-		"Bloodwood (Map)",
-		"Ogham Village (Act 1)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3962,9 +3996,9 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
+		"Necropolis (Map)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
-		"Necropolis (Map)",
 	},
 	skillList = {
 		"DeathKnightSlamEAA",
@@ -3997,9 +4031,9 @@ minions["Metadata/Monsters/Knight/DeathKnightNecropolisElite"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
+		"Necropolis (Map)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
-		"Necropolis (Map)",
 	},
 	skillList = {
 		"DeathKnightSlamEAA",
@@ -4066,14 +4100,14 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 	companionReservation = 33,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Ogham Farmlands (Act 1)",
-		"Ogham Farmlands (Act 7)",
-		"The Manor Ramparts (Act 1)",
-		"The Manor Ramparts (Act 7)",
-		"Ogham Village (Act 1)",
-		"Ogham Village (Act 7)",
 		"Bastille (Map)",
 		"Grimhaven (Map)",
+		"Ogham Farmlands (Act 1)",
+		"Ogham Farmlands (Act 7)",
+		"Ogham Village (Act 1)",
+		"Ogham Village (Act 7)",
+		"The Manor Ramparts (Act 1)",
+		"The Manor Ramparts (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4231,10 +4265,10 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Decay (Map)",
+		"Seepage (Map)",
+		"The Grelwood (Act 7)",
 		"The Grim Tangle (Act 1)",
 		"The Grim Tangle (Act 7)",
-		"The Grelwood (Act 7)",
-		"Seepage (Map)",
 	},
 	skillList = {
 		"FungalArtilleryMortar",
@@ -4461,9 +4495,9 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 	companionReservation = 33.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Derelict Mansion (Map)",
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
-		"Derelict Mansion (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4560,14 +4594,14 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
-		"Tomb of the Consort (Act 1)",
-		"Tomb of the Consort (Act 7)",
+		"Crypt (Map)",
+		"Lofty Summit (Map)",
 		"Mausoleum of the Praetor (Act 1)",
 		"Mausoleum of the Praetor (Act 7)",
 		"Necropolis (Map)",
-		"Lofty Summit (Map)",
+		"Tomb of the Consort (Act 1)",
+		"Tomb of the Consort (Act 7)",
 		"Willow (Map)",
-		"Crypt (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4597,11 +4631,11 @@ minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 	companionReservation = 30,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"The Red Vale (Act 1)",
-		"The Red Vale (Act 7)",
+		"Blooming Field (Map)",
 		"Chimeral Wetlands (Act 3)",
 		"Chimeral Wetlands (Act 9)",
-		"Blooming Field (Map)",
+		"The Red Vale (Act 1)",
+		"The Red Vale (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4661,9 +4695,9 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Inferno (Map)",
 		"Ogham Village (Act 1)",
 		"Ogham Village (Act 7)",
-		"Inferno (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4725,20 +4759,20 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 	companionReservation = 34.8,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Abyss (Map)",
 		"Buried Shrines (Act 2)",
 		"Buried Shrines (Act 8)",
-		"Abyss (Map)",
-		"The Phaaryl Megalith (Map)",
 		"Rustbowl (Map)",
-		"The Red Vale (Act 1)",
-		"The Red Vale (Act 7)",
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
+		"The Phaaryl Megalith (Map)",
+		"The Red Vale (Act 1)",
+		"The Red Vale (Act 7)",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
+		"Trial of the Sekhemas (Act 2)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
 	},
 	skillList = {
 		"RisenArbalestRainOfArrows",
@@ -4772,12 +4806,12 @@ minions["Metadata/Monsters/Bugbot/BugbotRockyNoEmerge"] = {
 	companionReservation = 23.1,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Hidden Grotto (Map)",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
+		"Trial of the Sekhemas (Act 2)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
-		"Hidden Grotto (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5387,10 +5421,10 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 	companionReservation = 28.5,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Spider Woods (Map)",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
 		"Trial of the Sekhemas (Act 2)",
-		"Spider Woods (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5420,10 +5454,10 @@ minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 	companionReservation = 28.5,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Mastodon Badlands (Act 2)",
-		"Mastodon Badlands (Act 8)",
 		"Deshar (Act 2)",
 		"Deshar (Act 8)",
+		"Mastodon Badlands (Act 2)",
+		"Mastodon Badlands (Act 8)",
 	},
 	skillList = {
 		"GAHarvestSabreSpiderDualStrike",
@@ -5524,9 +5558,9 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 	companionReservation = 47.4,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Cenotes (Map)",
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
-		"Cenotes (Map)",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
 	},
@@ -5659,12 +5693,12 @@ minions["Metadata/Monsters/SaltGolem/SaltGolemNoEmerge"] = {
 	companionReservation = 40.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Hidden Grotto (Map)",
+		"Traitor's Passage (Act 2)",
+		"Traitor's Passage (Act 8)",
 		"Trial of the Sekhemas (Act 2)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
-		"Traitor's Passage (Act 2)",
-		"Traitor's Passage (Act 8)",
-		"Hidden Grotto (Map)",
 	},
 	skillList = {
 		"GASaltGolemMelee",
@@ -5697,12 +5731,12 @@ minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 	companionReservation = 30,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Vastiri Outskirts (Act 2)",
-		"Vastiri Outskirts (Act 8)",
+		"Mesa (Map)",
+		"Savannah (Map)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
-		"Savannah (Map)",
-		"Mesa (Map)",
+		"Vastiri Outskirts (Act 2)",
+		"Vastiri Outskirts (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5734,12 +5768,12 @@ minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Vastiri Outskirts (Act 2)",
-		"Vastiri Outskirts (Act 8)",
-		"Savannah (Map)",
 		"Mesa (Map)",
+		"Savannah (Map)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Vastiri Outskirts (Act 2)",
+		"Vastiri Outskirts (Act 8)",
 	},
 	skillList = {
 		"HyenaCentaurMeleeStab",
@@ -5888,14 +5922,14 @@ minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Valley of the Titans (Act 2)",
-		"Valley of the Titans (Act 8)",
 		"Deserted (Map)",
-		"Trial of the Sekhemas (Act 2)",
 		"Keth (Act 2)",
 		"Keth (Act 8)",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
+		"Trial of the Sekhemas (Act 2)",
+		"Valley of the Titans (Act 2)",
+		"Valley of the Titans (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5928,11 +5962,11 @@ minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Abyss (Map)",
 		"Buried Shrines (Act 2)",
 		"Buried Shrines (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
 		"Channel (Map)",
-		"Abyss (Map)",
+		"Trial of the Sekhemas (Act 2)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",
@@ -5963,9 +5997,9 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Alpine Ridge (Map)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
-		"Alpine Ridge (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6031,10 +6065,10 @@ minions["Metadata/Monsters/SkeletonSnake"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
 		"Mastodon Badlands (Act 8)",
-		"The Bone Pits (Act 8)",
 		"Penitentiary (Map)",
+		"The Bone Pits (Act 2)",
+		"The Bone Pits (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6063,12 +6097,12 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
-		"Mastodon Badlands (Act 8)",
-		"The Bone Pits (Act 8)",
 		"Freythorn (Act 1)",
 		"Freythorn (Act 7)",
+		"Mastodon Badlands (Act 2)",
+		"Mastodon Badlands (Act 8)",
+		"The Bone Pits (Act 2)",
+		"The Bone Pits (Act 8)",
 	},
 	skillList = {
 		"MPWAzmeriPitifulFabricationSkullThrow",
@@ -6099,12 +6133,12 @@ minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
-		"Mastodon Badlands (Act 8)",
-		"The Bone Pits (Act 8)",
 		"Freythorn (Act 1)",
 		"Freythorn (Act 7)",
+		"Mastodon Badlands (Act 2)",
+		"Mastodon Badlands (Act 8)",
+		"The Bone Pits (Act 2)",
+		"The Bone Pits (Act 8)",
 	},
 	skillList = {
 		"AzmeriFabricationDespair",
@@ -6134,12 +6168,12 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Mastodon Badlands (Act 2)",
-		"The Bone Pits (Act 2)",
-		"Mastodon Badlands (Act 8)",
-		"The Bone Pits (Act 8)",
 		"Freythorn (Act 1)",
 		"Freythorn (Act 7)",
+		"Mastodon Badlands (Act 2)",
+		"Mastodon Badlands (Act 8)",
+		"The Bone Pits (Act 2)",
+		"The Bone Pits (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6264,8 +6298,8 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Deshar (Act 2)",
-		"The Dreadnought's Wake (Act 2)",
 		"Deshar (Act 8)",
+		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
 		"Trial of the Sekhemas (Act 2)",
 	},
@@ -6366,11 +6400,11 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"The Lost City (Act 2)",
 		"Buried Shrines (Act 2)",
 		"Buried Shrines (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
 		"Channel (Map)",
+		"The Lost City (Act 2)",
+		"Trial of the Sekhemas (Act 2)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6469,12 +6503,12 @@ minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"The Spires of Deshar (Act 2)",
-		"The Spires of Deshar (Act 8)",
 		"Deshar (Act 2)",
 		"Deshar (Act 8)",
 		"Path of Mourning (Act 2)",
 		"Path of Mourning (Act 8)",
+		"The Spires of Deshar (Act 2)",
+		"The Spires of Deshar (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6506,12 +6540,12 @@ minions["Metadata/Monsters/PlagueMorphs/PlagueMorph1"] = {
 	companionReservation = 30,
 	monsterCategory = "Demon",
 	spawnLocation = {
-		"The Dreadnought's Wake (Act 2)",
-		"Mawdun Quarry (Act 2)",
 		"Mawdun Mine (Act 2)",
-		"The Dreadnought's Wake (Act 8)",
-		"Mawdun Quarry (Act 8)",
 		"Mawdun Mine (Act 8)",
+		"Mawdun Quarry (Act 2)",
+		"Mawdun Quarry (Act 8)",
+		"The Dreadnought's Wake (Act 2)",
+		"The Dreadnought's Wake (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6540,12 +6574,12 @@ minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 	companionReservation = 21.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"The Dreadnought's Wake (Act 2)",
 		"Mawdun Quarry (Act 2)",
-		"The Dreadnought's Wake (Act 8)",
 		"Mawdun Quarry (Act 8)",
 		"The Dreadnought (Act 2)",
 		"The Dreadnought (Act 8)",
+		"The Dreadnought's Wake (Act 2)",
+		"The Dreadnought's Wake (Act 8)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6576,9 +6610,9 @@ minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
 		"Mawdun Mine (Act 8)",
+		"Mud Burrow (Act 7)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
-		"Mud Burrow (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6607,12 +6641,12 @@ minions["Metadata/Monsters/PlagueBringer/PlagueBringer"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Mawdun Quarry (Act 2)",
+		"Mawdun Quarry (Act 8)",
 		"The Dreadnought (Act 2)",
 		"The Dreadnought (Act 8)",
 		"The Dreadnought's Wake (Act 2)",
-		"Mawdun Quarry (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
-		"Mawdun Quarry (Act 8)",
 	},
 	skillList = {
 		"MASExtraAttackDistance6",
@@ -6644,9 +6678,9 @@ minions["Metadata/Monsters/BrainWorm/DuneLurker_"] = {
 	companionReservation = 38.4,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Trial of the Sekhemas (Act 2)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6780,10 +6814,10 @@ minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Sandswept Marsh (Act 3)",
-		"Sandswept Marsh (Act 9)",
 		"Burial Bog (Map)",
 		"Cenotes (Map)",
+		"Sandswept Marsh (Act 3)",
+		"Sandswept Marsh (Act 9)",
 	},
 	skillList = {
 		"BogCorpseVolatileExplosion",
@@ -6813,10 +6847,10 @@ minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Sandswept Marsh (Act 3)",
-		"Sandswept Marsh (Act 9)",
 		"Burial Bog (Map)",
 		"Cenotes (Map)",
+		"Sandswept Marsh (Act 3)",
+		"Sandswept Marsh (Act 9)",
 	},
 	skillList = {
 		"BogCorpseVolatileExplosion",
@@ -7275,10 +7309,10 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Matlan Waterways (Act 3)",
-		"The Matlan Waterways (Act 9)",
 		"The Azak Bog (Act 3)",
 		"The Azak Bog (Act 9)",
+		"The Matlan Waterways (Act 3)",
+		"The Matlan Waterways (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7524,11 +7558,11 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 	companionReservation = 37.8,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Headland (Map)",
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Machinarium (Act 9)",
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
-		"Headland (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed3",
@@ -7590,11 +7624,11 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 	companionReservation = 28.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Drowned City (Act 3)",
-		"The Drowned City (Act 9)",
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Sinking Spire (Map)",
+		"The Drowned City (Act 3)",
+		"The Drowned City (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7628,12 +7662,12 @@ minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 	companionReservation = 29.1,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Drowned City (Act 3)",
-		"The Drowned City (Act 9)",
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Backwash (Map)",
 		"Sinking Spire (Map)",
+		"The Drowned City (Act 3)",
+		"The Drowned City (Act 9)",
 	},
 	skillList = {
 		"WalkEmergeAnchoriteFlathead",
@@ -7706,11 +7740,11 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 	companionReservation = 33.6,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Hive (Map)",
 		"Infested Barrens (Act 3)",
 		"Infested Barrens (Act 9)",
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
-		"Hive (Map)",
 	},
 	skillList = {
 		"MMSBaneSapling",
@@ -7743,10 +7777,10 @@ minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Jungle Ruins (Act 3)",
 		"Infested Barrens (Act 3)",
-		"Jungle Ruins (Act 9)",
 		"Infested Barrens (Act 9)",
+		"Jungle Ruins (Act 3)",
+		"Jungle Ruins (Act 9)",
 		"Woodland (Map)",
 	},
 	skillList = {
@@ -7817,8 +7851,8 @@ minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 		"Chimeral Wetlands (Act 9)",
 		"Infested Barrens (Act 3)",
 		"Infested Barrens (Act 9)",
-		"Woodland (Map)",
 		"Sump (Map)",
+		"Woodland (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7881,10 +7915,10 @@ minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 	companionReservation = 47.4,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"The Venom Crypts (Act 3)",
-		"The Venom Crypts (Act 9)",
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
+		"The Venom Crypts (Act 3)",
+		"The Venom Crypts (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7916,10 +7950,10 @@ minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
+		"Ravine (Map)",
+		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
-		"Rockpools (Map)",
-		"Ravine (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7951,9 +7985,9 @@ minions["Metadata/Monsters/GutViper/GutViper"] = {
 	companionReservation = 30,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Bluff (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
-		"Bluff (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8011,10 +8045,10 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"The Venom Crypts (Act 3)",
-		"The Venom Crypts (Act 9)",
 		"Augury (Map)",
 		"Bluff (Map)",
+		"The Venom Crypts (Act 3)",
+		"The Venom Crypts (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8048,9 +8082,9 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
+		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
-		"Rockpools (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8080,14 +8114,14 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Augury (Map)",
+		"Bluff (Map)",
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
+		"Ravine (Map)",
+		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
-		"Ravine (Map)",
-		"Bluff (Map)",
-		"Rockpools (Map)",
-		"Augury (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8119,9 +8153,9 @@ minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Riverside (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
-		"Riverside (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -8156,8 +8190,8 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
-		"Infested Barrens (Act 3)",
 		"Chimeral Wetlands (Act 9)",
+		"Infested Barrens (Act 3)",
 		"Infested Barrens (Act 9)",
 		"Steppe (Map)",
 		"Sump (Map)",
@@ -8297,11 +8331,11 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
 		"Chimeral Wetlands (Act 9)",
+		"Creek (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
-		"Creek (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -8603,9 +8637,9 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 	spawnLocation = {
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Machinarium (Act 9)",
+		"Mud Burrow (Act 7)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
-		"Mud Burrow (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8706,11 +8740,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Drowned City (Act 3)",
-		"The Drowned City (Act 9)",
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Backwash (Map)",
+		"The Drowned City (Act 3)",
+		"The Drowned City (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8817,9 +8851,9 @@ minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
+		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
-		"Backwash (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8848,11 +8882,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] 
 	companionReservation = 32.1,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Drowned City (Act 3)",
-		"The Drowned City (Act 9)",
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Backwash (Map)",
+		"The Drowned City (Act 3)",
+		"The Drowned City (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8886,11 +8920,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 	companionReservation = 33,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Drowned City (Act 3)",
-		"The Drowned City (Act 9)",
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Backwash (Map)",
+		"The Drowned City (Act 3)",
+		"The Drowned City (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8925,11 +8959,11 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"The Drowned City (Act 3)",
-		"The Drowned City (Act 9)",
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Backwash (Map)",
+		"The Drowned City (Act 3)",
+		"The Drowned City (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8965,8 +8999,8 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 	spawnLocation = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
-		"Lost Towers (Map)",
 		"Frigid Bluffs",
+		"Lost Towers (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8997,10 +9031,10 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos"] = {
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Utzaal (Act 3)",
-		"Utzaal (Act 9)",
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
+		"Utzaal (Act 3)",
+		"Utzaal (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9031,11 +9065,11 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Utzaal (Act 3)",
-		"Utzaal (Act 9)",
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
 		"Frigid Bluffs",
+		"Utzaal (Act 3)",
+		"Utzaal (Act 9)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9234,11 +9268,11 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 	companionReservation = 47.4,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Vaal Village (Map)",
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
+		"Vaal Village (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9714,9 +9748,9 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Castaway (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
-		"Castaway (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9849,9 +9883,9 @@ minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Castaway (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
-		"Castaway (Map)",
 		"The Riverbank (Act 7)",
 	},
 	skillList = {
@@ -9918,9 +9952,9 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Temple of Kopec (Act 9)",
-		"Sun Temple (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9955,9 +9989,9 @@ minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Temple of Kopec (Act 9)",
-		"Sun Temple (Map)",
 	},
 	skillList = {
 		"MPSVaalSunApparitionBasicProj",
@@ -10119,10 +10153,10 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
+		"Backwash (Map)",
 		"Sinking Spire (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
-		"Backwash (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -10975,8 +11009,8 @@ minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 	companionReservation = 45,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Ogham Farmlands (Act 7)",
 		"Ogham Farmlands (Act 1)",
+		"Ogham Farmlands (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11299,10 +11333,10 @@ minions["Metadata/Monsters/Ghouls/FarudinCrawler"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Mawdun Quarry (Act 2)",
 		"Mawdun Mine (Act 2)",
-		"Mawdun Quarry (Act 8)",
 		"Mawdun Mine (Act 8)",
+		"Mawdun Quarry (Act 2)",
+		"Mawdun Quarry (Act 8)",
 		"The Dreadnought (Act 2)",
 		"The Dreadnought (Act 8)",
 	},
@@ -11337,10 +11371,10 @@ minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Mawdun Quarry (Act 2)",
 		"Mawdun Mine (Act 2)",
-		"Mawdun Quarry (Act 8)",
 		"Mawdun Mine (Act 8)",
+		"Mawdun Quarry (Act 2)",
+		"Mawdun Quarry (Act 8)",
 		"Mineshaft (Map)",
 	},
 	skillList = {
@@ -11374,9 +11408,9 @@ minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 	companionReservation = 44.1,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Trial of the Sekhemas (Act 2)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
 	},
 	skillList = {
 		"MASExtraAttackDistance20",
@@ -11410,8 +11444,8 @@ minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Mausoleum of the Praetor (Act 1)",
-		"Tomb of the Consort (Act 1)",
 		"Mausoleum of the Praetor (Act 7)",
+		"Tomb of the Consort (Act 1)",
 		"Tomb of the Consort (Act 7)",
 	},
 	skillList = {
@@ -11448,10 +11482,10 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	companionReservation = 45,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Tomb of the Consort (Act 1)",
-		"Tomb of the Consort (Act 7)",
 		"Crypt (Map)",
 		"The Red Vale (Act 7)",
+		"Tomb of the Consort (Act 1)",
+		"Tomb of the Consort (Act 7)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
