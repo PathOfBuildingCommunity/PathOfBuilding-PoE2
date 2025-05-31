@@ -15431,6 +15431,8 @@ return {
 	},
 	strongboxes={
 	},
+	strongboxpacks={
+	},
 	suicideexplosion={
 		[1]={
 			list=false,
@@ -16296,7 +16298,7 @@ return {
 		[1]={
 			list=false,
 			name="WordsKey",
-			refTo="Word",
+			refTo="Words",
 			type="Key",
 			width=150
 		},
@@ -16900,7 +16902,7 @@ return {
 		},
 		[6]={
 			list=false,
-			name="",
+			name="Text2",
 			refTo="",
 			type="String",
 			width=150

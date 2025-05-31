@@ -44,6 +44,14 @@ local catalystQualityFormat = {
 	"^x7F7F7FQuality (Attribute Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 }
 
+-- Flavour Text lookup
+local nameToFlavour = {}
+for _, entry in pairs(data.flavourText) do
+	if entry.Name then
+		nameToFlavour[entry.Name] = entry.Text
+	end
+end
+
 local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
 	self.UndoHandler()
 	self.ControlHost()
@@ -2565,6 +2573,7 @@ end
 function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	-- Item name
 	local rarityCode = colorCodes[item.rarity]
+	tooltip.maxWidth = 458
 	tooltip.center = true
 	tooltip.color = rarityCode
 	if item.title then
@@ -2871,6 +2880,15 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		end
 	end
 	tooltip:AddSeparator(14)
+
+	-- Show flavour text:
+	if item.rarity == "UNIQUE" and main.showFlavourText == true then
+		local flavour = nameToFlavour[item.title]
+		if flavour then
+			tooltip:AddLine(16, colorCodes.UNIQUE .. flavour)
+			tooltip:AddSeparator(14)
+		end
+	end
 
 	-- Stat differences
 	if not self.showStatDifferences then
