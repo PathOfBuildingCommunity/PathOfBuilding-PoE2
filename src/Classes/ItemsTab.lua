@@ -47,8 +47,8 @@ local catalystQualityFormat = {
 -- Flavour Text lookup
 local nameToFlavour = {}
 for _, entry in pairs(data.flavourText) do
-	if entry.Name then
-		nameToFlavour[entry.Name] = entry.Text
+	if entry.name then
+		nameToFlavour[entry.name] = entry.text
 	end
 end
 
