@@ -170,7 +170,10 @@ directiveTable.emit = function(state, args, out)
 					local displayName = area.Name
 					if isMap then
 						displayName = displayName .. " (Map)"
-					elseif area.Act and area.Act ~= 10 then
+					elseif area.Id:match("^Sanctum_(%d+)") then
+						local floorNum = area.Id:match("^Sanctum_(%d+)")
+						displayName = displayName .. " (Floor " .. floorNum .. ")"
+					elseif area.Act and area.Act ~= 10 and area.Name ~= "Trial of the Sekhemas" then
 						displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
 					end
 					if not seenAreas[displayName] then
@@ -274,7 +277,9 @@ directiveTable.emit = function(state, args, out)
 	out:write('\tspawnLocation = {\n')
 	table.sort(worldAreaNames)
 	for _, name in ipairs(worldAreaNames) do
-		if name ~= "The Ziggurat Refuge" then
+		if name == "The Ziggurat Refuge" then
+			out:write('\t\t"Found in Maps",\n')
+		else
 			out:write('\t\t"', name, '",\n')
 		end
 	end

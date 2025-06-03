@@ -29,7 +29,9 @@ minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured"] = {
 	spawnLocation = {
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 3)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -64,6 +66,7 @@ minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDull"] = {
 		"Keth (Act 8)",
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -97,6 +100,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 	spawnLocation = {
 		"Keth (Act 2)",
 		"Keth (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -129,7 +133,9 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWide"] = 
 	spawnLocation = {
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 3)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -687,6 +693,7 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 		"Infested Barrens (Act 9)",
 		"Steppe (Map)",
 		"Sump (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -720,6 +727,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	spawnLocation = {
 		"The Riverbank (Act 1)",
 		"The Riverbank (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
@@ -753,6 +761,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 	spawnLocation = {
 		"The Riverbank (Act 1)",
 		"The Riverbank (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
@@ -787,6 +796,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabPoison"] = {
 		"Hunting Grounds (Act 1)",
 		"Hunting Grounds (Act 7)",
 		"Sandspit (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"QuillCrabSpikeBurstEmptyAction",
@@ -825,6 +835,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 		"Hunting Grounds (Act 1)",
 		"Hunting Grounds (Act 7)",
 		"Sandspit (Map)",
+		"Found in Maps",
 		"Wetlands (Map)",
 	},
 	skillList = {
@@ -895,7 +906,9 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Crimson Shores (Map)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
 	},
@@ -977,6 +990,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 		"Freythorn (Act 7)",
 		"Mire (Map)",
 		"The Viridian Wildwood (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedBow",
@@ -1015,6 +1029,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
 		"Freythorn (Act 7)",
 		"Mire (Map)",
 		"The Viridian Wildwood (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1047,6 +1062,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff"] = {
 		"Freythorn (Act 1)",
 		"Freythorn (Act 7)",
 		"The Viridian Wildwood (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPSAzmeriPictStaffProj",
@@ -1308,6 +1324,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBanditExecutioner"] = {
 		"Dreadnought Vanguard (Act 2)",
 		"Dreadnought Vanguard (Act 8)",
 		"The Copper Citadel (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1356,6 +1373,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1394,6 +1412,7 @@ minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1439,6 +1458,7 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1481,6 +1501,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1523,6 +1544,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1566,6 +1588,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1605,6 +1628,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1648,6 +1672,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1785,6 +1810,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 		"The Halani Gates (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -1826,6 +1852,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1859,6 +1886,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/MeleeVariantB/CorruptedE
 	spawnLocation = {
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1894,6 +1922,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/Ranged/CorruptedEliteRan
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
 		"The Iron Citadel (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPACountsGuardSpike",
@@ -1932,6 +1961,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteS
 		"The Iron Citadel (Map)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1973,6 +2003,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantB/CorruptedEliteT
 		"Ogham Manor (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2010,6 +2041,7 @@ minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Corrupt
 		"Ogham Manor (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2044,7 +2076,8 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan"] = {
 		"Forge (Map)",
 		"The Titan Grotto (Act 2)",
 		"The Titan Grotto (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 4)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2080,6 +2113,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecro
 		"Mastodon Badlands (Act 8)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPSBoneCultistNecromancerLightning",
@@ -2115,6 +2149,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 		"Penitentiary (Map)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPSBoneCultistZealotLightning",
@@ -2150,6 +2185,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02"
 		"Penitentiary (Map)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPSBoneCultistZealotFire",
@@ -2181,6 +2217,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock
 	spawnLocation = {
 		"The Dreadnought (Act 2)",
 		"The Dreadnought (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"FarudinWarlockBugRend",
@@ -2217,6 +2254,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	spawnLocation = {
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -2249,6 +2287,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Savage/BoneCultists_Savage_
 	spawnLocation = {
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2284,6 +2323,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 		"Mastodon Badlands (Act 8)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2442,6 +2482,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle"] = {
 		"Jiquani's Machinarium (Act 9)",
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MASFireConvertAltArtFireArrow",
@@ -2476,6 +2517,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleJaguar_"] = {
 		"Jiquani's Machinarium (Act 9)",
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2513,6 +2555,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 		"Jiquani's Machinarium (Act 9)",
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MMSBoneRabbleMortar",
@@ -2548,6 +2591,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 		"Jiquani's Machinarium (Act 9)",
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2584,6 +2628,7 @@ minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 		"The Grelwood (Act 7)",
 		"The Grim Tangle (Act 1)",
 		"The Grim Tangle (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2615,6 +2660,7 @@ minions["Metadata/Monsters/Skeletons/RetchSkeletonOneHandSword"] = {
 	spawnLocation = {
 		"Mud Burrow (Act 1)",
 		"Mud Burrow (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2652,9 +2698,10 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 		"Path of Mourning (Act 8)",
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
+		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 2)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -2722,6 +2769,7 @@ minions["Metadata/Monsters/SkeletonSoldier/Rusted/RustedSoldierOneHandSword"] = 
 		"The Phaaryl Megalith (Map)",
 		"The Red Vale (Act 1)",
 		"The Red Vale (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2760,7 +2808,9 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 		"Keth (Act 8)",
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -2798,6 +2848,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
 	spawnLocation = {
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -2900,6 +2951,7 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
 		"Riverside (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"GAQuadrillaSunder",
@@ -2941,6 +2993,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 	spawnLocation = {
 		"Library of Kamasa (Act 3)",
 		"Library of Kamasa (Act 9)",
+		"Found in Maps",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
 	},
@@ -2981,6 +3034,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
 		"Lost Towers (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3020,6 +3074,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
 		"Lost Towers (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3055,6 +3110,7 @@ minions["Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_"
 	companionReservation = 37.8,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Found in Maps",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
 		"Vaal City (Map)",
@@ -3125,6 +3181,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfPack1"] = {
 		"The Grelwood (Act 1)",
 		"The Grelwood (Act 7)",
 		"The Phaaryl Megalith (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3161,6 +3218,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 		"The Grelwood (Act 1)",
 		"The Grelwood (Act 7)",
 		"The Phaaryl Megalith (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3193,6 +3251,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 	spawnLocation = {
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3225,6 +3284,7 @@ minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -3258,6 +3318,7 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3296,7 +3357,8 @@ minions["Metadata/Monsters/Spiker/Spiker3_"] = {
 		"Deshar (Act 8)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 3)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3331,6 +3393,7 @@ minions["Metadata/Monsters/MudBurrower/BrambleBurrower"] = {
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
 		"Hunting Grounds (Act 7)",
+		"Found in Maps",
 		"Untainted Paradise (Map)",
 		"Wetlands (Map)",
 	},
@@ -3369,6 +3432,7 @@ minions["Metadata/Monsters/StonebackRhoa/BrambleRhoa"] = {
 		"Hunting Grounds (Act 1)",
 		"Hunting Grounds (Act 7)",
 		"Steaming Springs (Map)",
+		"Found in Maps",
 		"Untainted Paradise (Map)",
 	},
 	skillList = {
@@ -3404,7 +3468,8 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
 		"Lofty Summit (Map)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 4)",
 	},
 	skillList = {
 		"SpookyWraithProjectileCold",
@@ -3440,6 +3505,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 	spawnLocation = {
 		"Mausoleum of the Praetor (Act 1)",
 		"Mausoleum of the Praetor (Act 7)",
+		"Found in Maps",
 		"Willow (Map)",
 	},
 	skillList = {
@@ -3473,6 +3539,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 		"The Grelwood (Act 7)",
 		"The Grim Tangle (Act 1)",
 		"The Grim Tangle (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"FungusZombieCausticOnDeathMedium",
@@ -3509,6 +3576,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 		"The Grelwood (Act 7)",
 		"The Grim Tangle (Act 1)",
 		"The Grim Tangle (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3540,6 +3608,7 @@ minions["Metadata/Monsters/MudGolem/MudGolem"] = {
 	spawnLocation = {
 		"Mud Burrow (Act 1)",
 		"Mud Burrow (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MudGolemSlam",
@@ -3572,6 +3641,7 @@ minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 		"Deserted (Map)",
 		"Keth (Act 2)",
 		"Keth (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3603,6 +3673,7 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed"] = {
 		"Clearfell (Act 7)",
 		"The Riverbank (Act 1)",
 		"The Riverbank (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3666,6 +3737,7 @@ minions["Metadata/Monsters/Urchins/SlingUrchin1"] = {
 		"The Grelwood (Act 1)",
 		"The Grelwood (Act 7)",
 		"The Phaaryl Megalith (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"UrchinSlingProjectile",
@@ -3706,6 +3778,7 @@ minions["Metadata/Monsters/Hags/UrchinHag1"] = {
 		"The Grelwood (Act 1)",
 		"The Grelwood (Act 7)",
 		"The Phaaryl Megalith (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3740,6 +3813,7 @@ minions["Metadata/Monsters/Hags/TrenchHag"] = {
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
 		"The Riverbank (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3773,6 +3847,7 @@ minions["Metadata/Monsters/HuhuGrub/HuhuGrubLarvaeSpectre"] = {
 	spawnLocation = {
 		"Mud Burrow (Act 1)",
 		"Mud Burrow (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3845,6 +3920,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 		"Ogham Village (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"LivingBloodGroundSmall",
@@ -3884,6 +3960,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 		"Ogham Manor (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"LivingBloodGroundLarger",
@@ -3924,6 +4001,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 		"Ogham Village (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"LivingBloodGroundSmall",
@@ -3962,6 +4040,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 		"Ogham Village (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3999,6 +4078,7 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 		"Necropolis (Map)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"DeathKnightSlamEAA",
@@ -4034,6 +4114,7 @@ minions["Metadata/Monsters/Knight/DeathKnightNecropolisElite"] = {
 		"Necropolis (Map)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"DeathKnightSlamEAA",
@@ -4069,6 +4150,7 @@ minions["Metadata/Monsters/Gargoyle/GargoyleGolemRed"] = {
 	spawnLocation = {
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4108,6 +4190,7 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 		"Ogham Village (Act 7)",
 		"The Manor Ramparts (Act 1)",
 		"The Manor Ramparts (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4139,6 +4222,7 @@ minions["Metadata/Monsters/Crow/CrowCarrion"] = {
 	spawnLocation = {
 		"Ogham Farmlands (Act 1)",
 		"Ogham Farmlands (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4169,6 +4253,7 @@ minions["Metadata/Monsters/BrambleHulk/BrambleHulk1"] = {
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
 		"Hunting Grounds (Act 7)",
+		"Found in Maps",
 		"Untainted Paradise (Map)",
 	},
 	skillList = {
@@ -4269,6 +4354,7 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 		"The Grelwood (Act 7)",
 		"The Grim Tangle (Act 1)",
 		"The Grim Tangle (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"FungalArtilleryMortar",
@@ -4303,6 +4389,7 @@ minions["Metadata/Monsters/Wretches/CoffinWretch1"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"CoffinWretchBabySoulrend1",
@@ -4334,6 +4421,7 @@ minions["Metadata/Monsters/Wretches/StatueWretch"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"BurdenedWretchSlam",
@@ -4365,6 +4453,7 @@ minions["Metadata/Monsters/Wretches/StatueWretchElite"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Cemetery of the Eternals (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"BurdenedWretchSlamUnique",
@@ -4462,6 +4551,7 @@ minions["Metadata/Monsters/BoneStalker/TombStalker1"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
 		"Tomb of the Consort (Act 7)",
 	},
@@ -4498,6 +4588,7 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 		"Derelict Mansion (Map)",
 		"Ogham Manor (Act 1)",
 		"Ogham Manor (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4533,6 +4624,7 @@ minions["Metadata/Monsters/Wolves/RottenWolf1_"] = {
 	spawnLocation = {
 		"Clearfell (Act 1)",
 		"Clearfell (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4565,6 +4657,7 @@ minions["Metadata/Monsters/Wolves/FungalWolf1_"] = {
 	spawnLocation = {
 		"The Grim Tangle (Act 1)",
 		"The Grim Tangle (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4599,6 +4692,7 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 		"Mausoleum of the Praetor (Act 1)",
 		"Mausoleum of the Praetor (Act 7)",
 		"Necropolis (Map)",
+		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
 		"Tomb of the Consort (Act 7)",
 		"Willow (Map)",
@@ -4636,6 +4730,7 @@ minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 		"Chimeral Wetlands (Act 9)",
 		"The Red Vale (Act 1)",
 		"The Red Vale (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4667,6 +4762,7 @@ minions["Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium"] = {
 	spawnLocation = {
 		"Ogham Farmlands (Act 1)",
 		"Ogham Farmlands (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4698,6 +4794,7 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 		"Inferno (Map)",
 		"Ogham Village (Act 1)",
 		"Ogham Village (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4729,6 +4826,7 @@ minions["Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1"] = {
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
 		"Hunting Grounds (Act 7)",
+		"Found in Maps",
 		"Untainted Paradise (Map)",
 	},
 	skillList = {
@@ -4768,9 +4866,10 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 		"The Phaaryl Megalith (Map)",
 		"The Red Vale (Act 1)",
 		"The Red Vale (Act 7)",
+		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 2)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -4807,9 +4906,10 @@ minions["Metadata/Monsters/Bugbot/BugbotRockyNoEmerge"] = {
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"Hidden Grotto (Map)",
+		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 1)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -4842,6 +4942,7 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_"] = {
 	spawnLocation = {
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4873,6 +4974,7 @@ minions["Metadata/Monsters/FaridunLizards/FaridunLizard_Armoured_"] = {
 	spawnLocation = {
 		"Mawdun Quarry (Act 2)",
 		"Mawdun Quarry (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -4906,6 +5008,7 @@ minions["Metadata/Monsters/Parasites/FishParasite"] = {
 		"The Drowned City (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5358,6 +5461,7 @@ minions["Metadata/Monsters/TwigMonsters/canopy/TwigMonster"] = {
 		"Freythorn (Act 7)",
 		"The Grelwood (Act 7)",
 		"The Phaaryl Megalith (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5422,9 +5526,10 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Spider Woods (Map)",
+		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 1)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5458,6 +5563,7 @@ minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 		"Deshar (Act 8)",
 		"Mastodon Badlands (Act 2)",
 		"Mastodon Badlands (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"GAHarvestSabreSpiderDualStrike",
@@ -5525,6 +5631,7 @@ minions["Metadata/Monsters/RamGiant/RamGiantQuarry"] = {
 	spawnLocation = {
 		"Mawdun Quarry (Act 2)",
 		"Mawdun Quarry (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5561,6 +5668,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 		"Cenotes (Map)",
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
+		"Found in Maps",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
 	},
@@ -5628,6 +5736,7 @@ minions["Metadata/Monsters/MaggotHusks/MaggotHusk"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Found in Maps",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
 	},
@@ -5662,7 +5771,9 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 		"Keth (Act 8)",
 		"The Lost City (Act 2)",
 		"The Lost City (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5694,9 +5805,10 @@ minions["Metadata/Monsters/SaltGolem/SaltGolemNoEmerge"] = {
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"Hidden Grotto (Map)",
+		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 1)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -5735,6 +5847,7 @@ minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 		"Savannah (Map)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
 	},
@@ -5772,6 +5885,7 @@ minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 		"Savannah (Map)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
 	},
@@ -5810,6 +5924,7 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	spawnLocation = {
 		"Deshar (Act 2)",
 		"Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5842,6 +5957,7 @@ minions["Metadata/Monsters/SandLeaper02/DesertLeaper1_"] = {
 	companionReservation = 23.1,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Found in Maps",
 		"Vastiri Outskirts (Act 2)",
 		"Vastiri Outskirts (Act 8)",
 	},
@@ -5884,6 +6000,7 @@ minions["Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
 		"Tomb of the Consort (Act 7)",
 	},
@@ -5925,9 +6042,12 @@ minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 		"Deserted (Map)",
 		"Keth (Act 2)",
 		"Keth (Act 8)",
+		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 3)",
+		"Trial of the Sekhemas (Floor 4)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -5966,7 +6086,8 @@ minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 		"Buried Shrines (Act 2)",
 		"Buried Shrines (Act 8)",
 		"Channel (Map)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 2)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",
@@ -6000,6 +6121,7 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 		"Alpine Ridge (Map)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6033,7 +6155,8 @@ minions["Metadata/Monsters/RockSliderSpectre"] = {
 	spawnLocation = {
 		"The Halani Gates (Act 2)",
 		"The Halani Gates (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6069,6 +6192,7 @@ minions["Metadata/Monsters/SkeletonSnake"] = {
 		"Penitentiary (Map)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6103,6 +6227,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 		"Mastodon Badlands (Act 8)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPWAzmeriPitifulFabricationSkullThrow",
@@ -6139,6 +6264,7 @@ minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 		"Mastodon Badlands (Act 8)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"AzmeriFabricationDespair",
@@ -6174,6 +6300,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 		"Mastodon Badlands (Act 8)",
 		"The Bone Pits (Act 2)",
 		"The Bone Pits (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6203,6 +6330,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_"] =
 	spawnLocation = {
 		"The Titan Grotto (Act 2)",
 		"The Titan Grotto (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6234,6 +6362,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_"] = {
 	spawnLocation = {
 		"The Titan Grotto (Act 2)",
 		"The Titan Grotto (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6264,7 +6393,8 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoCaster"] = {
 	spawnLocation = {
 		"The Titan Grotto (Act 2)",
 		"The Titan Grotto (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 4)",
 	},
 	skillList = {
 		"MPSRedSkeletonCaster",
@@ -6301,7 +6431,9 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 		"Deshar (Act 8)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 1)",
+		"Trial of the Sekhemas (Floor 3)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6332,9 +6464,10 @@ minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 	companionReservation = 34.8,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Traitor's Passage (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 1)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6368,7 +6501,7 @@ minions["Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge"] = {
 	spawnLocation = {
 		"Buried Shrines (Act 2)",
 		"Buried Shrines (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 3)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6404,7 +6537,10 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 		"Buried Shrines (Act 8)",
 		"Channel (Map)",
 		"The Lost City (Act 2)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 3)",
+		"Trial of the Sekhemas (Floor 4)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6442,6 +6578,7 @@ minions["Metadata/Monsters/VultureZombie/VultureDemon"] = {
 	spawnLocation = {
 		"Deshar (Act 2)",
 		"Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6509,6 +6646,7 @@ minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 		"Path of Mourning (Act 8)",
 		"The Spires of Deshar (Act 2)",
 		"The Spires of Deshar (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6546,6 +6684,7 @@ minions["Metadata/Monsters/PlagueMorphs/PlagueMorph1"] = {
 		"Mawdun Quarry (Act 8)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6580,6 +6719,7 @@ minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 		"The Dreadnought (Act 8)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6613,6 +6753,7 @@ minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 		"Mud Burrow (Act 7)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6647,6 +6788,7 @@ minions["Metadata/Monsters/PlagueBringer/PlagueBringer"] = {
 		"The Dreadnought (Act 8)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Dreadnought's Wake (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MASExtraAttackDistance6",
@@ -6678,7 +6820,8 @@ minions["Metadata/Monsters/BrainWorm/DuneLurker_"] = {
 	companionReservation = 38.4,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 3)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -6717,7 +6860,8 @@ minions["Metadata/Monsters/WingedCreature/WingedCreature"] = {
 	spawnLocation = {
 		"The Titan Grotto (Act 2)",
 		"The Titan Grotto (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 4)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6754,6 +6898,7 @@ minions["Metadata/Monsters/MantisRat/MantisRat"] = {
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
 		"Mawdun Mine (Act 8)",
+		"Found in Maps",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -6787,6 +6932,7 @@ minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"Cenotes (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6818,6 +6964,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 		"Cenotes (Map)",
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"BogCorpseVolatileExplosion",
@@ -6851,6 +6998,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 		"Cenotes (Map)",
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"BogCorpseVolatileExplosion",
@@ -6885,6 +7033,7 @@ minions["Metadata/Monsters/TwigMonsters/DredgeFiend"] = {
 		"Burial Bog (Map)",
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6952,6 +7101,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower"] = {
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
 		"Sulphuric Caverns (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -6991,6 +7141,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee"] = {
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
 		"Sulphuric Caverns (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -7023,6 +7174,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeDagger"] = {
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
 		"Sulphuric Caverns (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -7055,6 +7207,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeShaman"] = {
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
 		"Sulphuric Caverns (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7125,6 +7278,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 		"The Azak Bog (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7167,6 +7321,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 		"The Azak Bog (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MMAVaalSavageSpearThrow",
@@ -7209,6 +7364,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 		"The Azak Bog (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -7279,6 +7435,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDagger_"] = {
 		"The Azak Bog (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -7313,6 +7470,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 		"The Azak Bog (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7354,6 +7512,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 		"The Azak Bog (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7390,6 +7549,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDelinquent"] = {
 	spawnLocation = {
 		"The Azak Bog (Act 3)",
 		"The Azak Bog (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPWVaalSavageBlowDart",
@@ -7453,6 +7613,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageGiant"] = {
 	spawnLocation = {
 		"The Azak Bog (Act 3)",
 		"The Azak Bog (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7490,6 +7651,7 @@ minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 	spawnLocation = {
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7520,6 +7682,7 @@ minions["Metadata/Monsters/SwarmHost/SwarmHost"] = {
 	spawnLocation = {
 		"Sandswept Marsh (Act 3)",
 		"Sandswept Marsh (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7563,6 +7726,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 		"Jiquani's Machinarium (Act 9)",
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed3",
@@ -7595,6 +7759,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalker"] = {
 	spawnLocation = {
 		"Temple of Kopec (Act 3)",
 		"Temple of Kopec (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed3",
@@ -7629,6 +7794,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 		"Sinking Spire (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7668,6 +7834,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 		"Sinking Spire (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"WalkEmergeAnchoriteFlathead",
@@ -7706,6 +7873,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteMother"] = {
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
 		"Backwash (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7781,6 +7949,7 @@ minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 		"Infested Barrens (Act 9)",
 		"Jungle Ruins (Act 3)",
 		"Jungle Ruins (Act 9)",
+		"Found in Maps",
 		"Woodland (Map)",
 	},
 	skillList = {
@@ -7817,6 +7986,7 @@ minions["Metadata/Monsters/ChawMongrel/ChawMongrel"] = {
 		"The Azak Bog (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7852,6 +8022,7 @@ minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 		"Infested Barrens (Act 3)",
 		"Infested Barrens (Act 9)",
 		"Sump (Map)",
+		"Found in Maps",
 		"Woodland (Map)",
 	},
 	skillList = {
@@ -7919,6 +8090,7 @@ minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 		"Jungle Ruins (Act 9)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7954,6 +8126,7 @@ minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7988,6 +8161,7 @@ minions["Metadata/Monsters/GutViper/GutViper"] = {
 		"Bluff (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8049,6 +8223,7 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 		"Bluff (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8085,6 +8260,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8122,6 +8298,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8156,6 +8333,7 @@ minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 		"Riverside (Map)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -8195,6 +8373,7 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 		"Infested Barrens (Act 9)",
 		"Steppe (Map)",
 		"Sump (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8228,6 +8407,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe"] = {
 		"Freythorn (Act 1)",
 		"Freythorn (Act 7)",
 		"The Viridian Wildwood (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -8261,6 +8441,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictBigMale"] = {
 		"Freythorn (Act 1)",
 		"Freythorn (Act 7)",
 		"The Viridian Wildwood (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8298,6 +8479,7 @@ minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
 		"Chimeral Wetlands (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8336,6 +8518,7 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 		"The Drowned City (Act 9)",
 		"The Matlan Waterways (Act 3)",
 		"The Matlan Waterways (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -8428,6 +8611,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGoldenNo
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 		"Vaal Foundry (Map)",
 	},
 	skillList = {
@@ -8570,6 +8754,7 @@ minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolemAncient"] = {
 	spawnLocation = {
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Machinarium (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8640,6 +8825,7 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 		"Mud Burrow (Act 7)",
 		"The Venom Crypts (Act 3)",
 		"The Venom Crypts (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8673,6 +8859,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDagger
 	spawnLocation = {
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -8707,6 +8894,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
 		"Jiquani's Sanctum (Act 3)",
 		"Jiquani's Sanctum (Act 9)",
 		"Slick (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8745,6 +8933,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8777,6 +8966,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn"] = {
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
 		"Apex of Filth (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8813,6 +9003,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash"] = {
 		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8854,6 +9045,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8887,6 +9079,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] 
 		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8925,6 +9118,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8964,6 +9158,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9001,6 +9196,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 		"Aggorat (Act 9)",
 		"Frigid Bluffs",
 		"Lost Towers (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9033,6 +9229,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos"] = {
 	spawnLocation = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
+		"Found in Maps",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
 	},
@@ -9068,6 +9265,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
 		"Frigid Bluffs",
+		"Found in Maps",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
 	},
@@ -9102,6 +9300,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire"] = {
 	spawnLocation = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9135,6 +9334,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 	companionReservation = 30,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9199,6 +9399,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardClawsLiving"] = {
 	spawnLocation = {
 		"Library of Kamasa (Act 3)",
 		"Library of Kamasa (Act 9)",
+		"Found in Maps",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
 	},
@@ -9237,6 +9438,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalOverseerLiving_"] = {
 	spawnLocation = {
 		"Library of Kamasa (Act 3)",
 		"Library of Kamasa (Act 9)",
+		"Found in Maps",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
 	},
@@ -9270,6 +9472,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 	spawnLocation = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
+		"Found in Maps",
 		"Utzaal (Act 3)",
 		"Utzaal (Act 9)",
 		"Vaal Village (Map)",
@@ -9315,6 +9518,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalStormcaller"] = {
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
 		"The Stone Citadel (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9350,6 +9554,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_"] = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
 		"Lost Towers (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9560,6 +9765,7 @@ minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9592,6 +9798,7 @@ minions["Metadata/Monsters/Procession/ProcessionSpear_"] = {
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9622,6 +9829,7 @@ minions["Metadata/Monsters/Procession/ProcessionDagger"] = {
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9652,6 +9860,7 @@ minions["Metadata/Monsters/Procession/ProcessionBow"] = {
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9686,6 +9895,7 @@ minions["Metadata/Monsters/Procession/ProcessionBannerSpectre"] = {
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"ABTTProcessionBannerInactive",
@@ -9719,6 +9929,7 @@ minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 		"Vaal Foundry (Map)",
 	},
 	skillList = {
@@ -9751,6 +9962,7 @@ minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
 		"Castaway (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9848,6 +10060,7 @@ minions["Metadata/Monsters/VaalForgeMan/VaalForgeMan"] = {
 	spawnLocation = {
 		"The Molten Vault (Act 3)",
 		"The Molten Vault (Act 9)",
+		"Found in Maps",
 		"Vaal Foundry (Map)",
 	},
 	skillList = {
@@ -9887,6 +10100,7 @@ minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
 		"The Riverbank (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"GADrownedCrawlerSwipe",
@@ -9955,6 +10169,7 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Temple of Kopec (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -9992,6 +10207,7 @@ minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Temple of Kopec (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPSVaalSunApparitionBasicProj",
@@ -10029,6 +10245,7 @@ minions["Metadata/Monsters/BloodCultistDrones/BloodBatherMage"] = {
 		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Temple of Kopec (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPSBloodMageBloodProjectile",
@@ -10121,6 +10338,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_"] = {
 	spawnLocation = {
 		"Aggorat (Act 3)",
 		"Aggorat (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -10157,6 +10375,7 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 		"Sinking Spire (Map)",
 		"The Drowned City (Act 3)",
 		"The Drowned City (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -10517,6 +10736,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGol
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -10552,6 +10772,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidPyramidHands/VaalPyramidHan
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
 		"The Stone Citadel (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"EDSPyramidHandLightningLance",
@@ -10585,6 +10806,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidShieldLegs/VallHumanoidShie
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -10626,6 +10848,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidSwordShield/VaalHumanoidSwo
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -10660,6 +10883,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFi
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MPAVaalHumanoidCannon",
@@ -10698,6 +10922,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLi
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
+		"Found in Maps",
 	},
 	skillList = {
 		"EASVaalHumanoidSkitterMine",
@@ -10761,6 +10986,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBlad
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
 		"The Stone Citadel (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -10797,6 +11023,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidStalker/VaalHumanoidStalker
 		"The Black Chambers (Act 3)",
 		"The Black Chambers (Act 9)",
 		"The Stone Citadel (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -10857,6 +11084,7 @@ minions["Metadata/Monsters/CageSkeleton/CageSkeleton_"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -10950,6 +11178,7 @@ minions["Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"The Grelwood (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11011,6 +11240,7 @@ minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 	spawnLocation = {
 		"Ogham Farmlands (Act 1)",
 		"Ogham Farmlands (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11049,6 +11279,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_"] = {
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
 		"Mawdun Mine (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
@@ -11082,6 +11313,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_"] = {
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
 		"Mawdun Mine (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11116,6 +11348,7 @@ minions["Metadata/Monsters/FallenGods/FallenHooksFoundry"] = {
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
 		"Mawdun Mine (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11273,6 +11506,7 @@ minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 	spawnLocation = {
 		"Ogham Farmlands (Act 1)",
 		"Ogham Farmlands (Act 7)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11339,6 +11573,7 @@ minions["Metadata/Monsters/Ghouls/FarudinCrawler"] = {
 		"Mawdun Quarry (Act 8)",
 		"The Dreadnought (Act 2)",
 		"The Dreadnought (Act 8)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11376,6 +11611,7 @@ minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 		"Mawdun Quarry (Act 2)",
 		"Mawdun Quarry (Act 8)",
 		"Mineshaft (Map)",
+		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11408,7 +11644,9 @@ minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 	companionReservation = 44.1,
 	monsterCategory = "Undead",
 	spawnLocation = {
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 3)",
+		"Trial of the Sekhemas (Floor 4)",
 		"Valley of the Titans (Act 2)",
 		"Valley of the Titans (Act 8)",
 	},
@@ -11445,6 +11683,7 @@ minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	spawnLocation = {
 		"Mausoleum of the Praetor (Act 1)",
 		"Mausoleum of the Praetor (Act 7)",
+		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
 		"Tomb of the Consort (Act 7)",
 	},
@@ -11484,6 +11723,7 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	spawnLocation = {
 		"Crypt (Map)",
 		"The Red Vale (Act 7)",
+		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
 		"Tomb of the Consort (Act 7)",
 	},
@@ -11516,7 +11756,9 @@ minions["Metadata/Monsters/VaseMonster/VaseMonsterSpectre"] = {
 	companionReservation = 39,
 	monsterCategory = "Construct",
 	spawnLocation = {
-		"Trial of the Sekhemas (Act 2)",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 3)",
+		"Trial of the Sekhemas (Floor 4)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -11551,7 +11793,9 @@ minions["Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest"] = {
 	spawnLocation = {
 		"Path of Mourning (Act 2)",
 		"Path of Mourning (Act 8)",
-		"Trial of the Sekhemas (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 2)",
+		"Trial of the Sekhemas (Floor 4)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedFire",

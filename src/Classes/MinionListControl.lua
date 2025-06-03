@@ -135,7 +135,7 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 	if tooltip:CheckForUpdate(value) then
 		local foundArea = nil
 		for _, area in pairs(data.worldAreas) do
-			if area.name == value then
+			if area.name == value and #area .monsterVarieties > 0 then
 				foundArea = area
 				break
 			end
@@ -143,7 +143,10 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 		if foundArea then
 			tooltip:AddLine(18, foundArea.name)
 			if foundArea.description and foundArea.description ~= "" then
-				tooltip:AddLine(14, colorCodes.CURRENCY .. '"' .. foundArea.description)
+				tooltip:AddLine(14, colorCodes.CURRENCY .. '"' .. foundArea.description .. '"')
+			end
+			if foundArea.bossVarieties and #foundArea.bossVarieties > 0 then
+				tooltip:AddLine(14, colorCodes.UNIQUE.. "Bosses: ^7" .. table.concat(foundArea.bossVarieties, ", "))
 			end
 			tooltip:AddLine(14, "^7Area Level: "..foundArea.level)
 			local biomeNameMap = {
@@ -170,14 +173,12 @@ function SpawnListClass:AddValueTooltip(tooltip, index, value)
 				end
 			end
 			tooltip:AddSeparator(10)
-			if #foundArea.monsterVarieties > 0 and foundArea.baseName ~= "The Ziggurat Refuge" then
-				tooltip:AddLine(14, "^7Spectres:")
-				for _, monsterName in ipairs(foundArea.monsterVarieties) do
-					tooltip:AddLine(14, " - " .. monsterName)
-				end
-			else
-				tooltip:AddLine(14, "^7No monsters listed")
+			tooltip:AddLine(14, "^7Spectres:")
+			for _, monsterName in ipairs(foundArea.monsterVarieties) do
+				tooltip:AddLine(14, " - " .. monsterName)
 			end
+		elseif value == "Found in Maps" then
+			-- no tooltip
 		else
 			tooltip:AddLine(18, "^7World area not found: " .. tostring(value))
 		end

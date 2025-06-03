@@ -9,7 +9,6 @@ local importedSpectres = {}
 
 local file = io.open("../Data/Spectres.lua", "r")
 if file then
-	local currentSpectreName = nil
 	for line in file:lines() do
 		-- Try to capture the name line inside the spectre table:
 		local name = line:match('name%s*=%s*"(.-)"')
@@ -19,7 +18,6 @@ if file then
 	end
 	file:close()
 end
-
 
 -- Step 1: Build packId -> monster names
 local packIdToMonsters = {}
@@ -142,6 +140,9 @@ for area in dat("WorldAreas"):Rows() do
 		local suffix = ""
 		if isMap then
 			suffix = " (Map)"
+		elseif area.Id:match("^Sanctum_(%d+)") then
+			local floorNum = area.Id:match("^Sanctum_(%d+)")
+			suffix = " (Floor " .. floorNum .. ")"
 		elseif area.Act and area.Act ~= 10 then
 			suffix = " (Act " .. tostring(area.Act) .. ")"
 		end
@@ -155,6 +156,7 @@ for area in dat("WorldAreas"):Rows() do
 		out:write('\tlevel = ' .. tostring(area.AreaLevel or 1) .. ',\n')
 		out:write('\tisMap = ' .. tostring(isMap) .. ',\n')
 		out:write('\tisHideout = ' .. tostring(area.IsHideout) .. ',\n')
+		-- Normal monster list
 		out:write('\tmonsterVarieties = {\n')
 		local seen = {}
 		table.sort(monsters)
@@ -165,6 +167,24 @@ for area in dat("WorldAreas"):Rows() do
 			end
 		end
 		out:write('\t},\n')
+		-- Bosses section
+		if area.Bosses and #area.Bosses > 0 then
+			out:write('\tbossVarieties = {\n')
+			local bossSeen = {}
+			for _, boss in ipairs(area.Bosses) do
+				if boss.Id and boss.Id ~= "" then
+					local bossVariety = dat("MonsterVarieties"):GetRow("Id", boss.Id)
+					if bossVariety and bossVariety.Name and bossVariety.Name ~= "" then
+						local bossName = bossVariety.Name
+						if not bossSeen[bossName] then
+							out:write('\t\t"' .. bossName .. '",\n')
+							bossSeen[bossName] = true
+						end
+					end
+				end
+			end
+			out:write('\t},\n')
+		end
 		out:write('}\n\n')
 	end
 end

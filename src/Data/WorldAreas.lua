@@ -846,6 +846,9 @@ worldAreas["G1_1"] = {
 		"Drowned",
 		"Porcupine Crab",
 	},
+	bossVarieties = {
+		"The Bloated Miller",
+	},
 }
 
 worldAreas["G1_2"] = {
@@ -863,6 +866,9 @@ worldAreas["G1_2"] = {
 		"Vile Hag",
 		"Vile Imp",
 	},
+	bossVarieties = {
+		"Beira of the Rotten Pack",
+	},
 }
 
 worldAreas["G1_3"] = {
@@ -878,6 +884,9 @@ worldAreas["G1_3"] = {
 		"Flesh Larva",
 		"Mud Simulacrum",
 		"Wretched Rattler",
+	},
+	bossVarieties = {
+		"The Devourer",
 	},
 }
 
@@ -899,6 +908,9 @@ worldAreas["G1_4"] = {
 		"Vile Imp",
 		"Werewolf Prowler",
 	},
+	bossVarieties = {
+		"The Brambleghast",
+	},
 }
 
 worldAreas["G1_5"] = {
@@ -915,6 +927,9 @@ worldAreas["G1_5"] = {
 		"Bloom Serpent",
 		"Maw Demon",
 		"Risen Arbalest",
+	},
+	bossVarieties = {
+		"The Rust King",
 	},
 }
 
@@ -933,6 +948,9 @@ worldAreas["G1_6"] = {
 		"Fungal Rattler",
 		"Fungal Wolf",
 		"Fungal Zombie",
+	},
+	bossVarieties = {
+		"The Rotten Druid",
 	},
 }
 
@@ -953,6 +971,9 @@ worldAreas["G1_7"] = {
 		"Hungering Stalker",
 		"Risen Rattler",
 		"Undertaker",
+	},
+	bossVarieties = {
+		"Lachlann of Endless Lament",
 	},
 }
 
@@ -975,6 +996,9 @@ worldAreas["G1_8"] = {
 		"Skulking Ghoul",
 		"Wheelbound Hag",
 	},
+	bossVarieties = {
+		"Draven, the Eternal Praetor",
+	},
 }
 
 worldAreas["G1_9"] = {
@@ -993,6 +1017,9 @@ worldAreas["G1_9"] = {
 		"Knight-Gaunt",
 		"Risen Rattler",
 	},
+	bossVarieties = {
+		"Asinia, the Praetor's Consort",
+	},
 }
 
 worldAreas["G1_10"] = {
@@ -1004,6 +1031,9 @@ worldAreas["G1_10"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"The Rotten Druid",
 	},
 }
 
@@ -1023,6 +1053,9 @@ worldAreas["G1_11"] = {
 		"Bramble Rhoa",
 		"Venomous Crab",
 		"Venomous Crab Matriarch",
+	},
+	bossVarieties = {
+		"The Crowbell",
 	},
 }
 
@@ -1088,6 +1121,9 @@ worldAreas["G1_13_2"] = {
 		"Voracious Werewolf",
 		"Werewolf Prowler",
 	},
+	bossVarieties = {
+		"The Executioner",
+	},
 }
 
 worldAreas["G1_14"] = {
@@ -1135,6 +1171,10 @@ worldAreas["G1_15"] = {
 		"Tendril Prowler",
 		"Tendril Sentinel",
 	},
+	bossVarieties = {
+		"Candlemass, the Living Rite",
+		"Count Geonor",
+	},
 }
 
 worldAreas["G2_town"] = {
@@ -1167,6 +1207,9 @@ worldAreas["G2_1"] = {
 		"Sandscoured Dead",
 		"Sun Clan Scavenger",
 	},
+	bossVarieties = {
+		"Rathbreaker",
+	},
 }
 
 worldAreas["G2_2"] = {
@@ -1186,6 +1229,9 @@ worldAreas["G2_2"] = {
 		"Skitter Golem",
 		"Tombshrieker",
 		"Vault Lurker",
+	},
+	bossVarieties = {
+		"Balbala, the Traitor",
 	},
 }
 
@@ -1210,6 +1256,9 @@ worldAreas["G2_3"] = {
 		"Faridun Spearwoman",
 		"Faridun Swordsman",
 		"Faridun Wind-slicer",
+	},
+	bossVarieties = {
+		"Jamanra, the Risen King",
 	},
 }
 
@@ -1257,6 +1306,9 @@ worldAreas["G2_4_1"] = {
 		"Tarnished Beetle",
 		"Tarnished Scarab",
 	},
+	bossVarieties = {
+		"Kabala, Constrictor Queen",
+	},
 }
 
 worldAreas["G2_4_2"] = {
@@ -1295,6 +1347,9 @@ worldAreas["G2_4_3"] = {
 		"Risen Maraketh",
 		"Sand Spirit",
 		"Vesper Bat",
+	},
+	bossVarieties = {
+		"Azarian, the Forsaken Son",
 	},
 }
 
@@ -1341,6 +1396,9 @@ worldAreas["G2_5_2"] = {
 		"Spinesnatcher",
 		"Sun Clan Scavenger",
 	},
+	bossVarieties = {
+		"Ekbab, Ancient Steed",
+	},
 }
 
 worldAreas["G2_6"] = {
@@ -1379,6 +1437,9 @@ worldAreas["G2_7"] = {
 		"Sandflesh Skeleton",
 		"Sandflesh Warrior",
 		"Winged Horror",
+	},
+	bossVarieties = {
+		"Zalmarath, the Colossus",
 	},
 }
 
@@ -1454,6 +1515,9 @@ worldAreas["G2_9_2"] = {
 		"Maraketh Undead",
 		"Winged Fiend",
 	},
+	bossVarieties = {
+		"Tor Gul, the Defiler",
+	},
 }
 
 worldAreas["G2_10_1"] = {
@@ -1494,6 +1558,9 @@ worldAreas["G2_10_2"] = {
 		"Forsaken Miner",
 		"Mantis Rat",
 		"Plague Nymph",
+	},
+	bossVarieties = {
+		"Rudja, the Dread Engineer",
 	},
 }
 
@@ -1565,6 +1632,9 @@ worldAreas["G2_12_2"] = {
 		"Faridun Swordsman",
 		"Faridun Wind-slicer",
 	},
+	bossVarieties = {
+		"Jamanra, the Abomination",
+	},
 }
 
 worldAreas["G2_13"] = {
@@ -1581,7 +1651,7 @@ worldAreas["G2_13"] = {
 }
 
 worldAreas["Sanctum_1"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 1)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1599,10 +1669,13 @@ worldAreas["Sanctum_1"] = {
 		"Tombshrieker",
 		"Vault Lurker",
 	},
+	bossVarieties = {
+		"Rattlecage, the Earthbreaker",
+	},
 }
 
 worldAreas["Sanctum_1_Foyer_1"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 1)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1614,7 +1687,7 @@ worldAreas["Sanctum_1_Foyer_1"] = {
 }
 
 worldAreas["Sanctum_1_Foyer_2"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 1)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1626,7 +1699,7 @@ worldAreas["Sanctum_1_Foyer_2"] = {
 }
 
 worldAreas["Sanctum_1_Foyer_3"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 1)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1638,7 +1711,7 @@ worldAreas["Sanctum_1_Foyer_3"] = {
 }
 
 worldAreas["Sanctum_2"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 2)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1656,10 +1729,14 @@ worldAreas["Sanctum_2"] = {
 		"Sand Spirit",
 		"Urnwalker",
 	},
+	bossVarieties = {
+		"Rafiq of the Frozen Spring",
+		"Hadi of the Flaming River",
+	},
 }
 
 worldAreas["Sanctum_2_Foyer_1"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 2)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1671,7 +1748,7 @@ worldAreas["Sanctum_2_Foyer_1"] = {
 }
 
 worldAreas["Sanctum_2_Foyer_2"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 2)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1683,7 +1760,7 @@ worldAreas["Sanctum_2_Foyer_2"] = {
 }
 
 worldAreas["Sanctum_2_Foyer_3"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 2)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1695,7 +1772,7 @@ worldAreas["Sanctum_2_Foyer_3"] = {
 }
 
 worldAreas["Sanctum_3"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 3)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1717,10 +1794,13 @@ worldAreas["Sanctum_3"] = {
 		"Vesper Bat",
 		"Walking Goliath",
 	},
+	bossVarieties = {
+		"Ashar, the Sand Mother",
+	},
 }
 
 worldAreas["Sanctum_3_Foyer_1"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 3)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1732,7 +1812,7 @@ worldAreas["Sanctum_3_Foyer_1"] = {
 }
 
 worldAreas["Sanctum_3_Foyer_2"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 3)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1744,7 +1824,7 @@ worldAreas["Sanctum_3_Foyer_2"] = {
 }
 
 worldAreas["Sanctum_3_Foyer_3"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 3)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1756,7 +1836,7 @@ worldAreas["Sanctum_3_Foyer_3"] = {
 }
 
 worldAreas["Sanctum_4"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 4)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1774,10 +1854,13 @@ worldAreas["Sanctum_4"] = {
 		"Walking Goliath",
 		"Winged Horror",
 	},
+	bossVarieties = {
+		"Zarokh, the Temporal",
+	},
 }
 
 worldAreas["Sanctum_4_Foyer_1"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 4)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1789,7 +1872,7 @@ worldAreas["Sanctum_4_Foyer_1"] = {
 }
 
 worldAreas["Sanctum_4_Foyer_2"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 4)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1801,7 +1884,7 @@ worldAreas["Sanctum_4_Foyer_2"] = {
 }
 
 worldAreas["Sanctum_4_Foyer_3"] = {
-	name = "Trial of the Sekhemas (Act 2)",
+	name = "Trial of the Sekhemas (Floor 4)",
 	baseName = "Trial of the Sekhemas",
 	tags = {  },
 	act = 2,
@@ -1845,6 +1928,9 @@ worldAreas["G3_1"] = {
 		"Orok Shaman",
 		"Orok Throatcutter",
 		"Rotting Hulk",
+	},
+	bossVarieties = {
+		"Rootdredge",
 	},
 }
 
@@ -1908,6 +1994,9 @@ worldAreas["G3_3"] = {
 		"Quadrilla",
 		"Snakethroat Shambler",
 	},
+	bossVarieties = {
+		"Mighty Silverfist",
+	},
 }
 
 worldAreas["G3_4"] = {
@@ -1947,6 +2036,9 @@ worldAreas["G3_5"] = {
 		"Prowling Chimeral",
 		"River Drake",
 	},
+	bossVarieties = {
+		"Xyclucian, the Chimera",
+	},
 }
 
 worldAreas["G3_6_1"] = {
@@ -1969,6 +2061,9 @@ worldAreas["G3_6_1"] = {
 		"Vaal Skeletal Squire",
 		"Vaal Skeletal Warrior",
 	},
+	bossVarieties = {
+		"Blackjaw, the Remnant",
+	},
 }
 
 worldAreas["G3_6_2"] = {
@@ -1989,6 +2084,9 @@ worldAreas["G3_6_2"] = {
 		"Vaal Skeletal Priest",
 		"Vaal Skeletal Squire",
 		"Vaal Skeletal Warrior",
+	},
+	bossVarieties = {
+		"Zicoatl, Warden of the Core",
 	},
 }
 
@@ -2012,6 +2110,9 @@ worldAreas["G3_7"] = {
 		"Azak Throatcutter",
 		"Azak Torchbearer",
 		"Chaw Mongrel",
+	},
+	bossVarieties = {
+		"Ignagduk, the Bog Witch",
 	},
 }
 
@@ -2061,6 +2162,9 @@ worldAreas["G3_9"] = {
 		"Vaal Embalmed Rogue",
 		"Vaal Embalmed Spearman",
 	},
+	bossVarieties = {
+		"Mektul, the Forgemaster",
+	},
 }
 
 worldAreas["G3_10"] = {
@@ -2073,6 +2177,12 @@ worldAreas["G3_10"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Uxmal, the Beastlord",
+		"Chetza, the Feathered Plague",
+		"Bahlak, the Sky Seer",
+		"The Trialmaster",
 	},
 }
 
@@ -2111,6 +2221,9 @@ worldAreas["G3_11"] = {
 		"Hunchback Clubber",
 		"Pyromushroom Cultivator",
 	},
+	bossVarieties = {
+		"The Queen of Filth",
+	},
 }
 
 worldAreas["G3_12"] = {
@@ -2127,6 +2240,9 @@ worldAreas["G3_12"] = {
 		"Bloodrite Guard",
 		"Bloodrite Priest",
 		"Priest of the Sun",
+	},
+	bossVarieties = {
+		"Ketzuli, High Priest of the Sun",
 	},
 }
 
@@ -2386,6 +2502,9 @@ worldAreas["G3_14"] = {
 		"Vaal Overseer",
 		"Viper Legionnaire",
 	},
+	bossVarieties = {
+		"Viper Napuatzi",
+	},
 }
 
 worldAreas["G3_15"] = {
@@ -2447,6 +2566,10 @@ worldAreas["G3_17"] = {
 		"Surgical Experimentalist",
 		"Warrior Transcendent",
 	},
+	bossVarieties = {
+		"Doryani, Royal Thaumaturge",
+		"Doryani's Triumph",
+	},
 }
 
 worldAreas["C_G1_town"] = {
@@ -2477,6 +2600,9 @@ worldAreas["C_G1_1"] = {
 		"Porcupine Crab",
 		"River Hag",
 	},
+	bossVarieties = {
+		"The Bloated Miller",
+	},
 }
 
 worldAreas["C_G1_2"] = {
@@ -2493,6 +2619,9 @@ worldAreas["C_G1_2"] = {
 		"Rotten Wolf",
 		"Vile Hag",
 		"Vile Imp",
+	},
+	bossVarieties = {
+		"Beira of the Rotten Pack",
 	},
 }
 
@@ -2511,6 +2640,9 @@ worldAreas["C_G1_3"] = {
 		"Plague Nymph",
 		"Rotted Rat",
 		"Wretched Rattler",
+	},
+	bossVarieties = {
+		"The Devourer",
 	},
 }
 
@@ -2535,6 +2667,9 @@ worldAreas["C_G1_4"] = {
 		"Vile Imp",
 		"Werewolf Prowler",
 	},
+	bossVarieties = {
+		"The Brambleghast",
+	},
 }
 
 worldAreas["C_G1_5"] = {
@@ -2553,6 +2688,9 @@ worldAreas["C_G1_5"] = {
 		"Maw Demon",
 		"Risen Arbalest",
 	},
+	bossVarieties = {
+		"The Rust King",
+	},
 }
 
 worldAreas["C_G1_6"] = {
@@ -2570,6 +2708,9 @@ worldAreas["C_G1_6"] = {
 		"Fungal Rattler",
 		"Fungal Wolf",
 		"Fungal Zombie",
+	},
+	bossVarieties = {
+		"The Rotten Druid",
 	},
 }
 
@@ -2590,6 +2731,9 @@ worldAreas["C_G1_7"] = {
 		"Hungering Stalker",
 		"Risen Rattler",
 		"Undertaker",
+	},
+	bossVarieties = {
+		"Lachlann of Endless Lament",
 	},
 }
 
@@ -2612,6 +2756,9 @@ worldAreas["C_G1_8"] = {
 		"Skulking Ghoul",
 		"Wheelbound Hag",
 	},
+	bossVarieties = {
+		"Draven, the Eternal Praetor",
+	},
 }
 
 worldAreas["C_G1_9"] = {
@@ -2630,6 +2777,9 @@ worldAreas["C_G1_9"] = {
 		"Knight-Gaunt",
 		"Risen Rattler",
 	},
+	bossVarieties = {
+		"Asinia, the Praetor's Consort",
+	},
 }
 
 worldAreas["C_G1_10"] = {
@@ -2641,6 +2791,9 @@ worldAreas["C_G1_10"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"The Rotten Druid",
 	},
 }
 
@@ -2660,6 +2813,9 @@ worldAreas["C_G1_11"] = {
 		"Bramble Rhoa",
 		"Venomous Crab",
 		"Venomous Crab Matriarch",
+	},
+	bossVarieties = {
+		"The Crowbell",
 	},
 }
 
@@ -2726,6 +2882,9 @@ worldAreas["C_G1_13_2"] = {
 		"Voracious Werewolf",
 		"Werewolf Prowler",
 	},
+	bossVarieties = {
+		"The Executioner",
+	},
 }
 
 worldAreas["C_G1_14"] = {
@@ -2773,6 +2932,10 @@ worldAreas["C_G1_15"] = {
 		"Tendril Prowler",
 		"Tendril Sentinel",
 	},
+	bossVarieties = {
+		"Candlemass, the Living Rite",
+		"Count Geonor",
+	},
 }
 
 worldAreas["C_G2_town"] = {
@@ -2805,6 +2968,9 @@ worldAreas["C_G2_1"] = {
 		"Sandscoured Dead",
 		"Sun Clan Scavenger",
 	},
+	bossVarieties = {
+		"Rathbreaker",
+	},
 }
 
 worldAreas["C_G2_2"] = {
@@ -2824,6 +2990,9 @@ worldAreas["C_G2_2"] = {
 		"Skitter Golem",
 		"Tombshrieker",
 		"Vault Lurker",
+	},
+	bossVarieties = {
+		"Balbala, the Traitor",
 	},
 }
 
@@ -2848,6 +3017,9 @@ worldAreas["C_G2_3"] = {
 		"Faridun Spearwoman",
 		"Faridun Swordsman",
 		"Faridun Wind-slicer",
+	},
+	bossVarieties = {
+		"Jamanra, the Risen King",
 	},
 }
 
@@ -2895,6 +3067,9 @@ worldAreas["C_G2_4_1"] = {
 		"Tarnished Beetle",
 		"Tarnished Scarab",
 	},
+	bossVarieties = {
+		"Kabala, Constrictor Queen",
+	},
 }
 
 worldAreas["C_G2_4_2"] = {
@@ -2932,6 +3107,9 @@ worldAreas["C_G2_4_3"] = {
 		"Risen Maraketh",
 		"Sand Spirit",
 		"Vesper Bat",
+	},
+	bossVarieties = {
+		"Azarian, the Forsaken Son",
 	},
 }
 
@@ -2978,6 +3156,9 @@ worldAreas["C_G2_5_2"] = {
 		"Spinesnatcher",
 		"Sun Clan Scavenger",
 	},
+	bossVarieties = {
+		"Ekbab, Ancient Steed",
+	},
 }
 
 worldAreas["C_G2_6"] = {
@@ -3016,6 +3197,9 @@ worldAreas["C_G2_7"] = {
 		"Sandflesh Skeleton",
 		"Sandflesh Warrior",
 		"Winged Horror",
+	},
+	bossVarieties = {
+		"Zalmarath, the Colossus",
 	},
 }
 
@@ -3078,6 +3262,9 @@ worldAreas["C_G2_9_2_"] = {
 		"Maraketh Undead",
 		"Winged Fiend",
 	},
+	bossVarieties = {
+		"Tor Gul, the Defiler",
+	},
 }
 
 worldAreas["C_G2_10_1"] = {
@@ -3118,6 +3305,9 @@ worldAreas["C_G2_10_2"] = {
 		"Forsaken Miner",
 		"Mantis Rat",
 		"Plague Nymph",
+	},
+	bossVarieties = {
+		"Rudja, the Dread Engineer",
 	},
 }
 
@@ -3189,6 +3379,9 @@ worldAreas["C_G2_12_2"] = {
 		"Faridun Swordsman",
 		"Faridun Wind-slicer",
 	},
+	bossVarieties = {
+		"Jamanra, the Abomination",
+	},
 }
 
 worldAreas["C_G3_town"] = {
@@ -3224,6 +3417,9 @@ worldAreas["C_G3_1"] = {
 		"Orok Shaman",
 		"Orok Throatcutter",
 		"Rotting Hulk",
+	},
+	bossVarieties = {
+		"Rootdredge",
 	},
 }
 
@@ -3287,6 +3483,9 @@ worldAreas["C_G3_3"] = {
 		"Quadrilla",
 		"Snakethroat Shambler",
 	},
+	bossVarieties = {
+		"Mighty Silverfist",
+	},
 }
 
 worldAreas["C_G3_4"] = {
@@ -3326,6 +3525,9 @@ worldAreas["C_G3_5"] = {
 		"Prowling Chimeral",
 		"River Drake",
 	},
+	bossVarieties = {
+		"Xyclucian, the Chimera",
+	},
 }
 
 worldAreas["C_G3_6_1"] = {
@@ -3348,6 +3550,9 @@ worldAreas["C_G3_6_1"] = {
 		"Vaal Skeletal Squire",
 		"Vaal Skeletal Warrior",
 	},
+	bossVarieties = {
+		"Blackjaw, the Remnant",
+	},
 }
 
 worldAreas["C_G3_6_2"] = {
@@ -3368,6 +3573,9 @@ worldAreas["C_G3_6_2"] = {
 		"Vaal Skeletal Priest",
 		"Vaal Skeletal Squire",
 		"Vaal Skeletal Warrior",
+	},
+	bossVarieties = {
+		"Zicoatl, Warden of the Core",
 	},
 }
 
@@ -3391,6 +3599,9 @@ worldAreas["C_G3_7"] = {
 		"Azak Throatcutter",
 		"Azak Torchbearer",
 		"Chaw Mongrel",
+	},
+	bossVarieties = {
+		"Ignagduk, the Bog Witch",
 	},
 }
 
@@ -3440,6 +3651,9 @@ worldAreas["C_G3_9"] = {
 		"Vaal Embalmed Rogue",
 		"Vaal Embalmed Spearman",
 	},
+	bossVarieties = {
+		"Mektul, the Forgemaster",
+	},
 }
 
 worldAreas["C_G3_10_Airlock"] = {
@@ -3477,6 +3691,9 @@ worldAreas["C_G3_11"] = {
 		"Hunchback Clubber",
 		"Pyromushroom Cultivator",
 	},
+	bossVarieties = {
+		"The Queen of Filth",
+	},
 }
 
 worldAreas["C_G3_12"] = {
@@ -3493,6 +3710,9 @@ worldAreas["C_G3_12"] = {
 		"Bloodrite Guard",
 		"Bloodrite Priest",
 		"Priest of the Sun",
+	},
+	bossVarieties = {
+		"Ketzuli, High Priest of the Sun",
 	},
 }
 
@@ -3514,6 +3734,9 @@ worldAreas["C_G3_14"] = {
 		"Vaal Guard",
 		"Vaal Overseer",
 		"Viper Legionnaire",
+	},
+	bossVarieties = {
+		"Viper Napuatzi",
 	},
 }
 
@@ -3576,6 +3799,10 @@ worldAreas["C_G3_17"] = {
 		"Surgical Experimentalist",
 		"Warrior Transcendent",
 	},
+	bossVarieties = {
+		"Doryani, Royal Thaumaturge",
+		"Doryani's Triumph",
+	},
 }
 
 worldAreas["MapLeaguePortal"] = {
@@ -3612,6 +3839,9 @@ worldAreas["MapSpiderJungle"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
+	},
 }
 
 worldAreas["MapRustbowl"] = {
@@ -3625,6 +3855,9 @@ worldAreas["MapRustbowl"] = {
 	monsterVarieties = {
 		"Ancient Ezomyte",
 		"Risen Arbalest",
+	},
+	bossVarieties = {
+		"Gozen, Rebellious Rustlord",
 	},
 }
 
@@ -3660,6 +3893,9 @@ worldAreas["MapBackwash"] = {
 		"Foul Mauler",
 		"Foul Sage",
 		"Pyromushroom Cultivator",
+	},
+	bossVarieties = {
+		"Yaota, the Loathsome",
 	},
 }
 
@@ -3697,6 +3933,9 @@ worldAreas["MapBurialBog"] = {
 		"Bogfelled Slave",
 		"Dredge Fiend",
 	},
+	bossVarieties = {
+		"Grudgelash, Vile Thorn",
+	},
 }
 
 worldAreas["MapBurialBog_NoBoss"] = {
@@ -3723,6 +3962,9 @@ worldAreas["MapInferno"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
 	},
 }
 
@@ -3751,6 +3993,9 @@ worldAreas["MapWetlands"] = {
 		"Bramble Burrower",
 		"Venomous Crab Matriarch",
 	},
+	bossVarieties = {
+		"Gorian, the Moving Earth",
+	},
 }
 
 worldAreas["MapWetlands_NoBoss"] = {
@@ -3778,6 +4023,9 @@ worldAreas["MapBloomingField"] = {
 	monsterVarieties = {
 		"Bloom Serpent",
 	},
+	bossVarieties = {
+		"The Black Crow",
+	},
 }
 
 worldAreas["MapBloomingField_NoBoss"] = {
@@ -3804,6 +4052,9 @@ worldAreas["MapCrimsonShores"] = {
 	monsterVarieties = {
 		"Brimstone Crab",
 	},
+	bossVarieties = {
+		"Rattlecage, the Earthbreaker",
+	},
 }
 
 worldAreas["MapCrimsonShores_NoBoss"] = {
@@ -3828,6 +4079,9 @@ worldAreas["MapCenotes"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Bahlak, the Sky Seer",
 	},
 }
 
@@ -3859,6 +4113,9 @@ worldAreas["MapSavanna"] = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
 	},
+	bossVarieties = {
+		"Caedron, the Hyena Lord",
+	},
 }
 
 worldAreas["MapSavanna_NoBoss"] = {
@@ -3887,6 +4144,9 @@ worldAreas["MapFortress"] = {
 		"Vaal Skeletal Priest",
 		"Vaal Skeletal Squire",
 	},
+	bossVarieties = {
+		"Pirasha, the Forgotten Prisoner",
+	},
 }
 
 worldAreas["MapFortress_NoBoss"] = {
@@ -3914,6 +4174,9 @@ worldAreas["MapPenitentiary"] = {
 	monsterVarieties = {
 		"Gilded Cobra",
 		"Lost-men Zealot",
+	},
+	bossVarieties = {
+		"Incarnation of Death",
 	},
 }
 
@@ -3944,6 +4207,9 @@ worldAreas["MapLostTowers"] = {
 		"Blood Priestess",
 		"Blood Zealot",
 		"Vaal Formshifter",
+	},
+	bossVarieties = {
+		"Chetza, the Feathered Plague",
 	},
 }
 
@@ -3976,6 +4242,9 @@ worldAreas["MapBloodwood"] = {
 		"Blood Cretin",
 		"Courtesan",
 	},
+	bossVarieties = {
+		"Gorian, the Moving Earth",
+	},
 }
 
 worldAreas["MapBloodwood_NoBoss"] = {
@@ -4003,6 +4272,9 @@ worldAreas["MapSandspit"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
+	},
 }
 
 worldAreas["MapSandspit_NoBoss"] = {
@@ -4029,6 +4301,9 @@ worldAreas["MapForge"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Goliath",
+	},
+	bossVarieties = {
+		"Vastweld, the Colossal Guardian",
 	},
 }
 
@@ -4058,6 +4333,10 @@ worldAreas["MapSulphuricCaverns"] = {
 		"Orok Hunter",
 		"Orok Shaman",
 		"Orok Throatcutter",
+	},
+	bossVarieties = {
+		"The Bone Colossus",
+		"Lord of the Pit",
 	},
 }
 
@@ -4089,6 +4368,9 @@ worldAreas["MapMire"] = {
 		"Cultist Archer",
 		"Cultist Daggerdancer",
 	},
+	bossVarieties = {
+		"Riona, Winter's Cackle",
+	},
 }
 
 worldAreas["MapMire_NoBoss"] = {
@@ -4116,6 +4398,9 @@ worldAreas["MapAugury"] = {
 	monsterVarieties = {
 		"Constricted Spitter",
 		"Slitherspitter",
+	},
+	bossVarieties = {
+		"Gressor-Kul, the Apex",
 	},
 }
 
@@ -4145,6 +4430,9 @@ worldAreas["MapWoodland"] = {
 		"Antlion Charger",
 		"Ill-fated Explorer",
 	},
+	bossVarieties = {
+		"Tierney, the Hateful",
+	},
 }
 
 worldAreas["MapWoodland_NoBoss"] = {
@@ -4172,6 +4460,9 @@ worldAreas["MapSump"] = {
 	monsterVarieties = {
 		"Diretusk Boar",
 		"Ill-fated Explorer",
+	},
+	bossVarieties = {
+		"Brakka, the Withered Crone",
 	},
 }
 
@@ -4201,6 +4492,9 @@ worldAreas["MapWillow"] = {
 		"Lightning Wraith",
 		"Risen Rattler",
 	},
+	bossVarieties = {
+		"Connal, the Tormented",
+	},
 }
 
 worldAreas["MapWillow_NoBoss"] = {
@@ -4226,6 +4520,9 @@ worldAreas["MapHive"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"The Fungus Behemoth",
 	},
 }
 
@@ -4253,6 +4550,9 @@ worldAreas["MapHeadland"] = {
 	monsterVarieties = {
 		"Pale-stitched Stalker",
 	},
+	bossVarieties = {
+		"Hask, the Fallen Son",
+	},
 }
 
 worldAreas["MapHeadland_NoBoss"] = {
@@ -4279,6 +4579,9 @@ worldAreas["MapLoftySummit"] = {
 	monsterVarieties = {
 		"Frost Wraith",
 		"Risen Rattler",
+	},
+	bossVarieties = {
+		"Oloton, the Remorseless",
 	},
 }
 
@@ -4308,6 +4611,9 @@ worldAreas["MapNecropolis"] = {
 		"Death Knight",
 		"Risen Rattler",
 	},
+	bossVarieties = {
+		"Tycho, the Black Praetor",
+	},
 }
 
 worldAreas["MapNecropolis_NoBoss"] = {
@@ -4335,6 +4641,9 @@ worldAreas["MapCrypt"] = {
 	monsterVarieties = {
 		"Knight-Gaunt",
 		"Risen Rattler",
+	},
+	bossVarieties = {
+		"Meltwax, Mockery of Faith",
 	},
 }
 
@@ -4364,6 +4673,9 @@ worldAreas["MapHiddenGrotto"] = {
 		"Quake Golem",
 		"Skitter Golem",
 	},
+	bossVarieties = {
+		"Zar Wali, the Bone Tyrant",
+	},
 }
 
 worldAreas["MapHiddenGrotto_NoBoss"] = {
@@ -4390,6 +4702,9 @@ worldAreas["MapSteamingSprings"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Bramble Rhoa",
+	},
+	bossVarieties = {
+		"Manassa, the Serpent Queen",
 	},
 }
 
@@ -4418,6 +4733,9 @@ worldAreas["MapSeepage"] = {
 		"Fungal Artillery",
 		"Fungal Proliferator",
 		"Fungal Rattler",
+	},
+	bossVarieties = {
+		"The Fungus Behemoth",
 	},
 }
 
@@ -4448,6 +4766,9 @@ worldAreas["MapRiverside"] = {
 		"Quadrilla",
 		"Scorpion Monkey",
 	},
+	bossVarieties = {
+		"Zekoa, the Headcrusher",
+	},
 }
 
 worldAreas["MapRiverside_NoBoss"] = {
@@ -4476,6 +4797,9 @@ worldAreas["MapRavine"] = {
 		"Constricted Spitter",
 		"Snakethroat Shambler",
 	},
+	bossVarieties = {
+		"Tetzcatl, the Blazing Guardian",
+	},
 }
 
 worldAreas["MapRavine_NoBoss"] = {
@@ -4502,6 +4826,9 @@ worldAreas["MapSpiderWoods"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Vault Lurker",
+	},
+	bossVarieties = {
+		"Rootgrasp, the Hateful Forest",
 	},
 }
 
@@ -4530,6 +4857,9 @@ worldAreas["MapAbyss"] = {
 		"Mar Acolyte",
 		"Risen Arbalest",
 		"Risen Maraketh",
+	},
+	bossVarieties = {
+		"Zar Wali, the Bone Tyrant",
 	},
 }
 
@@ -4560,6 +4890,9 @@ worldAreas["MapGrimhaven"] = {
 		"Decrepit Mercenary",
 		"Iron Thaumaturgist",
 	},
+	bossVarieties = {
+		"Saphira, The Dread Consort",
+	},
 }
 
 worldAreas["MapGrimhaven_NoBoss"] = {
@@ -4587,6 +4920,9 @@ worldAreas["MapVaalVillage"] = {
 	monsterVarieties = {
 		"Vaal Goliath",
 	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
+	},
 }
 
 worldAreas["MapVaalOutskirts"] = {
@@ -4599,6 +4935,9 @@ worldAreas["MapVaalOutskirts"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
+	},
 }
 
 worldAreas["MapSlick"] = {
@@ -4610,6 +4949,9 @@ worldAreas["MapSlick"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Vorrik, The Infernal Engineer",
 	},
 }
 
@@ -4637,6 +4979,9 @@ worldAreas["MapVaalCity"] = {
 	monsterVarieties = {
 		"Viper Legionnaire",
 	},
+	bossVarieties = {
+		"Viper Napuatzi",
+	},
 }
 
 worldAreas["MapVaalCity_NoBoss"] = {
@@ -4661,6 +5006,9 @@ worldAreas["MapSteppe"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Gozen, Rebellious Rustlord",
 	},
 }
 
@@ -4690,6 +5038,9 @@ worldAreas["MapSwampTower"] = {
 		"Flathead Clubber",
 		"Hunchback Clubber",
 	},
+	bossVarieties = {
+		"Stormgore",
+	},
 }
 
 worldAreas["MapSwampTower_NoBoss"] = {
@@ -4716,6 +5067,9 @@ worldAreas["MapRockpools"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
 	},
 }
 
@@ -4744,6 +5098,9 @@ worldAreas["MapCreek"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"River Drake",
+	},
+	bossVarieties = {
+		"Tierney, the Hateful",
 	},
 }
 
@@ -4817,6 +5174,9 @@ worldAreas["MapBastille"] = {
 		"Decrepit Mercenary",
 		"Iron Guard",
 	},
+	bossVarieties = {
+		"Tierney, the Hateful",
+	},
 }
 
 worldAreas["MapBastille_NoBoss"] = {
@@ -4846,6 +5206,9 @@ worldAreas["MapDecay"] = {
 		"Fungal Proliferator",
 		"Fungal Zombie",
 	},
+	bossVarieties = {
+		"The Fungus Behemoth",
+	},
 }
 
 worldAreas["MapDecay_NoBoss"] = {
@@ -4874,6 +5237,9 @@ worldAreas["MapMineshaft"] = {
 	monsterVarieties = {
 		"Forsaken Miner",
 	},
+	bossVarieties = {
+		"Vorrik, The Infernal Engineer",
+	},
 }
 
 worldAreas["MapMineshaft_NoBoss"] = {
@@ -4900,6 +5266,9 @@ worldAreas["MapDeserted"] = {
 	monsterVarieties = {
 		"Desiccated Lich",
 		"Living Sand",
+	},
+	bossVarieties = {
+		"Lord of the Pit",
 	},
 }
 
@@ -4931,6 +5300,9 @@ worldAreas["MapOasis"] = {
 		"Faridun Spearman",
 		"Faridun Swordsman",
 	},
+	bossVarieties = {
+		"Ishtaroth, the Perennial",
+	},
 }
 
 worldAreas["MapOasis_NoBoss"] = {
@@ -4959,6 +5331,9 @@ worldAreas["MapBastion"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
+	},
 }
 
 worldAreas["MapBastion_NoBoss"] = {
@@ -4982,6 +5357,9 @@ worldAreas["MapRefuge"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
 	},
 }
 
@@ -5007,6 +5385,10 @@ worldAreas["MapAlpineRidge"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Winged Fiend",
+	},
+	bossVarieties = {
+		"Ignatia, the Flame-Sworn",
+		"Gelida, the Frost-Tongue",
 	},
 }
 
@@ -5035,6 +5417,9 @@ worldAreas["MapSunTemple"] = {
 		"Bloodrite Guard",
 		"Bloodrite Priest",
 		"Priest of the Sun",
+	},
+	bossVarieties = {
+		"Tonqui, Seer of the Sun",
 	},
 }
 
@@ -5065,6 +5450,9 @@ worldAreas["MapChannel"] = {
 		"Mar Acolyte",
 		"Sand Spirit",
 	},
+	bossVarieties = {
+		"Hask, the Fallen Son",
+	},
 }
 
 worldAreas["MapChannel_NoBoss"] = {
@@ -5094,6 +5482,9 @@ worldAreas["MapVaalFoundry"] = {
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
 	},
+	bossVarieties = {
+		"Gulzal, the Living Furnace ",
+	},
 }
 
 worldAreas["MapVaalFoundry_NoBoss"] = {
@@ -5121,6 +5512,9 @@ worldAreas["MapVaalFactory"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"Tetzcatl, the Blazing Guardian",
+	},
 }
 
 worldAreas["MapVaalFactory_NoBoss"] = {
@@ -5146,6 +5540,9 @@ worldAreas["MapMesa"] = {
 	monsterVarieties = {
 		"Hyena Demon",
 		"Sun Clan Scavenger",
+	},
+	bossVarieties = {
+		"Karash, The Dune Dweller",
 	},
 }
 
@@ -5176,6 +5573,9 @@ worldAreas["MapBluff"] = {
 		"Entrailhome Shambler",
 		"Slitherspitter",
 	},
+	bossVarieties = {
+		"Gressor-Kul, the Apex",
+	},
 }
 
 worldAreas["MapBluff_NoBoss"] = {
@@ -5202,6 +5602,9 @@ worldAreas["MapPerch"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"[DNT] Dog Trader",
 	},
 }
 
@@ -5270,6 +5673,9 @@ worldAreas["MapUniqueCastaway"] = {
 		"Searot Harpooner",
 		"Searot Skeleton",
 		"Searot Sniper",
+	},
+	bossVarieties = {
+		"Torrek of the Drowned Fleet",
 	},
 }
 
@@ -5478,6 +5884,10 @@ worldAreas["MapUberBoss_IronCitadel"] = {
 		"Iron Sharpshooter",
 		"Iron Spearman",
 	},
+	bossVarieties = {
+		"Count Geonor",
+		"Geonor, the Putrid Wolf",
+	},
 }
 
 worldAreas["MapUberBoss_CopperCitadel"] = {
@@ -5491,6 +5901,9 @@ worldAreas["MapUberBoss_CopperCitadel"] = {
 	monsterVarieties = {
 		"Faridun Butcher",
 		"Faridun Infantry",
+	},
+	bossVarieties = {
+		"Jamanra, the Abomination",
 	},
 }
 
@@ -5508,6 +5921,10 @@ worldAreas["MapUberBoss_StoneCitadel"] = {
 		"Surgical Experimentalist",
 		"Warrior Transcendent",
 	},
+	bossVarieties = {
+		"Doryani, Royal Thaumaturge",
+		"Doryani's Triumph",
+	},
 }
 
 worldAreas["MapUberBoss_Monolith"] = {
@@ -5520,6 +5937,9 @@ worldAreas["MapUberBoss_Monolith"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"The Arbiter of Ash",
 	},
 }
 
@@ -5619,6 +6039,9 @@ worldAreas["ExpeditionSubArea_OlrothBoss"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"Olroth, Origin of the Fall",
+	},
 }
 
 worldAreas["ExpeditionSubArea_Shrike"] = {
@@ -5690,6 +6113,9 @@ worldAreas["BreachDomain_01"] = {
 		"It That Stalks",
 		"It That Watches",
 	},
+	bossVarieties = {
+		"Xesht, We That Are One",
+	},
 }
 
 worldAreas["RitualLeagueBoss"] = {
@@ -5701,6 +6127,9 @@ worldAreas["RitualLeagueBoss"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"The King in the Mists",
 	},
 }
 
@@ -5774,6 +6203,10 @@ worldAreas["MapAzmerianRanges"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"The King in the Mists",
+		"The Brambleghast",
+	},
 }
 
 worldAreas["MapTrenches"] = {
@@ -5785,6 +6218,9 @@ worldAreas["MapTrenches"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Gorian, the Moving Earth",
 	},
 }
 
@@ -5809,6 +6245,9 @@ worldAreas["MapFrozenFalls"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Riona, Winter's Cackle",
 	},
 }
 

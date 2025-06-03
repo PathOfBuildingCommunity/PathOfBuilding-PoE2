@@ -16349,6 +16349,27 @@ return {
 	strongboxes={
 	},
 	strongboxpacks={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[3]={
+			list=false,
+			name="MonsterPackKey",
+			refTo="MonsterPacks",
+			type="Key",
+			width=270
+		}
 	},
 	suicideexplosion={
 		[1]={
@@ -17872,9 +17893,9 @@ return {
 		},
 		[6]={
 			list=true,
-			name="",
-			refTo="",
-			type="Key",
+			name="Connections",
+			refTo="WorldAreas",
+			type="ShortKey",
 			width=150
 		},
 		[7]={
