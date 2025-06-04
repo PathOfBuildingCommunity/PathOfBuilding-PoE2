@@ -222,7 +222,12 @@ function main:Init()
 		end
 	}
 
-	self.controls.datList = new("DatListControl", nil, {10, 70, 250, function() return self.screenH - 70 end})
+	self.controls.datSearch = new("EditControl", {"TOPLEFT",self.controls.datSource,"BOTTOMLEFT"}, {0, 2, 250, 18}, nil, "^8Search .dat files", nil, nil, function(buf)
+		self.controls.datList.searchBuf = buf
+		self.controls.datList:BuildFilteredList()
+	end)
+
+	self.controls.datList = new("DatListControl", {"TOPLEFT",self.controls.datSearch,"BOTTOMLEFT"}, {0, 2, 250, function() return self.screenH - 100 end})
 
 	self.controls.specEditToggle = new("ButtonControl", nil, {270, 10, 100, 18}, function() return self.editSpec and "Done <<" or "Edit >>" end, function()
 		self.editSpec = not self.editSpec
