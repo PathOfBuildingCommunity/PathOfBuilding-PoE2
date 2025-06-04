@@ -50,7 +50,7 @@ function RowListClass:BuildColumns()
 			width = specCol.width, 
 			label = specCol.name, 
 			font = function() return IsKeyDown("CTRL") and "FIXED" or "VAR" end,
-			sortable = true -- or false, as needed
+			sortable = true
 		})
 	end
 	local short = main.curDatFile.rowSize - main.curDatFile.specSize

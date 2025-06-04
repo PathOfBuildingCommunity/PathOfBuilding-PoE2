@@ -23,7 +23,6 @@ function DatListClass:BuildFilteredList()
 		end
 	end
 	self.list = self.filteredList
-	--self:SelectIndex(1)
 end
 
 function DatListClass:GetRowValue(column, index, datFile)
