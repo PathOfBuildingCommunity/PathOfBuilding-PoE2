@@ -3,1818 +3,2880 @@
 
 return {
 	[1] = {
-		baseType = "FourUniqueBodyStr1",
-		text = "It is safer to be feared than to be loved.",
+		id = "FourUniqueBodyStr1",
 		name = "Bramblejack",
+		text = {
+			"It is safer to be feared than to be loved.",
+		},
 	},
 	[2] = {
-		baseType = "FourUniqueBodyStr2",
-		text = "An Ezomyte endures.",
+		id = "FourUniqueBodyStr2",
 		name = "Blackbraid",
+		text = {
+			"An Ezomyte endures.",
+		},
 	},
 	[3] = {
-		baseType = "FourUniqueBodyStr3",
-		text = "In death, the legendary boar's tusks were turned\nto the slaying of Phaaryl's Eternal oppressors.",
+		id = "FourUniqueBodyStr3",
 		name = "Edyrn's Tusks",
+		text = {
+			"In death, the legendary boar's tusks were turned",
+			"to the slaying of Phaaryl's Eternal oppressors.",
+		},
 	},
 	[4] = {
-		baseType = "FourUniqueBodyStr4",
-		text = "That most legendary caravan bandit had\none rule: never let them see you flinch.",
+		id = "FourUniqueBodyStr4",
 		name = "The Road Warrior",
+		text = {
+			"That most legendary caravan bandit had",
+			"one rule: never let them see you flinch.",
+		},
 	},
 	[5] = {
-		baseType = "FourUniqueBodyStr5",
-		text = "Not the sound of thunder on the wind, but the\nrhoaback riders—death charging from the sands.",
+		id = "FourUniqueBodyStr5",
 		name = "Titanrot Cataphract",
+		text = {
+			"Not the sound of thunder on the wind, but the",
+			"rhoaback riders—death charging from the sands.",
+		},
 	},
 	[6] = {
-		baseType = "FourUniqueBodyStr6",
-		text = "Knowing she could outlast any opponent,\nWrashmin fought not to win, but to delay.",
+		id = "FourUniqueBodyStr6",
 		name = "Wandering Reliquary",
+		text = {
+			"Knowing she could outlast any opponent,",
+			"Wrashmin fought not to win, but to delay.",
+		},
 	},
 	[7] = {
-		baseType = "FourUniqueBodyStr7",
-		text = "The toughest armour is the trust of your people.",
+		id = "FourUniqueBodyStr7",
 		name = "Kingsguard",
+		text = {
+			"The toughest armour is the trust of your people.",
+		},
 	},
 	[8] = {
-		baseType = "FourUniqueBodyStr8",
-		text = "Some would question if the risk was worth it.\nThe rest were already dead.",
+		id = "FourUniqueBodyStr8",
 		name = "Greed's Embrace",
+		text = {
+			"Some would question if the risk was worth it.",
+			"The rest were already dead.",
+		},
 	},
 	[9] = {
-		baseType = "FourUniqueBodyStr12_",
-		text = "The turtle's shell one day becomes its tomb.",
+		id = "FourUniqueBodyStr12_",
 		name = "The Brass Dome",
+		text = {
+			"The turtle's shell one day becomes its tomb.",
+		},
 	},
 	[10] = {
-		baseType = "FourUniqueBodyStr14",
-		text = "The warrior who fears will fall.",
+		id = "FourUniqueBodyStr14",
 		name = "Kaom's Heart",
+		text = {
+			"The warrior who fears will fall.",
+		},
 	},
 	[11] = {
-		baseType = "FourUniqueBodyDex1",
-		text = "When cornered and desperate, look within for the rage to break loose.",
+		id = "FourUniqueBodyDex1",
 		name = "Bristleboar",
+		text = {
+			"When cornered and desperate, look within for the rage to break loose.",
+		},
 	},
 	[12] = {
-		baseType = "FourUniqueBodyDex2",
-		text = "To catch an animal, think like an animal.",
+		id = "FourUniqueBodyDex2",
 		name = "Foxshade",
+		text = {
+			"To catch an animal, think like an animal.",
+		},
 	},
 	[13] = {
-		baseType = "FourUniqueBodyDex3",
-		text = "The blasted oak stands forever.",
+		id = "FourUniqueBodyDex3",
 		name = "Ashrend",
+		text = {
+			"The blasted oak stands forever.",
+		},
 	},
 	[14] = {
-		baseType = "FourUniqueBodyDex4",
-		text = "The desert is ever flowing.",
+		id = "FourUniqueBodyDex4",
 		name = "Sands of Silk",
+		text = {
+			"The desert is ever flowing.",
+		},
 	},
 	[15] = {
-		baseType = "FourUniqueBodyDex5",
-		text = "\"I carry neither food nor drink. I rely on the charity\nof my fellow wayfarers. Dead men are generous men.\"\n- Taruk of the Wildmen",
+		id = "FourUniqueBodyDex5",
 		name = "Briskwrap",
+		text = {
+			"\"I carry neither food nor drink. I rely on the charity",
+			"of my fellow wayfarers. Dead men are generous men.\"",
+			"- Taruk of the Wildmen",
+		},
 	},
 	[16] = {
-		baseType = "FourUniqueBodyDex6",
-		text = "Wraeclast has suffered many great disasters,\nbut life always springs back anew.",
+		id = "FourUniqueBodyDex6",
 		name = "Dustbloom",
+		text = {
+			"Wraeclast has suffered many great disasters,",
+			"but life always springs back anew.",
+		},
 	},
 	[17] = {
-		baseType = "FourUniqueBodyDex7",
-		text = "The truth lies inside every man, if you dig around.\nMany a confession was found in the bowels of Axiom.",
+		id = "FourUniqueBodyDex7",
 		name = "The Rat Cage",
+		text = {
+			"The truth lies inside every man, if you dig around.",
+			"Many a confession was found in the bowels of Axiom.",
+		},
 	},
 	[18] = {
-		baseType = "FourUniqueBodyDex8",
-		text = "As the serpent wills.",
+		id = "FourUniqueBodyDex8",
 		name = "Quatl's Molt",
+		text = {
+			"As the serpent wills.",
+		},
 	},
 	[19] = {
-		baseType = "FourUniqueBodyDex10",
-		text = "Shedding away her regal past,\nshe forged a new destiny.\nSacrificing the ephemeral joys of man,\nshe embraced the eternal grasp of nature.\nSeizing her one true wish,\nshe found peace at last.",
+		id = "FourUniqueBodyDex10",
 		name = "Queen of the Forest",
+		text = {
+			"Shedding away her regal past,",
+			"she forged a new destiny.",
+			"Sacrificing the ephemeral joys of man,",
+			"she embraced the eternal grasp of nature.",
+			"Seizing her one true wish,",
+			"she found peace at last.",
+		},
 	},
 	[20] = {
-		baseType = "FourUniqueBodyDex11",
-		text = "Feed a beast and it will not hunt.\nProtect it and it will not fight.\nFerocity must be learned, not taught.\nIt is suffering that forges the greatest warriors.",
+		id = "FourUniqueBodyDex11",
 		name = "Yriel's Fostering",
+		text = {
+			"Feed a beast and it will not hunt.",
+			"Protect it and it will not fight.",
+			"Ferocity must be learned, not taught.",
+			"It is suffering that forges the greatest warriors.",
+		},
 	},
 	[21] = {
-		baseType = "FourUniqueBodyDex15",
-		text = "Hyrri loosed a barrage of arrows,\ntipped with a poisoned hatred\nonly oppression can ferment.",
+		id = "FourUniqueBodyDex15",
 		name = "Hyrri's Ire",
+		text = {
+			"Hyrri loosed a barrage of arrows,",
+			"tipped with a poisoned hatred",
+			"only oppression can ferment.",
+		},
 	},
 	[22] = {
-		baseType = "FourUniqueBodyInt1",
-		text = "Faith springs abundant at the edge of death.",
+		id = "FourUniqueBodyInt1",
 		name = "Ghostwrithe",
+		text = {
+			"Faith springs abundant at the edge of death.",
+		},
 	},
 	[23] = {
-		baseType = "FourUniqueBodyInt2",
-		text = "The soul cannot flourish in a doubting mind.",
+		id = "FourUniqueBodyInt2",
 		name = "Bitterbloom",
+		text = {
+			"The soul cannot flourish in a doubting mind.",
+		},
 	},
 	[24] = {
-		baseType = "FourUniqueBodyInt3",
-		text = "Suspicion is a sinister shadow slithering in the soul.",
+		id = "FourUniqueBodyInt3",
 		name = "The Black Doubt",
+		text = {
+			"Suspicion is a sinister shadow slithering in the soul.",
+		},
 	},
 	[25] = {
-		baseType = "FourUniqueBodyInt4",
-		text = "Fueled by the blackness in the hearts of men,\nthe armies of Saresh were just as relentless.",
+		id = "FourUniqueBodyInt4",
 		name = "Necromantle",
+		text = {
+			"Fueled by the blackness in the hearts of men,",
+			"the armies of Saresh were just as relentless.",
+		},
 	},
 	[26] = {
-		baseType = "FourUniqueBodyInt5",
-		text = "He who sows an ember shall reap an inferno.",
+		id = "FourUniqueBodyInt5",
 		name = "Cloak of Flame",
+		text = {
+			"He who sows an ember shall reap an inferno.",
+		},
 	},
 	[27] = {
-		baseType = "FourUniqueBodyInt6",
-		text = "In its final era, the roofs of Keth were rife with\nanything and everything that could hold water...\nshould the opportunity arise.",
+		id = "FourUniqueBodyInt6",
 		name = "Prayers for Rain",
+		text = {
+			"In its final era, the roofs of Keth were rife with",
+			"anything and everything that could hold water...",
+			"should the opportunity arise.",
+		},
 	},
 	[28] = {
-		baseType = "FourUniqueBodyInt7",
-		text = "A faith born of flesh.",
+		id = "FourUniqueBodyInt7",
 		name = "Tetzlapokal's Desire",
+		text = {
+			"A faith born of flesh.",
+		},
 	},
 	[29] = {
-		baseType = "FourUniqueBodyInt8",
-		text = "My Soul is your Strength\nMy Price is your Blood",
+		id = "FourUniqueBodyInt8",
 		name = "The Covenant",
+		text = {
+			"My Soul is your Strength",
+			"My Price is your Blood",
+		},
 	},
 	[30] = {
-		baseType = "FourUniqueBodyInt9",
-		text = "The tale-women of old knew how to build anticipation.",
+		id = "FourUniqueBodyInt9",
 		name = "Gloamgown",
+		text = {
+			"The tale-women of old knew how to build anticipation.",
+		},
 	},
 	[31] = {
-		baseType = "FourUniqueBodyInt12",
-		text = "Reap what others have sown\nMuster them from their graves\nParade them for your pleasure\nZealots in mortis enslaved",
+		id = "FourUniqueBodyInt12",
 		name = "Vis Mortis",
+		text = {
+			"Reap what others have sown",
+			"Muster them from their graves",
+			"Parade them for your pleasure",
+			"Zealots in mortis enslaved",
+		},
 	},
 	[32] = {
-		baseType = "FourUniqueBodyInt13",
-		text = "When the throat roars,\nAs eyes weep,\nWhen the hand grips hard\nWith trembling fingers,\nWhen belly twists\nYet legs stand strong,\nThat is the work\nOf the Defiant Heart.",
+		id = "FourUniqueBodyInt13",
 		name = "Cloak of Defiance",
+		text = {
+			"When the throat roars,",
+			"As eyes weep,",
+			"When the hand grips hard",
+			"With trembling fingers,",
+			"When belly twists",
+			"Yet legs stand strong,",
+			"That is the work",
+			"Of the Defiant Heart.",
+		},
 	},
 	[33] = {
-		baseType = "FourUniqueBodyInt14",
-		text = "Hallowed Dordalus was cast into the pit as a heretic,\nbut his piety was so great, he would not burn.\nHe rose again, lauded, his faith forever changed...\nbut not the way the Templar believed.",
+		id = "FourUniqueBodyInt14",
 		name = "Silks of Veneration",
+		text = {
+			"Hallowed Dordalus was cast into the pit as a heretic,",
+			"but his piety was so great, he would not burn.",
+			"He rose again, lauded, his faith forever changed...",
+			"but not the way the Templar believed.",
+		},
 	},
 	[34] = {
-		baseType = "FourUniqueBodyStrDex1",
-		text = "For those noble families obsessed\nwith keeping their bloodline pure,\nthere was a price to pay...",
+		id = "FourUniqueBodyStrDex1",
 		name = "Coat of Red",
+		text = {
+			"For those noble families obsessed",
+			"with keeping their bloodline pure,",
+			"there was a price to pay...",
+		},
 	},
 	[35] = {
-		baseType = "FourUniqueBodyStrDex2",
-		text = "In the mists they dwell,\nforever hungry,\nforever cold.",
+		id = "FourUniqueBodyStrDex2",
 		name = "The Barrow Dweller",
+		text = {
+			"In the mists they dwell,",
+			"forever hungry,",
+			"forever cold.",
+		},
 	},
 	[36] = {
-		baseType = "FourUniqueBodyStrDex3",
-		text = "A power unknown aids your own.",
+		id = "FourUniqueBodyStrDex3",
 		name = "Irongrasp",
+		text = {
+			"A power unknown aids your own.",
+		},
 	},
 	[37] = {
-		baseType = "FourUniqueBodyStrDex4",
-		text = "His isolation caused him to treasure\ntheir companionship all the more.",
+		id = "FourUniqueBodyStrDex4",
 		name = "Pariah's Embrace",
+		text = {
+			"His isolation caused him to treasure",
+			"their companionship all the more.",
+		},
 	},
 	[38] = {
-		baseType = "FourUniqueBodyStrDex5",
-		text = "There is no safer place\nThan the Belly of the Beast",
+		id = "FourUniqueBodyStrDex5",
 		name = "Belly of the Beast",
+		text = {
+			"There is no safer place",
+			"Than the Belly of the Beast",
+		},
 	},
 	[39] = {
-		baseType = "FourUniqueBodyStrDex6",
-		text = "\"This was the first step in some grand design,\nlost to the ages, now ours to decipher.\"\n- Dominus, High Templar",
+		id = "FourUniqueBodyStrDex6",
 		name = "Doryani's Prototype",
+		text = {
+			"\"This was the first step in some grand design,",
+			"lost to the ages, now ours to decipher.\"",
+			"- Dominus, High Templar",
+		},
 	},
 	[40] = {
-		baseType = "FourUniqueBodyStrDex7",
-		text = "That day, both the Unblinking Eye and\ntheir enemies stood in silence. That day,\nthe sky was clear, but it was raining.",
+		id = "FourUniqueBodyStrDex7",
 		name = "Widow's Reign",
+		text = {
+			"That day, both the Unblinking Eye and",
+			"their enemies stood in silence. That day,",
+			"the sky was clear, but it was raining.",
+		},
 	},
 	[41] = {
-		baseType = "FourUniqueBodyStrDex9",
-		text = "\"I will never forget. I will carry your memory\nforward, all of you, from this ghastly Vale.\"\n- Artair, last survivor of the Ogham rebellion",
+		id = "FourUniqueBodyStrDex9",
 		name = "The Fallen Formation",
+		text = {
+			"\"I will never forget. I will carry your memory",
+			"forward, all of you, from this ghastly Vale.\"",
+			"- Artair, last survivor of the Ogham rebellion",
+		},
 	},
 	[42] = {
-		baseType = "FourUniqueBodyStrDex11",
-		text = "Whiff of cold, tiny spark, faintest flicker in the dark.\nEmbers swirl, ice takes form, sky exposed - Death's perfect storm.\nFrost and thunder, flames shine bright, ruin walks the land tonight.\nBy your hand they dance and bend, wield them and brook no end.",
+		id = "FourUniqueBodyStrDex11",
 		name = "The Coming Calamity",
+		text = {
+			"Whiff of cold, tiny spark, faintest flicker in the dark.",
+			"Embers swirl, ice takes form, sky exposed - Death's perfect storm.",
+			"Frost and thunder, flames shine bright, ruin walks the land tonight.",
+			"By your hand they dance and bend, wield them and brook no end.",
+		},
 	},
 	[43] = {
-		baseType = "FourUniqueBodyStrInt1_",
-		text = "The gleam of the night and howling teeth alike could not abate the rising of the sun.",
+		id = "FourUniqueBodyStrInt1_",
 		name = "Enfolding Dawn",
+		text = {
+			"The gleam of the night and howling teeth alike could not abate the rising of the sun.",
+		},
 	},
 	[44] = {
-		baseType = "FourUniqueBodyStrInt3",
-		text = "When Solaris closes her burning eye\nAt the end of time,\nthe world will perish in ice.",
+		id = "FourUniqueBodyStrInt3",
 		name = "Icetomb",
+		text = {
+			"When Solaris closes her burning eye",
+			"At the end of time,",
+			"the world will perish in ice.",
+		},
 	},
 	[45] = {
-		baseType = "FourUniqueBodyStrInt4",
-		text = "Yes... but what if?",
+		id = "FourUniqueBodyStrInt4",
 		name = "Husk of Dreams",
+		text = {
+			"Yes... but what if?",
+		},
 	},
 	[46] = {
-		baseType = "FourUniqueBodyStrInt5",
-		text = "Although a great leader during the war,\nVoll proved disastrous in times of peace.",
+		id = "FourUniqueBodyStrInt5",
 		name = "Voll's Protector",
+		text = {
+			"Although a great leader during the war,",
+			"Voll proved disastrous in times of peace.",
+		},
 	},
 	[47] = {
-		baseType = "FourUniqueBodyStrInt6",
-		text = "The greatest mistakes cause suffering\nlong after they have been made",
+		id = "FourUniqueBodyStrInt6",
 		name = "Soul Mantle",
+		text = {
+			"The greatest mistakes cause suffering",
+			"long after they have been made",
+		},
 	},
 	[48] = {
-		baseType = "FourUniqueBodyStrInt7",
-		text = "Through every great purge, and every fiery inquisition,\nthe Twilight Order endured in secret.",
+		id = "FourUniqueBodyStrInt7",
 		name = "The Mutable Star",
+		text = {
+			"Through every great purge, and every fiery inquisition,",
+			"the Twilight Order endured in secret.",
+		},
 	},
 	[49] = {
-		baseType = "FourUniqueBodyStrInt8",
-		text = "\"Move in ways your enemy does not expect.\nConfuse them with elegance and grace.\nThey'll never see the axe coming.\"\n- Rakiata, Chieftain of the Tasalio Tribe",
+		id = "FourUniqueBodyStrInt8",
 		name = "Waveshaper",
+		text = {
+			"\"Move in ways your enemy does not expect.",
+			"Confuse them with elegance and grace.",
+			"They'll never see the axe coming.\"",
+			"- Rakiata, Chieftain of the Tasalio Tribe",
+		},
 	},
 	[50] = {
-		baseType = "FourUniqueBodyStrInt9",
-		text = "It is often said of nobles that they live off their\npeasants... sometimes, it's truer than any suspect.",
+		id = "FourUniqueBodyStrInt9",
 		name = "Couture of Crimson",
+		text = {
+			"It is often said of nobles that they live off their",
+			"peasants... sometimes, it's truer than any suspect.",
+		},
 	},
 	[51] = {
-		baseType = "FourUniqueBodyStrInt12",
-		text = "The Twilight Order rejected the gods, choosing\ninstead to put their faith in each other.",
+		id = "FourUniqueBodyStrInt12",
 		name = "Sacrosanctum",
+		text = {
+			"The Twilight Order rejected the gods, choosing",
+			"instead to put their faith in each other.",
+		},
 	},
 	[52] = {
-		baseType = "FourUniqueBodyDexInt1",
-		text = "\"Prepare the rack, boy. And be careful with those hooks!\"\n- the Master Torturer's last words",
+		id = "FourUniqueBodyDexInt1",
 		name = "Apron of Emiran",
+		text = {
+			"\"Prepare the rack, boy. And be careful with those hooks!\"",
+			"- the Master Torturer's last words",
+		},
 	},
 	[53] = {
-		baseType = "FourUniqueBodyDexInt2",
-		text = "It was in this forsaken land, where mists shroud the world in mystery,\nthat thieves, murderers, and outcasts, sought refuge.",
+		id = "FourUniqueBodyDexInt2",
 		name = "Gloomform",
+		text = {
+			"It was in this forsaken land, where mists shroud the world in mystery,",
+			"that thieves, murderers, and outcasts, sought refuge.",
+		},
 	},
 	[54] = {
-		baseType = "FourUniqueBodyDexInt3",
-		text = "Born among the high peaks, many Mutewind\nlive their entire lives in snow and ice.",
+		id = "FourUniqueBodyDexInt3",
 		name = "Sierran Inheritance",
+		text = {
+			"Born among the high peaks, many Mutewind",
+			"live their entire lives in snow and ice.",
+		},
 	},
 	[55] = {
-		baseType = "FourUniqueBodyDexInt4",
-		text = "Be not where death falls.",
+		id = "FourUniqueBodyDexInt4",
 		name = "The Dancing Mirage",
+		text = {
+			"Be not where death falls.",
+		},
 	},
 	[56] = {
-		baseType = "FourUniqueBodyDexInt5",
-		text = "In all things, control.",
+		id = "FourUniqueBodyDexInt5",
 		name = "Redflare Conduit",
+		text = {
+			"In all things, control.",
+		},
 	},
 	[57] = {
-		baseType = "FourUniqueBodyDexInt6",
-		text = "Mortality is a curse.\nThe cure is simple.",
+		id = "FourUniqueBodyDexInt6",
 		name = "Zerphi's Serape",
+		text = {
+			"Mortality is a curse.",
+			"The cure is simple.",
+		},
 	},
 	[58] = {
-		baseType = "FourUniqueBodyStrDexInt1",
-		text = "",
+		id = "FourUniqueBodyStrDexInt1",
 		name = "Tabula Rasa",
+		text = {
+		},
 	},
 	[59] = {
-		baseType = "FourUniqueHelmetStr1a",
-		text = "The younger brother waded into battle, shrugging off blows.",
+		id = "FourUniqueHelmetStr1a",
 		name = "Horns of Bynden",
+		text = {
+			"The younger brother waded into battle, shrugging off blows.",
+		},
 	},
 	[60] = {
-		baseType = "FourUniqueHelmetStr1b",
-		text = "The older brother retained calm in the midst of fury.",
+		id = "FourUniqueHelmetStr1b",
 		name = "Wings of Caelyn",
+		text = {
+			"The older brother retained calm in the midst of fury.",
+		},
 	},
 	[61] = {
-		baseType = "FourUniqueHelmetStr2",
-		text = "Centuries of servitude, a day\nof glory, an eternity of death.",
+		id = "FourUniqueHelmetStr2",
 		name = "Ezomyte Peak",
+		text = {
+			"Centuries of servitude, a day",
+			"of glory, an eternity of death.",
+		},
 	},
 	[62] = {
-		baseType = "FourUniqueHelmetStr3",
-		text = "The beasts we fear the most\nare the ones who dwell in total darkness.",
+		id = "FourUniqueHelmetStr3",
 		name = "Black Sun Crest",
+		text = {
+			"The beasts we fear the most",
+			"are the ones who dwell in total darkness.",
+		},
 	},
 	[63] = {
-		baseType = "FourUniqueHelmetStr4",
-		text = "We may fight, and we may die, but in these\nmoments of blood and battle, we truly live.",
+		id = "FourUniqueHelmetStr4",
 		name = "Thrillsteel",
+		text = {
+			"We may fight, and we may die, but in these",
+			"moments of blood and battle, we truly live.",
+		},
 	},
 	[64] = {
-		baseType = "FourUniqueHelmetStr5",
-		text = "May you never hear it toll.",
+		id = "FourUniqueHelmetStr5",
 		name = "Deidbell",
+		text = {
+			"May you never hear it toll.",
+		},
 	},
 	[65] = {
-		baseType = "FourUniqueHelmetStr6",
-		text = "Only the High Priests could enact the sacrifices,\nbut all who witnessed shared in exultation.",
+		id = "FourUniqueHelmetStr6",
 		name = "Corona of the Red Sun",
+		text = {
+			"Only the High Priests could enact the sacrifices,",
+			"but all who witnessed shared in exultation.",
+		},
 	},
 	[66] = {
-		baseType = "FourUniqueHelmetStr8",
-		text = "An eye for an eye makes the whole world dead.",
+		id = "FourUniqueHelmetStr8",
 		name = "Blood Price",
+		text = {
+			"An eye for an eye makes the whole world dead.",
+		},
 	},
 	[67] = {
-		baseType = "FourUniqueHelmetDex1",
-		text = "Beyond madness lies inspiration.",
+		id = "FourUniqueHelmetDex1",
 		name = "Innsmouth",
+		text = {
+			"Beyond madness lies inspiration.",
+		},
 	},
 	[68] = {
-		baseType = "FourUniqueHelmetDex2",
-		text = "No metal slips as easily through the fingers as gold.",
+		id = "FourUniqueHelmetDex2",
 		name = "Goldrim",
+		text = {
+			"No metal slips as easily through the fingers as gold.",
+		},
 	},
 	[69] = {
-		baseType = "FourUniqueHelmetDex3",
-		text = "No man burns alone.",
+		id = "FourUniqueHelmetDex3",
 		name = "Radiant Grief",
+		text = {
+			"No man burns alone.",
+		},
 	},
 	[70] = {
-		baseType = "FourUniqueHelmetDex5",
-		text = "Ancient worshippers of the Greatwolf were overtaken\nby a ravenous hunger for all things mystical.",
+		id = "FourUniqueHelmetDex5",
 		name = "Elevore",
+		text = {
+			"Ancient worshippers of the Greatwolf were overtaken",
+			"by a ravenous hunger for all things mystical.",
+		},
 	},
 	[71] = {
-		baseType = "FourUniqueHelmetDex7",
-		text = "Brinerot pirates live in a perpetual blaze of glory,\npushing their luck right to the end.",
+		id = "FourUniqueHelmetDex7",
 		name = "The Black Insignia",
+		text = {
+			"Brinerot pirates live in a perpetual blaze of glory,",
+			"pushing their luck right to the end.",
+		},
 	},
 	[72] = {
-		baseType = "FourUniqueHelmetDex8",
-		text = "There was no hero made out of Starkonja's death,\nbut merely a long sleep made eternal.",
+		id = "FourUniqueHelmetDex8",
 		name = "Starkonja's Head",
+		text = {
+			"There was no hero made out of Starkonja's death,",
+			"but merely a long sleep made eternal.",
+		},
 	},
 	[73] = {
-		baseType = "FourUniqueHelmetDex9",
-		text = "Give of your heated passions.\nGive of your cold resolve.\nYou will be repaid.",
+		id = "FourUniqueHelmetDex9",
 		name = "Heatshiver",
+		text = {
+			"Give of your heated passions.",
+			"Give of your cold resolve.",
+			"You will be repaid.",
+		},
 	},
 	[74] = {
-		baseType = "FourUniqueHelmetDex10",
-		text = "The end always comes sooner than we think.",
+		id = "FourUniqueHelmetDex10",
 		name = "Myris Uxor",
+		text = {
+			"The end always comes sooner than we think.",
+		},
 	},
 	[75] = {
-		baseType = "FourUniqueHelmetDex11",
-		text = "Nature respects the strong\nAnd paints the snow red\nWith the blood of the weak",
+		id = "FourUniqueHelmetDex11",
 		name = "Alpha's Howl",
+		text = {
+			"Nature respects the strong",
+			"And paints the snow red",
+			"With the blood of the weak",
+		},
 	},
 	[76] = {
-		baseType = "FourUniqueHelmetInt1",
-		text = "Lift it lightly, don it slow.\nThe spikes point out and in, you know.",
+		id = "FourUniqueHelmetInt1",
 		name = "Crown of Thorns",
+		text = {
+			"Lift it lightly, don it slow.",
+			"The spikes point out and in, you know.",
+		},
 	},
 	[77] = {
-		baseType = "FourUniqueHelmetInt2",
-		text = "The spirit hungers for the flesh.",
+		id = "FourUniqueHelmetInt2",
 		name = "The Devouring Diadem",
+		text = {
+			"The spirit hungers for the flesh.",
+		},
 	},
 	[78] = {
-		baseType = "FourUniqueHelmetInt3",
-		text = "Tale-women do not fight as dekharas.\nThey command a power all their own.",
+		id = "FourUniqueHelmetInt3",
 		name = "Visage of Ayah",
+		text = {
+			"Tale-women do not fight as dekharas.",
+			"They command a power all their own.",
+		},
 	},
 	[79] = {
-		baseType = "FourUniqueHelmetInt4",
-		text = "Keep your heart as ice,\nlest your passions stir.",
+		id = "FourUniqueHelmetInt4",
 		name = "Forbidden Gaze",
+		text = {
+			"Keep your heart as ice,",
+			"lest your passions stir.",
+		},
 	},
 	[80] = {
-		baseType = "FourUniqueHelmetInt5",
-		text = "From the flesh of the gods, Xibaqua was born.\nFrom the carnage of Xibaqua, we were born.\nIt is our duty to return to the gods what was once theirs.",
+		id = "FourUniqueHelmetInt5",
 		name = "Mask of the Stitched Demon",
+		text = {
+			"From the flesh of the gods, Xibaqua was born.",
+			"From the carnage of Xibaqua, we were born.",
+			"It is our duty to return to the gods what was once theirs.",
+		},
 	},
 	[81] = {
-		baseType = "FourUniqueHelmetInt6",
-		text = "They screamed her name in adulation as they gave\ntheir very lives. She looked on with impatience.",
+		id = "FourUniqueHelmetInt6",
 		name = "Atziri's Disdain",
+		text = {
+			"They screamed her name in adulation as they gave",
+			"their very lives. She looked on with impatience.",
+		},
 	},
 	[82] = {
-		baseType = "FourUniqueHelmetInt7",
-		text = "Turning, gazing, blinking,\nbehold the eyes of void.\nBurning, razing, drinking,\nyour mind is destroyed.",
+		id = "FourUniqueHelmetInt7",
 		name = "Crown of Eyes",
+		text = {
+			"Turning, gazing, blinking,",
+			"behold the eyes of void.",
+			"Burning, razing, drinking,",
+			"your mind is destroyed.",
+		},
 	},
 	[83] = {
-		baseType = "FourUniqueHelmetInt8",
-		text = "\"The sharper the pain, the sharper the mind.\nA curious paradox.\"\n- Shavronne of Umbra",
+		id = "FourUniqueHelmetInt8",
 		name = "Scold's Bridle",
+		text = {
+			"\"The sharper the pain, the sharper the mind.",
+			"A curious paradox.\"",
+			"- Shavronne of Umbra",
+		},
 	},
 	[84] = {
-		baseType = "FourUniqueHelmetInt11",
-		text = "Where the body's limits begin,\nthe mind's limits end.",
+		id = "FourUniqueHelmetInt11",
 		name = "Indigon",
+		text = {
+			"Where the body's limits begin,",
+			"the mind's limits end.",
+		},
 	},
 	[85] = {
-		baseType = "FourUniqueHelmetStrDex1",
-		text = "In the end, even heroes fade away.",
+		id = "FourUniqueHelmetStrDex1",
 		name = "Greymake",
+		text = {
+			"In the end, even heroes fade away.",
+		},
 	},
 	[86] = {
-		baseType = "FourUniqueHelmetStrDex2",
-		text = "Sometimes patching up your\nequipment gets out of hand.",
+		id = "FourUniqueHelmetStrDex2",
 		name = "Erian's Cobble",
+		text = {
+			"Sometimes patching up your",
+			"equipment gets out of hand.",
+		},
 	},
 	[87] = {
-		baseType = "FourUniqueHelmetStrDex3",
-		text = "Let the rider's aim be true.",
+		id = "FourUniqueHelmetStrDex3",
 		name = "Ironride",
+		text = {
+			"Let the rider's aim be true.",
+		},
 	},
 	[88] = {
-		baseType = "FourUniqueHelmetStrDex4",
-		text = "He never spoke a word. His opponents imagined\ntheir own personal mockeries, most cruel.",
+		id = "FourUniqueHelmetStrDex4",
 		name = "The Smiling Knight",
+		text = {
+			"He never spoke a word. His opponents imagined",
+			"their own personal mockeries, most cruel.",
+		},
 	},
 	[89] = {
-		baseType = "FourUniqueHelmetStrDex5",
-		text = "Familiarity breeds contempt.",
+		id = "FourUniqueHelmetStrDex5",
 		name = "The Vile Knight",
+		text = {
+			"Familiarity breeds contempt.",
+		},
 	},
 	[90] = {
-		baseType = "FourUniqueHelmetStrDex7",
-		text = "\"What lies beneath your feet?!\"\n\"Sacred ground, watered with tears of blood!\"",
+		id = "FourUniqueHelmetStrDex7",
 		name = "The Bringer of Rain",
+		text = {
+			"\"What lies beneath your feet?!\"",
+			"\"Sacred ground, watered with tears of blood!\"",
+		},
 	},
 	[91] = {
-		baseType = "FourUniqueHelmetStrInt1",
-		text = "An endless river of bodies lie in the wake of ambition.",
+		id = "FourUniqueHelmetStrInt1",
 		name = "Crown of the Victor",
+		text = {
+			"An endless river of bodies lie in the wake of ambition.",
+		},
 	},
 	[92] = {
-		baseType = "FourUniqueHelmetStrInt2",
-		text = "Heavy is the head.",
+		id = "FourUniqueHelmetStrInt2",
 		name = "Bronzebeard",
+		text = {
+			"Heavy is the head.",
+		},
 	},
 	[93] = {
-		baseType = "FourUniqueHelmetStrInt3",
-		text = "A lightless world\na silent reign\ntwo sightless eyes\nfeed on your pain.",
+		id = "FourUniqueHelmetStrInt3",
 		name = "Crown of the Pale King",
+		text = {
+			"A lightless world",
+			"a silent reign",
+			"two sightless eyes",
+			"feed on your pain.",
+		},
 	},
 	[94] = {
-		baseType = "FourUniqueHelmetStrInt4",
-		text = "The seeds of greatness are planted in darkness,\nWatered by suffering,\nTended by desperation,\nAnd bloom steel flowers of victory.",
+		id = "FourUniqueHelmetStrInt4",
 		name = "Veil of the Night",
+		text = {
+			"The seeds of greatness are planted in darkness,",
+			"Watered by suffering,",
+			"Tended by desperation,",
+			"And bloom steel flowers of victory.",
+		},
 	},
 	[95] = {
-		baseType = "FourUniqueHelmetStrInt5",
-		text = "Pain brings clarity.",
+		id = "FourUniqueHelmetStrInt5",
 		name = "Cornathaum",
+		text = {
+			"Pain brings clarity.",
+		},
 	},
 	[96] = {
-		baseType = "FourUniqueHelmetStrInt6",
-		text = "Death crawls in darkness, closer than we think.",
+		id = "FourUniqueHelmetStrInt6",
 		name = "The Deepest Tower",
+		text = {
+			"Death crawls in darkness, closer than we think.",
+		},
 	},
 	[97] = {
-		baseType = "FourUniqueHelmetDexInt1",
-		text = "The roots take hold within...",
+		id = "FourUniqueHelmetDexInt1",
 		name = "The Hollow Mask",
+		text = {
+			"The roots take hold within...",
+		},
 	},
 	[98] = {
-		baseType = "FourUniqueHelmetDexInt2",
-		text = "A terror of ancient times, his identity\nremains lost... but his power does not.",
+		id = "FourUniqueHelmetDexInt2",
 		name = "Mask of the Sanguimancer",
+		text = {
+			"A terror of ancient times, his identity",
+			"remains lost... but his power does not.",
+		},
 	},
 	[99] = {
-		baseType = "FourUniqueHelmetDexInt3",
-		text = "For none of us are as cruel as all of us.",
+		id = "FourUniqueHelmetDexInt3",
 		name = "Leer Cast",
+		text = {
+			"For none of us are as cruel as all of us.",
+		},
 	},
 	[100] = {
-		baseType = "FourUniqueHelmetDexInt4",
-		text = "Remaining unseen, the Dishonoured Assassin struck\nonly in the depths of the harshest sandstorms.",
+		id = "FourUniqueHelmetDexInt4",
 		name = "Atsak's Sight",
+		text = {
+			"Remaining unseen, the Dishonoured Assassin struck",
+			"only in the depths of the harshest sandstorms.",
+		},
 	},
 	[101] = {
-		baseType = "FourUniqueHelmetDexInt5",
-		text = "\"A queen should be seen, admired, but never touched.\"\n- Atziri, Queen of the Vaal",
+		id = "FourUniqueHelmetDexInt5",
 		name = "The Vertex",
+		text = {
+			"\"A queen should be seen, admired, but never touched.\"",
+			"- Atziri, Queen of the Vaal",
+		},
 	},
 	[102] = {
-		baseType = "FourUniqueHelmetDexInt6",
-		text = "\"The ice seared his naked feet\nAs the lightning stilled his heart,\nBut it was the flames upon his lover's face\nThat roused him to vengeance.\"\n- From 'The Three Dragons' by Victario of Sarn",
+		id = "FourUniqueHelmetDexInt6",
 		name = "The Three Dragons",
+		text = {
+			"\"The ice seared his naked feet",
+			"As the lightning stilled his heart,",
+			"But it was the flames upon his lover's face",
+			"That roused him to vengeance.\"",
+			"- From 'The Three Dragons' by Victario of Sarn",
+		},
 	},
 	[103] = {
-		baseType = "FourUniqueGlovesStr2",
-		text = "The largest beings on Wraeclast\nare not flesh and blood.",
+		id = "FourUniqueGlovesStr2",
 		name = "Treefingers",
+		text = {
+			"The largest beings on Wraeclast",
+			"are not flesh and blood.",
+		},
 	},
 	[104] = {
-		baseType = "FourUniqueGlovesStr3",
-		text = "Why cling to your sanity? It offers you nothing.\nSurrender to me, and I will grant you everything.",
+		id = "FourUniqueGlovesStr3",
 		name = "Lochtonial Caress",
+		text = {
+			"Why cling to your sanity? It offers you nothing.",
+			"Surrender to me, and I will grant you everything.",
+		},
 	},
 	[105] = {
-		baseType = "FourUniqueGlovesStr4",
-		text = "What is worse, the sting of the past, the pain of the present, or the fear of the future?",
+		id = "FourUniqueGlovesStr4",
 		name = "Dreadfist",
+		text = {
+			"What is worse, the sting of the past, the pain of the present, or the fear of the future?",
+		},
 	},
 	[106] = {
-		baseType = "FourUniqueGlovesStr5",
-		text = "\"The heart is the herald.\nIt will tell me when it is best to strike.\"\n- Atziri, Queen of the Vaal",
+		id = "FourUniqueGlovesStr5",
 		name = "Atziri's Acuity",
+		text = {
+			"\"The heart is the herald.",
+			"It will tell me when it is best to strike.\"",
+			"- Atziri, Queen of the Vaal",
+		},
 	},
 	[107] = {
-		baseType = "FourUniqueGlovesStr7",
-		text = "\"I like my vassals at sword point,\nbut my enemies as close as the hilt.\"\n- Emperor Chitus",
+		id = "FourUniqueGlovesStr7",
 		name = "Empire's Grasp",
+		text = {
+			"\"I like my vassals at sword point,",
+			"but my enemies as close as the hilt.\"",
+			"- Emperor Chitus",
+		},
 	},
 	[108] = {
-		baseType = "FourUniqueGlovesDex1_",
-		text = "Fight with the ferocity of the First Ones.",
+		id = "FourUniqueGlovesDex1_",
 		name = "Northpaw",
+		text = {
+			"Fight with the ferocity of the First Ones.",
+		},
 	},
 	[109] = {
-		baseType = "FourUniqueGlovesDex2",
-		text = "After the eruption, the skies turned grey,\nash began to fall, and a chill set in...",
+		id = "FourUniqueGlovesDex2",
 		name = "Grip of Winter",
+		text = {
+			"After the eruption, the skies turned grey,",
+			"ash began to fall, and a chill set in...",
+		},
 	},
 	[110] = {
-		baseType = "FourUniqueGlovesDex4",
-		text = "The devil finds work for idle hands.",
+		id = "FourUniqueGlovesDex4",
 		name = "Idle Hands",
+		text = {
+			"The devil finds work for idle hands.",
+		},
 	},
 	[111] = {
-		baseType = "FourUniqueGlovesDex5",
-		text = "As the serpent shuns thought,\nIt shuns fear.\nIt strikes with the speed of wrath\nAnd the skill of compulsion.",
+		id = "FourUniqueGlovesDex5",
 		name = "Snakebite",
+		text = {
+			"As the serpent shuns thought,",
+			"It shuns fear.",
+			"It strikes with the speed of wrath",
+			"And the skill of compulsion.",
+		},
 	},
 	[112] = {
-		baseType = "FourUniqueGlovesDex6",
-		text = "Maligaro operated effortlessly,\nwith great speed and terrible consequences.",
+		id = "FourUniqueGlovesDex6",
 		name = "Maligaro's Virtuosity",
+		text = {
+			"Maligaro operated effortlessly,",
+			"with great speed and terrible consequences.",
+		},
 	},
 	[113] = {
-		baseType = "FourUniqueGlovesInt1",
-		text = "Bloodshed on the crimson shores,\nlonging for the endless sea.\nTreasures, life, I'd give it all\njust to capture thee.",
+		id = "FourUniqueGlovesInt1",
 		name = "Painter's Servant",
+		text = {
+			"Bloodshed on the crimson shores,",
+			"longing for the endless sea.",
+			"Treasures, life, I'd give it all",
+			"just to capture thee.",
+		},
 	},
 	[114] = {
-		baseType = "FourUniqueGlovesInt2",
-		text = "You can be the wick or the wax. Either way, your light goes out and mine goes on.",
+		id = "FourUniqueGlovesInt2",
 		name = "Candlemaker",
+		text = {
+			"You can be the wick or the wax. Either way, your light goes out and mine goes on.",
+		},
 	},
 	[115] = {
-		baseType = "FourUniqueGlovesInt3",
-		text = "While Doedre lacked Maligaro's sense of style,\nshe surpassed her master in pure malevolence.",
+		id = "FourUniqueGlovesInt3",
 		name = "Doedre's Tenure",
+		text = {
+			"While Doedre lacked Maligaro's sense of style,",
+			"she surpassed her master in pure malevolence.",
+		},
 	},
 	[116] = {
-		baseType = "FourUniqueGlovesInt4",
-		text = "Reality is a puzzle. Ingenuity is power.",
+		id = "FourUniqueGlovesInt4",
 		name = "Kitoko's Current",
+		text = {
+			"Reality is a puzzle. Ingenuity is power.",
+		},
 	},
 	[117] = {
-		baseType = "FourUniqueGlovesInt5",
-		text = "Xibaqua's treachery was met with divine fury.\nOne by one, the gods reclaimed their flesh,\nuntil all that remained was a droplet of pure light:\nThe first Vaal.",
+		id = "FourUniqueGlovesInt5",
 		name = "Demon Stitcher",
+		text = {
+			"Xibaqua's treachery was met with divine fury.",
+			"One by one, the gods reclaimed their flesh,",
+			"until all that remained was a droplet of pure light:",
+			"The first Vaal.",
+		},
 	},
 	[118] = {
-		baseType = "FourUniqueGlovesInt6",
-		text = "Diamora sings not for hunger, but for longing.",
+		id = "FourUniqueGlovesInt6",
 		name = "Nightscale",
+		text = {
+			"Diamora sings not for hunger, but for longing.",
+		},
 	},
 	[119] = {
-		baseType = "FourUniqueGlovesInt7",
-		text = "\"Keep smiling. The deepest cut comes not from insults, but from false praise.\"",
+		id = "FourUniqueGlovesInt7",
 		name = "Leopold's Applause",
+		text = {
+			"\"Keep smiling. The deepest cut comes not from insults, but from false praise.\"",
+		},
 	},
 	[120] = {
-		baseType = "FourUniqueGlovesStrDex1",
-		text = "The whispers of the old gods hum through the iron. They demand a hero.",
+		id = "FourUniqueGlovesStrDex1",
 		name = "Jarngreipr",
+		text = {
+			"The whispers of the old gods hum through the iron. They demand a hero.",
+		},
 	},
 	[121] = {
-		baseType = "FourUniqueGlovesStrDex2",
-		text = "Wealth is not to be borne lightly.",
+		id = "FourUniqueGlovesStrDex2",
 		name = "Aurseize",
+		text = {
+			"Wealth is not to be borne lightly.",
+		},
 	},
 	[122] = {
-		baseType = "FourUniqueGlovesStrDex3",
-		text = "Anticipation is a gift.",
+		id = "FourUniqueGlovesStrDex3",
 		name = "Deathblow",
+		text = {
+			"Anticipation is a gift.",
+		},
 	},
 	[123] = {
-		baseType = "FourUniqueGlovesStrDex4",
-		text = "Unlike the other gods, when he was born from the volcano,\nValako rode the clouds of ash into the thundering sky.",
+		id = "FourUniqueGlovesStrDex4",
 		name = "Valako's Vice",
+		text = {
+			"Unlike the other gods, when he was born from the volcano,",
+			"Valako rode the clouds of ash into the thundering sky.",
+		},
 	},
 	[124] = {
-		baseType = "FourUniqueGlovesStrDex5",
-		text = "The strongest souls are forged through struggle and defeat.",
+		id = "FourUniqueGlovesStrDex5",
 		name = "Aerisvane's Wings",
+		text = {
+			"The strongest souls are forged through struggle and defeat.",
+		},
 	},
 	[125] = {
-		baseType = "FourUniqueGlovesStrInt1",
-		text = "Try as you like to hide the\nblood on your hands.\nYou'll still know the truth.",
+		id = "FourUniqueGlovesStrInt1",
 		name = "Gravebind",
+		text = {
+			"Try as you like to hide the",
+			"blood on your hands.",
+			"You'll still know the truth.",
+		},
 	},
 	[126] = {
-		baseType = "FourUniqueGlovesStrInt2",
-		text = "Captivity breeds creativity.",
+		id = "FourUniqueGlovesStrInt2",
 		name = "Shackles of the Wretched",
+		text = {
+			"Captivity breeds creativity.",
+		},
 	},
 	[127] = {
-		baseType = "FourUniqueGlovesStrInt3",
-		text = "The secret was lost with its maker.",
+		id = "FourUniqueGlovesStrInt3",
 		name = "Blueflame Bracers",
+		text = {
+			"The secret was lost with its maker.",
+		},
 	},
 	[128] = {
-		baseType = "FourUniqueGlovesStrInt4",
-		text = "Only once did Maligaro wonder if he'd gone too far.\nHis greatest success took three entire legions to capture.",
+		id = "FourUniqueGlovesStrInt4",
 		name = "The Prisoner's Manacles",
+		text = {
+			"Only once did Maligaro wonder if he'd gone too far.",
+			"His greatest success took three entire legions to capture.",
+		},
 	},
 	[129] = {
-		baseType = "FourUniqueGlovesDexInt1",
-		text = "Ulcers, scabs, and pocks, the third army makes its claim.",
+		id = "FourUniqueGlovesDexInt1",
 		name = "Plaguefinger",
+		text = {
+			"Ulcers, scabs, and pocks, the third army makes its claim.",
+		},
 	},
 	[130] = {
-		baseType = "FourUniqueGlovesDexInt2",
-		text = "\"Stitches? Wouldn't that defeat the purpose?\"\n- Jeffry, Torturer's Apprentice",
+		id = "FourUniqueGlovesDexInt2",
 		name = "Killjoy",
+		text = {
+			"\"Stitches? Wouldn't that defeat the purpose?\"",
+			"- Jeffry, Torturer's Apprentice",
+		},
 	},
 	[131] = {
-		baseType = "FourUniqueGlovesDexInt5",
-		text = "The darkest clouds clashed and coupled,\ngiving birth to four lightning children of hate.",
+		id = "FourUniqueGlovesDexInt5",
 		name = "Essentia Sanguis",
+		text = {
+			"The darkest clouds clashed and coupled,",
+			"giving birth to four lightning children of hate.",
+		},
 	},
 	[132] = {
-		baseType = "FourUniqueBootsStr1",
-		text = "A wall of steel and muscle.",
+		id = "FourUniqueBootsStr1",
 		name = "Legionstride",
+		text = {
+			"A wall of steel and muscle.",
+		},
 	},
 	[133] = {
-		baseType = "FourUniqueBootsStr2",
-		text = "Natural decay can be twisted to dark ends.",
+		id = "FourUniqueBootsStr2",
 		name = "Corpsewade",
+		text = {
+			"Natural decay can be twisted to dark ends.",
+		},
 	},
 	[134] = {
-		baseType = "FourUniqueBootsStr3",
-		text = "We move to be closer to her, but the distance yet grows.",
+		id = "FourUniqueBootsStr3",
 		name = "The Infinite Pursuit",
+		text = {
+			"We move to be closer to her, but the distance yet grows.",
+		},
 	},
 	[135] = {
-		baseType = "FourUniqueBootsStr4",
-		text = "The truly mighty are never outnumbered.",
+		id = "FourUniqueBootsStr4",
 		name = "Trampletoe",
+		text = {
+			"The truly mighty are never outnumbered.",
+		},
 	},
 	[136] = {
-		baseType = "FourUniqueBootsStr5",
-		text = "As the sun rises and the light approaches,\nso too shall your enemies fear you.",
+		id = "FourUniqueBootsStr5",
 		name = "Birth of Fury",
+		text = {
+			"As the sun rises and the light approaches,",
+			"so too shall your enemies fear you.",
+		},
 	},
 	[137] = {
-		baseType = "FourUniqueBootsDex2",
-		text = "The druids walk the Grelwood without fear.",
+		id = "FourUniqueBootsDex2",
 		name = "Briarpatch",
+		text = {
+			"The druids walk the Grelwood without fear.",
+		},
 	},
 	[138] = {
-		baseType = "FourUniqueBootsDex3",
-		text = "All your tomorrows lie ahead of you,\nunknown and snarled to the very last.",
+		id = "FourUniqueBootsDex3",
 		name = "Gamblesprint",
+		text = {
+			"All your tomorrows lie ahead of you,",
+			"unknown and snarled to the very last.",
+		},
 	},
 	[139] = {
-		baseType = "FourUniqueBootsDex4",
-		text = "Where legends tread,\nthe world hearkens.",
+		id = "FourUniqueBootsDex4",
 		name = "Thunderstep",
+		text = {
+			"Where legends tread,",
+			"the world hearkens.",
+		},
 	},
 	[140] = {
-		baseType = "FourUniqueBootsDex5",
-		text = "Banished for his tragic failure,\nErian learned to hunt to survive.",
+		id = "FourUniqueBootsDex5",
 		name = "Bushwhack",
+		text = {
+			"Banished for his tragic failure,",
+			"Erian learned to hunt to survive.",
+		},
 	},
 	[141] = {
-		baseType = "FourUniqueBootsInt1",
-		text = "Blessed are those who tend the Grove.",
+		id = "FourUniqueBootsInt1",
 		name = "Luminous Pace",
+		text = {
+			"Blessed are those who tend the Grove.",
+		},
 	},
 	[142] = {
-		baseType = "FourUniqueBootsInt2",
-		text = "All the world is my home.",
+		id = "FourUniqueBootsInt2",
 		name = "Wanderlust",
+		text = {
+			"All the world is my home.",
+		},
 	},
 	[143] = {
-		baseType = "FourUniqueBootsInt3",
-		text = "The dead man walks where\nthe living fear to tread.",
+		id = "FourUniqueBootsInt3",
 		name = "Bones of Ullr",
+		text = {
+			"The dead man walks where",
+			"the living fear to tread.",
+		},
 	},
 	[144] = {
-		baseType = "FourUniqueBootsInt4",
-		text = "Wonders abound at death's door.",
+		id = "FourUniqueBootsInt4",
 		name = "Wondertrap",
+		text = {
+			"Wonders abound at death's door.",
+		},
 	},
 	[145] = {
-		baseType = "FourUniqueBootsInt5",
-		text = "The mocking wind, a shielding spell,\nThe haunting screams, a maddening hell",
+		id = "FourUniqueBootsInt5",
 		name = "Windscream",
+		text = {
+			"The mocking wind, a shielding spell,",
+			"The haunting screams, a maddening hell",
+		},
 	},
 	[146] = {
-		baseType = "FourUniqueBootsStrDex1",
-		text = "Some search forever for their path.",
+		id = "FourUniqueBootsStrDex1",
 		name = "The Knight-errant",
+		text = {
+			"Some search forever for their path.",
+		},
 	},
 	[147] = {
-		baseType = "FourUniqueBootsStrDex2",
-		text = "\"Sirrius flew on wings of light, faster than wind, faster\nthan thought. But try as he might to outrun the darkness,\nit was there, at every turn, waiting for him.\"\n- Azmerian legend",
+		id = "FourUniqueBootsStrDex2",
 		name = "Darkray Vectors",
+		text = {
+			"\"Sirrius flew on wings of light, faster than wind, faster",
+			"than thought. But try as he might to outrun the darkness,",
+			"it was there, at every turn, waiting for him.\"",
+			"- Azmerian legend",
+		},
 	},
 	[148] = {
-		baseType = "FourUniqueBootsStrDex3",
-		text = "The storm cannot sway those of sure footing.",
+		id = "FourUniqueBootsStrDex3",
 		name = "Obern's Bastion",
+		text = {
+			"The storm cannot sway those of sure footing.",
+		},
 	},
 	[149] = {
-		baseType = "FourUniqueBootsStrInt2",
-		text = "Tempest's power given form,\nFlee before the walking storm.",
+		id = "FourUniqueBootsStrInt2",
 		name = "Wake of Destruction",
+		text = {
+			"Tempest's power given form,",
+			"Flee before the walking storm.",
+		},
 	},
 	[150] = {
-		baseType = "FourUniqueBootsDexInt2",
-		text = "The cursed ones march forever,\nOn their hopeless, last endeavour.",
+		id = "FourUniqueBootsDexInt2",
 		name = "Ghostmarch",
+		text = {
+			"The cursed ones march forever,",
+			"On their hopeless, last endeavour.",
+		},
 	},
 	[151] = {
-		baseType = "FourUniqueBootsDexInt3",
-		text = "The combat stance used by Vaal nobles\nwas as elegant as it was deadly.",
+		id = "FourUniqueBootsDexInt3",
 		name = "Powertread",
+		text = {
+			"The combat stance used by Vaal nobles",
+			"was as elegant as it was deadly.",
+		},
 	},
 	[152] = {
-		baseType = "FourUniqueShieldStr1",
-		text = "Praetor Draven knew his only chance to subjugate\nthe Ezomytes was to catch them unaware.",
+		id = "FourUniqueShieldStr1",
 		name = "Dionadair",
+		text = {
+			"Praetor Draven knew his only chance to subjugate",
+			"the Ezomytes was to catch them unaware.",
+		},
 	},
 	[153] = {
-		baseType = "FourUniqueShieldStr2",
-		text = "The Counts of Ogham share a\nlegacy of cunning and power.",
+		id = "FourUniqueShieldStr2",
 		name = "Wulfsbane",
+		text = {
+			"The Counts of Ogham share a",
+			"legacy of cunning and power.",
+		},
 	},
 	[154] = {
-		baseType = "FourUniqueShieldStr3",
-		text = "Welcome to Wraeclast.",
+		id = "FourUniqueShieldStr3",
 		name = "Doomgate",
+		text = {
+			"Welcome to Wraeclast.",
+		},
 	},
 	[155] = {
-		baseType = "FourUniqueShieldStr4",
-		text = "\"Beyond fire, blood, and nightmare,\nthe Savior will build utopia.\"",
+		id = "FourUniqueShieldStr4",
 		name = "Window to Paradise",
+		text = {
+			"\"Beyond fire, blood, and nightmare,",
+			"the Savior will build utopia.\"",
+		},
 	},
 	[156] = {
-		baseType = "FourUniqueShieldStr5",
-		text = "Some stories are never told.",
+		id = "FourUniqueShieldStr5",
 		name = "The Wailing Wall",
+		text = {
+			"Some stories are never told.",
+		},
 	},
 	[157] = {
-		baseType = "FourUniqueShieldStr6",
-		text = "A true predator does not chase; It waits.",
+		id = "FourUniqueShieldStr6",
 		name = "Lycosidae",
+		text = {
+			"A true predator does not chase; It waits.",
+		},
 	},
 	[158] = {
-		baseType = "FourUniqueShieldStr7",
-		text = "Blood shed is blood shared.",
+		id = "FourUniqueShieldStr7",
 		name = "Redblade Banner",
+		text = {
+			"Blood shed is blood shared.",
+		},
 	},
 	[159] = {
-		baseType = "FourUniqueShieldStr8",
-		text = "Our hearts cry out\nbut are silenced by our flesh\nand so we give up our flesh.",
+		id = "FourUniqueShieldStr8",
 		name = "The Surrender",
+		text = {
+			"Our hearts cry out",
+			"but are silenced by our flesh",
+			"and so we give up our flesh.",
+		},
 	},
 	[160] = {
-		baseType = "FourUniqueShieldStr13",
-		text = "Fire dances with those who doubt\nLicks the skin and flesh from the fearful\nWhere there is no fear\nThere is no flame",
+		id = "FourUniqueShieldStr13",
 		name = "Chernobog's Pillar",
+		text = {
+			"Fire dances with those who doubt",
+			"Licks the skin and flesh from the fearful",
+			"Where there is no fear",
+			"There is no flame",
+		},
 	},
 	[161] = {
-		baseType = "FourUniqueShieldStrDex1",
-		text = "The unending carnage of war\nmercilessly grinds away\nat body and mind.",
+		id = "FourUniqueShieldStrDex1",
 		name = "Arvil's Wheel",
+		text = {
+			"The unending carnage of war",
+			"mercilessly grinds away",
+			"at body and mind.",
+		},
 	},
 	[162] = {
-		baseType = "FourUniqueShieldStrDex2",
-		text = "Lead by example, and you shall never be alone.",
+		id = "FourUniqueShieldStrDex2",
 		name = "Merit of Service",
+		text = {
+			"Lead by example, and you shall never be alone.",
+		},
 	},
 	[163] = {
-		baseType = "FourUniqueShieldStrDex4",
-		text = "Ride the western wind, and take flight.",
+		id = "FourUniqueShieldStrDex4",
 		name = "Feathered Fortress",
+		text = {
+			"Ride the western wind, and take flight.",
+		},
 	},
 	[164] = {
-		baseType = "FourUniqueShieldStrInt1",
-		text = "May your resolve never waver.",
+		id = "FourUniqueShieldStrInt1",
 		name = "Alkem Eira",
+		text = {
+			"May your resolve never waver.",
+		},
 	},
 	[165] = {
-		baseType = "FourUniqueShieldStrInt2",
-		text = "The druids swore to protect the Grelwood with their very lives.",
+		id = "FourUniqueShieldStrInt2",
 		name = "Oaksworn",
+		text = {
+			"The druids swore to protect the Grelwood with their very lives.",
+		},
 	},
 	[166] = {
-		baseType = "FourUniqueShieldStrInt3",
-		text = "A swift mind solves problems before they occur.",
+		id = "FourUniqueShieldStrInt3",
 		name = "Saffell's Frame",
+		text = {
+			"A swift mind solves problems before they occur.",
+		},
 	},
 	[167] = {
-		baseType = "FourUniqueShieldStrInt4",
-		text = "When the Red Sekhema called,\nthe Ardura were the first to answer.",
+		id = "FourUniqueShieldStrInt4",
 		name = "Crest of Ardura",
+		text = {
+			"When the Red Sekhema called,",
+			"the Ardura were the first to answer.",
+		},
 	},
 	[168] = {
-		baseType = "FourUniqueShieldStrInt5",
-		text = "When blood is paid, the weak think twice.",
+		id = "FourUniqueShieldStrInt5",
 		name = "Prism Guardian",
+		text = {
+			"When blood is paid, the weak think twice.",
+		},
 	},
 	[169] = {
-		baseType = "FourUniqueShieldStrInt6",
-		text = "My bearer shall be guarded by flame,\nfor I am the phoenix, forever radiant in glory.",
+		id = "FourUniqueShieldStrInt6",
 		name = "Rise of the Phoenix",
+		text = {
+			"My bearer shall be guarded by flame,",
+			"for I am the phoenix, forever radiant in glory.",
+		},
 	},
 	[170] = {
-		baseType = "FourUniqueShieldDex1",
-		text = "\"A thief in the night, Draven did creep,\nfamilies asleep, taken, held on high.\nClever, he thought, 'til his children paid.\nNay, villain, a man never bleeds alone.\"",
+		id = "FourUniqueShieldDex1",
 		name = "Dunkelhalt",
+		text = {
+			"\"A thief in the night, Draven did creep,",
+			"families asleep, taken, held on high.",
+			"Clever, he thought, 'til his children paid.",
+			"Nay, villain, a man never bleeds alone.\"",
+		},
 	},
 	[171] = {
-		baseType = "FourUniqueShieldDex2",
-		text = "Light and shadow chase eternal,\nbut neither knows the other exists...",
+		id = "FourUniqueShieldDex2",
 		name = "Nocturne",
+		text = {
+			"Light and shadow chase eternal,",
+			"but neither knows the other exists...",
+		},
 	},
 	[172] = {
-		baseType = "FourUniqueShieldDex3",
-		text = "\"Resist for long enough, and your oppressor\nwill lose his will. Then, you've won.\"",
+		id = "FourUniqueShieldDex3",
 		name = "Rondel de Ezo",
+		text = {
+			"\"Resist for long enough, and your oppressor",
+			"will lose his will. Then, you've won.\"",
+		},
 	},
 	[173] = {
-		baseType = "FourUniqueShieldDex4",
-		text = "A window onto a realm of red,\nwhere countless voices scream...",
+		id = "FourUniqueShieldDex4",
 		name = "Bloodbarrier",
+		text = {
+			"A window onto a realm of red,",
+			"where countless voices scream...",
+		},
 	},
 	[174] = {
-		baseType = "FourUniqueShieldDex6",
-		text = "As a boy, in the arena, Daresso learned to\nfeign weakness to open up a lethal blow.",
+		id = "FourUniqueShieldDex6",
 		name = "Silverthorne",
+		text = {
+			"As a boy, in the arena, Daresso learned to",
+			"feign weakness to open up a lethal blow.",
+		},
 	},
 	[175] = {
-		baseType = "FourUniqueShieldDex11_",
-		text = "\"There is nowhere my vengeance cannot find you.\"",
+		id = "FourUniqueShieldDex11_",
 		name = "Calgyra's Arc",
+		text = {
+			"\"There is nowhere my vengeance cannot find you.\"",
+		},
 	},
 	[176] = {
-		baseType = "FourUniqueShieldDex12",
-		text = "\"Lundara held back the hordes, while Solerai rose to split the sky.\nWith a single stroke, she ended the Winter of the World.\"\n- Wranga, tale-woman of the Wahida akhara",
+		id = "FourUniqueShieldDex12",
 		name = "Sunsplinter",
+		text = {
+			"\"Lundara held back the hordes, while Solerai rose to split the sky.",
+			"With a single stroke, she ended the Winter of the World.\"",
+			"- Wranga, tale-woman of the Wahida akhara",
+		},
 	},
 	[177] = {
-		baseType = "FourUniqueFocus1",
-		text = "The cry of death whispers in the wind.",
+		id = "FourUniqueFocus1",
 		name = "Deathrattle",
+		text = {
+			"The cry of death whispers in the wind.",
+		},
 	},
 	[178] = {
-		baseType = "FourUniqueFocus2",
-		text = "A gift, a braid, of golden hair.\nThe war, forgotten.\nThe reason, remembered.",
+		id = "FourUniqueFocus2",
 		name = "Threaded Light",
+		text = {
+			"A gift, a braid, of golden hair.",
+			"The war, forgotten.",
+			"The reason, remembered.",
+		},
 	},
 	[179] = {
-		baseType = "FourUniqueFocus3",
-		text = "The horrors we imagined as children\nstill exist somewhere in the dark...",
+		id = "FourUniqueFocus3",
 		name = "Effigy of Cruelty",
+		text = {
+			"The horrors we imagined as children",
+			"still exist somewhere in the dark...",
+		},
 	},
 	[180] = {
-		baseType = "FourUniqueFocus4",
-		text = "Obedience stretches beyond the grave.",
+		id = "FourUniqueFocus4",
 		name = "Carrion Call",
+		text = {
+			"Obedience stretches beyond the grave.",
+		},
 	},
 	[181] = {
-		baseType = "FourUniqueFocus5",
-		text = "Sinuous, entwined... inextricable.",
+		id = "FourUniqueFocus5",
 		name = "Serpent's Lesson",
+		text = {
+			"Sinuous, entwined... inextricable.",
+		},
 	},
 	[182] = {
-		baseType = "FourUniqueFocus6",
-		text = "A flash of blue, a stormcloud's kiss,\nher motionless dance the pulse of bliss",
+		id = "FourUniqueFocus6",
 		name = "The Eternal Spark",
+		text = {
+			"A flash of blue, a stormcloud's kiss,",
+			"her motionless dance the pulse of bliss",
+		},
 	},
 	[183] = {
-		baseType = "FourUniqueFocus7",
-		text = "Give him your body, and your burdens will follow.",
+		id = "FourUniqueFocus7",
 		name = "Apep's Supremacy",
+		text = {
+			"Give him your body, and your burdens will follow.",
+		},
 	},
 	[184] = {
-		baseType = "FourUniqueFocus8",
-		text = "The Vaal emptied their slaves of beating hearts,\nand left a mountain of twitching dead.",
+		id = "FourUniqueFocus8",
 		name = "Rathpith Globe",
+		text = {
+			"The Vaal emptied their slaves of beating hearts,",
+			"and left a mountain of twitching dead.",
+		},
 	},
 	[185] = {
-		baseType = "FourUniqueQuiver1",
-		text = "Mist of breath\nIcing to lips and throat\nAs the warm ones choke and fall\nUpon the frozen wasteland.",
+		id = "FourUniqueQuiver1",
 		name = "Asphyxia's Wrath",
+		text = {
+			"Mist of breath",
+			"Icing to lips and throat",
+			"As the warm ones choke and fall",
+			"Upon the frozen wasteland.",
+		},
 	},
 	[186] = {
-		baseType = "FourUniqueQuiver2_",
-		text = "Molten feathers, veiled spark,\nHissing arrows from the dark.",
+		id = "FourUniqueQuiver2_",
 		name = "Blackgleam",
+		text = {
+			"Molten feathers, veiled spark,",
+			"Hissing arrows from the dark.",
+		},
 	},
 	[187] = {
-		baseType = "FourUniqueQuiver3",
-		text = "Life and death ooze from the same sap.",
+		id = "FourUniqueQuiver3",
 		name = "The Lethal Draw",
+		text = {
+			"Life and death ooze from the same sap.",
+		},
 	},
 	[188] = {
-		baseType = "FourUniqueQuiver5",
-		text = "\"It's a rare man that has eyes in the back of his head.\"\n- Kiravi, Vaal Archer",
+		id = "FourUniqueQuiver5",
 		name = "Rearguard",
+		text = {
+			"\"It's a rare man that has eyes in the back of his head.\"",
+			"- Kiravi, Vaal Archer",
+		},
 	},
 	[189] = {
-		baseType = "FourUniqueAmulet1",
-		text = "A hearth unyielding, ever warm,\nA light unbroken, endlessly reborn.",
+		id = "FourUniqueAmulet1",
 		name = "Igniferis",
+		text = {
+			"A hearth unyielding, ever warm,",
+			"A light unbroken, endlessly reborn.",
+		},
 	},
 	[190] = {
-		baseType = "FourUniqueAmulet2",
-		text = "Worship of house gods was tolerated\nin Oriath, so long as it remained private.",
+		id = "FourUniqueAmulet2",
 		name = "Idol of Uldurn",
+		text = {
+			"Worship of house gods was tolerated",
+			"in Oriath, so long as it remained private.",
+		},
 	},
 	[191] = {
-		baseType = "FourUniqueAmulet3",
-		text = "What they saw was what they believed, and\nthey believed Lunaris had not abandoned them.",
+		id = "FourUniqueAmulet3",
 		name = "The Everlasting Gaze",
+		text = {
+			"What they saw was what they believed, and",
+			"they believed Lunaris had not abandoned them.",
+		},
 	},
 	[192] = {
-		baseType = "FourUniqueAmulet4",
-		text = "Gentle anger, raging calm.",
+		id = "FourUniqueAmulet4",
 		name = "Ungil's Harmony",
+		text = {
+			"Gentle anger, raging calm.",
+		},
 	},
 	[193] = {
-		baseType = "FourUniqueAmulet5",
-		text = "The sacred sap flows slowly, but surely.",
+		id = "FourUniqueAmulet5",
 		name = "Revered Resin",
+		text = {
+			"The sacred sap flows slowly, but surely.",
+		},
 	},
 	[194] = {
-		baseType = "FourUniqueAmulet6",
-		text = "Forged from the blood of countless wars,\nits thirst has only begun.",
+		id = "FourUniqueAmulet6",
 		name = "Carnage Heart",
+		text = {
+			"Forged from the blood of countless wars,",
+			"its thirst has only begun.",
+		},
 	},
 	[195] = {
-		baseType = "FourUniqueAmulet7",
-		text = "Natural grace is born, not earned.",
+		id = "FourUniqueAmulet7",
 		name = "Surefooted Sigil",
+		text = {
+			"Natural grace is born, not earned.",
+		},
 	},
 	[196] = {
-		baseType = "FourUniqueAmulet8",
-		text = "The respect of Karui warriors is hard to earn,\nbut lasts a lifetime... and beyond.",
+		id = "FourUniqueAmulet8",
 		name = "Defiance of Destiny",
+		text = {
+			"The respect of Karui warriors is hard to earn,",
+			"but lasts a lifetime... and beyond.",
+		},
 	},
 	[197] = {
-		baseType = "FourUniqueAmulet9",
-		text = "You are slow, foolish and ignorant.\nI am not.",
+		id = "FourUniqueAmulet9",
 		name = "Stone of Lazhwar",
+		text = {
+			"You are slow, foolish and ignorant.",
+			"I am not.",
+		},
 	},
 	[198] = {
-		baseType = "FourUniqueAmulet10_",
-		text = "Healing the soul requires sacrifice.",
+		id = "FourUniqueAmulet10_",
 		name = "Ligurium Talisman",
+		text = {
+			"Healing the soul requires sacrifice.",
+		},
 	},
 	[199] = {
-		baseType = "FourUniqueAmulet12",
-		text = "Fanatics are the most dangerous enemy,\nfor they care not for their own survival.",
+		id = "FourUniqueAmulet12",
 		name = "Rondel of Fragility",
+		text = {
+			"Fanatics are the most dangerous enemy,",
+			"for they care not for their own survival.",
+		},
 	},
 	[200] = {
-		baseType = "FourUniqueAmulet13",
-		text = "Forge your Perseverance on the Anvil of Faith.",
+		id = "FourUniqueAmulet13",
 		name = "The Anvil",
+		text = {
+			"Forge your Perseverance on the Anvil of Faith.",
+		},
 	},
 	[201] = {
-		baseType = "FourUniqueAmulet14",
-		text = "Let the unrepentant be dragged ever downwards by the weight of their sins.",
+		id = "FourUniqueAmulet14",
 		name = "Yoke of Suffering",
+		text = {
+			"Let the unrepentant be dragged ever downwards by the weight of their sins.",
+		},
 	},
 	[202] = {
-		baseType = "FourUniqueAmulet15_",
-		text = "Mindless rage will shake the world,\nCunning lies will bend it.\nReckless haste will break the world,\nAnd into darkness send it.",
+		id = "FourUniqueAmulet15_",
 		name = "Astramentis",
+		text = {
+			"Mindless rage will shake the world,",
+			"Cunning lies will bend it.",
+			"Reckless haste will break the world,",
+			"And into darkness send it.",
+		},
 	},
 	[203] = {
-		baseType = "FourUniqueAmulet16",
-		text = "He knew not why he was changing, only\nthat he wanted to hold his family close...",
+		id = "FourUniqueAmulet16",
 		name = "Fixation of Yix",
+		text = {
+			"He knew not why he was changing, only",
+			"that he wanted to hold his family close...",
+		},
 	},
 	[204] = {
-		baseType = "FourUniqueAmulet17",
-		text = "The homeguard signalled for aid against a surprise attack,\nbut it was not their dekharas that responded.\nIt was Solerai herself.",
+		id = "FourUniqueAmulet17",
 		name = "Beacon of Azis",
+		text = {
+			"The homeguard signalled for aid against a surprise attack,",
+			"but it was not their dekharas that responded.",
+			"It was Solerai herself.",
+		},
 	},
 	[205] = {
-		baseType = "FourUniqueAmulet18",
-		text = "Tale-women in training drink of a painful desert fruit.\nFire, they learn, springs from agony.",
+		id = "FourUniqueAmulet18",
 		name = "Fireflower",
+		text = {
+			"Tale-women in training drink of a painful desert fruit.",
+			"Fire, they learn, springs from agony.",
+		},
 	},
 	[206] = {
-		baseType = "FourUniqueAmulet19_",
-		text = "Never blinking, always watching.",
+		id = "FourUniqueAmulet19_",
 		name = "Eye of Chayula",
+		text = {
+			"Never blinking, always watching.",
+		},
 	},
 	[207] = {
-		baseType = "FourUniqueAmulet20",
-		text = "When Kabala the Serpent Queen was banished from Keth,\nthe Sekhemas took a single hostage as punishment.",
+		id = "FourUniqueAmulet20",
 		name = "Serpent's Egg",
+		text = {
+			"When Kabala the Serpent Queen was banished from Keth,",
+			"the Sekhemas took a single hostage as punishment.",
+		},
 	},
 	[208] = {
-		baseType = "FourUniqueRing1",
-		text = "Fear is highly infectious.",
+		id = "FourUniqueRing1",
 		name = "Blackheart",
+		text = {
+			"Fear is highly infectious.",
+		},
 	},
 	[209] = {
-		baseType = "FourUniqueRing2a",
-		text = "Those members of the Brotherhood who employ the venom of\nTrarthan ice snakes must take great care with the volatile substance.",
+		id = "FourUniqueRing2a",
 		name = "Icefang Orbit",
+		text = {
+			"Those members of the Brotherhood who employ the venom of",
+			"Trarthan ice snakes must take great care with the volatile substance.",
+		},
 	},
 	[210] = {
-		baseType = "FourUniqueRing2b",
-		text = "There is a way to survive the bite of an ice snake,\nbut few have the resolve to attempt it.",
+		id = "FourUniqueRing2b",
 		name = "Venopuncture",
+		text = {
+			"There is a way to survive the bite of an ice snake,",
+			"but few have the resolve to attempt it.",
+		},
 	},
 	[211] = {
-		baseType = "FourUniqueRing3",
-		text = "Agony brings clarity to those of pure mind.",
+		id = "FourUniqueRing3",
 		name = "Prized Pain",
+		text = {
+			"Agony brings clarity to those of pure mind.",
+		},
 	},
 	[212] = {
-		baseType = "FourUniqueRing4",
-		text = "As their eyes adjusted, they became aware of a strange\nblue light. Countless glowing worms crawled above,\nblissfully unaware of their flight from the sirens.",
+		id = "FourUniqueRing4",
 		name = "Glowswarm",
+		text = {
+			"As their eyes adjusted, they became aware of a strange",
+			"blue light. Countless glowing worms crawled above,",
+			"blissfully unaware of their flight from the sirens.",
+		},
 	},
 	[213] = {
-		baseType = "FourUniqueRing5",
-		text = "Where her mouth should have been there was only a whirling, black void.",
+		id = "FourUniqueRing5",
 		name = "Doedre's Damning",
+		text = {
+			"Where her mouth should have been there was only a whirling, black void.",
+		},
 	},
 	[214] = {
-		baseType = "FourUniqueRing6",
-		text = "The dawn of a new era is set into motion",
+		id = "FourUniqueRing6",
 		name = "Seed of Cataclysm",
+		text = {
+			"The dawn of a new era is set into motion",
+		},
 	},
 	[215] = {
-		baseType = "FourUniqueRing7",
-		text = "Fear the fire that spreads like a plague.",
+		id = "FourUniqueRing7",
 		name = "Cracklecreep",
+		text = {
+			"Fear the fire that spreads like a plague.",
+		},
 	},
 	[216] = {
-		baseType = "FourUniqueRing8",
-		text = "\"The Brotherhood of Silence does not set out to torture our targets.\nExcruciating pain is simply a byproduct of certain... necessary methods.\"",
+		id = "FourUniqueRing8",
 		name = "Blistering Bond",
+		text = {
+			"\"The Brotherhood of Silence does not set out to torture our targets.",
+			"Excruciating pain is simply a byproduct of certain... necessary methods.\"",
+		},
 	},
 	[217] = {
-		baseType = "FourUniqueRing10",
-		text = "I rule the north\nA legacy earned\nTime and time again\nSing Meginord's song!",
+		id = "FourUniqueRing10",
 		name = "Polcirkeln",
+		text = {
+			"I rule the north",
+			"A legacy earned",
+			"Time and time again",
+			"Sing Meginord's song!",
+		},
 	},
 	[218] = {
-		baseType = "FourUniqueRing11",
-		text = "Doryani stumbled into a realm of madness\nAnd awoke its Master.",
+		id = "FourUniqueRing11",
 		name = "Dream Fragments",
+		text = {
+			"Doryani stumbled into a realm of madness",
+			"And awoke its Master.",
+		},
 	},
 	[219] = {
-		baseType = "FourUniqueRing12",
-		text = "Forged by the last remaining brother\nto return all that was once given.",
+		id = "FourUniqueRing12",
 		name = "Whisper of the Brotherhood",
+		text = {
+			"Forged by the last remaining brother",
+			"to return all that was once given.",
+		},
 	},
 	[220] = {
-		baseType = "FourUniqueRing13",
-		text = "Highgate held other secrets.",
+		id = "FourUniqueRing13",
 		name = "Levinstone",
+		text = {
+			"Highgate held other secrets.",
+		},
 	},
 	[221] = {
-		baseType = "FourUniqueRing14",
-		text = "It coils deeper and deeper\nIt slithers between thoughts\nIt lies beneath the valley\nIt lies in our minds",
+		id = "FourUniqueRing14",
 		name = "The Burrower",
+		text = {
+			"It coils deeper and deeper",
+			"It slithers between thoughts",
+			"It lies beneath the valley",
+			"It lies in our minds",
+		},
 	},
 	[222] = {
-		baseType = "FourUniqueRing15",
-		text = "Forged by three brothers\nso that they may recognize each other\nacross any distance of time or travel.",
+		id = "FourUniqueRing15",
 		name = "Call of the Brotherhood",
+		text = {
+			"Forged by three brothers",
+			"so that they may recognize each other",
+			"across any distance of time or travel.",
+		},
 	},
 	[223] = {
-		baseType = "FourUniqueRing16",
-		text = "Ming slew Tranquillity\nTook Chaos for his wife\nAnd on Her immortal finger\nHe placed his Heart",
+		id = "FourUniqueRing16",
 		name = "Ming's Heart",
+		text = {
+			"Ming slew Tranquillity",
+			"Took Chaos for his wife",
+			"And on Her immortal finger",
+			"He placed his Heart",
+		},
 	},
 	[224] = {
-		baseType = "FourUniqueRing17",
-		text = "Beyond the veil of death, there burns a fire\nby whose light night is borne.",
+		id = "FourUniqueRing17",
 		name = "Blackflame",
+		text = {
+			"Beyond the veil of death, there burns a fire",
+			"by whose light night is borne.",
+		},
 	},
 	[225] = {
-		baseType = "FourUniqueRing18",
-		text = "Innocence rose to godhood not on inspired faith,\nbut on the vilification and hatred of another.",
+		id = "FourUniqueRing18",
 		name = "Original Sin",
+		text = {
+			"Innocence rose to godhood not on inspired faith,",
+			"but on the vilification and hatred of another.",
+		},
 	},
 	[226] = {
-		baseType = "FourUniqueRing19",
-		text = "The warriors of the Unblinking Eye moved\ntogether as one, shoulder to shoulder.",
+		id = "FourUniqueRing19",
 		name = "Vigilant View",
+		text = {
+			"The warriors of the Unblinking Eye moved",
+			"together as one, shoulder to shoulder.",
+		},
 	},
 	[227] = {
-		baseType = "FourUniqueRing20",
-		text = "To truly appreciate life you must be there when it ends",
+		id = "FourUniqueRing20",
 		name = "Death Rush",
+		text = {
+			"To truly appreciate life you must be there when it ends",
+		},
 	},
 	[228] = {
-		baseType = "FourUniqueRing21",
-		text = "The ring I stole,\nMy finger they took,\nA shrouded mind,\nCut their curses short,\nAs I drained their spirit\nAnd stole their soul.\nA blessing is often a curse.",
+		id = "FourUniqueRing21",
 		name = "Thief's Torment",
+		text = {
+			"The ring I stole,",
+			"My finger they took,",
+			"A shrouded mind,",
+			"Cut their curses short,",
+			"As I drained their spirit",
+			"And stole their soul.",
+			"A blessing is often a curse.",
+		},
 	},
 	[229] = {
-		baseType = "FourUniqueRing22",
-		text = "Power comes to those who seek\nDeath comes to those who reach",
+		id = "FourUniqueRing22",
 		name = "Evergrasping Ring",
+		text = {
+			"Power comes to those who seek",
+			"Death comes to those who reach",
+		},
 	},
 	[230] = {
-		baseType = "FourUniqueRing23",
-		text = "When the axe finally fell, Seryl shared his pain,\nand the last thought that flickered through his\nfading mind was her broken, shattered scream.",
+		id = "FourUniqueRing23",
 		name = "Heartbound Loop",
+		text = {
+			"When the axe finally fell, Seryl shared his pain,",
+			"and the last thought that flickered through his",
+			"fading mind was her broken, shattered scream.",
+		},
 	},
 	[231] = {
-		baseType = "FourUniqueRing24",
-		text = "They wrap around you until your blood turns as cold as theirs.",
+		id = "FourUniqueRing24",
 		name = "Snakepit",
+		text = {
+			"They wrap around you until your blood turns as cold as theirs.",
+		},
 	},
 	[232] = {
-		baseType = "FourUniqueRing25",
-		text = "God blesses those who bless themselves.",
+		id = "FourUniqueRing25",
 		name = "Gifts from Above",
+		text = {
+			"God blesses those who bless themselves.",
+		},
 	},
 	[233] = {
-		baseType = "FourUniqueRing28",
-		text = "A pact with Prospero always comes at a price.",
+		id = "FourUniqueRing28",
 		name = "Perandus Seal",
+		text = {
+			"A pact with Prospero always comes at a price.",
+		},
 	},
 	[234] = {
-		baseType = "FourUniqueRing29",
-		text = "Danger is the price of wealth.",
+		id = "FourUniqueRing29",
 		name = "Andvarius",
+		text = {
+			"Danger is the price of wealth.",
+		},
 	},
 	[235] = {
-		baseType = "FourUniqueRing30",
-		text = "In a blaze of glory,\nAn anomaly defying all odds\nThe \"unkillable\" beast met the divine\nAnd Ventor met his latest trophy.",
+		id = "FourUniqueRing30",
 		name = "Ventor's Gamble",
+		text = {
+			"In a blaze of glory,",
+			"An anomaly defying all odds",
+			"The \"unkillable\" beast met the divine",
+			"And Ventor met his latest trophy.",
+		},
 	},
 	[236] = {
-		baseType = "FourUniqueRing32",
-		text = "Power is a matter of perspective.",
+		id = "FourUniqueRing32",
 		name = "Kalandra's Touch",
+		text = {
+			"Power is a matter of perspective.",
+		},
 	},
 	[237] = {
-		baseType = "FourUniqueBelt1",
-		text = "Kaom's strength was rivaled only by\nthe great Meginord of the north.",
+		id = "FourUniqueBelt1",
 		name = "Meginord's Girdle",
+		text = {
+			"Kaom's strength was rivaled only by",
+			"the great Meginord of the north.",
+		},
 	},
 	[238] = {
-		baseType = "FourUniqueBelt2",
-		text = "Adversity is the soil in\nwhich persistence grows.",
+		id = "FourUniqueBelt2",
 		name = "Midnight Braid",
+		text = {
+			"Adversity is the soil in",
+			"which persistence grows.",
+		},
 	},
 	[239] = {
-		baseType = "FourUniqueBelt3",
-		text = "Below all living things,\nthere exists a flow...",
+		id = "FourUniqueBelt3",
 		name = "Keelhaul",
+		text = {
+			"Below all living things,",
+			"there exists a flow...",
+		},
 	},
 	[240] = {
-		baseType = "FourUniqueBelt5",
-		text = "Some families have peculiar gifts...",
+		id = "FourUniqueBelt5",
 		name = "Birthright Buckle",
+		text = {
+			"Some families have peculiar gifts...",
+		},
 	},
 	[241] = {
-		baseType = "FourUniqueBelt6",
-		text = "The Brinerot sail without fear of storms.",
+		id = "FourUniqueBelt6",
 		name = "Brynabas",
+		text = {
+			"The Brinerot sail without fear of storms.",
+		},
 	},
 	[242] = {
-		baseType = "FourUniqueBelt8",
-		text = "Vaal bloodpriests were among the earliest intellectuals on record.\nIt was they who found that a newly freed soul would\ndesperately cling to any other source of life.",
+		id = "FourUniqueBelt8",
 		name = "Soul Tether",
+		text = {
+			"Vaal bloodpriests were among the earliest intellectuals on record.",
+			"It was they who found that a newly freed soul would",
+			"desperately cling to any other source of life.",
+		},
 	},
 	[243] = {
-		baseType = "FourUniqueBelt9",
-		text = "Tempered by the forbidden flame.",
+		id = "FourUniqueBelt9",
 		name = "Infernoclasp",
+		text = {
+			"Tempered by the forbidden flame.",
+		},
 	},
 	[244] = {
-		baseType = "FourUniqueBelt10",
-		text = "Bleeding just means you're still alive.",
+		id = "FourUniqueBelt10",
 		name = "Goregirdle",
+		text = {
+			"Bleeding just means you're still alive.",
+		},
 	},
 	[245] = {
-		baseType = "FourUniqueBelt12",
-		text = "All creatures have the potential for greatness or unequivocal failure.",
+		id = "FourUniqueBelt12",
 		name = "Ryslatha's Coil",
+		text = {
+			"All creatures have the potential for greatness or unequivocal failure.",
+		},
 	},
 	[246] = {
-		baseType = "FourUniqueBelt13",
-		text = "Death is your most important duty.\nFace it, or curse your bloodline for all eternity.",
+		id = "FourUniqueBelt13",
 		name = "Coward's Legacy",
+		text = {
+			"Death is your most important duty.",
+			"Face it, or curse your bloodline for all eternity.",
+		},
 	},
 	[247] = {
-		baseType = "FourUniqueBelt15",
-		text = "Trifle not with the trinket mage.",
+		id = "FourUniqueBelt15",
 		name = "Bijouborne",
+		text = {
+			"Trifle not with the trinket mage.",
+		},
 	},
 	[248] = {
-		baseType = "FourUniqueBelt16_",
-		text = "Asinia promised vengeance beyond death,\nand she found a way to keep that promise.",
+		id = "FourUniqueBelt16_",
 		name = "Silverpoint",
+		text = {
+			"Asinia promised vengeance beyond death,",
+			"and she found a way to keep that promise.",
+		},
 	},
 	[249] = {
-		baseType = "FourUniqueBelt17",
-		text = "Clever artifice is not always complex.",
+		id = "FourUniqueBelt17",
 		name = "Waistgate",
+		text = {
+			"Clever artifice is not always complex.",
+		},
 	},
 	[250] = {
-		baseType = "FourUniqueBelt18_",
-		text = "\"A man's soul rules from a cavern of bone, learns and\njudges through flesh-born windows. The heart is meat.\nThe head is where the Man is.\"\n- Lavianga, Advisor to Kaom",
+		id = "FourUniqueBelt18_",
 		name = "Headhunter",
+		text = {
+			"\"A man's soul rules from a cavern of bone, learns and",
+			"judges through flesh-born windows. The heart is meat.",
+			"The head is where the Man is.\"",
+			"- Lavianga, Advisor to Kaom",
+		},
 	},
 	[251] = {
-		baseType = "FourUniqueBelt21",
-		text = "Bring mystery to life. Again and again.",
+		id = "FourUniqueBelt21",
 		name = "Shavronne's Satchel",
+		text = {
+			"Bring mystery to life. Again and again.",
+		},
 	},
 	[252] = {
-		baseType = "FourUniqueOneHandMace1",
-		text = "The mark of the smith was widely known.",
+		id = "FourUniqueOneHandMace1",
 		name = "Brynhand's Mark",
+		text = {
+			"The mark of the smith was widely known.",
+		},
 	},
 	[253] = {
-		baseType = "FourUniqueOneHandMace2",
-		text = "Shaped metal never forgets the forge.",
+		id = "FourUniqueOneHandMace2",
 		name = "Wylund's Stake",
+		text = {
+			"Shaped metal never forgets the forge.",
+		},
 	},
 	[254] = {
-		baseType = "FourUniqueOneHandMace3",
-		text = "A merciful murderer swept through the streets of Sarn\nRobbing breath from the weak and worthless.",
+		id = "FourUniqueOneHandMace3",
 		name = "Frostbreath",
+		text = {
+			"A merciful murderer swept through the streets of Sarn",
+			"Robbing breath from the weak and worthless.",
+		},
 	},
 	[255] = {
-		baseType = "FourUniqueOneHandMace4",
-		text = "Ezomyte loyalty was not given to distant leaders.\nIt was earned by comrades in arms.",
+		id = "FourUniqueOneHandMace4",
 		name = "Trenchtimbre",
+		text = {
+			"Ezomyte loyalty was not given to distant leaders.",
+			"It was earned by comrades in arms.",
+		},
 	},
 	[256] = {
-		baseType = "FourUniqueOneHandMace5",
-		text = "The Abyssals were created, not born,\nand every moment in the light was agony.",
+		id = "FourUniqueOneHandMace5",
 		name = "Sculpted Suffering",
+		text = {
+			"The Abyssals were created, not born,",
+			"and every moment in the light was agony.",
+		},
 	},
 	[257] = {
-		baseType = "FourUniqueOneHandMace6",
-		text = "Within lies a window.",
+		id = "FourUniqueOneHandMace6",
 		name = "Seeing Stars",
+		text = {
+			"Within lies a window.",
+		},
 	},
 	[258] = {
-		baseType = "FourUniqueOneHandMace7",
-		text = "They hoped that, trapped in its prison,\nthe creature would age and perish.\nBut time would not touch the fiend.",
+		id = "FourUniqueOneHandMace7",
 		name = "Nebuloch",
+		text = {
+			"They hoped that, trapped in its prison,",
+			"the creature would age and perish.",
+			"But time would not touch the fiend.",
+		},
 	},
 	[259] = {
-		baseType = "FourUniqueOneHandMace13",
-		text = "Look the storm in the eye and you will have its respect.",
+		id = "FourUniqueOneHandMace13",
 		name = "Mjölner",
+		text = {
+			"Look the storm in the eye and you will have its respect.",
+		},
 	},
 	[260] = {
-		baseType = "FourUniqueTwoHandMace1",
-		text = "There was a very clear and delicious\nreason why the Ezomytes chose to\nstop their flight and settle in Phaaryl.",
+		id = "FourUniqueTwoHandMace1",
 		name = "Hoghunt",
+		text = {
+			"There was a very clear and delicious",
+			"reason why the Ezomytes chose to",
+			"stop their flight and settle in Phaaryl.",
+		},
 	},
 	[261] = {
-		baseType = "FourUniqueTwoHandMace2",
-		text = "\"The crack of bone, the spray of blood.\nIs there sweeter music?\"\n- Hrimnor of the Ezomytes.",
+		id = "FourUniqueTwoHandMace2",
 		name = "Hrimnor's Hymn",
+		text = {
+			"\"The crack of bone, the spray of blood.",
+			"Is there sweeter music?\"",
+			"- Hrimnor of the Ezomytes.",
+		},
 	},
 	[262] = {
-		baseType = "FourUniqueTwoHandMace3",
-		text = "The art of surgery advances one mistake at a time.",
+		id = "FourUniqueTwoHandMace3",
 		name = "Trephina",
+		text = {
+			"The art of surgery advances one mistake at a time.",
+		},
 	},
 	[263] = {
-		baseType = "FourUniqueTwoHandMace4",
-		text = "The mind may have no limits, but the skull sure does.",
+		id = "FourUniqueTwoHandMace4",
 		name = "Brain Rattler",
+		text = {
+			"The mind may have no limits, but the skull sure does.",
+		},
 	},
 	[264] = {
-		baseType = "FourUniqueTwoHandMace5",
-		text = "Secrecy and silence are powers all their own.",
+		id = "FourUniqueTwoHandMace5",
 		name = "The Empty Roar",
+		text = {
+			"Secrecy and silence are powers all their own.",
+		},
 	},
 	[265] = {
-		baseType = "FourUniqueTwoHandMace6",
-		text = "Be not deceived by the treachery of men.",
+		id = "FourUniqueTwoHandMace6",
 		name = "Shyaba",
+		text = {
+			"Be not deceived by the treachery of men.",
+		},
 	},
 	[266] = {
-		baseType = "FourUniqueTwoHandMace7",
-		text = "The faithful may continue to serve, even after death.",
+		id = "FourUniqueTwoHandMace7",
 		name = "Chober Chaber",
+		text = {
+			"The faithful may continue to serve, even after death.",
+		},
 	},
 	[267] = {
-		baseType = "FourUniqueTwoHandMace8",
-		text = "\"The finest prosperity grows from the direst\ncarnage. Such is the nature of progress.\"\n- Doryani of the Vaal",
+		id = "FourUniqueTwoHandMace8",
 		name = "Quecholli",
+		text = {
+			"\"The finest prosperity grows from the direst",
+			"carnage. Such is the nature of progress.\"",
+			"- Doryani of the Vaal",
+		},
 	},
 	[268] = {
-		baseType = "FourUniqueTwoHandMace9",
-		text = "The sea strikes the rock relentlessly.\nWhether in one day or in ten thousand years,\neventually the rock will crumble,\nand the Brine King's domain will grow.",
+		id = "FourUniqueTwoHandMace9",
 		name = "Tidebreaker",
+		text = {
+			"The sea strikes the rock relentlessly.",
+			"Whether in one day or in ten thousand years,",
+			"eventually the rock will crumble,",
+			"and the Brine King's domain will grow.",
+		},
 	},
 	[269] = {
-		baseType = "FourUniqueTwoHandMace13",
-		text = "The secret Order endured by publicly\npraying however the Templars demanded.\nOne day, justice would fall upon them...",
+		id = "FourUniqueTwoHandMace13",
 		name = "The Hammer of Faith",
+		text = {
+			"The secret Order endured by publicly",
+			"praying however the Templars demanded.",
+			"One day, justice would fall upon them...",
+		},
 	},
 	[270] = {
-		baseType = "FourUniqueSpear1",
-		text = "The Baleful Gem's corruption lingers still...",
+		id = "FourUniqueSpear1",
 		name = "Splinter of Loratta",
+		text = {
+			"The Baleful Gem's corruption lingers still...",
+		},
 	},
 	[271] = {
-		baseType = "FourUniqueSpear2",
-		text = "The might of the Eternal Empire was formidable,\nbut rebels of every culture stood together as one.",
+		id = "FourUniqueSpear2",
 		name = "Tyranny's Grip",
+		text = {
+			"The might of the Eternal Empire was formidable,",
+			"but rebels of every culture stood together as one.",
+		},
 	},
 	[272] = {
-		baseType = "FourUniqueSpear3",
-		text = "The Sacred Hunt ends with mercy.",
+		id = "FourUniqueSpear3",
 		name = "Chainsting",
+		text = {
+			"The Sacred Hunt ends with mercy.",
+		},
 	},
 	[273] = {
-		baseType = "FourUniqueSpear4",
-		text = "Heads fall to the sand, just as the star fell from the sky",
+		id = "FourUniqueSpear4",
 		name = "Skysliver",
+		text = {
+			"Heads fall to the sand, just as the star fell from the sky",
+		},
 	},
 	[274] = {
-		baseType = "FourUniqueSpear5",
-		text = "\"You killed their Golden Sekhema. The Maraketh will think of nothing\nbut vengeance now.\" - Dimos, Advisor to General Titucius",
+		id = "FourUniqueSpear5",
 		name = "Daevata's Wind",
+		text = {
+			"\"You killed their Golden Sekhema. The Maraketh will think of nothing",
+			"but vengeance now.\" - Dimos, Advisor to General Titucius",
+		},
 	},
 	[275] = {
-		baseType = "FourUniqueSpear6",
-		text = "\"In the hands of Orbala, it made a god bleed.\"\n- Wranga, tale-woman of the Wahida akhara",
+		id = "FourUniqueSpear6",
 		name = "Tangletongue",
+		text = {
+			"\"In the hands of Orbala, it made a god bleed.\"",
+			"- Wranga, tale-woman of the Wahida akhara",
+		},
 	},
 	[276] = {
-		baseType = "FourUniqueSpear7",
-		text = "Born in a star of man's own make,\nfused to her hand by her last mistake.",
+		id = "FourUniqueSpear7",
 		name = "Saitha's Spear",
+		text = {
+			"Born in a star of man's own make,",
+			"fused to her hand by her last mistake.",
+		},
 	},
 	[277] = {
-		baseType = "FourUniqueSpear13",
-		text = "The spear was specially forged to assassinate Voll,\nbut Maligaro never got a chance to use it...",
+		id = "FourUniqueSpear13",
 		name = "Spire of Ire",
+		text = {
+			"The spear was specially forged to assassinate Voll,",
+			"but Maligaro never got a chance to use it...",
+		},
 	},
 	[278] = {
-		baseType = "FourUniqueQuarterstaff1",
-		text = "Touch not the thorn, for only blood and pain await.",
+		id = "FourUniqueQuarterstaff1",
 		name = "The Blood Thorn",
+		text = {
+			"Touch not the thorn, for only blood and pain await.",
+		},
 	},
 	[279] = {
-		baseType = "FourUniqueQuarterstaff2",
-		text = "Forged to rule the waves and tide\nDestined to serve the monkey's paw\nStrong as a tower of iron\nDeft as the needle doubt",
+		id = "FourUniqueQuarterstaff2",
 		name = "Pillar of the Caged God",
+		text = {
+			"Forged to rule the waves and tide",
+			"Destined to serve the monkey's paw",
+			"Strong as a tower of iron",
+			"Deft as the needle doubt",
+		},
 	},
 	[280] = {
-		baseType = "FourUniqueQuarterstaff3",
-		text = "The night Draven attacked,\nErian was asleep at his post.",
+		id = "FourUniqueQuarterstaff3",
 		name = "The Sentry",
+		text = {
+			"The night Draven attacked,",
+			"Erian was asleep at his post.",
+		},
 	},
 	[281] = {
-		baseType = "FourUniqueQuarterstaff5",
-		text = "In our tales, and in our hearts, the rivers still flow.",
+		id = "FourUniqueQuarterstaff5",
 		name = "Matsya",
+		text = {
+			"In our tales, and in our hearts, the rivers still flow.",
+		},
 	},
 	[282] = {
-		baseType = "FourUniqueQuarterstaff6",
-		text = "The first witch hunter knew one critical tactic:\nnever let your enemy have a clear moment.",
+		id = "FourUniqueQuarterstaff6",
 		name = "Nazir's Judgement",
+		text = {
+			"The first witch hunter knew one critical tactic:",
+			"never let your enemy have a clear moment.",
+		},
 	},
 	[283] = {
-		baseType = "FourUniqueWand1",
-		text = "With a flick of the finger, their fates are written,\nthe pages torn to a million pieces.",
+		id = "FourUniqueWand1",
 		name = "The Wicked Quill",
+		text = {
+			"With a flick of the finger, their fates are written,",
+			"the pages torn to a million pieces.",
+		},
 	},
 	[284] = {
-		baseType = "FourUniqueWand2",
-		text = "One way or another, it will find what it seeks.",
+		id = "FourUniqueWand2",
 		name = "Sanguine Diviner",
+		text = {
+			"One way or another, it will find what it seeks.",
+		},
 	},
 	[285] = {
-		baseType = "FourUniqueWand3",
-		text = "From the smallest seeds\nTo the tallest redwoods,\nLife endures in Wraeclast.",
+		id = "FourUniqueWand3",
 		name = "Lifesprig",
+		text = {
+			"From the smallest seeds",
+			"To the tallest redwoods,",
+			"Life endures in Wraeclast.",
+		},
 	},
 	[286] = {
-		baseType = "FourUniqueWand5",
-		text = "He alone was welcome in the sacred spaces of the Titans.",
+		id = "FourUniqueWand5",
 		name = "Enezun's Charge",
+		text = {
+			"He alone was welcome in the sacred spaces of the Titans.",
+		},
 	},
 	[287] = {
-		baseType = "FourUniqueWand7",
-		text = "Lost in the Black Fen, Erian hoped that dawn would save him. He had no idea how far away the light truly was.",
+		id = "FourUniqueWand7",
 		name = "Cursecarver",
+		text = {
+			"Lost in the Black Fen, Erian hoped that dawn would save him. He had no idea how far away the light truly was.",
+		},
 	},
 	[288] = {
-		baseType = "FourUniqueStaff1",
-		text = "The candlemass tradition was born in a time of darkness and fear.",
+		id = "FourUniqueStaff1",
 		name = "Dusk Vigil",
+		text = {
+			"The candlemass tradition was born in a time of darkness and fear.",
+		},
 	},
 	[289] = {
-		baseType = "FourUniqueStaff2",
-		text = "Shed by the winged beast of night,\nA scaly frost-encrusted thorn.\nAll who feel its wintry light\nShiver in pain at the frozen dawn.",
+		id = "FourUniqueStaff2",
 		name = "Taryn's Shiver",
+		text = {
+			"Shed by the winged beast of night,",
+			"A scaly frost-encrusted thorn.",
+			"All who feel its wintry light",
+			"Shiver in pain at the frozen dawn.",
+		},
 	},
 	[290] = {
-		baseType = "FourUniqueStaff3",
-		text = "An ancient Azmeri staff, overgrown by roots...",
+		id = "FourUniqueStaff3",
 		name = "Earthbound",
+		text = {
+			"An ancient Azmeri staff, overgrown by roots...",
+		},
 	},
 	[291] = {
-		baseType = "FourUniqueStaff5",
-		text = "Burn to cinders, scar and maim,\nRule a world, bathed in flame.",
+		id = "FourUniqueStaff5",
 		name = "The Searing Touch",
+		text = {
+			"Burn to cinders, scar and maim,",
+			"Rule a world, bathed in flame.",
+		},
 	},
 	[292] = {
-		baseType = "FourUniqueStaff6",
-		text = "That which was broken may yet break.",
+		id = "FourUniqueStaff6",
 		name = "Sire of Shards",
+		text = {
+			"That which was broken may yet break.",
+		},
 	},
 	[293] = {
-		baseType = "FourUniqueBow1",
-		text = "\"I loosed a volley of arrows into the heart of the man\nwho slew my beloved. There was no satisfaction, no\nhealing, no revenge. There was only... emptiness.\"",
+		id = "FourUniqueBow1",
 		name = "Widowhail",
+		text = {
+			"\"I loosed a volley of arrows into the heart of the man",
+			"who slew my beloved. There was no satisfaction, no",
+			"healing, no revenge. There was only... emptiness.\"",
+		},
 	},
 	[294] = {
-		baseType = "FourUniqueBow2",
-		text = "\"The rain of a thousand quills that whittle\npresent into past, life into death.\"\n- Rigwald of the Ezomytes",
+		id = "FourUniqueBow2",
 		name = "Quill Rain",
+		text = {
+			"\"The rain of a thousand quills that whittle",
+			"present into past, life into death.\"",
+			"- Rigwald of the Ezomytes",
+		},
 	},
 	[295] = {
-		baseType = "FourUniqueBow4",
-		text = "The forests of the Vastiri held many secrets\nmystical and dark. Men learned not to wander,\nlest they return with a strange new purpose.",
+		id = "FourUniqueBow4",
 		name = "Splinterheart",
+		text = {
+			"The forests of the Vastiri held many secrets",
+			"mystical and dark. Men learned not to wander,",
+			"lest they return with a strange new purpose.",
+		},
 	},
 	[296] = {
-		baseType = "FourUniqueBow5",
-		text = "\"Toasted or frozen\nOr twitching in the light\nI'm not fussy\nAnd neither is Death.\"\n- Koralus Doomfletch",
+		id = "FourUniqueBow5",
 		name = "Doomfletch",
+		text = {
+			"\"Toasted or frozen",
+			"Or twitching in the light",
+			"I'm not fussy",
+			"And neither is Death.\"",
+			"- Koralus Doomfletch",
+		},
 	},
 	[297] = {
-		baseType = "FourUniqueBow6",
-		text = "The mournful music of the strings,\nThe creaking arch, the arrow sings.\nA choking cry, a rattled breath,\nThe Reaper's Song, the Harp of Death.",
+		id = "FourUniqueBow6",
 		name = "Death's Harp",
+		text = {
+			"The mournful music of the strings,",
+			"The creaking arch, the arrow sings.",
+			"A choking cry, a rattled breath,",
+			"The Reaper's Song, the Harp of Death.",
+		},
 	},
 	[298] = {
-		baseType = "FourUniqueBow7",
-		text = "The eldritch storm descended upon us, and bruised lightning\nrained down. Metal withered and flesh melted before its\narcane power. There was no escape, no shelter. Only despair.",
+		id = "FourUniqueBow7",
 		name = "Voltaxic Rift",
+		text = {
+			"The eldritch storm descended upon us, and bruised lightning",
+			"rained down. Metal withered and flesh melted before its",
+			"arcane power. There was no escape, no shelter. Only despair.",
+		},
 	},
 	[299] = {
-		baseType = "FourUniqueBow8",
-		text = "A hundred blind heads, each seeking the taste of prey on the air.",
+		id = "FourUniqueBow8",
 		name = "Slivertongue",
+		text = {
+			"A hundred blind heads, each seeking the taste of prey on the air.",
+		},
 	},
 	[300] = {
-		baseType = "FourUniqueCrossbow1",
-		text = "Sibilant promises surrounded them in the night.\nAll the travelers had to give him was their devotion...",
+		id = "FourUniqueCrossbow1",
 		name = "Mist Whisper",
+		text = {
+			"Sibilant promises surrounded them in the night.",
+			"All the travelers had to give him was their devotion...",
+		},
 	},
 	[301] = {
-		baseType = "FourUniqueCrossbow2",
-		text = "\"His approach to the gate was met with sounding trumpets\nand an unfurling of banners. He never saw it coming.\"\n- anonymous Brotherhood of Silence report",
+		id = "FourUniqueCrossbow2",
 		name = "Rampart Raptor",
+		text = {
+			"\"His approach to the gate was met with sounding trumpets",
+			"and an unfurling of banners. He never saw it coming.\"",
+			"- anonymous Brotherhood of Silence report",
+		},
 	},
 	[302] = {
-		baseType = "FourUniqueSceptre1",
-		text = "Rare is the Necromancer who leads\nhis undead armies from the front.",
+		id = "FourUniqueSceptre1",
 		name = "The Dark Defiler",
+		text = {
+			"Rare is the Necromancer who leads",
+			"his undead armies from the front.",
+		},
 	},
 	[303] = {
-		baseType = "FourUniqueSceptre4",
-		text = "Tale-women may not fight directly,\nfor they have a much higher purpose.",
+		id = "FourUniqueSceptre4",
 		name = "Font of Power",
+		text = {
+			"Tale-women may not fight directly,",
+			"for they have a much higher purpose.",
+		},
 	},
 	[304] = {
-		baseType = "FourUniqueSceptre6",
-		text = "The stories we tell serve to unite us.",
+		id = "FourUniqueSceptre6",
 		name = "Guiding Palm",
+		text = {
+			"The stories we tell serve to unite us.",
+		},
 	},
 	[305] = {
-		baseType = "FourUniqueCharm1",
-		text = "\"Even in the face of the Winter of the World,\nlife found a way. The Spirit always provides.\"",
+		id = "FourUniqueCharm1",
 		name = "Nascent Hope",
+		text = {
+			"\"Even in the face of the Winter of the World,",
+			"life found a way. The Spirit always provides.\"",
+		},
 	},
 	[306] = {
-		baseType = "FourUniqueCharm2",
-		text = "Wraeclast has known too few true heroes.\nIt remembers those that stood in defiance.",
+		id = "FourUniqueCharm2",
 		name = "Sanguis Heroum",
+		text = {
+			"Wraeclast has known too few true heroes.",
+			"It remembers those that stood in defiance.",
+		},
 	},
 	[307] = {
-		baseType = "FourUniqueCharm3",
-		text = "Devotees of the Goddess of Lust\nneeded never fear her sting.",
+		id = "FourUniqueCharm3",
 		name = "Arakaali's Gift",
+		text = {
+			"Devotees of the Goddess of Lust",
+			"needed never fear her sting.",
+		},
 	},
 	[308] = {
-		baseType = "FourUniqueCharm4",
-		text = "They found a crying child tied to a frozen pyre.\nShe was clad in ice, but the village was ash.",
+		id = "FourUniqueCharm4",
 		name = "Beira's Anguish",
+		text = {
+			"They found a crying child tied to a frozen pyre.",
+			"She was clad in ice, but the village was ash.",
+		},
 	},
 	[309] = {
-		baseType = "FourUniqueCharm5",
-		text = "The most beloved member of every Brinerot crew\nis the one that refuses to do any actual work.",
+		id = "FourUniqueCharm5",
 		name = "The Black Cat",
+		text = {
+			"The most beloved member of every Brinerot crew",
+			"is the one that refuses to do any actual work.",
+		},
 	},
 	[310] = {
-		baseType = "FourUniqueCharm6",
-		text = "\"It may be centuries hence, but I still hold utmost faith.\nThe Savior will rise, and mankind will be free.\"",
+		id = "FourUniqueCharm6",
 		name = "For Utopia",
+		text = {
+			"\"It may be centuries hence, but I still hold utmost faith.",
+			"The Savior will rise, and mankind will be free.\"",
+		},
 	},
 	[311] = {
-		baseType = "FourUniqueCharm7",
-		text = "\"When the headsman's blade swings,\nyour last moments stretch to eternity.\"\n- Vorm, the Twice-Pardoned",
+		id = "FourUniqueCharm7",
 		name = "The Fall of the Axe",
+		text = {
+			"\"When the headsman's blade swings,",
+			"your last moments stretch to eternity.\"",
+			"- Vorm, the Twice-Pardoned",
+		},
 	},
 	[312] = {
-		baseType = "FourUniqueCharm8",
-		text = "Kaom was not known for his restraint.",
+		id = "FourUniqueCharm8",
 		name = "Ngamahu's Chosen",
+		text = {
+			"Kaom was not known for his restraint.",
+		},
 	},
 	[313] = {
-		baseType = "FourUniqueCharm9",
-		text = "\"To scrape the sky,\nto touch the clouds themselves,\nis to know true freedom.\"\n- Mutewind saying",
+		id = "FourUniqueCharm9",
 		name = "Breath of the Mountains",
+		text = {
+			"\"To scrape the sky,",
+			"to touch the clouds themselves,",
+			"is to know true freedom.\"",
+			"- Mutewind saying",
+		},
 	},
 	[314] = {
-		baseType = "FourUniqueCharm10",
-		text = "The sea swells, the sky thunders; two ships tilt at odds.\nFlashes of light show only swinging axes... and a grin.",
+		id = "FourUniqueCharm10",
 		name = "Valako's Roar",
+		text = {
+			"The sea swells, the sky thunders; two ships tilt at odds.",
+			"Flashes of light show only swinging axes... and a grin.",
+		},
 	},
 	[315] = {
-		baseType = "FourUniqueCharm11",
-		text = "Among the Templars, a secret few ate the sins of others.\nThey bore this burden to empower their hidden Order.",
+		id = "FourUniqueCharm11",
 		name = "Forsaken Bangle",
+		text = {
+			"Among the Templars, a secret few ate the sins of others.",
+			"They bore this burden to empower their hidden Order.",
+		},
 	},
 	[316] = {
-		baseType = "FourUniquePinnacle1",
-		text = "The Unblinking Eye did not cower and wail.\nThey stood against the end.",
+		id = "FourUniquePinnacle1",
 		name = "Morior Invictus",
+		text = {
+			"The Unblinking Eye did not cower and wail.",
+			"They stood against the end.",
+		},
 	},
 	[317] = {
-		baseType = "FourUniquePinnacle2",
-		text = "One warrior alone survived to face the Arbiter.",
+		id = "FourUniquePinnacle2",
 		name = "Solus Ipse",
+		text = {
+			"One warrior alone survived to face the Arbiter.",
+		},
 	},
 	[318] = {
-		baseType = "FourUniquePinnacle3",
-		text = "The greatest warrior of his era fought with honour.",
+		id = "FourUniquePinnacle3",
 		name = "Sine Aequo",
+		text = {
+			"The greatest warrior of his era fought with honour.",
+		},
 	},
 	[319] = {
-		baseType = "FourUniquePinnacle4",
-		text = "His enemy was for endurance forged. His own waned.",
+		id = "FourUniquePinnacle4",
 		name = "Ab Aeterno",
+		text = {
+			"His enemy was for endurance forged. His own waned.",
+		},
 	},
 	[320] = {
-		baseType = "FourUniquePinnacle5",
-		text = "Fire destroys, but fire also purifies.\nLife always springs anew.",
+		id = "FourUniquePinnacle5",
 		name = "Sacred Flame",
+		text = {
+			"Fire destroys, but fire also purifies.",
+			"Life always springs anew.",
+		},
 	},
 	[321] = {
-		baseType = "FourUniqueSanctum1",
-		text = "The final element the tale-women\nmastered was Time itself.",
+		id = "FourUniqueSanctum1",
 		name = "Temporalis",
+		text = {
+			"The final element the tale-women",
+			"mastered was Time itself.",
+		},
 	},
 	[322] = {
-		baseType = "FourUniqueSanctum2",
-		text = "A fell wind brings death.",
+		id = "FourUniqueSanctum2",
 		name = "Sandstorm Visage",
+		text = {
+			"A fell wind brings death.",
+		},
 	},
 	[323] = {
-		baseType = "FourUniqueSanctum3",
-		text = "\"We survived the endless winter.\nWe endure the long summer.\nOne day, spring will return the rains.\"",
+		id = "FourUniqueSanctum3",
 		name = "Blessed Bonds",
+		text = {
+			"\"We survived the endless winter.",
+			"We endure the long summer.",
+			"One day, spring will return the rains.\"",
+		},
 	},
 	[324] = {
-		baseType = "FourUniqueSanctum4a",
-		text = "Though the summer of centuries burns the\nVastiri to dust, we remain, unchanged.",
+		id = "FourUniqueSanctum4a",
 		name = "Sekhema's Resolve",
+		text = {
+			"Though the summer of centuries burns the",
+			"Vastiri to dust, we remain, unchanged.",
+		},
 	},
 	[325] = {
-		baseType = "FourUniqueSanctum4b",
-		text = "Though the Winter of the World shrouded the\nVastiri in ice, we remained, unchanged.",
+		id = "FourUniqueSanctum4b",
 		name = "Sekhema's Resolve",
+		text = {
+			"Though the Winter of the World shrouded the",
+			"Vastiri in ice, we remained, unchanged.",
+		},
 	},
 	[326] = {
-		baseType = "FourUniqueSanctum4c",
-		text = "Though the rains refuse to return to a dry\nVastiri, we shall remain, unchanged.",
+		id = "FourUniqueSanctum4c",
 		name = "Sekhema's Resolve",
+		text = {
+			"Though the rains refuse to return to a dry",
+			"Vastiri, we shall remain, unchanged.",
+		},
 	},
 	[327] = {
-		baseType = "FourUniqueUltimatum1",
-		text = "Man retains sanity and strives toward civilisation\nonly under the blessed veil of ignorance.",
+		id = "FourUniqueUltimatum1",
 		name = "Glimpse of Chaos",
+		text = {
+			"Man retains sanity and strives toward civilisation",
+			"only under the blessed veil of ignorance.",
+		},
 	},
 	[328] = {
-		baseType = "FourUniqueUltimatum2",
-		text = "The most horrifying ideas often begin with a simple innovation.",
+		id = "FourUniqueUltimatum2",
 		name = "Zerphi's Genesis",
+		text = {
+			"The most horrifying ideas often begin with a simple innovation.",
+		},
 	},
 	[329] = {
-		baseType = "FourUniqueUltimatum3",
-		text = "The Banished Architect sought to employ the darkest secrets of the Vaal.",
+		id = "FourUniqueUltimatum3",
 		name = "Mahuxotl's Machination",
+		text = {
+			"The Banished Architect sought to employ the darkest secrets of the Vaal.",
+		},
 	},
 	[330] = {
-		baseType = "FourUniqueUltimatum4",
-		text = "The first Karui born on the fringes of the Vaal empire developed a blood fever born of corruption.",
+		id = "FourUniqueUltimatum4",
 		name = "Hateforge",
+		text = {
+			"The first Karui born on the fringes of the Vaal empire developed a blood fever born of corruption.",
+		},
 	},
 	[331] = {
-		baseType = "FourUniqueExpedition1",
-		text = "The priests found the Great Shield the night it fell to Middengard,\nbut it was the smiths who delved into the secrets it held.",
+		id = "FourUniqueExpedition1",
 		name = "Svalinn",
+		text = {
+			"The priests found the Great Shield the night it fell to Middengard,",
+			"but it was the smiths who delved into the secrets it held.",
+		},
 	},
 	[332] = {
-		baseType = "FourUniqueExpedition2",
-		text = "The priests of the Kalguur keep faith through numbers\nand calculation, not unprovable promises.",
+		id = "FourUniqueExpedition2",
 		name = "Keeper of the Arc",
+		text = {
+			"The priests of the Kalguur keep faith through numbers",
+			"and calculation, not unprovable promises.",
+		},
 	},
 	[333] = {
-		baseType = "FourUniqueExpedition3_",
-		text = "Olroth the Gallant,\ntireless and true,\nhe fights for me,\nhe fights for you!",
+		id = "FourUniqueExpedition3_",
 		name = "Olroth's Resolve",
+		text = {
+			"Olroth the Gallant,",
+			"tireless and true,",
+			"he fights for me,",
+			"he fights for you!",
+		},
 	},
 	[334] = {
-		baseType = "FourUniqueExpedition4",
-		text = "\"True heroes grow stronger in the face of adversity.\"\n- Fourth Tenet of the Knights of the Sun",
+		id = "FourUniqueExpedition4",
 		name = "Olrovasara",
+		text = {
+			"\"True heroes grow stronger in the face of adversity.\"",
+			"- Fourth Tenet of the Knights of the Sun",
+		},
 	},
 	[335] = {
-		baseType = "FourUniqueDelirium1",
-		text = "A moment of calm before the battle can end the war.",
+		id = "FourUniqueDelirium1",
 		name = "Assailum",
+		text = {
+			"A moment of calm before the battle can end the war.",
+		},
 	},
 	[336] = {
-		baseType = "FourUniqueDelirium2",
-		text = "The Trickster God turned the very Day and Night against each other.\nWhat hope have you?",
+		id = "FourUniqueDelirium2",
 		name = "Perfidy",
+		text = {
+			"The Trickster God turned the very Day and Night against each other.",
+			"What hope have you?",
+		},
 	},
 	[337] = {
-		baseType = "FourUniqueDelirium3",
-		text = "What is life, but a dreamlike spiral of panic?",
+		id = "FourUniqueDelirium3",
 		name = "Melting Maelstrom",
+		text = {
+			"What is life, but a dreamlike spiral of panic?",
+		},
 	},
 	[338] = {
-		baseType = "FourUniqueDelirium4",
-		text = "The edges bend, the world flexes, the infinite spills into view.",
+		id = "FourUniqueDelirium4",
 		name = "Collapsing Horizon",
+		text = {
+			"The edges bend, the world flexes, the infinite spills into view.",
+		},
 	},
 	[339] = {
-		baseType = "FourUniqueDelirium5",
-		text = "There is no light at the end of this inner strife,\nbut the shadows eventually become home.",
+		id = "FourUniqueDelirium5",
 		name = "Strugglescream",
+		text = {
+			"There is no light at the end of this inner strife,",
+			"but the shadows eventually become home.",
+		},
 	},
 	[340] = {
-		baseType = "FourUniqueRitual1",
-		text = "Nothingness is loathe to relinquish its grip.\nEvery moment is a struggle to exist.",
+		id = "FourUniqueRitual1",
 		name = "The Burden of Shadows",
+		text = {
+			"Nothingness is loathe to relinquish its grip.",
+			"Every moment is a struggle to exist.",
+		},
 	},
 	[341] = {
-		baseType = "FourUniqueRitual2",
-		text = "They crawl and chitter and swarm\nin the shadow of his presence.",
+		id = "FourUniqueRitual2",
 		name = "Beetlebite",
+		text = {
+			"They crawl and chitter and swarm",
+			"in the shadow of his presence.",
+		},
 	},
 	[342] = {
-		baseType = "FourUniqueRitual3",
-		text = "Experiments with geomancy taught\nthe Maji more than they ever expected.",
+		id = "FourUniqueRitual3",
 		name = "Ingenuity",
+		text = {
+			"Experiments with geomancy taught",
+			"the Maji more than they ever expected.",
+		},
 	},
 	[343] = {
-		baseType = "FourUniqueRitual4",
-		text = "In an endless war against darkness,\none must be ever vigilant.",
+		id = "FourUniqueRitual4",
 		name = "Pragmatism",
+		text = {
+			"In an endless war against darkness,",
+			"one must be ever vigilant.",
+		},
 	},
 	[344] = {
-		baseType = "FourUniqueBreach1_",
-		text = "We happily give our limbs.\nA net woven to keep safe the bones of the Lords.",
+		id = "FourUniqueBreach1_",
 		name = "Skin of the Loyal",
+		text = {
+			"We happily give our limbs.",
+			"A net woven to keep safe the bones of the Lords.",
+		},
 	},
 	[345] = {
-		baseType = "FourUniqueBreach2",
-		text = "She thinks and we act.\nShe acts and we think.\nFragments of the whole that washes clean the skies.",
+		id = "FourUniqueBreach2",
 		name = "Hand of Wisdom and Action",
+		text = {
+			"She thinks and we act.",
+			"She acts and we think.",
+			"Fragments of the whole that washes clean the skies.",
+		},
 	},
 	[346] = {
-		baseType = "FourUniqueBreach3",
-		text = "The limit of our knowledge is a barrier\nthat protects us from ourselves.",
+		id = "FourUniqueBreach3",
 		name = "Beyond Reach",
+		text = {
+			"The limit of our knowledge is a barrier",
+			"that protects us from ourselves.",
+		},
 	},
 	[347] = {
-		baseType = "FourUniqueBreach4a",
-		text = "We are his blood.\nThrough us he carries his burning message.",
+		id = "FourUniqueBreach4a",
 		name = "Xoph's Blood",
+		text = {
+			"We are his blood.",
+			"Through us he carries his burning message.",
+		},
 	},
 	[348] = {
-		baseType = "FourUniqueBreach4b",
-		text = "But the fool did not bow.\nThe fool stood and questioned.\nAnd the fool was unwritten.",
+		id = "FourUniqueBreach4b",
 		name = "Choir of the Storm",
+		text = {
+			"But the fool did not bow.",
+			"The fool stood and questioned.",
+			"And the fool was unwritten.",
+		},
 	},
 	[349] = {
-		baseType = "FourUniqueBreach4c",
-		text = "A single moment sets in motion an eternal fall,\nbeneath which all are buried.",
+		id = "FourUniqueBreach4c",
 		name = "The Pandemonius",
+		text = {
+			"A single moment sets in motion an eternal fall,",
+			"beneath which all are buried.",
+		},
 	},
 	[350] = {
-		baseType = "FourUniqueSpirit1",
-		text = "To become a warrior and a hunter, each young\nAzmeri must prove themselves before the Spirit.",
+		id = "FourUniqueSpirit1",
 		name = "Rite of Passage",
+		text = {
+			"To become a warrior and a hunter, each young",
+			"Azmeri must prove themselves before the Spirit.",
+		},
 	},
 	[351] = {
-		baseType = "FourUniqueCorruption1",
-		text = "\"Ghorr knows only hunger, only ravenous feasting.\nIt will consume all that lives, and more!\"\n- Rantings of a Templar prisoner, page fourteen",
+		id = "FourUniqueCorruption1",
 		name = "The Gnashing Sash",
+		text = {
+			"\"Ghorr knows only hunger, only ravenous feasting.",
+			"It will consume all that lives, and more!\"",
+			"- Rantings of a Templar prisoner, page fourteen",
+		},
 	},
 	[352] = {
-		baseType = "FourUniqueCorruption2",
-		text = "\"All Beidat desires is a foothold, a grip on your flesh,\non the world... he will offer you anything to get it...\"\n- Rantings of a Templar prisoner, page thirty",
+		id = "FourUniqueCorruption2",
 		name = "Bursting Decay",
+		text = {
+			"\"All Beidat desires is a foothold, a grip on your flesh,",
+			"on the world... he will offer you anything to get it...\"",
+			"- Rantings of a Templar prisoner, page thirty",
+		},
 	},
 	[353] = {
-		baseType = "FourUniqueCorruption3",
-		text = "\"The mind at the center of the swarm... K'Tash does\nthe thinking... but it has only one thought... hate.\"\n- Rantings of a Templar prisoner, page ninety-four",
+		id = "FourUniqueCorruption3",
 		name = "Death Articulated",
+		text = {
+			"\"The mind at the center of the swarm... K'Tash does",
+			"the thinking... but it has only one thought... hate.\"",
+			"- Rantings of a Templar prisoner, page ninety-four",
+		},
 	},
 	[354] = {
-		baseType = "FourUniqueJewel1",
-		text = "A wellspring of vitality bubbling from within.",
+		id = "FourUniqueJewel1",
 		name = "Grand Spectrum",
+		text = {
+			"A wellspring of vitality bubbling from within.",
+		},
 	},
 	[355] = {
-		baseType = "FourUniqueJewel2",
-		text = "An indomitable force of control.",
+		id = "FourUniqueJewel2",
 		name = "Grand Spectrum",
+		text = {
+			"An indomitable force of control.",
+		},
 	},
 	[356] = {
-		baseType = "FourUniqueJewel3",
-		text = "Skin like steel tempered by bright flames.",
+		id = "FourUniqueJewel3",
 		name = "Grand Spectrum",
+		text = {
+			"Skin like steel tempered by bright flames.",
+		},
 	},
 	[357] = {
-		baseType = "FourUniqueJewel4",
-		text = "If you're going to act like you're better\nthan everyone else, make sure you are.",
+		id = "FourUniqueJewel4",
 		name = "Megalomaniac",
+		text = {
+			"If you're going to act like you're better",
+			"than everyone else, make sure you are.",
+		},
 	},
 	[358] = {
-		baseType = "FourUniqueJewel5",
-		text = "They believed themselves courageous and selfless,\nbut that bravery became the doom at their door.",
+		id = "FourUniqueJewel5",
 		name = "Heroic Tragedy",
+		text = {
+			"They believed themselves courageous and selfless,",
+			"but that bravery became the doom at their door.",
+		},
 	},
 	[359] = {
-		baseType = "FourUniqueJewel6",
-		text = "They clawed their way up from the agonising depths of nonexistence,\nbreathing deep with joy the exquisite light of meaning.",
+		id = "FourUniqueJewel6",
 		name = "From Nothing",
+		text = {
+			"They clawed their way up from the agonising depths of nonexistence,",
+			"breathing deep with joy the exquisite light of meaning.",
+		},
 	},
 	[360] = {
-		baseType = "FourUniqueJewel7",
-		text = "Our world was dying, but we chose to survive.\nWe broke free from the chains within.",
+		id = "FourUniqueJewel7",
 		name = "Controlled Metamorphosis",
+		text = {
+			"Our world was dying, but we chose to survive.",
+			"We broke free from the chains within.",
+		},
 	},
 	[361] = {
-		baseType = "FourUniqueJewel8",
-		text = "Entropy can be reversed.",
+		id = "FourUniqueJewel8",
 		name = "Prism of Belief",
+		text = {
+			"Entropy can be reversed.",
+		},
 	},
 	[362] = {
-		baseType = "FourUniqueJewel9",
-		text = "At their height, the Vaal glittered under the sun.\nA decade, a century, an aeon of prosperity...\nnow nothing more than a passing wonder.",
+		id = "FourUniqueJewel9",
 		name = "The Adorned",
+		text = {
+			"At their height, the Vaal glittered under the sun.",
+			"A decade, a century, an aeon of prosperity...",
+			"now nothing more than a passing wonder.",
+		},
 	},
 	[363] = {
-		baseType = "FourUniqueJewel10",
-		text = "After the fires, in the depths of the Winter of the World, all life in the Vastiri banded together. Whether serpent, hyena, human, or golem, hated enemies clasped hand to claw, built refuge, and fought side by side against the Abyssals. Thus, the Third Pact was born.",
+		id = "FourUniqueJewel10",
 		name = "Against the Darkness",
+		text = {
+			"After the fires, in the depths of the Winter of the World, all life in the Vastiri banded together. Whether serpent, hyena, human, or golem, hated enemies clasped hand to claw, built refuge, and fought side by side against the Abyssals. Thus, the Third Pact was born.",
+		},
 	},
 }

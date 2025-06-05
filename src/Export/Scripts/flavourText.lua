@@ -5,15 +5,13 @@ local function normalizeId(id)
 	id = tostring(id)
 	if id:match("_+$") then
 		-- remove trailing underscores and any trailing letters after them
-		-- Sacred Flame 	
 		return id:gsub("[_a-z]+$", "")
 	else
-		-- no trailing underscores, return as is
 		return id
 	end
 end
 
-local function cleanAndEscape(str)
+local function cleanAndSplit(str)
 	-- Normalize newlines
 	str = str:gsub("\r\n", "\n")
 
@@ -21,17 +19,13 @@ local function cleanAndEscape(str)
 	for line in str:gmatch("[^\n]+") do
 		line = line:match("^%s*(.-)%s*$") -- trim each line
 		if line ~= "" then
+			-- Escape quotes
+			line = line:gsub('"', '\\"')
 			table.insert(lines, line)
 		end
 	end
 
-	-- Rejoin lines with escaped \n
-	local cleaned = table.concat(lines, "\\n")
-
-	-- Escape internal double quotes
-	cleaned = cleaned:gsub('"', '\\"')
-
-	return cleaned
+	return lines
 end
 
 local uniqueNameLookup = {}
@@ -54,25 +48,29 @@ for c in dat("FlavourText"):Rows() do
 	local id = normalizeId(c.Id)
 	local name = uniqueNameLookup[id]
 
-	if name then  -- Only write entries that have a matching name
-		local cleanedText = cleanAndEscape(tostring(c.Text))
+	if name then
+		local lines = cleanAndSplit(tostring(c.Text))
 		out:write('\t[', index, '] = {\n')
-		out:write('\t\tbaseType = "', tostring(c.Id):gsub('"', '\\"'), '",\n')
-		out:write('\t\ttext = "', cleanedText, '",\n')
+		out:write('\t\tid = "', tostring(c.Id):gsub('"', '\\"'), '",\n')
 		out:write('\t\tname = "', name, '",\n')
+		out:write('\t\ttext = {\n')
+		for _, line in ipairs(lines) do
+			out:write('\t\t\t"', line, '",\n')
+		end
+		out:write('\t\t},\n')
 		out:write('\t},\n')
 		index = index + 1
-		unmatchedIds[id] = nil -- Found a match, remove from unmatched
+		unmatchedIds[id] = nil
 	end
 end
 
 out:write('}\n')
 out:close()
 
-print(string.format("Flavour Texts exported."))
+print("Flavour Texts exported.")
 
--- Print unmatched unique items
+-- Print unmatched
 print("Unique items from UniqueStashLayout without flavour text:")
 for id, name in pairs(unmatchedIds) do
-	print(string.format("Id: "..id, "Name: "..name))
+	print(string.format("Id: %s, Name: %s", id, name))
 end
