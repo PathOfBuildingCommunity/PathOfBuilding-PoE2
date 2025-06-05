@@ -9,6 +9,7 @@ local t_insert = table.insert
 local RowListClass = newClass("RowListControl", "ListControl", function(self, anchor, rect)
 	self.ListControl(anchor, rect, 14, "HORIZONTAL", false, { })
 	self.colLabels = true
+	self._autoSizeToggleState = {} -- internal toggle memory, not saved to spec
 end)
 
 function RowListClass:BuildRows(filter)
@@ -48,6 +49,7 @@ function RowListClass:BuildColumns()
 	for _, specCol in ipairs(main.curDatFile.spec) do
 		t_insert(self.colList, { 
 			width = specCol.width, 
+			specColRef = specCol,  -- Link to the original data
 			label = specCol.name, 
 			font = function() return IsKeyDown("CTRL") and "FIXED" or "VAR" end,
 			sortable = true
@@ -235,4 +237,114 @@ function RowListClass:ReSort(colIndex)
 
 	self.lastSortedCol = colIndex
 	self.sortAsc = asc
+end
+
+function RowListClass:OnKeyUp(key, doubleClick)
+	if not self:IsShown() or not self:IsEnabled() then
+		return
+	end
+
+	local function isScrollKey(k)
+		if k == "WHEELUP" then return true, -1, 10 end
+		if k == "WHEELDOWN" then return true, 1, -10 end
+		return false, 0, 0
+	end
+
+	local mOverControl = self:GetMouseOverControl()
+	if mOverControl and mOverControl.OnKeyDown then
+		return mOverControl:OnKeyDown(key)
+	end
+
+	if not self:IsMouseOver() and key:match("BUTTON") then
+		return
+	end
+
+	-- Get cursor info
+	local x, y = self:GetPos()
+	local cursorX, cursorY = GetCursorPos()
+	local scrollOffsetH = self.controls.scrollBarH and self.controls.scrollBarH.offset or 0
+	local relX = cursorX - (x + 2)
+	local relY = cursorY - (y + 2)
+	local adjustedRelX = relX + scrollOffsetH
+
+	-- Middle-click resets column width
+	if key == "MIDDLEBUTTON" then
+		for colIndex, column in ipairs(self.colList) do
+			local colOffset = column._offset
+			local colWidth = column.width or column._width
+			if colOffset and colWidth then
+				local mOver = adjustedRelX >= colOffset and adjustedRelX <= colOffset + colWidth and relY >= 0 and relY <= 18
+				if mOver then
+					-- Initialize if not present
+					self._autoSizeToggleState[colIndex] = not self._autoSizeToggleState[colIndex]
+
+					local newWidth
+					if self._autoSizeToggleState[colIndex] then
+						-- First toggle: size to contents
+						local maxWidth = 0
+						for _, rowIndex in ipairs(self.list) do
+							local val = self:GetRowValue(colIndex, nil, rowIndex)
+							if val ~= nil then
+								local width = DrawStringWidth(self.rowHeight, "FIXED", tostring(val))
+								maxWidth = math.max(maxWidth, width)
+							end
+						end
+						local labelWidth = DrawStringWidth(self.rowHeight, "FIXED", tostring(column.label or ""))
+						newWidth = math.max(40, math.max(maxWidth, labelWidth) + 10)
+					else
+						-- Second toggle: reset to label or 150, whichever is greater
+						local labelWidth = DrawStringWidth(self.rowHeight, "FIXED", tostring(column.label or ""))
+						newWidth = math.max(150, labelWidth + 10)
+					end
+
+					column.width = newWidth
+
+					if column.specColRef then
+						column.specColRef.width = newWidth
+						main.curSpecCol = column.specColRef
+						main.controls.colWidth:SetText(newWidth)
+					end
+
+					self:BuildColumns()
+					return self
+				end
+			end
+		end
+		return self
+	end
+	-- Scroll behavior
+	local isScroll, scrollStep, colDelta = isScrollKey(key)
+	if isScroll then
+		local overColumnHeader = false
+		for _, column in ipairs(self.colList) do
+			local colOffset = column._offset
+			local colWidth = column.width or column._width
+			if colOffset and colWidth then
+				local mOver = adjustedRelX >= colOffset and adjustedRelX <= colOffset + colWidth and relY >= 0 and relY <= 18
+				if mOver then
+					-- Widen column if hovering over it
+					overColumnHeader = true
+					local newWidth = math.max(40, colWidth + colDelta)
+					column.width = newWidth
+					if column.specColRef then
+						column.specColRef.width = newWidth
+						main.curSpecCol = column.specColRef
+						main.controls.colWidth:SetText(newWidth)
+					end
+					self:BuildColumns()
+					break
+				end
+			end
+		end
+		-- Scroll vertically or horizontally if not resizing column
+		if not overColumnHeader then
+			if self.scroll and self.scrollH and IsKeyDown("SHIFT") then
+				self.controls.scrollBarH:Scroll(scrollStep)
+			else
+				self.controls.scrollBarV:Scroll(scrollStep)
+			end
+		end
+		return self
+	end
+	return self
 end
