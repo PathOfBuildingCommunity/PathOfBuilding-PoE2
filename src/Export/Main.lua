@@ -324,6 +324,7 @@ function main:Init()
 	}
 	self.controls.filter.tooltipText = "Takes a Lua expression that returns true or false for a row.\nE.g. `Id:match(\"test\")` or for a key column, `Col and Col.Id:match(\"test\")`"
 	self.controls.filterError = new("LabelControl", {"LEFT",self.controls.filter,"RIGHT"}, {4, 2, 0, 14}, "")
+	self.controls.showRaw = new("LabelControl", {"LEFT",self.controls.filter,"RIGHT"}, {600, 2, 0, 14}, "^7Hold ALT to show raw data.")
 
 	self.controls.rowList = new("RowListControl", nil, {270, 0, 0, 0}) {
 		y = function()

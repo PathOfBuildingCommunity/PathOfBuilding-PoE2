@@ -51,7 +51,7 @@ function RowListClass:BuildColumns()
 			width = specCol.width, 
 			specColRef = specCol,  -- Link to the original data
 			label = specCol.name, 
-			font = function() return IsKeyDown("CTRL") and "FIXED" or "VAR" end,
+			font = function() return IsKeyDown("ALT") and "FIXED" or "VAR" end,
 			sortable = true
 		})
 	end
@@ -65,7 +65,7 @@ function RowListClass:GetRowValue(column, index, row)
 	if column == 1 then
 		return string.format("%5d", row)
 	end
-	if not main.curDatFile.spec[column - 1] or IsKeyDown("CTRL") then
+	if not main.curDatFile.spec[column - 1] or IsKeyDown("ALT") then
 		local out = { main.curDatFile:ReadCellRaw(row, column - 1) }
 		for i, b in ipairs(out) do
 			out[i] = string.format("%02X", b)
