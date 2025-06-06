@@ -591,6 +591,17 @@ function main:SaveSettings()
 	end
 end
 
+function main:OnKeyDown(key, doubleClick)
+	-- Ctrl+F shortcut for focusing dat file Search
+	if key == "f" and IsKeyDown("CTRL") then
+		if self.controls and self.controls.datSearch and self.SelectControl then
+			self:SelectControl(self.controls.datSearch)
+		end
+		return
+	end
+	t_insert(self.inputEvents, { type = "KeyDown", key = key, doubleClick = doubleClick })
+end
+
 function main:DrawArrow(x, y, width, height, dir)
 	local x1 = x - width / 2
 	local x2 = x + width / 2
