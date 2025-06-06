@@ -215,6 +215,18 @@ function RowListClass:ReSort(colIndex)
 		local valA = self:GetRowValue(colIndex, nil, a)
 		local valB = self:GetRowValue(colIndex, nil, b)
 
+		local isBlankA = valA == nil or valA == "" or tostring(valA):match("^%s*$")
+		local isBlankB = valB == nil or valB == "" or tostring(valB):match("^%s*$")
+
+		-- Always put blank items at the bottom
+		if isBlankA and not isBlankB then
+			return false
+		elseif not isBlankA and isBlankB then
+			return true
+		elseif isBlankA and isBlankB then
+			return false
+		end
+
 		local numA = tonumber(valA)
 		local numB = tonumber(valB)
 
