@@ -3,12 +3,8 @@
 --
 local function normalizeId(id)
 	id = tostring(id)
-	if id:match("_+$") then
-		-- remove trailing underscores and any trailing letters after them
-		return id:gsub("[_a-z]+$", "")
-	else
-		return id
-	end
+	-- remove trailing underscores only. We can't match Hash sadly.
+	return id:gsub("_+$", "")
 end
 
 local function cleanAndSplit(str)
@@ -30,12 +26,19 @@ end
 
 local uniqueNameLookup = {}
 local unmatchedIds = {}
+local forcedNameMap = {
+	["FourUniqueSceptre6"]   = "Guiding Palm",
+	["FourUniqueSceptre6a"]  = "Guiding Palm of the Heart",
+	["FourUniqueSceptre6b"]  = "Guiding Palm of the Eye",
+	["FourUniqueSceptre6c"]  = "Guiding Palm of the Mind",
+}
 
 for row in dat("UniqueStashLayout"):Rows() do
+	-- We use Text2 because Words.Text has "The Immortan" instead of "The Road Warrior". Everything else so far matches up.
 	local name = row.WordsKey.Text2
 	local id = normalizeId(row.ItemVisualIdentity.Id)
 	uniqueNameLookup[id] = name
-	unmatchedIds[id] = name -- Assume unmatched at first
+	unmatchedIds[id] = name
 end
 
 local out = io.open("../Data/FlavourText.lua", "w")
@@ -46,12 +49,12 @@ out:write('return {\n')
 local index = 1
 for c in dat("FlavourText"):Rows() do
 	local id = normalizeId(c.Id)
-	local name = uniqueNameLookup[id]
+	local name = forcedNameMap[id] or uniqueNameLookup[id]
 
 	if name then
 		local lines = cleanAndSplit(tostring(c.Text))
 		out:write('\t[', index, '] = {\n')
-		out:write('\t\tid = "', tostring(c.Id):gsub('"', '\\"'), '",\n')
+		out:write('\t\tid = "', tostring(c.Id), '",\n')
 		out:write('\t\tname = "', name, '",\n')
 		out:write('\t\ttext = {\n')
 		for _, line in ipairs(lines) do
