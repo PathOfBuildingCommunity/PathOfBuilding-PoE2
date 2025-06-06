@@ -570,6 +570,20 @@ function TradeQueryGeneratorClass:OnFrame()
 	end
 end
 
+local currencyTable = {
+	{ name = "Relative", id = nil },
+	{ name = "Exalted Orb", id = "exalted" },
+	{ name = "Chaos Orb", id = "chaos" },
+	{ name = "Divine Orb", id = "divine" },
+	{ name = "Orb of Augmentation", id = "aug" },
+	{ name = "Orb of Transmutation", id = "transmute" },
+	{ name = "Regal Orb", id = "regal" },
+	{ name = "Vaal Orb", id = "vaal" },
+	{ name = "Annulment Orb", id = "annul" },
+	{ name = "Orb of Alchemy", id = "alch" },
+	{ name = "Mirror of Kalandra", id = "mirror" }
+}
+
 function TradeQueryGeneratorClass:StartQuery(slot, options)
 	if self.lastMaxPrice then
 		options.maxPrice = self.lastMaxPrice
@@ -842,12 +856,12 @@ function TradeQueryGeneratorClass:FinishQuery()
 		end
 	end
 	if not options.includeMirrored then
-	    queryTable.query.filters.misc_filters = {
-	    	disabled = false,
-	    	filters = {
-	    		mirrored = false,
-	    	}
-	    }
+		queryTable.query.filters.misc_filters = {
+			disabled = false,
+			filters = {
+				mirrored = false,
+			}
+		}
 	end
 
 	if options.maxPrice and options.maxPrice > 0 then
@@ -939,19 +953,6 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	end
 
 	-- Add max price limit selection dropbox
-	local currencyTable = {
-		{ name = "Relative", id = nil },
-		{ name = "Exalted Orb", id = "exalted" },
-		{ name = "Chaos Orb", id = "chaos" },
-		{ name = "Divine Orb", id = "divine" },
-		{ name = "Orb of Augmentation", id = "aug" },
-		{ name = "Orb of Transmutation", id = "transmute" },
-		{ name = "Regal Orb", id = "regal" },
-		{ name = "Vaal Orb", id = "vaal" },
-		{ name = "Annulment Orb", id = "annul" },
-		{ name = "Orb of Alchemy", id = "alch" },
-		{ name = "Mirror of Kalandra", id = "mirror" }
-	}
 	local currencyDropdownNames = { }
 	for _, currency in ipairs(currencyTable) do
 		t_insert(currencyDropdownNames, currency.name)
