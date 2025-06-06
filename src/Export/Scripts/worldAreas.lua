@@ -86,16 +86,11 @@ end
 -- Step 3: EndGameMaps
 for map in dat("EndGameMaps"):Rows() do
 	local areaRefs = {}
-	if map.WorldArea then
-		table.insert(areaRefs, map.WorldArea)
+	if map.BossVersion then
+		table.insert(areaRefs, map.BossVersion)
 	end
-	if map.WorldArea then
-		for _, area in ipairs(map.WorldArea) do
-			table.insert(areaRefs, area)
-		end
-	end
-	if map.WorldAreaBoss then
-		table.insert(areaRefs, map.WorldAreaBoss)
+	if map.NonBossVersion then
+		table.insert(areaRefs, map.NonBossVersion)
 	end
 	for _, area in ipairs(areaRefs) do
 		local areaId = area.Id
@@ -112,9 +107,41 @@ for map in dat("EndGameMaps"):Rows() do
 			end
 		end
 		areaIdToMonsters[areaId .. "_seen"] = seen
+
+		-- Attach FlavourText as description for this area if present
+		if map.FlavourText and map.FlavourText ~= "" then
+			-- Hideouts have 2 lines, remove second line
+			if areaId:sub(-10) == "_Claimable" then
+				local firstSentence = map.FlavourText:match("([^%.%!%?]+[%.%!%?])")
+				if firstSentence then
+					areaIdToMonsters[areaId .. "_desc"] = firstSentence:gsub("%s+$", "")
+				else
+					areaIdToMonsters[areaId .. "_desc"] = map.FlavourText
+				end
+			else
+				areaIdToMonsters[areaId .. "_desc"] = map.FlavourText
+			end
+		end
 	end
 end
 
+-- Combine _NoBoss monsters into their corresponding boss map
+for areaId, monsters in pairs(areaIdToMonsters) do
+	if type(areaId) == "string" and areaId:sub(-7) == "_NoBoss" then
+		local bossAreaId = areaId:sub(1, -8)
+		areaIdToMonsters[bossAreaId] = areaIdToMonsters[bossAreaId] or {}
+		local seen = {}
+		for _, name in ipairs(areaIdToMonsters[bossAreaId]) do
+			seen[name] = true
+		end
+		for _, name in ipairs(monsters) do
+			if not seen[name] then
+				table.insert(areaIdToMonsters[bossAreaId], name)
+				seen[name] = true
+			end
+		end
+	end
+end
 
 -- Step 4: Output
 local out = io.open("../Data/WorldAreas.lua", "w")
@@ -125,6 +152,10 @@ out:write('local worldAreas, _ = ...\n\n')
 
 for area in dat("WorldAreas"):Rows() do
 	if area.Name and area.Name ~= "NULL" and area.Id then
+		-- Skip areas ending with _NoBoss
+		if area.Id:sub(-7) == "_NoBoss" then
+			goto continue
+		end
 		local monsters = areaIdToMonsters[area.Id] or {}
 		local tags = {}
 		local isMap = false
@@ -148,8 +179,12 @@ for area in dat("WorldAreas"):Rows() do
 		end
 		out:write('\tname = "' .. area.Name .. suffix .. '",\n')
 		out:write('\tbaseName = "' .. area.Name .. '",\n')
-		if area.Description and area.Description ~= "" then
-			out:write('\tdescription = "' .. area.Description .. '",\n')
+		local desc = area.Description
+		if (not desc or desc == "") and areaIdToMonsters[area.Id .. "_desc"] then
+			desc = areaIdToMonsters[area.Id .. "_desc"]
+		end
+		if desc and desc ~= "" then
+			out:write('\tdescription = "' .. desc .. '",\n')
 		end
 		out:write('\ttags = { ' .. table.concat(tags, ", ") .. ' },\n')
 		out:write('\tact = ' .. tostring(area.Act or 0) .. ',\n')
@@ -174,7 +209,7 @@ for area in dat("WorldAreas"):Rows() do
 			for _, boss in ipairs(area.Bosses) do
 				if boss.Id and boss.Id ~= "" then
 					local bossVariety = dat("MonsterVarieties"):GetRow("Id", boss.Id)
-					if bossVariety and bossVariety.Name and bossVariety.Name ~= "" then
+					if bossVariety and bossVariety.Name and bossVariety.Name ~= "" and not bossVariety.Name:find("DNT") then
 						local bossName = bossVariety.Name
 						if not bossSeen[bossName] then
 							out:write('\t\t"' .. bossName .. '",\n')
@@ -187,6 +222,7 @@ for area in dat("WorldAreas"):Rows() do
 		end
 		out:write('}\n\n')
 	end
+	::continue::
 end
 
 out:write('return worldAreas\n')

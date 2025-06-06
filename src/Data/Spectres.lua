@@ -9941,7 +9941,7 @@ minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 
 minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
 	name = "Drowned Explorer",
-	monsterTags = { "1HSword_onhit_audio", "humanoid", "melee", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
+	monsterTags = { "1HSword_onhit_audio", "cannot_be_monolith", "humanoid", "melee", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,

@@ -1815,8 +1815,141 @@ return {
 	backenderrors={
 	},
 	ballisticbouncebehaviour={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=220
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		}
 	},
 	ballisticbounceoverride={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=270
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[10]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[11]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		}
 	},
 	baseitemtypes={
 		[1]={
@@ -5814,7 +5947,7 @@ return {
 			name="",
 			refTo="",
 			type="Key",
-			width=80
+			width=220
 		},
 		[16]={
 			list=true,
@@ -5855,6 +5988,29 @@ return {
 		}
 	},
 	endgamemapdecorations={
+	},
+	endgamemaplocation={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=260
+		},
+		[2]={
+			list=true,
+			name="Biomes",
+			refTo="EndGameMapBiomes",
+			type="Key",
+			width=210
+		},
+		[3]={
+			list=true,
+			name="ConnectedBiomes",
+			refTo="EndGameMapBiomes",
+			type="Key",
+			width=190
+		}
 	},
 	endgamemappins={
 		[1]={
@@ -5909,119 +6065,112 @@ return {
 			width=60
 		},
 		[2]={
-			list=true,
-			name="Biomes",
-			refTo="EndGameMapBiomes",
+			list=false,
+			name="BossVersion",
+			refTo="WorldAreas",
 			type="Key",
-			width=150
+			width=190
 		},
 		[3]={
 			list=false,
-			name="AdjacentBiome",
-			refTo="EndGameMapBiomes",
-			type="Key",
-			width=100
-		},
-		[4]={
-			list=false,
-			name="WorldAreaBoss",
-			refTo="WorldAreas",
-			type="Key",
-			width=150
-		},
-		[5]={
-			list=false,
-			name="WorldArea",
+			name="NonBossVersion",
 			refTo="WorldAreas",
 			type="Key",
 			width=220
 		},
-		[6]={
+		[4]={
 			list=true,
-			name="NaturalSpawnWeights",
+			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=160
 		},
-		[7]={
+		[5]={
 			list=true,
 			name="NativePacks",
 			refTo="MonsterPacks",
 			type="Key",
-			width=310
+			width=230
 		},
-		[8]={
+		[6]={
 			list=false,
 			name="FlavourText",
 			refTo="",
 			type="String",
-			width=150
+			width=450
 		},
-		[9]={
+		[7]={
 			list=false,
-			name="MinWatchStoneTier",
+			name="MinWatchstoneTier",
 			refTo="",
 			type="Int",
-			width=150
+			width=120
 		},
-		[10]={
+		[8]={
 			list=true,
 			name="",
 			refTo="",
 			type="Int",
-			width=100
+			width=80
 		},
-		[11]={
+		[9]={
 			list=false,
-			name="EndGameMapPins",
+			name="DefaultMapPin",
 			refTo="EndGameMapPins",
 			type="Key",
 			width=150
 		},
-		[12]={
+		[10]={
 			list=false,
 			name="",
 			refTo="",
 			type="Key",
-			width=150
+			width=340
 		},
-		[13]={
+		[11]={
 			list=false,
 			name="ContentSetKey",
 			refTo="EndGameMapContentSet",
 			type="Key",
 			width=150
 		},
-		[14]={
+		[12]={
 			list=false,
 			name="CorruptedMapPin",
 			refTo="EndGameMapPins",
 			type="Key",
 			width=150
 		},
-		[15]={
+		[13]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[16]={
+		[14]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=150
 		},
-		[17]={
+		[15]={
 			list=false,
-			name="MapPin2",
+			name="CompletedMapPin",
 			refTo="EndGameMapPins",
 			type="Key",
 			width=150
 		},
-		[18]={
+		[16]={
 			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[17]={
+			list=true,
 			name="",
 			refTo="",
 			type="Key",
@@ -6169,8 +6318,8 @@ return {
 		},
 		[4]={
 			list=false,
-			name="",
-			refTo="Stat",
+			name="WordsKey",
+			refTo="Words",
 			type="Key",
 			width=150
 		}
@@ -10395,8 +10544,8 @@ return {
 		},
 		[4]={
 			list=false,
-			name="",
-			refTo="",
+			name="Animation",
+			refTo="MiscAnimated",
 			type="Key",
 			width=150
 		},
@@ -10486,14 +10635,14 @@ return {
 		},
 		[17]={
 			list=false,
-			name="",
-			refTo="",
+			name="BounceAnimation",
+			refTo="MiscAnimated",
 			type="Key",
-			width=80
+			width=150
 		},
 		[18]={
 			list=false,
-			name="",
+			name="Bounces",
 			refTo="",
 			type="Int",
 			width=80
@@ -10528,8 +10677,8 @@ return {
 		},
 		[23]={
 			list=false,
-			name="",
-			refTo="",
+			name="Animation2",
+			refTo="MiscAnimated",
 			type="Key",
 			width=150
 		},

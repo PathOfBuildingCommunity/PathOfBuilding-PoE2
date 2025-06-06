@@ -319,6 +319,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/EndGameMapPins.dat",
 		"Data/EndGameMapContentSet.dat",
 		"Data/EndGameMapContent.dat",
+		"Data/EndGameMapLocation.dat",
 		"Data/StrongBoxPacks.dat",
 	}
 	local csdFiles = {

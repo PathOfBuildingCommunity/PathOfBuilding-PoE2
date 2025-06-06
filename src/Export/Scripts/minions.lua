@@ -188,23 +188,33 @@ directiveTable.emit = function(state, args, out)
 			if mapRow.NativePacks then
 				for _, nativePack in ipairs(mapRow.NativePacks) do
 					if nativePack.Id == packId then
-						local area = dat("WorldAreas"):GetRow("Id", mapRow.WorldArea.Id)
-						if area and area.Name ~= "NULL" then
-							local isMap = false
-							for _, tag in ipairs(area.Tags or {}) do
-								if tag.Id == "map" then
-									isMap = true
+						-- Check BossVersion and NonBossVersion of Map
+						local areaIds = {}
+						if mapRow.BossVersion and mapRow.BossVersion.Id then
+							table.insert(areaIds, mapRow.BossVersion.Id)
+						end
+						if mapRow.NonBossVersion and mapRow.NonBossVersion.Id then
+							table.insert(areaIds, mapRow.NonBossVersion.Id)
+						end
+						for _, areaId in ipairs(areaIds) do
+							local area = dat("WorldAreas"):GetRow("Id", areaId)
+							if area and area.Name ~= "NULL" then
+								local isMap = false
+								for _, tag in ipairs(area.Tags or {}) do
+									if tag.Id == "map" then
+										isMap = true
+									end
 								end
-							end
-							local displayName = area.Name
-							if isMap then
-								displayName = displayName .. " (Map)"
-							elseif area.Act and area.Act ~= 10 then
-								displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
-							end
-							if not seenAreas[displayName] then
-								table.insert(worldAreaNames, displayName)
-								seenAreas[displayName] = true
+								local displayName = area.Name
+								if isMap then
+									displayName = displayName .. " (Map)"
+								elseif area.Act and area.Act ~= 10 then
+									displayName = displayName .. " (Act " .. tostring(area.Act) .. ")"
+								end
+								if not seenAreas[displayName] then
+									table.insert(worldAreaNames, displayName)
+									seenAreas[displayName] = true
+								end
 							end
 						end
 					end
