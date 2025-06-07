@@ -8,10 +8,11 @@ Artillery Ballista            		----		ArtilleryBallistaPlayer	ArtilleryBallistaP
 Attrition                     		----		AttritionPlayer
 Berserk                       		----		BerserkPlayer
 Boneshatter                   		----		BoneshatterPlayer
-Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlockPlayer	SupportInvisibleMetaGemSupport
-Cast on Melee Kill            		----		MetaCastOnMeleeKillPlayer	SupportMetaCastOnMeleeKillPlayer	SupportInvisibleMetaGemSupport
-Cast on Melee Stun            		----		MetaCastOnMeleeStunPlayer	SupportMetaCastOnMeleeStunPlayer	SupportInvisibleMetaGemSupport
+Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlockPlayer
+Cast on Melee Kill            		----		MetaCastOnMeleeKillPlayer	SupportMetaCastOnMeleeKillPlayer
+Cast on Melee Stun            		----		MetaCastOnMeleeStunPlayer	SupportMetaCastOnMeleeStunPlayer
 Cluster Grenade               		----		ClusterGrenadePlayer	ClusterGrenadeMiniPlayer
+Compose Requiem               		----		CrossbowRequiemAmmoPlayer	CrossbowRequiemPlayer
 Defiance Banner               		----		DefianceBannerReservationPlayer	DefianceBannerPlayer
 Dread Banner                  		----		DreadBannerReservationPlayer	DreadBannerPlayer
 Earthquake                    		----		EarthquakePlayer
@@ -25,7 +26,6 @@ Herald of Ash                 		----		HeraldOfAshPlayer
 Herald of Blood               		----		HeraldOfBloodPlayer
 Infernal Cry                  		----		InfernalCryPlayer	InfernalCryCorpseExplosionPlayer
 Leap Slam                     		----		LeapSlamPlayer
-Lightning Spell on Melee Hit  		----		MetaCastLightningSpellOnHitPlayer	SupportMetaCastLightningSpellOnHitPlayer	SupportInvisibleMetaGemSupport
 Load Armour Piercing Rounds   		----		ArmourPiercingBoltsAmmoPlayer	ArmourPiercingBoltsPlayer
 Load Explosive Shot           		----		ExplosiveShotAmmoPlayer	ExplosiveShotPlayer
 Load Fragmentation Rounds     		----		FragmentationRoundsAmmoPlayer	FragmentationRoundsPlayer
@@ -58,6 +58,7 @@ Shockwave Totem               		----		ShockwaveTotemPlayer	ShockwaveTotemQuakePl
 Stampede                      		----		StampedePlayer
 Sunder                        		----		SunderPlayer
 Supercharged Slam             		----		SuperchargedSlamPlayer
+Thundergod's Wrath            		----		MetaCastLightningSpellOnHitPlayer	SupportMetaCastLightningSpellOnHitPlayer
 Time of Need                  		----		TimeOfNeedPlayer
 Volcanic Fissure              		----		VolcanicFissurePlayer
 Voltaic Grenade               		----		ShockGrenadePlayer
@@ -329,20 +330,20 @@ Arc                           		----		ArcPlayer
 Archmage                      		----		ArchmagePlayer
 Arctic Armour                 		----		ArcticArmourPlayer
 Ball Lightning                		----		BallLightningPlayer
-Barrier Invocation            		----		MetaBarrierInvocationPlayer	SupportBarrierInvocationPlayer	SupportInvisibleMetaGemSupport
+Barrier Invocation            		----		MetaBarrierInvocationPlayer	SupportBarrierInvocationPlayer
 Blasphemy                     		----		BlasphemyPlayer	SupportBlasphemyPlayer
 Blink                         		----		BlinkReservationPlayer	BlinkPlayer
 Bone Blast                    		----		BoneBlastPlayer
 Bone Cage                     		----		BoneCagePlayer
 Bone Offering                 		----		BoneOfferingPlayer
 Bonestorm                     		----		BonestormPlayer
-Cast on Critical              		----		MetaCastOnCritPlayer	SupportMetaCastOnCritPlayer	SupportInvisibleMetaGemSupport
-Cast on Death                 		----		MetaCastOnDeathPlayer	SupportMetaCastOnDeathPlayer	SupportInvisibleMetaGemSupport
-Cast on Dodge                 		----		MetaCastOnDodgePlayer	SupportMetaCastOnDodgePlayer	SupportInvisibleMetaGemSupport
-Cast on Freeze                		----		MetaCastOnFreezePlayer	SupportMetaCastOnFreezePlayer	SupportInvisibleMetaGemSupport
-Cast on Ignite                		----		MetaCastOnIgnitePlayer	SupportMetaCastOnIgnitePlayer	SupportInvisibleMetaGemSupport
-Cast on Minion Death          		----		MetaCastOnMinionDeathPlayer	SupportMetaCastOnMinionDeathPlayer	SupportInvisibleMetaGemSupport
-Cast on Shock                 		----		MetaCastOnShockPlayer	SupportMetaCastOnShockPlayer	SupportInvisibleMetaGemSupport
+Cast on Critical              		----		MetaCastOnCritPlayer	SupportMetaCastOnCritPlayer
+Cast on Death                 		----		MetaCastOnDeathPlayer	SupportMetaCastOnDeathPlayer
+Cast on Dodge                 		----		MetaCastOnDodgePlayer	SupportMetaCastOnDodgePlayer
+Cast on Freeze                		----		MetaCastOnFreezePlayer	SupportMetaCastOnFreezePlayer
+Cast on Ignite                		----		MetaCastOnIgnitePlayer	SupportMetaCastOnIgnitePlayer
+Cast on Minion Death          		----		MetaCastOnMinionDeathPlayer	SupportMetaCastOnMinionDeathPlayer
+Cast on Shock                 		----		MetaCastOnShockPlayer	SupportMetaCastOnShockPlayer
 Chaos Bolt                    		----		WeaponGrantedChaosboltPlayer
 Charge Infusion               		----		ChargeInfusionPlayer
 Charged Staff                 		----		ChargedStaffPlayer	ChargedStaffShockwavePlayer
@@ -357,7 +358,7 @@ Despair                       		----		DespairPlayer
 Detonate Dead                 		----		DetonateDeadPlayer
 Discipline                    		----		DisciplinePlayer
 Elemental Conflux             		----		ElementalConfluxPlayer
-Elemental Invocation          		----		MetaElementalInvocationPlayer	SupportElementalInvocationPlayer	SupportInvisibleMetaGemSupport
+Elemental Invocation          		----		MetaElementalInvocationPlayer	SupportElementalInvocationPlayer
 Ember Fusillade               		----		BlazingClusterPlayer
 Enfeeble                      		----		EnfeeblePlayer
 Essence Drain                 		----		EssenceDrainPlayer
@@ -382,11 +383,14 @@ Ghost Dance                   		----		GhostDancePlayer
 Glacial Cascade               		----		GlacialCascadePlayer
 Grim Feast                    		----		GrimFeastPlayer
 Hand of Chayula               		----		HandOfChayulaPlayer	SupportHandOfChayulaPlayer
+Heart of Ice                  		----		HeartOfIcePlayer
 Herald of Ice                 		----		HeraldOfIcePlayer
 Hexblast                      		----		HexblastPlayer
 Hypothermia                   		----		HypothermiaPlayer
 Ice Nova                      		----		IceNovaPlayer
 Ice Strike                    		----		IceStrikePlayer
+Icestorm                      		----		IcestormPlayer
+Impurity                      		----		ImpurityPlayer
 Incinerate                    		----		IncineratePlayer
 Killing Palm                  		----		KillingPalmPlayer
 Lightning Bolt                		----		LightningBoltPlayer
@@ -409,7 +413,7 @@ Purity of Ice                 		----		PurityOfIcePlayer
 Purity of Lightning           		----		PurityOfLightningPlayer
 Raging Spirits                		----		RagingSpiritsPlayer
 Raise Zombie                  		----		RaiseZombiePlayer
-Reaper's Invocation           		----		MetaReapersInvocationPlayer	SupportReapersInvocationPlayer	SupportInvisibleMetaGemSupport
+Reaper's Invocation           		----		MetaReapersInvocationPlayer	SupportReapersInvocationPlayer
 Rolling Magma                 		----		RollingMagmaPlayer
 Sacrifice                     		----		SacrificePlayer
 Shattering Palm               		----		ShatteringPalmPlayer	ShatteringPalmExplosionPlayer
@@ -565,14 +569,15 @@ Ancestral Spirits             		----		AncestralSpiritsPlayer
 Bleeding Concoction           		----		BleedingConcoctionPlayer
 Blood Boil                    		----		BloodBoilPlayer
 Bow Shot                      		----		MeleeBowPlayer
-Cast on Charm Use             		----		MetaCastOnCharmUsePlayer	SupportMetaCastOnCharmUsePlayer	SupportInvisibleMetaGemSupport
+Bursting Fen Toad             		----		ExplodingPoisonToadPlayer
+Cast on Charm Use             		----		MetaCastOnCharmUsePlayer	SupportMetaCastOnCharmUsePlayer
 Crossbow Shot                 		----		MeleeCrossbowPlayer	UnloadAmmoPlayer
 Demon Form                    		----		DemonFormPlayer
 Elemental Expression          		----		ElementalExpressionTriggeredPlayer
 Elemental Storm               		----		ElementalStormPlayer
 Encase in Jade                		----		EncaseInJadePlayer
 Explosive Concoction          		----		ExplosiveConcoctionPlayer
-Fire Spell on Melee Hit       		----		MetaCastFireSpellOnHitPlayer	SupportMetaCastFireSpellOnHitPlayer	SupportInvisibleMetaGemSupport
+Fire Spell on Melee Hit       		----		MetaCastFireSpellOnHitPlayer	SupportMetaCastFireSpellOnHitPlayer
 Fulminating Concoction        		----		FulminatingConcoctionPlayer
 Infuse Weapon                 		----		AmazonTriggerElementalInfusionPlayer
 Into the Breach               		----		IntoTheBreachPlayer
@@ -583,6 +588,7 @@ Mace Strike                   		----		MeleeMaceMacePlayer
 Manifest Weapon               		----		ManifestWeaponPlayer
 Meditate                      		----		MeditatePlayer
 Parry                         		----		ParryPlayer
+Pinnacle of Power             		----		PinnacleOfPowerPlayer
 Poisonous Concoction          		----		PoisonousConcoctionPlayer
 Punch                         		----		MeleeUnarmedPlayer
 Quarterstaff Strike           		----		MeleeQuarterstaffPlayer

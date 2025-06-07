@@ -4,17 +4,22 @@
 return {
 	[1]={
 		stats={
-			[1]="never_ignite"
+			[1]="cold_damage_cannot_chill"
 		}
 	},
 	[2]={
+		stats={
+			[1]="never_freeze"
+		}
+	},
+	[3]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -90,7 +95,7 @@ return {
 			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -123,14 +128,14 @@ return {
 			[1]="active_skill_base_secondary_area_of_effect_radius"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
 				[1]={
@@ -163,7 +168,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
 			[1]={
 				[1]={
@@ -201,31 +206,6 @@ return {
 			[2]="vaal_firestorm_number_of_meteors"
 		}
 	},
-	[8]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="Improveds {0} Bolt per Ignite Consumed"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					}
-				},
-				text="Improves {0} Bolts per Ignite Consumed"
-			}
-		},
-		stats={
-			[1]="firestorm_improved_bolts_per_ignite_consumed"
-		}
-	},
 	[9]={
 		[1]={
 			[1]={
@@ -235,7 +215,7 @@ return {
 						[2]=1
 					}
 				},
-				text="Limit {0} Firestorm"
+				text="Improves {0} Bolt per Chill Consumed"
 			},
 			[2]={
 				limit={
@@ -244,21 +224,71 @@ return {
 						[2]="#"
 					}
 				},
-				text="Limit {0} Firestorms"
+				text="Improves {0} Bolts per Chill Consumed"
+			}
+		},
+		stats={
+			[1]="firestorm_improved_bolts_per_chill_consumed"
+		}
+	},
+	[10]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Improves {0} Bolt per Power of enemies from\nwhich Freeze is Consumed"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Improves {0} Bolts per Power of enemies from\nwhich Freeze is Consumed"
+			}
+		},
+		stats={
+			[1]="firestorm_improved_bolts_per_monster_power_of_freeze_consumed"
+		}
+	},
+	[11]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Limit {0} Icestorm"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Limit {0} Icestorms"
 			}
 		},
 		stats={
 			[1]="firestorm_max_number_of_storms"
 		}
 	},
-	[10]={
+	[12]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[11]={
+	[13]={
 		[1]={
 			[1]={
 				limit={
@@ -267,25 +297,27 @@ return {
 						[2]="#"
 					}
 				},
-				text="Firestorm Limit@{0}"
+				text="Icestorm Limit@{0}"
 			}
 		},
 		stats={
 			[1]="virtual_firestorm_max_number_of_storms"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["active_skill_base_secondary_area_of_effect_radius"]=4,
-	["active_skill_secondary_area_of_effect_radius"]=5,
-	["base_skill_effect_duration"]=6,
-	["fire_storm_fireball_delay_ms"]=7,
-	["firestorm_improved_bolts_per_ignite_consumed"]=8,
-	["firestorm_max_number_of_storms"]=9,
-	["never_ignite"]=1,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["active_skill_base_secondary_area_of_effect_radius"]=5,
+	["active_skill_secondary_area_of_effect_radius"]=6,
+	["base_skill_effect_duration"]=7,
+	["cold_damage_cannot_chill"]=1,
+	["fire_storm_fireball_delay_ms"]=8,
+	["firestorm_improved_bolts_per_chill_consumed"]=9,
+	["firestorm_improved_bolts_per_monster_power_of_freeze_consumed"]=10,
+	["firestorm_max_number_of_storms"]=11,
+	["never_freeze"]=2,
 	parent="skill_stat_descriptions",
-	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
-	["skill_effect_duration"]=10,
-	["vaal_firestorm_number_of_meteors"]=7,
-	["virtual_firestorm_max_number_of_storms"]=11
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=4,
+	["skill_effect_duration"]=12,
+	["vaal_firestorm_number_of_meteors"]=8,
+	["virtual_firestorm_max_number_of_storms"]=13
 }
