@@ -222,10 +222,10 @@ function main:Init()
 		end
 	}
 
-	self.controls.datSearch = new("EditControl", {"TOPLEFT",self.controls.datSource,"BOTTOMLEFT"}, {0, 2, 250, 18}, nil, "^8Search .dat files", nil, nil, function(buf)
+	self.controls.datSearch = new("EditControl", {"TOPLEFT", self.controls.datSource, "BOTTOMLEFT"}, {0, 2, 250, 18}, nil, "^7Search", nil, nil, function(buf)
 		self.controls.datList.searchBuf = buf
 		self.controls.datList:BuildFilteredList()
-	end)
+	end, nil, nil, true)
 
 	self.controls.datList = new("DatListControl", {"TOPLEFT",self.controls.datSearch,"BOTTOMLEFT"}, {0, 2, 250, function() return self.screenH - 100 end})
 
