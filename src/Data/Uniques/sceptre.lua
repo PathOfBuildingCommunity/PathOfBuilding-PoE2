@@ -51,6 +51,7 @@ Guiding Palm of the Eye
 Shrine Sceptre
 League: Dawn of the Hunt
 Implicits: 1
+Grants Skill: Level (1-20) Purity of Ice
 Gain 25% of Damage as Extra Cold Damage
 Allies in your Presence deal (15-23) to (28-35) added Attack Cold Damage
 50% of your Base Life Regeneration is granted to Allies in your Presence

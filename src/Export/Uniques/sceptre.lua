@@ -50,6 +50,7 @@ Guiding Palm of the Eye
 Shrine Sceptre
 League: Dawn of the Hunt
 Implicits: 1
+Grants Skill: Level (1-20) Purity of Ice
 UniqueDamageGainedAsCold1
 UniqueNearbyAlliesAddedColdDamage1
 UniqueBaseLifeRegenToAllies1
