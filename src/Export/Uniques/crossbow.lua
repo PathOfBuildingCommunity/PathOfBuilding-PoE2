@@ -7,7 +7,7 @@ The Last Lament
 Desolate Crossbow
 League: Dawn of the Hunt
 Implicits: 1
-Grants Skill: Level (1-20) Requiem
+Grants Skill: Level (1-20) Compose Requiem
 UniqueLocalIncreasedPhysicalDamagePercent15
 UniqueIncreasedAttackSpeed12
 UniqueLifeLeechLocal4
