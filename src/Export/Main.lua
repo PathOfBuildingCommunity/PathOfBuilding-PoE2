@@ -599,6 +599,12 @@ function main:OnKeyDown(key, doubleClick)
 			self:SelectControl(self.controls.datSearch)
 		end
 		return
+	-- ESC key closes Dat window so that the script menu is shown.
+	elseif key == "ESCAPE" then
+		if self.controls and self.controls.scripts and self.SelectControl then
+			self:SetCurrentDat()
+		end
+		return
 	end
 	t_insert(self.inputEvents, { type = "KeyDown", key = key, doubleClick = doubleClick })
 end
