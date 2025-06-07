@@ -69,9 +69,12 @@ Moving while Bleeding doesn't cause you to take extra damage
 ]],[[
 Kaom's Heart
 Conqueror Plate
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
 (30-40)% increased Stun Threshold
-+1000 to maximum Life
+{variant:1}+1000 to maximum Life
+{variant:2}+1500 to maximum Life
 You have no Spirit
 ]],[[
 Kingsguard
