@@ -3296,7 +3296,7 @@ skills["MPSMercurialCasterEnrage"] = {
 	statSets = {
 		[1] = {
 			label = "Basic Spell",
-			baseEffectiveness = 4.3815999031067,
+			baseEffectiveness = 2.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
@@ -3313,13 +3313,15 @@ skills["MPSMercurialCasterEnrage"] = {
 			stats = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 				"base_is_projectile",
 				"projectile_uses_contact_position",
 				"use_scaled_contact_offset",
 				"disable_visual_hit_effect",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 0.40000000596046, 0.60000002384186, 0.40000000596046, 0.60000002384186, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -4549,7 +4551,7 @@ skills["SpookyGhostLightningBounce"] = {
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
-				striggerable = true,
+				triggerable = true,
 				spell = true,
 				projectile = true,
 			},
@@ -4591,7 +4593,7 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "geometry_spell",
 			baseFlags = {
-				striggerable = true,
+				triggerable = true,
 				spell = true,
 				projectile = true,
 			},
