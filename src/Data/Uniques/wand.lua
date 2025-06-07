@@ -8,7 +8,7 @@ Siphoning Wand
 League: Dawn of the Hunt
 Implicits: 2
 Grants Skill: Level (1-20) Power Siphon
-Grants Skill: Level (1-20) Pinnacle of Power
+Grants Skill: Level 20 Pinnacle of Power
 +(100-150) to maximum Mana
 +3 to Level of all Spell Skills
 (15-30)% increased Cast Speed
