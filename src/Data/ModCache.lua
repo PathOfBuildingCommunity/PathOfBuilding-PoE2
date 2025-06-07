@@ -4037,6 +4037,7 @@ c["Grants Skill: Level 11 Raise Shield"]={{[1]={flags=0,keywordFlags=0,name="Ext
 c["Grants Skill: Level 11 Sigil of Power"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SigilOfPowerPlayer"}}},nil}
 c["Grants Skill: Level 11 Skeletal Warrior Minion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SummonSkeletalWarriorsPlayer"}}},nil}
 c["Grants Skill: Level 11 Spark"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="SparkPlayer"}}},nil}
+c["Grants Skill: Level 11 Thundergod's Wrath"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="MetaCastLightningSpellOnHitPlayer"}}},nil}
 c["Grants Skill: Level 11 Volatile Dead"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="VolatileDeadPlayer"}}},nil}
 c["Grants Skill: Level 20 Bone Blast"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="BoneBlastPlayer"}}},nil}
 c["Grants Skill: Level 20 Bursting Fen Toad"]={nil,nil}
@@ -4058,8 +4059,6 @@ c["Grants Skill: Level 20 Icestorm +4 to Level of all Cold Spell Skills"]={nil,n
 c["Grants Skill: Level 20 Impurity"]={nil,nil}
 c["Grants Skill: Level 20 Impurity Allies in your Presence deal 17 to 37 added Attack Chaos Damage"]={nil,nil}
 c["Grants Skill: Level 20 Lightning Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="LightningBoltPlayer"}}},nil}
-c["Grants Skill: Level 20 Lightning Spell on Melee Hit"]={nil,nil}
-c["Grants Skill: Level 20 Lightning Spell on Melee Hit +200 Intelligence Requirement"]={nil,nil}
 c["Grants Skill: Level 20 Living Bomb"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="LivingBombPlayer"}}},nil}
 c["Grants Skill: Level 20 Malice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="MalicePlayer"}}},nil}
 c["Grants Skill: Level 20 Mana Drain"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ManaDrainPlayer"}}},nil}
@@ -4076,8 +4075,7 @@ c["Grants Skill: Level 20 Requiem 300% increased Physical Damage"]={nil,nil}
 c["Grants Skill: Level 20 Sigil of Power"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SigilOfPowerPlayer"}}},nil}
 c["Grants Skill: Level 20 Skeletal Warrior Minion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SummonSkeletalWarriorsPlayer"}}},nil}
 c["Grants Skill: Level 20 Spark"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="SparkPlayer"}}},nil}
-c["Grants Skill: Level 20 Thundergod's Wrath"]={nil,nil}
-c["Grants Skill: Level 20 Thundergod's Wrath +200 Intelligence Requirement"]={nil,nil}
+c["Grants Skill: Level 20 Thundergod's Wrath"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="MetaCastLightningSpellOnHitPlayer"}}},nil}
 c["Grants Skill: Level 20 Volatile Dead"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="VolatileDeadPlayer"}}},nil}
 c["Grants Skill: Life Remnants"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="LifeRemnantsPlayer"}}},nil}
 c["Grants Skill: Manifest Weapon"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ManifestWeaponPlayer"}}},nil}
