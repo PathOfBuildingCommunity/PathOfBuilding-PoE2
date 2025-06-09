@@ -208,8 +208,10 @@ function main:Init()
 			return #self.scriptOutput > 0
 		end
 	}
-
-	self.controls.helpText = new("LabelControl", {"TOPLEFT",self.controls.clearOutput,"BOTTOMLEFT"}, {0, 12, 100, 16}, "Press Ctrl+F5 to re-export\ndata from the game")
+	self.controls.clearAutoClearOutput = new("CheckBoxControl", { "TOPLEFT", self.controls.clearOutput, "BOTTOMLEFT" }, { 120, 10, 20, 20 }, "Auto Clear Output:", function(state)
+		self.clearAutoClearOutput = state
+	end, nil, false)
+	self.controls.helpText = new("LabelControl", {"TOPLEFT",self.controls.clearOutput,"BOTTOMLEFT"}, {0, 42, 100, 16}, "Press Ctrl+F5 to re-export\ndata from the game")
 
 	self.controls.scriptList = new("ScriptListControl", nil, {270, 35, 100, 300}) {
 		shown = function()
@@ -435,6 +437,19 @@ function main:OnFrame()
 end
 
 function main:OnKeyDown(key, doubleClick)
+	-- Ctrl+F shortcut for focusing dat file Search
+	if key == "f" and IsKeyDown("CTRL") then
+		if self.controls and self.controls.datSearch and self.SelectControl then
+			self:SelectControl(self.controls.datSearch)
+		end
+		return
+	-- ESC key closes Dat window so that the script menu is shown.
+	elseif key == "ESCAPE" then
+		if self.controls and self.controls.scripts and self.SelectControl then
+			self:SetCurrentDat()
+		end
+		return
+	end
 	t_insert(self.inputEvents, { type = "KeyDown", key = key, doubleClick = doubleClick })
 end
 
@@ -590,23 +605,6 @@ function main:SaveSettings()
 		launch:ShowErrMsg("Error saving 'Settings.xml': %s", errMsg)
 		return true
 	end
-end
-
-function main:OnKeyDown(key, doubleClick)
-	-- Ctrl+F shortcut for focusing dat file Search
-	if key == "f" and IsKeyDown("CTRL") then
-		if self.controls and self.controls.datSearch and self.SelectControl then
-			self:SelectControl(self.controls.datSearch)
-		end
-		return
-	-- ESC key closes Dat window so that the script menu is shown.
-	elseif key == "ESCAPE" then
-		if self.controls and self.controls.scripts and self.SelectControl then
-			self:SetCurrentDat()
-		end
-		return
-	end
-	t_insert(self.inputEvents, { type = "KeyDown", key = key, doubleClick = doubleClick })
 end
 
 function main:DrawArrow(x, y, width, height, dir)
