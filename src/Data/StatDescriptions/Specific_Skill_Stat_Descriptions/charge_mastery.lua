@@ -7,35 +7,6 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Consumes one of each Charge every second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Consumes one of each Charge every {0} seconds"
-			}
-		},
-		stats={
-			[1]="consume_frenzy_power_and_endurance_charge_every_x_ms"
-		}
-	},
-	[2]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
@@ -57,10 +28,10 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_charge_mastery_crit_chance_+%_final_with_power_charges"
+			[1]="charge_mastery_crit_chance_+%_final_with_power_charges"
 		}
 	},
-	[3]={
+	[2]={
 		[1]={
 			[1]={
 				limit={
@@ -86,10 +57,10 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_charge_mastery_defences_+%_final_with_endurance_charges"
+			[1]="charge_mastery_defences_+%_final_with_endurance_charges"
 		}
 	},
-	[4]={
+	[3]={
 		[1]={
 			[1]={
 				limit={
@@ -115,12 +86,41 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_charge_matery_skill_speed_+%_final_with_frenzy_charges"
+			[1]="charge_mastery_skill_speed_+%_final_with_frenzy_charges"
 		}
 	},
-	["consume_frenzy_power_and_endurance_charge_every_x_ms"]=1,
-	parent="skill_stat_descriptions",
-	["skill_charge_mastery_crit_chance_+%_final_with_power_charges"]=2,
-	["skill_charge_mastery_defences_+%_final_with_endurance_charges"]=3,
-	["skill_charge_matery_skill_speed_+%_final_with_frenzy_charges"]=4
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Consumes one of each Charge every second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Consumes one of each Charge every {0} seconds"
+			}
+		},
+		stats={
+			[1]="consume_frenzy_power_and_endurance_charge_every_x_ms"
+		}
+	},
+	["charge_mastery_crit_chance_+%_final_with_power_charges"]=1,
+	["charge_mastery_defences_+%_final_with_endurance_charges"]=2,
+	["charge_mastery_skill_speed_+%_final_with_frenzy_charges"]=3,
+	["consume_frenzy_power_and_endurance_charge_every_x_ms"]=4,
+	parent="skill_stat_descriptions"
 }

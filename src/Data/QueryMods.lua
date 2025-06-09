@@ -12390,74 +12390,6 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
-		["885_AlliesInPresenceAddedPhysicalDamage"] = {
-			["1HWeapon"] = {
-				["max"] = 25.5, 
-				["min"] = 2, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 25.5, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_1574590649", 
-				["text"] = "Allies in your Presence deal # to # additional Attack Physical Damage", 
-				["type"] = "explicit", 
-			}, 
-		}, 
-		["886_AlliesInPresenceAddedFireDamage"] = {
-			["1HWeapon"] = {
-				["max"] = 37, 
-				["min"] = 2, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 37, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_849987426", 
-				["text"] = "Allies in your Presence deal # to # additional Attack Fire Damage", 
-				["type"] = "explicit", 
-			}, 
-		}, 
-		["887_AlliesInPresenceAddedColdDamage"] = {
-			["1HWeapon"] = {
-				["max"] = 30.5, 
-				["min"] = 2, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 30.5, 
-				["min"] = 2, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_2347036682", 
-				["text"] = "Allies in your Presence deal # to # additional Attack Cold Damage", 
-				["type"] = "explicit", 
-			}, 
-		}, 
-		["888_AlliesInPresenceAddedLightningDamage"] = {
-			["1HWeapon"] = {
-				["max"] = 37.5, 
-				["min"] = 3, 
-			}, 
-			["Sceptre"] = {
-				["max"] = 37.5, 
-				["min"] = 3, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "explicit.stat_2854751904", 
-				["text"] = "Allies in your Presence deal # to # additional Attack Lightning Damage", 
-				["type"] = "explicit", 
-			}, 
-		}, 
 		["889_AlliesInPresenceIncreasedAccuracy"] = {
 			["1HWeapon"] = {
 				["max"] = 450, 
@@ -15379,14 +15311,6 @@ return {
 				["max"] = 80, 
 				["min"] = 36, 
 			}, 
-			["AnyJewel"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
-			["BaseJewel"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
 			["Sceptre"] = {
 				["max"] = 80, 
 				["min"] = 36, 
@@ -15710,6 +15634,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_1443060084", 
 				["text"] = "#% reduced Enemy Stun Threshold", 
+				["type"] = "implicit", 
+			}, 
+		}, 
+		["implicit.stat_1451444093"] = {
+			["1HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Flail"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1451444093", 
+				["text"] = "Forks Critical Hits", 
 				["type"] = "implicit", 
 			}, 
 		}, 

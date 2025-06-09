@@ -223,7 +223,7 @@ c["+19 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShie
 c["+19% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=19}},nil}
 c["+2 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=2}},nil}
 c["+2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=2}},nil}
-c["+2 to Evasion Rating per 1 Maximum Energy Shield on Equipped Helmet"]={{[1]={[1]={div=1,stat="EnergyShieldOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=2}},nil}
+c["+2 to Evasion Rating per 1 Energy Shield on Equipped Helmet"]={{[1]={[1]={div=1,stat="EnergyShieldOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=2}},nil}
 c["+2 to Level of all Cold Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="cold",value=2}}},nil}
 c["+2 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="fire",value=2}}},nil}
 c["+2 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning",value=2}}},nil}
@@ -457,7 +457,6 @@ c["+3 to Level of all Lightning Conduit Skills"]={{[1]={flags=0,keywordFlags=0,n
 c["+3 to Level of all Lightning Rod Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning rod",value=3}}},nil}
 c["+3 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning",value=3}}},nil}
 c["+3 to Level of all Lightning Spear Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning spear",value=3}}},nil}
-c["+3 to Level of all Lightning Spell on Hit Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keywordList={[1]="lightning",[2]="spell",[3]="on",[4]="hit"},value=3}}},nil}
 c["+3 to Level of all Lightning Warp Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning warp",value=3}}},nil}
 c["+3 to Level of all Lingering Illusion Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lingering illusion",value=3}}},nil}
 c["+3 to Level of all Living Bomb Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="living bomb",value=3}}},nil}
@@ -559,6 +558,7 @@ c["+3 to Level of all Tempest Bell Skills"]={{[1]={flags=0,keywordFlags=0,name="
 c["+3 to Level of all Tempest Flurry Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="tempest flurry",value=3}}},nil}
 c["+3 to Level of all Temporal Chains Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="temporal chains",value=3}}},nil}
 c["+3 to Level of all Temporal Rift Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="temporal rift",value=3}}},nil}
+c["+3 to Level of all Thundergod's Wrath Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="thundergod's wrath",value=3}}},nil}
 c["+3 to Level of all Thunderous Leap Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="thunderous leap",value=3}}},nil}
 c["+3 to Level of all Time Freeze Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="time freeze",value=3}}},nil}
 c["+3 to Level of all Time Snap Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="time snap",value=3}}},nil}
@@ -1107,7 +1107,6 @@ c["12% increased Attack Speed if you've successfully Parried Recently"]={{[1]={[
 c["12% increased Attack and Cast Speed if you've summoned a Totem Recently"]={{[1]={[1]={type="Condition",var="SummonedTotemRecently"},flags=0,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
 c["12% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=12}},nil}
 c["12% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=12}},nil}
-c["12% increased Chance to inflict Ailments with One-Handed Attacks"]={{[1]={flags=17179869188,keywordFlags=0,name="AilmentChance",type="INC",value=12}},nil}
 c["12% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=12}},nil}
 c["12% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=12}},nil}
 c["12% increased Critical Damage Bonus per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=12}},nil}
@@ -1476,7 +1475,6 @@ c["20% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifie
 c["20% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=20}},nil}
 c["20% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["20% increased Cast Speed when on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=16,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
-c["20% increased Chance to inflict Ailments with One-Handed Attacks"]={{[1]={flags=17179869188,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
 c["20% increased Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=20}},nil}
 c["20% increased Charm Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=20}},nil}
 c["20% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=20}},nil}
@@ -3017,6 +3015,7 @@ c["Allocates Feel the Earth"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive
 c["Allocates Feral Force"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="feral force"}},nil}
 c["Allocates Fervour"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fervour"}},nil}
 c["Allocates Final Barrage"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="final barrage"}},nil}
+c["Allocates Finality"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finality"}},nil}
 c["Allocates Finesse"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finesse"}},nil}
 c["Allocates Finishing Blows"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="finishing blows"}},nil}
 c["Allocates Fireproof"]={{[1]={flags=0,keywordFlags=0,name="GrantedPassive",type="LIST",value="fireproof"}},nil}
@@ -3445,9 +3444,14 @@ c["Attacks have +1% to Critical Hit Chance"]={{[1]={flags=1,keywordFlags=0,name=
 c["Attacks have 10% chance to Maim on Hit"]={{}," to Maim  "}
 c["Attacks have 25% chance to Maim on Hit"]={{}," to Maim  "}
 c["Attacks have added Physical damage equal to 3% of maximum Life"]={{[1]={[1]={percent=3,stat="Life",type="PercentStat"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent=3,stat="Life",type="PercentStat"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
+c["Attacks used by Totems have 2% increased Attack Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=1,keywordFlags=16384,name="Speed",type="INC",value=2}},nil}
 c["Attacks used by Totems have 4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
+c["Attacks used by Totems have 4% increased Attack Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=1,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Attacks using your Weapons have Added Physical Damage equal"]={nil,"Added Physical Damage equal "}
 c["Attacks using your Weapons have Added Physical Damage equal to 25% of the Accuracy Rating on the Weapon"]={{[1]={[1]={percent="25",stat="AccuracyOnWeapon 1",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="MainHandAttack"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="25",stat="AccuracyOnWeapon 1",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="MainHandAttack"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=1},[3]={[1]={percent="25",stat="AccuracyOnWeapon 2",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="OffHandAttack"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[4]={[1]={percent="25",stat="AccuracyOnWeapon 2",type="PercentStat"},[2]={neg=true,skillType=167,type="SkillType"},[3]={type="Condition",var="OffHandAttack"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
+c["Attacks with One Handed Weapons have 12% increased Chance to inflict Ailments"]={{[1]={flags=17179869184,keywordFlags=0,name="AilmentChance",type="INC",value=12}},nil}
+c["Attacks with One-Handed Weapons have 12% increased Chance to inflict Ailments"]={{[1]={flags=17179869184,keywordFlags=0,name="AilmentChance",type="INC",value=12}},nil}
+c["Attacks with One-Handed Weapons have 20% increased Chance to inflict Ailments"]={{[1]={flags=17179869184,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
 c["Attacks with this Weapon gain 50% of Physical damage as Extra damage of each Element"]={{[1]={[2]={type="Condition",var="{Hand}Attack"},[3]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsLightning",type="BASE",value=50},[2]={[2]={type="Condition",var="{Hand}Attack"},[3]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsCold",type="BASE",value=50},[3]={[2]={type="Condition",var="{Hand}Attack"},[3]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=50}},nil}
 c["Attribute Requirements of Gems can be satisified by your highest Attribute"]={{[1]={flags=0,keywordFlags=0,name="GemAttributeRequirementsSatisfiedByHighestAttribute",type="FLAG",value=true}},nil}
 c["Aura Skills have 1% more Aura Effect per 2% of maximum Mana they Reserve"]={{[1]={[1]={skillType=39,type="SkillType"},[2]={div=2,stat="ManaReservedPercent",type="PerStat"},flags=0,keywordFlags=0,name="AuraEffect",type="MORE",value=1}},nil}
@@ -3967,7 +3971,6 @@ c["Grants Skill: Level 11 Herald of Ash"]={{[1]={flags=0,keywordFlags=0,name="Ex
 c["Grants Skill: Level 11 Herald of Ice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="HeraldOfIcePlayer"}}},nil}
 c["Grants Skill: Level 11 Herald of Thunder"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="HeraldOfThunderPlayer"}}},nil}
 c["Grants Skill: Level 11 Lightning Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="LightningBoltPlayer"}}},nil}
-c["Grants Skill: Level 11 Lightning Spell on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="MetaCastLightningSpellOnHitPlayer"}}},nil}
 c["Grants Skill: Level 11 Living Bomb"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="LivingBombPlayer"}}},nil}
 c["Grants Skill: Level 11 Malice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="MalicePlayer"}}},nil}
 c["Grants Skill: Level 11 Mana Drain"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="ManaDrainPlayer"}}},nil}
@@ -3992,7 +3995,8 @@ c["Grants Skill: Level 20 Herald of Ash"]={{[1]={flags=0,keywordFlags=0,name="Ex
 c["Grants Skill: Level 20 Herald of Ice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="HeraldOfIcePlayer"}}},nil}
 c["Grants Skill: Level 20 Herald of Thunder"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="HeraldOfThunderPlayer"}}},nil}
 c["Grants Skill: Level 20 Lightning Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="LightningBoltPlayer"}}},nil}
-c["Grants Skill: Level 20 Lightning Spell on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="MetaCastLightningSpellOnHitPlayer"}}},nil}
+c["Grants Skill: Level 20 Lightning Spell on Melee Hit"]={nil,nil}
+c["Grants Skill: Level 20 Lightning Spell on Melee Hit +200 Intelligence Requirement"]={nil,nil}
 c["Grants Skill: Level 20 Living Bomb"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="LivingBombPlayer"}}},nil}
 c["Grants Skill: Level 20 Malice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="MalicePlayer"}}},nil}
 c["Grants Skill: Level 20 Mana Drain"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ManaDrainPlayer"}}},nil}
@@ -4496,6 +4500,7 @@ c["Skills have a 125% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags
 c["Skills have a 150% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=150}},nil}
 c["Skills reserve 50% less Spirit"]={{[1]={flags=0,keywordFlags=0,name="SpiritReserved",type="MORE",value=-50}},nil}
 c["Skills that would Summon a Totem have 20% chance to Summon two Totems instead"]={nil,"Skills that would Summon a Totem have 20% chance to Summon two Totems instead "}
+c["Skills used by Totems have 30% more Skill Speed"]={{[1]={flags=0,keywordFlags=16384,name="Speed",type="MORE",value=30},[2]={flags=0,keywordFlags=16384,name="WarcrySpeed",type="MORE",value=30}},nil}
 c["Slam Skills have 12% increased Area of Effect"]={{[1]={[1]={skillType=92,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=12}},nil}
 c["Slam Skills you use yourself cause Aftershocks"]={nil,"Slam Skills you use yourself cause Aftershocks "}
 c["Sorcery Ward recovers 50% faster"]={nil,"recovers 50% faster "}
@@ -4505,6 +4510,7 @@ c["Spell Skills have 20% increased Area of Effect"]={{[1]={flags=0,keywordFlags=
 c["Spell Skills have 30% increased Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=30}},nil}
 c["Spell Skills have 5% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=-5}},nil}
 c["Spell Skills have 8% increased Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=8}},nil}
+c["Spells Cast by Totems have 2% increased Cast Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=18,keywordFlags=16384,name="Speed",type="INC",value=2}},nil}
 c["Spells Cast by Totems have 4% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="ProjectileCount",type="BASE",value=4}},nil}
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}
@@ -4548,11 +4554,7 @@ c["Totems Regenerate 3% of maximum Life per second"]={nil,"Totems Regenerate 3% 
 c["Totems gain +12% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=12}},nil}
 c["Totems gain +20% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=20}},nil}
 c["Totems have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=12}},nil}
-c["Totems have 2% increased Attack Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=1,keywordFlags=16384,name="Speed",type="INC",value=2}},nil}
-c["Totems have 2% increased Cast Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=16,keywordFlags=16384,name="Speed",type="INC",value=2}},nil}
 c["Totems have 20% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=20}},nil}
-c["Totems have 30% more Skill Speed"]={{[1]={flags=0,keywordFlags=16384,name="Speed",type="MORE",value=30},[2]={flags=0,keywordFlags=16384,name="WarcrySpeed",type="MORE",value=30}},nil}
-c["Totems have 4% increased Attack Speed per Summoned Totem"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=1,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Totems only use Skills when you fire an Attack Projectile"]={nil,"Totems only use Skills when you fire an Attack Projectile "}
 c["Totems reserve 100 Spirit each"]={nil,"Totems reserve 100 Spirit each "}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={{},nil}

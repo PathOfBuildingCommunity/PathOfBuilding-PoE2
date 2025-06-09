@@ -135,7 +135,7 @@ skills["BarragePlayer"] = {
 	name = "Barrage",
 	baseTypeName = "Barrage",
 	color = 2,
-	description = "Ready a volley of arrows or spears, Empowering your next Bow or Projectile Spear Attack to repeat multiple times. Consumes your Frenzy Charges on use to add additional repeats.",
+	description = "Ready a volley of arrows or spears, Empowering your next Barrageable Bow or Projectile Spear Attack to Repeat multiple times. Consumes your Frenzy Charges on use to add additional repeats.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Cooldown] = true, [SkillType.ConsumesCharges] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.UsableWhileMounted] = true, },
 	weaponTypes = {
 		["Spear"] = true,
@@ -9966,6 +9966,7 @@ skills["TriggeredWindDancerPlayer"] = {
 				"global_knockback",
 				"triggerable_in_any_set",
 				"quality_display_active_skill_base_area_of_effect_radius_is_gem",
+				"visual_hit_effect_physical_is_wind",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

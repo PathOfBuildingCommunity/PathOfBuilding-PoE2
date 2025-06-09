@@ -88,7 +88,7 @@ return {
 						[2]=10
 					}
 				},
-				text="Haemocrystals are randomly created within {0} metre of the Consumed Bleed"
+				text="Haemocrystals are randomly created within {0} metre of the Consumed Bleeding"
 			},
 			[2]={
 				[1]={
@@ -101,7 +101,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Haemocrystals are randomly created within {0} metres of the Consumed Bleed"
+				text="Haemocrystals are randomly created within {0} metres of the Consumed Bleeding"
 			}
 		},
 		stats={
@@ -117,7 +117,7 @@ return {
 						[2]=100
 					}
 				},
-				text="Haemocrystals deal Damage equal to the expected remaining Damage of the Consumed Bleed"
+				text="Haemocrystals deal Damage equal to the expected remaining Damage of the Consumed Bleeding"
 			},
 			[2]={
 				limit={
@@ -126,7 +126,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Haemocrystals deal Damage equal to {0}% of the expected remaining Damage of the Consumed Bleed"
+				text="Haemocrystals deal Damage equal to {0}% of the expected remaining Damage of the Consumed Bleeding"
 			}
 		},
 		stats={
