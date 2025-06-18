@@ -4546,7 +4546,7 @@ return {
 						[2]=0
 					}
 				},
-				text="Empowered Attacks repeat an additional time"
+				text="Empowered Attacks Repeat {0:+d} time"
 			},
 			[2]={
 				limit={
@@ -4559,37 +4559,63 @@ return {
 						[2]=0
 					}
 				},
-				text="Empowered Attacks repeat {0} times"
+				text="Empowered Attacks Repeat {0:+d} times"
 			},
 			[3]={
 				limit={
 					[1]={
-						[1]=1,
-						[2]=1
+						[1]=0,
+						[2]=0
 					},
 					[2]={
 						[1]=1,
 						[2]=1
 					}
 				},
-				text="Empowered Attacks repeat an additional time, plus an additional time per Frenzy Charge consumed"
+				text="Empowered Attacks Repeat {1:+d} time per Frenzy Charge consumed"
 			},
 			[4]={
 				limit={
 					[1]={
-						[1]=2,
-						[2]="#"
+						[1]=1,
+						[2]=1
 					},
 					[2]={
 						[1]=1,
 						[2]=1
 					}
 				},
-				text="Empowered Attacks repeat {0} times, plus an additional time per Frenzy Charge consumed"
+				text="Empowered Attacks Repeat {1:+d} time per Frenzy Charge consumed"
 			},
 			[5]={
 				limit={
 					[1]={
+						[1]=2,
+						[2]="#"
+					},
+					[2]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Empowered Attacks Repeat {0:+d} times, and a further {1:+d} time per Frenzy Charge consumed"
+			},
+			[6]={
+				limit={
+					[1]={
+						[1]=0,
+						[2]=0
+					},
+					[2]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Empowered Attacks Repeat {0:+d} time, and a further {1:+d} times per Frenzy Charge consumed"
+			},
+			[7]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]=1
 					},
@@ -4598,9 +4624,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="Empowered Attacks repeat an additional time, plus an additional {0} times per Frenzy Charge consumed"
+				text="Empowered Attacks Repeat {0:+d} time, and a further {1:+d} times per Frenzy Charge consumed"
 			},
-			[6]={
+			[8]={
 				limit={
 					[1]={
 						[1]=2,
@@ -4611,7 +4637,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Empowered Attacks repeat {0} times, plus an additional {0} times per Frenzy Charge consumed"
+				text="Empowered Attacks Repeat {0:+d} times, and a further {1:+d} times per Frenzy Charge consumed"
 			}
 		},
 		stats={

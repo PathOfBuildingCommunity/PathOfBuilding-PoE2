@@ -891,6 +891,7 @@ skills["UnloadAmmoPlayer"] = {
 				"action_can_be_used_in_aiming_stance",
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
+				"crossbow_ammo_skill_does_not_transition",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5820,7 +5821,7 @@ skills["UniqueBreachLightningBoltPlayer"] = {
 	fromItem = true,
 	color = 3,
 	description = "Call down a Shocking bolt of Lightning to strike enemies in a small area.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Cascadable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.CanRapidFire] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Cascadable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, },
 	castTime = 0.85,
 	qualityStats = {
 	},

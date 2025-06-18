@@ -15092,6 +15092,20 @@ return {
 			refTo="",
 			type="Int",
 			width=150
+		},
+		[9]={
+			list=true,
+			name="StatsKeysAttributes",
+			refTo="Stats",
+			type="Key",
+			width=150
+		},
+		[10]={
+			list=true,
+			name="StatsValuesAttributes",
+			refTo="",
+			type="Int",
+			width=150
 		}
 	},
 	soulcoresperclass={

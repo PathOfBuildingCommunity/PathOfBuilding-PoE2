@@ -22569,7 +22569,7 @@ return {
 			orbitIndex=21,
 			skill=5108,
 			stats={
-				[1]="12% increased Chance to inflict Ailments with One-Handed Attacks"
+				[1]="Attacks with One Handed Weapons have 12% increased Chance to inflict Ailments"
 			}
 		},
 		[5163]={
@@ -38861,8 +38861,8 @@ return {
 			skill=19249,
 			stats={
 				[1]="25% increased Damage while you have a Totem",
-				[2]="Totems have 2% increased Cast Speed per Summoned Totem",
-				[3]="Totems have 2% increased Attack Speed per Summoned Totem"
+				[2]="Spells Cast by Totems have 2% increased Cast Speed per Summoned Totem",
+				[3]="Attacks used by Totems have 2% increased Attack Speed per Summoned Totem"
 			}
 		},
 		[19277]={
@@ -55207,8 +55207,8 @@ return {
 			},
 			skill=34340,
 			stats={
-				[1]="Regenerate 0.5% of maximum Life per second",
-				[2]="Allies in your Presence Regenerate 1% of your Maximum Life per second"
+				[1]="Allies in your Presence Regenerate 1% of your Maximum Life per second",
+				[2]="Regenerate 0.5% of maximum Life per second"
 			}
 		},
 		[34367]={
@@ -58641,7 +58641,7 @@ return {
 			orbitIndex=0,
 			skill=37523,
 			stats={
-				[1]="Totems have 30% more Skill Speed",
+				[1]="Skills used by Totems have 30% more Skill Speed",
 				[2]="Totems only use Skills when you fire an Attack Projectile"
 			}
 		},
@@ -66463,7 +66463,7 @@ return {
 			skill=44330,
 			stats={
 				[1]="25% increased Damage with One Handed Weapons",
-				[2]="20% increased Chance to inflict Ailments with One-Handed Attacks"
+				[2]="Attacks with One-Handed Weapons have 20% increased Chance to inflict Ailments"
 			}
 		},
 		[44343]={
@@ -70938,7 +70938,7 @@ return {
 			orbitIndex=7,
 			skill=47733,
 			stats={
-				[1]="12% increased Chance to inflict Ailments with One-Handed Attacks"
+				[1]="Attacks with One-Handed Weapons have 12% increased Chance to inflict Ailments"
 			}
 		},
 		[47754]={
@@ -75874,6 +75874,11 @@ return {
 			name="Finality",
 			orbit=0,
 			orbitIndex=0,
+			recipe={
+				[1]="Isolation",
+				[2]="Guilt",
+				[3]="Envy"
+			},
 			skill=51867,
 			stats={
 				[1]="120% increased Damage with Hits against Enemies that are on Low Life",
@@ -79920,7 +79925,7 @@ return {
 			},
 			skill=55193,
 			stats={
-				[1]="+2 to Evasion Rating per 1 Maximum Energy Shield on Equipped Helmet"
+				[1]="+2 to Evasion Rating per 1 Energy Shield on Equipped Helmet"
 			}
 		},
 		[55194]={
@@ -88478,7 +88483,7 @@ return {
 			},
 			skill=62609,
 			stats={
-				[1]="Totems have 4% increased Attack Speed per Summoned Totem"
+				[1]="Attacks used by Totems have 4% increased Attack Speed per Summoned Totem"
 			}
 		},
 		[62624]={
