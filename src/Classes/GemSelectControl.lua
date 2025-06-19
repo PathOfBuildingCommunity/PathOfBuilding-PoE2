@@ -477,6 +477,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			if gemInstance and gemInstance.gemData then
 				self:AddGemTooltip(gemInstance)
 			else
+				self.tooltip.itemTooltip = false
 				self.tooltip:AddLine(16, toolTipText)
 			end
 
@@ -528,7 +529,7 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	self.tooltip.color = colorCodes.GEM
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
-
+	self.tooltip.itemTooltip = "GEM"
 	self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(18, colorCodes.NORMAL .. gemInstance.gemData.gemType)

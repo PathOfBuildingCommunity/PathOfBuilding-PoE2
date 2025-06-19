@@ -2575,7 +2575,8 @@ end
 function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	-- Item name
 	local rarityCode = colorCodes[item.rarity]
-	tooltip.maxWidth = 458
+	tooltip.maxWidth = 600 -- Should instead get the longest mod and set the width to that. Some flavour text is way too long so we need a cap of sorts.
+	tooltip.itemTooltip = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
 	if item.title then
@@ -2880,8 +2881,8 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		if item.corrupted then
 			tooltip:AddLine(16, colorCodes.NEGATIVE.."Corrupted")
 		end
+		tooltip:AddSeparator(14)
 	end
-	tooltip:AddSeparator(14)
 
 	-- Show flavour text:
 	if item.rarity == "UNIQUE" and main.showFlavourText == true then
