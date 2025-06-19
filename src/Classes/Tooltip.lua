@@ -348,6 +348,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				for _, v in ipairs(line[1]) do
 					t_insert(args, v)
 				end
+				SetDrawColor(1,1,1)
 				DrawImage(unpack(args))
 			else
 				DrawImage(unpack(line))
