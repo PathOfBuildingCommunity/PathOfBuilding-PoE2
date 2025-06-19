@@ -90,12 +90,12 @@ function TooltipClass:AddSeparator(size)
 	if self.itemTooltip then
 		local rarity = tostring(self.itemTooltip):upper()
 		local separatorConfigs = {
-			RELIC = "Assets/itemsseparatorfoil.png",
-			UNIQUE = "Assets/itemsseparatorunique.png",
-			RARE = "Assets/itemsseparatorrare.png",
-			MAGIC = "Assets/itemsseparatormagic.png",
-			NORMAL = "Assets/itemsseparatorwhite.png",
-			GEM = "Assets/itemsseparatorgem.png",
+			RELIC = "Assets/ItemsSeparatorFoil.png",
+			UNIQUE = "Assets/ItemsSeparatorUnique.png",
+			RARE = "Assets/ItemsSeparatorRare.png",
+			MAGIC = "Assets/ItemsSeparatorMagic.png",
+			NORMAL = "Assets/ItemsSeparatorWhite.png",
+			GEM = "Assets/ItemsSeparatorGem.png",
 		}
 		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
 
@@ -270,16 +270,16 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	if self.itemTooltip and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.itemTooltip):upper()
 		local headerConfigs = {
-			RELIC = {left="Assets/itemsheaderfoilleft.png",middle="Assets/itemsheaderfoilmiddle.png",right="Assets/itemsheaderfoilright.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
-			UNIQUE = {left="Assets/itemsheaderuniqueleft.png",middle="Assets/itemsheaderuniquemiddle.png",right="Assets/itemsheaderuniqueright.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
-			RARE = {left="Assets/itemsheaderrareleft.png",middle="Assets/itemsheaderraremiddle.png",right="Assets/itemsheaderrareright.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
-			MAGIC = {left="Assets/itemsheadermagicleft.png",middle="Assets/itemsheadermagicmiddle.png",right="Assets/itemsheadermagicright.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-			NORMAL = {left="Assets/itemsheaderwhiteleft.png",middle="Assets/itemsheaderwhitemiddle.png",right="Assets/itemsheaderwhiteright.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-			GEM = {left="Assets/itemsheadergemleft.png",middle="Assets/itemsheadergemmiddle.png",right="Assets/itemsheadergemright.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-			JEWELSOCKET = {left="Assets/jewelpassiveheaderleft.png",middle="Assets/jewelpassiveheadermiddle.png",right="Assets/jewelpassiveheaderright.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-			NOTABLENODE = {left="Assets/notablepassiveheaderleft.png",middle="Assets/notablepassiveheadermiddle.png",right="Assets/notablepassiveheaderright.png",height=38,sideWidth=38,middleWidth=32,textYOffset=2},
-			PASSIVENODE = {left="Assets/normalpassiveheaderleft.png",middle="Assets/normalpassiveheadermiddle.png",right="Assets/normalpassiveheaderright.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-			KEYSTONENODE = {left="Assets/keystonepassiveheaderleft.png",middle="Assets/keystonepassiveheadermiddle.png",right="Assets/keystonepassiveheaderright.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
+			RELIC = {left="Assets/ItemsHeaderFoilLeft.png",middle="Assets/ItemsHeaderFoilMiddle.png",right="Assets/ItemsHeaderFoilRight.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
+			UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png",middle="Assets/ItemsHeaderUniqueMiddle.png",right="Assets/ItemsHeaderUniqueRight.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
+			RARE = {left="Assets/ItemsHeaderRareLeft.png",middle="Assets/ItemsHeaderRareMiddle.png",right="Assets/ItemsHeaderRareRight.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
+			MAGIC = {left="Assets/ItemsHeaderMagicLeft.png",middle="Assets/ItemsHeaderMagicMiddle.png",right="Assets/ItemsHeaderMagicRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
+			NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png",middle="Assets/ItemsHeaderWhiteMiddle.png",right="Assets/ItemsHeaderWhiteRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
+			GEM = {left="Assets/ItemsHeaderGemLeft.png",middle="Assets/ItemsHeaderGemMiddle.png",right="Assets/ItemsHeaderGemRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
+			JEWEL = {left="Assets/JewelPassiveHeaderLeft.png",middle="Assets/JewelPassiveHeaderMiddle.png",right="Assets/JewelPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
+			NOTABLE = {left="Assets/NotablePassiveHeaderLeft.png",middle="Assets/NotablePassiveHeaderMiddle.png",right="Assets/NotablePassiveHeaderRight.png",height=38,sideWidth=38,middleWidth=32,textYOffset=2},
+			PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png",middle="Assets/NormalPassiveHeaderMiddle.png",right="Assets/NormalPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
+			KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png",middle="Assets/KeystonePassiveHeaderMiddle.png",right="Assets/KeystonePassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
 		}
 		local config = headerConfigs[rarity] or headerConfigs.NORMAL
 
