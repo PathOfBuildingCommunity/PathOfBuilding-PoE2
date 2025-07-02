@@ -65,6 +65,16 @@ directiveTable.base = function(state, args, out)
 		end
 		out:write("\t\tarmour = ")
 		writeStats(stats, out)
+		stats = { }  -- reset stats to empty
+		for i, statKey in ipairs(soulcore.StatsKeysCaster) do
+			local statValue = soulcore["StatsValuesCaster"][i]
+			stats[statKey.Id] = { min = statValue, max = statValue }
+		end
+		if next(stats) then
+			out:write("\t\tcaster = ")
+			writeStats(stats, out)
+		end
+
 
 		out:write('\t},\n')
 	end

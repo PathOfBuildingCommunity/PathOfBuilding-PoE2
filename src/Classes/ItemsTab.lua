@@ -366,11 +366,11 @@ holding Shift will put it in the second.]])
 
 	-- Section: Sockets and Links
 	self.controls.displayItemSectionSockets = new("Control", {"TOPLEFT",self.controls.displayItemSectionVariant,"BOTTOMLEFT"}, {0, 0, 0, function()
-		return self.displayItem and (self.displayItem.base.weapon or self.displayItem.base.armour) and 28 or 0
+		return self.displayItem and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff) and 28 or 0
 	end})
 	self.controls.displayItemSocketRune = new("LabelControl", {"TOPLEFT",self.controls.displayItemSectionSockets,"TOPLEFT"}, {0, 0, 36, 20}, "^x7F7F7FS")
 	self.controls.displayItemSocketRune.shown = function()
-		return self.displayItem.base.weapon or self.displayItem.base.armour
+		return self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff
 	end
 	self.controls.displayItemSocketRuneEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketRune,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
 		if tonumber(buf) > 6 then
@@ -501,7 +501,7 @@ holding Shift will put it in the second.]])
 
 	-- Section: Rune Selection
 	self.controls.displayItemSectionRune = new("Control", {"TOPLEFT",self.controls.displayItemSectionClusterJewel,"BOTTOMLEFT"}, {0, 0, 0, function()
-		if not self.displayItem or self.displayItem.itemSocketCount == 0 or not (self.displayItem.base.weapon or self.displayItem.base.armour) then
+		if not self.displayItem or self.displayItem.itemSocketCount == 0 or not (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff) then
 			return 0
 		end
 		local h = 6
@@ -534,7 +534,7 @@ holding Shift will put it in the second.]])
 			end
 		end
 		drop.shown = function()
-			return self.displayItem and i <= self.displayItem.itemSocketCount and (self.displayItem.base.weapon or self.displayItem.base.armour)
+			return self.displayItem and i <= self.displayItem.itemSocketCount and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff)
 		end
 		
 		self.controls["displayItemRune"..i] = drop
@@ -1563,14 +1563,21 @@ end
 -- build rune mod list for armour and weapons
 local runeArmourModLines = { { name = "None", label = "None", order = -1 } }
 local runeWeaponModLines = { { name = "None", label = "None", order = -1 } }
+local runeCasterModLines = { { name = "None", label = "None", order = -1 } }
 for name, modLines in pairs(data.itemMods.Runes) do
 	t_insert(runeArmourModLines, { name = name, label = modLines.armour[1], order = modLines.armour.statOrder[1]})
 	t_insert(runeWeaponModLines, { name = name, label = modLines.weapon[1], order = modLines.weapon.statOrder[1]})
+	if modLines.caster then
+		t_insert(runeCasterModLines, { name = name, label = modLines.caster[1], order = modLines.caster.statOrder[1]})
+	end
 end
 table.sort(runeArmourModLines, function(a, b)
 	return a.order < b.order
 end)
 table.sort(runeWeaponModLines, function(a, b)
+	return a.order < b.order
+end)
+table.sort(runeCasterModLines, function(a, b)
 	return a.order < b.order
 end)
 -- Update rune selection controls
@@ -1581,6 +1588,8 @@ function ItemsTabClass:UpdateRuneControls()
 			self.controls["displayItemRune"..i].list = runeArmourModLines
 		elseif item.base.weapon then
 			self.controls["displayItemRune"..i].list = runeWeaponModLines
+		elseif item.base.tags.wand or item.base.tags.staff then
+			self.controls["displayItemRune"..i].list = runeCasterModLines
 		end
 		if item.runes[i] then
 			for j, modLine in ipairs(self.controls["displayItemRune"..i].list) do
@@ -1902,7 +1911,7 @@ function ItemsTabClass:CraftItem()
 		else
 			item.quality = nil
 		end
-		if base.base.socketLimit and (base.base.weapon or base.base.armour) then -- must be a martial weapon/armour
+		if base.base.socketLimit and (base.base.weapon or base.base.armour or base.base.tags.wand or base.base.tags.staff) then -- must be a martial weapon/armour
 			if #item.sockets == 0 then
 				for i = 1, base.base.socketLimit do
 					t_insert(item.sockets, { group = 0 })
