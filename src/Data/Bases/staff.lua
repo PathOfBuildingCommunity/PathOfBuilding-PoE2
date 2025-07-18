@@ -122,6 +122,7 @@ itemBases["Dark Staff"] = {
 itemBases["Permafrost Staff"] = {
 	type = "Staff",
 	quality = 20,
+	socketLimit = 3,
 	tags = { default = true, twohand = true, staff = true, },
 	implicit = "Grants Skill: Level (1-20) Heart of Ice",
 	implicitModTypes = { },

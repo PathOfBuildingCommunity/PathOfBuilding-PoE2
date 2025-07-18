@@ -248,4 +248,24 @@ describe("TestItemParse", function()
 		assert.are.equals(71, item.requirements.intMod)	
 		
 	end)
+
+	it("multi-line rune mod", function()
+		-- Thruldana is Bow-only as well
+		local item = new("Item", [[
+			Test Item
+			Crude Bow
+			Quality: 20
+			Sockets: S S
+			Rune: Talisman of Thruldana
+			Rune: Talisman of Thruldana
+			Implicits: 2
+			{enchant}{rune}50% reduced Poison Duration
+			{enchant}{rune}Targets can be affected by +2 of your Poisons at the same time
+		]])
+		item:BuildAndParseRaw()
+		
+		assert.are.equals(2, #item.sockets)
+		assert.are.equals(2, #item.runeModLines)
+		
+	end)
 end)
