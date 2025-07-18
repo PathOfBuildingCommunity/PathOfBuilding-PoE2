@@ -42,21 +42,21 @@ describe("TestSocketables", function()
     end
 
     local slotTypeTest = function(slotType, itemBase) 
-        ConPrintf("Testing: %s", slotType)
+        -- ConPrintf("Testing: %s", slotType)
         local itemRaw = "Test\n" .. itemBase .. "\nSockets: S"
 
         local modRunes = extractNamesFromModRunes(slotType)
 
         -- Create an ItemTab and add a socketable item to it
         local item = new("Item", itemRaw)
-        local itemTab = new("ItemsTab", build)
         
-        itemTab:AddItem(item)
-        itemTab:SetDisplayItem(item)
+        build.itemsTab:AddItem(item)
+        build.itemsTab:SetDisplayItem(item)
+        runCallback("OnFrame")
         
         -- Extract the proper slot type runes from the list
         local itemTabRunes = { }
-        for _, rune in ipairs(itemTab.controls["displayItemRune1"].list) do
+        for _, rune in ipairs(build.itemsTab.controls["displayItemRune1"].list) do
             if rune.slot == slotType then
                 table.insert(itemTabRunes, rune.name)
             end
