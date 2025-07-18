@@ -64,7 +64,6 @@ describe("TestSocketables", function()
         -- To keep the test fast, only check that the lengths match
         -- This should also catch issues with multi-mod line runes since the rune name will appear
         -- for the number of mod lines that the rune has.
-        -- itemTabRunes is -1 because of the "None" option
         assert.are.equals(#itemTabRunes, #modRunes)
     end
 
