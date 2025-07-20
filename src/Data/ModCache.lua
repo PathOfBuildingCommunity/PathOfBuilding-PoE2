@@ -4485,9 +4485,9 @@ c["Skills Supported by Unleash have 10% increased Seal gain frequency"]={{[1]={f
 c["Skills Supported by Unleash have 25% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=25}},nil}
 c["Skills fire an additional Projectile"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
 c["Skills gain 1% of Damage as Chaos Damage per 3 Life Cost"]={{[1]={[1]={div=3,stat="LifeCost",type="PerStat"},flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=1}},nil}
-c["Skills gain 20% increased Critical Hit Chance per socketed blue Support Gem"]={{[1]={[1]={type="Multiplier",var="BlueSupportGems"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
-c["Skills gain 20% increased Damage per socketed red Support Gem"]={{[1]={[1]={type="Multiplier",var="RedSupportGems"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
-c["Skills gain 6% increased Skill Speed per socketed green Support Gem"]={{[1]={[1]={type="Multiplier",var="GreenSupportGems"},flags=0,keywordFlags=0,name="Speed",type="INC",value=6},[2]={[1]={type="Multiplier",var="GreenSupportGems"},flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=6}},nil}
+c["Skills gain 20% increased Critical Hit Chance per socketed blue Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillCritChanceIncreasedPerBlueSupport",type="FLAG",value=20}},nil}
+c["Skills gain 20% increased Damage per socketed red Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillDamageIncreasedPerRedSupport",type="FLAG",value=20}},nil}
+c["Skills gain 6% increased Skill Speed per socketed green Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillSpeedIncreasedPerGreenSupport",type="FLAG",value=6}},nil}
 c["Skills gain a Base Life Cost equal to 10% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=10}},nil}
 c["Skills gain a Base Life Cost equal to 50% of Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=50}},nil}
 c["Skills gain a Base Life Cost equal to Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=100}},nil}
