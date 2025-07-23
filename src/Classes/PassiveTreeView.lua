@@ -1073,15 +1073,13 @@ end
 
 function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 	tooltip:SetRecipe(node.infoRecipe)
-	if node.type == "Normal" then
-		tooltip.itemTooltip = "PASSIVE"
-	elseif node.type == "Notable" then
-		tooltip.itemTooltip = "NOTABLE"
-	elseif node.type == "Socket" then
-		tooltip.itemTooltip = "JEWEL"
-	elseif node.type == "Keystone" then -- keystone runs but still prints default header
-		tooltip.itemTooltip = "KEYSTONE"
-	end
+	local tooltipMap = {
+		Normal = "PASSIVE",
+		Notable = "NOTABLE",
+		Socket = "JEWEL",
+		Keystone = "KEYSTONE",
+	}
+	tooltip.itemTooltip = tooltipMap[node.type] or "UNKNOWN"
 	tooltip:AddLine(24, "^7"..node.dn..(launch.devModeAlt and " ["..node.id.."]" or ""))
 	if launch.devModeAlt and node.id > 65535 then
 		-- Decompose cluster node Id
