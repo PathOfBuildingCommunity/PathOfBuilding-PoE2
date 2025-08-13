@@ -1899,14 +1899,14 @@ return {
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[6]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
 		},
 		[7]={
 			list=false,
@@ -1920,35 +1920,35 @@ return {
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[9]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
 		},
 		[10]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[11]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
 		},
 		[12]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
 		}
 	},
 	baseitemtypes={
@@ -2743,7 +2743,7 @@ return {
 		},
 		[49]={
 			list=true,
-			name="",
+			name="Stats",
 			refTo="Stats",
 			type="Key",
 			width=150
@@ -3244,6 +3244,62 @@ return {
 		},
 		[17]={
 			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[18]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[19]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[20]={
+			list=false,
+			name="",
+			refTo="",
+			type="ShortKey",
+			width=150
+		},
+		[21]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[22]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[23]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[24]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[25]={
+			list=true,
 			name="",
 			refTo="",
 			type="Key",
@@ -5190,6 +5246,62 @@ return {
 		}
 	},
 	damageeffectvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=300
+		},
+		[2]={
+			list=true,
+			name="MiscAnimated",
+			refTo="MiscAnimated",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=true,
+			name="EffectFile",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[6]={
+			list=true,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[7]={
+			list=true,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[8]={
+			list=false,
+			name="MiscEffect",
+			refTo="misceffectpacks",
+			type="Key",
+			width=200
+		}
 	},
 	damagehiteffects={
 	},
@@ -9526,24 +9638,427 @@ return {
 		}
 	},
 	miscanimatedartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=true,
+			name="MiscAnimated",
+			refTo="MiscAnimated",
+			type="Key",
+			width=300
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="Variant",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="Stat",
+			refTo="Stats",
+			type="Key",
+			width=300
+		}
 	},
 	miscbeams={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=false,
+			name="MiscAnimated",
+			refTo="MiscAnimated",
+			type="Key",
+			width=250
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Float",
+			width=150
+		},
+		[4]={
+			list=true,
+			name="PreloadGroup",
+			refTo="PreloadGroups",
+			type="Key",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		}
 	},
 	miscbeamsartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=true,
+			name="MiscBeams",
+			refTo="MiscBeams",
+			type="Key",
+			width=300
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="Variant",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="Stat",
+			refTo="Stats",
+			type="Key",
+			width=300
+		}
 	},
 	misccooldowns={
 	},
 	misceffectpacks={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=false,
+			name="EPKFile",
+			refTo="",
+			type="String",
+			width=750
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[6]={
+			list=true,
+			name="PreloadGroups",
+			refTo="PreloadGroups",
+			type="Key",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=80
+		},
+		[8]={
+			list=false,
+			name="PlayerOnly_EPKFile",
+			refTo="",
+			type="String",
+			width=600
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=80
+		}
 	},
 	misceffectpacksartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=true,
+			name="MiscEffectPacks",
+			refTo="MiscEffectPacks",
+			type="Key",
+			width=300
+		},
+		[3]={
+			list=false,
+			name="Variant",
+			refTo="",
+			type="Int",
+			width=80
+		}
 	},
 	miscobjects={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=false,
+			name="EffectVirtualPath",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[3]={
+			list=true,
+			name="PreloadGroups",
+			refTo="PreloadGroups",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="UInt",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="UInt",
+			width=150
+		}
 	},
 	miscobjectsartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=true,
+			name="Object",
+			refTo="MiscObjects",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[5]={
+			list=false,
+			name="Stat",
+			refTo="Stats",
+			type="Key",
+			width=300
+		}
+	},
+	miscparticles={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=250
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[4]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		}
+	},
+	miscparticlesartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[2]={
+			list=true,
+			name="MiscParticles",
+			refTo="MiscParticles",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="Variant",
+			refTo="",
+			type="Int",
+			width=80
+		}
 	},
 	miscprojectilemod={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=80
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=300
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=200
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=80
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=80
+		}
 	},
 	miscprojectilemodartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[5]={
+			list=true,
+			name="MiscProjectileMod",
+			refTo="MiscProjectileMod",
+			type="Key",
+			width=150
+		}
 	},
 	missionfavourperlevel={
 	},
@@ -10933,28 +11448,35 @@ return {
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[4]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[5]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
-			width=150
+			width=80
 		},
 		[6]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=150
+			width=80
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=80
 		}
 	},
 	monsterprojectilespell={
@@ -12189,6 +12711,27 @@ return {
 		}
 	},
 	monstervarietiesartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[2]={
+			list=false,
+			name="Variant",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[3]={
+			list=true,
+			name="Monster",
+			refTo="MonsterVarieties",
+			type="Key",
+			width=550
+		}
 	},
 	mousecursorsizesettings={
 	},
@@ -14138,6 +14681,13 @@ return {
 	preloadfromstats={
 	},
 	preloadgroups={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		}
 	},
 	preloadpriorities={
 	},
@@ -14342,7 +14892,7 @@ return {
 			name="",
 			refTo="",
 			type="String",
-			width=50
+			width=70
 		},
 		[29]={
 			list=false,
@@ -14368,7 +14918,7 @@ return {
 		[32]={
 			list=false,
 			name="BounceAnimation",
-			refTo="miscanimated",
+			refTo="MiscAnimated",
 			type="Key",
 			width=260
 		},
@@ -14381,10 +14931,10 @@ return {
 		},
 		[34]={
 			list=false,
-			name="",
-			refTo="",
+			name="DamageEffect",
+			refTo="DamageEffectVariations",
 			type="Key",
-			width=100
+			width=250
 		},
 		[35]={
 			list=false,
@@ -14402,10 +14952,10 @@ return {
 		},
 		[37]={
 			list=false,
-			name="",
-			refTo="",
+			name="DamageEffect",
+			refTo="DamageEffectVariations",
 			type="Key",
-			width=150
+			width=200
 		},
 		[38]={
 			list=false,
@@ -14417,7 +14967,7 @@ return {
 		[39]={
 			list=false,
 			name="",
-			refTo="",
+			refTo="BallisticBounceOverride",
 			type="Key",
 			width=150
 		},
@@ -14444,6 +14994,41 @@ return {
 		}
 	},
 	projectilesartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Variant",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[3]={
+			list=true,
+			name="Projectile",
+			refTo="Projectiles",
+			type="Key",
+			width=380
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=100
+		}
 	},
 	projectilevariations={
 	},
@@ -15652,6 +16237,125 @@ return {
 	singlegroundlaser={
 	},
 	skillartvariations={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[2]={
+			list=true,
+			name="AnimatedArt",
+			refTo="MiscAnimatedArtVariations",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=true,
+			name="BeamArt",
+			refTo="MiscBeamsArtVariations",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=true,
+			name="EffectPacksArt",
+			refTo="MiscEffectPacksArtVariations",
+			type="Key",
+			width=290
+		},
+		[5]={
+			list=true,
+			name="ObjectArt",
+			refTo="MiscObjectsArtVariations",
+			type="Key",
+			width=150
+		},
+		[6]={
+			list=true,
+			name="Variant",
+			refTo="",
+			type="String",
+			width=400
+		},
+		[7]={
+			list=true,
+			name="BuffVisuals",
+			refTo="BuffVisualsArtVariations",
+			type="Key",
+			width=150
+		},
+		[8]={
+			list=true,
+			name="VariantId?",
+			refTo="",
+			type="Int",
+			width=100
+		},
+		[9]={
+			list=true,
+			name="ProjectilesArt",
+			refTo="ProjectilesArtVariations",
+			type="Key",
+			width=350
+		},
+		[10]={
+			list=false,
+			name="Stat",
+			refTo="Stats",
+			type="Key",
+			width=150
+		},
+		[11]={
+			list=true,
+			name="MonsterVarietiesArt",
+			refTo="MonsterVarietiesArtVariations",
+			type="Key",
+			width=150
+		},
+		[12]={
+			list=true,
+			name="ActiveSkill",
+			refTo="ActiveSkills",
+			type="Key",
+			width=300
+		},
+		[13]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[14]={
+			list=true,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[15]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[16]={
+			list=true,
+			name="ProjectileModArt",
+			refTo="MiscProjectileModArtVariations",
+			type="Key",
+			width=150
+		},
+		[17]={
+			list=true,
+			name="ParticleArt",
+			refTo="MiscParticlesArtVariations",
+			type="Key",
+			width=150
+		}
 	},
 	skillcraftingdata={
 		[1]={
