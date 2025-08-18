@@ -165,8 +165,7 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			if supportEffect.grantedEffect.addFlags and not summonSkill then
 				-- Support skill adds flags to supported skills (eg. Remote Mine adds 'mine')
 				for k in pairs(supportEffect.grantedEffect.addFlags) do
-					mainSkillFlags[k] = true
-					calcsSkillFlags[k] = true
+					skillFlags[k] = true
 				end
 			end
 		end
