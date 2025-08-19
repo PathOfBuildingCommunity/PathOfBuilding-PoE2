@@ -13,7 +13,7 @@ local scopes = { }
 local function getScope(scopeName)
 	if not scopes[scopeName] then
 		local scope = nil
-		local file = io.open("Data/StatDescriptions/specific_skill_stat_descriptions/"..scopeName..".lua", 'rb')
+		local file = io.open("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..scopeName..".lua", 'rb')
 		if file then
 			file.close()
 			scope = LoadModule("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..scopeName)
