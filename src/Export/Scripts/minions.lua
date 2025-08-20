@@ -290,6 +290,14 @@ directiveTable.emit = function(state, args, out)
 		if name == "The Ziggurat Refuge" then
 			out:write('\t\t"Found in Maps",\n')
 		else
+			name = name:gsub("%(Act (%d)%)", function(digit)
+				local n = tonumber(digit)
+				if n > 5 then
+					return "(Act " .. (n - 3) .. ")"
+				else
+					return "(Act " .. n .. ")"
+				end
+			end)
 			out:write('\t\t"', name, '",\n')
 		end
 	end

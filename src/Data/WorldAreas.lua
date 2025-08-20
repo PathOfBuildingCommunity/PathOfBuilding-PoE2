@@ -2573,7 +2573,7 @@ worldAreas["G3_17"] = {
 }
 
 worldAreas["C_G1_town"] = {
-	name = "Clearfell Encampment (Act 7)",
+	name = "Clearfell Encampment (Act 4)",
 	baseName = "Clearfell Encampment",
 	description = "A bastion of hope for those who survive",
 	tags = {  },
@@ -2586,7 +2586,7 @@ worldAreas["C_G1_town"] = {
 }
 
 worldAreas["C_G1_1"] = {
-	name = "The Riverbank (Act 7)",
+	name = "The Riverbank (Act 4)",
 	baseName = "The Riverbank",
 	description = "The drowned stare through muddied branches",
 	tags = { "EzomyteStrongbox" },
@@ -2606,7 +2606,7 @@ worldAreas["C_G1_1"] = {
 }
 
 worldAreas["C_G1_2"] = {
-	name = "Clearfell (Act 7)",
+	name = "Clearfell (Act 4)",
 	baseName = "Clearfell",
 	description = "A sickness has befallen Ogham",
 	tags = { "EzomyteStrongbox" },
@@ -2626,7 +2626,7 @@ worldAreas["C_G1_2"] = {
 }
 
 worldAreas["C_G1_3"] = {
-	name = "Mud Burrow (Act 7)",
+	name = "Mud Burrow (Act 4)",
 	baseName = "Mud Burrow",
 	description = "The tunnels of a tormented creature",
 	tags = { "EzomyteStrongbox" },
@@ -2647,7 +2647,7 @@ worldAreas["C_G1_3"] = {
 }
 
 worldAreas["C_G1_4"] = {
-	name = "The Grelwood (Act 7)",
+	name = "The Grelwood (Act 4)",
 	baseName = "The Grelwood",
 	description = "Forest of the Old Magicks",
 	tags = { "EzomyteStrongbox" },
@@ -2673,7 +2673,7 @@ worldAreas["C_G1_4"] = {
 }
 
 worldAreas["C_G1_5"] = {
-	name = "The Red Vale (Act 7)",
+	name = "The Red Vale (Act 4)",
 	baseName = "The Red Vale",
 	description = "Haunted battleground of the Phaaryl Wars",
 	tags = { "EzomyteStrongbox" },
@@ -2694,7 +2694,7 @@ worldAreas["C_G1_5"] = {
 }
 
 worldAreas["C_G1_6"] = {
-	name = "The Grim Tangle (Act 7)",
+	name = "The Grim Tangle (Act 4)",
 	baseName = "The Grim Tangle",
 	description = "The sickness spreads forth underground",
 	tags = { "EzomyteStrongbox" },
@@ -2715,7 +2715,7 @@ worldAreas["C_G1_6"] = {
 }
 
 worldAreas["C_G1_7"] = {
-	name = "Cemetery of the Eternals (Act 7)",
+	name = "Cemetery of the Eternals (Act 4)",
 	baseName = "Cemetery of the Eternals",
 	description = "Built atop the Ezomyte clan graves beneath",
 	tags = { "EzomyteStrongbox" },
@@ -2738,7 +2738,7 @@ worldAreas["C_G1_7"] = {
 }
 
 worldAreas["C_G1_8"] = {
-	name = "Mausoleum of the Praetor (Act 7)",
+	name = "Mausoleum of the Praetor (Act 4)",
 	baseName = "Mausoleum of the Praetor",
 	description = "Resting place of Draven Sentari",
 	tags = { "EzomyteStrongbox" },
@@ -2762,7 +2762,7 @@ worldAreas["C_G1_8"] = {
 }
 
 worldAreas["C_G1_9"] = {
-	name = "Tomb of the Consort (Act 7)",
+	name = "Tomb of the Consort (Act 4)",
 	baseName = "Tomb of the Consort",
 	description = "Resting place of Asinia Sentari",
 	tags = { "EzomyteStrongbox" },
@@ -2783,7 +2783,7 @@ worldAreas["C_G1_9"] = {
 }
 
 worldAreas["C_G1_10"] = {
-	name = "Root Hollow (Act 7)",
+	name = "Root Hollow (Act 4)",
 	baseName = "Root Hollow",
 	tags = { "EzomyteStrongbox" },
 	act = 7,
@@ -2798,7 +2798,7 @@ worldAreas["C_G1_10"] = {
 }
 
 worldAreas["C_G1_11"] = {
-	name = "Hunting Grounds (Act 7)",
+	name = "Hunting Grounds (Act 4)",
 	baseName = "Hunting Grounds",
 	description = "Wild bounty of Ogham",
 	tags = { "EzomyteStrongbox" },
@@ -2820,7 +2820,7 @@ worldAreas["C_G1_11"] = {
 }
 
 worldAreas["C_G1_12"] = {
-	name = "Freythorn (Act 7)",
+	name = "Freythorn (Act 4)",
 	baseName = "Freythorn",
 	description = "The Clanless Enclave",
 	tags = { "EzomyteStrongbox" },
@@ -2842,7 +2842,7 @@ worldAreas["C_G1_12"] = {
 }
 
 worldAreas["C_G1_13_1"] = {
-	name = "Ogham Farmlands (Act 7)",
+	name = "Ogham Farmlands (Act 4)",
 	baseName = "Ogham Farmlands",
 	description = "Diseased crops of Ogham",
 	tags = { "EzomyteStrongbox" },
@@ -2865,7 +2865,7 @@ worldAreas["C_G1_13_1"] = {
 }
 
 worldAreas["C_G1_13_2"] = {
-	name = "Ogham Village (Act 7)",
+	name = "Ogham Village (Act 4)",
 	baseName = "Ogham Village",
 	description = "The burning tragedy",
 	tags = { "EzomyteStrongbox" },
@@ -2888,7 +2888,7 @@ worldAreas["C_G1_13_2"] = {
 }
 
 worldAreas["C_G1_14"] = {
-	name = "The Manor Ramparts (Act 7)",
+	name = "The Manor Ramparts (Act 4)",
 	baseName = "The Manor Ramparts",
 	description = "Surrounding walls of the Wolf's Den",
 	tags = { "EzomyteStrongbox" },
@@ -2911,7 +2911,7 @@ worldAreas["C_G1_14"] = {
 }
 
 worldAreas["C_G1_15"] = {
-	name = "Ogham Manor (Act 7)",
+	name = "Ogham Manor (Act 4)",
 	baseName = "Ogham Manor",
 	description = "Den of the Mad Wolf",
 	tags = { "EzomyteStrongbox" },
@@ -2939,7 +2939,7 @@ worldAreas["C_G1_15"] = {
 }
 
 worldAreas["C_G2_town"] = {
-	name = "The Ardura Caravan (Act 8)",
+	name = "The Ardura Caravan (Act 5)",
 	baseName = "The Ardura Caravan",
 	description = "Pride of Sekhema Asala",
 	tags = {  },
@@ -2952,7 +2952,7 @@ worldAreas["C_G2_town"] = {
 }
 
 worldAreas["C_G2_1"] = {
-	name = "Vastiri Outskirts (Act 8)",
+	name = "Vastiri Outskirts (Act 5)",
 	baseName = "Vastiri Outskirts",
 	description = "Blood-red and unforgiving sands",
 	tags = { "MarakethStrongbox" },
@@ -2974,7 +2974,7 @@ worldAreas["C_G2_1"] = {
 }
 
 worldAreas["C_G2_2"] = {
-	name = "Traitor's Passage (Act 8)",
+	name = "Traitor's Passage (Act 5)",
 	baseName = "Traitor's Passage",
 	description = "The pride and fall of Balbala",
 	tags = { "MarakethStrongbox" },
@@ -2997,7 +2997,7 @@ worldAreas["C_G2_2"] = {
 }
 
 worldAreas["C_G2_3"] = {
-	name = "The Halani Gates (Act 8)",
+	name = "The Halani Gates (Act 5)",
 	baseName = "The Halani Gates",
 	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
@@ -3024,7 +3024,7 @@ worldAreas["C_G2_3"] = {
 }
 
 worldAreas["C_G2_3a"] = {
-	name = "The Halani Gates (Act 8)",
+	name = "The Halani Gates (Act 5)",
 	baseName = "The Halani Gates",
 	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
@@ -3037,7 +3037,7 @@ worldAreas["C_G2_3a"] = {
 }
 
 worldAreas["C_G2_3s"] = {
-	name = "The Halani Gates (Act 8)",
+	name = "The Halani Gates (Act 5)",
 	baseName = "The Halani Gates",
 	description = "Gateway of the Second River",
 	tags = { "MarakethStrongbox" },
@@ -3050,7 +3050,7 @@ worldAreas["C_G2_3s"] = {
 }
 
 worldAreas["C_G2_4_1"] = {
-	name = "Keth (Act 8)",
+	name = "Keth (Act 5)",
 	baseName = "Keth",
 	description = "Jewel of the Vastiri",
 	tags = { "MarakethStrongbox" },
@@ -3073,7 +3073,7 @@ worldAreas["C_G2_4_1"] = {
 }
 
 worldAreas["C_G2_4_2"] = {
-	name = "The Lost City (Act 8)",
+	name = "The Lost City (Act 5)",
 	baseName = "The Lost City",
 	description = "The glory of Keth knew no bounds",
 	tags = { "MarakethStrongbox" },
@@ -3093,7 +3093,7 @@ worldAreas["C_G2_4_2"] = {
 }
 
 worldAreas["C_G2_4_3"] = {
-	name = "Buried Shrines (Act 8)",
+	name = "Buried Shrines (Act 5)",
 	baseName = "Buried Shrines",
 	description = "Sands settle where water once flowed",
 	tags = { "MarakethStrongbox" },
@@ -3114,7 +3114,7 @@ worldAreas["C_G2_4_3"] = {
 }
 
 worldAreas["C_G2_5_1"] = {
-	name = "Mastodon Badlands (Act 8)",
+	name = "Mastodon Badlands (Act 5)",
 	baseName = "Mastodon Badlands",
 	description = "Territory of the Lost-Men",
 	tags = { "MarakethStrongbox" },
@@ -3135,7 +3135,7 @@ worldAreas["C_G2_5_1"] = {
 }
 
 worldAreas["C_G2_5_2"] = {
-	name = "The Bone Pits (Act 8)",
+	name = "The Bone Pits (Act 5)",
 	baseName = "The Bone Pits",
 	description = "Necromantic ash tarnish the sands",
 	tags = { "MarakethStrongbox" },
@@ -3162,7 +3162,7 @@ worldAreas["C_G2_5_2"] = {
 }
 
 worldAreas["C_G2_6"] = {
-	name = "Valley of the Titans (Act 8)",
+	name = "Valley of the Titans (Act 5)",
 	baseName = "Valley of the Titans",
 	description = "They remain where they slept",
 	tags = { "MarakethStrongbox" },
@@ -3183,7 +3183,7 @@ worldAreas["C_G2_6"] = {
 }
 
 worldAreas["C_G2_7"] = {
-	name = "The Titan Grotto (Act 8)",
+	name = "The Titan Grotto (Act 5)",
 	baseName = "The Titan Grotto",
 	description = "Their echoes rattled the world",
 	tags = { "MarakethStrongbox" },
@@ -3204,7 +3204,7 @@ worldAreas["C_G2_7"] = {
 }
 
 worldAreas["C_G2_8"] = {
-	name = "Deshar (Act 8)",
+	name = "Deshar (Act 5)",
 	baseName = "Deshar",
 	description = "The City of the Dead",
 	tags = { "MarakethStrongbox" },
@@ -3223,7 +3223,7 @@ worldAreas["C_G2_8"] = {
 }
 
 worldAreas["C_G2_9_1"] = {
-	name = "Path of Mourning (Act 8)",
+	name = "Path of Mourning (Act 5)",
 	baseName = "Path of Mourning",
 	description = "They climb to mourn their Honoured Dead",
 	tags = { "MarakethStrongbox" },
@@ -3239,7 +3239,7 @@ worldAreas["C_G2_9_1"] = {
 }
 
 worldAreas["C_G2_9_2_"] = {
-	name = "The Spires of Deshar (Act 8)",
+	name = "The Spires of Deshar (Act 5)",
 	baseName = "The Spires of Deshar",
 	description = "Where the Honoured Dead lie buried in the sky",
 	tags = { "MarakethStrongbox" },
@@ -3268,7 +3268,7 @@ worldAreas["C_G2_9_2_"] = {
 }
 
 worldAreas["C_G2_10_1"] = {
-	name = "Mawdun Quarry (Act 8)",
+	name = "Mawdun Quarry (Act 5)",
 	baseName = "Mawdun Quarry",
 	description = "The hills of Mawdun became the Faridun foothold",
 	tags = { "MarakethStrongbox" },
@@ -3288,7 +3288,7 @@ worldAreas["C_G2_10_1"] = {
 }
 
 worldAreas["C_G2_10_2"] = {
-	name = "Mawdun Mine (Act 8)",
+	name = "Mawdun Mine (Act 5)",
 	baseName = "Mawdun Mine",
 	description = "Where metal veins bled for the tools of war",
 	tags = { "MarakethStrongbox" },
@@ -3312,7 +3312,7 @@ worldAreas["C_G2_10_2"] = {
 }
 
 worldAreas["C_G2_11"] = {
-	name = "The Dreadnought's Wake (Act 8)",
+	name = "The Dreadnought's Wake (Act 5)",
 	baseName = "The Dreadnought's Wake",
 	tags = { "MarakethStrongbox" },
 	act = 8,
@@ -3331,7 +3331,7 @@ worldAreas["C_G2_11"] = {
 }
 
 worldAreas["C_G2_12_1"] = {
-	name = "The Dreadnought (Act 8)",
+	name = "The Dreadnought (Act 5)",
 	baseName = "The Dreadnought",
 	description = "War Caravan of the Faridun",
 	tags = { "MarakethStrongbox" },
@@ -3358,7 +3358,7 @@ worldAreas["C_G2_12_1"] = {
 }
 
 worldAreas["C_G2_12_2"] = {
-	name = "Dreadnought Vanguard (Act 8)",
+	name = "Dreadnought Vanguard (Act 5)",
 	baseName = "Dreadnought Vanguard",
 	description = "Forward carts of the Risen King",
 	tags = { "MarakethStrongbox" },
@@ -3385,7 +3385,7 @@ worldAreas["C_G2_12_2"] = {
 }
 
 worldAreas["C_G3_town"] = {
-	name = "Ziggurat Encampment (Act 9)",
+	name = "Ziggurat Encampment (Act 6)",
 	baseName = "Ziggurat Encampment",
 	description = "A haven provides refuge from the jungle ",
 	tags = { "area_with_water" },
@@ -3398,7 +3398,7 @@ worldAreas["C_G3_town"] = {
 }
 
 worldAreas["C_G3_1"] = {
-	name = "Sandswept Marsh (Act 9)",
+	name = "Sandswept Marsh (Act 6)",
 	baseName = "Sandswept Marsh",
 	description = "Where thick waters stir with the rising dead",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3424,7 +3424,7 @@ worldAreas["C_G3_1"] = {
 }
 
 worldAreas["C_G3_2_1"] = {
-	name = "Infested Barrens (Act 9)",
+	name = "Infested Barrens (Act 6)",
 	baseName = "Infested Barrens",
 	description = "Where the jungle gives way to colonies and hives",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3441,7 +3441,7 @@ worldAreas["C_G3_2_1"] = {
 }
 
 worldAreas["C_G3_2_2"] = {
-	name = "The Matlan Waterways (Act 9)",
+	name = "The Matlan Waterways (Act 6)",
 	baseName = "The Matlan Waterways",
 	description = "Seed of Utzaal's birth and death",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3464,7 +3464,7 @@ worldAreas["C_G3_2_2"] = {
 }
 
 worldAreas["C_G3_3"] = {
-	name = "Jungle Ruins (Act 9)",
+	name = "Jungle Ruins (Act 6)",
 	baseName = "Jungle Ruins",
 	description = "The jungle thrives amongst overgrown structures",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3489,7 +3489,7 @@ worldAreas["C_G3_3"] = {
 }
 
 worldAreas["C_G3_4"] = {
-	name = "The Venom Crypts (Act 9)",
+	name = "The Venom Crypts (Act 6)",
 	baseName = "The Venom Crypts",
 	description = "Graves that once held nobility now slither and bite",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3510,7 +3510,7 @@ worldAreas["C_G3_4"] = {
 }
 
 worldAreas["C_G3_5"] = {
-	name = "Chimeral Wetlands (Act 9)",
+	name = "Chimeral Wetlands (Act 6)",
 	baseName = "Chimeral Wetlands",
 	description = "Where beauty and death become one",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3531,7 +3531,7 @@ worldAreas["C_G3_5"] = {
 }
 
 worldAreas["C_G3_6_1"] = {
-	name = "Jiquani's Machinarium (Act 9)",
+	name = "Jiquani's Machinarium (Act 6)",
 	baseName = "Jiquani's Machinarium",
 	description = "Where the Architect of Industry bestowed life unto stone",
 	tags = { "dungeon", "VaalStrongbox" },
@@ -3556,7 +3556,7 @@ worldAreas["C_G3_6_1"] = {
 }
 
 worldAreas["C_G3_6_2"] = {
-	name = "Jiquani's Sanctum (Act 9)",
+	name = "Jiquani's Sanctum (Act 6)",
 	baseName = "Jiquani's Sanctum",
 	description = "Seat of Jiquani's rise to power",
 	tags = { "dungeon", "VaalStrongbox" },
@@ -3580,7 +3580,7 @@ worldAreas["C_G3_6_2"] = {
 }
 
 worldAreas["C_G3_7"] = {
-	name = "The Azak Bog (Act 9)",
+	name = "The Azak Bog (Act 6)",
 	baseName = "The Azak Bog",
 	description = "Home of the merciless Azak savages",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3606,7 +3606,7 @@ worldAreas["C_G3_7"] = {
 }
 
 worldAreas["C_G3_8"] = {
-	name = "The Drowned City (Act 9)",
+	name = "The Drowned City (Act 6)",
 	baseName = "The Drowned City",
 	description = "Utzaal the drowned is now revealed",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3633,7 +3633,7 @@ worldAreas["C_G3_8"] = {
 }
 
 worldAreas["C_G3_9"] = {
-	name = "The Molten Vault (Act 9)",
+	name = "The Molten Vault (Act 6)",
 	baseName = "The Molten Vault",
 	description = "Forge of the forgotten wealth of Kamasa",
 	tags = { "dungeon", "VaalStrongbox" },
@@ -3657,7 +3657,7 @@ worldAreas["C_G3_9"] = {
 }
 
 worldAreas["C_G3_10_Airlock"] = {
-	name = "The Temple of Chaos (Act 9)",
+	name = "The Temple of Chaos (Act 6)",
 	baseName = "The Temple of Chaos",
 	description = "Testing grounds for the Vaal High Priests",
 	tags = {  },
@@ -3670,7 +3670,7 @@ worldAreas["C_G3_10_Airlock"] = {
 }
 
 worldAreas["C_G3_11"] = {
-	name = "Apex of Filth (Act 9)",
+	name = "Apex of Filth (Act 6)",
 	baseName = "Apex of Filth",
 	description = "The rot and mire of unspeakable centuries",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3697,7 +3697,7 @@ worldAreas["C_G3_11"] = {
 }
 
 worldAreas["C_G3_12"] = {
-	name = "Temple of Kopec (Act 9)",
+	name = "Temple of Kopec (Act 6)",
 	baseName = "Temple of Kopec",
 	description = "Unfathomable energy resides within the Ziggurat",
 	tags = { "dungeon", "VaalStrongbox" },
@@ -3717,7 +3717,7 @@ worldAreas["C_G3_12"] = {
 }
 
 worldAreas["C_G3_14"] = {
-	name = "Utzaal (Act 9)",
+	name = "Utzaal (Act 6)",
 	baseName = "Utzaal",
 	description = "The Cradle of Vaal Ambition",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3741,7 +3741,7 @@ worldAreas["C_G3_14"] = {
 }
 
 worldAreas["C_G3_15"] = {
-	name = "Library of Kamasa (Act 9)",
+	name = "Library of Kamasa (Act 6)",
 	baseName = "Library of Kamasa",
 	tags = { "dungeon", "VaalStrongbox" },
 	act = 9,
@@ -3758,7 +3758,7 @@ worldAreas["C_G3_15"] = {
 }
 
 worldAreas["C_G3_16_"] = {
-	name = "Aggorat (Act 9)",
+	name = "Aggorat (Act 6)",
 	baseName = "Aggorat",
 	description = "Salvation sought in beauty and blood",
 	tags = { "area_with_water", "VaalStrongbox" },
@@ -3781,7 +3781,7 @@ worldAreas["C_G3_16_"] = {
 }
 
 worldAreas["C_G3_17"] = {
-	name = "The Black Chambers (Act 9)",
+	name = "The Black Chambers (Act 6)",
 	baseName = "The Black Chambers",
 	description = "Doryani toiled in her name and his own",
 	tags = { "area_with_water", "VaalStrongbox" },

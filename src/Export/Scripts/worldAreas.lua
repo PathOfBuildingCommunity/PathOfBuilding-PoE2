@@ -170,7 +170,11 @@ for area in dat("WorldAreas"):Rows() do
 			local floorNum = area.Id:match("^Sanctum_(%d+)")
 			suffix = " (Floor " .. floorNum .. ")"
 		elseif area.Act and area.Act ~= 10 then
-			suffix = " (Act " .. tostring(area.Act) .. ")"
+			if area.Act >= 5 then
+				suffix = " (Act " .. tostring(area.Act - 3) .. ")"
+			else
+				suffix = " (Act " .. tostring(area.Act) .. ")"
+			end
 		end
 		out:write('\tname = "' .. area.Name .. suffix .. '",\n')
 		out:write('\tbaseName = "' .. area.Name .. '",\n')
