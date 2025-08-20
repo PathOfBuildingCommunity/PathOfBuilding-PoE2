@@ -955,7 +955,9 @@ function calcs.perform(env, skipEHP)
 	end
 	output.WarcryPower = modDB:Override(nil, "WarcryPower") or modDB:Sum("BASE", nil, "WarcryPower") or 0
 	modDB.multipliers["WarcryPower"] = output.WarcryPower
-
+	
+	local minionTypeCount = 0
+	local minionType = { }
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
@@ -1025,6 +1027,11 @@ function calcs.perform(env, skipEHP)
 			local limit = activeSkill.skillModList:Sum("BASE", nil, activeSkill.minion.minionData.limit)
 			output[activeSkill.minion.minionData.limit] = m_max(limit, output[activeSkill.minion.minionData.limit] or 0)
 		end
+		if activeSkill.activeEffect.grantedEffect and activeSkill.skillTypes[SkillType.Minion] and activeSkill.skillTypes[SkillType.Persistent] and not minionType[activeSkill.activeEffect.grantedEffect.id] then
+			minionTypeCount = minionTypeCount + 1
+			minionType[activeSkill.activeEffect.grantedEffect.id] = true
+		end
+		env.modDB.multipliers["PersistentMinionTypes"] = minionTypeCount
 		if env.mode_buffs and skillFlags.warcry then
 			if activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") and not modDB:Flag(nil, "RallyingActive") then
 				env.player.modDB:NewMod("RallyingExertMoreDamagePerAlly", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryExertDamageBonus"))
