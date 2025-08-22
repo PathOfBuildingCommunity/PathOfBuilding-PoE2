@@ -1503,7 +1503,7 @@ end
 function ItemsTabClass:UpdateDisplayItemTooltip()
 	self.displayItemTooltip:Clear()
 	self:AddItemTooltip(self.displayItemTooltip, self.displayItem)
-	self.displayItemTooltip.center = false
+	self.displayItemTooltip.center = true
 end
 
 function ItemsTabClass:UpdateClusterJewelControls()

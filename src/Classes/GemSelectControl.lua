@@ -475,9 +475,9 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local cursorX, cursorY = GetCursorPos()
 			self.tooltip:Clear()
 			if gemInstance and gemInstance.gemData then
+				if main.showFlavourText then self.tooltip.titleYOffset = 5 end --The image for Gems has an aspect ratio that makes the title not centered.
 				self:AddGemTooltip(gemInstance)
 			else
-				self.tooltip.itemTooltip = false
 				self.tooltip:AddLine(16, toolTipText)
 			end
 
@@ -510,7 +510,6 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			DrawImage(nil, sx+1, y+2, 16-2, height-4)
 			SetDrawColor(colorA,colorA,colorA)
 			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
-
 
 			SetDrawLayer(nil, 10)
 			self.tooltip:Draw(x, y, width, height, viewPort)
