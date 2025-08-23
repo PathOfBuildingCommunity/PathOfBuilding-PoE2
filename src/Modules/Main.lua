@@ -104,7 +104,7 @@ function main:Init()
 	self.notSupportedTooltipText = " ^8(Not supported in PoB yet)"
 	self.POESESSID = ""
 	self.showPublicBuilds = true
-	self.showFlavourText = false
+	self.showFlavourText = true
 
 	if self.userPath then
 		self:ChangeUserPath(self.userPath, ignoreBuild)
