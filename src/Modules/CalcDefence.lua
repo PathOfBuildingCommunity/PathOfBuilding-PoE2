@@ -3482,7 +3482,7 @@ function calcs.buildDefenceEstimations(env, actor)
 						-- Which means that
 						-- 		RAW = [quadratic]
 
-						local oneMinusFlatPlusOverwhelm = (1 + flatDR - enemyOverwhelmPercent / 100)
+						local oneMinusFlatPlusOverwhelm = (1 - flatDR + enemyOverwhelmPercent / 100)
 						local HP_tTM_tF_DCM_tRM = (totalHitPool / totalTakenMulti - takenFlat) / (damageConvertedMulti * totalResistMult)
 						
 						local a = data.misc.ArmourRatio * damageConvertedMulti * oneMinusFlatPlusOverwhelm
