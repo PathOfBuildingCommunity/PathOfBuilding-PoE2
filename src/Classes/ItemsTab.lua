@@ -2593,6 +2593,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	else
 		tooltip:AddLine(20, rarityCode..item.namePrefix..item.baseName:gsub(" %(.+%)","")..item.nameSuffix)
 	end
+	if item.fractured then
+		tooltip:AddLine(16, colorCodes.FRACTURED.."Fractured Item")
+	end
 
 	tooltip:AddSeparator(10)
 
