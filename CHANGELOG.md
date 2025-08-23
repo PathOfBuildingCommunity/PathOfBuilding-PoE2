@@ -44,12 +44,12 @@
 - Fix crash from support gems imported on skills from items [\#1132](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1132) ([Wires77](https://github.com/Wires77))
 - Fix Gem tooltips crashing on Linux [\#1169](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1169) ([TheDechev](https://github.com/TheDechev))
 ### User Interface
-- Add button to logout from the PoE API [\#1092](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1092) ([trompetin17](https://github.com/justjuangui))
+- Add button to log out from the PoE API [\#1092](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1092) ([trompetin17](https://github.com/justjuangui))
 - Show Quiver Effect breakdown on Calcs Tab [\#1091](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1091) ([trompetin17](https://github.com/justjuangui))
 - Enable Sorting of folders by date and inherit the sort order in the build save dialog [\#1150](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1150) ([Noologos](https://github.com/Noologos))
 - Display distance in Units for AoE breakdown [\#1160](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1160) ([Blitz54](https://github.com/Blitz54))
 - Add text after red mods to show that PoB does not currently handle them [\#1173](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1173) ([LocalIdentity](https://github.com/LocalIdentity))
-- Add Item Flavour text with styled Tooltips and Passive Tree headers (config to disable if you dont like it) [\#1151](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1151) ([Blitz54](https://github.com/Blitz54))
+- Add Item Flavour text with styled Tooltips and Passive Tree headers (config to disable if you don't like it) [\#1151](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1151) ([Blitz54](https://github.com/Blitz54))
 ### Fixed Calculations
 - Fix calculation when using multiple "more Crit Damage Bonus" mods [\#1044](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1044) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix Flicker Strike not scaling with Area damage [\#1040](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1040) ([CedrN](https://github.com/CedrN))

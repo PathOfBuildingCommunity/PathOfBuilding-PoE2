@@ -11,7 +11,7 @@ VERSION[0.9.0][2025/08/23]
 * Add support for "Zealous Inquisition" explode mod (Witchhunter Ascendancy Notable) (majochem)
 * Add support for Lich Jewel Socket (trompetin17)
 * Add support for Sturdy Ally and Tandem Assault (Blitz54)
-* Add support for "Presence" and related mods by (@majochem, @Blitz54) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1094, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1106
+* Add support for "Presence" and related mods by (majochem, Blitz54)
 * Add support for "Hazard" related mods (majochem)
 * Add support for Bleed and Poison chance on critical hit calculation (majochem)
 
@@ -43,12 +43,12 @@ VERSION[0.9.0][2025/08/23]
 * Fix Gem tooltips crashing on Linux (TheDechev)
 
 --- User Interface ---
-* Add button to logout from the PoE API (trompetin17)
+* Add button to log out from the PoE API (trompetin17)
 * Show Quiver Effect breakdown on Calcs Tab (trompetin17)
 * Enable Sorting of folders by date and inherit the sort order in the build save dialog (Noologos)
 * Display distance in Units for AoE breakdown (Blitz54)
 * Add text after red mods to show that PoB does not currently handle them (LocalIdentity)
-* Add Item Flavour text with styled Tooltips and Passive Tree headers (config to disable if you dont like it) (Blitz54)
+* Add Item Flavour text with styled Tooltips and Passive Tree headers (config to disable if you don't like it) (Blitz54)
 
 --- Fixed Calculations ---
 * Fix calculation when using multiple "more Crit Damage Bonus" mods (LocalIdentity)
