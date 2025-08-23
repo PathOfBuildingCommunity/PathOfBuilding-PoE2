@@ -85,6 +85,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.build = build
 
 	self.socketGroupList = { }
+	self.removedSocketGroupList = { }
 
 	self.sortGemsByDPS = true
 	self.sortGemsByDPSField = "CombinedDPS"
@@ -162,31 +163,28 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
-	self.controls.groupSlotLabel = new("LabelControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 0, 30, 0, 16 }, "^7Socketed in:")
-	self.controls.groupSlot = new("DropDownControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 85, 28, 130, 20 }, groupSlotDropList, function(index, value)
-		self.displayGroup.slot = value.slotName
+
+	self.controls.set1Enabled = new("CheckBoxControl", { "TOPLEFT", self.anchorGroupDetail, "TOPLEFT" }, { 42, 30, 20 }, "Set 1:", function(state)
+		self.displayGroup.set1 = state
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
-	self.controls.groupSlot.tooltipFunc = function(tooltip, mode, index, value)
-		tooltip:Clear()
-		if mode == "OUT" or index == 1 then
-			tooltip:AddLine(16, "Select the item in which this skill is socketed.")
-			tooltip:AddLine(16, "This will allow the skill to benefit from modifiers on the item that affect socketed gems.")
-		else
-			local slot = self.build.itemsTab.slots[value.slotName]
-			local ttItem = self.build.itemsTab.items[slot.selItemId]
-			if ttItem then
-				self.build.itemsTab:AddItemTooltip(tooltip, ttItem, slot)
-			else
-				tooltip:AddLine(16, "No item is equipped in this slot.")
-			end
-		end
-	end
-	self.controls.groupSlot.enabled = function()
+
+	self.controls.set1Enabled.enabled = function()
 		return self.displayGroup.source == nil
 	end
-	self.controls.groupEnabled = new("CheckBoxControl", { "LEFT", self.controls.groupSlot, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
+
+	self.controls.set2Enabled = new("CheckBoxControl", { "LEFT", self.controls.set1Enabled, "RIGHT" }, { 50, 0, 20 }, "Set 2:", function(state)
+		self.displayGroup.set2 = state
+		self:AddUndoState()
+		self.build.buildFlag = true
+	end)
+
+	self.controls.set2Enabled.enabled = function()
+		return self.displayGroup.source == nil
+	end
+
+	self.controls.groupEnabled = new("CheckBoxControl", { "LEFT", self.controls.set2Enabled, "RIGHT" }, { 70, 0, 20 }, "Enabled:", function(state)
 		self.displayGroup.enabled = state
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -208,10 +206,12 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.controls.groupCount.shown = function()
 		return self.displayGroup.source ~= nil
 	end
-	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.groupSlotLabel, "TOPLEFT" }, { 0, 30, 0, 16 })
+
+	self.controls.sourceNote = new("LabelControl", { "TOPLEFT", self.controls.groupLabel, "TOPLEFT" }, { 0, 30 + 28, 0, 16 })
 	self.controls.sourceNote.shown = function()
-		return self.displayGroup.source ~= nil
+		return self.displayGroup.explodeSources ~= nil
 	end
+
 	self.controls.sourceNote.label = function()
 		local label
 		if self.displayGroup.explodeSources then
@@ -221,25 +221,6 @@ which comes from the following sources:]]
 				label = label .. "\n\t" .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???")
 			end
 			label = label .. "^7\nYou cannot delete this group, but it will disappear if you lose the above sources."
-		else
-			local activeGem = self.displayGroup.gemList[1]
-			local sourceName
-			if self.displayGroup.sourceItem then
-				sourceName = "'" .. colorCodes[self.displayGroup.sourceItem.rarity] .. self.displayGroup.sourceItem.name
-			elseif self.displayGroup.sourceNode then
-				sourceName = "'" .. colorCodes["NORMAL"] .. self.displayGroup.sourceNode.name
-			else
-				sourceName = "'" .. colorCodes["NORMAL"] .. "?"
-			end
-			sourceName = sourceName .. "^7'"
-			label = [[^7This is a special group created for the ']] .. activeGem.color .. (activeGem.grantedEffect and activeGem.grantedEffect.name or activeGem.nameSpec) .. [[^7' skill,
-which is being provided by ]] .. sourceName .. [[.
-You cannot delete this group, but it will disappear if you ]] .. (self.displayGroup.sourceNode and [[un-allocate the node.]] or [[un-equip the item.]])
-			if not self.displayGroup.noSupports then
-				label = label .. "\n\n" .. [[You cannot add support gems to this group, but support gems in
-any other group socketed into ]] .. sourceName .. [[
-will automatically apply to the skill.]]
-			end
 		end
 		return label
 	end
@@ -274,8 +255,9 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 	socketGroup.includeInFullDPS = node.attrib.includeInFullDPS and node.attrib.includeInFullDPS == "true"
 	socketGroup.groupCount = tonumber(node.attrib.groupCount)
 	socketGroup.label = node.attrib.label
-	socketGroup.slot = node.attrib.slot
 	socketGroup.source = node.attrib.source
+	socketGroup.set1 = node.attrib.set1 and node.attrib.set1 == "true"
+	socketGroup.set2 = node.attrib.set2 and node.attrib.set2 == "true"
 	socketGroup.mainActiveSkill = tonumber(node.attrib.mainActiveSkill) or 1
 	socketGroup.mainActiveSkillCalcs = tonumber(node.attrib.mainActiveSkillCalcs) or 1
 	socketGroup.gemList = { }
@@ -432,8 +414,9 @@ function SkillsTabClass:Save(xml)
 				includeInFullDPS = tostring(socketGroup.includeInFullDPS),
 				groupCount = socketGroup.groupCount ~= nil and tostring(socketGroup.groupCount),
 				label = socketGroup.label,
-				slot = socketGroup.slot,
 				source = socketGroup.source,
+				set1 = tostring(socketGroup.set1 or true),
+				set2 = tostring(socketGroup.set2 or true),
 				mainActiveSkill = tostring(socketGroup.mainActiveSkill),
 				mainActiveSkillCalcs = tostring(socketGroup.mainActiveSkillCalcs),
 			} }
@@ -573,9 +556,6 @@ function SkillsTabClass:CopySocketGroup(socketGroup)
 	if socketGroup.label and socketGroup.label:match("%S") then
 		skillText = skillText .. "Label: " .. socketGroup.label .. "\r\n"
 	end
-	if socketGroup.slot then
-		skillText = skillText .. "Slot: " .. socketGroup.slot .. "\r\n"
-	end
 	for _, gemInstance in ipairs(socketGroup.gemList) do
 		skillText = skillText .. string.format("%s %d/%d %s %d\r\n", gemInstance.nameSpec, gemInstance.level, gemInstance.quality, gemInstance.enabled and "" or "DISABLED", gemInstance.count or 1)
 	end
@@ -589,10 +569,6 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 		local label = skillText:match("Label: (%C+)")
 		if label then
 			newGroup.label = label
-		end
-		local slot = skillText:match("Slot: (%C+)")
-		if slot then
-			newGroup.slot = slot
 		end
 		for nameSpec, level, quality, state, count in skillText:gmatch("([ %a']+) (%d+)/(%d+) ?(%a*) (%d+)") do
 			t_insert(newGroup.gemList, {
@@ -647,9 +623,12 @@ function SkillsTabClass:CreateGemSlot(index)
 		end)
 	end
 	slot.delete.shown = function()
-		return index <= #self.displayGroup.gemList + 1 and self.displayGroup.source == nil
+		return index <= #self.displayGroup.gemList + 1 and self.displayGroup.explodeSources == nil
 	end
 	slot.delete.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	slot.delete.tooltipText = "Remove this gem."
@@ -702,6 +681,12 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 		self.build.buildFlag = true
 	end, true)
+	slot.nameSpec.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
+		return true
+	end
 	slot.nameSpec:AddToTabGroup(self.controls.groupLabel)
 	self.controls["gemSlot"..index.."Name"] = slot.nameSpec
 
@@ -723,6 +708,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	end)
 	slot.level:AddToTabGroup(self.controls.groupLabel)
 	slot.level.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Level"] = slot.level
@@ -806,6 +794,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	end
 	slot.quality:AddToTabGroup(self.controls.groupLabel)
 	slot.quality.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Quality"] = slot.quality
@@ -845,6 +836,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 	end
 	slot.enabled.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Enable"] = slot.enabled
@@ -867,6 +861,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		self.build.buildFlag = true
 	end)
 	slot.count.shown = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		local gemInstance = self.displayGroup and self.displayGroup.gemList[index]
 		if gemInstance then
 			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
@@ -886,6 +883,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 	end
 	slot.count.enabled = function()
+		if index == 1 and self.displayGroup and (self.displayGroup.sourceItem or self.displayGroup.sourceNode) then
+			return false
+		end
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Count"] = slot.count
@@ -1041,13 +1041,15 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			end
 		elseif gemInstance.skillId then
 			-- Specified by skill ID
-			-- Used for skills granted by items
+			-- Used for skills granted by items / nodes
 			gemInstance.errMsg = nil
-			local gemId = data.gemForSkill[gemInstance.skillId]
+			local grantedEffect = data.skills[gemInstance.skillId]
+			local gemId = data.gemForSkill[grantedEffect]
 			if gemId then
 				gemInstance.gemData = data.gems[gemId]
+				gemInstance.nameSpec = gemInstance.gemData.name
 			else
-				gemInstance.grantedEffect = data.skills[gemInstance.skillId]
+				gemInstance.grantedEffect = grantedEffect
 			end
 			if gemInstance.triggered and gemInstance.grantedEffect then
 				if gemInstance.grantedEffect.levels[gemInstance.level] then
@@ -1105,9 +1107,19 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 
 		-- Update the main controls
 		self.controls.groupLabel:SetText(socketGroup.label)
-		self.controls.groupSlot:SelByValue(socketGroup.slot, "slotName")
 		self.controls.groupEnabled.state = socketGroup.enabled
 		self.controls.includeInFullDPS.state = socketGroup.includeInFullDPS and socketGroup.enabled
+		if socketGroup.sourceItem then
+			local swap = not not socketGroup.slot:find("Swap")
+			socketGroup.set1 = not swap
+			socketGroup.set2 = swap
+		elseif socketGroup.sourceNode then
+			socketGroup.set1 = true
+			socketGroup.set2 = true
+		end
+
+		self.controls.set1Enabled.state = socketGroup.set1 == nil and true or socketGroup.set1
+		self.controls.set2Enabled.state = socketGroup.set2 == nil and true or socketGroup.set2
 		self.controls.groupCount:SetText(socketGroup.groupCount or 1)
 
 		-- Update the gem slot controls
@@ -1130,9 +1142,6 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 			tooltip:AddLine(18, "^7Source: " .. colorCodes[source.rarity or "NORMAL"] .. (source.name or source.dn or "???"))
 		end
 		return
-	end
-	if socketGroup.enabled and not socketGroup.slotEnabled then
-		tooltip:AddLine(16, "^7Note: this group is disabled because it is socketed in the inactive weapon set.")
 	end
 	local sourceSingle = socketGroup.sourceItem or socketGroup.sourceNode
 	if sourceSingle then
@@ -1188,7 +1197,7 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 				reason = "(Unsupported)"
 			elseif not gemInstance.enabled then
 				reason = "(Disabled)"
-			elseif not socketGroup.enabled or not socketGroup.slotEnabled then
+			elseif not socketGroup.enabled then
 			elseif grantedEffect.support then
 				if displayEffect.superseded then
 					reason = "(Superseded)"
