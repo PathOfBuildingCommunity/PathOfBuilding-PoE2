@@ -940,7 +940,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						remainingRunes = remainingRunes - numRunes
 						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this 
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
-						modLine.soulcore = groupedRunes[1][1]:match("Soul Core") ~= nil
+						modLine.soulCore = groupedRunes[1][1]:match("Soul Core") ~= nil
 						modLine.runeCount = numRunes
 
 						if shouldFixRunesOnItem then

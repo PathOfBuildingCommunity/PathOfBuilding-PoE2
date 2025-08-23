@@ -5,17 +5,17 @@ describe("TestSocketables", function()
 
     it("ModRunes matches Data/Soulcores", function()
         local modRunes = LoadModule("../src/Data/ModRunes")
-        local soulcores = {}
-        LoadModule("../src/Data/Bases/soulcore", soulcores)
+        local soulCores = {}
+        LoadModule("../src/Data/Bases/soulcore", soulCores)
         local soulCoreCount = 0
-        for name, _ in pairs(soulcores) do
+        for name, _ in pairs(soulCores) do
             assert.is_not.equals(modRunes[name], nil)
             soulCoreCount = soulCoreCount + 1
         end
 
         local modRunesCount = 0
         for name, _ in pairs(modRunes) do
-            assert.is_not.equals(soulcores[name], nil)
+            assert.is_not.equals(soulCores[name], nil)
             modRunesCount = modRunesCount + 1
         end
         -- Final check that Bases/soulcore has same number of entries as ModRunes
@@ -33,8 +33,8 @@ describe("TestSocketables", function()
                 if runeSlotType == slotType then
                     -- Need to add an entry of the name for each mod line for tests
                     for _, _ in ipairs(mods) do
-                        table.insert(names, name)    
-                    end                    
+                        table.insert(names, name)
+                    end
                 end
             end
         end
@@ -49,11 +49,11 @@ describe("TestSocketables", function()
 
         -- Create an ItemTab and add a socketable item to it
         local item = new("Item", itemRaw)
-        
+
         build.itemsTab:AddItem(item)
         build.itemsTab:SetDisplayItem(item)
         runCallback("OnFrame")
-        
+
         -- Extract the proper slot type runes from the list
         local itemTabRunes = { }
         for _, rune in ipairs(build.itemsTab.controls["displayItemRune1"].list) do
@@ -87,7 +87,7 @@ describe("TestSocketables", function()
     it("'Shield' runes appear in Items tab", slotTypeTest("shield", "Vaal Tower Shield"))
 
     it("'Focus' runes appear in Items tab", slotTypeTest("focus", "Hallowed Focus"))
-    
+
     -- Weapons
     it("'Bow' runes appear in Items tab", slotTypeTest("bow", "Gemini Bow"))
 
@@ -102,7 +102,7 @@ describe("TestSocketables", function()
     it("'(Quarterstaff) War Staff' runes appear in Items tab", slotTypeTest("warstaff", "Striking Quarterstaff"))
 
     it("'Spear' runes appear in Items tab", slotTypeTest("spear", "Flying Spear"))
-   
+
     it("'One Hand Mace' runes appear in Items tab", slotTypeTest("one hand mace", "Marauding Mace"))
 
     it("'Two Hand Mace' runes appear in Items tab", slotTypeTest("two hand mace", "Massive Greathammer"))

@@ -262,41 +262,41 @@ directiveTable.base = function(state, args, out)
 	end
 	-- Special handling of Runes and SoulCores
 	if state.type == "Rune" or state.type == "SoulCore" or state.type == "Talisman" then
-		local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
-		local soulcoresperclass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
+		local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
+		local soulCoresPerClass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
 
 		local stats = { }
 		local outLines = { }
-		if soulcore then			
-			if #soulcore.StatsKeysWeapon > 0 then
-				for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
-					local statValue = soulcore["StatsValuesWeapon"][i]
+		if soulCores then
+			if #soulCores.StatsKeysWeapon > 0 then
+				for i, statKey in ipairs(soulCores.StatsKeysWeapon) do
+					local statValue = soulCores["StatsValuesWeapon"][i]
 					stats[statKey.Id] = { min = statValue, max = statValue }
 				end
 				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
 			end
-			if #soulcore.StatsKeysArmour > 0 then
+			if #soulCores.StatsKeysArmour > 0 then
 				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulcore.StatsKeysArmour) do
-					local statValue = soulcore["StatsValuesArmour"][i]
+				for i, statKey in ipairs(soulCores.StatsKeysArmour) do
+					local statValue = soulCores["StatsValuesArmour"][i]
 					stats[statKey.Id] = { min = statValue, max = statValue }
 				end
 				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
 			end
-			if #soulcore.StatsKeysCaster > 0 then
+			if #soulCores.StatsKeysCaster > 0 then
 				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulcore.StatsKeysCaster) do
-					local statValue = soulcore["StatsValuesCaster"][i]
+				for i, statKey in ipairs(soulCores.StatsKeysCaster) do
+					local statValue = soulCores["StatsValuesCaster"][i]
 					stats[statKey.Id] = { min = statValue, max = statValue }
 				end
 				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
 			end
 			-- Attribute runes are special case and can socket in everything
-			-- Sceptres are handled in "soulcoresperclass"
-			if #soulcore.StatsKeysAttributes > 0 then
+			-- Sceptres are handled in "soulCoresPerClass"
+			if #soulCores.StatsKeysAttributes > 0 then
 				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulcore.StatsKeysAttributes) do
-					local statValue = soulcore["StatsValuesAttributes"][i]
+				for i, statKey in ipairs(soulCores.StatsKeysAttributes) do
+					local statValue = soulCores["StatsValuesAttributes"][i]
 					stats[statKey.Id] = { min = statValue, max = statValue }
 				end
 				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
@@ -305,13 +305,13 @@ directiveTable.base = function(state, args, out)
 			end
 		end
 		-- Check for more slot specific Soulcores/Runes/Talismans
-		if soulcoresperclass then
+		if soulCoresPerClass then
 			stats = { }
-			for i, statKey in ipairs(soulcoresperclass.Stats) do
-				local statValue = soulcoresperclass["StatsValues"][i]
+			for i, statKey in ipairs(soulCoresPerClass.Stats) do
+				local statValue = soulCoresPerClass["StatsValues"][i]
 				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			local coreItemClass = soulcoresperclass.ItemClass.Id
+			local coreItemClass = soulCoresPerClass.ItemClass.Id
 			table.insert(outLines, coreItemClass..': ' .. table.concat(describeStats(stats), '\\n'))
 		end
 		out:write('\timplicit = "'..table.concat(outLines, '\\n')..'",\n')
