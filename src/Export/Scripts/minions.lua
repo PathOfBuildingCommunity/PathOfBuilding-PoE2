@@ -292,7 +292,7 @@ directiveTable.emit = function(state, args, out)
 		else
 			name = name:gsub("%(Act (%d)%)", function(digit)
 				local n = tonumber(digit)
-				if n > 5 then
+				if n > 5 then -- Repeat acts need to be adjusted. May not be needed in 0.3
 					return "(Act " .. (n - 3) .. ")"
 				else
 					return "(Act " .. n .. ")"
@@ -351,8 +351,7 @@ directiveTable.spectre = function(state, args, out)
 	directiveTable.monster(state, args, out)
 end
 
-for _, name in pairs({"Spectres","Minions"}) do -- Add back when Spectres are in the game again
---for _, name in pairs({"Minions"}) do
+for _, name in pairs({"Spectres","Minions"}) do
 	processTemplateFile(name, "Minions/", "../Data/", directiveTable)
 end
 
