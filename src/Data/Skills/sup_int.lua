@@ -3058,6 +3058,11 @@ skills["SupportMusterPlayer"] = {
 			label = "Muster",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_varied_troops_damage_+%_final_per_different_persistent_ominion"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", actor = "parent", var = "PersistentMinionTypes" }) }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

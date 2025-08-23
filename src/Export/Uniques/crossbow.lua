@@ -3,6 +3,18 @@
 return {
 -- Weapon: Crossbow
 [[
+The Last Lament
+Desolate Crossbow
+League: Dawn of the Hunt
+Implicits: 1
+Grants Skill: Level (1-20) Compose Requiem
+UniqueLocalIncreasedPhysicalDamagePercent15
+UniqueIncreasedAttackSpeed12
+UniqueLifeLeechLocal4
+UniqueLoadCrossbowBoltOnKillPercent1
+UniqueSacrificeLifeForBolts1
+UniqueReloadSpeed1
+]],[[
 Mist Whisper
 Makeshift Crossbow
 Variant: Pre 0.1.1

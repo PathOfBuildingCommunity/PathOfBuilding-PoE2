@@ -18,6 +18,7 @@ local skillTypes = {
 	"act_int",
 	"other",
 	"minion",
+	"spectre",
 	"sup_str",
 	"sup_dex",
 	"sup_int",
@@ -964,3 +965,5 @@ LoadModule("Data/Uniques/Special/New")
 data.questRewards = LoadModule("Data/QuestRewards")
 
 data.flavourText = LoadModule("Data/FlavourText")
+data.worldAreas = {}
+LoadModule("Data/WorldAreas", data.worldAreas)

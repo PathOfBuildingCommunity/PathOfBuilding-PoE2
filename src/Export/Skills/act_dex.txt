@@ -87,9 +87,10 @@ statMap = {
 #mods
 #skillEnd
 
+#minionList
 #skill SummonBeastPlayer
 #set SummonBeastPlayer
-#flags
+#flags spell minion summonBeast duration permanentMinion
 #mods
 #skillEnd
 

@@ -3,6 +3,18 @@
 return {
 -- Weapon: Crossbow
 [[
+The Last Lament
+Desolate Crossbow
+League: Dawn of the Hunt
+Implicits: 1
+Grants Skill: Level (1-20) Compose Requiem
+(250-300)% increased Physical Damage
+(10-20)% increased Attack Speed
+(40-60)% reduced Reload Speed
+Leeches (5-10)% of Physical Damage as Life
+(10-20)% chance to load a bolt into all Crossbow skills on Kill
+Sacrifice 300 Life to not consume the last bolt when firing
+]],[[
 Mist Whisper
 Makeshift Crossbow
 Variant: Pre 0.1.1
@@ -21,7 +33,7 @@ Implicits: 1
 (20-30)% increased Bolt Speed
 (40-60)% increased Physical Damage
 (30-40)% increased Attack Speed
-100% chance to not consume a bolt if you've Reloaded Recently
 30% reduced Reload Speed
+100% chance to not consume a bolt if you've Reloaded Recently
 ]],
 }

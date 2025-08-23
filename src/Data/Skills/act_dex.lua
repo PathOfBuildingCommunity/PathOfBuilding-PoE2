@@ -825,6 +825,8 @@ skills["CombatFrenzyPlayer"] = {
 skills["SummonBeastPlayer"] = {
 	name = "Companion: {0}",
 	baseTypeName = "Companion: {0}",
+	minionList = {
+	},
 	color = 2,
 	description = "Summon a Reviving Beast Companion to aid you in combat.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.CreatesMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.Companion] = true, [SkillType.CreatesCompanion] = true, },
@@ -882,6 +884,11 @@ skills["SummonBeastPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
+				spell = true,
+				minion = true,
+				summonBeast = true,
+				duration = true,
+				permanentMinion = true,
 			},
 			constantStats = {
 				{ "minion_base_resummon_time_ms", 12000 },

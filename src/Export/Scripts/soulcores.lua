@@ -37,37 +37,96 @@ directiveTable.base = function(state, args, out)
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
 	
 	-- Special handling of Runes and SoulCores
-	local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
-	if soulcore then
-		local function writeStats(stats, out)
-			local stats, orders = describeStats(stats)
-			if #orders > 0 then
-				out:write('{ ')
-				out:write('type = "Rune", ')
-				out:write('"'..table.concat(stats, '", "'), '", ')
-				out:write('statOrder = { ', table.concat(orders, ', '), ' }, ')						
-				out:write('},\n')
-			end
+	local function addRuneStats(stats, slotType, modLines)
+		local stats, orders = describeStats(stats)
+		if #orders > 0 then
+			local out = {
+				type = "Rune",
+				slotType = slotType,
+				label = stats,
+				statOrder = orders,
+			}
+			table.insert(modLines, out)
 		end
-		out:write('\t["', displayName, '"] = {\n')
+	end
+
+	local function writeModLines(modLines, out)
+		for _, modLine in ipairs(modLines) do
+			out:write('\t\t["'..modLine.slotType..'"] = {\n')
+			out:write('\t\t\t\ttype = "Rune",\n')
+			-- for j, label in ipairs(modLine.label) do
+			out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
+			out:write('\t\t\t\tstatOrder = { '..table.concat(modLine.statOrder, ', ')..' },\n')
+			-- end
+			out:write('\t\t},\n')
+		end
+	end
+
+	-- Check for Standard Weapon, Armour, Caster Runes
+	local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
+	local soulcoresperclass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
+	out:write('\t["', displayName, '"] = {\n')
+	local modLines = { }
+	if soulcore then
 		-- weapons
 		local stats = { }
 		for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
 			local statValue = soulcore["StatsValuesWeapon"][i]
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
-		out:write("\t\tweapon = ")
-		writeStats(stats, out)
+		if next(stats) then
+			addRuneStats(stats, "weapon", modLines)
+		end
+		
+		-- armour
 		stats = { }  -- reset stats to empty
 		for i, statKey in ipairs(soulcore.StatsKeysArmour) do
 			local statValue = soulcore["StatsValuesArmour"][i]
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
-		out:write("\t\tarmour = ")
-		writeStats(stats, out)
+		if next(stats) then
+			addRuneStats(stats, "armour", modLines)
+		end
 
-		out:write('\t},\n')
+		-- caster check (wand & staff)
+		stats = { }  -- reset stats to empty
+		for i, statKey in ipairs(soulcore.StatsKeysCaster) do
+			local statValue = soulcore["StatsValuesCaster"][i]
+			stats[statKey.Id] = { min = statValue, max = statValue }
+		end
+		if next(stats) then
+			addRuneStats(stats, "caster", modLines)
+		end
+
+		-- Check if the row is an Attribute rune which can go in all slots
+		if soulcore.StatsKeysAttributes then
+			stats = { }  -- reset stats to empty
+			for i, statKey in ipairs(soulcore.StatsKeysAttributes) do
+				local statValue = soulcore["StatsValuesAttributes"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
+			end
+			if next(stats) then
+				addRuneStats(stats, "weapon", modLines)
+				addRuneStats(stats, "armour", modLines)
+				addRuneStats(stats, "caster", modLines)
+			end
+		end
 	end
+
+	-- Handle special case of new runes on specific item types
+	if soulcoresperclass then
+		local stats = { }  -- reset stats to empty
+		for i, statKey in ipairs(soulcoresperclass.Stats) do
+			local statValue = soulcoresperclass["StatsValues"][i]
+			stats[statKey.Id] = { min = statValue, max = statValue }
+		end
+		local itemClassId = soulcoresperclass.ItemClass.Id
+		if next(stats) then
+			addRuneStats(stats, itemClassId:lower(), modLines)
+		end
+	end
+	writeModLines(modLines, out)
+	out:write('\t},\n')
 end
 
 directiveTable.baseMatch = function(state, argstr, out)

@@ -15699,6 +15699,8 @@ skills["SparkPlayer"] = {
 skills["SummonSpectrePlayer"] = {
 	name = "Spectre: {0} ",
 	baseTypeName = "Spectre: {0} ",
+	minionList = {
+	},
 	color = 3,
 	description = "Summon the spirit of the bound monster as a Reviving Minion.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.MinionsCanExplode] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.CanRapidFire] = true, [SkillType.CreatesMinion] = true, [SkillType.CreatesUndeadMinion] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.MultipleReservation] = true, },
@@ -15755,16 +15757,6 @@ skills["SummonSpectrePlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "skill_stat_descriptions",
-			minionList = {
-			},
-			statMap = {
-				["accuracy_rating"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", nil) })
-				},
-				["raised_spectre_level"] = {
-					skill("minionLevel", nil),
-				},
-			},
 			baseFlags = {
 				spell = true,
 				minion = true,

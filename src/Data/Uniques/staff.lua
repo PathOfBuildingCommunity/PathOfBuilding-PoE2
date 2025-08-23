@@ -61,6 +61,18 @@ Grants Skill: Level (1-20) Freezing Shards
 (10-20)% increased Cast Speed
 100% increased Freeze Buildup
 Enemies Frozen by you take 50% increased Damage
+]],[[
+The Whispering Ice
+Permafrost Staff
+League: Dawn of the Hunt
+Implicits: 2
+Grants Skill: Level (1-20) Heart of Ice
+Grants Skill: Level (1-20) Icestorm
++(2-4) to Level of all Cold Spell Skills
+(10-20)% reduced Cast Speed
+(5-15)% increased Intelligence
+4% increased Spell Damage per 10 Intelligence
+Inflict Cold Exposure on Hit, lowering Total Cold Resistance by (20-30)%
 ]],
 -- Weapon: Warstaff
 [[

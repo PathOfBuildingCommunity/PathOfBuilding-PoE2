@@ -178,6 +178,18 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 			local skillCfg = activeSkill.skillCfg
 			local mult = floor(skillModList:More(skillCfg, "ReservationMultiplier"), 4)
 			local pool = { ["Mana"] = { }, ["Life"] = { }, ["Spirit"] = { } }
+			if activeSkill.skillCfg.skillName:match("^Companion:") and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
+				activeSkill.skillData.spiritReservationPercent = activeSkill.minion.minionData.companionReservation
+				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Companion: "..activeSkill.minion.minionData.name -- for breakdown
+				activeSkill.activeEffect.srcInstance.nameSpec = "Companion: "..activeSkill.minion.minionData.name -- for socket group
+				activeSkill.activeEffect.srcInstance.displayEffect.nameSpec = "Companion: "..activeSkill.minion.minionData.name-- for tooltip
+			end
+			if activeSkill.skillCfg.skillName:match("^Spectre:") and activeSkill.activeEffect.srcInstance.displayEffect and activeSkill.minion then
+				activeSkill.skillData.spiritReservationFlat = activeSkill.minion.minionData.spectreReservation
+				activeSkill.activeEffect.srcInstance.displayEffect.grantedEffect.name = "Spectre: "..activeSkill.minion.minionData.name-- for breakdown
+				activeSkill.activeEffect.srcInstance.nameSpec = "Spectre: "..activeSkill.minion.minionData.name -- for socket group
+				activeSkill.activeEffect.srcInstance.displayEffect.nameSpec = "Spectre: "..activeSkill.minion.minionData.name-- for tooltip
+			end
 			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
 			pool.Spirit.baseFlat = activeSkill.skillData.spiritReservationFlat or activeSkill.activeEffect.grantedEffectLevel.spiritReservationFlat or 0
 			pool.Spirit.baseFlat = pool.Spirit.baseFlat + skillModList:Sum("BASE", skillCfg, "ExtraSpirit")
@@ -222,7 +234,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					local basePercentVal = values.basePercent * mult
 					values.reservedPercent = 0
 					if values.more > 0 and values.inc > -100 and basePercentVal ~= 0 then
-						values.reservedPercent = m_max(m_ceil(basePercentVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 2), 0)
+						values.reservedPercent = m_max(round(basePercentVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 2), 0)
 					end
 				end
 				if activeSkill.activeMineCount then

@@ -10,7 +10,7 @@ Variant: Current
 Implicits: 1
 {tags:life}+(30-40) to maximum Life
 {tags:speed}10% reduced Movement Speed
-10% reduced Skill Speed
+{tags:speed}10% reduced Skill Speed
 {tags:defences}(25-50)% increased Armour
 {variant:1}20% increased Block chance
 {variant:2}25% increased Block chance
@@ -51,12 +51,13 @@ Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 {tags:attribute}+(10-15) to Dexterity
 {tags:lightning}+(20-30)% to Lightning Resistance
-Critical Hits Ignore Enemy Monster Lightning Resistance
+{tags:lightning}Critical Hits Ignore Enemy Monster Lightning Resistance
 Trigger Lightning Bolt Skill on Critical Hit
 ]],[[
 Defiance of Destiny
 Jade Amulet
 Variant: Pre 0.1.1
+Variant: Pre 0.2.1
 Variant: Current
 Requires Level 56
 Implicits: 1
@@ -66,6 +67,7 @@ Implicits: 1
 {tags:mana}(25-40)% increased Mana Regeneration Rate
 {variant:1}{tags:life}Recover 5% of Missing Life before being Hit by an Enemy
 {variant:2}{tags:life}Recover 10% of Missing Life before being Hit by an Enemy
+{variant:3}{tags:life}Recover (10-20)% of Missing Life before being Hit by an Enemy
 ]],[[
 The Everlasting Gaze
 Azure Amulet
@@ -165,7 +167,7 @@ Rondel of Fragility
 Lunar Amulet
 Implicits: 1
 {tags:defences}+(20-30) to maximum Energy Shield
-(15-30)% increased Skill Speed
+{tags:speed}(15-30)% increased Skill Speed
 (20-30)% increased Critical Hit Chance
 {tags:fire,cold,lightning}-30% to all Elemental Resistances
 (30-50)% increased Damage
@@ -218,17 +220,22 @@ Implicits: 1
 {tags:attribute}+(10-15) to Strength
 {tags:life}(10-15)% increased maximum Life
 {tags:fire}+(20-30)% to Fire Resistance
-Enemies in your Presence have Fire Exposure
+{tags:fire}Enemies in your Presence have Fire Exposure
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
 {tags:life}+(30-40) to maximum Life
 {tags:fire,cold,lightning}+(10-15)% to all Elemental Resistances
 (15-30)% increased Elemental Damage
-Enemies take (5-10)% increased Damage for each Elemental Ailment type among
-your Ailments on them
-(20-30)% reduced Duration of Ignite, Shock and Chill on Enemies
+{variant:1}Enemies take (5-10)% increased Damage for each Elemental Ailment type among
+{variant:2}Enemies take (15-20)% increased Damage for each Elemental Ailment type among
+{variant:1}your Ailments on them
+{variant:2}your Ailments on them
+{variant:1}(20-30)% reduced Duration of Ignite, Shock and Chill on Enemies
+{variant:2}(30-40)% reduced Duration of Ignite, Shock and Chill on Enemies
 ]],
 }

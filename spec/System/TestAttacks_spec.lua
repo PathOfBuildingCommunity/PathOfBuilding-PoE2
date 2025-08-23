@@ -55,4 +55,48 @@ describe("TestAttacks", function()
 		runCallback("OnFrame")
 		assert.are.equals(22, build.calcsTab.mainEnv.player.mainSkill.skillModList:Sum("INC", { flags = ModFlag.Attack }, "Damage"))
 	end)
+
+
+	local integratedEfficenyLoadout = function(modLine) 
+		-- Activate via custom mod text to simplify testing
+		build.configTab.input.customMods = modLine
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		-- Add 2 skills with 1 red, 1 blue, 1 green support each
+		-- Test against Quarterstaff Strike (skill slot 1)
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 1/0  1\nSplinter 1/0  1\nConduction 1/0  1\nBiting Frost 1/0  1")
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnition 1/0  1\nDiscombobulate 1/0  1\nCoursing Current 1/0  1")
+		runCallback("OnFrame")
+		
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+	end
+	it("correctly calculates increased damage with gemling integrated efficency", function()
+		integratedEfficenyLoadout("skills gain 99% increased damage per socketed red support gem")
+		local incDmg = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "Damage")
+		assert.are.equals(incDmg, 99)
+	end)
+
+	it("correctly calculates crit chance with gemling integrated efficency", function()
+		integratedEfficenyLoadout("skills gain 99% increased critical hit chance per socketed blue support gem")
+		local incCritChance = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "CritChance")
+		assert.are.equals(incCritChance, 99)
+	end)
+
+	it("correctly calculates increased skill speed with gemling integrated efficency", function()
+		integratedEfficenyLoadout("skills gain 99% increased skill speed per socketed green support gem")
+		local incSpeed = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "Speed")
+		assert.are.equals(incSpeed, 99)
+	end)
 end)

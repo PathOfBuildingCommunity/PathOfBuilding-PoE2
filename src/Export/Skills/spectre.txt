@@ -5,3 +5,830 @@
 --
 local skills, mod, flag, skill = ...
 
+--ABTT = Add Buff to Target Triggered
+--CGE = Monster Cast Ground Effect
+--DTT = Detach Dash to Target
+--EA = Empty Action
+--EAA = Empty Action Attack
+--EAS = Empty Action Spell
+--EDS = Effect Driven Spell + Effect Driven Attack
+--EG = Execute Geal
+--GA = Geometry Attack
+--GPS = Geometry Projectile Spell
+--GPA = Geometry Projectile Attack
+--GS = Geometry Spell
+--GT = Geometry Trigger
+--MAAS = Melee At Animation Speed
+--MAS = Monster Attack Skills
+--MDD = Monster Detonate Dead
+--MMA = Monster Mortar Attack
+--MMS = Monster Mortar Spell
+--MPW = Monster Projectile Weapon
+--MPS = Monster Projectile Spell
+--SO = Spawn Object
+--SSM = Summon Specific Monster
+--TC = Table Charge
+
+#skill ABTTProcessionBannerDrain Banner
+#set ABTTProcessionBannerDrain
+#flags buff duration
+statMap = {
+	["base_physical_damage_taken_per_minute"] = {
+		skill("PhysicalDot", nil),
+		div = 60,
+	},
+},
+#mods
+#skillEnd
+
+#skill AzmeriFabricationDespair
+#set AzmeriFabricationDespair
+#flags spell curse area duration
+statMap = {
+	["base_chaos_damage_resistance_%"] = {
+		mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill AzmeriFabricationEnfeeble
+#set AzmeriFabricationEnfeeble
+#flags spell curse area duration
+statMap = {
+	["base_skill_buff_damage_+%_final_to_apply"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique", neg = true }),
+	},
+	["base_skill_buff_damage_+%_final_vs_unique_to_apply"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }, { type = "Condition", var = "Unique" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill AzmeriFabricationTemporalChains
+#set AzmeriFabricationTemporalChains
+#flags spell curse area duration
+#mods
+#skillEnd
+
+#skill AzmeriPictBowRainOfSpores
+#set AzmeriPictBowRainOfSpores
+#flags attack area projectile duration
+#mods
+#skillEnd
+
+#skill BloodMageBloodTendrils
+#set BloodMageBloodTendrils
+#flags spell hit triggerable duration chaining
+#mods
+#skillEnd
+
+#skill BoneCultistZealotFirestorm Firestorm
+#set BoneCultistZealotFirestorm
+#flags spell hit triggerable
+#mods
+#skillEnd
+
+#skill BoneCultistZealotLightningstorm Lightning Storm
+#set BoneCultistZealotLightningstorm
+#flags spell hit triggerable
+#mods
+#skillEnd
+
+#skill BurdenedWretchSlam Slam
+#set BurdenedWretchSlam
+#flags attack triggerable
+#mods
+#skillEnd
+
+#skill BurdenedWretchSlamUnique Slam
+#set BurdenedWretchSlamUnique
+#flags attack triggerable
+#mods
+#skillEnd
+
+#skill CGEBloodPriestBoilingBlood Boiling Blood
+#set CGEBloodPriestBoilingBlood
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
+#skill CGESanctifiedMonstrosityPusGround Pus Ground
+#set CGESanctifiedMonstrosityPusGround
+#flags spell area triggerable duration
+#mods
+#skillEnd
+
+#skill CoffinWretchBabySoulrend1 Soulrend
+#set CoffinWretchBabySoulrend1
+#flags triggerable spell area duration projectile
+#mods
+#skillEnd
+
+#skill CultistBeastSunder Sunder
+#set CultistBeastSunder
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill DeathKnightSlamEAA Slam
+#set DeathKnightSlamEAA
+#flags attack triggerable
+#mods
+#skillEnd
+
+#skill DTTHellscapeStabbySkyStab
+#set DTTHellscapeStabbySkyStab
+#flags attack melee projectile
+#mods
+#skillEnd
+
+#skill DTTMantisRatLeap Leap
+#set DTTMantisRatLeap
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill EDSGolemancerReapLeft
+#set EDSGolemancerReapLeft
+#flags attack melee
+#mods
+#skillEnd
+
+#skill EDSPyramidHandLightningLance
+#set EDSPyramidHandLightningLance
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill EDSShellMonsterFlamethrower Flamethrower
+#set EDSShellMonsterFlamethrower
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill EDSShellMonsterPoisonSpray Poison Spray
+#set EDSShellMonsterPoisonSpray
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill ExpeditionGroundLaser Ground Laser
+#set ExpeditionGroundLaser
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill FarudinWarlockBugRend Rend
+#set FarudinWarlockBugRend
+#flags spell area duration projectile triggerable
+#mods
+#skillEnd
+
+#skill FungalArtilleryMortar Mortar
+#set FungalArtilleryMortar
+#flags spell projectile triggerable
+#mods
+#skillEnd
+
+#skill GADeathKnightOverheadslamforward Overhead Slam
+#set GADeathKnightOverheadslamforward
+#flags attack triggerable
+#mods
+#skillEnd
+
+#skill GSArmourCasterVolatileExplode Volatile Mote
+#set GSArmourCasterVolatileExplode
+#flags spell triggerable
+#baseMod skill("cooldown", 15)
+#mods
+#skillEnd
+
+#skill GSCenobiteBloaterOnDeath Death Explosion
+#set GSCenobiteBloaterOnDeath
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill GSMercurialCasterBlast Rune Blast
+#set GSMercurialCasterBlast
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill GACenobiteBloaterSlam Slam
+#set GACenobiteBloaterSlam
+#flags triggerable attack melee
+#mods
+#skillEnd
+
+#skill GAFigureheadSlamGhostFlame Slam
+#set GAFigureheadSlamGhostFlame
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GASaltGolemMelee
+#set GASaltGolemMelee
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GAHellscapeFleshLeapImpact Leap Slam
+#set GAHellscapeFleshLeapImpact
+#flags attack triggerable
+#baseMod skill("cooldown", 5)
+#mods
+#skillEnd
+
+#skill GAHellscapePaleEliteSkyStab Stab Attack
+#set GAHellscapePaleEliteSkyStab
+#flags attack triggerable
+#mods
+#skillEnd
+
+#skill GAMantisRatDualStrike Dual Strike
+#set GAMantisRatDualStrike
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GAMediumBeetleChargedSunder Charged Sunder
+#set GAMediumBeetleChargedSunder
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GAMediumBeetleSunder Sunder
+#set GAMediumBeetleSunder
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GAMutewindWomanSpearStab1 Spear Stab
+#set GAMutewindWomanSpearStab1
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GATwoHeadedTitanSlam Slam
+#set GATwoHeadedTitanSlam
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GATwoHeadedTitanStomp Stomp
+#set GATwoHeadedTitanStomp
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GoreChargerCharge Charge
+#set GoreChargerCharge
+#flags attack melee
+#mods
+#skillEnd
+
+#skill GraveyardGhostDashToTarget Dash
+#set GraveyardGhostDashToTarget
+#flags spell
+#mods
+#skillEnd
+
+#skill GraveyardSpookyGhostExplode Sword Barrage
+#set GraveyardSpookyGhostExplode
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSDesertBatZap Zap
+#set GSDesertBatZap
+#flags triggerable spell hit
+#baseMod skill("cooldown", 6)
+#mods
+#skillEnd
+
+#skill GSExpeditionBoneCultistEggExplosion Pustule
+#set GSExpeditionBoneCultistEggExplosion
+#flags triggerable spell hit
+#baseMod skill("cooldown", 6)
+#mods
+#skillEnd
+
+#skill GSHellscapeDemonEliteBeamNuke Beam
+#set GSHellscapeDemonEliteBeamNuke
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSHellscapePaleEliteBoltImpact Bolt Impact
+#set GSHellscapePaleEliteBoltImpact
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSHellscapePaleEliteOmegaBeam Omega Beam
+#set GSHellscapePaleEliteOmegaBeam
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSProwlingShadeIceBeam Ice Beam
+#set GSProwlingShadeIceBeam
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSRagingFireSpiritsVolatileSanctum Self-Destruct
+#set GSRagingFireSpiritsVolatileSanctum
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSRagingTimeSpiritsVolatileSanctum Self-Destruct
+#set GSRagingTimeSpiritsVolatileSanctum
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSVaalConstructSkitterbotGrenadeExplode Grenade Explosion
+#set GSVaalConstructSkitterbotGrenadeExplode
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill GSWarlockRaiseBugs Raise Bugs
+#set GSWarlockRaiseBugs
+#flags spell
+#mods
+#skillEnd
+
+#skill HellscapeDemonFodderFaceLaser Laser
+#set HellscapeDemonFodderFaceLaser
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill HyenaCentaurMeleeStab
+#set HyenaCentaurMeleeStab
+#flags attack melee
+#mods
+#skillEnd
+
+#skill HyenaCentaurMeleeSwipe Swipe
+#set HyenaCentaurMeleeSwipe
+#flags attack melee
+#mods
+#skillEnd
+
+#skill HyenaCentaurSpearThrow Spear Throw
+#set HyenaCentaurSpearThrow
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MASExtraAttackDistance6
+#set MASExtraAttackDistance6
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MASExtraAttackDistance20
+#set MASExtraAttackDistance20
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MASFireConvertAltArtFireArrow
+#set MASFireConvertAltArtFireArrow
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill MASStatueWretchPush
+#set MASStatueWretchPush
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MASKelpDregCrossbow
+#set MASKelpDregCrossbow
+#flags attack melee projectile
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedBow
+#set MeleeAtAnimationSpeedBow
+#flags attack projectile melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedComboTEMP
+#set MeleeAtAnimationSpeedComboTEMP
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedFire Basic Attack (Fire)
+#set MeleeAtAnimationSpeedFire
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedFireCombo35 Basic Attack (Fire)
+#set MeleeAtAnimationSpeedFireCombo35
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedLightning Basic Attack (Lightning)
+#set MeleeAtAnimationSpeedLightning
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MMSBaneSapling Basic Spell
+#set MMSBaneSapling
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+
+#skill MMSBoneRabbleMortar Mortar
+#set MMSBoneRabbleMortar
+#flags projectile spell area
+#mods
+#skillEnd
+
+#skill MMSHellscapeDemonEliteTripleMortar Triple Mortar
+#set MMSHellscapeDemonEliteTripleMortar
+#flags triggerable spell area hit 
+#mods
+#skillEnd
+
+#skill MMSVaalGuardGrenade
+#set MMSVaalGuardGrenade
+#flags attack area projectile duration
+#mods
+#skillEnd
+
+#skill MMSVaalGuardOilTrap
+#set MMSVaalGuardOilTrap
+#flags attack area projectile duration
+#mods
+#skillEnd
+
+#skill MPSArmourCasterBasic Fireball
+#set MPSArmourCasterBasic
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSAzmeriPictStaffProj Chaos Bolt
+#set MPSAzmeriPictStaffProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSAzmeriPictStaffProj2 Chaos Bolt
+#set MPSAzmeriPictStaffProj
+#flags spell projectile triggerable hit
+#baseMod mod("ProjectileCount", "BASE", 2)
+#mods
+#skillEnd
+
+#skill MPSBloodMageBloodProjectile Blood Projectile
+#set MPSBloodMageBloodProjectile
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBoneRabbleBurningArrow Burning Arrow
+#set MPSBoneRabbleBurningArrow
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBoneCultistNecromancerLightning Basic Spell (Lightning)
+#set MPSBoneCultistNecromancerLightning
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBoneCultistZealotFire Basic Spell (Fire)
+#set MPSBoneCultistZealotFire
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBoneCultistZealotLightning Basic Spell (Lightning)
+#set MPSBoneCultistZealotLightning
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBreachEliteBoneProjectile Basic Spell (Cold)
+#set MPSBreachEliteBoneProjectile
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSBreachEliteFallenLunarisMonsterChaosSpark Chaos Spark
+#set MPSBreachEliteFallenLunarisMonsterChaosSpark
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSChaosGodTriHeadLizardBasicProjectile Basic Spell (Chaos)
+#set MPSChaosGodTriHeadLizardBasicProjectile
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSExpeditionBoneCultistProjectiles Basic Spell (Cold)
+#set MPSExpeditionBoneCultistProjectiles
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSHellscapeDemonFodderProj Fireball
+#set MPSHellscapeDemonFodderProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSHellscapeFleshEliteBasicProj Basic Spell (Physical)
+#set MPSHellscapeFleshEliteBasicProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSHellscapePaleHammerhead Basic Spell (Physical)
+#set MPSHellscapePaleHammerhead
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSMercurialCasterEnrage Basic Spell
+#set MPSMercurialCasterEnrage
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSRedSkeletonCaster Basic Spell (Cold)
+#set MPSRedSkeletonCaster
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSSkeletonMancerBasicProj Basic Spell
+#set MPSSkeletonMancerBasicProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSVaalBloodPriestProj Blood Projectile
+#set MPSVaalBloodPriestProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSVaalConstructCannon Cannon
+#set MPSVaalConstructCannon
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPAVaalHumanoidCannon Cannon
+#set MPAVaalHumanoidCannon
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSVaalHumanoidCannonNapalmMiniBlob Napalm Cannon
+#set MPSVaalHumanoidCannonNapalmMiniBlob
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSVaalSunApparitionBasicProj Basic Spell
+#set MPSVaalSunApparitionBasicProj
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPWAzmeriPitifulFabricationSkullThrow Skull Throw
+#set MPWAzmeriPitifulFabricationSkullThrow
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MPWCleansedMonstrosityRailgun Railgun
+#set MPWCleansedMonstrosityRailgun
+#flags attack projectile triggerable
+#mods
+#skillEnd
+
+#skill MPWDrudgeExplosiveGrenade Explosive Grenade
+#set MPWDrudgeExplosiveGrenade
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MPWExpeditionArbalestProjectile Basic Attack
+#set MPWExpeditionArbalestProjectile
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MPWExpeditionArbalestSnipe Snipe
+#set MPWExpeditionArbalestSnipe
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MPWFarudinSpearThrow Spear Throw
+#set MPWFarudinSpearThrow
+#flags attack projectile triggerable
+#baseMod skill("cooldown", 8)
+#mods
+#skillEnd
+
+#skill MPWKelpDregPuncture Puncture
+#set MPWKelpDregPuncture
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MPWVaalSavageBlowDart Blow Dart
+#set MPWVaalSavageBlowDart
+#flags attack triggerable projectile
+#mods
+#skillEnd
+
+#skill MutewindBanditWomanLeap Leap Slam
+#set MutewindBanditWomanLeap
+#flags triggerable attack
+#baseMod skill("cooldown", 10)
+#mods
+#skillEnd
+
+#skill QuillCrabSpikeBurst Spike Burst
+#set QuillCrabSpikeBurst
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill QuillCrabSpikeBurstPoison Spike Burst
+#set QuillCrabSpikeBurstPoison
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill QuillCrabSpikeBurstTropical Spike Burst
+#set QuillCrabSpikeBurstTropical
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill RisenArbalestBasicProjectile Basic Attack
+#set RisenArbalestBasicProjectile
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill RisenArbalestSnipe Snipe
+#set RisenArbalestSnipe
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill RisenArbalestRainOfArrows
+#set RisenArbalestRainOfArrows
+#flags attack projectile
+#mods
+#skillEnd
+
+#skill SerpentClanCurse
+#set SerpentClanCurse
+#flags area duration curse
+statMap = {
+	["physical_damage_taken_+%"] = {
+		mod("PhysicalDamageTaken", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+	["receive_bleeding_chance_%_when_hit_by_attack"] = {
+		mod("SelfBleedChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill SerpentClanTailWhip Tail Whip
+#set SerpentClanTailWhip
+#flags attack melee
+#mods
+#skillEnd
+
+#skill ShellMonsterDeathMortar Death Mortar
+#set ShellMonsterDeathMortar
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill ShellMonsterDeathMortarPoison Death Mortar
+#set ShellMonsterDeathMortarPoison
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill ShellMonsterFirehose Firehose
+#set ShellMonsterFirehose
+#flags spell triggerable
+#mods
+#skillEnd
+
+#skill ShellMonsterSprayMortar Mortar
+#set ShellMonsterSprayMortar
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill ShellMonsterSprayMortarPoison Mortar
+#set ShellMonsterSprayMortarPoison
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill SkelemancerSkelenado
+#set SkelemancerSkelenado
+#flags spell projectile hit
+#mods
+#skillEnd
+
+#skill SpookyGhostLightningBounce Basic Spell
+#set SpookyGhostLightningBounce
+#flags triggerable spell projectile
+#mods
+#skillEnd
+
+#addSkillTypes Projectile
+#skill SpookyWraithProjectileExplosionCold Basic Spell
+#set SpookyWraithProjectileExplosionCold
+#flags triggerable spell projectile
+#mods
+#skillEnd
+
+#skill TBBreachElitePaleLightningBoltSpammableLeft Lightning Bolt
+#set TBBreachElitePaleLightningBoltSpammableLeft
+#flags spell hit triggerable
+#mods
+#skillEnd
+
+#skill TBHellscapePaleLightningBoltSpammableLeft Lightning Bolt
+#set TBHellscapePaleLightningBoltSpammableLeft
+#flags spell hit triggerable
+#mods
+#skillEnd
+
+#skill TBVaalPyramidBeam Pyramid Beam
+#set TBVaalPyramidBeam
+#flags spell attack triggerable
+#mods
+#skillEnd
+
+#skill TCHellscapePaleElite2Charge Charge
+#set TCHellscapePaleElite2Charge
+#flags attack melee
+#mods
+#skillEnd
+
+#skill UrchinSlingProjectile Sling Rock
+#set UrchinSlingProjectile
+#flags projectile attack triggerable
+#mods
+#skillEnd
+
+#skill VaalBloodPriestDetonateDead Detonate Dead
+#set VaalBloodPriestDetonateDead
+#flags area triggerable
+#mods
+#skillEnd
+
+#skill VaalBloodPriestExsanguinate
+#set VaalBloodPriestExsanguinate
+#flags spell hit triggerable duration chaining
+#mods
+#skillEnd
+
+#skill VaalBloodPriestSoulrend Soulrend
+#set VaalBloodPriestSoulrend
+#flags spell area duration projectile triggerable
+#mods
+#skillEnd
+
+#skill VaalHumanoidShockRifle Shock Rifle
+#set VaalHumanoidShockRifle
+#flags spell projectile hit
+#mods
+#skillEnd

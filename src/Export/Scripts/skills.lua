@@ -998,7 +998,7 @@ directiveTable.mods = function(state, args, out)
 	state.set = nil
 end
 
-for _, name in pairs({"act_str","act_dex","act_int","other","minion","sup_str","sup_dex","sup_int"}) do
+for _, name in pairs({"act_str","act_dex","act_int","other","minion","spectre","sup_str","sup_dex","sup_int"}) do
 	processTemplateFile(name, "Skills/", "../Data/Skills/", directiveTable)
 end
 

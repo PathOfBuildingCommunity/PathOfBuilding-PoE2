@@ -402,6 +402,9 @@ return {
 ["base_spell_block_%"] = {
 	mod("SpellBlockChance", "BASE", nil),
 },
+["additional_maximum_block_%"] = {
+	mod("BlockChanceMax", "BASE", nil),
+},
 ["base_block_%_damage_taken"] = {
 	mod("BlockEffect", "BASE", nil)
 },
@@ -1116,6 +1119,9 @@ return {
 },
 ["base_chance_to_ignite_%"] = {
 	mod("EnemyIgniteChance", "BASE", nil),
+},
+["ignite_chance_+%"] = {
+	mod("EnemyIgniteChance", "INC", nil),
 },
 ["active_skill_ignite_chance_+%_final"] = {
 	mod("EnemyIgniteChance", "MORE", nil),

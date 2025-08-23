@@ -24,9 +24,6 @@ end)
 function TooltipClass:Clear()
 	wipeTable(self.lines)
 	wipeTable(self.blocks)
-	if self.updateParams then
-		wipeTable(self.updateParams)
-	end
 	self.itemTooltip = false
 	self.titleYOffset = 0
 	self.recipe = nil
@@ -40,17 +37,17 @@ function TooltipClass:CheckForUpdate(...)
 	if not self.updateParams then
 		self.updateParams = { }
 	end
+
 	for i = 1, select('#', ...) do
-		if self.updateParams[i] ~= select(i, ...) then
+		local temp = select(i, ...)
+		if self.updateParams[i] ~= temp then
+			self.updateParams[i] = temp
 			doUpdate = true
-			break
 		end
 	end
-	if doUpdate then
+	if doUpdate or self.updateParams.notSupportedModTooltips ~= main.notSupportedModTooltips then
+		self.updateParams.notSupportedModTooltips = main.notSupportedModTooltips
 		self:Clear()
-		for i = 1, select('#', ...) do
-			self.updateParams[i] = select(i, ...)
-		end
 		return true
 	end
 end
@@ -407,8 +404,8 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	for i = 0, columns do
 		DrawImage(nil, ttX + ttW * i - BORDER_WIDTH * math.ceil(i^2 / (i^2 + 1)), ttY, BORDER_WIDTH, maxColumnHeight)
 	end
-	DrawImage(nil, ttX, ttY, ttW * columns, BORDER_WIDTH) -- top
-	DrawImage(nil, ttX, ttY + maxColumnHeight - BORDER_WIDTH, ttW * columns, BORDER_WIDTH) -- bottom
+	DrawImage(nil, ttX, ttY, ttW * columns, BORDER_WIDTH) -- top border
+	DrawImage(nil, ttX, ttY + maxColumnHeight - BORDER_WIDTH, ttW * columns, BORDER_WIDTH) -- bottom border
 
 	return ttW, ttH
 end

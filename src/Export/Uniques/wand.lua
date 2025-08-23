@@ -3,6 +3,18 @@
 return {
 -- Weapon: Wand
 [[
+Adonia's Ego
+Siphoning Wand
+League: Dawn of the Hunt
+Implicits: 2
+Grants Skill: Level (1-20) Power Siphon
+Grants Skill: Level 20 Pinnacle of Power
+UniqueIncreasedMana52
+UniqueGlobalSpellGemsLevel2
+UniqueIncreasedCastSpeed17
+UniqueElementalResistancesPerPowerCharge1
+UniqueMaximumPowerChargesWand_1
+]],[[
 Cursecarver
 Acrid Wand
 League: Dawn of the Hunt

@@ -1310,8 +1310,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 					enabled = true,
 				}
 				activeGemInstance.fromItem = grantedSkill.sourceItem ~= nil
-				activeGemInstance.gemId = nil
 				activeGemInstance.level = grantedSkill.level
+				activeGemInstance.gemId = data.gemForSkill[data.skills[grantedSkill.skillId]]
 				activeGemInstance.enableGlobal1 = true
 				activeGemInstance.noSupports = grantedSkill.noSupports
 				group.noSupports = grantedSkill.noSupports
@@ -1633,7 +1633,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 								t_insert(env.player.activeSkillList, activeSkill)
 							end
 						end
-						if gemInstance.gemData and not accelerate.requirementsGems then
+						if gemInstance.gemData and not (accelerate.requirementsGems or group.gemList[gemIndex].fromNode or group.gemList[gemIndex].fromItem) then
 							t_insert(env.requirementsTableGems, {
 								source = "Gem",
 								sourceGem = gemInstance,
@@ -1692,7 +1692,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 					for _, gemInstance in ipairs(group.gemList) do
 						local grantedEffect = gemInstance.gemData and gemInstance.gemData.grantedEffect or gemInstance.grantedEffect
 						if grantedEffect and not grantedEffect.support and gemInstance.enabled then
-							group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. grantedEffect.name
+							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
+							else
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. grantedEffect.name
+							end
 						end
 					end
 					group.displayLabel = group.displayLabel or "<No active skills>"

@@ -79,7 +79,7 @@ Has (1-3) Charm Slot
 +(40-60) to maximum Life
 +(20-40) to Strength
 +(20-40) to Dexterity
-When you Kill a Rare monster, you gain its Modifiers for 20 seconds
+When you Kill a Rare monster, you gain its Modifiers for 60 seconds
 ]],[[
 Infernoclasp
 Plate Belt

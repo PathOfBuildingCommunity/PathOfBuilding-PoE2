@@ -2998,6 +2998,15 @@ local specialModList = {
 	["attribute requirements of gems can be satisi?fied by your highest attribute"] = { flag("GemAttributeRequirementsSatisfiedByHighestAttribute") },
 	["you can use two copies of the same support gem in different skills"] = { mod("MaxSupportGemCopies", "OVERRIDE", 2) },
 	["you can use each type of support gem an additional time in different skills"] = { mod("MaxSupportGemCopies", "OVERRIDE", 2) },
+	["skills gain (%d+)%% increased critical hit chance per socketed blue support gem"] = function(num) return { 
+		mod("SkillCritChanceIncreasedPerBlueSupport", "FLAG", num) 
+	} end,
+	["skills gain (%d+)%% increased damage per socketed red support gem"] = function(num) return { 
+		mod("SkillDamageIncreasedPerRedSupport", "FLAG", num) 
+	} end,
+	["skills gain (%d+)%% increased skill speed per socketed green support gem"] = function(num) return { 
+		mod("SkillSpeedIncreasedPerGreenSupport", "FLAG", num) 
+	} end,
 	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
@@ -5443,6 +5452,10 @@ local specialModList = {
 	["skills have a (%d+)%% longer perfect timing window"] = function(num) return { mod("PerfectTiming", "INC", num) } end,
 	["deal (%d+)%% increased damage with hits to rare or unique enemies for each second they've ever been in your presence, up to a maximum of (%d+)%%"] = function(num, _, limit) return {
 		mod("Damage", "INC", num, nil, 0, KeywordFlag.Hit, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limit = tonumber(limit), limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
+	} end,
+	["attacks cost an additional (%d+)%% of your maximum mana"] = function(num) return { mod("ManaCost", "BASE", 1, nil, 0, KeywordFlag.Attack, { type = "PercentStat", percent = num, stat = "Mana" })} end,
+	["attacks have added maximum lightning damage equal to (%d+)%% of maximum mana"] = function(num) return {
+		mod("LightningMax", "BASE", 1, { type = "PercentStat", stat = "Mana" , percent = num }, { type = "SkillType", skillType = SkillType.Attack }),
 	} end,
 		-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,

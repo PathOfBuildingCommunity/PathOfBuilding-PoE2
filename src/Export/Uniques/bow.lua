@@ -23,6 +23,16 @@ UniqueDexterity4
 UniqueManaRegeneration3
 UniqueLocalPhysicalDamageAddedAsEachElement1
 ]],[[
+Lioneye's Glare
+Heavy Bow
+League: Dawn of the Hunt
+UniqueLocalIncreasedPhysicalDamagePercent14
+UniqueLocalIncreasedAccuracy8
+UniqueLocalIncreasedAttackSpeed22
+UniqueDexterity44
+UniqueLioneyeDodgeRoll1
+UniqueRepeatNoEnemyInPresence
+]],[[
 Quill Rain
 Shortbow
 UniqueLocalIncreasedAttackSpeed2

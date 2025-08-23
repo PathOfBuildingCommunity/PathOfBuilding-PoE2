@@ -62,7 +62,7 @@ Grants 1 additional Skill Slot
 (15-25)% increased Rarity of Items found
 {tags:chaos}+(17-23)% to Chaos Resistance
 Lose 5% of maximum Life per second
-Attacks have added Physical damage equal to 3% of maximum Life
+{tags:physical}Attacks have added Physical damage equal to 3% of maximum Life
 ]],[[
 Call of the Brotherhood
 Topaz Ring
@@ -314,7 +314,7 @@ Sapphire Ring
 Requires Level 32
 Implicits: 1
 {tags:cold}+(20-30)% to Cold Resistance
-(5-10)% increased Skill Speed
+{tags:speed}(5-10)% increased Skill Speed
 {tags:attribute}+(10-20) to Dexterity
 {tags:mana}(25-35)% increased Mana Regeneration Rate
 100% of Cold Damage Converted to Lightning Damage

@@ -30,13 +30,17 @@ Culling Strike against Frozen Enemies
 Mjölner
 Torment Club
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
-Grants Skill: Level (1-20) Lightning Spell on Melee Hit
+Grants Skill: Level (1-20) Thundergod's Wrath
 +200 Intelligence Requirement
 +100 Strength Requirement
-(150-200)% increased Physical Damage
+{variant:1}(150-200)% increased Physical Damage
+{variant:2}(250-350)% increased Physical Damage
 (10-20)% increased Attack Speed
-+(1-2) to Level of all Lightning Skills
+{variant:1}+1 to Level of all Lightning Skills
+{variant:2}+(2-4) to Level of all Lightning Skills
 ]],[[
 Nebuloch
 Brigand Mace
@@ -144,11 +148,14 @@ Cannot use Warcries
 The Hammer of Faith
 Giant Maul
 League: Dawn of the Hunt
-(200-250)% increased Physical Damage
+Variant: Pre 0.2.1
+Variant: Current
+{variant:1}(200-250)% increased Physical Damage
+{variant:2}(250-300)% increased Physical Damage
 10% reduced Attack Speed
 +10% to all Elemental Resistances
 50% increased Mana Regeneration Rate
-Gain a random Shrine buff every 10 seconds
+{variant:1}Gain a random Shrine buff every 10 seconds
 ]],[[
 Hoghunt
 Felled Greatclub

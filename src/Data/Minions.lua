@@ -22,6 +22,12 @@ minions["RaisedZombie"] = {
 	accuracy = 1,
 	weaponType1 = "One Handed Axe",
 	limit = "ActiveZombieLimit",
+	baseMovementSpeed = 16,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -45,6 +51,12 @@ minions["SummonedRagingSpirit"] = {
 	attackRange = 12,
 	accuracy = 1,
 	limit = "ActiveRagingSpiritLimit",
+	baseMovementSpeed = 45,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 	},
@@ -69,6 +81,12 @@ minions["RaisedSkeletonSniper"] = {
 	accuracy = 1,
 	weaponType1 = "Bow",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeBow",
 		"GasShotSkeletonSniperMinion",
@@ -95,6 +113,12 @@ minions["RaisedSkeletonBrute"] = {
 	accuracy = 1,
 	weaponType1 = "Two Handed Mace",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 42,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 		"BoneshatterBruteMinion",
@@ -109,7 +133,7 @@ minions["RaisedSkeletonStormMage"] = {
 	monsterTags = { "bone_armour", "bones", "caster", "is_unarmed", "lightning_affinity", "medium_height", "medium_movement", "not_dex", "not_str", "ranged", "skeleton", "slashing_weapon", "Unarmed_onhit_audio", "undead", },
 	life = 0.53,
 	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.06,
+	energyShield = 0.15,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 50,
@@ -121,6 +145,12 @@ minions["RaisedSkeletonStormMage"] = {
 	accuracy = 1,
 	weaponType1 = "Staff",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"ArcSkeletonMageMinion",
 		"DeathStormSkeletonStormMageMinion",
@@ -135,7 +165,7 @@ minions["RaisedSkeletonFrostMage"] = {
 	monsterTags = { "bone_armour", "bones", "caster", "cold_affinity", "is_unarmed", "medium_height", "medium_movement", "not_dex", "not_str", "ranged", "skeleton", "slashing_weapon", "Unarmed_onhit_audio", "undead", },
 	life = 0.53,
 	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.06,
+	energyShield = 0.15,
 	fireResist = 0,
 	coldResist = 50,
 	lightningResist = 0,
@@ -147,6 +177,12 @@ minions["RaisedSkeletonFrostMage"] = {
 	accuracy = 1,
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
 		"IceBombSkeletonMageMinion",
@@ -161,7 +197,7 @@ minions["RaisedSkeletonCleric"] = {
 	monsterTags = { "bone_armour", "bones", "caster", "fire_affinity", "is_unarmed", "medium_height", "medium_movement", "not_dex", "not_str", "ranged", "skeleton", "slashing_weapon", "Unarmed_onhit_audio", "undead", },
 	life = 0.53,
 	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.06,
+	energyShield = 0.15,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 0,
@@ -173,6 +209,12 @@ minions["RaisedSkeletonCleric"] = {
 	accuracy = 1,
 	weaponType1 = "One Handed Mace",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"HealSkeletonClericMinion",
 		"ResurrectSkeletonClericMinion",
@@ -188,7 +230,7 @@ minions["RaisedSkeletonArsonist"] = {
 	monsterTags = { "bone_armour", "bones", "caster", "fire_affinity", "is_unarmed", "medium_height", "medium_movement", "not_dex", "not_str", "ranged", "skeleton", "slashing_weapon", "Unarmed_onhit_audio", "undead", },
 	life = 0.55,
 	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.04,
+	energyShield = 0.1,
 	fireResist = 50,
 	coldResist = 0,
 	lightningResist = 0,
@@ -200,6 +242,12 @@ minions["RaisedSkeletonArsonist"] = {
 	accuracy = 1,
 	weaponType1 = "None",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"FireBombSkeletonMinion",
 		"DestructiveLinkSkeletonBombadierMinion",
@@ -227,6 +275,12 @@ minions["RaisedSkeletonReaver"] = {
 	weaponType1 = "One Handed Axe",
 	weaponType2 = "One Handed Axe",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 42,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 		"EnrageSkeletonReaverMinion",
@@ -254,13 +308,19 @@ minions["RaisedSkeletonWarriors"] = {
 	weaponType1 = "One Handed Sword",
 	weaponType2 = "Shield",
 	limit = "ActiveSkeletonLimit",
+	baseMovementSpeed = 42,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMeleeStep",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		mod("BlockChance", "BASE", 30, 0, 0), -- SkeletonWarriorPlayerMinionBlockChance [monster_base_block_% = 30]
-		-- SkeletonWarriorPlayerMinionBlockChance [additional_maximum_block_% = 0]
+		mod("BlockChanceMax", "BASE", 0, 0, 0), -- SkeletonWarriorPlayerMinionBlockChance [additional_maximum_block_% = 0]
 	},
 }
 
@@ -280,6 +340,12 @@ minions["SummonedHellhound"] = {
 	attackTime = 0.75,
 	attackRange = 10,
 	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 	},
@@ -303,6 +369,12 @@ minions["AncestralSpiritTurtle"] = {
 	attackTime = 1,
 	attackRange = 15,
 	accuracy = 1,
+	baseMovementSpeed = 9,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"ABTTTortoiseTotemBubble",
@@ -330,6 +402,12 @@ minions["AncestralSpiritHulk"] = {
 	attackTime = 1,
 	attackRange = 14,
 	accuracy = 1,
+	baseMovementSpeed = 27,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"DTTAncestralJadeHulkLeapSlam",
@@ -347,7 +425,7 @@ minions["AncestralSpiritCaster"] = {
 	monsterTags = { "bludgeoning_weapon", "has_one_hand_mace", "has_one_handed_melee", "human", "humanoid", "karui", "light_armour", "medium_height", "medium_movement", "melee", "not_dex", "not_str", "physical_affinity", "ranged", "Unarmed_onhit_audio", },
 	life = 0.53,
 	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.08,
+	energyShield = 0.2,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 0,
@@ -357,6 +435,12 @@ minions["AncestralSpiritCaster"] = {
 	attackTime = 1,
 	attackRange = 14,
 	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"MPSAncestralTotemSpiritSoulCasterProjectile",
@@ -384,6 +468,12 @@ minions["AncestralSpiritWarhorn"] = {
 	attackTime = 1,
 	attackRange = 27,
 	accuracy = 1,
+	baseMovementSpeed = 13,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
 		"EGTotemSpiritJadeHornBlow",
@@ -407,6 +497,12 @@ minions["UnearthBoneConstruct"] = {
 	attackTime = 1.06,
 	attackRange = 12,
 	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 	},
@@ -431,6 +527,12 @@ minions["SummonedRhoa"] = {
 	attackTime = 1.23,
 	attackRange = 16,
 	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 	},
@@ -454,6 +556,12 @@ minions["ManifestWeapon"] = {
 	attackTime = 1,
 	attackRange = 10,
 	accuracy = 1,
+	baseMovementSpeed = 42,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
 	skillList = {
 		"MinionMelee",
 		"GAAnimateWeaponMaceSlam",

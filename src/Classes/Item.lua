@@ -776,7 +776,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					elseif gameModeStage == "FINDEXPLICIT" then
 						gameModeStage = "DONE"
 					end
-				elseif foundExplicit then
+				elseif foundExplicit or (not foundExplicit and gameModeStage == "EXPLICIT") then
 					modLine.modList = { }
 					modLine.extra = line
 					t_insert(modLines, modLine)
@@ -791,7 +791,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	-- this will need more advanced logic for jewel sockets in items to work properly but could just be removed as items like this was only introduced during development.
 	if self.base then
-		if self.base.weapon or self.base.armour then
+		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
 			local shouldFixRunesOnItem = #self.runes == 0
 
 			-- Form a key value table with the following format
@@ -799,18 +799,27 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
 			-- This could be refactored to only needs to be called once.
 			local statGroupedRunes = { }
-			local type = self.base.weapon and "weapon" or "armour" -- minor optimisation
+			local broadItemType = self.base.weapon and "weapon" or (self.base.tags.wand or self.base.tags.staff) and "caster" or "armour" -- minor optimisation
+			local specificItemType = self.base.type:lower()
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
-				-- gets the first value in the mod and its stripped line.
-				local runeValue
-				local runeStrippedModeLine = runeMods[type][1]:gsub("(%d%.?%d*)", function(val)
-					runeValue = val
-					return "#"
-				end)
-				if statGroupedRunes[runeStrippedModeLine] == nil then
-					statGroupedRunes[runeStrippedModeLine] = { }
+				local addModToGroupedRunes = function (modLine)
+					local runeValue
+					local runeStrippedModLine = modLine:gsub("(%d%.?%d*)", function(val)
+						runeValue = val
+						return "#"
+					end)
+					if statGroupedRunes[runeStrippedModLine] == nil then
+						statGroupedRunes[runeStrippedModLine] = { }
+					end
+					t_insert(statGroupedRunes[runeStrippedModLine], { runeName, runeValue });
 				end
-				t_insert(statGroupedRunes[runeStrippedModeLine], { runeName, runeValue });
+				for slotType, slotMod in pairs(runeMods) do
+					if slotType == broadItemType or slotType == specificItemType then
+						for _, mod in ipairs(slotMod) do
+							addModToGroupedRunes(mod)
+						end
+					end
+				end
 			end
 
 			-- Sort table to ensure first entries are always largest.
@@ -1192,7 +1201,7 @@ function ItemClass:BuildRaw()
 	if self.quality then
 		t_insert(rawLines, "Quality: " .. self.quality)
 	end
-	if self.itemSocketCount and self.itemSocketCount > 0 and (self.base.weapon or self.base.armour) then
+	if self.itemSocketCount and self.itemSocketCount > 0 then
 		local socketString = ""
 		for _ = 1, self.itemSocketCount do
 			socketString = socketString .. "S "
@@ -1248,31 +1257,53 @@ end
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
 	wipeTable(self.runeModLines)
+	local getModRunesForTypes = function(runeName, baseType, specificType) 
+		local rune = data.itemMods.Runes[runeName]
+		local gatheredRuneMods = { }
+		if rune then
+			if rune[baseType] then
+				-- for _, mod in pairs(rune[baseType]) do
+					t_insert(gatheredRuneMods, rune[baseType])
+				-- end
+			end
+			if rune[specificType] then 
+				-- for _, mod in pairs(rune[specificType]) do
+					t_insert(gatheredRuneMods, rune[specificType])
+				-- end
+			end
+		end
+		return gatheredRuneMods
+	end
+	
 	local statOrder = {}
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local mod = self.base.weapon and data.itemMods.Runes[name].weapon or self.base.armour and data.itemMods.Runes[name].armour or { }
-			for i, line in ipairs(mod) do
-				local order = mod.statOrder[i]
-				if statOrder[order] then
-					-- Combine stats
-					local start = 1
-					statOrder[order].line = statOrder[order].line:gsub("(%d%.?%d*)", function(num)
-						local s, e, other = line:find("(%d%.?%d*)", start)
-						start = e + 1
-						return tonumber(num) + tonumber(other)
-					end)
-				else
-					local modLine = { line = line, order = order, rune = true, enchant = true }
-					for l = 1, #self.runeModLines + 1 do
-						if not self.runeModLines[l] or self.runeModLines[l].order > order then
-							t_insert(self.runeModLines, l, modLine)
-							break
+			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff) and "caster"
+			local specificType = self.base.type:lower()
+			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
+			for _, mod in ipairs(gatheredMods) do
+				for i, modLine in ipairs(mod) do
+					local order = mod.statOrder[i]
+					if statOrder[order] then
+						-- Combine stats
+						local start = 1
+						statOrder[order].line = statOrder[order].line:gsub("(%d%.?%d*)", function(num)
+							local s, e, other = mod[i]:find("(%d%.?%d*)", start)
+							start = e + 1
+							return tonumber(num) + tonumber(other)
+						end)
+					else
+						local modLine = { line = modLine, order = order, rune = true, enchant = true }
+						for l = 1, #self.runeModLines + 1 do
+							if not self.runeModLines[l] or self.runeModLines[l].order > order then
+								t_insert(self.runeModLines, l, modLine)
+								break
+							end
 						end
-					end
-					statOrder[order] = modLine
-				end	
+						statOrder[order] = modLine
+					end	
+				end
 			end
 		end
 	end

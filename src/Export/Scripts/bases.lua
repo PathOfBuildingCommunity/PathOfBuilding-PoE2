@@ -261,24 +261,60 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 	-- Special handling of Runes and SoulCores
-	if state.type == "Rune" or state.type == "SoulCore" then
+	if state.type == "Rune" or state.type == "SoulCore" or state.type == "Talisman" then
 		local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
-		if soulcore then
-			out:write('\timplicit = ')
-			local stats = { }
-			for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
-				local statValue = soulcore["StatsValuesWeapon"][i]
-				stats[statKey.Id] = { min = statValue, max = statValue }
+		local soulcoresperclass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
+
+		local stats = { }
+		local outLines = { }
+		if soulcore then			
+			if #soulcore.StatsKeysWeapon > 0 then
+				for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
+					local statValue = soulcore["StatsValuesWeapon"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
 			end
-			out:write('"Martial Weapons: ', table.concat(describeStats(stats), '", "'), '\\n')
-			stats = { }  -- reset stats to empty
-			for i, statKey in ipairs(soulcore.StatsKeysArmour) do
-				local statValue = soulcore["StatsValuesArmour"][i]
-				stats[statKey.Id] = { min = statValue, max = statValue }
+			if #soulcore.StatsKeysArmour > 0 then
+				stats = { }  -- reset stats to empty
+				for i, statKey in ipairs(soulcore.StatsKeysArmour) do
+					local statValue = soulcore["StatsValuesArmour"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
 			end
-			out:write('Armour: ', table.concat(describeStats(stats), '", "'), '"')
-			out:write(',\n')
+			if #soulcore.StatsKeysCaster > 0 then
+				stats = { }  -- reset stats to empty
+				for i, statKey in ipairs(soulcore.StatsKeysCaster) do
+					local statValue = soulcore["StatsValuesCaster"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
+			end
+			-- Attribute runes are special case and can socket in everything
+			-- Sceptres are handled in "soulcoresperclass"
+			if #soulcore.StatsKeysAttributes > 0 then
+				stats = { }  -- reset stats to empty
+				for i, statKey in ipairs(soulcore.StatsKeysAttributes) do
+					local statValue = soulcore["StatsValuesAttributes"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
+				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
+				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
+			end
 		end
+		-- Check for more slot specific Soulcores/Runes/Talismans
+		if soulcoresperclass then
+			stats = { }
+			for i, statKey in ipairs(soulcoresperclass.Stats) do
+				local statValue = soulcoresperclass["StatsValues"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
+			end
+			local coreItemClass = soulcoresperclass.ItemClass.Id
+			table.insert(outLines, coreItemClass..': ' .. table.concat(describeStats(stats), '\\n'))
+		end
+		out:write('\timplicit = "'..table.concat(outLines, '\\n')..'",\n')
 	end
 	out:write('\treq = { ')
 	local reqLevel = 1

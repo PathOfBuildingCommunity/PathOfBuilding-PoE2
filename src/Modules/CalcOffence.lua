@@ -637,6 +637,43 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	-- Apply Gemling's "Integrated Efficency" Passive
+	if skillModList:Flag(nil, "SkillDamageIncreasedPerRedSupport") or
+		skillModList:Flag(nil, "SkillSpeedIncreasedPerGreenSupport") or
+		skillModList:Flag(nil, "SkillCritChanceIncreasedPerBlueSupport") then
+		
+		local redSupportCount = 0
+		local greenSupportCount = 0
+		local blueSupportCount = 0
+		for _, support in ipairs(activeSkill.supportList) do
+			if support.gemData.grantedEffect.color == 1 then
+				redSupportCount = redSupportCount + 1
+			elseif support.gemData.grantedEffect.color == 2 then
+				greenSupportCount = greenSupportCount + 1
+			elseif support.gemData.grantedEffect.color == 3 then
+				blueSupportCount = blueSupportCount + 1
+			end
+		end
+
+		local lookupModData = function(flag) 
+			local result = 	actor.modDB:Tabulate("FLAG", nil, flag)
+			return { source = result[1].mod.source, value = result[1].mod.value }
+		end
+		-- Conditionally check each to avoid future issues if a mod is reused in isolation
+		local modData = { source = nil, value = nil }
+		if skillModList:Flag(nil, "SkillDamageIncreasedPerRedSupport") then
+			modData = lookupModData("SkillDamageIncreasedPerRedSupport")
+			skillModList:NewMod("Damage", "INC", redSupportCount * modData.value, modData.source)
+		end
+		if skillModList:Flag(nil, "SkillSpeedIncreasedPerGreenSupport") then
+			modData = lookupModData("SkillSpeedIncreasedPerGreenSupport")
+			skillModList:NewMod("Speed", "INC", greenSupportCount * modData.value, modData.source)
+		end
+		if skillModList:Flag(nil, "SkillCritChanceIncreasedPerBlueSupport") then
+			modData = lookupModData("SkillCritChanceIncreasedPerBlueSupport")
+			skillModList:NewMod("CritChance", "INC", blueSupportCount * modData.value, modData.source)
+		end
+	end
 	if skillModList:Flag(nil, "MinionDamageAppliesToPlayer") or skillModList:Flag(skillCfg, "MinionDamageAppliesToPlayer") then
 		-- Minion Damage conversion from Spiritual Aid and The Scourge
 		local multiplier = (skillModList:Max(skillCfg, "ImprovedMinionDamageAppliesToPlayer") or 100) / 100
