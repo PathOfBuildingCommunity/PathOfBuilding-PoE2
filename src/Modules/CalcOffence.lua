@@ -637,11 +637,11 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
-	-- Apply Gemling's "Integrated Efficency" Passive
+	-- Apply Gemling's "Integrated Efficiency" Passive
 	if skillModList:Flag(nil, "SkillDamageIncreasedPerRedSupport") or
 		skillModList:Flag(nil, "SkillSpeedIncreasedPerGreenSupport") or
 		skillModList:Flag(nil, "SkillCritChanceIncreasedPerBlueSupport") then
-		
+
 		local redSupportCount = 0
 		local greenSupportCount = 0
 		local blueSupportCount = 0
@@ -655,7 +655,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 
-		local lookupModData = function(flag) 
+		local lookupModData = function(flag)
 			local result = 	actor.modDB:Tabulate("FLAG", nil, flag)
 			return { source = result[1].mod.source, value = result[1].mod.value }
 		end
