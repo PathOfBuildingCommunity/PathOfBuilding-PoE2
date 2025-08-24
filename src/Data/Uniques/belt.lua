@@ -25,7 +25,7 @@ Has (1-3) Charm Slot
 Life Flasks used while on Low Life apply Recovery Instantly
 Mana Flasks used while on Low Mana apply Recovery Instantly
 ]],[[
-Brynabas
+Byrnabas
 Wide Belt
 Variant: Pre 0.1.1
 Variant: Current
