@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Crude Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 6, PhysicalMax = 9, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -14,7 +14,7 @@ itemBases["Crude Bow"] = {
 itemBases["Shortbow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 7, PhysicalMax = 14, CritChanceBase = 5, AttackRateBase = 1.25, Range = 120, },
@@ -23,7 +23,7 @@ itemBases["Shortbow"] = {
 itemBases["Warden Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "(20-30)% chance to Chain an additional time",
 	implicitModTypes = { {  }, },
@@ -33,7 +33,7 @@ itemBases["Warden Bow"] = {
 itemBases["Recurve Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 15, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.1, Range = 120, },
@@ -42,7 +42,7 @@ itemBases["Recurve Bow"] = {
 itemBases["Composite Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -51,7 +51,7 @@ itemBases["Composite Bow"] = {
 itemBases["Dualstring Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "Bow Attacks fire an additional Arrow",
 	implicitModTypes = { { "attack" }, },
@@ -61,7 +61,7 @@ itemBases["Dualstring Bow"] = {
 itemBases["Cultist Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { ChaosMin = 36, ChaosMax = 59, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -70,7 +70,7 @@ itemBases["Cultist Bow"] = {
 itemBases["Zealot Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 31, PhysicalMax = 47, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -79,7 +79,7 @@ itemBases["Zealot Bow"] = {
 itemBases["Artillery Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "50% reduced Projectile Range",
 	implicitModTypes = { {  }, },
@@ -89,7 +89,7 @@ itemBases["Artillery Bow"] = {
 itemBases["Tribal Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 38, PhysicalMax = 57, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -98,7 +98,7 @@ itemBases["Tribal Bow"] = {
 itemBases["Greatbow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 40, PhysicalMax = 82, CritChanceBase = 6.5, AttackRateBase = 1.15, Range = 120, },
@@ -107,7 +107,7 @@ itemBases["Greatbow"] = {
 itemBases["Double Limb Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 42, PhysicalMax = 63, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -116,7 +116,7 @@ itemBases["Double Limb Bow"] = {
 itemBases["Heavy Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 75, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -125,7 +125,7 @@ itemBases["Heavy Bow"] = {
 itemBases["Snakewood Shortbow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 29, PhysicalMax = 54, CritChanceBase = 5, AttackRateBase = 1.25, Range = 120, },
@@ -134,7 +134,7 @@ itemBases["Snakewood Shortbow"] = {
 itemBases["Protector Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "(20-30)% chance to Chain an additional time",
 	implicitModTypes = { {  }, },
@@ -144,7 +144,7 @@ itemBases["Protector Bow"] = {
 itemBases["Rider Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 36, PhysicalMax = 61, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -153,7 +153,7 @@ itemBases["Rider Bow"] = {
 itemBases["Twin Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "Bow Attacks fire an additional Arrow",
 	implicitModTypes = { { "attack" }, },
@@ -163,7 +163,7 @@ itemBases["Twin Bow"] = {
 itemBases["Adherent Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { ChaosMin = 41, ChaosMax = 69, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -172,7 +172,7 @@ itemBases["Adherent Bow"] = {
 itemBases["Militant Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 46, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -181,7 +181,7 @@ itemBases["Militant Bow"] = {
 itemBases["Ironwood Shortbow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 41, PhysicalMax = 76, CritChanceBase = 5, AttackRateBase = 1.25, Range = 120, },
@@ -190,7 +190,7 @@ itemBases["Ironwood Shortbow"] = {
 itemBases["Cavalry Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -199,7 +199,7 @@ itemBases["Cavalry Bow"] = {
 itemBases["Guardian Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "(20-30)% chance to Chain an additional time",
 	implicitModTypes = { {  }, },
@@ -209,7 +209,7 @@ itemBases["Guardian Bow"] = {
 itemBases["Gemini Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "Bow Attacks fire an additional Arrow",
 	implicitModTypes = { { "attack" }, },
@@ -219,7 +219,7 @@ itemBases["Gemini Bow"] = {
 itemBases["Fanatic Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { ChaosMin = 52, ChaosMax = 87, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
@@ -228,7 +228,7 @@ itemBases["Fanatic Bow"] = {
 itemBases["Warmonger Bow"] = {
 	type = "Bow",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 56, PhysicalMax = 84, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },

@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Hardwood Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 5, PhysicalMax = 9, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -14,7 +14,7 @@ itemBases["Hardwood Spear"] = {
 itemBases["Ironhead Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 7, PhysicalMax = 13, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -23,7 +23,7 @@ itemBases["Ironhead Spear"] = {
 itemBases["Hunting Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "(15-25)% chance to Maim on Hit",
 	implicitModTypes = { { "attack" }, },
@@ -33,7 +33,7 @@ itemBases["Hunting Spear"] = {
 itemBases["Winged Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 22, CritChanceBase = 5, AttackRateBase = 1.65, Range = 15, },
@@ -42,7 +42,7 @@ itemBases["Winged Spear"] = {
 itemBases["War Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "(25-35)% increased Projectile Speed with this Weapon",
 	implicitModTypes = { {  }, },
@@ -52,7 +52,7 @@ itemBases["War Spear"] = {
 itemBases["Forked Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 17, PhysicalMax = 32, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -61,7 +61,7 @@ itemBases["Forked Spear"] = {
 itemBases["Barbed Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 20, PhysicalMax = 38, CritChanceBase = 6.5, AttackRateBase = 1.6, Range = 15, },
@@ -70,7 +70,7 @@ itemBases["Barbed Spear"] = {
 itemBases["Broad Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 26, PhysicalMax = 48, CritChanceBase = 5, AttackRateBase = 1.5, Range = 15, },
@@ -79,7 +79,7 @@ itemBases["Broad Spear"] = {
 itemBases["Crossblade Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 51, CritChanceBase = 5, AttackRateBase = 1.55, Range = 15, },
@@ -88,7 +88,7 @@ itemBases["Crossblade Spear"] = {
 itemBases["Seaglass Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 50, CritChanceBase = 10, AttackRateBase = 1.6, Range = 15, },
@@ -97,7 +97,7 @@ itemBases["Seaglass Spear"] = {
 itemBases["Sword Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 30, PhysicalMax = 56, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -106,7 +106,7 @@ itemBases["Sword Spear"] = {
 itemBases["Striking Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { LightningMin = 23, LightningMax = 91, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -115,7 +115,7 @@ itemBases["Striking Spear"] = {
 itemBases["Helix Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 37, PhysicalMax = 68, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -124,7 +124,7 @@ itemBases["Helix Spear"] = {
 itemBases["Steelhead Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 50, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -133,7 +133,7 @@ itemBases["Steelhead Spear"] = {
 itemBases["Coursing Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "(15-25)% chance to Maim on Hit",
 	implicitModTypes = { { "attack" }, },
@@ -143,7 +143,7 @@ itemBases["Coursing Spear"] = {
 itemBases["Swift Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "(25-35)% increased Projectile Speed with this Weapon",
 	implicitModTypes = { {  }, },
@@ -153,7 +153,7 @@ itemBases["Swift Spear"] = {
 itemBases["Branched Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 32, PhysicalMax = 59, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -162,7 +162,7 @@ itemBases["Branched Spear"] = {
 itemBases["Jagged Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 33, PhysicalMax = 61, CritChanceBase = 6.5, AttackRateBase = 1.6, Range = 15, },
@@ -171,7 +171,7 @@ itemBases["Jagged Spear"] = {
 itemBases["Massive Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 38, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.5, Range = 15, },
@@ -180,7 +180,7 @@ itemBases["Massive Spear"] = {
 itemBases["Orichalcum Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 38, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -189,7 +189,7 @@ itemBases["Orichalcum Spear"] = {
 itemBases["Pronged Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 40, PhysicalMax = 75, CritChanceBase = 5, AttackRateBase = 1.6, Range = 15, },
@@ -198,7 +198,7 @@ itemBases["Pronged Spear"] = {
 itemBases["Stalking Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "(15-25)% chance to Maim on Hit",
 	implicitModTypes = { { "attack" }, },
@@ -208,7 +208,7 @@ itemBases["Stalking Spear"] = {
 itemBases["Flying Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "(25-35)% increased Projectile Speed with this Weapon",
 	implicitModTypes = { {  }, },
@@ -218,7 +218,7 @@ itemBases["Flying Spear"] = {
 itemBases["Grand Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 46, PhysicalMax = 85, CritChanceBase = 5, AttackRateBase = 1.5, Range = 15, },
@@ -227,7 +227,7 @@ itemBases["Grand Spear"] = {
 itemBases["Spiked Spear"] = {
 	type = "Spear",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 41, PhysicalMax = 76, CritChanceBase = 6.5, AttackRateBase = 1.6, Range = 15, },

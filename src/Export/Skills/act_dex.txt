@@ -419,7 +419,7 @@ end,
 
 #skill SnipersMarkPlayer
 #set SnipersMarkPlayer
-#flags spell duration mark
+#flags duration
 statMap = {
 	["enemy_additional_critical_strike_multiplier_against_self"] = {
 		mod("SelfCritMultiplier", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),

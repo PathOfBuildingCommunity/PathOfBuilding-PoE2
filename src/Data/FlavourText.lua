@@ -1945,7 +1945,7 @@ return {
 	},
 	[245] = {
 		id = "FourUniqueBelt6",
-		name = "Byrnabas",
+		name = "Brynabas",
 		text = {
 			"The Brinerot sail without fear of storms.",
 		},

@@ -6,7 +6,7 @@ local itemBases = ...
 itemBases["Twig Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { focus = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 12, },
@@ -15,7 +15,7 @@ itemBases["Twig Focus"] = {
 itemBases["Woven Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { focus = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 15, },
@@ -24,7 +24,7 @@ itemBases["Woven Focus"] = {
 itemBases["Antler Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { focus = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 17, },
@@ -33,7 +33,7 @@ itemBases["Antler Focus"] = {
 itemBases["Engraved Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, focus = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 21, },
@@ -42,7 +42,7 @@ itemBases["Engraved Focus"] = {
 itemBases["Tonal Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, focus = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 25, },
@@ -51,7 +51,7 @@ itemBases["Tonal Focus"] = {
 itemBases["Crystal Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, focus = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 28, },
@@ -60,7 +60,7 @@ itemBases["Crystal Focus"] = {
 itemBases["Voodoo Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { focus = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 32, },
@@ -69,7 +69,7 @@ itemBases["Voodoo Focus"] = {
 itemBases["Plumed Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { focus = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 34, },
@@ -78,7 +78,7 @@ itemBases["Plumed Focus"] = {
 itemBases["Jade Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 40, },
@@ -87,7 +87,7 @@ itemBases["Jade Focus"] = {
 itemBases["Paua Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 43, },
@@ -96,7 +96,7 @@ itemBases["Paua Focus"] = {
 itemBases["Elegant Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 44, },
@@ -105,7 +105,7 @@ itemBases["Elegant Focus"] = {
 itemBases["Attuned Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 47, },
@@ -114,7 +114,7 @@ itemBases["Attuned Focus"] = {
 itemBases["Magus Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 52, },
@@ -123,7 +123,7 @@ itemBases["Magus Focus"] = {
 itemBases["Wreath Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 40, },
@@ -132,7 +132,7 @@ itemBases["Wreath Focus"] = {
 itemBases["Staghorn Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 42, },
@@ -141,7 +141,7 @@ itemBases["Staghorn Focus"] = {
 itemBases["Jingling Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 43, },
@@ -150,7 +150,7 @@ itemBases["Jingling Focus"] = {
 itemBases["Arrayed Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 46, },
@@ -159,7 +159,7 @@ itemBases["Arrayed Focus"] = {
 itemBases["Cultist Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 49, },
@@ -168,7 +168,7 @@ itemBases["Cultist Focus"] = {
 itemBases["Hallowed Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 50, },
@@ -177,7 +177,7 @@ itemBases["Hallowed Focus"] = {
 itemBases["Druidic Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 52, },
@@ -186,7 +186,7 @@ itemBases["Druidic Focus"] = {
 itemBases["Leyline Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 58, },
@@ -195,7 +195,7 @@ itemBases["Leyline Focus"] = {
 itemBases["Sacred Focus"] = {
 	type = "Focus",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { int_armour = true, armour = true, focus = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 63, },

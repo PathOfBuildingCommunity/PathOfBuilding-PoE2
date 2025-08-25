@@ -2,12 +2,12 @@
 local itemBases = ...
 
 #type Staff
-#socketLimit 3
+#socketLimit 4
 #baseMatch BaseType Metadata/Items/Staves/AbstractStaff
 
 #type Staff
 #subType Warstaff
-#socketLimit 3
+#socketLimit 4
 #baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+
 #baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+Cruel
 #baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+Endgame

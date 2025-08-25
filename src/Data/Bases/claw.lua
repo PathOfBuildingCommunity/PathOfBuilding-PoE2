@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Crude Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 4, PhysicalMax = 10, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
@@ -14,7 +14,7 @@ itemBases["Crude Claw"] = {
 itemBases["Pict Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 4, PhysicalMax = 16, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
@@ -23,7 +23,7 @@ itemBases["Pict Claw"] = {
 itemBases["Wolfbone Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicit = "Grants 8 Life per Enemy Hit",
 	implicitModTypes = { { "resource", "life", "attack" }, },
@@ -33,7 +33,7 @@ itemBases["Wolfbone Claw"] = {
 itemBases["Forked Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 10, PhysicalMax = 26, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
@@ -42,7 +42,7 @@ itemBases["Forked Claw"] = {
 itemBases["Plated Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 13, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
@@ -51,7 +51,7 @@ itemBases["Plated Claw"] = {
 itemBases["Edged Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicit = "(15-25)% chance to Blind Enemies on hit",
 	implicitModTypes = { {  }, },
@@ -61,7 +61,7 @@ itemBases["Edged Claw"] = {
 itemBases["Arced Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 46, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
@@ -70,7 +70,7 @@ itemBases["Arced Claw"] = {
 itemBases["Hooked Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 16, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
@@ -79,7 +79,7 @@ itemBases["Hooked Claw"] = {
 itemBases["Razorglass Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 54, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
@@ -88,7 +88,7 @@ itemBases["Razorglass Claw"] = {
 itemBases["Sharktooth Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 25, PhysicalMax = 52, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
@@ -97,7 +97,7 @@ itemBases["Sharktooth Claw"] = {
 itemBases["Armoured Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 63, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
@@ -106,7 +106,7 @@ itemBases["Armoured Claw"] = {
 itemBases["Piercing Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 68, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
@@ -115,7 +115,7 @@ itemBases["Piercing Claw"] = {
 itemBases["Talon Claw"] = {
 	type = "Claw",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },

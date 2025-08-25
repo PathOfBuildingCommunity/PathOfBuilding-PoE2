@@ -25,7 +25,7 @@ UniqueIncreasedFlaskChargesGained2
 UniqueInstantLifeFlaskOnLowLife1
 UniqueInstantManaFlaskOnLowMana1
 ]],[[
-Byrnabas
+Brynabas
 Wide Belt
 Variant: Pre 0.1.1
 Variant: Current

@@ -7601,7 +7601,6 @@ skills["FreezingMarkPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "freezing_mark",
 			baseFlags = {
-				spell = true,
 				area = true,
 				duration = true,
 			},
@@ -17018,6 +17017,7 @@ skills["UnearthPlayer"] = {
 			statDescriptionScope = "bone_cone",
 			baseFlags = {
 				spell = true,
+				area = true,
 				minion = true,
 			},
 			constantStats = {

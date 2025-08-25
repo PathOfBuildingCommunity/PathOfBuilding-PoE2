@@ -2,7 +2,7 @@
 local itemBases = ...
 
 #type One Handed Sword
-#socketLimit 2
+#socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/AbstractOneHandSword
 
 #forceHide true
@@ -11,7 +11,7 @@ local itemBases = ...
 
 #type Two Handed Sword
 #subType
-#socketLimit 3
+#socketLimit 4
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/AbstractTwoHandSword
 
 #forceHide true
