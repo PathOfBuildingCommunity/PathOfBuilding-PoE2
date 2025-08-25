@@ -337,7 +337,6 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 			if self.charImportMode == "AUTHENTICATION" then
 				self.charImportMode = "GETACCOUNTNAME"
 				self.charImportStatus = "Authenticated"
-				self:DownloadCharacterList()
 			end
 			if updateSettings then
 				self:SaveApiSettings()
