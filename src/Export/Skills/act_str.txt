@@ -12,6 +12,9 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportAncestralWarriorTotemPlayer
+	addFlags = {
+		totem = true,
+	},
 #set SupportAncestralWarriorTotemPlayer
 #flags
 #mods

@@ -145,6 +145,9 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 	name = "SupportAncestralWarriorTotemPlayer",
 	hidden = true,
 	support = true,
+	addFlags = {
+		totem = true,
+	},
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { SkillType.UsedByTotem, },
 	excludeSkillTypes = { SkillType.Meta, SkillType.Triggered, SkillType.Cooldown, SkillType.Channel, SkillType.Persistent, },
