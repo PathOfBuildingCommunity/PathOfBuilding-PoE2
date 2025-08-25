@@ -29,7 +29,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		return "^7Character import status: "..(type(self.charImportStatus) == "function" and self.charImportStatus() or self.charImportStatus)
 	end)
 
-	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 200, 16}, "^7Logout from Path of Exile API", function()
+	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
 		main.lastToken = nil
 		self.api.authToken = nil
 		main.lastRefreshToken = nil
@@ -41,7 +41,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 	end)
 	self.controls.logoutApiButton.shown = function()
-		return self.charImportMode == "SELECTCHAR" and self.api.authToken ~= nil
+		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and self.api.authToken ~= nil
 	end
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
