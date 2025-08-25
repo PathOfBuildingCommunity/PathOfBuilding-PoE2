@@ -231,7 +231,7 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	return flags, info
 end
 
--- Get stats from totem base skill in case of separate active skills or "totemification" via supports
+-- Get stats from totem base skill in case of separate active skills or skills "totemified" via supports
 ---@param activeSkill table @activeSkill with totem tag
 local function getTotemBaseStats(activeSkill)
 	local totemBase = {}
