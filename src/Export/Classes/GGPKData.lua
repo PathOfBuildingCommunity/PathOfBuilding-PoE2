@@ -346,6 +346,10 @@ function GGPKClass:GetNeededFiles()
 		"^Metadata/StatDescriptions/\\w+.csd$",
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
 	}
+	local otFiles = {
+		"Metadata/Characters/Character.ot",
+		"Metadata/Monsters/Monster.ot",
+	}
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
 		"Metadata/Items/Item.it",
@@ -391,5 +395,6 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Armours/BodyArmours/AbstractBodyArmour.it",
 		"Metadata/Items/Amulets/AbstractAmulet.it",
 	}
-	return datFiles, csdFiles, itFiles
+	
+	return datFiles, csdFiles, otFiles, itFiles
 end
