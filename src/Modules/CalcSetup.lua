@@ -610,7 +610,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("CharmLimit", "BASE", 0, "Base")
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
-		modDB:NewMod("WeaponSwapSpeed", "BASE", 250, "Base")  -- 250ms
+		modDB:NewMod("WeaponSwapSpeed", "BASE", data.characterConstants["base_weapon_swap_duration_ms"], "Base")  -- 250ms
 		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Attack, { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Cast, { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("MovementSpeed", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
