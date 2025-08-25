@@ -231,7 +231,7 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	return flags, info
 end
 
--- Get stats from totem base skill in case of separate active skills or skills "totemified" via supports
+-- Get stats from totem base skill in case of separate active skills or skills that receive totem status via supports
 ---@param activeSkill table @activeSkill with totem tag
 local function getTotemBaseStats(activeSkill)
 	local totemBase = {}
@@ -244,9 +244,8 @@ local function getTotemBaseStats(activeSkill)
 		if activeSkill.activeEffect.grantedEffect.skillTypes[SkillType.UsedByTotem] then -- is totem skill by default
 			totemBase.grantedEffect = activeSkill.activeEffect.gemData.grantedEffect 
 			totemBase.gemData = activeSkill.activeEffect.gemData
-			totemBase.totemified = true
 			totemBase.skillLevel = activeSkill.activeEffect.level
-		elseif activeSkill.supportList then -- skill is "totemified" via support
+		elseif activeSkill.supportList then -- skill is receives totem status via support
 			for _, support in ipairs(activeSkill.supportList) do
 				if support.grantedEffect.addSkillTypes and (not support.superseded) and support.isSupporting[activeSkill.activeEffect.srcInstance] then
 					for _, skillType in ipairs(support.grantedEffect.addSkillTypes) do
@@ -258,7 +257,6 @@ local function getTotemBaseStats(activeSkill)
 					end
 				end
 				if totemBase.gemData or totemBase.grantedEffect then
-					totemBase.totemified = true
 					totemBase.skillLevel = support.level
 					break
 				end
