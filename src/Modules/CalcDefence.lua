@@ -724,14 +724,17 @@ function calcs.defence(env, actor)
 		if armourData then
 			local wardBase = armourData.Ward or 0
 			if wardBase > 0 then
+				output["WardOnAllArmourItems"] = (output["WardOnAllArmourItems"] or 0) + wardBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 					wardBase = wardBase * 2
 				end
 				output["WardOn"..slot] = wardBase
+
 			end
 
 			local energyShieldBase = armourData.EnergyShield or 0
 			if energyShieldBase > 0 then
+				output["EnergyShieldOnAllArmourItems"] = (output["EnergyShieldOnAllArmourItems"] or 0) + energyShieldBase
 				if slot == "Body Armour" and modDB:Flag(nil, "DoubleBodyArmourDefence") then
 					energyShieldBase = energyShieldBase * 2
 				end
@@ -740,6 +743,7 @@ function calcs.defence(env, actor)
 
 			local armourBase = armourData.Armour or 0
 			if armourBase > 0 then
+				output["ArmourOnAllArmourItems"] = (output["ArmourOnAllArmourItems"] or 0) + armourBase
 				if slot == "Body Armour" then 
 					if modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						armourBase = armourBase * 2
@@ -753,6 +757,7 @@ function calcs.defence(env, actor)
 
 			local evasionBase = armourData.Evasion or 0
 			if evasionBase > 0 then
+				output["EvasionOnAllArmourItems"] = (output["EvasionOnAllArmourItems"] or 0) + evasionBase
 				if slot == "Body Armour" then
 					if modDB:Flag(nil, "DoubleBodyArmourDefence") then
 						evasionBase = evasionBase * 2
