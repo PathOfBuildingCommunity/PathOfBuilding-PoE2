@@ -60,6 +60,18 @@ UniqueColdDamageOnWeapon1
 UniqueIncreasedCastSpeed4
 UniqueFreezeDamageIncrease1
 UniqueFrozenMonstersTakeIncreasedDamage1
+]],[[
+The Whispering Ice
+Permafrost Staff
+League: Dawn of the Hunt
+Implicits: 2
+Grants Skill: Level (1-20) Heart of Ice
+Grants Skill: Level (1-20) Icestorm
+UniqueGlobalColdSpellGemsLevel1
+UniqueIncreasedCastSpeed16
+UniquePercentageIntelligence3
+SpellDamagePerIntelligenceUniqueStaff12
+UniqueColdExposureOnHitWithMagnitude1
 ]],
 -- Weapon: Warstaff
 [[

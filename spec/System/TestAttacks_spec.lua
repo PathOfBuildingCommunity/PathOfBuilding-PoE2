@@ -10,9 +10,9 @@ describe("TestAttacks", function()
 	it("creates an item and has the correct crit chance", function()
 		assert.are.equals(build.calcsTab.mainOutput.CritChance, 0)
 		build.itemsTab:CreateDisplayItemFromRaw([[
-        	New Item
-        	Heavy Bow
-        ]])
+			New Item
+			Heavy Bow
+		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
 		assert.are.equals(build.calcsTab.mainOutput.CritChance, 5 * build.calcsTab.mainOutput.HitChance / 100)
@@ -21,10 +21,10 @@ describe("TestAttacks", function()
 	it("creates an item and has the correct crit multi", function()
 		assert.are.equals(2, build.calcsTab.mainOutput.CritMultiplier)
 		build.itemsTab:CreateDisplayItemFromRaw([[
-        	New Item
+			New Item
 			Heavy Bow
 			25% increased Critical Damage Bonus
-        ]])
+		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
 		assert.are.equals(2 + 0.25, build.calcsTab.mainOutput.CritMultiplier)
@@ -54,5 +54,49 @@ describe("TestAttacks", function()
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
 		assert.are.equals(22, build.calcsTab.mainEnv.player.mainSkill.skillModList:Sum("INC", { flags = ModFlag.Attack }, "Damage"))
+	end)
+
+
+	local integratedEfficiencyLoadout = function(modLine)
+		-- Activate via custom mod text to simplify testing
+		build.configTab.input.customMods = modLine
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		-- Add 2 skills with 1 red, 1 blue, 1 green support each
+		-- Test against Quarterstaff Strike (skill slot 1)
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 1/0  1\nSplinter 1/0  1\nConduction 1/0  1\nBiting Frost 1/0  1")
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnition 1/0  1\nDiscombobulate 1/0  1\nCoursing Current 1/0  1")
+		runCallback("OnFrame")
+
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+	end
+	it("correctly calculates increased damage with gemling integrated efficiency", function()
+		integratedEfficiencyLoadout("skills gain 99% increased damage per socketed red support gem")
+		local incDmg = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "Damage")
+		assert.are.equals(incDmg, 99)
+	end)
+
+	it("correctly calculates crit chance with gemling integrated efficiency", function()
+		integratedEfficiencyLoadout("skills gain 99% increased critical hit chance per socketed blue support gem")
+		local incCritChance = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "CritChance")
+		assert.are.equals(incCritChance, 99)
+	end)
+
+	it("correctly calculates increased skill speed with gemling integrated efficiency", function()
+		integratedEfficiencyLoadout("skills gain 99% increased skill speed per socketed green support gem")
+		local incSpeed = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "Speed")
+		assert.are.equals(incSpeed, 99)
 	end)
 end)

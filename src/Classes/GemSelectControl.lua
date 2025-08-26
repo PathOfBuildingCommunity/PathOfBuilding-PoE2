@@ -475,6 +475,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local cursorX, cursorY = GetCursorPos()
 			self.tooltip:Clear()
 			if gemInstance and gemInstance.gemData then
+				if main.showFlavourText then self.tooltip.titleYOffset = 5 end --The image for Gems has an aspect ratio that makes the title not centered.
 				self:AddGemTooltip(gemInstance)
 			else
 				self.tooltip:AddLine(16, toolTipText)
@@ -510,7 +511,6 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			SetDrawColor(colorA,colorA,colorA)
 			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
 
-
 			SetDrawLayer(nil, 10)
 			self.tooltip:Draw(x, y, width, height, viewPort)
 			SetDrawLayer(nil, 0)
@@ -528,8 +528,12 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	self.tooltip.color = colorCodes.GEM
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
-
-	self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+	self.tooltip.tooltipHeader = "GEM"
+	if grantedEffect.name:match("^Spectre:") or grantedEffect.name:match("^Companion:") then
+		self.tooltip:AddLine(20, colorCodes.GEM .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name))	
+	else
+		self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+	end
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(18, colorCodes.NORMAL .. gemInstance.gemData.gemType)
 	if gemInstance.gemData.tagString ~= "" then
@@ -592,8 +596,18 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			self.tooltip:AddLine(16, string)
 		end
 	else
+		if gemInstance.skillMinion then
+			if gemInstance.nameSpec:match("^Spectre:") then
+				grantedEffectLevel.spiritReservationFlat = data.spectres[gemInstance.skillMinion].spectreReservation
+			elseif gemInstance.nameSpec:match("^Companion:") then
+				grantedEffectLevel.spiritReservationPercent = data.spectres[gemInstance.skillMinion].companionReservation
+			end
+		end
 		if grantedEffectLevel.spiritReservationFlat then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%d Spirit", grantedEffectLevel.spiritReservationFlat))
+		end
+		if grantedEffectLevel.spiritReservationPercent then
+			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%.1f%% Spirit", grantedEffectLevel.spiritReservationPercent))
 		end
 		local cost
 		for _, res in ipairs(self.costs) do
@@ -703,7 +717,9 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
 				if launch.devModeAlt then
 					line = line .. " ^1" .. lineMap[line]
 				end
-				self.tooltip:AddLine(16, colorCodes.UNSUPPORTED .. line)
+				local line = colorCodes.UNSUPPORTED .. line
+				line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
+				self.tooltip:AddLine(16, line)
 			end
 		end
 	end

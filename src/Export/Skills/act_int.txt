@@ -1003,19 +1003,10 @@ statMap = {
 #mods
 #skillEnd
 
+#minionList
 #skill SummonSpectrePlayer
 #set SummonSpectrePlayer
 #flags spell minion spectre duration permanentMinion
-minionList = {
-},
-statMap = {
-	["accuracy_rating"] = {
-		mod("MinionModifier", "LIST", { mod = mod("Accuracy", "BASE", nil) })
-	},
-	["raised_spectre_level"] = {
-		skill("minionLevel", nil),
-	},
-},
 #mods
 #skillEnd
 

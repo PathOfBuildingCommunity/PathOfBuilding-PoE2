@@ -23,6 +23,17 @@ Adds (5-7) to (10-12) Physical Damage
 (30-50)% increased Mana Regeneration Rate
 Attacks with this Weapon gain 50% of Physical damage as Extra damage of each Element
 ]],[[
+Lioneye's Glare
+Heavy Bow
+League: Dawn of the Hunt
+(150-240)% increased Physical Damage
++(300-500) to Accuracy Rating
+10% increased Attack Speed
++(20-30) to Dexterity
++2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently
+-1 metre to Dodge Roll distance if you've Dodge Rolled Recently
+Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence
+]],[[
 Quill Rain
 Shortbow
 100% increased Attack Speed

@@ -2,248 +2,1387 @@
 -- Item data (c) Grinding Gear Games
 
 return {
+	["Hayoxi's Soul Core of Heatproofing"] = {
+		["body armour"] = {
+				type = "Rune",
+				"20% of Armour also applies to Cold Damage taken from Hits",
+				statOrder = { 4481 },
+		},
+	},
+	["Zalatl's Soul Core of Insulation"] = {
+		["body armour"] = {
+				type = "Rune",
+				"20% of Armour also applies to Lightning Damage taken from Hits",
+				statOrder = { 4483 },
+		},
+	},
+	["Topotante's Soul Core of Dampening"] = {
+		["body armour"] = {
+				type = "Rune",
+				"20% of Armour also applies to Fire Damage taken from Hits",
+				statOrder = { 4482 },
+		},
+	},
+	["Atmohua's Soul Core of Retreat"] = {
+		["body armour"] = {
+				type = "Rune",
+				"30% faster start of Energy Shield Recharge",
+				statOrder = { 1379 },
+		},
+	},
+	["Quipolatl's Soul Core of Flow"] = {
+		["helmet"] = {
+				type = "Rune",
+				"8% increased Skill Effect Duration",
+				"8% increased Cooldown Recovery Rate",
+				statOrder = { 1586, 4504 },
+		},
+	},
+	["Tzamoto's Soul Core of Ferocity"] = {
+		["helmet"] = {
+				type = "Rune",
+				"+4 to Maximum Rage",
+				statOrder = { 8640 },
+		},
+	},
+	["Uromoti's Soul Core of Attenuation"] = {
+		["boots"] = {
+				type = "Rune",
+				"15% increased Curse Duration",
+				"15% increased Poison Duration",
+				statOrder = { 1480, 2820 },
+		},
+	},
+	["Opiloti's Soul Core of Assault"] = {
+		["weapon"] = {
+				type = "Rune",
+				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
+				statOrder = { 5069 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
+				statOrder = { 5069 },
+		},
+	},
+	["Guatelitzi's Soul Core of Endurance"] = {
+		["weapon"] = {
+				type = "Rune",
+				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
+				statOrder = { 5068 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
+				statOrder = { 5068 },
+		},
+	},
+	["Xopec's Soul Core of Power"] = {
+		["weapon"] = {
+				type = "Rune",
+				"50% chance when you gain a Power Charge to gain an additional Power Charge",
+				statOrder = { 5070 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"50% chance when you gain a Power Charge to gain an additional Power Charge",
+				statOrder = { 5070 },
+		},
+	},
+	["Estazunti's Soul Core of Convalescence"] = {
+		["boots"] = {
+				type = "Rune",
+				"10% increased speed of Recoup Effects",
+				statOrder = { 8689 },
+		},
+	},
+	["Tacati's Soul Core of Affliction"] = {
+		["helmet"] = {
+				type = "Rune",
+				"Enemies you Curse have -4% to Chaos Resistance",
+				statOrder = { 3663 },
+		},
+	},
+	["Cholotl's Soul Core of War"] = {
+		["bow"] = {
+				type = "Rune",
+				"20% increased Projectile Speed",
+				statOrder = { 878 },
+		},
+	},
+	["Citaqualotl's Soul Core of Foulness"] = {
+		["weapon"] = {
+				type = "Rune",
+				"Adds 13 to 19 Chaos damage",
+				statOrder = { 1235 },
+		},
+	},
+	["Xipocado's Soul Core of Dominion"] = {
+		["caster"] = {
+				type = "Rune",
+				"Minions deal 40% increased Damage with Command Skills",
+				statOrder = { 8147 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"Minions deal 40% increased Damage with Command Skills",
+				statOrder = { 8147 },
+		},
+	},
 	["Soul Core of Tacati"] = {
-		weapon = { type = "Rune", "15% chance to Poison on Hit with this weapon", statOrder = { 7033 }, },
-		armour = { type = "Rune", "+7% to Chaos Resistance", statOrder = { 954 }, },
+		["weapon"] = {
+				type = "Rune",
+				"15% chance to Poison on Hit with this weapon",
+				statOrder = { 7059 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+11% to Chaos Resistance",
+				statOrder = { 959 },
+		},
 	},
 	["Soul Core of Opiloti"] = {
-		weapon = { type = "Rune", "15% chance to cause Bleeding on Hit", statOrder = { 2169 }, },
-		armour = { type = "Rune", "10% increased Charm Charges gained", statOrder = { 5129 }, },
+		["weapon"] = {
+				type = "Rune",
+				"15% chance to cause Bleeding on Hit",
+				statOrder = { 2178 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"10% increased Charm Charges gained",
+				statOrder = { 5146 },
+		},
 	},
 	["Soul Core of Jiquani"] = {
-		weapon = { type = "Rune", "Recover 2% of maximum Life on Kill", statOrder = { 1445 }, },
-		armour = { type = "Rune", "2% increased maximum Life", statOrder = { 873 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Recover 2% of maximum Life on Kill",
+				statOrder = { 1451 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"2% increased maximum Life",
+				statOrder = { 873 },
+		},
 	},
 	["Soul Core of Zalatl"] = {
-		weapon = { type = "Rune", "Recover 2% of maximum Mana on Kill", statOrder = { 1447 }, },
-		armour = { type = "Rune", "2% increased maximum Mana", statOrder = { 875 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Recover 2% of maximum Mana on Kill",
+				statOrder = { 1453 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"2% increased maximum Mana",
+				statOrder = { 875 },
+		},
 	},
 	["Soul Core of Citaqualotl"] = {
-		weapon = { type = "Rune", "30% increased Elemental Damage with Attacks", statOrder = { 861 }, },
-		armour = { type = "Rune", "+5% to all Elemental Resistances", statOrder = { 950 }, },
+		["weapon"] = {
+				type = "Rune",
+				"30% increased Elemental Damage with Attacks",
+				statOrder = { 861 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+5% to all Elemental Resistances",
+				statOrder = { 955 },
+		},
 	},
 	["Soul Core of Puhuarte"] = {
-		weapon = { type = "Rune", "30% increased chance to Ignite", statOrder = { 979 }, },
-		armour = { type = "Rune", "+1% to Maximum Fire Resistance", statOrder = { 946 }, },
+		["weapon"] = {
+				type = "Rune",
+				"30% increased chance to Ignite",
+				statOrder = { 984 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+1% to Maximum Fire Resistance",
+				statOrder = { 951 },
+		},
 	},
 	["Soul Core of Tzamoto"] = {
-		weapon = { type = "Rune", "20% increased Freeze Buildup", statOrder = { 981 }, },
-		armour = { type = "Rune", "+1% to Maximum Cold Resistance", statOrder = { 947 }, },
+		["weapon"] = {
+				type = "Rune",
+				"20% increased Freeze Buildup",
+				statOrder = { 986 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+1% to Maximum Cold Resistance",
+				statOrder = { 952 },
+		},
 	},
 	["Soul Core of Xopec"] = {
-		weapon = { type = "Rune", "30% increased chance to Shock", statOrder = { 983 }, },
-		armour = { type = "Rune", "+1% to Maximum Lightning Resistance", statOrder = { 948 }, },
+		["weapon"] = {
+				type = "Rune",
+				"30% increased chance to Shock",
+				statOrder = { 988 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+1% to Maximum Lightning Resistance",
+				statOrder = { 953 },
+		},
 	},
 	["Soul Core of Azcapa"] = {
-		weapon = { type = "Rune", "+15 to Spirit", statOrder = { 877 }, },
-		armour = { type = "Rune", "5% increased Quantity of Gold Dropped by Slain Enemies", statOrder = { 6259 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+15 to Spirit",
+				statOrder = { 877 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"5% increased Quantity of Gold Dropped by Slain Enemies",
+				statOrder = { 6281 },
+		},
 	},
 	["Soul Core of Topotante"] = {
-		weapon = { type = "Rune", "Attacks with this Weapon Penetrate 15% Elemental Resistances", statOrder = { 3364 }, },
-		armour = { type = "Rune", "15% increased Elemental Ailment Threshold", statOrder = { 4150 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Attacks with this Weapon Penetrate 15% Elemental Resistances",
+				statOrder = { 3373 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"15% increased Elemental Ailment Threshold",
+				statOrder = { 4162 },
+		},
 	},
 	["Soul Core of Quipolatl"] = {
-		weapon = { type = "Rune", "5% increased Attack Speed", statOrder = { 915 }, },
-		armour = { type = "Rune", "10% reduced Slowing Potency of Debuffs on You", statOrder = { 4535 }, },
+		["weapon"] = {
+				type = "Rune",
+				"5% increased Attack Speed",
+				statOrder = { 919 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"10% reduced Slowing Potency of Debuffs on You",
+				statOrder = { 4548 },
+		},
 	},
 	["Soul Core of Ticaba"] = {
-		weapon = { type = "Rune", "+12% to Critical Damage Bonus", statOrder = { 914 }, },
-		armour = { type = "Rune", "Hits against you have 10% reduced Critical Damage Bonus", statOrder = { 943 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+12% to Critical Damage Bonus",
+				statOrder = { 918 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Hits against you have 10% reduced Critical Damage Bonus",
+				statOrder = { 948 },
+		},
 	},
 	["Soul Core of Atmohua"] = {
-		weapon = { type = "Rune", "Convert 20% of Requirements to Strength", statOrder = { 7038 }, },
-		armour = { type = "Rune", "Convert 20% of Requirements to Strength", statOrder = { 7038 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Convert 20% of Requirements to Strength",
+				statOrder = { 7063 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Convert 20% of Requirements to Strength",
+				statOrder = { 7063 },
+		},
 	},
 	["Soul Core of Cholotl"] = {
-		weapon = { type = "Rune", "Convert 20% of Requirements to Dexterity", statOrder = { 7036 }, },
-		armour = { type = "Rune", "Convert 20% of Requirements to Dexterity", statOrder = { 7036 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Convert 20% of Requirements to Dexterity",
+				statOrder = { 7061 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Convert 20% of Requirements to Dexterity",
+				statOrder = { 7061 },
+		},
 	},
 	["Soul Core of Zantipi"] = {
-		weapon = { type = "Rune", "Convert 20% of Requirements to Intelligence", statOrder = { 7037 }, },
-		armour = { type = "Rune", "Convert 20% of Requirements to Intelligence", statOrder = { 7037 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Convert 20% of Requirements to Intelligence",
+				statOrder = { 7062 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Convert 20% of Requirements to Intelligence",
+				statOrder = { 7062 },
+		},
 	},
 	["Desert Rune"] = {
-		weapon = { type = "Rune", "Adds 7 to 11 Fire Damage", statOrder = { 825 }, },
-		armour = { type = "Rune", "+12% to Fire Resistance", statOrder = { 951 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 7 to 11 Fire Damage",
+				statOrder = { 825 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+12% to Fire Resistance",
+				statOrder = { 956 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 10% of Damage as Extra Fire Damage",
+				statOrder = { 849 },
+		},
 	},
 	["Glacial Rune"] = {
-		weapon = { type = "Rune", "Adds 6 to 10 Cold Damage", statOrder = { 826 }, },
-		armour = { type = "Rune", "+12% to Cold Resistance", statOrder = { 952 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 6 to 10 Cold Damage",
+				statOrder = { 826 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+12% to Cold Resistance",
+				statOrder = { 957 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 10% of Damage as Extra Cold Damage",
+				statOrder = { 851 },
+		},
 	},
 	["Storm Rune"] = {
-		weapon = { type = "Rune", "Adds 1 to 20 Lightning Damage", statOrder = { 827 }, },
-		armour = { type = "Rune", "+12% to Lightning Resistance", statOrder = { 953 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 1 to 20 Lightning Damage",
+				statOrder = { 827 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+12% to Lightning Resistance",
+				statOrder = { 958 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 10% of Damage as Extra Lightning Damage",
+				statOrder = { 853 },
+		},
 	},
 	["Iron Rune"] = {
-		weapon = { type = "Rune", "20% increased Physical Damage", statOrder = { 823 }, },
-		armour = { type = "Rune", "20% increased Armour, Evasion and Energy Shield", statOrder = { 1372 }, },
+		["weapon"] = {
+				type = "Rune",
+				"20% increased Physical Damage",
+				statOrder = { 823 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"20% increased Armour, Evasion and Energy Shield",
+				statOrder = { 1377 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"25% increased Spell Damage",
+				statOrder = { 855 },
+		},
 	},
 	["Body Rune"] = {
-		weapon = { type = "Rune", "Leeches 2.5% of Physical Damage as Life", statOrder = { 962 }, },
-		armour = { type = "Rune", "+30 to maximum Life", statOrder = { 872 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Leeches 2.5% of Physical Damage as Life",
+				statOrder = { 967 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+30 to maximum Life",
+				statOrder = { 872 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+30 to maximum Energy Shield",
+				statOrder = { 870 },
+		},
 	},
 	["Mind Rune"] = {
-		weapon = { type = "Rune", "Leeches 2% of Physical Damage as Mana", statOrder = { 968 }, },
-		armour = { type = "Rune", "+25 to maximum Mana", statOrder = { 874 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Leeches 2% of Physical Damage as Mana",
+				statOrder = { 973 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+25 to maximum Mana",
+				statOrder = { 874 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+30 to maximum Mana",
+				statOrder = { 874 },
+		},
 	},
 	["Rebirth Rune"] = {
-		weapon = { type = "Rune", "Gain 20 Life per Enemy Killed", statOrder = { 965 }, },
-		armour = { type = "Rune", "Regenerate 0.3% of maximum Life per second", statOrder = { 1629 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Gain 20 Life per Enemy Killed",
+				statOrder = { 970 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Regenerate 0.3% of maximum Life per second",
+				statOrder = { 1635 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"15% increased Energy Shield Recharge Rate",
+				statOrder = { 962 },
+		},
 	},
 	["Inspiration Rune"] = {
-		weapon = { type = "Rune", "Gain 16 Mana per Enemy Killed", statOrder = { 970 }, },
-		armour = { type = "Rune", "15% increased Mana Regeneration Rate", statOrder = { 966 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Gain 16 Mana per Enemy Killed",
+				statOrder = { 975 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"15% increased Mana Regeneration Rate",
+				statOrder = { 971 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"20% increased Mana Regeneration Rate",
+				statOrder = { 971 },
+		},
 	},
 	["Stone Rune"] = {
-		weapon = { type = "Rune", "Causes 25% increased Stun Buildup", statOrder = { 975 }, },
-		armour = { type = "Rune", "+40 to Stun Threshold", statOrder = { 985 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Causes 25% increased Stun Buildup",
+				statOrder = { 980 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+40 to Stun Threshold",
+				statOrder = { 990 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
+				statOrder = { 9099 },
+		},
 	},
 	["Vision Rune"] = {
-		weapon = { type = "Rune", "+80 to Accuracy Rating", statOrder = { 828 }, },
-		armour = { type = "Rune", "10% increased Life and Mana Recovery from Flasks", statOrder = { 6031 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+80 to Accuracy Rating",
+				statOrder = { 828 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"10% increased Life and Mana Recovery from Flasks",
+				statOrder = { 6052 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"20% increased Critical Hit Chance for Spells",
+				statOrder = { 933 },
+		},
 	},
 	["Lesser Desert Rune"] = {
-		weapon = { type = "Rune", "Adds 4 to 6 Fire Damage", statOrder = { 825 }, },
-		armour = { type = "Rune", "+10% to Fire Resistance", statOrder = { 951 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 4 to 6 Fire Damage",
+				statOrder = { 825 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+10% to Fire Resistance",
+				statOrder = { 956 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 8% of Damage as Extra Fire Damage",
+				statOrder = { 849 },
+		},
 	},
 	["Lesser Glacial Rune"] = {
-		weapon = { type = "Rune", "Adds 3 to 5 Cold Damage", statOrder = { 826 }, },
-		armour = { type = "Rune", "+10% to Cold Resistance", statOrder = { 952 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 3 to 5 Cold Damage",
+				statOrder = { 826 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+10% to Cold Resistance",
+				statOrder = { 957 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 8% of Damage as Extra Cold Damage",
+				statOrder = { 851 },
+		},
 	},
 	["Lesser Storm Rune"] = {
-		weapon = { type = "Rune", "Adds 1 to 10 Lightning Damage", statOrder = { 827 }, },
-		armour = { type = "Rune", "+10% to Lightning Resistance", statOrder = { 953 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 1 to 10 Lightning Damage",
+				statOrder = { 827 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+10% to Lightning Resistance",
+				statOrder = { 958 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 8% of Damage as Extra Lightning Damage",
+				statOrder = { 853 },
+		},
 	},
 	["Lesser Iron Rune"] = {
-		weapon = { type = "Rune", "15% increased Physical Damage", statOrder = { 823 }, },
-		armour = { type = "Rune", "15% increased Armour, Evasion and Energy Shield", statOrder = { 1372 }, },
+		["weapon"] = {
+				type = "Rune",
+				"15% increased Physical Damage",
+				statOrder = { 823 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"15% increased Armour, Evasion and Energy Shield",
+				statOrder = { 1377 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"20% increased Spell Damage",
+				statOrder = { 855 },
+		},
 	},
 	["Lesser Body Rune"] = {
-		weapon = { type = "Rune", "Leeches 2% of Physical Damage as Life", statOrder = { 962 }, },
-		armour = { type = "Rune", "+20 to maximum Life", statOrder = { 872 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Leeches 2% of Physical Damage as Life",
+				statOrder = { 967 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+20 to maximum Life",
+				statOrder = { 872 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+25 to maximum Energy Shield",
+				statOrder = { 870 },
+		},
 	},
 	["Lesser Mind Rune"] = {
-		weapon = { type = "Rune", "Leeches 1.5% of Physical Damage as Mana", statOrder = { 968 }, },
-		armour = { type = "Rune", "+15 to maximum Mana", statOrder = { 874 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Leeches 1.5% of Physical Damage as Mana",
+				statOrder = { 973 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+15 to maximum Mana",
+				statOrder = { 874 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+25 to maximum Mana",
+				statOrder = { 874 },
+		},
 	},
 	["Lesser Rebirth Rune"] = {
-		weapon = { type = "Rune", "Gain 10 Life per Enemy Killed", statOrder = { 965 }, },
-		armour = { type = "Rune", "Regenerate 0.25% of maximum Life per second", statOrder = { 1629 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Gain 10 Life per Enemy Killed",
+				statOrder = { 970 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Regenerate 0.25% of maximum Life per second",
+				statOrder = { 1635 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"12% increased Energy Shield Recharge Rate",
+				statOrder = { 962 },
+		},
 	},
 	["Lesser Inspiration Rune"] = {
-		weapon = { type = "Rune", "Gain 8 Mana per Enemy Killed", statOrder = { 970 }, },
-		armour = { type = "Rune", "12% increased Mana Regeneration Rate", statOrder = { 966 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Gain 8 Mana per Enemy Killed",
+				statOrder = { 975 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"12% increased Mana Regeneration Rate",
+				statOrder = { 971 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"16% increased Mana Regeneration Rate",
+				statOrder = { 971 },
+		},
 	},
 	["Lesser Stone Rune"] = {
-		weapon = { type = "Rune", "Causes 20% increased Stun Buildup", statOrder = { 975 }, },
-		armour = { type = "Rune", "+30 to Stun Threshold", statOrder = { 985 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Causes 20% increased Stun Buildup",
+				statOrder = { 980 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+30 to Stun Threshold",
+				statOrder = { 990 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
+				statOrder = { 9099 },
+		},
 	},
 	["Lesser Vision Rune"] = {
-		weapon = { type = "Rune", "+50 to Accuracy Rating", statOrder = { 828 }, },
-		armour = { type = "Rune", "8% increased Life and Mana Recovery from Flasks", statOrder = { 6031 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+50 to Accuracy Rating",
+				statOrder = { 828 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"8% increased Life and Mana Recovery from Flasks",
+				statOrder = { 6052 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"16% increased Critical Hit Chance for Spells",
+				statOrder = { 933 },
+		},
 	},
 	["Greater Desert Rune"] = {
-		weapon = { type = "Rune", "Adds 13 to 16 Fire Damage", statOrder = { 825 }, },
-		armour = { type = "Rune", "+14% to Fire Resistance", statOrder = { 951 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 13 to 16 Fire Damage",
+				statOrder = { 825 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+14% to Fire Resistance",
+				statOrder = { 956 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 12% of Damage as Extra Fire Damage",
+				statOrder = { 849 },
+		},
 	},
 	["Greater Glacial Rune"] = {
-		weapon = { type = "Rune", "Adds 9 to 15 Cold Damage", statOrder = { 826 }, },
-		armour = { type = "Rune", "+14% to Cold Resistance", statOrder = { 952 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 9 to 15 Cold Damage",
+				statOrder = { 826 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+14% to Cold Resistance",
+				statOrder = { 957 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 12% of Damage as Extra Cold Damage",
+				statOrder = { 851 },
+		},
 	},
 	["Greater Storm Rune"] = {
-		weapon = { type = "Rune", "Adds 1 to 30 Lightning Damage", statOrder = { 827 }, },
-		armour = { type = "Rune", "+14% to Lightning Resistance", statOrder = { 953 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 1 to 30 Lightning Damage",
+				statOrder = { 827 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+14% to Lightning Resistance",
+				statOrder = { 958 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 12% of Damage as Extra Lightning Damage",
+				statOrder = { 853 },
+		},
 	},
 	["Greater Iron Rune"] = {
-		weapon = { type = "Rune", "25% increased Physical Damage", statOrder = { 823 }, },
-		armour = { type = "Rune", "25% increased Armour, Evasion and Energy Shield", statOrder = { 1372 }, },
+		["weapon"] = {
+				type = "Rune",
+				"25% increased Physical Damage",
+				statOrder = { 823 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"25% increased Armour, Evasion and Energy Shield",
+				statOrder = { 1377 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"30% increased Spell Damage",
+				statOrder = { 855 },
+		},
 	},
 	["Greater Body Rune"] = {
-		weapon = { type = "Rune", "Leeches 3% of Physical Damage as Life", statOrder = { 962 }, },
-		armour = { type = "Rune", "+40 to maximum Life", statOrder = { 872 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Leeches 3% of Physical Damage as Life",
+				statOrder = { 967 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+40 to maximum Life",
+				statOrder = { 872 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+35 to maximum Energy Shield",
+				statOrder = { 870 },
+		},
 	},
 	["Greater Mind Rune"] = {
-		weapon = { type = "Rune", "Leeches 2.5% of Physical Damage as Mana", statOrder = { 968 }, },
-		armour = { type = "Rune", "+35 to maximum Mana", statOrder = { 874 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Leeches 2.5% of Physical Damage as Mana",
+				statOrder = { 973 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+35 to maximum Mana",
+				statOrder = { 874 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+35 to maximum Mana",
+				statOrder = { 874 },
+		},
 	},
 	["Greater Rebirth Rune"] = {
-		weapon = { type = "Rune", "Gain 30 Life per Enemy Killed", statOrder = { 965 }, },
-		armour = { type = "Rune", "Regenerate 0.35% of maximum Life per second", statOrder = { 1629 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Gain 30 Life per Enemy Killed",
+				statOrder = { 970 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Regenerate 0.35% of maximum Life per second",
+				statOrder = { 1635 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"18% increased Energy Shield Recharge Rate",
+				statOrder = { 962 },
+		},
 	},
 	["Greater Inspiration Rune"] = {
-		weapon = { type = "Rune", "Gain 24 Mana per Enemy Killed", statOrder = { 970 }, },
-		armour = { type = "Rune", "18% increased Mana Regeneration Rate", statOrder = { 966 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Gain 24 Mana per Enemy Killed",
+				statOrder = { 975 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"18% increased Mana Regeneration Rate",
+				statOrder = { 971 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"24% increased Mana Regeneration Rate",
+				statOrder = { 971 },
+		},
 	},
 	["Greater Stone Rune"] = {
-		weapon = { type = "Rune", "Causes 30% increased Stun Buildup", statOrder = { 975 }, },
-		armour = { type = "Rune", "+50 to Stun Threshold", statOrder = { 985 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Causes 30% increased Stun Buildup",
+				statOrder = { 980 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+50 to Stun Threshold",
+				statOrder = { 990 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
+				statOrder = { 9099 },
+		},
 	},
 	["Greater Vision Rune"] = {
-		weapon = { type = "Rune", "+110 to Accuracy Rating", statOrder = { 828 }, },
-		armour = { type = "Rune", "12% increased Life and Mana Recovery from Flasks", statOrder = { 6031 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+110 to Accuracy Rating",
+				statOrder = { 828 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"12% increased Life and Mana Recovery from Flasks",
+				statOrder = { 6052 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"24% increased Critical Hit Chance for Spells",
+				statOrder = { 933 },
+		},
 	},
 	["Lesser Robust Rune"] = {
-		weapon = { type = "Rune", "+6 to Strength", statOrder = { 940 }, },
-		armour = { type = "Rune", "+6 to Strength", statOrder = { 940 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+6 to Strength",
+				statOrder = { 945 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+6 to Strength",
+				statOrder = { 945 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+6 to Strength",
+				statOrder = { 945 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+6 to Strength",
+				statOrder = { 945 },
+		},
 	},
 	["Robust Rune"] = {
-		weapon = { type = "Rune", "+8 to Strength", statOrder = { 940 }, },
-		armour = { type = "Rune", "+8 to Strength", statOrder = { 940 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+8 to Strength",
+				statOrder = { 945 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+8 to Strength",
+				statOrder = { 945 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+8 to Strength",
+				statOrder = { 945 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+8 to Strength",
+				statOrder = { 945 },
+		},
 	},
 	["Greater Robust Rune"] = {
-		weapon = { type = "Rune", "+10 to Strength", statOrder = { 940 }, },
-		armour = { type = "Rune", "+10 to Strength", statOrder = { 940 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+10 to Strength",
+				statOrder = { 945 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+10 to Strength",
+				statOrder = { 945 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+10 to Strength",
+				statOrder = { 945 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+10 to Strength",
+				statOrder = { 945 },
+		},
 	},
 	["Lesser Adept Rune"] = {
-		weapon = { type = "Rune", "+5 to Dexterity", statOrder = { 941 }, },
-		armour = { type = "Rune", "+6 to Dexterity", statOrder = { 941 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+6 to Dexterity",
+				statOrder = { 946 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+6 to Dexterity",
+				statOrder = { 946 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+6 to Dexterity",
+				statOrder = { 946 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+6 to Dexterity",
+				statOrder = { 946 },
+		},
 	},
 	["Adept Rune"] = {
-		weapon = { type = "Rune", "+8 to Dexterity", statOrder = { 941 }, },
-		armour = { type = "Rune", "+8 to Dexterity", statOrder = { 941 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+8 to Dexterity",
+				statOrder = { 946 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+8 to Dexterity",
+				statOrder = { 946 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+8 to Dexterity",
+				statOrder = { 946 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+8 to Dexterity",
+				statOrder = { 946 },
+		},
 	},
 	["Greater Adept Rune"] = {
-		weapon = { type = "Rune", "+10 to Dexterity", statOrder = { 941 }, },
-		armour = { type = "Rune", "+10 to Dexterity", statOrder = { 941 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+10 to Dexterity",
+				statOrder = { 946 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+10 to Dexterity",
+				statOrder = { 946 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+10 to Dexterity",
+				statOrder = { 946 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+10 to Dexterity",
+				statOrder = { 946 },
+		},
 	},
 	["Lesser Resolve Rune"] = {
-		weapon = { type = "Rune", "+6 to Intelligence", statOrder = { 942 }, },
-		armour = { type = "Rune", "+6 to Intelligence", statOrder = { 942 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+6 to Intelligence",
+				statOrder = { 947 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+6 to Intelligence",
+				statOrder = { 947 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+6 to Intelligence",
+				statOrder = { 947 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+6 to Intelligence",
+				statOrder = { 947 },
+		},
 	},
 	["Resolve Rune"] = {
-		weapon = { type = "Rune", "+8 to Intelligence", statOrder = { 942 }, },
-		armour = { type = "Rune", "+8 to Intelligence", statOrder = { 942 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+8 to Intelligence",
+				statOrder = { 947 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+8 to Intelligence",
+				statOrder = { 947 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+8 to Intelligence",
+				statOrder = { 947 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+8 to Intelligence",
+				statOrder = { 947 },
+		},
 	},
 	["Greater Resolve Rune"] = {
-		weapon = { type = "Rune", "+10 to Intelligence", statOrder = { 942 }, },
-		armour = { type = "Rune", "+10 to Intelligence", statOrder = { 942 }, },
+		["weapon"] = {
+				type = "Rune",
+				"+10 to Intelligence",
+				statOrder = { 947 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"+10 to Intelligence",
+				statOrder = { 947 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"+10 to Intelligence",
+				statOrder = { 947 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"+10 to Intelligence",
+				statOrder = { 947 },
+		},
 	},
 	["Lesser Tempered Rune"] = {
-		weapon = { type = "Rune", "Adds 3 to 4 Physical Damage", statOrder = { 824 }, },
-		armour = { type = "Rune", "6 to 9 Physical Thorns damage", statOrder = { 9190 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 3 to 4 Physical Damage",
+				statOrder = { 824 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"6 to 9 Physical Thorns damage",
+				statOrder = { 9217 },
+		},
 	},
 	["Tempered Rune"] = {
-		weapon = { type = "Rune", "Adds 6 to 9 Physical Damage", statOrder = { 824 }, },
-		armour = { type = "Rune", "14 to 21 Physical Thorns damage", statOrder = { 9190 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 6 to 9 Physical Damage",
+				statOrder = { 824 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"14 to 21 Physical Thorns damage",
+				statOrder = { 9217 },
+		},
 	},
 	["Greater Tempered Rune"] = {
-		weapon = { type = "Rune", "Adds 9 to 12 Physical Damage", statOrder = { 824 }, },
-		armour = { type = "Rune", "31 to 52 Physical Thorns damage", statOrder = { 9190 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Adds 9 to 12 Physical Damage",
+				statOrder = { 824 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"31 to 52 Physical Thorns damage",
+				statOrder = { 9217 },
+		},
 	},
 	["Greater Rune of Leadership"] = {
-		weapon = { type = "Rune", "Minions gain 10% of their Physical Damage as Extra Lightning Damage", statOrder = { 8162 }, },
-		armour = { type = "Rune", "Minions take 10% of Physical Damage as Lightning Damage", statOrder = { 8163 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Minions gain 10% of their Physical Damage as Extra Lightning Damage",
+				statOrder = { 8188 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Minions take 10% of Physical Damage as Lightning Damage",
+				statOrder = { 8189 },
+		},
 	},
 	["Greater Rune of Tithing"] = {
-		weapon = { type = "Rune", "Meta Skills gain 10% increased Energy", statOrder = { 5826 }, },
-		armour = { type = "Rune", "1 to 100 Lightning Thorns damage", statOrder = { 9189 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Meta Skills gain 10% increased Energy",
+				statOrder = { 5847 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"1 to 100 Lightning Thorns damage",
+				statOrder = { 9216 },
+		},
 	},
 	["Greater Rune of Alacrity"] = {
-		weapon = { type = "Rune", "8% increased Skill Speed", statOrder = { 830 }, },
-		armour = { type = "Rune", "Debuffs on you expire 8% faster", statOrder = { 5565 }, },
+		["weapon"] = {
+				type = "Rune",
+				"8% increased Skill Speed",
+				statOrder = { 830 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"Debuffs on you expire 8% faster",
+				statOrder = { 5583 },
+		},
 	},
 	["Greater Rune of Nobility"] = {
-		weapon = { type = "Rune", "Attacks with this Weapon have 10% chance to inflict Lightning Exposure", statOrder = { 6972 }, },
-		armour = { type = "Rune", "10% reduced effect of Shock on you", statOrder = { 8815 }, },
+		["weapon"] = {
+				type = "Rune",
+				"Attacks with this Weapon have 10% chance to inflict Lightning Exposure",
+				statOrder = { 6998 },
+		},
+		["armour"] = {
+				type = "Rune",
+				"10% reduced effect of Shock on you",
+				statOrder = { 8842 },
+		},
+	},
+	["Hedgewitch Assandra's Rune of Wisdom"] = {
+		["caster"] = {
+				type = "Rune",
+				"+1 to Level of all Spell Skills",
+				statOrder = { 922 },
+		},
+	},
+	["Saqawal's Rune of the Sky"] = {
+		["weapon"] = {
+				type = "Rune",
+				"Gain 6% of Damage as Extra Damage of all Elements",
+				statOrder = { 8334 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 6% of Damage as Extra Damage of all Elements",
+				statOrder = { 8334 },
+		},
+	},
+	["Fenumus' Rune of Agony"] = {
+		["weapon"] = {
+				type = "Rune",
+				"Gain 13% of Damage as Extra Chaos Damage",
+				statOrder = { 1620 },
+		},
+		["caster"] = {
+				type = "Rune",
+				"Gain 13% of Damage as Extra Chaos Damage",
+				statOrder = { 1620 },
+		},
+	},
+	["Farrul's Rune of Grace"] = {
+		["boots"] = {
+				type = "Rune",
+				"6% reduced Movement Speed Penalty from using Skills while moving",
+				statOrder = { 8258 },
+		},
+	},
+	["Farrul's Rune of the Chase"] = {
+		["boots"] = {
+				type = "Rune",
+				"5% increased Movement Speed",
+				statOrder = { 829 },
+		},
+	},
+	["Craiceann's Rune of Warding"] = {
+		["body armour"] = {
+				type = "Rune",
+				"40% reduced effect of Curses on you",
+				statOrder = { 1855 },
+		},
+	},
+	["Saqawal's Rune of Memory"] = {
+		["helmet"] = {
+				type = "Rune",
+				"2% increased Experience gain",
+				statOrder = { 1411 },
+		},
+	},
+	["Saqawal's Rune of Erosion"] = {
+		["helmet"] = {
+				type = "Rune",
+				"20% increased Exposure Effect",
+				statOrder = { 5943 },
+		},
+	},
+	["Farrul's Rune of the Hunt"] = {
+		["weapon"] = {
+				type = "Rune",
+				"50% increased Attack Damage against Rare or Unique Enemies",
+				statOrder = { 4362 },
+		},
+	},
+	["Craiceann's Rune of Recovery"] = {
+		["body armour"] = {
+				type = "Rune",
+				"50% increased Energy Shield Recharge Rate",
+				statOrder = { 962 },
+		},
+	},
+	["Courtesan Mannan's Rune of Cruelty"] = {
+		["gloves"] = {
+				type = "Rune",
+				"15% increased Magnitude of Damaging Ailments you inflict",
+				statOrder = { 5551 },
+		},
+	},
+	["Thane Grannell's Rune of Mastery"] = {
+		["gloves"] = {
+				type = "Rune",
+				"20% increased Magnitude of Non-Damaging Ailments you inflict",
+				statOrder = { 8322 },
+		},
+	},
+	["Fenumus' Rune of Spinning"] = {
+		["gloves"] = {
+				type = "Rune",
+				"8% increased Cast Speed",
+				statOrder = { 940 },
+		},
+	},
+	["Countess Seske's Rune of Archery"] = {
+		["bow"] = {
+				type = "Rune",
+				"Bow Attacks fire an additional Arrow",
+				statOrder = { 943 },
+		},
+	},
+	["Thane Girt's Rune of Wildness"] = {
+		["caster"] = {
+				type = "Rune",
+				"25% chance for Spell Skills to fire 2 additional Projectiles",
+				statOrder = { 8997 },
+		},
+	},
+	["Fenumus' Rune of Draining"] = {
+		["gloves"] = {
+				type = "Rune",
+				"20% increased Effect of Withered",
+				statOrder = { 9454 },
+		},
+	},
+	["Thane Myrk's Rune of Summer"] = {
+		["weapon"] = {
+				type = "Rune",
+				"Adds 23 to 34 Fire Damage",
+				statOrder = { 825 },
+		},
+	},
+	["Lady Hestra's Rune of Winter"] = {
+		["weapon"] = {
+				type = "Rune",
+				"Adds 19 to 28 Cold Damage",
+				statOrder = { 826 },
+		},
+	},
+	["Thane Leld's Rune of Spring"] = {
+		["weapon"] = {
+				type = "Rune",
+				"Adds 1 to 60 Lightning Damage",
+				statOrder = { 827 },
+		},
+	},
+	["The Greatwolf's Rune of Claws"] = {
+		["gloves"] = {
+				type = "Rune",
+				"Adds 5 to 12 Physical Damage to Attacks",
+				statOrder = { 845 },
+		},
+	},
+	["The Greatwolf's Rune of Willpower"] = {
+		["body armour"] = {
+				type = "Rune",
+				"10% of Damage is taken from Mana before Life",
+				statOrder = { 2384 },
+		},
+	},
+	["Talisman of Sirrius"] = {
+		["gloves"] = {
+				type = "Rune",
+				"8% increased Attack Speed",
+				statOrder = { 939 },
+		},
+	},
+	["Talisman of Thruldana"] = {
+		["weapon"] = {
+				type = "Rune",
+				"25% reduced Poison Duration",
+				"Targets can be affected by +1 of your Poisons at the same time",
+				statOrder = { 2820, 8385 },
+		},
+	},
+	["Talisman of Grold"] = {
+		["gloves"] = {
+				type = "Rune",
+				"Skills which Empower an Attack have 15% chance to not count that Attack",
+				statOrder = { 4951 },
+		},
+	},
+	["Talisman of Eeshta"] = {
+		["helmet"] = {
+				type = "Rune",
+				"6% reduced Cost of Skills",
+				statOrder = { 1572 },
+		},
+	},
+	["Talisman of Egrin"] = {
+		["helmet"] = {
+				type = "Rune",
+				"Enemies you Curse take 5% increased Damage",
+				statOrder = { 3370 },
+		},
+	},
+	["Talisman of Maxarius"] = {
+		["body armour"] = {
+				type = "Rune",
+				"+1 Charm Slot",
+				statOrder = { 8377 },
+		},
+	},
+	["Talisman of Ralakesh"] = {
+		["helmet"] = {
+				type = "Rune",
+				"Minions have 5% reduced Reservation",
+				statOrder = { 8194 },
+		},
+	},
+	["Serpent Talisman"] = {
+		["gloves"] = {
+				type = "Rune",
+				"5% increased Curse Magnitudes",
+				statOrder = { 2288 },
+		},
+	},
+	["Primate Talisman"] = {
+		["helmet"] = {
+				type = "Rune",
+				"Minions have 12% increased maximum Life",
+				statOrder = { 961 },
+		},
+	},
+	["Owl Talisman"] = {
+		["boots"] = {
+				type = "Rune",
+				"5% increased Cooldown Recovery Rate",
+				statOrder = { 4504 },
+		},
+	},
+	["Cat Talisman"] = {
+		["boots"] = {
+				type = "Rune",
+				"Hits against you have 15% reduced Critical Damage Bonus",
+				statOrder = { 948 },
+		},
+	},
+	["Wolf Talisman"] = {
+		["gloves"] = {
+				type = "Rune",
+				"10% increased Magnitude of Bleeding you inflict",
+				statOrder = { 4598 },
+		},
+	},
+	["Stag Talisman"] = {
+		["helmet"] = {
+				type = "Rune",
+				"8% increased Exposure Effect",
+				statOrder = { 5943 },
+		},
+	},
+	["Boar Talisman"] = {
+		["gloves"] = {
+				type = "Rune",
+				"Gain 1 Rage on Melee Hit",
+				statOrder = { 6240 },
+		},
+	},
+	["Bear Talisman"] = {
+		["helmet"] = {
+				type = "Rune",
+				"8% increased Area of Effect",
+				statOrder = { 1571 },
+		},
+	},
+	["Ox Talisman"] = {
+		["boots"] = {
+				type = "Rune",
+				"20% increased Presence Area of Effect",
+				statOrder = { 998 },
+		},
+	},
+	["Rabbit Talisman"] = {
+		["body armour"] = {
+				type = "Rune",
+				"8% increased Rarity of Items found",
+				statOrder = { 916 },
+		},
+	},
+	["Fox Talisman"] = {
+		["body armour"] = {
+				type = "Rune",
+				"+2% to Quality of all Skills",
+				statOrder = { 4181 },
+		},
 	},
 }

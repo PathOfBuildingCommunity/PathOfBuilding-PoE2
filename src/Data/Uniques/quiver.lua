@@ -37,6 +37,12 @@ Adds 3 to 5 Fire damage to Attacks
 Projectiles Pierce all Ignited enemies
 Attacks Gain (5-10)% of Damage as Extra Fire Damage
 ]],[[
+Cadiro's Gambit
+Primed Quiver
+League: Dawn of the Hunt
+(7-10)% increased Attack Speed
+Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow
+]],[[
 The Lethal Draw
 Sacral Quiver
 League: Dawn of the Hunt
@@ -46,6 +52,18 @@ Gain (2-3) Life per Enemy Hit with Attacks
 Gain 5 Life per Enemy Hit with Attacks
 (15-25)% chance to Pierce an Enemy
 Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount
+]],[[
+Murkshaft
+Toxic Quiver
+League: Dawn of the Hunt
+Implicits: 1
+Grants Skill: Level (1-20) Bursting Fen Toad
+Adds (6-10) to (13-17) Physical Damage to Attacks
+Gain (10-15) Mana per Enemy Killed
+(10-20)% increased Poison Duration
+(10-15)% chance to Poison on Hit with Attacks
+(20-30)% chance to Poison on Hit with Attacks
+Blind Targets when you Poison them
 ]],[[
 Rearguard
 Blunt Quiver

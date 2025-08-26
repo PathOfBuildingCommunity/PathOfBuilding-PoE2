@@ -30,13 +30,17 @@ UniqueLocalCullingStrikeFrozenEnemies1
 Mjölner
 Torment Club
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
-Grants Skill: Level (1-20) Lightning Spell on Melee Hit
+Grants Skill: Level (1-20) Thundergod's Wrath
 UniqueIntelligenceRequirements2
 UniqueStrengthRequirements2
-UniqueLocalIncreasedPhysicalDamagePercent12
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent11[150,200]
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent11
 UniqueLocalIncreasedAttackSpeed20
-UniqueGlobalLightningGemLevel2
+{variant:1}UniqueGlobalLightningGemLevel1
+{variant:2}UniqueGlobalLightningGemLevel2
 ]],[[
 Nebuloch
 Brigand Mace
@@ -143,11 +147,14 @@ UniqueCannotUseWarcries1
 The Hammer of Faith
 Giant Maul
 League: Dawn of the Hunt
-UniqueLocalIncreasedPhysicalDamagePercent9
+Variant: Pre 0.2.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent9[200,250]
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent9
 UniqueLocalIncreasedAttackSpeed14
 UniqueAllResistances21
 UniqueManaRegeneration29
-UniqueShrineBuffAlternating1
+{variant:1}Gain a random Shrine buff every 10 seconds
 ]],[[
 Hoghunt
 Felled Greatclub

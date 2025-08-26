@@ -306,11 +306,49 @@ function GGPKClass:GetNeededFiles()
 		"Data/PlayerMinionIntrinsicStats.dat",
 		"Data/MonsterCategories.dat",
 		"Data/ActiveSkillRequirements.dat",
+		"Data/ArchnemesisMods.dat",
+		"Data/MonsterPackEntries.dat",
+		"Data/MonsterPacks.dat",
+		"Data/WorldAreas.dat",
+		"Data/SpectreOverrides.dat",
+		"Data/MonsterProjectileAttack.dat",
+		"Data/MonsterProjectileSpell.dat",
+		"Data/MonsterMortar.dat",
+		"Data/EndGameMaps.dat",
+		"Data/EndGameMapBiomes.dat",
+		"Data/EndGameMapPins.dat",
+		"Data/EndGameMapContentSet.dat",
+		"Data/EndGameMapContent.dat",
+		"Data/EndGameMapLocation.dat",
+		"Data/StrongBoxPacks.dat",
+		"Data/SkillArtVariations.dat",
+		"Data/MiscAnimated.dat",
+		"Data/MiscAnimatedArtVariations.dat",
+		"Data/MiscBeams.dat",
+		"Data/MiscBeamsArtVariations.dat",
+		"Data/MiscEffectPacksArtVariations.dat",
+		"Data/MiscObjects.dat",
+		"Data/MiscObjectsArtVariations.dat",
+		"Data/ProjectilesArtVariations.dat",
+		"Data/MonsterVarietiesArtVariations.dat",
+		"Data/MiscProjectileMod.dat",
+		"Data/MiscProjectileModArtVariations.dat",
+		"Data/MiscParticles.dat",
+		"Data/MiscParticlesArtVariations.dat",
+		"Data/MonsterVarietiesArtVariations.dat",
+		"Data/PreloadGroups.dat",
+		"Data/MiscEffectPacks.dat",
+		"Data/BallisticBounceOverride.dat",
+		"Data/DamageEffectVariations.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
 		"^Metadata/StatDescriptions/\\w+.csd$",
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
+	}
+	local otFiles = {
+		"Metadata/Characters/Character.ot",
+		"Metadata/Monsters/Monster.ot",
 	}
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
@@ -357,5 +395,6 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Armours/BodyArmours/AbstractBodyArmour.it",
 		"Metadata/Items/Amulets/AbstractAmulet.it",
 	}
-	return datFiles, csdFiles, itFiles
+	
+	return datFiles, csdFiles, otFiles, itFiles
 end

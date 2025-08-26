@@ -69,9 +69,12 @@ UniqueNoExtraBleedDamageWhileMoving1
 ]],[[
 Kaom's Heart
 Conqueror Plate
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
 BodyArmourImplicitIncreasedStunThreshold1
-UniqueIncreasedLife2
+{variant:1}UniqueIncreasedLife2[1000,1000]
+{variant:2}UniqueIncreasedLife2
 UniqueRemoveSpirit1
 ]],[[
 Kingsguard

@@ -29,7 +29,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		return "^7Character import status: "..(type(self.charImportStatus) == "function" and self.charImportStatus() or self.charImportStatus)
 	end)
 
-	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 200, 16}, "^7Logout from Path of Exile API", function()
+	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
 		main.lastToken = nil
 		self.api.authToken = nil
 		main.lastRefreshToken = nil
@@ -41,7 +41,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 	end)
 	self.controls.logoutApiButton.shown = function()
-		return self.charImportMode == "SELECTCHAR" and self.api.authToken ~= nil
+		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and self.api.authToken ~= nil
 	end
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
@@ -337,7 +337,6 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 			if self.charImportMode == "AUTHENTICATION" then
 				self.charImportMode = "GETACCOUNTNAME"
 				self.charImportStatus = "Authenticated"
-				self:DownloadCharacterList()
 			end
 			if updateSettings then
 				self:SaveApiSettings()
@@ -691,12 +690,47 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 	local funcGetGemInstance = function(skillData)
 		local typeLine = sanitiseText(skillData.typeLine) .. (skillData.support and " Support" or "")
 		local gemId = self.build.data.gemForBaseName[typeLine:lower()]
+		
+		if typeLine:match("^Spectre:") then
+			gemId = "Metadata/Items/Gems/SkillGemSummonSpectre"
+		end		
+		if typeLine:match("^Companion:") then
+			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
+		end
 
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
-			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			gemInstance.support = skillData.support
 
+			local spectreList = data.spectres
+			if typeLine:sub(1, 8) == "Spectre:" then
+				local spectreName = typeLine:sub(10) -- gets monster name after "Spectre: "
+				for id, spectre in pairs(spectreList) do
+					if spectre.name == spectreName then
+						if not isValueInArray(self.build.spectreList, id) then
+							t_insert(self.build.spectreList, id)
+						end
+						gemInstance.skillMinion = id -- Sets imported minion in dropdown on left
+						gemInstance.skillMinionCalcs = id-- Sets imported minion in dropdown in calcs tab
+						break
+					end
+				end
+			end
+			if typeLine:sub(1, 10) == "Companion:" then
+				local companionName = typeLine:sub(12)
+				for id, spectre in pairs(spectreList) do
+					if spectre.name == companionName then
+						if not isValueInArray(self.build.beastList, id) then
+							t_insert(self.build.beastList, id)
+						end
+						gemInstance.skillMinion = id
+						gemInstance.skillMinionCalcs = id
+						break
+					end
+				end
+			end
+
+			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			for _, property in pairs(skillData.properties) do
 				if property.name == "Level" then
 					gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
