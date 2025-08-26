@@ -2916,7 +2916,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		if item.corrupted then
 			tooltip:AddLine(16, colorCodes.NEGATIVE.."Corrupted")
 		end
-		tooltip:AddSeparator(14)
+		tooltip:AddSeparator(10)
 	end
 
 	-- Show flavour text:

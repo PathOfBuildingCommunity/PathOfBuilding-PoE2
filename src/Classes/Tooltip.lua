@@ -238,7 +238,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			end
 			currentBlock = data.block
 			t_insert(drawStack, {{ handle = data.separatorImage, isSeparator = true }, x + 6, y, ttW - 12, sepSize})
-			y = y + sepSize + 2
+			y = y + sepSize
 
 		elseif self.lines[i + 1] and self.lines[i - 1] and self.lines[i + 1].text then
 			t_insert(drawStack, {nil, x, y - 1 + data.size / 2, ttW - BORDER_WIDTH, 2})
@@ -266,9 +266,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		end
 	end
 	local headerConfigs = {
-		RELIC = {left="Assets/ItemsHeaderFoilLeft.png",middle="Assets/ItemsHeaderFoilMiddle.png",right="Assets/ItemsHeaderFoilRight.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
-		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png",middle="Assets/ItemsHeaderUniqueMiddle.png",right="Assets/ItemsHeaderUniqueRight.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
-		RARE = {left="Assets/ItemsHeaderRareLeft.png",middle="Assets/ItemsHeaderRareMiddle.png",right="Assets/ItemsHeaderRareRight.png",height=53,sideWidth=43,middleWidth=43,textYOffset=2},
+		RELIC = {left="Assets/ItemsHeaderFoilLeft.png",middle="Assets/ItemsHeaderFoilMiddle.png",right="Assets/ItemsHeaderFoilRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
+		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png",middle="Assets/ItemsHeaderUniqueMiddle.png",right="Assets/ItemsHeaderUniqueRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
+		RARE = {left="Assets/ItemsHeaderRareLeft.png",middle="Assets/ItemsHeaderRareMiddle.png",right="Assets/ItemsHeaderRareRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
 		MAGIC = {left="Assets/ItemsHeaderMagicLeft.png",middle="Assets/ItemsHeaderMagicMiddle.png",right="Assets/ItemsHeaderMagicRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
 		NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png",middle="Assets/ItemsHeaderWhiteMiddle.png",right="Assets/ItemsHeaderWhiteRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
 		GEM = {left="Assets/ItemsHeaderGemLeft.png",middle="Assets/ItemsHeaderGemMiddle.png",right="Assets/ItemsHeaderGemRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
