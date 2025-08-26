@@ -1263,6 +1263,10 @@ function calcs.defence(env, actor)
 		end
 		for _, source in ipairs(resourceList) do
 			local globalBase = modDB:Sum("BASE", nil, unpack(source.mods)) + source.globalBase
+			local globalOverride = modDB:Override(nil, unpack(source.mods))
+			if globalOverride then
+				globalBase = globalOverride
+			end
 			for _, target in ipairs(resourceList) do
 				if source.name ~= target.name then
 					if source.defence then
@@ -1293,7 +1297,7 @@ function calcs.defence(env, actor)
 						local gainRate = modDB:Sum("BASE", nil, source.name .. "GainAs" .. target.name)
 						local rate = source.conversionRate[target.name] + gainRate
 						if rate > 0 then
-							local targetBase = globalBase * rate / 100
+							local targetBase = math.ceil(globalBase * rate / 100)
 							target.globalBase = target.globalBase + targetBase
 							if breakdown then
 								breakdown.slot("Conversion", source.name .. " to " .. target.name, nil, targetBase, nil, unpack(target.mods))
