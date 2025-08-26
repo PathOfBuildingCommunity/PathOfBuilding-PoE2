@@ -2585,6 +2585,8 @@ local specialModList = {
 		end
 	end}, {type = "ItemCondition", itemSlot = "{SlotName}", rarityCond = "UNIQUE", neg = true}),
 	} end,
+	-- Chronomancer
+	["enemies in your presence are slowed by (%d+)%%"] = function(num) return {mod("EnemyModifier", "LIST", {mod = mod("ActionSpeed", "INC", num * -1)}, { type = "Condition", var = "EnemyInPresence" })} end,
 	-- Deadeye
 	["projectiles pierce all nearby targets"] = { flag("PierceAllTargets") },
 	["you have no accuracy penalty at distance"] = { flag("NoAccuracyDistancePenalty") },

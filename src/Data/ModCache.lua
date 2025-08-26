@@ -3802,7 +3802,7 @@ c["Enemies in your Presence Resist Elemental Damage based on their Lowest Resist
 c["Enemies in your Presence are Blinded"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="Condition:Blinded",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage"]={nil,"Ignited as though dealt 100 Base Fire Damage "}
 c["Enemies in your Presence are Intimidated"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="Condition:Intimidated",type="FLAG",value=true}}}},nil}
-c["Enemies in your Presence are Slowed by 20%"]={nil,"Slowed by 20% "}
+c["Enemies in your Presence are Slowed by 20%"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ActionSpeed",type="INC",value=-20}}}},nil}
 c["Enemies in your Presence count as being on Low Life"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:LowLife",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence count as having double Power"]={{},"count as having  Power "}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=-10}}}},nil}
