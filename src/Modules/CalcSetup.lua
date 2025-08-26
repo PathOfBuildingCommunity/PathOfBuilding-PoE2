@@ -1386,10 +1386,15 @@ function calcs.initEnv(build, mode, override, specEnv)
 			env.player.weaponData2 = env.player.itemList["Weapon 1"].weaponData[2]
 		elseif not env.player.itemList["Weapon 2"] then
 			-- Hollow Palm Technique
-			if (not env.player.itemList["Weapon 1"]) and (not env.player.itemList["Gloves"]) and env.modDB.mods.Keystone then
+			if (not env.player.itemList["Weapon 1"]) and env.modDB.mods.Keystone then
 				for _, keystone in ipairs(env.modDB.mods.Keystone) do
-					if keystone.value == "Hollow Palm Technique" then
+					if keystone.value == "Eternal Youth" then -- TODO Update to correct Keystone value "Hollow Palm"
 						env.player.weaponData2 = copyTable(env.data.unarmedWeaponData[env.classId])
+						for i = 1, 2 do
+							env.player["weaponData" .. tostring(i)].asThoughUsing = env.player["weaponData" .. tostring(i)].asThoughUsing or { }
+							env.player["weaponData" .. tostring(i)].asThoughUsing["Staff"] = true
+						end
+						env.player.modDB.conditions["HollowPalm"] = true -- Had to add condition here because it was otherwise not recognized correctly when "DisableSkill" is processed
 						break
 					end
 				end
