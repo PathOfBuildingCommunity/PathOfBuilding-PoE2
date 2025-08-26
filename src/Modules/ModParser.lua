@@ -2353,10 +2353,6 @@ local specialModList = {
 	["non%-instant mana recovery from flasks is also recovered as life"] = { flag("ManaFlaskAppliesToLife") },
 	["life leech effects recover energy shield instead while on full life"] = { flag("ImmortalAmbition", { type = "Condition", var = "FullLife" }, { type = "Condition", var = "LeechingLife" }) },
 	["shepherd of souls"] = { mod("Damage", "MORE", -30, { type = "SkillType", skillType = SkillType.Vaal, neg = true }) },
-	["adds (%d+) to (%d+) attack physical damage to melee skills per (%d+) dexterity while you are unencumbered"] = function(_, min, max, dex) return { -- Hollow Palm 3 suffixes
-		mod("PhysicalMin", "BASE", tonumber(min), nil, ModFlag.Melee, KeywordFlag.Attack, { type = "PerStat", stat = "Dex", div = tonumber(dex) }, { type = "Condition", var = "Unencumbered" }),
-		mod("PhysicalMax", "BASE", tonumber(max), nil, ModFlag.Melee, KeywordFlag.Attack, { type = "PerStat", stat = "Dex", div = tonumber(dex) }, { type = "Condition", var = "Unencumbered" }),
-	} end,
 	["(%d+)%% more attack damage if accuracy rating is higher than maximum life"] = function(num) return {
 		mod("Damage", "MORE", num, "Damage", ModFlag.Attack, { type = "Condition", var = "MainHandAccRatingHigherThanMaxLife" }, { type = "Condition", var = "MainHandAttack" }),
 		mod("Damage", "MORE", num, "Damage", ModFlag.Attack, { type = "Condition", var = "OffHandAccRatingHigherThanMaxLife" }, { type = "Condition", var = "OffHandAttack" }),
