@@ -1251,6 +1251,12 @@ function ItemClass:BuildRaw()
 	if self.corrupted then
 		t_insert(rawLines, "Corrupted")
 	end
+	if self.fractured then
+		t_insert(rawLines, "Fractured Item")
+	end
+	if self.desecrated then
+		t_insert(rawLines, "Desecrated Item")
+	end
 	return table.concat(rawLines, "\n")
 end
 
