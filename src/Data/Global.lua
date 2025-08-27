@@ -48,7 +48,6 @@ colorCodes = {
 	SHAPER = "^x55BBFF",
 	ELDER = "^xAA77CC",
 	FRACTURED = "^xA29160",
-	DESECRATED = "^x00CB3A",
 	ADJUDICATOR = "^xE9F831",
 	BASILISK = "^x00CB3A",
 	CRUSADER = "^x2946FC",
@@ -77,6 +76,7 @@ colorCodes.ARMOUR = colorCodes.NORMAL
 colorCodes.EVASION = colorCodes.POSITIVE
 colorCodes.RAGE = colorCodes.WARNING
 colorCodes.PHYS = colorCodes.NORMAL
+colorCodes.DESECRATED = colorCodes.RELIC
 
 defaultColorCodes = copyTable(colorCodes)
 function updateColorCode(code, color)
