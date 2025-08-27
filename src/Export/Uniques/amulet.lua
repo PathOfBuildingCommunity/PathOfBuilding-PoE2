@@ -57,6 +57,7 @@ UniqueTriggerLightningBoltOnCriticalStrike1
 Defiance of Destiny
 Jade Amulet
 Variant: Pre 0.1.1
+Variant: Pre 0.2.1
 Variant: Current
 Requires Level 56
 Implicits: 1
@@ -65,7 +66,8 @@ UniqueMaximumLifeIncrease6
 UniqueStrength2
 UniqueManaRegeneration13
 {variant:1}UniqueGainMissingLifeBeforeHit1[5,5]
-{variant:2}UniqueGainMissingLifeBeforeHit1
+{variant:2}UniqueGainMissingLifeBeforeHit1[10,10]
+{variant:3}UniqueGainMissingLifeBeforeHit1
 ]],[[
 The Everlasting Gaze
 Azure Amulet
@@ -223,11 +225,15 @@ UniqueEnemiesInPresenceFireExposure1
 Yoke of Suffering
 Bloodstone Amulet
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
 AmuletImplicitIncreasedLife1
 UniqueAllResistances19
 UniqueElementalDamagePercent1
-UniqueEnemiesTakeIncreasedDamagePerAilmentType1
-UniqueElementalAilmentDuration1
+{variant:1}UniqueEnemiesTakeIncreasedDamagePerAilmentType1[5,10]
+{variant:2}UniqueEnemiesTakeIncreasedDamagePerAilmentType1
+{variant:1}UniqueElementalAilmentDuration1[-30,-20]
+{variant:2}UniqueElementalAilmentDuration1
 ]],
 }

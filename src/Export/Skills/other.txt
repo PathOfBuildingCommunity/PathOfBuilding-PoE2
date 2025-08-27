@@ -410,3 +410,57 @@ statMap = {
 #flags spell area
 #mods
 #skillEnd
+
+#from item
+#skill CrossbowRequiemAmmoPlayer
+#set CrossbowRequiemAmmoPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill CrossbowRequiemPlayer
+#set CrossbowRequiemPlayer
+#flags projectile area
+#mods
+#skillEnd
+
+#from item
+#skill ExplodingPoisonToadPlayer
+#set ExplodingPoisonToadPlayer
+#flags area attack
+#mods
+#skillEnd
+
+#from item
+#skill PinnacleOfPowerPlayer
+#set PinnacleOfPowerPlayer
+#flags buff duration
+#mods
+#skillEnd
+
+#from item
+#skill ImpurityPlayer
+#set ImpurityPlayer
+#flags aura
+statMap = {
+	["base_skill_buff_chaos_damage_resistance_%_to_apply"] = {
+		mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
+#mods
+#skillEnd
+
+#from item
+#skill HeartOfIcePlayer
+#set HeartOfIcePlayer
+#flags buff aura
+#mods
+#skillEnd
+
+#from item
+#skill IcestormPlayer
+#set IcestormPlayer
+#flags spell area duration
+#mods
+#skillEnd

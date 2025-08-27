@@ -1,3 +1,90 @@
+VERSION[0.9.0][2025/08/23]
+
+--- New to Path of Building ---
+* Support Spectres and Companions, and overhaul Spectre Library (Blitz54)
+* Add Uniques from 0.2.1 and update old ones (Blitz54)
+* Add support for new runes added in 0.2.1 (Kenishi)
+
+--- Tree ---
+* Add support for "while wielding a Quarterstaff" (One with the River) (Antaresque)
+* Add support for Insulated Treads and "armour break on targets with ailments" node (Blitz54)
+* Add support for "Zealous Inquisition" explode mod (Witchhunter Ascendancy Notable) (majochem)
+* Add support for Lich Jewel Socket (trompetin17)
+* Add support for Sturdy Ally and Tandem Assault (Blitz54)
+* Add support for "Presence" and related mods by (majochem, Blitz54)
+* Add support for "Hazard" related mods (majochem)
+* Add support for Bleed and Poison chance on critical hit calculation (majochem)
+
+--- Skills ---
+* Add support for Voltaic Mark shock effect (Blitz54)
+* Add support for Derange support gem (madxmike)
+* Add support for Ambrosia and Concoct Support (LocalIdentity)
+* Add support for Deliberation Damage Mod (Blitz54)
+* Add support for Muster Support (ltogniolli)
+
+--- Items ---
+* Add support for Forking Critical Strikes (Antaresque)
+* Add support for Doomfletch modifier (Antaresque)
+* Add support for Shyaba "Always Hits" (Blitz54)
+* Add support for Atziri's Acuity (Unique Gloves) (majochem)
+* Add support for Blood Price reserved mod (Blitz54)
+* Add support for Voltaxic Rift shock chance mod (Blitz54)
+* Add support for Bursting Decay and its modifier (Antaresque)
+* Add support for Atsak's Sight (Unique Helmet) (majochem)
+* Add support for "Cannot Use - Skills" modifiers (Blitz54)
+* Add support for Essentia Sanguis leech mod (Blitz54)
+* Add support for Leopold's Applause (LocalIdentity)
+* Add support for Splinter of Loratta (Unique Spear) (majochem)
+
+--- Fixed Crashes ---
+* Fix crash due to outdated state of sub skill dropdown (Paliak)
+* Fix crash when deleting newly created config set (Paliak)
+* Fix crash from support gems imported on skills from items (Wires77)
+* Fix Gem tooltips crashing on Linux (TheDechev)
+
+--- User Interface ---
+* Add button to log out from the PoE API (trompetin17)
+* Show Quiver Effect breakdown on Calcs Tab (trompetin17)
+* Enable Sorting of folders by date and inherit the sort order in the build save dialog (Noologos)
+* Display distance in Units for AoE breakdown (Blitz54)
+* Add text after red mods to show that PoB does not currently handle them (LocalIdentity)
+* Add Item Flavour text with styled Tooltips and Passive Tree headers (config to disable if you don't like it) (Blitz54)
+
+--- Fixed Calculations ---
+* Fix calculation when using multiple "more Crit Damage Bonus" mods (LocalIdentity)
+* Fix Flicker Strike not scaling with Area damage (CedrN)
+* Fix Concoction skills not scaling with Area damage (Paliak)
+* Fix modifiers to Blasphemy Spirit reservation applying to supported curses (Paliak)
+* Fix Grasp of the Void damage gain not working correctly (LocalIdentity)
+* Fix Poisonburst Arrow not scaling with Skill Effect Duration (LocalIdentity)
+* Fix Discipline value being scaled by mods (LocalIdentity)
+* Fix Stomping Ground not scaling with Melee Damage (LocalIdentity)
+* Fix Minions not gaining 10 Accuracy per monster level (LocalIdentity)
+* Fix Curse limit being 1 more than expected (mauriliogenovese)
+* Fix Gemling's Integrated Efficiency using global gem count (Kenishi)
+* Fix Intimidate to apply Global Inc damage taken and deal reduced damage (LocalIdentity)
+* Fix flat Physical damage reduction not scaling max hit properly (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix banner valour config and tree nodes (Blitz54)
+* Fix Rathpith Globe damage not working with Crown of Eyes (LocalIdentity)
+* Add new keystones to "From Nothing" jewel (Blitz54)
+* Fix Fractured mods not importing on items (LocalIdentity)
+* Fix many mods on jewels not being included in Weighted Search results (LocalIdentity)
+* Fix Trade results not including Fractured Mods (LocalIdentity)
+* Fix Whirlwind config to support Whirling Slash (Blitz54)
+* Fix Beidat's Hand Energy Shield per Max Life mod not working (Paliak)
+* Fix some Relic items not counting as Unique (LocalIdentity)
+* Fix Wiki hotkey (F1) not working correctly for relic items (LocalIdentity)
+* Fix +Skill level mods not applying to skills granted by items (mauriliogenovese)
+
+--- Accuracy Improvements ---
+* Fix Eternal Life chaos damage resource drain breakdown (Edvinas-Smita)
+* Fix Jewels missing many mods in item crafter (LocalIdentity)
+* Add support for Chaotic Might and fix Mjolner skill (LocalIdentity)
+* Fix Against the Darkness using Medium radius instead of Small (LocalIdentity)
+* Fix first explicit mod missing when it has no parsing (LocalIdentity)
+
 VERSION[0.8.0][2025/04/16]
 
 --- New to Path of Building ---

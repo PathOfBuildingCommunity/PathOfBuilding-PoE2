@@ -328,12 +328,15 @@ Grants Skill: Raise Shield
 Prism Guardian
 Sectarian Crest Shield
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 (80-150)% increased Armour and Energy Shield
 +(20-30) to Dexterity
 +(10-20)% to all Elemental Resistances
-+1 to Maximum Spirit per 50 Maximum Life
+{variant:1}+1 to Maximum Spirit per 50 Maximum Life
+{variant:2}+1 to Maximum Spirit per 25 Maximum Life
 ]],[[
 Rise of the Phoenix
 Omen Crest Shield

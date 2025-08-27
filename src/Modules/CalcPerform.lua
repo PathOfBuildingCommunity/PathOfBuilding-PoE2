@@ -886,7 +886,7 @@ function calcs.perform(env, skipEHP)
 		calcs.initModDB(env, env.minion.modDB)
 		env.minion.modDB:NewMod("Life", "BASE", m_floor(env.minion.lifeTable[env.minion.level] * env.minion.minionData.life), "Base")
 		if env.minion.minionData.energyShield then
-			env.minion.modDB:NewMod("EnergyShield", "BASE", m_floor(env.data.monsterAllyLifeTable[env.minion.level] * env.minion.minionData.life * env.minion.minionData.energyShield), "Base")
+			env.minion.modDB:NewMod("LifeConvertToEnergyShield", "BASE", env.minion.minionData.energyShield * 100, "Base")
 		end
 		--Armour formula is math.floor((10 + 2 * level) * 1.067 ^ level)
 		env.minion.modDB:NewMod("Armour", "BASE", round(env.data.monsterArmourTable[env.minion.level] * (env.minion.minionData.armour or 1)), "Base")
@@ -895,9 +895,9 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "MinionAccuracyEqualsAccuracy") then
 			env.minion.modDB:NewMod("Accuracy", "BASE", calcLib.val(modDB, "Accuracy") + calcLib.val(modDB, "Dex") * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase), "Player")
 		else
-			env.minion.modDB:NewMod("Accuracy", "BASE", round(env.data.monsterAccuracyTable[env.minion.level] * (env.minion.minionData.accuracy or 1)) + data.playerMinionIntrinsicStats.accuracy_rating_per_level * (env.minion.level - 1), "Base")
+			env.minion.modDB:NewMod("Accuracy", "BASE", round(env.data.monsterAccuracyTable[env.minion.level] * (env.minion.minionData.accuracy or 1)) + data.playerMinionIntrinsicStats["accuracy_rating_per_level"] * (env.minion.level - 1), "Base")
 		end
-		env.minion.modDB:NewMod("CritMultiplier", "BASE", 100, "Base")
+		env.minion.modDB:NewMod("CritMultiplier", "BASE", env.data.monsterConstants["base_critical_hit_damage_bonus"] + env.data.playerMinionIntrinsicStats["base_critical_hit_damage_bonus"], "Base")
 		env.minion.modDB:NewMod("FireResist", "BASE", env.minion.minionData.fireResist, "Base")
 		env.minion.modDB:NewMod("ColdResist", "BASE", env.minion.minionData.coldResist, "Base")
 		env.minion.modDB:NewMod("LightningResist", "BASE", env.minion.minionData.lightningResist, "Base")
@@ -993,7 +993,9 @@ function calcs.perform(env, skipEHP)
 	end
 	output.WarcryPower = modDB:Override(nil, "WarcryPower") or modDB:Sum("BASE", nil, "WarcryPower") or 0
 	modDB.multipliers["WarcryPower"] = output.WarcryPower
-
+	
+	local minionTypeCount = 0
+	local minionType = { }
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
@@ -1063,6 +1065,11 @@ function calcs.perform(env, skipEHP)
 			local limit = activeSkill.skillModList:Sum("BASE", nil, activeSkill.minion.minionData.limit)
 			output[activeSkill.minion.minionData.limit] = m_max(limit, output[activeSkill.minion.minionData.limit] or 0)
 		end
+		if activeSkill.activeEffect.grantedEffect and activeSkill.skillTypes[SkillType.Minion] and activeSkill.skillTypes[SkillType.Persistent] and not minionType[activeSkill.activeEffect.grantedEffect.id] then
+			minionTypeCount = minionTypeCount + 1
+			minionType[activeSkill.activeEffect.grantedEffect.id] = true
+		end
+		env.modDB.multipliers["PersistentMinionTypes"] = minionTypeCount
 		if env.mode_buffs and skillFlags.warcry then
 			if activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") and not modDB:Flag(nil, "RallyingActive") then
 				env.player.modDB:NewMod("RallyingExertMoreDamagePerAlly", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryExertDamageBonus"))
@@ -2525,16 +2532,13 @@ function calcs.perform(env, skipEHP)
 		t_insert(allyCurses, newCurse)
 	end
 
-
 	-- Set curse limit
 	output.EnemyCurseLimit = modDB:Flag(nil, "CurseLimitIsMaximumPowerCharges") and output.PowerChargesMax or modDB:Sum("BASE", nil, "EnemyCurseLimit")
 	output.EnemyMarkLimit = modDB:Sum("BASE", nil, "EnemyMarkLimit")
 	curses.limit = output.EnemyCurseLimit + output.EnemyMarkLimit
 	buffExports["CurseLimit"] = curses.limit
-	-- Assign curses to slots
-	local curseSlots = { }
-	env.curseSlots = curseSlots
-	local markCount = 0
+	-- Temp different mark and curse slots to handle limits and priorities of both
+	local debuffSlots = { curseSlots = { }, markSlots = { } }
 	for _, source in ipairs({curses, minionCurses, allyCurses}) do
 		for _, curse in ipairs(source) do
 			-- Calculate curses that ignore hex limit after
@@ -2550,42 +2554,35 @@ function calcs.perform(env, skipEHP)
 						break
 					end
 				end
-				for i = 1, source.limit do
-					-- Prevent more than allowed marks from being considered
-					if curse.isMark then
-						if markCount >= output.EnemyMarkLimit then
-							slot = nil
-							break
-						end
-					end
-					if not curseSlots[i] then
+								
+				local currentSlots = curse.isMark and debuffSlots.markSlots or debuffSlots.curseSlots				
+				for i = 1, curse.isMark and output.EnemyMarkLimit or output.EnemyCurseLimit do
+					if not currentSlots[i] then
 						slot = i
 						break
-					elseif curseSlots[i].name == curse.name then
-						if curseSlots[i].priority < curse.priority then
+					elseif currentSlots[i].name == curse.name then
+						if currentSlots[i].priority < curse.priority then
 							slot = i
 						else
 							slot = nil
 						end
 						break
-					elseif curseSlots[i].priority < curse.priority then
-						slot = i
+					else
+						if currentSlots[i].priority < curse.priority then
+							slot = i
+						end
 					end
 				end
-				if slot then
-					if curseSlots[slot] and curseSlots[slot].isMark then
-						markCount = m_max(markCount - 1, 0)
-					end
-					if skipAddingCurse == false then
-						curseSlots[slot] = curse
-					end
-					if curse.isMark then
-						markCount = markCount + 1
-					end
+				if slot and not skipAddingCurse then
+					currentSlots[slot] = curse
 				end
 			end
 		end
 	end
+	
+	-- Merge curse and mark slots as we now process curse ignoring hex limit
+	curseSlots = tableConcat(debuffSlots.curseSlots, debuffSlots.markSlots)
+	env.curseSlots = curseSlots
 
 	for _, source in ipairs({curses, minionCurses}) do
 		for _, curse in ipairs(source) do
@@ -2767,7 +2764,7 @@ function calcs.perform(env, skipEHP)
 	if modDB:Flag(nil, "DisableWeapons") then
 		env.player.weaponData1 = copyTable(env.data.unarmedWeaponData[env.classId])
 		modDB.conditions["Unarmed"] = true
-		if not env.player.Gloves or env.player.Gloves == None then
+		if not env.player.Gloves or env.player.Gloves == "None" then
 			modDB.conditions["Unencumbered"] = true
 		end
 	elseif env.weaponModList1 then

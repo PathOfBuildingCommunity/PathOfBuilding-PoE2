@@ -466,15 +466,14 @@ local configSettings = {
 	{ var = "sacrificedRageCount", type = "count", label = "Amount of ^xFF9922Rage ^7Sacrificed (if not maximum):", ifSkill = "Rage Vortex", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:RageSacrificedStacks", "BASE", val, "Config")
 	end },
-	{ label = "Raise Spectre:", ifSkill = "Raise Spectre", includeTransfigured = true },
-	{ var = "raiseSpectreEnableBuffs", type = "check", defaultState = true, label = "Enable buffs:", ifSkill = "Raise Spectre", includeTransfigured = true, tooltip = "Enable any buff skills that your spectres have.", apply = function(val, modList, enemyModList)
-		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.Buff }, { type = "SkillName", skillName = "Raise Spectre", includeTransfigured = true, summonSkill = true })
+	{ label = "Raise Spectre:", ifSkillFlag = "spectre", includeTransfigured = true },
+	{ var = "raiseSpectreEnableBuffs", type = "check", defaultState = true, label = "Enable buffs:", ifSkillFlag = "spectre", includeTransfigured = true, tooltip = "Enable any buff skills that your spectres have.", apply = function(val, modList, enemyModList)
+		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.Buff }, { type = "SkillName", skillName = "Spectre", partialMatch = true, summonSkill = true })
 	end },
-	{ var = "raiseSpectreEnableCurses", type = "check", defaultState = true, label = "Enable curses:", ifSkill = "Raise Spectre", includeTransfigured = true, tooltip = "Enable any curse skills that your spectres have.", apply = function(val, modList, enemyModList)
-		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.Hex }, { type = "SkillName", skillName = "Raise Spectre", includeTransfigured = true, summonSkill = true })
-		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.Mark }, { type = "SkillName", skillName = "Raise Spectre", includeTransfigured = true, summonSkill = true })
+	{ var = "raiseSpectreEnableCurses", type = "check", defaultState = true, label = "Enable curses:", ifSkillFlag = "spectre", includeTransfigured = true, tooltip = "Enable any curse skills that your spectres have.", apply = function(val, modList, enemyModList)
+		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.AppliesCurse }, { type = "SkillName", skillName = "Spectre", partialMatch = true, summonSkill = true })
 	end },
-	{ var = "conditionSummonedSpectreInPast8Sec", type = "check", label = "Summoned Spectre in past 8 Seconds?", ifCond = "SummonedSpectreInPast8Sec", ifSkill = "Raise Spectre", includeTransfigured = true, apply = function(val, modList, enemyModList)
+	{ var = "conditionSummonedSpectreInPast8Sec", type = "check", label = "Summoned Spectre in past 8 Seconds?", ifCond = "SummonedSpectreInPast8Sec", ifSkillFlag = "spectre", includeTransfigured = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:SummonedSpectreInPast8Sec", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "raiseSpectreBladeVortexBladeCount", type = "count", label = "Blade Vortex blade count:", ifSkill = {"DemonModularBladeVortexSpectre","GhostPirateBladeVortexSpectre"}, tooltip = "Sets the blade count for Blade Vortex skills used by spectres.\nDefault is 1; maximum is 5.", apply = function(val, modList, enemyModList)
@@ -562,6 +561,13 @@ local configSettings = {
 	{ label = "Storm Rain of the Conduit:", ifSkill = "Storm Rain of the Conduit" },
 	{ var = "stormRainActiveArrows", type = "count", label = "# of Active Arrows:", ifSkill = "Storm Rain of the Conduit", apply = function(val, modList, enemyModList)
 		modList:NewMod("SkillData", "LIST", { key = "activeArrowMultiplier", value = val }, "Config", { type = "SkillName", skillName = "Storm Rain of the Conduit" })
+	end },
+	{ label = "Summon Companion:", ifSkillFlag = "summonBeast", includeTransfigured = true },
+	{ var = "summonCompanionEnableBuffs", type = "check", defaultState = true, label = "Enable buffs:", ifSkillFlag = "summonBeast", includeTransfigured = true, tooltip = "Enable any buff skills that your Companions have.", apply = function(val, modList, enemyModList)
+		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.Buff }, { type = "SkillName", skillName = "Companion", partialMatch = true, summonSkill = true })
+	end },
+	{ var = "summonCompanionEnableCurses", type = "check", defaultState = true, label = "Enable curses:", ifSkillFlag = "summonBeast", includeTransfigured = true, tooltip = "Enable any curse skills that your Companions have.", apply = function(val, modList, enemyModList)
+		modList:NewMod("SkillData", "LIST", { key = "enable", value = true }, "Config", { type = "SkillType", skillType = SkillType.AppliesCurse }, { type = "SkillName", skillName = "Companion", partialMatch = true, summonSkill = true })
 	end },
 	{ label = "Summon Elemental Relic:", ifSkill = "Summon Elemental Relic" },
 	{ var = "summonElementalRelicEnableAngerAura", type = "check", defaultState = true, label = "Enable Anger Aura:", ifSkill = "Summon Elemental Relic", apply = function(val, modList, enemyModList)
@@ -1729,7 +1735,7 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyLightningExposure", type = "check", label = "Is the enemy Exposed to ^xADAA47Lightning?", ifFlag = "applyLightningExposure", tooltip = "This applies -20% ^xADAA47Lightning Resistance ^7to the enemy.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("LightningExposure", "BASE", -20, "Config", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanApplyLightningExposure" })
 	end },
-	{ var = "conditionEnemyIntimidated", type = "check", label = "Is the enemy Intimidated?", tooltip = "Intimidated enemies take 10% increased Attack Damage.", apply = function(val, modList, enemyModList)
+	{ var = "conditionEnemyIntimidated", type = "check", label = "Is the enemy Intimidated?", tooltip = "Intimidate is a Debuff that inflicts 10% increased damage taken and 10% reduced damage dealt.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Intimidated", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyCrushed", type = "check", label = "Is the enemy Crushed?", tooltip = "Crushed enemies have 15% reduced Physical Damage Reduction.", apply = function(val, modList, enemyModList)
@@ -1819,7 +1825,7 @@ Huge sets the radius to 11.
 		-- These defaults are here so that the placeholders get reset correctly
 		build.configTab.varControls['enemySpeed']:SetPlaceholder(700, true)
 		build.configTab.varControls['enemyCritChance']:SetPlaceholder(5, true)
-		build.configTab.varControls['enemyCritDamage']:SetPlaceholder(30, true)
+		build.configTab.varControls['enemyCritDamage']:SetPlaceholder(data.monsterConstants["base_critical_hit_damage_bonus"], true)
 		if val == "None" then
 			local defaultResist = ""
 			build.configTab.varControls['enemyLightningResist']:SetPlaceholder(defaultResist, true)
@@ -2096,7 +2102,7 @@ Huge sets the radius to 11.
 		enemyModList:NewMod("MultiplierPvpDamage", "BASE", val, "Config")
 	end },
 	{ var = "enemyCritChance", type = "countAllowZero", label = "Enemy critical strike chance:", defaultPlaceholderState = 5 },
-	{ var = "enemyCritDamage", type = "countAllowZero", label = "Enemy critical strike multiplier:", defaultPlaceholderState = 30 },
+	{ var = "enemyCritDamage", type = "countAllowZero", label = "Enemy critical strike multiplier:", defaultPlaceholderState = data.monsterConstants["base_critical_hit_damage_bonus"] },
 	{ var = "enemyPhysicalDamage", type = "countAllowZero", label = "Enemy Skill Physical Damage:", tooltip = "This overrides the default damage amount used to estimate your damage reduction from armour.\nThe default is 1.5 times the enemy's base damage, which is the same value\nused in-game to calculate the estimate shown on the character sheet.", defaultPlaceholderState = 7 },
 	{ var = "enemyPhysicalOverwhelm", type = "countAllowZero", label = "Enemy Skill Physical Overwhelm:"},
 	{ var = "enemyLightningDamage", type = "countAllowZero", label = "Enemy Skill ^xADAA47Lightning Damage:"},

@@ -698,13 +698,14 @@ function ModStoreClass:EvalMod(mod, cfg)
 				matchName = matchName:lower()
 				if tag.skillNameList then
 					for _, name in pairs(tag.skillNameList) do
-						if name:lower() == matchName then
+						local nameLower = name:lower()
+						if (tag.partialMatch and matchName:find(nameLower, 1, true)) or (not tag.partialMatch and nameLower == matchName) then
 							match = true
 							break
 						end
 					end
 				else
-					match = (tag.skillName and tag.skillName:lower() == matchName)
+					match = (tag.partialMatch and matchName:find(tag.skillName:lower(), 1, true) ~= nil) or (tag.skillName:lower() == matchName)
 				end
 			end
 			if tag.neg then

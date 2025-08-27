@@ -416,9 +416,35 @@ function TradeQueryGeneratorClass:InitMods()
 	end
 
 	-- rune mods
-	for name, modLines in pairs(data.itemMods.Runes) do
-		self:ProcessMod(modLines.armour, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
-		self:ProcessMod(modLines.weapon, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
+	for name, runeMods in pairs(data.itemMods.Runes) do
+		for slotType, mods in pairs(runeMods) do
+			if slotType == "weapon" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
+			elseif slotType == "armour" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
+			elseif slotType == "caster" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["Wand"] = true, ["Staff"] = true })
+			else
+				-- Mod is slot specific, try to match against a value in tradeCategoryNames
+				local matchedCategory = nil
+				for category, categoryOptions in pairs(tradeCategoryNames) do
+					for i, opt in pairs(categoryOptions) do
+						if opt:lower():match(slotType) then
+							matchedCategory = category
+							break
+						end
+					end
+					if matchedCategory then
+						break
+					end
+				end
+				if matchedCategory then
+					self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { [matchedCategory] = true })
+				else
+					ConPrintf("TradeQuery: Unmatched category for modifier. Slot type: %s Modifier: %s", mods.slotType, mods.name)
+				end
+			end
+		end		
 	end
 
 	local queryModsFile = io.open(queryModFilePath, 'w')

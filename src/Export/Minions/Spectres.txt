@@ -5,422 +5,1167 @@
 --
 local minions, mod, flag = ...
 
--- Blackguard
-#spectre Metadata/Monsters/Axis/AxisCaster
-#spectre Metadata/Monsters/Axis/AxisCasterArc
-#spectre Metadata/Monsters/Axis/AxisCasterLunaris
-#spectre Metadata/Monsters/Axis/AxisEliteSoldier3Champion
-#spectre Metadata/Monsters/Axis/AxisExperimenter
-#spectre Metadata/Monsters/Axis/AxisExperimenter2
-#spectre Metadata/Monsters/Axis/AxisExperimenterRaiseZombie
--- Bandit
-#spectre Metadata/Monsters/Bandits/BanditBowExplosiveArrow
-#spectre Metadata/Monsters/Bandits/BanditBowPoisonArrow
-#spectre Metadata/Monsters/Bandits/BanditMeleeWarlordsMarkMaul
-#spectre Metadata/Monsters/Bandit/DockworkerChampion_
-#spectre Metadata/Monsters/Bandits/BanditBowChampion
-#spectre Metadata/Monsters/Bandits/BanditRangedTornadoShotPetrified
--- Beast
-#spectre Metadata/Monsters/Beasts/BeastCaveDegenAura
-#spectre Metadata/Monsters/Beasts/BeastVulnerabilityCurse # MonsterVulnerabilityOnHit1
-#spectre Metadata/Monsters/Beasts/BeastCleaveEnduringCry
--- Blood Apes
-#spectre Metadata/Monsters/BloodChieftain/MonkeyChiefBloodEnrage
-#spectre Metadata/Monsters/BloodChieftain/MonkeyChiefBloodParasite
--- Bone Stalker
-#spectre Metadata/Monsters/BoneStalker/BoneStalker
--- Bull
-#spectre Metadata/Monsters/Bull/Bull
--- Cage Spider
-#spectre Metadata/Monster/CageSpider/CageSpider2
--- Cannibals
-#spectre Metadata/Monsters/Cannibal/CannibalMaleChampion
--- Goatmen
-#spectre Metadata/Monsters/Goatman/GoatmanLeapSlam
-#spectre Metadata/Monsters/Goatman/GoatmanLightningLeapSlamMaps
-#spectre Metadata/Monsters/Goatman/GoatmanShamanFireball
-#spectre Metadata/Monsters/Goatman/GoatmanShamanFireChampion
-#spectre Metadata/Monsters/Goatman/GoatmanShamanLightning
-#spectre Metadata/Monsters/Goatman/MountainGoatmanChampion
-#spectre Metadata/Monsters/Goatman/MountainGoatmanShamanIceSpear
--- Miscreation
-#spectre Metadata/Monsters/DemonFemale/DemonFemale
-#spectre Metadata/Monsters/DemonModular/DemonFemaleRanged
-#spectre Metadata/Monsters/DemonModular/DemonFemaleRanged2
-#spectre Metadata/Monsters/DemonModular/DemonModularBladeVortex
-#spectre Metadata/Monsters/DemonModular/DemonModularFire
--- Maw
-#spectre Metadata/Monsters/Frog/Frog
-#spectre Metadata/Monsters/Frog/Frog2
--- Chimeral
-#spectre Metadata/Monsters/GemMonster/Iguana
-#spectre Metadata/Monsters/GemMonster/IguanaChrome
--- Ghost Pirate
-#spectre Metadata/Monsters/GhostPirates/GhostPirateBlackBowMaps
-#spectre Metadata/Monsters/GhostPirates/GhostPirateBlackFlickerStrikeMaps
-#spectre Metadata/Monsters/GhostPirates/GhostPirateGreenBladeVortex
--- Undying Grappler
-#spectre Metadata/Monsters/Grappler/Grappler
-#spectre Metadata/Monsters/Grappler/GrapplerLabyrinth
--- Ribbon
-#spectre Metadata/Monsters/Guardians/GuardianFire
-#spectre Metadata/Monsters/Guardians/GuardianFire_BlueMaps
-#spectre Metadata/Monsters/Guardians/GuardianLightning
--- Gut flayer
-#spectre Metadata/Monsters/HalfSkeleton/HalfSkeleton
--- Solar Guard
-#spectre Metadata/Monsters/HolyFireElemental/HolyFireElementalSolarisBeam
--- Construct
-#spectre Metadata/Monsters/incaminion/Fragment
--- Carrion Queen
-#spectre Metadata/Monsters/InsectSpawner/InsectSpawner
--- Kaom's Warriors
-#spectre Metadata/Monsters/KaomWarrior/KaomWarrior2
-#spectre Metadata/Monsters/KaomWarrior/KaomWarrior3
-#spectre Metadata/Monsters/KaomWarrior/KaomWarrior7
--- Kitava's Cultist
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearBloodDelve
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearBloodChampionDelve
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearChaosDelve
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearChaosChampionDelve
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearFireDelve
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearFireChampionDelve_
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearLightningDelve
-#spectre Metadata/Monsters/KitavaCultist/VaalCultistSpearLightningChampionDelve_
--- Kitava's Herald
-#spectre Metadata/Monster/KitavaDemon/KitavaDemon
--- Birdman
-#spectre Metadata/Monsters/Kiweth/Kiweth
-#spectre Metadata/Monsters/Kiweth/KiwethSeagull
--- Delve League
-#spectre Metadata/Monsters/LeagueDelve/ProtoVaalWarriorElite
--- Hellion
-#spectre Metadata/Monsters/Lion/LionDesertSkinPuncture
-#spectre Metadata/Monsters/Lion/LionWolf3Champion
--- Knitted Horror
-#spectre Metadata/Monsters/MassSkeleton/MassSkeleton
--- Miners
-#spectre Metadata/Monsters/Miner/MinerLantern
-#spectre Metadata/Monsters/Miner/MinerLanternCrystalVeins
--- Voidbearer
-#spectre Metadata/Monsters/Monkeys/FlameBearer
--- Stone golem
-#spectre Metadata/Monsters/MossMonster/FireMonster
--- Mother of Flames
-#spectre Metadata/Monsters/MotherOfFlames/MotherOfFlamesZombie
--- Necromancer
-#spectre Metadata/Monsters/Necromancer/NecromancerConductivity
-#spectre Metadata/Monsters/Necromancer/NecromancerEnfeebleCurse
-#spectre Metadata/Monsters/Necromancer/NecromancerFlamability
-#spectre Metadata/Monsters/Necromancer/NecromancerFrostbite
-#spectre Metadata/Monsters/Necromancer/NecromancerElementalWeakness
-#spectre Metadata/Monsters/Necromancer/NecromancerProjectileWeakness
-#spectre Metadata/Monsters/Necromancer/NecromancerVulnerability
--- Undying Bomber
-#spectre Metadata/Monsters/Pyromaniac/PyromaniacFire
-#spectre Metadata/Monsters/Pyromaniac/PyromaniacPoison
--- Stygian Revenant
-#spectre Metadata/Monsters/Revenant/Revenant
--- Sea Witch
-#spectre Metadata/Monsters/Seawitch/SeaWitchFrostBolt
-#spectre Metadata/Monsters/Seawitch/SeaWitchScreech
-#spectre Metadata/Monsters/Seawitch/SeaWitchSpawnExploding
-#spectre Metadata/Monsters/Seawitch/SeaWitchSpawnTemporalChains
-#spectre Metadata/Monsters/Seawitch/SeaWitchVulnerabilityCurse
--- Skeleton
-#spectre Metadata/Monsters/Skeletons/SkeletonBowPuncture
-#spectre Metadata/Monsters/Skeletons/SkeletonBowLightning
-#spectre Metadata/Monsters/Skeletons/SkeletonMeleeLarge
-#spectre Metadata/Monsters/Skeletons/SkeletonBowLightning3
-#spectre Metadata/Monsters/Skeletons/SkeletonCasterColdMultipleProjectiles
-#spectre Metadata/Monsters/Skeletons/SkeletonCasterFireMultipleProjectiles2
-#spectre Metadata/Monsters/Skeletons/SkeletonBowPoison
-#spectre Metadata/Monsters/Skeletons/SkeletonBowLightning2
-#spectre Metadata/Monsters/Skeletons/SkeletonBowLightning4
-#spectre Metadata/Monsters/Skeletons/SkeletonCasterLightningSpark
-#spectre Metadata/Monsters/Skeletons/SkeletonBlackCaster1_
-#spectre Metadata/Monsters/Skeletons/SkeletonBowProjectileWeaknessCurse
-#spectre Metadata/Monsters/Skeletons/SkeletonMeleeKnightElementalSwordIncursionChampion
-#spectre Metadata/Monsters/Skeletons/SkeletonBowKnightElemental
-#spectre Metadata/Monsters/Skeletons/SkeletonMeleeBlackAbyssBoneLance
-#spectre Metadata/Monsters/SkeletonCannon/SkeletonCannon1
--- Snake
-#spectre Metadata/Monsters/Snake/SnakeMeleeSpit
-#spectre Metadata/Monsters/Snake/SnakeScorpionMultiShot
--- Spider
-#spectre Metadata/Monsters/Spiders/SpiderThornFlickerStrike
-#spectre Metadata/Monsters/Spiders/SpiderThornViperStrikeFlickerStrike
--- Statue
-#spectre Metadata/Monsters/Statue/DaressoStatueLargeMaleSpear
-#spectre Metadata/Monsters/Statue/StoneStatueMaleBow
--- Ophidian
-#spectre Metadata/Monsters/Taster/Taster
--- Templar
-#spectre Metadata/Monsters/TemplarSlaveDriver/TemplarSlaveDriver
-#spectre Metadata/Monsters/TemplarSlaveDriver/TemplarSlaveDriverKitava
--- Undying
-#spectre Metadata/Monsters/Undying/CityStalkerMaleCasterArmour
-#spectre Metadata/Monsters/Undying/UndyingOutcastPuncture
-#spectre Metadata/Monsters/Undying/UndyingOutcastWhirlingBlades
--- Wicker Man
-#spectre Metadata/Monsters/WickerMan/WickerMan
--- Redemption Sentry
-#spectre Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieSeraphArcherSpectre
--- Baranite Thaumaturge
-#spectre Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderMageguardCasterSpectre
--- Baranite Sister
-#spectre Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderBlessedSisterSpectre
--- Baranite Preacher
-#spectre Metadata/Monsters/AtlasExiles/CrusaderInfluenceMonsters/CrusaderTemplarJudgeSpectre
--- Scale of Esh
-#spectre Metadata/Monsters/SandLeaper/SandLeaperBreachSpectre_
--- Scinteel Synthete
-#spectre Metadata/Monsters/LeagueSynthesis/SynthesisSoulstealer3Spectre
--- Redemption Knight
-#spectre Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieSeraphFighterSpectre_
--- Primal Crushclaw
-#spectre Metadata/Monsters/LeagueHarvest/Blue/HarvestNessaCrabT3Spectre # HarvestNessaCrabScreechDebuff
--- Primal Rhex Matriarch
-#spectre Metadata/Monsters/LeagueHarvest/Blue/HarvestRhexT3Spectre # HarvestRhexScreechDebuff
--- Templar Tactician
-#spectre Metadata/Monsters/LegionLeague/LegionTemplarCaster1Spectre
--- Frost Auto-Scout
-#spectre Metadata/Monsters/LeagueHeist/Robot/RobotClockworkGolemColdSpectre
--- Syndicate Operative
-#spectre Metadata/Monsters/LeagueBetrayal/BetrayalSecretPolice2Spectre_
--- Cloud Retch
-#spectre Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieKiwethSpectre
--- Artless Assassin
-#spectre Metadata/Monsters/LeagueHeist/Thug/ThugRanged1EliteSpectre
--- Ashblessed Warden
-#spectre Metadata/Monsters/LeagueHeist/Robot/RobotPyreKnightEliteSpectre
--- Snow Rhex
-#spectre Metadata/Monsters/AtlasExiles/EyrieInfluenceMonsters/EyrieArmouredBirdSpectre__
--- Flickershade
-#spectre Metadata/Monsters/Maligaro/SecretDesecrateMonster
--- Trial Galecaller
-#spectre Metadata/Monsters/LeagueUltimatum/Guard/GuardBowColdWeakSpectre
--- Trial Windchaser
-#spectre Metadata/Monsters/LeagueUltimatum/Guard/GuardBowColdSpectre
--- Hyrri's Watch
-#spectre Metadata/Monsters/LegionLeague/LegionKaruiArcherSpectre
--- Demon Harpy
-#spectre Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite1Spectre
--- Pale Angel
-#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1Spectre
--- Demon Herder
-#spectre Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_Spectre
--- Pale Seraphim
-#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2Spectre
--- Ravenous Mishapen
-#spectre Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder4Spectre
--- Aurid Synthete
-#spectre Metadata/Monsters/LeagueSynthesis/SynthesisSoulstealer4Spectre
--- Ruins Hellion
-#spectre Metadata/Monsters/Hellion/Hellion3Spectre
--- Arena Master
-#spectre Metadata/Monsters/AtlasExiles/AdjudicatorInfluenceMonsters/AdjudicatorGrandMasterSpectre
--- They of Tul
-#spectre Metadata/Monsters/MinerLarge/MinerLargeCommanderBreachSpectre
--- Ancient Suffering
-#spectre Metadata/Monsters/LeagueDelve/GhostEncounter/WraithPurple # MonsterChanceToTemporalChainsOnHit1
--- Ancient Wraith
-#spectre Metadata/Monsters/LeagueDelve/GhostEncounter/Wraith # DelveMonsterEnfeebleOnHit
--- Forged Frostbearer
-#spectre Metadata/Monsters/LeagueCrucible/Cold/Pyromaniac
+-- Beetles
+#spectre Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured
+#emit
 
-	-- Affliction Corpses
--- Frozen Cannibal
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Hailrake/HailrakeLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Hailrake/HailrakeMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Hailrake/HailrakeHigh
--- Fiery Cannibal
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Firefury/FirefuryLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Firefury/FirefuryMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Firefury/FirefuryHigh_
--- Hydra
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Hydra/HydraLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Hydra/HydraMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Hydra/HydraHigh_
--- Dark Marionette
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Mannequin/MannequinLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Mannequin/MannequinMid # DarkMarionetteExplode
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/Mannequin/MannequinHigh_ # DarkMarionetteExplodePerfect
--- Hulking Miscreation
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/RobotArgusLow
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/RobotArgusMid
-#mod mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", 30, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "HulkingMiscreation", unscaleable = true }, { type = "MonsterTag", monsterTag = "Construct" })})
-#mod mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", 100, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "HulkingMiscreation", unscaleable = true }, { type = "MonsterTag", monsterTag = "Construct" })})
+#spectre Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredDull
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/RobotArgusHigh__
-#mod mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", 30, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "HulkingMiscreation", unscaleable = true }, { type = "MonsterTag", monsterTag = "Construct" })})
-#mod mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", 100, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "HulkingMiscreation", unscaleable = true }, { type = "MonsterTag", monsterTag = "Construct" })})
+
+#spectre Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull
 #emit
--- Spirit of Fortune
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/KudukuLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/KudukuMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/KudukuHigh
-#mod mod("AllyModifier", "LIST", { mod = flag("LightningLuckHits") })
+
+#spectre Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWide
 #emit
--- Naval Officer
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/AdmiralLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/AdmiralMid__
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/AdmiralHigh_
-#mod mod("AllyModifier", "LIST", { mod = mod("ColdDamageTaken", "INC", -5, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "PerfectNavalOfficer", unscaleable = true })})
+
+-- Beyond
+#spectre Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder1_
 #emit
--- Dancing Sword
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/AnimatedSwordLow
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/AnimatedSwordMid
-#mod mod("AllyModifier", "LIST", { mod = mod("ImpaleChance", "BASE", 20, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "DancingSword", unscaleable = true })})
+
+#spectre Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder2_
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/AnimatedSwordHigh_
-#mod mod("AllyModifier", "LIST", { mod = mod("ImpaleChance", "BASE", 20, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "DancingSword", unscaleable = true })})
-#mod mod("AllyModifier", "LIST", { mod = mod("ImpaleEffect", "INC", 30, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "DancingSword", unscaleable = true })})
+
+#spectre Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder3_
 #emit
--- Needle Horror
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/BarrageDemonLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/BarrageDemonMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/BarrageDemonHigh_
-#mod mod("PlayerModifier", "LIST", { mod = mod("ImpaleEffect", "INC", 10, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "NeedleHorror", unscaleable = true })})
+
+#spectre Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite1_
 #emit
--- Serpent Warrior
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/BasaliskLow
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/BasaliskMid
-#mod mod("AllyModifier", "LIST", { mod = flag("Condition:CanWither") })
+
+#spectre Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/BasaliskHigh
-#mod mod("AllyModifier", "LIST", { mod = flag("Condition:CanWither") })
+
+#spectre Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder1_
+#flags recommendedSpectre
 #emit
--- Pain Artist
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/CasterDemonLow
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/CasterDemonMid
-#mod mod("AllyModifier", "LIST", { mod = mod("CritMultiplier", "BASE", 30, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "PainArtist", unscaleable = true })})
+
+#spectre Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder2_
+#flags recommendedSpectre
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/CasterDemonHigh
-#mod mod("AllyModifier", "LIST", { mod = mod("CritMultiplier", "BASE", 30, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "PainArtist", unscaleable = true })})
+
+#spectre Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder3_
 #emit
--- Sawblade Horror
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/CycloneDemonLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/CycloneDemonMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/CycloneDemonHigh
--- Restless Knight
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DeathKnightLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DeathKnightMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DeathKnightHigh
--- Slashing Horror
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DualstrikeDemonLow
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DualstrikeDemonMid
-#mod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 1, ModFlag.Attack, 0, { type = "Multiplier", actor = "parent", var = "RageEffect" }) })
+
+#spectre Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder4_
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DualstrikeDemonHigh
-#mod mod("PlayerModifier", "LIST", { mod = mod("PhysicalDamageGainAsFire", "BASE", 5, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "SlashingHorror", unscaleable = true })})
-#mod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 1, ModFlag.Attack, 0, { type = "Multiplier", actor = "parent", var = "RageEffect" }) })
+
+#spectre Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite1_
 #emit
--- Druidic Alchemist
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/FlaskloverLow__
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/FlaskloverMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/FlaskloverHigh
-#mod mod("PlayerModifier", "LIST", { mod = mod("LifeFlaskChargesGenerated", "BASE", 1/3, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "RestlessKnight", unscaleable = true })})
+
+#spectre Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite2_
 #emit
--- Escaped Prototype
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ForgeHoundLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ForgeHoundMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ForgeHoundHigh_
--- Blasphemer
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/GeofriLow # TalismanT1TemporalChains TalismanT2EnfeebleAura TalismanT1Vulnerability
-#mod mod("EnemyCurseLimit", "BASE", 3)
+
+#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder1_
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/GeofriMid_ # TalismanT1TemporalChains TalismanT2EnfeebleAura TalismanT1Vulnerability
-#mod mod("EnemyCurseLimit", "BASE", 3)
+
+#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder2_
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/GeofriHigh # TalismanT1TemporalChains TalismanT2EnfeebleAura TalismanT1Vulnerability
-#mod mod("EnemyCurseLimit", "BASE", 3)
+
+#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder3_
 #emit
--- Judgemental Spirit
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/GoddessLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/GoddessMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/GoddessHigh
--- Primal Thunderbird
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/HarvestBirdLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/HarvestBirdMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/HarvestBirdHigh
--- Primal Demiurge
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ManaPhantasmLow__
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ManaPhantasmMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ManaPhantasmHigh
--- Runic Skeleton
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/MegaSkeletonLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/MegaSkeletonMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/MegaSkeletonHigh
-#mod mod("PlayerModifier", "LIST", { mod = mod("PhysicalDamage", "MORE", 5, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "PrimalDemiurge", unscaleable = true })})
+
+#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_
 #emit
--- Warlord
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/OakLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/OakMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/OakHigh
--- Dark Reaper
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ReaperLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ReaperMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ReaperHigh
-#mod flag("Condition:NoExtraBleedDamageToMovingEnemy"), --This mod is not currently working correctly
+
+#spectre Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__
 #emit
--- Sanguimancer Demon
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ShepherdLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ShepherdMid_
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/ShepherdHigh
--- Spider Matriarch
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SpiderLeaderLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SpiderLeaderMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SpiderLeaderHigh_
-#mod mod("PlayerModifier", "LIST", { mod = mod("WitherEffect", "INC", 10, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "SpiderMatriarch", unscaleable = true })}) --Does not work
+
+-- Boar
+#spectre Metadata/Monsters/GoreCharger/GoreCharger
 #emit
--- Meatsack
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TankyZombieLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TankyZombieMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TankyZombieHigh
-#mod mod("MinionModifier", "LIST", { mod = mod("Life", "INC", 40, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Meatsack", unscaleable = true })})
+
+-- Crab
+#spectre Metadata/Monsters/QuillCrab/QuillCrab
 #emit
--- Eldritch Eye
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TentacleMinionLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TentacleMinionMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TentacleMinionHigh
--- Forest Tiger
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TigerLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TigerMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TigerHigh
--- Guardian Turtle
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TurtleLow
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TurtleMid_
-#mod mod("PlayerModifier", "LIST", { mod = mod("PhysicalDamageReduction", "BASE", 3, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "GuardianTurtle", unscaleable = true })})
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabBig
 #emit
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/TurtleHigh
-#mod mod("PlayerModifier", "LIST", { mod = mod("PhysicalDamageReduction", "BASE", 5, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "GuardianTurtle", unscaleable = true })})
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabPoison
 #emit
--- Shadow Construct
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/VaalOversoulLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/VaalOversoulMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/VaalOversoulHigh
--- Forest Warrior
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/VikingLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/VikingMid
-#monster Metadata/Monsters/LeagueAzmeri/SpecialCorpses/VikingHigh
-#mod mod("AllyModifier", "LIST", { mod = flag("Condition:Onslaught", { type = "GlobalEffect", effectType = "Buff", effectName = "ForestWarrior", unscaleable = true })})
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabBigPoison_
+#flags recommendedSpectre recommendedBeast
 #emit
--- Shadow Berserker
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SlammerDemonLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SlammerDemonMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SlammerDemonHigh
--- Riftcaster
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/FlameblasterLow_
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/FlameblasterMid_
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/FlameblasterHigh_
--- Blood Demon
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DemonBossLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DemonBossMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/DemonBossHigh
--- Half-remembered Goliath
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SynthesisGolemLow
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SynthesisGolemMid
-#spectre Metadata/Monsters/LeagueAzmeri/SpecialCorpses/SynthesisGolemHigh
--- Wretched Defiler
-#spectre Metadata/Monsters/Revenant/RevenantMapBossStandalone_AtlasUber
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabTropical
+#flags recommendedSpectre recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/ShellMonster/ShellMonster
+#emit
+
+#spectre Metadata/Monsters/ShellMonster/ShellMonsterPoison
+#flags recommendedSpectre recommendedBeast
+#emit
+
+-- Cultists
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger
+#emit
+
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff
+#emit
+
+-- Cleansed Maps
+#spectre Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy
+#emit
+
+#spectre Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity
+#emit
+
+#spectre Metadata/Monsters/Sanctified/Scythe/SanctifiedScythe_
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/Sanctified/Snake/SanctifiedSnake
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/Sanctified/Spider/SanctifiedSpider
+#emit
+
+#spectre Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle
+#emit
+
+#spectre Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing
+#emit
+
+-- Faridun
+#spectre Metadata/Monsters/Mutewind/MutewindBanditExecutioner
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindBoy
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindGirl
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindMan2HSpear
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindManDualSword
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindManSpearShield_
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindWomanDualSword
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindWomanJavelin
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted
+#emit
+
+#spectre Metadata/Monsters/Mutewind/MutewindWomanSpearShield
+#emit
+
+-- Filthy First-born
+#spectre Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater
+#flags recommendedSpectre
+#emit
+
+-- Geonor Iron Guards
+#spectre Metadata/Monsters/TheCountsEliteGuardCorrupted/MeleeVariantB/CorruptedEliteBloater
+#emit
+
+#spectre Metadata/Monsters/TheCountsEliteGuardCorrupted/Ranged/CorruptedEliteRanger_
+#emit
+
+#spectre Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteSpear_
+#emit
+
+#spectre Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantB/CorruptedEliteToothy
+#emit
+
+#spectre Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/CorruptedEliteGuard
+#emit
+
+-- Goliath
+#spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan
+#emit
+
+-- Lost-Men Cultists
+#spectre Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecromancer
+#emit
+
+#spectre Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01
+#emit
+
+#spectre Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02
+#emit
+
+#spectre Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock
+#emit
+
+#spectre Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/BoneCultists/BoneCultists_Savage/BoneCultists_Savage__
+#emit
+
+#spectre Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield
+#emit
+
+-- Skeletons
+#spectre Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonBow_
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSwordShield
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkeleton
+#emit
+
+#spectre Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle
+#emit
+
+#spectre Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleJaguar_
+#emit
+
+#spectre Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest
+#emit
+
+#spectre Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire
+#emit
+
+#spectre Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword
+#emit
+
+#spectre Metadata/Monsters/Skeletons/RetchSkeletonOneHandSword
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Rusted/RustedSkeletonOneHandSwordShield
+#emit
+
+#spectre Metadata/Monsters/SkeletonSoldier/Rusted/RustedSoldierOneHandSword
+#emit
+
+-- Serpent Shaman
+#spectre Metadata/Monsters/SerpentClanMonster/SerpentClanCaster
+#flags recommendedSpectre recommendedBeast
+#emit
+
+-- Shade
+#spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
+#emit
+
+--Terracotta Soldier
+#spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre
+#emit
+
+#spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
+#flags recommendedSpectre
+#emit
+
+-- Quadrilla
+#spectre Metadata/Monsters/Quadrilla/Quadrilla
+#flags recommendedBeast
+#emit
+
+-- Vaal Humanoid
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemale
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_
+#emit
+
+-- Werewolves
+#spectre Metadata/Monsters/Werewolves/WerewolfMoonClan1
+#emit
+
+#spectre Metadata/Monsters/Werewolves/WerewolfPack1
+#emit
+
+#spectre Metadata/Monsters/Werewolves/WerewolfProwler1
+#emit
+
+#spectre Metadata/Monsters/Werewolves/WerewolfProwlerRed1
+#emit
+
+#spectre Metadata/Monsters/Monkeys/MonkeyJungle
+#emit
+
+#spectre Metadata/Monsters/BloodChieftain/MonkeyChiefJungle
+#emit
+
+#spectre Metadata/Monsters/Spiker/Spiker3_
+#emit
+
+#spectre Metadata/Monsters/MudBurrower/BrambleBurrower
+#emit
+
+#spectre Metadata/Monsters/StonebackRhoa/BrambleRhoa
+#emit
+
+#spectre Metadata/Monsters/Wraith/WraithSpookyCold
+#emit
+
+#spectre Metadata/Monsters/Wraith/WraithSpookyLightning
+#emit
+
+#spectre Metadata/Monsters/FungusZombie/FungusZombieMedium
+#emit
+
+#spectre Metadata/Monsters/FungusZombie/FungusZombieFungalmancer
+#emit
+
+#spectre Metadata/Monsters/MudGolem/MudGolem
+#emit
+
+#spectre Metadata/Monsters/MudGolem/SandGolem
+#emit
+
+#spectre Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed
+#emit
+
+#spectre Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedDryUnarmed
+#emit
+
+#spectre Metadata/Monsters/Urchins/SlingUrchin1
+#emit
+
+#spectre Metadata/Monsters/Hags/UrchinHag1
+#emit
+
+#spectre Metadata/Monsters/Hags/TrenchHag
+#emit
+
+#spectre Metadata/Monsters/HuhuGrub/HuhuGrubLarvaeSpectre
+#emit
+
+#spectre Metadata/Monsters/Stalker/Stalker
+#emit
+
+#spectre Metadata/Monsters/BloodMonsters/BloodCourtesan1
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/BloodMonsters/BloodCarrier1
+#emit
+
+#spectre Metadata/Monsters/BloodMonsters/BloodCretin1
+#emit
+
+#spectre Metadata/Monsters/BloodMonsters/BloodCollector1__
+#emit
+
+#spectre Metadata/Monsters/Knight/DeathKnight1
+#emit
+
+#spectre Metadata/Monsters/Knight/DeathKnightNecropolisElite
+#emit
+
+#spectre Metadata/Monsters/Gargoyle/GargoyleGolemRed
+#emit
+
+#spectre Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__
+#emit
+
+#spectre Metadata/Monsters/Crow/CrowCarrion
+#emit
+
+#spectre Metadata/Monsters/BrambleHulk/BrambleHulk1
+#emit
+
+#spectre Metadata/Monsters/Ghouls/GhoulCommander
+#emit
+
+#spectre Metadata/Monsters/Ghouls/Ghoul
+#emit
+
+#spectre Metadata/Monsters/Zombies/Fungal/FungalArtillery1__
+#emit
+
+#spectre Metadata/Monsters/Wretches/CoffinWretch1
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/Wretches/StatueWretch
+#emit
+
+#spectre Metadata/Monsters/Wretches/StatueWretchElite
+#emit
+
+#spectre Metadata/Monsters/Frog/PaleFrog1
+#emit
+
+#spectre Metadata/Monsters/ReliquaryMonster/PitCrawler1
+#emit
+
+#spectre Metadata/Monsters/BoneStalker/TombStalker1
+#emit
+
+#spectre Metadata/Monsters/Sentinels/TendrilSentinel1__
+#emit
+
+#spectre Metadata/Monsters/Wolves/RottenWolf1_
+#emit
+
+#spectre Metadata/Monsters/Wolves/FungalWolf1_
+#emit
+
+#spectre Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed
+#emit
+
+#spectre Metadata/Monsters/SnakeFlowerMan/BloomSerpent1
+#emit
+
+#spectre Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium
+#emit
+
+#spectre Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed
+#emit
+
+#spectre Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1
+#emit
+
+#spectre Metadata/Monsters/RisenArbalest__
+#emit
+
+#spectre Metadata/Monsters/Bugbot/BugbotRockyNoEmerge
+#emit
+
+#spectre Metadata/Monsters/FaridunLizards/FaridunLizard_
+#emit
+
+#spectre Metadata/Monsters/FaridunLizards/FaridunLizard_Armoured_
+#emit
+
+#spectre Metadata/Monsters/Parasites/FishParasite
+#emit
+
+#spectre Metadata/Monsters/Parasites/PirateFishParasite
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionBasicZombie
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionZombieLarge
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCaster
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourAxeShield
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnight
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/BoneCultist/ExpeditionBoneCultist
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/RatMonster/ExpeditionRat
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_
+#emit
+
+#spectre Metadata/Monsters/TwigMonsters/canopy/TwigMonster
+#emit
+
+#spectre Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis
+#emit
+
+#spectre Metadata/Monsters/DemonSpiders/MeleeSpider
+#emit
+
+#spectre Metadata/Monsters/DemonSpiders/SpiderSabre
+#emit
+
+#spectre Metadata/Monsters/RamGiant/RamGiant
+#emit
+
+#spectre Metadata/Monsters/RamGiant/RamGiantQuarry
+#emit
+
+#spectre Metadata/Monsters/RamGiant/RottingRamGiant_
+#emit
+
+#spectre Metadata/Monsters/RamGiant/RottingRamGiantBog
+#emit
+
+#spectre Metadata/Monsters/MaggotHusks/MaggotHusk
+#emit
+
+#spectre Metadata/Monsters/SerpentClanMonster/SerpentClan1
+#emit
+
+#spectre Metadata/Monsters/SaltGolem/SaltGolemNoEmerge
+#emit
+
+#spectre Metadata/Monsters/HyenaMonster/HyenaMonster
+#emit
+
+#spectre Metadata/Monsters/HyenaMonster/HyenaCentaurSpear
+#emit
+
+#spectre Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/SandLeaper02/DesertLeaper1_
+#emit
+
+#spectre Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer
+#emit
+
+#spectre Metadata/Monsters/SandGolemancer/SandGolemancer
+#emit
+
+#spectre Metadata/Monsters/MarAcolyte/MarAcolyte
+#emit
+
+#spectre Metadata/Monsters/WingedFiend/WingedFiend
+#emit
+
+#spectre Metadata/Monsters/RockSliderSpectre
+#emit
+
+#spectre Metadata/Monsters/SkeletonSnake
+#emit
+
+#spectre Metadata/Monsters/PitifulFabrications/PitifulFabrication01
+#emit
+
+#spectre Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/PitifulFabrications/PitifulFabrication03_
+#emit
+
+#spectre Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_
+#emit
+
+#spectre Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_
+#emit
+
+#spectre Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoCaster
+#emit
+
+#spectre Metadata/Monsters/PorcupineAnt/PorcupineAntSmall
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/CaveDweller/CaveDweller
+#emit
+
+#spectre Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge
+#emit
+
+#spectre Metadata/Monsters/SummonedPhantasm/DesertPhantasm
+#emit
+
+#spectre Metadata/Monsters/VultureZombie/VultureDemon
+#flags recommendedSpectre recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Kinarha/KinarhaSpectre
+#emit
+
+#spectre Metadata/Monsters/Zombies/Maraketh/MarakethZombie
+#emit
+
+#spectre Metadata/Monsters/PlagueMorphs/PlagueMorph1
+#emit
+
+#spectre Metadata/Monsters/PlagueSwarm/PlagueSwarm
+#emit
+
+#spectre Metadata/Monsters/PlagueNymph/PlagueNymph_
+#emit
+
+#spectre Metadata/Monsters/PlagueBringer/PlagueBringer
+#emit
+
+#spectre Metadata/Monsters/BrainWorm/DuneLurker_
+#emit
+
+#spectre Metadata/Monsters/WingedCreature/WingedCreature
+#emit
+
+#spectre Metadata/Monsters/MantisRat/MantisRat
+#flags recommendedSpectre recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/MudGolem/MarshBruiser
+#emit
+
+#spectre Metadata/Monsters/BogBodies/BogCorpseUnarmed
+#emit
+
+#spectre Metadata/Monsters/BogBodies/BogCorpseOneHandAxe
+#emit
+
+#spectre Metadata/Monsters/TwigMonsters/DredgeFiend
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/CannibalTribeStalker
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/CannibalTribeDagger
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/CannibalTribeShaman
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/CannibalTribeGiant
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageStalker
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageSpearMelee
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageBeastMaster
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageDagger_
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageShaman
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageBrute
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageDelinquent
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageTorchbearer
+#emit
+
+#spectre Metadata/Monsters/VaalSavage/VaalSavageGiant
+#emit
+
+#spectre Metadata/Monsters/PlagueSwarm/BloodDrone
+#emit
+
+#spectre Metadata/Monsters/SwarmHost/SwarmHost
+#emit
+
+#spectre Metadata/Monsters/IgguranRaider/BladeStalkerPale
+#emit
+
+#spectre Metadata/Monsters/IgguranRaider/BladeStalker
+#emit
+
+#spectre Metadata/Monsters/Anchorite/AnchoriteSpawn_
+#emit
+
+#spectre Metadata/Monsters/Anchorite/AnchoriteFlathead
+#emit
+
+#spectre Metadata/Monsters/Anchorite/AnchoriteMother
+#emit
+
+#spectre Metadata/Monsters/BaneSapling/BaneSapling
+#emit
+
+#spectre Metadata/Monsters/ArmadilloDemon/ArmadilloDemon
+#emit
+
+#spectre Metadata/Monsters/ChawMongrel/ChawMongrel
+#emit
+
+#spectre Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1
+#emit
+
+#spectre Metadata/Monsters/NettleAnt/NettleAntSummoned
+#flags recommendedBeast recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/SnakeHulk/SnakeHulk
+#emit
+
+#spectre Metadata/Monsters/SerpentHusk/SerpentHusk__
+#emit
+
+#spectre Metadata/Monsters/GutViper/GutViper
+#emit
+
+#spectre Metadata/Monsters/RiverSnakeHusk/RiverSnakeHusk
+#emit
+
+#spectre Metadata/Monsters/SpittingSnake/SpittingSnake
+#emit
+
+#spectre Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse
+#emit
+
+#spectre Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_
+#emit
+
+#spectre Metadata/Monsters/SpiderMonkey/SpiderMonkey
+#emit
+
+#spectre Metadata/Monsters/GoreCharger/GoreCharger
+#emit
+
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe
+#emit
+
+#spectre Metadata/Monsters/CrazedCannibalPicts/PictBigMale
+#emit
+
+#spectre Metadata/Monsters/WereCat/TigerChimeral
+#flags recommendedSpectre recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/Taniwha/RiverTaniwhaNoJank
+#emit
+
+#spectre Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelNoEmerge_
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGoldenNoEmerge
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidAncientActivated
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidSpawned
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolem
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolemAncient
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Skitterbot/VaalConstructSkitterbot
+#emit
+
+#spectre Metadata/Monsters/RatMonster/RatMonster
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDaggers
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
+#emit
+
+#spectre Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn
+#emit
+
+#spectre Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn
+#emit
+
+#spectre Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash
+#emit
+
+#spectre Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam
+#emit
+
+#spectre Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower
+#emit
+
+#spectre Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm
+#emit
+
+#spectre Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrolSpectre
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalGuardClawsLiving
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalOverseerLiving_
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalStormcaller
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalEagleKnightLiving
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/VaalTimeScientist/VaalTimeScientist_
+#emit
+
+#spectre Metadata/Monsters/VaalEagleKnight/VaalEagleKnightUndead
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalArchivistLiving
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar
+#emit
+
+#spectre Metadata/Monsters/Procession/ProcessionAxeShield
+#emit
+
+#spectre Metadata/Monsters/Procession/ProcessionSpear_
+#emit
+
+#spectre Metadata/Monsters/Procession/ProcessionDagger
+#emit
+
+#spectre Metadata/Monsters/Procession/ProcessionBow
+#emit
+
+#spectre Metadata/Monsters/Procession/ProcessionBannerSpectre
+#emit
+
+#spectre Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword
+#emit
+
+#spectre Metadata/Monsters/DrownedCrew/DrownedCrewSword_
+#emit
+
+#spectre Metadata/Monsters/DrownedCrew/DrownedCrewGhost
+#emit
+
+#spectre Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead
+#emit
+
+#spectre Metadata/Monsters/VaalForgeMan/VaalForgeMan
+#emit
+
+#spectre Metadata/Monsters/DrownedCrawler/DrownedCrawler__
+#emit
+
+#spectre Metadata/Monsters/LiquidElementals/LiquidElementalBlood
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWield
+#emit
+
+#spectre Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/BloodCultistDrones/BloodBatherMage
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/AscendancyBatMonster/AscendancyBat
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Ball/VaalBowlingBall
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_
+#emit
+
+#spectre Metadata/Monsters/CauldronCrone/CauldronCrone
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateBootyBlaster
+#emit
+
+#spectre Metadata/Monsters/ManOWar/ManoWar
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateCannon
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateGrenade
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateBarrel
+#emit
+
+#spectre Metadata/Monsters/Anchorman/BloatedAnchorman
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregSword
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGoliathFist_
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidPyramidHands/VaalPyramidHands
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidShieldLegs/VallHumanoidShieldLegs
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidSwordShield/VaalHumanoidSwordShield_
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFire
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightning
+#emit
+
+#spectre Metadata/Monsters/VaalConstructs/Colossus/VaalColossusMetal
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBladeHands
+#emit
+
+#spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidStalker/VaalHumanoidStalker
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/HarpyMonster/GullHarpy
+#emit
+
+#spectre Metadata/Monsters/CageSkeleton/CageSkeleton_
+#emit
+
+#spectre Metadata/Monsters/SkeletonProwler/SkeletonProwler_
+#emit
+
+#spectre Metadata/Monsters/BrineMaiden/BrineMaiden
+#emit
+
+#spectre Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster
+#emit
+
+#spectre Metadata/Monsters/Baron/BaronWerewolfSummon
+#emit
+
+#spectre Metadata/Monsters/ScarecrowBeast/ScarecrowBeast
+#emit
+
+#spectre Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_
+#emit
+
+#spectre Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_
+#emit
+
+#spectre Metadata/Monsters/FallenGods/FallenHooksFoundry
+#emit
+
+#spectre Metadata/Monsters/FallenGods/FallenGodsBloater_
+#emit
+
+#spectre Metadata/Monsters/FallenGods/FallenStag
+#emit
+
+#spectre Metadata/Monsters/SpinningWheelHag/SpinningWheelHag
+#emit
+
+#spectre Metadata/Monsters/RatMonster/RatMonsterCistern
+#emit
+
+#spectre Metadata/Monsters/RabidFeralDogMonster/RabidDog
+#emit
+
+#spectre Metadata/Monsters/KaruiBoar/ExplosivePig
+#emit
+
+#spectre Metadata/Monsters/Ghouls/FarudinCrawler
+#emit
+
+#spectre Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/TitanWalker/TitanWalker
+#emit
+
+#spectre Metadata/Monsters/SkeletalKnight/SkeletalKnight
+#emit
+
+#spectre Metadata/Monsters/SkeletalReaper/SkeletalReaper
+#emit
+
+#spectre Metadata/Monsters/VaseMonster/VaseMonsterSpectre
+#emit
+
+#spectre Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest
+#emit
+
+#spectre Metadata/Monsters/Zombies/CourtGuardZombieAxe
+#emit
+
+#spectre Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_
+#emit
+
+#spectre Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_
+#emit
+
+#spectre Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_
+#emit
+
+#spectre Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachElitePaleElite1
+#emit
+
+#spectre Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon
+#emit
+
+#spectre Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider
+#emit
+
+#spectre Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachFodderDemonicSpikeThrower
+#emit
+
+#spectre Metadata/Monsters/Breach/BreachElitePaleElite2
+#emit
+
+#spectre Metadata/Monsters/ChaosGodTriHeadLizard/ChaosGodTriHeadLizard_
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZombieTree
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonsterSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster
+#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMeleeRitual_
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitual_
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitual2
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DemonFaction/CaveDweller_
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DemonFaction/PrimordialMonster3_
+#flags recommendedSpectre recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DemonFaction/DemonRhoa
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DemonFaction/DemonRat
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DemonFaction/DemonBurrower
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DemonFaction/DemonHulk_
+#flags recommendedSpectre recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/LeagueRitual/DemonFaction/DemonMonkey
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
+#emit
+
+#spectre Metadata/Monsters/SummonRagingSpirit/RagingFireSpirit
+#emit
+
+#spectre Metadata/Monsters/SummonRagingSpirit/RagingTimeSpirit
+#emit

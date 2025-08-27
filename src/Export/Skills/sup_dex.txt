@@ -250,6 +250,11 @@ statMap = {
 
 #skill SupportDeliberationPlayer
 #set SupportDeliberationPlayer
+statMap = {
+	["support_deliberation_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

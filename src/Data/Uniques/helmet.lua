@@ -93,6 +93,14 @@ League: Dawn of the Hunt
 Gain Tailwind on Critical Hit, no more than once per second
 Lose all Tailwind when Hit
 ]],[[
+Constricting Command
+Viper Cap
+League: Dawn of the Hunt
++(80-120) to maximum Life
++(10-15) to all Attributes
+(8-12) Life Regeneration per second
+Pin Enemies which are Primed for Pinning
+]],[[
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
@@ -261,8 +269,11 @@ Skills have a (100-150)% longer Perfect Timing window
 The Bringer of Rain
 Decorated Helm
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 (600-800)% increased Armour and Evasion
 +(200-300) to Accuracy Rating
+{variant:2}100% increased Critical Hit Chance
 (30-60) Life Regeneration per second
 Can't use Body Armour
 You can wield Two-Handed Axes, Maces and Swords in one hand
@@ -446,6 +457,15 @@ Variant: Current
 Allies in your Presence deal 50% increased Damage
 {variant:2}+(10-20) to Dexterity
 25% reduced Damage
+]],[[
+Mind of the Council
+Death Mask
+League: Dawn of the Hunt
+(60-90)% increased Evasion and Energy Shield
++(60-90) to maximum Mana
++(20-30)% to Lightning Resistance
+Attacks cost an additional 6% of your maximum Mana
+Attacks have Added maximum Lightning Damage equal to (6-9)% of maximum Mana
 ]],[[
 The Three Dragons
 Solid Mask

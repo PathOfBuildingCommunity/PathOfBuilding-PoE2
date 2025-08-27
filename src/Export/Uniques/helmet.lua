@@ -93,6 +93,14 @@ UniqueLightningResist24
 UniqueTailwindOnCriticalStrike1
 UniqueLoseTailwindOnHit1
 ]],[[
+Constricting Command
+Viper Cap
+League: Dawn of the Hunt
+UniqueIncreasedLife49
+UniqueAllAttributes14
+UniqueLifeRegeneration20
+UniquePinAlmostPinnedEnemies1
+]],[[
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
@@ -261,11 +269,14 @@ UniquePerfectTimingWindow1
 The Bringer of Rain
 Decorated Helm
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 UniqueLocalIncreasedArmourAndEvasion27
 UniqueIncreasedAccuracy11
 UniqueLifeRegeneration16
 UniqueDisableChestSlot1
 UniqueUseTwoHandedWeaponOneHand1
+{variant:2}UniqueCriticalStrikeChance15
 ]],[[
 Erian's Cobble
 Guarded Helm
@@ -444,6 +455,15 @@ UniqueIncreasedMana5
 UniqueNearbyAlliesAllDamage1
 {variant:2}UniqueDexterity32
 UniqueAllDamage1
+]],[[
+Mind of the Council
+Death Mask
+League: Dawn of the Hunt
+UniqueLocalIncreasedEvasionAndEnergyShield16
+UniqueIncreasedMana42
+UniqueLightningResist20
+UniqueAttackManaCost1
+UniqueAttackMaxLightningDamage1
 ]],[[
 The Three Dragons
 Solid Mask
