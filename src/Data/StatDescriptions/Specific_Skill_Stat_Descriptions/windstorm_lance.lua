@@ -93,12 +93,32 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0:+d}m to Radius per additional stage"
+			}
+		},
+		stats={
+			[1]="sandstorm_swipe_storm_radius_+_per_stage"
+		}
+	},
+	[6]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
 				limit={
@@ -123,7 +143,7 @@ return {
 			[1]="windstorm_base_maximum_number_of_storms"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
 		},
 		stats={
@@ -134,8 +154,9 @@ return {
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_skill_effect_duration"]=4,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=5,
+	["sandstorm_swipe_storm_radius_+_per_stage"]=5,
+	["skill_effect_duration"]=6,
 	["skill_specific_stat_description_mode"]=1,
-	["windstorm_base_maximum_number_of_storms"]=6,
-	["windstorm_maximum_number_of_storms"]=7
+	["windstorm_base_maximum_number_of_storms"]=7,
+	["windstorm_maximum_number_of_storms"]=8
 }

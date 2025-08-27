@@ -116,6 +116,17 @@ Allies in your Presence have (30-50)% increased Critical Damage Bonus
 {tags:caster,speed}Allies in your Presence have (10-20)% increased Cast Speed
 50% reduced Presence Area of Effect
 ]],[[
+Hinekora's Sight
+Stellar Amulet
+Requires Level 44
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Future-Past
+{tags:attribute}+(5-7) to all Attributes
+{tags:attack}+(300-600) to Accuracy Rating
+{tags:defences}+(300-600) to Evasion Rating
+Cannot be Blinded
+]],[[
 Idol of Uldurn
 Crimson Amulet
 Requires Level 24
@@ -215,12 +226,15 @@ Your Critical Hits do not deal extra Damage
 ]],[[
 Xoph's Blood
 Amber Amulet
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 {tags:attribute}+(10-15) to Strength
-{tags:life}(10-15)% increased maximum Life
+{tags:life}(10-20)% increased maximum Life
 {tags:fire}+(20-30)% to Fire Resistance
-{tags:fire}Enemies in your Presence have Fire Exposure
+{variant:1}Enemies in your Presence have +1% to Fire Resistance
+{variant:2}Enemies in your Presence have -10% to Fire Resistance
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet

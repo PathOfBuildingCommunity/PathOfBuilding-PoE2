@@ -48,6 +48,24 @@ UniqueDexterity3
 UniqueBeltFlaskRecoveryRate1
 UniqueLowLifeThreshold1
 ]],[[
+Darkness Enthroned
+Fine Belt
+League: Rise of the Abyssal
+Variant: Helmet
+Variant: Body Armour
+Variant: Gloves
+Variant: Boots
+Variant: Shield
+Implicits: 2
+BeltImplicitCharmSlots3
+BeltImplicitFlaskPassiveChargeGain1
+{variant:1}LocalItemBenefitSocketableAsIfHelmetUnique__1
+{variant:2}LocalItemBenefitSocketableAsIfBodyArmourUnique__1
+{variant:3}LocalItemBenefitSocketableAsIfGlovesUnique__1
+{variant:4}LocalItemBenefitSocketableAsIfBootsUnique__1
+{variant:5}LocalItemBenefitSocketableAsIfShieldUnique__1
+LocalSocketItemsEffectUnique__1
+]],[[
 The Gnashing Sash
 Wide Belt
 League: Dawn of the Hunt
@@ -83,6 +101,7 @@ UniqueGainRareMonsterModsOnKill1
 ]],[[
 Infernoclasp
 Plate Belt
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 Implicits: 2
@@ -172,6 +191,20 @@ UniqueIncreasedEnergyShield2
 UniqueIntelligence9
 UniqueLoseEnergyShieldPerSecond1
 UniqueLifeLeechExcessToEnergyShield1
+]],[[
+Umbilicus Immortalis
+Linen Belt
+League: Rise of the Abyssal
+Requires Level 24
+Implicits: 2
+BeltImplicitCharmSlots3
+BeltImplicitFlaskManaRecovery1
+UniqueBeltFlaskDuration1
+UniqueIntelligence42
+UniqueMinionLife6
+UniqueLifeFlasksApplyToMinions1
+MinionsCannotDieWhileAffectedByYourLifeFlasks1
+UniqueIncreasedFlaskChargesGained4
 ]],[[
 Waistgate Heavy Belt
 Heavy Belt

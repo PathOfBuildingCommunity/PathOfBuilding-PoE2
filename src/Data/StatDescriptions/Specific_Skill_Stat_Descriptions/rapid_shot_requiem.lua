@@ -8,13 +8,18 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[3]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -90,7 +95,7 @@ return {
 			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -110,18 +115,19 @@ return {
 			[1]="active_skill_base_secondary_area_of_effect_radius"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["active_skill_base_secondary_area_of_effect_radius"]=4,
-	["active_skill_secondary_area_of_effect_radius"]=5,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["active_skill_base_secondary_area_of_effect_radius"]=5,
+	["active_skill_secondary_area_of_effect_radius"]=6,
+	["base_knockback_distance"]=2,
 	["number_of_crossbow_bolts"]=1,
 	parent="skill_stat_descriptions",
-	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=4
 }

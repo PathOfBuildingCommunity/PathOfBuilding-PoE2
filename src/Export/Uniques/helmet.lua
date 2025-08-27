@@ -175,7 +175,7 @@ Variant: Current
 {variant:2}UniqueEnergyShieldAsPercentOfLife1
 ]],[[
 Crown of Eyes
-Coral Circlet
+Vermeil Circlet
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent23
 UniqueIncreasedAccuracy9
@@ -202,6 +202,7 @@ UniqueConsumeCorpseRecoverLife1
 ]],[[
 Forbidden Gaze
 Chain Tiara
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent1
@@ -390,6 +391,7 @@ UniqueGlobalSkillGemLevel1
 ]],[[
 The Deepest Tower
 Spiritbone Crown
+Source: No longer obtainable
 League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield18
 UniqueIncreasedLife46
@@ -455,6 +457,14 @@ UniqueIncreasedMana5
 UniqueNearbyAlliesAllDamage1
 {variant:2}UniqueDexterity32
 UniqueAllDamage1
+]],[[
+Mask of the Sanguimancer
+Face Mask
+UniqueLocalBaseEvasionRatingAndEnergyShield2
+UniqueSpellCriticalStrikeChance1
+UniqueStrength8
+UniqueIntelligence10
+UniqueBloodMagic1
 ]],[[
 Mind of the Council
 Death Mask

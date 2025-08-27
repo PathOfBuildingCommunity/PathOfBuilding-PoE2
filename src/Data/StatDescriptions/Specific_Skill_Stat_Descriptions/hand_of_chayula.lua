@@ -2,5 +2,110 @@
 -- Item data (c) Grinding Gear Games
 
 return {
+	[1]={
+		[1]={
+			[1]={
+				limit={
+				},
+				text="{0:+d}% increased duration of socketed Curses"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased duration of socketed Curses"
+			},
+			[3]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced duration of socketed Curses"
+			}
+		},
+		stats={
+			[1]="base_curse_duration_+%"
+		}
+	},
+	[2]={
+		[1]={
+			[1]={
+				limit={
+				},
+				text="{0:+d}% increased Magnitudes of socketed Curses"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased Curse Magnitudes"
+			},
+			[3]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced Curse Magnitudes"
+			}
+		},
+		stats={
+			[1]="curse_effect_+%"
+		}
+	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+				},
+				text="{0:+d}% increased Effect of Socketed Marks"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased Effect of Socketed Marks"
+			},
+			[3]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced Effect of Socketed Marks"
+			}
+		},
+		stats={
+			[1]="mark_effect_+%"
+		}
+	},
+	["base_curse_duration_+%"]=1,
+	["curse_effect_+%"]=2,
+	["mark_effect_+%"]=3,
 	parent="skill_stat_descriptions"
 }

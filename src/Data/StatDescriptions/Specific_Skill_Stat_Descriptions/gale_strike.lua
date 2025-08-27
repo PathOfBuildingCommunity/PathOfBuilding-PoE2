@@ -42,7 +42,33 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=100,
+						[2]=100
+					}
+				},
+				text="Dazes on Hit"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0}% chance to Daze on Hit"
+			}
+		},
+		stats={
+			[1]="base_chance_to_daze_%"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
+	["base_chance_to_daze_%"]=3,
 	parent="skill_stat_descriptions"
 }

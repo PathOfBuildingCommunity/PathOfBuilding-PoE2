@@ -25,7 +25,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("TotemLightningResistMax", "BASE", 75, "Base")
 	modDB:NewMod("TotemChaosResistMax", "BASE", 75, "Base")
 	modDB:NewMod("BlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
-	modDB:NewMod("SpellBlockChanceMax", "BASE", data.characterConstants["base_maximum_spell_block_%"], "Base")
+	modDB:NewMod("SpellBlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
 	modDB:NewMod("SpellDodgeChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("ChargeDuration", "BASE", 15, "Base")
 	modDB:NewMod("PowerChargesMax", "BASE", data.characterConstants["max_power_charges"], "Base")
@@ -55,7 +55,6 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("WarcryCastTime", "BASE", 0.8, "Base")
 	modDB:NewMod("TotemPlacementTime", "BASE", 0.6, "Base")
 	modDB:NewMod("BallistaPlacementTime", "BASE", 0.35, "Base")
-	modDB:NewMod("ActiveTotemLimit", "BASE", 1, "Base")
 	modDB:NewMod("ShockStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("ChillStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("ScorchStacksMax", "BASE", 1, "Base")
@@ -421,6 +420,19 @@ local function addBestSupport(supportEffect, appliedSupportList, mode)
 				supportEffect.superseded = true
 			end
 			break
+		elseif supportEffect.grantedEffect.gemFamily and otherSupport.grantedEffect.gemFamily then
+			for _, family in ipairs(supportEffect.grantedEffect.gemFamily) do
+				for _, otherFamily in ipairs(otherSupport.grantedEffect.gemFamily) do
+					if family == otherFamily then
+						add = false
+						if mode == "MAIN" then
+							otherSupport.superseded = true
+						end
+						appliedSupportList[index] = supportEffect
+						break
+					end
+				end
+			end
 		elseif supportEffect.grantedEffect.plusVersionOf == otherSupport.grantedEffect.id then
 			add = false
 			if mode == "MAIN" then
@@ -1334,8 +1346,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 					group = { label = "On Kill Monster Explosion", enabled = true, gemList = { }, source = "Explode", noSupports = true }
 					t_insert(build.skillsTab.socketGroupList, group)
 				end
+				-- Hack to remove duplicates
+				local explodeBySource = { }
+				for _, explodeSource in ipairs(env.explodeSources) do
+					explodeBySource[explodeSource.modSource or explodeSource.id] = explodeSource
+				end
 				-- Update the group
-				group.explodeSources = env.explodeSources
+				group.explodeSources = explodeBySource
 				local gemsBySource = { }
 				for _, gem in ipairs(group.gemList) do
 					if gem.explodeSource then
@@ -1343,7 +1360,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				wipeTable(group.gemList)
-				for _, explodeSource in ipairs(env.explodeSources) do
+				for _, explodeSource in pairs(explodeBySource) do
 					local activeGemInstance
 					if gemsBySource[explodeSource.modSource or explodeSource.id] then
 						activeGemInstance = gemsBySource[explodeSource.modSource or explodeSource.id]
@@ -1384,10 +1401,15 @@ function calcs.initEnv(build, mode, override, specEnv)
 			env.player.weaponData2 = env.player.itemList["Weapon 1"].weaponData[2]
 		elseif not env.player.itemList["Weapon 2"] then
 			-- Hollow Palm Technique
-			if (not env.player.itemList["Weapon 1"]) and (not env.player.itemList["Gloves"]) and env.modDB.mods.Keystone then
+			if (not env.player.itemList["Weapon 1"]) and env.modDB.mods.Keystone then
 				for _, keystone in ipairs(env.modDB.mods.Keystone) do
 					if keystone.value == "Hollow Palm Technique" then
 						env.player.weaponData2 = copyTable(env.data.unarmedWeaponData[env.classId])
+						for i = 1, 2 do
+							env.player["weaponData" .. tostring(i)].asThoughUsing = env.player["weaponData" .. tostring(i)].asThoughUsing or { }
+							env.player["weaponData" .. tostring(i)].asThoughUsing["Staff"] = true
+						end
+						env.player.modDB.conditions["HollowPalm"] = true -- Had to add condition here because it was otherwise not recognized correctly when "DisableSkill" is processed
 						break
 					end
 				end
@@ -1755,11 +1777,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.storedUses = skillData.storedUses
 			activeSkill.skillData.CritChance = skillData.CritChance
 			activeSkill.skillData.attackTime = skillData.attackTime
+			activeSkill.skillData.attackSpeedMultiplier = skillData.attackSpeedMultiplier
+			activeSkill.skillData.soulPreventionDuration = skillData.soulPreventionDuration
 			activeSkill.skillData.totemLevel = skillData.totemLevel
 			activeSkill.skillData.damageEffectiveness = skillData.damageEffectiveness
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent
 		end
 	end
+
 
 	-- Merge Requirements Tables
 	env.requirementsTable = tableConcat(env.requirementsTableItems, env.requirementsTableGems)

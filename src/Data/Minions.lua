@@ -33,6 +33,8 @@ minions["RaisedZombie"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 	},
 }
 
@@ -62,6 +64,9 @@ minions["SummonedRagingSpirit"] = {
 	},
 	modList = {
 		mod("Speed", "MORE", 40, 1, 0), -- MonsterSummonedSkullFastAttack1 [active_skill_attack_speed_+%_final = 40]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
 	},
 }
 
@@ -93,6 +98,9 @@ minions["RaisedSkeletonSniper"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
 	},
 }
 
@@ -122,9 +130,15 @@ minions["RaisedSkeletonBrute"] = {
 	skillList = {
 		"MinionMeleeStep",
 		"BoneshatterBruteMinion",
+		"ShatteringRoarSkeletalBruteMinion",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
+		-- melee_conditional_step_distance [melee_conditional_step_distance = 14]
+		-- active_skill_hit_damage_stun_multiplier_+%_final [active_skill_hit_damage_stun_multiplier_+%_final = 50]
 	},
 }
 
@@ -157,6 +171,9 @@ minions["RaisedSkeletonStormMage"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
 	},
 }
 
@@ -185,10 +202,13 @@ minions["RaisedSkeletonFrostMage"] = {
 	},
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
-		"IceBombSkeletonMageMinion",
+		"IceArmourSkeletonMageMinion",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
 	},
 }
 
@@ -222,6 +242,9 @@ minions["RaisedSkeletonCleric"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
 	},
 }
 
@@ -254,6 +277,10 @@ minions["RaisedSkeletonArsonist"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
+		-- strafe_distance_+% [strafe_distance_+% = -40]
 	},
 }
 
@@ -287,6 +314,10 @@ minions["RaisedSkeletonReaver"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
+		-- attack_speed_+%_per_2_rage [attack_speed_+%_per_2_rage = 6]
 	},
 }
 
@@ -321,6 +352,9 @@ minions["RaisedSkeletonWarriors"] = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		mod("BlockChance", "BASE", 30, 0, 0), -- SkeletonWarriorPlayerMinionBlockChance [monster_base_block_% = 30]
 		mod("BlockChanceMax", "BASE", 0, 0, 0), -- SkeletonWarriorPlayerMinionBlockChance [additional_maximum_block_% = 0]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- is_skeleton_minion [is_skeleton_minion = 1]
 	},
 }
 
@@ -351,6 +385,8 @@ minions["SummonedHellhound"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 	},
 }
 
@@ -505,9 +541,14 @@ minions["UnearthBoneConstruct"] = {
 	},
 	skillList = {
 		"MinionMelee",
+		"DATTBoneConstructPlayerSummoned",
+		"GABoneConstructPlayerSummoned",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2930]
 	},
 }
 
@@ -539,6 +580,11 @@ minions["SummonedRhoa"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- set_has_quadruped_head_control [set_has_quadruped_head_control = 1]
+		-- set_quadruped_head_turn_duration_ms [set_quadruped_head_turn_duration_ms = 200]
+		-- no_blood_on_death [no_blood_on_death = 1]
 	},
 }
 
@@ -570,5 +616,112 @@ minions["ManifestWeapon"] = {
 		"GAAnimateWeaponQuarterstaffSweep",
 	},
 	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- minion_does_not_equip_quiver [minion_does_not_equip_quiver = 1]
+		-- monster_gets_item_stats [monster_gets_item_stats = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+		-- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		-- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
+		-- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		-- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
+		-- hide_buff_visuals [hide_buff_visuals = 1]
+		-- hide_mini_life_bar [hide_mini_life_bar = 1]
+	},
+}
+
+minions["RavenousSwarm"] = {
+	name = "Ravenous Swarm",
+	monsterTags = { "slow_movement", "Unarmed_onhit_audio", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.84,
+	damageSpread = 0.3,
+	attackTime = 1,
+	attackRange = 1,
+	accuracy = 1,
+	baseMovementSpeed = 24,
+	spectreReservation = 50,
+	companionReservation = 30,
+	spawnLocation = {
+	},
+	skillList = {
+		"RavenousSwarmAttack",
+	},
+	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- immune_to_curses [immune_to_curses = 1]
+		-- immune_to_auras_from_other_entities [immune_to_auras_from_other_entities = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- mana_regeneration_rate_per_minute_% [mana_regeneration_rate_per_minute_% = 100]
+		-- base_maximum_mana [base_maximum_mana = 100000]
+		-- set_monster_no_drops_or_experience [set_monster_no_drops_or_experience = 1]
+		-- set_monster_do_not_fracture [set_monster_do_not_fracture = 1]
+		-- set_max_frenzy_charges [set_max_frenzy_charges = 0]
+		-- set_max_endurance_charges [set_max_endurance_charges = 0]
+		-- set_max_power_charges [set_max_power_charges = 0]
+		-- is_hidden_monster [is_hidden_monster = 1]
+		mod("Condition:CannotBeDamaged", "FLAG", 1, 0, 0), -- base_cannot_be_damaged [base_cannot_be_damaged = 1]
+		-- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		-- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- base_cannot_be_frozen [base_cannot_be_frozen = 1]
+		-- base_maximum_life_is_one [base_maximum_life_is_one = 1]
+	},
+}
+
+minions["LivingLightning"] = {
+	name = "Living Lightning",
+	monsterTags = { "construct", "extra_small_height", "ghost_armour", "is_unarmed", "melee", "physical_affinity", "very_fast_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.35,
+	damageSpread = 0.8,
+	attackTime = 1,
+	attackRange = 20,
+	accuracy = 1,
+	baseMovementSpeed = 97,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"LivingLightningZap",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- immune_to_curses [immune_to_curses = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_monster_no_drops_or_experience [set_monster_no_drops_or_experience = 1]
+		-- set_monster_do_not_fracture [set_monster_do_not_fracture = 1]
+		-- set_max_frenzy_charges [set_max_frenzy_charges = 0]
+		-- set_max_endurance_charges [set_max_endurance_charges = 0]
+		-- set_max_power_charges [set_max_power_charges = 0]
+		-- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		-- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_phase_through_objects [set_phase_through_objects = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
+		-- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		-- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- hide_buff_visuals [hide_buff_visuals = 1]
+		-- hide_mini_life_bar [hide_mini_life_bar = 1]
 	},
 }

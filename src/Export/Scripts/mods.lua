@@ -69,34 +69,27 @@ local function writeMods(outName, condFunc)
 				out:write('level = ', mod.Level, ', group = "', mod.Type.Id, '", ')
 				out:write('weightKey = { ')
 				local GoldModPrices = dat("GoldModPrices"):GetRow("Id", dat("Mods"):GetRow("Id", mod.Id))
-				if GoldModPrices then
-					local count = 0
+				if GoldModPrices and #GoldModPrices.SpawnTags > 0 then
 					for _, tag in ipairs(GoldModPrices.SpawnTags) do
 						out:write('"', tag.Id, '", ')
-						count = count + 1
 					end
-					-- no spawn tags exist for flask/charm mods
-					if count == 0 then 
-						-- flasks/charms
-						if mod.Domain == 2 then 
-							if isValueInArray(lifeFlaskModTypes, mod.Type.Id) then
-								out:write('"life_flask", ')
-							elseif isValueInArray(manaFlaskModTypes, mod.Type.Id) then
-								out:write('"mana_flask", ')
-							elseif mod.Id:match("^Flask") then 
-								out:write('"flask", ') 
-							elseif mod.Id:match("^Charm") then
-								out:write('"utility_flask", ') 
-							end
-							out:write('"default" }, ')
-							out:write('weightVal = { 1, 0 }, ')
+					out:write('}, ')
+					out:write('weightVal = { ', table.concat(GoldModPrices.SpawnWeights, ', '), ' }, ')
+				else -- no spawn tags exist for flask/charm/corrupted/jewel mods
+					-- flasks/charms
+					if mod.Domain == 2 then
+						if isValueInArray(lifeFlaskModTypes, mod.Type.Id) then
+							out:write('"life_flask", ')
+						elseif isValueInArray(manaFlaskModTypes, mod.Type.Id) then
+							out:write('"mana_flask", ')
+						elseif mod.Id:match("^Flask") then 
+							out:write('"flask", ') 
+						elseif mod.Id:match("^Charm") then
+							out:write('"utility_flask", ') 
 						end
-					else
-						out:write('}, ')
-						out:write('weightVal = { ', table.concat(GoldModPrices.SpawnWeights, ', '), ' }, ')
-					end
-				else
-					if (mod.Domain == 1 or mod.Domain == 11) and (mod.GenerationType == 3 and mod.Id:match("SpecialCorruption") or mod.GenerationType == 5) then -- corrupted enchants
+						out:write('"default" }, ')
+						out:write('weightVal = { 1, 0 }, ')
+					elseif (mod.Domain == 1 or mod.Domain == 11) and (mod.GenerationType == 3 and mod.Id:match("SpecialCorruption") or mod.GenerationType == 5) then -- corrupted enchants
 						local weightVals = ""
 						for key, mods in pairs(corruptedModTypes.blackList) do
 							if isValueInArray(mods, mod.Id) then
@@ -254,6 +247,8 @@ writeMods("../Data/ModItemExclusive.lua", function(mod) -- contains primarily un
 	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1])
 	and not mod.Id:match("^Synthesis") and not mod.Id:match("Royale") and not mod.Id:match("Cowards") and not mod.Id:match("Map") and not mod.Id:match("Ultimatum") and not mod.Id:match("SpecialCorruption")
 end)
-
+writeMods("../Data/ModVeiled.lua", function(mod)
+	return mod.Domain == 28 and not mod.Id:match("Map")
+end)
 
 print("Mods exported.")

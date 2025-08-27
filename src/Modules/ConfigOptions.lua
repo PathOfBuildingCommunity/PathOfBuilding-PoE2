@@ -402,10 +402,6 @@ local configSettings = {
 	{ var = "infusedChannellingInfusion", type = "check", label = "Is Infusion active?", ifSkill = "Infused Channelling", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:InfusionActive", "FLAG", true, "Config")
 	end },
-	{ label = "Innervate:", ifSkill = "Innervate" },
-	{ var = "innervateInnervation", type = "check", label = "Is Innervation active?", ifSkill = "Innervate", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:InnervationActive", "FLAG", true, "Config")
-	end },
 	{ label = "Intensify:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" } },
 	{ var = "intensifyIntensity", type = "count", label = "# of Intensity:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Intensity", "BASE", val, "Config")
@@ -431,6 +427,12 @@ local configSettings = {
 	{ label = "Momentum:", ifSkill = "Momentum" },
 	{ var = "momentumDamage", type = "check", label = "Moved 2m during Skill use?", ifSkill = "Momentum", ifFlag = "CanPerformSkillWhileMoving", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Moved2m", "FLAG", true, "Config")
+	end },
+	{ label = "Stoicism:", ifSkill = { "Stoicism I", "Stoicism II" } },
+	{ var = "stoicismSeconds", type = "count", label = "Seconds building Stoicism:", ifSkill = { "Stoicism I", "Stoicism II" }, tooltip = "Seconds since last reset. Stoicism I: 1%/s (full 20s). Stoicism II: 2%/s (full 10s).", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:UsingStoicism", "FLAG", true, "Config")
+		modList:NewMod("Multiplier:StoicismSeconds", "BASE", m_min(m_max(val, 0), 20), "Config")
+		modList:NewMod("Multiplier:StoicismCap", "BASE", 20, "Config")
 	end },
 	{ label = "Parry:", ifSkill = "Parry" },
 	{ var = "parryActive", type = "check", label = "Enemy has Parry Debuff", ifSkill = "Parry", tooltip = "The Parry debuff grants:\n\tEnemies take 50% more Attack Damage", apply = function(val, modList, enemyModList)
@@ -779,8 +781,10 @@ Huge sets the radius to 11.
 	}, defaultIndex = 2, apply = function(val, modList, enemyModList)
 		if val == "AVERAGE" then
 			modList:NewMod("Condition:averageRepeat", "FLAG", true, "Config")
+			modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:averageRepeat", "FLAG", true, "Config") })
 		elseif val == "FINAL" or val == "FINAL_DPS" then
 			modList:NewMod("Condition:alwaysFinalRepeat", "FLAG", true, "Config")
+			modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:alwaysFinalRepeat", "FLAG", true, "Config") })
 		end
 	end },
 	{ var = "ruthlessSupportMode", type = "list", label = "Ruthless Support Mode:", ifSkill = "Ruthless", tooltip = "Controls how the hit/ailment effect of Ruthless Support is calculated:\n\tAverage: damage is based on the average application\n\tMax Effect: damage is based on maximum effect", list = {{val="AVERAGE",label="Average"},{val="MAX",label="Max Effect"}} },
@@ -825,7 +829,7 @@ Huge sets the radius to 11.
 	{ var = "buffOnslaught", type = "check", label = "Do you have Onslaught?", tooltip = "In addition to allowing any 'while you have Onslaught' modifiers to apply,\nthis will enable the Onslaught buff itself. (Grants 20% increased Attack, Cast, and Movement Speed)", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Onslaught", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "buffArcaneSurge", type = "check", label = "Do you have Arcane Surge?", tooltip = "In addition to allowing any 'while you have Arcane Surge' modifiers to apply,\nthis will enable the Arcane Surge buff itself. (Grants 10% more Cast Speed and 20% more Mana Regeneration rate)", apply = function(val, modList, enemyModList)
+	{ var = "buffArcaneSurge", type = "check", label = "Do you have Arcane Surge?", tooltip = "In addition to allowing any 'while you have Arcane Surge' modifiers to apply,\nthis will enable the Arcane Surge buff itself. (Grants 15% increased Cast Speed and 20% more Mana Regeneration rate)", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneSurge", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "buffQuicksandHourglass", type = "check", label = "Do you have Quicksand Hourglass?", ifFlag = "Condition:CanGainQuicksandHourglass", tooltip = "this will enable the Quicksand Hourglass buff itself.", apply = function(val, modList, enemyModList)
@@ -1515,8 +1519,11 @@ Huge sets the radius to 11.
 	{ var = "conditionAtCloseRange", type = "check", label = "Is the enemy at Close Range?", ifCond = "AtCloseRange", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AtCloseRange", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "multiplierBoltsReloadedPerSecond", type = "countAllowZero", label = "# bolts reloaded past 6 seconds", tooltip = "Override number of bolts reloaded in the past 6 seconds.\nUsed to calculate damage bonus from Fresh Clip support.\nAssumes calculated average if no value is specified.", ifSkill = "Fresh Clip", apply = function(val, modList, enemyModList)
+	{ var = "multiplierBoltsReloadedPer6Seconds", type = "countAllowZero", label = "# bolts reloaded past 6 seconds", tooltip = "Override number of bolts reloaded in the past 6 seconds.\nUsed to calculate damage bonus from Fresh Clip I support.\nAssumes calculated average if no value is specified.", ifSkill = "Fresh Clip I", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:BoltsReloadedPastSixSeconds", "OVERRIDE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "multiplierBoltsReloadedPer8Seconds", type = "countAllowZero", label = "# bolts reloaded past 8 seconds", tooltip = "Override number of bolts reloaded in the past 8 seconds.\nUsed to calculate damage bonus from Fresh Clip II support.\nAssumes calculated average if no value is specified.", ifSkill = "Fresh Clip II", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:BoltsReloadedPastEightSeconds", "OVERRIDE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "enemyMultiplierEnemyPresenceSeconds", type = "count", label = "Enemy in Your Presence Duration", tooltip = "Number of seconds the enemy has been in your presence.", ifEnemyMult = "EnemyPresenceSeconds", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:EnemyPresenceSeconds", "BASE", val, "Config", { type = "Condition", var = "Effective" })
@@ -1858,6 +1865,7 @@ Huge sets the radius to 11.
 		elseif val == "Boss" then
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1893,6 +1901,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1926,6 +1935,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")

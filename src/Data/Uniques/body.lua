@@ -6,13 +6,15 @@ return {
 Blackbraid
 Fur Plate
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}+(40-60) to Armour
+{variant:2,3}+(40-60) to Armour
 +(5-15) to Strength
 +(5-15) to Intelligence
-{variant:2}+10% to all Elemental Resistances
+{variant:2,3}+10% to all Elemental Resistances
+{variant:1,2}+100% of Armour also applies to Elemental Damage
+{variant:3}+(100-150)% of Armour also applies to Elemental Damage
 +(40-60) to Stun Threshold
-Armour applies to Elemental Damage
 ]],[[
 Bramblejack
 Rusted Cuirass
@@ -123,12 +125,14 @@ Cannot be Ignited
 Briskwrap
 Rhoahide Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}(60-100)% increased Evasion Rating
+{variant:2,3}(60-100)% increased Evasion Rating
 (40-60)% increased Flask Life Recovery rate
 (40-60)% increased Flask Mana Recovery rate
 +(20-30) to Dexterity
 +(20-30)% to Cold Resistance
+{variant:3}Gain Deflection Rating equal to (20-30)% of Evasion Rating
 ]],[[
 Bristleboar
 Leather Vest
@@ -168,16 +172,18 @@ Implicits: 1
 Adds (13-20) to (21-31) Cold damage to Attacks
 +(30-40) to Dexterity
 25% increased Chill Duration on Enemies
-Can Evade all Hits if you have not been Hit Recently
+Evasion Rating is doubled if you have not been Hit Recently
 ]],[[
 Quatl's Molt
 Serpentscale Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}(60-80)% increased Evasion Rating
+{variant:2,3}(60-80)% increased Evasion Rating
 {variant:1}+(30-50) to maximum Life
-{variant:2}+(60-80) to maximum Life
+{variant:2,3}+(60-80) to maximum Life
 +(17-23)% to Chaos Resistance
+{variant:3}Gain Deflection Rating equal to (40-60)% of Evasion Rating
 (10-20) Life Regeneration per second
 Cannot be Poisoned
 ]],[[
@@ -217,9 +223,9 @@ League: Dawn of the Hunt
 (100-150)% increased Evasion Rating
 +(80-120) to maximum Life
 +(10-30) to Spirit
-(40-60)% reduced Bleeding Duration on you
 (40-60)% reduced Poison Duration on you
 You can have two Companions of different types
+(40-60)% reduced Duration of Bleeding on You
 ]],
 
 -- Body: Energy Shield
@@ -386,12 +392,13 @@ Doryani's Prototype
 Scale Mail
 (50-100)% increased Armour and Evasion
 +(60-80) to maximum Life
-Armour also applies to Lightning damage taken from Hits
++100% of Armour also applies to Lightning Damage
 Enemies in your Presence have Lightning Resistance equal to yours
 Lightning Resistance does not affect Lightning damage taken
 ]],[[
 The Fallen Formation
 Lamellar Mail
+Source: No longer obtainable
 League: Dawn of the Hunt
 (100-200)% increased Armour and Evasion
 +(20-30) to Strength
@@ -410,15 +417,28 @@ Variant: Current
 Iron Grip
 Iron Will
 ]],[[
+Lightning Coil
+Ancestral Mail
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Valako's Charge
+(80-120)% increased Armour and Evasion
++(80-100) to maximum Life
++(20-30) to Dexterity
+-(40-30)% to Lightning Resistance
+(20-40)% of Physical damage from Hits taken as Lightning damage
+]],[[
 Pariah's Embrace
 Cloaked Mail
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 (50-80)% increased Armour and Evasion
 +50 to Spirit
-{variant:2}+(10-15) to all Attributes
+{variant:2,3}+(10-15) to all Attributes
 (10-15) Life Regeneration per second
-20% reduced Mana Cost of Skills
+{variant:1,2}20% reduced Mana Cost of Skills
+{variant:3}(20-40)% increased Mana Cost Efficiency
 ]],[[
 Perfidy
 Knight Armour
@@ -452,8 +472,8 @@ Couture of Crimson
 Gilded Vestments
 (50-100)% increased Armour and Energy Shield
 25% reduced maximum Life
-(40-60)% reduced Bleeding Duration on you
 Life Leech can Overflow Maximum Life
+(40-60)% reduced Duration of Bleeding on You
 ]],[[
 Enfolding Dawn
 Pilgrim Vestments
@@ -479,7 +499,7 @@ Mail Vestments
 +(20-30) to Strength
 +(20-30) to Intelligence
 +(30-40)% to Cold Resistance
-Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit
+Gain Cold Thorns Damage equal to (10-18)% of your maximum Mana
 ]],[[
 The Mutable Star
 Cleric Vestments
@@ -487,9 +507,9 @@ League: Dawn of the Hunt
 (100-150)% increased Armour and Energy Shield
 (50-100)% increased Energy Shield Recharge Rate
 (25-35) Life Regeneration per second
-(30-50)% reduced Bleeding Duration on you
 (30-50)% reduced Ignite Duration on you
 Defend against Hits as though you had 1% more Armour per 1% current Energy Shield
+(30-50)% reduced Duration of Bleeding on You
 ]],[[
 Sacrosanctum
 Corvus Mantle
@@ -539,8 +559,20 @@ Apron of Emiran
 Hermit Garb
 (30-50)% increased Evasion and Energy Shield
 +(10-20) to Dexterity
-(40-60)% reduced Bleeding Duration on you
 Bleeding you inflict is Aggravated
+(40-60)% reduced Duration of Bleeding on You
+]],[[
+Cospri's Will
+Assassin Garb
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Withering Presence
+5% increased Movement Speed
+(150-200)% increased Evasion and Energy Shield
++(23-29)% to Chaos Resistance
+Curses you inflict have infinite Duration
+Curses you inflict can affect Hexproof Enemies
+Withered you inflict has infinite Duration
 ]],[[
 The Dancing Mirage
 Wayfarer Jacket

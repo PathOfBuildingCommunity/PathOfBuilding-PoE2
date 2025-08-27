@@ -165,8 +165,7 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			if supportEffect.grantedEffect.addFlags and not summonSkill then
 				-- Support skill adds flags to supported skills (eg. Remote Mine adds 'mine')
 				for k in pairs(supportEffect.grantedEffect.addFlags) do
-					mainSkillFlags[k] = true
-					calcsSkillFlags[k] = true
+					skillFlags[k] = true
 				end
 			end
 		end
@@ -197,6 +196,24 @@ function calcs.copyActiveSkill(env, mode, skill)
 	return newSkill, newEnv
 end
 
+-- Check for "asThoughUsing..." weaponTypes match, which is mechanically different from "countAs..."
+---@param weaponData table
+---@param weaponTypes table
+---@return boolean @whether a match was found
+local function checkAsThoughWeaponTypes(weaponData, weaponTypes)
+	if (not weaponData.asThoughUsing) or (not weaponTypes) then
+		return false
+	else
+		-- check if any 'usingKey' for which 'usingValue = true' is also true in weaponTypes
+		for usingKey, usingValue in pairs(weaponData.asThoughUsing) do
+			for _, types in ipairs(weaponTypes) do
+				if usingValue and types[usingKey] then return true end
+			end
+		end
+	end
+	return false
+end
+
 -- Get weapon flags and info for given weapon
 local function getWeaponFlags(env, weaponData, weaponTypes)
 	local info = env.data.weaponTypeInfo[weaponData.type]
@@ -207,7 +224,7 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 		for _, types in ipairs(weaponTypes) do
 			if not types[weaponData.type] and
 			(not weaponData.countsAsAll1H or not (types["Claw"] or types["Dagger"] or types["One Handed Axe"] or types["One Handed Mace"] or types["One Handed Sword"]
-			or types["Spear"])) then
+			or types["Spear"])) and not (weaponData.asThoughUsing and checkAsThoughWeaponTypes(weaponData, weaponTypes)) then
 				return nil, info
 			end
 		end
@@ -230,6 +247,45 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 		end
 	end
 	return flags, info
+end
+
+-- Get stats from totem base skill in case of separate active skills or skills that receive totem status via supports
+---@param activeSkill table @activeSkill with totem tag
+local function getTotemBaseStats(activeSkill)
+	local totemBase = {}
+
+	if activeSkill.skillTypes[SkillType.SummonsTotem] then -- Skill that summons totems already has stats on activeEffect
+		totemBase.grantedEffect = activeSkill.activeEffect.grantedEffect
+		totemBase.gemData = activeSkill.activeEffect.gemData
+		totemBase.skillLevel = activeSkill.activeEffect.level
+	elseif activeSkill.skillTypes[SkillType.UsedByTotem] then
+		if activeSkill.activeEffect.grantedEffect.skillTypes[SkillType.UsedByTotem] then -- is totem skill by default
+			totemBase.grantedEffect = activeSkill.activeEffect.gemData.grantedEffect 
+			totemBase.gemData = activeSkill.activeEffect.gemData
+			totemBase.skillLevel = activeSkill.activeEffect.level
+		elseif activeSkill.supportList then -- skill is receives totem status via support
+			for _, support in ipairs(activeSkill.supportList) do
+				if support.grantedEffect.addSkillTypes and (not support.superseded) and support.isSupporting[activeSkill.activeEffect.srcInstance] then
+					for _, skillType in ipairs(support.grantedEffect.addSkillTypes) do
+						if skillType == SkillType.UsedByTotem then
+							totemBase.grantedEffect = support.gemData.grantedEffect
+							totemBase.gemData = support.gemData
+							break
+						end
+					end
+				end
+				if totemBase.gemData or totemBase.grantedEffect then
+					totemBase.skillLevel = support.level
+					break
+				end
+			end
+		else
+			-- A totem skill that neither `SummonsTotem` nor `UsedByTotem` should not be possible, but I am leaving this here to alert us in case of unexpected future edge cases
+			error("Error: Unexpected SkillType behavior for skill with 'totem' flag")
+		end
+	end
+
+	return totemBase
 end
 
 --- Applies additional modifiers to skills with the "Empowered" flag.
@@ -466,10 +522,19 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Spell)
 	end
 
-	-- Get skill totem ID for totem skills
-	-- This is used to calculate totem life
+	-- Find totem base stats
 	if skillFlags.totem then
-		activeSkill.skillTotemId = activeGrantedEffect.skillTotemId
+		local totemBase = getTotemBaseStats(activeSkill)
+		if totemBase.grantedEffect and totemBase.gemData then
+			activeSkill.skillData.totemBase = totemBase
+		end
+		local totemLevelRequirement = activeSkill.skillData.totemBase and activeSkill.skillData.totemBase.grantedEffect.levels[totemBase.skillLevel].levelRequirement or activeEffect.grantedEffect.levels[activeEffect.level].levelRequirement
+		-- Note: Some active skills related to totem base skills (e.g. on Shockwave Totem) have level requirement = 0, making the additional ` > 0` check necessary
+		activeSkill.skillData.totemLevel = (totemLevelRequirement and (totemLevelRequirement > 0)) and totemLevelRequirement or 1
+
+		-- Get skill totem ID for totem skills
+		-- This is used to calculate totem life
+		activeSkill.skillTotemId = activeGrantedEffect.skillTotemId or (activeSkill.skillData.totemBase and activeSkill.skillData.totemBase.grantedEffect.skillTotemId)
 		if not activeSkill.skillTotemId then
 			if activeGrantedEffect.color == 2 then
 				activeSkill.skillTotemId = 2
@@ -629,11 +694,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	
 	applyExtraEmpowerMods(activeSkill)
 
-	-- Find totem level
-	if skillFlags.totem then
-		activeSkill.skillData.totemLevel = 1 or activeEffect.grantedEffect.levels[activeEffect.level].levelRequirement
-	end
-
 	-- Add active mine multiplier
 	if skillFlags.mine then
 		activeSkill.activeMineCount = (env.mode == "CALCS" and activeEffect.srcInstance.skillMineCountCalcs) or (env.mode ~= "CALCS" and activeEffect.srcInstance.skillMineCount)
@@ -671,6 +731,15 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	elseif noPotentialStage and activeEffect.srcInstance and not (activeEffect.gemData and #activeEffect.gemData.additionalGrantedEffects >= 1) then
 		activeEffect.srcInstance.skillStageCountCalcs = nil
 		activeEffect.srcInstance.skillStageCount = nil
+	end
+
+	-- Hollow Palm Technique added phys for skills that would use Quarterstaff
+	if activeSkill.actor.modDB.conditions.HollowPalm and activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff then
+		local gemLevel = activeEffect.level
+		local physMin = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][1]
+		local physMax = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][2]
+		skillModList:NewMod("PhysicalMin", "BASE", physMin, "Hollow Palm Technique", ModFlag.Attack, nil, { type = "Condition", var = "HollowPalm" })
+		skillModList:NewMod("PhysicalMax", "BASE", physMax, "Hollow Palm Technique", ModFlag.Attack, nil, { type = "Condition", var = "HollowPalm" })
 	end
 
 	-- Extract skill data

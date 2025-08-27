@@ -6,11 +6,13 @@ return {
 Death's Harp
 Dualstring Bow
 Variant: 0.2.0
+Variant: 0.3.0
 Variant: Current
 Implicits: 1
 Bow Attacks fire an additional Arrow
 {variant:1}+(50-70)% to Critical Damage Bonus
 {variant:2}+(30-40)% to Critical Damage Bonus
+{variant:3}+(20-25)% to Critical Damage Bonus
 Bow Attacks fire 3 additional Arrows
 Gain (20-30) Life per Enemy Killed
 Gain (12-18) Mana per Enemy Killed
@@ -22,6 +24,19 @@ Adds (5-7) to (10-12) Physical Damage
 +10 to Dexterity
 (30-50)% increased Mana Regeneration Rate
 Attacks with this Weapon gain 50% of Physical damage as Extra damage of each Element
+]],[[
+Fairgraves' Curse
+Artillery Bow
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Phantasmal Arrow
+50% reduced Projectile Range
+Adds (76-98) to (126-193) Fire Damage
+(30-50)% increased Flammability Magnitude
+(10-20)% increased Ignite Magnitude
+30% reduced Life Recovery rate
+-30 Physical Damage taken from Hits
+Attack Hits inflict Spectral Fire for 8 seconds
 ]],[[
 Lioneye's Glare
 Heavy Bow

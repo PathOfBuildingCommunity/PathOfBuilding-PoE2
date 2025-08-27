@@ -103,11 +103,19 @@ local keys = { }
 for var in dat("SkillTotemVariations"):Rows() do
 	if not keys[var.SkillTotem] then
 		keys[var.SkillTotem] = true
-		totemMult = totemMult .. "[" .. var.SkillTotem .. "] = " .. var.MonsterVariety.LifeMultiplier / 100 .. ", "
+		totemMult = totemMult .. "[" .. var.SkillTotem .. "] = " .. ((var.MonsterVariety and var.MonsterVariety.LifeMultiplier / 100) or 1) .. ", "
 	end
 end
 out:write('-- From MonsterVarieties.dat combined with SkillTotemVariations.dat\n')
 out:write('data.totemLifeMult = { '..totemMult..'}\n')
+
+--[[out:write('-- From ActiveSkillType.dat\n') --Export list for use in Global.lua
+out:write('data.skillTypeMap = {\n')
+local skillTypeMap = { }
+for row in dat("ActiveSkillType"):Rows() do
+	out:write('\t' .. row.Id .. ' = ' .. row._rowIndex .. ',\n')
+end
+out:write('}\n')]]
 
 out:write('data.monsterVarietyLifeMult = {\n')
 local cachedEntry = { }
@@ -139,6 +147,14 @@ end
 out:write('-- From MonsterMapBossDifficulty.dat\n')
 out:write('data.mapLevelBossLifeMult = { '..mapBossLifeMult..'}\n')
 out:write('data.mapLevelBossAilmentMult = { '..mapBossAilmentMult..'}\n')
+out:write('\n')
+
+out:write('-- From FlatPhysicalDamageValues.dat\n')
+out:write('data.hollowPalmAddedPhys = {\n')
+for row in dat("FlatPhysicalDamageValues"):Rows() do
+	out:write('\t[' .. row.Level .. '] = { ' .. row.MinPhys .. ', ' .. row.MaxPhys .. ' },\n')
+end
+out:write('}\n')
 
 out:close()
 

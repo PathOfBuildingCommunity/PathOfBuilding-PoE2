@@ -48,6 +48,7 @@ end)
 
 function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	local gemList = self.skillsTab.displayGroup.gemList
+	local displayGemList = self.skillsTab.displayGroup.displayGemList
 	local oldGem
 	if gemList[self.index] then
 		oldGem = copyTable(gemList[self.index], true)
@@ -82,7 +83,9 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	else
 		gemList[self.index] = nil
 	end
-
+	
+	self.skillsTab.displayGroup.displayGemList = displayGemList
+	
 	return output, gemInstance
 end
 
@@ -539,6 +542,9 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	if gemInstance.gemData.tagString ~= "" then
 		self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
 	end
+	if gemInstance.gemData.gemFamily then
+		self.tooltip:AddLine(16, "^x7F7F7FCategory: ^7" .. gemInstance.gemData.gemFamily)
+	end
 	-- Will need rework if a gem can have 2+ additional supports
 	self:AddGrantedEffectInfo(gemInstance, grantedEffect, true)
 	for _, statSet in ipairs(grantedEffect.statSets) do
@@ -554,7 +560,11 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			self.tooltip:AddSeparator(10)
 			self:AddGrantedEffectInfo(gemInstance, additional)
 			for _, statSet in ipairs(additional.statSets) do
-				self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+				self:AddStatSetInfo(gemInstance, additional, statSet)
+			end
+		else
+			for _, statSet in ipairs(additional.statSets) do
+				self:AddStatSetInfo(gemInstance, additional, statSet, true)
 			end
 		end
 	end
@@ -563,7 +573,7 @@ end
 function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local grantedEffectLevel = grantedEffect.levels[displayInstance.level] or { }
-	if gemInstance.gemData.Tier then
+	if gemInstance.gemData.Tier and not grantedEffect.isLineage and not grantedEffect.hidden then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier))
 		end
 	if addReq and not grantedEffect.support then
@@ -651,7 +661,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		if grantedEffectLevel.critChance then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", grantedEffectLevel.critChance))
 		end
-		if gemInstance.gemData.weaponRequirements then
+		if gemInstance.gemData.weaponRequirements and not grantedEffect.hidden then
 			self.tooltip:AddLine(16, "^x7F7F7F Requires: ^7" .. gemInstance.gemData.weaponRequirements)
 		end
 	end
@@ -676,14 +686,14 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		end
 	end
 end
-function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLabel)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local statSetLevel = statSet.levels[displayInstance.level] or { }
-	if statSet.label ~= grantedEffect.name and statSet.label ~= "" then
+	if statSet.label ~= grantedEffect.name and statSet.label ~= "" and not noLabel then
 		self.tooltip:AddSeparator(10)
 		self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
+		self.tooltip:AddSeparator(10)
 	end
-	self.tooltip:AddSeparator(10)
 	if statSetLevel.critChance then
 		self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", statSetLevel.critChance))
 	end
@@ -691,7 +701,7 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
 		self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100))
 	end
 	if self.skillsTab and self.skillsTab.build.data.describeStats then
-		self.tooltip:AddSeparator(10)
+		if not noLabel then self.tooltip:AddSeparator(10) end
 		local stats = calcLib.buildSkillInstanceStats(displayInstance, grantedEffect, statSet)
 		--if mergeStatsFrom then
 		--	for stat, val in pairs(calcLib.buildSkillInstanceStats(displayInstance, mergeStatsFrom)) do

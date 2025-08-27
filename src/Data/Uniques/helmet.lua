@@ -175,7 +175,7 @@ Variant: Current
 {variant:2}Gain (10-15)% of maximum Life as Extra maximum Energy Shield
 ]],[[
 Crown of Eyes
-Coral Circlet
+Vermeil Circlet
 League: Dawn of the Hunt
 (100-140)% increased Energy Shield
 +(150-200) to Accuracy Rating
@@ -202,6 +202,7 @@ Every 3 seconds, Consume a nearby Corpse to Recover 20% of maximum Life
 ]],[[
 Forbidden Gaze
 Chain Tiara
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 (60-100)% increased Energy Shield
@@ -358,7 +359,7 @@ Variant: Current
 {variant:1}+(40-60) to maximum Life
 {variant:2}+100 to maximum Life
 (35-50)% reduced Effect of Chill on you
-(35-50)% reduced effect of Ignite on you
+(35-50)% reduced Magnitude of Ignite on you
 (35-50)% reduced effect of Shock on you
 ]],[[
 Cornathaum
@@ -390,6 +391,7 @@ Gain 10 Mana per Enemy Killed
 ]],[[
 The Deepest Tower
 Spiritbone Crown
+Source: No longer obtainable
 League: Dawn of the Hunt
 (70-130)% increased Armour and Energy Shield
 +(70-100) to maximum Life
@@ -458,6 +460,15 @@ Allies in your Presence deal 50% increased Damage
 {variant:2}+(10-20) to Dexterity
 25% reduced Damage
 ]],[[
+Mask of the Sanguimancer
+Face Mask
++(20-25) to Evasion Rating
++(10-15) to maximum Energy Shield
+(20-40)% increased Critical Hit Chance for Spells
++(10-20) to Strength
++(10-20) to Intelligence
+Blood Magic
+]],[[
 Mind of the Council
 Death Mask
 League: Dawn of the Hunt
@@ -471,8 +482,8 @@ The Three Dragons
 Solid Mask
 (40-60)% increased Evasion and Energy Shield
 +(10-20)% to all Elemental Resistances
-Fire Damage from Hits Contributes to Shock Chance instead of Ignite Chance and Magnitude
-Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude or Freeze Buildup
+Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes
+Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup
 Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance
 ]],[[
 The Vertex
@@ -491,6 +502,6 @@ Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 25% increased Light Radius
 (100-150)% increased Armour, Evasion and Energy Shield
 Equipment and Skill Gems have 25% increased Attribute Requirements
-You can use each type of Support Gem an additional time in different Skills
+You can Socket an additional copy of each Lineage Support Gem, in different Skills
 ]],
 }

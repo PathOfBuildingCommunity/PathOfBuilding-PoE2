@@ -157,8 +157,17 @@ return {
 ["additive_mine_duration_modifiers_apply_to_buff_effect_duration"] = {
 	skill("mineDurationAppliesToSkill", true),
 },
+["perfectly_timed"] = {
+	flag("Condition:PerfectTiming"),
+},
 ["additive_arrow_speed_modifiers_apply_to_area_of_effect"] = {
 	skill("arrowSpeedAppliesToAreaOfEffect", true),
+},
+["modifiers_to_warcry_damage_also_apply_to_this"] = {
+	flag("WarcryDamageAppliesToSkill"),
+},
+["skill_triggered_manually_by_other_skill"] = {
+	flag("Condition:Empowered"),
 },
 ["skill_buff_effect_+%"] = {
 	mod("BuffEffect", "INC", nil)
@@ -266,7 +275,8 @@ return {
 	mod("RepeatCount", "BASE", nil, 0, 0, {type = "SkillType", skillType = SkillType.Cascadable }),
 },
 ["base_melee_attack_repeat_count"] = {
-	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Multistrikeable }),
+	mod("RepeatCount", "BASE", nil, 0, 0, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.WeaponMelee, ModFlag.Unarmed) }),
+	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.RequiresShield }),
 },
 ["display_skill_minions_level_is_corpse_level"] = {
 	skill("minionLevelIsEnemyLevel", true),
@@ -533,6 +543,15 @@ return {
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
 },
+["totem_skill_cast_speed_+%"] = {
+	mod("Speed", "INC", nil, ModFlag.Cast, KeywordFlag.Totem),
+},
+["totem_skill_attack_speed_+%"] = {
+	mod("Speed", "INC", nil, ModFlag.Attack, KeywordFlag.Totem)
+},
+["grenade_skill_cooldown_speed_+%"] = {
+	mod("CooldownRecovery", "INC", nil),
+},
 -- AoE
 ["active_skill_base_area_of_effect_radius"] = {
 	skill("radius", nil),
@@ -673,7 +692,8 @@ return {
 	mod("FortifyDuration", "INC", nil),
 },
 ["support_swift_affliction_skill_effect_and_damaging_ailment_duration_+%_final"] = {
-	mod("SkillAndDamagingAilmentDuration", "MORE", nil),
+	mod("Duration", "MORE", nil),
+	mod("DamagingAilmentDuration", "MORE", nil),
 },
 ["base_bleed_duration_+%"] = {
 	mod("EnemyBleedDuration", "INC", nil),
@@ -724,6 +744,9 @@ return {
 ["damage_over_time_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Dot),
 },
+["support_rapid_decay_damage_over_time_+%_final"] = {
+	mod("Damage", "MORE", nil, ModFlag.Dot),
+},
 ["burn_damage_+%"] = {
 	mod("FireDamage", "INC", nil, 0, KeywordFlag.FireDot),
 },
@@ -735,6 +758,14 @@ return {
 },
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
+},
+["support_no_fear_damage_+%_final_per_second_up_to_30%"] = {
+	mod("Damage", "MORE", nil, 0, 0,
+		{ type = "Condition", var = "UsingStoicism" },
+		{ type = "Condition", var = "DodgeRolledRecently", neg = true },
+		{ type = "Condition", var = "UsedTravelSkillRecently", neg = true },
+		{ type = "Multiplier", var = "StoicismSeconds", limitVar = "StoicismCap", limitTotal = true }
+	),
 },
 ["active_skill_damage_+%_final_against_heavy_stunned_enemies"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }),
@@ -756,6 +787,9 @@ return {
 },
 ["active_skill_projectile_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, ModFlag.Projectile),
+},
+["projectile_speed_additive_modifiers_also_apply_to_projectile_damage"] = {
+	flag("ProjectileSpeedAppliesToProjectileDamage"),
 },
 ["active_skill_area_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, ModFlag.Area),
@@ -937,8 +971,14 @@ return {
 ["physical_damage_%_to_add_as_chaos"] = {
 	mod("PhysicalDamageGainAsChaos", "BASE", nil),
 },
+["non_skill_base_physical_damage_%_to_gain_as_chaos"] = {
+	mod("PhysicalDamageGainAsChaos", "BASE", nil),
+},
 ["cold_damage_%_to_add_as_fire"] = {
 	mod("ColdDamageGainAsFire", "BASE", nil),
+},
+["non_skill_base_cold_damage_%_to_gain_as_chaos"] = {
+	mod("ColdDamageGainAsChaos", "BASE", nil),
 },
 ["fire_damage_%_to_add_as_chaos"] = {
 	mod("FireDamageGainAsChaos", "BASE", nil),
@@ -948,6 +988,12 @@ return {
 },
 ["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
 	mod("DamageGainAsChaos", "BASE", nil),
+},
+["non_skill_base_fire_damage_%_to_gain_as_chaos"] = {
+	mod("FireDamageGainAsChaos", "BASE", nil),
+},
+["non_skill_base_lightning_damage_%_to_gain_as_chaos"] = {
+	mod("LightningDamageGainAsChaos", "BASE", nil),
 },
 ["non_skill_base_all_damage_%_to_gain_as_lightning_with_attacks"] = {
 	mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack),
@@ -1336,11 +1382,18 @@ return {
 ["never_freeze"] = {
 	flag("CannotFreeze"),
 },
+["never_freeze_or_chill"] = {
+	flag("CannotFreeze"),
+	flag("CannotChill"),
+},
 ["never_chill"] = {
 	flag("CannotChill"),
 },
 ["cannot_cause_bleeding"] = {
 	flag("CannotBleed"),
+},
+["cannot_poison"] = {
+	flag("CannotPoison"),
 },
 ["cannot_break_armour"] = {
 	flag("CannotArmourBreak"),
@@ -1371,6 +1424,9 @@ return {
 	flag("FireCanShock"),
 	flag("ChaosCanShock"),
 },
+["chaos_damage_can_shock"] = {
+	flag("ChaosCanShock"),
+},
 ["all_damage_can_ignite_freeze_shock"] = {
 	flag("PhysicalCanIgnite"),
 	flag("LightningCanIgnite"),
@@ -1384,6 +1440,9 @@ return {
 	flag("ColdCanShock"),
 	flag("FireCanShock"),
 	flag("ChaosCanShock"),
+},
+["base_chaos_damage_can_ignite"] = {
+	flag("ChaosCanIgnite"),
 },
 ["base_lightning_damage_can_electrocute"] = {
 	flag("LightningCanElectrocute"),
@@ -1478,6 +1537,10 @@ return {
 },
 ["active_skill_projectile_speed_+%_final"] = {
 	mod("ProjectileSpeed", "MORE", nil),
+},
+["cast_speed_additive_modifiers_also_apply_to_projectile_speed_at_%_value"] = {
+	flag("CastSpeedAppliesToProjectileSpeed"),
+	mod("ImprovedCastSpeedAppliesToProjectileSpeed", "MAX", nil)
 },
 ["projectile_base_number_of_targets_to_pierce"] = {
 	mod("PierceCount", "BASE", nil),
@@ -1837,6 +1900,10 @@ return {
 ["off_hand_weapon_minimum_physical_damage"] = {
 	skill("setOffHandPhysicalMin", nil),
 },
+["active_skill_has_%_standard_scaling_attack_damage"] = {
+	skill("baseMultiplier", nil), -- FIX: Should be getting value from default attack on weapon if it exists
+	div = 100,
+},
 ["off_hand_weapon_maximum_physical_damage"] = {
 	skill("setOffHandPhysicalMax", nil),
 },
@@ -1922,6 +1989,10 @@ return {
 	mod("Speed", "INC", nil, ModFlag.Cast),
 },
 ["total_cast_time_+_ms"] = {
+	mod("TotalCastTime", "BASE", nil),
+	div = 1000,
+},
+["base_spell_cast_time_ms"] = {
 	mod("TotalCastTime", "BASE", nil),
 	div = 1000,
 },
@@ -2087,6 +2158,9 @@ return {
 ["totem_elemental_resistance_%"] = {
 	mod("TotemElementalResist", "BASE", nil)
 },
+["totem_maximum_all_elemental_resistances_%"] = {
+	mod("TotemElementalResistMax", "BASE", nil)
+},
 ["totem_chaos_resistance_%"] = {
 	mod("TotemChaosResist", "BASE", nil)
 },
@@ -2163,14 +2237,6 @@ return {
 },
 ["minion_block_%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil) }),
-},
-["minion_1%_damage_+%_per_X_player_strength"] = {
-	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 3 }) }),
-	div = 3,
-},
-["minion_1%_accuracy_rating_+%_per_X_player_dexterity"] = {
-	mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
-	div = 3,
 },
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
@@ -2481,7 +2547,7 @@ return {
 	mod("Condition:CannotBeDamaged", "FLAG", nil)
 },
 --
--- Gem Levels
+-- Gem Levels / quality
 --
 --Fire
 ["supported_fire_skill_gem_level_+"] = {
@@ -2506,6 +2572,9 @@ return {
 --Active
 ["supported_active_skill_gem_level_+"] = {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }),
+},
+["supported_active_skill_gem_quality_%"] = {
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "quality", value = nil }),
 },
 --Aura
 ["supported_aura_skill_gem_level_+"] = {
@@ -2597,5 +2666,7 @@ return {
 ["quality_display_sandstorm_swipe_is_gem"] = {
 	-- Display Only
 },
-
+["quality_display_base_totem_duration_is_gem"] = {
+	-- Display Only
+},
 }

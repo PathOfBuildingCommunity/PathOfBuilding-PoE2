@@ -99,6 +99,12 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				self.showHeatMap = not self.showHeatMap
 			elseif event.key == "d" and IsKeyDown("CTRL") then
 				self.showStatDifferences = not self.showStatDifferences
+			elseif event.key == "c" and IsKeyDown("CTRL") and self.hoverNode and self.hoverNode.type ~= "Socket" then
+				local result = "# ".. self.hoverNode.dn .. "\n"
+				for _, line in ipairs(self.hoverNode.sd) do
+					result = result .. line .. "\n"
+				end
+				Copy(result)
 			elseif event.key == "PAGEUP" then
 				self:Zoom(IsKeyDown("SHIFT") and 3 or 1, viewPort)
 			elseif event.key == "PAGEDOWN" then
@@ -264,10 +270,44 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 	
 	local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
+
+	-- Helper function to determine if global node allocation should be blocked
+	local function shouldBlockGlobalNodeAllocation(node)
+		local isGlobalNode = node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket
+
+		if not isGlobalNode or node.alloc or not node.path then
+			return false
+		end
+
+		local weaponSetMode = spec.allocMode > 0
+		local connectedToWeaponSetNodes = self:IsConnectedToWeaponSetNodes(node)
+
+		-- Only allow allocation from main tree AND node must not be connected to weapon set nodes
+		local shouldBlock = weaponSetMode or connectedToWeaponSetNodes
+
+		return shouldBlock
+	end
+
+	-- Helper function to determine if global node deallocation should be blocked
+	local function shouldBlockGlobalNodeDeallocation(node)
+		local isGlobalNode = node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket
+
+		if not isGlobalNode or not node.alloc then
+			return false
+		end
+
+		-- Main-tree global nodes can only be deallocated from main tree
+		-- Legacy weapon-set global nodes can be deallocated from any mode
+		local shouldBlock = node.allocMode == 0 and spec.allocMode > 0
+
+		return shouldBlock
+	end
+
 	if treeClick == "LEFT" then
 		if hoverNode then
 			-- User left-clicked on a node
-			if hoverNode.alloc then
+			if hoverNode.alloc and not shouldBlockGlobalNodeDeallocation(hoverNode) then
+				-- Handle deallocation of allocated nodes
 				if hoverNode.isAttribute then
 					-- change to other attribute without needing to deallocate
 					if hotkeyPressed then
@@ -283,9 +323,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				end
 				spec:AddUndoState()
 				build.buildFlag = true
-			elseif hoverNode.path then
-				-- Node is unallocated and can be allocated, so allocate it
-				-- attribute switching, unallocated to allocated
+			elseif hoverNode.path and not shouldBlockGlobalNodeAllocation(hoverNode) then
+				-- Handle allocation of unallocated nodes
 				if hoverNode.isAttribute and not hotkeyPressed then
 					build.treeTab:ModifyAttributePopup(hoverNode)
 				else
@@ -301,6 +340,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 		end
 	elseif treeClick == "RIGHT" then
+		-- User right-clicked on a node
 		if hoverNode then
 			if hoverNode.alloc and (hoverNode.type == "Socket" or hoverNode.containJewelSocket) then
 				local slot = build.itemsTab.sockets[hoverNode.id]
@@ -381,7 +421,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	-- draw ascendancies
 	for name, data in pairs(tree.ascendNameMap) do
 		local ascendancy = data.ascendClass
-		if ascendancy.background then
+		local drawn = true
+		if ascendancy.replaceBy and ascendancy.replaceBy == spec.curAscendClassBaseName then
+			drawn = false
+		elseif ascendancy.replace and name ~= spec.curAscendClassBaseName then
+			drawn = false
+		end
+
+		if ascendancy.background and drawn  then
 			local bg = tree:GetAssetByName(ascendancy.background.image)
 			local scrX, scrY = treeToScreen(ascendancy.background.x * tree.scaleImage, ascendancy.background.y * tree.scaleImage)
 			bg.width = ascendancy.background.width
@@ -834,7 +881,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			-- Draw tooltip
 			SetDrawLayer(nil, 100)
 			local size = m_floor(node.size * scale)
-			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision) then
+			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode) then
 				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
 			end
 			self.tooltip.center = true
@@ -1036,20 +1083,24 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
 	end
 
 	-- Check node description
-	for index, line in ipairs(node.sd) do
-		-- Check display text first
-		err, needMatches = PCall(search, line:lower(), needMatches)
-		if err then return false end
-		if #needMatches == 0 then
-			return true
-		end
-		if #needMatches > 0 and node.mods[index].list then
-			-- Then check modifiers
-			for _, mod in ipairs(node.mods[index].list) do
-				err, needMatches = PCall(search, mod.name, needMatches)
-				if err then return false end
-				if #needMatches == 0 then
-					return true
+	if not node.sd then
+		ConPrintf("Node %d has no sd", node.id)
+	else
+		for index, line in ipairs(node.sd) do
+			-- Check display text first
+			err, needMatches = PCall(search, line:lower(), needMatches)
+			if err then return false end
+			if #needMatches == 0 then
+				return true
+			end
+			if #needMatches > 0 and node.mods[index].list then
+				-- Then check modifiers
+				for _, mod in ipairs(node.mods[index].list) do
+					err, needMatches = PCall(search, mod.name, needMatches)
+					if err then return false end
+					if #needMatches == 0 then
+						return true
+					end
 				end
 			end
 		end
@@ -1138,6 +1189,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		if socket ~= nil and socket:IsEnabled() then
 			tooltip:AddLine(14, colorCodes.TIP.."Tip: Right click this socket to go to the items page and choose the jewel for this socket.")
 		end
+
+		self:AddGlobalNodeWarningsToTooltip(tooltip, node, build)
+
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Shift or Ctrl to hide this tooltip.")
 		return
 	end
@@ -1299,7 +1353,10 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	local mNode = copyTableSafe(node, true, true)
 
 	-- This stanza actives for both Mastery and non Mastery tooltips. Proof: add '"Blah "..' to addModInfoToTooltip
-	if mNode.sd[1] and not mNode.allMasteryOptions then
+	if not mNode.sd then
+		ConPrintf("Node %d has no sd", node.id)
+	end
+	if mNode.sd and mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
 		local localSmallIncEffect = 0
 		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
@@ -1361,7 +1418,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 		end
 		local count = build:AddStatComparesToTooltip(tooltip, calcBase, nodeOutput, realloc and "^7Reallocating this node will give you:" or node.alloc and "^7Unallocating this node will give you:" or isGranted and "^7This node is granted by an item. Removing it will give you:" or "^7Allocating this node will give you:")
-		if pathLength > 1 and not isGranted then
+		if pathLength > 1 and not isGranted and (#node.intuitiveLeapLikesAffecting == 0 or node.alloc) then
 			count = count + build:AddStatComparesToTooltip(tooltip, calcBase, pathOutput, node.alloc and "^7Unallocating this node and all nodes depending on it will give you:" or "^7Allocating this node and all nodes leading to it will give you:", pathLength)
 		end
 		if count == 0 then
@@ -1397,10 +1454,74 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddLine(14, "^7"..#node.depends .. " points gained from unallocating these nodes")
 		tooltip:AddLine(14, colorCodes.TIP)
 	end
+
+	self:AddGlobalNodeWarningsToTooltip(tooltip, node, build)
+
 	if node.type == "Socket" then
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Shift or Ctrl to hide this tooltip.")
 	else
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Ctrl to hide this tooltip.")
+		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+C to copy this node's text.")
+	end
+end
+
+-- Helper function to check if a node is connected to weapon set nodes
+function PassiveTreeViewClass:IsConnectedToWeaponSetNodes(node)
+	-- First check the path for weapon set nodes
+	if node.path and #node.path > 1 then
+		-- Check all nodes in the path (except the first element since it's the target node itself)
+		for i = 2, #node.path do
+			local pathNode = node.path[i]
+			if pathNode.alloc and pathNode.allocMode > 0 then
+				return true
+			end
+		end
+	end
+
+	-- And finally check for direct connections when path is short or empty
+	-- (This handles cases where global nodes are directly adjacent to weapon set nodes)
+	if node.linked then
+		for _, linkedNode in ipairs(node.linked) do
+			if linkedNode.alloc and linkedNode.allocMode and linkedNode.allocMode > 0 then
+				return true
+			end
+		end
+	end
+
+	return false
+end
+
+-- Helper function to add warnings in the tooltip for global nodes (keystones/jewel sockets)
+function PassiveTreeViewClass:AddGlobalNodeWarningsToTooltip(tooltip, node, build)
+	local isGlobalNode = node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket
+
+	if not isGlobalNode then
+		return -- No warning needed for non-global nodes
+	end
+
+	local nodeTypeText = node.type == "Keystone" and "keystones" or "jewel sockets"
+	local warningText = ""
+	local tipText = ""
+
+	if not node.alloc and node.path then
+		-- Unallocated global node - check allocation conditions
+		if build.spec.allocMode > 0 then
+			warningText = "Cannot allocate " .. nodeTypeText .. " while weapon set " .. build.spec.allocMode .. " is selected"
+			tipText = "Tip: Switch to main tree (Alt+scroll) to allocate " .. nodeTypeText
+		elseif self:IsConnectedToWeaponSetNodes(node) then
+			warningText = "Cannot allocate " .. nodeTypeText .. " - connected to weapon set nodes"
+			tipText = "Tip: Deallocate weapon set nodes in the connection path to allow allocation"
+		end
+	elseif node.alloc and node.allocMode == 0 and build.spec.allocMode > 0 then
+		-- Allocated main-tree global node viewed from weapon set
+		warningText = "Cannot deallocate global " .. nodeTypeText .. " from weapon set " .. build.spec.allocMode
+		tipText = "Tip: Switch to main tree (Alt+scroll) to deallocate " .. nodeTypeText
+	end
+
+	if warningText ~= "" then
+		tooltip:AddSeparator(14)
+		tooltip:AddLine(14, colorCodes.WARNING .. warningText)
+		tooltip:AddLine(14, colorCodes.TIP .. tipText)
 	end
 end
 

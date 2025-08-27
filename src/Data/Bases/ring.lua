@@ -86,6 +86,13 @@ itemBases["Unset Ring"] = {
 	implicitModTypes = { {  }, },
 	req = { level = 44, },
 }
+itemBases["Abyssal Signet"] = {
+	type = "Ring",
+	tags = { ring = true, default = true, },
+	implicit = "Inflict Abyssal Wasting on Hit",
+	implicitModTypes = { {  }, },
+	req = { },
+}
 itemBases["Ring"] = {
 	type = "Ring",
 	tags = { ring = true, default = true, },

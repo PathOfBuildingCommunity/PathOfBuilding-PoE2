@@ -84,9 +84,6 @@ for map in dat("EndGameMaps"):Rows() do
 	if map.BossVersion then
 		table.insert(areaRefs, map.BossVersion)
 	end
-	if map.NonBossVersion then
-		table.insert(areaRefs, map.NonBossVersion)
-	end
 	for _, area in ipairs(areaRefs) do
 		local areaId = area.Id
 		areaIdToMonsters[areaId] = areaIdToMonsters[areaId] or {}
@@ -105,8 +102,11 @@ for map in dat("EndGameMaps"):Rows() do
 
 		-- Attach FlavourText as description for this area if present
 		if map.FlavourText and map.FlavourText ~= "" then
+			if area.Id == "MapUniqueMegalith" then
+				--Temporary, need to clean text properly and convert map flavour text to a table just like items are.
+				areaIdToMonsters[areaId .. "_desc"] = "'Sons from foreign shores, Took refuge from the storm, Bringing knowledge of runes, Our fate was carved soon.' - Ezomyte Folklore"
 			-- Hideouts have 2 lines, remove second line
-			if areaId:sub(-10) == "_Claimable" then
+			elseif areaId:sub(-10) == "_Claimable" then
 				local firstSentence = map.FlavourText:match("([^%.%!%?]+[%.%!%?])")
 				if firstSentence then
 					areaIdToMonsters[areaId .. "_desc"] = firstSentence:gsub("%s+$", "")
@@ -146,7 +146,7 @@ out:write('-- World Area Data (c) Grinding Gear Games\n\n')
 out:write('local worldAreas, _ = ...\n\n')
 
 for area in dat("WorldAreas"):Rows() do
-	if area.Name and area.Name ~= "NULL" and area.Id then
+	if area.Name and area.Name ~= "NULL" and not area.Name:match("DNT") and area.Id then
 		-- Skip areas ending with _NoBoss
 		if area.Id:sub(-7) == "_NoBoss" then
 			goto continue
@@ -170,11 +170,7 @@ for area in dat("WorldAreas"):Rows() do
 			local floorNum = area.Id:match("^Sanctum_(%d+)")
 			suffix = " (Floor " .. floorNum .. ")"
 		elseif area.Act and area.Act ~= 10 then
-			if area.Act >= 5 then
-				suffix = " (Act " .. tostring(area.Act - 3) .. ")"
-			else
-				suffix = " (Act " .. tostring(area.Act) .. ")"
-			end
+			suffix = " (Act " .. tostring(area.Act) .. ")"
 		end
 		out:write('\tname = "' .. area.Name .. suffix .. '",\n')
 		out:write('\tbaseName = "' .. area.Name .. '",\n')

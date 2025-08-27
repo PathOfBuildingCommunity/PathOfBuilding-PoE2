@@ -8,13 +8,23 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="projectiles_can_shotgun"
+		}
+	},
+	[3]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[4]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -34,7 +44,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -55,27 +65,34 @@ return {
 			[2]="skill_can_fire_arrows"
 		}
 	},
-	[5]={
+	[7]={
 		[1]={
 			[1]={
+				limit={
+				},
+				text="{0:+d}% increased Ignite duration for each Fragment in a single hit"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="Multiple fragments can Hit the same target\nMultiple Fragments hitting a target simultaneously will combine their damage into a single Hit"
+				text="{0}% increased Ignite duration for each Fragment in a single hit"
 			}
 		},
 		stats={
-			[1]="projectiles_can_shotgun"
+			[1]="ignite_duration_+%_per_shotgun_pellet_hit"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["base_number_of_projectiles"]=4,
+	["active_skill_area_of_effect_radius"]=4,
+	["active_skill_base_area_of_effect_radius"]=5,
+	["base_knockback_distance"]=3,
+	["base_number_of_projectiles"]=6,
+	["ignite_duration_+%_per_shotgun_pellet_hit"]=7,
 	parent="skill_stat_descriptions",
-	["projectiles_can_shotgun"]=5,
+	["projectiles_can_shotgun"]=2,
 	["quality_display_base_number_of_projectiles_is_gem"]=1,
-	["skill_can_fire_arrows"]=4
+	["skill_can_fire_arrows"]=6
 }

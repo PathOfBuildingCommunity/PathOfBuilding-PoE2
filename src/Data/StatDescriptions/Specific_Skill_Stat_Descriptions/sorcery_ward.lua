@@ -36,6 +36,11 @@ return {
 		[1]={
 			[1]={
 				limit={
+				},
+				text="Barrier can take Elemental Damage up to an additional {0:+d}% of your Armour and Evasion Rating"
+			},
+			[2]={
+				limit={
 					[1]={
 						[1]=1,
 						[2]="#"

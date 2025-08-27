@@ -56,7 +56,7 @@ return {
 						[2]=1
 					}
 				},
-				text="{0} additional bolt hits targets if at least one Shock Consumed"
+				text="{0} additional bolt if a Shocked enemy is in the target area"
 			},
 			[2]={
 				limit={
@@ -65,7 +65,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0} additional bolts hit targets if at least one Shock Consumed"
+				text="{0} additional bolts if a Shocked enemy is in the target area"
 			}
 		},
 		stats={

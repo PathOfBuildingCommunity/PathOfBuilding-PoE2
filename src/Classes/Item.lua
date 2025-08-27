@@ -381,9 +381,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.mirrored = true
 		elseif line == "Corrupted" then
 			self.corrupted = true
-		elseif line == "Fractured Item" then
-			self.fractured = true
-		elseif line == "Desecrated Item" then
+		elseif line == "Desecrated Prefix" or line == "Desecrated Suffix" then
 			self.desecrated = true
 		elseif line == "Requirements:" then
 			-- nothing to do
@@ -620,6 +618,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				if modLine.enchant then
 					modLine.implicit = true
 				end
+				if modLine.desecrated then
+					self.desecrated = true
+				end
+				if modLine.fractured then
+					self.fractured = true
+				end
 				local baseName
 				if not self.base and (self.rarity == "NORMAL" or self.rarity == "MAGIC") then
 					-- Exact match (affix-less magic and normal items)
@@ -805,7 +809,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local specificItemType = self.base.type:lower()
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
 				local addModToGroupedRunes = function (modLine)
-					local runeValue
+					local runeValue = 1
 					local runeStrippedModLine = modLine:gsub("(%d%.?%d*)", function(val)
 						runeValue = val
 						return "#"
@@ -831,7 +835,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 
 			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
-				local value
+				local value = 1
 				local strippedModLine = modLine.line:gsub("(%d%.?%d*)", function(val)
 					value = val
 					return "#"
@@ -1164,7 +1168,8 @@ function ItemClass:BuildRaw()
 			for varId in pairs(modLine.variantList) do
 				varSpec = (varSpec and varSpec .. "," or "") .. varId
 			end
-			line = "{variant:" .. varSpec .. "}" .. line
+			local var = "{variant:" .. varSpec .. "}"
+			line = var .. line:gsub("\n", "\n" .. var) -- Variants that go over 1 line need to have the gsub to fix there being no "variant:" at the start
 		end
 		if modLine.modTags and #modLine.modTags > 0 then
 			line = "{tags:" .. table.concat(modLine.modTags, ",") .. "}" .. line

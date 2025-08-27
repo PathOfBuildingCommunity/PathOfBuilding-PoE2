@@ -117,6 +117,35 @@ return {
 	[7]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Arrows fall {0}% faster"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Arrows fall {0}% slower"
+			}
+		},
+		stats={
+			[1]="rain_of_arrows_arrow_speed_+%"
+		}
+	},
+	[8]={
+		[1]={
+			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -134,7 +163,7 @@ return {
 			[1]="rain_of_arrows_delay_per_arrow"
 		}
 	},
-	[8]={
+	[9]={
 		[1]={
 			[1]={
 				limit={
@@ -150,7 +179,7 @@ return {
 			[1]="rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"
 		}
 	},
-	[9]={
+	[10]={
 		[1]={
 			[1]={
 				limit={
@@ -166,7 +195,7 @@ return {
 			[1]="rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"
 		}
 	},
-	[10]={
+	[11]={
 		[1]={
 			[1]={
 				limit={
@@ -182,7 +211,7 @@ return {
 			[1]="skill_specific_stat_description_mode"
 		}
 	},
-	[11]={
+	[12]={
 		[1]={
 		},
 		stats={
@@ -196,9 +225,10 @@ return {
 	["base_number_of_arrow_rains_allowed"]=5,
 	["number_of_arrow_rains_allowed"]=6,
 	parent="skill_stat_descriptions",
-	["rain_of_arrows_delay_per_arrow"]=7,
-	["rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"]=8,
-	["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"]=9,
-	["skill_specific_stat_description_mode"]=10,
-	["virtual_rain_of_arrows_delay_per_arrow_display_ms"]=11
+	["rain_of_arrows_arrow_speed_+%"]=7,
+	["rain_of_arrows_delay_per_arrow"]=8,
+	["rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"]=9,
+	["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"]=10,
+	["skill_specific_stat_description_mode"]=11,
+	["virtual_rain_of_arrows_delay_per_arrow_display_ms"]=12
 }

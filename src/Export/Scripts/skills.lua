@@ -1,228 +1,8 @@
-local skillTypes = {
-	"Attack",
-	"Spell",
-	"Projectile",
-	"DualWieldOnly",
-	"Buff",
-	"Minion",
-	"Damage",
-	"Area",
-	"Duration",
-	"RequiresShield",
-	"ProjectileSpeed",
-	"HasReservation",
-	"ReservationBecomesCost",
-	"Trappable",
-	"Totemable",
-	"Mineable",
-	"ElementalStatus",
-	"MinionsCanExplode",
-	"Chains",
-	"Melee",
-	"MeleeSingleTarget",
-	"Multicastable",
-	"TotemCastsAlone",
-	"CausesBurning",
-	"SummonsTotem",
-	"TotemCastsWhenNotDetached",
-	"Physical",
-	"Fire",
-	"Cold",
-	"Lightning",
-	"Triggerable",
-	"Triggers",
-	"Trapped",
-	"Movement",
-	"DamageOverTime",
-	"RemoteMined",
-	"Triggered",
-	"Vaal",
-	"Aura",
-	"CanTargetUnusableCorpse",
-	"RangedAttack",
-	"Chaos",
-	"FixedSpeedProjectile",
-	"ThresholdJewelArea",
-	"ThresholdJewelProjectile",
-	"ThresholdJewelDuration",
-	"ThresholdJewelRangedAttack",
-	"Channel",
-	"DegenOnlySpellDamage",
-	"InbuiltTrigger",
-	"Golem",
-	"Herald",
-	"AuraAffectsEnemies",
-	"NoRuthless",
-	"ThresholdJewelSpellDamage",
-	"Cascadable",
-	"ProjectilesFromUser",
-	"MirageArcherCanUse",
-	"ProjectileSpiral",
-	"SingleMainProjectile",
-	"MinionsPersistWhenSkillRemoved",
-	"ProjectileNumber",
-	"Warcry",
-	"Instant",
-	"Brand",
-	"TargetsDestructibleCorpses",
-	"NonHitChill",
-	"ChillingArea",
-	"AppliesCurse",
-	"CanRapidFire",
-	"AuraDuration",
-	"AreaSpell",
-	"OR",
-	"AND",
-	"NOT",
-	"AppliesMaim",
-	"CreatesMinion",
-	"Guard",
-	"Travel",
-	"Blink",
-	"CanHaveBlessing",
-	"ProjectilesNotFromUser",
-	"AttackInPlaceIsDefault",
-	"Nova",
-	"InstantNoRepeatWhenHeld",
-	"InstantShiftAttackForLeftMouse",
-	"AuraNotOnCaster",
-	"Banner",
-	"Rain",
-	"Cooldown",
-	"ThresholdJewelChaining",
-	"Slam",
-	"Stance",
-	"NonRepeatable",
-	"UsedByTotem",
-	"Steel",
-	"Hex",
-	"Mark",
-	"Aegis",
-	"Orb",
-	"KillNoDamageModifiers",
-	"RandomElement",
-	"LateConsumeCooldown",
-	"Arcane",
-	"FixedCastTime",
-	"RequiresOffHandNotWeapon",
-	"Link",
-	"Blessing",
-	"ZeroReservation",
-	"DynamicCooldown",
-	"Microtransaction",
-	"OwnerCannotUse",
-	"ProjectilesNumberModifiersNotApplied",
-	"TotemsAreBallistae",
-	"SkillGrantedBySupport",
-	"CrossbowSkill",
-	"CrossbowAmmoSkill",
-	"UseGlobalStats",
-	"ModifiesNextSkill",
-	"OngoingSkill",
-	"UsableWhileShapeshifted",
-	"Meta",
-	"Bear",
-	"Wolf",
-	"Invokable",
-	"CreatesSkeletonMinion",
-	"CreatesUndeadMinion",
-	"CreatesDemonMinion",
-	"CommandsMinions",
-	"ReservesManually",
-	"ConsumesCharges",
-	"ManualCooldownConsumption",
-	"SupportedByHourglass",
-	"ConsumesFullyBrokenArmour",
-	"SkillConsumesFreeze",
-	"SkillConsumesIgnite",
-	"SkillConsumesShock",
-	"Wall",
-	"Persistent",
-	"UsableWhileMoving",
-	"CanBecomeArrowRain",
-	"MultipleReservation",
-	"SupportedByElementalDischarge",
-	"Limit",
-	"Singular",
-	"GeneratesCharges",
-	"EmpowersOtherSkill",
-	"PerformsFinalStrike",
-	"PerfectTiming",
-	"CanHaveMultipleOngoingSkillInstances",
-	"Sustained",
-	"ComboStacking",
-	"SupportedByComboFinisher",
-	"Offering",
-	"Retaliation",
-	"Shapeshift",
-	"Invocation",
-	"Grenade",
-	"NoDualWield",
-	"QuarterstaffSkill",
-	"SupportedByFountains",
-	"Jumping",
-	"CannotChain",
-	"CreatesGroundRune",
-	"CreatesFissure",
-	"SummonsAttackTotem",
-	"NonWeaponAttack",
-	"CreatesGroundEffect",
-	"SupportedByComboMastery",
-	"IceCrystal",
-	"SkillConsumesPowerChargesOnUse",
-	"SkillConsumesFrenzyChargesOnUse",
-	"SkillConsumesEnduranceChargesOnUse",
-	"SupportedByFerocity",
-	"SupportedByPotential",
-	"ProjectileNoCollision",
-	"SupportedByExcise",
-	"SupportedByExpanse",
-	"SupportedByExecrate",
-	"IsBlasphemy",
-	"PersistentShowsCastTime",
-	"GeneratesEnergy",
-	"GeneratesRemnants",
-	"CommandableMinion",
-	"Bow",
-	"AffectsPresence",
-	"GainsStages",
-	"HasSeals",
-	"SupportedByUnleash",
-	"SupportedBySalvo",
-	"Spear",
-	"GroundTargetedProjectile",
-	"SupportedByFusillade",
-	"HasUsageCondition",
-	"SupportedByMobileAssault",
-	"RequiresBuckler",
-	"UsableWhileMounted",
-	"Companion",
-	"ConsumesInstillment",
-	"CanCancelActions",
-	"SupportedByUnmoving",
-	"SupportedByCleanse",
-	"Hazard",
-	"SupportedByRally",
-	"SupportedByFlamepierce",
-	"SupportedByStormchain",
-	"SupportedByFreezefork",
-	"Palm",
-	"CannotSpiritStrike",
-	"SkillConsumesBleeding",
-	"SkillConsumesPoison",
-	"TargetsDestructibleRareCorpses",
-	"SupportedByAncestralAid",
-	"MinionsAreUndamagable",
-	"GeneratesInfusion",
-	"SkillConsumesParried",
-	"DetonatesAfterTime",
-	"NoAttackOrCastTime",
-	"CreatesCompanion",
-	"CannotTerrainChain",
-	"SupportedByTumult",
-	"RequiresCharges",
-	"CannotConsumeCharges",
-}
+local skillTypeMap = { }
+for row in dat("ActiveSkillType"):Rows() do
+	table.insert(skillTypeMap, row.Id)
+end
+
 
 -- This is here to fix name collisions like in the case of Barrage
 local fullNameGems = {
@@ -230,7 +10,7 @@ local fullNameGems = {
 }
 
 local function mapAST(ast)
-	return "SkillType."..(skillTypes[ast._rowIndex] or ("Unknown"..ast._rowIndex))
+	return "SkillType."..(skillTypeMap[ast._rowIndex] or ("Unknown"..ast._rowIndex))
 end
 
 local weaponClassMap = {
@@ -491,7 +271,7 @@ directiveTable.skill = function(state, args, out)
 		--end
 		table.insert(skill.levels, level)
 	end
-	if not skill.qualityStats and not granted.IsSupport then
+	if not (skillGem and granted.IsSupport) then
 		skill.qualityStats = { }
 		local qualityStats = dat("GrantedEffectQualityStats"):GetRow("GrantedEffect", granted)
 		if qualityStats and qualityStats.GrantedStats then
@@ -524,6 +304,23 @@ directiveTable.skill = function(state, args, out)
 			out:write(mapAST(type), ', ')
 		end
 		out:write('},\n')
+		if skillGem then
+			local gemFamily = { }
+			local supportGem = dat("SupportGems"):GetRow("SkillGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)))
+			for _, type in ipairs(supportGem.Family) do
+				table.insert(gemFamily, type.Id)
+			end
+			if next(gemFamily) then
+				out:write('\tgemFamily = { ')
+				for _, type in ipairs(gemFamily) do
+					out:write('"', type, '",')
+				end
+				out:write('},\n')
+			end
+			if supportGem.Lineage then
+				out:write('\tisLineage = true,\n')
+			end
+		end
 		if skill.isTrigger then
 			out:write('\tisTrigger = true,\n')
 		end
@@ -638,6 +435,9 @@ end
 directiveTable.set = function(state, args, out)
 	local statSetId = args
 	local originalGrantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
+	if dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet) == nil or originalGrantedEffectStatSet == nil then
+		ConPrintf(args.." is not a valid Granted Effect")
+	end
 	local grantedEffectStatSet = copyTableSafe(originalGrantedEffectStatSet, false, true)
 	local statsPerLevel = copyTableSafe(dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet), false, true)
 	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
@@ -652,6 +452,7 @@ directiveTable.set = function(state, args, out)
 	set.mods = { }
 	set.levels = { }
 	set.stats = { }
+	set.CannotGrantToMinion = { }
 	set.constantStats = { }
 	set.removeStats = { }
 	for k, v in pairs(grantedEffectStatSet.RemoveStats) do
@@ -677,10 +478,10 @@ directiveTable.set = function(state, args, out)
 		level.level = statRow.GemLevel
 		-- stat based level info
 		if state.skill.setIndex ~= 1 and statRow.AttackCritChance ~= 0 then
-			level.extra.critChance = statRow.AttackCritChance / 100
+			level.extra.critChance = (baseStatRow.AttackCritChance + statRow.AttackCritChance) / 100
 		end
 		if state.skill.setIndex ~= 1 and statRow.OffhandCritChance ~= 0 then
-			level.extra.critChance = statRow.OffhandCritChance / 100
+			level.extra.critChance = (baseStatRow.OffhandCritChance + statRow.OffhandCritChance) / 100
 		end
 		-- If UseSetAttackMulti is true, then take the multi from the stat set, otherwise add the value from base set and current set
 		if state.skill.setIndex ~= 1 and grantedEffectStatSet.UseSetAttackMulti and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
@@ -700,10 +501,25 @@ directiveTable.set = function(state, args, out)
 			statRow.InterpolationBases = tableConcat(baseStatRow.InterpolationBases, statRow.InterpolationBases)
 			statRow.AdditionalStats = tableConcat(baseStatRow.AdditionalStats, statRow.AdditionalStats)
 			statRow.AdditionalStatsValues = tableConcat(baseStatRow.AdditionalStatsValues, statRow.AdditionalStatsValues)
+			statRow.BaseStats = tableConcat(tableConcat(tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, skill.baseGrantedEffectStatSet.ConstantStats), baseStatRow.FloatStats), baseStatRow.AdditionalStats)
 		end
 		level.statInterpolation = statRow.StatInterpolations
 		level.actorLevel = statRow.ActorLevel
 		local tempRemoveStats = copyTable(set.removeStats, true)
+		for i, removeStat in pairs(set.removeStats) do
+			-- Fixes the case where a removeStat does not exist in the base set but does in future sets
+			-- It should not be removed if this is the case
+			local remove = false
+			for _, stat in ipairs(statRow.BaseStats) do
+				if stat.Id == removeStat then
+					remove = true
+				end
+			end
+			if remove == false then
+				table.remove(tempRemoveStats, i)
+				table.remove(set.removeStats, i)
+			end
+		end
 		local resolveInterpolation = true
 		local injectConstantValuesIntoEachLevel = false
 		local statMapOrderIndex = 1
@@ -720,6 +536,9 @@ directiveTable.set = function(state, args, out)
 				table.insert(set.stats, { id = stat.Id })
 				if indx == 1 then
 					table.insert(statMapOrder, stat.Id)
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				else
 					print(label .. ": stat missing from earlier levels: ".. stat.Id)
 				end
@@ -753,6 +572,9 @@ directiveTable.set = function(state, args, out)
 					table.insert(set.stats, { id = stat.Id })
 					if indx == 1 then
 						table.insert(statMapOrder, stat.Id)
+						if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+							table.insert(set.CannotGrantToMinion, stat.Id)
+						end
 					else
 						print(label .. ": stat missing from earlier levels: ".. stat.Id)
 					end
@@ -784,6 +606,9 @@ directiveTable.set = function(state, args, out)
 				table.insert(set.stats, { id = stat.Id })
 				if indx == 1 then
 					table.insert(statMapOrder, stat.Id)
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				else
 					print(label .. ": stat missing from earlier levels: ".. stat.Id)
 				end
@@ -814,6 +639,9 @@ directiveTable.set = function(state, args, out)
 				if not statMap[stat.Id] then
 					statMap[stat.Id] = #set.stats + 1
 					table.insert(set.stats, { id = stat.Id })
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				end
 			end
 		end
@@ -866,7 +694,19 @@ directiveTable.set = function(state, args, out)
 		out:write('\t\t\tdamageIncrementalEffectiveness = ', grantedEffectStatSet.DamageIncrementalEffectiveness, ',\n')
 	end
 	if state.granted.IsSupport then
-		state.statDescriptionScope = "gem_stat_descriptions"
+		local gemEffect = dat("GemEffects"):GetRowList("AdditionalGrantedEffects", state.granted )
+		if gemEffect[1] and gemEffect[1].Tags then
+			for _, tag in ipairs(gemEffect[1].Tags) do
+				if tag.Id == "meta" then
+					skill.isMeta = true
+				end
+			end
+		end
+		if skill.isMeta then
+			state.statDescriptionScope = "meta_gem_stat_descriptions"
+		else
+			state.statDescriptionScope = "gem_stat_descriptions"
+		end
 	else
 		state.statDescriptionScope = state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):
 		-- Need to subtract 1 from setIndex because GGG indexes from 0
@@ -947,6 +787,13 @@ directiveTable.mods = function(state, args, out)
 			out:write('\t\t\t\t"', stat.id, '",\n')
 		end
 		out:write('\t\t\t},\n')
+		if next(set.CannotGrantToMinion) then
+			out:write('\t\t\tnotMinionStat = {\n')
+			for _, stat in ipairs(set.CannotGrantToMinion) do
+				out:write('\t\t\t\t"', stat, '",\n')
+			end
+			out:write('\t\t\t},\n')
+		end
 	end
 	if not args:match("noLevels") then
 		out:write('\t\t\tlevels = {\n')
@@ -1061,6 +908,16 @@ for skillGem in dat("SkillGems"):Rows() do
 				end
 			end
 			out:write('\t\tgemType = "', gemType, '",\n')
+			if skillGem.IsSupport then
+				local gemFamily = { }
+				local supportGem = dat("SupportGems"):GetRow("SkillGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)))
+				for _, type in ipairs(supportGem.Family) do
+					table.insert(gemFamily, type.Name)
+				end
+				if next(gemFamily) then
+					out:write('\t\tgemFamily = "', table.concat(gemFamily, ", "), '",\n')
+				end
+			end
 			out:write('\t\ttagString = "', table.concat(tagNames, ", "), '",\n')
 			if next(weaponRequirement) then
 				out:write('\t\tweaponRequirements = "', table.concat(weaponRequirement, ", "), '",\n')

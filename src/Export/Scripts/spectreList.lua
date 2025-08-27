@@ -56,21 +56,78 @@ for monster in dat("MonsterVarieties"):Rows() do
 				goto continue
 			end
 		end
-        -- Loop SpectreOverrides for matching monster.Id
+		-- Loop SpectreOverrides for matching monster.Id
 		local outputId = monster.Id  -- default to monster.Id
-        for override in dat("SpectreOverrides"):Rows() do
-            if override.Monster.Id == monster.Id and override.Spectre then
-                outputId = override.Spectre.Id
-                break
-            end
-        end
+		for override in dat("SpectreOverrides"):Rows() do
+			if override.Monster.Id == monster.Id and override.Spectre then
+				outputId = override.Spectre.Id
+				break
+			end
+		end
 		if not importedSpectres[outputId] then
 			table.insert(notImported, { id = outputId, name = monster.Name })
 		end
 		table.insert(spectreList, { id = outputId, name = monster.Name })
-        table.insert(uniqueName, monster.Name)
+		table.insert(uniqueName, monster.Name)
 	end
 	::continue::
+end
+
+-- Check imported spectres that fail the checks. Did this wrong I think, but keeping for now as it did catch the spectres that were removed.
+local importedButFailChecks = {}
+for id in pairs(importedSpectres) do
+	local found = false
+	for monster in dat("MonsterVarieties"):Rows() do
+		local outputId = monster.Id
+		for override in dat("SpectreOverrides"):Rows() do
+			if override.Monster.Id == monster.Id and override.Spectre then
+				outputId = override.Spectre.Id
+				break
+			end
+		end
+		if outputId == id then
+			found = true
+			-- Repeat the checks
+			if not (
+				monster.NotSpectre == false
+				and monster.BossHealthBar == false
+				and not monster.Type.IsPlayerMinion == true
+				and not monster.Id:match("NPC")
+				and not monster.Name:match("DNT")
+				and not monster.AIScript:match("NoAI")
+				and #monster.GrantedEffects ~= 0
+			) then
+				table.insert(importedButFailChecks, { id = outputId, name = monster.Name })
+			else
+				local skip = false
+				for _, mod in ipairs(monster.Mods) do
+					if mod.Id == "CannotBeUsedAsMinion" then
+						skip = true
+						break
+					end
+				end
+				for _, mod in ipairs(monster.ModsKeys2) do
+					if mod.Id == "CannotBeUsedAsMinion" then
+						skip = true
+						break
+					end
+				end
+				for _, tag in ipairs(monster.Tags) do
+					if tag.Id == "unusable_corpse" then
+						skip = true
+						break
+					end
+				end
+				if skip then
+					table.insert(importedButFailChecks, { id = outputId, name = monster.Name })
+				end
+			end
+			break
+		end
+	end
+	if not found then
+		table.insert(importedButFailChecks, { id = id, name = "(not found in MonsterVarieties)" })
+	end
 end
 
 out:write("-- All Spectre Names --\n")
@@ -85,6 +142,12 @@ for _, monster in ipairs(notImported) do
 	out:write(monster.id .. string.rep(" ", 90 - string.len(monster.id)) .. "\t\t----\t\t" .. monster.name, "\n")
 end
 
+out:write("\n-- Imported Spectres That Fail Checks --\n")
+out:write("-- These spectres are currently imported, but fail the checks. New updates sometimes remove spectres.--\n")
+out:write("-- Don't fully trust this, coded wrong. But it did catch some that were removed. --\n\n")
+for _, monster in ipairs(importedButFailChecks) do
+	out:write(monster.id .. string.rep(" ", 90 - string.len(monster.id)) .. "\t\t----\t\t" .. monster.name, "\n")
+end
 
 out:write("\n-- Duplicate Spectre Names --\n")
 out:write("-- Some duplicate Spectres have been imported, like Terracotta Soldier, as there is a 10 spirit and 60 spirit version.--\n")

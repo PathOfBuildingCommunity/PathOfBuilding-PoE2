@@ -8,7 +8,7 @@ describe("TestAttacks", function()
 	end)
 
 	it("creates an item and has the correct crit chance", function()
-		assert.are.equals(build.calcsTab.mainOutput.CritChance, 0)
+		assert.are.equals(build.calcsTab.mainOutput.CritChance, data.unarmedWeaponData[0].CritChance * build.calcsTab.mainOutput.HitChance / 100)
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
 			Heavy Bow
@@ -72,9 +72,9 @@ describe("TestAttacks", function()
 		runCallback("OnFrame")
 		-- Add 2 skills with 1 red, 1 blue, 1 green support each
 		-- Test against Quarterstaff Strike (skill slot 1)
-		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 1/0  1\nSplinter 1/0  1\nConduction 1/0  1\nBiting Frost 1/0  1")
+		build.skillsTab:PasteSocketGroup("Quarterstaff Strike 1/0  1\nArmour Break I 1/0  1\nShock 1/0  1\nBiting Frost 1/0  1")
 		runCallback("OnFrame")
-		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnition 1/0  1\nDiscombobulate 1/0  1\nCoursing Current 1/0  1")
+		build.skillsTab:PasteSocketGroup("Falling Thunder 1/0  1\nIgnite I 1/0  1\nDaze 1/0  1\nShock Conduction 1/0  1")
 		runCallback("OnFrame")
 
 		build.configTab:BuildModList()
