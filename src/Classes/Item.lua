@@ -57,7 +57,7 @@ local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 end)
 
 local lineFlags = {
-	["custom"] = true, ["fractured"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
+	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
 }
 
 -- Special function to store unique instances of modifier on specific item slots
@@ -383,6 +383,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.corrupted = true
 		elseif line == "Fractured Item" then
 			self.fractured = true
+		elseif line == "Desecrated Item" then
+			self.desecrated = true
 		elseif line == "Requirements:" then
 			-- nothing to do
 		else
@@ -1153,6 +1155,9 @@ function ItemClass:BuildRaw()
 		end
 		if modLine.fractured then
 			line = "{fractured}" .. line
+		end
+		if modLine.desecrated then
+			line = "{desecrated}" .. line
 		end
 		if modLine.variantList then
 			local varSpec

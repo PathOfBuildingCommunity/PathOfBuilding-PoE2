@@ -935,6 +935,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	item.mirrored = itemData.mirrored
 	item.corrupted = itemData.corrupted
 	item.fractured = itemData.fractured
+	item.desecrated = itemData.desecrated
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
 		item.itemSocketCount = 0
@@ -1003,6 +1004,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			for line in line:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { } })
+			end
+		end
+	end
+	if itemData.desecratedMods then
+		for _, line in ipairs(itemData.desecratedMods) do
+			for line in line:gmatch("[^\n]+") do
+				local modList, extra = modLib.parseMod(line)
+				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, desecrated = true })
 			end
 		end
 	end
