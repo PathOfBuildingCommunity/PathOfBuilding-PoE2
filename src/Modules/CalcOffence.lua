@@ -3409,8 +3409,8 @@ function calcs.offence(env, actor, activeSkill)
 			local baseMax = output[damageTypeMax.."Base"]
 			local summedMin = baseMin * convMult + convertedMin + gainedMin
 			local summedMax = baseMax * convMult + convertedMax + gainedMax
-			output[damageType.."SummedMinBase"] = m_floor(summedMin)
-			output[damageType.."SummedMaxBase"] = m_floor(summedMax)
+			output[damageType.."SummedMinBase"] = round(summedMin)
+			output[damageType.."SummedMaxBase"] = round(summedMax)
 			if breakdown then
 				if (baseMin ~= 0 or baseMax ~= 0) then
 					if convMult ~= 1 then
