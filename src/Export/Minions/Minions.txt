@@ -68,3 +68,6 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/AnimatedItem/AnimatedWeaponPlayerSummoned ManifestWeapon
 #emit
+
+#monster Metadata/Monsters/Daemon/ArtilleryPlayer/SummonArtilleryDaemon TacticianMinion
+#emit
