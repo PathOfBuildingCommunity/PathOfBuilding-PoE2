@@ -2131,6 +2131,7 @@ local specialModList = {
 		mod("SpellSuppressionChance", "OVERRIDE", 0, "Acrobatics"),
 	},
 	["maximum chance to dodge spell hits is (%d+)%%"] = function(num) return { mod("SpellDodgeChanceMax", "OVERRIDE", num, "Acrobatics") } end,
+	["halves the amount of life granted by strength"] = { flag("HalvesLifeFromStrength")},
 	["dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion") },
 	["dexterity provides no inherent bonus to evasion rating"] = { flag("NoDexBonusToEvasion") },
 	["your hits can't be evaded"] = { flag("CannotBeEvaded") },
