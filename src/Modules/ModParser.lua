@@ -5327,14 +5327,11 @@ local specialModList = {
 		flag("Condition:OnConsecratedGround", { type = "Condition", var = "StrHighestAttribute" }, { type = "Condition", var = "Stationary" }),
 	},
 	["you count as dual wielding while you are unencumbered"] = { flag("Condition:DualWielding", { type = "Condition", var = "Unencumbered" }) },
-	-- New Hollow Palm
-	-- TODO Update with actual mod wording
+	-- New Hollow Palm Technique
+	-- TODO Update with actual wording and mods
 	["can attack as though using a quarterstaff while both of your hands are empty"] = { 
-		--TODO remove "Disable Skill" if Herald Skills and other Persistent Buffs are supposed to work
-		flag("DisableSkill", { type = "Condition", var = "HollowPalm" }, { type = "SkillType", skillType = SkillType.QuarterstaffSkill, neg = true } , { type = "SkillType", skillType = SkillType.Attack}),
-		flag("DisableSkill", { type = "Condition", var = "HollowPalm" }, { type = "SkillType", skillType = SkillType.Herald}), -- need heralds separately because some of them don't have "Attack" SkillType for some reason
-		flag("DisableSkill", { type = "Condition", var = "HollowPalm" }, { type = "SkillName", skillName = "Wind Dancer"}), -- need heralds separately because some of them don't have "Attack" SkillType for some reason
-		},
+		-- PLACEHOLDER for additionally required mods
+	},
 	
 	["dual wielding does not inherently grant chance to block attack damage"] = { flag("Condition:NoInherentBlock") },
 	["inherent attack speed bonus from dual wielding is doubled while wielding two claws"] = {
