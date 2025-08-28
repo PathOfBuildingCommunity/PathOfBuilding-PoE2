@@ -331,7 +331,7 @@ function itemLib.formatModLine(modLine, dbMode)
 			line = line .. "   ^1'" .. modLine.extra .. "'"
 		end
 	else
-		colorCode = (modLine.enchant and colorCodes.ENCHANTED) or (modLine.fractured and colorCodes.FRACTURED) or (modLine.custom and colorCodes.CUSTOM) or colorCodes.MAGIC
+		colorCode = (modLine.enchant and colorCodes.ENCHANTED) or (modLine.fractured and colorCodes.FRACTURED) or (modLine.desecrated and colorCodes.DESECRATED) or (modLine.custom and colorCodes.CUSTOM) or colorCodes.MAGIC
 	end
 	return colorCode..line
 end

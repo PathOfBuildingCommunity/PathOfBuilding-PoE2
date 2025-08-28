@@ -895,7 +895,8 @@ function calcs.perform(env, skipEHP)
 		if modDB:Flag(nil, "MinionAccuracyEqualsAccuracy") then
 			env.minion.modDB:NewMod("Accuracy", "BASE", calcLib.val(modDB, "Accuracy") + calcLib.val(modDB, "Dex") * (modDB:Override(nil, "DexAccBonusOverride") or data.misc.AccuracyPerDexBase), "Player")
 		else
-			env.minion.modDB:NewMod("Accuracy", "BASE", round(env.data.monsterAccuracyTable[env.minion.level] * (env.minion.minionData.accuracy or 1)) + data.playerMinionIntrinsicStats["accuracy_rating_per_level"] * (env.minion.level - 1), "Base")
+			-- Minions no longer need Accuracy as of patch 0.3.0
+			env.minion.modDB:NewMod("CannotBeEvaded", "FLAG", 1, "Minion Attacks always hit")
 		end
 		env.minion.modDB:NewMod("CritMultiplier", "BASE", env.data.monsterConstants["base_critical_hit_damage_bonus"] + env.data.playerMinionIntrinsicStats["base_critical_hit_damage_bonus"], "Base")
 		env.minion.modDB:NewMod("FireResist", "BASE", env.minion.minionData.fireResist, "Base")

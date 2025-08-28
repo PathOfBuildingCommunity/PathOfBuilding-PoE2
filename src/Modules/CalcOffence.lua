@@ -2193,6 +2193,12 @@ function calcs.offence(env, actor, activeSkill)
 			output[stat] = (output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)
 		elseif mode == "AVERAGE" then
 			output[stat] = ((output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)) / 2
+		elseif mode == 'HARMONICMEAN' then
+			if output.MainHand[stat] == 0 or output.OffHand[stat] == 0 then
+				output[stat] = 0
+			else
+				output[stat] = 2 / ((1 / output.MainHand[stat]) + (1 / output.OffHand[stat]))
+			end
 		elseif mode == "CHANCE" then
 			if output.MainHand[stat] and output.OffHand[stat] then
 				local mainChance = output.MainHand[...] * output.MainHand.HitChance
@@ -2414,7 +2420,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Check Precise Technique Keystone condition per pass as MH/OH might have different values
 		local condName = pass.label:gsub(" ", "") .. "AccRatingHigherThanMaxLife"
-		skillModList.conditions[condName] = output.Accuracy > env.player.output.Life
+		skillModList.conditions[condName] = ( output.Accuracy and output.Accuracy or 0 ) > env.player.output.Life
 
 		-- Calculate attack/cast speed
 		if activeSkill.activeEffect.grantedEffect.castTime == 0 and not skillData.castTimeOverride and not skillData.triggered then
@@ -2723,7 +2729,7 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("AccuracyHitChance", "AVERAGE")
 		combineStat("HitChance", "AVERAGE")
 		combineStat("AccuracyHitChanceUncapped", "AVERAGE")
-		combineStat("Speed", "AVERAGE")
+		combineStat("Speed", "HARMONICMEAN")
 		combineStat("HitSpeed", "OR")
 		combineStat("HitTime", "OR")
 		if output.Speed == 0 then
@@ -2748,7 +2754,7 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown.Speed = {
 					"Both weapons:",
-					s_format("(%.2f + %.2f) / 2", output.MainHand.Speed, output.OffHand.Speed),
+					s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
 					s_format("= %.2f", output.Speed),
 				}
 			end
@@ -3409,8 +3415,8 @@ function calcs.offence(env, actor, activeSkill)
 			local baseMax = output[damageTypeMax.."Base"]
 			local summedMin = baseMin * convMult + convertedMin + gainedMin
 			local summedMax = baseMax * convMult + convertedMax + gainedMax
-			output[damageType.."SummedMinBase"] = m_floor(summedMin)
-			output[damageType.."SummedMaxBase"] = m_floor(summedMax)
+			output[damageType.."SummedMinBase"] = round(summedMin)
+			output[damageType.."SummedMaxBase"] = round(summedMax)
 			if breakdown then
 				if (baseMin ~= 0 or baseMax ~= 0) then
 					if convMult ~= 1 then
