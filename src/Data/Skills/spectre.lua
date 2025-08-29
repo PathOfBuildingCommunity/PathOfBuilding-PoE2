@@ -61,6 +61,9 @@ skills["ABTTProcessionBannerDrain"] = {
 				"base_physical_damage_taken_per_minute",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"base_physical_damage_taken_per_minute",
+			},
 			levels = {
 				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
 			},
@@ -279,6 +282,10 @@ skills["BloodMageBloodTendrils"] = {
 				"blood_tendrils_beam_count",
 				"spell_damage_modifiers_apply_to_skill_dot",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, 66.666668156783, 2, statInterpolation = { 3, 3, 3, 1, }, actorLevel = 1, },
 			},
@@ -316,6 +323,10 @@ skills["BoneCultistZealotFirestorm"] = {
 				"spell_maximum_base_physical_damage",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -348,6 +359,10 @@ skills["BoneCultistZealotLightningstorm"] = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -740,6 +755,10 @@ skills["EDSPyramidHandLightningLance"] = {
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -779,6 +798,10 @@ skills["EDSShellMonsterFlamethrower"] = {
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -811,6 +834,10 @@ skills["EDSShellMonsterPoisonSpray"] = {
 				{ "base_chance_to_poison_on_hit_%", 50 },
 			},
 			stats = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
+			notMinionStat = {
 				"spell_minimum_base_chaos_damage",
 				"spell_maximum_base_chaos_damage",
 			},
@@ -854,6 +881,10 @@ skills["ExpeditionGroundLaser"] = {
 				"is_area_damage",
 				"cannot_stun",
 				"disable_visual_hit_effect",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, 50, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
@@ -940,6 +971,10 @@ skills["FungalArtilleryMortar"] = {
 				"base_skill_can_be_avoided_by_dodge_roll",
 				"projectile_ballistic_angle_from_reference_event",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1013,6 +1048,10 @@ skills["GSArmourCasterVolatileExplode"] = {
 				"spell_maximum_base_lightning_damage",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1047,6 +1086,10 @@ skills["GSCenobiteBloaterOnDeath"] = {
 				"spell_minimum_base_physical_damage",
 				"spell_maximum_base_physical_damage",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1086,6 +1129,10 @@ skills["GSMercurialCasterBlast"] = {
 				"spell_minimum_base_fire_damage",
 				"spell_maximum_base_fire_damage",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1545,6 +1592,10 @@ skills["GraveyardSpookyGhostExplode"] = {
 				"spell_maximum_base_cold_damage",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1584,6 +1635,10 @@ skills["GSDesertBatZap"] = {
 				"spell_maximum_base_lightning_damage",
 				"is_area_damage",
 				"base_skill_can_be_blocked",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1627,6 +1682,10 @@ skills["GSExpeditionBoneCultistEggExplosion"] = {
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1663,6 +1722,10 @@ skills["GSHellscapeDemonEliteBeamNuke"] = {
 				"spell_maximum_base_fire_damage",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1697,6 +1760,10 @@ skills["GSHellscapePaleEliteBoltImpact"] = {
 				{ "damage_hit_effect_index", 103 },
 			},
 			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			notMinionStat = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
 			},
@@ -1737,6 +1804,10 @@ skills["GSHellscapePaleEliteOmegaBeam"] = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1773,6 +1844,10 @@ skills["GSProwlingShadeIceBeam"] = {
 				"spell_minimum_base_cold_damage",
 				"spell_maximum_base_cold_damage",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 35, },
@@ -1811,6 +1886,10 @@ skills["GSRagingFireSpiritsVolatileSanctum"] = {
 				"is_area_damage",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1848,6 +1927,10 @@ skills["GSRagingTimeSpiritsVolatileSanctum"] = {
 				"is_area_damage",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -1882,6 +1965,10 @@ skills["GSVaalConstructSkitterbotGrenadeExplode"] = {
 				"is_area_damage",
 				"skill_ignore_moving_slowdown_on_shift_attack",
 				"base_is_projectile",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -1950,6 +2037,10 @@ skills["HellscapeDemonFodderFaceLaser"] = {
 				"cannot_stun",
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -2446,6 +2537,10 @@ skills["MMSBaneSapling"] = {
 				"use_scaled_contact_offset",
 				"projectile_ballistic_angle_from_target_distance",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -2493,6 +2588,10 @@ skills["MMSBoneRabbleMortar"] = {
 				"use_scaled_contact_offset",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -2538,6 +2637,10 @@ skills["MMSHellscapeDemonEliteTripleMortar"] = {
 				"projectile_uses_contact_position",
 				"use_scaled_contact_offset",
 				"distribute_projectiles_over_contact_points",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -2680,6 +2783,10 @@ skills["MPSArmourCasterBasic"] = {
 				"disable_visual_hit_effect",
 				"distribute_projectiles_over_contact_points",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -2722,6 +2829,10 @@ skills["MPSAzmeriPictStaffProj"] = {
 				"action_attack_or_cast_time_uses_animation_length",
 				"maintain_projectile_direction_when_using_contact_position",
 				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -2769,6 +2880,10 @@ skills["MPSAzmeriPictStaffProj2"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"check_for_targets_between_initiator_and_projectile_source",
 			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -2810,6 +2925,10 @@ skills["MPSBloodMageBloodProjectile"] = {
 				"check_for_targets_between_initiator_and_projectile_source",
 				"projectile_uses_contact_direction",
 				"distribute_projectiles_over_contact_points",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -2893,6 +3012,10 @@ skills["MPSBoneCultistNecromancerLightning"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -2933,6 +3056,10 @@ skills["MPSBoneCultistZealotFire"] = {
 				"use_scaled_contact_offset",
 				"projectile_uses_contact_position",
 				"maintain_projectile_direction_when_using_contact_position",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -2975,6 +3102,10 @@ skills["MPSBoneCultistZealotLightning"] = {
 				"projectile_uses_contact_position",
 				"maintain_projectile_direction_when_using_contact_position",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -3015,6 +3146,10 @@ skills["MPSBreachEliteBoneProjectile"] = {
 				"projectile_uses_contact_position",
 				"maintain_projectile_direction_when_using_contact_position",
 				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3060,6 +3195,10 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 				"projectile_ballistic_angle_from_reference_event",
 				"ballistic_projectiles_always_bounce",
 				"distribute_projectiles_over_contact_points",
+			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3107,6 +3246,10 @@ skills["MPSChaosGodTriHeadLizardBasicProjectile"] = {
 				"projectile_ballistic_angle_from_target_distance",
 				"distribute_projectiles_over_contact_points",
 			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -3148,6 +3291,10 @@ skills["MPSExpeditionBoneCultistProjectiles"] = {
 				"spell_maximum_base_cold_damage",
 				"base_is_projectile",
 				"projectile_uses_contact_position",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3195,6 +3342,10 @@ skills["MPSHellscapeDemonFodderProj"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"check_for_targets_between_initiator_and_projectile_source",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -3236,6 +3387,10 @@ skills["MPSHellscapeFleshEliteBasicProj"] = {
 				"use_scaled_contact_offset",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -3276,6 +3431,10 @@ skills["MPSHellscapePaleHammerhead"] = {
 				"base_is_projectile",
 				"projectile_uses_contact_position",
 				"always_pierce",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3320,6 +3479,12 @@ skills["MPSMercurialCasterEnrage"] = {
 				"use_scaled_contact_offset",
 				"disable_visual_hit_effect",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 0.40000000596046, 0.60000002384186, 0.40000000596046, 0.60000002384186, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
 			},
@@ -3359,6 +3524,10 @@ skills["MPSRedSkeletonCaster"] = {
 				"use_scaled_contact_offset",
 				"projectile_uses_contact_position",
 				"base_is_projectile",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3402,6 +3571,12 @@ skills["MPSSkeletonMancerBasicProj"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.40000000596046, 0.60000002384186, 0.40000000596046, 0.60000002384186, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
 			},
@@ -3443,6 +3618,10 @@ skills["MPSVaalBloodPriestProj"] = {
 				"use_scaled_contact_offset",
 				"action_attack_or_cast_time_uses_animation_length",
 				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3487,6 +3666,10 @@ skills["MPSVaalConstructCannon"] = {
 				"projectile_uses_contact_position",
 				"projectile_uses_contact_direction",
 				"use_scaled_contact_offset",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3570,6 +3753,10 @@ skills["MPSVaalHumanoidCannonNapalmMiniBlob"] = {
 				"base_is_projectile",
 				"projectile_ballistic_angle_from_target_distance",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -3611,6 +3798,10 @@ skills["MPSVaalSunApparitionBasicProj"] = {
 				"use_scaled_contact_offset",
 				"action_attack_or_cast_time_uses_animation_length",
 				"check_for_targets_between_initiator_and_projectile_source",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -3884,6 +4075,9 @@ skills["MPWKelpDregPuncture"] = {
 				"base_is_projectile",
 				"attacks_inflict_bleeding_on_hit",
 				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"active_skill_bleeding_effect_+%_final",
 			},
 			levels = {
 				[1] = { 0, statInterpolation = { 1, }, actorLevel = 1, },
@@ -4306,6 +4500,10 @@ skills["ShellMonsterDeathMortar"] = {
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -4351,6 +4549,10 @@ skills["ShellMonsterDeathMortarPoison"] = {
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -4388,6 +4590,10 @@ skills["ShellMonsterFirehose"] = {
 				"spell_maximum_base_fire_damage",
 				"is_area_damage",
 				"cannot_stun",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -4435,6 +4641,10 @@ skills["ShellMonsterSprayMortar"] = {
 				"base_skill_can_be_avoided_by_dodge_roll",
 				"no_additional_projectiles",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -4480,6 +4690,10 @@ skills["ShellMonsterSprayMortarPoison"] = {
 				"projectile_uses_contact_direction",
 				"base_skill_can_be_blocked",
 				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -4527,6 +4741,12 @@ skills["SkelemancerSkelenado"] = {
 				"projectiles_not_offset",
 				"always_pierce",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 0.40000000596046, 0.60000002384186, 0.40000000596046, 0.60000002384186, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
 			},
@@ -4569,6 +4789,10 @@ skills["SpookyGhostLightningBounce"] = {
 				"projectile_uses_contact_position",
 				"projectile_uses_contact_direction",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -4607,6 +4831,10 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 				"base_skill_can_be_blocked",
 				"base_is_projectile",
 				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -4677,6 +4905,10 @@ skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -4712,6 +4944,10 @@ skills["TBVaalPyramidBeam"] = {
 				"spell_minimum_base_lightning_damage",
 				"spell_maximum_base_lightning_damage",
 				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -4826,6 +5062,10 @@ skills["VaalBloodPriestDetonateDead"] = {
 				"spell_maximum_base_physical_damage",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -4869,6 +5109,10 @@ skills["VaalBloodPriestExsanguinate"] = {
 				"base_physical_damage_to_deal_per_minute",
 				"blood_tendrils_beam_count",
 				"spell_damage_modifiers_apply_to_skill_dot",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, 66.666668156783, 2, statInterpolation = { 3, 3, 3, 1, }, actorLevel = 1, },
@@ -4948,6 +5192,10 @@ skills["VaalHumanoidShockRifle"] = {
 				"spell_maximum_base_lightning_damage",
 				"is_area_damage",
 				"base_is_projectile",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },

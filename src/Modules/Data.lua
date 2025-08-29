@@ -68,16 +68,31 @@ end
 local function makeSkillDataMod(dataKey, dataValue, ...)
 	return makeSkillMod("SkillData", "LIST", { key = dataKey, value = dataValue }, 0, 0, ...)
 end
-local function processMod(grantedEffect, mod)
+local function processMod(grantedEffect, mod, statName)
 	mod.source = grantedEffect.modSource
 	if type(mod.value) == "table" and mod.value.mod then
 		mod.value.mod.source = "Skill:"..grantedEffect.id
 	end
+	
 	for _, tag in ipairs(mod) do
 		if tag.type == "GlobalEffect" then
 			grantedEffect.hasGlobalEffect = true
 			break
 		end
+	end
+	
+	local notMinionStat = false
+	for _, statStet in ipairs(grantedEffect.statSets) do
+		if statStet.notMinionStat and statName and (grantedEffect.support or grantedEffect.skillTypes and grantedEffect.skillTypes[SkillType.Buff]) then
+			for _, notMinionStatName in ipairs(statStet.notMinionStat) do
+				if notMinionStatName == statName then
+					notMinionStat = true
+				end
+			end
+		end
+	end
+	if notMinionStat then
+		t_insert(mod, { type = "ActorCondition", actor = "parent", neg = true })
 	end
 end
 
@@ -784,7 +799,7 @@ data.skillStatMapMeta = {
 			map = copyTable(map)
 			t[key] = map
 			for _, mod in ipairs(map) do
-				processMod(t._grantedEffect, mod)
+				processMod(t._grantedEffect, mod, key)
 			end
 			return map
 		end
@@ -817,14 +832,14 @@ for skillId, grantedEffect in pairs(data.skills) do
 		statSet.statMap = statSet.statMap or { }
 		setmetatable(statSet.statMap, data.skillStatMapMeta)
 		statSet.statMap._grantedEffect = grantedEffect
-		for _, map in pairs(statSet.statMap) do
+		for name, map in pairs(statSet.statMap) do
 			-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 			for _, modOrGroup in ipairs(map) do
 				if modOrGroup.name then
-					processMod(grantedEffect, modOrGroup)
+					processMod(grantedEffect, modOrGroup, name)
 				else
 					for _, mod in ipairs(modOrGroup) do
-						processMod(grantedEffect, mod)
+						processMod(grantedEffect, mod, name)
 					end
 				end
 			end
