@@ -345,7 +345,7 @@ local function calcWarcryCastTime(skillModList, skillCfg, skillData, actor)
 end
 
 function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB)
-	local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "SkillAndDamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+	local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 	durationMod = m_max(durationMod, 0)
 	local durationBase = (skillData.duration or 0) + skillModList:Sum("BASE", skillCfg, "Duration", "PrimaryDuration")
 	local duration = durationBase * durationMod
@@ -1608,10 +1608,10 @@ function calcs.offence(env, actor, activeSkill)
 		debuffDurationMult = 1 / m_max(data.misc.BuffExpirationSlowCap, calcLib.mod(enemyDB, skillCfg, "BuffExpireFaster"))
 	end
 	do
-		output.DurationMod = calcLib.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "SkillAndDamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+		output.DurationMod = calcLib.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 		output.DurationMod = m_max(output.DurationMod, 0)
 		if breakdown then
-			breakdown.DurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "SkillAndDamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+			breakdown.DurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 			if breakdown.DurationMod and skillData.durationSecondary then
 				t_insert(breakdown.DurationMod, 1, "Primary duration:")
 			end
@@ -1639,7 +1639,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		durationBase = (skillData.durationSecondary or 0) + skillModList:Sum("BASE", skillCfg, "Duration", "SecondaryDuration")
 		if durationBase > 0 then
-			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "SecondaryDuration", "SkillAndDamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "SecondaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 			durationMod = m_max(durationMod, 0)
 			output.DurationSecondary = durationBase * durationMod
 			if skillData.debuffSecondary then
@@ -1647,7 +1647,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			output.DurationSecondary = m_ceil(output.DurationSecondary * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.DurationSecondary ~= durationBase then
-				breakdown.SecondaryDurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "SecondaryDuration", "SkillAndDamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+				breakdown.SecondaryDurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "SecondaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 				if breakdown.SecondaryDurationMod then
 					t_insert(breakdown.SecondaryDurationMod, 1, "Secondary duration:")
 				end
@@ -1666,7 +1666,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		durationBase = (skillData.durationTertiary or 0) + skillModList:Sum("BASE", skillCfg, "Duration", "TertiaryDuration")
 		if durationBase > 0 then
-			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "TertiaryDuration", "SkillAndDamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "TertiaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 			durationMod = m_max(durationMod, 0)
 			output.DurationTertiary = durationBase * durationMod
 			if skillData.debuffTertiary then
@@ -1674,7 +1674,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			output.DurationTertiary = m_ceil(output.DurationTertiary * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.DurationTertiary ~= durationBase then
-				breakdown.TertiaryDurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "TertiaryDuration", "SkillAndDamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+				breakdown.TertiaryDurationMod = breakdown.mod(skillModList, skillCfg, "Duration", "TertiaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 				if breakdown.TertiaryDurationMod then
 					t_insert(breakdown.TertiaryDurationMod, 1, "Tertiary duration:")
 				end
@@ -1693,7 +1693,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		durationBase = (skillData.auraDuration or 0)
 		if durationBase > 0 then
-			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "SkillAndDamagingAilmentDuration")
+			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "DamagingAilmentDuration")
 			durationMod = m_max(durationMod, 0)
 			output.AuraDuration = durationBase * durationMod
 			output.AuraDuration = m_ceil(output.AuraDuration * data.misc.ServerTickRate) / data.misc.ServerTickRate
@@ -1708,7 +1708,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		durationBase = (skillData.reserveDuration or 0)
 		if durationBase > 0 then
-			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "SkillAndDamagingAilmentDuration")
+			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "DamagingAilmentDuration")
 			durationMod = m_max(durationMod, 0)
 			output.ReserveDuration = durationBase * durationMod
 			output.ReserveDuration = m_ceil(output.ReserveDuration * data.misc.ServerTickRate) / data.misc.ServerTickRate
@@ -1723,7 +1723,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		durationBase = (skillData.soulPreventionDuration or 0)
 		if durationBase > 0 then
-			local durationMod = calcLib.mod(skillModList, skillCfg, "SoulGainPreventionDuration", skillData.skillEffectAppliesToSoulGainPrevention and "Duration" or "SkillAndDamagingAilmentDuration" or nil, skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
+			local durationMod = calcLib.mod(skillModList, skillCfg, "SoulGainPreventionDuration", skillData.skillEffectAppliesToSoulGainPrevention and "Duration" or "DamagingAilmentDuration" or nil, skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 			durationMod = m_max(durationMod, 0)
 			output.SoulGainPreventionDuration = durationBase * durationMod
 			output.SoulGainPreventionDuration = m_max(m_ceil(output.SoulGainPreventionDuration * data.misc.ServerTickRate), 1) / data.misc.ServerTickRate
@@ -2469,7 +2469,7 @@ function calcs.offence(env, actor, activeSkill)
 			--Calculates the max number of trauma stacks you can sustain
 			if skillModList:Flag(nil, "HasTrauma") then
 				local effectiveAttackRateCap = data.misc.ServerTickRate * output.Repeats
-				local duration = skillModList:Sum("BASE", cfg, "TraumaDuration") * calcLib.mod(skillModList, skillCfg, "Duration", "SkillAndDamagingAilmentDuration")
+				local duration = skillModList:Sum("BASE", cfg, "TraumaDuration") * calcLib.mod(skillModList, skillCfg, "Duration", "DamagingAilmentDuration")
 				local traumaPerAttack = 1 + m_min(skillModList:Sum("BASE", cfg, "ExtraTrauma"), 100) / 100
 				local incAttackSpeedPerTrauma = skillModList:Sum("INC", skillCfg, "SpeedPerTrauma")
 				-- compute trauma using an exact form.
@@ -3335,6 +3335,10 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		output.ScaledDamageEffect = 1
+		
+		if output.CritChance ~= 0 then
+			skillModList.conditions["CritInPast8Sec"] = true
+		end
 
 		-- Calculate chance and multiplier for dealing triple damage on Normal and Crit
 		output.TripleDamageChanceOnCrit = m_min(skillModList:Sum("BASE", cfg, "TripleDamageChanceOnCrit"), 100)
@@ -4415,7 +4419,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			local rateMod = (calcLib.mod(skillModList, cfg, ailment .. "Faster") + enemyDB:Sum("INC", nil, "Self" .. ailment .. "Faster") / 100)  / calcLib.mod(skillModList, cfg, ailment .. "Slower")
 			local durationBase = skillData[ailment:lower() .. "DurationIsSkillDuration"] and skillData.duration or env.modDB:Override(nil, ailment .. "DurationBase") or data.misc[ailment .. "DurationBase"]
-			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "Enemy" .. ailment .. "Duration", "EnemyAilmentDuration", "Enemy" .. ailmentTypeMod .. "AilmentDuration", "SkillAndDamagingAilmentDuration", skillData[ailment:lower() .. "DurationIsSkillDuration"] and
+			local durationMod = m_max(calcLib.mod(skillModList, dotCfg, "Enemy" .. ailment .. "Duration", "EnemyAilmentDuration", "Enemy" .. ailmentTypeMod .. "AilmentDuration", "DamagingAilmentDuration", skillData[ailment:lower() .. "DurationIsSkillDuration"] and
 				"Duration" or nil) * calcLib.mod(enemyDB, nil, "Self" .. ailment .. "Duration", "SelfAilmentDuration", "Self" .. ailmentTypeMod .. "AilmentDuration"), 0)
 			durationMod = m_max(durationMod, 0)
 			globalOutput[ailment .. "Duration"] = durationBase * durationMod / rateMod * debuffDurationMult
