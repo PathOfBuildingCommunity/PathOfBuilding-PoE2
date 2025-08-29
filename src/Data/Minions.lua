@@ -122,6 +122,7 @@ minions["RaisedSkeletonBrute"] = {
 	skillList = {
 		"MinionMeleeStep",
 		"BoneshatterBruteMinion",
+		"ShatteringRoarSkeletalBruteMinion",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
@@ -185,7 +186,7 @@ minions["RaisedSkeletonFrostMage"] = {
 	},
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
-		"IceBombSkeletonMageMinion",
+		"IceArmourSkeletonMageMinion",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
@@ -505,6 +506,8 @@ minions["UnearthBoneConstruct"] = {
 	},
 	skillList = {
 		"MinionMelee",
+		"DATTBoneConstructPlayerSummoned",
+		"GABoneConstructPlayerSummoned",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]

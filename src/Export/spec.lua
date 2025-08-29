@@ -11885,73 +11885,59 @@ return {
 		},
 		[2]={
 			list=false,
-			name="OTFile",
-			refTo="",
-			type="String",
-			width=550
-		},
-		[3]={
-			list=false,
-			name="Accuracy",
+			name="",
 			refTo="",
 			type="Int",
-			width=70
+			width=150
 		},
-		[4]={
+		[3]={
 			list=false,
 			name="IsPlayerMinion",
 			refTo="",
 			type="Bool",
 			width=80
 		},
-		[5]={
+		[4]={
 			list=false,
 			name="Armour",
 			refTo="",
 			type="Int",
 			width=60
 		},
-		[6]={
+		[5]={
 			list=false,
 			name="Evasion",
 			refTo="",
 			type="Int",
 			width=60
 		},
-		[7]={
+		[6]={
 			list=false,
 			name="EnergyShield",
 			refTo="",
 			type="Int",
 			width=70
 		},
-		[8]={
+		[7]={
 			list=false,
 			name="DamageSpread",
 			refTo="",
 			type="Int",
 			width=100
 		},
-		[9]={
+		[8]={
 			list=true,
 			name="Resistances",
 			refTo="MonsterResistances",
 			type="Key",
-			width=250
+			width=280
 		},
-		[10]={
+		[9]={
 			list=false,
 			name="BaseDamageIgnoresAttackSpeed",
 			refTo="",
 			type="Bool",
 			width=180
-		},
-		[11]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=80
 		}
 	},
 	monstervarieties={
@@ -12468,10 +12454,10 @@ return {
 		},
 		[74]={
 			list=false,
-			name="",
+			name="NotSummoned",
 			refTo="",
 			type="Bool",
-			width=50
+			width=90
 		},
 		[75]={
 			list=false,
