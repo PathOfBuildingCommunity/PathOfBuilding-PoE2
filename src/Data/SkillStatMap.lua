@@ -266,7 +266,8 @@ return {
 	mod("RepeatCount", "BASE", nil, 0, 0, {type = "SkillType", skillType = SkillType.Cascadable }),
 },
 ["base_melee_attack_repeat_count"] = {
-	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Multistrikeable }),
+	mod("RepeatCount", "BASE", nil, 0, 0, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.WeaponMelee, ModFlag.Unarmed) }),
+	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.RequiresShield }),
 },
 ["display_skill_minions_level_is_corpse_level"] = {
 	skill("minionLevelIsEnemyLevel", true),
