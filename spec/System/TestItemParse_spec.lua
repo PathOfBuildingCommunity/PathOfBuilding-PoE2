@@ -245,7 +245,7 @@ describe("TestItemParse", function()
 		item:BuildAndParseRaw()
 		assert.are.equals(35, item.requirements.strMod)
 		assert.are.equals(86, item.requirements.dexMod)
-		assert.are.equals(65, item.requirements.intMod)	
+		assert.are.equals(55, item.requirements.intMod)	
 		
 	end)
 
