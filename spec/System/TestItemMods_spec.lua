@@ -183,7 +183,7 @@ describe("TetsItemMods", function()
 		]]
 		build.configTab:BuildModList()
 		build.itemsTab:CreateDisplayItemFromRaw([[Replica Nebulis
-			Void Sceptre
+			Clasped Sceptre
 			League: Heist
 			Quality: 20
 			Sockets: B-B-B
@@ -210,14 +210,14 @@ describe("TetsItemMods", function()
 		build.configTab:BuildModList()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
-			Plate Vest
-			Armour: 32
+			Fur Plate
+			Armour: 60
 		]])
 		build.itemsTab:AddDisplayItem()
 		build.skillsTab:PasteSocketGroup("Arc 20/0 Default  1")
 
-		assert.are_not.equals(40, build.calcsTab.mainEnv.modDB:Sum("INC", { flags = ModFlag.Cast }, "Speed"))
-		assert.are_not.equals(64, build.calcsTab.mainOutput.Armour)
+		assert.are_not.equals(20, build.calcsTab.mainEnv.modDB:Sum("MORE", { flags = ModFlag.Cast }, "Speed"))
+		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
 	end)
 end)
