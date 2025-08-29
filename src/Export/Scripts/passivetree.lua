@@ -1108,6 +1108,16 @@ for i, classId in ipairs(psg.passives) do
 	for _, class in ipairs(classes) do
 		for _, ascendancy in ipairs(class.ascendancies) do
 			printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
+			
+			local angle = startAngle + (j - 1) * angleStep
+			local cX = hardCoded * math.cos(angle)
+			local cY = hardCoded * math.sin(angle)
+
+			ascendancy.background.x = cX
+			ascendancy.background.y = cY
+
+			j = j + 1
+
 			local info = ascendancyGroups[ascendancy.id]
 			if info == nil then
 				printf("Ascendancy group " .. ascendancy.id .. " not found")
@@ -1119,13 +1129,6 @@ for i, classId in ipairs(psg.passives) do
 				goto continuepositioning
 			end
 			local groupAscendancy = tree.groups[ascendancyNode.group]
-
-			local angle = startAngle + (j - 1) * angleStep
-			local cX = hardCoded * math.cos(angle)
-			local cY = hardCoded * math.sin(angle)
-
-			ascendancy.background.x = cX
-			ascendancy.background.y = cY
 
 			local innerRadious = dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
 
@@ -1154,7 +1157,7 @@ for i, classId in ipairs(psg.passives) do
 					tree.max_y = math.max(tree.max_y, group.y + hardCoded / 2)
 				end
 			end
-			j = j + 1
+
 			:: continuepositioning ::
 		end
 	end
