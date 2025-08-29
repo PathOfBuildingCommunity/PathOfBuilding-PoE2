@@ -733,7 +733,11 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			for _, property in pairs(skillData.properties) do
 				if property.name == "Level" then
-					gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
+					if skillData.properties[_ + 1] and skillData.properties[_ + 1].values[1][1]:match("(%d+) Level[s]? from Gem") then
+						gemInstance.level = tonumber(skillData.properties[_ + 1].values[1][1]:match("(%d+) Level[s]? from Gem"))
+					else
+						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
+					end
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
 				end
@@ -935,6 +939,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	item.mirrored = itemData.mirrored
 	item.corrupted = itemData.corrupted
 	item.fractured = itemData.fractured
+	item.desecrated = itemData.desecrated
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
 		item.itemSocketCount = 0
@@ -1003,6 +1008,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			for line in line:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { } })
+			end
+		end
+	end
+	if itemData.desecratedMods then
+		for _, line in ipairs(itemData.desecratedMods) do
+			for line in line:gmatch("[^\n]+") do
+				local modList, extra = modLib.parseMod(line)
+				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, desecrated = true })
 			end
 		end
 	end

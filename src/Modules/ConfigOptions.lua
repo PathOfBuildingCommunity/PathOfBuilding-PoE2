@@ -779,8 +779,10 @@ Huge sets the radius to 11.
 	}, defaultIndex = 2, apply = function(val, modList, enemyModList)
 		if val == "AVERAGE" then
 			modList:NewMod("Condition:averageRepeat", "FLAG", true, "Config")
+			modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:averageRepeat", "FLAG", true, "Config") })
 		elseif val == "FINAL" or val == "FINAL_DPS" then
 			modList:NewMod("Condition:alwaysFinalRepeat", "FLAG", true, "Config")
+			modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:alwaysFinalRepeat", "FLAG", true, "Config") })
 		end
 	end },
 	{ var = "ruthlessSupportMode", type = "list", label = "Ruthless Support Mode:", ifSkill = "Ruthless", tooltip = "Controls how the hit/ailment effect of Ruthless Support is calculated:\n\tAverage: damage is based on the average application\n\tMax Effect: damage is based on maximum effect", list = {{val="AVERAGE",label="Average"},{val="MAX",label="Max Effect"}} },
@@ -1858,6 +1860,7 @@ Huge sets the radius to 11.
 		elseif val == "Boss" then
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1893,6 +1896,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1926,6 +1930,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")

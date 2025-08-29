@@ -57,7 +57,7 @@ local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 end)
 
 local lineFlags = {
-	["custom"] = true, ["fractured"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
+	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
 }
 
 -- Special function to store unique instances of modifier on specific item slots
@@ -383,6 +383,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.corrupted = true
 		elseif line == "Fractured Item" then
 			self.fractured = true
+		elseif line == "Desecrated Item" then
+			self.desecrated = true
 		elseif line == "Requirements:" then
 			-- nothing to do
 		else
@@ -1154,12 +1156,16 @@ function ItemClass:BuildRaw()
 		if modLine.fractured then
 			line = "{fractured}" .. line
 		end
+		if modLine.desecrated then
+			line = "{desecrated}" .. line
+		end
 		if modLine.variantList then
 			local varSpec
 			for varId in pairs(modLine.variantList) do
 				varSpec = (varSpec and varSpec .. "," or "") .. varId
 			end
-			line = "{variant:" .. varSpec .. "}" .. line
+			local var = "{variant:" .. varSpec .. "}"
+			line = var .. line:gsub("\n", "\n" .. var) -- Variants that go over 1 line need to have the gsub to fix there being no "variant:" at the start
 		end
 		if modLine.modTags and #modLine.modTags > 0 then
 			line = "{tags:" .. table.concat(modLine.modTags, ",") .. "}" .. line

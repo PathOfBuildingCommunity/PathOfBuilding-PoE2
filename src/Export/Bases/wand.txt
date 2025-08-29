@@ -2,5 +2,5 @@
 local itemBases = ...
 
 #type Wand
-#socketLimit 2
+#socketLimit 3
 #baseMatch Metadata/Items/Weapons/OneHandWeapons/Wands/FourWand

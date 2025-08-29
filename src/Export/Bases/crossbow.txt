@@ -2,5 +2,5 @@
 local itemBases = ...
 
 #type Crossbow
-#socketLimit 3
+#socketLimit 4
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/Crossbows/AbstractCrossbow

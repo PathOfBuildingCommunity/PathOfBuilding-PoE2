@@ -2146,7 +2146,7 @@ c["4% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",
 c["4% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
 c["4% increased Cast Speed for each different Non-Instant Spell you've Cast Recently"]={{[1]={[1]={type="Multiplier",var="NonInstantSpellCastRecently"},flags=16,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
 c["4% increased Energy Shield per Power Charge"]={{[1]={[1]={type="Multiplier",var="PowerCharge"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=4}},nil}
-c["4% increased Magnitude of Unholy Might Buffs you grant per 100 maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={[1]={effectName="BlackenedHeart",effectType="Aura",type="GlobalEffect",unscaleable=true},mod={[1]={actor="parent",div=100,stat="Mana",type="PerStat"},flags=0,keywordFlags=0,name="Multiplier:UnholyMightMagnitude",type="BASE",value=4}}}},nil}
+c["4% increased Magnitude of Unholy Might Buffs you grant per 100 maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={[1]={effectName="BlackenedHeart",effectType="Aura",type="GlobalEffect",unscalable=true},mod={[1]={actor="parent",div=100,stat="Mana",type="PerStat"},flags=0,keywordFlags=0,name="Multiplier:UnholyMightMagnitude",type="BASE",value=4}}}},nil}
 c["4% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},nil}
 c["4% increased Movement Speed if you've Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},nil}
 c["4% increased Movement Speed if you've cast a Mark Spell Recently"]={{[1]={[1]={type="Condition",var="CastMarkRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},nil}
@@ -3802,7 +3802,7 @@ c["Enemies in your Presence Resist Elemental Damage based on their Lowest Resist
 c["Enemies in your Presence are Blinded"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="Condition:Blinded",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence are Ignited as though dealt 100 Base Fire Damage"]={nil,"Ignited as though dealt 100 Base Fire Damage "}
 c["Enemies in your Presence are Intimidated"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="Condition:Intimidated",type="FLAG",value=true}}}},nil}
-c["Enemies in your Presence are Slowed by 20%"]={nil,"Slowed by 20% "}
+c["Enemies in your Presence are Slowed by 20%"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ActionSpeed",type="INC",value=-20}}}},nil}
 c["Enemies in your Presence count as being on Low Life"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:LowLife",type="FLAG",value=true}}}},nil}
 c["Enemies in your Presence count as having double Power"]={{},"count as having  Power "}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=-10}}}},nil}
@@ -4752,7 +4752,7 @@ c["You have a Smoke Cloud around you while stationary"]={nil,"a Smoke Cloud arou
 c["You have no Accuracy Penalty at Distance"]={{[1]={flags=0,keywordFlags=0,name="NoAccuracyDistancePenalty",type="FLAG",value=true}},nil}
 c["You have no Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=0},[2]={flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=0},[3]={flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=0}},nil}
 c["You have no Life Regeneration"]={{[1]={flags=0,keywordFlags=0,name="NoLifeRegen",type="FLAG",value=true}},nil}
-c["You have no Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE",value=-100}},nil}
+c["You have no Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="OVERRIDE",value=0}},nil}
 c["You have no Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="OVERRIDE",value=0}},nil}
 c["You lose 5% of maximum Energy Shield per second"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldDegenPercent",type="BASE",value=5}},nil}
 c["You take 10% of damage from Blocked Hits"]={{[1]={flags=0,keywordFlags=0,name="BlockEffect",type="BASE",value=10}},nil}

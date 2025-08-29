@@ -2,7 +2,7 @@
 local itemBases = ...
 
 #type Body Armour
-#socketLimit 3
+#socketLimit 4
 
 #subType Armour
 #baseMatch Metadata/Items/Armours/BodyArmours/FourBodyStr%d+

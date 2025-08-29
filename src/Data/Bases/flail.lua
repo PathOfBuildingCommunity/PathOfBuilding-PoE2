@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Splintered Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 6, PhysicalMax = 9, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
@@ -14,7 +14,7 @@ itemBases["Splintered Flail"] = {
 itemBases["Chain Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 8, PhysicalMax = 14, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
@@ -23,7 +23,7 @@ itemBases["Chain Flail"] = {
 itemBases["Holy Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, ezomyte_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 10, PhysicalMax = 17, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
@@ -32,7 +32,7 @@ itemBases["Holy Flail"] = {
 itemBases["Iron Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 14, PhysicalMax = 23, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
@@ -41,7 +41,7 @@ itemBases["Iron Flail"] = {
 itemBases["Twin Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Forks Critical Hits",
 	implicitModTypes = { { "critical" }, },
@@ -51,7 +51,7 @@ itemBases["Twin Flail"] = {
 itemBases["Slender Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 32, CritChanceBase = 8, AttackRateBase = 1.5, Range = 11, },
@@ -60,7 +60,7 @@ itemBases["Slender Flail"] = {
 itemBases["Stone Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Unblockable",
 	implicitModTypes = { {  }, },
@@ -70,7 +70,7 @@ itemBases["Stone Flail"] = {
 itemBases["Ring Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, vaal_basetype = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 44, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
@@ -79,7 +79,7 @@ itemBases["Ring Flail"] = {
 itemBases["Guarded Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 31, PhysicalMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 11, },
@@ -88,7 +88,7 @@ itemBases["Guarded Flail"] = {
 itemBases["Icicle Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { ColdMin = 24, ColdMax = 55, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
@@ -97,7 +97,7 @@ itemBases["Icicle Flail"] = {
 itemBases["Tearing Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 56, CritChanceBase = 12.5, AttackRateBase = 1.4, Range = 11, },
@@ -106,7 +106,7 @@ itemBases["Tearing Flail"] = {
 itemBases["Great Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 35, PhysicalMax = 58, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },
@@ -115,7 +115,7 @@ itemBases["Great Flail"] = {
 itemBases["Abyssal Flail"] = {
 	type = "Flail",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, flail = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 36, PhysicalMax = 66, CritChanceBase = 10, AttackRateBase = 1.45, Range = 11, },

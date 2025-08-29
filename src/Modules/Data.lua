@@ -153,7 +153,7 @@ data.powerStatList = {
 data.misc = { -- magic numbers
 	ServerTickTime = 0.033,
 	ServerTickRate = 1 / 0.033,
-	AccuracyPerDexBase = 5,
+	AccuracyPerDexBase = 6,
 	LowPoolThreshold = 0.35,
 	TemporalChainsEffectCap = 75,
 	BuffExpirationSlowCap = 0.25,
@@ -168,7 +168,7 @@ data.misc = { -- magic numbers
 	SuppressionEffect = 50,
 	AvoidChanceCap = 75,
 	AccuracyFalloffStart = 20,
-	AccuracyFalloffEnd = 120,
+	AccuracyFalloffEnd = 90,
 	MaxAccuracyRangePenalty = -data.characterConstants["accuracy_rating_+%_final_at_max_distance_scaled"],
 	ArmourRatio = 10,
 	NegArmourDmgBonusCap = 100,
@@ -502,13 +502,13 @@ data.weaponTypeInfo = {
 	["Two Handed Sword"] = { oneHand = false, melee = true, flag = "Sword" },
 }
 data.unarmedWeaponData = {
-	[0] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
-	[1] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
-	[2] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
-	[3] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
-	[4] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
-	[5] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
-	[6] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
+	[0] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
+	[1] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
+	[2] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
+	[3] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[4] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
+	[5] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
+	[6] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)

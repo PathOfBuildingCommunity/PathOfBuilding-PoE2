@@ -6524,9 +6524,7 @@ skills["SnipersMarkPlayer"] = {
 				},
 			},
 			baseFlags = {
-				spell = true,
 				duration = true,
-				mark = true,
 			},
 			baseMods = {
 				skill("debuff", true),

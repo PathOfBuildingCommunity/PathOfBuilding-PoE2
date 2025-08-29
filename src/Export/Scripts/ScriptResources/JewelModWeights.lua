@@ -146,7 +146,6 @@ local intTypes = {
 	"EnergyShieldRegeneration",
 	"FocusEnergyShield",
 	"IgniteEffect",
-	"MinionAccuracyRatingForJewel",
 	"MinionDamage",
 	"OfferingLife",
 	"ShockEffect",
