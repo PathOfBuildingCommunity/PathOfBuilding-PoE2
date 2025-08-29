@@ -2706,7 +2706,7 @@ c["50% of Chaos damage you prevent when Hit Recouped as Life and Mana during eff
 c["50% of Cold and Lightning Damage taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTakenAsFire",type="BASE",value=50},[2]={flags=0,keywordFlags=0,name="LightningDamageTakenAsFire",type="BASE",value=50}},nil}
 c["50% of Damage taken Recouped as Mana"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=50}},nil}
 c["50% of Elemental Damage taken as Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageTakenAsChaos",type="BASE",value=50}},nil}
-c["50% of Evasion Rating also grants Elemental Damage reduction"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=50}},"  also grants Elemental Damage reduction "}
+c["50% of Evasion Rating also grants Elemental Damage reduction"]={{[1]={flags=0,keywordFlags=0,name="EvasionAppliesToFireDamageTaken",type="BASE",value=50},[2]={flags=0,keywordFlags=0,name="EvasionAppliesToColdDamageTaken",type="BASE",value=50},[3]={flags=0,keywordFlags=0,name="EvasionAppliesToLightningDamageTaken",type="BASE",value=50}},nil}
 c["50% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=50}},nil}
 c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  prevented Recouped as Life "}
 c["50% of Skill Mana costs Converted to Life Costs during any Life Flask Effect"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=50}}," Skill s Converted to Life Costs during any Life Flask Effect "}

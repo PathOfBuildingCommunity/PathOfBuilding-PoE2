@@ -367,8 +367,10 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 			local reductMult = 1
 
 			local percentOfArmourApplies = m_min((not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
-			if percentOfArmourApplies > 0 then
+			local percentOfEvasionApplies = m_min((not activeSkill.skillModList:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0), 100)
+			if (percentOfArmourApplies > 0) or (percentOfEvasionApplies > 0) then
 				local effArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
+				-- TODO replaced "EvasionAddsToPdr" with "EvasionAppliesToPhysicalDamageTaken"
 				-- effArmour needs to consider the "EvasionAddsToPdr" flag mod, and add the evasion to armour
 				armourReduct = round(effArmour ~= 0 and damage ~= 0 and calcs.armourReductionF(effArmour, damage) or 0)
 				armourReduct = m_min(output[damageType.."DamageReductionMax"], armourReduct)
@@ -2259,9 +2261,9 @@ function calcs.buildDefenceEstimations(env, actor)
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
 		local effectiveArmourFromOther = { }
-		local evasionAddsToPdr = modDB:Flag(nil, "EvasionAddsToPdr") and damageType == "Physical"
-		if evasionAddsToPdr then
-			effectiveArmourFromOther["Evasion"] = output.Evasion 
+		local percentOfEvasionApplies = m_min((not modDB:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0), 100)
+		if percentOfEvasionApplies > 0 then
+			effectiveArmourFromOther["Evasion"] = m_max((output.Evasion * percentOfEvasionApplies / 100), 0)
 		end
 		for source, amount in pairs(effectiveArmourFromOther) do
 			-- should this be done BEFORE percentOfArmourApplies and ArmourDefense is used? Probably needs GGG confirmation
