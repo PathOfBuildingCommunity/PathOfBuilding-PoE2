@@ -1076,20 +1076,24 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
 	end
 
 	-- Check node description
-	for index, line in ipairs(node.sd) do
-		-- Check display text first
-		err, needMatches = PCall(search, line:lower(), needMatches)
-		if err then return false end
-		if #needMatches == 0 then
-			return true
-		end
-		if #needMatches > 0 and node.mods[index].list then
-			-- Then check modifiers
-			for _, mod in ipairs(node.mods[index].list) do
-				err, needMatches = PCall(search, mod.name, needMatches)
-				if err then return false end
-				if #needMatches == 0 then
-					return true
+	if not node.sd then
+		ConPrintf("Node %d has no sd", node.id)
+	else
+		for index, line in ipairs(node.sd) do
+			-- Check display text first
+			err, needMatches = PCall(search, line:lower(), needMatches)
+			if err then return false end
+			if #needMatches == 0 then
+				return true
+			end
+			if #needMatches > 0 and node.mods[index].list then
+				-- Then check modifiers
+				for _, mod in ipairs(node.mods[index].list) do
+					err, needMatches = PCall(search, mod.name, needMatches)
+					if err then return false end
+					if #needMatches == 0 then
+						return true
+					end
 				end
 			end
 		end
@@ -1342,7 +1346,10 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	local mNode = copyTableSafe(node, true, true)
 
 	-- This stanza actives for both Mastery and non Mastery tooltips. Proof: add '"Blah "..' to addModInfoToTooltip
-	if mNode.sd[1] and not mNode.allMasteryOptions then
+	if not mNode.sd then
+		ConPrintf("Node %d has no sd", node.id)
+	end
+	if mNode.sd and mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
 		local localSmallIncEffect = 0
 		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
