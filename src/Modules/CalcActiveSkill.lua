@@ -691,6 +691,16 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.srcInstance.skillStageCount = nil
 	end
 
+	-- TODO If the table stats are present on each gem, this can be handled via SkillStatMap instead
+	-- Hollow Palm Technique added phys for skills that would use Quarterstaff
+	if activeSkill.actor.modDB.conditions.HollowPalm and activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff then
+		local gemLevel = activeEffect.level
+		local physMin = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][1]
+		local physMax = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][2]
+		skillModList:NewMod("PhysicalMin", "BASE", physMin, "Hollow Palm Technique", ModFlag.Attack, nil, { type = "Condition", var = "HollowPalm" })
+		skillModList:NewMod("PhysicalMax", "BASE", physMax, "Hollow Palm Technique", ModFlag.Attack, nil, { type = "Condition", var = "HollowPalm" })
+	end
+
 	-- Extract skill data
 	for _, value in ipairs(env.modDB:List(activeSkill.skillCfg, "SkillData")) do
 		activeSkill.skillData[value.key] = value.value

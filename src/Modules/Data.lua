@@ -511,6 +511,52 @@ data.unarmedWeaponData = {
 	[6] = { type = "None", AttackRate = 1.4, CritChance = 5, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
 }
 
+-- TODO update/remove once game data is available
+-- Note: I'm not sure whether this data will be on all usable gems or just a new central table. Using this one for testing for now based on old Shattering Palm values
+-- If it is the same table for all skills it will likely appear in `Misc.lua`
+data.hollowPalmAddedPhys = {
+	[1] = { 6, 9 },
+	[2] = { 10, 14 },
+	[3] = { 15, 22 },
+	[4] = { 20, 31 },
+	[5] = { 26, 40 },
+	[6] = { 33, 49 },
+	[7] = { 39, 59 },
+	[8] = { 46, 70 },
+	[9] = { 54, 81 },
+	[10] = { 62, 92 },
+	[11] = { 70, 105 },
+	[12] = { 78, 117 },
+	[13] = { 87, 130 },
+	[14] = { 96, 144 },
+	[15] = { 106, 159 },
+	[16] = { 116, 173 },
+	[17] = { 126, 189 },
+	[18] = { 136, 205 },
+	[19] = { 147, 221 },
+	[20] = { 159, 238 },
+	[21] = { 170, 256 },
+	[22] = { 182, 274 },
+	[23] = { 195, 292 },
+	[24] = { 208, 311 },
+	[25] = { 221, 331 },
+	[26] = { 234, 351 },
+	[27] = { 248, 372 },
+	[28] = { 262, 393 },
+	[29] = { 277, 415 },
+	[30] = { 291, 437 },
+	[31] = { 307, 460 },
+	[32] = { 322, 484 },
+	[33] = { 338, 507 },
+	[34] = { 355, 532 },
+	[35] = { 371, 557 },
+	[36] = { 388, 583 },
+	[37] = { 406, 609 },
+	[38] = { 423, 635 },
+	[39] = { 442, 662 },
+	[40] = { 460, 690 },
+}
+
 data.setJewelRadiiGlobally = function(treeVersion)
 	local tMajor, tMinor = treeVersion:match("(%d+)_(%d+)")
 	tMajor, tMinor = tonumber(tMajor), tonumber(tMinor)
