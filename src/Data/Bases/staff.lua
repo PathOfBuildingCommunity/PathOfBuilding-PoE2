@@ -43,7 +43,7 @@ itemBases["Pyrophyte Staff"] = {
 	quality = 20,
 	socketLimit = 4,
 	tags = { no_physical_spell_mods = true, no_lightning_spell_mods = true, no_cold_spell_mods = true, no_chaos_spell_mods = true, staff = true, twohand = true, default = true, },
-	implicit = "Grants Skill: Level (1-20) Living Bomb",
+	implicit = "Grants Skill: Level (1-20) Solar Orb",
 	implicitModTypes = { },
 	req = { },
 }
@@ -97,11 +97,11 @@ itemBases["Paralysing Staff"] = {
 	quality = 20,
 	socketLimit = 4,
 	tags = { no_fire_spell_mods = true, no_physical_spell_mods = true, staff = true, no_chaos_spell_mods = true, no_cold_spell_mods = true, twohand = true, default = true, },
-	implicit = "Grants Skill: Level (1-20) Shock Nova",
+	implicit = "Grants Skill: Level (1-20) Enervating Nova",
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["Cleric Staff"] = {
+itemBases["Sanctified Staff"] = {
 	type = "Staff",
 	quality = 20,
 	socketLimit = 4,
@@ -116,6 +116,15 @@ itemBases["Dark Staff"] = {
 	socketLimit = 4,
 	tags = { default = true, twohand = true, staff = true, },
 	implicit = "Grants Skill: Level (1-20) Dark Pact",
+	implicitModTypes = { },
+	req = { },
+}
+itemBases["Ravenous Staff"] = {
+	type = "Staff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { default = true, twohand = true, staff = true, },
+	implicit = "Grants Skill: Level (1-20) Feast of Flesh",
 	implicitModTypes = { },
 	req = { },
 }
@@ -148,7 +157,7 @@ itemBases["Long Quarterstaff"] = {
 	implicit = "16% increased Melee Strike Range with this weapon",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 9, PhysicalMax = 18, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { dex = 10, },
+	req = { dex = 9, },
 }
 itemBases["Gothic Quarterstaff"] = {
 	type = "Staff",
@@ -158,7 +167,7 @@ itemBases["Gothic Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, ezomyte_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 16, PhysicalMax = 26, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 11, dex = 22, int = 11, },
+	req = { level = 11, dex = 18, int = 9, },
 }
 itemBases["Crackling Quarterstaff"] = {
 	type = "Staff",
@@ -167,8 +176,8 @@ itemBases["Crackling Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { LightningMin = 13, LightningMax = 54, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 16, dex = 30, int = 14, },
+	weapon = { PhysicalMin = 5, PhysicalMax = 22, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 16, dex = 25, int = 12, },
 }
 itemBases["Crescent Quarterstaff"] = {
 	type = "Staff",
@@ -178,7 +187,7 @@ itemBases["Crescent Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 39, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 20, dex = 37, int = 16, },
+	req = { level = 20, dex = 30, int = 14, },
 }
 itemBases["Steelpoint Quarterstaff"] = {
 	type = "Staff",
@@ -188,7 +197,7 @@ itemBases["Steelpoint Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, maraketh_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 51, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 28, dex = 51, int = 22, },
+	req = { level = 28, dex = 41, int = 18, },
 }
 itemBases["Slicing Quarterstaff"] = {
 	type = "Staff",
@@ -198,7 +207,7 @@ itemBases["Slicing Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, vaal_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 29, PhysicalMax = 60, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 33, dex = 60, int = 25, },
+	req = { level = 33, dex = 47, int = 20, },
 }
 itemBases["Barrier Quarterstaff"] = {
 	type = "Staff",
@@ -209,27 +218,27 @@ itemBases["Barrier Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 33, PhysicalMax = 55, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 37, dex = 67, int = 27, },
+	req = { level = 37, dex = 52, int = 22, },
 }
 itemBases["Hefty Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
 	quality = 20,
 	socketLimit = 4,
-	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	tags = { two_hand_weapon = true, warstaff = true, karui_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 39, PhysicalMax = 80, CritChanceBase = 10, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 45, dex = 81, int = 33, },
+	weapon = { PhysicalMin = 39, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.35, Range = 13, },
+	req = { level = 46, dex = 64, int = 26, },
 }
 itemBases["Smooth Quarterstaff"] = {
 	type = "Staff",
 	subType = "Warstaff",
 	quality = 20,
 	socketLimit = 4,
-	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
+	tags = { two_hand_weapon = true, warstaff = true, karui_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 62, PhysicalMax = 84, CritChanceBase = 0, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 47, dex = 84, int = 34, },
+	weapon = { PhysicalMin = 64, PhysicalMax = 87, CritChanceBase = 0, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 49, dex = 68, int = 28, },
 }
 itemBases["Anima Quarterstaff"] = {
 	type = "Staff",
@@ -239,7 +248,7 @@ itemBases["Anima Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 47, PhysicalMax = 79, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 52, dex = 93, int = 37, },
+	req = { level = 52, dex = 72, int = 29, },
 }
 itemBases["Graceful Quarterstaff"] = {
 	type = "Staff",
@@ -249,7 +258,7 @@ itemBases["Graceful Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 47, PhysicalMax = 87, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 56, dex = 100, int = 40, },
+	req = { level = 56, dex = 77, int = 31, },
 }
 itemBases["Wyrm Quarterstaff"] = {
 	type = "Staff",
@@ -259,7 +268,7 @@ itemBases["Wyrm Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 57, PhysicalMax = 94, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 65, dex = 116, int = 45, },
+	req = { level = 65, dex = 89, int = 36, },
 }
 itemBases["Reaching Quarterstaff"] = {
 	type = "Staff",
@@ -270,7 +279,7 @@ itemBases["Reaching Quarterstaff"] = {
 	implicit = "16% increased Melee Strike Range with this weapon",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 35, PhysicalMax = 72, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 45, dex = 81, int = 33, },
+	req = { level = 45, dex = 63, int = 26, },
 }
 itemBases["Barbarous Quarterstaff"] = {
 	type = "Staff",
@@ -280,7 +289,7 @@ itemBases["Barbarous Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 72, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 48, dex = 86, int = 35, },
+	req = { level = 48, dex = 67, int = 27, },
 }
 itemBases["Arcing Quarterstaff"] = {
 	type = "Staff",
@@ -289,8 +298,8 @@ itemBases["Arcing Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { LightningMin = 30, LightningMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 51, dex = 91, int = 36, },
+	weapon = { PhysicalMin = 14, PhysicalMax = 55, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 51, dex = 71, int = 29, },
 }
 itemBases["Waxing Quarterstaff"] = {
 	type = "Staff",
@@ -299,8 +308,8 @@ itemBases["Waxing Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 40, PhysicalMax = 83, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 55, dex = 98, int = 39, },
+	weapon = { PhysicalMin = 39, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 54, dex = 75, int = 30, },
 }
 itemBases["Bladed Quarterstaff"] = {
 	type = "Staff",
@@ -310,7 +319,7 @@ itemBases["Bladed Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 94, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 59, dex = 105, int = 42, },
+	req = { level = 59, dex = 81, int = 33, },
 }
 itemBases["Guardian Quarterstaff"] = {
 	type = "Staff",
@@ -321,7 +330,7 @@ itemBases["Guardian Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 62, dex = 110, int = 44, },
+	req = { level = 62, dex = 85, int = 34, },
 }
 itemBases["Sinister Quarterstaff"] = {
 	type = "Staff",
@@ -331,7 +340,7 @@ itemBases["Sinister Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 55, PhysicalMax = 92, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 67, dex = 135, int = 53, },
+	req = { level = 67, dex = 104, int = 41, },
 }
 itemBases["Lunar Quarterstaff"] = {
 	type = "Staff",
@@ -341,7 +350,7 @@ itemBases["Lunar Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 50, PhysicalMax = 103, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 72, dex = 150, int = 59, },
+	req = { level = 72, dex = 115, int = 46, },
 }
 itemBases["Striking Quarterstaff"] = {
 	type = "Staff",
@@ -352,7 +361,7 @@ itemBases["Striking Quarterstaff"] = {
 	implicit = "16% increased Melee Strike Range with this weapon",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 53, PhysicalMax = 111, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 77, dex = 165, int = 64, },
+	req = { level = 77, dex = 127, int = 50, },
 }
 itemBases["Bolting Quarterstaff"] = {
 	type = "Staff",
@@ -361,8 +370,8 @@ itemBases["Bolting Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { LightningMin = 43, LightningMax = 172, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 78, dex = 165, int = 64, },
+	weapon = { PhysicalMin = 24, PhysicalMax = 97, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 78, dex = 127, int = 50, },
 }
 itemBases["Aegis Quarterstaff"] = {
 	type = "Staff",
@@ -373,7 +382,7 @@ itemBases["Aegis Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 58, PhysicalMax = 97, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 79, dex = 165, int = 64, },
+	req = { level = 79, dex = 127, int = 50, },
 }
 itemBases["Razor Quarterstaff"] = {
 	type = "Staff",
@@ -383,7 +392,17 @@ itemBases["Razor Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 65, PhysicalMax = 108, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 77, dex = 165, int = 64, },
+	req = { level = 77, dex = 127, int = 50, },
+}
+itemBases["Dreaming Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, warstaff = true, karui_basetype = true, weapon = true, twohand = true, default = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 99, PhysicalMax = 133, CritChanceBase = 0, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 78, dex = 127, int = 50, },
 }
 itemBases["Reaching Quarterstaff"] = {
 	type = "Staff",
@@ -394,7 +413,7 @@ itemBases["Reaching Quarterstaff"] = {
 	implicit = "16% increased Melee Strike Range with this weapon",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 35, PhysicalMax = 72, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 45, dex = 81, int = 33, },
+	req = { level = 45, dex = 63, int = 26, },
 }
 itemBases["Barbarous Quarterstaff"] = {
 	type = "Staff",
@@ -404,7 +423,7 @@ itemBases["Barbarous Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 72, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 48, dex = 86, int = 35, },
+	req = { level = 48, dex = 67, int = 27, },
 }
 itemBases["Arcing Quarterstaff"] = {
 	type = "Staff",
@@ -413,8 +432,8 @@ itemBases["Arcing Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { LightningMin = 30, LightningMax = 57, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 51, dex = 91, int = 36, },
+	weapon = { PhysicalMin = 14, PhysicalMax = 55, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 51, dex = 71, int = 29, },
 }
 itemBases["Waxing Quarterstaff"] = {
 	type = "Staff",
@@ -423,8 +442,8 @@ itemBases["Waxing Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 40, PhysicalMax = 83, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 55, dex = 98, int = 39, },
+	weapon = { PhysicalMin = 39, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 54, dex = 75, int = 30, },
 }
 itemBases["Bladed Quarterstaff"] = {
 	type = "Staff",
@@ -434,7 +453,7 @@ itemBases["Bladed Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 94, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 59, dex = 105, int = 42, },
+	req = { level = 59, dex = 81, int = 33, },
 }
 itemBases["Guardian Quarterstaff"] = {
 	type = "Staff",
@@ -445,7 +464,7 @@ itemBases["Guardian Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 49, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 62, dex = 110, int = 44, },
+	req = { level = 62, dex = 85, int = 34, },
 }
 itemBases["Sinister Quarterstaff"] = {
 	type = "Staff",
@@ -455,7 +474,7 @@ itemBases["Sinister Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 55, PhysicalMax = 92, CritChanceBase = 11.5, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 67, dex = 135, int = 53, },
+	req = { level = 67, dex = 104, int = 41, },
 }
 itemBases["Lunar Quarterstaff"] = {
 	type = "Staff",
@@ -465,7 +484,7 @@ itemBases["Lunar Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 50, PhysicalMax = 103, CritChanceBase = 10, AttackRateBase = 1.5, Range = 13, },
-	req = { level = 72, dex = 150, int = 59, },
+	req = { level = 72, dex = 115, int = 46, },
 }
 itemBases["Striking Quarterstaff"] = {
 	type = "Staff",
@@ -476,7 +495,7 @@ itemBases["Striking Quarterstaff"] = {
 	implicit = "16% increased Melee Strike Range with this weapon",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 53, PhysicalMax = 111, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 77, dex = 165, int = 64, },
+	req = { level = 77, dex = 127, int = 50, },
 }
 itemBases["Bolting Quarterstaff"] = {
 	type = "Staff",
@@ -485,8 +504,8 @@ itemBases["Bolting Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { LightningMin = 43, LightningMax = 172, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 78, dex = 165, int = 64, },
+	weapon = { PhysicalMin = 24, PhysicalMax = 97, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
+	req = { level = 78, dex = 127, int = 50, },
 }
 itemBases["Aegis Quarterstaff"] = {
 	type = "Staff",
@@ -497,7 +516,7 @@ itemBases["Aegis Quarterstaff"] = {
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 58, PhysicalMax = 97, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 79, dex = 165, int = 64, },
+	req = { level = 79, dex = 127, int = 50, },
 }
 itemBases["Razor Quarterstaff"] = {
 	type = "Staff",
@@ -507,5 +526,15 @@ itemBases["Razor Quarterstaff"] = {
 	tags = { two_hand_weapon = true, warstaff = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 65, PhysicalMax = 108, CritChanceBase = 10, AttackRateBase = 1.4, Range = 13, },
-	req = { level = 77, dex = 165, int = 64, },
+	req = { level = 77, dex = 127, int = 50, },
+}
+itemBases["Dreaming Quarterstaff"] = {
+	type = "Staff",
+	subType = "Warstaff",
+	quality = 20,
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, warstaff = true, karui_basetype = true, weapon = true, twohand = true, default = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 99, PhysicalMax = 133, CritChanceBase = 0, AttackRateBase = 1.5, Range = 13, },
+	req = { level = 78, dex = 127, int = 50, },
 }

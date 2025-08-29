@@ -98,7 +98,7 @@ itemBases["Clasped Sceptre"] = {
 	spirit = 100,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicit = "Grants Skill: Level (1-20) Heart of Ice",
 	implicitModTypes = { },
 	req = { },
 }
@@ -118,7 +118,7 @@ itemBases["Wrath Sceptre"] = {
 	spirit = 100,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, sceptre = true, },
-	implicit = "Grants Skill: Level (1-20) Skeletal Warrior Minion",
+	implicit = "Grants Skill: Level (1-20) Fulmination",
 	implicitModTypes = { },
 	req = { },
 }

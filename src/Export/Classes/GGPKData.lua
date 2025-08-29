@@ -68,7 +68,7 @@ end
 
 function GGPKClass:ExtractFiles(reExport)
 	if reExport then
-		local datList, csdList, itList = self:GetNeededFiles()
+		local datList, csdList, otList, itList = self:GetNeededFiles()
 		local sweetSpotCharacter = 6000
 		local fileList = ''
 
@@ -78,6 +78,15 @@ function GGPKClass:ExtractFiles(reExport)
 			else
 				fileList = fileList .. '"' .. fname .. '" '
 			end
+
+			if fileList:len() > sweetSpotCharacter then
+				self:ExtractFilesWithBun(fileList)
+				fileList = ''
+			end
+		end
+
+		for _, fname in ipairs(otList) do
+			fileList = fileList .. '"' .. fname .. '" '
 
 			if fileList:len() > sweetSpotCharacter then
 				self:ExtractFilesWithBun(fileList)
