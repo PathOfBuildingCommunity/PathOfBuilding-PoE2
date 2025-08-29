@@ -815,8 +815,7 @@ for i, group in ipairs(psg.groups) do
 				if passiveRow.JewelSocket then
 					node["containJewelSocket"] = true
 
-					local uioverride = dat("passiveskilltreenodeframeart"):GetRow("Id", "LichAscendancyJewel")
-
+					local uioverride = passiveRow.Ascendancy.UIArt.JewelFrame
 					if uioverride then
 						local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
 						addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
