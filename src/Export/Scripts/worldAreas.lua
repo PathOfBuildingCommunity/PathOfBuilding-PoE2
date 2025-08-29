@@ -84,9 +84,6 @@ for map in dat("EndGameMaps"):Rows() do
 	if map.BossVersion then
 		table.insert(areaRefs, map.BossVersion)
 	end
-	if map.NonBossVersion then
-		table.insert(areaRefs, map.NonBossVersion)
-	end
 	for _, area in ipairs(areaRefs) do
 		local areaId = area.Id
 		areaIdToMonsters[areaId] = areaIdToMonsters[areaId] or {}
@@ -146,7 +143,7 @@ out:write('-- World Area Data (c) Grinding Gear Games\n\n')
 out:write('local worldAreas, _ = ...\n\n')
 
 for area in dat("WorldAreas"):Rows() do
-	if area.Name and area.Name ~= "NULL" and area.Id then
+	if area.Name and area.Name ~= "NULL" and not area.Name:match("DNT") and area.Id then
 		-- Skip areas ending with _NoBoss
 		if area.Id:sub(-7) == "_NoBoss" then
 			goto continue

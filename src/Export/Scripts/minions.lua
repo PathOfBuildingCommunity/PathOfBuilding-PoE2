@@ -188,13 +188,9 @@ directiveTable.emit = function(state, args, out)
 			if mapRow.NativePacks then
 				for _, nativePack in ipairs(mapRow.NativePacks) do
 					if nativePack.Id == packId then
-						-- Check BossVersion and NonBossVersion of Map
 						local areaIds = {}
 						if mapRow.BossVersion and mapRow.BossVersion.Id then
 							table.insert(areaIds, mapRow.BossVersion.Id)
-						end
-						if mapRow.NonBossVersion and mapRow.NonBossVersion.Id then
-							table.insert(areaIds, mapRow.NonBossVersion.Id)
 						end
 						for _, areaId in ipairs(areaIds) do
 							local area = dat("WorldAreas"):GetRow("Id", areaId)

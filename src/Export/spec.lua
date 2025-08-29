@@ -6256,104 +6256,97 @@ return {
 			width=190
 		},
 		[3]={
-			list=false,
-			name="NonBossVersion",
-			refTo="WorldAreas",
-			type="Key",
-			width=220
-		},
-		[4]={
 			list=true,
 			name="",
 			refTo="",
 			type="Int",
 			width=160
 		},
-		[5]={
+		[4]={
 			list=true,
 			name="NativePacks",
 			refTo="MonsterPacks",
 			type="Key",
 			width=230
 		},
-		[6]={
+		[5]={
 			list=false,
 			name="FlavourText",
 			refTo="",
 			type="String",
 			width=450
 		},
-		[7]={
+		[6]={
 			list=false,
 			name="MinWatchstoneTier",
 			refTo="",
 			type="Int",
 			width=120
 		},
-		[8]={
+		[7]={
 			list=true,
 			name="",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[9]={
+		[8]={
 			list=false,
 			name="DefaultMapPin",
 			refTo="EndGameMapPins",
 			type="Key",
 			width=150
 		},
-		[10]={
+		[9]={
 			list=false,
 			name="",
 			refTo="",
 			type="Key",
 			width=340
 		},
-		[11]={
+		[10]={
 			list=false,
 			name="ContentSetKey",
 			refTo="EndGameMapContentSet",
 			type="Key",
 			width=150
 		},
-		[12]={
+		[11]={
 			list=false,
 			name="CorruptedMapPin",
 			refTo="EndGameMapPins",
 			type="Key",
 			width=150
 		},
-		[13]={
+		[12]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[14]={
+		[13]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=150
 		},
-		[15]={
+		[14]={
 			list=false,
 			name="CompletedMapPin",
 			refTo="EndGameMapPins",
 			type="Key",
 			width=150
 		},
-		[16]={
+		[15]={
 			list=false,
 			name="",
 			refTo="",
 			type="Key",
 			width=150
 		},
-		[17]={
+		[16]={
 			list=true,
 			name="",
 			refTo="",
