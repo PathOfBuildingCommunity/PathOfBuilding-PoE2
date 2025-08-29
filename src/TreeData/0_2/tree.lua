@@ -25772,7 +25772,7 @@ return {
 			orbitIndex=0,
 			skill=8272,
 			stats={
-				[1]="20 Passive Skill Points become Weapon Set Skill Points"
+				[1]="100 Passive Skill Points become Weapon Set Skill Points"
 			}
 		},
 		[8273]={
@@ -75610,7 +75610,7 @@ return {
 			orbitIndex=0,
 			skill=51737,
 			stats={
-				[1]="4 Passive Skill Points become Weapon Set Skill Points"
+				[1]="6% increased Cooldown Recovery Rate"
 			}
 		},
 		[51741]={
