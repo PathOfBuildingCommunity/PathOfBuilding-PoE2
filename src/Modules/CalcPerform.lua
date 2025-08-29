@@ -1487,6 +1487,7 @@ function calcs.perform(env, skipEHP)
 			local breakdownAttr = attr
 			if breakdown then
 				breakdown["Req"..attr] = {
+					source = "",
 					rowList = { },
 					colList = {
 						{ label = attr, key = "req" },
