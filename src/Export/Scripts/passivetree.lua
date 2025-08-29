@@ -665,7 +665,7 @@ for i, classId in ipairs(psg.passives) do
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
-			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled or ascendency.Id == "Witch3b" then
+			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled or ascendency.Replace then
 				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
 			end
