@@ -305,3 +305,13 @@ itemBases["Energy Blade Two Handed"] = {
 	weapon = { PhysicalMin = 0, PhysicalMax = 0, CritChanceBase = 7, AttackRateBase = 1.6, Range = 13, },
 	req = { },
 }
+itemBases["Keyblade"] = {
+	type = "Two Handed Sword",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 1, PhysicalMax = 1, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	req = { },
+}

@@ -16,4 +16,5 @@ local itemBases = ...
 
 #forceHide true
 #base Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/StormBladeTwoHand
+#base Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/TwoHandSwordDev
 #forceHide false

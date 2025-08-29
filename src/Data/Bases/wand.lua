@@ -119,10 +119,3 @@ itemBases["Dueling Wand"] = {
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["Random Wand"] = {
-	type = "Wand",
-	socketLimit = 3,
-	tags = { wand = true, default = true, },
-	implicitModTypes = { },
-	req = { },
-}
