@@ -1336,6 +1336,8 @@ function calcs.defence(env, actor)
 		output.Evasion = m_max(round(output.Evasion), 0)
 		output.MeleeEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "MeleeEvasion")), 0)
 		output.ProjectileEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "ProjectileEvasion")), 0)
+		output.SpellEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "SpellEvasion")), 0)
+		output.SpellProjectileEvasion = m_max(round(output.Evasion * calcLib.mod(modDB, nil, "SpellProjectileEvasion")), 0)
 		output.LowestOfArmourAndEvasion = m_min(output.Armour, output.Evasion)
 		output.Ward = m_max(m_floor(ward), 0)
 		output["Gear:Ward"] = gearWard
@@ -1355,10 +1357,14 @@ function calcs.defence(env, actor)
 			output.EvadeChance = 0
 			output.MeleeEvadeChance = 0
 			output.ProjectileEvadeChance = 0
+			output.SpellEvadeChance = 0
+			output.SpellProjectileEvadeChance = 0
 		elseif modDB:Flag(nil, "AlwaysEvade") then
 			output.EvadeChance = 100
 			output.MeleeEvadeChance = 100
 			output.ProjectileEvadeChance = 100
+			output.SpellEvadeChance = 100
+			output.SpellProjectileEvadeChance = 100
 		else
 			local enemyAccuracy = round(calcLib.val(enemyDB, "Accuracy"))
 			if modDB:Flag(nil, "EnemyAccuracyDistancePenalty") then
@@ -1372,8 +1378,10 @@ function calcs.defence(env, actor)
 			output.EvadeChance = 100 - (calcs.hitChance(output.Evasion, enemyAccuracy) - evadeChance) * hitChance
 			output.MeleeEvadeChance = m_max(0, m_min(evadeMax, (100 - (calcs.hitChance(output.MeleeEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "MeleeEvadeChance")))
 			output.ProjectileEvadeChance = m_max(0, m_min(evadeMax, (100 - (calcs.hitChance(output.ProjectileEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "ProjectileEvadeChance")))
+			output.SpellEvadeChance = m_max(0, m_min(evadeMax, (100 - (calcs.hitChance(output.SpellEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "SpellEvadeChance")))
+			output.SpellProjectileEvadeChance = m_max(0, m_min(evadeMax, (100 - (calcs.hitChance(output.SpellProjectileEvasion, enemyAccuracy) - evadeChance) * hitChance) * calcLib.mod(modDB, nil, "EvadeChance", "ProjectileEvadeChance", "SpellProjectileEvadeChance")))
 			-- Condition for displaying evade chance only if melee or projectile evade chance have the same values
-			if output.MeleeEvadeChance ~= output.ProjectileEvadeChance then
+			if output.MeleeEvadeChance ~= output.ProjectileEvadeChance and output.MeleeEvadeChance ~= output.SpellEvadeChance and output.MeleeEvadeChance ~= output.SpellProjectileEvadeChance then
 				output.splitEvade = true
 			else
 				output.EvadeChance = output.MeleeEvadeChance
@@ -1397,6 +1405,18 @@ function calcs.defence(env, actor)
 					s_format("Average enemy accuracy: %d", enemyAccuracy),
 					s_format("Effective Evasion: %d", output.ProjectileEvasion),
 					s_format("Approximate projectile evade chance: %d%%", output.ProjectileEvadeChance),
+				}
+				breakdown.SpellEvadeChance = {
+					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
+					s_format("Average enemy accuracy: %d", enemyAccuracy),
+					s_format("Effective Evasion: %d", output.SpellEvasion),
+					s_format("Approximate spell evade chance: %d%%", output.SpellEvadeChance),
+				}
+				breakdown.SpellProjectileEvadeChance = {
+					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
+					s_format("Average enemy accuracy: %d", enemyAccuracy),
+					s_format("Effective Evasion: %d", output.SpellProjectileEvasion),
+					s_format("Approximate spell projectile evade chance: %d%%", output.SpellProjectileEvadeChance),
 				}
 			end
 		end
@@ -1922,11 +1942,11 @@ function calcs.buildDefenceEstimations(env, actor)
 		local worstOf = env.configInput.EHPUnluckyWorstOf or 1
 		output.MeleeNotHitChance = 100 - (1 - output.MeleeEvadeChance / 100) * (1 - output.EffectiveAttackDodgeChance / 100) * (1 - output.AvoidAllDamageFromHitsChance / 100) * 100
 		output.ProjectileNotHitChance = 100 - (1 - output.ProjectileEvadeChance / 100) * (1 - output.EffectiveAttackDodgeChance / 100) * (1 - output.AvoidAllDamageFromHitsChance / 100) * (1 - (output.specificTypeAvoidance and 0 or output.AvoidProjectilesChance) / 100) * 100
-		output.SpellNotHitChance = 100 - (1 - output.EffectiveSpellDodgeChance / 100) * (1 - output.AvoidAllDamageFromHitsChance / 100) * 100
-		output.SpellProjectileNotHitChance = 100 - (1 - output.EffectiveSpellDodgeChance / 100) * (1 - output.AvoidAllDamageFromHitsChance / 100) * (1 - (output.specificTypeAvoidance and 0 or output.AvoidProjectilesChance) / 100) * 100
+		output.SpellNotHitChance = 100 - (1 - output.SpellEvadeChance / 100) * (1 - output.EffectiveSpellDodgeChance / 100) * (1 - output.AvoidAllDamageFromHitsChance / 100) * 100
+		output.SpellProjectileNotHitChance = 100 - (1 - output.SpellProjectileEvadeChance / 100) * (1 - output.EffectiveSpellDodgeChance / 100) * (1 - output.AvoidAllDamageFromHitsChance / 100) * (1 - (output.specificTypeAvoidance and 0 or output.AvoidProjectilesChance) / 100) * 100
 		output.UntypedNotHitChance = 100 - (1 - output.AvoidAllDamageFromHitsChance / 100) * 100
 		output.AverageNotHitChance = (output.MeleeNotHitChance + output.ProjectileNotHitChance + output.SpellNotHitChance + output.SpellProjectileNotHitChance) / 4
-		output.AverageEvadeChance = (output.MeleeEvadeChance + output.ProjectileEvadeChance) / 4
+		output.AverageEvadeChance = (output.MeleeEvadeChance + output.ProjectileEvadeChance + output.SpellNotHitChance + output.SpellProjectileNotHitChance) / 4
 		output.ConfiguredNotHitChance = output[damageCategoryConfig.."NotHitChance"]
 		output.ConfiguredEvadeChance = output[damageCategoryConfig.."EvadeChance"] or 0
 		-- unlucky config to lower the value of block, dodge, evade etc for ehp
@@ -3147,6 +3167,9 @@ function calcs.buildDefenceEstimations(env, actor)
 						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 100))
 					end
 				elseif damageCategoryConfig == "Spell" or damageCategoryConfig == "SpellProjectile" then
+					if output[damageCategoryConfig.."EvadeChance"] > 0 then
+						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail)", 1 - output[damageCategoryConfig.."EvadeChance"] / 100))
+					end
 					if output.SpellDodgeChance > 0 then
 						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for dodge to fail)", 1 - output.SpellDodgeChance / 100))
 					end
@@ -3154,8 +3177,8 @@ function calcs.buildDefenceEstimations(env, actor)
 						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - output.AvoidProjectilesChance / 100))
 					end
 				elseif damageCategoryConfig == "Average" then
-					if output.MeleeEvadeChance > 0 or output.ProjectileEvadeChance > 0 then
-						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail, only applies to the attack portion)", 1 - (output.MeleeEvadeChance + output.ProjectileEvadeChance) / 2 / 100))
+					if output.MeleeEvadeChance > 0 or output.ProjectileEvadeChance > 0 or output.SpellNotHitChance > 0 or output.SpellProjectileNotHitChance > 0 then
+						t_insert(breakdown["ConfiguredNotHitChance"], s_format("%.2f ^8(chance for evasion to fail)", 1 - (output.MeleeEvadeChance + output.ProjectileEvadeChance + output.SpellNotHitChance + output.SpellProjectileNotHitChance) / 4 / 100))
 					end
 					if output.AttackDodgeChance > 0  or output.SpellDodgeChance > 0 then
 						t_insert(breakdown["ConfiguredNotHitChance"], s_format("x%.2f ^8(chance for dodge to fail)", 1 - (output.AttackDodgeChance + output.SpellDodgeChance) / 2 / 100))
