@@ -2290,14 +2290,14 @@ function calcs.offence(env, actor, activeSkill)
 		local more = skillModList:More("MORE", cfg, "Accuracy")
 		local moreVsEnemy = skillModList:More("MORE", cfg, "Accuracy", "AccuracyVsEnemy")
 		
-		local enemyDistance = env.modDB:Sum("BASE", nil, "Multiplier:enemyDistance") / 10 or 20
+		local enemyDistance = env.modDB:Sum("BASE", nil, "Multiplier:enemyDistance") / 10 or 25
 		local enemyDistanceCapped = m_max(m_min(enemyDistance * 10, data.misc.AccuracyFalloffEnd), data.misc.AccuracyFalloffStart)
 		local modValue = m_floor(data.misc.MaxAccuracyRangePenalty * calcLib.mod(skillModList, cfg, "AccuracyPenalty"))
-		local accuracyPenalty = 1 - ((enemyDistanceCapped - data.misc.AccuracyFalloffStart) / 100) * modValue / 100
+		local accuracyPenalty = 1 - ((enemyDistanceCapped - data.misc.AccuracyFalloffStart) / (data.misc.AccuracyFalloffEnd - data.misc.AccuracyFalloffStart)) * modValue / 100
 		local accuracyPenalties = {}
-		local distances = {2, 5, 9, 12}
+		local distances = {2, 5, 9}
 		for _, distance in ipairs(distances) do
-			accuracyPenalties["accuracyPenalty" .. distance .. "m"] = 1 - ((distance * 10 - data.misc.AccuracyFalloffStart) / 100) * modValue / 100
+			accuracyPenalties["accuracyPenalty" .. distance .. "m"] = 1 - ((distance * 10 - data.misc.AccuracyFalloffStart) / (data.misc.AccuracyFalloffEnd - data.misc.AccuracyFalloffStart)) * modValue / 100 -- Fix
 		end
 		
 		output.Accuracy = m_max(0, m_floor(base * (1 + inc / 100) * more))

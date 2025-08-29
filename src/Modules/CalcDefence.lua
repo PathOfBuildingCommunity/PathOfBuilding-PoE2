@@ -32,8 +32,16 @@ function calcs.hitChance(evasion, accuracy, uncapped)
 	if accuracy < 0 then
 		return 5
 	end
-	local rawChance = ( accuracy * 1.5 ) / ( accuracy + evasion ) * 100
-	return uncapped and m_max(round(rawChance), 5) or m_max(m_min(round(rawChance), 100), 5)	
+	local rawChance = ( accuracy * 1.25 ) / ( accuracy + evasion * 0.3 ) * 100
+	return uncapped and m_max(round(rawChance), 5) or m_max(m_min(round(rawChance), 100), 5)
+end
+-- Calculate Deflect chance
+function calcs.deflectChance(evasion, accuracy, uncapped)
+	if accuracy < 0 then
+		return 5
+	end
+	local rawChance = ( accuracy * 0.9 ) / ( accuracy + evasion * 0.2 ) * 100
+	return uncapped and m_max(round(rawChance), 0) or m_max(m_min(round(rawChance), 100), 0)
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
