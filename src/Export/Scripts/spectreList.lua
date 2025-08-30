@@ -73,7 +73,7 @@ for monster in dat("MonsterVarieties"):Rows() do
 	::continue::
 end
 
--- Check imported spectres that fail the checks
+-- Check imported spectres that fail the checks. Did this wrong I think, but keeping for now as it did catch the spectres that were removed.
 local importedButFailChecks = {}
 for id in pairs(importedSpectres) do
 	local found = false

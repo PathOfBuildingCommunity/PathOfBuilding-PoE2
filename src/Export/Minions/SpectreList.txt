@@ -79,7 +79,6 @@ Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed                        
 Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1                                          		----		Bramble Ape
 Metadata/Monsters/RisenArbalest__                                                         		----		Risen Arbalest
 Metadata/Monsters/Bugbot/BugbotRockyNoEmerge                                              		----		Skitter Golem
-Metadata/Monsters/Bugbot/BugbotRockyNoEmergePlayerSummoned                                		----		Skittering Stone
 Metadata/Monsters/BoneCultists/BoneCultist_Zealots/FarudinLocustWarlock                   		----		Faridun Plaguebringer
 Metadata/Monsters/Mutewind/MutewindManDualSword                                           		----		Faridun Swordsman
 Metadata/Monsters/Mutewind/MutewindMan2HSpear                                             		----		Faridun Spearman
@@ -332,7 +331,6 @@ Metadata/Monsters/FallenGods/FallenStag                                         
 Metadata/Monsters/SpinningWheelHag/SpinningWheelHag                                       		----		Wheelbound Hag
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits                                     		----		Captured Soul
 Metadata/Monsters/RabidFeralDogMonster/RabidDog                                           		----		Rabid Dog
-Metadata/Monsters/OfferingSpike/BoneOfferingSpike                                         		----		Offering Spike
 Metadata/Monsters/KaruiBoar/ExplosivePig                                                  		----		Volatile Boar
 Metadata/Monsters/Ghouls/FarudinCrawler                                                   		----		Faridun Crawler
 Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster                                       		----		Forsaken Miner
@@ -342,7 +340,6 @@ Metadata/Monsters/SkeletalReaper/SkeletalReaper                                 
 Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_                                          		----		Goliath
 Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanInterlude                                  		----		Moltenmettle
 Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_                        		----		Faridun Impaler
-Metadata/Monsters/RhoaPlayerSummoned/RhoaPlayerSummoned                                   		----		Rhoa Companion
 Metadata/Monsters/VaseMonster/VaseMonsterSpectre                                          		----		Urnwalker
 Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest                               		----		Risen Tale-woman
 Metadata/Monsters/Zombies/CourtGuardZombieAxe                                             		----		Rotting Guard
@@ -351,7 +348,6 @@ Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_                                
 Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_                                 		----		Cerberic Bat
 Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_                                        		----		Stoneclad Gorilla
 Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_                                		----		Crested Behemoth
-Metadata/Monsters/Hellhound/HellhoundPlayerSummoned                                       		----		Infernal Hound
 Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__                                		----		It That Hates
 Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__                               		----		It That Lashes
 Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger                                 		----		It That Hunts
@@ -413,9 +409,6 @@ Metadata/Monsters/Sanctified/Spider/SanctifiedSpider                            
 Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle                                  		----		Fettered Grasper
 Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing                                  		----		Fettered Writher
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy                                      		----		Fettered Hook
-Metadata/Monsters/AnimatedItem/AnimatedWeaponPlayerSummoned                               		----		Animated Weapon
-Metadata/Monsters/Daemon/RavenousSwarmPlayer/RavenousSwarmPlayerSummoned                  		----		Ravenous Swarm
-Metadata/Monsters/LeagueAbyss/Blackblood/Cretin/BlackbloodRemnant                         		----		Blackblood Remnant
 Metadata/Monsters/BoneCultists/BoneCultists_Shield/Interlude/BoneCultistShieldFarmlands   		----		Displaced Brute
 Metadata/Monsters/VaalMonsters/Living/BloodPriests/BloodPool                              		----		Invisible
 Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                                         		----		Skeletal Cobra
@@ -433,7 +426,6 @@ Metadata/Monsters/Werewolves/WerewolfCourt1_                                    
 Metadata/Monsters/Bird/MutantBird                                                         		----		Scourge of the Skies
 Metadata/Monsters/Bird/MutantBirdDog                                                      		----		Flesh Pup
 Metadata/Monsters/Wolves/Wolf1                                                            		----		Hungry Wolf
-Metadata/Monsters/Bugbot/BugbotRockyNoEmergePlayerSummoned                                		----		Skittering Stone
 Metadata/Monsters/SaltGolem/SaltGolemNoEmerge_                                            		----		Quake Golem
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                                   		----		Emal
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard02                                      		----		Tanim
@@ -469,10 +461,6 @@ Metadata/Monsters/BloodFeverKarui/BloodFeverButcherSpectre                      
 Metadata/Monsters/ParasiteMonsters/ParasiteMonster01                                      		----		Armoured Parasite
 Metadata/Monsters/ParasiteMonsters/ParasiteMonster02                                      		----		Kreth Parasite
 Metadata/Monsters/MorayClanMonster/MorayClan                                              		----		Moray Clan
-Metadata/Monsters/ParasiteMonsters/MantaRayParasite                                       		----		Infested Manta
-Metadata/Monsters/ParasiteMonsters/OctopusParasite                                        		----		Infested Octopus
-Metadata/Monsters/ParasiteMonsters/TurtleParasite__                                       		----		Infested Turtle
-Metadata/Monsters/ParasiteMonsters/AngerfishParasite                                      		----		Infested Anglerfish
 Metadata/Monsters/RootedGuys/RootedGuy01/RootedGuy1____                                   		----		Blightstalker
 Metadata/Monsters/MundaneMagi/BagLady                                                     		----		Spiteful Vagrant
 Metadata/Monsters/RootedGuys/RootedGuy02/RootedGuy2_                                      		----		Rootwalker
@@ -481,11 +469,7 @@ Metadata/Monsters/RootedGuys/RootedGuy04/RootedGuy4                             
 Metadata/Monsters/PrimordialMonsters/PrimordialMonster3                                   		----		Primordial Monster
 Metadata/Monsters/RootedGuys/Cocoons2/Cocoons2__                                          		----		Infested Cadaver
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits                                     		----		Captured Soul
-Metadata/Monsters/OfferingSpike/BoneOfferingSpike                                         		----		Offering Spike
-Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_                                          		----		Goliath
 Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanInterlude                                  		----		Moltenmettle
-Metadata/Monsters/RhoaPlayerSummoned/RhoaPlayerSummoned                                   		----		Rhoa Companion
-Metadata/Monsters/Hellhound/HellhoundPlayerSummoned                                       		----		Infernal Hound
 Metadata/Monsters/LeagueDelirium/DeliriumMinion1                                          		----		Rage
 Metadata/Monsters/LeagueDelirium/DeliriumMinion2                                          		----		Spite
 Metadata/Monsters/LeagueDelirium/DeliriumMinion3                                          		----		Disgust
@@ -497,9 +481,6 @@ Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleSummon                        
 Metadata/Monsters/TormentedSpirits/Stag/SpiritStag                                        		----		Stag Spirit
 Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                                    		----		Nymph Wasp
 Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrosity                                		----		Bloodbilge
-Metadata/Monsters/AnimatedItem/AnimatedWeaponPlayerSummoned                               		----		Animated Weapon
-Metadata/Monsters/Daemon/RavenousSwarmPlayer/RavenousSwarmPlayerSummoned                  		----		Ravenous Swarm
-Metadata/Monsters/LeagueAbyss/Blackblood/Cretin/BlackbloodRemnant                         		----		Blackblood Remnant
 Metadata/Monsters/BoneCultists/BoneCultists_Shield/Interlude/BoneCultistShieldFarmlands   		----		Displaced Brute
 Metadata/Monsters/VaalMonsters/Living/BloodPriests/BloodPool                              		----		Invisible
 Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                                         		----		Skeletal Cobra
@@ -507,34 +488,7 @@ Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                               
 -- Imported Spectres That Fail Checks --
 -- These spectres are currently imported, but fail the checks. New updates sometimes remove spectres.--
 
-Metadata/Monsters/ShellMonster/ShellMonsterPoison                                         		----		(not found in MonsterVarieties)
-Metadata/Monsters/CageSkeleton/CageSkeleton_                                              		----		Rattling Gibbet
-Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot                                        		----		Searot Sniper
-Metadata/Monsters/VaalSavage/CannibalTribeGiant                                           		----		(not found in MonsterVarieties)
-Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__                   		----		(not found in MonsterVarieties)
-Metadata/Monsters/SummonRagingSpirit/RagingFireSpirit                                     		----		Raging Fire Spirit
-Metadata/Monsters/Pirates/PirateGrenade                                                   		----		Rotting Grenadier
-Metadata/Monsters/Pirates/PirateBarrel                                                    		----		Rotting Demolitionist
-Metadata/Monsters/SummonRagingSpirit/RagingTimeSpirit                                     		----		(not found in MonsterVarieties)
-Metadata/Monsters/RatMonster/RatMonsterCistern                                            		----		(not found in MonsterVarieties)
-Metadata/Monsters/SkeletonProwler/SkeletonProwler_                                        		----		Prowling Skeleton
-Metadata/Monsters/HarpyMonster/GullHarpy                                                  		----		Gull Shrike
-Metadata/Monsters/VultureZombie/VultureDemon                                              		----		Vile Vulture
-Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer                                        		----		Searot Ensnarer
-Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper                                         		----		Searot Harpooner
-Metadata/Monsters/KelpDreg/KelpDregSword                                                  		----		Searot Skeleton
-Metadata/Monsters/Anchorman/BloatedAnchorman                                              		----		Bloated Anchorman
-Metadata/Monsters/SaltGolem/SaltGolemNoEmerge                                             		----		(not found in MonsterVarieties)
-Metadata/Monsters/Pirates/PirateCannon                                                    		----		Rotting Cannoneer
-Metadata/Monsters/ManOWar/ManoWar                                                         		----		Man o' War
-Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead                                       		----		Drowned Bearer
-Metadata/Monsters/DrownedCrew/DrownedCrewSword_                                           		----		Drowned Explorer
-Metadata/Monsters/BrineMaiden/BrineMaiden                                                 		----		Brine Maiden
-Metadata/Monsters/DrownedCrawler/DrownedCrawler__                                         		----		Drowned Crawler
-Metadata/Monsters/Pirates/PirateBootyBlaster                                              		----		Rotting Soulcatcher
-Metadata/Monsters/FallenGods/FallenGodsBloater_                                           		----		(not found in MonsterVarieties)
-Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan                                           		----		(not found in MonsterVarieties)
-Metadata/Monsters/QuillCrab/QuillCrabTropical                                             		----		(not found in MonsterVarieties)
+Metadata/Monsters/SaltGolem/SaltGolem_                                                    		----		(not found in MonsterVarieties)
 
 -- Duplicate Spectre Names --
 -- Some duplicate Spectres have been imported, like Terracotta Soldier, as there is a 10 spirit and 60 spirit version.--
@@ -880,7 +834,6 @@ Metadata/Monsters/Baron/BaronWerewolfProwlerSummon                              
 Metadata/Monsters/FallenGods/FallenHooks                                                  		----		Forgotten Satyr
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpiritsWild                                 		----		Captured Soul
 Metadata/Monsters/RabidFeralDogMonster/RabidDogLargeFarmlandsNoName                       		----		Rabid Dog
-Metadata/Monsters/OfferingSpike/BoneOfferingSpikeSanguine                                 		----		Offering Spike
 Metadata/Monsters/Ghouls/FarudinCrawlerQuarry                                             		----		Faridun Crawler
 Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlasterMinecart_                              		----		Forsaken Miner
 Metadata/Monsters/DrudgeMiners/DrudgePickaxeMiner                                         		----		Forsaken Miner
@@ -890,10 +843,6 @@ Metadata/Monsters/TitanWalker/TitanWalkerCorpse                                 
 Metadata/Monsters/SkeletalKnight/SkeletalKnightBossMinion                                 		----		Eternal Knight
 Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanSanctumTrial                               		----		Goliath
 Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_                        		----		Faridun Impaler
-Metadata/Monsters/RhoaPlayerSummoned/HonourGuardRhoaPlayerSummoned                        		----		Rhoa Companion
-Metadata/Monsters/RhoaPlayerSummoned/RitualRhoaPlayerSummoned                             		----		Rhoa Companion
-Metadata/Monsters/RhoaPlayerSummoned/DeliriumRhoaPlayerSummoned                           		----		Rhoa Companion
-Metadata/Monsters/RhoaPlayerSummoned/KaruiRhoaPlayerSummoned                              		----		Rhoa Companion
 Metadata/Monsters/VaseMonster/VaseMonsterSanctumTrial                                     		----		Urnwalker
 Metadata/Monsters/VaseMonster/VaseMonsterSanctumTrialTime                                 		----		Urnwalker
 Metadata/Monsters/VaseMonster/VaseMonsterSpectre                                          		----		Urnwalker

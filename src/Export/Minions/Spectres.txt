@@ -185,6 +185,23 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/CorruptedEliteGuard
 #emit
 
+-- Goliath
+#spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_
+#emit
+
+-- Infested
+#spectre Metadata/Monsters/ParasiteMonsters/OctopusParasite
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/TurtleParasite__
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/AngerfishParasite
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/MantaRayParasite
+#emit
+
 -- Lost-Men Cultists
 #spectre Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecromancer
 #emit
@@ -206,6 +223,10 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield
+#emit
+
+-- Rat
+#spectre Metadata/Monsters/RatMonster/RatMonster
 #emit
 
 -- Skeletons

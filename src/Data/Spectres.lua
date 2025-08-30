@@ -27,6 +27,7 @@ minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured"] = {
 	companionReservation = 27.6,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Spring (Map)",
 		"The Galai Gates (Act 6)",
 		"The Lost City (Act 2)",
 		"Found in Maps",
@@ -131,6 +132,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWide"] = 
 	companionReservation = 36.6,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Spring (Map)",
 		"The Galai Gates (Act 6)",
 		"The Lost City (Act 2)",
 		"Found in Maps",
@@ -689,6 +691,8 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
 		"Infested Barrens (Act 3)",
+		"Steppe (Map)",
+		"Sump (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -788,6 +792,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabPoison"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
+		"Sandspit (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -825,6 +830,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Hunting Grounds (Act 1)",
+		"Sandspit (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -857,6 +863,7 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	companionReservation = 32.1,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Crimson Shores (Map)",
 		"Found in Maps",
 		"Trial of the Sekhemas (Floor 1)",
 		"Trial of the Sekhemas (Floor 3)",
@@ -900,6 +907,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Freythorn (Act 1)",
+		"Mire (Map)",
 		"The Viridian Wildwood (Map)",
 		"Found in Maps",
 	},
@@ -937,6 +945,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Freythorn (Act 1)",
+		"Mire (Map)",
 		"The Viridian Wildwood (Map)",
 		"Found in Maps",
 	},
@@ -1231,6 +1240,8 @@ minions["Metadata/Monsters/Mutewind/MutewindBanditExecutioner"] = {
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
+		"The Copper Citadel (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -1271,7 +1282,10 @@ minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
+		"Oasis (Map)",
+		"Outlands (Map)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1308,6 +1322,7 @@ minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1348,7 +1363,10 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
+		"Oasis (Map)",
+		"Outlands (Map)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1386,7 +1404,10 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
+		"Oasis (Map)",
+		"Outlands (Map)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1424,7 +1445,10 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
+		"Oasis (Map)",
+		"Outlands (Map)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1466,6 +1490,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1503,6 +1528,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1544,6 +1570,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1675,6 +1702,8 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 	spawnLocation = {
 		"Dreadnought Vanguard (Act 2)",
 		"Qimah Reservoir (Act 6)",
+		"Sacred Reservoir (Map)",
+		"The Copper Citadel (Map)",
 		"The Dreadnought (Act 2)",
 		"The Halani Gates (Act 2)",
 		"The Spires of Deshar (Act 2)",
@@ -1716,6 +1745,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"Glacial Tarn (Act 6)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
@@ -1787,6 +1817,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/Ranged/CorruptedEliteRan
 	spawnLocation = {
 		"Holten Estate (Act 6)",
 		"Ogham Manor (Act 1)",
+		"The Iron Citadel (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -1823,6 +1854,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantA/CorruptedEliteS
 	spawnLocation = {
 		"Holten Estate (Act 6)",
 		"Ogham Manor (Act 1)",
+		"The Iron Citadel (Map)",
 		"The Manor Ramparts (Act 1)",
 		"Found in Maps",
 	},
@@ -1859,6 +1891,7 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/VariantB/CorruptedEliteT
 	companionReservation = 36.6,
 	monsterCategory = "Demon",
 	spawnLocation = {
+		"Bastille (Map)",
 		"Holten Estate (Act 6)",
 		"Ogham Farmlands (Act 1)",
 		"Ogham Manor (Act 1)",
@@ -1894,6 +1927,7 @@ minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Corrupt
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Grimhaven (Map)",
 		"Holten Estate (Act 6)",
 		"Ogham Farmlands (Act 1)",
 		"Ogham Manor (Act 1)",
@@ -1905,6 +1939,162 @@ minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Corrupt
 		"GPSCourtGuardFireball",
 		"MPSCorruptedCourtGuardFireball",
 		"EDSCorruptedMageFlamethrower",
+	},
+	modList = {
+	},
+}
+
+-- Goliath
+minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_"] = {
+	name = "Goliath",
+	monsterTags = { "allows_inc_aoe", "humanoid", "melee", "MonsterBlunt_onhit_audio", "physical_affinity", "very_slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 20,
+	accuracy = 1,
+	baseMovementSpeed = 14,
+	spectreReservation = 130,
+	companionReservation = 47.4,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Forge (Map)",
+		"The Khari Crossing (Act 6)",
+		"The Titan Grotto (Act 2)",
+		"Found in Maps",
+		"Trial of the Sekhemas (Floor 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GATwoHeadedTitanSlam",
+		"GATwoHeadedTitanStomp",
+	},
+	modList = {
+	},
+}
+
+-- Infested
+minions["Metadata/Monsters/ParasiteMonsters/OctopusParasite"] = {
+	name = "Infested Octopus",
+	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 18,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Isle of Decay (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPAOctopusTongueProj",
+		"EDSOctopusParasiteInkSpray",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/ParasiteMonsters/TurtleParasite__"] = {
+	name = "Infested Turtle",
+	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "not_dex", "not_int", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Isle of Decay (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/ParasiteMonsters/AngerfishParasite"] = {
+	name = "Infested Anglerfish",
+	monsterTags = { "beast", "Beast_onhit_audio", "medium_movement", "not_int", "not_str", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Isle of Decay (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/ParasiteMonsters/MantaRayParasite"] = {
+	name = "Infested Manta",
+	monsterTags = { "beast", "medium_movement", "not_int", "red_blood", "Stab_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 30,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Isle of Decay (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GTMantarayShotgun",
+		"GSMantarayBeam",
 	},
 	modList = {
 	},
@@ -1935,6 +2125,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Necromancer/BoneCultistNecro
 		"Qimah (Act 6)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
+		"Wayward Isle (Map)",
 	},
 	skillList = {
 		"MPSBoneCultistNecromancerLightning",
@@ -1967,9 +2158,11 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 	spawnLocation = {
 		"Lightless Passage (Act 2)",
 		"Mastodon Badlands (Act 2)",
+		"Penitentiary (Map)",
 		"Qimah (Act 6)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
+		"Wayward Isle (Map)",
 	},
 	skillList = {
 		"MPSBoneCultistZealotLightning",
@@ -2002,9 +2195,11 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02"
 	spawnLocation = {
 		"Lightless Passage (Act 2)",
 		"Mastodon Badlands (Act 2)",
+		"Penitentiary (Map)",
 		"Qimah (Act 6)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
+		"Wayward Isle (Map)",
 	},
 	skillList = {
 		"MPSBoneCultistZealotFire",
@@ -2152,6 +2347,40 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
 		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
+	},
+}
+
+-- Rat
+minions["Metadata/Monsters/RatMonster/RatMonster"] = {
+	name = "Rotted Rat",
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "melee", "not_int", "physical_affinity", "rodent", "rodent_beast", "Snap_onhit_audio", "undead", },
+	life = 0.75,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.75,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 38,
+	spectreReservation = 40,
+	companionReservation = 26.1,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Machinarium (Act 3)",
+		"The Venom Crypts (Act 3)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MeleeAtAnimationSpeedComboTEMP2",
+	},
+	modList = {
 	},
 }
 
@@ -2367,6 +2596,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Fortress (Map)",
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Sanctum (Act 3)",
 		"Kriar Peaks (Act 6)",
@@ -2401,6 +2631,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Fortress (Map)",
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Sanctum (Act 3)",
 		"Kriar Peaks (Act 6)",
@@ -2437,6 +2668,7 @@ minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
+		"Seepage (Map)",
 		"The Grelwood (Act 1)",
 		"The Grim Tangle (Act 1)",
 		"Found in Maps",
@@ -2501,6 +2733,7 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 	spawnLocation = {
 		"Buried Shrines (Act 2)",
 		"Keth (Act 2)",
+		"Marrow (Map)",
 		"Path of Mourning (Act 2)",
 		"Qimah (Act 6)",
 		"Sel Khari Sanctuary  (Act 6)",
@@ -2571,6 +2804,7 @@ minions["Metadata/Monsters/SkeletonSoldier/Rusted/RustedSoldierOneHandSword"] = 
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Rustbowl (Map)",
 		"The Ezomyte Megaliths (Map)",
 		"The Red Vale (Act 1)",
 		"Found in Maps",
@@ -2609,6 +2843,7 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Keth (Act 2)",
+		"Ornate Chambers (Map)",
 		"Sel Khari Sanctuary  (Act 6)",
 		"The Lost City (Act 2)",
 		"Found in Maps",
@@ -2725,6 +2960,8 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 	spawnLocation = {
 		"Howling Caves (Act 6)",
 		"Jungle Ruins (Act 3)",
+		"Riverside (Map)",
+		"Rupture (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -2805,6 +3042,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Aggorat (Act 3)",
+		"Lost Towers (Map)",
+		"Sealed Vault (Map)",
 		"The Cuachic Vault (Act 6)",
 		"Found in Maps",
 	},
@@ -2843,6 +3082,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Aggorat (Act 3)",
+		"Lost Towers (Map)",
+		"Sealed Vault (Map)",
 		"The Cuachic Vault (Act 6)",
 		"Found in Maps",
 	},
@@ -2882,6 +3123,7 @@ minions["Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_"
 	spawnLocation = {
 		"Found in Maps",
 		"Utzaal (Act 3)",
+		"Vaal City (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -3193,6 +3435,7 @@ minions["Metadata/Monsters/StonebackRhoa/BrambleRhoa"] = {
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
 		"Hunting Grounds (Act 1)",
+		"Steaming Springs (Map)",
 		"Found in Maps",
 		"Untainted Paradise (Map)",
 	},
@@ -3228,6 +3471,8 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Howling Caves (Act 6)",
+		"Ice Cave (Map)",
+		"Lofty Summit (Map)",
 		"Stones of Serle (Act 6)",
 		"Found in Maps",
 		"Trial of the Sekhemas (Floor 4)",
@@ -3267,6 +3512,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 		"Mausoleum of the Praetor (Act 1)",
 		"Stones of Serle (Act 6)",
 		"Found in Maps",
+		"Willow (Map)",
 	},
 	skillList = {
 		"SpookyGhostLightningBounce",
@@ -3295,6 +3541,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
+		"Decay (Map)",
 		"The Grelwood (Act 1)",
 		"The Grim Tangle (Act 1)",
 		"Found in Maps",
@@ -3329,6 +3576,8 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
+		"Decay (Map)",
+		"Seepage (Map)",
 		"The Grelwood (Act 1)",
 		"The Grim Tangle (Act 1)",
 		"Found in Maps",
@@ -3392,6 +3641,7 @@ minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 	companionReservation = 34.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Deserted (Map)",
 		"Keth (Act 2)",
 		"The Khari Crossing (Act 6)",
 		"Found in Maps",
@@ -3662,6 +3912,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Bloodwood (Map)",
 		"Holten Estate (Act 6)",
 		"Mausoleum of the Praetor (Act 1)",
 		"Ogham Manor (Act 1)",
@@ -3737,6 +3988,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Demon",
 	spawnLocation = {
+		"Bloodwood (Map)",
 		"Holten Estate (Act 6)",
 		"Mausoleum of the Praetor (Act 1)",
 		"Ogham Manor (Act 1)",
@@ -3774,6 +4026,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 	companionReservation = 34.8,
 	monsterCategory = "Demon",
 	spawnLocation = {
+		"Bloodwood (Map)",
 		"Holten Estate (Act 6)",
 		"Ogham Manor (Act 1)",
 		"Ogham Village (Act 1)",
@@ -3813,6 +4066,7 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Holten (Act 6)",
+		"Necropolis (Map)",
 		"The Manor Ramparts (Act 1)",
 		"Found in Maps",
 		"Wolvenhold (Act 6)",
@@ -3848,6 +4102,7 @@ minions["Metadata/Monsters/Knight/DeathKnightNecropolisElite"] = {
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
 		"Holten (Act 6)",
+		"Necropolis (Map)",
 		"The Manor Ramparts (Act 1)",
 		"Found in Maps",
 		"Wolvenhold (Act 6)",
@@ -3918,6 +4173,9 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 	companionReservation = 33,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Bastille (Map)",
+		"Farmlands Hideout (Map)",
+		"Grimhaven (Map)",
 		"Ogham Farmlands (Act 1)",
 		"Ogham Village (Act 1)",
 		"The Manor Ramparts (Act 1)",
@@ -4081,6 +4339,8 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
+		"Decay (Map)",
+		"Seepage (Map)",
 		"The Grim Tangle (Act 1)",
 		"Found in Maps",
 	},
@@ -4311,6 +4571,7 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 	companionReservation = 33.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Derelict Mansion (Map)",
 		"Holten Estate (Act 6)",
 		"Ogham Manor (Act 1)",
 		"Found in Maps",
@@ -4411,10 +4672,18 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 	spawnLocation = {
 		"Abandoned Prison (Act 4)",
 		"Cemetery of the Eternals (Act 1)",
+		"Crypt (Map)",
+		"Epitaph (Map)",
 		"Holten (Act 6)",
+		"Ice Cave (Map)",
+		"Lofty Summit (Map)",
 		"Mausoleum of the Praetor (Act 1)",
+		"Necropolis (Map)",
+		"Riverhold (Map)",
+		"Stronghold (Map)",
 		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
+		"Willow (Map)",
 		"Wolvenhold (Act 6)",
 	},
 	skillList = {
@@ -4445,6 +4714,7 @@ minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 	companionReservation = 30,
 	monsterCategory = "Demon",
 	spawnLocation = {
+		"Blooming Field (Map)",
 		"Chimeral Wetlands (Act 3)",
 		"Kriar Village (Act 6)",
 		"The Red Vale (Act 1)",
@@ -4478,6 +4748,7 @@ minions["Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Farmlands Hideout (Map)",
 		"Ogham Farmlands (Act 1)",
 		"Scorched Farmlands (Act 6)",
 		"Found in Maps",
@@ -4509,6 +4780,7 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Inferno (Map)",
 		"Ogham Village (Act 1)",
 		"Scorched Farmlands (Act 6)",
 		"Found in Maps",
@@ -4575,7 +4847,9 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Buried Shrines (Act 2)",
+		"Marrow (Map)",
 		"Qimah (Act 6)",
+		"Rustbowl (Map)",
 		"Sel Khari Sanctuary  (Act 6)",
 		"The Ezomyte Megaliths (Map)",
 		"The Khari Crossing (Act 6)",
@@ -4618,6 +4892,7 @@ minions["Metadata/Monsters/Bugbot/BugbotRockyNoEmerge"] = {
 	companionReservation = 23.1,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Hidden Grotto (Map)",
 		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Trial of the Sekhemas (Floor 1)",
@@ -5232,6 +5507,7 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Ashen Forest (Act 6)",
+		"Spider Woods (Map)",
 		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Trial of the Sekhemas (Floor 1)",
@@ -5369,6 +5645,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 	companionReservation = 47.4,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Cenotes (Map)",
 		"Pools of Khatal (Act 6)",
 		"Sandswept Marsh (Act 3)",
 		"Found in Maps",
@@ -5470,6 +5747,7 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Keth (Act 2)",
+		"Ornate Chambers (Map)",
 		"Sel Khari Sanctuary  (Act 6)",
 		"The Lost City (Act 2)",
 		"Found in Maps",
@@ -5505,6 +5783,7 @@ minions["Metadata/Monsters/SaltGolem/SaltGolem_"] = {
 	companionReservation = 40.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Hidden Grotto (Map)",
 		"Found in Maps",
 		"Traitor's Passage (Act 2)",
 		"Trial of the Sekhemas (Floor 1)",
@@ -5541,10 +5820,13 @@ minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 	companionReservation = 30,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Mesa (Map)",
 		"Qimah (Act 6)",
+		"Savannah (Map)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
 		"Vastiri Outskirts (Act 2)",
+		"Wetlands (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5576,10 +5858,13 @@ minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Mesa (Map)",
 		"Qimah (Act 6)",
+		"Savannah (Map)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
 		"Vastiri Outskirts (Act 2)",
+		"Wetlands (Map)",
 	},
 	skillList = {
 		"HyenaCentaurMeleeStab",
@@ -5614,6 +5899,7 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	companionReservation = 34.8,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Confluence (Map)",
 		"Deshar (Act 2)",
 		"The Khari Crossing (Act 6)",
 		"Found in Maps",
@@ -5692,6 +5978,7 @@ minions["Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Epitaph (Map)",
 		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
 	},
@@ -5730,6 +6017,7 @@ minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Deserted (Map)",
 		"Keth (Act 2)",
 		"Sel Khari Sanctuary  (Act 6)",
 		"The Khari Crossing (Act 6)",
@@ -5772,6 +6060,8 @@ minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Buried Shrines (Act 2)",
+		"Channel (Map)",
+		"Marrow (Map)",
 		"Qimah (Act 6)",
 		"Found in Maps",
 		"Trial of the Sekhemas (Floor 2)",
@@ -5805,6 +6095,7 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Alpine Ridge (Map)",
 		"Qimah (Act 6)",
 		"The Spires of Deshar (Act 2)",
 		"Found in Maps",
@@ -5874,9 +6165,11 @@ minions["Metadata/Monsters/SkeletonSnake"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Mastodon Badlands (Act 2)",
+		"Penitentiary (Map)",
 		"Qimah (Act 6)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
+		"Wayward Isle (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -5912,6 +6205,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 		"Sel Khari Sanctuary  (Act 6)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
+		"Wayward Isle (Map)",
 	},
 	skillList = {
 		"MPWAzmeriPitifulFabricationSkullThrow",
@@ -5949,6 +6243,7 @@ minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 		"Sel Khari Sanctuary  (Act 6)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
+		"Wayward Isle (Map)",
 	},
 	skillList = {
 		"AzmeriFabricationDespair",
@@ -5985,6 +6280,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 		"Sel Khari Sanctuary  (Act 6)",
 		"The Bone Pits (Act 2)",
 		"Found in Maps",
+		"Wayward Isle (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6108,6 +6404,7 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 	companionReservation = 26.7,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Confluence (Map)",
 		"Deshar (Act 2)",
 		"The Dreadnought's Wake (Act 2)",
 		"The Khari Crossing (Act 6)",
@@ -6214,6 +6511,7 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Buried Shrines (Act 2)",
+		"Channel (Map)",
 		"Qimah Reservoir (Act 6)",
 		"The Lost City (Act 2)",
 		"Found in Maps",
@@ -6282,6 +6580,7 @@ minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Canyon (Map)",
 		"Deshar (Act 2)",
 		"Path of Mourning (Act 2)",
 		"The Galai Gates (Act 6)",
@@ -6562,6 +6861,7 @@ minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 	companionReservation = 33,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Cenotes (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -6590,6 +6890,8 @@ minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Burial Bog (Map)",
+		"Cenotes (Map)",
 		"Glacial Tarn (Act 6)",
 		"Sandswept Marsh (Act 3)",
 		"Found in Maps",
@@ -6622,6 +6924,8 @@ minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Burial Bog (Map)",
+		"Cenotes (Map)",
 		"Glacial Tarn (Act 6)",
 		"Sandswept Marsh (Act 3)",
 		"Found in Maps",
@@ -6656,6 +6960,7 @@ minions["Metadata/Monsters/TwigMonsters/DredgeFiend"] = {
 	companionReservation = 45,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Burial Bog (Map)",
 		"Glacial Tarn (Act 6)",
 		"Sandswept Marsh (Act 3)",
 		"Found in Maps",
@@ -6724,6 +7029,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Sandswept Marsh (Act 3)",
+		"Sulphuric Caverns (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -6762,6 +7068,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Sandswept Marsh (Act 3)",
+		"Sulphuric Caverns (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -6793,6 +7100,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeDagger"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Sandswept Marsh (Act 3)",
+		"Sulphuric Caverns (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -6824,6 +7132,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeShaman"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Sandswept Marsh (Act 3)",
+		"Sulphuric Caverns (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -6861,6 +7170,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 	companionReservation = 35.4,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Razed Fields (Map)",
 		"Scorched Farmlands (Act 6)",
 		"The Azak Bog (Act 3)",
 		"The Matlan Waterways (Act 3)",
@@ -6903,6 +7213,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Razed Fields (Map)",
 		"Scorched Farmlands (Act 6)",
 		"The Azak Bog (Act 3)",
 		"The Matlan Waterways (Act 3)",
@@ -6945,6 +7256,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Razed Fields (Map)",
 		"Scorched Farmlands (Act 6)",
 		"The Azak Bog (Act 3)",
 		"The Matlan Waterways (Act 3)",
@@ -7014,6 +7326,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDagger_"] = {
 	companionReservation = 30.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Razed Fields (Map)",
 		"Scorched Farmlands (Act 6)",
 		"The Azak Bog (Act 3)",
 		"The Matlan Waterways (Act 3)",
@@ -7048,6 +7361,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Razed Fields (Map)",
 		"Scorched Farmlands (Act 6)",
 		"The Azak Bog (Act 3)",
 		"The Matlan Waterways (Act 3)",
@@ -7089,6 +7403,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Razed Fields (Map)",
 		"The Azak Bog (Act 3)",
 		"The Matlan Waterways (Act 3)",
 		"Found in Maps",
@@ -7189,6 +7504,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageGiant"] = {
 	companionReservation = 45,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Razed Fields (Map)",
 		"Scorched Farmlands (Act 6)",
 		"The Azak Bog (Act 3)",
 		"Found in Maps",
@@ -7299,6 +7615,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 	companionReservation = 37.8,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Headland (Map)",
 		"Jiquani's Machinarium (Act 3)",
 		"Jiquani's Sanctum (Act 3)",
 		"Found in Maps",
@@ -7364,6 +7681,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Sinking Spire (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -7400,6 +7718,8 @@ minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
+		"Sinking Spire (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -7438,6 +7758,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteMother"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -7474,6 +7795,7 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Glacial Tarn (Act 6)",
+		"Hive (Map)",
 		"Infested Barrens (Act 3)",
 		"Jungle Ruins (Act 3)",
 	},
@@ -7511,6 +7833,7 @@ minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 		"Infested Barrens (Act 3)",
 		"Jungle Ruins (Act 3)",
 		"Found in Maps",
+		"Woodland (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7578,7 +7901,9 @@ minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 		"Chimeral Wetlands (Act 3)",
 		"Glacial Tarn (Act 6)",
 		"Infested Barrens (Act 3)",
+		"Sump (Map)",
 		"Found in Maps",
+		"Woodland (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -7643,6 +7968,7 @@ minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
 		"Kriar Village (Act 6)",
+		"Overgrown (Map)",
 		"The Venom Crypts (Act 3)",
 		"Found in Maps",
 	},
@@ -7676,6 +8002,9 @@ minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
 		"Kriar Village (Act 6)",
+		"Overgrown (Map)",
+		"Ravine (Map)",
+		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"Found in Maps",
 	},
@@ -7709,6 +8038,7 @@ minions["Metadata/Monsters/GutViper/GutViper"] = {
 	companionReservation = 30,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Bluff (Map)",
 		"Kriar Village (Act 6)",
 		"The Venom Crypts (Act 3)",
 		"Found in Maps",
@@ -7769,6 +8099,8 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 	companionReservation = 31.5,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Augury (Map)",
+		"Bluff (Map)",
 		"Kriar Village (Act 6)",
 		"The Venom Crypts (Act 3)",
 		"Found in Maps",
@@ -7805,6 +8137,8 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 	spawnLocation = {
 		"Jungle Ruins (Act 3)",
 		"Kriar Village (Act 6)",
+		"Overgrown (Map)",
+		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"Found in Maps",
 	},
@@ -7836,8 +8170,13 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Augury (Map)",
+		"Bluff (Map)",
 		"Jungle Ruins (Act 3)",
 		"Kriar Village (Act 6)",
+		"Overgrown (Map)",
+		"Ravine (Map)",
+		"Rockpools (Map)",
 		"The Venom Crypts (Act 3)",
 		"Found in Maps",
 	},
@@ -7872,6 +8211,9 @@ minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Howling Caves (Act 6)",
+		"Overgrown (Map)",
+		"Riverside (Map)",
+		"Rupture (Map)",
 		"The Venom Crypts (Act 3)",
 		"Found in Maps",
 		"Whakapanu Island (Act 4)",
@@ -7910,6 +8252,8 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
 		"Infested Barrens (Act 3)",
+		"Steppe (Map)",
+		"Sump (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -8046,6 +8390,7 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
+		"Creek (Map)",
 		"The Drowned City (Act 3)",
 		"The Matlan Waterways (Act 3)",
 		"Found in Maps",
@@ -8139,6 +8484,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGoldenNo
 	companionReservation = 47.4,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Molten Vault (Map)",
 		"The Molten Vault (Act 3)",
 		"Found in Maps",
 	},
@@ -8385,6 +8731,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
 	spawnLocation = {
 		"Jiquani's Sanctum (Act 3)",
 		"Kriar Peaks (Act 6)",
+		"Slick (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -8420,6 +8767,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -8486,6 +8834,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -8525,6 +8874,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -8556,6 +8906,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] 
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -8592,6 +8943,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -8629,6 +8981,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"Glacial Tarn (Act 6)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
@@ -8667,6 +9020,8 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 	spawnLocation = {
 		"Aggorat (Act 3)",
 		"Frigid Bluffs",
+		"Lost Towers (Map)",
+		"Sealed Vault (Map)",
 		"The Cuachic Vault (Act 6)",
 		"Found in Maps",
 	},
@@ -8942,6 +9297,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 		"The Cuachic Vault (Act 6)",
 		"Found in Maps",
 		"Utzaal (Act 3)",
+		"Vaal Village (Map)",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -8983,6 +9339,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalStormcaller"] = {
 	spawnLocation = {
 		"Etched Ravine (Act 6)",
 		"The Black Chambers (Act 3)",
+		"The Stone Citadel (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -9018,6 +9375,8 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_"] = {
 	spawnLocation = {
 		"Aggorat (Act 3)",
 		"Etched Ravine (Act 6)",
+		"Lost Towers (Map)",
+		"Sealed Vault (Map)",
 		"The Cuachic Vault (Act 6)",
 		"Found in Maps",
 	},
@@ -9385,6 +9744,7 @@ minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 	companionReservation = 30,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Molten Vault (Map)",
 		"The Molten Vault (Act 3)",
 		"Found in Maps",
 	},
@@ -9452,6 +9812,7 @@ minions["Metadata/Monsters/VaalForgeMan/VaalForgeMan"] = {
 	companionReservation = 40.2,
 	monsterCategory = "Construct",
 	spawnLocation = {
+		"Molten Vault (Map)",
 		"The Molten Vault (Act 3)",
 		"Found in Maps",
 	},
@@ -9522,6 +9883,7 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 	companionReservation = 31.5,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Found in Maps",
 	},
@@ -9558,6 +9920,7 @@ minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 	companionReservation = 42.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Found in Maps",
 	},
@@ -9594,6 +9957,7 @@ minions["Metadata/Monsters/BloodCultistDrones/BloodBatherMage"] = {
 	companionReservation = 39,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
+		"Sun Temple (Map)",
 		"Temple of Kopec (Act 3)",
 		"Found in Maps",
 	},
@@ -9721,7 +10085,9 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Apex of Filth (Act 3)",
+		"Backwash (Map)",
 		"Holten (Act 6)",
+		"Sinking Spire (Map)",
 		"The Drowned City (Act 3)",
 		"Found in Maps",
 	},
@@ -9796,6 +10162,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidPyramidHands/VaalPyramidHan
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
+		"The Stone Citadel (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -10004,6 +10371,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBlad
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
+		"The Stone Citadel (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -10039,6 +10407,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidStalker/VaalHumanoidStalker
 	monsterCategory = "Construct",
 	spawnLocation = {
 		"The Black Chambers (Act 3)",
+		"The Stone Citadel (Map)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -10130,6 +10499,7 @@ minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 	companionReservation = 45,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Farmlands Hideout (Map)",
 		"Ogham Farmlands (Act 1)",
 		"Scorched Farmlands (Act 6)",
 		"Found in Maps",
@@ -10436,6 +10806,7 @@ minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 	spawnLocation = {
 		"Mawdun Mine (Act 2)",
 		"Mawdun Quarry (Act 2)",
+		"Mineshaft (Map)",
 		"The Galai Gates (Act 6)",
 		"Found in Maps",
 	},
@@ -10507,6 +10878,7 @@ minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	companionReservation = 45,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Epitaph (Map)",
 		"Holten (Act 6)",
 		"Mausoleum of the Praetor (Act 1)",
 		"Found in Maps",
@@ -10546,7 +10918,9 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	companionReservation = 45,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Crypt (Map)",
 		"Holten (Act 6)",
+		"Riverhold (Map)",
 		"Stones of Serle (Act 6)",
 		"Found in Maps",
 		"Tomb of the Consort (Act 1)",
@@ -10615,6 +10989,7 @@ minions["Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest"] = {
 	companionReservation = 36.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
+		"Canyon (Map)",
 		"Path of Mourning (Act 2)",
 		"The Galai Gates (Act 6)",
 		"Found in Maps",
