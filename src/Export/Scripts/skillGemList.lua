@@ -9,11 +9,16 @@ local export = false
 
 local types = { "Strength", "Dexterity", "Intelligence", "Other" }
 
-local function grantedEffectString(grantedEffect) 
+local function grantedEffectString(grantedEffect, support) 
 	local s =  "#skill "..grantedEffect.Id.."\n"
 	for _, statSet in ipairs(tableConcat({grantedEffect.GrantedEffectStatSets}, grantedEffect.AdditionalStatSets)) do
 		if not (statSet.LabelType and statSet.LabelType.Id == "Hidden") then
-			s = s.."#set "..statSet.Id.."\n#flags\n#mods\n"
+			s = s.."#set "..statSet.Id
+			if support then
+				s = s.."\n#mods\n#skillEnd\n"
+			else
+				s = s.."\n#flags\n#mods\n#skillEnd\n"
+			end
 		end
 	end
 	return s
@@ -38,11 +43,11 @@ for i, _ in ipairs(types) do
 			if skillGem.IsSupport and skillGem.GemColour == i and not gemEffect.Id:match("Unknown") and not gemEffect.Id:match("Playtest") and not skillGem.BaseItemType.Name:match("DNT")
 			and dat("SupportGems"):GetRow("SkillGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id))) then
 				local temp = skillGem.BaseItemType.Name..string.rep(" ", 30 - string.len(skillGem.BaseItemType.Name)).."\t\t----\t\t"..gemEffect.GrantedEffect.Id
-				local temp1 = skillGem.BaseItemType.Name..grantedEffectString(gemEffect.GrantedEffect)
+				local temp1 = skillGem.BaseItemType.Name..grantedEffectString(gemEffect.GrantedEffect, true)
 				if gemEffect.AdditionalGrantedEffects then
 					for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
 						temp = temp.."\t"..additionalGrantedEffect.Id
-						temp1 = temp1..grantedEffectString(additionalGrantedEffect)
+						temp1 = temp1..grantedEffectString(additionalGrantedEffect, true)
 					end
 				end
 				table.insert(support, temp)

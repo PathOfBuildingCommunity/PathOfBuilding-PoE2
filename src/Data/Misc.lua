@@ -270,7 +270,7 @@ data.playerMinionIntrinsicStats = {
 	["attack_damage_final_permyriad_per_rage"] = 100,
 }
 -- From MonsterVarieties.dat combined with SkillTotemVariations.dat
-data.totemLifeMult = { [1] = 1, [5] = 1, [18] = 1, [19] = 1, [22] = 1, [15] = 1.2, [23] = 1, [24] = 1, [26] = 1, }
+data.totemLifeMult = { [1] = 1, [2] = 1, [3] = 1, [5] = 1, [12] = 1, [18] = 1, [19] = 1, [22] = 1, [15] = 1.2, [23] = 1, [24] = 1, [25] = 1, [26] = 1, }
 data.monsterVarietyLifeMult = {
 	["Drowned"] = 1,
 	["Lumbering Dead"] = 1,
