@@ -1515,6 +1515,7 @@ worldAreas["G2_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Goliath",
 		"Sandflesh Mage",
 		"Sandflesh Skeleton",
 		"Sandflesh Warrior",
@@ -1924,6 +1925,7 @@ worldAreas["Sanctum_4"] = {
 	monsterVarieties = {
 		"Desiccated Lich",
 		"Frost Wraith",
+		"Goliath",
 		"Risen Tale-woman",
 		"Sand Spirit",
 		"Sandflesh Mage",
@@ -2090,6 +2092,7 @@ worldAreas["G3_4"] = {
 		"Constricted Spitter",
 		"Entrailhome Shambler",
 		"Entwined Hulk",
+		"Rotted Rat",
 		"Scorpion Monkey",
 		"Slitherspitter",
 		"Snakethroat Shambler",
@@ -2129,6 +2132,7 @@ worldAreas["G3_6_1"] = {
 	monsterVarieties = {
 		"Crawler Sentinel",
 		"Pale-stitched Stalker",
+		"Rotted Rat",
 		"Rusted Dyna Golem",
 		"Rusted Reconstructor",
 		"Vaal Skeletal Archer",
@@ -2642,6 +2646,10 @@ worldAreas["G4_9_"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Infested Anglerfish",
+		"Infested Manta",
+		"Infested Octopus",
+		"Infested Turtle",
 	},
 }
 
@@ -2924,6 +2932,7 @@ worldAreas["P2_1"] = {
 		"Crag Leaper",
 		"Desiccated Lich",
 		"Dune Lurker",
+		"Goliath",
 		"Living Sand",
 		"Porcupine Goliath",
 		"Rasp Scavenger",
@@ -3567,6 +3576,7 @@ worldAreas["MapForge"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Goliath",
 	},
 	bossVarieties = {
 		"Vastweld, the Colossal Guardian",
@@ -4785,11 +4795,7 @@ worldAreas["MapUniqueCastaway"] = {
 worldAreas["MapUniqueMegalith"] = {
 	name = "The Ezomyte Megaliths (Map)",
 	baseName = "The Ezomyte Megaliths",
-	description = "<i>{"Sons from foreign shores}
-<i>{Took refuge from the storm}
-<i>{Bringing knowledge of runes}
-<i>{Our fate was carved soon."} 
-- Ezomyte Folklore",
+	description = "'Sons from foreign shores, Took refuge from the storm, Bringing knowledge of runes, Our fate was carved soon.' - Ezomyte Folklore",
 	tags = { "map" },
 	act = 10,
 	level = 65,
@@ -5693,6 +5699,7 @@ worldAreas["G_Endgame_Town"] = {
 		"Gold-Melted Sentinel",
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
+		"Goliath",
 		"Goliath Transcendent",
 		"Hunchback Clubber",
 		"Hyena Demon",
@@ -5743,6 +5750,7 @@ worldAreas["G_Endgame_Town"] = {
 		"Risen Tale-woman",
 		"River Drake",
 		"River Hag",
+		"Rotted Rat",
 		"Rotten Wolf",
 		"Rotting Crow",
 		"Rotting Hulk",

@@ -102,8 +102,11 @@ for map in dat("EndGameMaps"):Rows() do
 
 		-- Attach FlavourText as description for this area if present
 		if map.FlavourText and map.FlavourText ~= "" then
+			if area.Id == "MapUniqueMegalith" then
+				--Temporary, need to clean text properly and convert map flavour text to a table just like items are.
+				areaIdToMonsters[areaId .. "_desc"] = "'Sons from foreign shores, Took refuge from the storm, Bringing knowledge of runes, Our fate was carved soon.' - Ezomyte Folklore"
 			-- Hideouts have 2 lines, remove second line
-			if areaId:sub(-10) == "_Claimable" then
+			elseif areaId:sub(-10) == "_Claimable" then
 				local firstSentence = map.FlavourText:match("([^%.%!%?]+[%.%!%?])")
 				if firstSentence then
 					areaIdToMonsters[areaId .. "_desc"] = firstSentence:gsub("%s+$", "")
