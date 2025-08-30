@@ -1,5 +1,52 @@
 # Changelog
 
+## [v0.10.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.10.0) (2025/08/30)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.9.0...v0.10.0)
+
+
+## What's Changed
+### The Third Edict
+- Add 0.3 passive tree [\#1234](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1234) ([trompetin17](https://github.com/justjuangui))
+- Update Minions to no longer need Accuracy [\#1193](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1193) ([majochem](https://github.com/majochem))
+- Update Giant's Blood [\#1208](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1208) ([dhope1106](https://github.com/dhope1106))
+- Add miscellaneous changes from patch notes [\#1187](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1187) ([LocalIdentity](https://github.com/LocalIdentity))
+- Update gem attributes requirement formula [\#1172](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1172) ([LocalIdentity](https://github.com/LocalIdentity))
+- Update Unarmed Crit to 5% [\#1192](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1192) ([majochem](https://github.com/majochem))
+- Update Evasion / Hit Chance formula [\#1228](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1228) ([LocalIdentity](https://github.com/LocalIdentity))
+- Update Evasion to also apply to Spell damage [\#1229](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1229) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add Importing for Desecrated mods [\#1198](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1198) ([LocalIdentity](https://github.com/LocalIdentity))
+### New to Path of Building
+- Add shortcut to copy node text from Passive Tree to the clipboard [\#1211](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1211) ([rexfox147](https://github.com/rexfox147))
+- Add support for "with Spell skills" mods [\#1213](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1213) ([NL908](https://github.com/NL908))
+- Add support for "reduced effect of Freeze on you" [\#1216](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1216) ([Blitz54](https://github.com/Blitz54))
+- Sort Attribute Requirement List [\#1219](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1219) ([Blitz54](https://github.com/Blitz54))
+- Add support for "Apex of the Moment" (Chronomancer) [\#1194](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1194) ([majochem](https://github.com/majochem))
+- Update PoE.Ninja match URLs for merged site [\#1179](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1179) ([Wires77](https://github.com/Wires77))
+### User Interface
+- Fix Ascendancy header image and rename itemTooltip to tooltipHeader [\#1189](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1189) ([Blitz54](https://github.com/Blitz54))
+- Fix vertical spacing and tooltip header size [\#1190](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1190) ([Blitz54](https://github.com/Blitz54))
+- Change wording for "Base Damage Reduction" on Hit taken mult. section [\#1214](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1214) ([DarkJaslo](https://github.com/DarkJaslo))
+- Keep Max Price and Max Level between Trade Queries [\#1215](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1215) ([mcagnion](https://github.com/mcagnion))
+### Fixed Calculations
+- Fix rounding issue for min/max damage [\#1200](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1200) ([Blitz54](https://github.com/Blitz54))
+- Use harmonic mean for Dual Wield Attack Speed calc instead of average [\#1205](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1205) ([Tntmister](https://github.com/Tntmister))
+- Fix negative Impale DPS for dual wielding combined Attacks [\#1218](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1218) ([andyli00](https://github.com/andyli00))
+- Fix CI not working correctly with Ghostwrithe [\#1210](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1210) ([dhope1106](https://github.com/dhope1106))
+- Fixed EHP based on Block Effect calculation [\#1227](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1227) ([n1tr0xs](https://github.com/n1tr0xs))
+### Fixed Behaviours
+- Fix automatically running character import on loading build, and show logout button in more cases [\#1186](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1186) ([Blitz54](https://github.com/Blitz54))
+- Fix outdated PoE1 bonuses for dual wielding [\#1201](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1201) ([majochem](https://github.com/majochem))
+- Fix Reduced Effect of Curses on Self not being limited [\#1220](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1220) ([Blitz54](https://github.com/Blitz54))
+- Fix gems being added to skill groups when sorting dropdown [\#1221](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1221) ([Paliak](https://github.com/Paliak))
+- Fix Item sort option for "Current Usable" not using taking into account attribute requirement mods [\#1222](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1222) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Imported Gem level for skills linked to + gem level supports [\#1204](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1204) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Support gems not working with some Minion Skills [\#1231](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1231) ([Paliak](https://github.com/Paliak))
+- Fix Keystones and Jewel sockets from being allocated with Weapon Set passives [\#1197](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1197) ([TheDechev](https://github.com/TheDechev))
+### Accuracy Improvements
+- Fix hover tooltip showing same name for all Companions/Spectres [\#1207](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1207) ([Blitz54](https://github.com/Blitz54))
+
+
 ## [v0.9.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.9.0) (2025/08/23)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.8.0...v0.9.0)

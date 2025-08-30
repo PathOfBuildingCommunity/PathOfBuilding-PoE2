@@ -1,3 +1,50 @@
+VERSION[0.10.0][2025/08/30]
+
+--- The Third Edict ---
+* Add 0.3 passive tree (trompetin17)
+* Update Minions to no longer need Accuracy (majochem)
+* Update Giant's Blood (dhope1106)
+* Add miscellaneous changes from patch notes (LocalIdentity)
+* Update gem attributes requirement formula (LocalIdentity)
+* Update Unarmed Crit to 5% (majochem)
+* Update Evasion / Hit Chance formula (LocalIdentity)
+* Update Evasion to also apply to Spell damage (LocalIdentity)
+* Add Importing for Desecrated mods (LocalIdentity)
+
+--- New to Path of Building ---
+* Add shortcut to copy node text from Passive Tree to the clipboard (rexfox147)
+* Add support for "with Spell skills" mods (NL908)
+* Add support for "reduced effect of Freeze on you" (Blitz54)
+* Sort Attribute Requirement List (Blitz54)
+* Add support for "Apex of the Moment" (Chronomancer) (majochem)
+* Update PoE.Ninja match URLs for merged site (Wires77)
+
+--- User Interface ---
+* Fix Ascendancy header image and rename itemTooltip to tooltipHeader (Blitz54)
+* Fix vertical spacing and tooltip header size (Blitz54)
+* Change wording for "Base Damage Reduction" on Hit taken mult. section (DarkJaslo)
+* Keep Max Price and Max Level between Trade Queries (mcagnion)
+
+--- Fixed Calculations ---
+* Fix rounding issue for min/max damage (Blitz54)
+* Use harmonic mean for Dual Wield Attack Speed calc instead of average (Tntmister)
+* Fix negative Impale DPS for dual wielding combined Attacks (andyli00)
+* Fix CI not working correctly with Ghostwrithe (dhope1106)
+* Fixed EHP based on Block Effect calculation (n1tr0xs)
+
+--- Fixed Behaviours ---
+* Fix automatically running character import on loading build, and show logout button in more cases (Blitz54)
+* Fix outdated PoE1 bonuses for dual wielding (majochem)
+* Fix Reduced Effect of Curses on Self not being limited (Blitz54)
+* Fix gems being added to skill groups when sorting dropdown (Paliak)
+* Fix Item sort option for "Current Usable" not using taking into account attribute requirement mods (LocalIdentity)
+* Fix Imported Gem level for skills linked to + gem level supports (LocalIdentity)
+* Fix Support gems not working with some Minion Skills (Paliak)
+* Fix Keystones and Jewel sockets from being allocated with Weapon Set passives (TheDechev)
+
+--- Accuracy Improvements ---
+* Fix hover tooltip showing same name for all Companions/Spectres (Blitz54)
+
 VERSION[0.9.0][2025/08/23]
 
 --- New to Path of Building ---
