@@ -334,6 +334,10 @@ skills["ArcSkeletonMageMinion"] = {
 				"number_of_chains",
 				"disable_visual_hit_effect",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.10000000149012, 1.8999999761581, 2, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
 				[2] = { 0.10000000149012, 1.8999999761581, 3, statInterpolation = { 3, 3, 1, }, actorLevel = 20, },
@@ -381,6 +385,10 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 0.30000001192093, 1.7000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -422,6 +430,10 @@ skills["FrostBoltSkeletonMageMinion"] = {
 				"check_for_targets_between_initiator_and_projectile_source",
 				"maintain_projectile_direction_when_using_contact_position",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
@@ -452,6 +464,10 @@ skills["FrostBoltSkeletonMageMinion"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -493,6 +509,10 @@ skills["IceBombSkeletonMageMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
@@ -626,6 +646,9 @@ skills["FireBombSkeletonMinion"] = {
 				"is_area_damage",
 				"grenades_target_at_half_monster_height",
 			},
+			notMinionStat = {
+				"base_fire_damage_to_deal_per_minute",
+			},
 			levels = {
 				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
 			},
@@ -710,6 +733,10 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
 				"quality_display_arsonist_is_gem",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 12, 19, 27, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -894,6 +921,10 @@ skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 				"base_is_projectile",
 				"projectile_uses_contact_position",
 				"use_scaled_contact_offset",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },

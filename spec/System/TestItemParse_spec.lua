@@ -1,6 +1,6 @@
 describe("TestItemParse", function()
 	local function raw(s, base)
-		base = base or "Arcane Robe"
+		base = base or "Arcane Raiment"
 		return "Rarity: Rare\nName\n"..base.."\n"..s
 	end
 
@@ -243,9 +243,9 @@ describe("TestItemParse", function()
 			Corrupted
 			]])
 		item:BuildAndParseRaw()
-		assert.are.equals(45, item.requirements.strMod)
-		assert.are.equals(111, item.requirements.dexMod)
-		assert.are.equals(71, item.requirements.intMod)	
+		assert.are.equals(35, item.requirements.strMod)
+		assert.are.equals(86, item.requirements.dexMod)
+		assert.are.equals(55, item.requirements.intMod)	
 		
 	end)
 

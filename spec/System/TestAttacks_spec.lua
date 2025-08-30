@@ -8,7 +8,7 @@ describe("TestAttacks", function()
 	end)
 
 	it("creates an item and has the correct crit chance", function()
-		assert.are.equals(build.calcsTab.mainOutput.CritChance, 0)
+		assert.are.equals(build.calcsTab.mainOutput.CritChance, data.unarmedWeaponData[0].CritChance * build.calcsTab.mainOutput.HitChance / 100)
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
 			Heavy Bow

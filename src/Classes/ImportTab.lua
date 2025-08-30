@@ -733,7 +733,11 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			gemInstance.nameSpec = self.build.data.gems[gemId].name
 			for _, property in pairs(skillData.properties) do
 				if property.name == "Level" then
-					gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
+					if skillData.properties[_ + 1] and skillData.properties[_ + 1].values[1][1]:match("(%d+) Level[s]? from Gem") then
+						gemInstance.level = tonumber(skillData.properties[_ + 1].values[1][1]:match("(%d+) Level[s]? from Gem"))
+					else
+						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
+					end
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
 				end

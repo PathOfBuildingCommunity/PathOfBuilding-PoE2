@@ -1498,7 +1498,7 @@ return {
 			width=50
 		},
 		[3]={
-			list=true,
+			list=false,
 			name="Class",
 			refTo="Characters",
 			type="Key",
@@ -1580,6 +1580,64 @@ return {
 			refTo="",
 			type="Bool",
 			width=150
+		},
+		[15]={
+			list=false,
+			name="Replace",
+			refTo="Ascendancy",
+			type="ShortKey",
+			width=70
+		},
+		[16]={
+			list=false,
+			name="UIArt",
+			refTo="PassiveSkillTreeUIArt",
+			type="Key",
+			width=160
+		},
+		[17]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=120
+		},
+		[18]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=80
+		},
+		[19]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=80
+		}
+	},
+	ascendancypassiveskilloverrides={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="Ascendancy",
+			type="Key",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="OriginalNode",
+			refTo="PassiveSkills",
+			type="Key",
+			width=210
+		},
+		[3]={
+			list=false,
+			name="SwitchedNode",
+			refTo="PassiveSkills",
+			type="Key",
+			width=240
 		}
 	},
 	atlasawakeningstats={
@@ -2045,80 +2103,80 @@ return {
 		},
 		[14]={
 			list=false,
-			name="Hidden",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[15]={
-			list=false,
 			name="ItemVisualIdentityKey",
 			refTo="ItemVisualIdentity",
 			type="Key",
 			width=150
 		},
-		[16]={
+		[15]={
 			list=false,
 			name="HASH32",
 			refTo="",
 			type="UInt",
 			width=100
 		},
-		[17]={
+		[16]={
 			list=true,
 			name="VendorRecipeAchievement",
 			refTo="AchievementItems",
 			type="Key",
 			width=180
 		},
-		[18]={
+		[17]={
 			list=false,
 			name="Inflection",
 			refTo="",
 			type="String",
 			width=80
 		},
-		[19]={
+		[18]={
 			list=false,
 			name="EquipAchievement",
 			refTo="AchievementItems",
 			type="Key",
 			width=150
 		},
-		[20]={
+		[19]={
 			list=false,
 			name="IsCorrupted",
 			refTo="",
 			type="Bool",
 			width=90
 		},
-		[21]={
+		[20]={
 			list=true,
 			name="IdentifyAchievement",
 			refTo="AchievementItems",
 			type="Key",
 			width=150
 		},
-		[22]={
+		[21]={
 			list=true,
 			name="IdentifyMagicAchievement",
 			refTo="AchievementItems",
 			type="Key",
 			width=150
 		},
-		[23]={
+		[22]={
 			list=false,
 			name="FragmentBaseItemTypesKey",
 			refTo="BaseItemTypes",
 			type="ShortKey",
 			width=150
 		},
-		[24]={
+		[23]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
 			width=50
+		},
+		[24]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=100
 		},
 		[25]={
 			list=false,
@@ -2131,45 +2189,38 @@ return {
 			list=false,
 			name="",
 			refTo="",
-			type="Key",
-			width=100
-		},
-		[27]={
-			list=false,
-			name="",
-			refTo="",
 			type="Bool",
 			width=150
 		},
-		[28]={
+		[27]={
 			list=false,
 			name="TradeMarketCategory",
 			refTo="TradeMarketCategory",
 			type="Key",
 			width=150
 		},
-		[29]={
+		[28]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
 			width=50
 		},
-		[30]={
+		[29]={
 			list=true,
 			name="Achievement",
 			refTo="AchievementItems",
 			type="Key",
 			width=280
 		},
-		[31]={
+		[30]={
 			list=false,
 			name="",
 			refTo="",
 			type="Key",
 			width=150
 		},
-		[32]={
+		[31]={
 			list=false,
 			name="",
 			refTo="",
@@ -4000,6 +4051,20 @@ return {
 			name="GemCuttingIcon1",
 			refTo="",
 			type="String",
+			width=150
+		},
+		[72]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[73]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
 			width=150
 		}
 	},
@@ -13292,6 +13357,92 @@ return {
 			width=100
 		}
 	},
+	passivejewelradiiart={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Cirlce1",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="Cirlce2",
+			refTo="",
+			type="String",
+			width=110
+		},
+		[4]={
+			list=false,
+			name="Glow",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=260
+		},
+		[6]={
+			list=false,
+			name="Inverse",
+			refTo="",
+			type="String",
+			width=460
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[9]={
+			list=false,
+			name="Inverse2",
+			refTo="",
+			type="String",
+			width=510
+		},
+		[10]={
+			list=false,
+			name="Inverse2Offset?",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[11]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		}
+	},
 	passivejewelslots={
 		[1]={
 			list=false,
@@ -13614,43 +13765,29 @@ return {
 		},
 		[3]={
 			list=false,
-			name="IconInactive",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[4]={
-			list=false,
-			name="IconActive",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[5]={
-			list=false,
-			name="Background",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[6]={
-			list=false,
 			name="",
 			refTo="",
 			type="Bool",
 			width=50
 		},
-		[7]={
+		[4]={
 			list=false,
 			name="SoundEffect",
 			refTo="SoundEffects",
 			type="Key",
 			width=150
 		},
-		[8]={
+		[5]={
 			list=false,
 			name="MasteryCount",
 			refTo="Stats",
+			type="Key",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="MasteryArt",
+			refTo="PassiveSkillTreeMasteryArt",
 			type="Key",
 			width=150
 		}
@@ -13791,7 +13928,7 @@ return {
 			name="Stats",
 			refTo="Stats",
 			type="Key",
-			width=640
+			width=780
 		},
 		[4]={
 			list=false,
@@ -14136,6 +14273,13 @@ return {
 			refTo="",
 			type="Bool",
 			width=150
+		},
+		[53]={
+			list=true,
+			name="",
+			refTo="PassiveSkills",
+			type="ShortKey",
+			width=605
 		}
 	},
 	passiveskillstatcategories={
@@ -14222,6 +14366,133 @@ return {
 			type="String",
 			width=150
 		}
+	},
+	passiveskilltreeconnectionart={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=591
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=633
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=591
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=591
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=493
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=381
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=381
+		}
+	},
+	passiveskilltreemasteryart={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[2]={
+			list=false,
+			name="Inactive",
+			refTo="",
+			type="String",
+			width=400
+		},
+		[3]={
+			list=false,
+			name="Active",
+			refTo="",
+			type="String",
+			width=400
+		},
+		[4]={
+			list=false,
+			name="Effect",
+			refTo="",
+			type="String",
+			width=400
+		}
+	},
+	passiveskilltreenodeframeart={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=230
+		},
+		[2]={
+			list=false,
+			name="Normal",
+			refTo="",
+			type="String",
+			width=605
+		},
+		[3]={
+			list=false,
+			name="CanAllocate",
+			refTo="",
+			type="String",
+			width=640
+		},
+		[4]={
+			list=false,
+			name="Active",
+			refTo="",
+			type="String",
+			width=626
+		},
+		[5]={
+			list=false,
+			name="Mask",
+			refTo="",
+			type="String",
+			width=570
+		}
+	},
+	passiveskilltreenoderrameart={
 	},
 	passiveskilltrees={
 		[1]={
@@ -14356,6 +14627,20 @@ return {
 			refTo="passiveskilltreeuiart",
 			type="Key",
 			width=150
+		},
+		[20]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[21]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
 		}
 	},
 	passiveskilltreetutorial={
@@ -14419,73 +14704,52 @@ return {
 		},
 		[9]={
 			list=false,
-			name="PassiveFrameActive",
-			refTo="",
-			type="String",
-			width=550
+			name="ConnectionsArt",
+			refTo="PassiveSkillTreeConnectionArt",
+			type="Key",
+			width=250
 		},
 		[10]={
 			list=false,
-			name="NotableFrameActive",
-			refTo="",
-			type="String",
-			width=550
+			name="PassiveFrame",
+			refTo="PassiveSkillTreeNodeFrameArt",
+			type="Key",
+			width=210
 		},
 		[11]={
 			list=false,
-			name="KeystoneFrameActive",
-			refTo="",
-			type="String",
-			width=550
+			name="NotableFrame",
+			refTo="PassiveSkillTreeNodeFrameArt",
+			type="Key",
+			width=190
 		},
 		[12]={
 			list=false,
-			name="PassiveFrameCanAllocate",
-			refTo="",
-			type="String",
-			width=550
+			name="KeystoneFrame",
+			refTo="PassiveSkillTreeNodeFrameArt",
+			type="Key",
+			width=200
 		},
 		[13]={
 			list=false,
-			name="NotableFrameCanAllocate",
-			refTo="",
-			type="String",
-			width=550
+			name="JewelFrame",
+			refTo="PassiveSkillTreeNodeFrameArt",
+			type="Key",
+			width=190
 		},
 		[14]={
 			list=false,
-			name="KeystoneFrameCanAllocate",
+			name="Glow",
 			refTo="",
 			type="String",
-			width=550
+			width=290
 		},
 		[15]={
 			list=false,
-			name="Ornament",
+			name="",
 			refTo="",
-			type="String",
-			width=550
-		},
-		[16]={
-			list=false,
-			name="GroupBackgroundSmallBlank",
-			refTo="",
-			type="String",
-			width=550
-		},
-		[17]={
-			list=false,
-			name="GroupBackgroundMediumBlank",
-			refTo="",
-			type="String",
-			width=550
-		},
-		[18]={
-			list=false,
-			name="GroupBackgroundLargeBlank",
-			refTo="",
-			type="String",
-			width=550
+			type="Key",
+			width=150
 		}
 	},
 	passiveskilltypes={
@@ -17125,10 +17389,10 @@ return {
 		},
 		[15]={
 			list=false,
-			name="",
+			name="CannotGrantToMinion",
 			refTo="",
 			type="Bool",
-			width=50
+			width=120
 		},
 		[16]={
 			list=false,

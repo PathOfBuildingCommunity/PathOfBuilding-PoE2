@@ -72,6 +72,13 @@ itemBases["Gold Amulet"] = {
 	implicitModTypes = { { "drop" }, },
 	req = { level = 35, },
 }
+itemBases["Pearlescent Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "+(7-10)% to all Elemental Resistances",
+	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
+	req = { level = 30, },
+}
 itemBases["Dusk Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
@@ -97,6 +104,13 @@ itemBases["Tenebrous Amulet"] = {
 	type = "Amulet",
 	tags = { amulet = true, default = true, },
 	implicit = "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
+itemBases["Distorted Amulet"] = {
+	type = "Amulet",
+	tags = { amulet = true, default = true, },
+	implicit = "-1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }

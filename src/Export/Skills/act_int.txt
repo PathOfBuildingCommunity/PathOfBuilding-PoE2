@@ -488,7 +488,7 @@ statMap = {
 
 #skill FreezingMarkPlayer
 #set FreezingMarkPlayer
-#flags spell area duration
+#flags area duration
 #mods
 #skillEnd
 
@@ -1067,7 +1067,7 @@ statMap = {
 #minionList UnearthBoneConstruct
 #skill UnearthPlayer
 #set UnearthPlayer
-#flags spell minion
+#flags spell area minion
 #mods
 #skillEnd
 
