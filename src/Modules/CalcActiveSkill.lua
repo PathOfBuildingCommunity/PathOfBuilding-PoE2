@@ -691,7 +691,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		activeEffect.srcInstance.skillStageCount = nil
 	end
 
-	-- TODO If the table stats are present on each gem, this can be handled via SkillStatMap instead
 	-- Hollow Palm Technique added phys for skills that would use Quarterstaff
 	if activeSkill.actor.modDB.conditions.HollowPalm and activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff then
 		local gemLevel = activeEffect.level

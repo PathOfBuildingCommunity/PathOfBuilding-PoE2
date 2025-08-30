@@ -5332,12 +5332,11 @@ local specialModList = {
 		flag("Condition:OnConsecratedGround", { type = "Condition", var = "StrHighestAttribute" }, { type = "Condition", var = "Stationary" }),
 	},
 	["you count as dual wielding while you are unencumbered"] = { flag("Condition:DualWielding", { type = "Condition", var = "Unencumbered" }) },
-	-- New Hollow Palm Technique
-	-- TODO Update with actual wording and mods
-	["can attack as though using a quarterstaff while both of your hands are empty"] = { 
-		-- PLACEHOLDER for additionally required mods
-	},
-	
+	["can attack as though using a quarterstaff while both of your hand slots are empty unarmed attacks that would use your quarterstaff's damage gain: • physical damage based on their skill level • (%d+)%% more attack speed per (%d+) item evasion rating on equipped armour items • %+(%d+%.?%d*)%% to critical hit chance per (%d+) item energy shield on equipped armour items"] = function(asNum, _, evNum, critNum, esNum) return
+	{	-- New Hollow Palm Technique
+		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
+		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = (esNum) }),
+	} end,
 	["dual wielding does not inherently grant chance to block attack damage"] = { flag("Condition:NoInherentBlock") },
 	["inherent attack speed bonus from dual wielding is doubled while wielding two claws"] = {
 	    flag("Condition:DoubledInherentDualWieldingSpeed", { type = "Condition", var = "DualWieldingClaws" })
