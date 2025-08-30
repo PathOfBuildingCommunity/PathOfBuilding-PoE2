@@ -101,7 +101,7 @@ out:write('}\n')
 local totemMult = ""
 local keys = { }
 for var in dat("SkillTotemVariations"):Rows() do
-	if not keys[var.SkillTotem] and var.MonsterVariety then
+	if not keys[var.SkillTotem] then
 		keys[var.SkillTotem] = true
 		totemMult = totemMult .. "[" .. var.SkillTotem .. "] = " .. ((var.MonsterVariety and var.MonsterVariety.LifeMultiplier / 100) or 1) .. ", "
 	end
