@@ -106,7 +106,7 @@ directiveTable.base = function(state, args, out)
 	if itemSpirit then
 		out:write('\tspirit = ', itemSpirit.Value, ',\n')
 	end
-	if (baseItemType.Hidden == 0 or state.forceHide) and not baseTypeId:match("Talisman") and not state.forceShow then
+	if state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow then
 		out:write('\thidden = true,\n')
 	end
 	if state.socketLimit then
@@ -348,7 +348,7 @@ directiveTable.base = function(state, args, out)
 	end
 	out:write('},\n}\n')
 	
-	if not ((baseItemType.Hidden == 0 or state.forceHide) and not baseTypeId:match("Talisman") and not state.forceShow) then
+	if not (state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow) then
 		bases[state.type] = bases[state.type] or {}
 		local subtype = state.subType and #state.subType and state.subType or ""
 		if not bases[state.type][subtype] or itemValueSum > bases[state.type][subtype][2] then

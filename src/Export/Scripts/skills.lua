@@ -652,6 +652,7 @@ directiveTable.set = function(state, args, out)
 	set.mods = { }
 	set.levels = { }
 	set.stats = { }
+	set.CannotGrantToMinion = { }
 	set.constantStats = { }
 	set.removeStats = { }
 	for k, v in pairs(grantedEffectStatSet.RemoveStats) do
@@ -720,6 +721,9 @@ directiveTable.set = function(state, args, out)
 				table.insert(set.stats, { id = stat.Id })
 				if indx == 1 then
 					table.insert(statMapOrder, stat.Id)
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				else
 					print(label .. ": stat missing from earlier levels: ".. stat.Id)
 				end
@@ -753,6 +757,9 @@ directiveTable.set = function(state, args, out)
 					table.insert(set.stats, { id = stat.Id })
 					if indx == 1 then
 						table.insert(statMapOrder, stat.Id)
+						if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+							table.insert(set.CannotGrantToMinion, stat.Id)
+						end
 					else
 						print(label .. ": stat missing from earlier levels: ".. stat.Id)
 					end
@@ -784,6 +791,9 @@ directiveTable.set = function(state, args, out)
 				table.insert(set.stats, { id = stat.Id })
 				if indx == 1 then
 					table.insert(statMapOrder, stat.Id)
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				else
 					print(label .. ": stat missing from earlier levels: ".. stat.Id)
 				end
@@ -814,6 +824,9 @@ directiveTable.set = function(state, args, out)
 				if not statMap[stat.Id] then
 					statMap[stat.Id] = #set.stats + 1
 					table.insert(set.stats, { id = stat.Id })
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				end
 			end
 		end
@@ -947,6 +960,13 @@ directiveTable.mods = function(state, args, out)
 			out:write('\t\t\t\t"', stat.id, '",\n')
 		end
 		out:write('\t\t\t},\n')
+		if next(set.CannotGrantToMinion) then
+			out:write('\t\t\tnotMinionStat = {\n')
+			for _, stat in ipairs(set.CannotGrantToMinion) do
+				out:write('\t\t\t\t"', stat, '",\n')
+			end
+			out:write('\t\t\t},\n')
+		end
 	end
 	if not args:match("noLevels") then
 		out:write('\t\t\tlevels = {\n')

@@ -223,6 +223,10 @@ skills["BleedingConcoctionPlayer"] = {
 				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"main_hand_weapon_minimum_physical_damage",
+				"main_hand_weapon_maximum_physical_damage",
+			},
 			levels = {
 				[1] = { 11, 21, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 19, 35, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -1177,6 +1181,10 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 				"triggerable_in_any_set",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 5, 8, critChance = 7, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 7, 11, critChance = 7, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -1243,6 +1251,10 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 				"show_number_of_projectiles",
 				"base_is_projectile",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 4, 7, critChance = 12, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 6, 9, critChance = 12, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -1304,6 +1316,10 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 				"spell_maximum_base_lightning_damage",
 				"is_triggerable_strike",
 				"triggerable_in_any_set",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 2, 11, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -1512,6 +1528,10 @@ skills["ElementalStormPlayer"] = {
 				"is_triggerable_elemental_storm",
 				"global_cannot_crit",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 2, 3, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 2, 4, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -1589,6 +1609,10 @@ skills["ElementalStormPlayer"] = {
 				"is_triggerable_elemental_storm",
 				"global_cannot_crit",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 1, 3, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 1, 4, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -1665,6 +1689,10 @@ skills["ElementalStormPlayer"] = {
 				"tornado_hinder",
 				"is_triggerable_elemental_storm",
 				"global_cannot_crit",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 1, 2, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -1778,6 +1806,9 @@ skills["EncaseInJadePlayer"] = {
 			stats = {
 				"base_skill_effect_duration",
 				"base_deal_no_damage",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 4000, statInterpolation = { 1, }, actorLevel = 1, },
@@ -3674,6 +3705,10 @@ skills["PoisonousConcoctionPlayer"] = {
 				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"main_hand_weapon_minimum_physical_damage",
+				"main_hand_weapon_maximum_physical_damage",
+			},
 			levels = {
 				[1] = { 12, 18, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 20, 30, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -4076,6 +4111,9 @@ skills["RitualSacrificePlayer"] = {
 				"base_skill_effect_duration",
 				"can_perform_skill_while_moving",
 				"quality_display_base_skill_effect_duration_is_gem",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 15000, statInterpolation = { 1, }, actorLevel = 1, },
@@ -5770,6 +5808,9 @@ skills["UnboundAvatarPlayer"] = {
 				"base_skill_effect_duration",
 				"base_deal_no_damage",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 8000, statInterpolation = { 1, }, actorLevel = 1, },
 				[2] = { 8100, statInterpolation = { 1, }, actorLevel = 3.4519999027252, },
@@ -5891,6 +5932,10 @@ skills["UniqueBreachLightningBoltPlayer"] = {
 				"spell_maximum_base_lightning_damage",
 				"is_area_damage",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 1, 17, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -6534,6 +6579,10 @@ skills["HeartOfIcePlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"skill_chill_magnitude_is_aura_magnitude",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 12, 18, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 16, 24, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -6665,6 +6714,10 @@ skills["IcestormPlayer"] = {
 				"cold_damage_cannot_chill",
 				"never_freeze",
 				"quality_display_active_skill_base_area_of_effect_radius_is_gem",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 3, 5, statInterpolation = { 1, 1, }, actorLevel = 1, },

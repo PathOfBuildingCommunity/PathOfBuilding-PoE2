@@ -2029,6 +2029,9 @@ skills["DefianceBannerPlayer"] = {
 				"base_deal_no_damage",
 				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 6000, 6, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 6050, 6, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -2208,6 +2211,9 @@ skills["DreadBannerPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
 				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6000, 12, 10, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -2986,6 +2992,10 @@ skills["ExsanguinatePlayer"] = {
 				"quality_display_exsanguinate_beam_targets_is_gem",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 3, 4, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 3, 5, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -3054,6 +3064,10 @@ skills["ExsanguinatePlayer"] = {
 				"can_perform_skill_while_moving",
 				"spell_damage_modifiers_apply_to_skill_dot",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0, 0, 142, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -4000,6 +4014,10 @@ skills["HeraldOfBloodPlayer"] = {
 				"display_statset_hide_usage_stats",
 				"global_always_hit",
 			},
+			notMinionStat = {
+				"main_hand_weapon_minimum_physical_damage",
+				"main_hand_weapon_maximum_physical_damage",
+			},
 			levels = {
 				[1] = { 4, 6, 15, 40, critChance = 5, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 6, 10, 15, 41, critChance = 5, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -4245,6 +4263,10 @@ skills["InfernalCryCorpseExplosionPlayer"] = {
 				"triggered_by_infernal_cry",
 				"display_statset_hide_usage_stats",
 				"display_skill_deals_secondary_damage",
+			},
+			notMinionStat = {
+				"secondary_minimum_base_fire_damage",
+				"secondary_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 4, 7, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -10212,6 +10234,10 @@ skills["ReapPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 8, 12, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 11, 17, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -10340,6 +10366,10 @@ skills["ResonatingShieldPlayer"] = {
 				"attack_speed_modifiers_apply_to_over_time_cost",
 				"cannot_be_empowered_by_warcries",
 				"replace_off_hand_unarmed_attack_stats_with_shield_type",
+			},
+			notMinionStat = {
+				"off_hand_weapon_minimum_physical_damage",
+				"off_hand_weapon_maximum_physical_damage",
 			},
 			levels = {
 				[1] = { 4, 6, 6, 8, 2, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 1, },
@@ -11123,6 +11153,10 @@ skills["SeismicCryPlayer"] = {
 				"seismic_cry_only_count_heavy_stunned_mp",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"secondary_minimum_base_physical_damage",
+				"secondary_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 7, 10, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 9, 13, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -11234,6 +11268,9 @@ skills["ShardScavengerPlayer"] = {
 				"reload_ammo_on_effect_consume_with_x_ms_cooldown",
 				"base_skill_effect_duration",
 				"base_deal_no_damage",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 8000, 2000, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -11368,6 +11405,10 @@ skills["ShieldChargePlayer"] = {
 				"active_block_cannot_be_stunned",
 				"replace_off_hand_unarmed_attack_stats_with_shield_type",
 			},
+			notMinionStat = {
+				"off_hand_weapon_minimum_physical_damage",
+				"off_hand_weapon_maximum_physical_damage",
+			},
 			levels = {
 				[1] = { 4, 6, 6, 8, 0, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 6, 9, 6, 8, 0, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -11446,6 +11487,10 @@ skills["ShieldChargePlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"active_block_cannot_be_stunned",
 				"replace_off_hand_unarmed_attack_stats_with_shield_type",
+			},
+			notMinionStat = {
+				"off_hand_weapon_minimum_physical_damage",
+				"off_hand_weapon_maximum_physical_damage",
 			},
 			levels = {
 				[1] = { 4, 6, 0, 0, 0, 6, 8, baseMultiplier = 2.5, statInterpolation = { 1, 1, 1, 1, 1, 1, 1, }, actorLevel = 1, },
@@ -11574,6 +11619,10 @@ skills["ShieldWallPlayer"] = {
 				"shield_wall_segment_display_stat",
 				"quality_display_shield_wall_is_gem",
 				"replace_off_hand_unarmed_attack_stats_with_shield_type",
+			},
+			notMinionStat = {
+				"off_hand_weapon_minimum_physical_damage",
+				"off_hand_weapon_maximum_physical_damage",
 			},
 			levels = {
 				[1] = { 4, 6, 50, 36, 6, 8, statInterpolation = { 1, 1, 1, 1, 1, 1, }, actorLevel = 1, },
@@ -12661,6 +12710,9 @@ skills["TimeOfNeedPlayer"] = {
 				"skill_time_of_need_gain_x_life",
 				"base_deal_no_damage",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 12000, 17, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 11900, 26, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -13097,6 +13149,9 @@ skills["WarBannerPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
 				"quality_display_banner_buff_effect_+%_final_per_resource_is_gem",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6000, 5, 30, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },

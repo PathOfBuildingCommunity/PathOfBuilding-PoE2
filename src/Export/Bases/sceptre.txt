@@ -2,18 +2,18 @@
 local itemBases = ...
 
 #type Sceptre
-#socketLimit 2
+#socketLimit 3
 #baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre%d+
 
 #forceHide true
-#socketLimit 2
+#socketLimit 3
 #baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a
 #baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b
 #baseMatch Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c
 #forceHide false
 
 #forceShow true
-#socketLimit 2
+#socketLimit 3
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6a Shrine Sceptre (Purity of Fire)
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6b Shrine Sceptre (Purity of Cold)
 #base Metadata/Items/Weapons/OneHandWeapons/Sceptres/FourSceptre6c Shrine Sceptre (Purity of Lighting)

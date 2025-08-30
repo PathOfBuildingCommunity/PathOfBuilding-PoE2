@@ -4,31 +4,27 @@ local itemBases = ...
 
 itemBases["Hayoxi's Soul Core of Heatproofing"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Body Armour: 20% of Armour also applies to Cold Damage taken from Hits",
+	implicit = "Helmet: +30% of Armour also applies to Cold Damage",
 	req = { level = 65, },
 }
 itemBases["Zalatl's Soul Core of Insulation"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Body Armour: 20% of Armour also applies to Lightning Damage taken from Hits",
+	implicit = "Boots: +30% of Armour also applies to Lightning Damage",
 	req = { level = 65, },
 }
 itemBases["Topotante's Soul Core of Dampening"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Body Armour: 20% of Armour also applies to Fire Damage taken from Hits",
+	implicit = "Gloves: +30% of Armour also applies to Fire Damage",
 	req = { level = 65, },
 }
 itemBases["Atmohua's Soul Core of Retreat"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: 30% faster start of Energy Shield Recharge",
@@ -36,7 +32,6 @@ itemBases["Atmohua's Soul Core of Retreat"] = {
 }
 itemBases["Quipolatl's Soul Core of Flow"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 8% increased Skill Effect Duration\n8% increased Cooldown Recovery Rate",
@@ -44,7 +39,6 @@ itemBases["Quipolatl's Soul Core of Flow"] = {
 }
 itemBases["Tzamoto's Soul Core of Ferocity"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: +4 to Maximum Rage",
@@ -52,7 +46,6 @@ itemBases["Tzamoto's Soul Core of Ferocity"] = {
 }
 itemBases["Uromoti's Soul Core of Attenuation"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Boots: 15% increased Curse Duration\n15% increased Poison Duration",
@@ -60,7 +53,6 @@ itemBases["Uromoti's Soul Core of Attenuation"] = {
 }
 itemBases["Opiloti's Soul Core of Assault"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge\nCaster: 50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
@@ -68,7 +60,6 @@ itemBases["Opiloti's Soul Core of Assault"] = {
 }
 itemBases["Guatelitzi's Soul Core of Endurance"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge\nCaster: 50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
@@ -76,7 +67,6 @@ itemBases["Guatelitzi's Soul Core of Endurance"] = {
 }
 itemBases["Xopec's Soul Core of Power"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 50% chance when you gain a Power Charge to gain an additional Power Charge\nCaster: 50% chance when you gain a Power Charge to gain an additional Power Charge",
@@ -84,7 +74,6 @@ itemBases["Xopec's Soul Core of Power"] = {
 }
 itemBases["Estazunti's Soul Core of Convalescence"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Boots: 10% increased speed of Recoup Effects",
@@ -92,7 +81,6 @@ itemBases["Estazunti's Soul Core of Convalescence"] = {
 }
 itemBases["Tacati's Soul Core of Affliction"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: Enemies you Curse have -4% to Chaos Resistance",
@@ -100,7 +88,6 @@ itemBases["Tacati's Soul Core of Affliction"] = {
 }
 itemBases["Cholotl's Soul Core of War"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Bow: 20% increased Projectile Speed",
@@ -108,15 +95,13 @@ itemBases["Cholotl's Soul Core of War"] = {
 }
 itemBases["Citaqualotl's Soul Core of Foulness"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 13 to 19 Chaos damage",
+	implicit = "Martial Weapons: Adds 19 to 29 Chaos damage",
 	req = { level = 65, },
 }
 itemBases["Xipocado's Soul Core of Dominion"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Caster: Minions deal 40% increased Damage with Command Skills\nSceptre: Minions deal 40% increased Damage with Command Skills",
@@ -124,7 +109,6 @@ itemBases["Xipocado's Soul Core of Dominion"] = {
 }
 itemBases["Soul Core of Tacati"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 15% chance to Poison on Hit with this weapon\nArmour: +11% to Chaos Resistance",
@@ -132,31 +116,27 @@ itemBases["Soul Core of Tacati"] = {
 }
 itemBases["Soul Core of Opiloti"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 15% chance to cause Bleeding on Hit\nArmour: 10% increased Charm Charges gained",
+	implicit = "Martial Weapons: 15% chance to cause Bleeding on Hit\nHelmet: 20% increased Charm Charges gained",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Jiquani"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Recover 2% of maximum Life on Kill\nArmour: 2% increased maximum Life",
+	implicit = "Martial Weapons: Recover 2% of maximum Life on Kill\nBody Armour: 3% increased maximum Life",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Zalatl"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Recover 2% of maximum Mana on Kill\nArmour: 2% increased maximum Mana",
+	implicit = "Martial Weapons: Recover 2% of maximum Mana on Kill\nHelmet: 3% increased maximum Mana",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Citaqualotl"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 30% increased Elemental Damage with Attacks\nArmour: +5% to all Elemental Resistances",
@@ -164,63 +144,55 @@ itemBases["Soul Core of Citaqualotl"] = {
 }
 itemBases["Soul Core of Puhuarte"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 30% increased chance to Ignite\nArmour: +1% to Maximum Fire Resistance",
+	implicit = "Martial Weapons: 30% increased Flammability Magnitude\nGloves: +1% to Maximum Fire Resistance",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Tzamoto"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 20% increased Freeze Buildup\nArmour: +1% to Maximum Cold Resistance",
+	implicit = "Martial Weapons: 30% increased Freeze Buildup\nHelmet: +1% to Maximum Cold Resistance",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Xopec"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 30% increased chance to Shock\nArmour: +1% to Maximum Lightning Resistance",
+	implicit = "Martial Weapons: 30% increased chance to Shock\nBoots: +1% to Maximum Lightning Resistance",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Azcapa"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +15 to Spirit\nArmour: 5% increased Quantity of Gold Dropped by Slain Enemies",
+	implicit = "Martial Weapons: +15 to Spirit\nGloves: 10% increased Quantity of Gold Dropped by Slain Enemies",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Topotante"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier1 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Attacks with this Weapon Penetrate 15% Elemental Resistances\nArmour: 15% increased Elemental Ailment Threshold",
+	implicit = "Martial Weapons: Attacks with this Weapon Penetrate 15% Elemental Resistances\nBoots: 25% increased Elemental Ailment Threshold",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Quipolatl"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 5% increased Attack Speed\nArmour: 10% reduced Slowing Potency of Debuffs on You",
+	implicit = "Martial Weapons: 5% increased Attack Speed\nBoots: 15% reduced Slowing Potency of Debuffs on You",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Ticaba"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +12% to Critical Damage Bonus\nArmour: Hits against you have 10% reduced Critical Damage Bonus",
+	implicit = "Martial Weapons: +5% to Critical Damage Bonus\nBody Armour: Hits against you have 20% reduced Critical Damage Bonus",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Atmohua"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Convert 20% of Requirements to Strength\nArmour: Convert 20% of Requirements to Strength",
@@ -228,7 +200,6 @@ itemBases["Soul Core of Atmohua"] = {
 }
 itemBases["Soul Core of Cholotl"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Convert 20% of Requirements to Dexterity\nArmour: Convert 20% of Requirements to Dexterity",
@@ -236,7 +207,6 @@ itemBases["Soul Core of Cholotl"] = {
 }
 itemBases["Soul Core of Zantipi"] = {
 	type = "SoulCore",
-	hidden = true,
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Convert 20% of Requirements to Intelligence\nArmour: Convert 20% of Requirements to Intelligence",
@@ -245,511 +215,469 @@ itemBases["Soul Core of Zantipi"] = {
 
 itemBases["Desert Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 7 to 11 Fire Damage\nArmour: +12% to Fire Resistance\nCaster: Gain 10% of Damage as Extra Fire Damage",
+	implicit = "Martial Weapons: Adds 7 to 11 Fire Damage\nArmour: +12% to Fire Resistance\nCaster: Gain 8% of Damage as Extra Fire Damage",
 	req = { level = 31, },
 }
 itemBases["Glacial Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 6 to 10 Cold Damage\nArmour: +12% to Cold Resistance\nCaster: Gain 10% of Damage as Extra Cold Damage",
+	implicit = "Martial Weapons: Adds 6 to 10 Cold Damage\nArmour: +12% to Cold Resistance\nCaster: Gain 8% of Damage as Extra Cold Damage",
 	req = { level = 31, },
 }
 itemBases["Storm Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 1 to 20 Lightning Damage\nArmour: +12% to Lightning Resistance\nCaster: Gain 10% of Damage as Extra Lightning Damage",
+	implicit = "Martial Weapons: Adds 1 to 20 Lightning Damage\nArmour: +12% to Lightning Resistance\nCaster: Gain 8% of Damage as Extra Lightning Damage",
 	req = { level = 31, },
 }
 itemBases["Iron Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 20% increased Physical Damage\nArmour: 20% increased Armour, Evasion and Energy Shield\nCaster: 25% increased Spell Damage",
+	implicit = "Martial Weapons: 16% increased Physical Damage\nArmour: 16% increased Armour, Evasion and Energy Shield\nCaster: 25% increased Spell Damage",
 	req = { level = 31, },
 }
 itemBases["Body Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Leeches 2.5% of Physical Damage as Life\nArmour: +30 to maximum Life\nCaster: +30 to maximum Energy Shield",
 	req = { level = 37, },
 }
 itemBases["Mind Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Mana\nArmour: +25 to maximum Mana\nCaster: +30 to maximum Mana",
+	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Mana\nArmour: +25 to maximum Mana\nCaster: +40 to maximum Mana",
 	req = { level = 37, },
 }
 itemBases["Rebirth Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 20 Life per Enemy Killed\nArmour: Regenerate 0.3% of maximum Life per second\nCaster: 15% increased Energy Shield Recharge Rate",
 	req = { level = 45, },
 }
 itemBases["Inspiration Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 16 Mana per Enemy Killed\nArmour: 15% increased Mana Regeneration Rate\nCaster: 20% increased Mana Regeneration Rate",
 	req = { level = 45, },
 }
 itemBases["Stone Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Causes 25% increased Stun Buildup\nArmour: +40 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
+	implicit = "Martial Weapons: Causes 25% increased Stun Buildup\nArmour: +60 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
 	req = { level = 41, },
 }
 itemBases["Vision Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: +80 to Accuracy Rating\nArmour: 10% increased Life and Mana Recovery from Flasks\nCaster: 20% increased Critical Hit Chance for Spells",
 	req = { level = 41, },
 }
 itemBases["Lesser Desert Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 4 to 6 Fire Damage\nArmour: +10% to Fire Resistance\nCaster: Gain 8% of Damage as Extra Fire Damage",
+	implicit = "Martial Weapons: Adds 4 to 6 Fire Damage\nArmour: +10% to Fire Resistance\nCaster: Gain 6% of Damage as Extra Fire Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Glacial Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 3 to 5 Cold Damage\nArmour: +10% to Cold Resistance\nCaster: Gain 8% of Damage as Extra Cold Damage",
+	implicit = "Martial Weapons: Adds 3 to 5 Cold Damage\nArmour: +10% to Cold Resistance\nCaster: Gain 6% of Damage as Extra Cold Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Storm Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 1 to 10 Lightning Damage\nArmour: +10% to Lightning Resistance\nCaster: Gain 8% of Damage as Extra Lightning Damage",
+	implicit = "Martial Weapons: Adds 1 to 10 Lightning Damage\nArmour: +10% to Lightning Resistance\nCaster: Gain 6% of Damage as Extra Lightning Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Iron Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 15% increased Physical Damage\nArmour: 15% increased Armour, Evasion and Energy Shield\nCaster: 20% increased Spell Damage",
+	implicit = "Martial Weapons: 14% increased Physical Damage\nArmour: 14% increased Armour, Evasion and Energy Shield\nCaster: 20% increased Spell Damage",
 	req = { level = 5, },
 }
 itemBases["Lesser Body Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Leeches 2% of Physical Damage as Life\nArmour: +20 to maximum Life\nCaster: +25 to maximum Energy Shield",
 	req = { level = 11, },
 }
 itemBases["Lesser Mind Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 1.5% of Physical Damage as Mana\nArmour: +15 to maximum Mana\nCaster: +25 to maximum Mana",
+	implicit = "Martial Weapons: Leeches 1.5% of Physical Damage as Mana\nArmour: +15 to maximum Mana\nCaster: +30 to maximum Mana",
 	req = { level = 11, },
 }
 itemBases["Lesser Rebirth Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 10 Life per Enemy Killed\nArmour: Regenerate 0.25% of maximum Life per second\nCaster: 12% increased Energy Shield Recharge Rate",
 	req = { level = 21, },
 }
 itemBases["Lesser Inspiration Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 8 Mana per Enemy Killed\nArmour: 12% increased Mana Regeneration Rate\nCaster: 16% increased Mana Regeneration Rate",
 	req = { level = 21, },
 }
 itemBases["Lesser Stone Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Causes 20% increased Stun Buildup\nArmour: +30 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
+	implicit = "Martial Weapons: Causes 20% increased Stun Buildup\nArmour: +40 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
 	req = { level = 16, },
 }
 itemBases["Lesser Vision Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: +50 to Accuracy Rating\nArmour: 8% increased Life and Mana Recovery from Flasks\nCaster: 16% increased Critical Hit Chance for Spells",
 	req = { level = 16, },
 }
 itemBases["Greater Desert Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 13 to 16 Fire Damage\nArmour: +14% to Fire Resistance\nCaster: Gain 12% of Damage as Extra Fire Damage",
+	implicit = "Martial Weapons: Adds 13 to 16 Fire Damage\nArmour: +14% to Fire Resistance\nCaster: Gain 10% of Damage as Extra Fire Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Glacial Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 9 to 15 Cold Damage\nArmour: +14% to Cold Resistance\nCaster: Gain 12% of Damage as Extra Cold Damage",
+	implicit = "Martial Weapons: Adds 9 to 15 Cold Damage\nArmour: +14% to Cold Resistance\nCaster: Gain 10% of Damage as Extra Cold Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Storm Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Adds 1 to 30 Lightning Damage\nArmour: +14% to Lightning Resistance\nCaster: Gain 12% of Damage as Extra Lightning Damage",
+	implicit = "Martial Weapons: Adds 1 to 30 Lightning Damage\nArmour: +14% to Lightning Resistance\nCaster: Gain 10% of Damage as Extra Lightning Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Iron Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: 25% increased Physical Damage\nArmour: 25% increased Armour, Evasion and Energy Shield\nCaster: 30% increased Spell Damage",
+	implicit = "Martial Weapons: 18% increased Physical Damage\nArmour: 18% increased Armour, Evasion and Energy Shield\nCaster: 30% increased Spell Damage",
 	req = { level = 52, },
 }
 itemBases["Greater Body Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Leeches 3% of Physical Damage as Life\nArmour: +40 to maximum Life\nCaster: +35 to maximum Energy Shield",
 	req = { level = 57, },
 }
 itemBases["Greater Mind Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Leeches 2.5% of Physical Damage as Mana\nArmour: +35 to maximum Mana\nCaster: +35 to maximum Mana",
+	implicit = "Martial Weapons: Leeches 2.5% of Physical Damage as Mana\nArmour: +35 to maximum Mana\nCaster: +50 to maximum Mana",
 	req = { level = 57, },
 }
 itemBases["Greater Rebirth Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 30 Life per Enemy Killed\nArmour: Regenerate 0.35% of maximum Life per second\nCaster: 18% increased Energy Shield Recharge Rate",
 	req = { level = 62, },
 }
 itemBases["Greater Inspiration Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 24 Mana per Enemy Killed\nArmour: 18% increased Mana Regeneration Rate\nCaster: 24% increased Mana Regeneration Rate",
 	req = { level = 62, },
 }
 itemBases["Greater Stone Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Causes 30% increased Stun Buildup\nArmour: +50 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
+	implicit = "Martial Weapons: Causes 30% increased Stun Buildup\nArmour: +80 to Stun Threshold\nCaster: Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
 	req = { level = 59, },
 }
 itemBases["Greater Vision Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: +110 to Accuracy Rating\nArmour: 12% increased Life and Mana Recovery from Flasks\nCaster: 24% increased Critical Hit Chance for Spells",
 	req = { level = 59, },
 }
 itemBases["Lesser Robust Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +6 to Strength\nArmour: +6 to Strength\nCaster: +6 to Strength\nSceptre: +6 to Strength",
+	implicit = "Martial Weapons: +6 to Strength\nArmour: +6 to Strength\nCaster: +6 to Strength",
 	req = { level = 5, },
 }
 itemBases["Robust Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +8 to Strength\nArmour: +8 to Strength\nCaster: +8 to Strength\nSceptre: +8 to Strength",
+	implicit = "Martial Weapons: +8 to Strength\nArmour: +8 to Strength\nCaster: +8 to Strength",
 	req = { level = 31, },
 }
 itemBases["Greater Robust Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +10 to Strength\nArmour: +10 to Strength\nCaster: +10 to Strength\nSceptre: +10 to Strength",
+	implicit = "Martial Weapons: +10 to Strength\nArmour: +10 to Strength\nCaster: +10 to Strength",
 	req = { level = 52, },
 }
 itemBases["Lesser Adept Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +6 to Dexterity\nArmour: +6 to Dexterity\nCaster: +6 to Dexterity\nSceptre: +6 to Dexterity",
+	implicit = "Martial Weapons: +6 to Dexterity\nArmour: +6 to Dexterity\nCaster: +6 to Dexterity",
 	req = { level = 5, },
 }
 itemBases["Adept Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +8 to Dexterity\nArmour: +8 to Dexterity\nCaster: +8 to Dexterity\nSceptre: +8 to Dexterity",
+	implicit = "Martial Weapons: +8 to Dexterity\nArmour: +8 to Dexterity\nCaster: +8 to Dexterity",
 	req = { level = 31, },
 }
 itemBases["Greater Adept Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +10 to Dexterity\nArmour: +10 to Dexterity\nCaster: +10 to Dexterity\nSceptre: +10 to Dexterity",
+	implicit = "Martial Weapons: +10 to Dexterity\nArmour: +10 to Dexterity\nCaster: +10 to Dexterity",
 	req = { level = 52, },
 }
 itemBases["Lesser Resolve Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +6 to Intelligence\nArmour: +6 to Intelligence\nCaster: +6 to Intelligence\nSceptre: +6 to Intelligence",
+	implicit = "Martial Weapons: +6 to Intelligence\nArmour: +6 to Intelligence\nCaster: +6 to Intelligence",
 	req = { level = 5, },
 }
 itemBases["Resolve Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +8 to Intelligence\nArmour: +8 to Intelligence\nCaster: +8 to Intelligence\nSceptre: +8 to Intelligence",
+	implicit = "Martial Weapons: +8 to Intelligence\nArmour: +8 to Intelligence\nCaster: +8 to Intelligence",
 	req = { level = 31, },
 }
 itemBases["Greater Resolve Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +10 to Intelligence\nArmour: +10 to Intelligence\nCaster: +10 to Intelligence\nSceptre: +10 to Intelligence",
+	implicit = "Martial Weapons: +10 to Intelligence\nArmour: +10 to Intelligence\nCaster: +10 to Intelligence",
 	req = { level = 52, },
 }
 itemBases["Lesser Tempered Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_lesser = true, default = true, },
+	tags = { default = true, rune_lesser = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 3 to 4 Physical Damage\nArmour: 6 to 9 Physical Thorns damage",
 	req = { level = 5, },
 }
 itemBases["Tempered Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_normal = true, default = true, },
+	tags = { rune_normal = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 6 to 9 Physical Damage\nArmour: 14 to 21 Physical Thorns damage",
 	req = { level = 31, },
 }
 itemBases["Greater Tempered Rune"] = {
 	type = "Rune",
-	hidden = true,
-	tags = { rune_greater = true, default = true, },
+	tags = { rune_greater = true, default = true, rune = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 9 to 12 Physical Damage\nArmour: 31 to 52 Physical Thorns damage",
 	req = { level = 52, },
 }
 itemBases["Greater Rune of Leadership"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Minions gain 10% of their Physical Damage as Extra Lightning Damage\nArmour: Minions take 10% of Physical Damage as Lightning Damage",
 	req = { level = 65, },
 }
 itemBases["Greater Rune of Tithing"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Meta Skills gain 10% increased Energy\nArmour: 1 to 100 Lightning Thorns damage",
 	req = { level = 65, },
 }
 itemBases["Greater Rune of Alacrity"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 8% increased Skill Speed\nArmour: Debuffs on you expire 8% faster",
 	req = { level = 65, },
 }
 itemBases["Greater Rune of Nobility"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Attacks with this Weapon have 10% chance to inflict Lightning Exposure\nArmour: 10% reduced effect of Shock on you",
 	req = { level = 65, },
 }
 itemBases["Hedgewitch Assandra's Rune of Wisdom"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Caster: +1 to Level of all Spell Skills",
 	req = { level = 65, },
 }
 itemBases["Saqawal's Rune of the Sky"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: Gain 6% of Damage as Extra Damage of all Elements\nCaster: Gain 6% of Damage as Extra Damage of all Elements",
+	implicit = "Martial Weapons: Gain 5% of Damage as Extra Damage of all Elements\nCaster: Gain 5% of Damage as Extra Damage of all Elements",
 	req = { level = 65, },
 }
 itemBases["Fenumus' Rune of Agony"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Gain 13% of Damage as Extra Chaos Damage\nCaster: Gain 13% of Damage as Extra Chaos Damage",
 	req = { level = 65, },
 }
 itemBases["Farrul's Rune of Grace"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Boots: 6% reduced Movement Speed Penalty from using Skills while moving",
 	req = { level = 65, },
 }
 itemBases["Farrul's Rune of the Chase"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Boots: 5% increased Movement Speed",
 	req = { level = 65, },
 }
 itemBases["Craiceann's Rune of Warding"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: 40% reduced effect of Curses on you",
 	req = { level = 65, },
 }
 itemBases["Saqawal's Rune of Memory"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 2% increased Experience gain",
 	req = { level = 65, },
 }
 itemBases["Saqawal's Rune of Erosion"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 20% increased Exposure Effect",
 	req = { level = 65, },
 }
 itemBases["Farrul's Rune of the Hunt"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 50% increased Attack Damage against Rare or Unique Enemies",
 	req = { level = 65, },
 }
 itemBases["Craiceann's Rune of Recovery"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: 50% increased Energy Shield Recharge Rate",
 	req = { level = 65, },
 }
 itemBases["Courtesan Mannan's Rune of Cruelty"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 15% increased Magnitude of Damaging Ailments you inflict",
 	req = { level = 65, },
 }
 itemBases["Thane Grannell's Rune of Mastery"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 20% increased Magnitude of Non-Damaging Ailments you inflict",
 	req = { level = 65, },
 }
 itemBases["Fenumus' Rune of Spinning"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 8% increased Cast Speed",
 	req = { level = 65, },
 }
 itemBases["Countess Seske's Rune of Archery"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Bow: Bow Attacks fire an additional Arrow",
 	req = { level = 65, },
 }
 itemBases["Thane Girt's Rune of Wildness"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Caster: 25% chance for Spell Skills to fire 2 additional Projectiles",
 	req = { level = 65, },
 }
 itemBases["Fenumus' Rune of Draining"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Gloves: 20% increased Effect of Withered",
+	implicit = "Gloves: 20% increased Withered Magnitude",
 	req = { level = 65, },
 }
 itemBases["Thane Myrk's Rune of Summer"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 23 to 34 Fire Damage",
 	req = { level = 65, },
 }
 itemBases["Lady Hestra's Rune of Winter"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 19 to 28 Cold Damage",
 	req = { level = 65, },
 }
 itemBases["Thane Leld's Rune of Spring"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Adds 1 to 60 Lightning Damage",
 	req = { level = 65, },
 }
 itemBases["The Greatwolf's Rune of Claws"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: Adds 5 to 12 Physical Damage to Attacks",
 	req = { level = 65, },
 }
 itemBases["The Greatwolf's Rune of Willpower"] = {
 	type = "Rune",
-	tags = { default = true, },
+	tags = { rune = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: 10% of Damage is taken from Mana before Life",
 	req = { level = 65, },
@@ -757,126 +685,126 @@ itemBases["The Greatwolf's Rune of Willpower"] = {
 
 itemBases["Talisman of Sirrius"] = {
 	type = "Talisman",
-	tags = { vivid_talisman = true, default = true, },
+	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 8% increased Attack Speed",
 	req = { },
 }
 itemBases["Talisman of Thruldana"] = {
 	type = "Talisman",
-	tags = { primal_talisman = true, default = true, },
+	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 25% reduced Poison Duration\nTargets can be affected by +1 of your Poisons at the same time",
 	req = { },
 }
 itemBases["Talisman of Grold"] = {
 	type = "Talisman",
-	tags = { wild_talisman = true, default = true, },
+	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Gloves: Skills which Empower an Attack have 15% chance to not count that Attack",
+	implicit = "Gloves: 15% increased total Power counted by Warcries",
 	req = { },
 }
 itemBases["Talisman of Eeshta"] = {
 	type = "Talisman",
-	tags = { primal_talisman = true, default = true, },
+	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Helmet: 6% reduced Cost of Skills",
+	implicit = "Helmet: 10% increased Cost Efficiency",
 	req = { },
 }
 itemBases["Talisman of Egrin"] = {
 	type = "Talisman",
-	tags = { vivid_talisman = true, default = true, },
+	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: Enemies you Curse take 5% increased Damage",
 	req = { },
 }
 itemBases["Talisman of Maxarius"] = {
 	type = "Talisman",
-	tags = { vivid_talisman = true, default = true, },
+	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: +1 Charm Slot",
 	req = { },
 }
 itemBases["Talisman of Ralakesh"] = {
 	type = "Talisman",
-	tags = { primal_talisman = true, default = true, },
+	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Helmet: Minions have 5% reduced Reservation",
+	implicit = "Helmet: 6% increased Reservation Efficiency of Minion Skills",
 	req = { },
 }
 itemBases["Serpent Talisman"] = {
 	type = "Talisman",
-	tags = { primal_talisman = true, default = true, },
+	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 5% increased Curse Magnitudes",
 	req = { },
 }
 itemBases["Primate Talisman"] = {
 	type = "Talisman",
-	tags = { primal_talisman = true, default = true, },
+	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: Minions have 12% increased maximum Life",
 	req = { },
 }
 itemBases["Owl Talisman"] = {
 	type = "Talisman",
-	tags = { primal_talisman = true, default = true, },
+	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Boots: 5% increased Cooldown Recovery Rate",
+	implicit = "Focus: 10% increased Cooldown Recovery Rate",
 	req = { },
 }
 itemBases["Cat Talisman"] = {
 	type = "Talisman",
-	tags = { vivid_talisman = true, default = true, },
+	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Boots: Hits against you have 15% reduced Critical Damage Bonus",
+	implicit = "Gloves: 15% increased Accuracy Rating",
 	req = { },
 }
 itemBases["Wolf Talisman"] = {
 	type = "Talisman",
-	tags = { vivid_talisman = true, default = true, },
+	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 10% increased Magnitude of Bleeding you inflict",
 	req = { },
 }
 itemBases["Stag Talisman"] = {
 	type = "Talisman",
-	tags = { vivid_talisman = true, default = true, },
+	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Helmet: 8% increased Exposure Effect",
+	implicit = "Helmet: 50% increased Thorns Critical Hit Chance",
 	req = { },
 }
 itemBases["Boar Talisman"] = {
 	type = "Talisman",
-	tags = { wild_talisman = true, default = true, },
+	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: Gain 1 Rage on Melee Hit",
 	req = { },
 }
 itemBases["Bear Talisman"] = {
 	type = "Talisman",
-	tags = { wild_talisman = true, default = true, },
+	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 8% increased Area of Effect",
 	req = { },
 }
 itemBases["Ox Talisman"] = {
 	type = "Talisman",
-	tags = { wild_talisman = true, default = true, },
+	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Boots: 20% increased Presence Area of Effect",
+	implicit = "Shield: 10% increased Block chance",
 	req = { },
 }
 itemBases["Rabbit Talisman"] = {
 	type = "Talisman",
-	tags = { sacred_talisman = true, default = true, },
+	tags = { sacred_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: 8% increased Rarity of Items found",
 	req = { },
 }
 itemBases["Fox Talisman"] = {
 	type = "Talisman",
-	tags = { sacred_talisman = true, default = true, },
+	tags = { sacred_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: +2% to Quality of all Skills",
 	req = { },
