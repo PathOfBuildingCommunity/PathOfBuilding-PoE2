@@ -182,6 +182,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/ItemClasses.dat",
 		"Data/SkillTotemVariations.dat",
 		"Data/Essences.dat",
+		"Data/EssenceMods.dat",
+		"Data/EssenceTargetItemCategories.dat",
 		"Data/EssenceType.dat",
 		"Data/Characters.dat",
 		"Data/BuffDefinitions.dat",

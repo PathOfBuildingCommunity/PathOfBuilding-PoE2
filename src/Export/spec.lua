@@ -6362,6 +6362,50 @@ return {
 	},
 	environmenttransitions={
 	},
+	essencemods={
+		[1]={
+			list=false,
+			name="Essence",
+			refTo="Essences",
+			type="Key",
+			width=390
+		},
+		[2]={
+			list=false,
+			name="Type",
+			refTo="EssenceTargetItemCategories",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="CraftedMod",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="ShortKey",
+			width=150
+		}
+	},
 	essences={
 		[1]={
 			list=false,
@@ -6378,90 +6422,76 @@ return {
 			width=100
 		},
 		[3]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[4]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[5]={
 			list=true,
 			name="MonsterMod1",
 			refTo="Mods",
 			type="Key",
 			width=250
 		},
-		[6]={
+		[4]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
 			width=70
 		},
-		[7]={
+		[5]={
 			list=false,
 			name="MonsterMod2",
 			refTo="Mods",
 			type="Key",
 			width=260
 		},
-		[8]={
+		[6]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
 			width=80
 		},
-		[9]={
+		[7]={
 			list=false,
 			name="ModTag",
 			refTo="Tags",
 			type="Key",
-			width=70
+			width=240
 		},
-		[10]={
+		[8]={
 			list=false,
 			name="GreaterVariant",
 			refTo="Essences",
 			type="ShortKey",
 			width=250
 		},
-		[11]={
+		[9]={
 			list=false,
 			name="EssenceTier",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[12]={
+		[10]={
 			list=false,
 			name="MapMod",
 			refTo="Stats",
 			type="Key",
 			width=250
 		},
-		[13]={
+		[11]={
 			list=false,
 			name="CraftedMod",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
-		[14]={
+		[12]={
 			list=true,
 			name="ItemClasses",
 			refTo="ItemClasses",
 			type="Key",
 			width=150
 		},
-		[15]={
+		[13]={
 			list=false,
 			name="",
 			refTo="",
@@ -6470,6 +6500,43 @@ return {
 		}
 	},
 	essencestashtablayout={
+	},
+	essencetargetitemcategories={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		}
 	},
 	essencetype={
 		[1]={
