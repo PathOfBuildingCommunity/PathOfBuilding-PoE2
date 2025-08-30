@@ -2210,6 +2210,13 @@ local specialModList = {
 	},
 	["spend life instead of mana for effects of skills"] = { },
 	["skills cost %+(%d+) rage"] = function(num) return { mod("RageCostBase", "BASE", num) } end,
+	-- Cost efficiency: invert sign so increased efficiency reduces cost
+	["(%d+)%% increased mana cost efficiency"] = function(num) return { mod("ManaCost", "INC", -num) } end,
+	["(%d+)%% reduced mana cost efficiency"] = function(num) return { mod("ManaCost", "INC", num) } end,
+	["(%d+)%% increased cost efficiency of attacks"] = function(num) return { mod("Cost", "INC", -num, nil, ModFlag.Attack) } end,
+	["(%d+)%% increased mana cost efficiency of attacks"] = function(num) return { mod("ManaCost", "INC", -num, nil, ModFlag.Attack) } end,
+	["(%d+)%% increased mana cost efficiency of marks"] = function(num) return { mod("ManaCost", "INC", -num, { type = "SkillType", skillType = SkillType.Mark }) } end,
+	["(%d+)%% increased mana cost efficiency of spells"] = function(num) return { mod("ManaCost", "INC", -num, nil, ModFlag.Spell) } end,
 	["non%-aura vaal skills require (%d+)%% reduced souls per use during effect"] = function(num) return { mod("SoulCost", "INC", -num, { type = "Condition", var = "UsingFlask" }, { type = "SkillType", skillType = SkillType.Aura, neg = true }, { type = "SkillType", skillType = SkillType.Vaal }) } end,
 	["non%-aura vaal skills require (%d+)%% reduced souls per use"] = function(num) return { mod("SoulCost", "INC", -num, { type = "SkillType", skillType = SkillType.Aura, neg = true }, { type = "SkillType", skillType = SkillType.Vaal }) } end,
 	["vaal skills used during effect have (%d+)%% reduced soul gain prevention duration"] = function(num) return { mod("SoulGainPreventionDuration", "INC", -num, { type = "Condition", var = "UsingFlask" }, { type = "SkillType", skillType = SkillType.Vaal }) } end,
