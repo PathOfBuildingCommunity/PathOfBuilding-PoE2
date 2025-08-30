@@ -2588,10 +2588,10 @@ end
 function ItemsTabClass:SetTooltipHeaderInfluence(tooltip, item)
 	tooltip.influenceHeader1 = nil
 	tooltip.influenceHeader2 = nil
-
-	if item.fractured then
-		tooltip.influenceHeader1 = "Fractured"
-	end
+	-- Fractured items don't have the icon now, they did on trade before 0.3. Maybe they will return.
+	--if item.fractured then
+	--	tooltip.influenceHeader1 = "Fractured"
+	--end
 	if item.desecrated then
 		if not tooltip.influenceHeader1 then
 			tooltip.influenceHeader1 = "Desecrated"

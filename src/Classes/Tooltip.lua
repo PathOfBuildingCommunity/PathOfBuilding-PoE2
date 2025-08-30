@@ -267,7 +267,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	end
 	local headerInfluence = {
 		Fractured = "Assets/FracturedItemSymbol.png",
-		Desecrated = "Assets/DesecratedItemSymbol.png", -- Temporary image, need to pull from files when update releases
+		Desecrated = "Assets/VeiledItemSymbol.png",
 	}
 	local headerConfigs = {
 		RELIC = {left="Assets/ItemsHeaderFoilLeft.png",middle="Assets/ItemsHeaderFoilMiddle.png",right="Assets/ItemsHeaderFoilRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
