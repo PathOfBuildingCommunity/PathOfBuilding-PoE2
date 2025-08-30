@@ -18,7 +18,7 @@ itemBases["Pict Claw"] = {
 	tags = { onehand = true, ezomyte_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 4, PhysicalMax = 16, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
-	req = { level = 6, dex = 16, },
+	req = { level = 6, dex = 14, },
 }
 itemBases["Wolfbone Claw"] = {
 	type = "Claw",
@@ -28,7 +28,7 @@ itemBases["Wolfbone Claw"] = {
 	implicit = "Grants 8 Life per Enemy Hit",
 	implicitModTypes = { { "resource", "life", "attack" }, },
 	weapon = { PhysicalMin = 7, PhysicalMax = 23, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 12, dex = 29, },
+	req = { level = 12, dex = 24, },
 }
 itemBases["Forked Claw"] = {
 	type = "Claw",
@@ -37,7 +37,7 @@ itemBases["Forked Claw"] = {
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 10, PhysicalMax = 26, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 16, dex = 38, },
+	req = { level = 16, dex = 31, },
 }
 itemBases["Plated Claw"] = {
 	type = "Claw",
@@ -46,7 +46,7 @@ itemBases["Plated Claw"] = {
 	tags = { maraketh_basetype = true, onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 13, PhysicalMax = 31, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 22, dex = 52, },
+	req = { level = 22, dex = 41, },
 }
 itemBases["Edged Claw"] = {
 	type = "Claw",
@@ -56,7 +56,7 @@ itemBases["Edged Claw"] = {
 	implicit = "(15-25)% chance to Blind Enemies on hit",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 11, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
-	req = { level = 28, dex = 65, },
+	req = { level = 28, dex = 52, },
 }
 itemBases["Arced Claw"] = {
 	type = "Claw",
@@ -65,7 +65,7 @@ itemBases["Arced Claw"] = {
 	tags = { onehand = true, vaal_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 46, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
-	req = { level = 33, dex = 76, },
+	req = { level = 33, dex = 60, },
 }
 itemBases["Hooked Claw"] = {
 	type = "Claw",
@@ -74,7 +74,7 @@ itemBases["Hooked Claw"] = {
 	tags = { onehand = true, vaal_basetype = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 16, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 36, dex = 83, },
+	req = { level = 36, dex = 65, },
 }
 itemBases["Razorglass Claw"] = {
 	type = "Claw",
@@ -83,7 +83,7 @@ itemBases["Razorglass Claw"] = {
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 54, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 45, dex = 104, },
+	req = { level = 45, dex = 80, },
 }
 itemBases["Sharktooth Claw"] = {
 	type = "Claw",
@@ -92,7 +92,7 @@ itemBases["Sharktooth Claw"] = {
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 25, PhysicalMax = 52, CritChanceBase = 5, AttackRateBase = 1.7, Range = 11, },
-	req = { level = 49, dex = 112, },
+	req = { level = 49, dex = 87, },
 }
 itemBases["Armoured Claw"] = {
 	type = "Claw",
@@ -101,7 +101,7 @@ itemBases["Armoured Claw"] = {
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 63, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 52, dex = 119, },
+	req = { level = 52, dex = 92, },
 }
 itemBases["Piercing Claw"] = {
 	type = "Claw",
@@ -110,7 +110,7 @@ itemBases["Piercing Claw"] = {
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 68, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 55, dex = 126, },
+	req = { level = 55, dex = 97, },
 }
 itemBases["Talon Claw"] = {
 	type = "Claw",
@@ -119,5 +119,5 @@ itemBases["Talon Claw"] = {
 	tags = { onehand = true, default = true, weapon = true, one_hand_weapon = true, claw = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
-	req = { level = 65, dex = 148, },
+	req = { level = 65, dex = 114, },
 }

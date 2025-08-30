@@ -703,12 +703,12 @@ function PassiveSpecClass:AllocNode(node, altPath)
 	-- Allocate all nodes along the path
 	if #node.intuitiveLeapLikesAffecting > 0 then
 		node.alloc = true
-		node.allocMode = node.ascendancyName and 0 or self.allocMode
+		node.allocMode = (node.ascendancyName or node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket) and 0 or self.allocMode
 		self.allocNodes[node.id] = node
 	else
 		for _, pathNode in ipairs(altPath or node.path) do
 			pathNode.alloc = true
-			pathNode.allocMode = node.ascendancyName and 0 or self.allocMode
+			pathNode.allocMode = (node.ascendancyName or pathNode.type == "Keystone" or pathNode.type == "Socket" or pathNode.containJewelSocket) and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
 			if pathNode.isAttribute then 
 				self:SwitchAttributeNode(pathNode.id, self.attributeIndex or 1)
@@ -2065,11 +2065,13 @@ function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusInde
 end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
-	local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-	if not newNode.isAttribute then return end -- safety check
-	
-	local option = newNode.options[attributeIndex]
-	self:ReplaceNode(newNode, option)
-	
-	self.hashOverrides[nodeId] = newNode
+	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
+		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+		if not newNode.isAttribute then return end -- safety check
+		
+		local option = newNode.options[attributeIndex]
+		self:ReplaceNode(newNode, option)
+		
+		self.hashOverrides[nodeId] = newNode
+	end
 end

@@ -110,6 +110,15 @@ itemBases["Golden Charm"] = {
 	charm = { duration = 1, chargesUsed = 80, chargesMax = 80, buff = { "15% increased Rarity of Items found" }, },
 	req = { level = 50, },
 }
+itemBases["Cleansing Charm"] = {
+	type = "Charm",
+	quality = 20,
+	tags = { flask = true, utility_flask = true, default = true, },
+	implicit = "Used when you become Cursed",
+	implicitModTypes = { {  }, },
+	charm = { duration = 3, chargesUsed = 20, chargesMax = 40, buff = { "" }, },
+	req = { level = 40, },
+}
 
 itemBases["Lesser Life Flask"] = {
 	type = "Flask",

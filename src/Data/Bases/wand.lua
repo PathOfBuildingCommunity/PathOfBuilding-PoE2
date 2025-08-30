@@ -115,15 +115,7 @@ itemBases["Dueling Wand"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { default = true, onehand = true, wand = true, },
-	implicit = "Grants Skill: Level (1-20) Chaos Bolt",
-	implicitModTypes = { },
-	req = { },
-}
-itemBases["Random Wand"] = {
-	type = "Wand",
-	hidden = true,
-	socketLimit = 3,
-	tags = { wand = true, default = true, },
+	implicit = "Grants Skill: Level (1-20) Spellslinger",
 	implicitModTypes = { },
 	req = { },
 }

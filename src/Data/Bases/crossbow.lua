@@ -28,7 +28,7 @@ itemBases["Sturdy Crossbow"] = {
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 11, PhysicalMax = 26, CritChanceBase = 5, AttackRateBase = 1.55, Range = 120, ReloadTimeBase = 0.75, },
-	req = { level = 10, str = 15, dex = 15, },
+	req = { level = 10, str = 13, dex = 13, },
 }
 itemBases["Varnished Crossbow"] = {
 	type = "Crossbow",
@@ -37,7 +37,7 @@ itemBases["Varnished Crossbow"] = {
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 36, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
-	req = { level = 16, str = 22, dex = 22, },
+	req = { level = 16, str = 19, dex = 19, },
 }
 itemBases["Dyad Crossbow"] = {
 	type = "Crossbow",
@@ -47,7 +47,7 @@ itemBases["Dyad Crossbow"] = {
 	implicit = "Loads an additional bolt",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 9, PhysicalMax = 37, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 1.1, },
-	req = { level = 20, str = 27, dex = 27, },
+	req = { level = 20, str = 22, dex = 22, },
 }
 itemBases["Alloy Crossbow"] = {
 	type = "Crossbow",
@@ -56,7 +56,7 @@ itemBases["Alloy Crossbow"] = {
 	tags = { two_hand_weapon = true, maraketh_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 50, CritChanceBase = 5, AttackRateBase = 1.7, Range = 120, ReloadTimeBase = 0.7, },
-	req = { level = 26, str = 34, dex = 34, },
+	req = { level = 26, str = 28, dex = 28, },
 }
 itemBases["Bombard Crossbow"] = {
 	type = "Crossbow",
@@ -66,7 +66,7 @@ itemBases["Bombard Crossbow"] = {
 	implicit = "Grenade Skills Fire an additional Projectile",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 14, PhysicalMax = 56, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.75, },
-	req = { level = 33, str = 43, dex = 43, },
+	req = { level = 33, str = 34, dex = 34, },
 }
 itemBases["Construct Crossbow"] = {
 	type = "Crossbow",
@@ -75,26 +75,26 @@ itemBases["Construct Crossbow"] = {
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 18, PhysicalMax = 72, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
-	req = { level = 38, str = 49, dex = 49, },
+	req = { level = 38, str = 39, dex = 39, },
 }
 itemBases["Blackfire Crossbow"] = {
 	type = "Crossbow",
 	quality = 20,
 	socketLimit = 4,
-	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
+	tags = { two_hand_weapon = true, karui_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 20, PhysicalMax = 80, CritChanceBase = 7, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
-	req = { level = 45, str = 57, dex = 57, },
+	weapon = { PhysicalMin = 20, PhysicalMax = 82, CritChanceBase = 7, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
+	req = { level = 46, str = 46, dex = 46, },
 }
 itemBases["Piercing Crossbow"] = {
 	type = "Crossbow",
 	quality = 20,
 	socketLimit = 4,
-	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
+	tags = { two_hand_weapon = true, karui_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "(20-30)% chance to Pierce an Enemy",
 	implicitModTypes = { {  }, },
-	weapon = { PhysicalMin = 20, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.85, },
-	req = { level = 48, str = 61, dex = 61, },
+	weapon = { PhysicalMin = 21, PhysicalMax = 84, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.85, },
+	req = { level = 50, str = 49, dex = 49, },
 }
 itemBases["Cumbrous Crossbow"] = {
 	type = "Crossbow",
@@ -104,7 +104,7 @@ itemBases["Cumbrous Crossbow"] = {
 	implicit = "+1 to maximum number of Summoned Ballista Totems",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 19, PhysicalMax = 76, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.9, },
-	req = { level = 52, str = 66, dex = 66, },
+	req = { level = 52, str = 51, dex = 51, },
 }
 itemBases["Dedalian Crossbow"] = {
 	type = "Crossbow",
@@ -113,7 +113,7 @@ itemBases["Dedalian Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 25, PhysicalMax = 99, CritChanceBase = 7, AttackRateBase = 1.55, Range = 120, ReloadTimeBase = 0.85, },
-	req = { level = 56, str = 71, dex = 71, },
+	req = { level = 56, str = 55, dex = 55, },
 }
 itemBases["Esoteric Crossbow"] = {
 	type = "Crossbow",
@@ -122,7 +122,7 @@ itemBases["Esoteric Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
-	req = { level = 65, str = 81, dex = 81, },
+	req = { level = 65, str = 63, dex = 63, },
 }
 itemBases["Taut Crossbow"] = {
 	type = "Crossbow",
@@ -132,7 +132,7 @@ itemBases["Taut Crossbow"] = {
 	implicit = "(20-30)% increased Bolt Speed",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 20, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
-	req = { level = 45, str = 57, dex = 57, },
+	req = { level = 45, str = 45, dex = 45, },
 }
 itemBases["Robust Crossbow"] = {
 	type = "Crossbow",
@@ -141,7 +141,7 @@ itemBases["Robust Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 22, PhysicalMax = 89, CritChanceBase = 5, AttackRateBase = 1.55, Range = 120, ReloadTimeBase = 0.75, },
-	req = { level = 48, str = 61, dex = 61, },
+	req = { level = 48, str = 48, dex = 48, },
 }
 itemBases["Painted Crossbow"] = {
 	type = "Crossbow",
@@ -150,7 +150,7 @@ itemBases["Painted Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 92, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
-	req = { level = 51, str = 65, dex = 65, },
+	req = { level = 51, str = 50, dex = 50, },
 }
 itemBases["Twin Crossbow"] = {
 	type = "Crossbow",
@@ -159,8 +159,8 @@ itemBases["Twin Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicit = "Loads an additional bolt",
 	implicitModTypes = { { "attack" }, },
-	weapon = { PhysicalMin = 21, PhysicalMax = 83, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 1.1, },
-	req = { level = 55, str = 69, dex = 69, },
+	weapon = { PhysicalMin = 20, PhysicalMax = 82, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 1.1, },
+	req = { level = 54, str = 53, dex = 53, },
 }
 itemBases["Cannonade Crossbow"] = {
 	type = "Crossbow",
@@ -170,7 +170,7 @@ itemBases["Cannonade Crossbow"] = {
 	implicit = "Grenade Skills Fire an additional Projectile",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 23, PhysicalMax = 90, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.75, },
-	req = { level = 59, str = 74, dex = 74, },
+	req = { level = 59, str = 58, dex = 58, },
 }
 itemBases["Bleak Crossbow"] = {
 	type = "Crossbow",
@@ -179,7 +179,7 @@ itemBases["Bleak Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 109, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
-	req = { level = 62, str = 78, dex = 78, },
+	req = { level = 62, str = 60, dex = 60, },
 }
 itemBases["Stout Crossbow"] = {
 	type = "Crossbow",
@@ -188,7 +188,7 @@ itemBases["Stout Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 30, PhysicalMax = 119, CritChanceBase = 5, AttackRateBase = 1.55, Range = 120, ReloadTimeBase = 0.75, },
-	req = { level = 67, str = 95, dex = 95, },
+	req = { level = 67, str = 74, dex = 74, },
 }
 itemBases["Engraved Crossbow"] = {
 	type = "Crossbow",
@@ -197,7 +197,7 @@ itemBases["Engraved Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 31, PhysicalMax = 124, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
-	req = { level = 72, str = 106, dex = 106, },
+	req = { level = 72, str = 82, dex = 82, },
 }
 itemBases["Flexed Crossbow"] = {
 	type = "Crossbow",
@@ -207,7 +207,7 @@ itemBases["Flexed Crossbow"] = {
 	implicit = "(20-30)% increased Bolt Speed",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 32, PhysicalMax = 127, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
-	req = { level = 77, str = 116, dex = 116, },
+	req = { level = 77, str = 89, dex = 89, },
 }
 itemBases["Gemini Crossbow"] = {
 	type = "Crossbow",
@@ -217,7 +217,7 @@ itemBases["Gemini Crossbow"] = {
 	implicit = "Loads an additional bolt",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 28, PhysicalMax = 112, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 1.1, },
-	req = { level = 78, str = 116, dex = 116, },
+	req = { level = 78, str = 89, dex = 89, },
 }
 itemBases["Siege Crossbow"] = {
 	type = "Crossbow",
@@ -227,7 +227,7 @@ itemBases["Siege Crossbow"] = {
 	implicit = "Grenade Skills Fire an additional Projectile",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 29, PhysicalMax = 115, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.75, },
-	req = { level = 79, str = 116, dex = 116, },
+	req = { level = 79, str = 89, dex = 89, },
 }
 itemBases["Desolate Crossbow"] = {
 	type = "Crossbow",
@@ -236,5 +236,15 @@ itemBases["Desolate Crossbow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 33, PhysicalMax = 132, CritChanceBase = 5, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.8, },
-	req = { level = 77, str = 116, dex = 116, },
+	req = { level = 77, str = 89, dex = 89, },
+}
+itemBases["Elegant Crossbow"] = {
+	type = "Crossbow",
+	quality = 20,
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, karui_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
+	implicit = "(20-30)% chance to Pierce an Enemy",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 31, PhysicalMax = 123, CritChanceBase = 5, AttackRateBase = 1.65, Range = 120, ReloadTimeBase = 0.85, },
+	req = { level = 78, str = 89, dex = 89, },
 }

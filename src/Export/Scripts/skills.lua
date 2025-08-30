@@ -1,228 +1,8 @@
-local skillTypes = {
-	"Attack",
-	"Spell",
-	"Projectile",
-	"DualWieldOnly",
-	"Buff",
-	"Minion",
-	"Damage",
-	"Area",
-	"Duration",
-	"RequiresShield",
-	"ProjectileSpeed",
-	"HasReservation",
-	"ReservationBecomesCost",
-	"Trappable",
-	"Totemable",
-	"Mineable",
-	"ElementalStatus",
-	"MinionsCanExplode",
-	"Chains",
-	"Melee",
-	"MeleeSingleTarget",
-	"Multicastable",
-	"TotemCastsAlone",
-	"CausesBurning",
-	"SummonsTotem",
-	"TotemCastsWhenNotDetached",
-	"Physical",
-	"Fire",
-	"Cold",
-	"Lightning",
-	"Triggerable",
-	"Triggers",
-	"Trapped",
-	"Movement",
-	"DamageOverTime",
-	"RemoteMined",
-	"Triggered",
-	"Vaal",
-	"Aura",
-	"CanTargetUnusableCorpse",
-	"RangedAttack",
-	"Chaos",
-	"FixedSpeedProjectile",
-	"ThresholdJewelArea",
-	"ThresholdJewelProjectile",
-	"ThresholdJewelDuration",
-	"ThresholdJewelRangedAttack",
-	"Channel",
-	"DegenOnlySpellDamage",
-	"InbuiltTrigger",
-	"Golem",
-	"Herald",
-	"AuraAffectsEnemies",
-	"NoRuthless",
-	"ThresholdJewelSpellDamage",
-	"Cascadable",
-	"ProjectilesFromUser",
-	"MirageArcherCanUse",
-	"ProjectileSpiral",
-	"SingleMainProjectile",
-	"MinionsPersistWhenSkillRemoved",
-	"ProjectileNumber",
-	"Warcry",
-	"Instant",
-	"Brand",
-	"TargetsDestructibleCorpses",
-	"NonHitChill",
-	"ChillingArea",
-	"AppliesCurse",
-	"CanRapidFire",
-	"AuraDuration",
-	"AreaSpell",
-	"OR",
-	"AND",
-	"NOT",
-	"AppliesMaim",
-	"CreatesMinion",
-	"Guard",
-	"Travel",
-	"Blink",
-	"CanHaveBlessing",
-	"ProjectilesNotFromUser",
-	"AttackInPlaceIsDefault",
-	"Nova",
-	"InstantNoRepeatWhenHeld",
-	"InstantShiftAttackForLeftMouse",
-	"AuraNotOnCaster",
-	"Banner",
-	"Rain",
-	"Cooldown",
-	"ThresholdJewelChaining",
-	"Slam",
-	"Stance",
-	"NonRepeatable",
-	"UsedByTotem",
-	"Steel",
-	"Hex",
-	"Mark",
-	"Aegis",
-	"Orb",
-	"KillNoDamageModifiers",
-	"RandomElement",
-	"LateConsumeCooldown",
-	"Arcane",
-	"FixedCastTime",
-	"RequiresOffHandNotWeapon",
-	"Link",
-	"Blessing",
-	"ZeroReservation",
-	"DynamicCooldown",
-	"Microtransaction",
-	"OwnerCannotUse",
-	"ProjectilesNumberModifiersNotApplied",
-	"TotemsAreBallistae",
-	"SkillGrantedBySupport",
-	"CrossbowSkill",
-	"CrossbowAmmoSkill",
-	"UseGlobalStats",
-	"ModifiesNextSkill",
-	"OngoingSkill",
-	"UsableWhileShapeshifted",
-	"Meta",
-	"Bear",
-	"Wolf",
-	"Invokable",
-	"CreatesSkeletonMinion",
-	"CreatesUndeadMinion",
-	"CreatesDemonMinion",
-	"CommandsMinions",
-	"ReservesManually",
-	"ConsumesCharges",
-	"ManualCooldownConsumption",
-	"SupportedByHourglass",
-	"ConsumesFullyBrokenArmour",
-	"SkillConsumesFreeze",
-	"SkillConsumesIgnite",
-	"SkillConsumesShock",
-	"Wall",
-	"Persistent",
-	"UsableWhileMoving",
-	"CanBecomeArrowRain",
-	"MultipleReservation",
-	"SupportedByElementalDischarge",
-	"Limit",
-	"Singular",
-	"GeneratesCharges",
-	"EmpowersOtherSkill",
-	"PerformsFinalStrike",
-	"PerfectTiming",
-	"CanHaveMultipleOngoingSkillInstances",
-	"Sustained",
-	"ComboStacking",
-	"SupportedByComboFinisher",
-	"Offering",
-	"Retaliation",
-	"Shapeshift",
-	"Invocation",
-	"Grenade",
-	"NoDualWield",
-	"QuarterstaffSkill",
-	"SupportedByFountains",
-	"Jumping",
-	"CannotChain",
-	"CreatesGroundRune",
-	"CreatesFissure",
-	"SummonsAttackTotem",
-	"NonWeaponAttack",
-	"CreatesGroundEffect",
-	"SupportedByComboMastery",
-	"IceCrystal",
-	"SkillConsumesPowerChargesOnUse",
-	"SkillConsumesFrenzyChargesOnUse",
-	"SkillConsumesEnduranceChargesOnUse",
-	"SupportedByFerocity",
-	"SupportedByPotential",
-	"ProjectileNoCollision",
-	"SupportedByExcise",
-	"SupportedByExpanse",
-	"SupportedByExecrate",
-	"IsBlasphemy",
-	"PersistentShowsCastTime",
-	"GeneratesEnergy",
-	"GeneratesRemnants",
-	"CommandableMinion",
-	"Bow",
-	"AffectsPresence",
-	"GainsStages",
-	"HasSeals",
-	"SupportedByUnleash",
-	"SupportedBySalvo",
-	"Spear",
-	"GroundTargetedProjectile",
-	"SupportedByFusillade",
-	"HasUsageCondition",
-	"SupportedByMobileAssault",
-	"RequiresBuckler",
-	"UsableWhileMounted",
-	"Companion",
-	"ConsumesInstillment",
-	"CanCancelActions",
-	"SupportedByUnmoving",
-	"SupportedByCleanse",
-	"Hazard",
-	"SupportedByRally",
-	"SupportedByFlamepierce",
-	"SupportedByStormchain",
-	"SupportedByFreezefork",
-	"Palm",
-	"CannotSpiritStrike",
-	"SkillConsumesBleeding",
-	"SkillConsumesPoison",
-	"TargetsDestructibleRareCorpses",
-	"SupportedByAncestralAid",
-	"MinionsAreUndamagable",
-	"GeneratesInfusion",
-	"SkillConsumesParried",
-	"DetonatesAfterTime",
-	"NoAttackOrCastTime",
-	"CreatesCompanion",
-	"CannotTerrainChain",
-	"SupportedByTumult",
-	"RequiresCharges",
-	"CannotConsumeCharges",
-}
+local skillTypeMap = { }
+for row in dat("ActiveSkillType"):Rows() do
+	table.insert(skillTypeMap, row.Id)
+end
+
 
 -- This is here to fix name collisions like in the case of Barrage
 local fullNameGems = {
@@ -230,7 +10,7 @@ local fullNameGems = {
 }
 
 local function mapAST(ast)
-	return "SkillType."..(skillTypes[ast._rowIndex] or ("Unknown"..ast._rowIndex))
+	return "SkillType."..(skillTypeMap[ast._rowIndex] or ("Unknown"..ast._rowIndex))
 end
 
 local weaponClassMap = {
@@ -652,6 +432,7 @@ directiveTable.set = function(state, args, out)
 	set.mods = { }
 	set.levels = { }
 	set.stats = { }
+	set.CannotGrantToMinion = { }
 	set.constantStats = { }
 	set.removeStats = { }
 	for k, v in pairs(grantedEffectStatSet.RemoveStats) do
@@ -720,6 +501,9 @@ directiveTable.set = function(state, args, out)
 				table.insert(set.stats, { id = stat.Id })
 				if indx == 1 then
 					table.insert(statMapOrder, stat.Id)
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				else
 					print(label .. ": stat missing from earlier levels: ".. stat.Id)
 				end
@@ -753,6 +537,9 @@ directiveTable.set = function(state, args, out)
 					table.insert(set.stats, { id = stat.Id })
 					if indx == 1 then
 						table.insert(statMapOrder, stat.Id)
+						if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+							table.insert(set.CannotGrantToMinion, stat.Id)
+						end
 					else
 						print(label .. ": stat missing from earlier levels: ".. stat.Id)
 					end
@@ -784,6 +571,9 @@ directiveTable.set = function(state, args, out)
 				table.insert(set.stats, { id = stat.Id })
 				if indx == 1 then
 					table.insert(statMapOrder, stat.Id)
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				else
 					print(label .. ": stat missing from earlier levels: ".. stat.Id)
 				end
@@ -814,6 +604,9 @@ directiveTable.set = function(state, args, out)
 				if not statMap[stat.Id] then
 					statMap[stat.Id] = #set.stats + 1
 					table.insert(set.stats, { id = stat.Id })
+					if stat.CannotGrantToMinion and not isValueInTable(set.CannotGrantToMinion, stat.Id) then
+						table.insert(set.CannotGrantToMinion, stat.Id)
+					end
 				end
 			end
 		end
@@ -947,6 +740,13 @@ directiveTable.mods = function(state, args, out)
 			out:write('\t\t\t\t"', stat.id, '",\n')
 		end
 		out:write('\t\t\t},\n')
+		if next(set.CannotGrantToMinion) then
+			out:write('\t\t\tnotMinionStat = {\n')
+			for _, stat in ipairs(set.CannotGrantToMinion) do
+				out:write('\t\t\t\t"', stat, '",\n')
+			end
+			out:write('\t\t\t},\n')
+		end
 	end
 	if not args:match("noLevels") then
 		out:write('\t\t\tlevels = {\n')

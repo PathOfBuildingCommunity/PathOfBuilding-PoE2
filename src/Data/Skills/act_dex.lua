@@ -662,6 +662,10 @@ skills["BloodhoundsMarkExplosionPlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"cannot_cause_bleeding",
 			},
+			notMinionStat = {
+				"main_hand_weapon_minimum_physical_damage",
+				"main_hand_weapon_maximum_physical_damage",
+			},
 			levels = {
 				[1] = { 7, 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 12, 18, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -5053,6 +5057,9 @@ skills["PoisonBurstArrowPlayer"] = {
 				"display_skill_poisons_without_hit",
 				"poison_duration_is_skill_duration",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 15, 3000, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 15, 3100, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -7840,6 +7847,9 @@ skills["TameBeastPlayer"] = {
 				"quality_display_base_skill_effect_duration_is_gem",
 				"display_tame_beast_mod_limit",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 8000, statInterpolation = { 1, }, actorLevel = 1, },
 				[2] = { 8200, statInterpolation = { 1, }, actorLevel = 3.4519999027252, },
@@ -8173,6 +8183,9 @@ skills["TornadoShotPlayer"] = {
 				"projectile_damage_modifiers_apply_to_skill_dot",
 				"display_statset_no_hit_damage",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 259, 5, -60, 15000, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
@@ -8548,6 +8561,10 @@ skills["TriggeredTrailOfCaltropsPlayer"] = {
 				"caltrops_only_spawn_laterally",
 				"projectiles_not_offset",
 				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"main_hand_weapon_minimum_physical_damage",
+				"main_hand_weapon_maximum_physical_damage",
 			},
 			levels = {
 				[1] = { 6, 9, statInterpolation = { 1, 1, }, actorLevel = 1, },

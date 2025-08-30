@@ -94,6 +94,10 @@ skills["ArcPlayer"] = {
 				"arc_chain_explode_shocked_enemies",
 				"never_shock",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 3, 17, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 4, 23, 5, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -175,6 +179,10 @@ skills["ArcPlayer"] = {
 				"never_shock",
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 0, 0, 2, 10, 0, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 1, },
@@ -539,6 +547,10 @@ skills["BallLightningPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 				"quality_display_active_skill_base_area_of_effect_radius_is_gem",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 1, 3, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -1342,6 +1354,10 @@ skills["BoneBlastPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 6, 9, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 8, 12, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -1470,6 +1486,10 @@ skills["BoneCagePlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_all_damage_can_pin",
 				"quality_display_active_skill_pins_as_though_dealt_damage_+%_final_is_gem",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 10, 15, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -1722,6 +1742,10 @@ skills["BonestormPlayer"] = {
 				"projectiles_fire_at_ground",
 				"cast_speed_modifiers_apply_to_over_time_cost",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
 				[1] = { 4, 7, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 6, 9, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -1805,6 +1829,10 @@ skills["BonestormPlayer"] = {
 				"cast_speed_modifiers_apply_to_over_time_cost",
 				"display_statset_hide_usage_stats",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 0, 0, 3, 5, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
@@ -3270,6 +3298,10 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
 			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
 			levels = {
 				[1] = { 5, 9, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 7, 14, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -3762,6 +3794,10 @@ skills["ColdSnapPlayer"] = {
 				"is_area_damage",
 				"never_freeze",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 22, 34, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 31, 46, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -3881,6 +3917,10 @@ skills["CometPlayer"] = {
 				"spell_maximum_base_cold_damage",
 				"is_area_damage",
 				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 22, 33, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -4007,6 +4047,9 @@ skills["ConductivityPlayer"] = {
 				"base_skill_buff_lightning_damage_resistance_%_to_apply",
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6000, 15, -23, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -4301,6 +4344,9 @@ skills["ConvalescencePlayer"] = {
 				"can_perform_skill_while_moving",
 				"quality_display_base_skill_effect_duration_is_gem",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 3000, statInterpolation = { 1, }, actorLevel = 1, },
 				[2] = { 3050, statInterpolation = { 1, }, actorLevel = 3.4519999027252, },
@@ -4546,6 +4592,10 @@ skills["DarkEffigyProjectilePlayer"] = {
 				"base_skill_is_totemified",
 				"is_area_damage",
 			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
 			levels = {
 				[1] = { 2, 4, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 3, 6, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -4744,6 +4794,10 @@ skills["CorpseCloudPlayer"] = {
 				"can_perform_skill_while_moving",
 				"quality_display_base_skill_effect_duration_is_gem",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 11, 17, critChance = 8, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 15, 23, critChance = 8, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -4869,6 +4923,9 @@ skills["DespairPlayer"] = {
 				"base_skill_buff_chaos_damage_resistance_%_to_apply",
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6000, 15, -18, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -4996,6 +5053,10 @@ skills["DetonateDeadPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 				"quality_display_active_skill_base_area_of_effect_radius_is_gem",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 19, 28, 50, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -5577,6 +5638,10 @@ skills["BlazingClusterPlayer"] = {
 				"projectile_uses_contact_position",
 				"quality_display_ember_fusilade_is_gem",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 7, 10, 6, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 9, 13, 6, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -5647,6 +5712,10 @@ skills["BlazingClusterPlayer"] = {
 				"projectile_uses_contact_position",
 				"quality_display_ember_fusilade_is_gem",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 7, 10, 6, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -5778,6 +5847,9 @@ skills["EnfeeblePlayer"] = {
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 6000, 15, -20, -10, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 6200, 16, -20, -10, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -5904,6 +5976,10 @@ skills["EssenceDrainPlayer"] = {
 				"should_use_additive_aiming_animation",
 				"quality_display_base_skill_effect_duration_is_gem",
 			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
 			levels = {
 				[1] = { 5, 9, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 6, 12, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -5982,6 +6058,10 @@ skills["EssenceDrainPlayer"] = {
 				"quality_display_base_skill_effect_duration_is_gem",
 				"spell_damage_modifiers_apply_to_skill_dot",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
 			},
 			levels = {
 				[1] = { 0, 0, 550, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -6105,6 +6185,10 @@ skills["EyeOfWinterPlayer"] = {
 				"base_is_projectile",
 				"single_primary_projectile",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 1, 1, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -6299,6 +6383,9 @@ skills["FallingThunderPlayer"] = {
 				"zero_projectiles_if_no_power_charges",
 				"display_statset_hide_usage_stats",
 			},
+			notMinionStat = {
+				"is_area_damage",
+			},
 			levels = {
 				[1] = { -1, statInterpolation = { 1, }, actorLevel = 1, },
 			},
@@ -6383,6 +6470,10 @@ skills["FireballPlayer"] = {
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 8, 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 10, 16, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -6451,6 +6542,10 @@ skills["FireballPlayer"] = {
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 8, 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -6524,6 +6619,10 @@ skills["FireballPlayer"] = {
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
 				"modifiers_to_projectile_count_do_not_apply",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0, 0, 5, 7, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
@@ -6651,6 +6750,10 @@ skills["FireboltPlayer"] = {
 				"projectile_uses_contact_direction",
 				"should_use_additive_aiming_animation",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 7, 10, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 11, 16, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -6722,6 +6825,10 @@ skills["FireboltPlayer"] = {
 				"should_use_additive_aiming_animation",
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 7, 10, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -6853,6 +6960,10 @@ skills["FirestormPlayer"] = {
 				"never_ignite",
 				"quality_display_active_skill_base_area_of_effect_radius_is_gem",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 3, 5, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 5, 7, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -6923,6 +7034,10 @@ skills["FirestormPlayer"] = {
 				"never_ignite",
 				"quality_display_active_skill_base_area_of_effect_radius_is_gem",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0, 0, 18, 27, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
@@ -7054,6 +7169,11 @@ skills["FlameWallPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 9, 14, 50, 4500, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 13, 19, 51, 4600, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -7123,6 +7243,11 @@ skills["FlameWallPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 0, 0, 2, 3, 50, 0, statInterpolation = { 1, 1, 1, 1, 1, 1, }, actorLevel = 1, },
@@ -7252,6 +7377,10 @@ skills["FlameblastPlayer"] = {
 				"cast_speed_modifiers_apply_to_over_time_cost",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 7, 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 10, 15, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -7377,6 +7506,9 @@ skills["FlammabilityPlayer"] = {
 				"base_skill_buff_fire_damage_resistance_%_to_apply",
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6000, 15, -23, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -7856,6 +7988,10 @@ skills["FreezingShardsPlayer"] = {
 				"projectile_uses_contact_direction",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 2, 3, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 3, 4, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -7990,6 +8126,10 @@ skills["FrostBombPlayer"] = {
 				"cannot_cancel_skill_before_contact_point",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 16, 23, 0, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 21, 32, 0, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -8117,6 +8257,10 @@ skills["FrostWallPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 7, 11, 28, 36, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 10, 14, 28, 64, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -8242,6 +8386,9 @@ skills["HypothermiaPlayer"] = {
 				"base_skill_buff_cold_damage_resistance_%_to_apply",
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6000, 15, -23, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -8370,6 +8517,10 @@ skills["FrostboltPlayer"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 5, 8, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 7, 11, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -8440,6 +8591,10 @@ skills["FrostboltPlayer"] = {
 				"maintain_projectile_direction_when_using_contact_position",
 				"can_perform_skill_while_moving",
 				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0, 0, 8, 12, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
@@ -8857,6 +9012,10 @@ skills["GalvanicFieldPlayer"] = {
 				"skill_can_add_multiple_charges_per_action",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 1, 2, 700, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 1, 3, 700, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -9253,6 +9412,9 @@ skills["GhostDancePlayer"] = {
 				"ghost_dance_max_stacks",
 				"base_deal_no_damage",
 				"quality_display_ghost_dance_is_gem",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 4000, 3, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -10104,6 +10266,10 @@ skills["HexblastPlayer"] = {
 				"can_perform_skill_while_moving",
 				"show_curse_hexblastable",
 			},
+			notMinionStat = {
+				"spell_minimum_base_chaos_damage",
+				"spell_maximum_base_chaos_damage",
+			},
 			levels = {
 				[1] = { 21, 39, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 29, 54, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -10231,6 +10397,10 @@ skills["IceNovaPlayer"] = {
 				"global_knockback",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
 			levels = {
 				[1] = { 5, 7, 100, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 6, 9, 103, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -10300,6 +10470,10 @@ skills["IceNovaPlayer"] = {
 				"is_area_damage",
 				"global_knockback",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, 100, statInterpolation = { 3, 3, 1, }, actorLevel = 1, },
@@ -10579,6 +10753,10 @@ skills["IncineratePlayer"] = {
 				"cast_speed_modifiers_apply_to_over_time_cost",
 				"base_skill_show_average_damage_instead_of_dps",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 10, 15, 4, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 13, 20, 4, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -10656,6 +10834,10 @@ skills["IncineratePlayer"] = {
 				"cast_speed_modifiers_apply_to_over_time_cost",
 				"base_skill_show_average_damage_instead_of_dps",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 10, 15, 4, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -10907,6 +11089,10 @@ skills["LightningBoltPlayer"] = {
 				"is_area_damage",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 1, 17, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 1, 23, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -11031,6 +11217,10 @@ skills["LightningConduitPlayer"] = {
 				"lightning_conduit_x_additional_strikes_if_consumed_a_shock",
 				"never_shock",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 4, 11, 1, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 5, 14, 1, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -11154,6 +11344,10 @@ skills["LightningWarpPlayer"] = {
 				"is_area_damage",
 				"active_skill_show_cull_range",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
 			},
 			levels = {
 				[1] = { 2, 30, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -11499,6 +11693,10 @@ skills["LivingBombPlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"is_area_damage",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 10, 15, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -12228,6 +12426,10 @@ skills["OrbOfStormsPlayer"] = {
 				"disable_visual_hit_effect",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 2, 6, 10, 3500, 3, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 3, 9, 11, 3450, 3, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -12481,6 +12683,10 @@ skills["PowerSiphonPlayer"] = {
 				"active_skill_show_cull_range",
 				"can_perform_skill_while_moving",
 				"spells_have_culling_strike",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 3, 6, 0, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -13924,6 +14130,10 @@ skills["ShockNovaPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_lightning_damage_can_electrocute",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 3, 8, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 3, 10, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -14055,6 +14265,9 @@ skills["SigilOfPowerPlayer"] = {
 				"base_skill_effect_duration",
 				"display_sigil_of_power_stage_gain_delay",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 10, 10000, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -15330,6 +15543,10 @@ skills["SolarOrbPlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 4, 6, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 6, 9, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -15397,6 +15614,10 @@ skills["SolarOrbPlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"can_perform_skill_while_moving",
 				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 4, 6, 13, 20, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
@@ -15650,6 +15871,10 @@ skills["SparkPlayer"] = {
 				"check_for_targets_between_initiator_and_projectile_source",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
 			levels = {
 				[1] = { 1, 8, 4, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 1, 11, 4, statInterpolation = { 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -15897,6 +16122,9 @@ skills["StaggeringPalmPlayer"] = {
 				"is_area_damage",
 				"active_skill_show_crush_range",
 				"crushing_blow",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6, 9, 6000, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -16907,6 +17135,9 @@ skills["TemporalChainsPlayer"] = {
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
 			levels = {
 				[1] = { 6000, 15, -22, -25, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
 				[2] = { 6200, 16, -22, -25, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
@@ -17035,6 +17266,10 @@ skills["UnearthPlayer"] = {
 				"base_number_of_skeletal_constructs_allowed",
 				"can_perform_skill_while_moving",
 				"quality_display_base_skill_effect_duration_is_gem",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 			},
 			levels = {
 				[1] = { 4, 6, 8, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -17400,6 +17635,10 @@ skills["VolatileDeadPlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"can_perform_skill_while_moving",
 			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
 			levels = {
 				[1] = { 12, 17, statInterpolation = { 1, 1, }, actorLevel = 1, },
 				[2] = { 16, 24, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
@@ -17524,6 +17763,9 @@ skills["VulnerabilityPlayer"] = {
 				"base_skill_buff_total_armour_-_to_grant",
 				"base_deal_no_damage",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
 			},
 			levels = {
 				[1] = { 6000, 15, 8, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -18009,6 +18251,9 @@ skills["WitherPlayer"] = {
 			stats = {
 				"active_skill_withered_base_duration_ms",
 				"can_perform_skill_while_moving",
+			},
+			notMinionStat = {
+				"active_skill_withered_base_duration_ms",
 			},
 			levels = {
 				[1] = { 2000, statInterpolation = { 1, }, actorLevel = 1, },
