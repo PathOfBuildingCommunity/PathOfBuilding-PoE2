@@ -6583,11 +6583,11 @@ return {
 			width=100
 		},
 		[3]={
-			list=true,
-			name="MonsterMod1",
-			refTo="Mods",
-			type="Key",
-			width=250
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=80
 		},
 		[4]={
 			list=false,
@@ -6597,67 +6597,81 @@ return {
 			width=70
 		},
 		[5]={
+			list=true,
+			name="MonsterMod1",
+			refTo="Mods",
+			type="Key",
+			width=250
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=70
+		},
+		[7]={
 			list=false,
 			name="MonsterMod2",
 			refTo="Mods",
 			type="Key",
 			width=260
 		},
-		[6]={
+		[8]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
 			width=80
 		},
-		[7]={
+		[9]={
 			list=false,
 			name="ModTag",
 			refTo="Tags",
 			type="Key",
-			width=240
+			width=90
 		},
-		[8]={
+		[10]={
 			list=false,
 			name="GreaterVariant",
 			refTo="Essences",
 			type="ShortKey",
 			width=250
 		},
-		[9]={
+		[11]={
 			list=false,
 			name="EssenceTier",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[10]={
+		[12]={
 			list=false,
 			name="MapMod",
 			refTo="Stats",
 			type="Key",
 			width=250
 		},
-		[11]={
+		[13]={
 			list=false,
 			name="CraftedMod",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
-		[12]={
+		[14]={
 			list=true,
 			name="ItemClasses",
 			refTo="ItemClasses",
 			type="Key",
-			width=150
+			width=240
 		},
-		[13]={
+		[15]={
 			list=false,
 			name="",
 			refTo="",
 			type="Int",
-			width=40
+			width=130
 		}
 	},
 	essencestashtablayout={

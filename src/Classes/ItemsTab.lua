@@ -2511,11 +2511,32 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 				return modA.level > modB.level
 			end)
+		elseif sourceId == "ESSENCE" then
+			for _, essence in pairs(self.build.data.essences) do
+				local modId = essence.mods[self.displayItem.type]
+				local mod = self.displayItem.affixes[modId]
+				t_insert(modList, {
+					label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. mod.type .. ")",
+					mod = mod,
+					type = "custom",
+					essence = essence,
+				})
+			end
+			-- table.sort(modList, function(a, b)
+			-- 	if a.essence.type ~= b.essence.type then
+			-- 		return a.essence.type > b.essence.type
+			-- 	else
+			-- 		return a.essence.tier > b.essence.tier
+			-- 	end
+			-- end)
 		end
 	end
 	if not self.displayItem.crafted then
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
 		t_insert(sourceList, { label = "Suffix", sourceId = "SUFFIX" })
+	end
+	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" then
+		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
