@@ -1386,7 +1386,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			-- Hollow Palm Technique
 			if (not env.player.itemList["Weapon 1"]) and env.modDB.mods.Keystone then
 				for _, keystone in ipairs(env.modDB.mods.Keystone) do
-					if keystone.value == "Eternal Youth" then -- TODO Update to correct Keystone value "Hollow Palm Technique"
+					if keystone.value == "Hollow Palm Technique" then
 						env.player.weaponData2 = copyTable(env.data.unarmedWeaponData[env.classId])
 						for i = 1, 2 do
 							env.player["weaponData" .. tostring(i)].asThoughUsing = env.player["weaponData" .. tostring(i)].asThoughUsing or { }
