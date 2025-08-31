@@ -383,7 +383,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.corrupted = true
 		elseif line == "Fractured Item" then
 			self.fractured = true
-		elseif line == "Desecrated Item" then
+		elseif line == "Desecrated Item" or line == "Desecrated Prefix" or line == "Desecrated Suffix" then
 			self.desecrated = true
 		elseif line == "Requirements:" then
 			-- nothing to do
