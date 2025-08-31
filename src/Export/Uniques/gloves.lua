@@ -330,6 +330,17 @@ UniqueIncreasedAttackSpeed1
 {variant:1}UniqueBaseChanceToPoison2[5,10]
 {variant:2}UniqueBaseChanceToPoison2
 UniqueAllDamageCanPoison1
+]],[[
+Thunderfist
+Utility Wraps
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Crackling Palm
+UniqueLocalIncreasedEvasionAndEnergyShield19
+UniqueIncreasedAttackSpeed13
+UniqueLightningResist29
+AddedLightningDamageWhileUnarmedUniqueGloves_1
+BaseUnarmedCriticalStrikeChanceUnique__2
 ]],
 -- Gloves: Armour/Evasion/Energy Shield
 [[

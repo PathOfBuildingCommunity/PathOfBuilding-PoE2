@@ -331,6 +331,17 @@ Variant: Current
 {variant:1}(5-10)% chance to Poison on Hit
 {variant:2}(20-30)% chance to Poison on Hit
 All Damage from Hits Contributes to Poison Magnitude
+]],[[
+Thunderfist
+Utility Wraps
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Crackling Palm
+(1-111)% increased Evasion and Energy Shield
+(1-11)% increased Attack Speed
++(1-33)% to Lightning Resistance
+Adds 1 to (77-111) Lightning Damage to Unarmed Melee Hits
++(0.1-1.1)% to Unarmed Melee Attack Critical Hit Chance
 ]],
 -- Gloves: Armour/Evasion/Energy Shield
 [[
