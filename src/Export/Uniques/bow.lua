@@ -25,6 +25,19 @@ UniqueDexterity4
 UniqueManaRegeneration3
 UniqueLocalPhysicalDamageAddedAsEachElement1
 ]],[[
+Fairgraves' Curse
+Artillery Bow
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Phantasmal Arrow
+BowImplicitProjectileAttackRange1
+UniqueLocalAddedFireDamage5
+UniqueIgniteChanceIncrease4
+UniqueIgniteEffect3
+UniqueLifeRecoveryRate2
+UniqueFlatPhysicalDamageTaken1
+GhostflameOnHitUnique__1
+]],[[
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt
