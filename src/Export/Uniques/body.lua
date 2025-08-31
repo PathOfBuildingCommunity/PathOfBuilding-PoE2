@@ -543,6 +543,18 @@ UniqueDexterity2
 UniqueReducedBleedDuration1
 UniqueBleedsAlwaysAggravated1
 ]],[[
+Cospri's Will
+Assassin Garb
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Withering Presence
+BodyArmourImplicitMovementVelocity1
+UniqueLocalIncreasedEvasionAndEnergyShield18
+UniqueChaosResist32
+UniqueCursesNeverExpire1
+UniqueIgnoreHexproof1
+UniqueWitherNeverExpires1
+]],[[
 The Dancing Mirage
 Wayfarer Jacket
 Variant: Pre 0.1.1

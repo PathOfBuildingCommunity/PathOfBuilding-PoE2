@@ -551,6 +551,18 @@ Hermit Garb
 Bleeding you inflict is Aggravated
 (40-60)% reduced Duration of Bleeding on You
 ]],[[
+Cospri's Will
+Assassin Garb
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Withering Presence
+5% increased Movement Speed
+(150-200)% increased Evasion and Energy Shield
++(23-29)% to Chaos Resistance
+Curses you inflict have infinite Duration
+Curses you inflict can affect Hexproof Enemies
+Withered you inflict has infinite Duration
+]],[[
 The Dancing Mirage
 Wayfarer Jacket
 Variant: Pre 0.1.1
