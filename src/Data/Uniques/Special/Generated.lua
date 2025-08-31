@@ -130,3 +130,41 @@ do
 	table.insert(megalomaniac, "Corrupted")
     table.insert(data.uniques.generated, table.concat(megalomaniac, "\n"))
 end
+
+do
+	local kulemakMods = { }
+	for modName, mod in pairs(uniqueMods) do
+		local name = modName:match("^PassageUnique(.+)$")
+		if name then
+			table.insert(kulemakMods, { 
+				mod = mod, 
+				name = name
+					:gsub("([a-z])([A-Z])", "%1 %2")
+					:gsub("(%d+)([A-Za-z])", " %1 %2") -- separate numbers from letters after
+					:gsub("([A-Za-z])(%d+)", "%1 %2") -- separate letters from numbers before
+			})
+		end
+	end
+	table.sort(kulemakMods, function(a, b) return a.name < b.name end)
+	local kulemak = {
+		"Grip of Kulemak",
+		"Abyssal Signet",
+		"Has Alt Variant: true",
+		"Has Alt Variant Two: true",
+		"Has Alt Variant Three: true",
+	}
+	for _, mod in ipairs(kulemakMods) do
+		table.insert(kulemak, "Variant: " .. mod.name)
+	end
+	local variantCount = #kulemak
+	table.insert(kulemak, "Selected Variant: 1")
+	table.insert(kulemak, "Selected Alt Variant: 2")
+	table.insert(kulemak, "Selected Alt Variant Two: 3")
+	table.insert(kulemak, "Selected Alt Variant Three: 4")
+	table.insert(kulemak, "Implicits: 1")
+	table.insert(kulemak, "Inflict Abyssal Wasting on Hit")
+	for index, mod in ipairs(kulemakMods) do
+		table.insert(kulemak, "{variant:" .. index .. "}" .. mod.mod[1])
+	end
+	table.insert(data.uniques.generated, table.concat(kulemak, "\n"))
+end
