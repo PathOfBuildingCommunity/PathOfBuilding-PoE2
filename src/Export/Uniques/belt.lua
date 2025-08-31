@@ -48,6 +48,23 @@ UniqueDexterity3
 UniqueBeltFlaskRecoveryRate1
 UniqueLowLifeThreshold1
 ]],[[
+Darkness Enthroned
+Fine Belt
+Variant: Helmet
+Variant: Body Armour
+Variant: Gloves
+Variant: Boots
+Variant: Shield
+Implicits: 2
+BeltImplicitCharmSlots3
+BeltImplicitFlaskPassiveChargeGain1
+{variant:1}LocalItemBenefitSocketableAsIfHelmetUnique__1
+{variant:2}LocalItemBenefitSocketableAsIfBodyArmourUnique__1
+{variant:3}LocalItemBenefitSocketableAsIfGlovesUnique__1
+{variant:4}LocalItemBenefitSocketableAsIfBootsUnique__1
+{variant:5}LocalItemBenefitSocketableAsIfShieldUnique__1
+LocalSocketItemsEffectUnique__1
+]],[[
 The Gnashing Sash
 Wide Belt
 League: Dawn of the Hunt

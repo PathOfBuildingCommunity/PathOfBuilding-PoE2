@@ -48,6 +48,23 @@ Has (1-3) Charm Slot
 (30-40)% increased Life and Mana Recovery from Flasks
 You are considered on Low Life while at 75% of maximum Life or below instead
 ]],[[
+Darkness Enthroned
+Fine Belt
+Variant: Helmet
+Variant: Body Armour
+Variant: Gloves
+Variant: Boots
+Variant: Shield
+Implicits: 2
+Has (1-3) Charm Slot
+Flasks gain 0.17 charges per Second
+{variant:2}This item gains bonuses from Socketed Items as though it was a Body Armour
+{variant:4}This item gains bonuses from Socketed Items as though it was Boots
+{variant:3}This item gains bonuses from Socketed Items as though it was Gloves
+{variant:1}This item gains bonuses from Socketed Items as though it was a Helmet
+{variant:5}This item gains bonuses from Socketed Items as though it was a Shield
+(50-100)% increased effect of Socketed Items
+]],[[
 The Gnashing Sash
 Wide Belt
 League: Dawn of the Hunt
