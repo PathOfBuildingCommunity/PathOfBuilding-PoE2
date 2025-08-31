@@ -102,7 +102,6 @@ UniqueMovementVelocity6
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
 UniqueStunThreshold9
 UniqueCanBlockAllDamage1
-Can Block damage from all Hits
 ]],[[
 Window to Paradise
 Barricade Tower Shield

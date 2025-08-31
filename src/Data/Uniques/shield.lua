@@ -102,7 +102,6 @@ Grants Skill: Raise Shield
 (100-150)% increased Armour
 +(100-150) to Stun Threshold
 UniqueCanBlockAllDamage1
-Can Block damage from all Hits
 ]],[[
 Window to Paradise
 Barricade Tower Shield
