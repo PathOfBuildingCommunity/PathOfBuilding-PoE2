@@ -69,12 +69,12 @@ local function writeMods(outName, condFunc)
 				out:write('level = ', mod.Level, ', group = "', mod.Type.Id, '", ')
 				out:write('weightKey = { ')
 				local GoldModPrices = dat("GoldModPrices"):GetRow("Id", dat("Mods"):GetRow("Id", mod.Id))
-				if GoldModPrices and not mod.Id:match("Corruption") and not mod.Id:match("Jewel") and not mod.Id:match("Essence") then
+				if GoldModPrices and not mod.Id:match("Corruption") and not mod.Id:match("Jewel") and not mod.Id:match("Essence") and not mod.Id:match("AbyssMod") then
 					local count = 0
 					for _, tag in ipairs(GoldModPrices.SpawnTags) do
 						out:write('"', tag.Id, '", ')
 						count = count + 1
-					end
+					end	
 					-- no spawn tags exist for flask/charm mods
 					if count == 0 then 
 						-- flasks/charms
@@ -254,6 +254,8 @@ writeMods("../Data/ModItemExclusive.lua", function(mod) -- contains primarily un
 	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1])
 	and not mod.Id:match("^Synthesis") and not mod.Id:match("Royale") and not mod.Id:match("Cowards") and not mod.Id:match("Map") and not mod.Id:match("Ultimatum") and not mod.Id:match("SpecialCorruption")
 end)
-
+writeMods("../Data/ModVeiled.lua", function(mod)
+	return mod.Domain == 28 and (mod.GenerationType == 1 or mod.GenerationType == 2) and not mod.Id:match("Map")
+end)
 
 print("Mods exported.")
