@@ -296,13 +296,15 @@ Allies in your Presence have Block Chance equal to yours
 Alkem Eira
 Blazon Crest Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-(30-40)% increased Block chance
+{variant:1,2}(30-40)% increased Block chance
+{variant:3}(10-15)% increased Block chance
 (30-50)% increased Armour and Energy Shield
 {variant:1}+(15-30) to maximum Mana
-{variant:2}+(50-70) to maximum Mana
+{variant:2,3}+(50-70) to maximum Mana
 Damage Blocked is Recouped as Mana
 ]],[[
 Crest of Ardura

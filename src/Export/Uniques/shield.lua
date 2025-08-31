@@ -270,13 +270,15 @@ UniqueBlockChanceToAllies1
 Alkem Eira
 Blazon Crest Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance1
+{variant:1,2}UniqueLocalBlockChance1[30,40]
+{variant:3}UniqueLocalBlockChance1
 UniqueLocalIncreasedArmourAndEnergyShield2
 {variant:1}UniqueIncreasedMana4[15,30]
-{variant:2}UniqueIncreasedMana4
+{variant:2,3}UniqueIncreasedMana4
 UniqueDamageBlockedRecoupedAsMana1
 ]],[[
 Crest of Ardura
