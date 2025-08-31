@@ -73,13 +73,17 @@ Recover 4% of maximum Life when you Block
 ]],[[
 Svalinn
 Crucible Tower Shield
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
-(100-150)% increased Armour
--(20-10)% to maximum Block chance
-Block chance is Lucky
+{variant:1}(100-150)% increased Armour
+{variant:2}(150-200)% increased Armour
+{variant:1}-(20-10)% to maximum Block chance
+Chance to Block Damage is Lucky
+{variant:2}You take (15-20)% of damage from Blocked Hits
 ]],[[
 The Wailing Wall
 Effigial Tower Shield

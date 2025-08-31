@@ -73,12 +73,16 @@ UniqueRecoverLifePercentOnBlock1
 ]],[[
 Svalinn
 Crucible Tower Shield
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
-UniqueMaximumBlockChance2
+{variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[100,150]
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
+{variant:1}UniqueMaximumBlockChance2
+{variant:2}UniqueBaseBlockDamageTaken3
 UniqueLuckyBlockChance1
 ]],[[
 The Wailing Wall
