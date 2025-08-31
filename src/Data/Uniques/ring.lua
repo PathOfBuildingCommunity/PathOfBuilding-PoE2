@@ -16,9 +16,9 @@ Amethyst Ring
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {tags:mana}(15-30)% increased Mana Regeneration Rate
+50% increased Ignite Magnitude
 {tags:fire}50% reduced Ignite Duration on Enemies
 {tags:fire}Enemies Ignited by you take Chaos Damage instead of Fire Damage from Ignite
-50% increased Magnitude of Ignite you inflict
 ]],[[
 Blackheart
 Iron Ring

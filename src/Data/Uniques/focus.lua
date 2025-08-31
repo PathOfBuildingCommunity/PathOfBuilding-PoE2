@@ -31,12 +31,15 @@ Twig Focus
 ]],[[
 Effigy of Cruelty
 Antler Focus
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 +(20-30) to maximum Energy Shield
 (60-80)% increased Spell Damage
 +10 to Intelligence
 +(7-13)% to Chaos Resistance
-Critical Hits with Spells apply (3-5) Stacks of Critical Weakness
+{variant:1}Critical Hits with Spells apply (3-5) Stacks of Critical Weakness
+{variant:2}Critical Hits with Spells apply (1-3) Stack of Critical Weakness
 ]],[[
 The Eternal Spark
 Crystal Focus

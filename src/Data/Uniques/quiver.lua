@@ -33,7 +33,7 @@ Implicits: 1
 Adds 3 to 5 Fire damage to Attacks
 {variant:2}Adds (3-5) to (6-9) Fire damage to Attacks
 +(30-50) to maximum Mana
-50% increased chance to Ignite
+50% increased Flammability Magnitude
 Projectiles Pierce all Ignited enemies
 Attacks Gain (5-10)% of Damage as Extra Fire Damage
 ]],[[
@@ -56,20 +56,23 @@ Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal a
 Murkshaft
 Toxic Quiver
 League: Dawn of the Hunt
-Implicits: 1
+Implicits: 2
 Grants Skill: Level (1-20) Bursting Fen Toad
+(20-30)% chance to Poison on Hit with Attacks
 Adds (6-10) to (13-17) Physical Damage to Attacks
 Gain (10-15) Mana per Enemy Killed
 (10-20)% increased Poison Duration
-(10-15)% chance to Poison on Hit with Attacks
 (20-30)% chance to Poison on Hit with Attacks
 Blind Targets when you Poison them
 ]],[[
 Rearguard
 Blunt Quiver
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-(20-30)% reduced Enemy Stun Threshold
+Implicits: 2
+{variant:1}(20-30)% increased Stun Buildup
+{variant:2}(25-40)% increased Stun Buildup
 Adds (7-11) to (14-20) Physical Damage to Attacks
 +(150-200) to Armour
 (20-30)% increased Projectile Speed

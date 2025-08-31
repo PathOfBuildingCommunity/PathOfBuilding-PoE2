@@ -359,7 +359,7 @@ Variant: Current
 {variant:1}+(40-60) to maximum Life
 {variant:2}+100 to maximum Life
 (35-50)% reduced Effect of Chill on you
-(35-50)% reduced effect of Ignite on you
+(35-50)% reduced Magnitude of Ignite on you
 (35-50)% reduced effect of Shock on you
 ]],[[
 Cornathaum
@@ -473,8 +473,8 @@ The Three Dragons
 Solid Mask
 (40-60)% increased Evasion and Energy Shield
 +(10-20)% to all Elemental Resistances
-Fire Damage from Hits Contributes to Shock Chance instead of Ignite Chance and Magnitude
-Cold Damage from Hits Contributes to Ignite Chance and Magnitude instead of Chill Magnitude or Freeze Buildup
+Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes
+Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup
 Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance
 ]],[[
 The Vertex
@@ -493,6 +493,6 @@ Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 25% increased Light Radius
 (100-150)% increased Armour, Evasion and Energy Shield
 Equipment and Skill Gems have 25% increased Attribute Requirements
-You can use each type of Support Gem an additional time in different Skills
+You can Socket an additional copy of each Lineage Support Gem, in different Skills
 ]],
 }

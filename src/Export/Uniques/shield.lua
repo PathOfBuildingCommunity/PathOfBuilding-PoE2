@@ -74,7 +74,7 @@ The Surrender
 Stone Tower Shield
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance5
+UniqueLocalBlockChance7
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent20
 UniqueStunThreshold12
 UniqueRecoverLifePercentOnBlock1
@@ -102,7 +102,7 @@ UniqueMovementVelocity6
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
 UniqueStunThreshold9
 UniqueCanBlockAllDamage1
-UniqueDisableShieldSkills1
+Can Block damage from all Hits
 ]],[[
 Window to Paradise
 Barricade Tower Shield
@@ -238,7 +238,7 @@ Variant: Pre 0.1.1
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-{variant:1}UniqueLocalBlockChance5
+{variant:1}UniqueLocalBlockChance8
 UniqueLocalIncreasedArmourAndEvasion2
 {variant:2}UniqueIncreasedLife43
 {variant:2}UniqueIncreasedMana36

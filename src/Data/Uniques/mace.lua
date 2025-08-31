@@ -65,9 +65,12 @@ the enemy's Power for 6 seconds, up to a total of 500
 ]],[[
 Sculpted Suffering
 Warpick
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-+(10-15)% to Critical Damage Bonus
+Implicits: 2
+{variant:1}+(10-15)% to Critical Damage Bonus
+{variant:2}+(5-10)% to Critical Damage Bonus
 Adds (21-26) to (25-31) Physical Damage
 (10-15)% increased Attack Speed
 Breaks Armour equal to 40% of damage from Hits with this weapon

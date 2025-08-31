@@ -101,8 +101,8 @@ Grants Skill: Raise Shield
 10% reduced Movement Speed
 (100-150)% increased Armour
 +(100-150) to Stun Threshold
+UniqueCanBlockAllDamage1
 Can Block damage from all Hits
-Cannot use Shield Skills
 ]],[[
 Window to Paradise
 Barricade Tower Shield
@@ -112,8 +112,8 @@ Grants Skill: Raise Shield
 (60-120)% increased Armour
 +(60-100) to maximum Mana
 +(10-15)% to all Elemental Resistances
-Apply Elemental Exposure to Enemies 3 metres in front of you
-for 4 seconds while Shield is raised
+Inflict Elemental Exposure to Enemies 3 metres in front of you
+for 4 seconds, every 0.25 seconds while raised
 ]],[[
 Wulfsbane
 Painted Tower Shield
@@ -148,7 +148,7 @@ Grants Skill: Parry
 (60-100)% increased Evasion Rating
 +(60-100) to maximum Mana
 +(10-20) to Intelligence
-Infinite Projectile Parry Range
+Infinite Parry Range
 50% increased Parried Debuff Duration
 ]],[[
 Dunkelhalt
@@ -381,7 +381,7 @@ Grants Skill: Raise Shield
 +(15-25)% to Fire Resistance
 +(15-25)% to Cold Resistance
 +(15-25)% to Lightning Resistance
-You cannot Block
+Cannot Block
 Modifiers to Maximum Block Chance instead apply to Maximum Resistances
 ]],
 -- Shield: Evasion/Energy Shield

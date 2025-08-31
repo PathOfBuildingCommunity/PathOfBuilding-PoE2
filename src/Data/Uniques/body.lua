@@ -223,9 +223,9 @@ League: Dawn of the Hunt
 (100-150)% increased Evasion Rating
 +(80-120) to maximum Life
 +(10-30) to Spirit
-(40-60)% reduced Bleeding Duration on you
 (40-60)% reduced Poison Duration on you
 You can have two Companions of different types
+(40-60)% reduced Duration of Bleeding on You
 ]],
 
 -- Body: Energy Shield
@@ -392,7 +392,7 @@ Doryani's Prototype
 Scale Mail
 (50-100)% increased Armour and Evasion
 +(60-80) to maximum Life
-Armour also applies to Lightning damage taken from Hits
++100% of Armour also applies to Lightning Damage
 Enemies in your Presence have Lightning Resistance equal to yours
 Lightning Resistance does not affect Lightning damage taken
 ]],[[
@@ -461,8 +461,8 @@ Couture of Crimson
 Gilded Vestments
 (50-100)% increased Armour and Energy Shield
 25% reduced maximum Life
-(40-60)% reduced Bleeding Duration on you
 Life Leech can Overflow Maximum Life
+(40-60)% reduced Duration of Bleeding on You
 ]],[[
 Enfolding Dawn
 Pilgrim Vestments
@@ -496,9 +496,9 @@ League: Dawn of the Hunt
 (100-150)% increased Armour and Energy Shield
 (50-100)% increased Energy Shield Recharge Rate
 (25-35) Life Regeneration per second
-(30-50)% reduced Bleeding Duration on you
 (30-50)% reduced Ignite Duration on you
 Defend against Hits as though you had 1% more Armour per 1% current Energy Shield
+(30-50)% reduced Duration of Bleeding on You
 ]],[[
 Sacrosanctum
 Corvus Mantle
@@ -548,8 +548,8 @@ Apron of Emiran
 Hermit Garb
 (30-50)% increased Evasion and Energy Shield
 +(10-20) to Dexterity
-(40-60)% reduced Bleeding Duration on you
 Bleeding you inflict is Aggravated
+(40-60)% reduced Duration of Bleeding on You
 ]],[[
 The Dancing Mirage
 Wayfarer Jacket

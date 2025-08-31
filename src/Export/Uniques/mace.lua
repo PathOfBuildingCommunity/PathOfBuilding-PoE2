@@ -64,9 +64,12 @@ UniqueMaximumLightningDamagePerPower1
 ]],[[
 Sculpted Suffering
 Warpick
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-MaceImplicitCriticalMultiplier1
+Implicits: 2
+{variant:1}MaceImplicitCriticalMultiplier1[10,15]
+{variant:2}MaceImplicitCriticalMultiplier1
 UniqueLocalAddedPhysicalDamage18
 UniqueLocalIncreasedAttackSpeed17
 UniqueLocalArmourBreakOnDamage1

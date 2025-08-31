@@ -83,7 +83,7 @@ League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage21
-{variant:1}UniqueLocalCriticalStrikeChance8[10,20]
+{variant:1}UniqueLocalCriticalStrikeChance8[1000,2000]
 {variant:2}UniqueLocalCriticalStrikeChance8
 UniqueIntelligence34
 UniqueRollCriticalChanceTwice1
