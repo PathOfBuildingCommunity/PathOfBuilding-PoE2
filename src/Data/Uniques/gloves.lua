@@ -85,7 +85,7 @@ Fine Bracers
 (20-30)% increased Critical Hit Chance
 5% increased Attack Speed
 +(10-20) to Dexterity
-Your Critical Damage Bonus is 300%
+Your Critical Damage Bonus is 250%
 ]],[[
 Northpaw
 Suede Bracers
