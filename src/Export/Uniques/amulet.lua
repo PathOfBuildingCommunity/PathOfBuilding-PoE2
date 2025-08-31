@@ -233,7 +233,7 @@ Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
 UniqueFireResist12
-{variant:1}Enemies in your Presence have Fire Exposure
+{variant:1}UniqueEnemiesInPresenceFireExposure1[1,1]
 {variant:2}UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
