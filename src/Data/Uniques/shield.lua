@@ -42,14 +42,16 @@ Enemies are Culled on Block
 Lycosidae
 Rampart Tower Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-(30-40)% increased Block chance
+{variant:1,2}(30-40)% increased Block chance
+{variant:3}(10-15)% increased Block chance
 (60-100)% increased Armour
 Accuracy Rating is Doubled
 {variant:1}Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage
-{variant:2}Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage
+{variant:2,3}Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage
 ]],[[
 Redblade Banner
 Heraldric Tower Shield

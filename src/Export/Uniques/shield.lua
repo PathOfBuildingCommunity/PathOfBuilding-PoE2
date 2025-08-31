@@ -42,14 +42,16 @@ UniqueCullingStrikeOnBlock1
 Lycosidae
 Rampart Tower Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance1
+{variant:1,2}UniqueLocalBlockChance1[30,40]
+{variant:3}UniqueLocalBlockChance1
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent1
 UniqueDoubleAccuracyRating1
 {variant:1}UniquePoisonOnBlock1[100,100]
-{variant:2}UniquePoisonOnBlock1
+{variant:2,3}UniquePoisonOnBlock1
 ]],[[
 Redblade Banner
 Heraldric Tower Shield
