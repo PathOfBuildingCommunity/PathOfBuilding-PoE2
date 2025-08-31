@@ -70,7 +70,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 
 	local authUrl = string.format(
 		"https://www.pathofexile.com/oauth/authorize?client_id=pob&response_type=code&scope=%s&state=%s&code_challenge=%s&code_challenge_method=S256"
-		,table.concat(scopesOAuth, " ")
+		,table.concat(scopesOAuth, "%20")
 		,initialState
 		,code_challenge
 	)
