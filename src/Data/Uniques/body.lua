@@ -417,12 +417,14 @@ Iron Will
 Pariah's Embrace
 Cloaked Mail
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 (50-80)% increased Armour and Evasion
 +50 to Spirit
-{variant:2}+(10-15) to all Attributes
+{variant:2,3}+(10-15) to all Attributes
 (10-15) Life Regeneration per second
-20% reduced Mana Cost of Skills
+{variant:1,2}20% reduced Mana Cost of Skills
+{variant:3}(20-40)% increased Mana Cost Efficiency
 ]],[[
 Perfidy
 Knight Armour

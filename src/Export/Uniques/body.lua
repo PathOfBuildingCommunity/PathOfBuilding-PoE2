@@ -410,12 +410,14 @@ UniqueIronWill1
 Pariah's Embrace
 Cloaked Mail
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 UniqueLocalIncreasedArmourAndEvasion8
 UniqueIncreasedSpirit2
-{variant:2}UniqueAllAttributes12
+{variant:2,3}UniqueAllAttributes12
 UniqueLifeRegeneration3
-UniqueManaCostReduction1
+{variant:1,2}UniqueManaCostReduction1
+{variant:3}UniqueManaCostEfficiency1
 ]],[[
 Perfidy
 Knight Armour
