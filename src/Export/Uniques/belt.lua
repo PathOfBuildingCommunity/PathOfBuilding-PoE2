@@ -50,6 +50,7 @@ UniqueLowLifeThreshold1
 ]],[[
 Darkness Enthroned
 Fine Belt
+League: Rise of the Abyssal
 Variant: Helmet
 Variant: Body Armour
 Variant: Gloves

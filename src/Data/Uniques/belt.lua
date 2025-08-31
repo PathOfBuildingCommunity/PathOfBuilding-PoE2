@@ -50,6 +50,7 @@ You are considered on Low Life while at 75% of maximum Life or below instead
 ]],[[
 Darkness Enthroned
 Fine Belt
+League: Rise of the Abyssal
 Variant: Helmet
 Variant: Body Armour
 Variant: Gloves

@@ -3,6 +3,17 @@
 return {
 -- Weapon: Crossbow
 [[
+Double Vision
+Dyad Crossbow
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Gemini Surge
+CrossbowImplicitAdditionalAmmo1
+UniqueLocalAddedPhysicalDamage24
+UniqueLocalCriticalStrikeChance7
+UniqueColdFireSurgeOnReload
+UniqueReloadSpeed2
+]],[[
 The Last Lament
 Desolate Crossbow
 League: Dawn of the Hunt

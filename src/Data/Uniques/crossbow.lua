@@ -3,6 +3,18 @@
 return {
 -- Weapon: Crossbow
 [[
+Double Vision
+Dyad Crossbow
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Gemini Surge
+Loads an additional bolt
+Adds (14-21) to (25-37) Physical Damage
++5% to Critical Hit Chance
+(15-25)% increased Reload Speed
+When you reload, triggers Gemini Surge to alternately
+gain (2-6) Cold Surges or (2-6) Fire Surges
+]],[[
 The Last Lament
 Desolate Crossbow
 League: Dawn of the Hunt
