@@ -92,6 +92,7 @@ Chance to Block Damage is Lucky
 ]],[[
 The Wailing Wall
 Effigial Tower Shield
+Source: No longer obtainable
 Implicits: 1
 Grants Skill: Raise Shield
 10% reduced Movement Speed
@@ -280,9 +281,12 @@ No Movement Speed Penalty while Shield is Raised
 ]],[[
 Merit of Service
 Pelage Targe
+Variant: Pre 0.3.0
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-(30-50)% increased Block chance
+{variant:1}(30-50)% increased Block chance
+{variant:2}(20-25)% increased Block chance
 (60-80)% increased Armour and Evasion
 +(60-80) to Stun Threshold
 Allies in your Presence have Block Chance equal to yours

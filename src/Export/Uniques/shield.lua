@@ -255,9 +255,12 @@ UniqueNoMovementPenaltyRaisedShield1
 ]],[[
 Merit of Service
 Pelage Targe
+Variant: Pre 0.3.0
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance4
+{variant:1}UniqueLocalBlockChance4[30,50]
+{variant:2}UniqueLocalBlockChance4
 UniqueLocalIncreasedArmourAndEvasion11
 UniqueStunThreshold7
 UniqueBlockChanceToAllies1
