@@ -6,13 +6,15 @@ return {
 Blackbraid
 Fur Plate
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating2
+{variant:2,3}UniqueLocalIncreasedPhysicalDamageReductionRating2
 UniqueStrength5
 UniqueIntelligence4
-{variant:2}UniqueAllResistances17
+{variant:2,3}UniqueAllResistances17
 UniqueStunThreshold1
-UniqueArmourAppliesToElementalDamage1
+{variant:1,2}Armour applies to Elemental Damage
+{variant:3}UniqueArmourAppliesToElementalDamage1
 ]],[[
 Bramblejack
 Rusted Cuirass

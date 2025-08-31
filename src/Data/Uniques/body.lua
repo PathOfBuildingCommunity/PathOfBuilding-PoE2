@@ -6,13 +6,15 @@ return {
 Blackbraid
 Fur Plate
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}+(40-60) to Armour
+{variant:2,3}+(40-60) to Armour
 +(5-15) to Strength
 +(5-15) to Intelligence
-{variant:2}+10% to all Elemental Resistances
+{variant:2,3}+10% to all Elemental Resistances
+{variant:3}+(100-150)% of Armour also applies to Elemental Damage
 +(40-60) to Stun Threshold
-Armour applies to Elemental Damage
+{variant:1,2}Armour applies to Elemental Damage
 ]],[[
 Bramblejack
 Rusted Cuirass
