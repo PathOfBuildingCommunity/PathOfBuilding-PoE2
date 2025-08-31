@@ -116,6 +116,17 @@ UniqueNearbyAlliesIncreasedAttackSpeed1
 UniqueNearbyAlliesIncreasedCastSpeed1
 UniquePresenceRadius1
 ]],[[
+Hinekora's Sight
+Stellar Amulet
+Requires Level 44
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Future-Past
+AmuletImplicitAllAttributes1
+UniqueIncreasedAccuracy13
+UniqueIncreasedEvasionRating5
+BlindImmunityUnique__1
+]],[[
 Idol of Uldurn
 Crimson Amulet
 Requires Level 24
