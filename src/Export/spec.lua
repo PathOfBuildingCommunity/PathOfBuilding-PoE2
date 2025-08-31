@@ -6563,7 +6563,14 @@ return {
 			list=false,
 			name="",
 			refTo="",
-			type="ShortKey",
+			type="Key",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
 			width=150
 		}
 	},
@@ -6583,95 +6590,60 @@ return {
 			width=100
 		},
 		[3]={
-			list=false,
-			name="",
+			list=true,
+			name="DropLevel",
 			refTo="",
 			type="Int",
 			width=80
 		},
 		[4]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=70
-		},
-		[5]={
 			list=true,
 			name="MonsterMod1",
 			refTo="Mods",
 			type="Key",
 			width=250
 		},
-		[6]={
-			list=false,
-			name="",
-			refTo="",
+		[5]={
+			list=true,
+			name="Weighting",
+			refTo="Mods",
 			type="Int",
 			width=70
 		},
-		[7]={
+		[6]={
 			list=false,
 			name="MonsterMod2",
 			refTo="Mods",
 			type="Key",
-			width=260
+			width=250
 		},
-		[8]={
+		[7]={
 			list=false,
-			name="",
+			name="IsPerfect",
 			refTo="",
 			type="Bool",
-			width=80
+			width=150
 		},
-		[9]={
-			list=false,
-			name="ModTag",
-			refTo="Tags",
-			type="Key",
-			width=90
-		},
-		[10]={
+		[8]={
 			list=false,
 			name="GreaterVariant",
 			refTo="Essences",
 			type="ShortKey",
 			width=250
 		},
-		[11]={
+		[9]={
 			list=false,
 			name="EssenceTier",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[12]={
+		[10]={
 			list=false,
 			name="MapMod",
 			refTo="Stats",
 			type="Key",
-			width=250
-		},
-		[13]={
-			list=false,
-			name="CraftedMod",
-			refTo="Mods",
-			type="Key",
 			width=150
-		},
-		[14]={
-			list=true,
-			name="ItemClasses",
-			refTo="ItemClasses",
-			type="Key",
-			width=240
-		},
-		[15]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=130
 		}
 	},
 	essencestashtablayout={
@@ -9482,6 +9454,27 @@ return {
 	leagueinfopanelversions={
 	},
 	leaguenames={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		}
 	},
 	leagueprogressquestflags={
 	},

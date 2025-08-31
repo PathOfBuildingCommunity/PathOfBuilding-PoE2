@@ -240,6 +240,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/PassiveSkillOverrides.dat",
 		"Data/PassiveSkillOverrideTypes.dat",
 		"Data/DisplayMinionMonsterType.dat",
+		"Data/LeagueNames.dat",
 		"Data/GemEffects.dat",
 		"Data/ActionTypes.dat",
 		"Data/IndexableSupportGems.dat",
