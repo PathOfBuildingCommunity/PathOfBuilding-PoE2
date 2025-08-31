@@ -173,13 +173,15 @@ UniqueCanEvadeAllDamageNotHitRecently1
 Quatl's Molt
 Serpentscale Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedEvasionRatingPercent23
+{variant:2,3}UniqueLocalIncreasedEvasionRatingPercent23
 {variant:1}UniqueIncreasedLife1[30,50]
-{variant:2}UniqueIncreasedLife1
+{variant:2,3}UniqueIncreasedLife1
 UniqueChaosResist1
 UniqueLifeRegeneration1
 UniqueCannotBePoisoned1
+{variant:3}UniqueEvasionAppliesToDeflection2
 ]],[[
 Queen of the Forest
 Smuggler Coat

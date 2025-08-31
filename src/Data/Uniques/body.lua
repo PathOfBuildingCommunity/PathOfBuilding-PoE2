@@ -177,11 +177,13 @@ Evasion Rating is doubled if you have not been Hit Recently
 Quatl's Molt
 Serpentscale Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}(60-80)% increased Evasion Rating
+{variant:2,3}(60-80)% increased Evasion Rating
 {variant:1}+(30-50) to maximum Life
-{variant:2}+(60-80) to maximum Life
+{variant:2,3}+(60-80) to maximum Life
 +(17-23)% to Chaos Resistance
+{variant:3}Gain Deflection Rating equal to (40-60)% of Evasion Rating
 (10-20) Life Regeneration per second
 Cannot be Poisoned
 ]],[[
