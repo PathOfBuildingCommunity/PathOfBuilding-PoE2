@@ -27,6 +27,18 @@ Variant: Current
 All Damage from Hits with this Weapon Contributes to Freeze Buildup
 Culling Strike against Frozen Enemies
 ]],[[
+Marohi Erqi
+Totemic Greatclub
+League: Rise of the Abyssal
+Implicits: 1
+Crushes Enemies on Hit
++150 Strength Requirement
+(600-700)% increased Physical Damage
+-(300-200) to Accuracy Rating
+35% reduced Attack Speed
+Causes (40-60)% increased Stun Buildup
+Heavy Stuns Enemies that are on Full Life
+]],[[
 Mjölner
 Torment Club
 League: Dawn of the Hunt

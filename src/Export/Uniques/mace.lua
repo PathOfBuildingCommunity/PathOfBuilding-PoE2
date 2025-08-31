@@ -27,6 +27,18 @@ Variant: Current
 UniqueLocalAllDamageCanFreeze1
 UniqueLocalCullingStrikeFrozenEnemies1
 ]],[[
+Marohi Erqi
+Totemic Greatclub
+League: Rise of the Abyssal
+Implicits: 1
+MaceImplicitLocalCrushOnHit1
+UniqueStrengthRequirements3
+UniqueLocalIncreasedPhysicalDamagePercent16
+UniqueIncreasedAccuracy14
+UniqueIncreasedAttackSpeed14
+UniqueLocalStunDamageIncrease3
+LocalAlwaysHeavyStunOnFullLifeUnique__1
+]],[[
 Mjölner
 Torment Club
 League: Dawn of the Hunt
