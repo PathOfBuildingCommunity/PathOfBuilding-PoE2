@@ -125,12 +125,14 @@ UniquePhysicalAttackDamageTaken1
 Briskwrap
 Rhoahide Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedEvasionRatingPercent22
+{variant:2,3}UniqueLocalIncreasedEvasionRatingPercent22
 UniqueFlaskLifeRecoveryRate2
 UniqueFlaskManaRecoveryRate1
 UniqueDexterity3
 UniqueColdResist10
+{variant:3}UniqueEvasionAppliesToDeflection1
 ]],[[
 Bristleboar
 Leather Vest

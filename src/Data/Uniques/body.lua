@@ -125,12 +125,14 @@ Cannot be Ignited
 Briskwrap
 Rhoahide Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}(60-100)% increased Evasion Rating
+{variant:2,3}(60-100)% increased Evasion Rating
 (40-60)% increased Flask Life Recovery rate
 (40-60)% increased Flask Mana Recovery rate
 +(20-30) to Dexterity
 +(20-30)% to Cold Resistance
+{variant:3}Gain Deflection Rating equal to (20-30)% of Evasion Rating
 ]],[[
 Bristleboar
 Leather Vest
