@@ -184,6 +184,18 @@ Stacked Sabatons
 (30-50)% reduced Chill Duration on you
 (30-50)% reduced Freeze Duration on you
 (30-50)% reduced Shock duration on you
+]],[[
+Shankgonne
+Covered Sabatons
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Black Powder Blitz
+(80-100)% increased Armour and Evasion
+(10-20)% increased Rarity of Items found
++(15-25)% to Fire Resistance
+Gain Deflection Rating equal to 20% of Armour
++(200-300) to Stun Threshold
+You cannot Sprint
 ]],
 -- Boots: Armour/Energy Shield
 [[

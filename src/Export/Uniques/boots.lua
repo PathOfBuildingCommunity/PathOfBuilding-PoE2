@@ -185,6 +185,18 @@ UniqueStunRecovery1
 UniqueReducedChillDuration1
 UniqueReducedFreezeDuration1
 UniqueReducedShockDuration1
+]],[[
+Shankgonne
+Covered Sabatons
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Black Powder Blitz
+UniqueLocalIncreasedArmourAndEvasion31
+UniqueItemFoundRarityIncrease23
+UniqueFireResist35
+UniqueArmourAppliesToDeflection1
+UniqueStunThreshold20
+UniqueCannotSprint1
 ]],
 -- Boots: Armour/Energy Shield
 [[
