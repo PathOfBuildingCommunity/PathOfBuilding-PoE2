@@ -4361,5 +4361,5 @@ return {
 	["LocalAlwaysHeavyStunOnFullLifeUnique__1"] = { affix = "", "Heavy Stuns Enemies that are on Full Life", statOrder = { 1062 }, level = 76, group = "LocalAlwaysHeavyStunOnFullLife", weightKey = { }, weightVal = {  }, modTags = {  }, tradeHash = 668076381, },
 	["LocalDisableRareModOnHitUnique__1"] = { affix = "", "DNT 20% chance when hitting a Rare Monster to disable one of its Modifiers", statOrder = { 7084 }, level = 1, group = "LocalDisableRareModOnHit", weightKey = { }, weightVal = {  }, modTags = {  }, tradeHash = 2662365575, },
 	["TheFlawedEdictUnique__1"] = { affix = "", "DNT Gain 20% Edict Declaration when you disable a rare monster mod", statOrder = { 7121 }, level = 1, group = "TheFlawedEdict", weightKey = { }, weightVal = {  }, modTags = {  }, tradeHash = 2303993580, },
-	["UniqueDesecratedModEffect1"] = { affix = "", "(60-100)% increased Desecrated Modifier magnitudes", statOrder = { 48 }, level = 1, group = "UniqueDesecratedModEffect", weightKey = { }, weightVal = {  }, modTags = {  }, tradeHash = 586037801, },
+	["UniqueDesecratedModEffect1"] = { affix = "", "(60-80)% increased Desecrated Modifier magnitudes", statOrder = { 48 }, level = 1, group = "UniqueDesecratedModEffect", weightKey = { }, weightVal = {  }, modTags = {  }, tradeHash = 586037801, },
 }
