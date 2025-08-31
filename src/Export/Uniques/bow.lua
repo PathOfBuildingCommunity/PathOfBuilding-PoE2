@@ -6,11 +6,13 @@ return {
 Death's Harp
 Dualstring Bow
 Variant: 0.2.0
+Variant: 0.3.0
 Variant: Current
 Implicits: 1
-Bow Attacks fire an additional Arrow
+BowImplicitAdditionalArrows1
 {variant:1}UniqueLocalCriticalMultiplier1[50,70]
-{variant:2}UniqueLocalCriticalMultiplier1
+{variant:2}UniqueLocalCriticalMultiplier1[30,40]
+{variant:3}UniqueLocalCriticalMultiplier1
 UniqueAdditionalArrow1
 UniqueLifeGainedFromEnemyDeath4
 UniqueManaGainedFromEnemyDeath6
