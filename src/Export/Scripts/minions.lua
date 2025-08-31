@@ -274,7 +274,7 @@ directiveTable.emit = function(state, args, out)
 	end
 	out:write('\tbaseMovementSpeed = ', monsterVariety.MovementSpeed, ',\n')
 	if monsterVariety.ExperienceMultiplier then
-		out:write('\tspectreReservation = ', (round(50 * (monsterVariety.ExperienceMultiplier/1000)) * 10), ',\n')
+		out:write('\tspectreReservation = ', math.floor((10 * monsterVariety.ExperienceMultiplier + 169 * math.sqrt(monsterVariety.ExperienceMultiplier) - 210) / 50 + 0.5), ',\n')
 		out:write('\tcompanionReservation = ', (round(math.sqrt(monsterVariety.ExperienceMultiplier/100), 2) * 30), ',\n') 
 	end
 	if monsterVariety.MonsterCategory then

@@ -143,7 +143,8 @@ for _, monster in ipairs(notImported) do
 end
 
 out:write("\n-- Imported Spectres That Fail Checks --\n")
-out:write("-- These spectres are currently imported, but fail the checks. New updates sometimes remove spectres.--\n\n")
+out:write("-- These spectres are currently imported, but fail the checks. New updates sometimes remove spectres.--\n")
+out:write("-- Don't fully trust this, coded wrong. But it did catch some that were removed. --\n\n")
 for _, monster in ipairs(importedButFailChecks) do
 	out:write(monster.id .. string.rep(" ", 90 - string.len(monster.id)) .. "\t\t----\t\t" .. monster.name, "\n")
 end

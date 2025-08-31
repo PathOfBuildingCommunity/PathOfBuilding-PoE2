@@ -282,9 +282,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre
 #emit
 
---spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
---flags recommendedSpectre
---emit
+#spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
+#flags recommendedSpectre
+#emit
 
 -- Quadrilla
 #spectre Metadata/Monsters/Quadrilla/Quadrilla
