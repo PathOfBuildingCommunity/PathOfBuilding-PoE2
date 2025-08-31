@@ -1755,6 +1755,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.storedUses = skillData.storedUses
 			activeSkill.skillData.CritChance = skillData.CritChance
 			activeSkill.skillData.attackTime = skillData.attackTime
+			activeSkill.skillData.attackSpeedMultiplier = skillData.attackSpeedMultiplier
+			activeSkill.skillData.soulPreventionDuration = skillData.soulPreventionDuration
 			activeSkill.skillData.totemLevel = skillData.totemLevel
 			activeSkill.skillData.damageEffectiveness = skillData.damageEffectiveness
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent
