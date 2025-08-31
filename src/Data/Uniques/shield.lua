@@ -147,10 +147,13 @@ Infinite Projectile Parry Range
 ]],[[
 Dunkelhalt
 Leather Buckler
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
-(30-50)% increased Block chance
+{variant:1}(30-50)% increased Block chance
+{variant:2}(20-30)% increased Block chance
 +(20-30) to Evasion Rating
 You take 50% of damage from Blocked Hits
 50% increased Parried Debuff Magnitude

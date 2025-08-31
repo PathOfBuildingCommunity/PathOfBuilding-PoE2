@@ -145,10 +145,13 @@ UniqueParriedDebuffDuration1
 ]],[[
 Dunkelhalt
 Leather Buckler
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
-UniqueLocalBlockChance9
+{variant:1}UniqueLocalBlockChance10[30,50]
+{variant:2}UniqueLocalBlockChance10
 UniqueLocalIncreasedEvasionRating6
 UniqueBaseBlockDamageTaken2
 UniqueParriedDebuffMagnitude1
