@@ -53,10 +53,13 @@ Accuracy Rating is Doubled
 ]],[[
 Redblade Banner
 Heraldric Tower Shield
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
-(20-30)% increased Block chance
+{variant:1}(20-30)% increased Block chance
+{variant:2}(10-15)% increased Block chance
 (60-100)% increased Armour
 +(20-30) to Strength
 +(100-150) to Stun Threshold
