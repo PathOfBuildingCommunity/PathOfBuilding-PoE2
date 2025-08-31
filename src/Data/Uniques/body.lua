@@ -172,7 +172,7 @@ Implicits: 1
 Adds (13-20) to (21-31) Cold damage to Attacks
 +(30-40) to Dexterity
 25% increased Chill Duration on Enemies
-Can Evade all Hits if you have not been Hit Recently
+Evasion Rating is doubled if you have not been Hit Recently
 ]],[[
 Quatl's Molt
 Serpentscale Coat
