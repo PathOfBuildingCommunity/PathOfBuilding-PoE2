@@ -483,7 +483,7 @@ Mail Vestments
 +(20-30) to Strength
 +(20-30) to Intelligence
 +(30-40)% to Cold Resistance
-Freeze as though dealing Cold damage equal to 10% of your maximum Mana when Hit
+Freeze as though dealing Cold damage equal to 10% of your maximum Mana
 ]],[[
 The Mutable Star
 Cleric Vestments
