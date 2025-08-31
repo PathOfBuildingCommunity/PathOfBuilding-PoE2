@@ -162,6 +162,18 @@ UniqueLocalIncreasedEvasionRating6
 UniqueBaseBlockDamageTaken2
 UniqueParriedDebuffMagnitude1
 ]],[[
+Kaltenhalt
+Ridged Buckler
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent15
+MaximumColdResistUniqueShieldDex1
+UniqueColdResist15
+UniqueParryStunModifiersApplyToFreeze1
+UniqueParryConvertToCold1
+UniqueAttackerTakesColdDamage1
+]],[[
 Nocturne
 Wooden Buckler
 League: Dawn of the Hunt

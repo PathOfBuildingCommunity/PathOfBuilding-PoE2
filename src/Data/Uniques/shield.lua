@@ -164,6 +164,18 @@ Grants Skill: Parry
 You take 50% of damage from Blocked Hits
 50% increased Parried Debuff Magnitude
 ]],[[
+Kaltenhalt
+Ridged Buckler
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Parry
+(80-120)% increased Evasion Rating
++5% to Maximum Cold Resistance
++40% to Cold Resistance
+Modifiers to Stun Buildup apply to Freeze Buildup instead for Parry
+100% of Parry Physical Damage Converted to Cold Damage
+25 to 35 Cold Thorns damage
+]],[[
 Nocturne
 Wooden Buckler
 League: Dawn of the Hunt
