@@ -215,12 +215,15 @@ Your Critical Hits do not deal extra Damage
 ]],[[
 Xoph's Blood
 Amber Amulet
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 {tags:attribute}+(10-15) to Strength
-{tags:life}(10-15)% increased maximum Life
+{tags:life}(10-20)% increased maximum Life
 {tags:fire}+(20-30)% to Fire Resistance
-{tags:fire}Enemies in your Presence have Fire Exposure
+{variant:2}Enemies in your Presence have -10% to Fire Resistance
+{variant:1}Enemies in your Presence have Fire Exposure
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet

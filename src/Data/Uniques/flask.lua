@@ -39,7 +39,7 @@ League: Dawn of the Hunt
 Implicits: 1
 Used when you become Ignited
 (20-25)% Chance to gain a Charge when you Kill an Enemy
-Ignite Enemies in Presence as though dealing Fire damage equal to 500% of your maximum Life when used
+Creates Ignited Ground in for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life
 ]],[[
 The Black Cat
 Grounding Charm
@@ -124,8 +124,8 @@ Staunching Charm
 League: Dawn of the Hunt
 Implicits: 1
 Used when you start Bleeding
-Creates Consecrated Ground on use
 Gains (0.15-0.2) Charges per Second
+Creates Consecrated Ground on use
 ]],[[
 Valako's Roar
 Topaz Charm

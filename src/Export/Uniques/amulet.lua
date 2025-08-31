@@ -215,12 +215,15 @@ UniqueNoCriticalStrikeMultiplier1
 ]],[[
 Xoph's Blood
 Amber Amulet
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
 UniqueFireResist12
-UniqueEnemiesInPresenceFireExposure1
+{variant:1}Enemies in your Presence have Fire Exposure
+{variant:2}UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet
