@@ -72,7 +72,7 @@ Grants Skill: Level (1-20) Icestorm
 (10-20)% reduced Cast Speed
 (5-15)% increased Intelligence
 4% increased Spell Damage per 10 Intelligence
-Inflict Cold Exposure on Hit, lowering Total Cold Resistance by (20-30)%
+Inflict Elemental Exposure on Hit, lowering Total Elemental Resistances by (20-30)%
 ]],
 -- Weapon: Warstaff
 [[
