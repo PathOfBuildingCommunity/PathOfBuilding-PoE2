@@ -30,13 +30,16 @@ UniqueDoubleStunThresholdWhileActiveBlock1
 Doomgate
 Braced Tower Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance2
+{variant:1,2}UniqueLocalBlockChance2[80,80]
+{variant:3}UniqueLocalBlockChance2
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
-{variant:2}UniqueChaosResist22
-UniqueBaseBlockDamageTaken1
+{variant:2,3}UniqueChaosResist22
+{variant:1,2}UniqueBaseBlockDamageTaken1[20,20]
+{variant:3}UniqueBaseBlockDamageTaken1
 UniqueCullingStrikeOnBlock1
 ]],[[
 Lycosidae

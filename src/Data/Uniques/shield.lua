@@ -30,13 +30,16 @@ Double Stun Threshold while Shield is Raised
 Doomgate
 Braced Tower Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-80% increased Block chance
+{variant:1,2}80% increased Block chance
+{variant:3}(80-100)% increased Block chance
 (100-150)% increased Armour
-{variant:2}+(13-17)% to Chaos Resistance
-You take 20% of damage from Blocked Hits
+{variant:2,3}+(13-17)% to Chaos Resistance
+{variant:1,2}You take 20% of damage from Blocked Hits
+{variant:3}You take (25-40)% of damage from Blocked Hits
 Enemies are Culled on Block
 ]],[[
 Lycosidae
