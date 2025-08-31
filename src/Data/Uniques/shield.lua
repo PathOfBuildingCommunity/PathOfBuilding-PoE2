@@ -125,10 +125,13 @@ Permanently Intimidate enemies on Block
 [[
 Bloodbarrier
 Iron Buckler
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
-(20-30)% increased Block chance
+{variant:1}(20-30)% increased Block chance
+{variant:2}(10-15)% increased Block chance
 +(13-17)% to Chaos Resistance
 (5-10) Life Regeneration per second
 Inflict Corrupted Blood for 5 seconds on Block, dealing 50% of

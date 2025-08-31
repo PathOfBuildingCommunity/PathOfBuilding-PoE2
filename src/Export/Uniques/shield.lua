@@ -124,10 +124,13 @@ UniqueEnemiesBlockedAreIntimidated1
 [[
 Bloodbarrier
 Iron Buckler
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
-UniqueLocalBlockChance14
+{variant:1}UniqueLocalBlockChance14[20,30]
+{variant:2}UniqueLocalBlockChance14
 UniqueChaosResist31
 UniqueLifeRegeneration21
 UniqueApplyCorruptedBloodOnBlock1
