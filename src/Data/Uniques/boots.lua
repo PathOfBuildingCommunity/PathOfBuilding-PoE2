@@ -102,13 +102,16 @@ Variant: Current
 Bones of Ullr
 Lattice Sandals
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
+{variant:3}(5-15)% increased Movement Speed
 (40-60)% increased Energy Shield
 {variant:1}+25 to maximum Life
-{variant:2}+(20-40) to maximum Life
+{variant:2,3}+(20-40) to maximum Life
 {variant:1}+25 to maximum Mana
 {variant:2}+(20-40) to maximum Mana
-Undead Minions have 20% reduced Reservation
+{variant:3}(20-30)% increased Reservation Efficiency of Skills which create Undead Minions
+{variant:1,2}Undead Minions have 20% reduced Reservation
 ]],[[
 Luminous Pace
 Straw Sandals

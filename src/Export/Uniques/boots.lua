@@ -102,13 +102,16 @@ UniqueMaximumLightningResist1
 Bones of Ullr
 Lattice Sandals
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
+{variant:3}UniqueMovementVelocity25
 UniqueLocalIncreasedEnergyShieldPercent5
 {variant:1}UniqueIncreasedLife8[25,25]
-{variant:2}UniqueIncreasedLife8
+{variant:2,3}UniqueIncreasedLife8
 {variant:1}UniqueIncreasedMana6[25,25]
 {variant:2}UniqueIncreasedMana6
-UniqueUndeadMinionReservation1
+{variant:1,2}Undead Minions have 20% reduced Reservation
+{variant:3}UniqueUndeadMinionReservation1
 ]],[[
 Luminous Pace
 Straw Sandals
