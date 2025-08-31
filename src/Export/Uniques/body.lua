@@ -410,6 +410,17 @@ UniqueStunThreshold9
 UniqueIronGrip1
 UniqueIronWill1
 ]],[[
+Lightning Coil
+Ancestral Mail
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Valako's Charge
+UniqueLocalIncreasedArmourAndEvasion14
+UniqueIncreasedLife30
+UniqueDexterity44
+UniqueLightningResist13
+UniquePhysicalDamageTakenAsLightningPercent1
+]],[[
 Pariah's Embrace
 Cloaked Mail
 Variant: Pre 0.1.1

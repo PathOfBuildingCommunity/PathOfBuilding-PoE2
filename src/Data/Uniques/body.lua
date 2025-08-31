@@ -417,6 +417,17 @@ Variant: Current
 Iron Grip
 Iron Will
 ]],[[
+Lightning Coil
+Ancestral Mail
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Valako's Charge
+(80-120)% increased Armour and Evasion
++(80-100) to maximum Life
++(20-30) to Dexterity
+-(40-30)% to Lightning Resistance
+(20-40)% of Physical damage from Hits taken as Lightning damage
+]],[[
 Pariah's Embrace
 Cloaked Mail
 Variant: Pre 0.1.1
