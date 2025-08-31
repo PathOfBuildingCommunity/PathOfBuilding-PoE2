@@ -304,15 +304,17 @@ UniqueLocalIncreasedArmourAndEnergyShield16
 ]],[[
 Oaksworn
 Variant: Pre 0.2.0
+Variant: Pre 0.3.0
 Variant: Current
 Sigil Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance5
+{variant:1,2}UniqueLocalBlockChance5[40,60]
+{variant:3}UniqueLocalBlockChance5
 UniqueLocalIncreasedArmourAndEnergyShield10
 {variant:1}UniqueIncreasedSpirit2
 UniqueChaosResist1
-{variant:2}UniqueLifeRegenerationRate1
+{variant:2,3}UniqueLifeRegenerationRate1
 ]],[[
 Prism Guardian
 Sectarian Crest Shield

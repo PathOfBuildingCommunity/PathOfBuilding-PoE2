@@ -330,15 +330,17 @@ Grants Skill: Raise Shield
 ]],[[
 Oaksworn
 Variant: Pre 0.2.0
+Variant: Pre 0.3.0
 Variant: Current
 Sigil Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
-(40-60)% increased Block chance
+{variant:1,2}(40-60)% increased Block chance
+{variant:3}(20-30)% increased Block chance
 (80-120)% increased Armour and Energy Shield
 {variant:1}+50 to Spirit
 +(17-23)% to Chaos Resistance
-{variant:2}50% increased Life Regeneration rate
+{variant:2,3}50% increased Life Regeneration rate
 ]],[[
 Prism Guardian
 Sectarian Crest Shield
