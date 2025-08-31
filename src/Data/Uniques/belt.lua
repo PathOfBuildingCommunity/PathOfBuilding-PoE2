@@ -192,6 +192,20 @@ Has (1-3) Charm Slot
 You lose 5% of maximum Energy Shield per second
 Excess Life Recovery from Leech is applied to Energy Shield
 ]],[[
+Umbilicus Immortalis
+Linen Belt
+League: Rise of the Abyssal
+Requires Level 24
+Implicits: 2
+(20-30)% increased Mana Recovery from Flasks
+Has (1-3) Charm Slot
+(30-40)% reduced Flask Effect Duration
++(20-30) to Intelligence
+Minions have (20-30)% increased maximum Life
+Your Life Flask also applies to your Minions
+Minions cannot Die while affected by a Life Flask
+(20-30)% increased Flask Charges gained
+]],[[
 Waistgate Heavy Belt
 Heavy Belt
 League: Dawn of the Hunt

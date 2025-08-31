@@ -192,6 +192,20 @@ UniqueIntelligence9
 UniqueLoseEnergyShieldPerSecond1
 UniqueLifeLeechExcessToEnergyShield1
 ]],[[
+Umbilicus Immortalis
+Linen Belt
+League: Rise of the Abyssal
+Requires Level 24
+Implicits: 2
+BeltImplicitCharmSlots3
+BeltImplicitFlaskManaRecovery1
+UniqueBeltFlaskDuration1
+UniqueIntelligence42
+UniqueMinionLife6
+UniqueLifeFlasksApplyToMinions1
+MinionsCannotDieWhileAffectedByYourLifeFlasks1
+UniqueIncreasedFlaskChargesGained4
+]],[[
 Waistgate Heavy Belt
 Heavy Belt
 League: Dawn of the Hunt
