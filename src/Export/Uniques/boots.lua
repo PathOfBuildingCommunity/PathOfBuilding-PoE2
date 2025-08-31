@@ -111,7 +111,7 @@ UniqueLocalIncreasedEnergyShieldPercent5
 {variant:2,3}UniqueIncreasedLife8
 {variant:1}UniqueIncreasedMana6[25,25]
 {variant:2}UniqueIncreasedMana6
-{variant:1,2}Undead Minions have 20% reduced Reservation
+{variant:1,2}UniqueUndeadMinionReservation1[-20,-20]
 {variant:3}UniqueUndeadMinionReservation1
 ]],[[
 Luminous Pace
