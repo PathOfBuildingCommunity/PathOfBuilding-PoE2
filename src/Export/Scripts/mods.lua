@@ -69,7 +69,7 @@ local function writeMods(outName, condFunc)
 				out:write('level = ', mod.Level, ', group = "', mod.Type.Id, '", ')
 				out:write('weightKey = { ')
 				local GoldModPrices = dat("GoldModPrices"):GetRow("Id", dat("Mods"):GetRow("Id", mod.Id))
-				if GoldModPrices then
+				if GoldModPrices and not mod.Id:match("Corruption") and not mod.Id:match("Jewel") and not mod.Id:match("Essence") then
 					local count = 0
 					for _, tag in ipairs(GoldModPrices.SpawnTags) do
 						out:write('"', tag.Id, '", ')
