@@ -97,6 +97,7 @@ UniqueMinionAttackSpeedAffectsYou1
 ]],[[
 Wylund's Stake
 Smithing Hammer
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage6[2,3][4,5]

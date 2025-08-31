@@ -88,6 +88,7 @@ Gain 0% to 40% increased Movement Speed at random when Hit, until Hit again
 ]],[[
 Thunderstep
 Steeltoe Boots
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}(10-15)% increased Movement Speed

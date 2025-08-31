@@ -98,6 +98,7 @@ Increases and Reductions to Minion Attack Speed also affect you
 ]],[[
 Wylund's Stake
 Smithing Hammer
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}Adds (2-3) to (4-5) Physical Damage

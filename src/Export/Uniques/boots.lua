@@ -88,6 +88,7 @@ UniqueRandomMovementVelocityOnHit1
 ]],[[
 Thunderstep
 Steeltoe Boots
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueMovementVelocity2[10,15]

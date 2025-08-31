@@ -87,6 +87,7 @@ UniqueLuckyBlockChance1
 ]],[[
 The Wailing Wall
 Effigial Tower Shield
+Source: No longer obtainable
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueMovementVelocity6

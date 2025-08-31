@@ -398,6 +398,7 @@ Lightning Resistance does not affect Lightning damage taken
 ]],[[
 The Fallen Formation
 Lamellar Mail
+Source: No longer obtainable
 League: Dawn of the Hunt
 (100-200)% increased Armour and Evasion
 +(20-30) to Strength

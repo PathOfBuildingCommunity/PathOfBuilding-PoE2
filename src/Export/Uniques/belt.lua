@@ -83,6 +83,7 @@ UniqueGainRareMonsterModsOnKill1
 ]],[[
 Infernoclasp
 Plate Belt
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 Implicits: 2

@@ -202,6 +202,7 @@ Every 3 seconds, Consume a nearby Corpse to Recover 20% of maximum Life
 ]],[[
 Forbidden Gaze
 Chain Tiara
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 (60-100)% increased Energy Shield
@@ -390,6 +391,7 @@ Gain 10 Mana per Enemy Killed
 ]],[[
 The Deepest Tower
 Spiritbone Crown
+Source: No longer obtainable
 League: Dawn of the Hunt
 (70-130)% increased Armour and Energy Shield
 +(70-100) to maximum Life

@@ -83,6 +83,7 @@ When you Kill a Rare monster, you gain its Modifiers for 60 seconds
 ]],[[
 Infernoclasp
 Plate Belt
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 Implicits: 2

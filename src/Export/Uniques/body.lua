@@ -391,6 +391,7 @@ UniqueLightningResistNoReduction1
 ]],[[
 The Fallen Formation
 Lamellar Mail
+Source: No longer obtainable
 League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEvasion29
 UniqueStrength20
