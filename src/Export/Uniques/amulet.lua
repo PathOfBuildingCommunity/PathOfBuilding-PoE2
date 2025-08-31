@@ -233,8 +233,7 @@ Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
 UniqueFireResist12
-{variant:1}Enemies in your Presence have Fire Exposure
-{variant:2}UniqueEnemiesInPresenceFireExposure1
+UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet

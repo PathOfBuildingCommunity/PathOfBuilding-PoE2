@@ -233,8 +233,7 @@ Implicits: 1
 {tags:attribute}+(10-15) to Strength
 {tags:life}(10-20)% increased maximum Life
 {tags:fire}+(20-30)% to Fire Resistance
-{variant:2}Enemies in your Presence have -10% to Fire Resistance
-{variant:1}Enemies in your Presence have Fire Exposure
+Enemies in your Presence have -10% to Fire Resistance
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet
