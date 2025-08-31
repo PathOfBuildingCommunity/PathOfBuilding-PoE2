@@ -347,6 +347,10 @@ function GGPKClass:GetNeededFiles()
 		"Data/MiscEffectPacks.dat",
 		"Data/BallisticBounceOverride.dat",
 		"Data/DamageEffectVariations.dat",
+		"Data/AttackSkillDamageScalingType.dat",
+		"Data/AttackSkillDamageScalingValues.dat",
+		"Data/FlatPhysicalDamageValues.dat",
+		"Data/SupportGemFamily.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

@@ -1,6 +1,50 @@
 return {
 	abyssbosslifescalingperlevel={
 	},
+	abyssmonstermodreplacement={
+		[1]={
+			list=false,
+			name="",
+			refTo="Mods",
+			type="Key",
+			width=260
+		},
+		[2]={
+			list=true,
+			name="",
+			refTo="Mods",
+			type="Key",
+			width=300
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[5]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[6]={
+			list=true,
+			name="",
+			refTo="Mods",
+			type="Key",
+			width=556
+		}
+	},
 	abyssobjects={
 	},
 	abyssregions={
@@ -1731,6 +1775,38 @@ return {
 	atlasskillgraphs={
 	},
 	atlasupgradesinventorylayout={
+	},
+	attackskilldamagescalingtype={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		}
+	},
+	attackskilldamagescalingvalues={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="AttackSkillDamageScalingType",
+			type="Key",
+			width=90
+		},
+		[2]={
+			list=false,
+			name="Level",
+			refTo="",
+			type="Int",
+			width=70
+		},
+		[3]={
+			list=false,
+			name="Multiplier",
+			refTo="",
+			type="Float",
+			width=150
+		}
 	},
 	attributerequirements={
 		[1]={
@@ -6815,6 +6891,36 @@ return {
 	},
 	flasktype={
 	},
+	flatphysicaldamagevalues={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="AttackSkillDamageScalingType",
+			type="Key",
+			width=80
+		},
+		[2]={
+			list=false,
+			name="Level",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[3]={
+			list=false,
+			name="MinPhys",
+			refTo="",
+			type="Int",
+			width=80
+		},
+		[4]={
+			list=false,
+			name="MaxPhys",
+			refTo="",
+			type="Int",
+			width=80
+		}
+	},
 	flavourtext={
 		[1]={
 			list=false,
@@ -9279,15 +9385,15 @@ return {
 		},
 		[86]={
 			list=false,
-			name="",
-			refTo="",
+			name="SoundEffect",
+			refTo="SoundEffects",
 			type="Key",
-			width=150
+			width=300
 		},
 		[87]={
 			list=false,
-			name="",
-			refTo="",
+			name="Animation",
+			refTo="MiscAnimated",
 			type="Key",
 			width=150
 		},
@@ -10948,7 +11054,7 @@ return {
 			name="",
 			refTo="",
 			type="Int",
-			width=50
+			width=40
 		}
 	},
 	modsellpricetypes={
@@ -15851,7 +15957,7 @@ return {
 			name="Description",
 			refTo="",
 			type="String",
-			width=150
+			width=300
 		},
 		[5]={
 			list=false,
@@ -15862,10 +15968,10 @@ return {
 		},
 		[6]={
 			list=false,
-			name="",
-			refTo="",
+			name="BaseItemType2",
+			refTo="BaseItemTypes",
 			type="Key",
-			width=150
+			width=290
 		}
 	},
 	queststatecalculation={
@@ -17855,6 +17961,22 @@ return {
 	},
 	supporterpacksets={
 	},
+	supportgemfamily={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Name",
+			refTo="",
+			type="String",
+			width=150
+		}
+	},
 	supportgems={
 		[1]={
 			list=false,
@@ -17876,6 +17998,41 @@ return {
 			refTo="",
 			type="String",
 			width=150
+		},
+		[4]={
+			list=true,
+			name="Family",
+			refTo="SupportGemFamily",
+			type="Key",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="Lineage",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="FlavourText",
+			refTo="FlavourText",
+			type="Key",
+			width=300
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=20
+		},
+		[8]={
+			list=false,
+			name="SocketVisual",
+			refTo="SupportGemSocketedVisualIdentity",
+			type="Key",
+			width=200
 		}
 	},
 	surgecategory={
