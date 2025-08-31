@@ -108,12 +108,14 @@ Skills reserve 50% less Spirit
 Nazir's Judgement
 Steelpoint Quarterstaff
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 {variant:1}(80-120)% increased Physical Damage
-{variant:2}Adds (30-36) to (75-81) Physical Damage
+{variant:2,3}Adds (30-36) to (75-81) Physical Damage
 +(50-100) to Accuracy Rating
 (10-20)% increased Stun Duration
-Causes Daze buildup equal to 100% of Damage dealt
+Dazes on Hit
+{variant:3}(35-50)% increased Melee Damage against Heavy Stunned enemies
 ]],[[
 Pillar of the Caged God
 Variant: Pre 0.2.0

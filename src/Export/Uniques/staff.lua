@@ -107,12 +107,14 @@ UniqueHalvedSpiritReservation1
 Nazir's Judgement
 Steelpoint Quarterstaff
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 {variant:1}UniqueLocalIncreasedPhysicalDamagePercent4
-{variant:2}UniqueLocalAddedPhysicalDamage13
+{variant:2,3}UniqueLocalAddedPhysicalDamage13
 UniqueIncreasedAccuracy2
 UniqueStunDuration1
 UniqueLocalDazeBuildup1
+{variant:3}UniqueMeleeDamageAgainstStunnedEnemies1
 ]],[[
 Pillar of the Caged God
 Variant: Pre 0.2.0
