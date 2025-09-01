@@ -2384,6 +2384,38 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 	},
 }
 
+minions["Metadata/Monsters/RatMonster/RatMonsterPoison__"] = {
+	name = "Rotted Rat",
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "melee", "not_int", "physical_affinity", "rodent", "rodent_beast", "Snap_onhit_audio", "undead", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 38,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Jiquani's Machinarium (Act 3)",
+		"The Venom Crypts (Act 3)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
 -- Skeletons
 minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonBow_"] = {
 	name = "Unearthed Skeletal Archer",

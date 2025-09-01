@@ -229,6 +229,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/RatMonster/RatMonster
 #emit
 
+#spectre Metadata/Monsters/RatMonster/RatMonsterPoison__
+#emit
+
 -- Skeletons
 #spectre Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonBow_
 #emit
