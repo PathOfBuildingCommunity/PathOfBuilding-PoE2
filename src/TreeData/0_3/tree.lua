@@ -32009,7 +32009,7 @@ return {
 			skill=9294,
 			stats={
 				[1]="Chance to Hit with Attacks can exceed 100%",
-				[2]="Gain additional Critical Hit Chance equal to 15% of excess chance to Hit with Attacks"
+				[2]="Gain additional Critical Hit Chance equal to 25% of excess chance to Hit with Attacks"
 			}
 		},
 		[9324]={
@@ -60577,9 +60577,9 @@ return {
 			skill=30996,
 			stats={
 				[1]="For each colour of Socketed Support Gem that is most numerous, gain:",
-				[2]="•Red: Hits against you have no Critical Damage Bonus",
-				[3]="•Blue: Skills have 30% less cost",
-				[4]="•Green: 40% less Movement Speed Penalty from using Skills while Moving"
+				[2]="Red: Hits against you have no Critical Damage Bonus",
+				[3]="Blue: Skills have 30% less cost",
+				[4]="Green: 40% less Movement Speed Penalty from using Skills while Moving"
 			}
 		},
 		[31017]={
@@ -107122,9 +107122,9 @@ return {
 			stats={
 				[1]="Can Attack as though using a Quarterstaff while both of your hand slots are empty",
 				[2]="Unarmed Attacks that would use your Quarterstaff's damage gain:",
-				[3]="• Physical damage based on their Skill Level",
-				[4]="• 1% more Attack Speed per 25 Item Evasion Rating on Equipped Armour Items",
-				[5]="• +0.1% to Critical Hit Chance per 10 Item Energy Shield on Equipped Armour Items"
+				[3]="Physical damage based on their Skill Level",
+				[4]="1% more Attack Speed per 25 Item Evasion Rating on Equipped Armour Items",
+				[5]="+0.1% to Critical Hit Chance per 10 Item Energy Shield on Equipped Armour Items"
 			}
 		},
 		[64637]={
