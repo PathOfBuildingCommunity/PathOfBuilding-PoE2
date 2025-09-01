@@ -318,6 +318,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/Werewolves/WerewolfProwlerRed1
 #emit
 
+#spectre Metadata/Monsters/Wolves/Wolf1
+#emit
+
 #spectre Metadata/Monsters/Monkeys/MonkeyJungle
 #emit
 

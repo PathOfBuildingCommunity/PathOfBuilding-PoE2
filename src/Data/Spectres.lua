@@ -3296,6 +3296,36 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 	},
 }
 
+minions["Metadata/Monsters/Wolves/Wolf1"] = {
+	name = "Hungry Wolf",
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Snap_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 2.25,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 30,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Howling Caves (Act 6)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
+	},
+}
+
 minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 	name = "Feral Primate",
 	monsterTags = { "animal_claw_weapon", "beast", "cannot_be_map_archnemesis", "fast_movement", "flesh_armour", "is_unarmed", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "primate_beast", "ranged", "red_blood", "small_height", "Unarmed_onhit_audio", },
