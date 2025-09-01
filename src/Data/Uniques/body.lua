@@ -12,9 +12,9 @@ Variant: Current
 +(5-15) to Strength
 +(5-15) to Intelligence
 {variant:2,3}+10% to all Elemental Resistances
+{variant:1,2}+100% of Armour also applies to Elemental Damage
 {variant:3}+(100-150)% of Armour also applies to Elemental Damage
 +(40-60) to Stun Threshold
-{variant:1,2}Armour applies to Elemental Damage
 ]],[[
 Bramblejack
 Rusted Cuirass

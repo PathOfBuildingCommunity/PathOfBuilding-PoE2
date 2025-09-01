@@ -13,7 +13,7 @@ UniqueStrength5
 UniqueIntelligence4
 {variant:2,3}UniqueAllResistances17
 UniqueStunThreshold1
-{variant:1,2}Armour applies to Elemental Damage
+{variant:1,2}UniqueArmourAppliesToElementalDamage1[100,100]
 {variant:3}UniqueArmourAppliesToElementalDamage1
 ]],[[
 Bramblejack
