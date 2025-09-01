@@ -178,3 +178,15 @@ skills["MinionInstability"] = {
 #flags attack melee
 #mods
 #skillEnd
+
+#skill RavenousSwarmAttack Attack
+#set RavenousSwarmAttack
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill LivingLightningZap Zap
+#set LivingLightningZap
+#flags attack melee chaining
+#mods
+#skillEnd

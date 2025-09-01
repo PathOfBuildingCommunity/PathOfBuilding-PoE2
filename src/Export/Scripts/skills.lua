@@ -435,6 +435,9 @@ end
 directiveTable.set = function(state, args, out)
 	local statSetId = args
 	local originalGrantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
+	if dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet) == nil or originalGrantedEffectStatSet == nil then
+		ConPrintf(args.." is not a valid Granted Effect")
+	end
 	local grantedEffectStatSet = copyTableSafe(originalGrantedEffectStatSet, false, true)
 	local statsPerLevel = copyTableSafe(dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet), false, true)
 	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
