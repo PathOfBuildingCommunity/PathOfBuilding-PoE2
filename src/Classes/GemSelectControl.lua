@@ -542,6 +542,9 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	if gemInstance.gemData.tagString ~= "" then
 		self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
 	end
+	if gemInstance.gemData.gemFamily then
+		self.tooltip:AddLine(16, "^x7F7F7FCategory: ^7" .. gemInstance.gemData.gemFamily)
+	end
 	-- Will need rework if a gem can have 2+ additional supports
 	self:AddGrantedEffectInfo(gemInstance, grantedEffect, true)
 	for _, statSet in ipairs(grantedEffect.statSets) do

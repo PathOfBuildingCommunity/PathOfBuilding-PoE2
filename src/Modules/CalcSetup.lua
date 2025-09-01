@@ -421,6 +421,19 @@ local function addBestSupport(supportEffect, appliedSupportList, mode)
 				supportEffect.superseded = true
 			end
 			break
+		elseif supportEffect.grantedEffect.gemFamily and otherSupport.grantedEffect.gemFamily then
+			for _, family in ipairs(supportEffect.grantedEffect.gemFamily) do
+				for _, otherFamily in ipairs(otherSupport.grantedEffect.gemFamily) do
+					if family == otherFamily then
+						add = false
+						if mode == "MAIN" then
+							otherSupport.superseded = true
+						end
+						appliedSupportList[index] = supportEffect
+						break
+					end
+				end
+			end
 		elseif supportEffect.grantedEffect.plusVersionOf == otherSupport.grantedEffect.id then
 			add = false
 			if mode == "MAIN" then
