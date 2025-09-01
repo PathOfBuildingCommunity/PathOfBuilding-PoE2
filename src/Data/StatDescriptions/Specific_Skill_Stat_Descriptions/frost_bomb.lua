@@ -4,12 +4,43 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				limit={
+				},
+				text="{2:+d}% maximum Elemental Exposure applied"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Initially applies {0}% Elemental Exposure and {1}% Exposure per pulse, up to a maximum of {2}%"
+			}
+		},
+		stats={
+			[1]="active_skill_all_elemental_exposure_magnitude",
+			[2]="active_skill_all_elemental_exposure_compounding_magnitude",
+			[3]="active_skill_all_elemental_exposure_compounding_magnitude_cap"
+		}
+	},
+	[2]={
+		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -42,7 +73,23 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Limit {0} Frost Bomb"
+			}
+		},
+		stats={
+			[1]="base_maximum_number_of_frost_bombs"
+		}
+	},
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -75,7 +122,7 @@ return {
 			[1]="base_secondary_skill_effect_duration"
 		}
 	},
-	[4]={
+	[6]={
 		[1]={
 			[1]={
 				[1]={
@@ -108,25 +155,63 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[5]={
+	[7]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]=99
+					}
+				},
+				text="Cannot apply Exposure to enemies of level higher than {0}"
+			}
+		},
+		stats={
+			[1]="frost_bomb_exposure_does_not_apply_to_enemies_of_level_higher_than_X"
+		}
+	},
+	[8]={
 		[1]={
 		},
 		stats={
 			[1]="secondary_skill_effect_duration"
 		}
 	},
-	[6]={
+	[9]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	["base_secondary_skill_effect_duration"]=3,
-	["base_skill_effect_duration"]=4,
+	[10]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Frost Bomb Limit@{0}"
+			}
+		},
+		stats={
+			[1]="virtual_maximum_number_of_frost_bombs"
+		}
+	},
+	["active_skill_all_elemental_exposure_compounding_magnitude"]=1,
+	["active_skill_all_elemental_exposure_compounding_magnitude_cap"]=1,
+	["active_skill_all_elemental_exposure_magnitude"]=1,
+	["active_skill_area_of_effect_radius"]=2,
+	["active_skill_base_area_of_effect_radius"]=3,
+	["base_maximum_number_of_frost_bombs"]=4,
+	["base_secondary_skill_effect_duration"]=5,
+	["base_skill_effect_duration"]=6,
+	["frost_bomb_exposure_does_not_apply_to_enemies_of_level_higher_than_X"]=7,
 	parent="skill_stat_descriptions",
-	["secondary_skill_effect_duration"]=5,
-	["skill_effect_duration"]=6
+	["secondary_skill_effect_duration"]=8,
+	["skill_effect_duration"]=9,
+	["virtual_maximum_number_of_frost_bombs"]=10
 }

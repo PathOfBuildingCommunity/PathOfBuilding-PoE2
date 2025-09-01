@@ -502,6 +502,111 @@ return {
 					}
 				},
 				text="Remembrancing {1} songworthy deeds by the line of Olroth(Vorana-Olroth)\nPassives in radius are Conquered by the Kalguur"
+			},
+			[24]={
+				limit={
+					[1]={
+						[1]=7,
+						[2]=7
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=1,
+						[2]=1
+					},
+					[4]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Glorifying the defilement of {1} souls in tribute to Amanamu(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+			},
+			[25]={
+				limit={
+					[1]={
+						[1]=7,
+						[2]=7
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=2,
+						[2]=2
+					},
+					[4]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Glorifying the defilement of {1} souls in tribute to Kulemak(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+			},
+			[26]={
+				limit={
+					[1]={
+						[1]=7,
+						[2]=7
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=3,
+						[2]=3
+					},
+					[4]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Glorifying the defilement of {1} souls in tribute to Kurgal(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+			},
+			[27]={
+				limit={
+					[1]={
+						[1]=7,
+						[2]=7
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=4,
+						[2]=4
+					},
+					[4]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Glorifying the defilement of {1} souls in tribute to Tecrod(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+			},
+			[28]={
+				limit={
+					[1]={
+						[1]=7,
+						[2]=7
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=5,
+						[2]=5
+					},
+					[4]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Glorifying the defilement of {1} souls in tribute to Ulaman(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
 			}
 		},
 		stats={

@@ -55,7 +55,37 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more damage with Hits for Shockwaves originating\nfrom a Unique enemy"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less damage with Hits for Shockwaves originating\nfrom a Unique enemy"
+			}
+		},
+		stats={
+			[1]="boneshatter_damage_+%_final_if_created_from_unique"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
+	["boneshatter_damage_+%_final_if_created_from_unique"]=3,
 	parent="skill_stat_descriptions"
 }

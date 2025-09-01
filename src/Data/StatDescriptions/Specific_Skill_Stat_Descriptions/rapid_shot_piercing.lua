@@ -3,6 +3,11 @@
 
 return {
 	[1]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[2]={
 		[1]={
 			[1]={
 				limit={
@@ -31,6 +36,7 @@ return {
 			[1]="projectile_base_number_of_targets_to_pierce"
 		}
 	},
+	["base_knockback_distance"]=1,
 	parent="skill_stat_descriptions",
-	["projectile_base_number_of_targets_to_pierce"]=1
+	["projectile_base_number_of_targets_to_pierce"]=2
 }

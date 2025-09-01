@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Detonates Jagged Ground within {0} metre radius of Slam and each patch of Jagged Ground detonated"
+				text="Explodes Jagged Ground within {0} metre radius of Slam and each patch of Jagged Ground exploded"
 			}
 		},
 		stats={
