@@ -2338,13 +2338,15 @@ local specialModList = {
 		mod("ArmourAppliesToColdDamageTaken", "BASE", 100),
 		mod("ArmourAppliesToLightningDamageTaken", "BASE", 100),
 	},
-	["(%d+)%% of armour applies to elemental damage"] = function(num) return {
+	["%+?(%d+)%% of armour (a?l?s?o? ?)applies to elemental damage"] = function(num) return {
 		mod("ArmourAppliesToFireDamageTaken", "BASE", num),
 		mod("ArmourAppliesToColdDamageTaken", "BASE", num),
 		mod("ArmourAppliesToLightningDamageTaken", "BASE", num),
 	} end,
 	["armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100) } end,
-	["(%d+)%% of armour also applies to (%a+) damage taken from hits"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
+	["armour also applies to (%a+) damage"] = function(_, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100) } end,
+	["%+?(%d+)%% of armour also applies to (%a+) damage taken from hits"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
+	["%+?(%d+)%% of armour also applies to (%a+) damage"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
 	["maximum damage reduction for any damage type is (%d+)%%"] = function(num) return { mod("DamageReductionMax", "MAX", num) } end,
 	["maximum (%a+) damage reduction is (%d+)%%"] = function(_, dmgType, numStr) return { mod(firstToUpper(dmgType) .. "DamageReductionMax", "MAX", tonumber(numStr)) } end,
 	["gain additional elemental damage reduction equal to half your chaos resistance"] = {

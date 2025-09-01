@@ -145,9 +145,9 @@ c["+10 to Strength and Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Str",type
 c["+10 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=10},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=10},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=10},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=10}},nil}
 c["+10 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=10}},nil}
 c["+10 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=10}},nil}
-c["+10% of Armour also applies to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=10}},"  also applies to Cold Damage "}
-c["+10% of Armour also applies to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=10}},"  also applies to Fire Damage "}
-c["+10% of Armour also applies to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=10}},"  also applies to Lightning Damage "}
+c["+10% of Armour also applies to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=10}},nil}
+c["+10% of Armour also applies to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=10}},nil}
+c["+10% of Armour also applies to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=10}},nil}
 c["+10% to Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=10}},nil}
 c["+10% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=10}},nil}
 c["+10% to Chaos Resistance per Socket filled"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=10}},nil}
@@ -214,10 +214,10 @@ c["+15 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",
 c["+15 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=15}},nil}
 c["+15 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=15}},nil}
 c["+15 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=15}},nil}
-c["+15% of Armour also applies to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=15}},"  also applies to Cold Damage "}
-c["+15% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=15}},"  also applies to Elemental Damage "}
-c["+15% of Armour also applies to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=15}},"  also applies to Fire Damage "}
-c["+15% of Armour also applies to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=15}},"  also applies to Lightning Damage "}
+c["+15% of Armour also applies to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=15}},nil}
+c["+15% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=15},[3]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=15}},nil}
+c["+15% of Armour also applies to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=15}},nil}
+c["+15% of Armour also applies to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=15}},nil}
 c["+15% to Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=15}},nil}
 c["+15% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=15}},nil}
 c["+15% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=15}},nil}
@@ -642,12 +642,10 @@ c["+30 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShie
 c["+30 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=30}},nil}
 c["+30 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=30}},nil}
 c["+30 to maximum Mana per Socket filled"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=30}},nil}
-c["+30% of Armour also applies to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=30}},"  also applies to Cold Damage "}
-c["+30% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=30}},"  also applies to Elemental Damage "}
-c["+30% of Armour also applies to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=30}},"  also applies to Fire Damage "}
-c["+30% of Armour also applies to Fire Damage 30% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=30}},"  also applies to Fire Damage 30% reduced Magnitude of Ignite on you "}
-c["+30% of Armour also applies to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=30}},"  also applies to Lightning Damage "}
-c["+30% of Armour also applies to Lightning Damage 30% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=30}},"  also applies to Lightning Damage 30% reduced effect of Shock on you "}
+c["+30% of Armour also applies to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=30}},nil}
+c["+30% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=30},[2]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=30},[3]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=30}},nil}
+c["+30% of Armour also applies to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=30}},nil}
+c["+30% of Armour also applies to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=30}},nil}
 c["+30% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=30}},nil}
 c["+30% to Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="BASE",value=30}},nil}
 c["+30% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=30}},nil}
@@ -735,7 +733,7 @@ c["+5 to Strength and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Str",ty
 c["+5 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=5}},nil}
 c["+5 to any Attribute"]={{},nil}
 c["+5 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},nil}
-c["+5% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=5}},"  also applies to Elemental Damage "}
+c["+5% of Armour also applies to Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=5}},nil}
 c["+5% to Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=5}},nil}
 c["+5% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=5}},nil}
 c["+5% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=5}},nil}
