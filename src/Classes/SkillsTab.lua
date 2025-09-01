@@ -1324,6 +1324,7 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 						GlobalGemAssignments[gemInstance.gemData.name] = { 
 							count = 1,
 							support = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.support or false,
+							lineage = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.isLineage or false,
 							groups = { } 
 						}
 						if socketGroup.displayLabel then
