@@ -44,6 +44,8 @@ local forcedNameMap = {
 	["FourUniqueAmulet21"]  = "Hinekora's Sight",
 	["FourUniqueRing33"]  = "Grip of Kulemak",
 	["FourUniqueJewel12"]  = "Heart of the Well",
+	["FourUniqueLifeFlask1"]  = "Blood of the Warrior",
+	["FourUniqueStaff13"]  = "The Unborn Lich",
 	--["FourUnique"]  = "Undying Hate", Unsure, flavour text per conqueror.
 }
 

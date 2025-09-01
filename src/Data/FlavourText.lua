@@ -2096,20 +2096,29 @@ return {
 		},
 	},
 	[264] = {
+		id = "FourUniqueLifeFlask1",
+		name = "Blood of the Warrior",
+		text = {
+			"\"Tukohama may be asleep, but he still gives us his strength. A small",
+			"needle, an offering, and a vial... drink deeply, my son, and you",
+			"will more than survive the coming battle... you will thrive.\"",
+		},
+	},
+	[265] = {
 		id = "FourUniqueOneHandMace1",
 		name = "Brynhand's Mark",
 		text = {
 			"The mark of the smith was widely known.",
 		},
 	},
-	[265] = {
+	[266] = {
 		id = "FourUniqueOneHandMace2",
 		name = "Wylund's Stake",
 		text = {
 			"Shaped metal never forgets the forge.",
 		},
 	},
-	[266] = {
+	[267] = {
 		id = "FourUniqueOneHandMace3",
 		name = "Frostbreath",
 		text = {
@@ -2117,7 +2126,7 @@ return {
 			"Robbing breath from the weak and worthless.",
 		},
 	},
-	[267] = {
+	[268] = {
 		id = "FourUniqueOneHandMace4",
 		name = "Trenchtimbre",
 		text = {
@@ -2125,7 +2134,7 @@ return {
 			"It was earned by comrades in arms.",
 		},
 	},
-	[268] = {
+	[269] = {
 		id = "FourUniqueOneHandMace5",
 		name = "Sculpted Suffering",
 		text = {
@@ -2133,14 +2142,14 @@ return {
 			"and every moment in the light was agony.",
 		},
 	},
-	[269] = {
+	[270] = {
 		id = "FourUniqueOneHandMace6",
 		name = "Seeing Stars",
 		text = {
 			"Within lies a window.",
 		},
 	},
-	[270] = {
+	[271] = {
 		id = "FourUniqueOneHandMace7",
 		name = "Nebuloch",
 		text = {
@@ -2149,14 +2158,14 @@ return {
 			"But time would not touch the fiend.",
 		},
 	},
-	[271] = {
+	[272] = {
 		id = "FourUniqueOneHandMace13",
 		name = "Mjölner",
 		text = {
 			"Look the storm in the eye and you will have its respect.",
 		},
 	},
-	[272] = {
+	[273] = {
 		id = "FourUniqueTwoHandMace1",
 		name = "Hoghunt",
 		text = {
@@ -2165,7 +2174,7 @@ return {
 			"stop their flight and settle in Phaaryl.",
 		},
 	},
-	[273] = {
+	[274] = {
 		id = "FourUniqueTwoHandMace2",
 		name = "Hrimnor's Hymn",
 		text = {
@@ -2174,42 +2183,42 @@ return {
 			"- Hrimnor of the Ezomytes.",
 		},
 	},
-	[274] = {
+	[275] = {
 		id = "FourUniqueTwoHandMace3",
 		name = "Trephina",
 		text = {
 			"The art of surgery advances one mistake at a time.",
 		},
 	},
-	[275] = {
+	[276] = {
 		id = "FourUniqueTwoHandMace4",
 		name = "Brain Rattler",
 		text = {
 			"The mind may have no limits, but the skull sure does.",
 		},
 	},
-	[276] = {
+	[277] = {
 		id = "FourUniqueTwoHandMace5",
 		name = "The Empty Roar",
 		text = {
 			"Secrecy and silence are powers all their own.",
 		},
 	},
-	[277] = {
+	[278] = {
 		id = "FourUniqueTwoHandMace6",
 		name = "Shyaba",
 		text = {
 			"Be not deceived by the treachery of men.",
 		},
 	},
-	[278] = {
+	[279] = {
 		id = "FourUniqueTwoHandMace7",
 		name = "Chober Chaber",
 		text = {
 			"The faithful may continue to serve, even after death.",
 		},
 	},
-	[279] = {
+	[280] = {
 		id = "FourUniqueTwoHandMace8",
 		name = "Quecholli",
 		text = {
@@ -2218,7 +2227,7 @@ return {
 			"- Doryani of the Vaal",
 		},
 	},
-	[280] = {
+	[281] = {
 		id = "FourUniqueTwoHandMace9",
 		name = "Tidebreaker",
 		text = {
@@ -2228,7 +2237,7 @@ return {
 			"and the Brine King's domain will grow.",
 		},
 	},
-	[281] = {
+	[282] = {
 		id = "FourUniqueTwoHandMace10",
 		name = "Marohi Erqi",
 		text = {
@@ -2237,7 +2246,7 @@ return {
 			"Divine - he should have made it a test of skill!\"",
 		},
 	},
-	[282] = {
+	[283] = {
 		id = "FourUniqueTwoHandMace13",
 		name = "The Hammer of Faith",
 		text = {
@@ -2246,14 +2255,14 @@ return {
 			"One day, justice would fall upon them...",
 		},
 	},
-	[283] = {
+	[284] = {
 		id = "FourUniqueSpear1",
 		name = "Splinter of Lorrata",
 		text = {
 			"The Baleful Gem's corruption lingers still...",
 		},
 	},
-	[284] = {
+	[285] = {
 		id = "FourUniqueSpear2",
 		name = "Tyranny's Grip",
 		text = {
@@ -2261,21 +2270,21 @@ return {
 			"but rebels of every culture stood together as one.",
 		},
 	},
-	[285] = {
+	[286] = {
 		id = "FourUniqueSpear3",
 		name = "Chainsting",
 		text = {
 			"The Sacred Hunt ends with mercy.",
 		},
 	},
-	[286] = {
+	[287] = {
 		id = "FourUniqueSpear4",
 		name = "Skysliver",
 		text = {
 			"Heads fall to the sand, just as the star fell from the sky",
 		},
 	},
-	[287] = {
+	[288] = {
 		id = "FourUniqueSpear5",
 		name = "Daevata's Wind",
 		text = {
@@ -2283,7 +2292,7 @@ return {
 			"but vengeance now.\" - Dimos, Advisor to General Titucius",
 		},
 	},
-	[288] = {
+	[289] = {
 		id = "FourUniqueSpear6",
 		name = "Tangletongue",
 		text = {
@@ -2291,7 +2300,7 @@ return {
 			"- Wranga, tale-woman of the Wahida akhara",
 		},
 	},
-	[289] = {
+	[290] = {
 		id = "FourUniqueSpear7",
 		name = "Saitha's Spear",
 		text = {
@@ -2299,7 +2308,7 @@ return {
 			"fused to her hand by her last mistake.",
 		},
 	},
-	[290] = {
+	[291] = {
 		id = "FourUniqueSpear13",
 		name = "Spire of Ire",
 		text = {
@@ -2307,14 +2316,14 @@ return {
 			"but Maligaro never got a chance to use it...",
 		},
 	},
-	[291] = {
+	[292] = {
 		id = "FourUniqueQuarterstaff1",
 		name = "The Blood Thorn",
 		text = {
 			"Touch not the thorn, for only blood and pain await.",
 		},
 	},
-	[292] = {
+	[293] = {
 		id = "FourUniqueQuarterstaff2",
 		name = "Pillar of the Caged God",
 		text = {
@@ -2324,7 +2333,7 @@ return {
 			"Deft as the needle doubt",
 		},
 	},
-	[293] = {
+	[294] = {
 		id = "FourUniqueQuarterstaff3",
 		name = "The Sentry",
 		text = {
@@ -2332,14 +2341,14 @@ return {
 			"Erian was asleep at his post.",
 		},
 	},
-	[294] = {
+	[295] = {
 		id = "FourUniqueQuarterstaff5",
 		name = "Matsya",
 		text = {
 			"In our tales, and in our hearts, the rivers still flow.",
 		},
 	},
-	[295] = {
+	[296] = {
 		id = "FourUniqueQuarterstaff6",
 		name = "Nazir's Judgement",
 		text = {
@@ -2347,7 +2356,7 @@ return {
 			"never let your enemy have a clear moment.",
 		},
 	},
-	[296] = {
+	[297] = {
 		id = "FourUniqueWand1",
 		name = "The Wicked Quill",
 		text = {
@@ -2355,14 +2364,14 @@ return {
 			"the pages torn to a million pieces.",
 		},
 	},
-	[297] = {
+	[298] = {
 		id = "FourUniqueWand2",
 		name = "Sanguine Diviner",
 		text = {
 			"One way or another, it will find what it seeks.",
 		},
 	},
-	[298] = {
+	[299] = {
 		id = "FourUniqueWand3",
 		name = "Lifesprig",
 		text = {
@@ -2371,7 +2380,7 @@ return {
 			"Life endures in Wraeclast.",
 		},
 	},
-	[299] = {
+	[300] = {
 		id = "FourUniqueWand4",
 		name = "Adonia's Ego",
 		text = {
@@ -2380,28 +2389,28 @@ return {
 			"\"You think me powerless without my wand? Insult me again!\"",
 		},
 	},
-	[300] = {
+	[301] = {
 		id = "FourUniqueWand5",
 		name = "Enezun's Charge",
 		text = {
 			"He alone was welcome in the sacred spaces of the Titans.",
 		},
 	},
-	[301] = {
+	[302] = {
 		id = "FourUniqueWand7",
 		name = "Cursecarver",
 		text = {
 			"Lost in the Black Fen, Erian hoped that dawn would save him. He had no idea how far away the light truly was.",
 		},
 	},
-	[302] = {
+	[303] = {
 		id = "FourUniqueStaff1",
 		name = "Dusk Vigil",
 		text = {
 			"The candlemass tradition was born in a time of darkness and fear.",
 		},
 	},
-	[303] = {
+	[304] = {
 		id = "FourUniqueStaff2",
 		name = "Taryn's Shiver",
 		text = {
@@ -2411,14 +2420,14 @@ return {
 			"Shiver in pain at the frozen dawn.",
 		},
 	},
-	[304] = {
+	[305] = {
 		id = "FourUniqueStaff3",
 		name = "Earthbound",
 		text = {
 			"An ancient Azmeri staff, overgrown by roots...",
 		},
 	},
-	[305] = {
+	[306] = {
 		id = "FourUniqueStaff5",
 		name = "The Searing Touch",
 		text = {
@@ -2426,14 +2435,24 @@ return {
 			"Rule a world, bathed in flame.",
 		},
 	},
-	[306] = {
+	[307] = {
 		id = "FourUniqueStaff6",
 		name = "Sire of Shards",
 		text = {
 			"That which was broken may yet break.",
 		},
 	},
-	[307] = {
+	[308] = {
+		id = "FourUniqueStaff13",
+		name = "The Unborn Lich",
+		text = {
+			"In ghastly pits beneath the world,",
+			"Kulemak grows countless new bodies,",
+			"each more powerful than the last.",
+			"Not all of his abominations survive.",
+		},
+	},
+	[309] = {
 		id = "FourUniqueStaff14",
 		name = "The Whispering Ice",
 		text = {
@@ -2443,7 +2462,7 @@ return {
 			"- Weylam Roth",
 		},
 	},
-	[308] = {
+	[310] = {
 		id = "FourUniqueBow1",
 		name = "Widowhail",
 		text = {
@@ -2452,7 +2471,7 @@ return {
 			"healing, no revenge. There was only... emptiness.\"",
 		},
 	},
-	[309] = {
+	[311] = {
 		id = "FourUniqueBow2",
 		name = "Quill Rain",
 		text = {
@@ -2461,7 +2480,7 @@ return {
 			"- Rigwald of the Ezomytes",
 		},
 	},
-	[310] = {
+	[312] = {
 		id = "FourUniqueBow4",
 		name = "Splinterheart",
 		text = {
@@ -2470,7 +2489,7 @@ return {
 			"lest they return with a strange new purpose.",
 		},
 	},
-	[311] = {
+	[313] = {
 		id = "FourUniqueBow5",
 		name = "Doomfletch",
 		text = {
@@ -2481,7 +2500,7 @@ return {
 			"- Koralus Doomfletch",
 		},
 	},
-	[312] = {
+	[314] = {
 		id = "FourUniqueBow6",
 		name = "Death's Harp",
 		text = {
@@ -2491,7 +2510,7 @@ return {
 			"The Reaper's Song, the Harp of Death.",
 		},
 	},
-	[313] = {
+	[315] = {
 		id = "FourUniqueBow7",
 		name = "Voltaxic Rift",
 		text = {
@@ -2500,14 +2519,14 @@ return {
 			"arcane power. There was no escape, no shelter. Only despair.",
 		},
 	},
-	[314] = {
+	[316] = {
 		id = "FourUniqueBow8",
 		name = "Slivertongue",
 		text = {
 			"A hundred blind heads, each seeking the taste of prey on the air.",
 		},
 	},
-	[315] = {
+	[317] = {
 		id = "FourUniqueBow9",
 		name = "Fairgraves' Curse",
 		text = {
@@ -2515,7 +2534,7 @@ return {
 			"souls just as easily as flesh.",
 		},
 	},
-	[316] = {
+	[318] = {
 		id = "FourUniqueBow13_",
 		name = "Lioneye's Glare",
 		text = {
@@ -2524,7 +2543,7 @@ return {
 			"- General Marceus Lioneye",
 		},
 	},
-	[317] = {
+	[319] = {
 		id = "FourUniqueCrossbow1",
 		name = "Mist Whisper",
 		text = {
@@ -2532,7 +2551,7 @@ return {
 			"All the travelers had to give him was their devotion...",
 		},
 	},
-	[318] = {
+	[320] = {
 		id = "FourUniqueCrossbow2",
 		name = "Rampart Raptor",
 		text = {
@@ -2541,7 +2560,7 @@ return {
 			"- anonymous Brotherhood of Silence report",
 		},
 	},
-	[319] = {
+	[321] = {
 		id = "FourUniqueCrossbow5",
 		name = "Double Vision",
 		text = {
@@ -2549,7 +2568,7 @@ return {
 			"hot day is harsh, but the chill night is far worse.",
 		},
 	},
-	[320] = {
+	[322] = {
 		id = "FourUniqueCrossbow13",
 		name = "The Last Lament",
 		text = {
@@ -2559,7 +2578,7 @@ return {
 			"- Adamantia Brektov, the Composer",
 		},
 	},
-	[321] = {
+	[323] = {
 		id = "FourUniqueSceptre1",
 		name = "The Dark Defiler",
 		text = {
@@ -2567,7 +2586,7 @@ return {
 			"his undead armies from the front.",
 		},
 	},
-	[322] = {
+	[324] = {
 		id = "FourUniqueSceptre4",
 		name = "Font of Power",
 		text = {
@@ -2575,7 +2594,7 @@ return {
 			"for they have a much higher purpose.",
 		},
 	},
-	[323] = {
+	[325] = {
 		id = "FourUniqueSceptre6",
 		name = "Guiding Palm",
 		text = {
@@ -2585,7 +2604,7 @@ return {
 			"- Book of the Benevolent Dreamer, Histories 220:5",
 		},
 	},
-	[324] = {
+	[326] = {
 		id = "FourUniqueSceptre6a",
 		name = "Guiding Palm of the Heart",
 		text = {
@@ -2594,7 +2613,7 @@ return {
 			"The Dreamer declared, casting out the lingering dark embers within him.",
 		},
 	},
-	[325] = {
+	[327] = {
 		id = "FourUniqueSceptre6b",
 		name = "Guiding Palm of the Eye",
 		text = {
@@ -2604,7 +2623,7 @@ return {
 			"The Dreamer whispered with fogging breath, ice creeping down his hand.",
 		},
 	},
-	[326] = {
+	[328] = {
 		id = "FourUniqueSceptre6c",
 		name = "Guiding Palm of the Mind",
 		text = {
@@ -2614,7 +2633,7 @@ return {
 			"The Dreamer mused with aching heart, as remnants of forking tendrils burst forth.",
 		},
 	},
-	[327] = {
+	[329] = {
 		id = "FourUniqueSceptre6d",
 		name = "Palm of the Dreamer",
 		text = {
@@ -2624,7 +2643,7 @@ return {
 			"- The Benevolent Dreamer",
 		},
 	},
-	[328] = {
+	[330] = {
 		id = "FourUniqueCharm1",
 		name = "Nascent Hope",
 		text = {
@@ -2632,7 +2651,7 @@ return {
 			"life found a way. The Spirit always provides.\"",
 		},
 	},
-	[329] = {
+	[331] = {
 		id = "FourUniqueCharm2",
 		name = "Sanguis Heroum",
 		text = {
@@ -2640,7 +2659,7 @@ return {
 			"It remembers those that stood in defiance.",
 		},
 	},
-	[330] = {
+	[332] = {
 		id = "FourUniqueCharm3",
 		name = "Arakaali's Gift",
 		text = {
@@ -2648,7 +2667,7 @@ return {
 			"needed never fear her sting.",
 		},
 	},
-	[331] = {
+	[333] = {
 		id = "FourUniqueCharm4",
 		name = "Beira's Anguish",
 		text = {
@@ -2656,7 +2675,7 @@ return {
 			"She was clad in ice, but the village was ash.",
 		},
 	},
-	[332] = {
+	[334] = {
 		id = "FourUniqueCharm5",
 		name = "The Black Cat",
 		text = {
@@ -2664,7 +2683,7 @@ return {
 			"is the one that refuses to do any actual work.",
 		},
 	},
-	[333] = {
+	[335] = {
 		id = "FourUniqueCharm6",
 		name = "For Utopia",
 		text = {
@@ -2672,7 +2691,7 @@ return {
 			"The Savior will rise, and mankind will be free.\"",
 		},
 	},
-	[334] = {
+	[336] = {
 		id = "FourUniqueCharm7",
 		name = "The Fall of the Axe",
 		text = {
@@ -2681,14 +2700,14 @@ return {
 			"- Vorm, the Twice-Pardoned",
 		},
 	},
-	[335] = {
+	[337] = {
 		id = "FourUniqueCharm8",
 		name = "Ngamahu's Chosen",
 		text = {
 			"Kaom was not known for his restraint.",
 		},
 	},
-	[336] = {
+	[338] = {
 		id = "FourUniqueCharm9",
 		name = "Breath of the Mountains",
 		text = {
@@ -2698,7 +2717,7 @@ return {
 			"- Mutewind saying",
 		},
 	},
-	[337] = {
+	[339] = {
 		id = "FourUniqueCharm10",
 		name = "Valako's Roar",
 		text = {
@@ -2706,7 +2725,7 @@ return {
 			"Flashes of light show only swinging axes... and a grin.",
 		},
 	},
-	[338] = {
+	[340] = {
 		id = "FourUniqueCharm11",
 		name = "Forsaken Bangle",
 		text = {
@@ -2714,7 +2733,7 @@ return {
 			"They bore this burden to empower their hidden Order.",
 		},
 	},
-	[339] = {
+	[341] = {
 		id = "FourUniquePinnacle1",
 		name = "Morior Invictus",
 		text = {
@@ -2722,28 +2741,28 @@ return {
 			"They stood against the end.",
 		},
 	},
-	[340] = {
+	[342] = {
 		id = "FourUniquePinnacle2",
 		name = "Solus Ipse",
 		text = {
 			"One warrior alone survived to face the Arbiter.",
 		},
 	},
-	[341] = {
+	[343] = {
 		id = "FourUniquePinnacle3",
 		name = "Sine Aequo",
 		text = {
 			"The greatest warrior of his era fought with honour.",
 		},
 	},
-	[342] = {
+	[344] = {
 		id = "FourUniquePinnacle4",
 		name = "Ab Aeterno",
 		text = {
 			"His enemy was for endurance forged. His own waned.",
 		},
 	},
-	[343] = {
+	[345] = {
 		id = "FourUniquePinnacle5",
 		name = "Sacred Flame",
 		text = {
@@ -2751,7 +2770,7 @@ return {
 			"Life always springs anew.",
 		},
 	},
-	[344] = {
+	[346] = {
 		id = "FourUniqueSanctum1",
 		name = "Temporalis",
 		text = {
@@ -2759,14 +2778,14 @@ return {
 			"mastered was Time itself.",
 		},
 	},
-	[345] = {
+	[347] = {
 		id = "FourUniqueSanctum2",
 		name = "Sandstorm Visage",
 		text = {
 			"A fell wind brings death.",
 		},
 	},
-	[346] = {
+	[348] = {
 		id = "FourUniqueSanctum3",
 		name = "Blessed Bonds",
 		text = {
@@ -2775,7 +2794,7 @@ return {
 			"One day, spring will return the rains.\"",
 		},
 	},
-	[347] = {
+	[349] = {
 		id = "FourUniqueSanctum4a",
 		name = "Sekhema's Resolve",
 		text = {
@@ -2783,7 +2802,7 @@ return {
 			"Vastiri to dust, we remain, unchanged.",
 		},
 	},
-	[348] = {
+	[350] = {
 		id = "FourUniqueSanctum4b",
 		name = "Sekhema's Resolve",
 		text = {
@@ -2791,7 +2810,7 @@ return {
 			"Vastiri in ice, we remained, unchanged.",
 		},
 	},
-	[349] = {
+	[351] = {
 		id = "FourUniqueSanctum4c",
 		name = "Sekhema's Resolve",
 		text = {
@@ -2799,7 +2818,7 @@ return {
 			"Vastiri, we shall remain, unchanged.",
 		},
 	},
-	[350] = {
+	[352] = {
 		id = "FourUniqueUltimatum1",
 		name = "Glimpse of Chaos",
 		text = {
@@ -2807,28 +2826,28 @@ return {
 			"only under the blessed veil of ignorance.",
 		},
 	},
-	[351] = {
+	[353] = {
 		id = "FourUniqueUltimatum2",
 		name = "Zerphi's Genesis",
 		text = {
 			"The most horrifying ideas often begin with a simple innovation.",
 		},
 	},
-	[352] = {
+	[354] = {
 		id = "FourUniqueUltimatum3",
 		name = "Mahuxotl's Machination",
 		text = {
 			"The Banished Architect sought to employ the darkest secrets of the Vaal.",
 		},
 	},
-	[353] = {
+	[355] = {
 		id = "FourUniqueUltimatum4",
 		name = "Hateforge",
 		text = {
 			"The first Karui born on the fringes of the Vaal empire developed a blood fever born of corruption.",
 		},
 	},
-	[354] = {
+	[356] = {
 		id = "FourUniqueExpedition1",
 		name = "Svalinn",
 		text = {
@@ -2836,7 +2855,7 @@ return {
 			"but it was the smiths who delved into the secrets it held.",
 		},
 	},
-	[355] = {
+	[357] = {
 		id = "FourUniqueExpedition2",
 		name = "Keeper of the Arc",
 		text = {
@@ -2844,7 +2863,7 @@ return {
 			"and calculation, not unprovable promises.",
 		},
 	},
-	[356] = {
+	[358] = {
 		id = "FourUniqueExpedition3_",
 		name = "Olroth's Resolve",
 		text = {
@@ -2854,7 +2873,7 @@ return {
 			"he fights for you!",
 		},
 	},
-	[357] = {
+	[359] = {
 		id = "FourUniqueExpedition4",
 		name = "Olrovasara",
 		text = {
@@ -2862,14 +2881,14 @@ return {
 			"- Fourth Tenet of the Knights of the Sun",
 		},
 	},
-	[358] = {
+	[360] = {
 		id = "FourUniqueDelirium1",
 		name = "Assailum",
 		text = {
 			"A moment of calm before the battle can end the war.",
 		},
 	},
-	[359] = {
+	[361] = {
 		id = "FourUniqueDelirium2",
 		name = "Perfidy",
 		text = {
@@ -2877,21 +2896,21 @@ return {
 			"What hope have you?",
 		},
 	},
-	[360] = {
+	[362] = {
 		id = "FourUniqueDelirium3",
 		name = "Melting Maelstrom",
 		text = {
 			"What is life, but a dreamlike spiral of panic?",
 		},
 	},
-	[361] = {
+	[363] = {
 		id = "FourUniqueDelirium4",
 		name = "Collapsing Horizon",
 		text = {
 			"The edges bend, the world flexes, the infinite spills into view.",
 		},
 	},
-	[362] = {
+	[364] = {
 		id = "FourUniqueDelirium5",
 		name = "Strugglescream",
 		text = {
@@ -2899,7 +2918,7 @@ return {
 			"but the shadows eventually become home.",
 		},
 	},
-	[363] = {
+	[365] = {
 		id = "FourUniqueRitual1",
 		name = "The Burden of Shadows",
 		text = {
@@ -2907,7 +2926,7 @@ return {
 			"Every moment is a struggle to exist.",
 		},
 	},
-	[364] = {
+	[366] = {
 		id = "FourUniqueRitual2",
 		name = "Beetlebite",
 		text = {
@@ -2915,7 +2934,7 @@ return {
 			"in the shadow of his presence.",
 		},
 	},
-	[365] = {
+	[367] = {
 		id = "FourUniqueRitual3",
 		name = "Ingenuity",
 		text = {
@@ -2923,7 +2942,7 @@ return {
 			"the Maji more than they ever expected.",
 		},
 	},
-	[366] = {
+	[368] = {
 		id = "FourUniqueRitual4",
 		name = "Pragmatism",
 		text = {
@@ -2931,7 +2950,7 @@ return {
 			"one must be ever vigilant.",
 		},
 	},
-	[367] = {
+	[369] = {
 		id = "FourUniqueBreach1_",
 		name = "Skin of the Loyal",
 		text = {
@@ -2939,7 +2958,7 @@ return {
 			"A net woven to keep safe the bones of the Lords.",
 		},
 	},
-	[368] = {
+	[370] = {
 		id = "FourUniqueBreach2",
 		name = "Hand of Wisdom and Action",
 		text = {
@@ -2948,7 +2967,7 @@ return {
 			"Fragments of the whole that washes clean the skies.",
 		},
 	},
-	[369] = {
+	[371] = {
 		id = "FourUniqueBreach3",
 		name = "Beyond Reach",
 		text = {
@@ -2956,7 +2975,7 @@ return {
 			"that protects us from ourselves.",
 		},
 	},
-	[370] = {
+	[372] = {
 		id = "FourUniqueBreach4a",
 		name = "Xoph's Blood",
 		text = {
@@ -2964,7 +2983,7 @@ return {
 			"Through us he carries his burning message.",
 		},
 	},
-	[371] = {
+	[373] = {
 		id = "FourUniqueBreach4b",
 		name = "Choir of the Storm",
 		text = {
@@ -2973,7 +2992,7 @@ return {
 			"And the fool was unwritten.",
 		},
 	},
-	[372] = {
+	[374] = {
 		id = "FourUniqueBreach4c",
 		name = "The Pandemonius",
 		text = {
@@ -2981,7 +3000,7 @@ return {
 			"beneath which all are buried.",
 		},
 	},
-	[373] = {
+	[375] = {
 		id = "FourUniqueSpirit1",
 		name = "Rite of Passage",
 		text = {
@@ -2989,7 +3008,7 @@ return {
 			"Azmeri must prove themselves before the Spirit.",
 		},
 	},
-	[374] = {
+	[376] = {
 		id = "FourUniqueCorruption1",
 		name = "The Gnashing Sash",
 		text = {
@@ -2998,7 +3017,7 @@ return {
 			"- Rantings of a Templar prisoner, page fourteen",
 		},
 	},
-	[375] = {
+	[377] = {
 		id = "FourUniqueCorruption2",
 		name = "Bursting Decay",
 		text = {
@@ -3007,7 +3026,7 @@ return {
 			"- Rantings of a Templar prisoner, page thirty",
 		},
 	},
-	[376] = {
+	[378] = {
 		id = "FourUniqueCorruption3",
 		name = "Death Articulated",
 		text = {
@@ -3016,28 +3035,28 @@ return {
 			"- Rantings of a Templar prisoner, page ninety-four",
 		},
 	},
-	[377] = {
+	[379] = {
 		id = "FourUniqueJewel1",
 		name = "Grand Spectrum",
 		text = {
 			"A wellspring of vitality bubbling from within.",
 		},
 	},
-	[378] = {
+	[380] = {
 		id = "FourUniqueJewel2",
 		name = "Grand Spectrum",
 		text = {
 			"An indomitable force of control.",
 		},
 	},
-	[379] = {
+	[381] = {
 		id = "FourUniqueJewel3",
 		name = "Grand Spectrum",
 		text = {
 			"Skin like steel tempered by bright flames.",
 		},
 	},
-	[380] = {
+	[382] = {
 		id = "FourUniqueJewel4",
 		name = "Megalomaniac",
 		text = {
@@ -3045,7 +3064,7 @@ return {
 			"than everyone else, make sure you are.",
 		},
 	},
-	[381] = {
+	[383] = {
 		id = "FourUniqueJewel5",
 		name = "Heroic Tragedy",
 		text = {
@@ -3053,7 +3072,7 @@ return {
 			"but that bravery became the doom at their door.",
 		},
 	},
-	[382] = {
+	[384] = {
 		id = "FourUniqueJewel6",
 		name = "From Nothing",
 		text = {
@@ -3061,7 +3080,7 @@ return {
 			"breathing deep with joy the exquisite light of meaning.",
 		},
 	},
-	[383] = {
+	[385] = {
 		id = "FourUniqueJewel7",
 		name = "Controlled Metamorphosis",
 		text = {
@@ -3069,14 +3088,14 @@ return {
 			"We broke free from the chains within.",
 		},
 	},
-	[384] = {
+	[386] = {
 		id = "FourUniqueJewel8",
 		name = "Prism of Belief",
 		text = {
 			"Entropy can be reversed.",
 		},
 	},
-	[385] = {
+	[387] = {
 		id = "FourUniqueJewel9",
 		name = "The Adorned",
 		text = {
@@ -3085,14 +3104,14 @@ return {
 			"now nothing more than a passing wonder.",
 		},
 	},
-	[386] = {
+	[388] = {
 		id = "FourUniqueJewel10",
 		name = "Against the Darkness",
 		text = {
 			"After the fires, in the depths of the Winter of the World, all life in the Vastiri banded together. Whether serpent, hyena, human, or golem, hated enemies clasped hand to claw, built refuge, and fought side by side against the Abyssals. Thus, the Third Pact was born.",
 		},
 	},
-	[387] = {
+	[389] = {
 		id = "FourUniqueJewel12",
 		name = "Heart of the Well",
 		text = {

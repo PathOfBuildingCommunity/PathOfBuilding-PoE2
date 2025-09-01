@@ -3,6 +3,16 @@
 return {
 -- Flask: Life
 [[
+Blood of the Warrior
+Gargantuan Life Flask
+League: Rise of the Abyssal
+90% less Life Recovered
+Effect is not removed when Unreserved Life is Filled
+(15-30)% of Damage taken during effect Recouped as Life
+Gain (3-5) Rage when Hit by an Enemy during effect
+No Inherent loss of Rage during effect
+(25-50)% increased Duration
+]],[[
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}
