@@ -6,10 +6,37 @@
 local skills, mod, flag, skill = ...
 
 #from tree
+#skill AcidicConcoctionPlayer
+#set AcidicConcoctionPlayer
+#flags attack projectile unarmed area
+#mods
+#set AcidicConcoctionPoisonBurstPlayer
+#flags attack area
+statMap = {
+	["poisonous_concoction_area_of_effect_+%_final_per_active_poison_consumed"] = {
+		mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", actor = "enemy", var = "PoisonStacks" }),
+	},
+	["active_skill_base_secondary_area_of_effect_radius"] = {
+		skill("radius", nil),
+	},
+},
+#mods
+#skillEnd
+
+#from tree
 #minionList AncestralSpiritTurtle AncestralSpiritHulk AncestralSpiritCaster AncestralSpiritWarhorn
 #skill AncestralSpiritsPlayer
 #set AncestralSpiritsPlayer
 #flags spell minion
+statMap = {
+	["minion_1%_damage_+%_per_X_player_strength"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
+	},
+	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
+		div = 3,
+	},
+},
 #mods
 #skillEnd
 
@@ -17,11 +44,6 @@ local skills, mod, flag, skill = ...
 #skill BleedingConcoctionPlayer
 #set BleedingConcoctionPlayer
 #flags attack projectile unarmed area
-statMap = {
-	["flask_throw_bleed_effect_+%_final"] = {
-		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
-	},
-},
 #mods
 #skillEnd
 
@@ -33,19 +55,42 @@ statMap = {
 #skillEnd
 
 #from item
-#skill MetaCastOnCharmUsePlayer
-#set MetaCastOnCharmUsePlayer
+#skill MeleeBowPlayer
+#set MeleeBowPlayer
+#flags attack projectile
+#mods
+#skillEnd
+
+#from item
+#skill ExplodingPoisonToadPlayer
+#set ExplodingPoisonToadPlayer
+#flags area attack
+#mods
+#skillEnd
+
+#from tree
+#skill MetaDeadeyeMarksPlayer
+#set MetaDeadeyeMarksPlayer
 #flags
 #mods
-#set SupportMetaCastOnCharmUsePlayer
+#skillEnd
+
+#from tree
+#skill SupportMetaDeadeyeMarksPlayer
+#set SupportMetaDeadeyeMarksPlayer
+#mods
+#skillEnd
+
+#from item
+#skill MetaCastOnCharmUsePlayer
+#set MetaCastOnCharmUsePlayer
 #flags
 #mods
 #skillEnd
 
 #from item
-#skill MeleeBowPlayer
-#set MeleeBowPlayer
-#flags attack projectile
+#skill SupportMetaCastOnCharmUsePlayer
+#set SupportMetaCastOnCharmUsePlayer
 #mods
 #skillEnd
 
@@ -127,9 +172,35 @@ statMap = {
 #skillEnd
 
 #from tree
+#skill AmazonTriggerElementalSurgePlayer
+#set AmazonTriggerColdSurgePlayer
+#flags attack area
+#mods
+#set AmazonTriggerFireSurgePlayer
+#flags attack area
+#mods
+#set AmazonTriggerLightningSurgePlayer
+#flags attack area
+#mods
+#skillEnd
+
+#from tree
 #skill EncaseInJadePlayer
 #set EncaseInJadePlayer
 #flags duration
+#mods
+#skillEnd
+
+#from tree
+#skill ExplosiveConcoctionPlayer
+#set ExplosiveConcoctionPlayer
+#flags attack projectile duration unarmed area
+statMap = {
+	["flask_throw_fire_exposure_ms"] = {
+		mod("FireExposureChance", "BASE", nil),
+		value = 100,
+	},
+},
 #mods
 #skillEnd
 
@@ -148,19 +219,6 @@ statMap = {
 #skillEnd
 
 #from tree
-#skill ExplosiveConcoctionPlayer
-#set ExplosiveConcoctionPlayer
-#flags attack projectile duration unarmed area
-statMap = {
-	["flask_throw_fire_exposure_ms"] = {
-		mod("FireExposureChance", "BASE", nil),
-		value = 100,
-	},
-},
-#mods
-#skillEnd
-
-#from tree
 #skill FulminatingConcoctionPlayer
 #set FulminatingConcoctionPlayer
 #flags attack projectile duration unarmed area
@@ -173,16 +231,17 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill FuturePastPlayer
+#set FuturePastPlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
-#skill AmazonTriggerElementalInfusionPlayer
-#set AmazonTriggerColdInfusionPlayer
-#flags attack area
-#mods
-#set AmazonTriggerFireInfusionPlayer
-#flags attack area
-#mods
-#set AmazonTriggerLightningInfusionPlayer
-#flags attack area
+#skill InevitableAgonyPlayer
+#set InevitableAgonyPlayer
+#flags
 #mods
 #skillEnd
 
@@ -221,13 +280,6 @@ statMap = {
 #mods
 #skillEnd
 
-#from item
-#skill ChaosSpearTriggerChaosInfusionPlayer
-#set ChaosSpearTriggerChaosInfusionPlayer
-#flags attack area
-#mods
-#skillEnd
-
 #from tree
 #minionList ManifestWeapon
 #skill ManifestWeaponPlayer
@@ -237,6 +289,15 @@ minionUses = {
 },
 #set ManifestWeaponPlayer
 #flags spell minion duration
+statMap = {
+	["minion_1%_damage_+%_per_X_player_strength"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
+	},
+	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
+		div = 3,
+	},
+},
 #mods
 #skillEnd
 
@@ -259,15 +320,10 @@ statMap = {
 #mods
 #skillEnd
 
-#from tree
-#skill PoisonousConcoctionPlayer
-#set PoisonousConcoctionPlayer
-#flags attack projectile unarmed area
-statMap = {
-	["flask_throw_poison_effect_+%_final"] = {
-		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
-	},
-},
+#from item
+#skill PinnacleOfPowerPlayer
+#set PinnacleOfPowerPlayer
+#flags buff duration
 #mods
 #skillEnd
 
@@ -356,9 +412,15 @@ statMap = {
 #skill SupportingFirePlayer
 #set SupportingFirePlayer
 #flags minion permanentMinion
-#mods
-#set CommandDeathFromAbovePlayer
-#flags minion permanentMinion
+statMap = {
+	["minion_1%_damage_+%_per_X_player_strength"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
+	},
+	["minion_1%_area_of_effect_+%_per_X_player_dexterity"] = {
+		mod("MinionModifier", "LIST", { mod = mod("AreaOfEffect", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
+		div = 3,
+	},
+},
 #mods
 #skillEnd
 
@@ -404,63 +466,16 @@ statMap = {
 #mods
 #skillEnd
 
-#from item
-#skill UniqueBreachLightningBoltPlayer
-#set UniqueBreachLightningBoltPlayer
-#flags spell area
-#mods
-#skillEnd
-
-#from item
-#skill CrossbowRequiemAmmoPlayer
-#set CrossbowRequiemAmmoPlayer
+#from tree
+#skill VoidIllusionPlayer
+#set VoidIllusionPlayer
 #flags
 #mods
 #skillEnd
 
-#from item
-#skill CrossbowRequiemPlayer
-#set CrossbowRequiemPlayer
-#flags projectile area
-#mods
-#skillEnd
-
-#from item
-#skill ExplodingPoisonToadPlayer
-#set ExplodingPoisonToadPlayer
-#flags area attack
-#mods
-#skillEnd
-
-#from item
-#skill PinnacleOfPowerPlayer
-#set PinnacleOfPowerPlayer
-#flags buff duration
-#mods
-#skillEnd
-
-#from item
-#skill ImpurityPlayer
-#set ImpurityPlayer
-#flags aura
-statMap = {
-	["base_skill_buff_chaos_damage_resistance_%_to_apply"] = {
-		mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
-	},
-},
-#mods
-#skillEnd
-
-#from item
-#skill HeartOfIcePlayer
-#set HeartOfIcePlayer
-#flags buff aura
-#mods
-#skillEnd
-
-#from item
-#skill IcestormPlayer
-#set IcestormPlayer
-#flags spell area duration
+#from tree
+#skill VoidIllusionSpawnPlayer Void Illusion
+#set VoidIllusionSpawnPlayer
+#flags attack
 #mods
 #skillEnd

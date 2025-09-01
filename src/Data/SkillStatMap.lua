@@ -1381,6 +1381,9 @@ return {
 ["cannot_cause_bleeding"] = {
 	flag("CannotBleed"),
 },
+["cannot_poison"] = {
+	flag("CannotPoison"),
+},
 ["cannot_break_armour"] = {
 	flag("CannotArmourBreak"),
 },
@@ -2223,14 +2226,6 @@ return {
 },
 ["minion_block_%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil) }),
-},
-["minion_1%_damage_+%_per_X_player_strength"] = {
-	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent", div = 3 }) }),
-	div = 3,
-},
-["minion_1%_accuracy_rating_+%_per_X_player_dexterity"] = {
-	mod("MinionModifier", "LIST", { mod = mod("Accuracy", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
-	div = 3,
 },
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
