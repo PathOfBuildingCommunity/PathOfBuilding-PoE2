@@ -140,5 +140,49 @@ Variant: Current
 +20% to Fire Resistance
 100% increased Flammability Magnitude
 30% increased Light Radius
+]],[[
+The Unborn Lich
+Ravenous Staff
+League: Rise of the Abyssal
+Has Alt Variant: true
+Has Alt Variant Two: true
+Has Alt Variant Three: true
+Selected Variant: 7
+Selected Alt Variant: 8
+Selected Alt Variant Two: 9
+Selected Alt Variant Three: 10
+Variant: His Dark Horizon
+Variant: His Foul Emergence
+Variant: His Grave Command
+Variant: His Scattering Calamity
+Variant: His Vile Intrusion
+Variant: His Winnowing Flame
+Variant: Elemental Damage and Ailment Duration
+Variant: Spirit and Spirit Reservation Efficiency
+Variant: Chaos Damage and Curse
+Variant: Spell Physical Damage and Bleed Chance
+Variant: Chaos Damage and Explode
+Variant: Unholy Might
+Implicits: 1
+Grants Skill: Level (1-20) Feast of Flesh
+(60-80)% increased Desecrated Modifier magnitudes
+{variant:9}(80-120)% increased Chaos Damage
+{variant:11}(80-120)% increased Chaos Damage
+{variant:10}(80-120)% increased Spell Physical Damage
+{variant:8}+(40-60) to Spirit
+{variant:7}(10-20)% increased Duration of Elemental Ailments on Enemies
+{variant:7}(80-120)% increased Elemental Damage
+{variant:11}Enemies you Kill have a (5-10)% chance to Explode, dealing a quarter of their maximum Life as Chaos Damage
+{variant:9}Enemies you Curse have -(8-5)% to Chaos Resistance
+{variant:10}(20-30)% chance to inflict Bleeding on Hit
+{variant:8}(6-10)% increased Spirit Reservation Efficiency of Skills
+{variant:12}(13-31)% increased Magnitude of Unholy Might buffs you grant
+{variant:12}You have Unholy Might
+{variant:1}Grants Skill: Level (1-20) His Dark Horizon
+{variant:2}Grants Skill: Level (1-20) His Foul Emergence
+{variant:3}Grants Skill: Level (1-20) His Grave Command
+{variant:4}Grants Skill: Level (1-20) His Scattering Calamity
+{variant:5}Grants Skill: Level (1-20) His Vile Intrusion
+{variant:6}Grants Skill: Level (1-20) His Winnowing Flame
 ]],
 }

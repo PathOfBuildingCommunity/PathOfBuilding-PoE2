@@ -149,6 +149,7 @@ do
 	local kulemak = {
 		"Grip of Kulemak",
 		"Abyssal Signet",
+		"League: Rise of the Abyssal",
 		"Has Alt Variant: true",
 		"Has Alt Variant Two: true",
 		"Has Alt Variant Three: true",
@@ -168,11 +169,11 @@ do
 	table.insert(data.uniques.generated, table.concat(kulemak, "\n"))
 end
 
-local uniqueMods = LoadModule("Data/ModVeiled")
+local veiledMods = LoadModule("Data/ModVeiled")
 
 do
 	local heartMods = { }
-	for modName, mod in pairs(uniqueMods) do
+	for modName, mod in pairs(veiledMods) do
 		local name = modName:match("^UniqueHeart(.+)$")
 		if name then
 			table.insert(heartMods, { 
@@ -188,6 +189,7 @@ do
 	local heart = {
 		"Heart of the Well",
 		"Diamond",
+		"League: Rise of the Abyssal",
 		"Has Alt Variant: true",
 		"Has Alt Variant Two: true",
 		"Has Alt Variant Three: true",

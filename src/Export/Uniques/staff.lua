@@ -139,5 +139,43 @@ Variant: Current
 UniqueFireResist13
 UniqueIgniteChanceIncrease1
 UniqueLightRadius7
+]],[[
+The Unborn Lich
+Ravenous Staff
+League: Rise of the Abyssal
+Has Alt Variant: true
+Has Alt Variant Two: true
+Has Alt Variant Three: true
+Selected Variant: 7
+Selected Alt Variant: 8
+Selected Alt Variant Two: 9
+Selected Alt Variant Three: 10
+Variant: His Dark Horizon
+Variant: His Foul Emergence
+Variant: His Grave Command
+Variant: His Scattering Calamity
+Variant: His Vile Intrusion
+Variant: His Winnowing Flame
+Variant: Elemental Damage and Ailment Duration
+Variant: Spirit and Spirit Reservation Efficiency
+Variant: Chaos Damage and Curse
+Variant: Spell Physical Damage and Bleed Chance
+Variant: Chaos Damage and Explode
+Variant: Unholy Might
+Implicits: 1
+Grants Skill: Level (1-20) Feast of Flesh
+UniqueDesecratedModEffect1
+{variant:1}Grants Skill: Level (1-20) His Dark Horizon
+{variant:2}Grants Skill: Level (1-20) His Foul Emergence
+{variant:3}Grants Skill: Level (1-20) His Grave Command
+{variant:4}Grants Skill: Level (1-20) His Scattering Calamity
+{variant:5}Grants Skill: Level (1-20) His Vile Intrusion
+{variant:6}Grants Skill: Level (1-20) His Winnowing Flame
+{variant:7}UniqueKulemakElementalDamageEleAilmentDuration_1
+{variant:8}UniqueKulemakSpiritAndSpiritReservationEfficiency_1
+{variant:9}UniqueKulemakChaosDamageCurseLowersChaosRes_1
+{variant:10}UniqueKulemakSpellPhysicalDamageBleedChance_1
+{variant:11}UniqueKulemakChaosDamageAndExplosion_1
+{variant:12}UniqueKulemakUnholyMightAndMagnitude_1
 ]],
 }
