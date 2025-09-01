@@ -369,9 +369,10 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 			local percentOfArmourApplies = m_min((not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
 			local percentOfEvasionApplies = m_min((not activeSkill.skillModList:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0), 100)
 			if (percentOfArmourApplies > 0) or (percentOfEvasionApplies > 0) then
-				local effArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
-				-- TODO replaced "EvasionAddsToPdr" with "EvasionAppliesToPhysicalDamageTaken"
-				-- effArmour needs to consider the "EvasionAddsToPdr" flag mod, and add the evasion to armour
+				local effArmourFromArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
+				local effArmourFromEvasion = (output.Evasion * percentOfEvasionApplies / 100)
+				local effArmour = effArmourFromArmour + effArmourFromEvasion
+				
 				armourReduct = round(effArmour ~= 0 and damage ~= 0 and calcs.armourReductionF(effArmour, damage) or 0)
 				armourReduct = m_min(output[damageType.."DamageReductionMax"], armourReduct)
 			end
