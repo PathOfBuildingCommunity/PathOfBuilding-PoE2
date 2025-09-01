@@ -543,6 +543,12 @@ return {
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
 },
+["totem_skill_cast_speed_+%"] = {
+	mod("Speed", "INC", nil, ModFlag.Cast, KeywordFlag.Totem),
+},
+["totem_skill_attack_speed_+%"] = {
+	mod("Speed", "INC", nil, ModFlag.Attack, KeywordFlag.Totem)
+},
 -- AoE
 ["active_skill_base_area_of_effect_radius"] = {
 	skill("radius", nil),
@@ -948,6 +954,9 @@ return {
 ["physical_damage_%_to_add_as_chaos"] = {
 	mod("PhysicalDamageGainAsChaos", "BASE", nil),
 },
+["non_skill_base_physical_damage_%_to_gain_as_chaos"] = {
+	mod("PhysicalDamageGainAsChaos", "BASE", nil),
+},
 ["cold_damage_%_to_add_as_fire"] = {
 	mod("ColdDamageGainAsFire", "BASE", nil),
 },
@@ -959,6 +968,9 @@ return {
 },
 ["non_skill_base_all_damage_%_to_gain_as_chaos"] = {
 	mod("DamageGainAsChaos", "BASE", nil),
+},
+["non_skill_base_fire_damage_%_to_gain_as_chaos"] = {
+	mod("FireDamageGainAsChaos", "BASE", nil),
 },
 ["non_skill_base_all_damage_%_to_gain_as_lightning_with_attacks"] = {
 	mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack),
@@ -1395,6 +1407,9 @@ return {
 	flag("ColdCanShock"),
 	flag("FireCanShock"),
 	flag("ChaosCanShock"),
+},
+["base_chaos_damage_can_ignite"] = {
+	flag("ChaosCanIgnite"),
 },
 ["base_lightning_damage_can_electrocute"] = {
 	flag("LightningCanElectrocute"),
@@ -1848,6 +1863,10 @@ return {
 ["off_hand_weapon_minimum_physical_damage"] = {
 	skill("setOffHandPhysicalMin", nil),
 },
+["active_skill_has_%_standard_scaling_attack_damage"] = {
+	skill("baseMultiplier", nil), -- FIX: Should be getting value from default attack on weapon if it exists
+	div = 100,
+},
 ["off_hand_weapon_maximum_physical_damage"] = {
 	skill("setOffHandPhysicalMax", nil),
 },
@@ -2097,6 +2116,9 @@ return {
 },
 ["totem_elemental_resistance_%"] = {
 	mod("TotemElementalResist", "BASE", nil)
+},
+["totem_maximum_all_elemental_resistances_%"] = {
+	mod("TotemElementalResistMax", "BASE", nil)
 },
 ["totem_chaos_resistance_%"] = {
 	mod("TotemChaosResist", "BASE", nil)
