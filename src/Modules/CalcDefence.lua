@@ -366,8 +366,8 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 			local resMult = 1 - resist / 100
 			local reductMult = 1
 
-			local percentOfArmourApplies = m_min((not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
-			local percentOfEvasionApplies = m_min((not activeSkill.skillModList:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0), 100)
+			local percentOfArmourApplies = (not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
+			local percentOfEvasionApplies = (not activeSkill.skillModList:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0)
 			if (percentOfArmourApplies > 0) or (percentOfEvasionApplies > 0) then
 				local effArmourFromArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 				local effArmourFromEvasion = (output.Evasion * percentOfEvasionApplies / 100)
@@ -2258,11 +2258,11 @@ function calcs.buildDefenceEstimations(env, actor)
 		--armour/PDR calculations
 		local armourReduct = 0
 		local impaleArmourReduct = 0
-		local percentOfArmourApplies = m_min((not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
+		local percentOfArmourApplies = (not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
 		local effectiveArmourFromOther = { }
-		local percentOfEvasionApplies = m_min((not modDB:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0), 100)
+		local percentOfEvasionApplies = (not modDB:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0)
 		if percentOfEvasionApplies > 0 then
 			effectiveArmourFromOther["Evasion"] = m_max((output.Evasion * percentOfEvasionApplies / 100), 0)
 		end
