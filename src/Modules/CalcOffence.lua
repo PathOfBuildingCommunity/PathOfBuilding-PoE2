@@ -737,6 +737,21 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("Damage", mod.type, mod.value, mod.source, bor(ModFlag.Bow, ModFlag.Hit), mod.keywordFlags, unpack(mod))
 		end
 	end
+	if skillModList:Flag(nil, "WarcryDamageAppliesToSkill") then
+		-- Fortifying Cry mod
+		for i, value in ipairs(skillModList:Tabulate("INC", { keywordFlags = KeywordFlag.Warcry }, "Damage")) do
+			local mod = value.mod
+			if band(mod.keywordFlags, KeywordFlag.Warcry) ~= 0 then
+				skillModList:NewMod("Damage", mod.type, mod.value, mod.source, mod.flags, band(mod.keywordFlags, bnot(KeywordFlag.Warcry)), unpack(mod))
+			end
+		end
+		for i, value in ipairs(skillModList:Tabulate("MORE", { keywordFlags = KeywordFlag.Warcry }, "Damage")) do
+			local mod = value.mod
+			if band(mod.keywordFlags, KeywordFlag.Warcry) ~= 0 then
+				skillModList:NewMod("Damage", mod.type, mod.value, mod.source, mod.flags, band(mod.keywordFlags, bnot(KeywordFlag.Warcry)), unpack(mod))
+			end
+		end
+	end
 	if skillModList:Flag(nil, "ClawDamageAppliesToUnarmed") then
 		-- Claw Damage conversion from Rigwald's Curse
 		for i, value in ipairs(skillModList:Tabulate("INC", { flags = bor(ModFlag.Claw, ModFlag.Hit), keywordFlags = KeywordFlag.Hit }, "Damage")) do

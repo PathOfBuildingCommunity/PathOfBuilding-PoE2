@@ -157,8 +157,17 @@ return {
 ["additive_mine_duration_modifiers_apply_to_buff_effect_duration"] = {
 	skill("mineDurationAppliesToSkill", true),
 },
+["perfectly_timed"] = {
+	flag("Condition:PerfectTiming"),
+},
 ["additive_arrow_speed_modifiers_apply_to_area_of_effect"] = {
 	skill("arrowSpeedAppliesToAreaOfEffect", true),
+},
+["modifiers_to_warcry_damage_also_apply_to_this"] = {
+	flag("WarcryDamageAppliesToSkill"),
+},
+["skill_triggered_manually_by_other_skill"] = {
+	flag("Condition:Empowered"),
 },
 ["skill_buff_effect_+%"] = {
 	mod("BuffEffect", "INC", nil)
