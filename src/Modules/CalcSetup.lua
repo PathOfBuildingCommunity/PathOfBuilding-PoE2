@@ -1334,8 +1334,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 					group = { label = "On Kill Monster Explosion", enabled = true, gemList = { }, source = "Explode", noSupports = true }
 					t_insert(build.skillsTab.socketGroupList, group)
 				end
+				-- Hack to remove duplicates
+				local explodeBySource = { }
+				for _, explodeSource in ipairs(env.explodeSources) do
+					explodeBySource[explodeSource.modSource or explodeSource.id] = explodeSource
+				end
 				-- Update the group
-				group.explodeSources = env.explodeSources
+				group.explodeSources = explodeBySource
 				local gemsBySource = { }
 				for _, gem in ipairs(group.gemList) do
 					if gem.explodeSource then
@@ -1343,7 +1348,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				wipeTable(group.gemList)
-				for _, explodeSource in ipairs(env.explodeSources) do
+				for _, explodeSource in pairs(explodeBySource) do
 					local activeGemInstance
 					if gemsBySource[explodeSource.modSource or explodeSource.id] then
 						activeGemInstance = gemsBySource[explodeSource.modSource or explodeSource.id]
