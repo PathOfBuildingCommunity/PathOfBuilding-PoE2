@@ -2,7 +2,7 @@
 ---Default target version for unknown builds and builds created before 3.0.0.
 legacyTargetVersion = "0_0"
 ---Default target for new builds and target to convert legacy builds to.
-liveTargetVersion = "0_3"
+liveTargetVersion = "0_1"
 
 -- Skill tree versions
 ---Added for convenient indexing of skill tree versions.

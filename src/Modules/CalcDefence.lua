@@ -2514,9 +2514,9 @@ function calcs.buildDefenceEstimations(env, actor)
 		output.InterruptStunAvoidChance = m_min(modDB:Sum("BASE", nil, "AvoidInterruptStun"), 100)
 		local effectiveEnemyDamage = output["totalTakenHit"] + output["PhysicalTakenHit"] * 0.25
 		if damageCategoryConfig ~= "Average" then
-			effectiveEnemyDamage = effectiveEnemyDamage * (1 + data.misc.StunNotMeleeDamageMult * 3) / 4
+			effectiveEnemyDamage = effectiveEnemyDamage * data.misc.PhysicalStunMult * (1 + data.misc.MeleeStunMult * 3) / 4
 		elseif damageCategoryConfig ~= "Melee" then
-			effectiveEnemyDamage = effectiveEnemyDamage * data.misc.StunNotMeleeDamageMult
+			effectiveEnemyDamage = effectiveEnemyDamage * data.misc.PhysicalStunMult
 		end
 		local baseStunChance = m_min(data.misc.StunBaseMult * effectiveEnemyDamage / output.StunThreshold, 100)
 		output.SelfStunChance = (baseStunChance > data.misc.MinStunChanceNeeded and baseStunChance or 0) * notAvoidChance / 100

@@ -21,7 +21,7 @@ itemBases["Riveted Mitts"] = {
 	tags = { gloves = true, str_armour = true, armour = true, ezomyte_basetype = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 31, },
-	req = { level = 11, str = 19, },
+	req = { level = 11, str = 16, },
 }
 itemBases["Tempered Mitts"] = {
 	type = "Gloves",
@@ -31,7 +31,7 @@ itemBases["Tempered Mitts"] = {
 	tags = { maraketh_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 40, },
-	req = { level = 16, str = 27, },
+	req = { level = 16, str = 22, },
 }
 itemBases["Bolstered Mitts"] = {
 	type = "Gloves",
@@ -41,7 +41,7 @@ itemBases["Bolstered Mitts"] = {
 	tags = { maraketh_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 58, },
-	req = { level = 27, str = 44, },
+	req = { level = 27, str = 35, },
 }
 itemBases["Moulded Mitts"] = {
 	type = "Gloves",
@@ -51,17 +51,17 @@ itemBases["Moulded Mitts"] = {
 	tags = { gloves = true, str_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 68, },
-	req = { level = 33, str = 53, },
+	req = { level = 33, str = 42, },
 }
 itemBases["Detailed Mitts"] = {
 	type = "Gloves",
 	subType = "Armour",
 	quality = 20,
 	socketLimit = 3,
-	tags = { gloves = true, armour = true, str_armour = true, default = true, },
+	tags = { karui_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 88, },
-	req = { level = 45, str = 73, },
+	armour = { Armour = 90, },
+	req = { level = 46, str = 57, },
 }
 itemBases["Titan Mitts"] = {
 	type = "Gloves",
@@ -71,7 +71,7 @@ itemBases["Titan Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 100, },
-	req = { level = 52, str = 83, },
+	req = { level = 52, str = 64, },
 }
 itemBases["Grand Mitts"] = {
 	type = "Gloves",
@@ -81,7 +81,7 @@ itemBases["Grand Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 122, },
-	req = { level = 65, str = 104, },
+	req = { level = 65, str = 80, },
 }
 itemBases["Plated Mitts"] = {
 	type = "Gloves",
@@ -91,7 +91,7 @@ itemBases["Plated Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 88, },
-	req = { level = 45, str = 73, },
+	req = { level = 45, str = 56, },
 }
 itemBases["Elegant Mitts"] = {
 	type = "Gloves",
@@ -101,7 +101,7 @@ itemBases["Elegant Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 98, },
-	req = { level = 51, str = 82, },
+	req = { level = 51, str = 64, },
 }
 itemBases["Ancient Mitts"] = {
 	type = "Gloves",
@@ -110,8 +110,8 @@ itemBases["Ancient Mitts"] = {
 	socketLimit = 3,
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 105, },
-	req = { level = 55, str = 88, },
+	armour = { Armour = 103, },
+	req = { level = 54, str = 67, },
 }
 itemBases["Feathered Mitts"] = {
 	type = "Gloves",
@@ -121,7 +121,7 @@ itemBases["Feathered Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 111, },
-	req = { level = 59, str = 95, },
+	req = { level = 59, str = 73, },
 }
 itemBases["Knightly Mitts"] = {
 	type = "Gloves",
@@ -131,7 +131,7 @@ itemBases["Knightly Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 122, },
-	req = { level = 65, str = 104, },
+	req = { level = 65, str = 80, },
 }
 itemBases["Ornate Mitts"] = {
 	type = "Gloves",
@@ -141,7 +141,7 @@ itemBases["Ornate Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 134, },
-	req = { level = 70, str = 113, },
+	req = { level = 70, str = 87, },
 }
 itemBases["Vaal Mitts"] = {
 	type = "Gloves",
@@ -151,7 +151,17 @@ itemBases["Vaal Mitts"] = {
 	tags = { gloves = true, armour = true, str_armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 146, },
-	req = { level = 75, str = 122, },
+	req = { level = 75, str = 94, },
+}
+itemBases["Massive Mitts"] = {
+	type = "Gloves",
+	subType = "Armour",
+	quality = 20,
+	socketLimit = 3,
+	tags = { karui_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 158, },
+	req = { level = 80, str = 101, },
 }
 
 itemBases["Suede Bracers"] = {
@@ -172,7 +182,7 @@ itemBases["Firm Bracers"] = {
 	tags = { gloves = true, ezomyte_basetype = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 26, },
-	req = { level = 11, dex = 19, },
+	req = { level = 11, dex = 16, },
 }
 itemBases["Bound Bracers"] = {
 	type = "Gloves",
@@ -182,7 +192,7 @@ itemBases["Bound Bracers"] = {
 	tags = { maraketh_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 33, },
-	req = { level = 16, dex = 27, },
+	req = { level = 16, dex = 22, },
 }
 itemBases["Sectioned Bracers"] = {
 	type = "Gloves",
@@ -192,7 +202,7 @@ itemBases["Sectioned Bracers"] = {
 	tags = { maraketh_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 52, },
-	req = { level = 28, dex = 46, },
+	req = { level = 28, dex = 36, },
 }
 itemBases["Spined Bracers"] = {
 	type = "Gloves",
@@ -202,17 +212,17 @@ itemBases["Spined Bracers"] = {
 	tags = { gloves = true, dex_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 60, },
-	req = { level = 33, dex = 53, },
+	req = { level = 33, dex = 42, },
 }
 itemBases["Fine Bracers"] = {
 	type = "Gloves",
 	subType = "Evasion",
 	quality = 20,
 	socketLimit = 3,
-	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
+	tags = { karui_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 79, },
-	req = { level = 45, dex = 73, },
+	armour = { Evasion = 81, },
+	req = { level = 46, dex = 57, },
 }
 itemBases["Hardened Bracers"] = {
 	type = "Gloves",
@@ -222,7 +232,7 @@ itemBases["Hardened Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 90, },
-	req = { level = 52, dex = 83, },
+	req = { level = 52, dex = 64, },
 }
 itemBases["Engraved Bracers"] = {
 	type = "Gloves",
@@ -232,7 +242,7 @@ itemBases["Engraved Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 111, },
-	req = { level = 65, dex = 104, },
+	req = { level = 65, dex = 80, },
 }
 itemBases["Hunting Bracers"] = {
 	type = "Gloves",
@@ -242,7 +252,7 @@ itemBases["Hunting Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 79, },
-	req = { level = 45, dex = 73, },
+	req = { level = 45, dex = 56, },
 }
 itemBases["Swift Bracers"] = {
 	type = "Gloves",
@@ -252,7 +262,7 @@ itemBases["Swift Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 89, },
-	req = { level = 51, dex = 82, },
+	req = { level = 51, dex = 64, },
 }
 itemBases["Refined Bracers"] = {
 	type = "Gloves",
@@ -261,8 +271,8 @@ itemBases["Refined Bracers"] = {
 	socketLimit = 3,
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 95, },
-	req = { level = 55, dex = 88, },
+	armour = { Evasion = 93, },
+	req = { level = 54, dex = 67, },
 }
 itemBases["Spiked Bracers"] = {
 	type = "Gloves",
@@ -272,7 +282,7 @@ itemBases["Spiked Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 101, },
-	req = { level = 59, dex = 95, },
+	req = { level = 59, dex = 73, },
 }
 itemBases["Stalking Bracers"] = {
 	type = "Gloves",
@@ -282,7 +292,7 @@ itemBases["Stalking Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 111, },
-	req = { level = 65, dex = 104, },
+	req = { level = 65, dex = 80, },
 }
 itemBases["Grand Bracers"] = {
 	type = "Gloves",
@@ -292,7 +302,7 @@ itemBases["Grand Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 122, },
-	req = { level = 70, dex = 113, },
+	req = { level = 70, dex = 87, },
 }
 itemBases["Barbed Bracers"] = {
 	type = "Gloves",
@@ -302,7 +312,17 @@ itemBases["Barbed Bracers"] = {
 	tags = { dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 133, },
-	req = { level = 75, dex = 122, },
+	req = { level = 75, dex = 94, },
+}
+itemBases["Polished Bracers"] = {
+	type = "Gloves",
+	subType = "Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { karui_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 144, },
+	req = { level = 80, dex = 101, },
 }
 
 itemBases["Torn Gloves"] = {
@@ -323,7 +343,7 @@ itemBases["Sombre Gloves"] = {
 	tags = { gloves = true, ezomyte_basetype = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 15, },
-	req = { level = 12, int = 20, },
+	req = { level = 12, int = 17, },
 }
 itemBases["Stitched Gloves"] = {
 	type = "Gloves",
@@ -333,7 +353,7 @@ itemBases["Stitched Gloves"] = {
 	tags = { maraketh_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 17, },
-	req = { level = 16, int = 27, },
+	req = { level = 16, int = 22, },
 }
 itemBases["Jewelled Gloves"] = {
 	type = "Gloves",
@@ -343,7 +363,7 @@ itemBases["Jewelled Gloves"] = {
 	tags = { maraketh_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 22, },
-	req = { level = 26, int = 43, },
+	req = { level = 26, int = 34, },
 }
 itemBases["Intricate Gloves"] = {
 	type = "Gloves",
@@ -353,17 +373,17 @@ itemBases["Intricate Gloves"] = {
 	tags = { gloves = true, int_armour = true, armour = true, vaal_basetype = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 26, },
-	req = { level = 33, int = 53, },
+	req = { level = 33, int = 42, },
 }
 itemBases["Pauascale Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
 	socketLimit = 3,
-	tags = { int_armour = true, armour = true, gloves = true, default = true, },
+	tags = { karui_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 32, },
-	req = { level = 45, int = 73, },
+	req = { level = 46, int = 57, },
 }
 itemBases["Embroidered Gloves"] = {
 	type = "Gloves",
@@ -373,7 +393,7 @@ itemBases["Embroidered Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 35, },
-	req = { level = 52, int = 83, },
+	req = { level = 52, int = 64, },
 }
 itemBases["Adorned Gloves"] = {
 	type = "Gloves",
@@ -383,7 +403,7 @@ itemBases["Adorned Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 42, },
-	req = { level = 65, int = 104, },
+	req = { level = 65, int = 80, },
 }
 itemBases["Ominous Gloves"] = {
 	type = "Gloves",
@@ -393,9 +413,9 @@ itemBases["Ominous Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 32, },
-	req = { level = 45, int = 73, },
+	req = { level = 45, int = 56, },
 }
-itemBases["Embroidered Gloves"] = {
+itemBases["Embellished Gloves"] = {
 	type = "Gloves",
 	subType = "Energy Shield",
 	quality = 20,
@@ -403,7 +423,7 @@ itemBases["Embroidered Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 35, },
-	req = { level = 51, int = 82, },
+	req = { level = 51, int = 64, },
 }
 itemBases["Baroque Gloves"] = {
 	type = "Gloves",
@@ -412,8 +432,8 @@ itemBases["Baroque Gloves"] = {
 	socketLimit = 3,
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 37, },
-	req = { level = 55, int = 88, },
+	armour = { EnergyShield = 36, },
+	req = { level = 54, int = 67, },
 }
 itemBases["Gold Gloves"] = {
 	type = "Gloves",
@@ -423,7 +443,7 @@ itemBases["Gold Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 39, },
-	req = { level = 59, int = 95, },
+	req = { level = 59, int = 73, },
 }
 itemBases["Grim Gloves"] = {
 	type = "Gloves",
@@ -433,7 +453,7 @@ itemBases["Grim Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 42, },
-	req = { level = 65, int = 104, },
+	req = { level = 65, int = 80, },
 }
 itemBases["Opulent Gloves"] = {
 	type = "Gloves",
@@ -443,7 +463,7 @@ itemBases["Opulent Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 46, },
-	req = { level = 70, int = 113, },
+	req = { level = 70, int = 87, },
 }
 itemBases["Vaal Gloves"] = {
 	type = "Gloves",
@@ -453,7 +473,17 @@ itemBases["Vaal Gloves"] = {
 	tags = { int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 50, },
-	req = { level = 75, int = 122, },
+	req = { level = 75, int = 94, },
+}
+itemBases["Sirenscale Gloves"] = {
+	type = "Gloves",
+	subType = "Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { karui_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
+	implicitModTypes = { },
+	armour = { EnergyShield = 54, },
+	req = { level = 80, int = 101, },
 }
 
 itemBases["Ringmail Gauntlets"] = {
@@ -464,7 +494,7 @@ itemBases["Ringmail Gauntlets"] = {
 	tags = { str_dex_armour = true, ezomyte_basetype = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 13, Evasion = 10, },
-	req = { level = 6, str = 7, dex = 7, },
+	req = { level = 6, str = 6, dex = 6, },
 }
 itemBases["Layered Gauntlets"] = {
 	type = "Gloves",
@@ -474,7 +504,7 @@ itemBases["Layered Gauntlets"] = {
 	tags = { maraketh_basetype = true, str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 22, Evasion = 18, },
-	req = { level = 16, str = 15, dex = 15, },
+	req = { level = 16, str = 13, dex = 13, },
 }
 itemBases["Doubled Gauntlets"] = {
 	type = "Gloves",
@@ -484,17 +514,17 @@ itemBases["Doubled Gauntlets"] = {
 	tags = { str_dex_armour = true, vaal_basetype = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 37, Evasion = 33, },
-	req = { level = 33, str = 30, dex = 30, },
+	req = { level = 33, str = 24, dex = 24, },
 }
 itemBases["Plate Gauntlets"] = {
 	type = "Gloves",
 	subType = "Armour/Evasion",
 	quality = 20,
 	socketLimit = 3,
-	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
+	tags = { karui_basetype = true, str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 48, Evasion = 44, },
-	req = { level = 45, str = 40, dex = 40, },
+	armour = { Armour = 49, Evasion = 44, },
+	req = { level = 46, str = 32, dex = 32, },
 }
 itemBases["Burnished Gauntlets"] = {
 	type = "Gloves",
@@ -504,7 +534,7 @@ itemBases["Burnished Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 55, Evasion = 50, },
-	req = { level = 52, str = 46, dex = 46, },
+	req = { level = 52, str = 36, dex = 36, },
 }
 itemBases["Ornate Gauntlets"] = {
 	type = "Gloves",
@@ -514,7 +544,7 @@ itemBases["Ornate Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 67, Evasion = 61, },
-	req = { level = 65, str = 57, dex = 57, },
+	req = { level = 65, str = 44, dex = 44, },
 }
 itemBases["Ironmail Gauntlets"] = {
 	type = "Gloves",
@@ -524,7 +554,7 @@ itemBases["Ironmail Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 48, Evasion = 44, },
-	req = { level = 45, str = 40, dex = 40, },
+	req = { level = 45, str = 32, dex = 32, },
 }
 itemBases["Captain Gauntlets"] = {
 	type = "Gloves",
@@ -534,7 +564,7 @@ itemBases["Captain Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 54, Evasion = 49, },
-	req = { level = 51, str = 46, dex = 46, },
+	req = { level = 51, str = 35, dex = 35, },
 }
 itemBases["Zealot Gauntlets"] = {
 	type = "Gloves",
@@ -544,7 +574,7 @@ itemBases["Zealot Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 61, Evasion = 56, },
-	req = { level = 59, str = 52, dex = 52, },
+	req = { level = 59, str = 41, dex = 41, },
 }
 itemBases["Steelmail Gauntlets"] = {
 	type = "Gloves",
@@ -554,7 +584,7 @@ itemBases["Steelmail Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 67, Evasion = 61, },
-	req = { level = 65, str = 57, dex = 57, },
+	req = { level = 65, str = 44, dex = 44, },
 }
 itemBases["Commander Gauntlets"] = {
 	type = "Gloves",
@@ -564,7 +594,7 @@ itemBases["Commander Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 74, Evasion = 67, },
-	req = { level = 70, str = 62, dex = 62, },
+	req = { level = 70, str = 48, dex = 48, },
 }
 itemBases["Cultist Gauntlets"] = {
 	type = "Gloves",
@@ -574,7 +604,17 @@ itemBases["Cultist Gauntlets"] = {
 	tags = { str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 80, Evasion = 73, },
-	req = { level = 75, str = 67, dex = 67, },
+	req = { level = 75, str = 52, dex = 52, },
+}
+itemBases["Blacksteel Gauntlets"] = {
+	type = "Gloves",
+	subType = "Armour/Evasion",
+	quality = 20,
+	socketLimit = 3,
+	tags = { karui_basetype = true, str_dex_armour = true, armour = true, gloves = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 87, Evasion = 79, },
+	req = { level = 80, str = 55, dex = 55, },
 }
 
 itemBases["Rope Cuffs"] = {
@@ -595,7 +635,7 @@ itemBases["Aged Cuffs"] = {
 	tags = { maraketh_basetype = true, str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 22, EnergyShield = 9, },
-	req = { level = 16, str = 15, int = 15, },
+	req = { level = 16, str = 13, int = 13, },
 }
 itemBases["Goldcast Cuffs"] = {
 	type = "Gloves",
@@ -605,17 +645,17 @@ itemBases["Goldcast Cuffs"] = {
 	tags = { str_int_armour = true, vaal_basetype = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 37, EnergyShield = 14, },
-	req = { level = 33, str = 30, int = 30, },
+	req = { level = 33, str = 24, int = 24, },
 }
-itemBases["Diviner Cuffs"] = {
+itemBases["Verisium Cuffs"] = {
 	type = "Gloves",
 	subType = "Armour/Energy Shield",
 	quality = 20,
 	socketLimit = 3,
-	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
+	tags = { karui_basetype = true, str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 48, EnergyShield = 17, },
-	req = { level = 45, str = 40, int = 40, },
+	armour = { Armour = 49, EnergyShield = 18, },
+	req = { level = 46, str = 32, int = 32, },
 }
 itemBases["Righteous Cuffs"] = {
 	type = "Gloves",
@@ -625,7 +665,7 @@ itemBases["Righteous Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 55, EnergyShield = 19, },
-	req = { level = 52, str = 46, int = 46, },
+	req = { level = 52, str = 36, int = 36, },
 }
 itemBases["Signet Cuffs"] = {
 	type = "Gloves",
@@ -635,7 +675,7 @@ itemBases["Signet Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 67, EnergyShield = 23, },
-	req = { level = 65, str = 57, int = 57, },
+	req = { level = 65, str = 44, int = 44, },
 }
 itemBases["Braided Cuffs"] = {
 	type = "Gloves",
@@ -645,7 +685,7 @@ itemBases["Braided Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 48, EnergyShield = 17, },
-	req = { level = 45, str = 40, int = 40, },
+	req = { level = 45, str = 32, int = 32, },
 }
 itemBases["Heirloom Cuffs"] = {
 	type = "Gloves",
@@ -655,7 +695,7 @@ itemBases["Heirloom Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 54, EnergyShield = 19, },
-	req = { level = 51, str = 46, int = 46, },
+	req = { level = 51, str = 35, int = 35, },
 }
 itemBases["Ornate Cuffs"] = {
 	type = "Gloves",
@@ -665,7 +705,7 @@ itemBases["Ornate Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 61, EnergyShield = 21, },
-	req = { level = 59, str = 52, int = 52, },
+	req = { level = 59, str = 41, int = 41, },
 }
 itemBases["Bound Cuffs"] = {
 	type = "Gloves",
@@ -675,7 +715,7 @@ itemBases["Bound Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 67, EnergyShield = 23, },
-	req = { level = 65, str = 57, int = 57, },
+	req = { level = 65, str = 44, int = 44, },
 }
 itemBases["Ancient Cuffs"] = {
 	type = "Gloves",
@@ -685,7 +725,7 @@ itemBases["Ancient Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 74, EnergyShield = 25, },
-	req = { level = 70, str = 62, int = 62, },
+	req = { level = 70, str = 48, int = 48, },
 }
 itemBases["Gleaming Cuffs"] = {
 	type = "Gloves",
@@ -695,7 +735,17 @@ itemBases["Gleaming Cuffs"] = {
 	tags = { str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 80, EnergyShield = 28, },
-	req = { level = 75, str = 67, int = 67, },
+	req = { level = 75, str = 52, int = 52, },
+}
+itemBases["Adherent Cuffs"] = {
+	type = "Gloves",
+	subType = "Armour/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { karui_basetype = true, str_int_armour = true, armour = true, gloves = true, default = true, },
+	implicitModTypes = { },
+	armour = { Armour = 87, EnergyShield = 30, },
+	req = { level = 80, str = 55, int = 55, },
 }
 
 itemBases["Gauze Wraps"] = {
@@ -716,7 +766,7 @@ itemBases["Linen Wraps"] = {
 	tags = { maraketh_basetype = true, gloves = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 18, EnergyShield = 9, },
-	req = { level = 16, dex = 15, int = 15, },
+	req = { level = 16, dex = 13, int = 13, },
 }
 itemBases["Spiral Wraps"] = {
 	type = "Gloves",
@@ -726,17 +776,17 @@ itemBases["Spiral Wraps"] = {
 	tags = { gloves = true, vaal_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 33, EnergyShield = 14, },
-	req = { level = 33, dex = 30, int = 30, },
+	req = { level = 33, dex = 24, int = 24, },
 }
 itemBases["Buckled Wraps"] = {
 	type = "Gloves",
 	subType = "Evasion/Energy Shield",
 	quality = 20,
 	socketLimit = 3,
-	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
+	tags = { karui_basetype = true, gloves = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 44, EnergyShield = 17, },
-	req = { level = 45, dex = 40, int = 40, },
+	armour = { Evasion = 44, EnergyShield = 18, },
+	req = { level = 46, dex = 32, int = 32, },
 }
 itemBases["Furtive Wraps"] = {
 	type = "Gloves",
@@ -746,7 +796,7 @@ itemBases["Furtive Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 50, EnergyShield = 19, },
-	req = { level = 52, dex = 46, int = 46, },
+	req = { level = 52, dex = 36, int = 36, },
 }
 itemBases["Utility Wraps"] = {
 	type = "Gloves",
@@ -756,7 +806,7 @@ itemBases["Utility Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 61, EnergyShield = 23, },
-	req = { level = 65, dex = 57, int = 57, },
+	req = { level = 65, dex = 44, int = 44, },
 }
 itemBases["Bandage Wraps"] = {
 	type = "Gloves",
@@ -766,7 +816,7 @@ itemBases["Bandage Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 44, EnergyShield = 17, },
-	req = { level = 45, dex = 40, int = 40, },
+	req = { level = 45, dex = 32, int = 32, },
 }
 itemBases["Cambric Wraps"] = {
 	type = "Gloves",
@@ -776,7 +826,7 @@ itemBases["Cambric Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 49, EnergyShield = 19, },
-	req = { level = 51, dex = 46, int = 46, },
+	req = { level = 51, dex = 35, int = 35, },
 }
 itemBases["Adorned Wraps"] = {
 	type = "Gloves",
@@ -786,7 +836,7 @@ itemBases["Adorned Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 56, EnergyShield = 21, },
-	req = { level = 59, dex = 52, int = 52, },
+	req = { level = 59, dex = 41, int = 41, },
 }
 itemBases["War Wraps"] = {
 	type = "Gloves",
@@ -796,7 +846,7 @@ itemBases["War Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 61, EnergyShield = 23, },
-	req = { level = 65, dex = 57, int = 57, },
+	req = { level = 65, dex = 44, int = 44, },
 }
 itemBases["Elegant Wraps"] = {
 	type = "Gloves",
@@ -806,7 +856,7 @@ itemBases["Elegant Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 67, EnergyShield = 25, },
-	req = { level = 70, dex = 62, int = 62, },
+	req = { level = 70, dex = 48, int = 48, },
 }
 itemBases["Vaal Wraps"] = {
 	type = "Gloves",
@@ -816,7 +866,17 @@ itemBases["Vaal Wraps"] = {
 	tags = { dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Evasion = 73, EnergyShield = 28, },
-	req = { level = 75, dex = 67, int = 67, },
+	req = { level = 75, dex = 52, int = 52, },
+}
+itemBases["Secured Wraps"] = {
+	type = "Gloves",
+	subType = "Evasion/Energy Shield",
+	quality = 20,
+	socketLimit = 3,
+	tags = { karui_basetype = true, gloves = true, armour = true, default = true, dex_int_armour = true, },
+	implicitModTypes = { },
+	armour = { Evasion = 79, EnergyShield = 30, },
+	req = { level = 80, dex = 55, int = 55, },
 }
 
 itemBases["Grand Manchettes"] = {
@@ -827,7 +887,7 @@ itemBases["Grand Manchettes"] = {
 	tags = { str_dex_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
 	armour = { Armour = 44, Evasion = 40, EnergyShield = 15, },
-	req = { level = 65, str = 40, dex = 40, int = 40, },
+	req = { level = 65, str = 32, dex = 32, int = 32, },
 }
 
 

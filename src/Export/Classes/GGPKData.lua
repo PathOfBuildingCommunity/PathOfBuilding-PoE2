@@ -68,7 +68,7 @@ end
 
 function GGPKClass:ExtractFiles(reExport)
 	if reExport then
-		local datList, csdList, itList = self:GetNeededFiles()
+		local datList, csdList, otList, itList = self:GetNeededFiles()
 		local sweetSpotCharacter = 6000
 		local fileList = ''
 
@@ -78,6 +78,15 @@ function GGPKClass:ExtractFiles(reExport)
 			else
 				fileList = fileList .. '"' .. fname .. '" '
 			end
+
+			if fileList:len() > sweetSpotCharacter then
+				self:ExtractFilesWithBun(fileList)
+				fileList = ''
+			end
+		end
+
+		for _, fname in ipairs(otList) do
+			fileList = fileList .. '"' .. fname .. '" '
 
 			if fileList:len() > sweetSpotCharacter then
 				self:ExtractFilesWithBun(fileList)
@@ -240,12 +249,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/WeaponClasses.dat",
 		"Data/MonsterConditions.dat",
 		"Data/Rarity.dat",
-		"Data/TradeMarketCategory.dat",
-		"Data/TradeMarketCategoryGroups.dat",
-		"Data/PlayerTradeWhisperFormats.dat",
-		"Data/TradeMarketCategoryListAllClass.dat",
-		"Data/TradeMarketIndexItemAs.dat",
-		"Data/TradeMarketImplicitModDisplay.dat",
 		"Data/Commands.dat",
 		"Data/ModEquivalencies.dat",
 		"Data/InfluenceTags.dat",
@@ -344,6 +347,10 @@ function GGPKClass:GetNeededFiles()
 		"Data/MiscEffectPacks.dat",
 		"Data/BallisticBounceOverride.dat",
 		"Data/DamageEffectVariations.dat",
+		"Data/AttackSkillDamageScalingType.dat",
+		"Data/AttackSkillDamageScalingValues.dat",
+		"Data/FlatPhysicalDamageValues.dat",
+		"Data/SupportGemFamily.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",

@@ -2065,11 +2065,13 @@ function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusInde
 end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
-	local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-	if not newNode.isAttribute then return end -- safety check
-	
-	local option = newNode.options[attributeIndex]
-	self:ReplaceNode(newNode, option)
-	
-	self.hashOverrides[nodeId] = newNode
+	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
+		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+		if not newNode.isAttribute then return end -- safety check
+		
+		local option = newNode.options[attributeIndex]
+		self:ReplaceNode(newNode, option)
+		
+		self.hashOverrides[nodeId] = newNode
+	end
 end

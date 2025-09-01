@@ -15,7 +15,6 @@ itemBases["Golden Blade"] = {
 itemBases["Energy Blade One Handed"] = {
 	type = "One Handed Sword",
 	quality = 20,
-	hidden = true,
 	socketLimit = 3,
 	tags = { onehand = true, not_for_sale = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
@@ -38,7 +37,7 @@ itemBases["Broadsword"] = {
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 8, PhysicalMax = 13, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 6, str = 10, dex = 10, },
+	req = { level = 6, str = 9, dex = 9, },
 }
 itemBases["Vampiric Blade"] = {
 	type = "One Handed Sword",
@@ -47,7 +46,7 @@ itemBases["Vampiric Blade"] = {
 	tags = { onehand = true, ezomyte_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 11, PhysicalMax = 20, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 11, str = 16, dex = 16, },
+	req = { level = 11, str = 14, dex = 14, },
 }
 itemBases["Scimitar"] = {
 	type = "One Handed Sword",
@@ -56,7 +55,7 @@ itemBases["Scimitar"] = {
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 14, PhysicalMax = 23, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 16, str = 22, dex = 22, },
+	req = { level = 16, str = 19, dex = 19, },
 }
 itemBases["Charred Shortsword"] = {
 	type = "One Handed Sword",
@@ -65,7 +64,7 @@ itemBases["Charred Shortsword"] = {
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 34, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 21, str = 28, dex = 28, },
+	req = { level = 21, str = 23, dex = 23, },
 }
 itemBases["Sickle Sword"] = {
 	type = "One Handed Sword",
@@ -74,7 +73,7 @@ itemBases["Sickle Sword"] = {
 	tags = { maraketh_basetype = true, onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 18, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 28, str = 37, dex = 37, },
+	req = { level = 28, str = 29, dex = 29, },
 }
 itemBases["Falchion"] = {
 	type = "One Handed Sword",
@@ -83,7 +82,7 @@ itemBases["Falchion"] = {
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 37, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 33, str = 43, dex = 43, },
+	req = { level = 33, str = 34, dex = 34, },
 }
 itemBases["Treasured Blade"] = {
 	type = "One Handed Sword",
@@ -92,7 +91,7 @@ itemBases["Treasured Blade"] = {
 	tags = { onehand = true, vaal_basetype = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 27, PhysicalMax = 45, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 40, str = 51, dex = 51, },
+	req = { level = 40, str = 40, dex = 40, },
 }
 itemBases["Cutlass"] = {
 	type = "One Handed Sword",
@@ -101,7 +100,7 @@ itemBases["Cutlass"] = {
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 33, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 45, str = 57, dex = 57, },
+	req = { level = 45, str = 45, dex = 45, },
 }
 itemBases["Runic Shortsword"] = {
 	type = "One Handed Sword",
@@ -110,7 +109,7 @@ itemBases["Runic Shortsword"] = {
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 26, PhysicalMax = 55, CritChanceBase = 5, AttackRateBase = 1.65, Range = 11, },
-	req = { level = 50, str = 63, dex = 63, },
+	req = { level = 50, str = 49, dex = 49, },
 }
 itemBases["Messer"] = {
 	type = "One Handed Sword",
@@ -119,7 +118,7 @@ itemBases["Messer"] = {
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 30, PhysicalMax = 56, CritChanceBase = 5, AttackRateBase = 1.6, Range = 11, },
-	req = { level = 52, str = 66, dex = 66, },
+	req = { level = 52, str = 51, dex = 51, },
 }
 itemBases["Commander Sword"] = {
 	type = "One Handed Sword",
@@ -128,7 +127,7 @@ itemBases["Commander Sword"] = {
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 36, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 54, str = 68, dex = 68, },
+	req = { level = 54, str = 53, dex = 53, },
 }
 itemBases["Dark Blade"] = {
 	type = "One Handed Sword",
@@ -137,7 +136,7 @@ itemBases["Dark Blade"] = {
 	tags = { onehand = true, weapon = true, sword = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 65, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 65, str = 81, dex = 81, },
+	req = { level = 65, str = 63, dex = 63, },
 }
 itemBases["Golden Blade"] = {
 	type = "One Handed Sword",
@@ -163,7 +162,6 @@ itemBases["Energy Blade One Handed"] = {
 itemBases["Keyblade"] = {
 	type = "Two Handed Sword",
 	quality = 20,
-	hidden = true,
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -173,7 +171,6 @@ itemBases["Keyblade"] = {
 itemBases["Energy Blade Two Handed"] = {
 	type = "Two Handed Sword",
 	quality = 20,
-	hidden = true,
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
@@ -196,7 +193,7 @@ itemBases["Iron Greatsword"] = {
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 13, PhysicalMax = 23, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 6, str = 10, dex = 10, },
+	req = { level = 6, str = 9, dex = 9, },
 }
 itemBases["Blessed Claymore"] = {
 	type = "Two Handed Sword",
@@ -205,7 +202,7 @@ itemBases["Blessed Claymore"] = {
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 19, PhysicalMax = 32, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 11, str = 16, dex = 16, },
+	req = { level = 11, str = 14, dex = 14, },
 }
 itemBases["Broad Greatsword"] = {
 	type = "Two Handed Sword",
@@ -214,7 +211,7 @@ itemBases["Broad Greatsword"] = {
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 25, PhysicalMax = 42, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 16, str = 22, dex = 22, },
+	req = { level = 16, str = 19, dex = 19, },
 }
 itemBases["Rippled Greatsword"] = {
 	type = "Two Handed Sword",
@@ -223,7 +220,7 @@ itemBases["Rippled Greatsword"] = {
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 52, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 22, str = 30, dex = 30, },
+	req = { level = 22, str = 24, dex = 24, },
 }
 itemBases["Arced Longsword"] = {
 	type = "Two Handed Sword",
@@ -232,7 +229,7 @@ itemBases["Arced Longsword"] = {
 	tags = { two_hand_weapon = true, maraketh_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 31, PhysicalMax = 58, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 28, str = 37, dex = 37, },
+	req = { level = 28, str = 29, dex = 29, },
 }
 itemBases["Stone Greatsword"] = {
 	type = "Two Handed Sword",
@@ -241,7 +238,7 @@ itemBases["Stone Greatsword"] = {
 	tags = { two_hand_weapon = true, vaal_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 40, PhysicalMax = 67, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 33, str = 43, dex = 43, },
+	req = { level = 33, str = 34, dex = 34, },
 }
 itemBases["Obsidian Greatsword"] = {
 	type = "Two Handed Sword",
@@ -250,7 +247,7 @@ itemBases["Obsidian Greatsword"] = {
 	tags = { two_hand_weapon = true, vaal_basetype = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 49, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 36, str = 46, dex = 46, },
+	req = { level = 36, str = 37, dex = 37, },
 }
 itemBases["Keen Greatsword"] = {
 	type = "Two Handed Sword",
@@ -259,7 +256,7 @@ itemBases["Keen Greatsword"] = {
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 94, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 45, str = 57, dex = 57, },
+	req = { level = 45, str = 45, dex = 45, },
 }
 itemBases["Ancient Greatblade"] = {
 	type = "Two Handed Sword",
@@ -268,7 +265,7 @@ itemBases["Ancient Greatblade"] = {
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 55, PhysicalMax = 103, CritChanceBase = 5, AttackRateBase = 1.25, Range = 13, },
-	req = { level = 49, str = 62, dex = 62, },
+	req = { level = 49, str = 49, dex = 49, },
 }
 itemBases["Flanged Greatblade"] = {
 	type = "Two Handed Sword",
@@ -277,7 +274,7 @@ itemBases["Flanged Greatblade"] = {
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 51, PhysicalMax = 106, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 52, str = 66, dex = 66, },
+	req = { level = 52, str = 51, dex = 51, },
 }
 itemBases["Regalia Longsword"] = {
 	type = "Two Handed Sword",
@@ -286,7 +283,7 @@ itemBases["Regalia Longsword"] = {
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 61, PhysicalMax = 92, CritChanceBase = 5, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 54, str = 68, dex = 68, },
+	req = { level = 54, str = 53, dex = 53, },
 }
 itemBases["Ultra Greatsword"] = {
 	type = "Two Handed Sword",
@@ -295,7 +292,7 @@ itemBases["Ultra Greatsword"] = {
 	tags = { two_hand_weapon = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 72, PhysicalMax = 119, CritChanceBase = 5, AttackRateBase = 1.3, Range = 13, },
-	req = { level = 65, str = 81, dex = 81, },
+	req = { level = 65, str = 63, dex = 63, },
 }
 
 itemBases["Energy Blade Two Handed"] = {
@@ -306,5 +303,15 @@ itemBases["Energy Blade Two Handed"] = {
 	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 0, PhysicalMax = 0, CritChanceBase = 7, AttackRateBase = 1.6, Range = 13, },
+	req = { },
+}
+itemBases["Keyblade"] = {
+	type = "Two Handed Sword",
+	quality = 20,
+	hidden = true,
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, not_for_sale = true, weapon = true, sword = true, twohand = true, default = true, },
+	implicitModTypes = { },
+	weapon = { PhysicalMin = 1, PhysicalMax = 1, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
 	req = { },
 }
