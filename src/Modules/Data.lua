@@ -587,7 +587,8 @@ data.itemMods = {
 	Charm = LoadModule("Data/ModCharm"),
 	Jewel = LoadModule("Data/ModJewel"),
 	Corruption = LoadModule("Data/ModCorrupted"),
-	Runes = LoadModule("Data/ModRunes")
+	Runes = LoadModule("Data/ModRunes"),
+	Exclusive = LoadModule("Data/ModItemExclusive")
 }
 
 -- update JewelRadius affixes for Time-Lost jewels
@@ -603,6 +604,7 @@ do
 	end
 end
 
+data.essences = LoadModule("Data/Essence")
 data.costs = LoadModule("Data/Costs")
 do
 	local map = { }

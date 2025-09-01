@@ -6609,21 +6609,21 @@ return {
 		},
 		[2]={
 			list=false,
-			name="Type",
+			name="TargetItemCategory",
 			refTo="EssenceTargetItemCategories",
 			type="Key",
 			width=150
 		},
 		[3]={
 			list=false,
-			name="CraftedMod",
+			name="Mod1",
 			refTo="Mods",
 			type="Key",
 			width=150
 		},
 		[4]={
 			list=false,
-			name="",
+			name="Mod2",
 			refTo="Mods",
 			type="Key",
 			width=150
@@ -6632,8 +6632,8 @@ return {
 			list=false,
 			name="",
 			refTo="",
-			type="Key",
-			width=150
+			type="String",
+			width=270
 		},
 		[6]={
 			list=false,
@@ -6727,35 +6727,21 @@ return {
 	essencetargetitemcategories={
 		[1]={
 			list=false,
-			name="",
+			name="Id",
 			refTo="",
 			type="String",
 			width=150
 		},
 		[2]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
+			list=true,
+			name="ItemClasses",
+			refTo="ItemClasses",
+			type="Key",
 			width=150
 		},
 		[3]={
 			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=150
-		},
-		[4]={
-			list=false,
-			name="",
-			refTo="",
-			type="String",
-			width=150
-		},
-		[5]={
-			list=false,
-			name="",
+			name="Text",
 			refTo="",
 			type="String",
 			width=150

@@ -1804,7 +1804,7 @@ function ItemsTabClass:AddModComparisonTooltip(tooltip, mod)
 	local newItem = new("Item", self.displayItem:BuildRaw())
 	
 	for _, subMod in ipairs(mod) do
-		t_insert(newItem.explicitModLines, { line = checkLineForAllocates(subMod, self.build.spec.nodes), modTags = mod.modTags, [mod.type] = true })
+		t_insert(newItem.explicitModLines, { line = checkLineForAllocates(subMod, self.build.spec.nodes), modTags = mod.modTags, [mod.type or "Suffix"] = true })
 	end
 
 	newItem:BuildAndParseRaw()
@@ -2514,21 +2514,23 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		elseif sourceId == "ESSENCE" then
 			for _, essence in pairs(self.build.data.essences) do
 				local modId = essence.mods[self.displayItem.type]
-				local mod = self.displayItem.affixes[modId]
-				t_insert(modList, {
-					label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. mod.type .. ")",
-					mod = mod,
-					type = "custom",
-					essence = essence,
-				})
+				if modId then
+					local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
+					t_insert(modList, {
+						label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
+						mod = mod,
+						type = "custom",
+						essence = essence,
+					})
+				end
 			end
-			-- table.sort(modList, function(a, b)
-			-- 	if a.essence.type ~= b.essence.type then
-			-- 		return a.essence.type > b.essence.type
-			-- 	else
-			-- 		return a.essence.tier > b.essence.tier
-			-- 	end
-			-- end)
+			table.sort(modList, function(a, b)
+				if a.essence.type ~= b.essence.type then
+					return a.essence.type > b.essence.type
+				else
+					return a.essence.tierLevel > b.essence.tierLevel
+				end
+			end)
 		end
 	end
 	if not self.displayItem.crafted then
