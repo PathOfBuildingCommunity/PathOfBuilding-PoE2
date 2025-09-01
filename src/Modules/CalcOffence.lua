@@ -730,6 +730,15 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	if skillModList:Flag(nil, "CastSpeedAppliesToProjectileSpeed") then
+		-- Bow mastery projectile speed to damage with bows conversion
+		local multiplier = (skillModList:Max(skillCfg, "ImprovedCastSpeedAppliesToProjectileSpeed") or 100) / 100
+		for i, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Cast }, "Speed")) do
+			local mod = value.mod
+			local modifiers = calcLib.getConvertedModTags(mod, multiplier)
+			skillModList:NewMod("ProjectileSpeed", mod.type, mod.value * multiplier, mod.source, band(mod.flags, bnot(ModFlag.Cast)), mod.keywordFlags, unpack(modifiers))
+		end
+	end
 	if skillModList:Flag(nil, "ProjectileSpeedAppliesToBowDamage") then
 		-- Bow mastery projectile speed to damage with bows conversion
 		for i, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Bow }, "ProjectileSpeed")) do

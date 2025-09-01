@@ -981,6 +981,9 @@ return {
 ["non_skill_base_fire_damage_%_to_gain_as_chaos"] = {
 	mod("FireDamageGainAsChaos", "BASE", nil),
 },
+["non_skill_base_lightning_damage_%_to_gain_as_chaos"] = {
+	mod("LightningDamageGainAsChaos", "BASE", nil),
+},
 ["non_skill_base_all_damage_%_to_gain_as_lightning_with_attacks"] = {
 	mod("DamageGainAsLightning", "BASE", nil, ModFlag.Attack),
 },
@@ -1407,6 +1410,9 @@ return {
 	flag("FireCanShock"),
 	flag("ChaosCanShock"),
 },
+["chaos_damage_can_shock"] = {
+	flag("ChaosCanShock"),
+},
 ["all_damage_can_ignite_freeze_shock"] = {
 	flag("PhysicalCanIgnite"),
 	flag("LightningCanIgnite"),
@@ -1517,6 +1523,10 @@ return {
 },
 ["active_skill_projectile_speed_+%_final"] = {
 	mod("ProjectileSpeed", "MORE", nil),
+},
+["cast_speed_additive_modifiers_also_apply_to_projectile_speed_at_%_value"] = {
+	flag("CastSpeedAppliesToProjectileSpeed"),
+	mod("ImprovedCastSpeedAppliesToProjectileSpeed", "MAX", nil)
 },
 ["projectile_base_number_of_targets_to_pierce"] = {
 	mod("PierceCount", "BASE", nil),
@@ -2531,7 +2541,7 @@ return {
 	mod("Condition:CannotBeDamaged", "FLAG", nil)
 },
 --
--- Gem Levels
+-- Gem Levels / quality
 --
 --Fire
 ["supported_fire_skill_gem_level_+"] = {
@@ -2556,6 +2566,9 @@ return {
 --Active
 ["supported_active_skill_gem_level_+"] = {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }),
+},
+["supported_active_skill_gem_quality_%"] = {
+	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "quality", value = nil }),
 },
 --Aura
 ["supported_aura_skill_gem_level_+"] = {
