@@ -12260,7 +12260,7 @@ return {
 			name="BaseDamageIgnoresAttackSpeed",
 			refTo="",
 			type="Bool",
-			width=80
+			width=200
 		},
 		[10]={
 			list=false,

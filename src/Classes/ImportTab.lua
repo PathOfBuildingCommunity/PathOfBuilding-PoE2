@@ -705,8 +705,17 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			local spectreList = data.spectres
 			if typeLine:sub(1, 8) == "Spectre:" then
 				local spectreName = typeLine:sub(10) -- gets monster name after "Spectre: "
+				for _, property in pairs(skillData.properties) do
+					if property.name == "Reservation" and property.values and property.values[1] and property.values[1][1] then
+						-- Example: "42 [Spirit]"
+						local reservationValue = property.values[1][1]:match("(%d+)")
+						if reservationValue then
+							gemInstance.reservation = tonumber(reservationValue)
+						end
+					end
+				end
 				for id, spectre in pairs(spectreList) do
-					if spectre.name == spectreName then
+					if spectre.name == spectreName and gemInstance.reservation == spectre.spectreReservation then
 						if not isValueInArray(self.build.spectreList, id) then
 							t_insert(self.build.spectreList, id)
 						end
@@ -718,8 +727,17 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			end
 			if typeLine:sub(1, 10) == "Companion:" then
 				local companionName = typeLine:sub(12)
+				for _, property in pairs(skillData.properties) do
+					if property.name == "Reservation" and property.values and property.values[1] and property.values[1][1] then
+						-- Example: "42.3% [Spirit]"
+						local companionReservation = property.values[1][1]:match("([%d%.]+)%%?")
+						if companionReservation then
+							gemInstance.companionReservation = tonumber(companionReservation)
+						end
+					end
+				end
 				for id, spectre in pairs(spectreList) do
-					if spectre.name == companionName then
+					if spectre.name == companionName and gemInstance.companionReservation == spectre.companionReservation then
 						if not isValueInArray(self.build.beastList, id) then
 							t_insert(self.build.beastList, id)
 						end
