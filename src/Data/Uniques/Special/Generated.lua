@@ -190,6 +190,7 @@ do
 		"Heart of the Well",
 		"Diamond",
 		"League: Rise of the Abyssal",
+		"Limited to: 1",
 		"Has Alt Variant: true",
 		"Has Alt Variant Two: true",
 		"Has Alt Variant Three: true",
