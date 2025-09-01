@@ -752,6 +752,13 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	if skillModList:Flag(nil, "ProjectileSpeedAppliesToProjectileDamage") then
+		-- Projectile speed to projectile damage conversion
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ProjectileSpeed")) do
+			local mod = value.mod
+			skillModList:NewMod("Damage", mod.type, mod.value, mod.source, ModFlag.Projectile, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if skillModList:Flag(nil, "ClawDamageAppliesToUnarmed") then
 		-- Claw Damage conversion from Rigwald's Curse
 		for i, value in ipairs(skillModList:Tabulate("INC", { flags = bor(ModFlag.Claw, ModFlag.Hit), keywordFlags = KeywordFlag.Hit }, "Damage")) do

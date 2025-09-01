@@ -741,6 +741,9 @@ return {
 ["damage_over_time_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Dot),
 },
+["support_rapid_decay_damage_over_time_+%_final"] = {
+	mod("Damage", "MORE", nil, ModFlag.Dot),
+},
 ["burn_damage_+%"] = {
 	mod("FireDamage", "INC", nil, 0, KeywordFlag.FireDot),
 },
@@ -773,6 +776,9 @@ return {
 },
 ["active_skill_projectile_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, ModFlag.Projectile),
+},
+["projectile_speed_additive_modifiers_also_apply_to_projectile_damage"] = {
+	flag("ProjectileSpeedAppliesToProjectileDamage"),
 },
 ["active_skill_area_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, ModFlag.Area),
@@ -959,6 +965,9 @@ return {
 },
 ["cold_damage_%_to_add_as_fire"] = {
 	mod("ColdDamageGainAsFire", "BASE", nil),
+},
+["non_skill_base_cold_damage_%_to_gain_as_chaos"] = {
+	mod("ColdDamageGainAsChaos", "BASE", nil),
 },
 ["fire_damage_%_to_add_as_chaos"] = {
 	mod("FireDamageGainAsChaos", "BASE", nil),
