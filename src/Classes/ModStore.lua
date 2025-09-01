@@ -407,6 +407,9 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			else
 				base = target:GetStat(tag.stat, cfg)
 			end
+			if tag.divVar then
+				tag.div = self:GetMultiplier(tag.divVar, cfg)
+			end
 			local mult = m_floor(base / (tag.div or 1) + 0.0001)
 			local limitTotal
 			if tag.limit or tag.limitVar then
