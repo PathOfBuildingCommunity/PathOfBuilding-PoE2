@@ -1368,6 +1368,10 @@ return {
 ["never_freeze"] = {
 	flag("CannotFreeze"),
 },
+["never_freeze_or_chill"] = {
+	flag("CannotFreeze"),
+	flag("CannotChill"),
+},
 ["never_chill"] = {
 	flag("CannotChill"),
 },
@@ -1961,6 +1965,10 @@ return {
 	mod("Speed", "INC", nil, ModFlag.Cast),
 },
 ["total_cast_time_+_ms"] = {
+	mod("TotalCastTime", "BASE", nil),
+	div = 1000,
+},
+["base_spell_cast_time_ms"] = {
 	mod("TotalCastTime", "BASE", nil),
 	div = 1000,
 },
