@@ -12215,7 +12215,7 @@ return {
 		},
 		[3]={
 			list=false,
-			name="BaseDamageIgnoresAttackSpeed",
+			name="IsPlayerMinion",
 			refTo="",
 			type="Bool",
 			width=180
@@ -12257,7 +12257,7 @@ return {
 		},
 		[9]={
 			list=false,
-			name="IsPlayerMinion",
+			name="BaseDamageIgnoresAttackSpeed",
 			refTo="",
 			type="Bool",
 			width=80
