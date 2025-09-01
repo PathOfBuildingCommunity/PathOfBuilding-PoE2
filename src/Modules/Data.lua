@@ -527,51 +527,6 @@ data.unarmedWeaponData = {
 	[6] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
 }
 
--- TODO use exported data instead
--- Note: This is "hand copied" from `flatphysicaldamagevalues.datc64` should probably be properly exported to `Misc.lua` in the long term
-data.hollowPalmAddedPhys = {
-    [1]  = {  10,  15 },
-    [2]  = {  16,  24 },
-    [3]  = {  24,  36 },
-    [4]  = {  32,  47 },
-    [5]  = {  40,  59 },
-    [6]  = {  48,  71 },
-    [7]  = {  55,  82 },
-    [8]  = {  63,  94 },
-    [9]  = {  70, 105 },
-    [10] = {  77, 116 },
-    [11] = {  84, 126 },
-    [12] = {  90, 135 },
-    [13] = {  95, 143 },
-    [14] = { 106, 158 },
-    [15] = { 117, 175 },
-    [16] = { 127, 191 },
-    [17] = { 139, 208 },
-    [18] = { 150, 225 },
-    [19] = { 162, 243 },
-    [20] = { 175, 262 },
-    [21] = { 187, 281 },
-    [22] = { 201, 301 },
-    [23] = { 214, 321 },
-    [24] = { 228, 343 },
-    [25] = { 243, 364 },
-    [26] = { 257, 386 },
-    [27] = { 273, 409 },
-    [28] = { 288, 432 },
-    [29] = { 304, 457 },
-    [30] = { 320, 480 },
-    [31] = { 337, 506 },
-    [32] = { 355, 532 },
-    [33] = { 372, 558 },
-    [34] = { 390, 585 },
-    [35] = { 408, 612 },
-    [36] = { 427, 641 },
-    [37] = { 447, 670 },
-    [38] = { 466, 698 },
-    [39] = { 486, 729 },
-    [40] = { 506, 759 },
-}
-
 data.setJewelRadiiGlobally = function(treeVersion)
 	local tMajor, tMinor = treeVersion:match("(%d+)_(%d+)")
 	tMajor, tMinor = tonumber(tMajor), tonumber(tMinor)

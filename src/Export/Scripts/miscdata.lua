@@ -147,6 +147,14 @@ end
 out:write('-- From MonsterMapBossDifficulty.dat\n')
 out:write('data.mapLevelBossLifeMult = { '..mapBossLifeMult..'}\n')
 out:write('data.mapLevelBossAilmentMult = { '..mapBossAilmentMult..'}\n')
+out:write('\n')
+
+out:write('-- From FlatPhysicalDamageValues.dat\n')
+out:write('data.hollowPalmAddedPhys = {\n')
+for row in dat("FlatPhysicalDamageValues"):Rows() do
+	out:write('\t[' .. row.Level .. '] = { ' .. row.MinPhys .. ', ' .. row.MaxPhys .. ' },\n')
+end
+out:write('}\n')
 
 out:close()
 
