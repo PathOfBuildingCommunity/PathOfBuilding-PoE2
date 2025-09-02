@@ -381,9 +381,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.mirrored = true
 		elseif line == "Corrupted" then
 			self.corrupted = true
-		elseif line == "Fractured Item" then
-			self.fractured = true
-		elseif line == "Desecrated Item" or line == "Desecrated Prefix" or line == "Desecrated Suffix" then
+		elseif line == "Desecrated Prefix" or line == "Desecrated Suffix" then
 			self.desecrated = true
 		elseif line == "Requirements:" then
 			-- nothing to do
@@ -619,6 +617,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				if modLine.enchant then
 					modLine.implicit = true
+				end
+				if modLine.desecrated then
+					self.desecrated = true
+				end
+				if modLine.fractured then
+					self.fractured = true
 				end
 				local baseName
 				if not self.base and (self.rarity == "NORMAL" or self.rarity == "MAGIC") then
@@ -1251,12 +1255,6 @@ function ItemClass:BuildRaw()
 	end
 	if self.corrupted then
 		t_insert(rawLines, "Corrupted")
-	end
-	if self.fractured then
-		t_insert(rawLines, "Fractured Item")
-	end
-	if self.desecrated then
-		t_insert(rawLines, "Desecrated Item")
 	end
 	return table.concat(rawLines, "\n")
 end
