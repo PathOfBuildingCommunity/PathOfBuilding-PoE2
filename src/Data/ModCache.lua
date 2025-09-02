@@ -101,7 +101,7 @@ c["+1 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="Gem
 c["+1 to Level of all Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="all",value=1}}},nil}
 c["+1 to Limit for Elemental Skills"]={{}," Limit for Elemental Skills "}
 c["+1 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=1}},nil}
-c["+1 to Maximum Energy Shield per 12 Item Evasion Rating on Equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},"  per 12 Item Evasion Rating on Equipped Body Armour "}
+c["+1 to Maximum Energy Shield per 12 Item Evasion Rating on Equipped Body Armour"]={{[1]={[1]={div=12,stat="EvasionOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Energy Shield per 8 Maximum Life"]={{[1]={[1]={div=8,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
 c["+1 to Maximum Mana per 6 Maximum Life"]={{[1]={[1]={div=6,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=1}},nil}
@@ -254,7 +254,7 @@ c["+2 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",v
 c["+2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=2}},nil}
 c["+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently"]={{}," metres to Dodge Roll distance if you haven't Dodge Rolled Recently "}
 c["+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently -1 metre to Dodge Roll distance if you've Dodge Rolled Recently"]={{}," metres to Dodge Roll distance if you haven't Dodge Rolled Recently -1 metre to Dodge Roll distance  "}
-c["+2 to Evasion Rating per 1 Item Energy Shield on Equipped Helmet"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=2}},"  per 1 Item Energy Shield on Equipped Helmet "}
+c["+2 to Evasion Rating per 1 Item Energy Shield on Equipped Helmet"]={{[1]={[1]={div=1,stat="EnergyShieldOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=2}},nil}
 c["+2 to Level of all Cold Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="cold",value=2}}},nil}
 c["+2 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="fire",value=2}}},nil}
 c["+2 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning",value=2}}},nil}
@@ -1648,8 +1648,7 @@ c["19% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="
 c["195% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=195}},nil}
 c["2% chance to Recover all Life when you Kill an Enemy"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},[2]={type="Condition",var="AverageResourceGain"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1},[2]={[1]={percent=100,stat="Life",type="PercentStat"},[2]={type="Condition",var="MaxResourceGain"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
 c["2% increased Area of Effect for Attacks per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=2}},nil}
-c["2% increased Attack Damage per 75 Item Armour and Evasion Rating on Equipped Shield"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},"  per 75 Item Armour and Evasion Rating on Equipped Shield "}
-c["2% increased Attack Damage per 75 Item Armour and Evasion Rating on Equipped Shield 50% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},"  per 75 Item Armour and Evasion Rating on Equipped Shield 50% increased Defences  "}
+c["2% increased Attack Damage per 75 Item Armour and Evasion Rating on Equipped Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},[2]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
 c["2% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
 c["2% increased Attack Speed per 10 Dexterity"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
 c["2% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
@@ -2462,7 +2461,7 @@ c["4% chance that if you would gain Rage on Hit, you instead gain up to your max
 c["4% increased Area of Effect for Attacks"]={{[1]={flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=4}},nil}
 c["4% increased Area of Effect of Ancestrally Boosted Attacks"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=4}},"  of Ancestrally Boosted Attacks "}
 c["4% increased Area of Effect of Ancestrally Boosted Attacks Ancestrally Boosted Attacks deal 8% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=4}},"  of Ancestrally Boosted Attacks Ancestrally Boosted Attacks deal 8% increased Damage "}
-c["4% increased Attack Damage per 75 Item Armour and Evasion Rating on Equipped Shield"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=4}},"  per 75 Item Armour and Evasion Rating on Equipped Shield "}
+c["4% increased Attack Damage per 75 Item Armour and Evasion Rating on Equipped Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},[2]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["4% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
 c["4% increased Attack Speed while a Rare or Unique Enemy is in your Presence"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="NearbyRareOrUniqueEnemy",[2]="RareOrUnique"}},flags=1,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
 c["4% increased Attack Speed with Axes"]={{[1]={flags=65541,keywordFlags=0,name="Speed",type="INC",value=4}},nil}
@@ -4789,7 +4788,7 @@ c["Gain additional Stun Threshold equal to 12% of maximum Energy Shield"]={{[1]=
 c["Gain additional Stun Threshold equal to 15% of maximum Energy Shield"]={{[1]={[1]={percent="15",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional Stun Threshold equal to 16% of maximum Energy Shield"]={{[1]={[1]={percent="16",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional Stun Threshold equal to 20% of maximum Energy Shield"]={{[1]={[1]={percent="20",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
-c["Gain additional Stun Threshold equal to 30% of Item Armour on Equipped Armour Items"]={nil,"additional Stun Threshold equal to 30% of Item Armour on Equipped Armour Items "}
+c["Gain additional Stun Threshold equal to 30% of Item Armour on Equipped Armour Items"]={{[1]={[1]={percent=30,stat="ArmourOnHelmet",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[2]={[1]={percent=30,stat="ArmourOnGloves",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[3]={[1]={percent=30,stat="ArmourOnBoots",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1},[4]={[1]={percent=30,stat="ArmourOnBody Armour",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional Stun Threshold equal to 30% of maximum Energy Shield"]={{[1]={[1]={percent="30",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional Stun Threshold equal to 8% of maximum Energy Shield"]={{[1]={[1]={percent="8",stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=1}},nil}
 c["Gain additional maximum Life equal to 100% of the Item Energy Shield on Equipped Body Armour"]={nil,"additional maximum Life equal to 100% of the Item Energy Shield on Equipped Body Armour "}
