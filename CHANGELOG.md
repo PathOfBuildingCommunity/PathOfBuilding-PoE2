@@ -1,5 +1,16 @@
 # Changelog
 
+## [v0.11.2](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.11.2) (2025/09/02)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.11.1...v0.11.2)
+
+
+## What's Changed
+### Fixed Crashes
+- Fix crash when allocating Answered Call [\#1270](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1270) ([Blitz54](https://github.com/Blitz54))
+
+
+
 ## [v0.11.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.11.1) (2025/09/02)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.11.0...v0.11.1)

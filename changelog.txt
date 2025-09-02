@@ -1,3 +1,9 @@
+VERSION[0.11.2][2025/09/02]
+
+--- Fixed Crashes ---
+* Fix crash when allocating Answered Call (Blitz54)
+
+
 VERSION[0.11.1][2025/09/02]
 
 --- Fixed Crashes ---
