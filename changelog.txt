@@ -1,3 +1,37 @@
+VERSION[0.11.0][2025/09/02]
+
+--- The Third Edict ---
+* Add all new 0.3 skills and update existing skills (LocalIdentity)
+* Update current Uniques and add 0.3 Uniques (Blitz54)
+* Update Minions and Spectres with 0.3 changes (Blitz54)
+* Add new 0.3 item bases (Wires77)
+* Add Abyssal Lich Ascendancy to tree (trompetin17)
+* Add support for "Hollow Palm Technique" Keystone (majochem)
+* Add support for "Blackflame Covenant" Keystone (majochem)
+* Add support for Totems (majochem)
+* Add support for adding essence modifiers to items (Wires77)
+* Add new 0.3.0 Keystones to "From Nothing" Unique jewel (majochem)
+
+--- New to Path of Building ---
+* Add support for new "+X% of Armour also applies to Y Damage" mods (majochem)
+* Add support for monster on-kill explosion damage (TPlant)
+* Add support for "Sustainable Practices" (Pathfinder Ascendancy Node) (majochem)
+* Update "item defence" related modifiers (majochem)
+
+--- User Interface ---
+* Show Influence icons on item headers (Blitz54)
+* Fix Gem tooltips missing stats on some skills (LocalIdentity)
+
+--- Fixed Calculations ---
+* Fix values changing depending on order of skill groups (Paliak)
+* Remove cap on "x% Armour applies to y Damage" (majochem)
+
+--- Accuracy Improvements ---
+* Fix Lead Me Through Grace... parsing (Nostrademous)
+
+--- Fixed Bugs ---
+* Fix invalid authentification URL being opened (teroshan)
+
 VERSION[0.10.2][2025/08/30]
 
 --- Fixed Crashes ---

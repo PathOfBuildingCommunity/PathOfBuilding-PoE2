@@ -1,5 +1,39 @@
 # Changelog
 
+## [v0.11.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.11.0) (2025/09/02)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.10.0...v0.11.0)
+
+
+## What's Changed
+### The Third Edict
+- Add all new 0.3 skills and update existing skills [\#1257](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1257) ([LocalIdentity](https://github.com/LocalIdentity))
+- Update current Uniques and add 0.3 Uniques [\#1242](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1242) ([Blitz54](https://github.com/Blitz54))
+- Update Minions and Spectres with 0.3 changes [\#1236](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1236) ([Blitz54](https://github.com/Blitz54))
+- Add new 0.3 item bases [\#1235](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1235) ([Wires77](https://github.com/Wires77))
+- Add Abyssal Lich Ascendancy to tree [\#1238](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1238) ([trompetin17](https://github.com/justjuangui))
+- Add support for "Hollow Palm Technique" Keystone [\#1206](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1206) ([majochem](https://github.com/majochem))
+- Add support for "Blackflame Covenant" Keystone [\#1264](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1264) ([majochem](https://github.com/majochem))
+- Add support for Totems [\#1188](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1188) ([majochem](https://github.com/majochem))
+- Add support for adding essence modifiers to items [\#1239](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1239) ([Wires77](https://github.com/Wires77))
+- Add new 0.3.0 Keystones to "From Nothing" Unique jewel [\#1263](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1263) ([majochem](https://github.com/majochem))
+### New to Path of Building
+- Add support for new "+X% of Armour also applies to Y Damage" mods [\#1251](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1251) ([majochem](https://github.com/majochem))
+- Add support for monster on-kill explosion damage [\#1259](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1259) ([TPlant](https://github.com/PJacek))
+- Add support for "Sustainable Practices" (Pathfinder Ascendancy Node) [\#1250](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1250) ([majochem](https://github.com/majochem))
+- Update "item defence" related modifiers [\#1261](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1261) ([majochem](https://github.com/majochem))
+### User Interface
+- Show Influence icons on item headers [\#1199](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1199) ([Blitz54](https://github.com/Blitz54))
+- Fix Gem tooltips missing stats on some skills [\#1265](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1265) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Calculations
+- Fix values changing depending on order of skill groups [\#1245](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1245) ([Paliak](https://github.com/Paliak))
+- Remove cap on "x% Armour applies to y Damage" [\#1252](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1252) ([majochem](https://github.com/majochem))
+### Accuracy Improvements
+- Fix Lead Me Through Grace... parsing [\#1249](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1249) ([Nostrademous](https://github.com/Nostrademous))
+### Fixed Bugs
+- Fix invalid authentification URL being opened [\#1244](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1244) ([teroshan](https://github.com/teroshan))
+
+
 ## [v0.10.2](https://github.com/PathOfBuildingCommunity/PathOfBuilding/tree/v0.10.2) (2025/08/30)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.10.1...v0.10.2)
