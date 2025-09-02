@@ -679,7 +679,19 @@ directiveTable.set = function(state, args, out)
 		out:write('\t\t\tdamageIncrementalEffectiveness = ', grantedEffectStatSet.DamageIncrementalEffectiveness, ',\n')
 	end
 	if state.granted.IsSupport then
-		state.statDescriptionScope = "gem_stat_descriptions"
+		local gemEffect = dat("GemEffects"):GetRowList("AdditionalGrantedEffects", state.granted )
+		if gemEffect[1] and gemEffect[1].Tags then
+			for _, tag in ipairs(gemEffect[1].Tags) do
+				if tag.Id == "meta" then
+					skill.isMeta = true
+				end
+			end
+		end
+		if skill.isMeta then
+			state.statDescriptionScope = "meta_gem_stat_descriptions"
+		else
+			state.statDescriptionScope = "gem_stat_descriptions"
+		end
 	else
 		state.statDescriptionScope = state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):
 		-- Need to subtract 1 from setIndex because GGG indexes from 0

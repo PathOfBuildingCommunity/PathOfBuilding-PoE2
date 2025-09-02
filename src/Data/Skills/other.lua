@@ -1023,7 +1023,7 @@ skills["SupportMetaDeadeyeMarksPlayer"] = {
 		[1] = {
 			label = "SupportMetaDeadeyeMarksPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1247,7 +1247,7 @@ skills["SupportMetaCastOnCharmUsePlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnCharmUsePlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3021,7 +3021,7 @@ skills["SupportMetaCastFireSpellOnHitPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastFireSpellOnHitPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {

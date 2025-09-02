@@ -5211,7 +5211,7 @@ skills["SupportMirageArcherPlayer"] = {
 		[1] = {
 			label = "SupportMirageArcherPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {

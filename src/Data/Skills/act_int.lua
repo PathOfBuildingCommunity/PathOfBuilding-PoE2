@@ -849,7 +849,7 @@ skills["SupportBarrierInvocationPlayer"] = {
 		[1] = {
 			label = "SupportBarrierInvocationPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1076,7 +1076,7 @@ skills["SupportBlasphemyPlayer"] = {
 		[1] = {
 			label = "Curses",
 			incrementalEffectiveness = 0.092720001935959,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			statMap = {
 				["support_blasphemy_curse_effect_+%_final"] = {
 					mod("CurseEffect", "MORE", nil),
@@ -2133,7 +2133,7 @@ skills["SupportMetaCastOnCritPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnCritPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2356,7 +2356,7 @@ skills["SupportMetaCastOnDodgePlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnDodgePlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2580,7 +2580,7 @@ skills["SupportMetaCastOnElementalAilmentPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnElementalAilmentPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2802,7 +2802,7 @@ skills["SupportMetaCastOnMinionDeathPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnMinionDeathPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -4385,7 +4385,7 @@ skills["SupportMetaCastCurseOnBlockPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastCurseOnBlockPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -5552,7 +5552,7 @@ skills["SupportElementalInvocationPlayer"] = {
 		[1] = {
 			label = "SupportElementalInvocationPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11220,7 +11220,7 @@ skills["SupportHandOfChayulaPlayer"] = {
 		[1] = {
 			label = "Support",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			stats = {
@@ -15934,7 +15934,7 @@ skills["SupportReapersInvocationPlayer"] = {
 		[1] = {
 			label = "SupportReapersInvocationPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {

@@ -570,7 +570,7 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 		[1] = {
 			label = "SupportAncestralWarriorTotemPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			statMap = {
 				["support_ancestral_warrior_totem_attack_speed_+%_final"] = {
 					mod("Speed", "MORE", nil, ModFlag.Attack),
@@ -1856,7 +1856,7 @@ skills["SupportMetaCastOnBlockPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnBlockPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1961,7 +1961,7 @@ skills["SupportMetaCastOnMeleeKillPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeKillPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2029,7 +2029,7 @@ skills["SupportMetaCastOnMeleeStunPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeStunPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -11244,7 +11244,7 @@ skills["SupportMortarCannonPlayer"] = {
 		[1] = {
 			label = "SupportMortarCannonPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			statMap = {
 				["support_grenade_ballista_damage_+%_final"] = {
 					mod("Damage", "MORE", nil),
@@ -14367,7 +14367,7 @@ skills["SupportMetaCastLightningSpellOnHitPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastLightningSpellOnHitPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {

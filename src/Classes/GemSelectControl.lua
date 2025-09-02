@@ -562,6 +562,10 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			for _, statSet in ipairs(additional.statSets) do
 				self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
 			end
+		else
+			for _, statSet in ipairs(additional.statSets) do
+				self:AddStatSetInfo(gemInstance, grantedEffect, statSet, true)
+			end
 		end
 	end
 end
@@ -682,14 +686,14 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		end
 	end
 end
-function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLabel)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local statSetLevel = statSet.levels[displayInstance.level] or { }
-	if statSet.label ~= grantedEffect.name and statSet.label ~= "" then
+	if statSet.label ~= grantedEffect.name and statSet.label ~= "" and not noLabel then
 		self.tooltip:AddSeparator(10)
 		self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
+		self.tooltip:AddSeparator(10)
 	end
-	self.tooltip:AddSeparator(10)
 	if statSetLevel.critChance then
 		self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", statSetLevel.critChance))
 	end
@@ -697,7 +701,7 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
 		self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100))
 	end
 	if self.skillsTab and self.skillsTab.build.data.describeStats then
-		self.tooltip:AddSeparator(10)
+		if not noLabel then self.tooltip:AddSeparator(10) end
 		local stats = calcLib.buildSkillInstanceStats(displayInstance, grantedEffect, statSet)
 		--if mergeStatsFrom then
 		--	for stat, val in pairs(calcLib.buildSkillInstanceStats(displayInstance, mergeStatsFrom)) do
