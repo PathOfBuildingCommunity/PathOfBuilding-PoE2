@@ -2546,7 +2546,7 @@ local specialModList = {
 	["gain energy shield from equipped body armour as extra maximum life"] = {
 		mod("Life", "BASE", 1, { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = 1 }),
 	},
-	["gain additional maximum life equal to (%d+)%% of the energy shield on equipped body armour"] = function(num) return {
+	["gain additional maximum life equal to (%d+)%% of the (i?t?e?m? ?)energy shield on equipped body armour"] = function(num) return {
 		mod("Life", "BASE", 1, { type = "PercentStat", stat = "EnergyShieldOnBody Armour", percent = num }),
 	} end,
 	["bleeding you inflict on cursed targets is aggravated"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:BleedAggravated", { type = "Condition", var = "Cursed" }) }) },
