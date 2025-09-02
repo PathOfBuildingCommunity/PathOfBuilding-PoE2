@@ -4308,8 +4308,7 @@ c["Chance to Deflect is Lucky"]={nil,"Chance to Deflect is Lucky "}
 c["Chance to Evade is Unlucky"]={nil,"Chance to Evade is Unlucky "}
 c["Chance to Evade is Unlucky Chance to Deflect is Lucky"]={nil,"Chance to Evade is Unlucky Chance to Deflect is Lucky "}
 c["Chance to Hit with Attacks can exceed 100%"]={{[1]={[1]={skillType=1,type="Skilltype"},flags=0,keywordFlags=0,name="Condition:HitChanceCanExceed100",type="FLAG",value=true}},nil}
-c["Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes"]={nil,"Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes "}
-c["Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={nil,"Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage "}
+c["Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true}},nil}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup "}
 c["Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage "}
 c["Chaos Damage from Hits also Contributes to Freeze Buildup"]={nil,"Chaos Damage from Hits also Contributes to Freeze Buildup "}
@@ -4599,9 +4598,7 @@ c["Fire Damage from Hits Contributes to Shock Chance instead of Flammability and
 c["Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup"]={nil,"Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup "}
 c["Fire Resistance is unaffected by Area Penalties"]={nil,"Fire Resistance is unaffected by Area Penalties "}
 c["Fire Resistance is unaffected by Area Penalties Lightning Resistance is unaffected by Area Penalties"]={nil,"Fire Resistance is unaffected by Area Penalties Lightning Resistance is unaffected by Area Penalties "}
-c["Fire Spells Convert 100% of Fire Damage to Chaos Damage"]={nil,"Fire Spells Convert 100% of Fire Damage to Chaos Damage "}
-c["Fire Spells Convert 100% of Fire Damage to Chaos Damage Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes"]={nil,"Fire Spells Convert 100% of Fire Damage to Chaos Damage Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes "}
-c["Fire Spells Convert 100% of Fire Damage to Chaos Damage Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={nil,"Fire Spells Convert 100% of Fire Damage to Chaos Damage Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage "}
+c["Fire Spells Convert 100% of Fire Damage to Chaos Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value="100"}},nil}
 c["Fissure Skills have a 20% chance to create an additional Fissure"]={nil,"Fissure Skills have a 20% chance to create an additional Fissure "}
 c["Flammability Magnitude is doubled"]={{},"Magnitude  "}
 c["Flasks gain 0.17 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.17}},nil}
@@ -4965,7 +4962,7 @@ c["Hits have 25% reduced Critical Hit Chance against you"]={{[1]={flags=0,keywor
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["If you would gain a Charge, Allies in your Presence gain that Charge instead"]={nil,"If you would gain a Charge, that Charge instead "}
-c["Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={nil,"Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage "}
+c["Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true}},nil}
 c["Ignites you cause are reflected back to you"]={nil,"Ignites you cause are reflected back to you "}
 c["Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you"]={nil,"Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you "}
 c["Ignites you inflict deal Damage 15% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=15}},nil}
