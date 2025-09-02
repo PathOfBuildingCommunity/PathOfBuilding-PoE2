@@ -6,11 +6,13 @@ return {
 Death's Harp
 Dualstring Bow
 Variant: 0.2.0
+Variant: 0.3.0
 Variant: Current
 Implicits: 1
-Bow Attacks fire an additional Arrow
+BowImplicitAdditionalArrows1
 {variant:1}UniqueLocalCriticalMultiplier1[50,70]
-{variant:2}UniqueLocalCriticalMultiplier1
+{variant:2}UniqueLocalCriticalMultiplier1[30,40]
+{variant:3}UniqueLocalCriticalMultiplier1
 UniqueAdditionalArrow1
 UniqueLifeGainedFromEnemyDeath4
 UniqueManaGainedFromEnemyDeath6
@@ -22,6 +24,19 @@ UniqueLocalAddedPhysicalDamage7
 UniqueDexterity4
 UniqueManaRegeneration3
 UniqueLocalPhysicalDamageAddedAsEachElement1
+]],[[
+Fairgraves' Curse
+Artillery Bow
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Phantasmal Arrow
+BowImplicitProjectileAttackRange1
+UniqueLocalAddedFireDamage5
+UniqueIgniteChanceIncrease4
+UniqueIgniteEffect3
+UniqueLifeRecoveryRate2
+UniqueFlatPhysicalDamageTaken1
+GhostflameOnHitUnique__1
 ]],[[
 Lioneye's Glare
 Heavy Bow

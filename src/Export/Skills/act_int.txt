@@ -7,18 +7,7 @@ local skills, mod, flag, skill = ...
 
 #skill ArcPlayer
 #set ArcPlayer
-#flags spell chaining
-statMap = {
-	["arc_damage_+%_final_for_each_remaining_chain"] = {
-		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
-	},
-	["quality_display_arc_is_gem"] = {
-		-- Display only
-	},
-},
-#mods
-#set ArcExplosionPlayer
-#flags spell area
+#flags spell chaining projectile
 statMap = {
 	["arc_damage_+%_final_for_each_remaining_chain"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "PerStat", stat = "ChainRemaining" }),
@@ -60,6 +49,12 @@ statMap = {
 		div = 1000,
 	},
 },
+#mods
+#set BallLightningInfusedExplosionPlayer
+#flags spell area projectile
+#mods
+#set BallLightningIgnitedGround
+#flags spell area projectile duration
 #mods
 #skillEnd
 
@@ -164,26 +159,14 @@ statMap = {
 #mods
 #skillEnd
 
-#skill MetaCastOnFreezePlayer
-#set MetaCastOnFreezePlayer
+#skill MetaCastOnElementalAilmentPlayer
+#set MetaCastOnElementalAilmentPlayer
 #flags
 #mods
 #skillEnd
 
-#skill SupportMetaCastOnFreezePlayer
-#set SupportMetaCastOnFreezePlayer
-#flags
-#mods
-#skillEnd
-
-#skill MetaCastOnIgnitePlayer
-#set MetaCastOnIgnitePlayer
-#flags
-#mods
-#skillEnd
-
-#skill SupportMetaCastOnIgnitePlayer
-#set SupportMetaCastOnIgnitePlayer
+#skill SupportMetaCastOnElementalAilmentPlayer
+#set SupportMetaCastOnElementalAilmentPlayer
 #flags
 #mods
 #skillEnd
@@ -200,18 +183,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill MetaCastOnShockPlayer
-#set MetaCastOnShockPlayer
-#flags
-#mods
-#skillEnd
-
-#skill SupportMetaCastOnShockPlayer
-#set SupportMetaCastOnShockPlayer
-#flags
-#mods
-#skillEnd
-
 #from item
 #skill WeaponGrantedChaosboltPlayer
 #set WeaponGrantedChaosboltPlayer
@@ -219,8 +190,8 @@ statMap = {
 #mods
 #skillEnd
 
-#skill ChargeInfusionPlayer
-#set ChargeInfusionPlayer
+#skill ChargeRegulationPlayer
+#set ChargeRegulationPlayer
 statMap = {
 	["charge_mastery_skill_speed_+%_final_with_frenzy_charges"] = {
 		mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
@@ -259,14 +230,11 @@ statMap = {
 #mods
 #skillEnd
 
-#skill ColdSnapPlayer
-#set ColdSnapPlayer
-#flags area spell
-#mods
-#skillEnd
-
 #skill CometPlayer
 #set CometPlayer
+#flags area spell
+#mods
+#set CometFireInfusionPlayer
 #flags area spell
 #mods
 #skillEnd
@@ -292,8 +260,31 @@ statMap = {
 #set ConvalescencePlayer
 #flags
 #mods
+#skillEnd
+
+#skill ConvalescenceActivePlayer
 #set ConvalescenceActivePlayer
 #flags duration
+#mods
+#skillEnd
+
+#skill CracklingPalmPlayer
+#set CracklingPalmPlayer
+#flags
+#mods
+#set CracklingPalmBoltPlayer
+#flags attack unarmed area
+#mods
+#skillEnd
+
+#skill MetaCastCurseOnBlockPlayer
+#set MetaCastCurseOnBlockPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastCurseOnBlockPlayer
+#set SupportMetaCastCurseOnBlockPlayer
 #mods
 #skillEnd
 
@@ -367,12 +358,26 @@ statMap = {
 #mods
 #skillEnd
 
-#skill BlazingClusterPlayer
-#set BlazingClusterPlayer
+#skill ElementalWeaknessPlayer
+#set ElementalWeaknessPlayer
+#flags area spell duration
+statMap = {
+	["base_skill_buff_all_elements_resistance_%_to_apply"] = {
+		mod("ElementalResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill EmberFusilladePlayer
+#set EmberFusilladePlayer
 #flags spell duration projectile
 #mods
-#set BlazingClusterExplosionPlayer
+#set EmberFusilladeExplosionPlayer
 #flags spell area projectile
+#mods
+#set EmberFusilladeBeamPlayer
+#flags spell projectile
 #mods
 #skillEnd
 
@@ -400,6 +405,16 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill ExsanguinatePlayer
+#set ExsanguinatePlayer
+#flags spell duration chaining
+#mods
+#set ExsanguinateDotPlayer
+#flags spell duration chaining
+#mods
+#skillEnd
+
 #skill EyeOfWinterPlayer
 #set EyeOfWinterPlayer
 #flags spell projectile
@@ -412,6 +427,12 @@ statMap = {
 #mods
 #set FallingThunderProjectilePlayer
 #flags attack projectile
+#mods
+#skillEnd
+
+#skill FeastOfFleshPlayer
+#set FeastOfFleshPlayer
+#flags
 #mods
 #skillEnd
 
@@ -441,8 +462,11 @@ statMap = {
 #set FirestormPlayer
 #flags spell area duration
 #mods
-#set FirestormEmpoweredPlayer
-#flags spell
+#set FirestormColdInfusionPlayer
+#flags spell area duration
+#mods
+#set FirestormLightningInfusionPlayer
+#flags spell area duration
 #mods
 #skillEnd
 
@@ -517,20 +541,24 @@ statMap = {
 #mods
 #skillEnd
 
+#skill FrostDartsPlayer
+#set FrostDartsPlayer
+#flags spell projectile
+#mods
+#set FrostDartsExplodePlayer
+#flags spell projectile area
+#mods
+#set FrostDartsIceMortarPlayer
+#flags spell projectile area
+#mods
+#skillEnd
+
 #skill FrostWallPlayer
 #set FrostWallPlayer
 #flags spell area duration
 #mods
-#skillEnd
-
-#skill HypothermiaPlayer
-#set HypothermiaPlayer
-#flags spell curse area duration
-statMap = {
-	["base_skill_buff_cold_damage_resistance_%_to_apply"] = {
-		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
-	},
-},
+#set FrostWallInfusedPlayer
+#flags spell area duration
 #mods
 #skillEnd
 
@@ -555,25 +583,33 @@ statMap = {
 #set FrozenLocusGroundPlayer
 #flags area duration
 #mods
+#set FrozenLocusExplodePlayer
+#flags attack area
+#mods
 #skillEnd
 
-#skill FrozenLocusExplodePlayer
-#set FrozenLocusExplodePlayer
-#flags area nonWeaponAttack hit
+#skill FulminationPlayer
+#set FulminationPlayer
+#flags
 #mods
 #skillEnd
 
 #from item
-#skill GalvanicFieldPlayer
-#set GalvanicFieldPlayer
+#skill GalvanicFieldBuffPlayer
+#set GalvanicFieldBuffPlayer
 #flags area duration chaining
 statMap = {
-	["galvanic_field_retargeting_delay_ms"] = {
+	["galvanic_field_shock_chance_+%_final"] = {
+		mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Galvanic Field" }),
+	},
+},
+#mods
+#set GalvanicFieldOrbPlayer
+#flags spell duration
+statMap = {
+	["base_galvanic_field_beam_delay_ms"] = {
 		skill("hitTimeOverride", nil),
 		div = 1000,
-	},
-	["base_chance_to_shock_%_from_skill"] = {
-		mod("EnemyShockChance", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura", effectName = "Galvanic Field" }),
 	},
 },
 #mods
@@ -588,7 +624,6 @@ end,
 #mods
 #set GatheringStormPerfectPlayer
 #flags attack area melee channelRelease
-#baseMod mod("Condition:PerfectTiming", "FLAG", true)
 #mods
 #set GatheringStormExplodePlayer
 #flags attack area melee channelRelease duration
@@ -616,6 +651,12 @@ end,
 #mods
 #skillEnd
 
+#skill GrimFeastResummonPlayer
+#set GrimFeastResummonPlayer
+#flags
+#mods
+#skillEnd
+
 #skill HandOfChayulaPlayer
 #set HandOfChayulaPlayer
 #flags attack melee area unarmed
@@ -625,6 +666,13 @@ end,
 #skill SupportHandOfChayulaPlayer
 #set SupportHandOfChayulaPlayer
 #flags
+#mods
+#skillEnd
+
+#from item
+#skill HeartOfIcePlayer
+#set HeartOfIcePlayer
+#flags buff aura
 #mods
 #skillEnd
 
@@ -648,11 +696,22 @@ statMap = {
 #mods
 #skillEnd
 
+#skill HypothermiaPlayer
+#set HypothermiaPlayer
+#flags spell curse area duration
+statMap = {
+	["base_skill_buff_cold_damage_resistance_%_to_apply"] = {
+		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
 #skill IceNovaPlayer
 #set IceNovaPlayer
 #flags spell area
 #mods
-#set IceNovaPlayerOnFrostbolt
+#set IceNovaColdInfusedPlayer
 #flags spell area
 #mods
 #skillEnd
@@ -663,6 +722,34 @@ statMap = {
 #mods
 #set IceStrikeThirdAttackPlayer
 #flags attack area melee
+#mods
+#skillEnd
+
+#from item
+#skill IcestormPlayer
+#set IcestormPlayer
+#flags spell area duration
+statMap = {
+	["fire_storm_fireball_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
+#mods
+#set IcestormEmpoweredPlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#from item
+#skill ImpurityPlayer
+#set ImpurityPlayer
+#flags spell aura area
+statMap = {
+	["base_skill_buff_chaos_damage_resistance_%_to_apply"] = {
+		mod("ChaosResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -684,6 +771,13 @@ statMap = {
 #from item
 #skill LightningBoltPlayer
 #set LightningBoltPlayer
+#flags spell area
+#mods
+#skillEnd
+
+#from item
+#skill UniqueBreachLightningBoltPlayer
+#set UniqueBreachLightningBoltPlayer
 #flags spell area
 #mods
 #skillEnd
@@ -847,6 +941,20 @@ statMap = {
 #mods
 #skillEnd
 
+#minionList RavenousSwarm
+#skill RavenousSwarmPlayer
+#set RavenousSwarmPlayer
+#flags spell minion
+#mods
+#skillEnd
+
+#from item
+#skill ReapPlayer
+#set ReapPlayer
+#flags spell area
+#mods
+#skillEnd
+
 #skill MetaReapersInvocationPlayer
 #set MetaReapersInvocationPlayer
 #flags
@@ -878,15 +986,8 @@ statMap = {
 #skillEnd
 
 #skill ShatteringPalmExplosionPlayer
-#set TriggeredFreezingWordExplosionPlayer
+#set ShatteringPalmExplosionPlayer
 #flags area nonWeaponAttack hit unarmed
-#mods
-#skillEnd
-
-#from item
-#skill ShockNovaPlayer
-#set ShockNovaPlayer
-#flags spell area
 #mods
 #skillEnd
 
@@ -902,6 +1003,12 @@ statMap = {
 		mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "SigilOfPowerStage", limitVar = "SigilOfPowerMaxStages" } ),
 	},
 },
+#mods
+#skillEnd
+
+#skill SiphonElementsPlayer
+#set SiphonElementsPlayer
+#flags
 #mods
 #skillEnd
 
@@ -971,6 +1078,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SnapPlayer
+#set SnapColdPlayer
+#flags area spell
+#mods
+#set SnapLightningPlayer
+#flags area spell
+#mods
+#set SnapFirePlayer
+#flags area spell
+#mods
+#skillEnd
+
 #skill SolarOrbPlayer
 #set SolarOrbPlayer
 #flags spell area duration
@@ -982,7 +1101,7 @@ statMap = {
 },
 #mods
 #set SolarOrbAuraPlayer
-#flags spell area duration
+#flags spell area
 #mods
 #skillEnd
 
@@ -997,8 +1116,22 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill SoulrendPlayer
+#set SoulrendPlayer
+#flags spell projectile
+#mods
+#set SoulrendDotPlayer
+#flags spell duration
+#baseMod skill("debuff", true)
+#mods
+#skillEnd
+
 #skill SparkPlayer
 #set SparkPlayer
+#flags spell projectile duration
+#mods
+#set SparkColdInfusedPlayer
 #flags spell projectile duration
 #mods
 #skillEnd
@@ -1019,12 +1152,6 @@ statMap = {
 #skill StaggeringPalmProjectilePlayer
 #set StaggeringPalmProjectilePlayer
 #flags attack projectile
-#mods
-#skillEnd
-
-#skill StaggeringPalmUnarmedProjectilePlayer
-#set StaggeringPalmUnarmedProjectilePlayer
-#flags attack projectile unarmed
 #mods
 #skillEnd
 
@@ -1064,6 +1191,26 @@ statMap = {
 #mods
 #skillEnd
 
+#skill TrinityPlayer
+#set TrinityPlayer
+#flags buff duration
+statMap = {
+	["trinity_damage_+%_final_to_grant_per_50_resonance"] = {
+		mod("ElementalDamage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ResonanceCount", div = 30 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+	},
+	["trinity_attack_speed_+%_while_all_resonance_is_at_least_250_to_grant"] = {
+		mod("Speed", "INC", nil, 0, 0, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+	},
+	["quality_display_trinity_is_gem"] = {
+		-- Display only
+	},
+	["trinity_loss_per_hit"] = {
+		-- Display only
+	},
+},
+#mods
+#skillEnd
+
 #minionList UnearthBoneConstruct
 #skill UnearthPlayer
 #set UnearthPlayer
@@ -1083,11 +1230,17 @@ statMap = {
 #set VaultingImpactPlayer
 #flags attack area melee
 #mods
+#set VaultingImpactDazedPlayer
+#flags attack area melee
+#mods
 #skillEnd
 
 #from item
 #skill VolatileDeadPlayer
 #set VolatileDeadPlayer
+#flags spell area
+#mods
+#set VolatileDeadIgniteAuraPlayer
 #flags spell area
 #mods
 #skillEnd

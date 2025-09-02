@@ -3,6 +3,16 @@
 return {
 -- Flask: Life
 [[
+Blood of the Warrior
+Gargantuan Life Flask
+League: Rise of the Abyssal
+90% less Life Recovered
+Effect is not removed when Unreserved Life is Filled
+(15-30)% of Damage taken during effect Recouped as Life
+Gain (3-5) Rage when Hit by an Enemy during effect
+No Inherent loss of Rage during effect
+(25-50)% increased Duration
+]],[[
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}
@@ -39,7 +49,7 @@ League: Dawn of the Hunt
 Implicits: 1
 Used when you become Ignited
 (20-25)% Chance to gain a Charge when you Kill an Enemy
-Ignite Enemies in Presence as though dealing Fire damage equal to 500% of your maximum Life when used
+Creates Ignited Ground in for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life
 ]],[[
 The Black Cat
 Grounding Charm
@@ -124,8 +134,8 @@ Staunching Charm
 League: Dawn of the Hunt
 Implicits: 1
 Used when you start Bleeding
-Creates Consecrated Ground on use
 Gains (0.15-0.2) Charges per Second
+Creates Consecrated Ground on use
 ]],[[
 Valako's Roar
 Topaz Charm

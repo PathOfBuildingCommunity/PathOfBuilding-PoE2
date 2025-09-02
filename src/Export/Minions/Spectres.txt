@@ -87,15 +87,7 @@ local minions, mod, flag = ...
 #flags recommendedSpectre recommendedBeast
 #emit
 
-#spectre Metadata/Monsters/QuillCrab/QuillCrabTropical
-#flags recommendedSpectre recommendedBeast
-#emit
-
 #spectre Metadata/Monsters/ShellMonster/ShellMonster
-#emit
-
-#spectre Metadata/Monsters/ShellMonster/ShellMonsterPoison
-#flags recommendedSpectre recommendedBeast
 #emit
 
 -- Cultists
@@ -194,7 +186,20 @@ local minions, mod, flag = ...
 #emit
 
 -- Goliath
-#spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan
+#spectre Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_
+#emit
+
+-- Infested
+#spectre Metadata/Monsters/ParasiteMonsters/OctopusParasite
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/TurtleParasite__
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/AngerfishParasite
+#emit
+
+#spectre Metadata/Monsters/ParasiteMonsters/MantaRayParasite
 #emit
 
 -- Lost-Men Cultists
@@ -218,6 +223,13 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield
+#emit
+
+-- Rat
+#spectre Metadata/Monsters/RatMonster/RatMonster
+#emit
+
+#spectre Metadata/Monsters/RatMonster/RatMonsterPoison__
 #emit
 
 -- Skeletons
@@ -307,6 +319,9 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/Werewolves/WerewolfProwlerRed1
+#emit
+
+#spectre Metadata/Monsters/Wolves/Wolf1
 #emit
 
 #spectre Metadata/Monsters/Monkeys/MonkeyJungle
@@ -533,7 +548,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/SerpentClanMonster/SerpentClan1
 #emit
 
-#spectre Metadata/Monsters/SaltGolem/SaltGolemNoEmerge
+#spectre Metadata/Monsters/SaltGolem/SaltGolem_
 #emit
 
 #spectre Metadata/Monsters/HyenaMonster/HyenaMonster
@@ -599,10 +614,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/SummonedPhantasm/DesertPhantasm
 #emit
 
-#spectre Metadata/Monsters/VultureZombie/VultureDemon
-#flags recommendedSpectre recommendedBeast
-#emit
-
 #spectre Metadata/Monsters/Kinarha/KinarhaSpectre
 #emit
 
@@ -656,9 +667,6 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/VaalSavage/CannibalTribeShaman
-#emit
-
-#spectre Metadata/Monsters/VaalSavage/CannibalTribeGiant
 #emit
 
 #spectre Metadata/Monsters/VaalSavage/VaalSavageStalker
@@ -792,9 +800,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalConstructs/Skitterbot/VaalConstructSkitterbot
 #emit
 
-#spectre Metadata/Monsters/RatMonster/RatMonster
-#emit
-
 #spectre Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDaggers
 #emit
 
@@ -890,19 +895,10 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword
 #emit
 
-#spectre Metadata/Monsters/DrownedCrew/DrownedCrewSword_
-#emit
-
 #spectre Metadata/Monsters/DrownedCrew/DrownedCrewGhost
 #emit
 
-#spectre Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead
-#emit
-
 #spectre Metadata/Monsters/VaalForgeMan/VaalForgeMan
-#emit
-
-#spectre Metadata/Monsters/DrownedCrawler/DrownedCrawler__
 #emit
 
 #spectre Metadata/Monsters/LiquidElementals/LiquidElementalBlood
@@ -930,36 +926,6 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/CauldronCrone/CauldronCrone
-#emit
-
-#spectre Metadata/Monsters/Pirates/PirateBootyBlaster
-#emit
-
-#spectre Metadata/Monsters/ManOWar/ManoWar
-#emit
-
-#spectre Metadata/Monsters/Pirates/PirateCannon
-#emit
-
-#spectre Metadata/Monsters/Pirates/PirateGrenade
-#emit
-
-#spectre Metadata/Monsters/Pirates/PirateBarrel
-#emit
-
-#spectre Metadata/Monsters/Anchorman/BloatedAnchorman
-#emit
-
-#spectre Metadata/Monsters/KelpDreg/KelpDregSword
-#emit
-
-#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper
-#emit
-
-#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer
-#emit
-
-#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot
 #emit
 
 #spectre Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGoliathFist_
@@ -990,18 +956,6 @@ local minions, mod, flag = ...
 #flags recommendedSpectre
 #emit
 
-#spectre Metadata/Monsters/HarpyMonster/GullHarpy
-#emit
-
-#spectre Metadata/Monsters/CageSkeleton/CageSkeleton_
-#emit
-
-#spectre Metadata/Monsters/SkeletonProwler/SkeletonProwler_
-#emit
-
-#spectre Metadata/Monsters/BrineMaiden/BrineMaiden
-#emit
-
 #spectre Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster
 #emit
 
@@ -1020,16 +974,10 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/FallenGods/FallenHooksFoundry
 #emit
 
-#spectre Metadata/Monsters/FallenGods/FallenGodsBloater_
-#emit
-
 #spectre Metadata/Monsters/FallenGods/FallenStag
 #emit
 
 #spectre Metadata/Monsters/SpinningWheelHag/SpinningWheelHag
-#emit
-
-#spectre Metadata/Monsters/RatMonster/RatMonsterCistern
 #emit
 
 #spectre Metadata/Monsters/RabidFeralDogMonster/RabidDog
@@ -1162,10 +1110,4 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
-#emit
-
-#spectre Metadata/Monsters/SummonRagingSpirit/RagingFireSpirit
-#emit
-
-#spectre Metadata/Monsters/SummonRagingSpirit/RagingTimeSpirit
 #emit

@@ -27,6 +27,18 @@ Variant: Current
 All Damage from Hits with this Weapon Contributes to Freeze Buildup
 Culling Strike against Frozen Enemies
 ]],[[
+Marohi Erqi
+Totemic Greatclub
+League: Rise of the Abyssal
+Implicits: 1
+Crushes Enemies on Hit
++150 Strength Requirement
+(600-700)% increased Physical Damage
+-(300-200) to Accuracy Rating
+35% reduced Attack Speed
+Causes (40-60)% increased Stun Buildup
+Heavy Stuns Enemies that are on Full Life
+]],[[
 Mjölner
 Torment Club
 League: Dawn of the Hunt
@@ -65,9 +77,12 @@ the enemy's Power for 6 seconds, up to a total of 500
 ]],[[
 Sculpted Suffering
 Warpick
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-+(10-15)% to Critical Damage Bonus
+Implicits: 2
+{variant:1}+(10-15)% to Critical Damage Bonus
+{variant:2}+(5-10)% to Critical Damage Bonus
 Adds (21-26) to (25-31) Physical Damage
 (10-15)% increased Attack Speed
 Breaks Armour equal to 40% of damage from Hits with this weapon
@@ -98,6 +113,7 @@ Increases and Reductions to Minion Attack Speed also affect you
 ]],[[
 Wylund's Stake
 Smithing Hammer
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}Adds (2-3) to (4-5) Physical Damage

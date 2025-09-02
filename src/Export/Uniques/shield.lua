@@ -30,33 +30,41 @@ UniqueDoubleStunThresholdWhileActiveBlock1
 Doomgate
 Braced Tower Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance2
+{variant:1,2}UniqueLocalBlockChance2[80,80]
+{variant:3}UniqueLocalBlockChance2
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
-{variant:2}UniqueChaosResist22
-UniqueBaseBlockDamageTaken1
+{variant:2,3}UniqueChaosResist22
+{variant:1,2}UniqueBaseBlockDamageTaken1[20,20]
+{variant:3}UniqueBaseBlockDamageTaken1
 UniqueCullingStrikeOnBlock1
 ]],[[
 Lycosidae
 Rampart Tower Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance1
+{variant:1,2}UniqueLocalBlockChance1[30,40]
+{variant:3}UniqueLocalBlockChance1
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent1
 UniqueDoubleAccuracyRating1
 {variant:1}UniquePoisonOnBlock1[100,100]
-{variant:2}UniquePoisonOnBlock1
+{variant:2,3}UniquePoisonOnBlock1
 ]],[[
 Redblade Banner
 Heraldric Tower Shield
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance14
+{variant:1}UniqueLocalBlockChance14[20,30]
+{variant:2}UniqueLocalBlockChance14
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent27
 UniqueStrength36
 UniqueStunThreshold18
@@ -66,29 +74,33 @@ The Surrender
 Stone Tower Shield
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance5
+UniqueLocalBlockChance7
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent20
 UniqueStunThreshold12
 UniqueRecoverLifePercentOnBlock1
 ]],[[
 Svalinn
 Crucible Tower Shield
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
-UniqueMaximumBlockChance2
+{variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[100,150]
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
+{variant:1}UniqueMaximumBlockChance2
+{variant:2}UniqueBaseBlockDamageTaken3
 UniqueLuckyBlockChance1
 ]],[[
 The Wailing Wall
 Effigial Tower Shield
+Source: No longer obtainable
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueMovementVelocity6
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
 UniqueStunThreshold9
-UniqueCanBlockAllDamage1
 UniqueDisableShieldSkills1
 ]],[[
 Window to Paradise
@@ -114,10 +126,13 @@ UniqueEnemiesBlockedAreIntimidated1
 [[
 Bloodbarrier
 Iron Buckler
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
-UniqueLocalBlockChance14
+{variant:1}UniqueLocalBlockChance14[20,30]
+{variant:2}UniqueLocalBlockChance14
 UniqueChaosResist31
 UniqueLifeRegeneration21
 UniqueApplyCorruptedBloodOnBlock1
@@ -135,13 +150,28 @@ UniqueParriedDebuffDuration1
 ]],[[
 Dunkelhalt
 Leather Buckler
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Parry
-UniqueLocalBlockChance9
+{variant:1}UniqueLocalBlockChance10[30,50]
+{variant:2}UniqueLocalBlockChance10
 UniqueLocalIncreasedEvasionRating6
 UniqueBaseBlockDamageTaken2
 UniqueParriedDebuffMagnitude1
+]],[[
+Kaltenhalt
+Ridged Buckler
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Parry
+UniqueLocalIncreasedEvasionRatingPercent15
+MaximumColdResistUniqueShieldDex1
+UniqueColdResist15
+UniqueParryStunModifiersApplyToFreeze1
+UniqueParryConvertToCold1
+UniqueAttackerTakesColdDamage1
 ]],[[
 Nocturne
 Wooden Buckler
@@ -219,7 +249,7 @@ Variant: Pre 0.1.1
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-{variant:1}UniqueLocalBlockChance5
+{variant:1}UniqueLocalBlockChance8
 UniqueLocalIncreasedArmourAndEvasion2
 {variant:2}UniqueIncreasedLife43
 {variant:2}UniqueIncreasedMana36
@@ -245,9 +275,12 @@ UniqueNoMovementPenaltyRaisedShield1
 ]],[[
 Merit of Service
 Pelage Targe
+Variant: Pre 0.3.0
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance4
+{variant:1}UniqueLocalBlockChance4[30,50]
+{variant:2}UniqueLocalBlockChance4
 UniqueLocalIncreasedArmourAndEvasion11
 UniqueStunThreshold7
 UniqueBlockChanceToAllies1
@@ -257,13 +290,15 @@ UniqueBlockChanceToAllies1
 Alkem Eira
 Blazon Crest Shield
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance1
+{variant:1,2}UniqueLocalBlockChance1[30,40]
+{variant:3}UniqueLocalBlockChance1
 UniqueLocalIncreasedArmourAndEnergyShield2
 {variant:1}UniqueIncreasedMana4[15,30]
-{variant:2}UniqueIncreasedMana4
+{variant:2,3}UniqueIncreasedMana4
 UniqueDamageBlockedRecoupedAsMana1
 ]],[[
 Crest of Ardura
@@ -289,15 +324,17 @@ UniqueLocalIncreasedArmourAndEnergyShield16
 ]],[[
 Oaksworn
 Variant: Pre 0.2.0
+Variant: Pre 0.3.0
 Variant: Current
 Sigil Crest Shield
 Implicits: 1
 Grants Skill: Raise Shield
-UniqueLocalBlockChance5
+{variant:1,2}UniqueLocalBlockChance5[40,60]
+{variant:3}UniqueLocalBlockChance5
 UniqueLocalIncreasedArmourAndEnergyShield10
 {variant:1}UniqueIncreasedSpirit2
 UniqueChaosResist1
-{variant:2}UniqueLifeRegenerationRate1
+{variant:2,3}UniqueLifeRegenerationRate1
 ]],[[
 Prism Guardian
 Sectarian Crest Shield

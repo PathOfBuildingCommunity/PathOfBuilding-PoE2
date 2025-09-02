@@ -77,11 +77,14 @@ UniqueLifeLeechChaosDamage1
 ]],[[
 Tangletongue
 Forked Spear
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage21
-UniqueLocalCriticalStrikeChance8
+{variant:1}UniqueLocalCriticalStrikeChance8[1000,2000]
+{variant:2}UniqueLocalCriticalStrikeChance8
 UniqueIntelligence34
 UniqueRollCriticalChanceTwice1
 UniqueLifeCost2

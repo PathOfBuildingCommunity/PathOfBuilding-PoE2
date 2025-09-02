@@ -202,6 +202,7 @@ UniqueConsumeCorpseRecoverLife1
 ]],[[
 Forbidden Gaze
 Chain Tiara
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent1
@@ -390,6 +391,7 @@ UniqueGlobalSkillGemLevel1
 ]],[[
 The Deepest Tower
 Spiritbone Crown
+Source: No longer obtainable
 League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield18
 UniqueIncreasedLife46

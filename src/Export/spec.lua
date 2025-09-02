@@ -6472,11 +6472,11 @@ return {
 			width=190
 		},
 		[3]={
-			list=false,
-			name="NonBossVersion",
-			refTo="WorldAreas",
-			type="Key",
-			width=220
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=160
 		},
 		[4]={
 			list=true,
@@ -6599,6 +6599,57 @@ return {
 	},
 	environmenttransitions={
 	},
+	essencemods={
+		[1]={
+			list=false,
+			name="Essence",
+			refTo="Essences",
+			type="Key",
+			width=390
+		},
+		[2]={
+			list=false,
+			name="TargetItemCategory",
+			refTo="EssenceTargetItemCategories",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="Mod1",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="Mod2",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=270
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		}
+	},
 	essences={
 		[1]={
 			list=false,
@@ -6615,98 +6666,86 @@ return {
 			width=100
 		},
 		[3]={
-			list=false,
-			name="",
+			list=true,
+			name="DropLevel",
 			refTo="",
 			type="Int",
-			width=50
+			width=80
 		},
 		[4]={
-			list=false,
-			name="",
-			refTo="",
-			type="Int",
-			width=50
-		},
-		[5]={
 			list=true,
 			name="MonsterMod1",
 			refTo="Mods",
 			type="Key",
 			width=250
 		},
-		[6]={
-			list=false,
-			name="",
-			refTo="",
+		[5]={
+			list=true,
+			name="Weighting",
+			refTo="Mods",
 			type="Int",
 			width=70
 		},
-		[7]={
+		[6]={
 			list=false,
 			name="MonsterMod2",
 			refTo="Mods",
 			type="Key",
-			width=260
+			width=250
 		},
-		[8]={
+		[7]={
 			list=false,
-			name="",
+			name="IsPerfect",
 			refTo="",
 			type="Bool",
-			width=80
+			width=150
 		},
-		[9]={
-			list=false,
-			name="ModTag",
-			refTo="Tags",
-			type="Key",
-			width=70
-		},
-		[10]={
+		[8]={
 			list=false,
 			name="GreaterVariant",
 			refTo="Essences",
 			type="ShortKey",
 			width=250
 		},
-		[11]={
+		[9]={
 			list=false,
 			name="EssenceTier",
 			refTo="",
 			type="Int",
 			width=80
 		},
-		[12]={
+		[10]={
 			list=false,
 			name="MapMod",
 			refTo="Stats",
 			type="Key",
-			width=250
-		},
-		[13]={
+			width=150
+		}
+	},
+	essencestashtablayout={
+	},
+	essencetargetitemcategories={
+		[1]={
 			list=false,
-			name="CraftedMod",
-			refTo="Mods",
-			type="Key",
+			name="Id",
+			refTo="",
+			type="String",
 			width=150
 		},
-		[14]={
+		[2]={
 			list=true,
 			name="ItemClasses",
 			refTo="ItemClasses",
 			type="Key",
 			width=150
 		},
-		[15]={
+		[3]={
 			list=false,
-			name="",
+			name="Text",
 			refTo="",
-			type="Int",
-			width=40
+			type="String",
+			width=150
 		}
-	},
-	essencestashtablayout={
 	},
 	essencetype={
 		[1]={
@@ -9507,6 +9546,27 @@ return {
 	leagueinfopanelversions={
 	},
 	leaguenames={
+		[1]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="String",
+			width=150
+		}
 	},
 	leagueprogressquestflags={
 	},
@@ -12215,7 +12275,7 @@ return {
 		},
 		[3]={
 			list=false,
-			name="BaseDamageIgnoresAttackSpeed",
+			name="IsPlayerMinion",
 			refTo="",
 			type="Bool",
 			width=180
@@ -12253,14 +12313,14 @@ return {
 			name="Resistances",
 			refTo="MonsterResistances",
 			type="Key",
-			width=250
+			width=280
 		},
 		[9]={
 			list=false,
-			name="IsPlayerMinion",
+			name="BaseDamageIgnoresAttackSpeed",
 			refTo="",
 			type="Bool",
-			width=80
+			width=200
 		},
 		[10]={
 			list=false,
@@ -12784,10 +12844,10 @@ return {
 		},
 		[74]={
 			list=false,
-			name="",
+			name="NotSummoned",
 			refTo="",
 			type="Bool",
-			width=50
+			width=90
 		},
 		[75]={
 			list=false,

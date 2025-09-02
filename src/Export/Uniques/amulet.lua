@@ -116,6 +116,17 @@ UniqueNearbyAlliesIncreasedAttackSpeed1
 UniqueNearbyAlliesIncreasedCastSpeed1
 UniquePresenceRadius1
 ]],[[
+Hinekora's Sight
+Stellar Amulet
+Requires Level 44
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Future-Past
+AmuletImplicitAllAttributes1
+UniqueIncreasedAccuracy13
+UniqueIncreasedEvasionRating5
+BlindImmunityUnique__1
+]],[[
 Idol of Uldurn
 Crimson Amulet
 Requires Level 24
@@ -215,12 +226,15 @@ UniqueNoCriticalStrikeMultiplier1
 ]],[[
 Xoph's Blood
 Amber Amulet
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
 UniqueFireResist12
-UniqueEnemiesInPresenceFireExposure1
+{variant:1}UniqueEnemiesInPresenceFireExposure1[1,1]
+{variant:2}UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet

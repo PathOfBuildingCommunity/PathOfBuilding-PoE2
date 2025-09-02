@@ -160,7 +160,7 @@ directiveTable.emit = function(state, args, out)
 		if pack and pack.WorldAreas then
 			for _, worldAreaRef in ipairs(pack.WorldAreas) do
 				local area = dat("WorldAreas"):GetRow("Id", worldAreaRef.Id)
-				if area and area.Name ~= "NULL" then
+				if area and area.Name ~= "NULL" and not area.Name:match("DNT") then
 					local isMap = false
 					for _, tag in ipairs(area.Tags or {}) do
 						if tag.Id == "map" then
@@ -188,17 +188,13 @@ directiveTable.emit = function(state, args, out)
 			if mapRow.NativePacks then
 				for _, nativePack in ipairs(mapRow.NativePacks) do
 					if nativePack.Id == packId then
-						-- Check BossVersion and NonBossVersion of Map
 						local areaIds = {}
 						if mapRow.BossVersion and mapRow.BossVersion.Id then
 							table.insert(areaIds, mapRow.BossVersion.Id)
 						end
-						if mapRow.NonBossVersion and mapRow.NonBossVersion.Id then
-							table.insert(areaIds, mapRow.NonBossVersion.Id)
-						end
 						for _, areaId in ipairs(areaIds) do
 							local area = dat("WorldAreas"):GetRow("Id", areaId)
-							if area and area.Name ~= "NULL" then
+							if area and area.Name ~= "NULL" and not area.Name:match("DNT") then
 								local isMap = false
 								for _, tag in ipairs(area.Tags or {}) do
 									if tag.Id == "map" then
@@ -257,7 +253,7 @@ directiveTable.emit = function(state, args, out)
 	out:write('\tdamageSpread = ', (monsterVariety.Type.DamageSpread / 100), ',\n')
 	out:write('\tattackTime = ', (monsterVariety.AttackDuration/1000), ',\n')
 	out:write('\tattackRange = ', monsterVariety.MaximumAttackRange, ',\n')
-	out:write('\taccuracy = ', monsterVariety.Type.Accuracy / 100, ',\n')
+	out:write('\taccuracy = 1,\n') -- minions don't need accuracy as of 0.3. Printing 1 just so nothing breaks.
 	for _, mod in ipairs(monsterVariety.Mods) do
 		if mod.Id == "MonsterSpeedAndDamageFixupSmall" then
 			out:write('\tdamageFixup = 0.11,\n')
@@ -278,7 +274,7 @@ directiveTable.emit = function(state, args, out)
 	end
 	out:write('\tbaseMovementSpeed = ', monsterVariety.MovementSpeed, ',\n')
 	if monsterVariety.ExperienceMultiplier then
-		out:write('\tspectreReservation = ', (round(50 * (monsterVariety.ExperienceMultiplier/1000)) * 10), ',\n')
+		out:write('\tspectreReservation = ', math.floor(((monsterVariety.ExperienceMultiplier/100) ^ 0.75) * 50), ',\n')
 		out:write('\tcompanionReservation = ', (round(math.sqrt(monsterVariety.ExperienceMultiplier/100), 2) * 30), ',\n') 
 	end
 	if monsterVariety.MonsterCategory then
@@ -290,14 +286,6 @@ directiveTable.emit = function(state, args, out)
 		if name == "The Ziggurat Refuge" then
 			out:write('\t\t"Found in Maps",\n')
 		else
-			name = name:gsub("%(Act (%d)%)", function(digit)
-				local n = tonumber(digit)
-				if n > 5 then -- Repeat acts need to be adjusted. May not be needed in 0.3
-					return "(Act " .. (n - 3) .. ")"
-				else
-					return "(Act " .. n .. ")"
-				end
-			end)
 			out:write('\t\t"', name, '",\n')
 		end
 	end

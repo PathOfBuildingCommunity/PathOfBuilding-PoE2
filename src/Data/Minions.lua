@@ -122,6 +122,7 @@ minions["RaisedSkeletonBrute"] = {
 	skillList = {
 		"MinionMeleeStep",
 		"BoneshatterBruteMinion",
+		"ShatteringRoarSkeletalBruteMinion",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
@@ -185,7 +186,7 @@ minions["RaisedSkeletonFrostMage"] = {
 	},
 	skillList = {
 		"FrostBoltSkeletonMageMinion",
-		"IceBombSkeletonMageMinion",
+		"IceArmourSkeletonMageMinion",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
@@ -505,6 +506,8 @@ minions["UnearthBoneConstruct"] = {
 	},
 	skillList = {
 		"MinionMelee",
+		"DATTBoneConstructPlayerSummoned",
+		"GABoneConstructPlayerSummoned",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
@@ -570,5 +573,59 @@ minions["ManifestWeapon"] = {
 		"GAAnimateWeaponQuarterstaffSweep",
 	},
 	modList = {
+	},
+}
+
+minions["RavenousSwarm"] = {
+	name = "Ravenous Swarm",
+	monsterTags = { "slow_movement", "Unarmed_onhit_audio", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.84,
+	damageSpread = 0.3,
+	attackTime = 1,
+	attackRange = 1,
+	accuracy = 1,
+	baseMovementSpeed = 24,
+	spectreReservation = 50,
+	companionReservation = 30,
+	spawnLocation = {
+	},
+	skillList = {
+		"RavenousSwarmAttack",
+	},
+	modList = {
+	},
+}
+
+minions["LivingLightning"] = {
+	name = "Living Lightning",
+	monsterTags = { "construct", "extra_small_height", "ghost_armour", "is_unarmed", "melee", "physical_affinity", "very_fast_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.35,
+	damageSpread = 0.8,
+	attackTime = 1,
+	attackRange = 20,
+	accuracy = 1,
+	baseMovementSpeed = 97,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"LivingLightningZap",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 	},
 }

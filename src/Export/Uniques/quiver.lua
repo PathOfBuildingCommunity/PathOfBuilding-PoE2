@@ -56,7 +56,7 @@ UniqueBowDamageFromLifeFlaskCharges1
 Murkshaft
 Toxic Quiver
 League: Dawn of the Hunt
-Implicits: 1
+Implicits: 2
 Grants Skill: Level (1-20) Bursting Fen Toad
 QuiverImplicitChanceToPoison1
 UniqueAddedPhysicalDamage6
@@ -67,9 +67,12 @@ UniqueBlindOnPoison1
 ]],[[
 Rearguard
 Blunt Quiver
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-QuiverImplicitStunThresholdReduction1
+Implicits: 2
+{variant:1}QuiverImplicitStunThresholdReduction1[20,30]
+{variant:2}QuiverImplicitStunThresholdReduction1
 UniqueAddedPhysicalDamage5
 UniqueIncreasedPhysicalDamageReductionRating4
 UniqueProjectileSpeed3

@@ -304,6 +304,23 @@ directiveTable.skill = function(state, args, out)
 			out:write(mapAST(type), ', ')
 		end
 		out:write('},\n')
+		if skillGem then
+			local gemFamily = { }
+			local supportGem = dat("SupportGems"):GetRow("SkillGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)))
+			for _, type in ipairs(supportGem.Family) do
+				table.insert(gemFamily, type.Id)
+			end
+			if next(gemFamily) then
+				out:write('\tgemFamily = { ')
+				for _, type in ipairs(gemFamily) do
+					out:write('"', type, '",')
+				end
+				out:write('},\n')
+			end
+			if supportGem.Lineage then
+				out:write('\tisLineage = true,\n')
+			end
+		end
 		if skill.isTrigger then
 			out:write('\tisTrigger = true,\n')
 		end
@@ -418,6 +435,9 @@ end
 directiveTable.set = function(state, args, out)
 	local statSetId = args
 	local originalGrantedEffectStatSet = dat("GrantedEffectStatSets"):GetRow("Id", statSetId)
+	if dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet) == nil or originalGrantedEffectStatSet == nil then
+		ConPrintf(args.." is not a valid Granted Effect")
+	end
 	local grantedEffectStatSet = copyTableSafe(originalGrantedEffectStatSet, false, true)
 	local statsPerLevel = copyTableSafe(dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet), false, true)
 	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
@@ -861,6 +881,16 @@ for skillGem in dat("SkillGems"):Rows() do
 				end
 			end
 			out:write('\t\tgemType = "', gemType, '",\n')
+			if skillGem.IsSupport then
+				local gemFamily = { }
+				local supportGem = dat("SupportGems"):GetRow("SkillGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)))
+				for _, type in ipairs(supportGem.Family) do
+					table.insert(gemFamily, type.Name)
+				end
+				if next(gemFamily) then
+					out:write('\t\tgemFamily = "', table.concat(gemFamily, ", "), '",\n')
+				end
+			end
 			out:write('\t\ttagString = "', table.concat(tagNames, ", "), '",\n')
 			if next(weaponRequirement) then
 				out:write('\t\tweaponRequirements = "', table.concat(weaponRequirement, ", "), '",\n')

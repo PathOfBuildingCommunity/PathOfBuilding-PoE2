@@ -1804,7 +1804,7 @@ function ItemsTabClass:AddModComparisonTooltip(tooltip, mod)
 	local newItem = new("Item", self.displayItem:BuildRaw())
 	
 	for _, subMod in ipairs(mod) do
-		t_insert(newItem.explicitModLines, { line = checkLineForAllocates(subMod, self.build.spec.nodes), modTags = mod.modTags, [mod.type] = true })
+		t_insert(newItem.explicitModLines, { line = checkLineForAllocates(subMod, self.build.spec.nodes), modTags = mod.modTags, [mod.type or "Suffix"] = true })
 	end
 
 	newItem:BuildAndParseRaw()
@@ -2511,11 +2511,34 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 				return modA.level > modB.level
 			end)
+		elseif sourceId == "ESSENCE" then
+			for _, essence in pairs(self.build.data.essences) do
+				local modId = essence.mods[self.displayItem.type]
+				if modId then
+					local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
+					t_insert(modList, {
+						label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
+						mod = mod,
+						type = "custom",
+						essence = essence,
+					})
+				end
+			end
+			table.sort(modList, function(a, b)
+				if a.essence.type ~= b.essence.type then
+					return a.essence.type > b.essence.type
+				else
+					return a.essence.tierLevel > b.essence.tierLevel
+				end
+			end)
 		end
 	end
 	if not self.displayItem.crafted then
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
 		t_insert(sourceList, { label = "Suffix", sourceId = "SUFFIX" })
+	end
+	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" then
+		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
@@ -2585,6 +2608,27 @@ function ItemsTabClass:AddItemSetTooltip(tooltip, itemSet)
 	end
 end
 
+function ItemsTabClass:SetTooltipHeaderInfluence(tooltip, item)
+	tooltip.influenceHeader1 = nil
+	tooltip.influenceHeader2 = nil
+	-- Fractured items don't have the icon now, they did on trade before 0.3. Maybe they will return.
+	--if item.fractured then
+	--	tooltip.influenceHeader1 = "Fractured"
+	--end
+	if item.desecrated then
+		if not tooltip.influenceHeader1 then
+			tooltip.influenceHeader1 = "Desecrated"
+		else
+			tooltip.influenceHeader2 = "Desecrated"
+		end
+	end
+
+	-- If only one influence, we copy to second header. Preparing for dual influence mods like in first game.
+	if tooltip.influenceHeader1 and not tooltip.influenceHeader2 then
+		tooltip.influenceHeader2 = tooltip.influenceHeader1
+	end
+end
+
 function ItemsTabClass:FormatItemSource(text)
 	return text:gsub("unique{([^}]+)}",colorCodes.UNIQUE.."%1"..colorCodes.SOURCE)
 			   :gsub("normal{([^}]+)}",colorCodes.NORMAL.."%1"..colorCodes.SOURCE)
@@ -2599,6 +2643,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
+	self:SetTooltipHeaderInfluence(tooltip, item)
 	if item.title then
 		tooltip:AddLine(20, rarityCode..item.title)
 		tooltip:AddLine(20, rarityCode..item.baseName:gsub(" %(.+%)",""))
