@@ -2390,7 +2390,10 @@ local specialModList = {
 	end,
 	["(%a+) spells convert (%d+)%% of (%a+) damage to (%a+) damage"] = function (_, spellType, num, fromType, toType) return { mod(firstToUpper(fromType) .. "DamageConvertTo" .. firstToUpper(toType), "BASE", num, { type = "SkillType", skillType = SkillType.Spell }, { type = "SkillType", skillType = SkillType[firstToUpper(spellType)] }) } end, -- Blackflame Covenant
 	["(%a+) damage from (%a+) spells contributes to flammability and ignite magnitudes"] = function(_, sourceType, spellType) return { flag(firstToUpper(sourceType) .. "CanIgnite", { type = "SkillType", skillType = SkillType.Spell }, { type = "SkillType", skillType = SkillType[firstToUpper(spellType)] })} end,
-	["ignite inflicted with (%a+) spells deals chaos damage instead of fire damage"] = function (_, spellType) return { flag("IgniteToChaos", { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}) } end,
+	["ignite inflicted with (%a+) spells deals chaos damage instead of fire damage"] = function (_, spellType) return {
+		flag("IgniteToChaos", { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}),
+		mod("SkillData", "LIST", { key = "IgniteToChaos", value = true }, { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}),
+	} end,
 	-- Legacy support
 	["(%d+)%% chance to defend with double armour"] = function(numChance) return {
 		mod("ArmourDefense", "MAX", 100, "Armour Mastery: Max Calc", { type = "Condition", var = "ArmourMax" }),

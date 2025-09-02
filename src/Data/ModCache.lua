@@ -4962,7 +4962,7 @@ c["Hits have 25% reduced Critical Hit Chance against you"]={{[1]={flags=0,keywor
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
 c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["If you would gain a Charge, Allies in your Presence gain that Charge instead"]={nil,"If you would gain a Charge, that Charge instead "}
-c["Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true}},nil}
+c["Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true},[2]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="IgniteToChaos",value=true}}},nil}
 c["Ignites you cause are reflected back to you"]={nil,"Ignites you cause are reflected back to you "}
 c["Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you"]={nil,"Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you "}
 c["Ignites you inflict deal Damage 15% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=15}},nil}
