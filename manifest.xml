@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <PoBVersion>
-	<Version number="0.11.1" />
+	<Version number="0.11.2" />
 	<Source part="default" url="https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/{branch}/" />
 	<Source part="runtime" platform="win32" url="https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/{branch}/runtime/" />
 	<Source part="program" url="https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/{branch}/src/" />
 	<Source part="tree" url="https://raw.githubusercontent.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/{branch}/src/" />
-	<File name="changelog.txt" part="default" sha1="8890a52031ea5e94032a7d816d4c4e4299f2af4f" />
+	<File name="changelog.txt" part="default" sha1="877d69b22ca3106082d419b29e00dddd7e000824" />
 	<File name="help.txt" part="default" sha1="eb788d20352333fad99bcf6092306f0c3bca3122" />
 	<File name="LICENSE.md" part="default" sha1="e81bd01e60cdf8646f3308ec71fa0e8e638d544e" />
 	<File name="Assets/ascendancypassiveheaderleft.png" part="program" sha1="c1c73a71cc742de4f2964da78e9ed8841ab7039d" />
@@ -175,7 +175,7 @@
 	<File name="Data/FlavourText.lua" part="program" sha1="544403222e53d76c7e9f8e2f31cb5bf9dee422e2" />
 	<File name="Data/Gems.lua" part="program" sha1="12bdee76537d7c5a6300e125e8d1b9938704de21" />
 	<File name="Data/Global.lua" part="program" sha1="db0d91e9677142b5db1e16f535bce7120c8bf90f" />
-	<File name="Data/Minions.lua" part="program" sha1="5eb78f6cfbb5f6166d41c9275383c2a92ad8aa36" />
+	<File name="Data/Minions.lua" part="program" sha1="24e0cb3aefa630c5ea770c202db138111555b411" />
 	<File name="Data/Misc.lua" part="program" sha1="7078c216e19e2ca216d0b81c19267168966676db" />
 	<File name="Data/ModCache.lua" part="program" sha1="fa4c0f78fdb9ec19c3aea36f88bcb1d37eb3d37f" />
 	<File name="Data/ModCharm.lua" part="program" sha1="73c45fed94f6d7310a203e559670fb259e87362d" />
