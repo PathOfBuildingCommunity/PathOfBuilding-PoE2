@@ -460,6 +460,15 @@ Allies in your Presence deal 50% increased Damage
 {variant:2}+(10-20) to Dexterity
 25% reduced Damage
 ]],[[
+Mask of the Sanguimancer
+Face Mask
++(20-25) to Evasion Rating
++(10-15) to maximum Energy Shield
+(20-40)% increased Critical Hit Chance for Spells
++(10-20) to Strength
++(10-20) to Intelligence
+Blood Magic
+]],[[
 Mind of the Council
 Death Mask
 League: Dawn of the Hunt
