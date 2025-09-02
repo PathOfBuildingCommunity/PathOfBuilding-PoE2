@@ -13,6 +13,23 @@ local function mapAST(ast)
 	return "SkillType."..(skillTypeMap[ast._rowIndex] or ("Unknown"..ast._rowIndex))
 end
 
+local function cleanAndSplit(str) -- Same as in Flavour Text exporter.
+	-- Normalize newlines
+	str = str:gsub("\r\n", "\n")
+
+	local lines = {}
+	for line in str:gmatch("[^\n]+") do
+		line = line:match("^%s*(.-)%s*$") -- trim each line
+		if line ~= "" then
+			-- Escape quotes
+			line = line:gsub('"', '\\"')
+			table.insert(lines, line)
+		end
+	end
+
+	return lines
+end
+
 local weaponClassMap = {
 	["Claw"] = "Claw",
 	["Dagger"] = "Dagger",
@@ -319,6 +336,13 @@ directiveTable.skill = function(state, args, out)
 			end
 			if supportGem.Lineage then
 				out:write('\tisLineage = true,\n')
+				if supportGem.FlavourText then
+					out:write('\tflavourText = {')
+					for _, line in ipairs(cleanAndSplit(supportGem.FlavourText.Text)) do
+						out:write('"', line, '", ')
+					end
+					out:write('},\n')
+				end
 			end
 		end
 		if skill.isTrigger then

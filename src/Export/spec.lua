@@ -13951,6 +13951,8 @@ return {
 			width=150
 		}
 	},
+	passivenodeuiartoverride={
+	},
 	passiveoverridelimits={
 		[1]={
 			list=false,
@@ -18430,6 +18432,14 @@ return {
 	touchinteractiontype={
 	},
 	trademarketcategory={
+	},
+	trademarketcategorygroups={
+	},
+	trademarketcategorylistallclass={
+	},
+	trademarketimplicitmoddisplay={
+	},
+	trademarketindexitemas={
 	},
 	traptools={
 		[1]={

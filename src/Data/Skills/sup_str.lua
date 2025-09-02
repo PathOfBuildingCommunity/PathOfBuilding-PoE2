@@ -109,6 +109,7 @@ skills["SupportAmanamusTithePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "AmanamusTithe",},
 	isLineage = true,
+	flavourText = {"Those that serve the Liege of the Lightless are his, utterly.", "Blood, flesh, and soul are fodder to bend to his will.", "Under a Lich Lord, not even death is an escape.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -529,6 +530,7 @@ skills["SupportAtaluiBloodlettingPlayer"] = {
 	excludeSkillTypes = { SkillType.Blessing, SkillType.Persistent, },
 	gemFamily = { "Lifetap",},
 	isLineage = true,
+	flavourText = {"Atazek and Atalui rose, battered and dark, bleeding from a hundred", "different wounds. She gave her brother a sinister grin. \"Shall we", "show them what happens to those who challenge the Vaal?\"", },
 	levels = {
 		[1] = { manaMultiplier = 50, levelRequirement = 0, },
 	},
@@ -1235,6 +1237,7 @@ skills["SupportBrutusBrainPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "MeatShield",},
 	isLineage = true,
+	flavourText = {"Shavronne gleefully raised her arms to the sky as lightning", "flashed. She'd done it! Her creation was perfect! Invincible.", "Immortal! But she soon realized there was one piece missing...", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1761,6 +1764,7 @@ skills["SupportDaressosPassionPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "DaressoLineage",},
 	isLineage = true,
+	flavourText = {"\"I raised my eyes to look upon my death. Instead, I saw her.", "Merveil. Fighting had always been about survival. Now the", "fight became about something much greater... love.\"", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -2318,6 +2322,7 @@ skills["SupportEinharsBeastritePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Behead",},
 	isLineage = true,
+	flavourText = {"\"You must cut the beast, like this,\" he told the wide-eyed", "and forgetful woman. \"The juiciest parts are in the middle!\"", "She nodded, and began relearning the way of the wilds.", },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -4131,6 +4136,7 @@ skills["SupportKaomsMadnessPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Fissures",},
 	isLineage = true,
+	flavourText = {"As King Kaom delved further into Wraeclast, so, too, did he", "draw closer to the Beast. One night, in a nightmarish fit, he", "swung his axe at his own men, slaughtering hundreds.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -4495,6 +4501,7 @@ skills["SupportCorruptingCryPlayerThree"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "CorruptingCry",},
 	isLineage = true,
+	flavourText = {"The water used to cool the Locus of Corruption ran red", "as blood, bright as flame, and bubbled with strange heat.", "\"Drink,\" he offered. \"Suffuse your flesh with power!\"", },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -6305,6 +6312,7 @@ skills["SupportHardyTotemsPlayerThree"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "HardyTotems",},
 	isLineage = true,
+	flavourText = {"A scavenging warrior found Tawhoa meditating in a grove.", "\"There is only so much jade in this world,\" intoned the god.", "\"Take my gift to your tribe. Ironwood will grow for all time.\"", },
 	levels = {
 		[1] = { manaMultiplier = 10, levelRequirement = 0, },
 	},
@@ -6547,6 +6555,7 @@ skills["SupportUhtredAuguryPlayer"] = {
 	excludeSkillTypes = { SkillType.SingleLevelSkill, },
 	gemFamily = { "UhtredLineage",},
 	isLineage = true,
+	flavourText = {"Studying the ill omens of the stars, Uhtred came to suspect", "something was very wrong among the first Kalguurans.", "Olroth, Vorana, Medved... three there were. Three dangers.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -6578,6 +6587,7 @@ skills["SupportUhtredExodusPlayer"] = {
 	excludeSkillTypes = { SkillType.SingleLevelSkill, },
 	gemFamily = { "UhtredLineage",},
 	isLineage = true,
+	flavourText = {"By the time Uhtred realised the truth, only Vorana remained", "to defend them. While the rest fled, she implanted her flesh", "with gems and set forth alone to face the endless hordes.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -6609,6 +6619,7 @@ skills["SupportUhtredOmenPlayer"] = {
 	excludeSkillTypes = { SkillType.SingleLevelSkill, },
 	gemFamily = { "UhtredLineage",},
 	isLineage = true,
+	flavourText = {"Day and night, his priests followed each of the Kalguuran", "heroes. When Medved disappeared, Uhtred grew even more", "paranoid. Now, only two remained... Olroth and Vorana.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -6973,6 +6984,7 @@ skills["SupportUruksSmeltingPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "ArmourDemolisher",},
 	isLineage = true,
+	flavourText = {"The volcano roared, but there was no thunder, only the boom", "of Uruk's hammer. Wraeclast had forgotten the old alliance,", "but by the Molten One's will, the fires would rage again.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -7005,6 +7017,7 @@ skills["SupportUulNetolsEmbracePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "BreachLineage",},
 	isLineage = true,
+	flavourText = {"\"The Lords could not breathe, so they grew new lungs.", "The Lords could not venture, so they grew new skin.", "The Lords were alone, so they grew us, to serve them.\"", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
@@ -7245,6 +7258,7 @@ skills["SupportXophsPyrePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "BreachLineage",},
 	isLineage = true,
+	flavourText = {"\"They drank until only dust remained. Ate until their gums", "bled rust. Such was their greed, the only thing that remains", "of the Broken Sun... is the Red Pyre, the Torus Eternal.\"", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
