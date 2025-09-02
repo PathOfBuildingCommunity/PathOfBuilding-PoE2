@@ -542,6 +542,9 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	if gemInstance.gemData.tagString ~= "" then
 		self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
 	end
+	if gemInstance.gemData.gemFamily then
+		self.tooltip:AddLine(16, "^x7F7F7FCategory: ^7" .. gemInstance.gemData.gemFamily)
+	end
 	-- Will need rework if a gem can have 2+ additional supports
 	self:AddGrantedEffectInfo(gemInstance, grantedEffect, true)
 	for _, statSet in ipairs(grantedEffect.statSets) do
@@ -566,7 +569,7 @@ end
 function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local grantedEffectLevel = grantedEffect.levels[displayInstance.level] or { }
-	if gemInstance.gemData.Tier then
+	if gemInstance.gemData.Tier and not grantedEffect.isLineage then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier))
 		end
 	if addReq and not grantedEffect.support then

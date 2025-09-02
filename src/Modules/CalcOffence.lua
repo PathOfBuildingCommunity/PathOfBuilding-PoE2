@@ -730,11 +730,42 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	if skillModList:Flag(nil, "CastSpeedAppliesToProjectileSpeed") then
+		-- Bow mastery projectile speed to damage with bows conversion
+		local multiplier = (skillModList:Max(skillCfg, "ImprovedCastSpeedAppliesToProjectileSpeed") or 100) / 100
+		for i, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Cast }, "Speed")) do
+			local mod = value.mod
+			local modifiers = calcLib.getConvertedModTags(mod, multiplier)
+			skillModList:NewMod("ProjectileSpeed", mod.type, mod.value * multiplier, mod.source, band(mod.flags, bnot(ModFlag.Cast)), mod.keywordFlags, unpack(modifiers))
+		end
+	end
 	if skillModList:Flag(nil, "ProjectileSpeedAppliesToBowDamage") then
 		-- Bow mastery projectile speed to damage with bows conversion
 		for i, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Bow }, "ProjectileSpeed")) do
 			local mod = value.mod
 			skillModList:NewMod("Damage", mod.type, mod.value, mod.source, bor(ModFlag.Bow, ModFlag.Hit), mod.keywordFlags, unpack(mod))
+		end
+	end
+	if skillModList:Flag(nil, "WarcryDamageAppliesToSkill") then
+		-- Fortifying Cry mod
+		for i, value in ipairs(skillModList:Tabulate("INC", { keywordFlags = KeywordFlag.Warcry }, "Damage")) do
+			local mod = value.mod
+			if band(mod.keywordFlags, KeywordFlag.Warcry) ~= 0 then
+				skillModList:NewMod("Damage", mod.type, mod.value, mod.source, mod.flags, band(mod.keywordFlags, bnot(KeywordFlag.Warcry)), unpack(mod))
+			end
+		end
+		for i, value in ipairs(skillModList:Tabulate("MORE", { keywordFlags = KeywordFlag.Warcry }, "Damage")) do
+			local mod = value.mod
+			if band(mod.keywordFlags, KeywordFlag.Warcry) ~= 0 then
+				skillModList:NewMod("Damage", mod.type, mod.value, mod.source, mod.flags, band(mod.keywordFlags, bnot(KeywordFlag.Warcry)), unpack(mod))
+			end
+		end
+	end
+	if skillModList:Flag(nil, "ProjectileSpeedAppliesToProjectileDamage") then
+		-- Projectile speed to projectile damage conversion
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ProjectileSpeed")) do
+			local mod = value.mod
+			skillModList:NewMod("Damage", mod.type, mod.value, mod.source, ModFlag.Projectile, mod.keywordFlags, unpack(mod))
 		end
 	end
 	if skillModList:Flag(nil, "ClawDamageAppliesToUnarmed") then
@@ -993,7 +1024,7 @@ function calcs.offence(env, actor, activeSkill)
 		skillData.reloadTime = ammoStats.reloadTime
 	end
 
-	if skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.CanRapidFire] and not skillModList:Flag(nil, "NoRepeatBonuses") then
+	if skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable] and not skillModList:Flag(nil, "NoRepeatBonuses") then
 		-- Applies DPS multiplier based on seals count
 		local totalCastSpeed = 1 / activeSkill.activeEffect.grantedEffect.castTime * calcLib.mod(skillModList, skillCfg, "Speed")
 		output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
@@ -1304,7 +1335,7 @@ function calcs.offence(env, actor, activeSkill)
 	if activeSkill.skillTypes[SkillType.Warcry] then
 		local full_duration = calcSkillDuration(skillModList, skillCfg, activeSkill.skillData, env, enemyDB)
 		local cooldownOverride = skillModList:Override(skillCfg, "CooldownRecovery")
-		local actual_cooldown = cooldownOverride or (activeSkill.skillData.cooldown  + skillModList:Sum("BASE", skillCfg, "CooldownRecovery")) / calcLib.mod(skillModList, skillCfg, "CooldownRecovery")
+		local actual_cooldown = cooldownOverride or (activeSkill.skillData.cooldown or 0 + skillModList:Sum("BASE", skillCfg, "CooldownRecovery")) / calcLib.mod(skillModList, skillCfg, "CooldownRecovery")
 		local uptime = env.modDB:Flag(nil, "Condition:WarcryMaxHit") and 1 or m_min(full_duration / actual_cooldown, 1)
 		local unscaledEffect = calcLib.mod(skillModList, skillCfg, "WarcryEffect", "BuffEffect")
 		output.WarcryEffectMod = unscaledEffect * uptime
@@ -2603,8 +2634,12 @@ function calcs.offence(env, actor, activeSkill)
 
 				-- Average bolts reloaded past six second for purposes of calculating Fresh Clip support damage bonus
 				local boltsReloadedPastSixSeconds = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPastSixSeconds") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount * 6 / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
+				local boltsReloadedPastEightSeconds = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPastEightSeconds") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount * 8 / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
 				if boltsReloadedPastSixSeconds > 0 then
 					skillModList:ReplaceMod("Multiplier:BoltsReloadedPastSixSeconds", "BASE", boltsReloadedPastSixSeconds, activeSkill.activeEffect.grantedEffect.name)
+				end
+				if boltsReloadedPastEightSeconds > 0 then
+					skillModList:ReplaceMod("Multiplier:BoltsReloadedPastEightSeconds", "BASE", boltsReloadedPastEightSeconds, activeSkill.activeEffect.grantedEffect.name)
 				end
 			end
 			if output.Speed == 0 then
@@ -3838,7 +3873,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		output.AverageDamage = output.AverageHit * output.HitChance / 100
 		globalOutput.AverageBurstHits = output.AverageBurstHits or 1
-		local repeatPenalty = skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.CanRapidFire]  and not skillModList:Flag(nil, "NoRepeatBonuses") and calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") or 1
+		local repeatPenalty = skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable]  and not skillModList:Flag(nil, "NoRepeatBonuses") and calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") or 1
 		globalOutput.AverageBurstDamage = output.AverageDamage + output.AverageDamage * (globalOutput.AverageBurstHits - 1) * repeatPenalty or 0
 		globalOutput.ShowBurst = globalOutput.AverageBurstHits > 1
 		output.TotalDPS = output.AverageDamage * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier * quantityMultiplier

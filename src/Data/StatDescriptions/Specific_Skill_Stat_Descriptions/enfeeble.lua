@@ -51,7 +51,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Curse makes Non-Unique targets deal {0}% more Damage"
+				text="Curse makes targets deal {0}% more Damage"
 			},
 			[2]={
 				[1]={
@@ -68,7 +68,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="Curse makes Non-Unique targets deal {0}% less Damage"
+				text="Curse makes targets deal {0}% less Damage"
 			}
 		},
 		stats={

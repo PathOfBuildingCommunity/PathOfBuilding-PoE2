@@ -421,6 +421,19 @@ local function addBestSupport(supportEffect, appliedSupportList, mode)
 				supportEffect.superseded = true
 			end
 			break
+		elseif supportEffect.grantedEffect.gemFamily and otherSupport.grantedEffect.gemFamily then
+			for _, family in ipairs(supportEffect.grantedEffect.gemFamily) do
+				for _, otherFamily in ipairs(otherSupport.grantedEffect.gemFamily) do
+					if family == otherFamily then
+						add = false
+						if mode == "MAIN" then
+							otherSupport.superseded = true
+						end
+						appliedSupportList[index] = supportEffect
+						break
+					end
+				end
+			end
 		elseif supportEffect.grantedEffect.plusVersionOf == otherSupport.grantedEffect.id then
 			add = false
 			if mode == "MAIN" then
@@ -1334,8 +1347,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 					group = { label = "On Kill Monster Explosion", enabled = true, gemList = { }, source = "Explode", noSupports = true }
 					t_insert(build.skillsTab.socketGroupList, group)
 				end
+				-- Hack to remove duplicates
+				local explodeBySource = { }
+				for _, explodeSource in ipairs(env.explodeSources) do
+					explodeBySource[explodeSource.modSource or explodeSource.id] = explodeSource
+				end
 				-- Update the group
-				group.explodeSources = env.explodeSources
+				group.explodeSources = explodeBySource
 				local gemsBySource = { }
 				for _, gem in ipairs(group.gemList) do
 					if gem.explodeSource then
@@ -1343,7 +1361,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 				wipeTable(group.gemList)
-				for _, explodeSource in ipairs(env.explodeSources) do
+				for _, explodeSource in pairs(explodeBySource) do
 					local activeGemInstance
 					if gemsBySource[explodeSource.modSource or explodeSource.id] then
 						activeGemInstance = gemsBySource[explodeSource.modSource or explodeSource.id]
@@ -1755,6 +1773,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.storedUses = skillData.storedUses
 			activeSkill.skillData.CritChance = skillData.CritChance
 			activeSkill.skillData.attackTime = skillData.attackTime
+			activeSkill.skillData.attackSpeedMultiplier = skillData.attackSpeedMultiplier
+			activeSkill.skillData.soulPreventionDuration = skillData.soulPreventionDuration
 			activeSkill.skillData.totemLevel = skillData.totemLevel
 			activeSkill.skillData.damageEffectiveness = skillData.damageEffectiveness
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent

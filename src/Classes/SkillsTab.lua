@@ -287,16 +287,14 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 			local possibleVariants = self.build.data.gemsByGameId[child.attrib.gemId]
 			if possibleVariants then
 				-- If it is a known gem, try to determine which variant is used
-				if child.attrib.variantId then
+				if child.attrib.variantId and possibleVariants[child.attrib.variantId] then
 					-- New save format from 3.23 that stores the specific variation (transfiguration)
 					gemData = possibleVariants[child.attrib.variantId]
-				elseif child.attrib.skillId then
-					-- Old format relying on the uniqueness of the granted effects id
+				else
+					-- If a gem has changed names between updates, assumed it's the first gem in the list
 					for _, variant in pairs(possibleVariants) do
-						if variant.grantedEffectId == child.attrib.skillId then
-							gemData = variant
-							break
-						end
+						gemData = variant
+						break
 					end
 				end
 			end
@@ -1324,6 +1322,7 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 						GlobalGemAssignments[gemInstance.gemData.name] = { 
 							count = 1,
 							support = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.support or false,
+							lineage = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.isLineage or false,
 							groups = { } 
 						}
 						if socketGroup.displayLabel then

@@ -3107,10 +3107,9 @@ function calcs.perform(env, skipEHP)
 				t_insert(env.itemWarnings.gemGroupCountWarning, { allowedGemGroups, gemInfo })
 			end
 		else
-			local allowedSupportCount = env.modDB:HasMod("OVERRIDE", nil, "MaxSupportGemCopies") and env.modDB:Override(nil, "MaxSupportGemCopies") or 1
-			if gemInfo.support and gemInfo.count > allowedSupportCount then
-				env.itemWarnings.supportGemLimitWarning = env.itemWarnings.supportGemLimitWarning or { }
-				t_insert(env.itemWarnings.supportGemLimitWarning, { gemName, allowedSupportCount, gemInfo.groups })
+			if gemInfo.support and gemInfo.lineage and gemInfo.count > 1 then
+				env.itemWarnings.lineageSupportGemLimitWarning = env.itemWarnings.lineageSupportGemLimitWarning or { }
+				t_insert(env.itemWarnings.lineageSupportGemLimitWarning, { gemName, 1, gemInfo.groups })
 			end
 		end
 	end

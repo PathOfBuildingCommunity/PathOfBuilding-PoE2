@@ -181,6 +181,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill EscapeShotIceFragmentPlayer
+#set EscapeShotIceFragmentPlayer
+#flags attack projectile area
+#mods
+#skillEnd
+
 #skill ExplosiveSpearPlayer
 #set ExplosiveSpearPlayer
 #flags attack projectile
@@ -263,6 +269,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill IceTippedArrowsPlayer
+#set IceTippedArrowsPlayer
+#flags duration
+#mods
+#skillEnd
+
+#skill IceTippedArrowsIceFragmentPlayer
+#set IceTippedArrowsIceFragmentPlayer
+#flags attack projectile area
+#mods
+#skillEnd
+
 #skill LightningArrowPlayer
 #set LightningArrowPlayer
 #flags attack projectile
@@ -304,6 +322,32 @@ statMap = {
 #mods
 #set MagneticSalvoEmpoweredPlayer
 #flags attack projectile
+#mods
+#skillEnd
+
+#skill MetaMirageArcherPlayer
+#set MetaMirageArcherPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMirageArcherPlayer
+#set SupportMirageArcherPlayer
+#mods
+#skillEnd
+
+#skill MirageArcherSpawnPlayer
+#set MirageArcherSpawnPlayer
+#flags
+#mods
+#skillEnd
+
+#skill PhantasmalArrowPlayer
+#set PhantasmalArrowPlayer
+#flags attack projectile duration
+#mods
+#set PhantasmalArrowExplosionPlayer
+#flags attack projectile area duration
 #mods
 #skillEnd
 
@@ -413,7 +457,9 @@ end,
 #mods
 #set SnipeExplosionPlayer
 #flags attack projectile area
-#baseMod mod("Condition:PerfectTiming", "FLAG", true)
+#mods
+#set SnipeFrozenExplosionPlayer
+#flags attack projectile area
 #mods
 #skillEnd
 
@@ -542,9 +588,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ToxicDomainPlayer
+#set ToxicDomainPlayer
+#flags
+#mods
+#set ToxicDomainPustuleExplosion
+#flags attack area duration
+#mods
+#skillEnd
+
 #skill ToxicGrowthPlayer
 #set ToxicGrowthPlayer
 #flags attack projectile area
+#mods
+#set ToxicGrowthBurstPlayer
+#flags attack projectile
 #mods
 #skillEnd
 
@@ -557,26 +615,6 @@ statMap = {
 #skill TriggeredTrailOfCaltropsPlayer
 #set TriggeredTrailOfCaltropsPlayer
 #flags attack projectile duration
-#mods
-#skillEnd
-
-#skill TrinityPlayer
-#set TrinityPlayer
-#flags buff duration
-statMap = {
-	["trinity_damage_+%_final_to_grant_per_50_resonance"] = {
-		mod("ElementalDamage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ResonanceCount", div = 30 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
-	},
-	["trinity_attack_speed_+%_while_all_resonance_is_at_least_250_to_grant"] = {
-		mod("Speed", "INC", nil, 0, 0, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
-	},
-	["quality_display_trinity_is_gem"] = {
-		-- Display only
-	},
-	["trinity_loss_per_hit"] = {
-		-- Display only
-	},
-},
 #mods
 #skillEnd
 
@@ -621,6 +659,12 @@ statMap = {
 		mod("SelfShockMagnitude", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill TriggeredVoltaicMarkNovaPlayer
+#set TriggeredVoltaicMarkNovaPlayer
+#flags nonWeaponAttack
 #mods
 #skillEnd
 
@@ -669,12 +713,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill TriggeredVoltaicMarkNovaPlayer
-#set TriggeredVoltaicMarkNovaPlayer
-#flags nonWeaponAttack
-#mods
-#skillEnd
-
 #skill WindDancerPlayer
 #set WindDancerPlayer
 #flags
@@ -711,9 +749,6 @@ statMap = {
 #flags attack area melee
 #mods
 #set WindSerpentsFurySnakePlayer
-#flags attack area melee
-#mods
-#set WindSerpentsFuryKnockbackExplosionPlayer
 #flags attack area melee
 #mods
 #skillEnd

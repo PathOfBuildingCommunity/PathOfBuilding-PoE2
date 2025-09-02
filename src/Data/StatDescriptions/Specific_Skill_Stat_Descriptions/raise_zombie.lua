@@ -124,6 +124,35 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased effect of Empowerment on Raised Zombies"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced effect of Empowerment on Raised Zombies"
+			}
+		},
+		stats={
+			[1]="raise_zombie_empowerment_effect_+%"
+		}
+	},
+	[6]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -134,5 +163,6 @@ return {
 	["power_charged_zombie_damage_taken_-%_final"]=2,
 	["power_charged_zombie_hit_damage_+%_final"]=3,
 	["power_charged_zombie_movement_speed_+%_final"]=4,
-	["skill_effect_duration"]=5
+	["raise_zombie_empowerment_effect_+%"]=5,
+	["skill_effect_duration"]=6
 }
