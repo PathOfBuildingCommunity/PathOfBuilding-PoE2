@@ -30,11 +30,17 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportAncestralWarriorTotemPlayer
-	addFlags = {
-		totem = true,
-	},
+addFlags = {
+	totem = true,
+},
 #set SupportAncestralWarriorTotemPlayer
 #flags
+statMap = {
+	["support_ancestral_warrior_totem_attack_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack),
+	},
+},
+#baseMod mod("ActiveTotemLimit", "BASE", 1)
 #mods
 #skillEnd
 
@@ -70,7 +76,7 @@ statMap = {
 		{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
 		{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 		value = 10,}
-		},
+	},
 },
 #mods
 #skillEnd
@@ -275,6 +281,10 @@ statMap = {
 #skill ExplosiveGrenadePlayer
 #set ExplosiveGrenadePlayer
 #flags attack area projectile
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #skillEnd
 
@@ -634,11 +644,20 @@ statMap = {
 #skillEnd
 
 #skill SupportMortarCannonPlayer
+addFlags = {
+	totem = true,
+},
 #set SupportMortarCannonPlayer
-	addFlags = {
-		totem = true,
-	},
 #flags
+statMap = {
+	["support_grenade_ballista_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+	["support_grenade_ballista_attack_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack),
+	},
+},
+#baseMod mod("ActiveTotemLimit", "BASE", 1)
 #mods
 #skillEnd
 
@@ -746,7 +765,7 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SiegeBallistaProjectilePlayer
+#skill SiegeBallistaProjectilePlayer Artillery
 #set SiegeBallistaProjectilePlayer
 #flags attack projectile totem
 #mods

@@ -549,6 +549,9 @@ return {
 ["totem_skill_attack_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Attack, KeywordFlag.Totem)
 },
+["grenade_skill_cooldown_speed_+%"] = {
+	mod("CooldownRecovery", "INC", nil),
+},
 -- AoE
 ["active_skill_base_area_of_effect_radius"] = {
 	skill("radius", nil),
@@ -2655,5 +2658,7 @@ return {
 ["quality_display_sandstorm_swipe_is_gem"] = {
 	-- Display Only
 },
-
+["quality_display_base_totem_duration_is_gem"] = {
+	-- Display Only
+},
 }
