@@ -9,7 +9,7 @@ data.uniques.generated = { }
 local excludedItemKeystones = {
 }
 
-local uniqueMods = LoadModule("Data/ModItemExclusive")
+local uniqueMods = data.itemMods.Exclusive
 
 do
 	local againstMods = { }
