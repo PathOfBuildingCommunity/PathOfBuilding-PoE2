@@ -101,7 +101,7 @@ Grants Skill: Raise Shield
 10% reduced Movement Speed
 (100-150)% increased Armour
 +(100-150) to Stun Threshold
-UniqueCanBlockAllDamage1
+Cannot use Shield Skills
 ]],[[
 Window to Paradise
 Barricade Tower Shield

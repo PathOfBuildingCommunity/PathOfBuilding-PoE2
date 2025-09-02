@@ -101,7 +101,7 @@ Grants Skill: Raise Shield
 UniqueMovementVelocity6
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent2
 UniqueStunThreshold9
-UniqueCanBlockAllDamage1
+UniqueDisableShieldSkills1
 ]],[[
 Window to Paradise
 Barricade Tower Shield
