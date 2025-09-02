@@ -759,6 +759,14 @@ return {
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
 },
+["support_no_fear_damage_+%_final_per_second_up_to_30%"] = {
+	mod("Damage", "MORE", nil, 0, 0,
+		{ type = "Condition", var = "UsingStoicism" },
+		{ type = "Condition", var = "DodgeRolledRecently", neg = true },
+		{ type = "Condition", var = "UsedTravelSkillRecently", neg = true },
+		{ type = "Multiplier", var = "StoicismSeconds", limitVar = "StoicismCap", limitTotal = true }
+	),
+},
 ["active_skill_damage_+%_final_against_heavy_stunned_enemies"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }),
 },
