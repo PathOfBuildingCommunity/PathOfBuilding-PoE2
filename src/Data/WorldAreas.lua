@@ -3182,6 +3182,7 @@ worldAreas["P3_4"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Frost Wraith",
+		"Hungry Wolf",
 		"Plague Nymph",
 		"Quadrilla",
 		"Scorpion Monkey",
