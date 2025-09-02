@@ -55,7 +55,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Detonates a Curse on enemies in a {0} metre radius"
+				text="Explodes a Curse on enemies in a {0} metre radius"
 			}
 		},
 		stats={

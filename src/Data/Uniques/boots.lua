@@ -88,6 +88,7 @@ Gain 0% to 40% increased Movement Speed at random when Hit, until Hit again
 ]],[[
 Thunderstep
 Steeltoe Boots
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}(10-15)% increased Movement Speed
@@ -102,13 +103,16 @@ Variant: Current
 Bones of Ullr
 Lattice Sandals
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
+{variant:3}(5-15)% increased Movement Speed
 (40-60)% increased Energy Shield
 {variant:1}+25 to maximum Life
-{variant:2}+(20-40) to maximum Life
+{variant:2,3}+(20-40) to maximum Life
 {variant:1}+25 to maximum Mana
 {variant:2}+(20-40) to maximum Mana
-Undead Minions have 20% reduced Reservation
+{variant:1,2}20% reduced Reservation Efficiency of Skills which create Undead Minions
+{variant:3}(20-30)% increased Reservation Efficiency of Skills which create Undead Minions
 ]],[[
 Luminous Pace
 Straw Sandals
@@ -180,6 +184,18 @@ Stacked Sabatons
 (30-50)% reduced Chill Duration on you
 (30-50)% reduced Freeze Duration on you
 (30-50)% reduced Shock duration on you
+]],[[
+Shankgonne
+Covered Sabatons
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Black Powder Blitz
+(80-100)% increased Armour and Evasion
+(10-20)% increased Rarity of Items found
++(15-25)% to Fire Resistance
+Gain Deflection Rating equal to 20% of Armour
++(200-300) to Stun Threshold
+You cannot Sprint
 ]],
 -- Boots: Armour/Energy Shield
 [[

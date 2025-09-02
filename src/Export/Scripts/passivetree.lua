@@ -275,7 +275,7 @@ local use4kIfPossible = false
 local idPassiveTree = 'Default'
 -- Find a way to get version
 local basePath = GetWorkDir() .. "/../TreeData/"
-local version = "0_2"
+local version = "0_3"
 local path = basePath .. version .. "/"
 local fileTree = path .. "tree.lua"
 
@@ -397,6 +397,7 @@ local sheets = {
 	newSheet("lines", defaultMaxWidth, 100),
 	newSheet("jewel-sockets", defaultMaxWidth, 100),
 	newSheet("legion", defaultMaxWidth, 100),
+	newSheet("monster-categories", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -409,6 +410,7 @@ local sheetLocations = {
 	["lines"] = 8,
 	["jewel-sockets"] = 9,
 	["legion"] = 10,
+	["monster-categories"] = 11,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
@@ -439,43 +441,43 @@ local gBgLarge = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
 addToSheet(getSheet("group-background"), gBgLarge, "groupBackground", commonMetadata("PSGroupBackground3"))
 
 printf("Getting PassiveFrame")
-local pFrameNormal = uiImages[string.lower(uIArt.PassiveFrameNormal)].path
+local pFrameNormal = uiImages[string.lower(uIArt.PassiveFrame.Normal)].path
 addToSheet(getSheet("group-background"), pFrameNormal, "frame", commonMetadata("PSSkillFrame"))
 
-local pFrameActive = uiImages[string.lower(uIArt.PassiveFrameActive)].path
+local pFrameActive = uiImages[string.lower(uIArt.PassiveFrame.Active)].path
 addToSheet(getSheet("group-background"), pFrameActive, "frame", commonMetadata("PSSkillFrameActive"))
 
-local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrameCanAllocate)].path
+local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonMetadata("PSSkillFrameHighlighted"))
 
 printf("Getting KeystoneFrame")
-local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrameNormal)].path
+local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrame.Normal)].path
 addToSheet(getSheet("group-background"), kFrameNormal, "frame", commonMetadata("KeystoneFrameUnallocated"))
 
-local kFrameActive = uiImages[string.lower(uIArt.KeystoneFrameActive)].path
+local kFrameActive = uiImages[string.lower(uIArt.KeystoneFrame.Active)].path
 addToSheet(getSheet("group-background"), kFrameActive, "frame", commonMetadata("KeystoneFrameAllocated"))
 
-local kFrameCanAllocate = uiImages[string.lower(uIArt.KeystoneFrameCanAllocate)].path
+local kFrameCanAllocate = uiImages[string.lower(uIArt.KeystoneFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), kFrameCanAllocate, "frame", commonMetadata("KeystoneFrameCanAllocate"))
 
 printf("Getting NotableFrame")
-local nFrameNormal = uiImages[string.lower(uIArt.NotableFrameNormal)].path
+local nFrameNormal = uiImages[string.lower(uIArt.NotableFrame.Normal)].path
 addToSheet(getSheet("group-background"), nFrameNormal, "frame", commonMetadata("NotableFrameUnallocated"))
 
-local nFrameActive = uiImages[string.lower(uIArt.NotableFrameActive)].path
+local nFrameActive = uiImages[string.lower(uIArt.NotableFrame.Active)].path
 addToSheet(getSheet("group-background"), nFrameActive, "frame", commonMetadata("NotableFrameAllocated"))
 
-local nFrameCanAllocate = uiImages[string.lower(uIArt.NotableFrameCanAllocate)].path
+local nFrameCanAllocate = uiImages[string.lower(uIArt.NotableFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), nFrameCanAllocate, "frame", commonMetadata("NotableFrameCanAllocate"))
 
 printf("Getting GroupBackgroundBlank")
-local gBgSmallBlank = uiImages[string.lower(uIArt.GroupBackgroundSmallBlank)].path
+local gBgSmallBlank = uiImages[string.lower(uIArt.GroupBackgroundSmall)].path
 addToSheet(getSheet("group-background"), gBgSmallBlank, "groupBackground", commonMetadata("PSGroupBackgroundSmallBlank"))
 
-local gBgMediumBlank = uiImages[string.lower(uIArt.GroupBackgroundMediumBlank)].path
+local gBgMediumBlank = uiImages[string.lower(uIArt.GroupBackgroundMedium)].path
 addToSheet(getSheet("group-background"), gBgMediumBlank, "groupBackground", commonMetadata("PSGroupBackgroundMediumBlank"))
 
-local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLargeBlank)].path
+local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
 addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonMetadata("PSGroupBackgroundLargeBlank"))
 
 printf("Getting JewelSocketFrame")
@@ -533,6 +535,20 @@ for jewel in jewelArt:Rows() do
 	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
+	:: nexttogo	::
+end
+
+-- adding monster types
+local monsterCategories = dat("MonsterCategories")
+for category in monsterCategories:Rows() do
+	if category.Type:find(ignoreFilter) ~= nil then
+		printf("Ignoring category" .. category.Type)
+		goto nexttogo
+	end
+	local asset = uiImages[string.lower(category.HudImage)]
+	printf("Adding category " .. category.Type .. " " .. asset.path .. " to sprite")
+	local name = category.Type
+	addToSheet(getSheet("monster-categories"), asset.path, "monster-categories", commonMetadata(name))
 	:: nexttogo	::
 end
 
@@ -599,6 +615,7 @@ local tree = {
 }
 
 printf("Generating classes...")
+local ascedancyReplacements = {}
 for i, classId in ipairs(psg.passives) do
 	local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", classId)
 	if passiveRow == nil then
@@ -653,10 +670,14 @@ for i, classId in ipairs(psg.passives) do
 				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
 			end
+			if ascendency.Replace then
+				ascedancyReplacements[ascendency.Replace.Name] = ascendency.Name
+			end
 			table.insert(classDef.ascendancies, {
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
 				["internalId"] = ascendency.Id,
+				["replace"] = ascendency.Replace and ascendency.Replace.Name or nil,
 				["background"] = {
 					image = "Classes" .. ascendency.Name,
 					section = "AscendancyBackground",
@@ -763,6 +784,7 @@ for i, group in ipairs(psg.groups) do
 				printf("Ignoring passive skill " .. passiveRow.Name)
 				goto exitNode
 			end
+			printf("Passive skill " .. passiveRow.Name .. "(id: " .. passiveRow.Id .. ") found")
 			node["name"] = escapeGGGString(passiveRow.Name)
 			node["icon"] = passiveRow.Icon
 			if passiveRow.Keystone then
@@ -798,16 +820,15 @@ for i, group in ipairs(psg.groups) do
 				if passiveRow.JewelSocket then
 					node["containJewelSocket"] = true
 
-					local uioverride = dat("passivenodeuiartoverride"):GetRow("Id", passiveRow.Id)
-
+					local uioverride = passiveRow.Ascendancy.UIArt.JewelFrame
 					if uioverride then
-						local uiSocketNormal = uiImages[string.lower(uioverride.SocketNormal)]
+						local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
 						addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
 
-						local uiSocketActive = uiImages[string.lower(uioverride.SocketActive)]
+						local uiSocketActive = uiImages[string.lower(uioverride.Active)]
 						addToSheet(getSheet("group-background"), uiSocketActive.path, "frame", commonMetadata(nil))
 
-						local uiSocketCanAllocate = uiImages[string.lower(uioverride.SocketCanAllocate)]
+						local uiSocketCanAllocate = uiImages[string.lower(uioverride.CanAllocate)]
 						addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
 
 						node.jewelOverlay = {
@@ -863,10 +884,10 @@ for i, group in ipairs(psg.groups) do
 
 			-- support for images
 			if passiveRow.MasteryGroup ~= nil then
-				node["activeEffectImage"] = passiveRow.MasteryGroup.Background
+				node["activeEffectImage"] = passiveRow.MasteryGroup.MasteryArt.Effect
 
-				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.Background)]
-				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonMetadata(passiveRow.MasteryGroup.Background))
+				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.MasteryArt.Effect)]
+				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonMetadata(passiveRow.MasteryGroup.MasteryArt.Effect))
 			end
 
 			-- if the passive is "Attribute" we are going to add values
@@ -966,6 +987,63 @@ for i, group in ipairs(psg.groups) do
 
 				node["options"] = {
 					[switchNode.Character.Name] = nodeInfo
+				}
+			end
+
+			if passiveRow.Ascendancy and ascedancyReplacements[passiveRow.Ascendancy.Name] then
+				node["isSwitchable"] = true
+				local ascendancyRow = dat("ascendancy"):GetRow("Name", ascedancyReplacements[passiveRow.Ascendancy.Name])
+
+				local nodeInfo = {
+					["ascendancyName"] = ascedancyReplacements[passiveRow.Ascendancy.Name]
+				}
+
+				local switchNode = dat("ascendancypassiveskilloverrides"):GetRow("OriginalNode", passiveRow)
+				if switchNode then
+					nodeInfo.id = switchNode.SwitchedNode.PassiveSkillNodeId
+					nodeInfo.name = switchNode.SwitchedNode.Name
+					nodeInfo.icon = switchNode.SwitchedNode.Icon
+					nodeInfo.stats = {}
+
+					-- add to assets
+					addToSheet(getSheet("skills"), switchNode.SwitchedNode.Icon, "normalActive", commonMetadata(nil))
+					addToSheet(getSheet("skills-disabled"), switchNode.SwitchedNode.Icon, "normalInactive", commonMetadata(nil))
+
+					-- Stats
+					if switchNode.SwitchedNode.Stats ~= nil then
+						local parseStats = {}
+						for k, stat in ipairs(switchNode.SwitchedNode.Stats) do
+							parseStats[stat.Id] = { min = switchNode.SwitchedNode["Stat" .. k], max = switchNode.SwitchedNode["Stat" .. k] }
+						end
+						local out, orders = describeStats(parseStats)
+						for k, line in ipairs(out) do
+							table.insert(nodeInfo["stats"], line)
+						end
+					end
+				end
+
+				if passiveRow.JewelSocket and ascendancyRow.UIArt.JewelFrame then
+					-- override the jewel socket assets if any
+					local uioverride = ascendancyRow.UIArt.JewelFrame
+					
+					local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
+					addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
+
+					local uiSocketActive = uiImages[string.lower(uioverride.Active)]
+					addToSheet(getSheet("group-background"), uiSocketActive.path, "frame", commonMetadata(nil))
+
+					local uiSocketCanAllocate = uiImages[string.lower(uioverride.CanAllocate)]
+					addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
+
+					nodeInfo.jewelOverlay = {
+						alloc = uiSocketActive.path,
+						path = uiSocketCanAllocate.path,
+						unalloc = uiSocketNormal.path,
+					}
+				end
+
+				node["options"] = {
+					[ascedancyReplacements[passiveRow.Ascendancy.Name]] = nodeInfo
 				}
 			end
 
@@ -1091,19 +1169,27 @@ for i, classId in ipairs(psg.passives) do
 	local j = 1
 	for _, class in ipairs(classes) do
 		for _, ascendancy in ipairs(class.ascendancies) do
-			local info = ascendancyGroups[ascendancy.id]
-			local ascendancyNode = tree.nodes[info.startId]
-			if ascendancyNode == nil then
-				printf("Ascendancy node " .. ascendancy.id .. " not found")
-			end
-			local groupAscendancy = tree.groups[ascendancyNode.group]
-
+			printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
+			
 			local angle = startAngle + (j - 1) * angleStep
 			local cX = hardCoded * math.cos(angle)
 			local cY = hardCoded * math.sin(angle)
 
+			local info = ascendancyGroups[ascendancy.id]
+			if info == nil then
+				printf("Ascendancy group " .. ascendancy.id .. " not found")
+				goto continuepositioning
+			end
+			local ascendancyNode = tree.nodes[info.startId]
+			if ascendancyNode == nil then
+				printf("Ascendancy node " .. ascendancy.id .. " not found")
+				goto continuepositioning
+			end
+
 			ascendancy.background.x = cX
 			ascendancy.background.y = cY
+
+			local groupAscendancy = tree.groups[ascendancyNode.group]
 
 			local innerRadious = dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
 
@@ -1132,10 +1218,45 @@ for i, classId in ipairs(psg.passives) do
 					tree.max_y = math.max(tree.max_y, group.y + hardCoded / 2)
 				end
 			end
+
 			j = j + 1
+			:: continuepositioning ::
 		end
 	end
 end
+
+printf("Fixing replace ascendancies position...")
+for from, to in pairs(ascedancyReplacements) do
+	local fromAscendancy
+	local toAscendancy
+	for _, class in ipairs(tree.classes) do
+		for _, ascendancy in ipairs(class.ascendancies) do
+			if ascendancy.name == from then
+				fromAscendancy = ascendancy
+			end
+			if ascendancy.name == to then
+				toAscendancy = ascendancy
+			end
+		end
+	end
+
+	if fromAscendancy == nil then
+		printf("From ascendancy " .. from .. " not found")
+		goto continuereplace
+	end
+	if toAscendancy == nil then
+		printf("To ascendancy " .. to .. " not found")
+		goto continuereplace
+	end
+
+	fromAscendancy.replaceBy = to
+
+	toAscendancy.background.x = fromAscendancy.background.x
+	toAscendancy.background.y = fromAscendancy.background.y
+
+	:: continuereplace ::
+end
+
 
 printf("Generating sprite info...")
 for i, sheet in ipairs(sheets) do

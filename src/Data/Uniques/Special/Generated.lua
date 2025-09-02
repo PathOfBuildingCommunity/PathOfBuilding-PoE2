@@ -9,7 +9,7 @@ data.uniques.generated = { }
 local excludedItemKeystones = {
 }
 
-local uniqueMods = LoadModule("Data/ModItemExclusive")
+local uniqueMods = data.itemMods.Exclusive
 
 do
 	local againstMods = { }
@@ -129,4 +129,81 @@ do
 	end
 	table.insert(megalomaniac, "Corrupted")
     table.insert(data.uniques.generated, table.concat(megalomaniac, "\n"))
+end
+
+do
+	local kulemakMods = { }
+	for modName, mod in pairs(uniqueMods) do
+		local name = modName:match("^PassageUnique(.+)$")
+		if name then
+			table.insert(kulemakMods, { 
+				mod = mod, 
+				name = name
+					:gsub("([a-z])([A-Z])", "%1 %2")
+					:gsub("(%d+)([A-Za-z])", " %1 %2") -- separate numbers from letters after
+					:gsub("([A-Za-z])(%d+)", "%1 %2") -- separate letters from numbers before
+			})
+		end
+	end
+	table.sort(kulemakMods, function(a, b) return a.name < b.name end)
+	local kulemak = {
+		"Grip of Kulemak",
+		"Abyssal Signet",
+		"League: Rise of the Abyssal",
+		"Has Alt Variant: true",
+		"Has Alt Variant Two: true",
+		"Has Alt Variant Three: true",
+	}
+	for _, mod in ipairs(kulemakMods) do
+		table.insert(kulemak, "Variant: " .. mod.name)
+	end
+	table.insert(kulemak, "Selected Variant: 1")
+	table.insert(kulemak, "Selected Alt Variant: 2")
+	table.insert(kulemak, "Selected Alt Variant Two: 3")
+	table.insert(kulemak, "Selected Alt Variant Three: 4")
+	table.insert(kulemak, "Implicits: 1")
+	table.insert(kulemak, "Inflict Abyssal Wasting on Hit")
+	for index, mod in ipairs(kulemakMods) do
+		table.insert(kulemak, "{variant:" .. index .. "}" .. mod.mod[1])
+	end
+	table.insert(data.uniques.generated, table.concat(kulemak, "\n"))
+end
+
+local veiledMods = LoadModule("Data/ModVeiled")
+
+do
+	local heartMods = { }
+	for modName, mod in pairs(veiledMods) do
+		local name = modName:match("^UniqueHeart(.+)$")
+		if name then
+			table.insert(heartMods, { 
+				mod = mod, 
+				name = name
+					:gsub("([a-z])([A-Z])", "%1 %2")
+					:gsub("(%d+)([A-Za-z])", " %1 %2") -- separate numbers from letters after
+					:gsub("([A-Za-z])(%d+)", "%1 %2") -- separate letters from numbers before
+			})
+		end
+	end
+	table.sort(heartMods, function(a, b) return a.name < b.name end)
+	local heart = {
+		"Heart of the Well",
+		"Diamond",
+		"League: Rise of the Abyssal",
+		"Limited to: 1",
+		"Has Alt Variant: true",
+		"Has Alt Variant Two: true",
+		"Has Alt Variant Three: true",
+	}
+	for _, mod in ipairs(heartMods) do
+		table.insert(heart, "Variant: " .. mod.name)
+	end
+	table.insert(heart, "Selected Variant: 1")
+	table.insert(heart, "Selected Alt Variant: 2")
+	table.insert(heart, "Selected Alt Variant Two: 40")
+	table.insert(heart, "Selected Alt Variant Three: 41")
+	for index, mod in ipairs(heartMods) do
+		table.insert(heart, "{variant:" .. index .. "}" .. mod.mod[1])
+	end
+	table.insert(data.uniques.generated, table.concat(heart, "\n"))
 end

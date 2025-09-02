@@ -1296,6 +1296,14 @@ return {
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern"]=25,
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern"]=36
 		},
+		["monster-categories_36_36_BC7.dds.zst"]={
+			Beast=4,
+			Construct=1,
+			Demon=5,
+			Eldritch=3,
+			Humanoid=2,
+			Undead=6
+		},
 		["oils_108_108_RGBA.dds.zst"]={
 			Despair=6,
 			Disgust=10,
@@ -22569,7 +22577,7 @@ return {
 			orbitIndex=21,
 			skill=5108,
 			stats={
-				[1]="Attacks with One Handed Weapons have 12% increased Chance to inflict Ailments"
+				[1]="Attacks with One-Handed Weapons have 12% increased Chance to inflict Ailments"
 			}
 		},
 		[5163]={

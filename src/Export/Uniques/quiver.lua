@@ -37,6 +37,12 @@ UniqueIgniteChanceIncrease3
 UniqueAlwaysPierceBurningEnemies1
 UniqueDamageAddedAsFireAttacks1
 ]],[[
+Cadiro's Gambit
+Primed Quiver
+League: Dawn of the Hunt
+QuiverImplicitIncreasedAttackSpeed1
+UniquePerandusArrows1
+]],[[
 The Lethal Draw
 Sacral Quiver
 League: Dawn of the Hunt
@@ -47,11 +53,26 @@ UniqueLifeGainPerTarget2
 UniqueArrowPierceChance1
 UniqueBowDamageFromLifeFlaskCharges1
 ]],[[
+Murkshaft
+Toxic Quiver
+League: Dawn of the Hunt
+Implicits: 2
+Grants Skill: Level (1-20) Bursting Fen Toad
+QuiverImplicitChanceToPoison1
+UniqueAddedPhysicalDamage6
+UniqueManaGainedFromEnemyDeath11
+UniquePoisonDuration1
+ChanceToPoisonWithAttacksUnique___2
+UniqueBlindOnPoison1
+]],[[
 Rearguard
 Blunt Quiver
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-QuiverImplicitStunThresholdReduction1
+Implicits: 2
+{variant:1}QuiverImplicitStunThresholdReduction1[20,30]
+{variant:2}QuiverImplicitStunThresholdReduction1
 UniqueAddedPhysicalDamage5
 UniqueIncreasedPhysicalDamageReductionRating4
 UniqueProjectileSpeed3

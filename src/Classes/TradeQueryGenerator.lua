@@ -98,7 +98,9 @@ local TradeQueryGeneratorClass = newClass("TradeQueryGenerator", function(self, 
 	self.queryTab = queryTab
 	self.itemsTab = queryTab.itemsTab
 	self.calcContext = { }
-
+	self.lastMaxPrice = nil
+	self.lastMaxPriceTypeIndex = nil
+	self.lastMaxLevel = nil
 end)
 
 local function fetchStats()
@@ -416,9 +418,35 @@ function TradeQueryGeneratorClass:InitMods()
 	end
 
 	-- rune mods
-	for name, modLines in pairs(data.itemMods.Runes) do
-		self:ProcessMod(modLines.armour, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
-		self:ProcessMod(modLines.weapon, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
+	for name, runeMods in pairs(data.itemMods.Runes) do
+		for slotType, mods in pairs(runeMods) do
+			if slotType == "weapon" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
+			elseif slotType == "armour" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
+			elseif slotType == "caster" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["Wand"] = true, ["Staff"] = true })
+			else
+				-- Mod is slot specific, try to match against a value in tradeCategoryNames
+				local matchedCategory = nil
+				for category, categoryOptions in pairs(tradeCategoryNames) do
+					for i, opt in pairs(categoryOptions) do
+						if opt:lower():match(slotType) then
+							matchedCategory = category
+							break
+						end
+					end
+					if matchedCategory then
+						break
+					end
+				end
+				if matchedCategory then
+					self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { [matchedCategory] = true })
+				else
+					ConPrintf("TradeQuery: Unmatched category for modifier. Slot type: %s Modifier: %s", mods.slotType, mods.name)
+				end
+			end
+		end		
 	end
 
 	local queryModsFile = io.open(queryModFilePath, 'w')
@@ -542,7 +570,31 @@ function TradeQueryGeneratorClass:OnFrame()
 	end
 end
 
+local currencyTable = {
+	{ name = "Relative", id = nil },
+	{ name = "Exalted Orb", id = "exalted" },
+	{ name = "Chaos Orb", id = "chaos" },
+	{ name = "Divine Orb", id = "divine" },
+	{ name = "Orb of Augmentation", id = "aug" },
+	{ name = "Orb of Transmutation", id = "transmute" },
+	{ name = "Regal Orb", id = "regal" },
+	{ name = "Vaal Orb", id = "vaal" },
+	{ name = "Annulment Orb", id = "annul" },
+	{ name = "Orb of Alchemy", id = "alch" },
+	{ name = "Mirror of Kalandra", id = "mirror" }
+}
+
 function TradeQueryGeneratorClass:StartQuery(slot, options)
+	if self.lastMaxPrice then
+		options.maxPrice = self.lastMaxPrice
+	end
+	if self.lastMaxPriceTypeIndex then
+		options.maxPriceType = currencyTable[self.lastMaxPriceTypeIndex].id
+	end
+	if self.lastMaxLevel then
+		options.maxLevel = self.lastMaxLevel
+	end
+
 	-- Figure out what type of item we're searching for
 	local existingItem = slot and self.itemsTab.items[slot.selItemId]
 	local testItemType = existingItem and existingItem.baseName or "Diamond"
@@ -804,12 +856,12 @@ function TradeQueryGeneratorClass:FinishQuery()
 		end
 	end
 	if not options.includeMirrored then
-	    queryTable.query.filters.misc_filters = {
-	    	disabled = false,
-	    	filters = {
-	    		mirrored = false,
-	    	}
-	    }
+		queryTable.query.filters.misc_filters = {
+			disabled = false,
+			filters = {
+				mirrored = false,
+			}
+		}
 	end
 
 	if options.maxPrice and options.maxPrice > 0 then
@@ -901,29 +953,19 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	end
 
 	-- Add max price limit selection dropbox
-	local currencyTable = {
-		{ name = "Relative", id = nil },
-		{ name = "Exalted Orb", id = "exalted" },
-		{ name = "Chaos Orb", id = "chaos" },
-		{ name = "Divine Orb", id = "divine" },
-		{ name = "Orb of Augmentation", id = "aug" },
-		{ name = "Orb of Transmutation", id = "transmute" },
-		{ name = "Regal Orb", id = "regal" },
-		{ name = "Vaal Orb", id = "vaal" },
-		{ name = "Annulment Orb", id = "annul" },
-		{ name = "Orb of Alchemy", id = "alch" },
-		{ name = "Mirror of Kalandra", id = "mirror" }
-	}
 	local currencyDropdownNames = { }
 	for _, currency in ipairs(currencyTable) do
 		t_insert(currencyDropdownNames, currency.name)
 	end
 	controls.maxPrice = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 70, 18}, nil, nil, "%D")
+	controls.maxPrice.buf = self.lastMaxPrice and tostring(self.lastMaxPrice) or ""
 	controls.maxPriceType = new("DropDownControl", {"LEFT",controls.maxPrice,"RIGHT"}, {5, 0, 150, 18}, currencyDropdownNames, nil)
+	controls.maxPriceType.selIndex = self.lastMaxPriceTypeIndex or 1
 	controls.maxPriceLabel = new("LabelControl", {"RIGHT",controls.maxPrice,"LEFT"}, {-5, 0, 0, 16}, "^7Max Price:")
 	updateLastAnchor(controls.maxPrice)
 
 	controls.maxLevel = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, nil, nil, "%D")
+	controls.maxLevel.buf = self.lastMaxLevel and tostring(self.lastMaxLevel) or ""
 	controls.maxLevelLabel = new("LabelControl", {"RIGHT",controls.maxLevel,"LEFT"}, {-5, 0, 0, 16}, "Max Level:")
 	updateLastAnchor(controls.maxLevel)
 
@@ -975,10 +1017,13 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 		end
 		if controls.maxPrice.buf then
 			options.maxPrice = tonumber(controls.maxPrice.buf)
+			self.lastMaxPrice = options.maxPrice
 			options.maxPriceType = currencyTable[controls.maxPriceType.selIndex].id
+			self.lastMaxPriceTypeIndex = controls.maxPriceType.selIndex
 		end
 		if controls.maxLevel.buf then
 			options.maxLevel = tonumber(controls.maxLevel.buf)
+			self.lastMaxLevel = options.maxLevel
 		end
 		if controls.sockets and controls.sockets.buf then
 			options.sockets = tonumber(controls.sockets.buf)

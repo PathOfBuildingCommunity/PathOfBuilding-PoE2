@@ -27,16 +27,32 @@ Variant: Current
 UniqueLocalAllDamageCanFreeze1
 UniqueLocalCullingStrikeFrozenEnemies1
 ]],[[
+Marohi Erqi
+Totemic Greatclub
+League: Rise of the Abyssal
+Implicits: 1
+MaceImplicitLocalCrushOnHit1
+UniqueStrengthRequirements3
+UniqueLocalIncreasedPhysicalDamagePercent16
+UniqueIncreasedAccuracy14
+UniqueIncreasedAttackSpeed14
+UniqueLocalStunDamageIncrease3
+LocalAlwaysHeavyStunOnFullLifeUnique__1
+]],[[
 Mjölner
 Torment Club
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
-Grants Skill: Level (1-20) Lightning Spell on Melee Hit
+Grants Skill: Level (1-20) Thundergod's Wrath
 UniqueIntelligenceRequirements2
 UniqueStrengthRequirements2
-UniqueLocalIncreasedPhysicalDamagePercent12
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent11[150,200]
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent11
 UniqueLocalIncreasedAttackSpeed20
-UniqueGlobalLightningGemLevel2
+{variant:1}UniqueGlobalLightningGemLevel1
+{variant:2}UniqueGlobalLightningGemLevel2
 ]],[[
 Nebuloch
 Brigand Mace
@@ -60,9 +76,12 @@ UniqueMaximumLightningDamagePerPower1
 ]],[[
 Sculpted Suffering
 Warpick
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
-Implicits: 1
-MaceImplicitCriticalMultiplier1
+Implicits: 2
+{variant:1}MaceImplicitCriticalMultiplier1[10,15]
+{variant:2}MaceImplicitCriticalMultiplier1
 UniqueLocalAddedPhysicalDamage18
 UniqueLocalIncreasedAttackSpeed17
 UniqueLocalArmourBreakOnDamage1
@@ -93,6 +112,7 @@ UniqueMinionAttackSpeedAffectsYou1
 ]],[[
 Wylund's Stake
 Smithing Hammer
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage6[2,3][4,5]
@@ -143,11 +163,14 @@ UniqueCannotUseWarcries1
 The Hammer of Faith
 Giant Maul
 League: Dawn of the Hunt
-UniqueLocalIncreasedPhysicalDamagePercent9
+Variant: Pre 0.2.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent9[200,250]
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent9
 UniqueLocalIncreasedAttackSpeed14
 UniqueAllResistances21
 UniqueManaRegeneration29
-UniqueShrineBuffAlternating1
+{variant:1}Gain a random Shrine buff every 10 seconds
 ]],[[
 Hoghunt
 Felled Greatclub

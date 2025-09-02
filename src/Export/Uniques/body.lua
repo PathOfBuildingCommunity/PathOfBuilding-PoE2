@@ -6,13 +6,15 @@ return {
 Blackbraid
 Fur Plate
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRating2
+{variant:2,3}UniqueLocalIncreasedPhysicalDamageReductionRating2
 UniqueStrength5
 UniqueIntelligence4
-{variant:2}UniqueAllResistances17
+{variant:2,3}UniqueAllResistances17
 UniqueStunThreshold1
-UniqueArmourAppliesToElementalDamage1
+{variant:1,2}UniqueArmourAppliesToElementalDamage1[100,100]
+{variant:3}UniqueArmourAppliesToElementalDamage1
 ]],[[
 Bramblejack
 Rusted Cuirass
@@ -69,9 +71,12 @@ UniqueNoExtraBleedDamageWhileMoving1
 ]],[[
 Kaom's Heart
 Conqueror Plate
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
 BodyArmourImplicitIncreasedStunThreshold1
-UniqueIncreasedLife2
+{variant:1}UniqueIncreasedLife2[1000,1000]
+{variant:2}UniqueIncreasedLife2
 UniqueRemoveSpirit1
 ]],[[
 Kingsguard
@@ -120,12 +125,14 @@ UniquePhysicalAttackDamageTaken1
 Briskwrap
 Rhoahide Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedEvasionRatingPercent22
+{variant:2,3}UniqueLocalIncreasedEvasionRatingPercent22
 UniqueFlaskLifeRecoveryRate2
 UniqueFlaskManaRecoveryRate1
 UniqueDexterity3
 UniqueColdResist10
+{variant:3}UniqueEvasionAppliesToDeflection1
 ]],[[
 Bristleboar
 Leather Vest
@@ -166,13 +173,15 @@ UniqueCanEvadeAllDamageNotHitRecently1
 Quatl's Molt
 Serpentscale Coat
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedEvasionRatingPercent23
+{variant:2,3}UniqueLocalIncreasedEvasionRatingPercent23
 {variant:1}UniqueIncreasedLife1[30,50]
-{variant:2}UniqueIncreasedLife1
+{variant:2,3}UniqueIncreasedLife1
 UniqueChaosResist1
 UniqueLifeRegeneration1
 UniqueCannotBePoisoned1
+{variant:3}UniqueEvasionAppliesToDeflection2
 ]],[[
 Queen of the Forest
 Smuggler Coat
@@ -382,6 +391,7 @@ UniqueLightningResistNoReduction1
 ]],[[
 The Fallen Formation
 Lamellar Mail
+Source: No longer obtainable
 League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEvasion29
 UniqueStrength20
@@ -400,15 +410,28 @@ UniqueStunThreshold9
 UniqueIronGrip1
 UniqueIronWill1
 ]],[[
+Lightning Coil
+Ancestral Mail
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Valako's Charge
+UniqueLocalIncreasedArmourAndEvasion14
+UniqueIncreasedLife30
+UniqueDexterity44
+UniqueLightningResist13
+UniquePhysicalDamageTakenAsLightningPercent1
+]],[[
 Pariah's Embrace
 Cloaked Mail
 Variant: Pre 0.1.1
+Variant: Pre 0.3.0
 Variant: Current
 UniqueLocalIncreasedArmourAndEvasion8
 UniqueIncreasedSpirit2
-{variant:2}UniqueAllAttributes12
+{variant:2,3}UniqueAllAttributes12
 UniqueLifeRegeneration3
-UniqueManaCostReduction1
+{variant:1,2}UniqueManaCostReduction1
+{variant:3}UniqueManaCostEfficiency1
 ]],[[
 Perfidy
 Knight Armour
@@ -530,6 +553,18 @@ UniqueLocalIncreasedEvasionAndEnergyShield1
 UniqueDexterity2
 UniqueReducedBleedDuration1
 UniqueBleedsAlwaysAggravated1
+]],[[
+Cospri's Will
+Assassin Garb
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Withering Presence
+BodyArmourImplicitMovementVelocity1
+UniqueLocalIncreasedEvasionAndEnergyShield18
+UniqueChaosResist32
+UniqueCursesNeverExpire1
+UniqueIgnoreHexproof1
+UniqueWitherNeverExpires1
 ]],[[
 The Dancing Mirage
 Wayfarer Jacket

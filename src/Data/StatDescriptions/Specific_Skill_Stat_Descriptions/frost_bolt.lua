@@ -82,51 +82,9 @@ return {
 			[1]="active_skill_secondary_area_of_effect_radius"
 		}
 	},
-	[5]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Chilled Ground duration is {0} second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Chilled Ground duration is {0} seconds"
-			}
-		},
-		stats={
-			[1]="base_skill_effect_duration"
-		}
-	},
-	[6]={
-		[1]={
-		},
-		stats={
-			[1]="skill_chilled_ground_effect_duration_ms"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["active_skill_base_secondary_area_of_effect_radius"]=3,
 	["active_skill_secondary_area_of_effect_radius"]=4,
-	["base_skill_effect_duration"]=5,
-	parent="skill_stat_descriptions",
-	["skill_chilled_ground_effect_duration_ms"]=6
+	parent="skill_stat_descriptions"
 }

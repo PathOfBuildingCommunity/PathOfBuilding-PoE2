@@ -85,7 +85,7 @@ Fine Bracers
 (20-30)% increased Critical Hit Chance
 5% increased Attack Speed
 +(10-20) to Dexterity
-Your Critical Damage Bonus is 300%
+Your Critical Damage Bonus is 250%
 ]],[[
 Northpaw
 Suede Bracers
@@ -124,7 +124,7 @@ Variant: Current
 {variant:2}+(20-40)% to Fire Resistance
 {variant:1}-(30-15)% to Cold Resistance
 {variant:2}-(20-10)% to Cold Resistance
-Chance to Ignite is doubled
+Flammability Magnitude is doubled
 ]],[[
 Demon Stitcher
 Intricate Gloves
@@ -186,7 +186,7 @@ Variant: Current
 {variant:1}+(5-10)% to Lightning Resistance
 {variant:2}Gain (5-10)% of Elemental Damage as Extra Cold Damage
 {variant:2}Gain (5-10)% of Elemental Damage as Extra Fire Damage
-{variant:2}Gain (5-10)% of Elemental Damage Damage as Extra Lightning Damage
+{variant:2}Gain (5-10)% of Elemental Damage as Extra Lightning Damage
 33% of Elemental Damage Converted to Cold Damage
 33% of Elemental Damage Converted to Fire Damage
 33% of Elemental Damage Converted to Lightning Damage
@@ -331,6 +331,17 @@ Variant: Current
 {variant:1}(5-10)% chance to Poison on Hit
 {variant:2}(20-30)% chance to Poison on Hit
 All Damage from Hits Contributes to Poison Magnitude
+]],[[
+Thunderfist
+Utility Wraps
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Crackling Palm
+(1-111)% increased Evasion and Energy Shield
+(1-11)% increased Attack Speed
++(1-33)% to Lightning Resistance
+Adds 1 to (77-111) Lightning Damage to Unarmed Melee Hits
++(0.1-1.1)% to Unarmed Melee Attack Critical Hit Chance
 ]],
 -- Gloves: Armour/Evasion/Energy Shield
 [[

@@ -25,7 +25,7 @@ Has (1-3) Charm Slot
 Life Flasks used while on Low Life apply Recovery Instantly
 Mana Flasks used while on Low Mana apply Recovery Instantly
 ]],[[
-Brynabas
+Byrnabas
 Wide Belt
 Variant: Pre 0.1.1
 Variant: Current
@@ -47,6 +47,24 @@ Has (1-3) Charm Slot
 +(20-30) to Dexterity
 (30-40)% increased Life and Mana Recovery from Flasks
 You are considered on Low Life while at 75% of maximum Life or below instead
+]],[[
+Darkness Enthroned
+Fine Belt
+League: Rise of the Abyssal
+Variant: Helmet
+Variant: Body Armour
+Variant: Gloves
+Variant: Boots
+Variant: Shield
+Implicits: 2
+Has (1-3) Charm Slot
+Flasks gain 0.17 charges per Second
+{variant:2}This item gains bonuses from Socketed Items as though it was a Body Armour
+{variant:4}This item gains bonuses from Socketed Items as though it was Boots
+{variant:3}This item gains bonuses from Socketed Items as though it was Gloves
+{variant:1}This item gains bonuses from Socketed Items as though it was a Helmet
+{variant:5}This item gains bonuses from Socketed Items as though it was a Shield
+(50-100)% increased effect of Socketed Items
 ]],[[
 The Gnashing Sash
 Wide Belt
@@ -79,10 +97,11 @@ Has (1-3) Charm Slot
 +(40-60) to maximum Life
 +(20-40) to Strength
 +(20-40) to Dexterity
-When you Kill a Rare monster, you gain its Modifiers for 20 seconds
+When you Kill a Rare monster, you gain its Modifiers for 60 seconds
 ]],[[
 Infernoclasp
 Plate Belt
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 Implicits: 2
@@ -172,6 +191,20 @@ Has (1-3) Charm Slot
 +(20-30) to Intelligence
 You lose 5% of maximum Energy Shield per second
 Excess Life Recovery from Leech is applied to Energy Shield
+]],[[
+Umbilicus Immortalis
+Linen Belt
+League: Rise of the Abyssal
+Requires Level 24
+Implicits: 2
+(20-30)% increased Mana Recovery from Flasks
+Has (1-3) Charm Slot
+(30-40)% reduced Flask Effect Duration
++(20-30) to Intelligence
+Minions have (20-30)% increased maximum Life
+Your Life Flask also applies to your Minions
+Minions cannot Die while affected by a Life Flask
+(20-30)% increased Flask Charges gained
 ]],[[
 Waistgate Heavy Belt
 Heavy Belt

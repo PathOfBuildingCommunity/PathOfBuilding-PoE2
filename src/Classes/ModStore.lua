@@ -283,12 +283,13 @@ function ModStoreClass:GetStat(stat, cfg)
 	end
 end
 
-function ModStoreClass:EvalMod(mod, cfg)
+function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 	local value = mod.value
 	for _, tag in ipairs(mod) do
 		if tag.type == "Multiplier" then
 			local target = self
 			local limitTarget = self
+
 			-- Allow limiting a self multiplier on a parent multiplier (eg. Agony Crawler on player virulence)
 			-- This explicit target is necessary because even though the GetMultiplier method does call self.parent.GetMultiplier, it does so with noMod = true,
 			-- disabling the summation (3rd part): (not noMod and self:Sum("BASE", cfg, multiplierName[var]) or 0)
@@ -405,6 +406,9 @@ function ModStoreClass:EvalMod(mod, cfg)
 				end
 			else
 				base = target:GetStat(tag.stat, cfg)
+			end
+			if tag.divVar then
+				tag.div = self:GetMultiplier(tag.divVar, cfg)
 			end
 			local mult = m_floor(base / (tag.div or 1) + 0.0001)
 			local limitTotal
@@ -698,13 +702,14 @@ function ModStoreClass:EvalMod(mod, cfg)
 				matchName = matchName:lower()
 				if tag.skillNameList then
 					for _, name in pairs(tag.skillNameList) do
-						if name:lower() == matchName then
+						local nameLower = name:lower()
+						if (tag.partialMatch and matchName:find(nameLower, 1, true)) or (not tag.partialMatch and nameLower == matchName) then
 							match = true
 							break
 						end
 					end
 				else
-					match = (tag.skillName and tag.skillName:lower() == matchName)
+					match = (tag.partialMatch and matchName:find(tag.skillName:lower(), 1, true) ~= nil) or (tag.skillName:lower() == matchName)
 				end
 			end
 			if tag.neg then
@@ -824,6 +829,18 @@ function ModStoreClass:EvalMod(mod, cfg)
 				return
 			end
 		end
-	end	
+	end
+
+	-- Apply global limits
+	for _, tag in ipairs(mod) do
+		if globalLimits and tag.globalLimit and tag.globalLimitKey then
+			value = value or 0
+			globalLimits[tag.globalLimitKey] = globalLimits[tag.globalLimitKey] or 0
+			if globalLimits[tag.globalLimitKey] + value > tag.globalLimit then
+				value = tag.globalLimit - globalLimits[tag.globalLimitKey]
+			end
+			globalLimits[tag.globalLimitKey] = globalLimits[tag.globalLimitKey] + value
+		end
+	end
 	return value
 end

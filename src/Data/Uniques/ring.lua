@@ -16,9 +16,9 @@ Amethyst Ring
 Implicits: 1
 {tags:chaos}+(7-13)% to Chaos Resistance
 {tags:mana}(15-30)% increased Mana Regeneration Rate
+50% increased Ignite Magnitude
 {tags:fire}50% reduced Ignite Duration on Enemies
 {tags:fire}Enemies Ignited by you take Chaos Damage instead of Fire Damage from Ignite
-50% increased Magnitude of Ignite you inflict
 ]],[[
 Blackheart
 Iron Ring
@@ -62,7 +62,7 @@ Grants 1 additional Skill Slot
 (15-25)% increased Rarity of Items found
 {tags:chaos}+(17-23)% to Chaos Resistance
 Lose 5% of maximum Life per second
-Attacks have added Physical damage equal to 3% of maximum Life
+{tags:physical}Attacks have added Physical damage equal to 3% of maximum Life
 ]],[[
 Call of the Brotherhood
 Topaz Ring
@@ -238,9 +238,9 @@ Variant: Sapphire
 Requires Level 40
 (10-20)% increased Rarity of Items found
 {tags:attribute}+(10-20) to all Attributes
-{variant:2}Cold Resistance is unaffected by Area Penalties
+{variant:3}Cold Resistance is unaffected by Area Penalties
 {variant:1}Fire Resistance is unaffected by Area Penalties
-{variant:3}Lightning Resistance is unaffected by Area Penalties
+{variant:2}Lightning Resistance is unaffected by Area Penalties
 {variant:2}You can only Socket Emerald Jewels in this item
 {variant:1}You can only Socket Ruby Jewels in this item
 {variant:3}You can only Socket Sapphire Jewels in this item
@@ -314,7 +314,7 @@ Sapphire Ring
 Requires Level 32
 Implicits: 1
 {tags:cold}+(20-30)% to Cold Resistance
-(5-10)% increased Skill Speed
+{tags:speed}(5-10)% increased Skill Speed
 {tags:attribute}+(10-20) to Dexterity
 {tags:mana}(25-35)% increased Mana Regeneration Rate
 100% of Cold Damage Converted to Lightning Damage

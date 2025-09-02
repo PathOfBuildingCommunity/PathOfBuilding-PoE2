@@ -57,6 +57,7 @@ UniqueTriggerLightningBoltOnCriticalStrike1
 Defiance of Destiny
 Jade Amulet
 Variant: Pre 0.1.1
+Variant: Pre 0.2.1
 Variant: Current
 Requires Level 56
 Implicits: 1
@@ -65,7 +66,8 @@ UniqueMaximumLifeIncrease6
 UniqueStrength2
 UniqueManaRegeneration13
 {variant:1}UniqueGainMissingLifeBeforeHit1[5,5]
-{variant:2}UniqueGainMissingLifeBeforeHit1
+{variant:2}UniqueGainMissingLifeBeforeHit1[10,10]
+{variant:3}UniqueGainMissingLifeBeforeHit1
 ]],[[
 The Everlasting Gaze
 Azure Amulet
@@ -113,6 +115,17 @@ UniqueNearbyAlliesCriticalMultiplier1
 UniqueNearbyAlliesIncreasedAttackSpeed1
 UniqueNearbyAlliesIncreasedCastSpeed1
 UniquePresenceRadius1
+]],[[
+Hinekora's Sight
+Stellar Amulet
+Requires Level 44
+League: Rise of the Abyssal
+Implicits: 2
+Grants Skill: Level (1-20) Future-Past
+AmuletImplicitAllAttributes1
+UniqueIncreasedAccuracy13
+UniqueIncreasedEvasionRating5
+BlindImmunityUnique__1
 ]],[[
 Idol of Uldurn
 Crimson Amulet
@@ -213,21 +226,28 @@ UniqueNoCriticalStrikeMultiplier1
 ]],[[
 Xoph's Blood
 Amber Amulet
+Variant: Pre 0.3.0
+Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
 UniqueFireResist12
-UniqueEnemiesInPresenceFireExposure1
+{variant:1}UniqueEnemiesInPresenceFireExposure1[1,1]
+{variant:2}UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 1
 AmuletImplicitIncreasedLife1
 UniqueAllResistances19
 UniqueElementalDamagePercent1
-UniqueEnemiesTakeIncreasedDamagePerAilmentType1
-UniqueElementalAilmentDuration1
+{variant:1}UniqueEnemiesTakeIncreasedDamagePerAilmentType1[5,10]
+{variant:2}UniqueEnemiesTakeIncreasedDamagePerAilmentType1
+{variant:1}UniqueElementalAilmentDuration1[-30,-20]
+{variant:2}UniqueElementalAilmentDuration1
 ]],
 }

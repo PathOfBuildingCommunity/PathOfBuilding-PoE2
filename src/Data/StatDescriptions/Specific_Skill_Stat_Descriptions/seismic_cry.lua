@@ -47,8 +47,74 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Empowered Attack Aftershocks deal {0}% more damage"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Empowered Attack Aftershocks deal {0}% less damage"
+			}
+		},
+		stats={
+			[1]="seismic_cry_slam_skill_aftershock_damage_+%_final"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Empowers one Slam per enemy Power in\nrange, counting up to {1} Power"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Empowers one Slam per {0} enemy Power in\nrange, counting up to {1} Power"
+			}
+		},
+		stats={
+			[1]="warcry_empowers_per_X_monster_power",
+			[2]="warcry_empowers_per_X_monster_power_mp_cap"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_skill_effect_duration"]=1,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["seismic_cry_slam_skill_aftershock_damage_+%_final"]=4,
+	["warcry_empowers_per_X_monster_power"]=5,
+	["warcry_empowers_per_X_monster_power_mp_cap"]=5
 }

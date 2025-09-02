@@ -31,12 +31,15 @@ UniqueEnergyShieldRechargeOnKill1
 ]],[[
 Effigy of Cruelty
 Antler Focus
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShield14
 UniqueSpellDamageOnWeapon5
 UniqueIntelligence41
 UniqueChaosResist16
-UniqueCriticalWeaknessOnSpellCrit1
+{variant:1}UniqueCriticalWeaknessOnSpellCrit1[3,5]
+{variant:2}UniqueCriticalWeaknessOnSpellCrit1
 ]],[[
 The Eternal Spark
 Crystal Focus

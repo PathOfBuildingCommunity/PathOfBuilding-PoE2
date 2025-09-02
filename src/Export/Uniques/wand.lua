@@ -3,12 +3,22 @@
 return {
 -- Weapon: Wand
 [[
+Adonia's Ego
+Siphoning Wand
+League: Dawn of the Hunt
+Implicits: 2
+Grants Skill: Level (1-20) Power Siphon
+Grants Skill: Level 20 Pinnacle of Power
+UniqueIncreasedMana52
+UniqueGlobalSpellGemsLevel2
+UniqueIncreasedCastSpeed17
+UniqueElementalResistancesPerPowerCharge1
+UniqueMaximumPowerChargesWand_1
+]],[[
 Cursecarver
 Acrid Wand
 League: Dawn of the Hunt
-Variant: Flammability
-Variant: Hypothermia
-Variant: Conductivity
+Variant: Elemental Weakness
 Variant: Vulnerability
 Variant: Despair
 Variant: Enfeeble
@@ -19,13 +29,11 @@ UniqueSpellDamageOnWeapon8
 UniqueIncreasedCastSpeed15
 UniqueManaRegeneration30
 UniqueLifeGainedFromEnemyDeath10
-{variant:1}UniqueFlammabilityGemLevel1
-{variant:2}UniqueHypothermiaGemLevel1
-{variant:3}UniqueConductivityGemLevel1
-{variant:4}UniqueVulnerabilityGemLevel1
-{variant:5}UniqueDespairGemLevel1
-{variant:6}UniqueEnfeebleGemLevel1
-{variant:7}UniqueTemporalChainsGemLevel1
+{variant:1}UniqueElementalWeaknessGemLevel1
+{variant:2}UniqueVulnerabilityGemLevel1
+{variant:3}UniqueDespairGemLevel1
+{variant:4}UniqueEnfeebleGemLevel1
+{variant:5}UniqueTemporalChainsGemLevel1
 ]],[[
 Enezun's Charge
 Volatile Wand
