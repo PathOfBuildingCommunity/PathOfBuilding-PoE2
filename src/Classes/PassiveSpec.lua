@@ -972,8 +972,12 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		-- ignore cluster jewel nodes that don't have an id in the tree
 		if self.tree.nodes[id] then
 			local nodeToReplace = self.tree.nodes[id]
-			if self.tree.nodes[id].isSwitchable and self.tree.nodes[id].options[self.curClassName] then
-				nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+			if self.tree.nodes[id].isSwitchable then
+				if self.tree.nodes[id].options[self.curClassName] then
+					nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+				elseif self.tree.nodes[id].options[self.curAscendClassName] then
+					nodeToReplace = self.tree.nodes[id].options[self.curAscendClassName]
+				end
 				self.switchableNodes[nodeToReplace.id] = node
 			end
 			self:ReplaceNode(node, nodeToReplace)
@@ -1415,6 +1419,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 end
 
 function PassiveSpecClass:ReplaceNode(old, newNode)
+	old.overlay = newNode.overlay
+	old.icon = newNode.icon
 	-- Edited nodes can share a name
 	if old.sd == newNode.sd then
 		return 1
@@ -1426,8 +1432,6 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.modList = new("ModList")
 	old.modList:AddList(newNode.modList)
 	old.keystoneMod = newNode.keystoneMod
-	old.icon = newNode.icon
-	old.spriteId = newNode.spriteId
 	old.activeEffectImage = newNode.activeEffectImage
 	old.reminderText = newNode.reminderText or { }
 end

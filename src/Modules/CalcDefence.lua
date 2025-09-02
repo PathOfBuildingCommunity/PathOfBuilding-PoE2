@@ -366,7 +366,7 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 			local resMult = 1 - resist / 100
 			local reductMult = 1
 
-			local percentOfArmourApplies = m_min((not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
+			local percentOfArmourApplies = (not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
 			if percentOfArmourApplies > 0 then
 				local effArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 				-- effArmour needs to consider the "EvasionAddsToPdr" flag mod, and add the evasion to armour
@@ -2255,7 +2255,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		--armour/PDR calculations
 		local armourReduct = 0
 		local impaleArmourReduct = 0
-		local percentOfArmourApplies = m_min((not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0), 100)
+		local percentOfArmourApplies = (not modDB:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
 		local effectiveArmourFromOther = { }

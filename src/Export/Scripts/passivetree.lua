@@ -615,6 +615,7 @@ local tree = {
 }
 
 printf("Generating classes...")
+local ascedancyReplacements = {}
 for i, classId in ipairs(psg.passives) do
 	local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", classId)
 	if passiveRow == nil then
@@ -665,14 +666,18 @@ for i, classId in ipairs(psg.passives) do
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
-			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled or ascendency.Id == "Witch3b" then
+			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled then
 				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
+			end
+			if ascendency.Replace then
+				ascedancyReplacements[ascendency.Replace.Name] = ascendency.Name
 			end
 			table.insert(classDef.ascendancies, {
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
 				["internalId"] = ascendency.Id,
+				["replace"] = ascendency.Replace and ascendency.Replace.Name or nil,
 				["background"] = {
 					image = "Classes" .. ascendency.Name,
 					section = "AscendancyBackground",
@@ -815,8 +820,7 @@ for i, group in ipairs(psg.groups) do
 				if passiveRow.JewelSocket then
 					node["containJewelSocket"] = true
 
-					local uioverride = dat("passiveskilltreenodeframeart"):GetRow("Id", "LichAscendancyJewel")
-
+					local uioverride = passiveRow.Ascendancy.UIArt.JewelFrame
 					if uioverride then
 						local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
 						addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
@@ -986,6 +990,63 @@ for i, group in ipairs(psg.groups) do
 				}
 			end
 
+			if passiveRow.Ascendancy and ascedancyReplacements[passiveRow.Ascendancy.Name] then
+				node["isSwitchable"] = true
+				local ascendancyRow = dat("ascendancy"):GetRow("Name", ascedancyReplacements[passiveRow.Ascendancy.Name])
+
+				local nodeInfo = {
+					["ascendancyName"] = ascedancyReplacements[passiveRow.Ascendancy.Name]
+				}
+
+				local switchNode = dat("ascendancypassiveskilloverrides"):GetRow("OriginalNode", passiveRow)
+				if switchNode then
+					nodeInfo.id = switchNode.SwitchedNode.PassiveSkillNodeId
+					nodeInfo.name = switchNode.SwitchedNode.Name
+					nodeInfo.icon = switchNode.SwitchedNode.Icon
+					nodeInfo.stats = {}
+
+					-- add to assets
+					addToSheet(getSheet("skills"), switchNode.SwitchedNode.Icon, "normalActive", commonMetadata(nil))
+					addToSheet(getSheet("skills-disabled"), switchNode.SwitchedNode.Icon, "normalInactive", commonMetadata(nil))
+
+					-- Stats
+					if switchNode.SwitchedNode.Stats ~= nil then
+						local parseStats = {}
+						for k, stat in ipairs(switchNode.SwitchedNode.Stats) do
+							parseStats[stat.Id] = { min = switchNode.SwitchedNode["Stat" .. k], max = switchNode.SwitchedNode["Stat" .. k] }
+						end
+						local out, orders = describeStats(parseStats)
+						for k, line in ipairs(out) do
+							table.insert(nodeInfo["stats"], line)
+						end
+					end
+				end
+
+				if passiveRow.JewelSocket and ascendancyRow.UIArt.JewelFrame then
+					-- override the jewel socket assets if any
+					local uioverride = ascendancyRow.UIArt.JewelFrame
+					
+					local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
+					addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
+
+					local uiSocketActive = uiImages[string.lower(uioverride.Active)]
+					addToSheet(getSheet("group-background"), uiSocketActive.path, "frame", commonMetadata(nil))
+
+					local uiSocketCanAllocate = uiImages[string.lower(uioverride.CanAllocate)]
+					addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
+
+					nodeInfo.jewelOverlay = {
+						alloc = uiSocketActive.path,
+						path = uiSocketCanAllocate.path,
+						unalloc = uiSocketNormal.path,
+					}
+				end
+
+				node["options"] = {
+					[ascedancyReplacements[passiveRow.Ascendancy.Name]] = nodeInfo
+				}
+			end
+
 			-- classStartName
 			if #passiveRow.ClassStart > 0 then
 				node["classesStart"] = {}
@@ -1109,6 +1170,11 @@ for i, classId in ipairs(psg.passives) do
 	for _, class in ipairs(classes) do
 		for _, ascendancy in ipairs(class.ascendancies) do
 			printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
+			
+			local angle = startAngle + (j - 1) * angleStep
+			local cX = hardCoded * math.cos(angle)
+			local cY = hardCoded * math.sin(angle)
+
 			local info = ascendancyGroups[ascendancy.id]
 			if info == nil then
 				printf("Ascendancy group " .. ascendancy.id .. " not found")
@@ -1119,14 +1185,11 @@ for i, classId in ipairs(psg.passives) do
 				printf("Ascendancy node " .. ascendancy.id .. " not found")
 				goto continuepositioning
 			end
-			local groupAscendancy = tree.groups[ascendancyNode.group]
-
-			local angle = startAngle + (j - 1) * angleStep
-			local cX = hardCoded * math.cos(angle)
-			local cY = hardCoded * math.sin(angle)
 
 			ascendancy.background.x = cX
 			ascendancy.background.y = cY
+
+			local groupAscendancy = tree.groups[ascendancyNode.group]
 
 			local innerRadious = dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
 
@@ -1155,11 +1218,45 @@ for i, classId in ipairs(psg.passives) do
 					tree.max_y = math.max(tree.max_y, group.y + hardCoded / 2)
 				end
 			end
+
 			j = j + 1
 			:: continuepositioning ::
 		end
 	end
 end
+
+printf("Fixing replace ascendancies position...")
+for from, to in pairs(ascedancyReplacements) do
+	local fromAscendancy
+	local toAscendancy
+	for _, class in ipairs(tree.classes) do
+		for _, ascendancy in ipairs(class.ascendancies) do
+			if ascendancy.name == from then
+				fromAscendancy = ascendancy
+			end
+			if ascendancy.name == to then
+				toAscendancy = ascendancy
+			end
+		end
+	end
+
+	if fromAscendancy == nil then
+		printf("From ascendancy " .. from .. " not found")
+		goto continuereplace
+	end
+	if toAscendancy == nil then
+		printf("To ascendancy " .. to .. " not found")
+		goto continuereplace
+	end
+
+	fromAscendancy.replaceBy = to
+
+	toAscendancy.background.x = fromAscendancy.background.x
+	toAscendancy.background.y = fromAscendancy.background.y
+
+	:: continuereplace ::
+end
+
 
 printf("Generating sprite info...")
 for i, sheet in ipairs(sheets) do
