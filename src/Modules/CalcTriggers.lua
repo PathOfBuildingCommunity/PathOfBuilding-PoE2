@@ -439,7 +439,7 @@ local function defaultTriggerHandler(env, config)
 			actor.mainSkill.skillData.ignoresTickRate = actor.mainSkill.skillData.ignoresTickRate or (actor.mainSkill.skillData.storedUses and actor.mainSkill.skillData.storedUses > 1)
 
 			--Account for source unleash
-			if source and GlobalCache.cachedData[env.mode][uuid] and source.skillModList:Flag(nil, "HasSeals") and source.skillTypes[SkillType.CanRapidFire] then
+			if source and GlobalCache.cachedData[env.mode][uuid] and source.skillModList:Flag(nil, "HasSeals") and source.skillTypes[SkillType.Unleashable] then
 				local unleashDpsMult = GlobalCache.cachedData[env.mode][uuid].ActiveSkill.skillData.dpsMultiplier or 1
 				trigRate = trigRate * unleashDpsMult
 				actor.mainSkill.skillFlags.HasSeals = true

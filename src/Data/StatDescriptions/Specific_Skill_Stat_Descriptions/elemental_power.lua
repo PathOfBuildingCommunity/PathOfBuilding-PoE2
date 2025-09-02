@@ -48,7 +48,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more Elemental Damage per Power Charge Consumed\nBuff causes all Elemental Damage to Contribute to Ignite chance and Magnitude, Shock chance, and Freeze buildup"
+				text="{0}% more Elemental Damage per Power Charge Consumed\nBuff causes all Elemental Damage to Contribute to Flammability and Ignite Magnitudes, Shock chance, and Freeze buildup"
 			}
 		},
 		stats={

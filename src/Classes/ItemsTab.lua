@@ -2585,6 +2585,27 @@ function ItemsTabClass:AddItemSetTooltip(tooltip, itemSet)
 	end
 end
 
+function ItemsTabClass:SetTooltipHeaderInfluence(tooltip, item)
+	tooltip.influenceHeader1 = nil
+	tooltip.influenceHeader2 = nil
+	-- Fractured items don't have the icon now, they did on trade before 0.3. Maybe they will return.
+	--if item.fractured then
+	--	tooltip.influenceHeader1 = "Fractured"
+	--end
+	if item.desecrated then
+		if not tooltip.influenceHeader1 then
+			tooltip.influenceHeader1 = "Desecrated"
+		else
+			tooltip.influenceHeader2 = "Desecrated"
+		end
+	end
+
+	-- If only one influence, we copy to second header. Preparing for dual influence mods like in first game.
+	if tooltip.influenceHeader1 and not tooltip.influenceHeader2 then
+		tooltip.influenceHeader2 = tooltip.influenceHeader1
+	end
+end
+
 function ItemsTabClass:FormatItemSource(text)
 	return text:gsub("unique{([^}]+)}",colorCodes.UNIQUE.."%1"..colorCodes.SOURCE)
 			   :gsub("normal{([^}]+)}",colorCodes.NORMAL.."%1"..colorCodes.SOURCE)
@@ -2599,6 +2620,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
+	self:SetTooltipHeaderInfluence(tooltip, item)
 	if item.title then
 		tooltip:AddLine(20, rarityCode..item.title)
 		tooltip:AddLine(20, rarityCode..item.baseName:gsub(" %(.+%)",""))

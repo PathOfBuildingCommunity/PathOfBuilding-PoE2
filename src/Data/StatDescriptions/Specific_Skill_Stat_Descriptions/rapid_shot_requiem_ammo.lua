@@ -8,6 +8,11 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -40,7 +45,7 @@ return {
 			[1]="rapidshot_requiem_active_duration_ms"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -56,7 +61,7 @@ return {
 			[1]="rapidshot_requiem_base_buff_count_requirement"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -76,9 +81,10 @@ return {
 			[1]="rapidshot_requiem_number_of_stacks_per_minute"
 		}
 	},
+	["base_knockback_distance"]=2,
 	["number_of_crossbow_bolts"]=1,
 	parent="skill_stat_descriptions",
-	["rapidshot_requiem_active_duration_ms"]=2,
-	["rapidshot_requiem_base_buff_count_requirement"]=3,
-	["rapidshot_requiem_number_of_stacks_per_minute"]=4
+	["rapidshot_requiem_active_duration_ms"]=3,
+	["rapidshot_requiem_base_buff_count_requirement"]=4,
+	["rapidshot_requiem_number_of_stacks_per_minute"]=5
 }

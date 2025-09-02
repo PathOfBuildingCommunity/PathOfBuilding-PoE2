@@ -10,6 +10,24 @@ return {
 					v=1
 				},
 				limit={
+				},
+				text="Critical Weakness duration is {0:+d} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+				},
+				text="Critical Weakness duration is {0:+d} seconds"
+			},
+			[3]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
 					[1]={
 						[1]=1000,
 						[2]=1000
@@ -17,7 +35,7 @@ return {
 				},
 				text="Critical Weakness duration is {0} second"
 			},
-			[2]={
+			[4]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1

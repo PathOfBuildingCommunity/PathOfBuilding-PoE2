@@ -208,6 +208,13 @@ return {
 			[1]="total_number_of_projectiles_to_fire"
 		}
 	},
+	[12]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_tornado_shot_number_of_hits_allowed"
+		}
+	},
 	["active_skill_base_area_of_effect_radius"]=1,
 	["base_number_of_projectiles"]=3,
 	["base_number_of_tornado_shots_allowed"]=4,
@@ -221,5 +228,6 @@ return {
 	["tornado_shot_number_of_hits_allowed"]=8,
 	["tornado_shot_projectile_damage_+%_final"]=9,
 	["tornado_shot_projectile_range"]=10,
-	["total_number_of_projectiles_to_fire"]=11
+	["total_number_of_projectiles_to_fire"]=11,
+	["virtual_tornado_shot_number_of_hits_allowed"]=12
 }

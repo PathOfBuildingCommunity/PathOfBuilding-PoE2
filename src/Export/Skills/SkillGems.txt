@@ -323,6 +323,7 @@ Spearfield                    		----		SpearfieldPlayer
 Spiral Volley                 		----		SpiralVolleyPlayer
 Storm Lance                   		----		StormLancePlayer
 Stormcaller Arrow             		----		StormcallerArrowPlayer
+Tame Beast                    		----		TameBeastPlayer
 Thunderous Leap               		----		ThunderousLeapPlayer
 Tornado Shot                  		----		TornadoShotPlayer
 Toxic Domain                  		----		ToxicDomainPlayer

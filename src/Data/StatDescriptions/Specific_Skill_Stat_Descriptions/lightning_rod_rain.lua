@@ -154,6 +154,31 @@ return {
 				limit={
 					[1]={
 						[1]=1,
+						[2]=99
+					}
+				},
+				text="{0}% chance to cause an additional Burst on impact"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=100,
+						[2]="#"
+					}
+				},
+				text="Causes an additional Burst on impact"
+			}
+		},
+		stats={
+			[1]="lightning_rod_%_chance_for_additional_burst_on_landing"
+		}
+	},
+	[7]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
 						[2]=1
 					}
 				},
@@ -173,20 +198,29 @@ return {
 			[1]="number_of_lightning_rods_allowed"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
+	[9]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_lightning_rod_number_of_chains_allowed"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["active_skill_base_secondary_area_of_effect_radius"]=1,
 	["base_skill_effect_duration"]=4,
+	["lightning_rod_%_chance_for_additional_burst_on_landing"]=6,
 	["lightning_rod_number_of_chains_allowed"]=5,
-	["number_of_lightning_rods_allowed"]=6,
+	["number_of_lightning_rods_allowed"]=7,
 	parent="skill_stat_descriptions",
 	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
-	["skill_effect_duration"]=7
+	["skill_effect_duration"]=8,
+	["virtual_lightning_rod_number_of_chains_allowed"]=9
 }

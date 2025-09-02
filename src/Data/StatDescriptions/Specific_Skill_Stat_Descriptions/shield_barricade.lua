@@ -22,7 +22,7 @@ return {
 						[2]=10
 					}
 				},
-				text="Explosion radius is {0} metre"
+				text="Explosion length is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -35,7 +35,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Explosion radius is {0} metres"
+				text="Explosion length is {0} metres"
 			}
 		},
 		stats={
@@ -43,6 +43,22 @@ return {
 		}
 	},
 	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="DNT Gains added damage equal to {0}% of Main Hand Weapon Damage"
+			}
+		},
+		stats={
+			[1]="base_main_hand_weapon_damage_as_added_off_hand_attack_damage_%"
+		}
+	},
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -75,7 +91,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -109,7 +125,7 @@ return {
 			[2]="shield_wall_segment_display_stat"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 		},
 		stats={
@@ -118,9 +134,10 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
+	["base_main_hand_weapon_damage_as_added_off_hand_attack_damage_%"]=3,
+	["base_skill_effect_duration"]=4,
 	parent="skill_stat_descriptions",
-	["shield_wall_maximum_life"]=4,
-	["shield_wall_segment_display_stat"]=4,
-	["skill_effect_duration"]=5
+	["shield_wall_maximum_life"]=5,
+	["shield_wall_segment_display_stat"]=5,
+	["skill_effect_duration"]=6
 }

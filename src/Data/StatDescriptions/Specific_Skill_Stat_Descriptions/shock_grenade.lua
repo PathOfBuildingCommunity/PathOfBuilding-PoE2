@@ -4,9 +4,35 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Fuse duration is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Fuse duration is {0} seconds"
+			}
 		},
 		stats={
-			[1]="active_skill_area_of_effect_radius"
+			[1]="base_skill_effect_duration"
 		}
 	},
 	[2]={
@@ -45,6 +71,67 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Converts {0}% of Physical Damage to Lightning Damage"
+			}
+		},
+		stats={
+			[1]="active_skill_base_physical_damage_%_to_convert_to_lightning"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Lightning damage from Hits with this skill Contributes to Electrocution Buildup"
+			}
+		},
+		stats={
+			[1]="base_lightning_damage_can_electrocute"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more Electrocution buildup from Hits with this skill"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less Electrocution buildup from Hits with this skill"
+			}
+		},
+		stats={
+			[1]="active_skill_electrocutes_as_though_dealt_damage_+%_final"
+		}
+	},
+	[6]={
+		[1]={
+			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -55,7 +142,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Fuse duration is {0} second"
+				text="Electrocution buildup Debuff duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -68,23 +155,34 @@ return {
 						[2]="#"
 					}
 				},
-				text="Fuse duration is {0} seconds"
+				text="Electrocution buildup Debuff duration is {0} seconds"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration"
+			[1]="base_secondary_skill_effect_duration"
 		}
 	},
-	[4]={
+	[7]={
+		[1]={
+		},
+		stats={
+			[1]="active_skill_area_of_effect_radius"
+		}
+	},
+	[8]={
 		[1]={
 		},
 		stats={
 			[1]="grenade_fuse_duration"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
+	["active_skill_area_of_effect_radius"]=7,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
-	["grenade_fuse_duration"]=4,
+	["active_skill_base_physical_damage_%_to_convert_to_lightning"]=3,
+	["active_skill_electrocutes_as_though_dealt_damage_+%_final"]=5,
+	["base_lightning_damage_can_electrocute"]=4,
+	["base_secondary_skill_effect_duration"]=6,
+	["base_skill_effect_duration"]=1,
+	["grenade_fuse_duration"]=8,
 	parent="skill_stat_descriptions"
 }

@@ -55,7 +55,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Haemocrystals detonate after {0} second"
+				text="Haemocrystals explode after {0} second"
 			},
 			[2]={
 				[1]={
@@ -68,7 +68,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Haemocrystals detonate after {0} seconds"
+				text="Haemocrystals explode after {0} seconds"
 			}
 		},
 		stats={
@@ -117,7 +117,7 @@ return {
 						[2]=100
 					}
 				},
-				text="Haemocrystals deal Damage equal to the expected remaining Damage of the Consumed Bleeding"
+				text="Haemocrystals deal Damage equal to the highest expected remaining Damage of the Consumed Bleeding"
 			},
 			[2]={
 				limit={
@@ -126,7 +126,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Haemocrystals deal Damage equal to {0}% of the expected remaining Damage of the Consumed Bleeding"
+				text="Haemocrystals deal Damage equal to {0}% of the highest expected remaining Damage of the Consumed Bleeding"
 			}
 		},
 		stats={

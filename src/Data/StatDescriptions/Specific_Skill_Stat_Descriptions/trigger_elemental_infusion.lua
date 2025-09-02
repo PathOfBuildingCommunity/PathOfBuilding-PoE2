@@ -58,8 +58,25 @@ return {
 			[1]="base_is_projectile"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="No more than once per Skill use"
+			}
+		},
+		stats={
+			[1]="surge_can_apply_to_X_number_of_projectiles_per_skill_use"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_is_projectile"]=3,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["surge_can_apply_to_X_number_of_projectiles_per_skill_use"]=4
 }
