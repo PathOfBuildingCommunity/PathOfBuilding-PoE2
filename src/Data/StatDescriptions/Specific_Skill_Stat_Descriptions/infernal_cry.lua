@@ -9,12 +9,28 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Empowered Attacks Gain {0}% of damage as extra Fire damage"
+			}
+		},
+		stats={
+			[1]="infernal_cry_exerted_attack_all_damage_%_to_gain_as_fire_%"
+		}
+	},
+	[3]={
+		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -47,7 +63,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -80,8 +96,9 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["base_skill_effect_duration"]=4,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["base_skill_effect_duration"]=5,
+	["infernal_cry_exerted_attack_all_damage_%_to_gain_as_fire_%"]=2,
 	parent="skill_stat_descriptions"
 }

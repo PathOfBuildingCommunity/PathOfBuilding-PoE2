@@ -5,6 +5,24 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill AncestralCryPlayer
+#set AncestralCryPlayer
+#flags warcry area duration
+#mods
+#skillEnd
+
+#skill AncestralCryShockwavePlayer
+#set AncestralCryShockwavePlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill AncestralCryProjectilePlayer
+#set AncestralCryProjectilePlayer
+#flags attack projectile
+#mods
+#skillEnd
+
 #skill AncestralWarriorTotemPlayer
 #set AncestralWarriorTotemPlayer
 #flags totem attack
@@ -31,9 +49,6 @@ local skills, mod, flag, skill = ...
 
 #skill ArtilleryBallistaProjectilePlayer
 #set ArtilleryBallistaProjectilePlayer
-#flags attack area projectile totem
-#mods
-#set ArtilleryBallistaProjectileExplodePlayer
 #flags attack area projectile totem
 #mods
 #skillEnd
@@ -73,6 +88,18 @@ statMap = {
 		mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 	}
 },
+#mods
+#skillEnd
+
+#skill BlackPowderBlitzReservationPlayer
+#set BlackPowderBlitzReservationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BlackPowderBlitzPlayer
+#set BlackPowderBlitzPlayer
+#flags hit area
 #mods
 #skillEnd
 
@@ -131,22 +158,36 @@ statMap = {
 #set ClusterGrenadePlayer
 #flags attack area projectile duration
 #mods
-#skillEnd
-
-#skill ClusterGrenadeMiniPlayer
 #set ClusterGrenadeMiniPlayer
 #flags attack area projectile
 #mods
 #skillEnd
 
 #from item
+#skill CrossbowRequiemAmmoPlayer
+#set CrossbowRequiemAmmoPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill CrossbowRequiemPlayer
+#set CrossbowRequiemPlayer
+#flags projectile area
+#mods
+#skillEnd
+
+#from item
 #skill StaffConsecratePlayer
 #set StaffConsecratePlayer
-#flags spell
+#flags spell duration
 #mods
 #skillEnd
 
 #skill DefianceBannerReservationPlayer
+#set DefianceBannerReservationPlayer
+#flags
+#mods
 #skillEnd
 
 #skill DefianceBannerPlayer
@@ -165,6 +206,9 @@ statMap = {
 #skillEnd
 
 #skill DreadBannerReservationPlayer
+#set DreadBannerReservationPlayer
+#flags
+#mods
 #skillEnd
 
 #skill DreadBannerPlayer
@@ -231,19 +275,30 @@ statMap = {
 #mods
 #skillEnd
 
-#from item
-#skill ExsanguinatePlayer
-#set ExsanguinatePlayer
-#flags spell duration chaining
-#mods
-#set ExsanguinateDotPlayer
-#flags spell duration chaining
-#mods
-#skillEnd
-
 #skill FlashGrenadePlayer
 #set FlashGrenadePlayer
 #flags attack area projectile
+#mods
+#skillEnd
+
+#skill ForgeHammerPlayer
+#set ForgeHammerPlayer
+#flags attack area melee duration
+#mods
+#set ForgeHammerFissurePlayer
+#flags attack area melee duration
+#mods
+#skillEnd
+
+#skill FortifyingCryPlayer
+#set FortifyingCryPlayer
+#flags warcry area duration
+#mods
+#skillEnd
+
+#skill FortifyingCryShockwavePlayer
+#set FortifyingCryShockwavePlayer
+#flags attack melee area shieldAttack
 #mods
 #skillEnd
 
@@ -256,6 +311,15 @@ statMap = {
 #mods
 #set ToxicGrenadeCloudExplosionPlayer
 #flags attack area projectile
+#mods
+#skillEnd
+
+#skill GeminiSurgePlayer
+#set GeminiSurgeColdPlayer
+#flags attack area
+#mods
+#set GeminiSurgeFirePlayer
+#flags attack area
 #mods
 #skillEnd
 
@@ -300,18 +364,21 @@ statMap = {
 #mods
 #skillEnd
 
-#skill LeapSlamPlayer
-#set LeapSlamPlayer
-#flags attack area melee
+#skill IronWardPlayer
+#set IronWardPlayer
+#flags
 #mods
 #skillEnd
 
-#skill MetaCastLightningSpellOnHitPlayer
-#set MetaCastLightningSpellOnHitPlayer
-#flags spell
+#skill IronWardNovaPlayer
+#set IronWardNovaPlayer
+#flags hit area
 #mods
-#set SupportMetaCastLightningSpellOnHitPlayer
-#flags
+#skillEnd
+
+#skill LeapSlamPlayer
+#set LeapSlamPlayer
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -557,6 +624,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MetaMortarCannonPlayer
+#set MetaMortarCannonPlayer
+#flags totem attack
+#mods
+#skillEnd
+
+#skill SupportMortarCannonPlayer
+#set SupportMortarCannonPlayer
+	addFlags = {
+		totem = true,
+	},
+#flags
+#mods
+#skillEnd
+
 #skill OilGrenadePlayer
 #set OilGrenadePlayer
 #flags attack area projectile duration
@@ -578,32 +660,12 @@ end,
 #mods
 #set PerfectStrikeShockwavePlayer
 #flags attack area melee duration channelRelease
-#baseMod mod("Condition:PerfectTiming", "FLAG", true)
-#mods
-#skillEnd
-
-#from item
-#skill ReapPlayer
-#set ReapPlayer
-#flags spell area
 #mods
 #skillEnd
 
 #skill ResonatingShieldPlayer
 #set ResonatingShieldPlayer
 #flags attack area melee shieldAttack
-#mods
-#skillEnd
-
-#skill RipwireBallistaPlayer
-#set RipwireBallistaPlayer
-#flags totem
-#mods
-#skillEnd
-
-#skill RipwireBallistaProjectilePlayer
-#set RipwireBallistaProjectilePlayer
-#flags attack projectile totem
 #mods
 #skillEnd
 
@@ -675,6 +737,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SiegeBallistaPlayer
+#set SiegeBallistaPlayer
+#flags totem
+#mods
+#skillEnd
+
+#skill SiegeBallistaProjectilePlayer
+#set SiegeBallistaProjectilePlayer
+#flags attack projectile totem
+#mods
+#set SiegeBallistaProjectileExplodePlayer
+#flags attack projectile totem
+#mods
+#skillEnd
+
 #skill StampedePlayer
 #set StampedePlayer
 #flags attack area melee
@@ -705,9 +782,30 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MetaCastLightningSpellOnHitPlayer
+#set MetaCastLightningSpellOnHitPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastLightningSpellOnHitPlayer
+#set SupportMetaCastLightningSpellOnHitPlayer
+#flags
+#mods
+#skillEnd
+
 #skill TimeOfNeedPlayer
 #set TimeOfNeedPlayer
 #flags duration
+#mods
+#skillEnd
+
+#skill ValakosChargePlayer
+#set ValakosChargePlayer
+#flags area
+#mods
+#set ValakosChargeArcPlayer
+#flags spell chaining
 #mods
 #skillEnd
 
@@ -724,6 +822,9 @@ statMap = {
 #skillEnd
 
 #skill WarBannerReservationPlayer
+#set WarBannerReservationPlayer
+#flags
+#mods
 #skillEnd
 
 #skill WarBannerPlayer

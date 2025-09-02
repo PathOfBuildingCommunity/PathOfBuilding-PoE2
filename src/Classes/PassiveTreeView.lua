@@ -421,7 +421,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	-- draw ascendancies
 	for name, data in pairs(tree.ascendNameMap) do
 		local ascendancy = data.ascendClass
-		if ascendancy.background then
+		local drawn = true
+		if ascendancy.replaceBy and ascendancy.replaceBy == spec.curAscendClassBaseName then
+			drawn = false
+		elseif ascendancy.replace and name ~= spec.curAscendClassBaseName then
+			drawn = false
+		end
+
+		if ascendancy.background and drawn  then
 			local bg = tree:GetAssetByName(ascendancy.background.image)
 			local scrX, scrY = treeToScreen(ascendancy.background.x * tree.scaleImage, ascendancy.background.y * tree.scaleImage)
 			bg.width = ascendancy.background.width

@@ -18,6 +18,36 @@ return {
 			[1]="eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"
 		}
 	},
+	[2]={
+		[1]={
+			[1]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Each use of this Skill deals {0}% less damage with its\nfirst Hit against each enemy"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Each use of this Skill deals {0}% more damage with its\nfirst Hit against each enemy"
+			}
+		},
+		stats={
+			[1]="eye_of_winter_first_hit_damage_+%_final"
+		}
+	},
 	["eye_of_winter_damage_%_to_gain_as_element_per_ground_effect_type"]=1,
+	["eye_of_winter_first_hit_damage_+%_final"]=2,
 	parent="skill_stat_descriptions"
 }

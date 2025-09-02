@@ -68,3 +68,9 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/AnimatedItem/AnimatedWeaponPlayerSummoned ManifestWeapon
 #emit
+
+#monster Metadata/Monsters/Daemon/RavenousSwarmPlayer/RavenousSwarmPlayerSummoned RavenousSwarm
+#emit
+
+#monster Metadata/Monsters/Monsters/LivingLightningPlayerSummoned LivingLightning
+#emit

@@ -123,11 +123,19 @@ return {
 			[2]="quality_display_supercharged_slam_is_gem"
 		}
 	},
+	[6]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_channelled_slam_max_stages"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_skill_effect_duration"]=1,
 	["channelled_slam_damage_+%_final_per_stage"]=4,
 	["channelled_slam_max_stages"]=5,
 	parent="skill_stat_descriptions",
-	["quality_display_supercharged_slam_is_gem"]=5
+	["quality_display_supercharged_slam_is_gem"]=5,
+	["virtual_channelled_slam_max_stages"]=6
 }

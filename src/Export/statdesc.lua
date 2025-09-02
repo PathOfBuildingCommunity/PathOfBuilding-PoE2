@@ -382,7 +382,7 @@ function describeStats(stats)
 			end):gsub("%%%%","%%")
 			local order = descriptor.order
 			for line in (statDesc.."\\n"):gmatch("([^\\]+)\\n") do
-				table.insert(out, line)
+				table.insert(out, sanitiseText(line))
 				table.insert(orders, order)
 				order = order + 0.1
 			end

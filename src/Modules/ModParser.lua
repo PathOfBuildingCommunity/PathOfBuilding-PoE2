@@ -1465,8 +1465,8 @@ local modTagList = {
 	["per (%d+) maximum energy shield on helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
 	["per (%d+) evasion rating on body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["per (%d+) evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
-	["for every (%d+) evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
-	["for every (%d+) energy shield on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = num } } end,
+	["for every (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
+	["for every (%d+) (i?t?e?m? ?)energy shield on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = num } } end,
 	["per (%d+) armour on equipped shield"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnWeapon 2", div = num } } end,
 	["per (%d+) armour or evasion rating on shield"] = function(num) return { tag = { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num } } end,
 	["per (%d+) armour or evasion rating on equipped shield"] = function(num) return { tag = { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num } } end,
@@ -2062,7 +2062,6 @@ local specialModList = {
 	["enemies you kill while affected by glorious madness have a (%d+)%% chance to explode, dealing a (.+) of their life as (.+) damage"] = function(chance, _, amount, type)	-- Beacon of Madness
 		return explodeFunc(chance, amount, type, { type = "Condition", var = "AffectedByGloriousMadness" })
 	end,
-	["enemies killed with attack hits have a (%d+)%% chance to explode, dealing a (.+) of their life as (.+) damage"] = explodeFunc,	-- Devastator (attack clusters)
 	["enemies killed with wand hits have a (%d+)%% chance to explode, dealing a (.+) of their life as (.+) damage"] = function(chance, _, amount, type)	-- Explosive Force (wand clusters)
 		return explodeFunc(chance, amount, type, { type = "Condition", var = "UsingWand" })
 	end,
@@ -2075,7 +2074,7 @@ local specialModList = {
 	["enemies you kill explode, dealing (%d+)%% of their life as (.+) damage"] = function(amount, _, type)	-- legacy synth, legacy crusader
 		return explodeFunc(100, amount, type)
 	end,
-	["enemies killed explode dealing (%d+)%% of their life as (.+) damage"] = function(amount, _, type)	-- Quecholli
+	["causes enemies to explode on critical kill, for (%d+)%% of their life as (.+) damage"] = function(amount, _, type) -- Crumbling Maul implicit
 		return explodeFunc(100, amount, type)
 	end,
 	["enemies on fungal ground you kill explode, dealing (%d+)%% of their life as (.+) damage"] = function(amount, _, type)	-- Sporeguard
@@ -2090,8 +2089,8 @@ local specialModList = {
 	["bleeding enemies you kill explode, dealing (%d+)%% of their maximum life as (.+) damage"] = function(amount, _, type)	-- Haemophilia
 		return explodeFunc(100, amount, type, { type = "ActorCondition", actor = "enemy", var = "Bleeding" })
 	end,
-	["burning enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(amount, _, type)	-- Haemophilia
-		return explodeFunc(100, amount, type, { type = "ActorCondition", actor = "enemy", var = "Burning" })
+	["burning enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Explosive Impact
+		return explodeFunc(chance, amount, type, { type = "ActorCondition", actor = "enemy", var = "Burning" })
 	end,
 	["non-aura curses you inflict are not removed from dying enemies"] = {},
 	["enemies near corpses affected by your curses are blinded"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Blinded") }, { type = "MultiplierThreshold", var = "NearbyCorpse", threshold = 1 }, { type = "ActorCondition", actor = "enemy", var = "Cursed" }) },
@@ -2338,13 +2337,15 @@ local specialModList = {
 		mod("ArmourAppliesToColdDamageTaken", "BASE", 100),
 		mod("ArmourAppliesToLightningDamageTaken", "BASE", 100),
 	},
-	["(%d+)%% of armour applies to elemental damage"] = function(num) return {
+	["%+?(%d+)%% of armour (a?l?s?o? ?)applies to elemental damage"] = function(num) return {
 		mod("ArmourAppliesToFireDamageTaken", "BASE", num),
 		mod("ArmourAppliesToColdDamageTaken", "BASE", num),
 		mod("ArmourAppliesToLightningDamageTaken", "BASE", num),
 	} end,
 	["armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100) } end,
-	["(%d+)%% of armour also applies to (%a+) damage taken from hits"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
+	["armour also applies to (%a+) damage"] = function(_, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100) } end,
+	["%+?(%d+)%% of armour also applies to (%a+) damage taken from hits"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
+	["%+?(%d+)%% of armour also applies to (%a+) damage"] = function(num, _, dmgType) return { mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num) } end,
 	["maximum damage reduction for any damage type is (%d+)%%"] = function(num) return { mod("DamageReductionMax", "MAX", num) } end,
 	["maximum (%a+) damage reduction is (%d+)%%"] = function(_, dmgType, numStr) return { mod(firstToUpper(dmgType) .. "DamageReductionMax", "MAX", tonumber(numStr)) } end,
 	["gain additional elemental damage reduction equal to half your chaos resistance"] = {
@@ -2908,6 +2909,11 @@ local specialModList = {
 	} end,
 	["double the number of your poisons that targets can be affected by at the same time"] =  function(num) return { flag("PoisonCanStack"), mod("PoisonStacks", "MORE", 100) } end,
 	["your speed is unaffected by slows"] = { flag("UnaffectedBySlows") },
+	["(%d+)%% of evasion rating also grants elemental damage reduction"] = function(num) return { 
+		mod("EvasionAppliesToFireDamageTaken", "BASE", num),
+		mod("EvasionAppliesToColdDamageTaken", "BASE", num),
+		mod("EvasionAppliesToLightningDamageTaken", "BASE", num),
+		 } end,
 	-- Raider
 	["nearby enemies have (%d+)%% less accuracy rating while you have phasing"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Accuracy", "MORE", -num) }, { type = "Condition", var = "Phasing" }) } end,
 	["immun[ei]t?y? to elemental ailments while phasing"] = { flag("ElementalAilmentImmune", { type = "Condition", var = "Phasing" }), },
@@ -3030,6 +3036,7 @@ local specialModList = {
 	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("IgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
 	["(%d+)%% chance on shocking enemies to created shocked ground"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }) },
 	["on freezing enemies create chilled ground"] = { mod("ChillBase", "BASE", data.nonDamagingAilment["Chill"].default, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }) },
+	["physical damage reduction from armour is based on your combined armour and evasion rating"] = { mod("EvasionAppliesToPhysicalDamageTaken", "BASE", 100) },
 	-- Chronomancer
 	["skills have (%d+)%% chance to not consume a cooldown when used"] = function(num) return { 
 		mod("CooldownChanceNotConsume", "BASE", num / 100, { type = "SkillType", skillType = SkillType.Cooldown })
@@ -5584,7 +5591,6 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
-	["physical damage reduction from armour is based on your combined armour and evasion rating"] = { mod("EvasionAddsToPdr", "FLAG", true) }
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
