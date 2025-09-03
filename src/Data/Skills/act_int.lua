@@ -11469,7 +11469,7 @@ skills["HeraldOfIcePlayer"] = {
 			statDescriptionScope = "herald_of_ice",
 			statMap = {
 				["display_herald_of_ice_behaviour"] = {
-					mod("HeraldOfIceBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
+					flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Ice" }),
 				},
 			},
 			baseFlags = {

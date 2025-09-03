@@ -5246,7 +5246,7 @@ skills["HeraldOfBloodPlayer"] = {
 			statDescriptionScope = "herald_of_blood",
 			statMap = {
 				["display_herald_of_blood_behaviour"] = {
-					mod("HeraldOfBloodBuff", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Blood" } ),
+					flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Blood" } ),
 				},
 			},
 			baseFlags = {
