@@ -43,6 +43,7 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
 
 	self.dat = { }
 	self.txt = { }
+	self.ot = { }
 
 	if USE_DAT64 then
 		self:AddDat64Files()
@@ -119,6 +120,30 @@ function GGPKClass:ExtractFiles(reExport)
 	local errMsg = PLoadModule("Scripts/enums.lua")
 	if errMsg then
 		print(errMsg)
+	end
+end
+
+function GGPKClass:ExtractList(listToExtract, cache, useRegex)
+	useRegex = useRegex or false
+	local sweetSpotCharacter = 6000
+	printf("Extracting ...")
+	local fileList = ''
+	for _, fname in ipairs(listToExtract) do
+		-- we are going to validate if the file is already extracted in this session
+		if not cache[fname] then
+			cache[fname] = true
+			fileList = fileList .. '"' .. string.lower(fname) .. '" '
+
+			if fileList:len() > sweetSpotCharacter then
+				self:ExtractFilesWithBun(fileList, useRegex)
+				fileList = ''
+			end
+		end
+	end
+
+	if fileList:len() > 0 then
+		self:ExtractFilesWithBun(fileList, useRegex)
+		fileList = ''
 	end
 end
 

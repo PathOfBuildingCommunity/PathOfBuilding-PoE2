@@ -62,6 +62,7 @@ minions["SummonedRagingSpirit"] = {
 	},
 	modList = {
 		mod("Speed", "MORE", 40, 1, 0), -- MonsterSummonedSkullFastAttack1 [active_skill_attack_speed_+%_final = 40]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
 	},
 }
 
@@ -126,6 +127,8 @@ minions["RaisedSkeletonBrute"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- melee_conditional_step_distance [melee_conditional_step_distance = 14]
+		-- active_skill_hit_damage_stun_multiplier_+%_final [active_skill_hit_damage_stun_multiplier_+%_final = 50]
 	},
 }
 
@@ -255,6 +258,7 @@ minions["RaisedSkeletonArsonist"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- strafe_distance_+% [strafe_distance_+% = -40]
 	},
 }
 
@@ -288,6 +292,7 @@ minions["RaisedSkeletonReaver"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- attack_speed_+%_per_2_rage [attack_speed_+%_per_2_rage = 6]
 	},
 }
 
@@ -511,6 +516,7 @@ minions["UnearthBoneConstruct"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2930]
 	},
 }
 
@@ -542,6 +548,9 @@ minions["SummonedRhoa"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_has_quadruped_head_control [set_has_quadruped_head_control = 1]
+		-- set_quadruped_head_turn_duration_ms [set_quadruped_head_turn_duration_ms = 200]
+		-- no_blood_on_death [no_blood_on_death = 1]
 	},
 }
 
@@ -573,6 +582,18 @@ minions["ManifestWeapon"] = {
 		"GAAnimateWeaponQuarterstaffSweep",
 	},
 	modList = {
+		-- minion_does_not_equip_quiver [minion_does_not_equip_quiver = 1]
+		-- monster_gets_item_stats [monster_gets_item_stats = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+		-- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		-- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
+		-- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		-- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
+		-- hide_buff_visuals [hide_buff_visuals = 1]
+		-- hide_mini_life_bar [hide_mini_life_bar = 1]
 	},
 }
 
@@ -599,6 +620,22 @@ minions["RavenousSwarm"] = {
 		"RavenousSwarmAttack",
 	},
 	modList = {
+		-- immune_to_curses [immune_to_curses = 1]
+		-- immune_to_auras_from_other_entities [immune_to_auras_from_other_entities = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- mana_regeneration_rate_per_minute_% [mana_regeneration_rate_per_minute_% = 100]
+		-- base_maximum_mana [base_maximum_mana = 100000]
+		-- set_monster_no_drops_or_experience [set_monster_no_drops_or_experience = 1]
+		-- set_monster_do_not_fracture [set_monster_do_not_fracture = 1]
+		-- set_max_frenzy_charges [set_max_frenzy_charges = 0]
+		-- set_max_endurance_charges [set_max_endurance_charges = 0]
+		-- set_max_power_charges [set_max_power_charges = 0]
+		-- is_hidden_monster [is_hidden_monster = 1]
+		mod("Condition:CannotBeDamaged", "FLAG", 1, 0, 0), -- base_cannot_be_damaged [base_cannot_be_damaged = 1]
+		-- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		-- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- base_cannot_be_frozen [base_cannot_be_frozen = 1]
+		-- base_maximum_life_is_one [base_maximum_life_is_one = 1]
 	},
 }
 
@@ -627,5 +664,24 @@ minions["LivingLightning"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- immune_to_curses [immune_to_curses = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_monster_no_drops_or_experience [set_monster_no_drops_or_experience = 1]
+		-- set_monster_do_not_fracture [set_monster_do_not_fracture = 1]
+		-- set_max_frenzy_charges [set_max_frenzy_charges = 0]
+		-- set_max_endurance_charges [set_max_endurance_charges = 0]
+		-- set_max_power_charges [set_max_power_charges = 0]
+		-- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		-- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_phase_through_objects [set_phase_through_objects = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
+		-- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		-- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- hide_buff_visuals [hide_buff_visuals = 1]
+		-- hide_mini_life_bar [hide_mini_life_bar = 1]
 	},
 }
