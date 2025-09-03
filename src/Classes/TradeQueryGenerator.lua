@@ -817,6 +817,9 @@ function TradeQueryGeneratorClass:FinishQuery()
 	-- So apply a modifier to get a reasonable min and hopefully approximate that the query will start out with small upgrades.
 	local minWeight = megalomaniacSpecialMinWeight or currentStatDiff * 0.5
 	
+	local tradeModeMap = { "available", "securable", "online", "any" }
+	local tradeMode = tradeModeMap[self.calcContext.options.tradeModeIndex] or "online"
+	
 	-- Generate trade query str and open in browser
 	local filters = 0
 	local queryTable = {
@@ -829,7 +832,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 					}
 				}
 			},
-			status = { option = "online" },
+			status = { option = tradeMode },
 			stats = {
 				{
 					type = "weight",
@@ -910,7 +913,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 	main:ClosePopup()
 end
 
-function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callback)
+function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, tradeModeIndex, callback)
 	self.requesterCallback = callback
 	self.requesterContext = context
 
@@ -1029,6 +1032,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 			options.sockets = tonumber(controls.sockets.buf)
 		end
 		options.statWeights = statWeights
+		options.tradeModeIndex = tradeModeIndex
 
 		self:StartQuery(slot, options)
 	end)

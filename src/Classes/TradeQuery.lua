@@ -359,6 +359,20 @@ Highest Weight - Displays the order retrieved from trade]]
 		-- self:PullPoENinjaCurrencyConversion(self.pbLeague)
 	end)
 	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical - row_height - row_vertical_padding, 300, row_height}, "")
+	
+	-- Add Trade Mode dropdown to the bottom right
+	self.tradeModeList = {
+		"Instant Buyout and In Person Trade",
+		"Instant Buyout Only",
+		"In Person Trade Only",
+		"Any"
+	}
+	self.pbTradeModeSelectionIndex = 3 -- Default to "In Person Trade Only"
+	self.controls.tradeModeSelection = new("DropDownControl", {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-pane_margins_horizontal, -pane_margins_vertical, 220, row_height}, self.tradeModeList, function(index, value)
+		self.pbTradeModeSelectionIndex = index
+	end)
+	self.controls.tradeModeSelection:SetSel(self.pbTradeModeSelectionIndex)
+	self.controls.tradeModeSelection.enableDroppedWidth = true
 
 	-- Realm selection
 	self.controls.realmLabel = new("LabelControl", {"LEFT", self.controls.setSelect, "RIGHT"}, {18, 0, 20, row_height - 4}, "^7Realm:")
@@ -844,7 +858,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 100, row_height - 4}, nameColor..slotTbl.slotName)
 	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {100 + 8, 0, 80, row_height}, "Find best", function()
-		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, function(context, query, errMsg)
+		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, self.pbTradeModeSelectionIndex, function(context, query, errMsg)
 			if errMsg then
 				self:SetNotice(context.controls.pbNotice, colorCodes.NEGATIVE .. errMsg)
 				return
