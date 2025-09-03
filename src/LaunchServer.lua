@@ -95,15 +95,15 @@ ConPrintf("Opening URL: %s", url)
 OpenURL(url)
 
 --- Handle an incoming socket connection, to complete an OAuth redirect.
---- @param client table The socket connection to handle, as returned by `server:accept()`.
---- @param attempt number The number of attempts made to handle an incoming connection. This is used for logging
+--- @param client table @The socket connection to handle, as returned by `server:accept()`.
+--- @param attempt number @The number of attempts made to handle an incoming connection. This is used for logging
 --- purposes, since spurious issues can be difficult to identify otherwise.
---- @return boolean shouldRetry Whether we should wait for another connection. If false, we've successfully responded to
---- a HTTP request. Note that, for the purposes of this function, we don't care whether authorization was *granted*,
+--- @return boolean shouldRetry @Whether we should wait for another connection. If false, we've successfully responded
+--- to a HTTP request. Note that, for the purposes of this function, we don't care whether authorization was *granted*,
 --- just that the process itself was completed and the user was redirected as intended.
---- @return string? code The OAuth authorization code. This is exchanged for an access token and refresh token later.
---- @return string? state The OAuth state string. This is a sentinel value used to ensure that a request hasn't been
---  forged.
+--- @return string? code @The OAuth authorization code. This is exchanged for an access token and refresh token later.
+--- @return string? state @The OAuth state string. This is a sentinel value used to ensure that a request hasn't been
+--- forged.
 function handleConnection(client, attempt)
 	local shouldRetry, code, state = true, nil, nil
 
