@@ -87,12 +87,7 @@ function GGPKClass:ExtractFiles(reExport)
 		end
 
 		for _, fname in ipairs(otList) do
-			fileList = fileList .. '"' .. fname .. '" '
-
-			if fileList:len() > sweetSpotCharacter then
-				self:ExtractFilesWithBun(fileList)
-				fileList = ''
-			end
+			self:ExtractFilesWithBun('"' .. fname .. '"', true)
 		end
 
 		for _, fname in ipairs(itList) do
@@ -386,8 +381,8 @@ function GGPKClass:GetNeededFiles()
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
 	}
 	local otFiles = {
-		"Metadata/Characters/Character.ot",
-		"Metadata/Monsters/Monster.ot",
+		"^Metadata/Monsters/(?:[\\w-]+/)*[\\w-]+\\.ot$",
+		"^Metadata/Characters/(?:[\\w-]+/)*[\\w-]+\\.ot$",
 	}
 	local itFiles = {
 		"Metadata/Items/Equipment.it",

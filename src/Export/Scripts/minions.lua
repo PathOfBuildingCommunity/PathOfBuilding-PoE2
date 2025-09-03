@@ -1,15 +1,3 @@
-main.minionOTCache = main.minionOTCache or { }
-local extractCache = main.minionOTCache
-
-local filesToExtract = { }
-for monster in dat("MonsterVarieties"):Rows() do
-	if monster.ObjectType then
-		local file = monster.ObjectType..".ot"
-		table.insert(filesToExtract, file)
-	end
-end
-main.ggpk:ExtractList(filesToExtract, extractCache)
-
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)
 	return {
 		name = modName,
@@ -48,6 +36,41 @@ local function tableToString(tbl, pre)
 		end
 	end
 	return tableString .. " }"
+end
+
+local function getOTStats(OTFile, modList)
+	local file = OTFile..".ot"
+	local text
+	if main.ggpk.ot[file] then
+		text = main.ggpk.ot[file]
+	elseif getFile(file) then
+		text = convertUTF16to8(getFile(file))
+		main.ggpk.ot[file] = text
+	else
+		print("Invalid OT File location: "..file)
+		return modList
+	end
+	local inWantedBlock = false
+	if text then
+		for line in text:gmatch("[^\r\n]+") do
+			local superClass = line:match("extends \"(.+)\"")
+			if superClass and superClass ~= "Metadata/Monsters/Monster" and superClass ~= "nothing" then
+				modList = getOTStats(superClass, modList)
+			end
+			-- Detect start of a block
+			if line:match("^Stats") then
+				inWantedBlock = true
+			elseif inWantedBlock and line:match("^}") then
+				inWantedBlock = false
+			elseif inWantedBlock and line:find("=") and not line:find("//") then
+				local key, value = line:gsub("%s+",""):match("^(.-)=(.+)$")
+				if key and value then
+					table.insert(modList, { Id = key, Stat1 = { Id = key }, Stat1Value = { tonumber(value) } })
+				end
+			end
+		end
+	end
+	return modList
 end
 
 local itemClassMap = {
@@ -319,32 +342,7 @@ directiveTable.emit = function(state, args, out)
 		table.insert(modList, mod)
 	end
 	if monsterVariety.ObjectType then
-		local file = monsterVariety.ObjectType..".ot"
-		local text
-		if main.ggpk.ot[file] then
-			text = main.ggpk.ot[file]
-		elseif getFile(file) then
-			text = convertUTF16to8(getFile(file))
-			main.ggpk.ot[file] = text
-		else
-			ConPrintf(monsterVariety.Name.." ot File not Found")
-		end
-		local inWantedBlock = false
-		if text then
-			for line in text:gmatch("[^\r\n]+") do
-				-- Detect start of a block
-				if line:match("^Stats") then
-					inWantedBlock = true
-				elseif inWantedBlock and line:match("^}") then
-					inWantedBlock = false
-				elseif inWantedBlock and line:find("=") then
-					local key, value = line:gsub("%s+",""):match("^(.-)=(.+)$")
-					if key and tonumber(value) then
-						table.insert(modList, { Id = key, Stat1 = { Id = key }, Stat1Value = { tonumber(value) } })
-					end
-				end
-			end
-		end
+		modList = getOTStats(monsterVariety.ObjectType, modList)
 	end
 	out:write('\tmodList = {\n')
 	for _, mod in ipairs(modList) do

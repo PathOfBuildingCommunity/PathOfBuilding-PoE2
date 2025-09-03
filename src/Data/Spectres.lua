@@ -753,6 +753,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 		"QuillCrabSpikeShrapnel",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -786,6 +787,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 		"QuillCrabSpikeShrapnel",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -820,6 +822,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabPoison"] = {
 		"QuillCrabSpikeShrapnelPoison",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -858,6 +861,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 		"QuillCrabSpikeShrapnelPoison",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -2049,6 +2053,10 @@ minions["Metadata/Monsters/ParasiteMonsters/OctopusParasite"] = {
 		"EDSOctopusParasiteInkSpray",
 	},
 	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_additional_item_drop_slots_when_deleted_on_death [set_additional_item_drop_slots_when_deleted_on_death = 1]
+		-- set_monster_no_drops_when_not_deleted_on_death [set_monster_no_drops_when_not_deleted_on_death = 1]
+		-- set_monster_has_second_form [set_monster_has_second_form = 1]
 	},
 }
 
@@ -2078,6 +2086,10 @@ minions["Metadata/Monsters/ParasiteMonsters/TurtleParasite__"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_additional_item_drop_slots_when_deleted_on_death [set_additional_item_drop_slots_when_deleted_on_death = 1]
+		-- set_monster_no_drops_when_not_deleted_on_death [set_monster_no_drops_when_not_deleted_on_death = 1]
+		-- set_monster_has_second_form [set_monster_has_second_form = 1]
 	},
 }
 
@@ -2107,6 +2119,10 @@ minions["Metadata/Monsters/ParasiteMonsters/AngerfishParasite"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_additional_item_drop_slots_when_deleted_on_death [set_additional_item_drop_slots_when_deleted_on_death = 1]
+		-- set_monster_no_drops_when_not_deleted_on_death [set_monster_no_drops_when_not_deleted_on_death = 1]
+		-- set_monster_has_second_form [set_monster_has_second_form = 1]
 	},
 }
 
@@ -2139,6 +2155,10 @@ minions["Metadata/Monsters/ParasiteMonsters/MantaRayParasite"] = {
 		"GSMantarayBeam",
 	},
 	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_additional_item_drop_slots_when_deleted_on_death [set_additional_item_drop_slots_when_deleted_on_death = 1]
+		-- set_monster_no_drops_when_not_deleted_on_death [set_monster_no_drops_when_not_deleted_on_death = 1]
+		-- set_monster_has_second_form [set_monster_has_second_form = 1]
 	},
 }
 
@@ -2491,6 +2511,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonBow_"
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -2520,6 +2541,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -2553,6 +2575,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock30Bypass10 [monster_base_block_% = 20]
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -2583,6 +2606,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkele
 		"ExpeditionMegaSkeletonCleave",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
@@ -2836,6 +2860,7 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -3017,6 +3042,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 		"EGTerracottaTransition",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -3049,6 +3075,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -4292,6 +4319,7 @@ minions["Metadata/Monsters/Knight/DeathKnightNecropolisElite"] = {
 		"GADeathKnightOverheadslam",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4641,6 +4669,7 @@ minions["Metadata/Monsters/Wretches/StatueWretchElite"] = {
 		"BearerOfPenitenceSlam8",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
 	},
 }
 
@@ -4883,6 +4912,7 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -4984,6 +5014,7 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5064,6 +5095,7 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2415]
 	},
 }
@@ -5098,6 +5130,7 @@ minions["Metadata/Monsters/Bugbot/BugbotRockyNoEmerge"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2444]
 	},
 }
 
@@ -5257,6 +5290,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionBasicZombie"] =
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -5287,6 +5321,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionZombieLarge"] =
 		"GAExpeditionZombieEarthquakeExplosion",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -5319,6 +5354,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCa
 		"GSMercurialCasterBlast",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
@@ -5353,6 +5389,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourAx
 	modList = {
 		mod("BlockChance", "BASE", 30, 0, 0), -- MonsterAttackBlock30Bypass15 [monster_base_block_% = 30]
 		mod("BlockEffect", "BASE", 15, 0, 0), -- MonsterAttackBlock30Bypass15 [base_block_%_damage_taken = 15]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -5384,6 +5421,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
@@ -5423,6 +5461,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest"] = {
 		"SSMArbalestGroundSpawn",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -5455,6 +5494,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnight
 		"WalkEmergeExpeditionDeathKnight",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -5490,6 +5530,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster
 		"GSArmourCasterVolatileExplode",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
@@ -5524,6 +5565,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer"]
 		"SSMExpeditionVolatileZombie",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
@@ -5557,6 +5599,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/BoneCultist/ExpeditionBoneCultist
 		"GTExpeditionCultistEgg",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -5584,6 +5627,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/RatMonster/ExpeditionRat"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -5618,6 +5662,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_"
 	},
 	modList = {
 		-- MonsterMaimOnHit [global_maim_on_hit = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -5655,6 +5700,7 @@ minions["Metadata/Monsters/TwigMonsters/canopy/TwigMonster"] = {
 		"TBTwigMonsterPodBeam",
 	},
 	modList = {
+		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -5689,6 +5735,7 @@ minions["Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis"] = {
 		"TBTwigMonsterPodBeam",
 	},
 	modList = {
+		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -5795,6 +5842,7 @@ minions["Metadata/Monsters/RamGiant/RamGiant"] = {
 		"GARamGiantStomp",
 	},
 	modList = {
+		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
@@ -5831,6 +5879,7 @@ minions["Metadata/Monsters/RamGiant/RamGiantQuarry"] = {
 		"GARamGiantStomp",
 	},
 	modList = {
+		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
@@ -5904,6 +5953,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiantBog"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -5935,6 +5985,7 @@ minions["Metadata/Monsters/MaggotHusks/MaggotHusk"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
+		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -6477,6 +6528,7 @@ minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 		"AzmeriFabricationEnfeeble",
 	},
 	modList = {
+		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- strafe_distance_+% [strafe_distance_+% = -21]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 		mod("EnemyCurseLimit", "BASE", 3, 0, 0), -- number_of_additional_curses_allowed [number_of_additional_curses_allowed = 3]
@@ -8645,7 +8697,6 @@ minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 		"EASTigerChimeralDodgeRight",
 	},
 	modList = {
-		-- //set_melee_conditional_step_distance [//set_melee_conditional_step_distance = 5]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2585]
 	},
 }
@@ -11590,6 +11641,8 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 		"SGLBreachEliteFallenLunarisMonsterChaosQuicksand",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2750]
 	},
 }
@@ -11622,6 +11675,8 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 		"GACountsGuardBloaterTentacleHit",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
@@ -11654,6 +11709,8 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteRanger"] = {
 		"GSIronSniperLaserDamage",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -11686,6 +11743,8 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 	},
 	modList = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
@@ -11717,6 +11776,8 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard"] = {
 		"GPSBreachEliteBonestorm",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
 	},
 }
@@ -11756,6 +11817,8 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite1"] = {
 		"TeleportHellscapePaleElite",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
@@ -11786,6 +11849,8 @@ minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
 	},
 }
@@ -11816,6 +11881,8 @@ minions["Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4100]
 	},
 }
@@ -11849,6 +11916,8 @@ minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 		"GABreachBatSpineImpactMidAir",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
 	},
 }
@@ -11880,6 +11949,8 @@ minions["Metadata/Monsters/Breach/BreachFodderDemonicSpikeThrower"] = {
 		"GSDemonicSpikerBarrage",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -11918,6 +11989,8 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite2"] = {
 		"MeleeAtAnimationSpeedLightning",
 	},
 	modList = {
+		-- set_is_breach_monster [set_is_breach_monster = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
@@ -11982,6 +12055,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZ
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -12012,6 +12086,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/SplitMonster/SplitMonsterSp
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 	},
 }
 
@@ -12049,6 +12124,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster"]
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
@@ -12085,6 +12161,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth"] 
 		"GSRootedGuyExplode",
 	},
 	modList = {
+		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
@@ -12120,6 +12197,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMele
 		"TBTwigMonsterPodBeam",
 	},
 	modList = {
+		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -12156,6 +12234,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 		"GTTwigMonsterPodBeam",
 	},
 	modList = {
+		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
@@ -12191,6 +12270,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 		"TBTwigMonsterPodBeam",
 	},
 	modList = {
+		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
