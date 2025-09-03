@@ -2584,6 +2584,7 @@ skills["ExplosiveSpearPlayer"] = {
 				{ "base_number_of_remote_spear_mines_allowed", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 60 },
 				{ "remote_spear_mine_minimum_target_distance", 10 },
+				{ "active_skill_base_area_of_effect_radius", 28 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
 			},
 			stats = {
@@ -2660,6 +2661,7 @@ skills["ExplosiveSpearPlayer"] = {
 				{ "base_number_of_remote_spear_mines_allowed", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 60 },
 				{ "remote_spear_mine_minimum_target_distance", 10 },
+				{ "active_skill_base_area_of_effect_radius", 40 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 15 },
 				{ "active_skill_base_tertiary_area_of_effect_radius", 20 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },

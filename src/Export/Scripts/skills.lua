@@ -501,10 +501,25 @@ directiveTable.set = function(state, args, out)
 			statRow.InterpolationBases = tableConcat(baseStatRow.InterpolationBases, statRow.InterpolationBases)
 			statRow.AdditionalStats = tableConcat(baseStatRow.AdditionalStats, statRow.AdditionalStats)
 			statRow.AdditionalStatsValues = tableConcat(baseStatRow.AdditionalStatsValues, statRow.AdditionalStatsValues)
+			statRow.BaseStats = tableConcat(tableConcat(tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, skill.baseGrantedEffectStatSet.ConstantStats), baseStatRow.FloatStats), baseStatRow.AdditionalStats)
 		end
 		level.statInterpolation = statRow.StatInterpolations
 		level.actorLevel = statRow.ActorLevel
 		local tempRemoveStats = copyTable(set.removeStats, true)
+		for i, removeStat in pairs(set.removeStats) do
+			-- Fixes the case where a removeStat does not exist in the base set but does in future sets
+			-- It should not be removed if this is the case
+			local remove = false
+			for _, stat in ipairs(statRow.BaseStats) do
+				if stat.Id == removeStat then
+					remove = true
+				end
+			end
+			if remove == false then
+				table.remove(tempRemoveStats, i)
+				table.remove(set.removeStats, i)
+			end
+		end
 		local resolveInterpolation = true
 		local injectConstantValuesIntoEachLevel = false
 		local statMapOrderIndex = 1
