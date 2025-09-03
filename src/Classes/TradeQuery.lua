@@ -27,6 +27,7 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	self.resultTbl = { }
 	self.sortedResultTbl = { }
 	self.itemIndexTbl = { }
+	self.queryIdTbl = { }
 	-- tooltip acceleration tables
 	self.onlyWeightedBaseOutput = { }
 	self.lastComparedWeightList = { }
@@ -359,6 +360,20 @@ Highest Weight - Displays the order retrieved from trade]]
 		-- self:PullPoENinjaCurrencyConversion(self.pbLeague)
 	end)
 	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical - row_height - row_vertical_padding, 300, row_height}, "")
+	
+	-- Add Trade Mode dropdown to the bottom right
+	self.tradeModeList = {
+		"Instant Buyout and In Person Trade",
+		"Instant Buyout Only",
+		"In Person Trade Only",
+		"Any"
+	}
+	self.pbTradeModeSelectionIndex = 3 -- Default to "In Person Trade Only"
+	self.controls.tradeModeSelection = new("DropDownControl", {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-pane_margins_horizontal, -pane_margins_vertical, 220, row_height}, self.tradeModeList, function(index, value)
+		self.pbTradeModeSelectionIndex = index
+	end)
+	self.controls.tradeModeSelection:SetSel(self.pbTradeModeSelectionIndex)
+	self.controls.tradeModeSelection.enableDroppedWidth = true
 
 	-- Realm selection
 	self.controls.realmLabel = new("LabelControl", {"LEFT", self.controls.setSelect, "RIGHT"}, {18, 0, 20, row_height - 4}, "^7Realm:")
@@ -737,6 +752,7 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	self.sortedResultTbl[row_idx] = sortedItems
 	local pb_index = self.sortedResultTbl[row_idx][1].index
 	self.itemIndexTbl[row_idx] = pb_index
+	self:UpdateSelectedItemTokens(row_idx) 
 	self.controls["priceButton".. row_idx].tooltipText = "Sorted by " .. self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	self.totalPrice[row_idx] = {
 		currency = self.resultTbl[row_idx][pb_index].currency,
@@ -844,7 +860,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 100, row_height - 4}, nameColor..slotTbl.slotName)
 	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {100 + 8, 0, 80, row_height}, "Find best", function()
-		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, function(context, query, errMsg)
+		self.tradeQueryGenerator:RequestQuery(activeSlot, { slotTbl = slotTbl, controls = controls, row_idx = row_idx }, self.statSortSelectionList, self.pbTradeModeSelectionIndex, function(context, query, errMsg)
 			if errMsg then
 				self:SetNotice(context.controls.pbNotice, colorCodes.NEGATIVE .. errMsg)
 				return
@@ -873,8 +889,14 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 				end,
 				{
 					callbackQueryId = function(queryId)
-						local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague, queryId)
-						controls["uri"..context.row_idx]:SetText(url, true)
+						-- ConPrintf("Setting queryId for 'Find best' row %d: %s", context.row_idx, tostring(queryId))
+						if queryId then
+							self.queryIdTbl[context.row_idx] = queryId
+							local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague, queryId)
+							controls["uri"..context.row_idx]:SetText(url, true)
+						else
+							-- ConPrintf("Warning: callbackQueryId called with nil queryId for 'Find best' row %d", context.row_idx)
+						end
 					end
 				}
 			)
@@ -922,7 +944,17 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 					self:UpdateControlsWithItems(row_idx)
 				end
 				controls["priceButton"..row_idx].label = "Price Item"
-			end)
+			end,
+			{
+				callbackQueryId = function(queryId)
+					-- ConPrintf("Setting queryId for 'Price Item' row %d: %s", row_idx, tostring(queryId))
+					if queryId then
+						self.queryIdTbl[row_idx] = queryId
+					else
+						-- ConPrintf("Warning: callbackQueryId called with nil queryId for 'Price Item' row %d", row_idx)
+					end
+				end
+			})
 		end)
 	controls["priceButton"..row_idx].enabled = function()
 		local poesessidAvailable = main.POESESSID and main.POESESSID ~= ""
@@ -956,6 +988,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	end
 	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 325, row_height}, dropdownLabels, function(index)
 		self.itemIndexTbl[row_idx] = self.sortedResultTbl[row_idx][index].index
+		self:UpdateSelectedItemTokens(row_idx)
 		self:SetFetchResultReturn(row_idx, self.itemIndexTbl[row_idx])
 	end)
 	local function addCompareTooltip(tooltip, result_index, dbMode)
@@ -999,20 +1032,74 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	controls["importButton"..row_idx].enabled = function()
 		return self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string ~= nil
 	end
-	-- Whisper so we can copy to clipboard
+-- Whisper so we can copy to clipboard
 	controls["whisperButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["importButton"..row_idx], "TOPRIGHT"}, {8, 0, 185, row_height}, function()
-		return self.totalPrice[row_idx] and "Whisper for " .. self.totalPrice[row_idx].amount .. " " .. self.totalPrice[row_idx].currency or "Whisper"
+		if not self.itemIndexTbl[row_idx] then return "Whisper" end
+		local result = self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		local priceStr = self.totalPrice[row_idx] and " for " .. self.totalPrice[row_idx].amount .. " " .. self.totalPrice[row_idx].currency or ""
+		if result.hideout_token then
+			return "Teleport" .. priceStr
+		elseif result.whisper_token then
+			return "Whisper" .. priceStr
+		else
+			return "Copy Whisper" .. priceStr
+		end
 	end, function()
-		Copy(self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].whisper)
+		local result = self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		local token = result.hideout_token or result.whisper_token
+		
+		if token then
+			local queryId = self.queryIdTbl and self.queryIdTbl[row_idx]
+			local refererUrl = queryId and self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague, queryId)
+			
+			if not refererUrl then
+				-- ConPrintf("Error: Could not construct referer URL for whisper.")
+				if result.whisper then Copy(result.whisper) end
+				return
+			end
+			
+			self.tradeQueryRequests:SendWhisper(token, refererUrl, function(response, errMsg)
+				local action = result.hideout_token and "Teleport" or "Whisper"
+				if errMsg or (response and response.error) then
+					local errorMsgStr = "Error: " .. (errMsg or (response.error and response.error.message) or "Unknown error")
+					-- ConPrintf("Action '%s' failed: %s", action, errorMsgStr)
+					self:SetNotice(self.controls.pbNotice, errorMsgStr)
+					if result.whisper then 
+						-- ConPrintf("Falling back to clipboard copy.")
+						Copy(result.whisper) 
+					end
+				else
+					-- ConPrintf("'%s' action successful!", action)
+					self:SetNotice(self.controls.pbNotice, action .. " sent!")
+				end
+			end)
+		elseif result.whisper then
+			-- ConPrintf("No token found. Falling back to clipboard copy.")
+			Copy(result.whisper)
+		else
+			-- ConPrintf("No token and no whisper text found. Cannot perform action.")
+		end
 	end)
 	controls["whisperButton"..row_idx].enabled = function()
-		return self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].whisper ~= nil
+		if not self.itemIndexTbl[row_idx] then return false end
+		local result = self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		return result and (result.whisper or result.whisper_token or result.hideout_token)
 	end
 	controls["whisperButton"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		if self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string then
+		if not self.itemIndexTbl[row_idx] then return end
+		local result = self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+
+		if result and result.item_string then
 			tooltip.center = true
-			tooltip:AddLine(16, "Copies the item purchase whisper to the clipboard")
+			if result.hideout_token then
+				tooltip:AddLine(16, "Teleports you to the player's hideout.")
+			elseif result.whisper_token then
+				tooltip:AddLine(16, "Sends the whisper message directly in-game.")
+			else
+				tooltip:AddLine(16, "Copies the item purchase whisper to the clipboard.")
+			end
+			tooltip:AddLine(16, "If the primary action fails, it will fall back to copying the whisper.")
 		end
 	end
 end
@@ -1073,4 +1160,31 @@ function TradeQueryClass:UpdateRealms()
 			self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
 		end
 	end)
+end
+
+function TradeQueryClass:UpdateSelectedItemTokens(row_idx)
+    local index = self.itemIndexTbl[row_idx]
+    if not index then return end
+
+    local selectedItem = self.resultTbl[row_idx][index]
+    local queryId = self.queryIdTbl and self.queryIdTbl[row_idx]
+    
+    if selectedItem and queryId then
+        -- ConPrintf("Fetching tokens for item %s in row %d", selectedItem.id, row_idx)
+        self.tradeQueryRequests:FetchSingleItem(selectedItem.id, queryId, function(newItemData, errMsg)
+            if errMsg then
+                -- ConPrintf("Error fetching single item token: %s", errMsg)
+                selectedItem.whisper_token = nil
+                selectedItem.hideout_token = nil
+                return
+            end
+            if newItemData then
+                selectedItem.whisper_token = newItemData.whisper_token
+                selectedItem.hideout_token = newItemData.hideout_token
+                -- ConPrintf("Successfully updated tokens for item %s", selectedItem.id)
+            end
+        end)
+    else
+        -- ConPrintf("Missing item data or queryId for row %d, cannot fetch fresh token.", row_idx)
+    end
 end

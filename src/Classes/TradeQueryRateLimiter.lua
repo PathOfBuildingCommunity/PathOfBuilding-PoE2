@@ -42,7 +42,8 @@ local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter", function(se
     -- convenient name lookup, can be extended
     self.policyNames = {
         ["search"] = "trade-search-request-limit",
-        ["fetch"] = "trade-fetch-request-limit"
+        ["fetch"] = "trade-fetch-request-limit",
+        ["whisper"] = "trade-whisper-request-limit"
     }
     self.delayCache = {}
     self.requestId = 0
@@ -53,6 +54,7 @@ local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter", function(se
     self.pendingRequests = {
         ["trade-search-request-limit"] = {},
         ["trade-fetch-request-limit"] = {},
+        ["trade-whisper-request-limit"] = {},
         ["character-list-request-limit-poe2"] = {},
         ["character-request-limit-poe2"] = {}
     }
@@ -75,13 +77,19 @@ function TradeQueryRateLimiterClass:ParsePolicy(headerString)
     local policies = {}
     local headers = self:ParseHeader(headerString)
     local policyName = headers["x-rate-limit-policy"]
+	if not policyName then return policies end
+
     policies[policyName] = {}
     local retryAfter = headers["retry-after"]
     if retryAfter then
-        policies[policyName].retryAfter = os.time() + retryAfter
+        policies[policyName].retryAfter = os.time() + tonumber(retryAfter)
     end
+
+	local rulesHeader = headers["x-rate-limit-rules"]
+	if not rulesHeader then return policies end
+
     local ruleNames = {}
-    for match in headers["x-rate-limit-rules"]:gmatch("[^,]+") do
+    for match in rulesHeader:gmatch("[^,]+") do
         ruleNames[#ruleNames+1] = match:lower()
     end
     for _, ruleName in pairs(ruleNames) do
@@ -93,14 +101,16 @@ function TradeQueryRateLimiterClass:ParsePolicy(headerString)
         for key, headerKey in pairs(properties) do
             policies[policyName][ruleName][key] = {}
             local headerValue = headers[headerKey]
-            for bucket in headerValue:gmatch("[^,]+") do -- example 8:10:60,15:60:120,60:300:1800
-                local next = bucket:gmatch("[^:]+") -- example 8:10:60
-                local request, window, timeout = tonumber(next()), tonumber(next()), tonumber(next())
-                policies[policyName][ruleName][key][window] = {
-                    ["request"] = request,
-                    ["timeout"] = timeout
-                }
-            end
+			if headerValue then
+				for bucket in headerValue:gmatch("[^,]+") do -- example 8:10:60,15:60:120,60:300:1800
+					local next = bucket:gmatch("[^:]+") -- example 8:10:60
+					local request, window, timeout = tonumber(next()), tonumber(next()), tonumber(next())
+					policies[policyName][ruleName][key][window] = {
+						["request"] = request,
+						["timeout"] = timeout
+					}
+				end
+			end
         end
     end
     return policies
