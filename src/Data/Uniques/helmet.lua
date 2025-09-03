@@ -175,7 +175,7 @@ Variant: Current
 {variant:2}Gain (10-15)% of maximum Life as Extra maximum Energy Shield
 ]],[[
 Crown of Eyes
-Coral Circlet
+Vermeil Circlet
 League: Dawn of the Hunt
 (100-140)% increased Energy Shield
 +(150-200) to Accuracy Rating

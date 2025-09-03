@@ -175,7 +175,7 @@ Variant: Current
 {variant:2}UniqueEnergyShieldAsPercentOfLife1
 ]],[[
 Crown of Eyes
-Coral Circlet
+Vermeil Circlet
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent23
 UniqueIncreasedAccuracy9
