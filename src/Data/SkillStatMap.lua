@@ -2554,6 +2554,9 @@ return {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 	value = -100,
 },
+["base_maximum_life_is_one"] = {
+	mod("Life", "OVERRIDE", nil),
+},
 --
 -- Gem Levels / quality
 --
