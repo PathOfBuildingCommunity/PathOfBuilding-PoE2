@@ -478,10 +478,10 @@ directiveTable.set = function(state, args, out)
 		level.level = statRow.GemLevel
 		-- stat based level info
 		if state.skill.setIndex ~= 1 and statRow.AttackCritChance ~= 0 then
-			level.extra.critChance = statRow.AttackCritChance / 100
+			level.extra.critChance = (baseStatRow.AttackCritChance + statRow.AttackCritChance) / 100
 		end
 		if state.skill.setIndex ~= 1 and statRow.OffhandCritChance ~= 0 then
-			level.extra.critChance = statRow.OffhandCritChance / 100
+			level.extra.critChance = (baseStatRow.OffhandCritChance + statRow.OffhandCritChance) / 100
 		end
 		-- If UseSetAttackMulti is true, then take the multi from the stat set, otherwise add the value from base set and current set
 		if state.skill.setIndex ~= 1 and grantedEffectStatSet.UseSetAttackMulti and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then

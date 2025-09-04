@@ -470,7 +470,7 @@ skills["FrostBoltSkeletonMageMinion"] = {
 				"spell_maximum_base_cold_damage",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, critChance = 12, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 0.80000001192093, 1.2000000476837, critChance = 23, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
