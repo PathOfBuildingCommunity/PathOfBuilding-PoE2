@@ -745,7 +745,7 @@ statMap = {
 
 #skill ShieldWallPlayer
 #set ShieldWallPlayer
-#flags attack shieldAttack melee
+#flags attack shieldAttack melee area
 #mods
 #skillEnd
 

@@ -12820,6 +12820,7 @@ skills["ShieldWallPlayer"] = {
 				attack = true,
 				shieldAttack = true,
 				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 6000 },
