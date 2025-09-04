@@ -36,12 +36,9 @@ function calcs.hitChance(evasion, accuracy, uncapped)
 	return uncapped and m_max(round(rawChance), 5) or m_max(m_min(round(rawChance), 100), 5)
 end
 -- Calculate Deflect chance
-function calcs.deflectChance(evasion, accuracy, uncapped)
-	if accuracy < 0 then
-		return 5
-	end
-	local rawChance = ( accuracy * 0.9 ) / ( accuracy + evasion * 0.2 ) * 100
-	return uncapped and m_max(round(rawChance), 0) or m_max(m_min(round(rawChance), 100), 0)
+function calcs.deflectChance(deflection, accuracy)
+	local rawChance = ( accuracy * 0.9 ) / ( accuracy + deflection * 0.2 ) * 100
+	return 100 - m_max(m_min(round(rawChance), 100), 0)
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
@@ -336,7 +333,7 @@ end
 -- Based on code from FR and BS found in act_*.txt
 ---@param activeSkill/output/breakdown references table passed in from calc offence
 ---@param sourceType string type of incoming damage - it will be converted (taken as) from this type if applicable
----@param baseDmg for which to calculate the damage
+---@param baseDmg string for which to calculate the damage
 ---@return table of taken damage parts, and number, sum of damages
 function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceType, baseDmg)
 	local damageBreakdown = { }
@@ -1361,6 +1358,13 @@ function calcs.defence(env, actor)
 			output.EnergyShieldRecoveryCap = output.EnergyShield or 0
 		end
 
+		local enemyAccuracy = round(calcLib.val(enemyDB, "Accuracy"))
+		if modDB:Flag(nil, "EnemyAccuracyDistancePenalty") then
+			local enemyDistance = m_max(m_min(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 120), 20)
+			local accuracyPenalty = 1 - ((enemyDistance - 20) / 100) * (1 - 0.1)
+			enemyAccuracy = m_floor(enemyAccuracy * accuracyPenalty)
+		end
+		
 		if modDB:Flag(nil, "CannotEvade") or enemyDB:Flag(nil, "CannotBeEvaded") then
 			output.EvadeChance = 0
 			output.MeleeEvadeChance = 0
@@ -1374,12 +1378,6 @@ function calcs.defence(env, actor)
 			output.SpellEvadeChance = 100
 			output.SpellProjectileEvadeChance = 100
 		else
-			local enemyAccuracy = round(calcLib.val(enemyDB, "Accuracy"))
-			if modDB:Flag(nil, "EnemyAccuracyDistancePenalty") then
-				local enemyDistance = m_max(m_min(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 120), 20)
-				local accuracyPenalty = 1 - ((enemyDistance - 20) / 100) * (1 - 0.1)
-				enemyAccuracy = m_floor(enemyAccuracy * accuracyPenalty)
-			end
 			local evadeChance = modDB:Sum("BASE", nil, "EvadeChance")
 			local hitChance = calcLib.mod(enemyDB, nil, "HitChance")
 			local evadeMax = modDB:Max(nil, "EvadeChanceMax") or data.misc.EvadeChanceCap
@@ -1427,6 +1425,21 @@ function calcs.defence(env, actor)
 					s_format("Approximate spell projectile evade chance: %d%%", output.SpellProjectileEvadeChance),
 				}
 			end
+		end
+		
+		output.DeflectionRating = (output.Evasion * modDB:Sum("BASE", nil, "EvasionGainAsDeflection") / 100 + output.Armour * modDB:Sum("BASE", nil, "ArmourGainAsDeflection") / 100) * calcLib.mod(modDB, nil, "DeflectionRating")
+		output.DeflectChance = calcs.deflectChance(output.DeflectionRating, enemyAccuracy)
+		if modDB:Flag(nil, "DeflectIsLucky") then
+			local notDeflect = 1 - output.DeflectChance / 100
+			output.DeflectChance = (1 - notDeflect * notDeflect) * 100
+		end
+		output.DeflectEffect = m_min(m_max(data.misc.DeflectEffect + modDB:Sum("BASE", nil, "DeflectEffect"), 0), 100)
+		if breakdown then
+			breakdown.DeflectChance = {
+				s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
+				s_format("Average enemy accuracy: %d", enemyAccuracy),
+				s_format("Approximate deflect chance: %d%%", output.DeflectChance),
+			}
 		end
 	end
 
@@ -3094,6 +3107,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn.EnergyShieldWhenHit = (DamageIn.EnergyShieldWhenHit or 0) + output.EnergyShieldOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 				DamageIn.LifeWhenHit = (DamageIn.LifeWhenHit or 0) + output.LifeOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 			end
+			local effectiveDeflectMulti = 1 - output.DeflectChance * output.DeflectEffect / 10000
 			-- extra avoid chance
 			if damageCategoryConfig == "Projectile" or damageCategoryConfig == "SpellProjectile" then
 				ExtraAvoidChance = ExtraAvoidChance + output.AvoidProjectilesChance
@@ -3128,7 +3142,7 @@ function calcs.buildDefenceEstimations(env, actor)
 					end
 					averageAvoidChance = averageAvoidChance + AvoidChance
 				end
-				DamageIn[damageType] = output[damageType.."TakenHit"] * (blockEffect * suppressionEffect * (1 - AvoidChance / 100))
+				DamageIn[damageType] = output[damageType.."TakenHit"] * (blockEffect * suppressionEffect * effectiveDeflectMulti * (1 - AvoidChance / 100))
 			end
 			-- recoup initialisation
 			if output["anyRecoup"] > 0 then
@@ -3144,7 +3158,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				output["LifeBelowHalfLossLostOverTime"] = 0
 			end
 			averageAvoidChance = averageAvoidChance / 5
-			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * (1 - averageAvoidChance / 100))
+			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * effectiveDeflectMulti * (1 - averageAvoidChance / 100))
 			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(DamageIn) or output["NumberOfDamagingHits"]
 			if breakdown then
 				breakdown["ConfiguredDamageChance"] = {
@@ -3155,6 +3169,9 @@ function calcs.buildDefenceEstimations(env, actor)
 				end
 				if suppressionEffect ~= 1 then
 					t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.3f ^8(suppression effect)", suppressionEffect))
+				end
+				if effectiveDeflectMulti ~= 1 then
+					t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.3f ^8(deflect effect)", effectiveDeflectMulti))
 				end
 				if averageAvoidChance > 0 then
 					t_insert(breakdown["ConfiguredDamageChance"], s_format("x %.2f ^8(chance for avoidance to fail)", 1 - averageAvoidChance / 100))
