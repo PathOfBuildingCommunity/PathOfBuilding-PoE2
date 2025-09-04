@@ -2584,6 +2584,7 @@ skills["ExplosiveSpearPlayer"] = {
 				{ "base_number_of_remote_spear_mines_allowed", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 60 },
 				{ "remote_spear_mine_minimum_target_distance", 10 },
+				{ "active_skill_base_area_of_effect_radius", 28 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
 			},
 			stats = {
@@ -2660,6 +2661,7 @@ skills["ExplosiveSpearPlayer"] = {
 				{ "base_number_of_remote_spear_mines_allowed", 1 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 60 },
 				{ "remote_spear_mine_minimum_target_distance", 10 },
+				{ "active_skill_base_area_of_effect_radius", 40 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 15 },
 				{ "active_skill_base_tertiary_area_of_effect_radius", 20 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
@@ -5165,6 +5167,8 @@ skills["SupportMirageArcherPlayer"] = {
 	requireSkillTypes = { SkillType.RangedAttack, SkillType.CrossbowAmmoSkill, SkillType.OR, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.HasUsageCondition, },
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -8967,7 +8971,7 @@ skills["ThunderousLeapPlayer"] = {
 	name = "Thunderous Leap",
 	baseTypeName = "Thunderous Leap",
 	color = 2,
-	description = "Leap into the air and plunge your Spear into the ground at the target location, emitting a Lightning-charged shockwave and Detonating Spear skills.",
+	description = "Leap into the air and plunge your Spear into the ground at the target location, emitting a Lightning-charged shockwave.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Travel] = true, [SkillType.Spear] = true, [SkillType.Jumping] = true, [SkillType.Slam] = true, [SkillType.Lightning] = true, [SkillType.Melee] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Detonator] = true, },
 	weaponTypes = {
 		["Spear"] = true,

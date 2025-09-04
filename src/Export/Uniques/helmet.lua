@@ -175,7 +175,7 @@ Variant: Current
 {variant:2}UniqueEnergyShieldAsPercentOfLife1
 ]],[[
 Crown of Eyes
-Coral Circlet
+Vermeil Circlet
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent23
 UniqueIncreasedAccuracy9
@@ -457,6 +457,14 @@ UniqueIncreasedMana5
 UniqueNearbyAlliesAllDamage1
 {variant:2}UniqueDexterity32
 UniqueAllDamage1
+]],[[
+Mask of the Sanguimancer
+Face Mask
+UniqueLocalBaseEvasionRatingAndEnergyShield2
+UniqueSpellCriticalStrikeChance1
+UniqueStrength8
+UniqueIntelligence10
+UniqueBloodMagic1
 ]],[[
 Mind of the Council
 Death Mask

@@ -492,7 +492,7 @@ Variant: Current
 {variant:2}+(13-17)% to Chaos Resistance
 {variant:1}(25-50)% increased Flask Charges used
 {variant:2}(20-30)% increased Flask Charges used
-50% chance for Flasks you use to not consume Charges
+50% less Flask Charges used
 ]],[[
 Icetomb
 Mail Vestments

@@ -163,8 +163,8 @@ Metadata/Monsters/PlagueMorphs/PlagueMorph1                                     
 Metadata/Monsters/PlagueSwarm/PlagueSwarm                                                 		----		Plague Swarm
 Metadata/Monsters/PlagueNymph/PlagueNymph_                                                		----		Plague Nymph
 Metadata/Monsters/PlagueBringer/PlagueBringer                                             		----		Plague Harvester
-Metadata/Monsters/PlagueBringer/PlagueBringerInterlude1                                   		----		Bloodgulp
-Metadata/Monsters/PlagueBringer/PlagueBringerInterlude2                                   		----		Fleshpierce
+Metadata/Monsters/PlagueBringer/PlagueBringer                                             		----		Bloodgulp
+Metadata/Monsters/PlagueBringer/PlagueBringer                                             		----		Fleshpierce
 Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderAssassin                             		----		Twilight Order Assassin
 Metadata/Monsters/CorpseWheel/PlagueCorpseWheel                                           		----		The Punished
 Metadata/Monsters/BrainWorm/DuneLurker_                                                   		----		Dune Lurker
@@ -214,8 +214,8 @@ Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest                         
 Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle                                    		----		Vaal Skeletal Archer
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1                                 		----		Ill-fated Explorer
 Metadata/Monsters/Quadrilla/Quadrilla                                                     		----		Quadrilla
-Metadata/Monsters/NettleAnt/NettleAntInterlude                                            		----		Frozen Mandibles
-Metadata/Monsters/NettleAnt/NettleAntSummoned                                             		----		Nettle Ant
+Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Nettle Ant
+Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Frozen Mandibles
 Metadata/Monsters/SnakeHulk/SnakeHulk                                                     		----		Entwined Hulk
 Metadata/Monsters/SerpentHusk/SerpentHusk__                                               		----		Snakethroat Shambler
 Metadata/Monsters/GutViper/GutViper                                                       		----		Entrailhome Shambler
@@ -338,7 +338,7 @@ Metadata/Monsters/TitanWalker/TitanWalker                                       
 Metadata/Monsters/SkeletalKnight/SkeletalKnight                                           		----		Eternal Knight
 Metadata/Monsters/SkeletalReaper/SkeletalReaper                                           		----		Knight-Gaunt
 Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_                                          		----		Goliath
-Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanInterlude                                  		----		Moltenmettle
+Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_                                          		----		Moltenmettle
 Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_                        		----		Faridun Impaler
 Metadata/Monsters/VaseMonster/VaseMonsterSpectre                                          		----		Urnwalker
 Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest                               		----		Risen Tale-woman
@@ -402,15 +402,32 @@ Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium         
 Metadata/Monsters/TormentedSpirits/Stag/SpiritStag                                        		----		Stag Spirit
 Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                                    		----		Nymph Wasp
 Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity                            		----		Fettered Monstrosity
-Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrosity                                		----		Bloodbilge
+Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre                         		----		Bloodbilge
 Metadata/Monsters/Sanctified/Scythe/SanctifiedScythe_                                     		----		Fettered Scythe
 Metadata/Monsters/Sanctified/Snake/SanctifiedSnake                                        		----		Fettered Snake
 Metadata/Monsters/Sanctified/Spider/SanctifiedSpider                                      		----		Fettered Spider
 Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle                                  		----		Fettered Grasper
 Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing                                  		----		Fettered Writher
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy                                      		----		Fettered Hook
+Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre                                 		----		Blackblooded Proboscite
+Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre                                    		----		Blackblooded Cretin
+Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteSpectre_                                		----		Blackblooded Elite
+Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre                                		----		Blackblooded Blisterboil
+Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkSpectre                                   		----		Blackblooded Tarhulk
+Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre                                    		----		Lightless Abomination
+Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre                           		----		Lightless Vengewing
+Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterSpectre                            		----		Lightless Moray
+Metadata/Monsters/LeagueAbyss/Lightless/SerpentClanCasterAbyssSpectre                     		----		Lightless Serpent
 Metadata/Monsters/BoneCultists/BoneCultists_Shield/Interlude/BoneCultistShieldFarmlands   		----		Displaced Brute
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre                      		----		Abyssal Walker
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre                    		----		Abyssal Strangler
+Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyssSpectre                      		----		Gargantuan Larva
 Metadata/Monsters/VaalMonsters/Living/BloodPriests/BloodPool                              		----		Invisible
+Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssSpectre             		----		Fungoid of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre                 		----		Strider of the Pit
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre                     		----		Abyssal Shambler
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre                          		----		Primordium of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre                               		----		Hound of the Pit
 Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                                         		----		Skeletal Cobra
 
 -- Spectres Not Yet Imported --
@@ -430,8 +447,6 @@ Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                         
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard02                                      		----		Tanim
 Metadata/Monsters/PitifulFabrications/PitifulFabrication02                                		----		Ribrattle
 Metadata/Monsters/SerpentClanMonster/SerpentClanCasterBossInterlude                       		----		Bewitching Serpent
-Metadata/Monsters/PlagueBringer/PlagueBringerInterlude1                                   		----		Bloodgulp
-Metadata/Monsters/PlagueBringer/PlagueBringerInterlude2                                   		----		Fleshpierce
 Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderAssassin                             		----		Twilight Order Assassin
 Metadata/Monsters/CorpseWheel/PlagueCorpseWheel                                           		----		The Punished
 Metadata/Monsters/BloodClan/BloodClanTrapper                                              		----		Sea-tribe Trapper
@@ -443,7 +458,8 @@ Metadata/Monsters/BloodClan/BloodClanKina                                       
 Metadata/Monsters/BloodClan/BloodClanHarpooner                                            		----		Sea-tribe Harpooner
 Metadata/Monsters/BloodClan/BloodClanBirdFisherman                                        		----		Sea-tribe Spearfisher
 Metadata/Monsters/BloodClan/BloodClanBird                                                 		----		Sea-tribe Avian
-Metadata/Monsters/NettleAnt/NettleAntInterlude                                            		----		Frozen Mandibles
+Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Nettle Ant
+Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Frozen Mandibles
 Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey                               		----		Constructed Monkey
 Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead                           		----		Constructed Monkey Head
 Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion                     		----		Viper Servant
@@ -468,7 +484,6 @@ Metadata/Monsters/RootedGuys/RootedGuy04/RootedGuy4                             
 Metadata/Monsters/PrimordialMonsters/PrimordialMonster3                                   		----		Primordial Monster
 Metadata/Monsters/RootedGuys/Cocoons2/Cocoons2__                                          		----		Infested Cadaver
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits                                     		----		Captured Soul
-Metadata/Monsters/TwoheadedTitan/TwoHeadedTitanInterlude                                  		----		Moltenmettle
 Metadata/Monsters/LeagueDelirium/DeliriumMinion1                                          		----		Rage
 Metadata/Monsters/LeagueDelirium/DeliriumMinion2                                          		----		Spite
 Metadata/Monsters/LeagueDelirium/DeliriumMinion3                                          		----		Disgust
@@ -479,9 +494,26 @@ Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear                      
 Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleSummon                                  		----		Volatile Scarab
 Metadata/Monsters/TormentedSpirits/Stag/SpiritStag                                        		----		Stag Spirit
 Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                                    		----		Nymph Wasp
-Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrosity                                		----		Bloodbilge
+Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre                         		----		Bloodbilge
+Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre                                 		----		Blackblooded Proboscite
+Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre                                    		----		Blackblooded Cretin
+Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteSpectre_                                		----		Blackblooded Elite
+Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre                                		----		Blackblooded Blisterboil
+Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkSpectre                                   		----		Blackblooded Tarhulk
+Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre                                    		----		Lightless Abomination
+Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre                           		----		Lightless Vengewing
+Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterSpectre                            		----		Lightless Moray
+Metadata/Monsters/LeagueAbyss/Lightless/SerpentClanCasterAbyssSpectre                     		----		Lightless Serpent
 Metadata/Monsters/BoneCultists/BoneCultists_Shield/Interlude/BoneCultistShieldFarmlands   		----		Displaced Brute
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre                      		----		Abyssal Walker
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre                    		----		Abyssal Strangler
+Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyssSpectre                      		----		Gargantuan Larva
 Metadata/Monsters/VaalMonsters/Living/BloodPriests/BloodPool                              		----		Invisible
+Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssSpectre             		----		Fungoid of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre                 		----		Strider of the Pit
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre                     		----		Abyssal Shambler
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre                          		----		Primordium of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre                               		----		Hound of the Pit
 Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                                         		----		Skeletal Cobra
 
 -- Imported Spectres That Fail Checks --
@@ -725,6 +757,7 @@ Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange1         
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange2                   		----		Ill-fated Explorer
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange3                   		----		Ill-fated Explorer
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorerNoSporesOrange4                   		----		Ill-fated Explorer
+Metadata/Monsters/NettleAnt/NettleAntSummoned                                             		----		Nettle Ant
 Metadata/Monsters/GoreCharger/GoreChargerSummoned_                                        		----		Diretusk Boar
 Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeAxe                                      		----		Cultist Warrior
 Metadata/Monsters/CrazedCannibalPicts/PictMaleAxeDagger                                   		----		Cultist Warrior
@@ -931,9 +964,37 @@ Metadata/Monsters/VaalMonsters/Zealots/VaalZealotKnifestickBloodExpedition      
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotKnifestickColdExpedition                 		----		Gelid Zealot
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotSpearBloodExpedition                     		----		Blood Zealot
 Metadata/Monsters/VaalMonsters/Zealots/VaalZealotSpearColdExpedition                      		----		Gelid Zealot
+Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre                         		----		Bloodbilge
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppyBig                                   		----		Fettered Hook
 Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppyMinion                                		----		Fettered Hook
 Metadata/Monsters/Mtx/BrambleBash/BrambleBurrower                                         		----		Bramble Burrower
+Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre                                 		----		Blackblooded Proboscite
+Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre                                    		----		Blackblooded Cretin
+Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteDepths                                  		----		Blackblooded Elite
+Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteSpectre_                                		----		Blackblooded Elite
+Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre                                		----		Blackblooded Blisterboil
+Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkDepths                                    		----		Blackblooded Tarhulk
+Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkSpectre                                   		----		Blackblooded Tarhulk
+Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Depths                                     		----		Lightless Abomination
+Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre                                    		----		Lightless Abomination
+Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre                           		----		Lightless Vengewing
+Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterDepths                             		----		Lightless Moray
+Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterSpectre                            		----		Lightless Moray
+Metadata/Monsters/LeagueAbyss/Lightless/SerpentClanCasterAbyssSpectre                     		----		Lightless Serpent
 Metadata/Monsters/PitifulFabrications/Interlude/PitifulFabricationFarmlands1_             		----		Skullslinger
 Metadata/Monsters/PitifulFabrications/Interlude/PitifulFabricationFarmlands2_             		----		Ribrattle
 Metadata/Monsters/PitifulFabrications/Interlude/PitifulFabricationFarmlands3_             		----		Spinesnatcher
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre                      		----		Abyssal Walker
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre                    		----		Abyssal Strangler
+Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeAbyss                                  		----		Flesh Larva
+Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeAbyssSpectre                           		----		Flesh Larva
+Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyss_Landmark                    		----		Gargantuan Larva
+Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyssSpectre                      		----		Gargantuan Larva
+Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssSpectre             		----		Fungoid of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssDepths                  		----		Strider of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre                 		----		Strider of the Pit
+Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre                     		----		Abyssal Shambler
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre                          		----		Primordium of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre                               		----		Hound of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Large                                 		----		Hound of the Pit
+Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre                          		----		Hound of the Pit

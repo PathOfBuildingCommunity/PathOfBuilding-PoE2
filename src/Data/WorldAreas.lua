@@ -5084,6 +5084,8 @@ worldAreas["MapUberBoss_JadeCitadel"] = {
 	},
 	bossVarieties = {
 		"Manoki, the Chosen",
+		"Manoki, the Fevered",
+		"Manoki, the Defiled",
 	},
 }
 

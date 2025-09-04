@@ -4241,7 +4241,7 @@ skills["QuillCrabSpikeBurstTropical"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.7, levelRequirement = 0, },
+		[1] = { baseMultiplier = 0.6, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {

@@ -37,7 +37,12 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Additional Hits deal {0}% more damage"
 			},

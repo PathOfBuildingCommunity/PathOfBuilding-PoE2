@@ -157,7 +157,7 @@ itemBases["Twin Bow"] = {
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicit = "Bow Attacks fire an additional Arrow",
 	implicitModTypes = { { "attack" }, },
-	weapon = { PhysicalMin = 29, PhysicalMax = 53, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	weapon = { PhysicalMin = 32, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.1, Range = 120, },
 	req = { level = 54, dex = 96, },
 }
 itemBases["Adherent Bow"] = {

@@ -134,7 +134,12 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Minions have {0}% increased Movement Speed"
 			},

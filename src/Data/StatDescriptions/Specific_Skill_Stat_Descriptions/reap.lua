@@ -9,7 +9,12 @@ return {
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
 				},
 				text="Critical Weakness duration is {0:+d} second"
 			},
@@ -18,7 +23,12 @@ return {
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Critical Weakness duration is {0:+d} seconds"
 			},

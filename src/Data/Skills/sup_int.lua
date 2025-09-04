@@ -1734,7 +1734,7 @@ skills["TriggeredCurseZoneHazardExplosionPlayer"] = {
 	name = "Doedre's Dark Design",
 	hidden = true,
 	description = "Explodes and deals Chaos Damage based on your Intelligence when an Enemy enters the area, applying the supported Curse on Hit.",
-	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, },
+	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Spell] = true, [SkillType.AreaSpell] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1786,7 +1786,7 @@ skills["TriggeredCurseZoneHazardExplosionPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_curse_zone_hazard_explosion",
 			baseFlags = {
-				hit = true,
+				spell = true,
 			},
 			constantStats = {
 				{ "triggered_by_curse_zones_are_hazards_%", 100 },

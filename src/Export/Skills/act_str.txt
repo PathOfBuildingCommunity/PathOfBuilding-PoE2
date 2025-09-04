@@ -359,6 +359,11 @@ statMap = {
 #skill HeraldOfBloodPlayer
 #set HeraldOfBloodPlayer
 #flags
+statMap = {
+	["display_herald_of_blood_behaviour"] = {
+		flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Blood" } ),
+	},
+},
 #mods
 #set HeraldOfBloodExplosionPlayer
 #flags
@@ -740,7 +745,7 @@ statMap = {
 
 #skill ShieldWallPlayer
 #set ShieldWallPlayer
-#flags attack shieldAttack melee
+#flags attack shieldAttack melee area
 #mods
 #skillEnd
 

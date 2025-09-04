@@ -11085,7 +11085,12 @@ return {
 	[469]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="{0:+d}% more Damage for each remaining Chain"
 			},
@@ -12348,12 +12353,38 @@ return {
 	[522]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Fires {0:+d} Projectiles"
 			},
 			[2]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Fires {0:+d} Arrows"
 			},
@@ -23671,7 +23702,12 @@ return {
 	[1075]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="{0:+d}% chance per Power to spawn a Cold Remnant on\nFreezing a target"
 			},
@@ -23692,7 +23728,12 @@ return {
 	[1076]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="{0:+d}% chance to spawn a Fire Remnant on\nIgniting a non-Ignited target"
 			},
@@ -23713,7 +23754,12 @@ return {
 	[1077]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="{0:+d}% chance to spawn a Lightning Remnant on\nShocking a non-Shocked target"
 			},

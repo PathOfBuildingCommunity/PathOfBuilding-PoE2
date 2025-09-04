@@ -96,12 +96,22 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
 				},
 				text="Consumes {0:+d} Corpse"
 			},
 			[2]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Consumes {0:+d} Corpses"
 			},

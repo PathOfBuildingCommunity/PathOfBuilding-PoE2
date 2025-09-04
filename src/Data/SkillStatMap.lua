@@ -2546,6 +2546,14 @@ return {
 ["base_cannot_be_damaged"] = {
 	mod("Condition:CannotBeDamaged", "FLAG", nil)
 },
+["minions_cannot_be_damaged"] = {
+	mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "MORE", nil) }),
+	value = -100,
+},
+["minions_deal_no_damage"] = {
+	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
+	value = -100,
+},
 --
 -- Gem Levels / quality
 --

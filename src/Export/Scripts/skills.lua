@@ -271,7 +271,7 @@ directiveTable.skill = function(state, args, out)
 		--end
 		table.insert(skill.levels, level)
 	end
-	if not skill.qualityStats and not granted.IsSupport then
+	if not (skillGem and granted.IsSupport) then
 		skill.qualityStats = { }
 		local qualityStats = dat("GrantedEffectQualityStats"):GetRow("GrantedEffect", granted)
 		if qualityStats and qualityStats.GrantedStats then
@@ -478,10 +478,10 @@ directiveTable.set = function(state, args, out)
 		level.level = statRow.GemLevel
 		-- stat based level info
 		if state.skill.setIndex ~= 1 and statRow.AttackCritChance ~= 0 then
-			level.extra.critChance = statRow.AttackCritChance / 100
+			level.extra.critChance = (baseStatRow.AttackCritChance + statRow.AttackCritChance) / 100
 		end
 		if state.skill.setIndex ~= 1 and statRow.OffhandCritChance ~= 0 then
-			level.extra.critChance = statRow.OffhandCritChance / 100
+			level.extra.critChance = (baseStatRow.OffhandCritChance + statRow.OffhandCritChance) / 100
 		end
 		-- If UseSetAttackMulti is true, then take the multi from the stat set, otherwise add the value from base set and current set
 		if state.skill.setIndex ~= 1 and grantedEffectStatSet.UseSetAttackMulti and statRow.BaseMultiplier and statRow.BaseMultiplier ~= 0 then
@@ -501,10 +501,25 @@ directiveTable.set = function(state, args, out)
 			statRow.InterpolationBases = tableConcat(baseStatRow.InterpolationBases, statRow.InterpolationBases)
 			statRow.AdditionalStats = tableConcat(baseStatRow.AdditionalStats, statRow.AdditionalStats)
 			statRow.AdditionalStatsValues = tableConcat(baseStatRow.AdditionalStatsValues, statRow.AdditionalStatsValues)
+			statRow.BaseStats = tableConcat(tableConcat(tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, skill.baseGrantedEffectStatSet.ConstantStats), baseStatRow.FloatStats), baseStatRow.AdditionalStats)
 		end
 		level.statInterpolation = statRow.StatInterpolations
 		level.actorLevel = statRow.ActorLevel
 		local tempRemoveStats = copyTable(set.removeStats, true)
+		for i, removeStat in pairs(set.removeStats) do
+			-- Fixes the case where a removeStat does not exist in the base set but does in future sets
+			-- It should not be removed if this is the case
+			local remove = false
+			for _, stat in ipairs(statRow.BaseStats) do
+				if stat.Id == removeStat then
+					remove = true
+				end
+			end
+			if remove == false then
+				table.remove(tempRemoveStats, i)
+				table.remove(set.removeStats, i)
+			end
+		end
 		local resolveInterpolation = true
 		local injectConstantValuesIntoEachLevel = false
 		local statMapOrderIndex = 1

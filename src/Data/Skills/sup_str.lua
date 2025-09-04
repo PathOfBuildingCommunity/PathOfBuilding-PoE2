@@ -1243,21 +1243,11 @@ skills["SupportBrutusBrainPlayer"] = {
 			label = "Brutus' Brain",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_minion_defensive_stance_minion_damage_taken_+%_final"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
-				},
-				["support_meat_shield_minion_damage_+%_final"] = {
-					mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "MORE", nil) }),
-				},
-			},
 			baseFlags = {
 			},
-			constantStats = {
-				{ "support_minion_defensive_stance_minion_damage_taken_+%_final", -100 },
-				{ "support_meat_shield_minion_damage_+%_final", -100 },
-			},
 			stats = {
+				"minions_cannot_be_damaged",
+				"minions_deal_no_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1973,7 +1963,7 @@ skills["SupportDefyPlayerTwo"] = {
 			},
 			stats = {
 				"attack_damage_is_lucky_if_surrounded",
-				"melee_attacks_usable_without_mana_cost_while_surrounded",
+				"skills_are_usable_without_mana_cost_while_surrounded",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2002,7 +1992,7 @@ skills["SupportDesperationPlayer"] = {
 			baseFlags = {
 			},
 			stats = {
-				"melee_attacks_usable_without_mana_cost_while_surrounded",
+				"skills_are_usable_without_mana_cost_while_surrounded",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -4314,7 +4304,7 @@ skills["SupportLifeLeechPlayerThree"] = {
 }
 skills["SupportBloodMagicPlayer"] = {
 	name = "Lifetap",
-	description = "Supports any Skill, turning a portion of its Mana cost into a Life cost. Does not support Skills which reserve Spirit.",
+	description = "Supports any Skill, turning its Mana cost into a Life cost. Does not support Skills which reserve Spirit.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { },

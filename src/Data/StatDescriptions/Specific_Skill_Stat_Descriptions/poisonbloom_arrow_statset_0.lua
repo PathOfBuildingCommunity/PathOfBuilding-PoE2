@@ -92,12 +92,22 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
 				},
 				text="Limit {0:+d} pustule"
 			},
 			[2]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
 				},
 				text="Limit {0:+d} pustules"
 			},

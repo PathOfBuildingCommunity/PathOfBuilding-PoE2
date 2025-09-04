@@ -49,7 +49,7 @@ League: Dawn of the Hunt
 Implicits: 1
 Used when you become Ignited
 (20-25)% Chance to gain a Charge when you Kill an Enemy
-Creates Ignited Ground in for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life
+Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life
 ]],[[
 The Black Cat
 Grounding Charm

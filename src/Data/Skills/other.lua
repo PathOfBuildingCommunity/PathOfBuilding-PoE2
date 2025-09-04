@@ -977,6 +977,8 @@ skills["SupportMetaDeadeyeMarksPlayer"] = {
 	requireSkillTypes = { SkillType.Mark, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -1201,6 +1203,8 @@ skills["SupportMetaCastOnCharmUsePlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -1507,7 +1511,7 @@ skills["UnloadAmmoPlayer"] = {
 				"can_perform_skill_while_moving",
 				"base_deal_no_damage",
 				"crossbow_ammo_skill_does_not_transition",
-				"skill_is_instant_while_sprinting",
+				"can_be_used_instantly_in_any_set",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2975,6 +2979,8 @@ skills["SupportMetaCastFireSpellOnHitPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -4191,7 +4197,7 @@ skills["MeditatePlayer"] = {
 	baseTypeName = "Meditate",
 	fromTree = true,
 	color = 4,
-	description = "Channel to Recharge Energy Shield and allow that Recharge to Overflow. Channelling ends when you take damage or your Energy Shield is double its normal maximum. This skill cannot be used if your Energy Shield is already double its normal maximum or you have no maximum Energy Shield.",
+	description = "Channel to Recharge Energy Shield and allow that Recharge to Overflow. Channelling ends when you take damage or your Energy Shield is fully Overflowed.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Channel] = true, [SkillType.Cooldown] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
