@@ -568,6 +568,12 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			end
 		end
 	end
+	if grantedEffect.flavourText and main.showFlavourText then
+		self.tooltip:AddSeparator(10)
+		for _, line in ipairs(grantedEffect.flavourText) do
+			self.tooltip:AddLine(16, colorCodes.UNIQUE .. line)
+		end
+	end
 end
 
 function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)

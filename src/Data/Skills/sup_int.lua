@@ -78,6 +78,7 @@ skills["SupportAhnsCitadelPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Fortress",},
 	isLineage = true,
+	flavourText = {"As possessed golems ravaged the land, Aul - crowned Ahn", "by blood and tyranny - began the last ritual, causing azurite", "crystals to rupture and grow throughout his doomed citadel.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -199,6 +200,7 @@ skills["SupportArbitersIgnitionPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "ArbiterLineage",},
 	isLineage = true,
+	flavourText = {"\"This carving seems to depict curled bodies floating in vats...", "the next shows all but one of them dying. What were they", "trying to do? It seems they kept trying... kept experimenting...\"", },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -298,6 +300,7 @@ skills["SupportAtzirisAllurePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "AtziriLineage",},
 	isLineage = true,
+	flavourText = {"Such was her seductive power, every noble in the court fell", "over themselves to do her bidding. Winning a single glance", "away from her mirror meant more than their lives.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -1674,6 +1677,7 @@ skills["SupportDiallasDesirePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "DiallasDesire",},
 	isLineage = true,
+	flavourText = {"\"I will become your Gemling Queen, my love, but not", "with such dull stones. I want to give myself to you", "for eternity. Surely we can seek perfection together?\"", },
 	levels = {
 		[1] = { reservationMultiplier = -10, manaMultiplier = -10, levelRequirement = 0, },
 	},
@@ -1706,6 +1710,7 @@ skills["SupportDoedresUndoingPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "CursedGround",},
 	isLineage = true,
+	flavourText = {"\"Let the meat show us the way. Hail the meat, praise the", "meat. The meat is both debasement and divinity alike. The", "meat shall lead us down the path to true enlightenment.\"", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -2189,6 +2194,7 @@ skills["SupportEshsRadiancePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "BreachLineage",},
 	isLineage = true,
+	flavourText = {"\"Where life once thrived, now only metal grows, inching", "like endless worms through the ash. Where silence fell,", "now sourceless thought whispers numbers in the dark.\"", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
@@ -3363,6 +3369,7 @@ skills["SupportFlukePlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Fluke",},
 	isLineage = true,
+	flavourText = {"Few mortals can comprehend the horror of experiencing", "every possibility. Chaos alone takes joy in the", "unthinkable and the unimaginable made manifest.", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
@@ -3401,6 +3408,7 @@ skills["SupportKalisasCrescendoPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "KalisasCrescendo",},
 	isLineage = true,
+	flavourText = {"\"Her voice reached into my chest and plucked my beating", "heart from its cage. By the wide, glistening eyes of my", "fellow punters, I knew that they felt it, too.\"", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -3433,6 +3441,7 @@ skills["SupportKulemaksDominionPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "AbyssalLineageTwo",},
 	isLineage = true,
+	flavourText = {"Still a shadow of his former self, Kulemak turned to deception.", "He promised Ahn untold power and mastery, in exchange for", "a single golem. \"After all, what harm could one servant do?\"", },
 	levels = {
 		[1] = { manaMultiplier = 30, levelRequirement = 0, },
 	},
@@ -3465,6 +3474,7 @@ skills["SupportKurgalsLeashPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "KurgalLineage",},
 	isLineage = true,
+	flavourText = {"Kurgal's first body was a mere stone golem, enslaved by a", "collar. He found such ecstasy in the power of dominion,", "he clawed his way free... and soon, supplanted a Lich Lord.", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
@@ -4779,6 +4789,7 @@ skills["SupportWildshardsPlayerThree"] = {
 	excludeSkillTypes = { SkillType.ProjectilesNumberModifiersNotApplied, },
 	gemFamily = { "AdditionalProjectiles",},
 	isLineage = true,
+	flavourText = {"She holds in her hand a shattered crystal, a vision of her desire: to", "see her sister's silver palace obliterated, to see it cast across the", "heavens. One cross word, and the sky will rain down her fury.", },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -4995,6 +5006,7 @@ skills["SupportTecrodsRevengePlayer"] = {
 	excludeSkillTypes = { SkillType.MinionsAreUndamagable, },
 	gemFamily = { "LastGasp",},
 	isLineage = true,
+	flavourText = {"The Lich Lords destroyed his body, but with his dying fury,", "Tecrod found a way. He lurks deep, in the blood, in the flesh,", "in the Well... perhaps walking among them even now, unseen.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5166,6 +5178,7 @@ skills["SupportVarashtasBlessingPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "VarashtasBlessing",},
 	isLineage = true,
+	flavourText = {"\"These traditions we shall set forth, so that we may remain", "strong, so that we may endure throughout the ages. Not to", "bind, not to dominate, but to protect... and guide.\"", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
@@ -5228,6 +5241,7 @@ skills["SupportVilentasPropulsionPlayer"] = {
 	excludeSkillTypes = { SkillType.FixedSpeedProjectile, },
 	gemFamily = { "ProjectileSpeed",},
 	isLineage = true,
+	flavourText = {"Day and night, she hammered away, obsessed with proving it", "could be done; a vast ring of artifice under the earth, pushing", "energy to speeds never before seen - all to prove Qotra wrong.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5488,6 +5502,7 @@ skills["SupportZarokhsRefrainPlayer"] = {
 	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByZarokh, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, SkillType.Triggered, },
 	gemFamily = { "SpellEcho",},
 	isLineage = true,
+	flavourText = {"Reliving the same day for all time, Zarokh raged against", "the moments that made up his prison. There would be", "no redemption, for he had broken his only barya.", },
 	levels = {
 		[1] = { storedUses = 1, cooldown = 5, levelRequirement = 0, manaMultiplier = 30, },
 	},

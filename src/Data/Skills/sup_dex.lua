@@ -160,6 +160,7 @@ skills["SupportAilithLineagePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "AilithLineage",},
 	isLineage = true,
+	flavourText = {"Ailith awoke to find her fire iridescent, and her mind alive", "with visions. By morning, she began teaching what she'd", "seen... thus was born the Keepers of the Pale Vision.", },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -400,6 +401,7 @@ skills["SupportArakaalisLustPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "ArakaaliLineage",},
 	isLineage = true,
+	flavourText = {"She flashed a smile full of wicked teeth. \"Sin, my darling.", "Forget your Maraketh woes.\" She bit and tore and reveled;", "he lay trapped in silk, wrought with despair and ecstasy.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -432,6 +434,7 @@ skills["SupportAmmoConservationPlayerFour"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "AmmoConservation",},
 	isLineage = true,
+	flavourText = {"Confident their enemy was defenseless, the Keitans brazenly", "charged the walls - but Arjun's ammunition supply reports", "had been... 'inaccurate'... just like everything else Bardiyan.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -2332,6 +2335,7 @@ skills["SupportGarukhansResolvePlayer"] = {
 	excludeSkillTypes = { SkillType.Persistent, SkillType.HasUsageCondition, SkillType.SupportedByGarukhan, SkillType.NOT, SkillType.AND, SkillType.Instant, SkillType.Cooldown, SkillType.Triggered, SkillType.UsedByTotem, },
 	gemFamily = { "HitAndRun",},
 	isLineage = true,
+	flavourText = {"At the last, her hope gone - but not her resolve - she threw her", "beloved Tangletongue. That was the day a god bled. For this, the", "Great Roc graced a Maraketh warrior with a feather for the first time.", },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -3834,6 +3838,7 @@ skills["SupportPietysMercyPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Mercy",},
 	isLineage = true,
+	flavourText = {"The prisoners cowered in their cages when Piety stalked by.", "She gave them bread and said flatly, \"You needn't be so", "frightened. I don't want to kill you... I'm going to use you.\"", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -4487,6 +4492,7 @@ skills["SupportRakiatasFlowPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "RakiataLineage",},
 	isLineage = true,
+	flavourText = {"The Tasalio Tribe developed their own Way, seeing", "the world not as it is, but as it should be, given its", "roiling and endless grace of constant motion.", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
@@ -4615,6 +4621,7 @@ skills["SupportCombatReloadPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "DoubleBarrel",},
 	isLineage = true,
+	flavourText = {"\"No plan. No stealth. I want shock. Awe. I want them to", "know who did it, and I want them telling tales. That's the", "only way for us to earn their respect... and their fear.\"", },
 	levels = {
 		[1] = { manaMultiplier = 10, levelRequirement = 0, },
 	},
@@ -4914,6 +4921,7 @@ skills["SupportRigwaldsFerocityPlayer"] = {
 	excludeSkillTypes = { SkillType.NoAttackOrCastTime, SkillType.Instant, },
 	gemFamily = { "RigwaldLineage",},
 	isLineage = true,
+	flavourText = {"\"Skothe kept us idle, sitting safe on these islands, while our", "brethren remain slaves. We are one and the same! We must", "fight! So, I bring you his head. I am now your Wolven King!\"", },
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -5428,6 +5436,7 @@ skills["SupportTacatisIrePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "TacatiLineage",},
 	isLineage = true,
+	flavourText = {"He almost saved the Vaal. His unique poison made it past", "the Queen's cupbearers; he had only to direct his anger...", "but in her presence, he could feel naught but lust.", },
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5464,6 +5473,7 @@ skills["SupportTulsStillnessPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "BreachLineage",},
 	isLineage = true,
+	flavourText = {"\"Countless graves glow silently in endless rows that stretch", "on unseen. The living lie within, but do not decay, do not", "die. Their eyes remain open, their essence stilled, waiting.\"", },
 	levels = {
 		[1] = { manaMultiplier = 20, levelRequirement = 0, },
 	},
