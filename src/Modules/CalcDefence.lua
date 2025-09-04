@@ -37,6 +37,9 @@ function calcs.hitChance(evasion, accuracy, uncapped)
 end
 -- Calculate Deflect chance
 function calcs.deflectChance(deflection, accuracy)
+	if deflection < 1 then
+		return 0
+	end
 	local rawChance = ( accuracy * 0.9 ) / ( accuracy + deflection * 0.2 ) * 100
 	return 100 - m_max(m_min(round(rawChance), 100), 0)
 end
@@ -2358,15 +2361,16 @@ function calcs.buildDefenceEstimations(env, actor)
 			takenMult = (output[damageType.."SpellTakenHitMult"] + output[damageType.."AttackTakenHitMult"]) / 2
 			spellSuppressMult = output.EffectiveSpellSuppressionChance == 100 and (1 - output.SpellSuppressionEffect / 100 / 2) or 1
 		end
+		local deflectMulti = output.DeflectChance == 100 and (1 - output.DeflectEffect / 100) or 1
 		output[damageType.."EffectiveAppliedArmour"] = effectiveAppliedArmour
 		output[damageType.."ResistTakenHitMulti"] = resMult
-		local afterReductionMulti = takenMult * spellSuppressMult
+		local afterReductionMulti = takenMult * spellSuppressMult * deflectMulti
 		output[damageType.."AfterReductionTakenHitMulti"] = afterReductionMulti
 		local baseMult = resMult * reductMult
 		output[damageType.."BaseTakenHitMult"] = baseMult * afterReductionMulti
 		local takenMultReflect = output[damageType.."TakenReflect"]
 		local finalReflect = baseMult * takenMultReflect
-		output[damageType.."TakenHit"] = m_max(damage * baseMult + takenFlat, 0) * takenMult * spellSuppressMult + impaleDamage
+		output[damageType.."TakenHit"] = m_max(damage * baseMult + takenFlat, 0) * afterReductionMulti + impaleDamage
 		output[damageType.."TakenHitMult"] = (damage > 0) and (output[damageType.."TakenHit"] / damage) or 0
 		output["totalTakenHit"] = output["totalTakenHit"] + output[damageType.."TakenHit"]
 		if output.AnyTakenReflect then
@@ -2426,10 +2430,13 @@ function calcs.buildDefenceEstimations(env, actor)
 			if spellSuppressMult ~= 1 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x Spell Suppression: %.3f", spellSuppressMult))
 			end
+			if deflectMulti ~= 1 then
+				t_insert(breakdown[damageType.."TakenHitMult"], s_format("x Deflection: %.3f", deflectMulti))
+			end
 			if impaleDamage ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("+ Impale: %.1f", impaleDamage))
 			end
-			if takenMult ~= 1 or takenFlat ~= 0 or spellSuppressMult ~= 1 or impaleDamage ~= 0 then
+			if takenFlat ~= 0 or afterReductionMulti ~= 1 or impaleDamage ~= 0 then
 				t_insert(breakdown[damageType.."TakenHitMult"], s_format("= %.3f", output[damageType.."TakenHitMult"]))
 			end
 			if output.AnyTakenReflect then
@@ -3107,7 +3114,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				DamageIn.EnergyShieldWhenHit = (DamageIn.EnergyShieldWhenHit or 0) + output.EnergyShieldOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 				DamageIn.LifeWhenHit = (DamageIn.LifeWhenHit or 0) + output.LifeOnSuppress * ( damageCategoryConfig == "Average" and 0.5 or 1 )
 			end
-			local effectiveDeflectMulti = 1 - output.DeflectChance * output.DeflectEffect / 10000
+			local effectiveDeflectMulti = output.DeflectChance < 100 and 1 - output.DeflectChance * output.DeflectEffect / 10000 or 1
 			-- extra avoid chance
 			if damageCategoryConfig == "Projectile" or damageCategoryConfig == "SpellProjectile" then
 				ExtraAvoidChance = ExtraAvoidChance + output.AvoidProjectilesChance
