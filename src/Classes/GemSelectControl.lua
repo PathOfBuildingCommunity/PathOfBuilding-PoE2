@@ -560,11 +560,11 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			self.tooltip:AddSeparator(10)
 			self:AddGrantedEffectInfo(gemInstance, additional)
 			for _, statSet in ipairs(additional.statSets) do
-				self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+				self:AddStatSetInfo(gemInstance, additional, statSet)
 			end
 		else
 			for _, statSet in ipairs(additional.statSets) do
-				self:AddStatSetInfo(gemInstance, grantedEffect, statSet, true)
+				self:AddStatSetInfo(gemInstance, additional, statSet, true)
 			end
 		end
 	end

@@ -521,6 +521,8 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 		["One Handed Axe"] = true,
 		["One Handed Sword"] = true,
 	},
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -1810,6 +1812,8 @@ skills["SupportMetaCastOnBlockPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -1954,6 +1958,8 @@ skills["SupportMetaCastOnMeleeKillPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[8] = { storedUses = 1, levelRequirement = 0, cooldown = 0.2, },
 	},
@@ -2022,6 +2028,8 @@ skills["SupportMetaCastOnMeleeStunPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[8] = { storedUses = 1, levelRequirement = 0, cooldown = 0.2, },
 	},
@@ -11200,6 +11208,8 @@ skills["SupportMortarCannonPlayer"] = {
 	requireSkillTypes = { SkillType.Grenade, },
 	addSkillTypes = { SkillType.UsedByTotem, },
 	excludeSkillTypes = { SkillType.Meta, SkillType.Triggered, SkillType.Channel, SkillType.Persistent, },
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -14326,6 +14336,8 @@ skills["SupportMetaCastLightningSpellOnHitPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },

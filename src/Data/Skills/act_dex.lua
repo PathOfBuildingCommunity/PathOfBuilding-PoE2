@@ -5167,6 +5167,8 @@ skills["SupportMirageArcherPlayer"] = {
 	requireSkillTypes = { SkillType.RangedAttack, SkillType.CrossbowAmmoSkill, SkillType.OR, },
 	addSkillTypes = { },
 	excludeSkillTypes = { SkillType.HasUsageCondition, },
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },

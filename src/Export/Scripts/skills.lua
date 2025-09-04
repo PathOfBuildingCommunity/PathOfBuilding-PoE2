@@ -271,7 +271,7 @@ directiveTable.skill = function(state, args, out)
 		--end
 		table.insert(skill.levels, level)
 	end
-	if not skill.qualityStats and not granted.IsSupport then
+	if not (skillGem and granted.IsSupport) then
 		skill.qualityStats = { }
 		local qualityStats = dat("GrantedEffectQualityStats"):GetRow("GrantedEffect", granted)
 		if qualityStats and qualityStats.GrantedStats then

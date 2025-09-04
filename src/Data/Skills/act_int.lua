@@ -803,6 +803,8 @@ skills["SupportBarrierInvocationPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -1030,6 +1032,8 @@ skills["SupportBlasphemyPlayer"] = {
 	excludeSkillTypes = { SkillType.Trapped, SkillType.RemoteMined, SkillType.OR, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.NOT, SkillType.AND, SkillType.SupportedByHourglass, },
 	isTrigger = true,
 	ignoreMinionTypes = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -2087,6 +2091,8 @@ skills["SupportMetaCastOnCritPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -2310,6 +2316,8 @@ skills["SupportMetaCastOnDodgePlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -2534,6 +2542,8 @@ skills["SupportMetaCastOnElementalAilmentPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -2756,6 +2766,8 @@ skills["SupportMetaCastOnMinionDeathPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, SkillType.CreatesMinion, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -4339,6 +4351,8 @@ skills["SupportMetaCastCurseOnBlockPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -5506,6 +5520,8 @@ skills["SupportElementalInvocationPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -11174,6 +11190,10 @@ skills["SupportHandOfChayulaPlayer"] = {
 	requireSkillTypes = { SkillType.AppliesCurse, SkillType.Mark, SkillType.OR, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	qualityStats = {
+		{ "base_curse_duration_+%", 1 },
+		{ "mark_effect_+%", 0.5 },
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -15888,6 +15908,8 @@ skills["SupportReapersInvocationPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
