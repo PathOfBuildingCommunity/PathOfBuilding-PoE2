@@ -42,7 +42,12 @@ return {
 					k="negate",
 					v=1
 				},
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{0}% reduced Imbuement time"
 			},
@@ -80,7 +85,12 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="{0:+d}% increased Block chance"
 			},

@@ -5,7 +5,12 @@ return {
 	[1]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="{0:+d}% increased duration of socketed Curses"
 			},
@@ -39,7 +44,12 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{0:+d}% increased Magnitudes of socketed Curses"
 			},
@@ -73,7 +83,12 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{0:+d}% increased Effect of Socketed Marks"
 			},

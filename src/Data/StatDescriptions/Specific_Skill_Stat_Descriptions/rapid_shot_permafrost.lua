@@ -138,7 +138,20 @@ return {
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=3
 				},
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Shards deal up to {0:+d}% more Damage after arming"
 			}

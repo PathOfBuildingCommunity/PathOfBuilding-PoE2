@@ -977,6 +977,8 @@ skills["SupportMetaDeadeyeMarksPlayer"] = {
 	requireSkillTypes = { SkillType.Mark, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -1201,6 +1203,8 @@ skills["SupportMetaCastOnCharmUsePlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },
@@ -2975,6 +2979,8 @@ skills["SupportMetaCastFireSpellOnHitPlayer"] = {
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
 	excludeSkillTypes = { SkillType.SupportedByHourglass, },
 	isTrigger = true,
+	qualityStats = {
+	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 		[2] = { levelRequirement = 0, },

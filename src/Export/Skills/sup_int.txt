@@ -383,7 +383,7 @@ statMap = {
 
 #skill TriggeredCurseZoneHazardExplosionPlayer
 #set TriggeredCurseZoneHazardExplosionPlayer
-#flags hit
+#flags spell
 #mods
 #skillEnd
 

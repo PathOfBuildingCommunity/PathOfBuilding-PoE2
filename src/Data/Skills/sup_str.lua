@@ -1243,14 +1243,6 @@ skills["SupportBrutusBrainPlayer"] = {
 			label = "Brutus' Brain",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_minion_defensive_stance_minion_damage_taken_+%_final"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
-				},
-				["support_meat_shield_minion_damage_+%_final"] = {
-					mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "MORE", nil) }),
-				},
-			},
 			baseFlags = {
 			},
 			stats = {

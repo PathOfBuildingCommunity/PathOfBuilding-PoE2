@@ -29,7 +29,12 @@ return {
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{0:+d} seconds to Beyond Sight duration"
 			},

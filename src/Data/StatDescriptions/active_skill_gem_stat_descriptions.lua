@@ -6140,12 +6140,22 @@ return {
 	[249]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
 				},
 				text="Chains an additional time"
 			},
 			[2]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Chains {0:+d} additional times"
 			},

@@ -61322,7 +61322,7 @@ return {
 			},
 			group=346,
 			icon="Art/2DArt/SkillIcons/passives/InstillationsNode1.dds",
-			name="Infusion Damage",
+			name="Infusion Duration",
 			orbit=2,
 			orbitIndex=4,
 			skill=31697,
@@ -88973,7 +88973,7 @@ return {
 			},
 			group=346,
 			icon="Art/2DArt/SkillIcons/passives/InstillationsNode1.dds",
-			name="Infusion Damage",
+			name="Infusion Duration",
 			orbit=1,
 			orbitIndex=11,
 			skill=51303,
@@ -106364,7 +106364,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/InstillationsNotable1.dds",
 			isNotable=true,
 			isSwitchable=true,
-			name="Infused Spell Damage",
+			name="Principal Infusion",
 			options={
 				Witch={
 					icon="Art/2DArt/SkillIcons/passives/ChaosDamagenode.dds",

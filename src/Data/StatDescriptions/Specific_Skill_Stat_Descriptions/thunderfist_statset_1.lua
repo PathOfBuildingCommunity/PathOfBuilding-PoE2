@@ -14,7 +14,16 @@ return {
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=2
 				},
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=0,
+						[2]=0
+					},
+					[2]={
+						[1]="#",
+						[2]=-1
+					}
 				},
 				text="-{1} seconds to bolt cooldown"
 			},

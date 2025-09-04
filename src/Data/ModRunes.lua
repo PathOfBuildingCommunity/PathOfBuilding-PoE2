@@ -42,7 +42,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"+4 to Maximum Rage",
-				statOrder = { 8886 },
+				statOrder = { 8887 },
 		},
 	},
 	["Uromoti's Soul Core of Attenuation"] = {
@@ -93,7 +93,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"10% increased speed of Recoup Effects",
-				statOrder = { 8937 },
+				statOrder = { 8938 },
 		},
 	},
 	["Tacati's Soul Core of Affliction"] = {
@@ -121,19 +121,19 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Minions deal 40% increased Damage with Command Skills",
-				statOrder = { 8347 },
+				statOrder = { 8348 },
 		},
 		["sceptre"] = {
 				type = "Rune",
 				"Minions deal 40% increased Damage with Command Skills",
-				statOrder = { 8347 },
+				statOrder = { 8348 },
 		},
 	},
 	["Soul Core of Tacati"] = {
 		["weapon"] = {
 				type = "Rune",
 				"15% chance to Poison on Hit with this weapon",
-				statOrder = { 7224 },
+				statOrder = { 7225 },
 		},
 		["armour"] = {
 				type = "Rune",
@@ -277,36 +277,36 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Strength",
-				statOrder = { 7228 },
+				statOrder = { 7229 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Strength",
-				statOrder = { 7228 },
+				statOrder = { 7229 },
 		},
 	},
 	["Soul Core of Cholotl"] = {
 		["weapon"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Dexterity",
-				statOrder = { 7226 },
+				statOrder = { 7227 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Dexterity",
-				statOrder = { 7226 },
+				statOrder = { 7227 },
 		},
 	},
 	["Soul Core of Zantipi"] = {
 		["weapon"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Intelligence",
-				statOrder = { 7227 },
+				statOrder = { 7228 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Intelligence",
-				statOrder = { 7227 },
+				statOrder = { 7228 },
 		},
 	},
 	["Desert Rune"] = {
@@ -459,7 +459,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
-				statOrder = { 9364 },
+				statOrder = { 9365 },
 		},
 	},
 	["Vision Rune"] = {
@@ -629,7 +629,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
-				statOrder = { 9364 },
+				statOrder = { 9365 },
 		},
 	},
 	["Lesser Vision Rune"] = {
@@ -799,7 +799,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
-				statOrder = { 9364 },
+				statOrder = { 9365 },
 		},
 	},
 	["Greater Vision Rune"] = {
@@ -981,7 +981,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"6 to 9 Physical Thorns damage",
-				statOrder = { 9483 },
+				statOrder = { 9484 },
 		},
 	},
 	["Tempered Rune"] = {
@@ -993,7 +993,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"14 to 21 Physical Thorns damage",
-				statOrder = { 9483 },
+				statOrder = { 9484 },
 		},
 	},
 	["Greater Tempered Rune"] = {
@@ -1005,19 +1005,19 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"31 to 52 Physical Thorns damage",
-				statOrder = { 9483 },
+				statOrder = { 9484 },
 		},
 	},
 	["Greater Rune of Leadership"] = {
 		["weapon"] = {
 				type = "Rune",
 				"Minions gain 10% of their Physical Damage as Extra Lightning Damage",
-				statOrder = { 8391 },
+				statOrder = { 8392 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Minions take 10% of Physical Damage as Lightning Damage",
-				statOrder = { 8392 },
+				statOrder = { 8393 },
 		},
 	},
 	["Greater Rune of Tithing"] = {
@@ -1029,7 +1029,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"1 to 100 Lightning Thorns damage",
-				statOrder = { 9482 },
+				statOrder = { 9483 },
 		},
 	},
 	["Greater Rune of Alacrity"] = {
@@ -1048,12 +1048,12 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Attacks with this Weapon have 10% chance to inflict Lightning Exposure",
-				statOrder = { 7159 },
+				statOrder = { 7160 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"10% reduced effect of Shock on you",
-				statOrder = { 9107 },
+				statOrder = { 9108 },
 		},
 	},
 	["Hedgewitch Assandra's Rune of Wisdom"] = {
@@ -1067,12 +1067,12 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Gain 5% of Damage as Extra Damage of all Elements",
-				statOrder = { 8552 },
+				statOrder = { 8553 },
 		},
 		["caster"] = {
 				type = "Rune",
 				"Gain 5% of Damage as Extra Damage of all Elements",
-				statOrder = { 8552 },
+				statOrder = { 8553 },
 		},
 	},
 	["Fenumus' Rune of Agony"] = {
@@ -1091,7 +1091,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"6% reduced Movement Speed Penalty from using Skills while moving",
-				statOrder = { 8467 },
+				statOrder = { 8468 },
 		},
 	},
 	["Farrul's Rune of the Chase"] = {
@@ -1147,7 +1147,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"20% increased Magnitude of Non-Damaging Ailments you inflict",
-				statOrder = { 8532 },
+				statOrder = { 8533 },
 		},
 	},
 	["Fenumus' Rune of Spinning"] = {
@@ -1168,14 +1168,14 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
-				statOrder = { 9267 },
+				statOrder = { 9268 },
 		},
 	},
 	["Fenumus' Rune of Draining"] = {
 		["gloves"] = {
 				type = "Rune",
 				"20% increased Withered Magnitude",
-				statOrder = { 9734 },
+				statOrder = { 9735 },
 		},
 	},
 	["Thane Myrk's Rune of Summer"] = {
@@ -1225,14 +1225,14 @@ return {
 				type = "Rune",
 				"25% reduced Poison Duration",
 				"Targets can be affected by +1 of your Poisons at the same time",
-				statOrder = { 2775, 8612 },
+				statOrder = { 2775, 8613 },
 		},
 	},
 	["Talisman of Grold"] = {
 		["gloves"] = {
 				type = "Rune",
 				"15% increased total Power counted by Warcries",
-				statOrder = { 9708 },
+				statOrder = { 9709 },
 		},
 	},
 	["Talisman of Eeshta"] = {
@@ -1253,14 +1253,14 @@ return {
 		["body armour"] = {
 				type = "Rune",
 				"+1 Charm Slot",
-				statOrder = { 8602 },
+				statOrder = { 8603 },
 		},
 	},
 	["Talisman of Ralakesh"] = {
 		["helmet"] = {
 				type = "Rune",
 				"6% increased Reservation Efficiency of Minion Skills",
-				statOrder = { 8397 },
+				statOrder = { 8398 },
 		},
 	},
 	["Serpent Talisman"] = {
@@ -1302,7 +1302,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"50% increased Thorns Critical Hit Chance",
-				statOrder = { 9472 },
+				statOrder = { 9473 },
 		},
 	},
 	["Boar Talisman"] = {

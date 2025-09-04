@@ -68,7 +68,12 @@ return {
 	[7]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{0:+d}% increased Ignite duration for each Fragment in a single hit"
 			},

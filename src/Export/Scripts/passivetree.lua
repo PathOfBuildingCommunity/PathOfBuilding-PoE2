@@ -1285,7 +1285,7 @@ for _, lines in ipairs(linesFiles) do
 	table.insert(linesDds, lines.mask)
 end
 
-extractFromGgpk(linesDds)
+main.ggpk:ExtractList(linesDds, cacheExtract)
 nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "lines", linesDds, true)
 
 -- change extension from dds to png

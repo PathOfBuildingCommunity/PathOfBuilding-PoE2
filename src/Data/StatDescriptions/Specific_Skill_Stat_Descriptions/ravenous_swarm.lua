@@ -16,7 +16,12 @@ return {
 					k="divide_by_ten_1dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{0:+d} metres to swarm Attack radius"
 			},

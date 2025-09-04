@@ -1786,7 +1786,7 @@ skills["TriggeredCurseZoneHazardExplosionPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_curse_zone_hazard_explosion",
 			baseFlags = {
-				hit = true,
+				spell = true,
 			},
 			constantStats = {
 				{ "triggered_by_curse_zones_are_hazards_%", 100 },

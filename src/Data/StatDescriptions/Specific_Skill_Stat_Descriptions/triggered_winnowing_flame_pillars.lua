@@ -56,7 +56,7 @@ return {
 						[2]=100
 					}
 				},
-				text="Flame Pillars deal Damage equal to the highest expected remaining Damage of the Consumed Ignites"
+				text="Grisly Pyres deal Damage equal to the highest expected remaining Damage of the Consumed Ignites"
 			},
 			[2]={
 				limit={
@@ -65,16 +65,16 @@ return {
 						[2]="#"
 					}
 				},
-				text="Flame Pillars deal Damage equal to {0}% of the highest expected remaining Damage of the Consumed Ignites"
+				text="Grisly Pyres deal Damage equal to {0}% of the highest expected remaining Damage of the Consumed Ignites"
 			}
 		},
 		stats={
-			[1]="support_flame_pillar_fire_damage_equal_to_%_of_remaining_ignite_damage"
+			[1]="unique_flame_pillar_fire_damage_equal_to_%_of_remaining_ignite_damage"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_secondary_area_of_effect_radius"]=3,
 	["never_ignite"]=1,
 	parent="skill_stat_descriptions",
-	["support_flame_pillar_fire_damage_equal_to_%_of_remaining_ignite_damage"]=4
+	["unique_flame_pillar_fire_damage_equal_to_%_of_remaining_ignite_damage"]=4
 }

@@ -191,7 +191,12 @@ return {
 	[8]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
 				},
 				text="{0:+d}% increased duration of socketed Curses"
 			},
@@ -254,7 +259,12 @@ return {
 	[10]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="Supported Curses have {0}% increased Magnitudes"
 			},
@@ -359,7 +369,12 @@ return {
 	[13]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{0:+d}% increased Effect of Socketed Marks"
 			},
