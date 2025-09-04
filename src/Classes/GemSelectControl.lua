@@ -573,7 +573,7 @@ end
 function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local grantedEffectLevel = grantedEffect.levels[displayInstance.level] or { }
-	if gemInstance.gemData.Tier and not grantedEffect.isLineage then
+	if gemInstance.gemData.Tier and not grantedEffect.isLineage and not grantedEffect.hidden then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier))
 		end
 	if addReq and not grantedEffect.support then
@@ -583,7 +583,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			(gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""
 		))
 	end
-	if grantedEffect.support then
+	if grantedEffect.support and not grantedEffect.hidden then
 		if grantedEffectLevel.manaMultiplier and grantedEffectLevel.reservationMultiplier and grantedEffectLevel.manaMultiplier == grantedEffectLevel.reservationMultiplier then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FCost & Reservation Multiplier: ^7%d%%", grantedEffectLevel.manaMultiplier + 100))
 		elseif grantedEffectLevel.reservationMultiplier then
@@ -628,41 +628,43 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		if cost then
 			self.tooltip:AddLine(16, "^x7F7F7FCost: ^7"..cost)
 		end
-		if grantedEffectLevel.cooldown then
-			local string = string.format("^x7F7F7FCooldown Time: ^7%.2f sec", grantedEffectLevel.cooldown)
-			if grantedEffectLevel.storedUses and grantedEffectLevel.storedUses > 1 then
-				string = string .. string.format(" (%d uses)", grantedEffectLevel.storedUses)
+		if not grantedEffect.hidden then
+			if grantedEffectLevel.cooldown then
+				local string = string.format("^x7F7F7FCooldown Time: ^7%.2f sec", grantedEffectLevel.cooldown)
+				if grantedEffectLevel.storedUses and grantedEffectLevel.storedUses > 1 then
+					string = string .. string.format(" (%d uses)", grantedEffectLevel.storedUses)
+				end
+				self.tooltip:AddLine(16, string)
 			end
-			self.tooltip:AddLine(16, string)
-		end
-		if grantedEffectLevel.vaalStoredUses then
-			self.tooltip:AddLine(16, string.format("^x7F7F7FCan Store ^7%d ^x7F7F7FUse (%d Souls)", grantedEffectLevel.vaalStoredUses, grantedEffectLevel.vaalStoredUses * grantedEffectLevel.cost.Soul))
-		end
-		if grantedEffectLevel.soulPreventionDuration then
-			self.tooltip:AddLine(16, string.format("^x7F7F7FSoul Gain Prevention: ^7%d sec", grantedEffectLevel.soulPreventionDuration))
-		end
-		if gemInstance.gemData.tags.attack then
-			if grantedEffectLevel.attackSpeedMultiplier then
-				self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Speed: ^7%d%% of base", grantedEffectLevel.attackSpeedMultiplier + 100))
+			if grantedEffectLevel.vaalStoredUses then
+				self.tooltip:AddLine(16, string.format("^x7F7F7FCan Store ^7%d ^x7F7F7FUse (%d Souls)", grantedEffectLevel.vaalStoredUses, grantedEffectLevel.vaalStoredUses * grantedEffectLevel.cost.Soul))
 			end
-			if grantedEffectLevel.attackTime then
-				self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Time: ^7%.2f sec", grantedEffectLevel.attackTime / 1000))
+			if grantedEffectLevel.soulPreventionDuration then
+				self.tooltip:AddLine(16, string.format("^x7F7F7FSoul Gain Prevention: ^7%d sec", grantedEffectLevel.soulPreventionDuration))
 			end
-			if grantedEffectLevel.baseMultiplier then
-				self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%g%% of base", grantedEffectLevel.baseMultiplier * 100))
-			end
-		else
-			if grantedEffect.castTime > 0 then
-				self.tooltip:AddLine(16, string.format("^x7F7F7FCast Time: ^7%.2f sec", grantedEffect.castTime))
+			if gemInstance.gemData.tags.attack then
+				if grantedEffectLevel.attackSpeedMultiplier then
+					self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Speed: ^7%d%% of base", grantedEffectLevel.attackSpeedMultiplier + 100))
+				end
+				if grantedEffectLevel.attackTime then
+					self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Time: ^7%.2f sec", grantedEffectLevel.attackTime / 1000))
+				end
+				if grantedEffectLevel.baseMultiplier then
+					self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%g%% of base", grantedEffectLevel.baseMultiplier * 100))
+				end
 			else
-				self.tooltip:AddLine(16, "^x7F7F7FCast Time: ^7Instant")
+				if grantedEffect.castTime > 0 then
+					self.tooltip:AddLine(16, string.format("^x7F7F7FCast Time: ^7%.2f sec", grantedEffect.castTime))
+				else
+					self.tooltip:AddLine(16, "^x7F7F7FCast Time: ^7Instant")
+				end
 			end
-		end
-		if grantedEffectLevel.critChance then
-			self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", grantedEffectLevel.critChance))
-		end
-		if gemInstance.gemData.weaponRequirements then
-			self.tooltip:AddLine(16, "^x7F7F7F Requires: ^7" .. gemInstance.gemData.weaponRequirements)
+			if grantedEffectLevel.critChance then
+				self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", grantedEffectLevel.critChance))
+			end
+			if gemInstance.gemData.weaponRequirements then
+				self.tooltip:AddLine(16, "^x7F7F7F Requires: ^7" .. gemInstance.gemData.weaponRequirements)
+			end
 		end
 	end
 	if addReq and displayInstance.quality > 0 then
@@ -689,16 +691,18 @@ end
 function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLabel)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local statSetLevel = statSet.levels[displayInstance.level] or { }
-	if statSet.label ~= grantedEffect.name and statSet.label ~= "" and not noLabel then
-		self.tooltip:AddSeparator(10)
-		self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
-		self.tooltip:AddSeparator(10)
-	end
-	if statSetLevel.critChance then
-		self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", statSetLevel.critChance))
-	end
-	if statSetLevel.baseMultiplier then
-		self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100))
+	if not grantedEffect.hidden then
+		if statSet.label ~= grantedEffect.name and statSet.label ~= "" and not noLabel then
+			self.tooltip:AddSeparator(10)
+			self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
+			self.tooltip:AddSeparator(10)
+		end
+		if statSetLevel.critChance then
+			self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", statSetLevel.critChance))
+		end
+		if statSetLevel.baseMultiplier then
+			self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100))
+		end
 	end
 	if self.skillsTab and self.skillsTab.build.data.describeStats then
 		if not noLabel then self.tooltip:AddSeparator(10) end
