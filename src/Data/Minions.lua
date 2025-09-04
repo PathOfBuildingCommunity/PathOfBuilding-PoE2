@@ -725,3 +725,29 @@ minions["LivingLightning"] = {
 		-- hide_mini_life_bar [hide_mini_life_bar = 1]
 	},
 }
+
+minions["TacticianMinion"] = {
+	name = "Artillery Squad",
+	monsterTags = { "ranged", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.67,
+	damageSpread = 0.2,
+	attackTime = 1,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 8,
+	spectreReservation = 50,
+	companionReservation = 30,
+	spawnLocation = {
+	},
+	skillList = {
+		"DeathFromAboveDaemonMinion",
+	},
+	modList = {
+	},
+}

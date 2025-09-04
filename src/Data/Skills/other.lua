@@ -5623,6 +5623,7 @@ skills["SupportingFirePlayer"] = {
 	baseTypeName = "Supporting Fire",
 	fromTree = true,
 	minionList = {
+		"TacticianMinion",
 	},
 	color = 4,
 	description = "Recruit artillery Minions that takes up positions behind you. They will lay in wait for your Command then fire volleys of arrows at the target location.",
