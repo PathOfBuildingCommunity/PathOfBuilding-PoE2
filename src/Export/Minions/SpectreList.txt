@@ -494,17 +494,8 @@ Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear                      
 Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleSummon                                  		----		Volatile Scarab
 Metadata/Monsters/TormentedSpirits/Stag/SpiritStag                                        		----		Stag Spirit
 Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                                    		----		Nymph Wasp
-Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrosity                                		----		Bloodbilge
 Metadata/Monsters/BoneCultists/BoneCultists_Shield/Interlude/BoneCultistShieldFarmlands   		----		Displaced Brute
-Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre                      		----		Abyssal Walker
-Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre                    		----		Abyssal Strangler
-Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyssSpectre                      		----		Gargantuan Larva
 Metadata/Monsters/VaalMonsters/Living/BloodPriests/BloodPool                              		----		Invisible
-Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssSpectre             		----		Fungoid of the Pit
-Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre                 		----		Strider of the Pit
-Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre                     		----		Abyssal Shambler
-Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre                          		----		Primordium of the Pit
-Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre                               		----		Hound of the Pit
 Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                                         		----		Skeletal Cobra
 
 -- Imported Spectres That Fail Checks --
