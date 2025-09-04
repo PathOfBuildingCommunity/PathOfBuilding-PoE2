@@ -181,6 +181,7 @@ data.misc = { -- magic numbers
 	BlockChanceCap = 90,
 	SuppressionChanceCap = 100,
 	SuppressionEffect = 50,
+	DeflectEffect = 40,
 	AvoidChanceCap = 75,
 	AccuracyFalloffStart = 20,
 	AccuracyFalloffEnd = 90,

@@ -1693,12 +1693,24 @@ return {
 		{ modName = { "SpellDodgeChanceMax", "SpellDodgeChance" }, },
 	}, },
 } },
-{ defaultCollapsed = false, label = "Spell Suppression", data = {
+--[[{ defaultCollapsed = false, label = "Spell Suppression", data = {
 	extra = "{0:output:SpellSuppressionChance}%",
 	{ label = "Suppression Ch.", { format = "{0:output:SpellSuppressionChance}% (+{0:output:SpellSuppressionChanceOverCap}%)", { modName = "SpellSuppressionChance" }, }, },
 	{ label = "Suppression Effect", { format = "{0:output:SpellSuppressionEffect}%", { modName = "SpellSuppressionEffect" }, }, },
 	{ label = "Life on Suppression", haveOutput = "LifeOnSuppress", { format = "{0:output:LifeOnSuppress}", { modName = "LifeOnSuppress" }, }, },
 	{ label = "ES on Suppression", haveOutput = "EnergyShieldOnSuppress", { format = "{0:output:EnergyShieldOnSuppress}", { modName = "EnergyShieldOnSuppress" }, }, },
+} },]]
+{ defaultCollapsed = false, label = "Deflection", data = {
+	extra = "{0:output:DeflectChance}%",
+	{ label = "Eva. as Deflection", { format = "{0:mod:1}%", { modName = "EvasionGainAsDeflection", modType = "BASE" }, }, },
+	{ label = "Arm. as Deflection", { format = "{0:mod:1}%", { modName = "ArmourGainAsDeflection", modType = "BASE" }, }, },
+	{ label = "Deflection Rating", { format = "{0:output:DeflectionRating}", { modName = "DeflectionRating" }, }, },
+	{ label = "Deflect Effect", { format = "{0:output:DeflectEffect}%", { modName = "DeflectEffect" }, }, },
+	{ label = "Deflect Chance", { format = "{0:output:DeflectChance}%",
+		{ breakdown = "DeflectChance" },
+		{ label = "Player modifiers", modName = { "DeflectChance" } },
+		{ label = "Enemy modifiers", modName = { "Accuracy" }, enemy = true },
+	}, },
 } },
 } },
 -- misc resources

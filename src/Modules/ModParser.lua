@@ -319,6 +319,8 @@ local modNameList = {
 	["to dodge attacks and spell damage"] = { "AttackDodgeChance", "SpellDodgeChance" },
 	["to dodge attack and spell hits"] = { "AttackDodgeChance", "SpellDodgeChance" },
 	["to dodge attack or spell hits"] = { "AttackDodgeChance", "SpellDodgeChance" },
+	["deflection rating"] = { "DeflectionRating" },
+	["amount of damage prevented by deflection"] = { "DeflectEffect" },
 	["to suppress spell damage"] = { "SpellSuppressionChance" },
 	["amount of suppressed spell damage prevented"] = { "SpellSuppressionEffect" },
 	["to amount of suppressed spell damage prevented"] = { "SpellSuppressionEffect" },
@@ -3750,7 +3752,11 @@ local specialModList = {
 	},
 	["critical hits poison the enemy"] = { mod("PoisonChance", "OVERRIDE", 100, { type = "Condition", var = "CriticalStrike" })},
 	["always poison on hit with this weapon"] = { mod("PoisonChance", "OVERRIDE", 100 , nil, ModFlag.Weapon, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true })},
-	-- Suppression
+	-- Suppression / deflection
+	["gain deflection rating equal to (%d+)%% of evasion rating"] = function(num) return { mod("EvasionGainAsDeflection", "BASE", num) } end,
+	["gain deflection rating equal to (%d+)%% of armour"] = function(num) return { mod("ArmourGainAsDeflection", "BASE", num) } end,
+	["prevent %+(%d+)%% of damage from deflected hits"] = function(num) return { mod("DeflectEffect", "BASE", num) } end,
+	["chance to deflect is lucky"] = { flag("DeflectIsLucky") },
 	["y?o?u?r? ?chance to suppress spell damage is lucky"] = { flag("SpellSuppressionChanceIsLucky") },
 	["y?o?u?r? ?chance to suppress spell damage is unlucky"] = { flag("SpellSuppressionChanceIsUnlucky") },
 	["prevent %+(%d+)%% of suppressed spell damage"] = function(num) return { mod("SpellSuppressionEffect", "BASE", num) } end,
