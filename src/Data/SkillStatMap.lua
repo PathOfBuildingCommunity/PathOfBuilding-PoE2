@@ -2546,6 +2546,9 @@ return {
 ["base_cannot_be_damaged"] = {
 	mod("Condition:CannotBeDamaged", "FLAG", nil)
 },
+["base_maximum_life_is_one"] = {
+	mod("Life", "OVERRIDE", nil),
+},
 --
 -- Gem Levels / quality
 --

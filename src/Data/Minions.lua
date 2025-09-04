@@ -682,7 +682,7 @@ minions["RavenousSwarm"] = {
 		-- base_cannot_be_stunned [base_cannot_be_stunned = 1]
 		-- cannot_be_knocked_back [cannot_be_knocked_back = 1]
 		-- base_cannot_be_frozen [base_cannot_be_frozen = 1]
-		-- base_maximum_life_is_one [base_maximum_life_is_one = 1]
+		mod("Life", "OVERRIDE", 1, 0, 0), -- base_maximum_life_is_one [base_maximum_life_is_one = 1]
 	},
 }
 
