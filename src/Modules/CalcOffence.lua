@@ -2869,7 +2869,7 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.AncestralCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.AncestralExertsCount = env.modDB:Sum("BASE", nil, "NumAncestralExerts") or 0
 						local baseUptimeRatio = m_min((globalOutput.AncestralExertsCount / output.Speed) / (globalOutput.AncestralCryCooldown + globalOutput.AncestralCryCastTime), 1) * 100
-						local storedUses = value.skillData.storedUses + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
+						local storedUses = value.skillData.storedUses or 0 + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
 						globalOutput.AncestralUpTimeRatio = m_min(100, baseUptimeRatio * storedUses)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.AncestralUpTimeRatio
 						if globalBreakdown then
@@ -2892,7 +2892,7 @@ function calcs.offence(env, actor, activeSkill)
 						if activeSkill.skillTypes[SkillType.Melee] then
 							globalOutput.InfernalExertsCount = env.modDB:Sum("BASE", nil, "NumInfernalExerts") or 0
 							local baseUptimeRatio = m_min((globalOutput.InfernalExertsCount / output.Speed) / (globalOutput.InfernalCryCooldown + globalOutput.InfernalCryCastTime), 1) * 100
-							local storedUses = value.skillData.storedUses + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
+							local storedUses = value.skillData.storedUses or 0 + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
 							globalOutput.InfernalUpTimeRatio = m_min(100, baseUptimeRatio * storedUses)
 							globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.InfernalUpTimeRatio
 							if globalBreakdown then
@@ -2916,7 +2916,7 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.IntimidatingCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.IntimidatingExertsCount = env.modDB:Sum("BASE", nil, "NumIntimidatingExerts") or 0
 						local baseUptimeRatio = m_min((globalOutput.IntimidatingExertsCount / output.Speed) / (globalOutput.IntimidatingCryCooldown + globalOutput.IntimidatingCryCastTime), 1) * 100
-						local storedUses = value.skillData.storedUses + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
+						local storedUses = value.skillData.storedUses or 0 + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
 						globalOutput.IntimidatingUpTimeRatio = m_min(100, baseUptimeRatio * storedUses)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.IntimidatingUpTimeRatio
 						if globalBreakdown then
@@ -2961,7 +2961,7 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.RallyingCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.RallyingExertsCount = env.modDB:Sum("BASE", nil, "NumRallyingExerts") or 0
 						local baseUptimeRatio = m_min((globalOutput.RallyingExertsCount / output.Speed) / (globalOutput.RallyingCryCooldown + globalOutput.RallyingCryCastTime), 1) * 100
-						local storedUses = value.skillData.storedUses + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
+						local storedUses = value.skillData.storedUses or 0 + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
 						globalOutput.RallyingUpTimeRatio = m_min(100, baseUptimeRatio * storedUses)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.RallyingUpTimeRatio
 						if globalBreakdown then
@@ -3007,7 +3007,7 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.SeismicCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.SeismicExertsCount = env.modDB:Sum("BASE", nil, "NumSeismicExerts") or 0
 						local baseUptimeRatio = m_min((globalOutput.SeismicExertsCount / output.Speed) / (globalOutput.SeismicCryCooldown + globalOutput.SeismicCryCastTime), 1) * 100
-						local storedUses = value.skillData.storedUses + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
+						local storedUses = value.skillData.storedUses or 0 + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
 						globalOutput.SeismicUpTimeRatio = m_min(100, baseUptimeRatio * storedUses)
 						globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.SeismicUpTimeRatio
 						-- account for AoE increase
@@ -3037,7 +3037,7 @@ function calcs.offence(env, actor, activeSkill)
 						if activeSkill.skillTypes[SkillType.Melee] then
 							globalOutput.BattleCryExertsCount = env.modDB:Sum("BASE", nil, "NumBattlemageExerts") or 0
 							local baseUptimeRatio = m_min((globalOutput.BattleCryExertsCount / output.Speed) / (globalOutput.BattleMageCryCooldown + globalOutput.BattleMageCryCastTime), 1) * 100
-							local storedUses = value.skillData.storedUses + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
+							local storedUses = value.skillData.storedUses or 0 + value.skillModList:Sum("BASE", value.skillCfg, "AdditionalCooldownUses")
 							globalOutput.BattlemageUpTimeRatio = m_min(100, baseUptimeRatio * storedUses)
 							globalOutput.GlobalWarcryUptimeRatio = globalOutput.GlobalWarcryUptimeRatio + globalOutput.BattlemageUpTimeRatio
 							if globalBreakdown then

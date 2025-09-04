@@ -74,7 +74,7 @@ skills["AzmeriFabricationDespair"] = {
 	name = "Despair",
 	hidden = true,
 	description = "Curse all targets in an area after a short delay, lowering their Chaos Resistance.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Chaos] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Chaos] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -115,7 +115,7 @@ skills["AzmeriFabricationEnfeeble"] = {
 	name = "Enfeeble",
 	hidden = true,
 	description = "Curse all targets in an area after a short delay, making them deal less damage.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -143,7 +143,6 @@ skills["AzmeriFabricationEnfeeble"] = {
 			constantStats = {
 				{ "accuracy_rating_+%", -60 },
 				{ "base_skill_buff_damage_+%_final_to_apply", -60 },
-				{ "base_skill_buff_damage_+%_final_vs_unique_to_apply", -23 },
 				{ "active_skill_area_of_effect_radius_+%_final", 100 },
 			},
 			stats = {
@@ -161,7 +160,7 @@ skills["AzmeriFabricationTemporalChains"] = {
 	name = "Temporal Chains",
 	hidden = true,
 	description = "Curse all enemies in an area, Slowing them and making other effects on them expire more slowly.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -236,7 +235,7 @@ skills["AzmeriPictBowRainOfSpores"] = {
 				"skill_can_fire_arrows",
 				"cannot_pierce",
 				"action_attack_or_cast_time_uses_animation_length",
-				"base_skill_cannot_be_blocked",
+				"base_cannot_be_blocked",
 			},
 			levels = {
 				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
@@ -247,8 +246,8 @@ skills["AzmeriPictBowRainOfSpores"] = {
 skills["BloodMageBloodTendrils"] = {
 	name = "Exsanguinate",
 	hidden = true,
-	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies hit by the tendrils take Physical damage and are inflicted with a Debuff that deals Physical damage over time.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, },
+	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies Hit by the tendrils take Physical damage and are inflicted with Bleeding.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1.67,
 	qualityStats = {
 	},
@@ -1168,8 +1167,8 @@ skills["GACenobiteBloaterSlam"] = {
 			stats = {
 				"is_area_damage",
 				"action_attack_or_cast_time_uses_animation_length",
-				"base_skill_cannot_be_blocked",
-				"base_skill_cannot_be_avoided_by_dodge_roll",
+				"base_cannot_be_blocked",
+				"base_skill_cannot_be_avoided_by_dodge_roll_or_evaded_or_blocked",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1585,7 +1584,7 @@ skills["GraveyardSpookyGhostExplode"] = {
 				hit = true,
 			},
 			constantStats = {
-				{ "freeze_as_though_dealt_damage_+%", 100 },
+				{ "hit_damage_freeze_multiplier_+%", 100 },
 			},
 			stats = {
 				"spell_minimum_base_cold_damage",
@@ -1850,7 +1849,7 @@ skills["GSProwlingShadeIceBeam"] = {
 				"spell_maximum_base_cold_damage",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 35, },
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -2310,6 +2309,7 @@ skills["MASKelpDregCrossbow"] = {
 			},
 			constantStats = {
 				{ "arrow_projectile_variation", 1001 },
+				{ "chance_to_poison_on_hit_with_attacks_%", 20 },
 			},
 			stats = {
 				"skill_can_fire_arrows",
@@ -2652,7 +2652,7 @@ skills["MMSVaalGuardGrenade"] = {
 	name = "Explosive Grenade",
 	hidden = true,
 	description = "Fire a bouncing Grenade that unleashes a devastating fiery blast when its fuse expires.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Detonator] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
@@ -2698,7 +2698,7 @@ skills["MMSVaalGuardOilTrap"] = {
 	name = "Oil Grenade",
 	hidden = true,
 	description = "Fire a bouncing Grenade that bursts in a spray of Oil when the fuse expires or when it impacts an Enemy, dealing minimal damage but covering the ground and nearby enemies in Oil. Oil created this way can be Ignited by Detonator Skills or Ignited Ground.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.NoAttackInPlace] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
@@ -2731,8 +2731,8 @@ skills["MMSVaalGuardOilTrap"] = {
 				"active_skill_base_area_of_effect_radius",
 				"skill_base_covered_in_oil_movement_speed_+%_final_to_apply",
 				"skill_base_ground_oil_movement_speed_+%_final_to_apply",
-				"skill_base_ground_oil_exposure_-_to_total_fire_resistance",
-				"skill_base_covered_in_oil_exposure_-_to_total_fire_resistance",
+				"skill_base_ground_oil_exposure_-_to_total_elemental_resistance",
+				"skill_base_covered_in_oil_exposure_-_to_total_elemental_resistance",
 				"base_is_projectile",
 				"projectile_ballistic_angle_from_reference_event",
 				"projectile_uses_contact_position",
@@ -3219,7 +3219,7 @@ skills["MPSChaosGodTriHeadLizardBasicProjectile"] = {
 	statSets = {
 		[1] = {
 			label = "Basic Spell (Chaos)",
-			baseEffectiveness = 3,
+			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
@@ -3789,6 +3789,8 @@ skills["MPSVaalSunApparitionBasicProj"] = {
 			constantStats = {
 				{ "monster_projectile_variation", 1042 },
 				{ "spell_maximum_action_distance_+%", -40 },
+				{ "movement_speed_+%_final_while_performing_action", -70 },
+				{ "movement_speed_acceleration_+%_per_second_while_performing_action", -70 },
 			},
 			stats = {
 				"spell_minimum_base_fire_damage",
@@ -3798,6 +3800,7 @@ skills["MPSVaalSunApparitionBasicProj"] = {
 				"use_scaled_contact_offset",
 				"action_attack_or_cast_time_uses_animation_length",
 				"check_for_targets_between_initiator_and_projectile_source",
+				"can_perform_skill_while_moving",
 			},
 			notMinionStat = {
 				"spell_minimum_base_fire_damage",
@@ -4051,8 +4054,6 @@ skills["MPWKelpDregPuncture"] = {
 	},
 	levels = {
 		[1] = { baseMultiplier = 1.5, levelRequirement = 0, },
-		[2] = { baseMultiplier = 1.5, levelRequirement = 0, },
-		[3] = { baseMultiplier = 1.5, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -4066,23 +4067,17 @@ skills["MPWKelpDregPuncture"] = {
 			},
 			constantStats = {
 				{ "monster_projectile_variation", 1055 },
-				{ "chance_to_poison_on_hit_with_attacks_%", 50 },
+				{ "chance_to_poison_on_hit_with_attacks_%", 100 },
+				{ "projectile_speed_variation_+%", 25 },
 			},
 			stats = {
-				"active_skill_bleeding_effect_+%_final",
 				"use_scaled_contact_offset",
 				"projectile_uses_contact_position",
 				"base_is_projectile",
-				"attacks_inflict_bleeding_on_hit",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
-			notMinionStat = {
-				"active_skill_bleeding_effect_+%_final",
-			},
 			levels = {
-				[1] = { 0, statInterpolation = { 1, }, actorLevel = 1, },
-				[2] = { 25, statInterpolation = { 1, }, actorLevel = 30, },
-				[3] = { 50, statInterpolation = { 1, }, actorLevel = 60, },
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}
@@ -4349,7 +4344,7 @@ skills["RisenArbalestRainOfArrows"] = {
 	name = "Rain of Arrows",
 	hidden = true,
 	description = "Fires a large number of arrows into the air, to land in an area around the target after a short delay. Consumes your Frenzy Charges on use to fire additional arrows.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Unleashable] = true, [SkillType.Sustained] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Barrageable] = true, [SkillType.Sustained] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackInPlace] = true, },
 	weaponTypes = {
 		["Bow"] = true,
 	},
@@ -4382,8 +4377,8 @@ skills["RisenArbalestRainOfArrows"] = {
 skills["SerpentClanCurse"] = {
 	name = "Vulnerability",
 	hidden = true,
-	description = "Curse all targets in an area after a short delay, making Hits against them ignore a portion of their Armour.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
+	description = "Curse all targets in an area after a short delay. making Hits against them ignore a portion of their Armour.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -4704,8 +4699,8 @@ skills["ShellMonsterSprayMortarPoison"] = {
 skills["SkelemancerSkelenado"] = {
 	name = "Spark",
 	hidden = true,
-	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
+	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4718,7 +4713,7 @@ skills["SkelemancerSkelenado"] = {
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
-			statDescriptionScope = "spark",
+			statDescriptionScope = "spark_statset_0",
 			baseFlags = {
 				spell = true,
 				projectile = true,
@@ -4820,9 +4815,6 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 				triggerable = true,
 				spell = true,
 				projectile = true,
-			},
-			constantStats = {
-				{ "additional_chance_to_freeze_chilled_enemies_%", 50 },
 			},
 			stats = {
 				"spell_minimum_base_cold_damage",
@@ -5075,8 +5067,8 @@ skills["VaalBloodPriestDetonateDead"] = {
 skills["VaalBloodPriestExsanguinate"] = {
 	name = "Exsanguinate",
 	hidden = true,
-	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies hit by the tendrils take Physical damage and are inflicted with a Debuff that deals Physical damage over time.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, },
+	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies Hit by the tendrils take Physical damage and are inflicted with Bleeding.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 2.2,
 	qualityStats = {
 	},
@@ -5147,6 +5139,7 @@ skills["VaalBloodPriestSoulrend"] = {
 			constantStats = {
 				{ "base_skill_effect_duration", 500 },
 				{ "spell_maximum_action_distance_+%", -35 },
+				{ "active_skill_area_of_effect_radius_+%_final", -20 },
 			},
 			stats = {
 				"base_physical_damage_to_deal_per_minute",

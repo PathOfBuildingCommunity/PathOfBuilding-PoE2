@@ -35,30 +35,6 @@ local function CalcOrbitAngles(nodesInOrbit)
 	return orbitAngles
 end
 
-local function extractFromGgpk(listToExtract, useRegex)
-	useRegex = useRegex or false
-	local sweetSpotCharacter = 6000
-	printf("Extracting ...")
-	local fileList = ''
-	for _, fname in ipairs(listToExtract) do
-		-- we are going to validate if the file is already extracted in this session
-		if not cacheExtract[fname] then
-			cacheExtract[fname] = true
-			fileList = fileList .. '"' .. string.lower(fname) .. '" '
-
-			if fileList:len() > sweetSpotCharacter then
-				main.ggpk:ExtractFilesWithBun(fileList, useRegex)
-				fileList = ''
-			end
-		end
-	end
-
-	if fileList:len() > 0 then
-		main.ggpk:ExtractFilesWithBun(fileList, useRegex)
-		fileList = ''
-	end
-end
-
 local function bits(int, s, e)
 	return bit.band(bit.rshift(int, s), 2 ^ (e - s + 1) - 1)
 end
@@ -166,7 +142,7 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 			table.insert(filesToExtract, icon4k)
 		end
 	end
-	extractFromGgpk(filesToExtract)
+	main.ggpk:ExtractList(filesToExtract, cacheExtract)
 
 	for icon, sections in pairs(sheet.files) do
 		local tex = Texture.new()
@@ -220,7 +196,7 @@ local function parseUIImages()
 	if main.ggpk.txt[file] then
 		text = main.ggpk.txt[file]
 	else
-		extractFromGgpk({file})
+		main.ggpk:ExtractList({file}, cacheExtract)
 		text = convertUTF16to8(getFile(file))
 		main.ggpk.txt[file] = text
 	end
@@ -292,7 +268,7 @@ local psgFile = rowPassiveTree.PassiveSkillGraph .. ".psg"
 
 printf("Extracting passives tree " .. idPassiveTree .. " from " .. psgFile)
 
-extractFromGgpk({psgFile})
+main.ggpk:ExtractList({psgFile}, cacheExtract)
 
 printf("Parsing passives tree " .. idPassiveTree .. " from " .. main.ggpk.oozPath .. psgFile)
 

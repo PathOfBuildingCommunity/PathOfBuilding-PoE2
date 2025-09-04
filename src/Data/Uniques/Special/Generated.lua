@@ -176,12 +176,18 @@ do
 	for modName, mod in pairs(veiledMods) do
 		local name = modName:match("^UniqueHeart(.+)$")
 		if name then
-			table.insert(heartMods, { 
-				mod = mod, 
-				name = name
-					:gsub("([a-z])([A-Z])", "%1 %2")
-					:gsub("(%d+)([A-Za-z])", " %1 %2") -- separate numbers from letters after
-					:gsub("([A-Za-z])(%d+)", "%1 %2") -- separate letters from numbers before
+			local displayName = name
+				:gsub("([a-z])([A-Z])", "%1 %2")
+				:gsub("(%d+)([A-Za-z])", " %1 %2") -- separate numbers from letters after
+				:gsub("([A-Za-z])(%d+)", "%1 %2") -- separate letters from numbers before
+				-- Hacky replacement as the Mod names don't match the stat type.
+				:gsub("Gained As Lightning", "__TEMP_LIGHTNING__")
+				:gsub("Gained As Chaos", "Gained As Lightning")
+				:gsub("Gained As Cold", "Gained As Chaos")
+				:gsub("__TEMP_LIGHTNING__", "Gained As Cold")
+			table.insert(heartMods, {
+				mod = mod,
+				name = displayName
 			})
 		end
 	end

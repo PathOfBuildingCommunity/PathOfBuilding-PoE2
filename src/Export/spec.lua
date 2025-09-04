@@ -7418,7 +7418,7 @@ return {
 		},
 		[6]={
 			list=true,
-			name="",
+			name="StatSetIndex",
 			refTo="",
 			type="Int",
 			width=150

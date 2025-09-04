@@ -55,7 +55,6 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("WarcryCastTime", "BASE", 0.8, "Base")
 	modDB:NewMod("TotemPlacementTime", "BASE", 0.6, "Base")
 	modDB:NewMod("BallistaPlacementTime", "BASE", 0.35, "Base")
-	modDB:NewMod("ActiveTotemLimit", "BASE", 1, "Base")
 	modDB:NewMod("ShockStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("ChillStacksMax", "BASE", 1, "Base")
 	modDB:NewMod("ScorchStacksMax", "BASE", 1, "Base")
@@ -1785,6 +1784,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			activeSkill.skillData.manaReservationPercent = skillData.manaReservationPercent
 		end
 	end
+
 
 	-- Merge Requirements Tables
 	env.requirementsTable = tableConcat(env.requirementsTableItems, env.requirementsTableGems)

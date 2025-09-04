@@ -809,7 +809,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local specificItemType = self.base.type:lower()
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
 				local addModToGroupedRunes = function (modLine)
-					local runeValue
+					local runeValue = 1
 					local runeStrippedModLine = modLine:gsub("(%d%.?%d*)", function(val)
 						runeValue = val
 						return "#"
@@ -835,7 +835,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 
 			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
-				local value
+				local value = 1
 				local strippedModLine = modLine.line:gsub("(%d%.?%d*)", function(val)
 					value = val
 					return "#"

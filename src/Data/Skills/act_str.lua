@@ -563,12 +563,23 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 		[39] = { levelRequirement = 0, },
 		[40] = { levelRequirement = 0, },
 	},
+			addFlags = {
+				totem = true,
+			},
 	statSets = {
 		[1] = {
 			label = "SupportAncestralWarriorTotemPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
+			statMap = {
+				["support_ancestral_warrior_totem_attack_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("ActiveTotemLimit", "BASE", 1),
 			},
 			constantStats = {
 				{ "skill_disabled_unless_cloned", 2 },
@@ -1068,7 +1079,7 @@ skills["AttritionPlayer"] = {
 					{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
 					{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 					value = 10,}
-					},
+				},
 			},
 			baseFlags = {
 			},
@@ -1845,7 +1856,7 @@ skills["SupportMetaCastOnBlockPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnBlockPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -1950,7 +1961,7 @@ skills["SupportMetaCastOnMeleeKillPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeKillPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -2018,7 +2029,7 @@ skills["SupportMetaCastOnMeleeStunPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastOnMeleeStunPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {
@@ -3688,6 +3699,10 @@ skills["ExplosiveGrenadePlayer"] = {
 			label = "Explosive Grenade",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "explosive_grenade",
+			statMap = {
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -5229,6 +5244,11 @@ skills["HeraldOfBloodPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_blood",
+			statMap = {
+				["display_herald_of_blood_behaviour"] = {
+					flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Blood" } ),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -11222,15 +11242,26 @@ skills["SupportMortarCannonPlayer"] = {
 		[39] = { levelRequirement = 0, },
 		[40] = { levelRequirement = 0, },
 	},
+			addFlags = {
+				totem = true,
+			},
 	statSets = {
 		[1] = {
 			label = "SupportMortarCannonPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-				addFlags = {
-					totem = true,
+			statDescriptionScope = "meta_gem_stat_descriptions",
+			statMap = {
+				["support_grenade_ballista_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
 				},
+				["support_grenade_ballista_attack_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("ActiveTotemLimit", "BASE", 1),
 			},
 			constantStats = {
 				{ "skill_disabled_unless_cloned", 2 },
@@ -13315,7 +13346,7 @@ skills["SiegeBallistaPlayer"] = {
 	}
 }
 skills["SiegeBallistaProjectilePlayer"] = {
-	name = "",
+	name = "Artillery",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Barrageable] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.CannotChain] = true, [SkillType.UsedByTotem] = true, },
 	weaponTypes = {
@@ -14341,7 +14372,7 @@ skills["SupportMetaCastLightningSpellOnHitPlayer"] = {
 		[1] = {
 			label = "SupportMetaCastLightningSpellOnHitPlayer",
 			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
+			statDescriptionScope = "meta_gem_stat_descriptions",
 			baseFlags = {
 			},
 			constantStats = {

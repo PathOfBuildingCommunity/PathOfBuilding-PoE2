@@ -269,7 +269,7 @@ UniqueManaGainedFromEnemyDeath4
 UniqueEnemiesKilledCountAsYours1
 ]],[[
 The Prisoner's Manacles
-Diviner Cuffs
+Verisium Cuffs
 League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield21
 UniqueIncreasedLife54

@@ -165,8 +165,7 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			if supportEffect.grantedEffect.addFlags and not summonSkill then
 				-- Support skill adds flags to supported skills (eg. Remote Mine adds 'mine')
 				for k in pairs(supportEffect.grantedEffect.addFlags) do
-					mainSkillFlags[k] = true
-					calcsSkillFlags[k] = true
+					skillFlags[k] = true
 				end
 			end
 		end
@@ -248,6 +247,45 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 		end
 	end
 	return flags, info
+end
+
+-- Get stats from totem base skill in case of separate active skills or skills that receive totem status via supports
+---@param activeSkill table @activeSkill with totem tag
+local function getTotemBaseStats(activeSkill)
+	local totemBase = {}
+
+	if activeSkill.skillTypes[SkillType.SummonsTotem] then -- Skill that summons totems already has stats on activeEffect
+		totemBase.grantedEffect = activeSkill.activeEffect.grantedEffect
+		totemBase.gemData = activeSkill.activeEffect.gemData
+		totemBase.skillLevel = activeSkill.activeEffect.level
+	elseif activeSkill.skillTypes[SkillType.UsedByTotem] then
+		if activeSkill.activeEffect.grantedEffect.skillTypes[SkillType.UsedByTotem] then -- is totem skill by default
+			totemBase.grantedEffect = activeSkill.activeEffect.gemData.grantedEffect 
+			totemBase.gemData = activeSkill.activeEffect.gemData
+			totemBase.skillLevel = activeSkill.activeEffect.level
+		elseif activeSkill.supportList then -- skill is receives totem status via support
+			for _, support in ipairs(activeSkill.supportList) do
+				if support.grantedEffect.addSkillTypes and (not support.superseded) and support.isSupporting[activeSkill.activeEffect.srcInstance] then
+					for _, skillType in ipairs(support.grantedEffect.addSkillTypes) do
+						if skillType == SkillType.UsedByTotem then
+							totemBase.grantedEffect = support.gemData.grantedEffect
+							totemBase.gemData = support.gemData
+							break
+						end
+					end
+				end
+				if totemBase.gemData or totemBase.grantedEffect then
+					totemBase.skillLevel = support.level
+					break
+				end
+			end
+		else
+			-- A totem skill that neither `SummonsTotem` nor `UsedByTotem` should not be possible, but I am leaving this here to alert us in case of unexpected future edge cases
+			error("Error: Unexpected SkillType behavior for skill with 'totem' flag")
+		end
+	end
+
+	return totemBase
 end
 
 --- Applies additional modifiers to skills with the "Empowered" flag.
@@ -484,10 +522,19 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillKeywordFlags = bor(skillKeywordFlags, KeywordFlag.Spell)
 	end
 
-	-- Get skill totem ID for totem skills
-	-- This is used to calculate totem life
+	-- Find totem base stats
 	if skillFlags.totem then
-		activeSkill.skillTotemId = activeGrantedEffect.skillTotemId
+		local totemBase = getTotemBaseStats(activeSkill)
+		if totemBase.grantedEffect and totemBase.gemData then
+			activeSkill.skillData.totemBase = totemBase
+		end
+		local totemLevelRequirement = activeSkill.skillData.totemBase and activeSkill.skillData.totemBase.grantedEffect.levels[totemBase.skillLevel].levelRequirement or activeEffect.grantedEffect.levels[activeEffect.level].levelRequirement
+		-- Note: Some active skills related to totem base skills (e.g. on Shockwave Totem) have level requirement = 0, making the additional ` > 0` check necessary
+		activeSkill.skillData.totemLevel = (totemLevelRequirement and (totemLevelRequirement > 0)) and totemLevelRequirement or 1
+
+		-- Get skill totem ID for totem skills
+		-- This is used to calculate totem life
+		activeSkill.skillTotemId = activeGrantedEffect.skillTotemId or (activeSkill.skillData.totemBase and activeSkill.skillData.totemBase.grantedEffect.skillTotemId)
 		if not activeSkill.skillTotemId then
 			if activeGrantedEffect.color == 2 then
 				activeSkill.skillTotemId = 2
@@ -646,11 +693,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 	
 	applyExtraEmpowerMods(activeSkill)
-
-	-- Find totem level
-	if skillFlags.totem then
-		activeSkill.skillData.totemLevel = 1 or activeEffect.grantedEffect.levels[activeEffect.level].levelRequirement
-	end
 
 	-- Add active mine multiplier
 	if skillFlags.mine then

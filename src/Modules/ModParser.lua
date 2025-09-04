@@ -1465,25 +1465,27 @@ local modTagList = {
 	["per (%d+)%% chance to block spell damage"] = function(num) return { tag = { type = "PerStat", stat = "SpellBlockChance", div = num } } end,
 	["per (%d+) of the lowest of armour and evasion rating"] = function(num) return { tag = { type = "PerStat", stat = "LowestOfArmourAndEvasion", div = num } } end,
 	["per (%d+) maximum energy shield on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
-	["per (%d+) energy shield on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)energy shield on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
 	["per (%d+) maximum energy shield on helmet"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnHelmet", div = num } } end,
-	["per (%d+) evasion rating on body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
-	["per (%d+) evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)evasion rating on body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["for every (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion rating on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnAllArmourItems", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnAllArmourItems", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = num } } end,
 	["for every (%d+) (i?t?e?m? ?)energy shield on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = num } } end,
-	["per (%d+) armour on equipped shield"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnWeapon 2", div = num } } end,
-	["per (%d+) armour or evasion rating on shield"] = function(num) return { tag = { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num } } end,
-	["per (%d+) armour or evasion rating on equipped shield"] = function(num) return { tag = { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num } } end,
-	["per (%d+) evasion rating on equipped shield"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnWeapon 2", div = num } } end,
-	["per (%d+) maximum energy shield on equipped shield"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num } } end,
-	["per (%d+) maximum energy shield on shield"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num } } end,
-	["per (%d+) evasion on equipped boots"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBoots", div = num } } end,
-	["per (%d+) evasion on boots"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBoots", div = num } } end,
-	["per (%d+) armour on equipped gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
-	["per (%d+) armour on gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)armour on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "ArmourOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)armour [ao][nr]d? evasion rating on shield"] = function(num) return { tagList = { { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)armour [ao][nr]d? evasion rating on equipped shield"] = function(num) return { tagList = { { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)evasion rating on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EvasionOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) maximum energy shield on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) maximum energy shield on shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)energy shield on equipped focus"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingFocus" } } } end,
+	["per (%d+) (i?t?e?m? ?)energy shield on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)evasion on equipped boots"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBoots", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)evasion on boots"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBoots", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)armour on equipped gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
+	["per (%d+) (i?t?e?m? ?)armour on gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
 	["per (%d+)%% (%a+) resistance"] = function(num, _, name) return { tag = { type = "PerStat", stat = firstToUpper(name).."Resist", div = num } } end,
 	["per (%d+)%% (%a+) resistance above 75%%"] = function(num, _, name) return { tag  = { type = "PerStat", stat = firstToUpper(name).."ResistOver75", div = num } } end,
 	["per (%d+) devotion"] = function(num) return { tag = { type = "PerStat", stat = "Devotion", actor = "parent", div = num } } end,
@@ -2388,6 +2390,12 @@ local specialModList = {
 		mod("Damage", "INC", 1, nil, bor(ModFlag.Projectile, ModFlag.Attack), { type = "PerStat", stat = "Str", div = 2 } ),
 		flag("NoStrBonusToLife") }
 	end,
+	["(%a+) spells convert (%d+)%% of (%a+) damage to (%a+) damage"] = function (_, spellType, num, fromType, toType) return { mod(firstToUpper(fromType) .. "DamageConvertTo" .. firstToUpper(toType), "BASE", num, { type = "SkillType", skillType = SkillType.Spell }, { type = "SkillType", skillType = SkillType[firstToUpper(spellType)] }) } end, -- Blackflame Covenant
+	["(%a+) damage from (%a+) spells contributes to flammability and ignite magnitudes"] = function(_, sourceType, spellType) return { flag(firstToUpper(sourceType) .. "CanIgnite", { type = "SkillType", skillType = SkillType.Spell }, { type = "SkillType", skillType = SkillType[firstToUpper(spellType)] })} end,
+	["ignite inflicted with (%a+) spells deals chaos damage instead of fire damage"] = function (_, spellType) return {
+		flag("IgniteToChaos", { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}),
+		mod("SkillData", "LIST", { key = "IgniteToChaos", value = true }, { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}),
+	} end,
 	-- Legacy support
 	["(%d+)%% chance to defend with double armour"] = function(numChance) return {
 		mod("ArmourDefense", "MAX", 100, "Armour Mastery: Max Calc", { type = "Condition", var = "ArmourMax" }),
@@ -2544,7 +2552,7 @@ local specialModList = {
 	["gain energy shield from equipped body armour as extra maximum life"] = {
 		mod("Life", "BASE", 1, { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = 1 }),
 	},
-	["gain additional maximum life equal to (%d+)%% of the energy shield on equipped body armour"] = function(num) return {
+	["gain additional maximum life equal to (%d+)%% of the (i?t?e?m? ?)energy shield on equipped body armour"] = function(num) return {
 		mod("Life", "BASE", 1, { type = "PercentStat", stat = "EnergyShieldOnBody Armour", percent = num }),
 	} end,
 	["bleeding you inflict on cursed targets is aggravated"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:BleedAggravated", { type = "Condition", var = "Cursed" }) }) },
@@ -4741,7 +4749,7 @@ local specialModList = {
 		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBoots", percent = num }),
 		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num }),
 	} end,
-	["gain additional stun threshold equal to (%d+)%% of armour on equipped items"] = function(num) return {
+	["gain additional stun threshold equal to (%d+)%% of (i?t?e?m? ?)armour on equipped armour items"] = function(num) return {
 		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnHelmet", percent = num }),
 		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnGloves", percent = num }),
 		mod("StunThreshold", "BASE", 1, { type = "PercentStat", stat = "ArmourOnBoots", percent = num }),

@@ -269,7 +269,7 @@ Gain (4-6) Mana per Enemy Killed
 Enemies in your Presence killed by anyone count as being killed by you instead
 ]],[[
 The Prisoner's Manacles
-Diviner Cuffs
+Verisium Cuffs
 League: Dawn of the Hunt
 (200-300)% increased Armour and Energy Shield
 +100 to maximum Life

@@ -549,6 +549,9 @@ return {
 ["totem_skill_attack_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Attack, KeywordFlag.Totem)
 },
+["grenade_skill_cooldown_speed_+%"] = {
+	mod("CooldownRecovery", "INC", nil),
+},
 -- AoE
 ["active_skill_base_area_of_effect_radius"] = {
 	skill("radius", nil),
@@ -755,6 +758,14 @@ return {
 },
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
+},
+["support_no_fear_damage_+%_final_per_second_up_to_30%"] = {
+	mod("Damage", "MORE", nil, 0, 0,
+		{ type = "Condition", var = "UsingStoicism" },
+		{ type = "Condition", var = "DodgeRolledRecently", neg = true },
+		{ type = "Condition", var = "UsedTravelSkillRecently", neg = true },
+		{ type = "Multiplier", var = "StoicismSeconds", limitVar = "StoicismCap", limitTotal = true }
+	),
 },
 ["active_skill_damage_+%_final_against_heavy_stunned_enemies"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }),
@@ -2655,5 +2666,7 @@ return {
 ["quality_display_sandstorm_swipe_is_gem"] = {
 	-- Display Only
 },
-
+["quality_display_base_totem_duration_is_gem"] = {
+	-- Display Only
+},
 }
