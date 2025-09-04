@@ -124,6 +124,519 @@ minions["Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre"] = {
 	},
 }
 
+minions["Metadata/Monsters/LeagueAbyss/Lightless/SerpentClanCasterAbyssSpectre"] = {
+	name = "Lightless Serpent",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "allows_inc_aoe", "demon", "fast_movement", "fire_affinity", "lightless_faction", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.4,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 40,
+	spectreReservation = 64,
+	companionReservation = 35.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"CGEAbyssSerpentColdDOT",
+		"MAASAbyssSerpentEmerge",
+		"GSAbyssSerpentColdExplode",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre"] = {
+	name = "Hound of the Pit",
+	monsterTags = { "abyssal", "demon", "medium_movement", "melee", "not_int", "not_str", "pit_faction", },
+	life = 0.6,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 0.6,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 34,
+	companionReservation = 23.1,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre"] = {
+	name = "Hound of the Pit",
+	monsterTags = { "abyssal", "demon", "melee", "not_int", "not_str", "pit_faction", "very_fast_movement", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 53,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre"] = {
+	name = "Primordium of the Pit",
+	monsterTags = { "abyssal", "Claw_onhit_audio", "demon", "medium_movement", "melee", "not_int", "not_str", "pit_faction", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 0.78,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 36,
+	companionReservation = 24.3,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSAbyssPrimordialMonsterScreech",
+		"DTTPrimordialBeast3LeapAttack",
+		"GAPrimordialMonster3Leap",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre"] = {
+	name = "Strider of the Pit",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "demon", "lightning_affinity", "MonsterStab_onhit_audio", "not_dex", "not_int", "pit_faction", "ranged", "very_fast_movement", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 58,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAAbyssCorpseStrideSlams",
+		"EAAAbyssCorpseStrideSlams",
+		"GSAbyssCorpseStriderLighting",
+		"GTAbyssCorpseStriderLighting",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- has_quadruped_head_control [has_quadruped_head_control = 1]
+		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4133]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre"] = {
+	name = "Abyssal Shambler",
+	monsterTags = { "abyssal", "demon", "melee", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MPSAbyssPaleWalker2Fireball",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre"] = {
+	name = "Abyssal Walker",
+	monsterTags = { "abyssal", "demon", "melee", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSAbyssSoulBlast",
+		"EASAbyssSoulRelease",
+		"MPSAbyssSoulRelease",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre"] = {
+	name = "Abyssal Strangler",
+	monsterTags = { "abyssal", "demon", "melee", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SOAbyssCrystalMineSpectre",
+		"GSAbyssCrystalMine",
+		"GTAbyssCrystalMineSpectre",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyssSpectre"] = {
+	name = "Gargantuan Larva",
+	monsterTags = { "abyssal", "demon", "insect", "medium_movement", "melee", "Stab_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.8,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 33,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"HuhuGrubLarvaeMortar",
+		"HuhuGrubRangedStanceChange",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssSpectre"] = {
+	name = "Fungoid of the Pit",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "demon", "pit_faction", "ranged", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 6,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MPSAbyssPitArtillery",
+		"GSAbyssPitArtilleryMortarImpact",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre"] = {
+	name = "Blackblooded Proboscite",
+	monsterTags = { "abyssal", "allows_inc_aoe", "blackblood_faction", "demon", "medium_movement", },
+	life = 1.15,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"CGEAbyssLivingBloodGround",
+		"MASExtraAttackDistance20",
+		"GSAbyssCollectorExplodeOnDeath",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre"] = {
+	name = "Blackblooded Cretin",
+	monsterTags = { "abyssal", "allows_inc_aoe", "blackblood_faction", "demon", "medium_movement", "Unarmed_onhit_audio", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SOBlackbloodRemnant",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteSpectre_"] = {
+	name = "Blackblooded Elite",
+	monsterTags = { "abyssal", "blackblood_faction", "cold_affinity", "demon", "medium_movement", "not_dex", "not_str", },
+	life = 2.25,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.2,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MPSAbyssPaleEliteSnowBall",
+		"GSAbyssPaleEliteBeam",
+		"TeleportHellscapePaleElite",
+		"GSAbyssPaleEliteBeamLong",
+		"EASAbyssPaleEliteBeamLong",
+		"GSAbyssPaleEliteSnowBallImpact",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre"] = {
+	name = "Blackblooded Blisterboil",
+	monsterTags = { "abyssal", "allows_inc_aoe", "blackblood_faction", "demon", "fast_movement", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 40,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSPaleCrawlerExplode5",
+		"EASPaleCrawlerExplode",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkSpectre"] = {
+	name = "Blackblooded Tarhulk",
+	monsterTags = { "abyssal", "allows_inc_aoe", "blackblood_faction", "cold_affinity", "demon", "melee", "very_slow_movement", },
+	life = 3.75,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 16,
+	accuracy = 1,
+	baseMovementSpeed = 11,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSAbyssHulkIceShatter",
+		"GSAbyssHulkIceExplode",
+		"GTAbyssHulkIceExplode",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
 -- Beetles
 minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured"] = {
 	name = "Adorned Beetle",
@@ -837,6 +1350,35 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	modList = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
 		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+	},
+}
+
+-- Bloodbilge
+minions["Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre"] = {
+	name = "Bloodbilge",
+	monsterTags = { "demon", "medium_movement", "MonsterBlunt_onhit_audio", "mud_blood", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.18,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 28,
+	accuracy = 1,
+	baseMovementSpeed = 34,
+	spectreReservation = 113,
+	companionReservation = 51.9,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
 	},
 }
 

@@ -15,6 +15,51 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre
 #emit
 
+#spectre Metadata/Monsters/LeagueAbyss/Lightless/SerpentClanCasterAbyssSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyssSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteSpectre_
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkSpectre
+#emit
+
 -- Beetles
 #spectre Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured
 #emit
@@ -81,6 +126,10 @@ local minions, mod, flag = ...
 
 -- Boar
 #spectre Metadata/Monsters/GoreCharger/GoreCharger
+#emit
+
+-- Bloodbilge
+#spectre Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre
 #emit
 
 -- Crab

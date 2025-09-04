@@ -1642,6 +1642,169 @@ skills["GraveyardSpookyGhostExplode"] = {
 		},
 	}
 }
+skills["GSAbyssPaleEliteBeam"] = {
+	name = "Beam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 2.333,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Beam",
+			baseEffectiveness = 6.25,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -55 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSAbyssPaleEliteSnowBall"] = {
+	name = "Snowball",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Snowball",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				projectile = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -25 },
+				{ "monster_projectile_variation", 1426 },
+			},
+			stats = {
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"maintain_projectile_direction_when_using_contact_position",
+				"base_deal_no_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSAbyssPaleEliteSnowBallImpact"] = {
+	name = "Snowball Impact",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Snowball Impact",
+			baseEffectiveness = 2.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+				area = true,
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSAbyssPrimordialMonsterScreech"] = {
+	name = "Screech",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Screech",
+			baseEffectiveness = 1.8999999761581,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -80 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GSDesertBatZap"] = {
 	name = "Zap",
 	hidden = true,
@@ -2040,6 +2203,49 @@ skills["GSWarlockRaiseBugs"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["HuhuGrubLarvaeMortar"] = {
+	name = "Mortar",
+	hidden = true,
+	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	castTime = 1.3,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 2.5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mortar",
+			baseEffectiveness = 2.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				projectile = true,
+				spell = true,
+				hit = true,
+				area = true,
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"global_poison_on_hit",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -2834,7 +3040,142 @@ skills["MPSAbyssPaleEliteFireball"] = {
 		},
 	}
 }
-
+skills["MPSAbyssPitArtillery"] = {
+	name = "Artillery",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Artillery",
+			baseEffectiveness = 1.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+				area = true,
+			},
+			constantStats = {
+				{ "projectile_spread_radius", 5 },
+				{ "monster_projectile_variation", 1432 },
+				{ "spell_maximum_action_distance_+%", -38 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"global_poison_on_hit",
+				"base_skill_can_be_avoided_by_dodge_roll",
+				"projectile_ballistic_angle_from_reference_event",
+				"base_deal_no_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSAbyssPitArtilleryMortarImpact"] = {
+	name = "Artillery Impact",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Artillery Impact",
+			baseEffectiveness = 2.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+				hit = true,
+				area = true,
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_can_be_avoided_by_dodge_roll",
+				"base_is_projectile",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSAbyssPaleWalker2Fireball"] = {
+	name = "Fireball",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fireball",
+			baseEffectiveness = 2,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1431 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"use_scaled_contact_offset",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"projectiles_not_offset",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MPSAbyssCocoon3BallSpit"] = {
 	name = "Large Ball Spit",
 	hidden = true,

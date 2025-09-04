@@ -308,6 +308,30 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GSAbyssPaleEliteBeam Beam
+#set GSAbyssPaleEliteBeam
+#flags triggerable spell hit
+#mods
+#skillEnd
+
+#skill MPSAbyssPaleEliteSnowBall Snowball
+#set MPSAbyssPaleEliteSnowBall
+#flags triggerable projectile spell hit
+#mods
+#skillEnd
+
+#skill GSAbyssPaleEliteSnowBallImpact Snowball Impact
+#set GSAbyssPaleEliteSnowBallImpact
+#flags triggerable spell hit area
+#mods
+#skillEnd
+
+#skill GSAbyssPrimordialMonsterScreech Screech
+#set GSAbyssPrimordialMonsterScreech
+#flags triggerable spell hit
+#mods
+#skillEnd
+
 #skill GSDesertBatZap Zap
 #set GSDesertBatZap
 #flags triggerable spell hit
@@ -367,6 +391,12 @@ statMap = {
 #skill GSWarlockRaiseBugs Raise Bugs
 #set GSWarlockRaiseBugs
 #flags spell
+#mods
+#skillEnd
+
+#skill HuhuGrubLarvaeMortar Mortar
+#set HuhuGrubLarvaeMortar
+#flags triggerable projectile spell hit area
 #mods
 #skillEnd
 
@@ -491,6 +521,23 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MPSAbyssPitArtillery Artillery
+#set MPSAbyssPitArtillery
+#flags spell projectile triggerable hit area
+#mods
+#skillEnd
+
+#skill GSAbyssPitArtilleryMortarImpact Artillery Impact
+#set GSAbyssPitArtilleryMortarImpact
+#flags spell triggerable hit area
+#mods
+#skillEnd
+
+#skill MPSAbyssPaleWalker2Fireball Fireball
+#set MPSAbyssPaleWalker2Fireball
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
 
 #skill MPSAbyssCocoon3BallSpit Large Ball Spit
 #set MPSAbyssCocoon3BallSpit
