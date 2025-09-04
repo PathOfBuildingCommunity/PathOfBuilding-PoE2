@@ -251,8 +251,9 @@ itemBases["Tawhoan Tower Shield"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { Armour = 197, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 197, MovementPenalty = 0.03, },
 	req = { level = 80, str = 115, },
 }
 itemBases["Aged Tower Shield"] = {
@@ -360,8 +361,9 @@ itemBases["Tawhoan Tower Shield"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { Armour = 197, MovementPenalty = 0.03, },
+	armour = { BlockChance = 26, Armour = 197, MovementPenalty = 0.03, },
 	req = { level = 80, str = 115, },
 }
 
@@ -613,8 +615,9 @@ itemBases["Desert Buckler"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { Evasion = 144, },
+	armour = { BlockChance = 20, Evasion = 144, },
 	req = { level = 80, dex = 115, },
 }
 itemBases["Oak Buckler"] = {
@@ -722,8 +725,9 @@ itemBases["Desert Buckler"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { Evasion = 144, },
+	armour = { BlockChance = 20, Evasion = 144, },
 	req = { level = 80, dex = 115, },
 }
 
@@ -953,8 +957,9 @@ itemBases["Golden Targe"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { Armour = 109, Evasion = 99, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 109, Evasion = 99, MovementPenalty = 0.015, },
 	req = { level = 80, str = 63, dex = 63, },
 }
 itemBases["Ironwood Targe"] = {
@@ -1062,8 +1067,9 @@ itemBases["Golden Targe"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_dex_armour = true, str_dex_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { Armour = 109, Evasion = 99, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 109, Evasion = 99, MovementPenalty = 0.015, },
 	req = { level = 80, str = 63, dex = 63, },
 }
 
@@ -1293,8 +1299,9 @@ itemBases["Blacksteel Crest Shield"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { Armour = 109, EnergyShield = 37, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 109, EnergyShield = 37, MovementPenalty = 0.015, },
 	req = { level = 80, str = 63, int = 63, },
 }
 itemBases["Painted Crest Shield"] = {
@@ -1402,8 +1409,9 @@ itemBases["Blacksteel Crest Shield"] = {
 	quality = 20,
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
+	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { Armour = 109, EnergyShield = 37, MovementPenalty = 0.015, },
+	armour = { BlockChance = 25, Armour = 109, EnergyShield = 37, MovementPenalty = 0.015, },
 	req = { level = 80, str = 63, int = 63, },
 }
 
