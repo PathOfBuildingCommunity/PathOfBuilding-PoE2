@@ -3112,6 +3112,14 @@ return {
 		},
 	},
 	[389] = {
+		id = "FourUniqueJewel11",
+		name = "Undying Hate",
+		text = {
+			"They believed themselves driven by necessity,",
+			"but that desperation made them monstrous.",
+		},
+	},
+	[390] = {
 		id = "FourUniqueJewel12",
 		name = "Heart of the Well",
 		text = {
