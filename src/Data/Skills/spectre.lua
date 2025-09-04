@@ -687,6 +687,47 @@ skills["DTTMantisRatLeap"] = {
 		},
 	}
 }
+skills["EDSAbyssMorayClanFlamethrower"] = {
+	name = "Flamethrower",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+	},
+	statSets = {
+		[1] = {
+			label = "Flamethrower",
+			baseEffectiveness = 1.25,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				spell = true,
+			},
+			constantStats = {
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", -40 },
+				{ "ignite_chance_+%", 200 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["EDSGolemancerReapLeft"] = {
 	name = "Basic Attack",
 	hidden = true,
@@ -2745,6 +2786,282 @@ skills["MMSVaalGuardOilTrap"] = {
 		},
 	}
 }
+skills["MPSAbyssPaleEliteFireball"] = {
+	name = "Fireball",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fireball",
+			baseEffectiveness = 2.5,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -25 },
+				{ "monster_projectile_variation", 1430 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"check_for_targets_between_initiator_and_projectile_source",
+				"maintain_projectile_direction_when_using_contact_position",
+				"base_deal_no_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+
+skills["MPSAbyssCocoon3BallSpit"] = {
+	name = "Large Ball Spit",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Large Ball Spit",
+			baseEffectiveness = 2,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1427 },
+				{ "projectile_spread_radius", 25 },
+				{ "projectile_speed_variation_+%", 40 },
+				{ "spell_maximum_action_distance_+%", -50 },
+				{ "number_of_projectiles_override", 1 },
+				{ "number_of_additional_projectiles", 2 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_direction",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_deal_no_damage",
+				"projectile_ballistic_angle_from_reference_event",
+				"distribute_projectiles_over_contact_points",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSAbyssCocoon3BallSpitImpact"] = {
+	name = "Large Ball Impact",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Large Ball Impact",
+			baseEffectiveness = 6,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "active_skill_area_of_effect_radius_+%_final", -65 },
+				{ "active_skill_ignite_chance_+%_final", 200 },
+				{ "active_skill_ignite_effect_+%_final", 200 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_is_projectile",
+				"base_skill_can_be_avoided_by_dodge_roll",
+				"base_skill_can_be_blocked",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CGEAbyssCocoon3FlameGeyser"] = {
+	name = "Large Ball Flame Geyser",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, },
+	castTime = 3.532,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Large Ball Flame Geyser",
+			baseEffectiveness = 15,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "active_skill_area_of_effect_radius_+%_final", -75 },
+				{ "base_skill_effect_duration", 3000 },
+				{ "ground_fire_art_variation", 1029 },
+				{ "monster_penalty_against_minions_damage_+%_final_vs_player_minions", 100 },
+			},
+			stats = {
+				"base_fire_damage_to_deal_per_minute",
+				"is_area_damage",
+			},
+			notMinionStat = {
+				"base_fire_damage_to_deal_per_minute",
+			},
+			levels = {
+				[1] = { 16.666667039196, statInterpolation = { 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MPSAbyssCocoon3BallSpitSmall"] = {
+	name = "Small Ball Spit",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Small Ball Spit",
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "monster_projectile_variation", 1429 },
+				{ "spell_maximum_action_distance_+%", -45 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_deal_no_damage",
+				"projectile_ballistic_angle_from_target_distance",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSAbyssCocoon3BallSpitSmallImpact"] = {
+	name = "Small Ball Impact ",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 6, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Small Ball Impact ",
+			baseEffectiveness = 4,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+				hit = true,
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_is_projectile",
+				"base_skill_can_be_avoided_by_dodge_roll",
+				"base_skill_can_be_blocked",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["MPSArmourCasterBasic"] = {
 	name = "Fireball",
 	hidden = true,
@@ -4241,7 +4558,7 @@ skills["QuillCrabSpikeBurstTropical"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.7, levelRequirement = 0, },
+		[1] = { baseMultiplier = 0.6, levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -4827,6 +5144,86 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 			notMinionStat = {
 				"spell_minimum_base_cold_damage",
 				"spell_maximum_base_cold_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TBAbyssCarrionWingBeam"] = {
+	name = "Beam",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Beam",
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				spell = true,
+				attack = true,
+				hit = true,
+				triggerable = true,
+			},
+			constantStats = {
+				{ "spell_maximum_action_distance_+%", -60 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSAbyssCarrionWingBeamImpact"] = {
+	name = "Beam Impact",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 5, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Beam Impact",
+			baseEffectiveness = 1.3200000524521,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				hit = true,
+				triggerable = true,
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },

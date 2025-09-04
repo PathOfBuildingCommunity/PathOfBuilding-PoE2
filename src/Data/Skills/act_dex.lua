@@ -8969,7 +8969,7 @@ skills["ThunderousLeapPlayer"] = {
 	name = "Thunderous Leap",
 	baseTypeName = "Thunderous Leap",
 	color = 2,
-	description = "Leap into the air and plunge your Spear into the ground at the target location, emitting a Lightning-charged shockwave and Detonating Spear skills.",
+	description = "Leap into the air and plunge your Spear into the ground at the target location, emitting a Lightning-charged shockwave.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Travel] = true, [SkillType.Spear] = true, [SkillType.Jumping] = true, [SkillType.Slam] = true, [SkillType.Lightning] = true, [SkillType.Melee] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Detonator] = true, },
 	weaponTypes = {
 		["Spear"] = true,

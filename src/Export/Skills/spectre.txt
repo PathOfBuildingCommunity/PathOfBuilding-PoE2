@@ -150,6 +150,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill EDSAbyssMorayClanFlamethrower Flamethrower
+#set EDSAbyssMorayClanFlamethrower
+#flags triggerable spell
+#mods
+#skillEnd
+
 #skill EDSGolemancerReapLeft
 #set EDSGolemancerReapLeft
 #flags attack melee
@@ -479,6 +485,43 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MPSAbyssPaleEliteFireball Fireball
+#set MPSAbyssPaleEliteFireball
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+
+#skill MPSAbyssCocoon3BallSpit Large Ball Spit
+#set MPSAbyssCocoon3BallSpit
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill GSAbyssCocoon3BallSpitImpact Large Ball Impact
+#set GSAbyssCocoon3BallSpitImpact
+#flags spell triggerable hit
+#mods
+#skillEnd
+
+#skill CGEAbyssCocoon3FlameGeyser Large Ball Flame Geyser
+#set CGEAbyssCocoon3FlameGeyser
+#flags spell area duration
+#mods
+#skillEnd
+
+#skill MPSAbyssCocoon3BallSpitSmall Small Ball Spit
+#set MPSAbyssCocoon3BallSpitSmall
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill GSAbyssCocoon3BallSpitSmallImpact Small Ball Impact 
+#set GSAbyssCocoon3BallSpitSmallImpact
+#flags spell triggerable hit
+#mods
+#skillEnd
+
 #skill MPSArmourCasterBasic Fireball
 #set MPSArmourCasterBasic
 #flags spell projectile triggerable hit
@@ -776,6 +819,18 @@ statMap = {
 #skill SpookyWraithProjectileExplosionCold Basic Spell
 #set SpookyWraithProjectileExplosionCold
 #flags triggerable spell projectile
+#mods
+#skillEnd
+
+#skill TBAbyssCarrionWingBeam Beam
+#set TBAbyssCarrionWingBeam
+#flags spell attack hit triggerable
+#mods
+#skillEnd
+
+#skill GSAbyssCarrionWingBeamImpact Beam Impact
+#set GSAbyssCarrionWingBeamImpact
+#flags spell hit triggerable
 #mods
 #skillEnd
 

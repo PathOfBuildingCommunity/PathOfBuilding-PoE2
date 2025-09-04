@@ -420,6 +420,8 @@ minions["AncestralSpiritTurtle"] = {
 		-- MonsterCannotBeSlowed [movement_speed_cannot_be_reduced_below_base = 1]
 		-- MonsterCannotBeStunned1 [base_cannot_be_stunned = 1]
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 	},
 }
 
@@ -450,9 +452,12 @@ minions["AncestralSpiritHulk"] = {
 		"GAAncestralJadeHulkLeapImpact",
 		"TCAncestralLeagueKaruiHulk",
 		"GAAncestralLeagueKaruiHulkCharge",
+		"EGJadeHulkWarcryBuff",
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 	},
 }
 
@@ -485,6 +490,8 @@ minions["AncestralSpiritCaster"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 	},
 }
 
@@ -516,6 +523,8 @@ minions["AncestralSpiritWarhorn"] = {
 	},
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 	},
 }
 

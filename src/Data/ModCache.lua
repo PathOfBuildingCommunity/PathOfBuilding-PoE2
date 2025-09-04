@@ -199,6 +199,7 @@ c["+13 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",va
 c["+13 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=13}},nil}
 c["+13 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=13}},nil}
 c["+13 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=13},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=13},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=13},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=13}},nil}
+c["+13 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=13}},nil}
 c["+13% to Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="BASE",value=13}},nil}
 c["+13% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=13}},nil}
 c["+13% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=13}},nil}
@@ -245,6 +246,7 @@ c["+16% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",t
 c["+160 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=160}},nil}
 c["+17% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=17}},nil}
 c["+17% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=17}},nil}
+c["+175 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=175}},nil}
 c["+175 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=175}},nil}
 c["+175 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=175}},nil}
 c["+18% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=18}},nil}
@@ -310,6 +312,7 @@ c["+200 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShi
 c["+202 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=202}},nil}
 c["+218 to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=218}},nil}
 c["+23 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=23}},nil}
+c["+23 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=23}},nil}
 c["+23 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=23}},nil}
 c["+23 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=23}},nil}
 c["+23% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}},nil}
@@ -2024,7 +2027,7 @@ c["25% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0
 c["25% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance with Traps"]={{[1]={flags=0,keywordFlags=4096,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
-c["25% increased Culling Strike Threshold Gain 15% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}}," Culling Strike Threshold Gain 15% of  as Extra Lightning Damage "}
+c["25% increased Culling Strike Threshold Gain 13% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}}," Culling Strike Threshold Gain 13% of  as Extra Chaos Damage "}
 c["25% increased Damage during any Flask Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage while you have a Totem"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage while your Companion is in your Presence"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},"  while your Companion is in your Presence "}
@@ -2144,6 +2147,7 @@ c["25% reduced Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type=
 c["25% reduced effect of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="CurseEffectOnSelf",type="INC",value=-25}},nil}
 c["25% reduced maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-25}},nil}
 c["25% reduced maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=-25}},nil}
+c["250% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=250}},nil}
 c["250% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=250}},nil}
 c["250% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="INC",value=250}},nil}
 c["250% increased Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=250}},nil}
@@ -4212,6 +4216,7 @@ c["Block Chance is doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="BlockCh
 c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage "}
 c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
 c["Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
+c["Blood Magic"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Blood Magic"}},nil}
 c["Blue: Skills have 30% less cost"]={nil,"Blue: Skills have 30% less cost "}
 c["Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving"]={nil,"Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving "}
 c["Body Armour grants +100% of Armour also applies to Chaos Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=100}},"  also applies to Chaos Damage "}
@@ -4338,8 +4343,6 @@ c["Companions have 4% increased Attack Speed"]={{[1]={[1]={skillType=198,type="S
 c["Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60%"]={nil,"Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60% "}
 c["Converts all Energy Shield to Mana"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldConvertToMana",type="BASE",value=100}},nil}
 c["Converts all Evasion Rating to Armour"]={{[1]={flags=0,keywordFlags=0,name="IronReflexes",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="EvasionConvertToArmour",type="BASE",value=100}},nil}
-c["Coral Circlet"]={nil,"Coral Circlet "}
-c["Coral Circlet League: Dawn of the Hunt"]={nil,"Coral Circlet League: Dawn of the Hunt "}
 c["Corrupted Blood cannot be inflicted on you"]={{[1]={flags=0,keywordFlags=0,name="CorruptedBloodImmune",type="FLAG",value=true}},nil}
 c["Creates Consecrated Ground on use"]={{},nil}
 c["Creates Ignited Ground in for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"]={nil,"Creates Ignited Ground in for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life "}
@@ -4463,8 +4466,6 @@ c["Detonator skills have 40% increased Area of Effect Detonator skills have 80% 
 c["Detonator skills have 8% increased Area of Effect"]={nil,"Detonator skills have 8% increased Area of Effect "}
 c["Detonator skills have 80% reduced damage"]={nil,"Detonator skills have 80% reduced damage "}
 c["Dexterity's inherent bonus is 1% increased Armour per 2 Dexterity instead"]={{[1]={[1]={div="2",stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoDexBonusToAccuracy",type="FLAG",value=true}},nil}
-c["Diviner Cuffs"]={nil,"Diviner Cuffs "}
-c["Diviner Cuffs League: Dawn of the Hunt"]={nil,"Diviner Cuffs League: Dawn of the Hunt "}
 c["Dodge Roll avoids all Hits"]={nil,"Dodge Roll avoids all Hits "}
 c["Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
 c["Dodge Roll cannot Avoid Damage"]={nil,"Dodge Roll cannot Avoid Damage "}

@@ -6,6 +6,124 @@
 --
 local minions, mod, flag = ...
 
+-- Abyssal
+minions["Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre"] = {
+	name = "Lightless Abomination",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "allows_inc_aoe", "demon", "fire_affinity", "lightless_faction", "medium_movement", "not_dex", "not_int", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 18,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSAbyssCocoon3BallSpit",
+		"GSAbyssCocoon3BallSpitImpact",
+		"GSAbyssCocoon3BallSpitImpactWall",
+		"CGEAbyssCocoon3FlameGeyser",
+		"GTAbyssCocoon3FlameGeyser",
+		"MPSAbyssCocoon3BallSpitSmall",
+		"GSAbyssCocoon3BallSpitSmallImpact",
+		"GSAbyssCocoon3BallSpitSmallImpactWall",
+		"MMSAbyssCocoon3ChargedMortar",
+		"EASAbyssCocoon3ChargedMortar",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterSpectre"] = {
+	name = "Lightless Moray",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "allows_inc_aoe", "Claw_onhit_audio", "demon", "fast_movement", "fire_affinity", "lightless_faction", "not_dex", "ranged", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	armour = 0.25,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EDSAbyssMorayClanFlamethrower",
+		"CTS2AbyssMorayClan",
+		"GSAbyssMorayClanShadeFormErupt",
+		"GAAbyssMorayClanTailSwipeDetonation",
+		"MPSAbyssPaleEliteFireball",
+		"GSAbyssPaleEliteFireball",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4066]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre"] = {
+	name = "Lightless Vengewing",
+	monsterTags = { "abyssal", "Beast_onhit_audio", "demon", "fast_movement", "fire_affinity", "lightless_faction", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 39,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"TBAbyssCarrionWingBeam",
+		"GSAbyssCarrionWingBeamImpact",
+		"DTTCarrionWingDodgeLeft",
+		"DTTCarrionWingDodgeRight",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+	},
+}
+
 -- Beetles
 minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured"] = {
 	name = "Adorned Beetle",
@@ -8257,6 +8375,38 @@ minions["Metadata/Monsters/NettleAnt/NettleAntSummoned"] = {
 	baseMovementSpeed = 39,
 	spectreReservation = 38,
 	companionReservation = 25.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/NettleAnt/NettleAntInterlude"] = {
+	name = "Frozen Mandibles",
+	monsterTags = { "beast", "insect", "not_dex", "not_int", "Unarmed_onhit_audio", "very_fast_movement", },
+	extraFlags = {
+		recommendedBeast = true,
+		recommendedSpectre = true,
+	},
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 0.69,
+	attackRange = 22,
+	accuracy = 1,
+	baseMovementSpeed = 78,
+	spectreReservation = 99,
+	companionReservation = 47.4,
 	monsterCategory = "Beast",
 	spawnLocation = {
 	},

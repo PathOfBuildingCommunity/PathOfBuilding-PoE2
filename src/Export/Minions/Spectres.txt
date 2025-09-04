@@ -5,6 +5,16 @@
 --
 local minions, mod, flag = ...
 
+-- Abyssal
+#spectre Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterSpectre
+#emit
+
+#spectre Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre
+#emit
+
 -- Beetles
 #spectre Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured
 #emit
@@ -733,6 +743,10 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/NettleAnt/NettleAntSummoned
+#flags recommendedBeast recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/NettleAnt/NettleAntInterlude
 #flags recommendedBeast recommendedSpectre
 #emit
 
