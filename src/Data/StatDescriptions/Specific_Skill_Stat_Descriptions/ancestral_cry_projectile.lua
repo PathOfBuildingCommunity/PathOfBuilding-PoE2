@@ -69,12 +69,38 @@ return {
 	[6]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=0,
+						[2]=0
+					}
 				},
 				text="Fires {0:+d} Molten Projectile"
 			},
 			[2]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]=0,
+						[2]=0
+					}
 				},
 				text="Fires {0:+d} Molten Projectiles"
 			},

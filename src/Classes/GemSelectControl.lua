@@ -651,7 +651,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			if grantedEffectLevel.baseMultiplier then
 				self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%g%% of base", grantedEffectLevel.baseMultiplier * 100))
 			end
-		else
+		elseif not grantedEffect.hidden then
 			if grantedEffect.castTime > 0 then
 				self.tooltip:AddLine(16, string.format("^x7F7F7FCast Time: ^7%.2f sec", grantedEffect.castTime))
 			else

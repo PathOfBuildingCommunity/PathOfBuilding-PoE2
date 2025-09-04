@@ -5,7 +5,20 @@ return {
 	[1]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
+					}
 				},
 				text="{2:+d}% maximum Elemental Exposure applied"
 			},
