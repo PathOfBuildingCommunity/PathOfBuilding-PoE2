@@ -1396,6 +1396,13 @@ function calcs.defence(env, actor)
 				output.noSplitEvade = true
 			end
 			output.EvadeChance = m_min(output.EvadeChance, evadeMax)
+			if modDB:Flag(nil, "UnluckyEvade") then
+				output.EvadeChance = output.EvadeChance * output.EvadeChance / 100
+				output.MeleeEvadeChance = output.MeleeEvadeChance * output.MeleeEvadeChance / 100
+				output.ProjectileEvadeChance = output.ProjectileEvadeChance * output.ProjectileEvadeChance / 100
+				output.SpellEvadeChance = output.SpellEvadeChance * output.SpellEvadeChance / 100
+				output.SpellProjectileEvadeChance = output.SpellProjectileEvadeChance * output.SpellProjectileEvadeChance / 100
+			end
 			if breakdown then
 				breakdown.EvadeChance = {
 					s_format("Enemy level: %d ^8(%s the Configuration tab)", env.enemyLevel, env.configInput.enemyLevel and "overridden from" or "can be overridden in"),
