@@ -488,6 +488,9 @@ return {
 ["global_chance_to_blind_on_hit_%"] = {
 	mod("BlindChance", "BASE", nil),
 },
+["global_chance_to_daze_on_hit_%"] = {
+	mod("DazeChance", "BASE", nil),
+},
 ["cannot_be_stunned_while_leeching"] = {
 	mod("AvoidStun", "BASE", 100, { type = "Condition", var = "Leeching"}),
 },

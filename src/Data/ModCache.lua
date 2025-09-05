@@ -958,13 +958,7 @@ c["10% chance for Mace Strike Skills you use yourself to cause Aftershocks, deal
 c["10% chance to Aggravate Bleeding on targets you Hit with Attacks"]={{}," to Aggravate Bleeding on targets you Hit  "}
 c["10% chance to Aggravate Bleeding on targets you Hit with Attacks 8% increased Attack Speed while a Rare or Unique Enemy is in your Presence"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="NearbyRareOrUniqueEnemy",[2]="RareOrUnique"}},flags=1,keywordFlags=65536,name="Speed",type="BASE",value=10}}," to Aggravate Bleeding on targets you Hit  8% increased   "}
 c["10% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=10}},nil}
-c["10% chance to Daze on Hit"]={{}," to Daze  "}
-c["10% chance to Daze on Hit 25% increased Daze Duration"]={{[1]={flags=4,keywordFlags=0,name="Duration",type="BASE",value=10}}," to Daze  25% increased Daze  "}
-c["10% chance to Daze on Hit 30% increased Defences while wielding a Quarterstaff"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=4,keywordFlags=0,name="Defences",type="BASE",value=10}}," to Daze  30% increased   "}
-c["10% chance to Daze on Hit 30% increased Defences while wielding a Quarterstaff 30% increased Freeze Buildup with Quarterstaves"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=4,keywordFlags=0,name="Defences",type="BASE",value=10}}," to Daze  30% increased   30% increased Freeze Buildup with Quarterstaves "}
-c["10% chance to Daze on Hit 30% increased Defences while wielding a Quarterstaff 30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves"]={{[1]={[1]={type="Condition",var="UsingStaff"},flags=4,keywordFlags=0,name="Defences",type="BASE",value=10}}," to Daze  30% increased   30% increased Freeze Buildup with Quarterstaves 30% increased Stun Buildup with Quarterstaves "}
-c["10% chance to Daze on Hit 40% increased Critical Hit Chance against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=4,keywordFlags=0,name="CritChance",type="BASE",value=10}}," to Daze  40% increased   "}
-c["10% chance to Daze on Hit 40% increased Damage against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=4,keywordFlags=0,name="Damage",type="BASE",value=10}}," to Daze  40% increased   "}
+c["10% chance to Daze on Hit"]={{[1]={flags=4,keywordFlags=0,name="DazeChance",type="BASE",value=10}},nil}
 c["10% chance to Defend with 200% of Armour"]={{[1]={[1]={type="Condition",var="ArmourMax"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour Mastery: Max Calc",type="MAX",value=100},[2]={[1]={type="Condition",var="ArmourAvg"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour Mastery: Average Calc",type="MAX",value=10},[3]={[1]={neg=true,type="Condition",var="ArmourMax"},[2]={neg=true,type="Condition",var="ArmourAvg"},flags=0,keywordFlags=0,name="ArmourDefense",source="Armour Mastery: Min Calc",type="MAX",value=0}},nil}
 c["10% chance to Gain Arcane Surge when you deal a Critical Hit"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["10% chance to Pierce an Enemy"]={{}," to Pierce an Enemy "}
@@ -1195,7 +1189,7 @@ c["10% reduced effect of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="Cur
 c["10% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="SelfShockEffect",type="INC",value=-10}},nil}
 c["10% reduced maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=-10}},nil}
 c["100 Passive Skill Points become Weapon Set Skill Points"]={{[1]={flags=0,keywordFlags=0,name="PassivePointsToWeaponSetPoints",type="BASE",value=100}},nil}
-c["100% chance to Daze Enemies whose Hits you Block while Actively Blocking"]={{}," to Daze Enemies whose Hits you Block ly Blocking "}
+c["100% chance to Daze Enemies whose Hits you Block while Actively Blocking"]={{[1]={flags=0,keywordFlags=0,name="DazeChance",type="BASE",value=100}},"  Enemies whose Hits you Block ly Blocking "}
 c["100% chance to not consume a bolt if you've Reloaded Recently"]={{}," to not consume a bolt if you've Reloaded Recently "}
 c["100% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=100}},nil}
 c["100% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=100}},nil}
@@ -2337,7 +2331,7 @@ c["30% increased Spell Damage if you have consumed an Elemental Infusion Recentl
 c["30% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=30}},nil}
 c["30% increased Stun Buildup"]={{}," Stun Buildup "}
 c["30% increased Stun Buildup +15 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=30}}," Stun Buildup +15 to  "}
-c["30% increased Stun Buildup 10% chance to Daze on Hit"]={{}," Stun Buildup 10% chance to Daze  "}
+c["30% increased Stun Buildup 10% chance to Daze on Hit"]={{[1]={flags=4,keywordFlags=0,name="DazeChance",type="INC",value=30}}," Stun Buildup 10% chance   "}
 c["30% increased Stun Buildup 12% increased Area of Effect if you have Stunned an Enemy Recently"]={{[1]={[1]={type="Condition",var="StunnedEnemyRecently"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=30}}," Stun Buildup 12% increased   "}
 c["30% increased Stun Buildup 30% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}}," Stun Buildup 30% increased  "}
 c["30% increased Stun Buildup 30% increased Stun Threshold 5% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}}," Stun Buildup 30% increased  5% increased Strength "}
@@ -2493,9 +2487,7 @@ c["4.6 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRe
 c["40% chance to Aggravate Bleeding on Hit"]={{}," to Aggravate Bleeding  "}
 c["40% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidChaosDamageChance",type="BASE",value=40}},nil}
 c["40% chance to Avoid Physical Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidPhysicalDamageChance",type="BASE",value=40}},nil}
-c["40% chance to Daze on Hit"]={{}," to Daze  "}
-c["40% chance to Daze on Hit 172% increased Physical Damage"]={{[1]={flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=40}}," to Daze  172% increased  "}
-c["40% chance to Daze on Hit Adds 53 to 86 Fire Damage"]={{[1]={flags=4,keywordFlags=0,name="FireDamage",type="BASE",value=40}}," to Daze  Adds 53 to 86  "}
+c["40% chance to Daze on Hit"]={{[1]={flags=4,keywordFlags=0,name="DazeChance",type="BASE",value=40}},nil}
 c["40% faster Curse Activation"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=40}},nil}
 c["40% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=40}},nil}
 c["40% increased Ailment and Stun Threshold while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=40}}," Ailment and   "}
@@ -2656,10 +2648,7 @@ c["5% additional Physical Damage Reduction while you have at least 150 Devotion"
 c["5% chance for Slam Skills you use yourself to cause Aftershocks"]={{}," for Slam Skills you use yourself to cause Aftershocks "}
 c["5% chance to Blind Enemies on Hit"]={{[1]={flags=0,keywordFlags=0,name="BlindChance",type="BASE",value=5}},nil}
 c["5% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=5}},nil}
-c["5% chance to Daze on Hit"]={{}," to Daze  "}
-c["5% chance to Daze on Hit 20% increased Freeze Buildup with Quarterstaves"]={{}," to Daze  20% increased Freeze Buildup with Quarterstaves "}
-c["5% chance to Daze on Hit Gain 12% of Physical Damage as Extra Cold Damage against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}}," to Daze  Gain 12% of  as Extra Cold Damage  "}
-c["5% chance to Daze on Hit Gain 12% of Physical Damage as Extra Lightning Damage against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=5}}," to Daze  Gain 12% of  as Extra Lightning Damage  "}
+c["5% chance to Daze on Hit"]={{[1]={flags=4,keywordFlags=0,name="DazeChance",type="BASE",value=5}},nil}
 c["5% chance to Gain Arcane Surge when you deal a Critical Hit"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["5% chance to gain Volatility on Kill"]={nil,"Volatility  "}
 c["5% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=5}},nil}
