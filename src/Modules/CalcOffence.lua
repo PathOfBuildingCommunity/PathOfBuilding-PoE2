@@ -1023,6 +1023,11 @@ function calcs.offence(env, actor, activeSkill)
 		skillData.boltCount = ammoStats.boltCount
 		skillData.reloadTime = ammoStats.reloadTime
 	end
+	
+	if activeSkill.skillTypes[SkillType.Grenade] then
+		local detonateTwice = m_min(skillModList:Sum("BASE", skillCfg, "GrenadeActivateTwice"), 100)
+		modDB:NewMod("DPS", "MORE", detonateTwice, "Grenade Activate Twice")
+	end
 
 	if skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable] and not skillModList:Flag(nil, "NoRepeatBonuses") then
 		-- Applies DPS multiplier based on seals count
