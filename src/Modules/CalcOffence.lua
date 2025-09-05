@@ -1903,12 +1903,13 @@ function calcs.offence(env, actor, activeSkill)
 			local moreType = 1
 			local moreCost = 1
 			local inc = 0
+			local costEfficiency = calcLib.mod(skillModList, skillCfg, val.type.."CostEfficiency", "CostEfficiency")
 			if not val.unaffectedByGenericCostMults then
 				output[costName] = val.finalBaseCost
 				moreType = skillModList:More(skillCfg, val.type.."Cost")
 				moreCost = skillModList:More(skillCfg, "Cost")
 				inc = skillModList:Sum("INC", skillCfg, val.type.."Cost", "Cost")
-				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * val.baseCostRaw * moreType * moreCost) + val.totalCost)
+				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * val.baseCostRaw * moreType * moreCost / m_max(0.01, costEfficiency)) + val.totalCost)
 				if inc < 0 then
 					output[costName] = m_max(0, m_ceil((1 + inc / 100) * output[costName]))
 				else
@@ -1924,6 +1925,8 @@ function calcs.offence(env, actor, activeSkill)
 				else
 					output[costName] = m_max(0, m_floor(moreCost * output[costName]))
 				end
+				-- Apply cost efficiency (similar to reservation efficiency)
+				output[costName] = m_max(0, output[costName] / m_max(0.01, costEfficiency))
 				output[costName] = m_max(0, output[costName] + val.totalCost)
 				if val.type == "Mana" and hybridLifeCost > 0 then -- Life/Mana Mastery
 					output[costName] = m_max(0, m_floor((1 - hybridLifeCost) * output[costName]))
@@ -1935,8 +1938,10 @@ function calcs.offence(env, actor, activeSkill)
 				output[costName] = m_floor(val.baseCost + val.baseCostNoMult)
 				output[costName] = m_max(0, (1 + inc / 100) * output[costName])
 				output[costName] = m_max(0, moreType * output[costName])
+				-- Apply cost efficiency for unaffected costs too
+				output[costName] = m_max(0, output[costName] / m_max(0.01, costEfficiency))
 				output[costName] = m_max(0, output[costName] + val.totalCost)
-				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * (val.baseCostRaw + val.baseCostNoMult) * moreType) + val.totalCost)
+				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * (val.baseCostRaw + val.baseCostNoMult) * moreType / m_max(0.01, costEfficiency)) + val.totalCost)
 			end
 			if breakdown and hasCost then
 				breakdown[costName] = {
@@ -1962,6 +1967,9 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				if moreType ~= 1 then
 					t_insert(breakdown[costName], s_format("x %.2f ^8(more/less "..val.text.." cost)", moreType))
+				end
+				if costEfficiency ~= 1 then
+					t_insert(breakdown[costName], s_format("/ %.2f ^8("..val.text.." cost efficiency)", costEfficiency))
 				end
 				if val.totalCost ~= 0 then
 					t_insert(breakdown[costName], s_format("%+d ^8(total "..val.text.." cost)", val.totalCost))
