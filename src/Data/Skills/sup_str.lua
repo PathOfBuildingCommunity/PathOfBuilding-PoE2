@@ -3835,6 +3835,14 @@ skills["SupportIgnitePlayerThree"] = {
 			label = "Ignite III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ignition_chance_to_ignite_+%_final"] = {
+					mod("EnemyIgniteChance", "MORE", nil),
+				},
+				["faster_burn_%"] = {
+					mod("IgniteFaster", "INC", nil)
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

@@ -921,6 +921,14 @@ statMap = {
 
 #skill SupportIgnitePlayerThree
 #set SupportIgnitePlayerThree
+statMap = {
+	["support_ignition_chance_to_ignite_+%_final"] = {
+		mod("EnemyIgniteChance", "MORE", nil),
+	},
+	["faster_burn_%"] = {
+					mod("IgniteFaster", "INC", nil)
+	},
+},
 #mods
 #skillEnd
 
