@@ -636,6 +636,11 @@ statMap = {
 
 #skill SupportExecutePlayerTwo
 #set SupportExecutePlayerTwo
+statMap = {
+	["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+	},
+},
 #mods
 #skillEnd
 

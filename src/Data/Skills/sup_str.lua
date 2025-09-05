@@ -2720,6 +2720,11 @@ skills["SupportExecutePlayerTwo"] = {
 			label = "Execute II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
