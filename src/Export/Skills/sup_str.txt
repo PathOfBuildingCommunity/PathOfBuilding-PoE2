@@ -247,6 +247,11 @@ statMap = {
 
 #skill SupportCannibalismPlayerTwo
 #set SupportCannibalismPlayerTwo
+statMap = {
+	["support_cannibalism_recover_%_maximum_life_on_kill"] = {
+		mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+	},
+},
 #flags
 #mods
 #skillEnd

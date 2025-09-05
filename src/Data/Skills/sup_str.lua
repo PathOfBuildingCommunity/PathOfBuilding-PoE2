@@ -1309,6 +1309,11 @@ skills["SupportCannibalismPlayerTwo"] = {
 			label = "Cannibalism II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
