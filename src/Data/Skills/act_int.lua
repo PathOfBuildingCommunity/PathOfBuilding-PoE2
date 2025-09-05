@@ -13269,7 +13269,7 @@ skills["LightningConduitPlayer"] = {
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "lightning_conduit",
 			statMap = {
-				["consume_enemy_shock_to_gain_damage_+%_final_per_5%_increased_damage_taken_from_shock"] = {
+				["lightning_conduit_damage_+%_final_per_5%_increased_damage_taken_from_shock"] = {
 					mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "Multiplier", var = "ShockEffect", div = 5, actor = "enemy" }),
 				},
 			},
