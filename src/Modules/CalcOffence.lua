@@ -1909,7 +1909,7 @@ function calcs.offence(env, actor, activeSkill)
 				moreType = skillModList:More(skillCfg, val.type.."Cost")
 				moreCost = skillModList:More(skillCfg, "Cost")
 				inc = skillModList:Sum("INC", skillCfg, val.type.."Cost", "Cost")
-				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * val.baseCostRaw * moreType * moreCost / m_max(0.01, costEfficiency)) + val.totalCost)
+				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * val.baseCostRaw * moreType * moreCost / costEfficiency) + val.totalCost)
 				if inc < 0 then
 					output[costName] = m_max(0, m_ceil((1 + inc / 100) * output[costName]))
 				else
@@ -1926,7 +1926,7 @@ function calcs.offence(env, actor, activeSkill)
 					output[costName] = m_max(0, m_floor(moreCost * output[costName]))
 				end
 				-- Apply cost efficiency (similar to reservation efficiency)
-				output[costName] = m_max(0, output[costName] / m_max(0.01, costEfficiency))
+				output[costName] = m_max(0, output[costName] / costEfficiency)
 				output[costName] = m_max(0, output[costName] + val.totalCost)
 				if val.type == "Mana" and hybridLifeCost > 0 then -- Life/Mana Mastery
 					output[costName] = m_max(0, m_floor((1 - hybridLifeCost) * output[costName]))
@@ -1939,9 +1939,9 @@ function calcs.offence(env, actor, activeSkill)
 				output[costName] = m_max(0, (1 + inc / 100) * output[costName])
 				output[costName] = m_max(0, moreType * output[costName])
 				-- Apply cost efficiency for unaffected costs too
-				output[costName] = m_max(0, output[costName] / m_max(0.01, costEfficiency))
+				output[costName] = m_max(0, output[costName] / costEfficiency)
 				output[costName] = m_max(0, output[costName] + val.totalCost)
-				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * (val.baseCostRaw + val.baseCostNoMult) * moreType / m_max(0.01, costEfficiency)) + val.totalCost)
+				output[costNameRaw] = val.baseCostRaw and m_max(0, m_max(0, (1 + inc / 100) * (val.baseCostRaw + val.baseCostNoMult) * moreType / costEfficiency) + val.totalCost)
 			end
 			if breakdown and hasCost then
 				breakdown[costName] = {
