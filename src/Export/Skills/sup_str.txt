@@ -247,6 +247,11 @@ statMap = {
 
 #skill SupportCannibalismPlayerTwo
 #set SupportCannibalismPlayerTwo
+statMap = {
+	["support_cannibalism_recover_%_maximum_life_on_kill"] = {
+		mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+	},
+},
 #flags
 #mods
 #skillEnd
@@ -426,6 +431,14 @@ statMap = {
 
 #skill SupportDeepCutsPlayerTwo
 #set SupportDeepCutsPlayerTwo
+statMap = {
+	["support_deep_cuts_hit_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit),
+	},
+	["support_deep_cuts_bleeding_effect_+%_final"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
+	},
+},
 #mods
 #skillEnd
 
@@ -598,6 +611,11 @@ statMap = {
 
 #skill SupportIgniteDurationPlayerTwo
 #set SupportIgniteDurationPlayerTwo
+statMap = {
+	["support_eternal_flame_chance_to_ignite_+%_final"] = {
+		mod("EnemyIgniteChance", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -618,11 +636,24 @@ statMap = {
 
 #skill SupportExecutePlayerTwo
 #set SupportExecutePlayerTwo
+statMap = {
+	["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportExecutePlayerThree
 #set SupportExecutePlayerThree
+statMap = {
+	["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+	},
+	["support_executioner_damage_+%_final_while_on_low_life"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "LowLife"})
+	},
+},
 #mods
 #skillEnd
 
@@ -890,6 +921,14 @@ statMap = {
 
 #skill SupportIgnitePlayerThree
 #set SupportIgnitePlayerThree
+statMap = {
+	["support_ignition_chance_to_ignite_+%_final"] = {
+		mod("EnemyIgniteChance", "MORE", nil),
+	},
+	["faster_burn_%"] = {
+					mod("IgniteFaster", "INC", nil)
+	},
+},
 #mods
 #skillEnd
 

@@ -1309,6 +1309,11 @@ skills["SupportCannibalismPlayerTwo"] = {
 			label = "Cannibalism II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -1900,6 +1905,14 @@ skills["SupportDeepCutsPlayerTwo"] = {
 			label = "Deep Cuts II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_deep_cuts_hit_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit),
+				},
+				["support_deep_cuts_bleeding_effect_+%_final"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2607,6 +2620,11 @@ skills["SupportIgniteDurationPlayerTwo"] = {
 			label = "Eternal Flame II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_eternal_flame_chance_to_ignite_+%_final"] = {
+					mod("EnemyIgniteChance", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2702,6 +2720,11 @@ skills["SupportExecutePlayerTwo"] = {
 			label = "Execute II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2732,6 +2755,14 @@ skills["SupportExecutePlayerThree"] = {
 			label = "Execute III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+				},
+				["support_executioner_damage_+%_final_while_on_low_life"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "LowLife"})
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3804,6 +3835,14 @@ skills["SupportIgnitePlayerThree"] = {
 			label = "Ignite III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ignition_chance_to_ignite_+%_final"] = {
+					mod("EnemyIgniteChance", "MORE", nil),
+				},
+				["faster_burn_%"] = {
+					mod("IgniteFaster", "INC", nil)
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
