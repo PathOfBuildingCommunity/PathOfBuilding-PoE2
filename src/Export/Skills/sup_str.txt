@@ -426,6 +426,14 @@ statMap = {
 
 #skill SupportDeepCutsPlayerTwo
 #set SupportDeepCutsPlayerTwo
+statMap = {
+	["support_deep_cuts_hit_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit),
+	},
+	["support_deep_cuts_bleeding_effect_+%_final"] = {
+		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
+	},
+},
 #mods
 #skillEnd
 

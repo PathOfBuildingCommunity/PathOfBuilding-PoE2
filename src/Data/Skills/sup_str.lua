@@ -1900,6 +1900,14 @@ skills["SupportDeepCutsPlayerTwo"] = {
 			label = "Deep Cuts II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_deep_cuts_hit_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit),
+				},
+				["support_deep_cuts_bleeding_effect_+%_final"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
