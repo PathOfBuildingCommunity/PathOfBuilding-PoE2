@@ -2446,7 +2446,7 @@ return {
 },
 -- Grenade
 ["grenade_skill_%_chance_to_explode_twice"] = {
-	mod("GrenadeExplodeTwice", "INC", nil),
+	mod("GrenadeActivateTwice", "BASE", nil),
 },
 ["support_grenade_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
