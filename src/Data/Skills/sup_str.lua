@@ -2755,6 +2755,14 @@ skills["SupportExecutePlayerThree"] = {
 			label = "Execute III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_executioner_damage_vs_enemies_on_low_life_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
+				},
+				["support_executioner_damage_+%_final_while_on_low_life"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Condition", var = "LowLife"})
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
