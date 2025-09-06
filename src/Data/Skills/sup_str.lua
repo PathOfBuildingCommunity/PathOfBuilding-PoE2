@@ -5718,6 +5718,11 @@ skills["SupportShortFusePlayer"] = {
 			label = "Short Fuse I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_fast_forward_detonation_time_+%_final"] = {
+					mod("DetonationTime", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5749,6 +5754,9 @@ skills["SupportShortFusePlayerTwo"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
+				["support_fast_forward_detonation_time_+%_final"] = {
+					mod("DetonationTime", "MORE", nil),
+				},
 				["support_short_fuse_damage_+%_final"] = {
 					mod("Damage", "MORE", nil),
 				},

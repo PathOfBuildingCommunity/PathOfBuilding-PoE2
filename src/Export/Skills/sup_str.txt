@@ -1299,12 +1299,20 @@ statMap = {
 
 #skill SupportShortFusePlayer
 #set SupportShortFusePlayer
+statMap = {
+	["support_fast_forward_detonation_time_+%_final"] = {
+		mod("DetonationTime", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportShortFusePlayerTwo
 #set SupportShortFusePlayerTwo
 statMap = {
+	["support_fast_forward_detonation_time_+%_final"] = {
+		mod("DetonationTime", "MORE", nil),
+	},
 	["support_short_fuse_damage_+%_final"] = {
 		mod("Damage", "MORE", nil),
 	},

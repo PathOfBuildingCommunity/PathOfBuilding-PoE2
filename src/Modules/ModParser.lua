@@ -601,6 +601,8 @@ local modNameList = {
 	["duration"] = "Duration",
 	["skill effect duration"] = "Duration",
 	["fuse duration"] = "Duration",
+	["detonation time"] = "DetonationTime",
+	["grenade detonation time"] = { "DetonationTime", tag = { type = "SkillType", skillType = SkillType.Grenade } },
 	["chaos skill effect duration"] = { "Duration", keywordFlags = KeywordFlag.Chaos },
 	["soul gain prevention duration"] = "SoulGainPreventionDuration",
 	["aspect of the spider debuff duration"] = { "Duration", tag = { type = "SkillName", skillName = "Aspect of the Spider" } },

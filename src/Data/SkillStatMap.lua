@@ -698,6 +698,13 @@ return {
 ["base_bleed_duration_+%"] = {
 	mod("EnemyBleedDuration", "INC", nil),
 },
+["base_skill_detonation_time"] = {
+	mod("DetonationTime", "BASE", nil),
+	div = 1000,
+},
+["skill_detonation_time_+%"] = {
+	mod("DetonationTime", "INC", nil),
+},
 -- Damage
 ["damage_+%"] = {
 	mod("Damage", "INC", nil),

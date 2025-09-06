@@ -1569,7 +1569,7 @@ c["15% reduced Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",typ
 c["15% reduced Duration of Ailments on You"]={{[1]={flags=0,keywordFlags=0,name="SelfAilmentDuration",type="INC",value=-15}},nil}
 c["15% reduced Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=-15}},nil}
 c["15% reduced Flask Charges used"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-15}},nil}
-c["15% reduced Grenade Detonation Time"]={{},"  Detonation Time "}
+c["15% reduced Grenade Detonation Time"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="DetonationTime",type="INC",value=-15}},nil}
 c["15% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-15}},nil}
 c["15% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-15}},"  Penalty ly Blocking "}
 c["15% reduced Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-15}},nil}
@@ -2133,7 +2133,7 @@ c["25% reduced Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="Fl
 c["25% reduced Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecoveryRate",type="INC",value=-25}},nil}
 c["25% reduced Freeze Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfFreezeDuration",type="INC",value=-25}},nil}
 c["25% reduced Global Defences"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=-25}},nil}
-c["25% reduced Grenade Detonation Time"]={{},"  Detonation Time "}
+c["25% reduced Grenade Detonation Time"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="DetonationTime",type="INC",value=-25}},nil}
 c["25% reduced Ignite Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteDuration",type="INC",value=-25}},nil}
 c["25% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-25}},nil}
 c["25% reduced Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=-25}},nil}
@@ -2792,8 +2792,7 @@ c["50% increased Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="
 c["50% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["50% increased Freeze Buildup 30% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=50}}," Freeze Buildup 30% increased   "}
 c["50% increased Freeze Buildup 30% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=50}}," Freeze Buildup 30% increased  "}
-c["50% increased Grenade Detonation Time"]={{},"  Detonation Time "}
-c["50% increased Grenade Detonation Time Grenade Skills Fire an additional Projectile"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=50}},"  Detonation Time Grenade Skills Fire an additional  "}
+c["50% increased Grenade Detonation Time"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="DetonationTime",type="INC",value=50}},nil}
 c["50% increased Hazard Area of Effect"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=50}},nil}
 c["50% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=50}},nil}
 c["50% increased Immobilisation buildup against Constructs"]={{}," Immobilisation buildup against Constructs "}
