@@ -1095,8 +1095,7 @@ c["10% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,
 c["10% increased Magnitude of Non-Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=10},[3]={flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=10}},nil}
 c["10% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=10}},nil}
 c["10% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=10}},nil}
-c["10% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=10}},"  Efficiency "}
-c["10% increased Mana Cost Efficiency Triggered Spells deal 40% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="ManaCost",type="INC",value=10}},"  Efficiency Triggered s deal 40% increased Spell Damage "}
+c["10% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=10}},nil}
 c["10% increased Mana Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=10}},nil}
 c["10% increased Mana Recovery Rate during Effect of any Mana Flask"]={{[1]={[1]={type="Condition",var="UsingManaFlask"},flags=0,keywordFlags=0,name="ManaRecoveryRate",type="INC",value=10}},nil}
 c["10% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=10}},nil}
@@ -1442,9 +1441,9 @@ c["15% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="Char
 c["15% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
-c["15% increased Cost Efficiency"]={{}," Cost Efficiency "}
-c["15% increased Cost Efficiency of Attacks"]={{}," Cost Efficiency of Attacks "}
-c["15% increased Cost Efficiency of Attacks 18% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=15}}," Cost Efficiency of Attacks 18% of Skill s Converted to Life Costs "}
+c["15% increased Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
+c["15% increased Cost Efficiency of Attacks"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},"  of Attacks "}
+c["15% increased Cost Efficiency of Attacks 18% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},"  of Attacks 18% of Skill Mana Costs Converted to Life Costs "}
 c["15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
@@ -1505,7 +1504,7 @@ c["15% increased Magnitude of Daze"]={{}," Magnitude of Daze "}
 c["15% increased Magnitude of Ignite you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Jagged Ground you create"]={{[1]={flags=0,keywordFlags=0,name="EnemyJaggedGroundMagnitude",type="INC",value=15}},nil}
 c["15% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=15}},nil}
-c["15% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=15}},"  Efficiency "}
+c["15% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=15}},nil}
 c["15% increased Mana Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=15}},nil}
 c["15% increased Mana Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesGained",type="INC",value=15}},nil}
 c["15% increased Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoveryRate",type="INC",value=15}},nil}
@@ -1607,8 +1606,7 @@ c["16% increased Critical Damage Bonus with Bows"]={{[1]={flags=131076,keywordFl
 c["16% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=16}},nil}
 c["16% increased Damage with Warcries"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=16}},nil}
 c["16% increased Hazard Damage"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
-c["16% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=16}},"  Efficiency "}
-c["16% increased Mana Cost Efficiency 30% increased Mana Regeneration Rate while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="ManaCost",type="INC",value=16}},"  Efficiency 30% increased Mana Regeneration Rate  "}
+c["16% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=16}},nil}
 c["16% increased Mana Regeneration Rate while not on Low Mana"]={{[1]={[1]={neg=true,type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=16}},nil}
 c["16% increased Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=16}},nil}
 c["16% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
@@ -1725,8 +1723,7 @@ c["20% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage"
 c["20% increased Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=20}},nil}
 c["20% increased Charm Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=20}},nil}
 c["20% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=20}},nil}
-c["20% increased Cost Efficiency of Skills if you've consumed a Power Charge Recently"]={{}," Cost Efficiency of Skills  "}
-c["20% increased Cost Efficiency of Skills if you've consumed a Power Charge Recently Triggered Spells deal 40% increased Spell Damage"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovablePowerCharge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=20}}," Cost Efficiency of Skills  Triggered s deal 40% increased Spell  "}
+c["20% increased Cost Efficiency of Skills if you've consumed a Power Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovablePowerCharge"},flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=20}},nil}
 c["20% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
 c["20% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
 c["20% increased Critical Damage Bonus if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=20}},nil}
@@ -1807,7 +1804,7 @@ c["20% increased Magnitude of Impales inflicted with Spells 20% increased Physic
 c["20% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=20},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=20},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=20}},nil}
 c["20% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=20}},nil}
 c["20% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=20}},nil}
-c["20% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=20}},"  Efficiency "}
+c["20% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=20}},nil}
 c["20% increased Mana Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesGained",type="INC",value=20}},nil}
 c["20% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=20}},nil}
 c["20% increased Melee Critical Hit Chance"]={{[1]={flags=256,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
@@ -2076,7 +2073,7 @@ c["25% increased Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags
 c["25% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=25}},nil}
 c["25% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=25}},nil}
 c["25% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=25}},nil}
-c["25% increased Mana Cost Efficiency while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="ManaCost",type="INC",value=25}},"  Efficiency  "}
+c["25% increased Mana Cost Efficiency while on Low Mana"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=25}},nil}
 c["25% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=25}},nil}
 c["25% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=25}},nil}
 c["25% increased Mana Regeneration Rate if you have Shocked an Enemy Recently"]={{[1]={[1]={type="Condition",var="ShockedEnemyRecently"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=25}},nil}
@@ -2310,7 +2307,8 @@ c["30% increased Magnitude of Non-Damaging Ailments you inflict"]={{[1]={flags=0
 c["30% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=30},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=30}},nil}
 c["30% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=30}},nil}
 c["30% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30}},nil}
-c["30% increased Mana Cost Efficiency of Attacks during any Mana Flask Effect"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=30}},"  Efficiency of Attacks during any Mana Flask Effect "}
+c["30% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=30}},nil}
+c["30% increased Mana Cost Efficiency of Attacks during any Mana Flask Effect"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=30}},"  of Attacks during any Mana Flask Effect "}
 c["30% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=30}},nil}
 c["30% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}},nil}
 c["30% increased Mana Regeneration Rate while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}},nil}
@@ -2574,7 +2572,7 @@ c["40% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="Lightnin
 c["40% increased Lightning Damage while affected by Herald of Thunder"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofThunder"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=40}},nil}
 c["40% increased Magnitude of Bleeding you inflict against Pinned Enemies"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=40}},"  against Pinned Enemies "}
 c["40% increased Magnitude of Shock you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=40}},nil}
-c["40% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=40}},"  Efficiency "}
+c["40% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=40}},nil}
 c["40% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=40}},nil}
 c["40% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=40}},nil}
 c["40% increased Mana Regeneration Rate while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=40}},nil}
@@ -2954,8 +2952,8 @@ c["60% increased Freeze Threshold"]={{[1]={flags=0,keywordFlags=0,name="FreezeTh
 c["60% increased Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="IceCrystalLife",type="INC",value=60}},nil}
 c["60% increased Magnitude of Abyssal Wasting you inflict"]={{}," Magnitude of Abyssal Wasting you inflict "}
 c["60% increased Magnitude of Abyssal Wasting you inflict Abyssal Wasting you inflict has Infinite Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=60}}," Magnitude of Abyssal Wasting you inflict Abyssal Wasting you inflict has Infinite  "}
-c["60% increased Mana Cost Efficiency of Marks"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=60}},"  Efficiency of Marks "}
-c["60% increased Mana Cost Efficiency of Marks 4% increased Movement Speed if you've used a Mark Recently"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=60}},"  Efficiency of Marks 4% increased Movement Speed if you've used a Mark Recently "}
+c["60% increased Mana Cost Efficiency of Marks"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=60}},"  of Marks "}
+c["60% increased Mana Cost Efficiency of Marks 4% increased Movement Speed if you've used a Mark Recently"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=60}},"  of Marks 4% increased Movement Speed if you've used a Mark Recently "}
 c["60% increased Mana Regeneration Rate while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=60}},nil}
 c["60% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["60% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=60}},nil}
@@ -3073,7 +3071,7 @@ c["8% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="Ail
 c["8% increased Immobilisation buildup"]={{}," Immobilisation buildup "}
 c["8% increased Knockback Distance"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="INC",value=8}},nil}
 c["8% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=8}},nil}
-c["8% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="INC",value=8}},"  Efficiency "}
+c["8% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=8}},nil}
 c["8% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=8}},nil}
 c["8% increased Melee Attack Speed"]={{[1]={flags=257,keywordFlags=0,name="Speed",type="INC",value=8}},nil}
 c["8% increased Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
