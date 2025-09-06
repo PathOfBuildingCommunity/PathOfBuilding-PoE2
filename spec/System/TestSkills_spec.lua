@@ -68,8 +68,20 @@ describe("TestSkills", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 
-		-- Test actual behavior: appears to be around 8.67 instead of 9
 		local finalCost = build.calcsTab.mainOutput.ManaCost
-		assert.True(math.abs(finalCost - 8.67) < 0.1)
+		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
+	end)
+
+	it("Test mana cost efficiency with support gems", function()
+		-- Test interaction between cost efficiency and cost multipliers
+		build.skillsTab:PasteSocketGroup("Contagion 6/0  1\nMagnified Area I 1/0  1")
+		
+		-- Add efficiency
+		build.configTab.input.customMods = "36% increased Mana Cost Efficiency"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local finalCost = build.calcsTab.mainOutput.ManaCost
+		assert.are.equals(16, round(finalCost))
 	end)
 end)
