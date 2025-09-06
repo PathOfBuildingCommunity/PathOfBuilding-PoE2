@@ -1817,6 +1817,21 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
+	if activeSkill.skillTypes[SkillType.DetonatesAfterTime] then
+		local base = activeSkill.skillModList:Sum("BASE", skillCfg, "DetonationTime")
+		local inc, more = calcLib.mods(skillModList, skillCfg, "DetonationTime")
+		output.DetonationTime = base * inc * more
+		if breakdown then
+			breakdown.DetonationTime = { }
+			breakdown.multiChain(breakdown.DetonationTime, {
+				base = { "%.2fs ^8(base)", base },
+				{ "%.2f ^8(increased/reduced detonation time)", inc },
+				{ "%.2f ^8(more/less detonation time)", more },
+				total = s_format("= %.2fs", output.DetonationTime),
+			})
+		end
+	end
+
 	-- Calculate costs (may be slightly off due to rounding differences)
 	local costs = {
 		["Mana"] = { type = "Mana", upfront = true, percent = false, text = "mana", baseCost = 0, baseCostRaw = 0, totalCost = 0, baseCostNoMult = 0, finalBaseCost = 0 },
