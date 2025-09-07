@@ -139,6 +139,7 @@ data.powerStatList = {
 	{ stat="ManaRegen", label="Mana regen" },
 	{ stat="ManaLeechRate", label="Mana leech" },
 	{ stat="Ward", label="Ward" },
+	{ stat="Spirit", label="Spirit" },
 	{ stat="Str", label="Strength" },
 	{ stat="Dex", label="Dexterity" },
 	{ stat="Int", label="Intelligence" },
@@ -163,6 +164,7 @@ data.powerStatList = {
 	{ stat="BlockChance", label="Block Chance" },
 	{ stat="SpellBlockChance", label="Spell Block Chance" },
 	{ stat="SpellSuppressionChance", label="Spell Suppression Chance" },
+	{ stat="EffectiveLootRarityMod", label="Rarity of Items found" },
 }
 
 data.misc = { -- magic numbers
