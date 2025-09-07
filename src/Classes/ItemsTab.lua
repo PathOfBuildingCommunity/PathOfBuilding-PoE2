@@ -2516,12 +2516,14 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				local modId = essence.mods[self.displayItem.type]
 				if modId then
 					local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
-					t_insert(modList, {
-						label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
-						mod = mod,
-						type = "custom",
-						essence = essence,
-					})
+					if mod then -- passive_hash mods don't get described
+						t_insert(modList, {
+							label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
+							mod = mod,
+							type = "custom",
+							essence = essence,
+						})
+					end
 				end
 			end
 			table.sort(modList, function(a, b)
@@ -2537,7 +2539,9 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
 		t_insert(sourceList, { label = "Suffix", sourceId = "SUFFIX" })
 	end
-	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" then
+	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods, 
+									-- but it makes it so we don't have to maintain a list of applicable essence-able base types
+	if #modList > 0 then
 		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
