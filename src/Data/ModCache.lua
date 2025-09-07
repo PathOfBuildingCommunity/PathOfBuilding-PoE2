@@ -1063,10 +1063,7 @@ c["10% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",t
 c["10% increased Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="ColdExposureEffect",type="INC",value=10},[3]={flags=0,keywordFlags=0,name="LightningExposureEffect",type="INC",value=10}},nil}
 c["10% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=10}},nil}
 c["10% increased Fire Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=10}},nil}
-c["10% increased Flammability Magnitude"]={{},"Magnitude "}
-c["10% increased Flammability Magnitude 10% increased Freeze Buildup"]={{},"Magnitude 10% increased Freeze Buildup "}
-c["10% increased Flammability Magnitude 10% increased Freeze Buildup 10% increased chance to Shock"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=10}},"Magnitude 10% increased Freeze Buildup 10% increased  "}
-c["10% increased Flammability Magnitude 8% increased Elemental Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=10}},"Magnitude 8% increased  "}
+c["10% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=10}},nil}
 c["10% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=10}},nil}
 c["10% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=10}},nil}
 c["10% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=10}},nil}
@@ -1232,9 +1229,7 @@ c["100% increased Evasion Rating when on Full Life"]={{[1]={[1]={type="Condition
 c["100% increased Evasion Rating while Sprinting"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=100}},"  while Sprinting "}
 c["100% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=100}},nil}
 c["100% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=100}},nil}
-c["100% increased Flammability Magnitude"]={{},"Magnitude "}
-c["100% increased Flammability Magnitude 100% increased Ignite Magnitude"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=100}},"Magnitude 100% increased  "}
-c["100% increased Flammability Magnitude 30% increased Light Radius"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="LightRadius",type="INC",value=100}},"Magnitude 30% increased  "}
+c["100% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=100}},nil}
 c["100% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=100}},nil}
 c["100% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["100% increased Freeze Buildup Enemies Frozen by you take 50% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=100}}," Freeze Buildup Enemies Frozen by you take 50% increased  "}
@@ -1311,10 +1306,7 @@ c["12% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="Elementa
 c["12% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=12}},nil}
 c["12% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=12}},nil}
 c["12% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=12}},nil}
-c["12% increased Flammability Magnitude"]={{},"Magnitude "}
-c["12% increased Flammability Magnitude 12% increased Freeze Buildup"]={{},"Magnitude 12% increased Freeze Buildup "}
-c["12% increased Flammability Magnitude 12% increased Freeze Buildup 12% increased chance to Shock"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=12}},"Magnitude 12% increased Freeze Buildup 12% increased  "}
-c["12% increased Flammability Magnitude 6% increased Critical Hit Chance"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=12}},"Magnitude 6% increased  "}
+c["12% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=12}},nil}
 c["12% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["12% increased Freeze Buildup 12% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=12}}," Freeze Buildup 12% increased  "}
 c["12% increased Grenade Damage"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
@@ -1477,7 +1469,7 @@ c["15% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",t
 c["15% increased Evasion Rating while Sprinting"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=15}},"  while Sprinting "}
 c["15% increased Evasion Rating while Sprinting 2% increased Movement Speed while Sprinting"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=15}},"  while Sprinting 2% increased Movement Speed while Sprinting "}
 c["15% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=15}},nil}
-c["15% increased Flammability Magnitude"]={{},"Magnitude "}
+c["15% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=15}},nil}
 c["15% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=15}},nil}
 c["15% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=15}},nil}
 c["15% increased Freeze Buildup"]={{}," Freeze Buildup "}
@@ -1770,9 +1762,7 @@ c["20% increased Evasion Rating if you've consumed a Frenzy Charge Recently"]={{
 c["20% increased Evasion Rating while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=20}},nil}
 c["20% increased Evasion Rating while you have Energy Shield"]={{[1]={[1]={type="Condition",var="HaveEnergyShield"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=20}},nil}
 c["20% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=20}},nil}
-c["20% increased Flammability Magnitude"]={{},"Magnitude "}
-c["20% increased Flammability Magnitude 20% increased Freeze Buildup"]={{},"Magnitude 20% increased Freeze Buildup "}
-c["20% increased Flammability Magnitude 20% increased Freeze Buildup 20% increased chance to Shock"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=20}},"Magnitude 20% increased Freeze Buildup 20% increased  "}
+c["20% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=20}},nil}
 c["20% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=20}},nil}
 c["20% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=20}},nil}
 c["20% increased Freeze Buildup"]={{}," Freeze Buildup "}
@@ -2051,10 +2041,7 @@ c["25% increased Evasion Rating while Parrying"]={{[1]={flags=0,keywordFlags=0,n
 c["25% increased Evasion Rating while Sprinting"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=25}},"  while Sprinting "}
 c["25% increased Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=25},[2]={flags=0,keywordFlags=0,name="ColdExposureEffect",type="INC",value=25},[3]={flags=0,keywordFlags=0,name="LightningExposureEffect",type="INC",value=25}},nil}
 c["25% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=25}},nil}
-c["25% increased Flammability Magnitude"]={{},"Magnitude "}
-c["25% increased Flammability Magnitude 25% increased Freeze Buildup"]={{},"Magnitude 25% increased Freeze Buildup "}
-c["25% increased Flammability Magnitude 25% increased Freeze Buildup 25% increased chance to Shock"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=25}},"Magnitude 25% increased Freeze Buildup 25% increased  "}
-c["25% increased Flammability Magnitude 25% increased Freeze Buildup 25% increased chance to Shock 25% increased Electrocute Buildup"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=25}},"Magnitude 25% increased Freeze Buildup 25% increased  25% increased Electrocute Buildup "}
+c["25% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=25}},nil}
 c["25% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=25}},nil}
 c["25% increased Flask Charges used"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=25}},nil}
 c["25% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=25}},nil}
@@ -2285,8 +2272,7 @@ c["30% increased Evasion Rating while you have Energy Shield"]={{[1]={[1]={type=
 c["30% increased Evasion from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=30}},nil}
 c["30% increased Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=30},[2]={flags=0,keywordFlags=0,name="ColdExposureEffect",type="INC",value=30},[3]={flags=0,keywordFlags=0,name="LightningExposureEffect",type="INC",value=30}},nil}
 c["30% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}},nil}
-c["30% increased Flammability Magnitude"]={{},"Magnitude "}
-c["30% increased Flammability Magnitude 30% increased Damage with Hits against Burning Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Burning"},[2]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=30}},"Magnitude 30% increased    "}
+c["30% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=30}},nil}
 c["30% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=30}},nil}
 c["30% increased Flask Charges used"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=30}},nil}
 c["30% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=30}},nil}
@@ -2558,9 +2544,7 @@ c["40% increased Evasion Rating while moving"]={{[1]={[1]={type="Condition",var=
 c["40% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=40}},nil}
 c["40% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=40}},nil}
 c["40% increased Fire Damage while affected by Herald of Ash"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofAsh"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=40}},nil}
-c["40% increased Flammability Magnitude"]={{},"Magnitude "}
-c["40% increased Flammability Magnitude 40% increased Damage with Hits against Ignited Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Ignited"},[2]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=40}},"Magnitude 40% increased    "}
-c["40% increased Flammability Magnitude Enemies Ignited by you have -5% to Fire Resistance"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="FireResist",type="INC",value=40}},"Magnitude Enemies Ignited by you have -5% to  "}
+c["40% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=40}},nil}
 c["40% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=40}},nil}
 c["40% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["40% increased Freeze Buildup 20% increased Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=40}}," Freeze Buildup 20% increased   "}
@@ -2601,7 +2585,8 @@ c["40% increased Stun Buildup Adds 11 to 20 Physical Damage to Attacks"]={{[1]={
 c["40% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=40}},nil}
 c["40% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=40}},nil}
 c["40% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=40}},nil}
-c["40% increased chance to Ignite"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=40}},nil}
+c["40% increased chance to Ignite"]={{}," chance to Ignite "}
+c["40% increased chance to Ignite Minions have +15% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="INC",value=40}}}}," chance to Ignite s have +15% to  "}
 c["40% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}},nil}
 c["40% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=40}},nil}
 c["40% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},nil}
@@ -2783,9 +2768,7 @@ c["50% increased Evasion Rating if you've consumed a Frenzy Charge Recently"]={{
 c["50% increased Evasion Rating when on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=50}},nil}
 c["50% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=50}},nil}
 c["50% increased Fire Damage while Ignited"]={{[1]={[1]={type="Condition",var="Ignited"},flags=0,keywordFlags=0,name="FireDamage",type="INC",value=50}},nil}
-c["50% increased Flammability Magnitude"]={{},"Magnitude "}
-c["50% increased Flammability Magnitude 20% increased Ignite Magnitude"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=50}},"Magnitude 20% increased  "}
-c["50% increased Flammability Magnitude Projectiles Pierce all Ignited enemies"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=50}},"Magnitude  Pierce all Ignited enemies "}
+c["50% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=50}},nil}
 c["50% increased Flask Charges used"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=50}},nil}
 c["50% increased Flask Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecoveryRate",type="INC",value=50}},nil}
 c["50% increased Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecoveryRate",type="INC",value=50}},nil}
@@ -3061,8 +3044,7 @@ c["8% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name
 c["8% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=8}},nil}
 c["8% increased Evasion Rating per Frenzy Charge"]={{[1]={[1]={type="Multiplier",var="FrenzyCharge"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=8}},nil}
 c["8% increased Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=8}},nil}
-c["8% increased Flammability Magnitude"]={{},"Magnitude "}
-c["8% increased Flammability Magnitude 8% increased Ignite Magnitude"]={{[1]={[1]={includeTransfigured=true,skillName="Flammability",type="SkillName"},flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=8}},"Magnitude 8% increased  "}
+c["8% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=8}},nil}
 c["8% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=8}},nil}
 c["8% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=8}},nil}
 c["8% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=8},[2]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=8}},nil}
@@ -3306,7 +3288,7 @@ c["All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling S
 c["All Damage from Hits with this Weapon Contributes to Pin Buildup"]={nil,"All Damage from Hits with this Weapon Contributes to Pin Buildup "}
 c["All Damage from Hits with this Weapon Contributes to Pin Buildup 30% increased Projectile Speed with this Weapon"]={nil,"All Damage from Hits with this Weapon Contributes to Pin Buildup 30% increased Projectile Speed with this Weapon "}
 c["All Damage from you and Allies in your Presence"]={nil,"All Damage from you and "}
-c["All Damage from you and Allies in your Presence contributes to Flammability and Ignite Magnitudes"]={nil,"All Damage from you and contributes to Flammability and Ignite Magnitudes "}
+c["All Damage from you and Allies in your Presence contributes to Flammability and Ignite Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdCanIgnite",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningCanIgnite",type="FLAG",value=true}}},[3]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true}}},[4]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalCanIgnite",type="FLAG",value=true}}}},nil}
 c["All Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=100}},nil}
 c["All Damage taken bypasses Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="PhysicalEnergyShieldBypass",type="OVERRIDE",value=100},[2]={flags=0,keywordFlags=0,name="LightningEnergyShieldBypass",type="OVERRIDE",value=100},[3]={flags=0,keywordFlags=0,name="ColdEnergyShieldBypass",type="OVERRIDE",value=100},[4]={flags=0,keywordFlags=0,name="FireEnergyShieldBypass",type="OVERRIDE",value=100},[5]={flags=0,keywordFlags=0,name="ChaosEnergyShieldBypass",type="OVERRIDE",value=100}},nil}
 c["All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you"]={nil,"All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you "}
@@ -5786,7 +5768,6 @@ c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="Unaff
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
 c["apply to Energy Shield Recharge Rate"]={nil,"apply to Energy Shield Recharge Rate "}
 c["apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour"]={nil,"apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour "}
-c["contributes to Flammability and Ignite Magnitudes"]={nil,"contributes to Flammability and Ignite Magnitudes "}
 c["every different Grenade fired in the past 8 seconds"]={nil,"every different Grenade fired in the past 8 seconds "}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}

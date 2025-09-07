@@ -712,10 +712,7 @@ local modNameList = {
 	["to freeze"] = "EnemyFreezeChance",
 	["freeze chance"] = "EnemyFreezeChance",
 	["chance to freeze"] = "EnemyFreezeChance",
-	["to ignite"] = "EnemyIgniteChance",
-	["ignite chance"] = "EnemyIgniteChance",
-	["chance to ignite"] = "EnemyIgniteChance",
-	["to freeze, shock and ignite"] = { "EnemyFreezeChance", "EnemyShockChance", "EnemyIgniteChance" },
+	["flammability magnitude"] = "EnemyIgniteChance",
 	["magnitude of shock you inflict"] = "EnemyShockMagnitude",
 	["magnitude of chill you inflict"] = "EnemyChillMagnitude",
 	["magnitude of jagged ground you create"] = "EnemyJaggedGroundMagnitude",
@@ -3710,7 +3707,7 @@ local specialModList = {
 		flag("ColdCanPoison"),
 		flag("LightningCanPoison"),
 	},
-	["all damage from you and allies in your presence contributes to ignite chance and magnitude"] = {
+	["all damage from you and allies in your presence contributes to flammability and ignite magnitudes"] = {
 		mod("ExtraAura", "LIST", { mod = flag("ColdCanIgnite") }),
 		mod("ExtraAura", "LIST", { mod = flag("LightningCanIgnite") }),
 		mod("ExtraAura", "LIST", { mod = flag("ChaosCanIgnite") }),
