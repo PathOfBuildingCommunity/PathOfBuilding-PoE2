@@ -84,7 +84,7 @@ return {
 		["Area"] = "Jungle Ruins",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 32,
+		["AreaLevel"] = 34,
 		["useConfig"] = false
 	},
 	{
@@ -92,7 +92,7 @@ return {
 		["Type"] = "",
 		["Area"] = "The Azak Bog",
 		["Stat"] = "+30 to Spirit",
-		["AreaLevel"] = 38,
+		["AreaLevel"] = 36,
 		["useConfig"] = true
 	},
 	{
@@ -104,7 +104,7 @@ return {
 			"30% increased Elemental Ailment Threshold",
 			"25% increased Mana Regeneration Rate",
 		},
-		["AreaLevel"] = 39,
+		["AreaLevel"] = 35,
 		["useConfig"] = true
 	},
 	{
@@ -112,7 +112,7 @@ return {
 		["Type"] = "",
 		["Area"] = "Jiquanis Machinarium",
 		["Stat"] = "+10% to Fire Resistance",
-		["AreaLevel"] = 40,
+		["AreaLevel"] = 37,
 		["useConfig"] = true
 	},
 	{
@@ -130,7 +130,7 @@ return {
 		["Area"] = "Isle Of Kin",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 45,
+		["AreaLevel"] = 51,
 		["useConfig"] = false
 	},
 	{
@@ -138,7 +138,7 @@ return {
 		["Type"] = "",
 		["Area"] = "Eye of Hinekora",
 		["Stat"] = "5% increased Maximum Mana",
-		["AreaLevel"] = 49,
+		["AreaLevel"] = 51,
 		["useConfig"] = true
 	},
 	{
@@ -149,7 +149,7 @@ return {
 			"+5 to Dexterity",
 			"+5% to Lightning Resistance",
 		},
-		["AreaLevel"] = 50,
+		["AreaLevel"] = 52,
 		["useConfig"] = true
 	},
 	{
@@ -160,7 +160,7 @@ return {
 			"+5 to Intelligence",
 			"+5% to Cold Resistance",
 		},
-		["AreaLevel"] = 51,
+		["AreaLevel"] = 52,
 		["useConfig"] = true
 	},
 	{
@@ -180,7 +180,7 @@ return {
 		["Area"] = "Trial Of The Ancestors",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 55,
+		["AreaLevel"] = 51,
 		["useConfig"] = false
 	},
 	{
@@ -191,7 +191,7 @@ return {
 			"30% increased Mana Recovery from Flasks",
 			"30% increased Life Recovery from Flasks",
 		},
-		["AreaLevel"] = 56,
+		["AreaLevel"] = 51,
 		["useConfig"] = true
 	},
 	{
@@ -200,7 +200,7 @@ return {
 		["Area"] = "Wolvenhold",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 57,
+		["AreaLevel"] = 64,
 		["useConfig"] = false
 	},
 	{
@@ -209,7 +209,7 @@ return {
 		["Area"] = "Khari Bazaar",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 58,
+		["AreaLevel"] = 61,
 		["useConfig"] = false
 	},
 	{
@@ -217,7 +217,7 @@ return {
 		["Type"] = "Interlude 2",
 		["Area"] = "The Khari Crossing",
 		["Stat"] = "5% increased Maximum Life",
-		["AreaLevel"] = 60,
+		["AreaLevel"] = 61,
 		["useConfig"] = true
 	},
 	{
@@ -232,7 +232,7 @@ return {
 			"20% increased Presence Area Of Effect",
 			"15% increased Global Defences",
 		},
-		["AreaLevel"] = 61,
+		["AreaLevel"] = 63,
 		["useConfig"] = true
 	},
 	{
@@ -240,7 +240,7 @@ return {
 		["Type"] = "Interlude 3",
 		["Area"] = "Kriar Village",
 		["Stat"] = "+40 to Spirit",
-		["AreaLevel"] = 62,
+		["AreaLevel"] = 61,
 		["useConfig"] = true
 	},
 	{
@@ -249,7 +249,7 @@ return {
 		["Area"] = "Howling Caves",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 63,
+		["AreaLevel"] = 62,
 		["useConfig"] = false
 	},
 	{
@@ -258,7 +258,7 @@ return {
 		["Area"] = "Kingsmarch",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 64,
+		["AreaLevel"] = 62,
 		["useConfig"] = false
 	},
 }
