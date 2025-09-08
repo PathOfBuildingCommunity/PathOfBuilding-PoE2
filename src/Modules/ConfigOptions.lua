@@ -57,13 +57,10 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 	table.insert(configSettings, { section = "Quest Rewards", col = 3 })
 
 	for i, quest in ipairs(data.questRewards) do
-		if quest.questPoints then
-			goto continue
-		end
 		local source = string.format("Quest:Act %d %s", quest.Act, quest.Area)
 		if quest.Stat then
 			table.insert(configSettings,{
-				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
+				var = "questAct".. quest.Act .. quest.Area,
 				label = string.format("Act %d: %s", quest.Act, quest.Area),
 				type = "check",
 				defaultState = true,
@@ -78,7 +75,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				table.insert(listOptions, { label = option, val = option })
 			end
 			table.insert(configSettings,{
-				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
+				var = "questAct".. quest.Act .. quest.Area,
 				label = string.format("Act %d: %s", quest.Act, quest.Area),
 				type = "list",
 				list = listOptions,
@@ -92,7 +89,6 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				end
 			})
 		end
-		::continue::
 	end
 end
 
