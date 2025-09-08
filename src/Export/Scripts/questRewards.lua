@@ -25,7 +25,6 @@ for _, pin in pairs(dat("MapPins"):GetRowList("HasReward", true)) do
             end
             out:write('\t\t["questPoints"] = ', questReward.WeaponSetPointsRewarded, ',\n')
             local worldArea = dat("WorldAreas"):GetRow("Id", pin.BaseMapPin.Id)
-            print(pin.BaseMapPin.Id)
             out:write('\t\t["AreaLevel"] = ', worldArea.AreaLevel, ',\n')
             out:write('\t},\n')
         end

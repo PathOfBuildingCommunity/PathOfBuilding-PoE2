@@ -77,8 +77,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	for _, quest in ipairs(data.questRewards) do
 		local act = quest.Act + 1
 		if not self.acts[act] then
-			ConPrintf("Act" .. act)
-			prettyPrintTable(self.acts)
 			self.acts[act] = {
 				level = quest.AreaLevel,
 				-- hack to fix missing act 5 for now
