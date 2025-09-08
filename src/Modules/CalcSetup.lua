@@ -1821,6 +1821,15 @@ function calcs.initEnv(build, mode, override, specEnv)
 	env.modDB.multipliers.RedSupportGems = (env.modDB.multipliers.RedSupportGems or 0) + slotSupportGemSocketsCount.R
 	env.modDB.multipliers.GreenSupportGems = (env.modDB.multipliers.GreenSupportGems or 0) + slotSupportGemSocketsCount.G
 	env.modDB.multipliers.BlueSupportGems = (env.modDB.multipliers.BlueSupportGems or 0) + slotSupportGemSocketsCount.B
-
+	
+	-- Crystallised Immunity notable support
+	if (slotSupportGemSocketsCount.R > slotSupportGemSocketsCount.G) and (slotSupportGemSocketsCount.R > slotSupportGemSocketsCount.B) then
+		env.modDB.conditions["MajorityRedSocketedSupports"] = true;
+	elseif (slotSupportGemSocketsCount.G > slotSupportGemSocketsCount.R) and (slotSupportGemSocketsCount.G > slotSupportGemSocketsCount.B) then
+		env.modDB.conditions["MajorityGreenSocketedSupports"] = true;
+	elseif (slotSupportGemSocketsCount.B > slotSupportGemSocketsCount.R) and (slotSupportGemSocketsCount.B > slotSupportGemSocketsCount.G) then
+		env.modDB.conditions["MajorityBlueSocketedSupports"] = true;
+	end
+	
 	return env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB
 end

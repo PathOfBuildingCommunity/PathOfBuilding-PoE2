@@ -1537,6 +1537,13 @@ local modTagList = {
 	["while affected by a normal abyss jewel"] = { tag = { type = "MultiplierThreshold", var = "NormalAbyssJewels", threshold = 1 } },
 	["while an enemy with an open weakness is in your presence"] = { tag = { type = "Condition", var = "OpenWeaknessEnemyPresence" } }, -- This one means there's an enemy that has open weakness "nearby"
 	["against enemies with an open weakness"] = { tag = { type = "Condition", var = "EnemyHasOpenWeakness" } }, -- This one means the enemy you're targeting has open weakness
+	-- Gem conditions
+	["if you have at least (%d+) (%a+) support gems socketed"] = function(count, _, color) return { tag = { type = "MultiplierThreshold", var = firstToUpper(color) .. "SupportGems", threshold = count } }  end,
+	["if you have at least (%d+) red, green and blue support gems socketed"] = function(count) 
+		return { tagList = { 
+			{ type = "MultiplierThreshold", var = "RedSupportGems", threshold = count }, 
+			{ type = "MultiplierThreshold", var = "GreenSupportGems", threshold = count }, 
+			{ type = "MultiplierThreshold", var = "BlueSupportGems", threshold = count } } } end,
 	-- Slot conditions
 	["when in main hand"] = { tag = { type = "SlotNumber", num = 1 } },
 	["when in off hand"] = { tag = { type = "SlotNumber", num = 2 } },
@@ -4720,6 +4727,9 @@ local specialModList = {
 		flag("CurseImmune", { type = "Condition", var = "UsingFlask" }),
 		flag("StunImmune", { type = "Condition", var = "UsingFlask" }),
 	},
+	["immun[ei]t?y? to (%a+) if a majority of your socketed support gems are (%a+)"] = function(_, ailment, color)
+		return { flag(firstToUpper(ailment) .. "Immune", {type = "Condition", var = "Majority" .. firstToUpper(color) .. "SocketedSupports"})} 
+	end,
 	["gain (%d+)%% of maximum energy shield as additional (%a+) threshold"] = function(num, _, statType)
 		return { mod(firstToUpper(statType) .. "Threshold", "BASE", 1, { type = "PercentStat", stat = "EnergyShield", percent = num }) }
 	end,
