@@ -1792,6 +1792,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- This needs to be done here at the end as otherwise we will only consider gems in the
 	-- selected active skill group
 	-- Calculate skill gem and support gem counts
+	-- Currently PoB2 doesn't associate weapon skill supports with the actual weapon sets
+	-- so it ends up counting all support gems when it should only take into account the active weapon set
 	local slotSupportGemSocketsCount = { R = 0, G = 0, B = 0 }
 	-- Loop through socket groups to calculate number of socketed gems
 	for _, socketGroup in pairs(env.build.skillsTab.socketGroupList) do
