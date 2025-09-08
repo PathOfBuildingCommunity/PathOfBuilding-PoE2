@@ -1,5 +1,6 @@
 return {
 	{
+		-- "Beira of the Rotten Pack"
 		["Act"] = 1,
 		["Type"] = "",
 		["Area"] = "Clearfell",
@@ -8,6 +9,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- "The Crowbell"
 		["Act"] = 1,
 		["Type"] = "",
 		["Area"] = "Hunting Grounds",
@@ -17,6 +19,7 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "The King in the Mists"
 		["Act"] = 1,
 		["Type"] = "",
 		["Area"] = "Freythorn",
@@ -25,6 +28,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- Una's Lute
 		["Act"] = 1,
 		["Type"] = "",
 		["Area"] = "Ogham Farmlands",
@@ -34,14 +38,16 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Candlemass, the Living Rite"
 		["Act"] = 1,
 		["Type"] = "",
 		["Area"] = "Ogham Manor",
-		["Stat"] = "+20 to Maximum Life",
+		["Stat"] = "+20 to maximum Life",
 		["AreaLevel"] = 15,
 		["useConfig"] = true
 	},
 	{
+		-- "Kabala, Constrictor Queen"
 		["Act"] = 2,
 		["Type"] = "",
 		["Area"] = "Keth",
@@ -51,17 +57,19 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Medallion"
 		["Act"] = 2,
 		["Type"] = "",
 		["Area"] = "Valley of the Titans",
 		["Options"] = {
-			"30% increased Charm Charges Gained, +1 Charm Slot",
-			"30% increased Charm Effect Duration, +1 Charm Slot",
+			"30% increased Charm Charges Gained,+1 Charm Slot",
+			"30% increased Charm Effect Duration,+1 Charm Slot",
 		},
 		["AreaLevel"] = 26,
 		["useConfig"] = true
 	},
 	{
+		-- "Final Letter"
 		["Act"] = 2,
 		["Type"] = "",
 		["Area"] = "Deshar",
@@ -71,6 +79,7 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Sisters of Garukhan Shrine"
 		["Act"] = 2,
 		["Type"] = "",
 		["Area"] = "The Spires of Deshar",
@@ -79,6 +88,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- "Mighty Silverfist"
 		["Act"] = 3,
 		["Type"] = "",
 		["Area"] = "Jungle Ruins",
@@ -88,6 +98,7 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Ignagduk, the Bog Witch"
 		["Act"] = 3,
 		["Type"] = "",
 		["Area"] = "The Azak Bog",
@@ -96,6 +107,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- "Venom Draught"
 		["Act"] = 3,
 		["Type"] = "",
 		["Area"] = "The Venom Crypts",
@@ -108,6 +120,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- "Blackjaw, the Remnant"
 		["Act"] = 3,
 		["Type"] = "",
 		["Area"] = "Jiquanis Machinarium",
@@ -116,6 +129,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- "Blood Sacrifice"
 		["Act"] = 3,
 		["Type"] = "",
 		["Area"] = "Aggorat",
@@ -125,6 +139,7 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- The Blind Beast
 		["Act"] = 4,
 		["Type"] = "",
 		["Area"] = "Isle Of Kin",
@@ -134,6 +149,7 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- Silent Hall
 		["Act"] = 4,
 		["Type"] = "",
 		["Area"] = "Eye of Hinekora",
@@ -142,6 +158,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- Halls of the dead
 		["Act"] = 4,
 		["Type"] = "",
 		["Area"] = "Tawhoa's Test",
@@ -153,6 +170,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- Halls of the dead
 		["Act"] = 4,
 		["Type"] = "",
 		["Area"] = "Tasalio's Test",
@@ -164,6 +182,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- Halls of the dead
 		["Act"] = 4,
 		["Type"] = "",
 		["Area"] = "Ngamahu's Test",
@@ -175,6 +194,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- Hinekora
 		["Act"] = 4,
 		["Type"] = "",
 		["Area"] = "Trial Of The Ancestors",
@@ -184,17 +204,19 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Goddess of Justice"
 		["Act"] = 4,
 		["Type"] = "",
 		["Area"] = "Abandoned prison",
 		["Options"] = {
-			"30% increased Mana Recovery from Flasks",
 			"30% increased Life Recovery from Flasks",
+			"30% increased Mana Recovery from Flasks",
 		},
 		["AreaLevel"] = 51,
 		["useConfig"] = true
 	},
 	{
+		-- "Oswin, the Dread Warden"
 		["Act"] = 5,
 		["Type"] = "Interlude 1",
 		["Area"] = "Wolvenhold",
@@ -204,6 +226,7 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Clearing The Way"
 		["Act"] = 5,
 		["Type"] = "Interlude 2",
 		["Area"] = "Khari Bazaar",
@@ -213,14 +236,16 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Molten Shrine"
 		["Act"] = 5,
 		["Type"] = "Interlude 2",
 		["Area"] = "The Khari Crossing",
-		["Stat"] = "5% increased Maximum Life",
+		["Stat"] = "5% increased maximum Life",
 		["AreaLevel"] = 61,
 		["useConfig"] = true
 	},
 	{
+		-- "The Seven Pillars"
 		["Act"] = 5,
 		["Type"] = "Interlude 2",
 		["Area"] = "Qimah",
@@ -236,6 +261,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- "Lythara, the Wayward Spear"
 		["Act"] = 5,
 		["Type"] = "Interlude 3",
 		["Area"] = "Kriar Village",
@@ -244,6 +270,7 @@ return {
 		["useConfig"] = true
 	},
 	{
+		-- "The Abominable Yeti"
 		["Act"] = 5,
 		["Type"] = "Interlude 3",
 		["Area"] = "Howling Caves",
@@ -253,6 +280,7 @@ return {
 		["useConfig"] = false
 	},
 	{
+		-- "Siege Of Oriath"
 		["Act"] = 6,
 		["Type"] = "Epilog",
 		["Area"] = "Kingsmarch",
