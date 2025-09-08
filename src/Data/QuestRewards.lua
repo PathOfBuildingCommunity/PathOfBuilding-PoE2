@@ -37,7 +37,7 @@ return {
 		["Act"] = 1,
 		["Type"] = "Normal",
 		["Area"] = "Ogham Manor",
-		["Stat"] = "+20 to maximum Life",
+		["Stat"] = "+20 to Maximum Life",
 		["AreaLevel"] = 15,
 		["useConfig"] = true
 	},
@@ -213,7 +213,7 @@ return {
 		["useConfig"] = false
 	},
 	{
-		["Act"] = 6,
+		["Act"] = 5,
 		["Type"] = "Normal",
 		["Area"] = "The Khari Crossing",
 		["Stat"] = "5% increased Maximum Life",
@@ -221,7 +221,7 @@ return {
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 6,
+		["Act"] = 5,
 		["Type"] = "Normal",
 		["Area"] = "Qimah",
 		["Options"] = {
@@ -236,7 +236,7 @@ return {
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 6,
+		["Act"] = 5,
 		["Type"] = "Normal",
 		["Area"] = "Kriar Village",
 		["Stat"] = "+40 to Spirit",
@@ -244,7 +244,7 @@ return {
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 6,
+		["Act"] = 5,
 		["Type"] = "Normal",
 		["Area"] = "Howling Caves",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
