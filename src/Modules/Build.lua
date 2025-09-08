@@ -75,20 +75,19 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	-- calculate acts Table based on data.questRewards
 	self.acts = { { level = 1 , questPoints = 0 } }
 	for _, quest in ipairs(data.questRewards) do
-		if not quest.questPoints then
-			goto nextQuest
-		end
-		local act = quest.Act + (quest.Type == "Cruel" and 3 or 0) + 1
+		local act = quest.Act + 1
 		if not self.acts[act] then
+			ConPrintf("Act" .. act)
+			prettyPrintTable(self.acts)
 			self.acts[act] = {
 				level = quest.AreaLevel,
-				questPoints = quest.questPoints + self.acts[act - 1].questPoints,
+				-- hack to fix missing act 5 for now
+				questPoints = quest.questPoints + self.acts[act - ((act == 7) and 2 or 1)].questPoints,
 			}
 		else
 			self.acts[act].questPoints = self.acts[act].questPoints + quest.questPoints
 			self.acts[act].level = m_max(self.acts[act].level, quest.AreaLevel)
 		end
-		:: nextQuest ::
 	end
 	self.maxActs = #self.acts
 	self.maxWeaponSets = self.acts[self.maxActs].questPoints

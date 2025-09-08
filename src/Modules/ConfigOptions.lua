@@ -57,14 +57,14 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 	table.insert(configSettings, { section = "Quest Rewards", col = 3 })
 
 	for i, quest in ipairs(data.questRewards) do
-		if quest.useConfig == false then
+		if quest.questPoints then
 			goto continue
 		end
-		local source = string.format("Quest:Act %d %s %s", quest.Act, quest.Type, quest.Area)
+		local source = string.format("Quest:Act %d %s", quest.Act, quest.Area)
 		if quest.Stat then
 			table.insert(configSettings,{
 				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
-				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+				label = string.format("Act %d: %s", quest.Act, quest.Area),
 				type = "check",
 				defaultState = true,
 				tooltip = quest.Stat,
@@ -79,7 +79,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 			end
 			table.insert(configSettings,{
 				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
-				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+				label = string.format("Act %d: %s", quest.Act, quest.Area),
 				type = "list",
 				list = listOptions,
 				defaultIndex = 1,
