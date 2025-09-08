@@ -3693,25 +3693,35 @@ function calcs.offence(env, actor, activeSkill)
 					local lifeLeech = 0
 					local energyShieldLeech = 0
 					local manaLeech = 0
+
+					-- Determine base leech value according to resource (using function to avoid repetition)
+					---@param resource string "Life" | "Mana" | "EnergyShield"
+					---@return number
+					local function getBaseLeech(resource)
+						local leech = 0
+						if (not skillModList:Flag(nil, "No" .. resource .. "LeechFrom" .. damageType .. "Damage" )) then
+							-- Check if converted phys leech
+							if skillModList:Flag(nil, resource .. "LeechBasedOn" .. damageType .. "Damage") then
+								local modSource = ""
+								for i, result in ipairs(actor.modDB:Tabulate("FLAG", nil, resource .. "LeechBasedOn" .. damageType .. "Damage")) do
+									if result.mod.value then
+										modSource = result.mod.source
+										break
+									end
+								end
+								skillModList:ReplaceMod(damageType .. "Damage" .. resource .. "Leech", "BASE", skillModList:Sum("BASE", cfg, "PhysicalDamage" .. resource .. "Leech"), modSource)
+							end
+							leech = skillModList:Sum("BASE", cfg, "Damage" .. resource .. "Leech", damageType.."Damage" .. resource .. "Leech", isElemental[damageType] and "ElementalDamage" .. resource .. "Leech" or nil) + enemyDB:Sum("BASE", cfg, "SelfDamage" .. resource .. "Leech") / 100
+						end
+						return leech and leech or 0
+					end
+
 					if skillFlags.mine or skillFlags.trap or skillFlags.totem then
 						lifeLeech = skillModList:Sum("BASE", cfg, "DamageLifeLeechToPlayer")
 					else
-						if skillModList:Flag(nil, "LifeLeechBasedOnChaosDamage") then
-							if damageType == "Chaos" then
-								lifeLeech = skillModList:Sum("BASE", cfg, "DamageLeech", "DamageLifeLeech", "PhysicalDamageLifeLeech", "LightningDamageLifeLeech", "ColdDamageLifeLeech", "FireDamageLifeLeech", "ChaosDamageLifeLeech", "ElementalDamageLifeLeech") + enemyDB:Sum("BASE", cfg, "SelfDamageLifeLeech") / 100
-							end
-						else
-							if pass == 1 and damageType == "Physical" and skillModList:Flag(nil, "PhysicalAsElementalDamageLifeLeech") then
-								skillModList:NewMod("ElementalDamageLifeLeech", "BASE", skillModList:Sum("BASE", cfg, "PhysicalDamageLifeLeech"), "Mystic Harvest")
-							end
-							lifeLeech = skillModList:Sum("BASE", cfg, "DamageLeech", "DamageLifeLeech", damageType.."DamageLifeLeech", isElemental[damageType] and "ElementalDamageLifeLeech" or nil) + enemyDB:Sum("BASE", cfg, "SelfDamageLifeLeech") / 100
-						end
-						energyShieldLeech = skillModList:Sum("BASE", cfg, "DamageEnergyShieldLeech", damageType.."DamageEnergyShieldLeech", isElemental[damageType] and "ElementalDamageEnergyShieldLeech" or nil) + enemyDB:Sum("BASE", cfg, "SelfDamageEnergyShieldLeech") / 100
-						if pass == 1 and damageType == "Physical" and skillModList:Flag(nil, "PhysicalAsAllDamageManaLeech") then
-							skillModList:NewMod("ElementalDamageManaLeech", "BASE", skillModList:Sum("BASE", cfg, "PhysicalDamageLifeLeech"), "Ravenous Doubts")
-							skillModList:NewMod("ChaosDamageManaLeech", "BASE", skillModList:Sum("BASE", cfg, "PhysicalDamageLifeLeech"), "Ravenous Doubts")
-						end
-						manaLeech = skillModList:Sum("BASE", cfg, "DamageLeech", "DamageManaLeech", damageType.."DamageManaLeech", isElemental[damageType] and "ElementalDamageManaLeech" or nil) + enemyDB:Sum("BASE", cfg, "SelfDamageManaLeech") / 100
+						lifeLeech = getBaseLeech("Life")
+						energyShieldLeech = getBaseLeech("EnergyShield")
+						manaLeech = getBaseLeech("Mana")
 					end
 
 					if ghostReaver and not noLifeLeech then

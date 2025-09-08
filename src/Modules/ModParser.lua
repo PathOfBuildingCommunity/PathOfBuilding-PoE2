@@ -2468,7 +2468,10 @@ local specialModList = {
 		mod(firstToUpper(dmgType) .. "Min", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
 		mod(firstToUpper(dmgType) .. "Max", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
 	} end,
-	["life leech recovers based on your elemental damage as well as physical damage"] = { flag("PhysicalAsElementalDamageLifeLeech"),  },
+	["life leech recovers based on your elemental damage as well as physical damage"] = { 
+		flag("LifeLeechBasedOnColdDamage"),
+		flag("LifeLeechBasedOnFireDamage"),
+		flag("LifeLeechBasedOnLightningDamage"),  },
 	["evasion rating from equipped helmet, gloves and boots is doubled"] = { mod("Evasion", "MORE", 100, { type = "SlotName", slotNameList = { "Helmet", "Boots", "Gloves" } })	},
 	["evasion rating from equipped body armour is halved"] = { mod("Evasion", "MORE", -50, { type = "SlotName", slotName = "Body Armour" }) },
 	-- Ascendant
@@ -4459,7 +4462,10 @@ local specialModList = {
 		mod("InstantLifeLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" }),
 		mod("InstantManaLeech", "BASE", 100, { type = "Condition", var = "CriticalStrike" })
 	},
-	["with 5 corrupted items equipped: life leech recovers based on your chaos damage instead"] = { flag("LifeLeechBasedOnChaosDamage", { type = "MultiplierThreshold", var = "CorruptedItem", threshold = 5 }) },
+	["with 5 corrupted items equipped: life leech recovers based on your chaos damage instead"] = { 
+		flag("LifeLeechBasedOnChaosDamage", { type = "MultiplierThreshold", var = "CorruptedItem", threshold = 5 }),
+		flag("NoLifeLeechFromPhysicalDamage", { type = "MultiplierThreshold", var = "CorruptedItem", threshold = 5 }),
+		 },
 	["you have vaal pact if you've dealt a critical hit recently"] = { mod("Keystone", "LIST", "Vaal Pact", { type = "Condition", var = "CritRecently" }) },
 	["you have vaal pact while at maximum endurance charges"] = { mod("Keystone", "LIST", "Vaal Pact", { type = "StatThreshold", stat = "EnduranceCharges", thresholdStat = "EnduranceChargesMax" }) },
 	["you have vaal pact while focus?sed"] = { mod("Keystone", "LIST", "Vaal Pact", { type = "Condition", var = "Focused" }) },
