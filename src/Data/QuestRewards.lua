@@ -55,8 +55,8 @@ return {
 		["Type"] = "Normal",
 		["Area"] = "Valley of the Titans",
 		["Options"] = {
-			"30% increased Charm Charges gained",
-			"15% increased Mana Recovery from Flasks",
+			"30% increased Charm Charges Gained, +1 Charm Slot",
+			"30% increased Charm Effect Duration, +1 Charm Slot",
 		},
 		["AreaLevel"] = 26,
 		["useConfig"] = true
@@ -125,120 +125,140 @@ return {
 		["useConfig"] = false
 	},
 	{
-		["Act"] = 1,
-		["Type"] = "Cruel",
-		["Area"] = "Clearfell",
-		["Stat"] = "+10% to Cold Resistance",
+		["Act"] = 4,
+		["Type"] = "Normal",
+		["Area"] = "Isle Of Kin",
+		["Stat"] = "+2 Weapon Set Passive Skill Points",
+		["questPoints"] = 2,
 		["AreaLevel"] = 45,
+		["useConfig"] = false
+	},
+	{
+		["Act"] = 4,
+		["Type"] = "Normal",
+		["Area"] = "Eye of Hinekora",
+		["Stat"] = "5% increased Maximum Mana",
+		["AreaLevel"] = 49,
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 1,
-		["Type"] = "Cruel",
-		["Area"] = "Hunting Grounds",
-		["Stat"] = "+2 Weapon Set Passive Skill Points",
-		["questPoints"] = 2,
-		["AreaLevel"] = 49,
-		["useConfig"] = false
+		["Act"] = 4,
+		["Type"] = "Normal",
+		["Area"] = "Tawhoa's Test",
+		["Options"] = {
+			"+5 to Dexterity",
+			"+5% to Lightning Resistance",
+		},
+		["AreaLevel"] = 50,
+		["useConfig"] = true
 	},
 	{
-		["Act"] = 1,
-		["Type"] = "Cruel",
-		["Area"] = "Ogham Farmlands",
-		["Stat"] = "+2 Weapon Set Passive Skill Points",
-		["questPoints"] = 2,
-		["AreaLevel"] = 49,
-		["useConfig"] = false
-	},
-	{
-		["Act"] = 1,
-		["Type"] = "Cruel",
-		["Area"] = "Ogham Manor",
-		["Stat"] = "5% increased maximum Life",
+		["Act"] = 4,
+		["Type"] = "Normal",
+		["Area"] = "Tasalio's Test",
+		["Options"] = {
+			"+5 to Intelligence",
+			"+5% to Cold Resistance",
+		},
 		["AreaLevel"] = 51,
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 2,
-		["Type"] = "Cruel",
-		["Area"] = "Keth",
-		["Stat"] = "+2 Weapon Set Passive Skill Points",
-		["questPoints"] = 2,
-		["AreaLevel"] = 55,
-		["useConfig"] = false
-	},
-	{
-		["Act"] = 2,
-		["Type"] = "Cruel",
-		["Area"] = "Valley of the Titans",
+		["Act"] = 4,
+		["Type"] = "Normal",
+		["Area"] = "Ngamahu's Test",
 		["Options"] = {
-			"30% increased Charm Charges gained",
-			"15% increased Life Recovery from Flasks",
+			"+5 to Strength",
+			"+5% to Fire Resistance",
 		},
-		["AreaLevel"] = 55,
+		["AreaLevel"] = 52,
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 2,
-		["Type"] = "Cruel",
-		["Area"] = "Deshar",
+		["Act"] = 4,
+		["Type"] = "Normal",
+		["Area"] = "Trial Of The Ancestors",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
-		["AreaLevel"] = 56,
+		["AreaLevel"] = 55,
 		["useConfig"] = false
 	},
 	{
-		["Act"] = 2,
-		["Type"] = "Cruel",
-		["Area"] = "The Spires of Deshar",
-		["Stat"] = "+10% to Lightning Resistance",
-		["AreaLevel"] = 57,
+		["Act"] = 4,
+		["Type"] = "Normal",
+		["Area"] = "Abandoned prison",
+		["Options"] = {
+			"30% increased Mana Recovery from Flasks",
+			"30% increased Life Recovery from Flasks",
+		},
+		["AreaLevel"] = 56,
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 3,
-		["Type"] = "Cruel",
-		["Area"] = "Jungle Ruins",
+		["Act"] = 5,
+		["Type"] = "Normal",
+		["Area"] = "Wolvenhold",
+		["Stat"] = "+2 Weapon Set Passive Skill Points",
+		["questPoints"] = 2,
+		["AreaLevel"] = 57,
+		["useConfig"] = false
+	},
+	{
+		["Act"] = 5,
+		["Type"] = "Normal",
+		["Area"] = "Clearing The Way",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 58,
 		["useConfig"] = false
 	},
 	{
-		["Act"] = 3,
-		["Type"] = "Cruel",
-		["Area"] = "The Azak Bog",
-		["Stat"] = "+40 to Spirit",
+		["Act"] = 6,
+		["Type"] = "Normal",
+		["Area"] = "The Khari Crossing",
+		["Stat"] = "5% increased Maximum Life",
 		["AreaLevel"] = 60,
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 3,
-		["Type"] = "Cruel",
-		["Area"] = "The Venom Crypts",
+		["Act"] = 6,
+		["Type"] = "Normal",
+		["Area"] = "Qimah",
 		["Options"] = {
-			"+10% to Chaos Resistance",
 			"+5 to All Attributes",
-			"15% reduced Slowing Potency of Debuffs on you",
+			"+5% to All Elemental Resistances",
+			"12% increased Cooldown Recovery Rate",
+			"3% increased Movement Speed",
+			"20% increased Presence Area Of Effect",
+			"15% increased Global Defences",
 		},
-		["AreaLevel"] = 59,
+		["AreaLevel"] = 61,
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 3,
-		["Type"] = "Cruel",
-		["Area"] = "Jiquanis Machinarium",
-		["Stat"] = "+10% to Fire Resistance",
-		["AreaLevel"] = 60,
+		["Act"] = 6,
+		["Type"] = "Normal",
+		["Area"] = "Kriar Village",
+		["Stat"] = "+40 to Spirit",
+		["AreaLevel"] = 62,
 		["useConfig"] = true
 	},
 	{
-		["Act"] = 3,
-		["Type"] = "Cruel",
-		["Area"] = "Aggorat",
+		["Act"] = 6,
+		["Type"] = "Normal",
+		["Area"] = "Howling Caves",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 63,
+		["useConfig"] = false
+	},
+	{
+		["Act"] = 6,
+		["Type"] = "Normal",
+		["Area"] = "Kingsmarch",
+		["Stat"] = "+2 Weapon Set Passive Skill Points",
+		["questPoints"] = 2,
+		["AreaLevel"] = 64,
 		["useConfig"] = false
 	},
 }
