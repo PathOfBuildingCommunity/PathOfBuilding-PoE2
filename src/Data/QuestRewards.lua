@@ -1,7 +1,7 @@
 return {
 	{
 		["Act"] = 1,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Clearfell",
 		["Stat"] = "+10% to Cold Resistance",
 		["AreaLevel"] = 2,
@@ -9,7 +9,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Hunting Grounds",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -18,7 +18,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Freythorn",
 		["Stat"] = "+30 to Spirit",
 		["AreaLevel"] = 11,
@@ -26,7 +26,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Ogham Farmlands",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -35,7 +35,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Ogham Manor",
 		["Stat"] = "+20 to Maximum Life",
 		["AreaLevel"] = 15,
@@ -43,7 +43,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Keth",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -52,7 +52,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Valley of the Titans",
 		["Options"] = {
 			"30% increased Charm Charges Gained, +1 Charm Slot",
@@ -63,7 +63,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Deshar",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -72,7 +72,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "The Spires of Deshar",
 		["Stat"] = "+10% to Lightning Resistance",
 		["AreaLevel"] = 30,
@@ -80,7 +80,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Jungle Ruins",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -89,7 +89,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "The Azak Bog",
 		["Stat"] = "+30 to Spirit",
 		["AreaLevel"] = 38,
@@ -97,7 +97,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "The Venom Crypts",
 		["Options"] = {
 			"25% increased Stun Threshold",
@@ -109,7 +109,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Jiquanis Machinarium",
 		["Stat"] = "+10% to Fire Resistance",
 		["AreaLevel"] = 40,
@@ -117,7 +117,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Aggorat",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -126,7 +126,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Isle Of Kin",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -135,7 +135,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Eye of Hinekora",
 		["Stat"] = "5% increased Maximum Mana",
 		["AreaLevel"] = 49,
@@ -143,7 +143,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Tawhoa's Test",
 		["Options"] = {
 			"+5 to Dexterity",
@@ -154,7 +154,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Tasalio's Test",
 		["Options"] = {
 			"+5 to Intelligence",
@@ -165,7 +165,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Ngamahu's Test",
 		["Options"] = {
 			"+5 to Strength",
@@ -176,7 +176,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Trial Of The Ancestors",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -185,7 +185,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["Type"] = "Normal",
+		["Type"] = "",
 		["Area"] = "Abandoned prison",
 		["Options"] = {
 			"30% increased Mana Recovery from Flasks",
@@ -196,7 +196,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["Type"] = "Normal",
+		["Type"] = "Interlude 1",
 		["Area"] = "Wolvenhold",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -205,8 +205,8 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["Type"] = "Normal",
-		["Area"] = "Clearing The Way",
+		["Type"] = "Interlude 2",
+		["Area"] = "Khari Bazaar",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 58,
@@ -214,7 +214,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["Type"] = "Normal",
+		["Type"] = "Interlude 2",
 		["Area"] = "The Khari Crossing",
 		["Stat"] = "5% increased Maximum Life",
 		["AreaLevel"] = 60,
@@ -222,7 +222,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["Type"] = "Normal",
+		["Type"] = "Interlude 2",
 		["Area"] = "Qimah",
 		["Options"] = {
 			"+5 to All Attributes",
@@ -237,7 +237,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["Type"] = "Normal",
+		["Type"] = "Interlude 3",
 		["Area"] = "Kriar Village",
 		["Stat"] = "+40 to Spirit",
 		["AreaLevel"] = 62,
@@ -245,7 +245,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["Type"] = "Normal",
+		["Type"] = "Interlude 3",
 		["Area"] = "Howling Caves",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
@@ -254,7 +254,7 @@ return {
 	},
 	{
 		["Act"] = 6,
-		["Type"] = "Normal",
+		["Type"] = "Epilog",
 		["Area"] = "Kingsmarch",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
