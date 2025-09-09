@@ -190,3 +190,14 @@ skills["MinionInstability"] = {
 #flags attack melee chaining
 #mods
 #skillEnd
+
+#skill DeathFromAboveDaemonMinion
+#set DeathFromAboveDaemonMinion
+#flags attack projectile area
+statMap = {
+	["death_from_above_number_of_volleys"] = {
+		skill("dpsMultiplier", nil),
+	},
+},
+#mods
+#skillEnd

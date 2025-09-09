@@ -562,7 +562,7 @@ function calcs.reducePoolsByDamage(poolTable, damageTable, actor)
 		local damageType = dmgTypeList[i]
 		local damageRemainder = damageRemaindersBeforeES[damageType]
 		if damageRemainder then
-			local esDamageTypeMultiplier = damageType == "Chaos" and 2 or 1
+			local esDamageTypeMultiplier = damageType == "Chaos" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") and 2 or 1
 			local esBypass = output[damageType.."EnergyShieldBypass"] / 100 or 0
 			local lifeHitPool = calcLifeHitPoolWithLossPrevention(life, output.Life, output.preventedLifeLoss, lifeLossBelowHalfPrevented)
 			local MoMEffect = m_min(output.sharedMindOverMatter + output[damageType.."MindOverMatter"], 100) / 100
@@ -2525,7 +2525,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 		else
 			local stunDuration = (1 + modDB:Sum("INC", nil, "StunDuration") / 100)
-			local baseStunDuration = actor == env.minion and data.misc.MinionBaseStunDuration or data.misc.StunBaseDuration
+			local baseStunDuration = actor == env.minion and (modDB:Override(nil, "StunDuration") or data.misc.MinionBaseStunDuration) or data.misc.StunBaseDuration
 			local stunRecovery = (1 + modDB:Sum("INC", nil, "StunRecovery") / 100)
 			local stunAndBlockRecovery = (1 + modDB:Sum("INC", nil, "StunRecovery", "BlockRecovery") / 100)
 			output.StunDuration = m_ceil(baseStunDuration * stunDuration / stunRecovery * data.misc.ServerTickRate) / data.misc.ServerTickRate
@@ -2881,7 +2881,7 @@ function calcs.buildDefenceEstimations(env, actor)
 		output[damageType.."TotalPool"] = output[damageType.."ManaEffectiveLife"]
 		output[damageType.."TotalHitPool"] = output[damageType.."MoMHitPool"]
 		local esBypass = output[damageType.."EnergyShieldBypass"] / 100
-		local chaosESMultiplier = damageType == "Chaos" and 2 or 1
+		local chaosESMultiplier = damageType == "Chaos" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") and 2 or 1
 		if modDB:Flag(nil, "EternalLife") then
 			output[damageType.."TotalPool"] = output[damageType.."TotalPool"] + output.EnergyShieldRecoveryCap / (1 - esBypass) / chaosESMultiplier
 			output[damageType.."TotalHitPool"] = output[damageType.."TotalHitPool"] + output.EnergyShieldRecoveryCap / (1 - esBypass) / chaosESMultiplier
@@ -2903,7 +2903,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				t_insert(breakdown[damageType.."TotalPool"], s_format("Mana through MoM: %d", output[damageType.."ManaEffectiveLife"] - output.LifeRecoverable))
 			end
 			if modDB:Flag(nil, "EternalLife") then
-				t_insert(breakdown[damageType.."TotalPool"], s_format("Energy Shield: %d%s", output.EnergyShieldRecoveryCap / chaosESMultiplier, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" or ""))
+				t_insert(breakdown[damageType.."TotalPool"], s_format("Energy Shield: %d%s", output.EnergyShieldRecoveryCap / chaosESMultiplier, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") or ""))
 				t_insert(breakdown[damageType.."TotalPool"], s_format("Life change prevented by Eternal Life: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"] - output.EnergyShieldRecoveryCap / chaosESMultiplier))
 			elseif esBypass < 1 then
 				t_insert(breakdown[damageType.."TotalPool"], s_format("Non-bypassed Energy Shield: %d", output[damageType.."TotalPool"] - output[damageType.."ManaEffectiveLife"]))
@@ -4166,7 +4166,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			if resourcesLost.energyShield then
 				resourcesLostSum = resourcesLostSum + resourcesLost.energyShield
-				t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield%s", resourcesLost.energyShield, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" or ""))
+				t_insert(breakdownTable, s_format("\t%d "..colorCodes.ES.."Energy Shield%s", resourcesLost.energyShield, damageType == "Chaos" and "^8 (ES takes double damage from chaos)" and not modDB:Flag(nil, "ChaosNotDoubleESDamage") or ""))
 			end
 			if resourcesLost.eternalLifePrevented then
 				t_insert(breakdownTable, s_format("\t%d "..colorCodes.POSITIVE.."Life change prevented by Eternal Life", resourcesLost.eternalLifePrevented))

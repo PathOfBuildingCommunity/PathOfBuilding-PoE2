@@ -84,7 +84,7 @@ minions["Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterSpectre"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4066]
+		mod("StunDuration", "OVERRIDE", 4.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4066]
 	},
 }
 
@@ -120,7 +120,7 @@ minions["Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -155,7 +155,7 @@ minions["Metadata/Monsters/LeagueAbyss/Lightless/SerpentClanCasterAbyssSpectre"]
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
+		mod("StunDuration", "OVERRIDE", 4.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
 	},
 }
 
@@ -186,7 +186,7 @@ minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+		mod("StunDuration", "OVERRIDE", 2.116, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
 	},
 }
 
@@ -217,7 +217,7 @@ minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+		mod("StunDuration", "OVERRIDE", 2.116, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
 	},
 }
 
@@ -288,7 +288,7 @@ minions["Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpect
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
 		-- has_quadruped_head_control [has_quadruped_head_control = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4133]
+		mod("StunDuration", "OVERRIDE", 4.133, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4133]
 	},
 }
 
@@ -321,7 +321,7 @@ minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre"]
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
 	},
 }
 
@@ -357,7 +357,7 @@ minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre"] 
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
 	},
 }
 
@@ -393,7 +393,7 @@ minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre"
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
 	},
 }
 
@@ -459,7 +459,7 @@ minions["Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssS
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -494,7 +494,7 @@ minions["Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre"] = {
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -527,7 +527,7 @@ minions["Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -565,7 +565,7 @@ minions["Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteSpectre_"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -599,7 +599,7 @@ minions["Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+		mod("StunDuration", "OVERRIDE", 2.116, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
 	},
 }
 
@@ -633,7 +633,7 @@ minions["Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkSpectre"] = {
 	},
 	modList = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -740,7 +740,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 		"GAMediumBeetleSunder",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -777,7 +777,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWide"] = 
 		"GAMediumBeetleSunder",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -839,7 +839,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder2_"]
 		"MeleeAtAnimationSpeedFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
 	},
 }
 
@@ -868,7 +868,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder3_"]
 		"MeleeAtAnimationSpeedFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -902,7 +902,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite1_"] 
 		"GSHellscapeDemonElite1Screech",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -933,7 +933,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_"] 
 		"GSHellscapeDemonEliteBeamNuke",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -968,7 +968,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder1_"]
 		"GAHellscapeFleshLeapImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
 	},
 }
 
@@ -1003,7 +1003,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder2_"]
 		"GAHellscapeFleshFodderSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3800]
+		mod("StunDuration", "OVERRIDE", 3.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3800]
 	},
 }
 
@@ -1038,7 +1038,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder3_"]
 		"SOHellscapeFleshFodderPustule",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -1069,7 +1069,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder4_"]
 		"HellscapeFleshFodderArc",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2588]
+		mod("StunDuration", "OVERRIDE", 2.588, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2588]
 	},
 }
 
@@ -1108,7 +1108,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite1_"] 
 		"SSMFleshEliteOrb",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
+		mod("StunDuration", "OVERRIDE", 2.766, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
 	},
 }
 
@@ -1142,7 +1142,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite2_"] 
 		"GAHellscapeFleshElite2Combo2Slam3",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
 	},
 }
 
@@ -1172,7 +1172,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder1_"] =
 		"MPSHellscapePaleHammerhead",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -1206,7 +1206,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder2_"] =
 		"GAHellscapePaleDogmanDashSwipe",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -1238,7 +1238,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder3_"] =
 		"DTTHellscapeSpiderDodgeRight",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4150]
+		mod("StunDuration", "OVERRIDE", 4.15, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4150]
 	},
 }
 
@@ -1272,7 +1272,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = 
 		"TeleportHellscapePaleElite",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -1312,7 +1312,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] =
 	modList = {
 		-- HellscapeYellowLightningOverride [shock_art_variation = 10]
 		-- HellscapeYellowLightningOverride [damage_hit_effect_index = 103]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -1349,7 +1349,7 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	},
 	modList = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -1378,7 +1378,7 @@ minions["Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
 	},
 }
 
@@ -1415,7 +1415,7 @@ minions["Metadata/Monsters/BloodFeverKarui/BloodFeverButcherSpectre"] = {
 	modList = {
 		mod("PhysicalDamage", "INC", 0, 0, 0), -- MonsterBleedImplicit [physical_damage_+% = 0]
 		mod("BleedChance", "BASE", 100, 1, 0), -- MonsterBleedImplicit [attacks_inflict_bleeding_on_hit = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
+		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 	},
 }
 
@@ -1450,7 +1450,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 		"QuillCrabSpikeShrapnel",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -1484,7 +1484,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 		"QuillCrabSpikeShrapnel",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -1519,7 +1519,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabPoison"] = {
 		"QuillCrabSpikeShrapnelPoison",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -1558,7 +1558,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 		"QuillCrabSpikeShrapnelPoison",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -1597,7 +1597,7 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -1639,7 +1639,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 		"GAAzmeriVirulentPod",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1674,7 +1674,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -1710,7 +1710,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff"] = {
 		"CGEAzmeriPictStaffSwampGround",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -1741,7 +1741,7 @@ minions["Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1533]
+		mod("StunDuration", "OVERRIDE", 1.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1533]
 	},
 }
 
@@ -1772,7 +1772,7 @@ minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
 	},
 }
 
@@ -1844,7 +1844,7 @@ minions["Metadata/Monsters/Sanctified/Snake/SanctifiedSnake"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
 	},
 }
 
@@ -1878,7 +1878,7 @@ minions["Metadata/Monsters/Sanctified/Spider/SanctifiedSpider"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -1911,7 +1911,7 @@ minions["Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -1941,7 +1941,7 @@ minions["Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
+		mod("StunDuration", "OVERRIDE", 2.083, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
 	},
 }
 
@@ -1985,7 +1985,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBanditExecutioner"] = {
 		"GAMutewindBanditExecutionerCascadeSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -2026,7 +2026,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
@@ -2065,7 +2065,7 @@ minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 		"GAMutewindGirlSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
@@ -2109,7 +2109,7 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2151,7 +2151,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2197,7 +2197,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 	modList = {
 		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock40Bypass10_ [monster_base_block_% = 20]
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock40Bypass10_ [base_block_%_damage_taken = 10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2236,7 +2236,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2280,7 +2280,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 		"EmptyActionMutewindWomanDodgeRightIdle",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2322,7 +2322,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2412,7 +2412,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 		"GAMutewindWomanSpearStab2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2455,7 +2455,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 		"CTSMutewindSpearShieldStance3",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -2497,7 +2497,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
+		mod("StunDuration", "OVERRIDE", 3.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
 	},
 }
 
@@ -2682,7 +2682,7 @@ minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Corrupt
 		"EDSCorruptedMageFlamethrower",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
+		mod("StunDuration", "OVERRIDE", 2.33, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
 	},
 }
 
@@ -2718,7 +2718,7 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_"] = {
 		"GATwoHeadedTitanStomp",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -2929,7 +2929,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 		"GTBoneZealotLightningStorm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -2966,7 +2966,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02"
 		"BoneCultistZealotFirestorm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -3037,7 +3037,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	},
 	modList = {
 		-- set_melee_defer_damage_prediction [set_melee_defer_damage_prediction = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -3110,7 +3110,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
 		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3083]
+		mod("StunDuration", "OVERRIDE", 3.083, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3083]
 	},
 }
 
@@ -3145,7 +3145,7 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
+		mod("StunDuration", "OVERRIDE", 1.7, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
 	},
 }
 
@@ -3304,7 +3304,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkele
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -3339,7 +3339,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -3375,7 +3375,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleJaguar_"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- BoneRabbleMeleeRange [attack_maximum_action_distance_+ = 3]
 		mod("MeleeWeaponRange", "BASE", 7, 0, 0), -- BoneRabbleMeleeRange [melee_range_+ = 7]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -3411,7 +3411,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -3449,7 +3449,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock30Bypass10 [monster_base_block_% = 20]
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -3484,7 +3484,7 @@ minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -3516,7 +3516,7 @@ minions["Metadata/Monsters/Skeletons/RetchSkeletonOneHandSword"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -3557,7 +3557,7 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -3590,7 +3590,7 @@ minions["Metadata/Monsters/Skeletons/Rusted/RustedSkeletonOneHandSwordShield"] =
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock30Bypass10 [monster_base_block_% = 20]
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -3669,7 +3669,7 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 		"SSMSerpentClanVulnerability",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
+		mod("StunDuration", "OVERRIDE", 4.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
 	},
 }
 
@@ -3706,7 +3706,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
@@ -3739,7 +3739,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 		"EGTerracottaTransition",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -3772,7 +3772,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -3817,7 +3817,7 @@ minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
 		"EASQuadrillaTaunt",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -3859,7 +3859,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -3901,7 +3901,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 		"CGEBloodPriestBoilingBlood",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -3941,7 +3941,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 		"EASBloodPriestSummonElemental",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -4008,7 +4008,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfMoonClan1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2615]
+		mod("StunDuration", "OVERRIDE", 2.615, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2615]
 	},
 }
 
@@ -4043,7 +4043,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfPack1"] = {
 		"WerewolfPackHowlEAS",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2566]
+		mod("StunDuration", "OVERRIDE", 2.566, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2566]
 	},
 }
 
@@ -4080,7 +4080,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 		"MeleeAtAnimationSpeed2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -4114,7 +4114,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 		"MeleeAtAnimationSpeed2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -4145,7 +4145,7 @@ minions["Metadata/Monsters/Wolves/Wolf1"] = {
 	},
 	modList = {
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -4179,7 +4179,7 @@ minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 		"EASJungleMonkeyTaunt",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -4218,7 +4218,7 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 		"EGJungleChieftainSummonMonkey",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -4292,8 +4292,8 @@ minions["Metadata/Monsters/MudBurrower/BrambleBurrower"] = {
 		"GABrambleBurrowerImpact",
 	},
 	modList = {
-		-- ImmuneToKnockback [cannot_be_knocked_back = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- ImmuneToKnockback [cannot_be_knocked_back = 1]
+		mod("StunDuration", "OVERRIDE", 5.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
 	},
 }
 
@@ -4329,7 +4329,7 @@ minions["Metadata/Monsters/StonebackRhoa/BrambleRhoa"] = {
 		"MeleeAtAnimationSpeedStonebackRhoaFeet",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -4370,7 +4370,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 		"GraveyardGhostDashToTargetFar",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -4404,7 +4404,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 		"SpookyGhostLightningBounce",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -4440,7 +4440,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4476,7 +4476,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 		"FungalCascadeSpawn",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4508,7 +4508,7 @@ minions["Metadata/Monsters/MudGolem/MudGolem"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -4541,7 +4541,7 @@ minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 		"GASandGolemSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -4572,7 +4572,7 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4602,7 +4602,7 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedDryUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4640,7 +4640,7 @@ minions["Metadata/Monsters/Urchins/SlingUrchin1"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- MonsterSpellActionDistanceVariation20 [spell_maximum_action_distance_+% = -20]
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -4678,7 +4678,7 @@ minions["Metadata/Monsters/Hags/UrchinHag1"] = {
 		"HagRaiseDeadAoE",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
+		mod("StunDuration", "OVERRIDE", 5.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
 	},
 }
 
@@ -4714,7 +4714,7 @@ minions["Metadata/Monsters/Hags/TrenchHag"] = {
 		"EGTrenchHagRevive",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -4781,7 +4781,7 @@ minions["Metadata/Monsters/Stalker/Stalker"] = {
 		"TauntStalker",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2617]
+		mod("StunDuration", "OVERRIDE", 2.617, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2617]
 	},
 }
 
@@ -4827,7 +4827,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 		"CourtesanBloodSpear3",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3317]
+		mod("StunDuration", "OVERRIDE", 3.317, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3317]
 	},
 }
 
@@ -4863,7 +4863,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4902,7 +4902,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -4940,7 +4940,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -4977,7 +4977,7 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5016,7 +5016,7 @@ minions["Metadata/Monsters/Knight/DeathKnightNecropolisElite"] = {
 		"GADeathKnightOverheadslam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5052,7 +5052,7 @@ minions["Metadata/Monsters/Gargoyle/GargoyleGolemRed"] = {
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
 		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3183]
+		mod("StunDuration", "OVERRIDE", 3.183, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3183]
 	},
 }
 
@@ -5090,7 +5090,7 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
+		mod("StunDuration", "OVERRIDE", 2.2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
 	},
 }
 
@@ -5122,7 +5122,7 @@ minions["Metadata/Monsters/Crow/CrowCarrion"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -5159,7 +5159,7 @@ minions["Metadata/Monsters/BrambleHulk/BrambleHulk1"] = {
 		"BrambleHulkSlamTriggered",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
@@ -5193,7 +5193,7 @@ minions["Metadata/Monsters/Ghouls/GhoulCommander"] = {
 		"GhoulCommanderHowl",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
@@ -5224,7 +5224,7 @@ minions["Metadata/Monsters/Ghouls/Ghoul"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -5258,7 +5258,7 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 		"FungalArtilleryFungalGroundFromMortar",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -5293,7 +5293,7 @@ minions["Metadata/Monsters/Wretches/CoffinWretch1"] = {
 		"CoffinWretchBabySoulrend2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
+		mod("StunDuration", "OVERRIDE", 3.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
 	},
 }
 
@@ -5326,7 +5326,7 @@ minions["Metadata/Monsters/Wretches/StatueWretch"] = {
 		"BurdenedWretchSlamCloseRange",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
+		mod("StunDuration", "OVERRIDE", 2.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
 	},
 }
 
@@ -5366,7 +5366,7 @@ minions["Metadata/Monsters/Wretches/StatueWretchElite"] = {
 		"BearerOfPenitenceSlam8",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
+		mod("StunDuration", "OVERRIDE", 2.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
 	},
 }
 
@@ -5397,7 +5397,7 @@ minions["Metadata/Monsters/Frog/PaleFrog1"] = {
 		"PaleFrogShieldCharge",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2066]
+		mod("StunDuration", "OVERRIDE", 2.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2066]
 	},
 }
 
@@ -5461,7 +5461,7 @@ minions["Metadata/Monsters/BoneStalker/TombStalker1"] = {
 		"TombStalkerLeapSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
+		mod("StunDuration", "OVERRIDE", 2.766, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
 	},
 }
 
@@ -5500,7 +5500,7 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 		"OssuaryWitchRemoteHandSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -5533,7 +5533,7 @@ minions["Metadata/Monsters/Wolves/RottenWolf1_"] = {
 	},
 	modList = {
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -5565,7 +5565,7 @@ minions["Metadata/Monsters/Wolves/FungalWolf1_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -5609,7 +5609,7 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -5644,7 +5644,7 @@ minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 		"SnakeFlowerManProjectile",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2700]
+		mod("StunDuration", "OVERRIDE", 2.7, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2700]
 	},
 }
 
@@ -5678,7 +5678,7 @@ minions["Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5711,7 +5711,7 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5744,7 +5744,7 @@ minions["Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -5793,7 +5793,7 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2415]
+		mod("StunDuration", "OVERRIDE", 2.415, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2415]
 	},
 }
 
@@ -5827,7 +5827,7 @@ minions["Metadata/Monsters/Bugbot/BugbotRockyNoEmerge"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2444]
+		mod("StunDuration", "OVERRIDE", 2.444, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2444]
 	},
 }
 
@@ -5926,7 +5926,7 @@ minions["Metadata/Monsters/Parasites/FishParasite"] = {
 		"GSParasiticFishMortarAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
+		mod("StunDuration", "OVERRIDE", 2.667, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
 	},
 }
 
@@ -5959,7 +5959,7 @@ minions["Metadata/Monsters/Parasites/PirateFishParasite"] = {
 		"GSParasiticFishMortarAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
+		mod("StunDuration", "OVERRIDE", 2.667, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
 	},
 }
 
@@ -5988,7 +5988,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionBasicZombie"] =
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6052,7 +6052,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCa
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -6119,7 +6119,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -6228,7 +6228,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
@@ -6263,7 +6263,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer"]
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -6360,7 +6360,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_"
 	modList = {
 		-- MonsterMaimOnHit [global_maim_on_hit = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6398,7 +6398,7 @@ minions["Metadata/Monsters/TwigMonsters/canopy/TwigMonster"] = {
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6433,7 +6433,7 @@ minions["Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis"] = {
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6468,7 +6468,7 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 		"MeleeSpiderViperStrike",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -6506,7 +6506,7 @@ minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 		"DTTSabreSpiderLeap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -6540,7 +6540,7 @@ minions["Metadata/Monsters/RamGiant/RamGiant"] = {
 	},
 	modList = {
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -6577,7 +6577,7 @@ minions["Metadata/Monsters/RamGiant/RamGiantQuarry"] = {
 	},
 	modList = {
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -6616,7 +6616,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -6650,7 +6650,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiantBog"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -6683,7 +6683,7 @@ minions["Metadata/Monsters/MaggotHusks/MaggotHusk"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6720,7 +6720,7 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 		"GSSerpentClanAcidSpit",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
+		mod("StunDuration", "OVERRIDE", 4.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
 	},
 }
 
@@ -6758,7 +6758,7 @@ minions["Metadata/Monsters/SaltGolem/SaltGolem_"] = {
 		"GASaltGolemEarthquakeLargeImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3133]
+		mod("StunDuration", "OVERRIDE", 3.133, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3133]
 	},
 }
 
@@ -6798,7 +6798,7 @@ minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 		"WalkEmergeHyena",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -6837,7 +6837,7 @@ minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 		"EGHyenaDogpileBig",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
+		mod("StunDuration", "OVERRIDE", 3.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
 	},
 }
 
@@ -6878,7 +6878,7 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	modList = {
 		-- has_quadruped_head_control [has_quadruped_head_control = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
 	},
 }
 
@@ -6919,7 +6919,7 @@ minions["Metadata/Monsters/SandLeaper02/DesertLeaper1_"] = {
 		"GACragLeaperLeapSulphur",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -6959,7 +6959,7 @@ minions["Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
@@ -7004,7 +7004,7 @@ minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
@@ -7042,7 +7042,7 @@ minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 		"MarAcolyteThrowFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
+		mod("StunDuration", "OVERRIDE", 2.083, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
 	},
 }
 
@@ -7112,7 +7112,7 @@ minions["Metadata/Monsters/RockSliderSpectre"] = {
 		"RockSliderEmergeEG",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -7148,7 +7148,7 @@ minions["Metadata/Monsters/SkeletonSnake"] = {
 		"MonsterPuncture",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7184,7 +7184,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 		"MPWAzmeriPitifulFabricationSkullThrow",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -7227,7 +7227,7 @@ minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- strafe_distance_+% [strafe_distance_+% = -21]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 		mod("EnemyCurseLimit", "BASE", 3, 0, 0), -- number_of_additional_curses_allowed [number_of_additional_curses_allowed = 3]
 	},
 }
@@ -7264,7 +7264,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
+		mod("StunDuration", "OVERRIDE", 2.95, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
 	},
 }
 
@@ -7295,7 +7295,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_"] =
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -7327,7 +7327,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -7399,7 +7399,7 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 		"MMAPorcupineAntSpikeball",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -7435,7 +7435,7 @@ minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 		"GSCaveDwellerSuperProjectile",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7470,7 +7470,7 @@ minions["Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge"] = {
 	},
 	modList = {
 		-- ShockArtVariationDivine [shock_art_variation = 2]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1715]
+		mod("StunDuration", "OVERRIDE", 1.715, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1715]
 	},
 }
 
@@ -7510,7 +7510,7 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2106]
+		mod("StunDuration", "OVERRIDE", 2.106, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2106]
 	},
 }
 
@@ -7578,9 +7578,9 @@ minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- MonsterGetsStunnedLonger30to70__ [stun_duration_on_self_+% = 30]
+		mod("StunDuration", "INC", 30, 0, 0), -- MonsterGetsStunnedLonger30to70__ [stun_duration_on_self_+% = 30]
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7613,7 +7613,7 @@ minions["Metadata/Monsters/PlagueMorphs/PlagueMorph1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7648,7 +7648,7 @@ minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -7719,7 +7719,7 @@ minions["Metadata/Monsters/PlagueBringer/PlagueBringer"] = {
 	},
 	modList = {
 		mod("PhysicalDamageLifeLeech", "BASE", 125, 1, 0), -- PlagueBringerLifeLeechInherent [base_life_leech_from_physical_attack_damage_permyriad = 12500]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -7759,7 +7759,7 @@ minions["Metadata/Monsters/BrainWorm/DuneLurker_"] = {
 		"GADuneLurkerEmergeAttack",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -7793,7 +7793,7 @@ minions["Metadata/Monsters/WingedCreature/WingedCreature"] = {
 		"GSWingedCreatureBallLightning",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -7859,7 +7859,7 @@ minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -7893,7 +7893,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7928,7 +7928,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7967,7 +7967,7 @@ minions["Metadata/Monsters/TwigMonsters/DredgeFiend"] = {
 		"GSDredgeMortarImpactAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7999,7 +7999,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeStalker"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2550]
+		mod("StunDuration", "OVERRIDE", 2.55, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2550]
 	},
 }
 
@@ -8039,7 +8039,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower"] = {
 		"GAVaalSavageDaggerDashSlash2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -8072,7 +8072,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -8105,7 +8105,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeDagger"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -8143,7 +8143,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeShaman"] = {
 		"GSCannibalShamanProjImpactAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2210]
+		mod("StunDuration", "OVERRIDE", 2.21, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2210]
 	},
 }
 
@@ -8188,7 +8188,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 		"GABogSavageStalkerSpinAttack",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -8232,7 +8232,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8269,7 +8269,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 		"EASSavageWeaponFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2366]
+		mod("StunDuration", "OVERRIDE", 2.366, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2366]
 	},
 }
 
@@ -8304,7 +8304,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBeastMaster"] = {
 		"DoLiterallyNothing",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8341,7 +8341,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDagger_"] = {
 		"EASSavageWeaponFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8383,7 +8383,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 		"GSVaalShamanFireballImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -8423,7 +8423,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8527,7 +8527,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageGiant"] = {
 		"GABogGiantFireSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
 	},
 }
 
@@ -8561,7 +8561,7 @@ minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 		"GABloodDroneDashAttach",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -8635,7 +8635,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
 	},
 }
 
@@ -8668,7 +8668,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalker"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
 	},
 }
 
@@ -8705,7 +8705,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
+		mod("StunDuration", "OVERRIDE", 2.266, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
 	},
 }
 
@@ -8745,7 +8745,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -8784,7 +8784,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteMother"] = {
 		"WalkEmergeCenobiteSwarm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -8821,7 +8821,7 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 		"GSBaneSaplingMortarImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8856,7 +8856,7 @@ minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 		"GSDemonArmadilloKnockback",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -8890,7 +8890,7 @@ minions["Metadata/Monsters/ChawMongrel/ChawMongrel"] = {
 	},
 	modList = {
 		-- MonsterMaimOnHit [global_maim_on_hit = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8928,7 +8928,7 @@ minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2788]
+		mod("StunDuration", "OVERRIDE", 2.788, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2788]
 	},
 }
 
@@ -9027,7 +9027,7 @@ minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 		"SnakeHulkDualStrike",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9066,7 +9066,7 @@ minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 	modList = {
 		mod("PoisonChance", "BASE", 100, 0, 0), -- MaligaroSpiderPoisonOnHit [global_poison_on_hit = 1]
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -9099,7 +9099,7 @@ minions["Metadata/Monsters/GutViper/GutViper"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -9166,7 +9166,7 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 		"CGESpittingSnakeCaustic",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -9202,7 +9202,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 	modList = {
 		mod("PoisonChance", "BASE", 100, 0, 0), -- MaligaroSpiderPoisonOnHit [global_poison_on_hit = 1]
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -9242,7 +9242,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 	modList = {
 		mod("PoisonChance", "BASE", 100, 0, 0), -- MaligaroSpiderPoisonOnHit [global_poison_on_hit = 1]
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -9283,7 +9283,7 @@ minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 		"EASSpiderMonkeyEmerge5",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2680]
+		mod("StunDuration", "OVERRIDE", 2.68, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2680]
 	},
 }
 
@@ -9319,7 +9319,7 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	},
 	modList = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9352,7 +9352,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe"] = {
 		"EASAzmeriPictMaleEffigy",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2360]
+		mod("StunDuration", "OVERRIDE", 2.36, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2360]
 	},
 }
 
@@ -9387,7 +9387,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictBigMale"] = {
 		"GAAzmeriPict2HFabricationSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -9426,7 +9426,7 @@ minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 		"EASTigerChimeralDodgeRight",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2585]
+		mod("StunDuration", "OVERRIDE", 2.585, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2585]
 	},
 }
 
@@ -9463,7 +9463,7 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 		"EASFishJump",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
+		mod("StunDuration", "OVERRIDE", 2.2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
 	},
 }
 
@@ -9523,7 +9523,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelNoEmerge
 		"GAVaalConstructSentinelImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -9558,7 +9558,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGoldenNo
 		"GAVaalConstructSentinelImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -9633,7 +9633,7 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidSpawned"] 
 		"TBVaalPyramidBeamAttack",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
+		mod("StunDuration", "OVERRIDE", 3.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
 	},
 }
 
@@ -9701,7 +9701,7 @@ minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolemAncient"] = {
 		"GAVaalConstructGolemLightningSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -9771,7 +9771,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDagger
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9809,7 +9809,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9845,7 +9845,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 		"WalkEmergeCenobiteSwarm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9879,7 +9879,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
+		mod("StunDuration", "OVERRIDE", 2.266, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
 	},
 }
 
@@ -9919,7 +9919,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash"] = {
 		"EDSCenobiteLeashImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -9954,7 +9954,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 		"WalkEmergeCenobiteSwarm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
+		mod("StunDuration", "OVERRIDE", 3.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
 	},
 }
 
@@ -9990,7 +9990,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] 
 		"MMACenobiteStoneThrow",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
@@ -10029,7 +10029,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -10067,7 +10067,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
+		mod("StunDuration", "OVERRIDE", 3.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
 	},
 }
 
@@ -10104,7 +10104,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -10139,7 +10139,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -10175,7 +10175,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -10208,7 +10208,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -10249,7 +10249,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotSpearLightning"] = {
 		"SOVaalZealotLightningBlast",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -10282,7 +10282,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -10314,7 +10314,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrolSpe
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -10353,7 +10353,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardClawsLiving"] = {
 		"GAVaalGuardClawsLeapSwipes",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -10389,7 +10389,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalOverseerLiving_"] = {
 		"MAASVaalOverseerCleave",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -10431,7 +10431,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 		"CGEVaalGoliathLivingDestabilisedGround",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3500]
+		mod("StunDuration", "OVERRIDE", 3.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3500]
 	},
 }
 
@@ -10470,7 +10470,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalStormcaller"] = {
 		"MPSVaalStormcallerBouncingLightning",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -10512,7 +10512,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_"] = {
 		"DTTVaalShapeshifterDash",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -10684,7 +10684,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar"] = {
 		"GAVaalJaguarMinionImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -10719,7 +10719,7 @@ minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 	modList = {
 		mod("BlockChance", "BASE", 30, 0, 0), -- MonsterAttackBlock30Bypass15 [monster_base_block_% = 30]
 		mod("BlockEffect", "BASE", 15, 0, 0), -- MonsterAttackBlock30Bypass15 [base_block_%_damage_taken = 15]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -10750,7 +10750,7 @@ minions["Metadata/Monsters/Procession/ProcessionSpear_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -10781,7 +10781,7 @@ minions["Metadata/Monsters/Procession/ProcessionDagger"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -10816,7 +10816,7 @@ minions["Metadata/Monsters/Procession/ProcessionBow"] = {
 		"MPWProcessionBowFireArrow",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
+		mod("StunDuration", "OVERRIDE", 2.888, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
 	},
 }
 
@@ -10849,7 +10849,7 @@ minions["Metadata/Monsters/Procession/ProcessionBannerSpectre"] = {
 		"ABTTProcessionBannerDrain",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
+		mod("StunDuration", "OVERRIDE", 2.888, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
 		-- strafe_distance_+% [strafe_distance_+% = 60]
 	},
 }
@@ -10883,7 +10883,7 @@ minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -10957,7 +10957,7 @@ minions["Metadata/Monsters/VaalForgeMan/VaalForgeMan"] = {
 		"GSVaalForgemanSunderSpike4",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -11027,7 +11027,7 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 		"CGEBloodBatherFireGround",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -11065,7 +11065,7 @@ minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 	},
 	modList = {
 		-- strafe_distance_+% [strafe_distance_+% = -60]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
@@ -11103,7 +11103,7 @@ minions["Metadata/Monsters/BloodCultistDrones/BloodBatherMage"] = {
 		"BloodMageBloodTendrils",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -11131,7 +11131,7 @@ minions["Metadata/Monsters/AscendancyBatMonster/AscendancyBat"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
+		mod("StunDuration", "OVERRIDE", 3.05, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
 	},
 }
 
@@ -11163,7 +11163,7 @@ minions["Metadata/Monsters/VaalConstructs/Ball/VaalBowlingBall"] = {
 		"GSVaalConstructCannonImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -11199,7 +11199,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_"] = {
 		"MPAVaalAxeThrowerAxe",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -11243,7 +11243,7 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 		"MPSCauldronCroneBasic",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
@@ -11278,7 +11278,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGol
 		"GAVaalHumanoidRocketFistImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -11350,8 +11350,8 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidShieldLegs/VallHumanoidShie
 		"GSShieldLegsGenadeExplosion",
 	},
 	modList = {
-		-- MonsterChaosTakenOnES [base_chaos_damage_does_not_damage_energy_shield_extra_hard = 1]
-		-- ElderNoEnergyShieldRecharge [cannot_recharge_energy_shield = 1]
+		mod("ChaosNotDoubleESDamage", "FLAG", 1, 0, 0), -- MonsterChaosTakenOnES [base_chaos_damage_does_not_damage_energy_shield_extra_hard = 1]
+		mod("NoEnergyShieldRecharge", "FLAG", 1, 0, 0), -- ElderNoEnergyShieldRecharge [cannot_recharge_energy_shield = 1]
 		-- ElderEnergyShieldStartsAtZero [start_at_zero_energy_shield = 1]
 		-- strafe_distance_+% [strafe_distance_+% = -60]
 	},
@@ -11428,7 +11428,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFi
 		"GSVaalHumanoidCannonImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -11523,7 +11523,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBlad
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -11591,7 +11591,7 @@ minions["Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -11624,7 +11624,7 @@ minions["Metadata/Monsters/Baron/BaronWerewolfSummon"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		-- BossMinionFlaskChargeIncrease400 [monster_slain_flask_charges_granted_+% = 400]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
+		mod("StunDuration", "OVERRIDE", 2.633, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
 	},
 }
 
@@ -11663,7 +11663,7 @@ minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 		"CrowScarecrowCrows",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
 	},
 }
 
@@ -11699,7 +11699,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_"] = {
 		"EASFallenStalkerShadowClone",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -11734,7 +11734,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_"] = {
 		"TBFallenGodCrawlerBeam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -11770,7 +11770,7 @@ minions["Metadata/Monsters/FallenGods/FallenHooksFoundry"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -11804,7 +11804,7 @@ minions["Metadata/Monsters/FallenGods/FallenStag"] = {
 		"GAFallenStagTentacles",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -11835,7 +11835,7 @@ minions["Metadata/Monsters/SpinningWheelHag/SpinningWheelHag"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
+		mod("StunDuration", "OVERRIDE", 2.633, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
 	},
 }
 
@@ -11869,7 +11869,7 @@ minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 	modList = {
 		-- has_quadruped_head_control [has_quadruped_head_control = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 100]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
+		mod("StunDuration", "OVERRIDE", 2.2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
 	},
 }
 
@@ -11976,7 +11976,7 @@ minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 		"TriggerIgniteOilGroundDrudge",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3750]
+		mod("StunDuration", "OVERRIDE", 3.75, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3750]
 	},
 }
 
@@ -12012,7 +12012,7 @@ minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 		"GATitanWalkerSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
 	},
 }
 
@@ -12053,7 +12053,7 @@ minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
 		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
+		mod("StunDuration", "OVERRIDE", 2.95, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
 	},
 }
 
@@ -12091,7 +12091,7 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 		"GASkeletalReaperEmergeReap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3533]
+		mod("StunDuration", "OVERRIDE", 3.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3533]
 	},
 }
 
@@ -12126,7 +12126,7 @@ minions["Metadata/Monsters/VaseMonster/VaseMonsterSpectre"] = {
 		"MDSummonScarabs",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2923]
+		mod("StunDuration", "OVERRIDE", 2.923, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2923]
 	},
 }
 
@@ -12166,7 +12166,7 @@ minions["Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest"] = {
 		"GSUndeadMarakethPriestMagmaOrbImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
@@ -12196,7 +12196,7 @@ minions["Metadata/Monsters/Zombies/CourtGuardZombieAxe"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -12227,7 +12227,7 @@ minions["Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_"] = {
 		"TCChaosGodRangedFodder",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 		-- has_quadruped_head_control [has_quadruped_head_control = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 150]
 	},
@@ -12259,7 +12259,7 @@ minions["Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_"] = {
 		"MeleeAtAnimationSpeed2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2216]
+		mod("StunDuration", "OVERRIDE", 2.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2216]
 	},
 }
 
@@ -12303,7 +12303,7 @@ minions["Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_"] = {
 		"GSChaosGodTriheadBatPoisonBlastSingle",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
@@ -12337,7 +12337,7 @@ minions["Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_"] = {
 		"GAChaosGodGorillaSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
@@ -12371,7 +12371,7 @@ minions["Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_"] = {
 		"GSChaosGodTriceratopsGigaBeam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2916]
+		mod("StunDuration", "OVERRIDE", 2.916, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2916]
 	},
 }
 
@@ -12410,7 +12410,7 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2750]
+		mod("StunDuration", "OVERRIDE", 2.75, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2750]
 	},
 }
 
@@ -12444,7 +12444,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -12512,7 +12512,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -12545,7 +12545,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
+		mod("StunDuration", "OVERRIDE", 2.33, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
 	},
 }
 
@@ -12586,7 +12586,7 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite1"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -12618,7 +12618,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
 	},
 }
 
@@ -12650,7 +12650,7 @@ minions["Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4100]
+		mod("StunDuration", "OVERRIDE", 4.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4100]
 	},
 }
 
@@ -12685,7 +12685,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
+		mod("StunDuration", "OVERRIDE", 3.05, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
 	},
 }
 
@@ -12758,7 +12758,7 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite2"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
@@ -12789,7 +12789,7 @@ minions["Metadata/Monsters/ChaosGodTriHeadLizard/ChaosGodTriHeadLizard_"] = {
 		"GTChaosTriHeadLizardThing",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3483]
+		mod("StunDuration", "OVERRIDE", 3.483, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3483]
 	},
 }
 
@@ -12823,7 +12823,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZ
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -12892,7 +12892,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster"]
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -12929,7 +12929,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth"] 
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -12965,7 +12965,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMele
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -13002,7 +13002,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -13038,7 +13038,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -13073,7 +13073,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/CaveDweller_"] = {
 		"EGRitualCaveDwellerTriggerBlood",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -13145,7 +13145,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRhoa"] = {
 		"SODemonicRhoaBloodBoil",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -13178,7 +13178,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRat"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
+		mod("StunDuration", "OVERRIDE", 1.7, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
 	},
 }
 
@@ -13215,8 +13215,8 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonBurrower"] = {
 		"DemonBurrowerEpicBurrow",
 	},
 	modList = {
-		-- ImmuneToKnockback [cannot_be_knocked_back = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- ImmuneToKnockback [cannot_be_knocked_back = 1]
+		mod("StunDuration", "OVERRIDE", 5.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
 	},
 }
 
@@ -13255,7 +13255,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonHulk_"] = {
 		"DemonHulkSlamTriggered",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
@@ -13284,7 +13284,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonMonkey"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -13315,6 +13315,6 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }

@@ -408,7 +408,7 @@ statMap = {
 #skillEnd
 
 #from tree
-#minionList
+#minionList TacticianMinion
 #skill SupportingFirePlayer
 #set SupportingFirePlayer
 #flags minion permanentMinion

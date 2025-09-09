@@ -921,7 +921,7 @@ statMap = {
 		mod("EnemyIgniteChance", "MORE", nil),
 	},
 	["faster_burn_%"] = {
-					mod("IgniteFaster", "INC", nil)
+		mod("IgniteFaster", "INC", nil)
 	},
 },
 #mods

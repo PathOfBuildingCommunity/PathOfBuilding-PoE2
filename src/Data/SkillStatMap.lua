@@ -2564,8 +2564,52 @@ return {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 	value = -100,
 },
+["base_cannot_be_stunned"] = {
+	flag("StunImmune"),
+},
+["cannot_be_knocked_back"] = {
+	flag("KnockbackImmune"),
+},
+["immune_to_curses"] = {
+	flag("CurseImmune"),
+},
+["base_cannot_be_frozen"] = {
+	flag("FreezeImmune"),
+},
+["base_chaos_damage_does_not_damage_energy_shield_extra_hard"] = {
+	flag("ChaosNotDoubleESDamage"),
+},
+["cannot_recharge_energy_shield"] = {
+	flag("NoEnergyShieldRecharge"),
+},
+["is_hidden_monster"] = {
+	flag("HiddenMonster"),
+},
+["set_base_maximum_life_is_one"] = {
+	mod("Life", "OVERRIDE", nil),
+},
 ["base_maximum_life_is_one"] = {
 	mod("Life", "OVERRIDE", nil),
+},
+["set_max_frenzy_charges"] = {
+	mod("FrenzyChargesMax", "OVERRIDE", nil),
+},
+["set_max_endurance_charges"] = {
+	mod("EnduranceChargesMax", "OVERRIDE", nil),
+},
+["set_max_power_charges"] = {
+	mod("PowerChargesMax", "OVERRIDE", nil),
+},
+["set_base_heavy_stun_duration_ms"] = {
+	mod("StunDuration", "OVERRIDE", nil),
+	div = 1000,
+},
+["stun_duration_on_self_+%"] = {
+	mod("StunDuration", "INC", nil),
+},
+["set_base_cannot_be_damaged"] = {
+	mod("DamageTaken", "MORE", nil),
+	value = -100,
 },
 --
 -- Gem Levels / quality

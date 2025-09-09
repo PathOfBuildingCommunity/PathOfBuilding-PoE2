@@ -1189,3 +1189,53 @@ skills["LivingLightningZap"] = {
 		},
 	}
 }
+skills["DeathFromAboveDaemonMinion"] = {
+	name = "Death From Above",
+	hidden = true,
+	description = "Fires a flare at a target location, attaching to an enemy if it lands on one. Then fires a series of arrow volleys centred around the flare.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 11.4, storedUses = 1, levelRequirement = 0, cooldown = 40, },
+	},
+	statSets = {
+		[1] = {
+			label = "Death From Above",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "death_from_above",
+			statMap = {
+				["death_from_above_number_of_volleys"] = {
+					skill("dpsMultiplier", nil),
+				},
+			},
+			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "death_from_above_volley_delay_ms", 2000 },
+				{ "death_from_above_number_of_volleys", 4 },
+				{ "explosion_delay_ms", 250 },
+				{ "active_skill_base_area_of_effect_radius", 140 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 75 },
+				{ "command_minion_marker_additional_time_ms", 300 },
+			},
+			stats = {
+				"is_commandable_skill",
+				"base_is_projectile",
+				"is_area_damage",
+				"skill_cannot_be_frozen",
+				"skill_cannot_be_electrocuted",
+				"skill_cannot_be_knocked_back",
+				"skill_cannot_be_stunned",
+				"modifiers_to_projectile_count_do_not_apply",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}

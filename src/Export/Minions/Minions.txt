@@ -74,3 +74,6 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/Monsters/LivingLightningPlayerSummoned LivingLightning
 #emit
+
+#monster Metadata/Monsters/Daemon/ArtilleryPlayer/SummonArtilleryDaemon TacticianMinion
+#emit
