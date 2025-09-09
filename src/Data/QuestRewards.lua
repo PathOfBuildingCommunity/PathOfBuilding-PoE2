@@ -58,12 +58,13 @@ return {
 	},
 	{
 		-- "Medallion"
+		-- NOTE:  Both rewards include "+1 Charm Slot"
 		["Act"] = 2,
 		["Type"] = "",
 		["Area"] = "Valley of the Titans",
 		["Options"] = {
-			"30% increased Charm Charges Gained,+1 Charm Slot",
-			"30% increased Charm Effect Duration,+1 Charm Slot",
+			"30% increased Charm Charges Gained",
+			"30% increased Charm Effect Duration",
 		},
 		["AreaLevel"] = 26,
 		["useConfig"] = true
@@ -246,16 +247,19 @@ return {
 	},
 	{
 		-- "The Seven Pillars"
+		-- TODO:  The "5% increased Experience Gain" reward comes with the following downside:
+		-- "-5% to Elemental Resistances,3% reduced Movement Speed,15% reduced Global Defences,20% reduced Presence Area Of Effect,12% reduced Cooldown Recovery Rate,5% reduced Attributes"
 		["Act"] = 5,
 		["Type"] = "Interlude 2",
 		["Area"] = "Qimah",
 		["Options"] = {
-			"+5 to All Attributes",
-			"+5% to All Elemental Resistances",
-			"12% increased Cooldown Recovery Rate",
+			"+5% to Elemental Resistances",
 			"3% increased Movement Speed",
-			"20% increased Presence Area Of Effect",
 			"15% increased Global Defences",
+			"20% increased Presence Area Of Effect",
+			"12% increased Cooldown Recovery Rate",
+			"+5 to all Attributes",
+			"5% increased Experience Gain",
 		},
 		["AreaLevel"] = 63,
 		["useConfig"] = true
