@@ -55,40 +55,51 @@ end
 
 local function addQuestModsRewardsConfigOptions(configSettings)
 	table.insert(configSettings, { section = "Quest Rewards", col = 3 })
+	
+	-- Loop through sections of line to apply multiple mods
+	local function applyModsFromString(source, str, modList)
+		for line in tostring(str):gmatch("[^\r\n]+") do
+			if line ~= "" then
+				questModsRewards(source, line, modList)
+			end
+		end
+	end
 
-	for i, quest in ipairs(data.questRewards) do
+	for _, quest in ipairs(data.questRewards) do
 		if quest.useConfig == false then
 			goto continue
 		end
+		local key   = "questAct" .. quest.Act .. quest.Type .. quest.Area
+		local label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area)
 		local source = string.format("Quest:Act %d %s %s", quest.Act, quest.Type, quest.Area)
 		if quest.Stat then
-			table.insert(configSettings,{
-				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
-				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+			table.insert(configSettings, {
+				var = key,
+				label = label,
 				type = "check",
 				defaultState = true,
 				tooltip = quest.Stat,
 				apply = function(val, modList, enemyModList)
-					questModsRewards(source, quest.Stat, modList)
+					applyModsFromString(source, quest.Stat, modList)
 				end
 			})
 		elseif quest.Options then
 			local listOptions = { { label = "Nothing", val = "None" } }
-			for j, option in ipairs(quest.Options) do
+			for _, option in ipairs(quest.Options) do
 				table.insert(listOptions, { label = option, val = option })
 			end
-			table.insert(configSettings,{
-				var = "questAct".. quest.Act .. quest.Type .. quest.Area,
-				label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area),
+			table.insert(configSettings, {
+				var = key,
+				label = label,
 				type = "list",
 				list = listOptions,
 				defaultIndex = 1,
 				tooltip = "Choose one of the following options:\n" .. table.concat(quest.Options, "\n"),
 				apply = function(val, modList, enemyModList)
-					if val == "None" then
-						return
-					end
-					questModsRewards(source, val, modList)
+				if val == "None" then
+					return
+				end
+				applyModsFromString(source, val, modList)
 				end
 			})
 		end
