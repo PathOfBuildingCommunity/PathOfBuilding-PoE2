@@ -5090,7 +5090,7 @@ c["Life Leech from your Hits also applies to your Companion"]={nil,"Life Leech f
 c["Life Leech is Converted to Energy Shield Leech"]={{[1]={flags=0,keywordFlags=0,name="GhostReaver",type="FLAG",value=true}},nil}
 c["Life Leech is Instant"]={{[1]={flags=0,keywordFlags=0,name="InstantLifeLeech",type="BASE",value=100}},nil}
 c["Life Leech recovers based on your Chaos damage instead of Physical damage"]={nil,"Life Leech recovers based on your Chaos damage instead of Physical damage "}
-c["Life Leech recovers based on your Elemental damage as well as Physical damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalAsElementalDamageLifeLeech",type="FLAG",value=true}},nil}
+c["Life Leech recovers based on your Elemental damage as well as Physical damage"]={{[1]={flags=0,keywordFlags=0,name="LifeLeechBasedOnElementalDamage",type="FLAG",value=true}},nil}
 c["Life Leeched from Empowered Attacks is Instant"]={nil,"Life Leeched from Empowered Attacks is Instant "}
 c["Life Recharges"]={nil,"Life Recharges "}
 c["Life Recharges instead of Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeAppliesToLife",type="FLAG",value=true}},nil}
