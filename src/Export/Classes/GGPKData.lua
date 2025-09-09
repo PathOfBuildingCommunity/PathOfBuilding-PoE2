@@ -173,6 +173,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/Stats.dat",
 		"Data/VirtualStatContextFlags.dat",
 		"Data/BaseItemTypes.dat",
+		"Data/MapPins.dat",
 		"Data/WeaponTypes.dat",
 		"Data/ArmourTypes.dat",
 		"Data/ShieldTypes.dat",
