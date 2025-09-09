@@ -2164,6 +2164,9 @@ return {
 ["totem_chaos_resistance_%"] = {
 	mod("TotemChaosResist", "BASE", nil)
 },
+["base_skill_is_ballistified"] = {
+	flag("Condition:BallistaSkill"),
+},
 -- Minion
 ["minion_damage_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil) }),

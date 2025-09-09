@@ -988,6 +988,7 @@ local modFlagList = {
 	["hazard"] = { tag = { type = "SkillType", skillType = SkillType.Hazard } },
 	["brand"] = { tag = { type = "SkillType", skillType = SkillType.Brand } },
 	["totem"] = { keywordFlags = KeywordFlag.Totem },
+	["ballista"] = { keywordFlags = KeywordFlag.Totem, tag = { type = "Condition", var = "BallistaSkill" } },
 	["with totem skills"] = { keywordFlags = KeywordFlag.Totem },
 	["for skills used by totems"] = { keywordFlags = KeywordFlag.Totem },
 	["totem skills that cast an aura"] = { tag = { type = "SkillType", skillType = SkillType.Aura }, keywordFlags = KeywordFlag.Totem },

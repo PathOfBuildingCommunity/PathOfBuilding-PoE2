@@ -1001,9 +1001,8 @@ c["10% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",typ
 c["10% increased Attack Damage per Summoned Totem in your Presence"]={{[1]={[1]={stat="TotemsSummoned",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},"   in your Presence "}
 c["10% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["10% increased Attack Speed with Spears"]={{[1]={flags=268435461,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
-c["10% increased Ballista Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=10}}," Ballista  "}
-c["10% increased Ballista Critical Damage Bonus 10% increased Ballista Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=10}}," Ballista  10% increased Ballista Critical Hit Chance "}
-c["10% increased Ballista Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=10}}," Ballista  "}
+c["10% increased Ballista Critical Damage Bonus"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="CritMultiplier",type="INC",value=10}},nil}
+c["10% increased Ballista Critical Hit Chance"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="CritChance",type="INC",value=10}},nil}
 c["10% increased Bleeding Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=10}},nil}
 c["10% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlindEffect",type="INC",value=10}}}},nil}
 c["10% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=10}},nil}
@@ -1433,9 +1432,9 @@ c["15% increased Attack Critical Hit Chance while Dual Wielding"]={{[1]={[1]={ty
 c["15% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["15% increased Attack Speed if you've been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["15% increased Attack Speed while not on Low Mana"]={{[1]={[1]={neg=true,type="Condition",var="LowMana"},flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
-c["15% increased Ballista Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}}," Ballista  "}
-c["15% increased Ballista Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}}," Ballista  "}
-c["15% increased Ballista damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=15}}," Ballista  "}
+c["15% increased Ballista Critical Damage Bonus"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="CritMultiplier",type="INC",value=15}},nil}
+c["15% increased Ballista Critical Hit Chance"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="CritChance",type="INC",value=15}},nil}
+c["15% increased Ballista damage"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="Damage",type="INC",value=15}},nil}
 c["15% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=15}},nil}
 c["15% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["15% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=15}},nil}
@@ -1715,8 +1714,8 @@ c["20% increased Attack Damage while Surrounded"]={{[1]={[1]={type="Condition",v
 c["20% increased Attack Damage while you have no Life Flask uses left"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=20}},"  while you have no Life Flask uses left "}
 c["20% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["20% increased Attack Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=1,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
-c["20% increased Ballista Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}}," Ballista  "}
-c["20% increased Ballista Immobilisation buildup"]={{}," Ballista Immobilisation buildup "}
+c["20% increased Ballista Critical Hit Chance"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="CritChance",type="INC",value=20}},nil}
+c["20% increased Ballista Immobilisation buildup"]={{},"  Immobilisation buildup "}
 c["20% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlindEffect",type="INC",value=20}}}},nil}
 c["20% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=20}},nil}
 c["20% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
@@ -2002,8 +2001,7 @@ c["25% increased Attack Damage while you have no Life Flask uses left 25% increa
 c["25% increased Attack Damage while you have no Life Flask uses left 25% increased Attack Damage while Surrounded 25% increased Attack Damage when on Low Life"]={{[1]={[1]={type="Condition",var="Surrounded"},[2]={type="Condition",var="LowLife"},flags=1,keywordFlags=0,name="Damage",type="INC",value=25}},"  while you have no Life Flask uses left 25% increased Attack Damage  25% increased Attack Damage  "}
 c["25% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
 c["25% increased Attack Speed while on Full Mana"]={{[1]={[1]={type="Condition",var="FullMana"},flags=1,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
-c["25% increased Ballista Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=25}}," Ballista  "}
-c["25% increased Ballista Critical Damage Bonus 20% increased Ballista Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=25}}," Ballista  20% increased Ballista Critical Hit Chance "}
+c["25% increased Ballista Critical Damage Bonus"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="CritMultiplier",type="INC",value=25}},nil}
 c["25% increased Blind duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}}," Blind  "}
 c["25% increased Blind duration 25% increased Damage with Hits against Blinded Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=262144,name="Duration",type="INC",value=25}}," Blind  25% increased Damage   "}
 c["25% increased Block Recovery"]={{[1]={flags=0,keywordFlags=0,name="BlockRecovery",type="INC",value=25}},nil}
@@ -2746,7 +2744,7 @@ c["50% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",typ
 c["50% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=50}},nil}
 c["50% increased Attack damage while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=1,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["50% increased Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=50},[2]={flags=0,keywordFlags=0,name="DexRequirement",type="INC",value=50},[3]={flags=0,keywordFlags=0,name="IntRequirement",type="INC",value=50}},nil}
-c["50% increased Ballista Immobilisation buildup"]={{}," Ballista Immobilisation buildup "}
+c["50% increased Ballista Immobilisation buildup"]={{},"  Immobilisation buildup "}
 c["50% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlindEffect",type="INC",value=50}}}},nil}
 c["50% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=50}},nil}
 c["50% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=50}},nil}
