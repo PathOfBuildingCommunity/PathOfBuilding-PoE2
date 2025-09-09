@@ -5708,10 +5708,10 @@ return {
 		},
 		[20]={
 			list=false,
-			name="",
+			name="MoreDamageAgainstNonUnique",
 			refTo="",
 			type="Int",
-			width=150
+			width=180
 		}
 	},
 	deliriumstashtablayout={
