@@ -40,15 +40,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Non-Channelling Spell additional Mana cost {0}"
-			}
 		},
 		stats={
 			[1]="archmage_non_channelled_spell_mana_cost_+"
@@ -56,15 +47,6 @@ return {
 	},
 	[4]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Non-Channelling Spell damage Gained as Lightning {0}%"
-			}
 		},
 		stats={
 			[1]="archmage_all_damage_%_to_gain_as_lightning_to_grant_to_non_channelling_spells"

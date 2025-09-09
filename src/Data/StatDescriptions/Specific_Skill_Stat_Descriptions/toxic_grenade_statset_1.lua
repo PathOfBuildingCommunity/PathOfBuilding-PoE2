@@ -14,19 +14,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -95,34 +82,20 @@ return {
 			}
 		},
 		stats={
-			[1]="base_secondary_skill_effect_duration"
+			[1]="base_skill_effect_duration"
 		}
 	},
 	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cloud duration {0}s"
-			}
 		},
 		stats={
-			[1]="secondary_skill_effect_duration"
+			[1]="skill_effect_duration"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=3,
 	["active_skill_base_area_of_effect_radius"]=4,
-	["base_secondary_skill_effect_duration"]=5,
-	["base_skill_effect_duration"]=1,
+	["base_skill_effect_duration"]=5,
 	parent="specific_skill_stat_descriptions/toxic_grenade_statset_0",
-	["secondary_skill_effect_duration"]=6,
+	["skill_effect_duration"]=6,
 	["total_number_of_projectiles_to_fire"]=2
 }

@@ -36,6 +36,8 @@ Often a mod will only apply under certain conditions, apply multiple times based
     * var: mod to multiply by
     * limit: The maximum number the mod can go up to
     * limitTotal: boolean that changes the behavior of limit to apply after multiplication.  Defaults to false.
+    * globalLimit: The maximum global number the mod can go up to, even with multiple sources. Useful for mods that say "up to a maximum of ..."
+    * globalLimitKey: string identifier for the global limit. Mods with identical keys cannot go over the globalLimit.
 * MultiplierThreshold: Similar to a condition that only applies when the variable is above a specified threshold
     * var: name of the mod
     * threshold: number to reach before the mod applies
@@ -58,7 +60,7 @@ Often a mod will only apply under certain conditions, apply multiple times based
     * effectEnemyCond: Specify a condition so this mod applies to the enemy when that condition is fulfilled
     * effectStackVar: Multiplies the mod by this variable (usually another mod)
     * modCond: Apply the mod when the actor has this condition
-    * unscaleable: boolean that determines whether this buff can be scaled by buff effect
+    * unscalable: boolean that determines whether this buff can be scaled by buff effect
 * DistanceRamp: A rare type that is used on skills and effects that do different things at different distances from the character
     * ramp: Numbers to multiply the mod by at different distances.  e.g. `ramp = {{35,0},{70,1}}` means the mod does nothing at 35 units, but has its full value at 70 units.
 * ModFlagOr: Used when you only need one ModFlag to match, e.g. `["with axes or swords"] = { flags = ModFlag.Hit, tag = { type = "ModFlagOr", modFlags = bor(ModFlag.Axe, ModFlag.Sword) } },` needs `Hit`, but can use either of the other two flags

@@ -174,7 +174,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			end
 		end
-		self:ImportFromNodeList(tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
+		self:ImportFromNodeList(nil, tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
 	elseif url then
 		self:DecodeURL(url)
 	end
@@ -263,13 +263,17 @@ function PassiveSpecClass:PostLoad()
 end
 
 -- Import passive spec from the provided class IDs and node hash list
-function PassiveSpecClass:ImportFromNodeList(classId, ascendClassId, secondaryAscendClassId, hashList, weaponSets, hashOverrides, masteryEffects, treeVersion)
+function PassiveSpecClass:ImportFromNodeList(className, classId, ascendClassId, secondaryAscendClassId, hashList, weaponSets, hashOverrides, masteryEffects, treeVersion)
   if hashOverrides == nil then hashOverrides = {} end
 	if treeVersion and treeVersion ~= self.treeVersion then
 		self:Init(treeVersion)
 		self.build.treeTab.showConvert = self.treeVersion ~= latestTreeVersion
 	end
 	self:ResetNodes()
+	if className then
+		classId = self.tree.classNameMap[className] or (self.tree.ascendNameMap[className] and self.tree.ascendNameMap[className].classId) or (self.tree.internalAscendNameMap[className] and self.tree.internalAscendNameMap[className].classId)
+		ascendClassId = (self.tree.ascendNameMap[className] and self.tree.ascendNameMap[className].ascendClassId) or (self.tree.internalAscendNameMap[className] and self.tree.internalAscendNameMap[className].ascendClassId) or 0
+	end
 	self:SelectClass(classId)
 	self:SelectAscendClass(ascendClassId)
 	self:SelectSecondaryAscendClass(secondaryAscendClassId)
@@ -699,12 +703,12 @@ function PassiveSpecClass:AllocNode(node, altPath)
 	-- Allocate all nodes along the path
 	if #node.intuitiveLeapLikesAffecting > 0 then
 		node.alloc = true
-		node.allocMode = node.ascendancyName and 0 or self.allocMode
+		node.allocMode = (node.ascendancyName or node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket) and 0 or self.allocMode
 		self.allocNodes[node.id] = node
 	else
 		for _, pathNode in ipairs(altPath or node.path) do
 			pathNode.alloc = true
-			pathNode.allocMode = node.ascendancyName and 0 or self.allocMode
+			pathNode.allocMode = (node.ascendancyName or pathNode.type == "Keystone" or pathNode.type == "Socket" or pathNode.containJewelSocket) and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
 			if pathNode.isAttribute then 
 				self:SwitchAttributeNode(pathNode.id, self.attributeIndex or 1)
@@ -755,7 +759,7 @@ end
 function PassiveSpecClass:CountAllocNodes()
 	local used, ascUsed, secondaryAscUsed, sockets, weaponSet1Used, weaponSet2Used = 0, 0, 0, 0, 0, 0
 	for _, node in pairs(self.allocNodes) do
-		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
+		if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" and node.isFreeAllocate == nil then
 			if node.ascendancyName then
 				if not node.isMultipleChoiceOption then
 					if self.tree.secondaryAscendNameMap and self.tree.secondaryAscendNameMap[node.ascendancyName] then
@@ -968,8 +972,12 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		-- ignore cluster jewel nodes that don't have an id in the tree
 		if self.tree.nodes[id] then
 			local nodeToReplace = self.tree.nodes[id]
-			if self.tree.nodes[id].isSwitchable and self.tree.nodes[id].options[self.curClassName] then
-				nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+			if self.tree.nodes[id].isSwitchable then
+				if self.tree.nodes[id].options[self.curClassName] then
+					nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+				elseif self.tree.nodes[id].options[self.curAscendClassName] then
+					nodeToReplace = self.tree.nodes[id].options[self.curAscendClassName]
+				end
 				self.switchableNodes[nodeToReplace.id] = node
 			end
 			self:ReplaceNode(node, nodeToReplace)
@@ -1411,6 +1419,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 end
 
 function PassiveSpecClass:ReplaceNode(old, newNode)
+	old.overlay = newNode.overlay
+	old.icon = newNode.icon
 	-- Edited nodes can share a name
 	if old.sd == newNode.sd then
 		return 1
@@ -1422,8 +1432,6 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.modList = new("ModList")
 	old.modList:AddList(newNode.modList)
 	old.keystoneMod = newNode.keystoneMod
-	old.icon = newNode.icon
-	old.spriteId = newNode.spriteId
 	old.activeEffectImage = newNode.activeEffectImage
 	old.reminderText = newNode.reminderText or { }
 end
@@ -1953,7 +1961,7 @@ function PassiveSpecClass:CreateUndoState()
 end
 
 function PassiveSpecClass:RestoreUndoState(state, treeVersion)
-	self:ImportFromNodeList(state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
+	self:ImportFromNodeList(nil, state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
 	self:SetWindowTitleWithBuildClass()
 end
 
@@ -2061,11 +2069,13 @@ function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusInde
 end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
-	local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-	if not newNode.isAttribute then return end -- safety check
-	
-	local option = newNode.options[attributeIndex]
-	self:ReplaceNode(newNode, option)
-	
-	self.hashOverrides[nodeId] = newNode
+	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
+		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+		if not newNode.isAttribute then return end -- safety check
+		
+		local option = newNode.options[attributeIndex]
+		self:ReplaceNode(newNode, option)
+		
+		self.hashOverrides[nodeId] = newNode
+	end
 end

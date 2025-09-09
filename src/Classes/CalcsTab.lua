@@ -104,10 +104,23 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 			control = new("DropDownControl", nil, {0, 0, 160, 16}, nil, function(index, value)
 				local mainSocketGroup = self.build.skillsTab.socketGroupList[self.input.skill_number]
 				local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
+				-- Synchronize DropDownControl between CalcActiveSkill and skillMinionCalcs
 				if value.itemSetId then
 					srcInstance.skillMinionItemSetCalcs = value.itemSetId
+					srcInstance.skillMinionItemSet = value.itemSetId
+					if srcInstance.nameSpec:match("^Spectre:") then
+						srcInstance.nameSpec = "Spectre: ".. value.label
+					elseif srcInstance.nameSpec:match("^Companion:") then
+						srcInstance.nameSpec = "Companion: ".. value.label
+					end
 				else
 					srcInstance.skillMinionCalcs = value.minionId
+					srcInstance.skillMinion = value.minionId
+					if srcInstance.nameSpec:match("^Spectre:") then
+						srcInstance.nameSpec = "Spectre: ".. value.label
+					elseif srcInstance.nameSpec:match("^Companion:") then
+						srcInstance.nameSpec = "Companion: ".. value.label
+					end
 				end
 				self:AddUndoState()
 				self.build.buildFlag = true
@@ -115,7 +128,12 @@ local CalcsTabClass = newClass("CalcsTab", "UndoHandler", "ControlHost", "Contro
 		} },
 		{ label = "Spectre Library", flag = "spectre", { controlName = "mainSkillMinionLibrary",
 			control = new("ButtonControl", nil, {0, 0, 100, 16}, "Manage Spectres...", function()
-				self.build:OpenSpectreLibrary()
+				self.build:OpenSpectreLibrary("spectre")
+			end)
+		} },
+		{ label = "Beast Library", flag = "summonBeast", { controlName = "mainSkillBeastLibrary",
+			control = new("ButtonControl", nil, {0, 0, 100, 16}, "Manage Beasts...", function()
+			self.build:OpenSpectreLibrary("beast")
 			end)
 		} },
 		{ label = "Minion Skill", flag = "haveMinion", { controlName = "mainSkillMinionSkill",
@@ -396,7 +414,11 @@ end
 function CalcsTabClass:CheckFlag(obj)
 	local actor = self.input.showMinion and self.calcsEnv.minion or self.calcsEnv.player
 	local skillFlags = actor.mainSkill.activeEffect.statSetCalcs.skillFlags
+	local skillData = actor.mainSkill.skillData
 	if obj.flag and not skillFlags[obj.flag] then
+		return
+	end
+	if obj.skillData and not skillData[obj.skillData] then
 		return
 	end
 	if obj.flagList then
@@ -410,6 +432,9 @@ function CalcsTabClass:CheckFlag(obj)
 		return
 	end
 	if obj.notFlag and skillFlags[obj.notFlag] then
+		return
+	end
+	if obj.notSkillData and skillData[obj.notSkillData] then
 		return
 	end
 	if obj.notFlagList then

@@ -3,6 +3,21 @@
 
 return {
 	[1]={
+		stats={
+			[1]="spell_minimum_base_fire_damage"
+		}
+	},
+	[2]={
+		stats={
+			[1]="spell_maximum_base_fire_damage"
+		}
+	},
+	[3]={
+		stats={
+			[1]="ember_fusillade_damage_+%_final_per_ember_fired"
+		}
+	},
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -35,7 +50,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[2]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -44,61 +59,33 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum accumulated Embers {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					}
-				},
-				text="Can accumulate up to {0} Embers"
+				text="Can accumulate up to {0} Embers\nModifiers to number of Projectiles instead\napply to number of Embers accumulated"
 			}
 		},
 		stats={
 			[1]="blazing_cluster_maximum_number_of_projectiles_allowed"
 		}
 	},
-	[3]={
+	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Hover duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[4]={
+	[7]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Embers conjured per use {0}"
-			}
 		},
 		stats={
 			[1]="total_number_of_projectiles_to_fire"
 		}
 	},
-	["base_skill_effect_duration"]=1,
-	["blazing_cluster_maximum_number_of_projectiles_allowed"]=2,
+	["base_skill_effect_duration"]=4,
+	["blazing_cluster_maximum_number_of_projectiles_allowed"]=5,
+	["ember_fusillade_damage_+%_final_per_ember_fired"]=3,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=3,
-	["total_number_of_projectiles_to_fire"]=4
+	["skill_effect_duration"]=6,
+	["spell_maximum_base_fire_damage"]=2,
+	["spell_minimum_base_fire_damage"]=1,
+	["total_number_of_projectiles_to_fire"]=7
 }

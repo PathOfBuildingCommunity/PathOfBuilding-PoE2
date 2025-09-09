@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Wooden Club"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 6, PhysicalMax = 10, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
@@ -14,231 +14,251 @@ itemBases["Wooden Club"] = {
 itemBases["Smithing Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 4, PhysicalMax = 7, FireMin = 4, FireMax = 7, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	weapon = { PhysicalMin = 5, PhysicalMax = 9, FireMin = 5, FireMax = 9, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
 	req = { str = 11, },
 }
 itemBases["Slim Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, ezomyte_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 11, PhysicalMax = 17, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 10, str = 25, },
+	req = { level = 10, str = 21, },
 }
 itemBases["Spiked Club"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 15, PhysicalMax = 24, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 16, str = 38, },
+	req = { level = 16, str = 31, },
 }
 itemBases["Warpick"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicit = "+(5-10)% to Critical Damage Bonus",
 	implicitModTypes = { { "damage", "attack", "critical" }, },
-	weapon = { PhysicalMin = 18, PhysicalMax = 24, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 22, str = 52, },
+	weapon = { PhysicalMin = 18, PhysicalMax = 24, CritChanceBase = 7, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 22, str = 41, },
 }
 itemBases["Plated Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { maraketh_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 18, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 26, str = 61, },
+	req = { level = 26, str = 48, },
 }
 itemBases["Brigand Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 28, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 33, str = 76, },
+	req = { level = 33, str = 60, },
 }
 itemBases["Construct Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, vaal_basetype = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
+	implicit = "40% chance to Daze on Hit",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 31, PhysicalMax = 38, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 36, str = 83, },
+	req = { level = 36, str = 65, },
 }
 itemBases["Morning Star"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 3,
+	tags = { karui_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 33, PhysicalMax = 49, CritChanceBase = 6.5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 45, str = 104, },
+	weapon = { PhysicalMin = 33, PhysicalMax = 50, CritChanceBase = 6.5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 46, str = 82, },
 }
 itemBases["Jade Club"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
-	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	socketLimit = 3,
+	tags = { karui_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicit = "Always Hits",
 	implicitModTypes = { { "attack" }, },
-	weapon = { PhysicalMin = 30, PhysicalMax = 50, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 48, str = 110, },
+	weapon = { PhysicalMin = 31, PhysicalMax = 51, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 49, str = 87, },
 }
 itemBases["Lumen Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 36, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 52, str = 119, },
+	req = { level = 52, str = 92, },
 }
 itemBases["Execratus Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 40, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 55, str = 126, },
+	req = { level = 55, str = 97, },
 }
 itemBases["Torment Club"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 44, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 65, str = 148, },
+	req = { level = 65, str = 114, },
 }
-itemBases["Advanced Smithing Hammer"] = {
+itemBases["Kalguuran Forgehammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
+	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	implicit = "Has 3 Sockets",
+	implicitModTypes = { {  }, },
+	weapon = { PhysicalMin = 30, PhysicalMax = 49, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 47, },
+}
+itemBases["Calescent Hammer"] = {
+	type = "One Handed Mace",
+	quality = 20,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 19, PhysicalMax = 32, FireMin = 19, FireMax = 32, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 45, str = 104, },
+	weapon = { PhysicalMin = 22, PhysicalMax = 37, FireMin = 22, FireMax = 37, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 45, str = 80, },
 }
-itemBases["Advanced Slim Mace"] = {
+itemBases["Flared Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 33, PhysicalMax = 50, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 48, str = 110, },
+	req = { level = 48, str = 86, },
 }
-itemBases["Advanced Warpick"] = {
+itemBases["Battle Pick"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicit = "+(5-10)% to Critical Damage Bonus",
 	implicitModTypes = { { "damage", "attack", "critical" }, },
-	weapon = { PhysicalMin = 34, PhysicalMax = 46, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 51, str = 117, },
+	weapon = { PhysicalMin = 35, PhysicalMax = 47, CritChanceBase = 7, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 51, str = 91, },
 }
-itemBases["Advanced Plated Mace"] = {
+itemBases["Marching Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 34, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 55, str = 126, },
+	weapon = { PhysicalMin = 33, PhysicalMax = 69, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
+	req = { level = 54, str = 96, },
 }
-itemBases["Advanced Brigand Mace"] = {
+itemBases["Bandit Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 61, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 59, str = 135, },
+	req = { level = 59, str = 104, },
 }
-itemBases["Advanced Construct Hammer"] = {
+itemBases["Structured Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
+	implicit = "40% chance to Daze on Hit",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 49, PhysicalMax = 60, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 62, str = 142, },
+	req = { level = 62, str = 109, },
 }
-itemBases["Expert Slim Mace"] = {
+itemBases["Flanged Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 45, PhysicalMax = 67, CritChanceBase = 5, AttackRateBase = 1.55, Range = 11, },
-	req = { level = 67, str = 174, },
+	req = { level = 67, str = 134, },
 }
-itemBases["Expert Plated Mace"] = {
+itemBases["Crown Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 89, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 72, str = 193, },
+	req = { level = 72, str = 149, },
 }
-itemBases["Expert Smithing Hammer"] = {
+itemBases["Molten Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 30, PhysicalMax = 50, FireMin = 30, FireMax = 50, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 77, str = 212, },
+	weapon = { PhysicalMin = 35, PhysicalMax = 59, FireMin = 35, FireMax = 59, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 77, str = 163, },
 }
-itemBases["Expert Warpick"] = {
+itemBases["Strife Pick"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "+(30-40)% to Critical Damage Bonus",
+	implicit = "+(5-10)% to Critical Damage Bonus",
 	implicitModTypes = { { "damage", "attack", "critical" }, },
-	weapon = { PhysicalMin = 48, PhysicalMax = 64, CritChanceBase = 8, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 78, str = 212, },
+	weapon = { PhysicalMin = 49, PhysicalMax = 66, CritChanceBase = 7, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 78, str = 163, },
 }
-itemBases["Expert Construct Hammer"] = {
+itemBases["Fortified Hammer"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
-	implicit = "Causes Daze buildup equal to 100% of Damage dealt",
+	implicit = "40% chance to Daze on Hit",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 60, PhysicalMax = 73, CritChanceBase = 5, AttackRateBase = 1.4, Range = 11, },
-	req = { level = 79, str = 212, },
+	req = { level = 79, str = 163, },
 }
-itemBases["Expert Brigand Mace"] = {
+itemBases["Marauding Mace"] = {
 	type = "One Handed Mace",
 	quality = 20,
-	socketLimit = 2,
+	socketLimit = 3,
 	tags = { onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 51, PhysicalMax = 84, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 77, str = 212, },
+	req = { level = 77, str = 163, },
+}
+itemBases["Akoyan Club"] = {
+	type = "One Handed Mace",
+	quality = 20,
+	socketLimit = 3,
+	tags = { karui_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
+	implicit = "Always Hits",
+	implicitModTypes = { { "attack" }, },
+	weapon = { PhysicalMin = 46, PhysicalMax = 76, CritChanceBase = 5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 78, str = 163, },
 }
 
 itemBases["Felled Greatclub"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 13, PhysicalMax = 18, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
@@ -247,7 +267,7 @@ itemBases["Felled Greatclub"] = {
 itemBases["Oak Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes (30-50)% increased Stun Buildup",
 	implicitModTypes = { {  }, },
@@ -257,216 +277,226 @@ itemBases["Oak Greathammer"] = {
 itemBases["Forge Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, ezomyte_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 29, PhysicalMax = 39, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 11, str = 27, },
+	req = { level = 11, str = 23, },
 }
 itemBases["Studded Greatclub"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 32, PhysicalMax = 48, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 16, str = 38, },
+	req = { level = 16, str = 31, },
 }
 itemBases["Cultist Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
-	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicit = "Strikes deal Splash damage to targets within 1.5 metres",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 32, PhysicalMax = 43, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 22, str = 52, },
+	req = { level = 22, str = 41, },
 }
 itemBases["Temple Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, maraketh_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 35, PhysicalMax = 72, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 28, str = 65, },
+	req = { level = 28, str = 52, },
 }
 itemBases["Leaden Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 58, PhysicalMax = 78, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 33, str = 76, },
+	req = { level = 33, str = 60, },
 }
 itemBases["Crumbling Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, vaal_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 62, PhysicalMax = 75, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 38, str = 88, },
+	req = { level = 38, str = 68, },
 }
 itemBases["Pointed Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, karui_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 68, PhysicalMax = 102, CritChanceBase = 6.5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 45, str = 104, },
+	weapon = { PhysicalMin = 69, PhysicalMax = 104, CritChanceBase = 6.5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 46, str = 82, },
 }
 itemBases["Totemic Greatclub"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
-	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, karui_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Crushes Enemies on Hit",
 	implicitModTypes = { { "physical" }, },
 	weapon = { PhysicalMin = 73, PhysicalMax = 99, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 50, str = 115, },
+	req = { level = 50, str = 89, },
 }
 itemBases["Greatmace"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 74, PhysicalMax = 124, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 52, str = 119, },
+	req = { level = 52, str = 92, },
 }
 itemBases["Precise Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 87, PhysicalMax = 118, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 54, str = 124, },
+	req = { level = 54, str = 96, },
 }
 itemBases["Giant Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 96, PhysicalMax = 144, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 65, str = 148, },
+	req = { level = 65, str = 114, },
 }
-itemBases["Advanced Oak Greathammer"] = {
+itemBases["Snakewood Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes (30-50)% increased Stun Buildup",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 59, PhysicalMax = 109, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 45, str = 104, },
+	req = { level = 45, str = 80, },
 }
-itemBases["Advanced Forge Maul"] = {
+itemBases["Blacksmith Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 84, PhysicalMax = 113, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 48, str = 110, },
+	req = { level = 48, str = 86, },
 }
-itemBases["Advanced Cultist Greathammer"] = {
+itemBases["Zealot Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicit = "Strikes deal Splash damage to targets within 1.5 metres",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 62, PhysicalMax = 83, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 51, str = 117, },
+	req = { level = 51, str = 91, },
 }
-itemBases["Advanced Temple Maul"] = {
+itemBases["Solemn Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 60, PhysicalMax = 125, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 55, str = 126, },
+	weapon = { PhysicalMin = 59, PhysicalMax = 123, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
+	req = { level = 54, str = 96, },
 }
-itemBases["Advanced Leaden Greathammer"] = {
+itemBases["Heavy Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 94, PhysicalMax = 127, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 59, str = 135, },
+	req = { level = 59, str = 104, },
 }
-itemBases["Advanced Crumbling Maul"] = {
+itemBases["Disintegrating Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 93, PhysicalMax = 114, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 62, str = 142, },
+	req = { level = 62, str = 109, },
 }
-itemBases["Expert Forge Maul"] = {
+itemBases["Anvil Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 112, PhysicalMax = 151, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 67, str = 174, },
+	req = { level = 67, str = 134, },
 }
-itemBases["Expert Temple Maul"] = {
+itemBases["Sacred Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 76, PhysicalMax = 158, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 72, str = 193, },
+	req = { level = 72, str = 149, },
 }
-itemBases["Expert Oak Greathammer"] = {
+itemBases["Ironwood Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes (30-50)% increased Stun Buildup",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 94, PhysicalMax = 174, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 77, str = 212, },
+	req = { level = 77, str = 163, },
 }
-itemBases["Expert Cultist Greathammer"] = {
+itemBases["Fanatic Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
-	implicit = "Strikes deal Splash damage to targets within 1.8 metres",
+	implicit = "Strikes deal Splash damage to targets within 1.5 metres",
 	implicitModTypes = { { "attack" }, },
 	weapon = { PhysicalMin = 89, PhysicalMax = 120, CritChanceBase = 5, AttackRateBase = 1.05, Range = 13, },
-	req = { level = 78, str = 212, },
+	req = { level = 78, str = 163, },
 }
-itemBases["Expert Crumbling Maul"] = {
+itemBases["Ruination Maul"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicit = "Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 113, PhysicalMax = 138, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 79, str = 212, },
+	req = { level = 79, str = 163, },
 }
-itemBases["Expert Leaden Greathammer"] = {
+itemBases["Massive Greathammer"] = {
 	type = "Two Handed Mace",
 	quality = 20,
-	socketLimit = 3,
+	socketLimit = 4,
 	tags = { two_hand_weapon = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 119, PhysicalMax = 161, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 77, str = 212, },
+	req = { level = 77, str = 163, },
+}
+itemBases["Tawhoan Greatclub"] = {
+	type = "Two Handed Mace",
+	quality = 20,
+	socketLimit = 4,
+	tags = { two_hand_weapon = true, karui_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
+	implicit = "Crushes Enemies on Hit",
+	implicitModTypes = { { "physical" }, },
+	weapon = { PhysicalMin = 107, PhysicalMax = 145, CritChanceBase = 5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 78, str = 163, },
 }

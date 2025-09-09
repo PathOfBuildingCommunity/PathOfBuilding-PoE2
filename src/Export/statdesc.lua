@@ -43,17 +43,9 @@ function loadStatFile(fileName)
 			if langName then
 				curLang = { }
 				--curDescriptor.lang[langName] = curLang
-			else
-				local table_only = false
-				if line:match('table_only') then
-					line = line:gsub('table_only ', '')
-					table_only = true
-				end
-				local statLimits, text, special = line:match('([%d%-#| !]+)%s*"(.-)"%s*(.*)')
+			elseif not line:match('table_only') then
+				local statLimits, quality, text, special = line:match('([%d%-#| !]+)%s*([%w_]*)%s*"(.-)"%s*(.*)')
 				if statLimits then
-					if text and table_only then
-						text = text:gsub('@', ' ')
-					end
 					local desc = { text = escapeGGGString(text):gsub("\\([^nb])", "\\n%1"), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
 						local limit = { }
@@ -90,6 +82,10 @@ function loadStatFile(fileName)
 							v = true,
 						})
 						nk["canonical_line"] = true
+					end
+					if quality:match("gem_quality") then
+						desc[quality] = true
+						nk["gem_quality"] = true
 					end
 					table.insert(curLang, desc)
 				end
@@ -390,7 +386,7 @@ function describeStats(stats)
 			end):gsub("%%%%","%%")
 			local order = descriptor.order
 			for line in (statDesc.."\\n"):gmatch("([^\\]+)\\n") do
-				table.insert(out, line)
+				table.insert(out, sanitiseText(line))
 				table.insert(orders, order)
 				order = order + 0.1
 			end

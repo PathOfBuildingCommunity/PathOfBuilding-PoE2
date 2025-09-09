@@ -5,19 +5,93 @@ return {
 	[1]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more Critical Hit Chance while\nyou have a Power Charge"
+			},
+			[2]={
 				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
+					k="negate",
 					v=1
 				},
 				limit={
 					[1]={
 						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less Critical Hit Chance while\nyou have a Power Charge"
+			}
+		},
+		stats={
+			[1]="charge_mastery_crit_chance_+%_final_with_power_charges"
+		}
+	},
+	[2]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Charge consumption interval {0}s"
+				text="{0}% more Defences while you have an Endurance Charge"
 			},
 			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less Defences while you have an Endurance Charge"
+			}
+		},
+		stats={
+			[1]="charge_mastery_defences_+%_final_with_endurance_charges"
+		}
+	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more Skill Speed while you have a Frenzy Charge"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less Skill Speed while you have a Frenzy Charge"
+			}
+		},
+		stats={
+			[1]="charge_mastery_skill_speed_+%_final_with_frenzy_charges"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1000,
@@ -26,7 +100,7 @@ return {
 				},
 				text="Consumes one of each Charge every second"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -44,123 +118,9 @@ return {
 			[1]="consume_frenzy_power_and_endurance_charge_every_x_ms"
 		}
 	},
-	[2]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Critical Hit Chance with Power Charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="{0}% more Critical Hit Chance while\nyou have a Power Charge"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="{0}% less Critical Hit Chance while\nyou have a Power Charge"
-			}
-		},
-		stats={
-			[1]="skill_charge_mastery_crit_chance_+%_final_with_power_charges"
-		}
-	},
-	[3]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Defences with Endurance Charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="{0}% more Defences while you have an Endurance Charge"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="{0}% less Defences while you have an Endurance Charge"
-			}
-		},
-		stats={
-			[1]="skill_charge_mastery_defences_+%_final_with_endurance_charges"
-		}
-	},
-	[4]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Skill Speed with Frenzy Charge {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="{0}% more Skill Speed while you have a Frenzy Charge"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="{0}% less Skill Speed while you have a Frenzy Charge"
-			}
-		},
-		stats={
-			[1]="skill_charge_matery_skill_speed_+%_final_with_frenzy_charges"
-		}
-	},
-	["consume_frenzy_power_and_endurance_charge_every_x_ms"]=1,
-	parent="skill_stat_descriptions",
-	["skill_charge_mastery_crit_chance_+%_final_with_power_charges"]=2,
-	["skill_charge_mastery_defences_+%_final_with_endurance_charges"]=3,
-	["skill_charge_matery_skill_speed_+%_final_with_frenzy_charges"]=4
+	["charge_mastery_crit_chance_+%_final_with_power_charges"]=1,
+	["charge_mastery_defences_+%_final_with_endurance_charges"]=2,
+	["charge_mastery_skill_speed_+%_final_with_frenzy_charges"]=3,
+	["consume_frenzy_power_and_endurance_charge_every_x_ms"]=4,
+	parent="skill_stat_descriptions"
 }

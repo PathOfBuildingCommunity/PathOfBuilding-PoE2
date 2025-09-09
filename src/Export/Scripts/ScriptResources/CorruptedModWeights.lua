@@ -127,6 +127,7 @@ return {
             "CorruptionMaximumPowerCharges1",
             "CorruptionIncreasedAccuracy1",
             "CorruptionLifeRegenerationPercent1",
+            "CorruptionLifeRegenerationRate1",
             "CorruptionManaRegeneration1",
             "CorruptionGlobalMinionSkillGemsLevel1",
             "SpecialCorruptionWarcrySpeed1",
@@ -147,6 +148,7 @@ return {
             "CorruptionGlobalMeleeSkillGemsLevel1",
             "CorruptionIncreasedSlowEffect1",
             "CorruptionWeaponSwapSpeed1",
+            "CorruptionGoldFoundIncrease1",
         },
         staff = {
             "CorruptionGlobalFireSpellGemsLevel1",

@@ -13,26 +13,18 @@ return {
 		}
 	},
 	[3]={
+		stats={
+			[1]="base_consume_enemy_shock_on_hit"
+		}
+	},
+	[4]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Shockwave radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -65,8 +57,9 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=3,
-	["active_skill_base_area_of_effect_radius"]=4,
+	["active_skill_area_of_effect_radius"]=4,
+	["active_skill_base_area_of_effect_radius"]=5,
+	["base_consume_enemy_shock_on_hit"]=3,
 	["base_secondary_skill_effect_duration"]=1,
 	["never_shock"]=2,
 	parent="skill_stat_descriptions"

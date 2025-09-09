@@ -76,7 +76,7 @@ itemBases["Gold Ring"] = {
 	type = "Ring",
 	tags = { ring = true, default = true, },
 	implicit = "(6-15)% increased Rarity of Items found",
-	implicitModTypes = { {  }, },
+	implicitModTypes = { { "drop" }, },
 	req = { level = 40, },
 }
 itemBases["Unset Ring"] = {
@@ -86,16 +86,51 @@ itemBases["Unset Ring"] = {
 	implicitModTypes = { {  }, },
 	req = { level = 44, },
 }
+itemBases["Abyssal Signet"] = {
+	type = "Ring",
+	tags = { ring = true, default = true, },
+	implicit = "Inflict Abyssal Wasting on Hit",
+	implicitModTypes = { {  }, },
+	req = { },
+}
 itemBases["Ring"] = {
 	type = "Ring",
 	tags = { ring = true, default = true, },
 	implicitModTypes = { },
 	req = { },
 }
+itemBases["Dusk Ring"] = {
+	type = "Ring",
+	tags = { ring = true, default = true, },
+	implicit = "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
+itemBases["Gloam Ring"] = {
+	type = "Ring",
+	tags = { ring = true, default = true, },
+	implicit = "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
+itemBases["Penumbra Ring"] = {
+	type = "Ring",
+	tags = { ring = true, default = true, },
+	implicit = "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
+itemBases["Tenebrous Ring"] = {
+	type = "Ring",
+	tags = { ring = true, default = true, },
+	implicit = "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
+	implicitModTypes = { {  }, {  }, },
+	req = { },
+}
 itemBases["Breach Ring"] = {
 	type = "Ring",
 	tags = { ring = true, default = true, },
-	implicit = "Maximum Quality is 50%",
+	implicit = "Maximum Quality is 40%",
 	implicitModTypes = { {  }, },
 	req = { level = 40, },
 }

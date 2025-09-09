@@ -326,11 +326,12 @@ function itemLib.formatModLine(modLine, dbMode)
 	local colorCode
 	if modLine.extra then
 		colorCode = colorCodes.UNSUPPORTED
+		line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
 		if launch.devModeAlt then
 			line = line .. "   ^1'" .. modLine.extra .. "'"
 		end
 	else
-		colorCode = (modLine.enchant and colorCodes.ENCHANTED) or (modLine.custom and colorCodes.CUSTOM) or colorCodes.MAGIC
+		colorCode = (modLine.enchant and colorCodes.ENCHANTED) or (modLine.fractured and colorCodes.FRACTURED) or (modLine.desecrated and colorCodes.DESECRATED) or (modLine.custom and colorCodes.CUSTOM) or colorCodes.MAGIC
 	end
 	return colorCode..line
 end
@@ -351,7 +352,7 @@ itemLib.wiki = {
 		itemLib.wiki.open(name)
 	end,
 	openItem = function(item)
-		local name = item.rarity == "UNIQUE" and item.title or item.baseName
+		local name = (item.rarity == "UNIQUE" or item.rarity == "RELIC") and item.title or item.baseName
 
 		itemLib.wiki.open(name)
 	end,

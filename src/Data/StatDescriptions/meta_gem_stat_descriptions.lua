@@ -69,7 +69,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% more Effect of Socketed Curses"
+				text="Supported Curses have {0}% more Magnitudes"
 			},
 			[2]={
 				[1]={
@@ -82,7 +82,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% less Effect of Socketed Curses"
+				text="Supported Curses have {0}% less Magnitudes"
 			}
 		},
 		stats={
@@ -174,16 +174,60 @@ return {
 					[1]={
 						[1]=1,
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Socketed Skills have {0:+d} metres to base radius"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="active_skill_base_area_of_effect_radius",
+			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
 	[8]={
+		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0:+d}% increased duration of socketed Curses"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased duration of socketed Curses"
+			},
+			[3]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced duration of socketed Curses"
+			}
+		},
+		stats={
+			[1]="base_curse_duration_+%"
+		}
+	},
+	[9]={
 		[1]={
 			[1]={
 				limit={
@@ -212,18 +256,28 @@ return {
 			[1]="base_skill_area_of_effect_+%"
 		}
 	},
-	[9]={
+	[10]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Supported Curses have {0}% increased Magnitudes"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
-				text="{0}% increased Effect of Socketed Curses"
+				text="Supported Curses have {0}% increased Magnitudes"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -234,14 +288,14 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% reduced Effect of Socketed Curses"
+				text="Supported Curses have {0}% reduced Magnitudes"
 			}
 		},
 		stats={
 			[1]="curse_effect_+%"
 		}
 	},
-	[10]={
+	[11]={
 		[1]={
 			[1]={
 				limit={
@@ -270,7 +324,7 @@ return {
 			[1]="damage_+%"
 		}
 	},
-	[11]={
+	[12]={
 		[1]={
 			[1]={
 				[1]={
@@ -312,9 +366,19 @@ return {
 			[2]="generic_ongoing_trigger_triggers_at_maximum_energy"
 		}
 	},
-	[12]={
+	[13]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0:+d}% increased Effect of Socketed Marks"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -323,7 +387,7 @@ return {
 				},
 				text="{0}% increased Effect of Socketed Marks"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -341,7 +405,7 @@ return {
 			[1]="mark_effect_+%"
 		}
 	},
-	[13]={
+	[14]={
 		[1]={
 			[1]={
 				limit={
@@ -370,7 +434,7 @@ return {
 			[1]="trigger_meta_gem_damage_+%_final"
 		}
 	},
-	[14]={
+	[15]={
 		[1]={
 			[1]={
 				limit={
@@ -399,7 +463,7 @@ return {
 			[1]="warcry_buff_effect_+%"
 		}
 	},
-	[15]={
+	[16]={
 		[1]={
 			[1]={
 				limit={
@@ -433,7 +497,7 @@ return {
 			[2]="skill_empower_limitation_specifier_for_stat_description"
 		}
 	},
-	[16]={
+	[17]={
 		[1]={
 			[1]={
 				limit={
@@ -450,22 +514,24 @@ return {
 		}
 	},
 	["active_skill_base_area_of_effect_radius"]=7,
-	["base_skill_area_of_effect_+%"]=8,
-	["curse_effect_+%"]=9,
-	["damage_+%"]=10,
+	["base_curse_duration_+%"]=8,
+	["base_skill_area_of_effect_+%"]=9,
+	["curse_effect_+%"]=10,
+	["damage_+%"]=11,
 	["disable_skill_if_melee_attack"]=6,
-	["generic_ongoing_trigger_1_maximum_energy_per_Xms_total_cast_time"]=11,
-	["generic_ongoing_trigger_triggers_at_maximum_energy"]=11,
-	["mark_effect_+%"]=12,
+	["generic_ongoing_trigger_1_maximum_energy_per_Xms_total_cast_time"]=12,
+	["generic_ongoing_trigger_triggers_at_maximum_energy"]=12,
+	["mark_effect_+%"]=13,
 	parent="gem_stat_descriptions",
-	["skill_empower_limitation_specifier_for_stat_description"]=15,
-	["skill_empowers_next_x_melee_attacks"]=15,
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=7,
+	["skill_empower_limitation_specifier_for_stat_description"]=16,
+	["skill_empowers_next_x_melee_attacks"]=16,
 	["support_additional_totem_damage_+%_final"]=2,
 	["support_attack_totem_attack_speed_+%_final"]=5,
 	["support_blasphemy_curse_effect_+%_final"]=3,
 	["support_spell_totem_cast_speed_+%_final"]=4,
 	["support_totem_damage_+%_final"]=1,
-	["trigger_meta_gem_damage_+%_final"]=13,
-	["warcry_buff_effect_+%"]=14,
-	["warcry_grant_damage_+%_to_exerted_attacks"]=16
+	["trigger_meta_gem_damage_+%_final"]=14,
+	["warcry_buff_effect_+%"]=15,
+	["warcry_grant_damage_+%_to_exerted_attacks"]=17
 }

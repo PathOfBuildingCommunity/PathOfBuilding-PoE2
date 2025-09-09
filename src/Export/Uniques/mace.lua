@@ -27,12 +27,65 @@ Variant: Current
 UniqueLocalAllDamageCanFreeze1
 UniqueLocalCullingStrikeFrozenEnemies1
 ]],[[
+Marohi Erqi
+Totemic Greatclub
+League: Rise of the Abyssal
+Implicits: 1
+MaceImplicitLocalCrushOnHit1
+UniqueStrengthRequirements3
+UniqueLocalIncreasedPhysicalDamagePercent16
+UniqueIncreasedAccuracy14
+UniqueIncreasedAttackSpeed14
+UniqueLocalStunDamageIncrease3
+LocalAlwaysHeavyStunOnFullLifeUnique__1
+]],[[
+Mjölner
+Torment Club
+League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
+Implicits: 1
+Grants Skill: Level (1-20) Thundergod's Wrath
+UniqueIntelligenceRequirements2
+UniqueStrengthRequirements2
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent11[150,200]
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent11
+UniqueLocalIncreasedAttackSpeed20
+{variant:1}UniqueGlobalLightningGemLevel1
+{variant:2}UniqueGlobalLightningGemLevel2
+]],[[
+Nebuloch
+Brigand Mace
+League: Dawn of the Hunt
+UniqueLocalAddedPhysicalDamage17
+UniqueLocalCriticalMultiplier2
+UniqueLocalChaosDamage1
+UniqueConsumeEnduranceChargeAlwaysCrit1
+UniqueChaosDamagePerEnduranceCharge1
+]],[[
 Olrovasara
 Torment Club
-UniqueLocalAddedLightningDamage1
+Source: Drops from unique{Olroth, Origin of the Fall}
+Variant: Pre 0.2.0
+Variant: Current
+{variant:1}UniqueLocalAddedLightningDamage1[1,1][60,80]
+{variant:2}UniqueLocalAddedLightningDamage1
 UniqueLocalIncreasedAccuracy5
 UniqueLocalIncreasedAttackSpeed10
 UniqueMaximumLightningDamagePerPower1
+]],[[
+Sculpted Suffering
+Warpick
+Variant: Pre 0.3.0
+Variant: Current
+League: Dawn of the Hunt
+Implicits: 2
+{variant:1}MaceImplicitCriticalMultiplier1[10,15]
+{variant:2}MaceImplicitCriticalMultiplier1
+UniqueLocalAddedPhysicalDamage18
+UniqueLocalIncreasedAttackSpeed17
+UniqueLocalArmourBreakOnDamage1
+UniqueFullyArmourBrokenShatterOnKill1
 ]],[[
 Seeing Stars
 Plated Mace
@@ -48,15 +101,18 @@ UniqueDoubleEnergyGain1
 Trenchtimbre
 Spiked Club
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage10[10,12][18,35]
-{variant:2}UniqueLocalAddedPhysicalDamage10
+{variant:2,3}UniqueLocalAddedPhysicalDamage10
 UniqueLocalIncreasedAttackSpeed11
-UniqueGlobalMinionSpellSkillGemLevel1
+{variant:2}UniqueGlobalMinionSpellSkillGemLevel1[1,3]
+{variant:3}UniqueGlobalMinionSpellSkillGemLevel1
 UniqueMinionAttackSpeedAffectsYou1
 ]],[[
 Wylund's Stake
 Smithing Hammer
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 {variant:1}UniqueLocalAddedPhysicalDamage6[2,3][4,5]
@@ -93,6 +149,29 @@ UniqueIncreasedMana22
 {variant:1}UniqueLocalCriticalStrikeChance3
 UniqueMinionDamageAffectsYou1
 ]],[[
+The Empty Roar
+Cultist Greathammer
+League: Dawn of the Hunt
+Implicits: 1
+MaceImplicitSplashDamage1
+UniqueLocalAddedPhysicalDamage15
+UniqueLifeLeechLocal2
+UniqueLocalChanceToBleed1
+UniqueAttacksCountAsExerted1
+UniqueCannotUseWarcries1
+]],[[
+The Hammer of Faith
+Giant Maul
+League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamagePercent9[200,250]
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent9
+UniqueLocalIncreasedAttackSpeed14
+UniqueAllResistances21
+UniqueManaRegeneration29
+{variant:1}Gain a random Shrine buff every 10 seconds
+]],[[
 Hoghunt
 Felled Greatclub
 Variant: Pre 0.1.1
@@ -126,6 +205,15 @@ UniqueLifeGainedFromEnemyDeath8
 UniqueLocalCritChanceOverride1
 UniqueLocalNoCriticalStrikeMultiplier1
 ]],[[
+Tidebreaker
+Pointed Maul
+League: Dawn of the Hunt
+UniqueLocalIncreasedPhysicalDamagePercent13
+UniqueGlobalIncreaseMeleeSkillGemLevel1
+UniqueIntelligence39
+UniqueLocalStunDamageIncrease2
+UniqueLocalAllDamageCanChill1
+]],[[
 Trephina
 Forge Maul
 Variant: Pre 0.1.1
@@ -135,5 +223,15 @@ Variant: Current
 UniqueLocalIncreasedAttackSpeed5
 UniqueLocalStunDamageIncrease1
 UniqueAlwaysCritHeavyStun1
+]],[[
+Shyaba
+Temple Maul
+League: Dawn of the Hunt
+UniqueDexterityRequirements1
+UniqueStrengthRequirements1
+UniqueLocalIncreasedPhysicalDamagePercent5
+UniqueLocalIncreasedAttackSpeed15
+UniqueLightRadius17
+UniqueAlwaysHits1
 ]],
 }

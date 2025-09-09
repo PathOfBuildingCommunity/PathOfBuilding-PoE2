@@ -53,6 +53,17 @@ UniqueLightningResist4
 {variant:2}UniqueManaRegeneration27
 UniqueEnemyExtraDamageRollsWithLightningDamage1
 ]],[[
+Bursting Decay
+Unset Ring
+League: Dawn of the Hunt
+Requires Level 60
+Implicits: 1
+RingImplicitAdditionalSkillSlots1
+UniqueItemFoundRarityIncrease22
+UniqueChaosResist34
+UniqueLifeDegenerationPercentGracePeriod3
+UniquePhysicalDamageMaximumLife1
+]],[[
 Call of the Brotherhood
 Topaz Ring
 Requires Level 32
@@ -91,11 +102,33 @@ UniqueAdditionalCurseOnEnemies1
 ]],[[
 Dream Fragments
 Sapphire Ring
+Variant: Pre 0.2.0
+Variant: Current
 Implicits: 1
 RingImplicitColdResistance1
-UniqueMaximumManaIncrease1
+{variant:1}UniqueMaximumManaIncrease1[20,20]
+{variant:2}UniqueMaximumManaIncrease1
 UniqueManaRegeneration3
 UniqueCannotBeChilledOrFrozen1
+]],[[
+Evergrasping Ring
+Pearl Ring
+League: Dawn of the Hunt
+Implicits: 1
+RingImplicitIncreasedCastSpeed1
+UniqueIncreasedMana12
+UniqueAlliesInPresenceGainedAsChaos1
+UniqueEnemiesInPresenceGainedAsChaos1
+]],[[
+Gifts from Above
+Prismatic Ring
+League: Dawn of the Hunt
+Implicits: 1
+RingImplicitAllResistances1
+UniqueCriticalStrikeChance12
+UniqueLightRadius16
+UniqueKilledMonsterItemRarityOnCrit1
+UniqueConsecratedGroundStationaryRing1
 ]],[[
 Glowswarm
 Lazuli Ring
@@ -114,6 +147,19 @@ UniqueLifeRegeneration3
 UniqueManaRegeneration11
 UniqueSelfPhysicalDamageOnMinionDeath1
 UniqueMinionReviveSpeed2
+]],[[
+Icefang Orbit
+Iron Ring
+League: Dawn of the Hunt
+Requires Level 36
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueAddedPhysicalDamage7
+UniqueDexterity37
+UniqueBaseChanceToPoison3
+UniqueChilledWhilePoisoned1
+UniqueNonChilledEnemiesPoisonAndChill1
+UniquePoisonEffect1
 ]],[[
 Kalandra's Touch
 Ring
@@ -163,6 +209,17 @@ UniqueIncreasedMana7
 UniqueStrength3
 UniqueChillHitsCauseShattering1
 ]],[[
+Prized Pain
+Iron Ring
+League: Dawn of the Hunt
+Requires Level 48
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueStrength41
+UniqueLifeCostAsManaCost2
+UniqueThornsDamageOnStun1
+UniqueAttackerTakesDamage7
+]],[[
 Seed of Cataclysm
 Lazuli Ring
 Implicits: 1
@@ -174,13 +231,16 @@ UniqueManaCostReduction2
 ]],[[
 Sekhema's Resolve
 Ring
+Source: Drops from unique{Zarokh, the Temporal}
 Variant: Ruby
 Variant: Emerald
 Variant: Sapphire
 Requires Level 40
-UniqueItemFoundRarityIncrease2
+UniqueItemFoundRarityIncrease20
 UniqueAllAttributes1
-UniqueLightningResistanceNoPenalty1
+{variant:1}UniqueFireResistanceNoPenalty1
+{variant:2}UniqueLightningResistanceNoPenalty1
+{variant:3}UniqueColdResistanceNoPenalty1
 {variant:1}UniqueOnlySocketRubyJewel1
 {variant:2}UniqueOnlySocketEmeraldJewel1
 {variant:3}UniqueOnlySocketSapphireJewel1
@@ -208,17 +268,46 @@ UniqueDisablesOtherRingSlot1
 UniqueManaGainPerTarget1
 UniqueSelfCurseDuration1
 ]],[[
+Venopuncture
+Iron Ring
+League: Dawn of the Hunt
+Requires Level 36
+Implicits: 1
+RingImplicitPhysicalDamage1
+UniqueAddedPhysicalDamage8
+UniqueStrength41
+UniqueChilledWhileBleeding1
+UniqueNonChilledEnemiesBleedAndChill1
+UniqueGlobalChanceToBleed2
+UniqueBleedEffect1
+]],[[
 Ventor's Gamble
 Gold Ring
+Variant: Pre 0.2.0
+Variant: Current
 Requires Level 64
 Implicits: 1
 RingImplicitItemFoundRarityIncrease1
 UniqueIncreasedLife39
 UniqueIncreasedSpirit7
-UniqueItemFoundRarityIncrease17
+{variant:1}UniqueItemFoundRarityIncrease17[-40,40]
+{variant:2}UniqueItemFoundRarityIncrease17
 UniqueFireResist24
 UniqueColdResist20
 UniqueLightningResist18
+]],[[
+Vigilant View
+Emerald Ring
+League: Dawn of the Hunt
+Requires Level 26
+Implicits: 1
+RingImplicitIncreasedAccuracy1
+UniqueIncreasedAccuracy12
+UniqueIncreasedEvasionRating3
+UniqueItemFoundRarityIncrease20
+UniqueDexterity37
+UniqueEnemyAccuracyDistanceFalloff1
+UniqueMaximumEvadeChanceOverride1
 ]],[[
 Whisper of the Brotherhood
 Sapphire Ring

@@ -15,7 +15,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Maximum Buff duration is {0} second"
+				text="Buff duration is {0} second or until your Empowered bolts are expended"
 			},
 			[2]={
 				[1]={
@@ -28,7 +28,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Buff duration is {0} seconds"
+				text="Buff duration is {0} seconds or until your Empowered bolts are expended"
 			}
 		},
 		stats={
@@ -40,22 +40,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Empowered bolt more damage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Buff Empowers loaded bolts with {0}% more damage"
+				text="Buff Empowers bolts with {0}% more damage"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -66,7 +57,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="Buff Empowers loaded bolts with {0}% less damage"
+				text="Buff Empowers bolts with {0}% less damage"
 			}
 		},
 		stats={
@@ -75,26 +66,30 @@ return {
 	},
 	[3]={
 		[1]={
+		},
+		stats={
+			[1]="skill_effect_duration"
+		}
+	},
+	[4]={
+		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="Maximum Buff duration {0}s"
+				text="Number of each clip's Empowered bolts is equal to the maximum Ammunition of the clip"
 			}
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="skill_specific_stat_description_mode"
 		}
 	},
 	["base_skill_effect_duration"]=1,
 	["emergency_reload_damage_+%_final"]=2,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=3
+	["skill_effect_duration"]=3,
+	["skill_specific_stat_description_mode"]=4
 }

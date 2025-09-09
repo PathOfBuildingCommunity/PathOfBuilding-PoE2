@@ -11,15 +11,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Bolts granted on kill {0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="Lightning Bolts strike the targets of your next {0} Attack Hits\nafter Killing a Shocked Enemy with Attack Damage"
 			}
 		},

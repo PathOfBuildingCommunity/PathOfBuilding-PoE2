@@ -25,19 +25,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Barrier recharge delay {0}s"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="Barrier recharges after {0} seconds"
 			}
 		},
@@ -48,6 +35,16 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Barrier can take Elemental Damage up to an additional {0:+d}% of your Armour and Evasion Rating"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,

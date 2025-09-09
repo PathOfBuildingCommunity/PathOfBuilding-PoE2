@@ -529,7 +529,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% more Slowing Potency of Debuffs against this monster"
+				text="{0}% more Slowing Potency of Debuffs on me"
 			},
 			[2]={
 				[1]={
@@ -542,7 +542,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% less Slowing Potency of Debuffs against this monster"
+				text="{0}% less Slowing Potency of Debuffs on me"
 			}
 		},
 		stats={
@@ -558,7 +558,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% more Area of Effect"
+				text="{0}% more Area of Effect"
 			},
 			[2]={
 				[1]={
@@ -571,7 +571,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% less Area of Effect"
+				text="{0}% less Area of Effect"
 			}
 		},
 		stats={

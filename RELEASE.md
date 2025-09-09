@@ -27,6 +27,13 @@ Steps:
 
 Updating data from the GGPK uses the PoB exporter (see CONTRIBUTING.md#exporting-ggpk-data-from-path-of-exile).  Run each script in order, then check the differences in data to make sure nothing is missing that is expected.
 
+## Trade query and mod weight updates
+
+1. Delete `src/Data/QueryMods.lua`, then open the "Trade for these items" pane in PoB to re-generate it.
+2. In `src/Export/Scripts/ScriptResources`, there are several files that contain hardcoded mods.  If a new mod is added to the game and we can't automatically get weights for it from the ggpk, we need to check the trade site.
+3. Search the corresponding ModX.lua file for `{ "default" }` to find mods that don't have any spawn weights.
+4. Search for those mods on the trade site to find what bases (if any) the mod needs to be added to in `ScriptResources`
+
 ## Skill tree updates
 
 Skill tree updates require JSON data, usually released by GGG a few days before a new

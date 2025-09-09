@@ -3,26 +3,18 @@
 
 return {
 	[1]={
+		stats={
+			[1]="has_freeze_cull"
+		}
+	},
+	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Wave length {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -55,7 +47,8 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
+	["active_skill_area_of_effect_radius"]=2,
+	["active_skill_base_area_of_effect_radius"]=3,
+	["has_freeze_cull"]=1,
 	parent="skill_stat_descriptions"
 }

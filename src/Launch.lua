@@ -153,6 +153,8 @@ function launch:OnKeyDown(key, doubleClick)
 		if not self.devMode then
 			self:CheckForUpdate()
 		end
+	elseif key == "PRINTSCREEN" and IsKeyDown("CTRL") then
+		TakeScreenshot()
 	elseif self.promptMsg then
 		self:RunPromptFunc(key)
 	else
@@ -266,6 +268,7 @@ function launch:DownloadPage(url, callback, params)
 		easy:setopt_url(url)
 		easy:setopt(curl.OPT_USERAGENT, "Path of Building/]]..self.versionNumber..[[")
 		easy:setopt(curl.OPT_ACCEPT_ENCODING, "")
+		easy:setopt(curl.OPT_FOLLOWLOCATION, 1)
 		if requestBody then
 			easy:setopt(curl.OPT_POST, true)
 			easy:setopt(curl.OPT_POSTFIELDS, requestBody)

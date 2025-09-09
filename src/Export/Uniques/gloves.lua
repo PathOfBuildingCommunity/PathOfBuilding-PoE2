@@ -13,8 +13,18 @@ UniqueLocalIncreasedPhysicalDamageReductionRatingPercent11
 UniqueIntelligence9
 UniqueCriticalStrikesLeechIsInstant1
 ]],[[
+Dreadfist
+Bolstered Mitts
+League: Dawn of the Hunt
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent10
+UniqueCriticalMultiplier2
+UniqueImpaleOnCriticalHit1
+UniqueCriticalsCannotConsumeImpale1
+UniqueAttackerTakesDamage8
+]],[[
 Hateforge
 Moulded Mitts
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4
 UniqueGainChargesOnMaximumRage1
 UniqueLoseRageOnMaximumRage1
@@ -28,6 +38,15 @@ UniqueIncreasedSkillSpeed1
 UniqueIncreasedLife3
 UniqueMaximumManaIncrease3
 UniqueShareChargesWithAllies1
+]],[[
+Empire's Grasp
+Titan Mitts
+League: Dawn of the Hunt
+UniqueLocalIncreasedPhysicalDamageReductionRatingPercent30
+UniqueStrength23
+UniqueLifeGainedFromEnemyDeath11
+UniqueIncreasedPhysicalDamagePercent1
+UniqueEnemyKnockbackDirectionReversed1
 ]],[[
 Treefingers
 Riveted Mitts
@@ -71,12 +90,15 @@ UniqueCriticalStrikeMultiplierOverride1
 Northpaw
 Suede Bracers
 Variant: Pre 0.1.1
+Variant: Pre 0.2.0
 Variant: Current
-{variant:2}UniqueLocalIncreasedEvasionRating4
+{variant:2,3}UniqueLocalIncreasedEvasionRating4
 {variant:1}UniqueAddedPhysicalDamage2[2,3][5,6]
-{variant:2}UniqueAddedPhysicalDamage2
-UniqueCriticalMultiplier1
-UniqueOverrideWeaponBaseCritical1
+{variant:2,3}UniqueAddedPhysicalDamage2
+{variant:2}UniqueCriticalMultiplier1[20,30]
+{variant:3}UniqueCriticalMultiplier1
+{variant:2}UniqueOverrideWeaponBaseCritical1[800,800]
+{variant:3}UniqueOverrideWeaponBaseCritical1
 ]],[[
 Snakebite
 Spined Bracers
@@ -120,12 +142,40 @@ UniqueSpellDamage1
 UniqueIncreasedCastSpeed6
 AmuletImplicitIntelligence1
 ]],[[
+Essentia Sanguis
+Furtive Wraps
+League: Dawn of the Hunt
+UniqueLocalIncreasedEvasionAndEnergyShield17
+UniqueAddedLightningDamage3
+UniqueIntelligence31
+UniqueLightningResist26
+UniqueLeechEnergyShieldInsteadofLife1
+]],[[
 Kitoko's Current
 Jewelled Gloves
 UniqueLocalIncreasedEnergyShieldPercent7
 UniqueDexterity2
 UniqueAttackAndCastSpeed1
 UniqueLightningDamageCanElectrocute1
+]],[[
+Leopold's Applause
+Embroidered Gloves
+League: Dawn of the Hunt
+UniqueLocalIncreasedEnergyShieldPercent1
+UniqueIncreasedMana12
+UniqueItemFoundRarityIncrease21
+UniqueElementalPenetration1
+UniqueElementalPenetrationBelowZero1
+]],[[
+Nightscale
+Pauascale Gloves
+League: Dawn of the Hunt
+UniqueLocalIncreasedEnergyShieldPercent26
+UniqueCriticalStrikeChance14
+UniqueIntelligence29
+UniqueColdResist34
+UniqueManaRegenerationRateIfCritRecently1
+UniqueNoManaRegenIfNotCritRecently1
 ]],[[
 Painter's Servant
 Torn Gloves
@@ -156,6 +206,16 @@ UniqueLocalIncreasedArmourAndEvasion1
 UniqueItemFoundRarityIncrease1
 UniqueMaximumLifeOnKillPercent1
 ]],[[
+Death Articulated
+Ornate Gauntlets
+League: Dawn of the Hunt
+UniqueLocalIncreasedArmourAndEvasion26
+UniqueIncreasedAttackSpeed8
+UniqueChaosResist25
+UniqueLifeDegenerationPercentGracePeriod1
+UniqueRageRegeneration1
+UniqueNonherentRageLoss1
+]],[[
 Deathblow
 Doubled Gauntlets
 Variant: Pre 0.1.1
@@ -175,6 +235,16 @@ UniqueAddedPhysicalDamage3
 UniqueIncreasedLife6
 UniqueIncreasedAttackSpeed2
 UniqueStrengthSatisfiesAllWeaponRequirements1
+]],[[
+Valako's Vice
+Plate Gauntlets
+League: Dawn of the Hunt
+UniqueLocalIncreasedArmourAndEvasion23
+UniqueIncreasedAttackSpeed9
+UniqueStrength41
+UniqueDexterity37
+UniqueLightningResist23
+UniqueFireDamageConvertToLightning1
 ]],
 -- Gloves: Armour/Energy Shield
 [[
@@ -198,6 +268,17 @@ UniqueLifeGainedFromEnemyDeath3
 UniqueManaGainedFromEnemyDeath4
 UniqueEnemiesKilledCountAsYours1
 ]],[[
+The Prisoner's Manacles
+Verisium Cuffs
+League: Dawn of the Hunt
+UniqueLocalIncreasedArmourAndEnergyShield21
+UniqueIncreasedLife54
+UniqueReducedLocalAttributeRequirements5
+UniqueLightningResist28
+UniqueLifeRegeneration23
+UniqueSlowEffect1
+UniqueCannotImmobilise1
+]],[[
 Shackles of the Wretched
 Aged Cuffs
 UniqueLocalIncreasedArmourAndEnergyShield2
@@ -211,6 +292,7 @@ UniqueReflectCurseToSelf1
 [[
 Blessed Bonds
 Linen Wraps
+Source: Drops from unique{Zarokh, the Temporal}
 UniqueLocalBaseEvasionRatingAndEnergyShield1
 UniqueManaGainedFromEnemyDeath8
 UniqueColdExposureOnIgnite1
@@ -218,10 +300,15 @@ UniqueFireExposureOnShock1
 UniqueLightningExposureOnCrit1
 ]],[[
 Hand of Wisdom and Action
-Furtive Wraps
+Variant: Pre 0.2.0
+Variant: Current
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+{variant:1}Furtive Wraps
+{variant:2}Spiral Wraps
 UniqueDexterity31
 UniqueIntelligence31
-UniqueIncreasedAttackSpeedPerDexterity1
+{variant:1}UniqueIncreasedAttackSpeedPerDexterity1[3,3]
+{variant:2}UniqueIncreasedAttackSpeedPerDexterity1
 UniqueLightningDamageToAttacksPerIntelligence1
 ]],[[
 Killjoy
@@ -243,11 +330,23 @@ UniqueIncreasedAttackSpeed1
 {variant:1}UniqueBaseChanceToPoison2[5,10]
 {variant:2}UniqueBaseChanceToPoison2
 UniqueAllDamageCanPoison1
+]],[[
+Thunderfist
+Utility Wraps
+League: Rise of the Abyssal
+Implicits: 1
+Grants Skill: Level (1-20) Crackling Palm
+UniqueLocalIncreasedEvasionAndEnergyShield19
+UniqueIncreasedAttackSpeed13
+UniqueLightningResist29
+AddedLightningDamageWhileUnarmedUniqueGloves_1
+BaseUnarmedCriticalStrikeChanceUnique__2
 ]],
 -- Gloves: Armour/Evasion/Energy Shield
 [[
 Sine Aequo
 Grand Manchettes
+Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
 UniqueIncreasedSkillSpeed1
 UniqueLocalArmourAndEvasionAndEnergyShield3
 UniqueImmobiliseThreshold1

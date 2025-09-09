@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Curse radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -58,6 +45,72 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Curse makes targets deal {0}% more Damage"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				[2]={
+					k="canonical_line",
+					v=true
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Curse makes targets deal {0}% less Damage"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_damage_+%_final_to_apply"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Curse makes Unique targets deal {0}% more Damage"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				[2]={
+					k="canonical_line",
+					v=true
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Curse makes Unique targets deal {0}% less Damage"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_damage_+%_final_vs_unique_to_apply"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -88,105 +141,22 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Non-unique enemy damage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Cursed Normal, Magic or Rare enemies deal {0}% more Damage"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				[2]={
-					k="canonical_line",
-					v=true
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Cursed Normal, Magic or Rare enemies deal {0}% less Damage"
-			}
-		},
-		stats={
-			[1]="enfeeble_damage_+%_final"
-		}
-	},
-	[5]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Unique enemy damage {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Cursed Unique enemies deal {0}% more damage"
-			},
-			[3]={
-				[1]={
-					k="negate",
-					v=1
-				},
-				[2]={
-					k="canonical_line",
-					v=true
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]=-1
-					}
-				},
-				text="Cursed Unique enemies deal {0}% less damage"
-			}
-		},
-		stats={
-			[1]="enfeeble_damage_+%_vs_unique_final"
-		}
-	},
 	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Curse duration {0}s"
-			}
+		},
+		stats={
+			[1]="skill_curse_damage_+%_final_magnitude_to_apply"
+		}
+	},
+	[7]={
+		[1]={
+		},
+		stats={
+			[1]="skill_curse_damage_+%_final_vs_unique_magnitude_to_apply"
+		}
+	},
+	[8]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -194,9 +164,11 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
-	["enfeeble_damage_+%_final"]=4,
-	["enfeeble_damage_+%_vs_unique_final"]=5,
+	["base_skill_buff_damage_+%_final_to_apply"]=3,
+	["base_skill_buff_damage_+%_final_vs_unique_to_apply"]=4,
+	["base_skill_effect_duration"]=5,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=6
+	["skill_curse_damage_+%_final_magnitude_to_apply"]=6,
+	["skill_curse_damage_+%_final_vs_unique_magnitude_to_apply"]=7,
+	["skill_effect_duration"]=8
 }

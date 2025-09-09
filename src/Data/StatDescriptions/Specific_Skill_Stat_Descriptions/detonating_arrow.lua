@@ -37,25 +37,20 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"
 		}
 	},
+	[3]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_detonating_arrow_max_number_of_stages"
+		}
+	},
 	["active_skill_base_secondary_area_of_effect_radius"]=1,
 	["active_skill_secondary_area_of_effect_radius"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_detonating_arrow_max_number_of_stages"]=3
 }

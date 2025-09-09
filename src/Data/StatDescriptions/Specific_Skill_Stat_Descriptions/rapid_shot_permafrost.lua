@@ -3,26 +3,23 @@
 
 return {
 	[1]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[2]={
+		stats={
+			[1]="ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"
+		}
+	},
+	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -55,22 +52,46 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[5]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Shards arm after {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
 					}
 				},
-				text="More damage after one second {0}%"
-			},
-			[2]={
+				text="Shards arm after {0} seconds"
+			}
+		},
+		stats={
+			[1]="permafrost_shard_arming_time_ms"
+		}
+	},
+	[6]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=3
+				},
 				limit={
 					[1]={
 						[1]=1,
@@ -79,12 +100,20 @@ return {
 					[2]={
 						[1]="#",
 						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
 					}
 				},
-				text="Shards that have existed for at\nleast one second deal {0}% more Damage"
+				text="Shards deal up to {0}% more damage {2} seconds after arming"
 			},
-			[3]={
+			[2]={
 				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=3
+				},
+				[2]={
 					k="negate",
 					v=1
 				},
@@ -96,11 +125,20 @@ return {
 					[2]={
 						[1]="#",
 						[2]="#"
+					},
+					[3]={
+						[1]="#",
+						[2]="#"
 					}
 				},
-				text="Shards that have existed for at\nleast one second deal {0}% less Damage"
+				text="Shards deal up to {0}% less damage {2} seconds after arming"
 			},
-			[4]={
+			[3]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=3
+				},
+				["gem_quality"]=true,
 				limit={
 					[1]={
 						[1]="#",
@@ -109,28 +147,24 @@ return {
 					[2]={
 						[1]=0,
 						[2]=0
-					}
-				},
-				text="Shards that have existed for at\nleast one second deal {0:+d}% more Damage"
-			}
-		},
-		stats={
-			[1]="permafrost_shard_damage_+%_final_after_1_second",
-			[2]="quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem"
-		}
-	},
-	[4]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
+					},
+					[3]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="Maximum shards {0}"
-			},
-			[2]={
+				text="Shards deal up to {0:+d}% more Damage after arming"
+			}
+		},
+		stats={
+			[1]="permafrost_shard_damage_+%_final_after_1_second",
+			[2]="quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem",
+			[3]="permafrost_shard_bonus_damage_delay_ms"
+		}
+	},
+	[7]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1,
@@ -139,7 +173,7 @@ return {
 				},
 				text="Maximum {0} active shard"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,
@@ -153,10 +187,14 @@ return {
 			[1]="permafrost_shard_limit"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["base_knockback_distance"]=1,
+	["ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self"]=2,
 	parent="skill_stat_descriptions",
-	["permafrost_shard_damage_+%_final_after_1_second"]=3,
-	["permafrost_shard_limit"]=4,
-	["quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem"]=3
+	["permafrost_shard_arming_time_ms"]=5,
+	["permafrost_shard_bonus_damage_delay_ms"]=6,
+	["permafrost_shard_damage_+%_final_after_1_second"]=6,
+	["permafrost_shard_limit"]=7,
+	["quality_display_permafrost_shard_damage_+%_final_after_1_second_is_gem"]=6
 }

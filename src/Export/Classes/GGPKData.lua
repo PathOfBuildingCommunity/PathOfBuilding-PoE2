@@ -43,6 +43,7 @@ local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
 
 	self.dat = { }
 	self.txt = { }
+	self.ot = { }
 
 	if USE_DAT64 then
 		self:AddDat64Files()
@@ -68,7 +69,7 @@ end
 
 function GGPKClass:ExtractFiles(reExport)
 	if reExport then
-		local datList, csdList, itList = self:GetNeededFiles()
+		local datList, csdList, otList, itList = self:GetNeededFiles()
 		local sweetSpotCharacter = 6000
 		local fileList = ''
 
@@ -83,6 +84,10 @@ function GGPKClass:ExtractFiles(reExport)
 				self:ExtractFilesWithBun(fileList)
 				fileList = ''
 			end
+		end
+
+		for _, fname in ipairs(otList) do
+			self:ExtractFilesWithBun('"' .. fname .. '"', true)
 		end
 
 		for _, fname in ipairs(itList) do
@@ -110,6 +115,30 @@ function GGPKClass:ExtractFiles(reExport)
 	local errMsg = PLoadModule("Scripts/enums.lua")
 	if errMsg then
 		print(errMsg)
+	end
+end
+
+function GGPKClass:ExtractList(listToExtract, cache, useRegex)
+	useRegex = useRegex or false
+	local sweetSpotCharacter = 6000
+	printf("Extracting ...")
+	local fileList = ''
+	for _, fname in ipairs(listToExtract) do
+		-- we are going to validate if the file is already extracted in this session
+		if not cache[fname] then
+			cache[fname] = true
+			fileList = fileList .. '"' .. string.lower(fname) .. '" '
+
+			if fileList:len() > sweetSpotCharacter then
+				self:ExtractFilesWithBun(fileList, useRegex)
+				fileList = ''
+			end
+		end
+	end
+
+	if fileList:len() > 0 then
+		self:ExtractFilesWithBun(fileList, useRegex)
+		fileList = ''
 	end
 end
 
@@ -173,6 +202,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/ItemClasses.dat",
 		"Data/SkillTotemVariations.dat",
 		"Data/Essences.dat",
+		"Data/EssenceMods.dat",
+		"Data/EssenceTargetItemCategories.dat",
 		"Data/EssenceType.dat",
 		"Data/Characters.dat",
 		"Data/BuffDefinitions.dat",
@@ -229,6 +260,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/PassiveSkillOverrides.dat",
 		"Data/PassiveSkillOverrideTypes.dat",
 		"Data/DisplayMinionMonsterType.dat",
+		"Data/LeagueNames.dat",
 		"Data/GemEffects.dat",
 		"Data/ActionTypes.dat",
 		"Data/IndexableSupportGems.dat",
@@ -240,12 +272,6 @@ function GGPKClass:GetNeededFiles()
 		"Data/WeaponClasses.dat",
 		"Data/MonsterConditions.dat",
 		"Data/Rarity.dat",
-		"Data/TradeMarketCategory.dat",
-		"Data/TradeMarketCategoryGroups.dat",
-		"Data/PlayerTradeWhisperFormats.dat",
-		"Data/TradeMarketCategoryListAllClass.dat",
-		"Data/TradeMarketIndexItemAs.dat",
-		"Data/TradeMarketImplicitModDisplay.dat",
 		"Data/Commands.dat",
 		"Data/ModEquivalencies.dat",
 		"Data/InfluenceTags.dat",
@@ -254,11 +280,11 @@ function GGPKClass:GetNeededFiles()
 		"Data/ItemInherentSkills.dat",
 		"Data/KeywordPopups.dat",
 		"Data/SoulCores.dat",
+		"Data/SoulCoresPerClass.dat",
 		"Data/UtilityFlaskBuffs.dat",
 		"Data/GrantedSkillSocketNumbers.dat",
 		"Data/AdvancedCraftingBenchCustomTags.dat",
 		"Data/AdvancedCraftingBenchTabFilterTypes.dat",
-		"Data/BeltTypes.dat",
 		"Data/CharacterMeleeSkills.dat",
 		"Data/ClientStrings2.dat",
 		"Data/CraftableModTypes.dat",
@@ -290,7 +316,9 @@ function GGPKClass:GetNeededFiles()
 		"Data/ItemInherentSkills.dat",
 		"Data/StartingPassiveSkills.dat",
 		"Data/ClassPassiveSkillOverrides.dat",
+		"Data/AscendancyPassiveSkillOverrides.dat",
 		"Data/PassiveJewelArt.dat",
+		"Data/PassiveJewelRadiiArt.dat",
 		"Data/PassiveJewelUniqueArt.dat",
 		"Data/QuestStaticRewards.dat",
 		"Data/QuestFlags.dat",
@@ -300,11 +328,61 @@ function GGPKClass:GetNeededFiles()
 		"Data/QuestRewardOffers.dat",
 		"Data/QuestRewardType.dat",
 		"Data/WieldableClasses.dat",
+		"Data/ActiveSkillWeaponRequirement.dat",
+		"Data/SkillGemSearchTerms.dat",
+		"Data/PassiveSkillTreeNodeFrameArt.dat",
+		"Data/PassiveSkillTreeConnectionArt.dat",
+		"Data/PassiveSkillTreeMasteryArt.dat",
+		"Data/PlayerMinionIntrinsicStats.dat",
+		"Data/MonsterCategories.dat",
+		"Data/ActiveSkillRequirements.dat",
+		"Data/ArchnemesisMods.dat",
+		"Data/MonsterPackEntries.dat",
+		"Data/MonsterPacks.dat",
+		"Data/WorldAreas.dat",
+		"Data/SpectreOverrides.dat",
+		"Data/MonsterProjectileAttack.dat",
+		"Data/MonsterProjectileSpell.dat",
+		"Data/MonsterMortar.dat",
+		"Data/EndGameMaps.dat",
+		"Data/EndGameMapBiomes.dat",
+		"Data/EndGameMapPins.dat",
+		"Data/EndGameMapContentSet.dat",
+		"Data/EndGameMapContent.dat",
+		"Data/EndGameMapLocation.dat",
+		"Data/StrongBoxPacks.dat",
+		"Data/SkillArtVariations.dat",
+		"Data/MiscAnimated.dat",
+		"Data/MiscAnimatedArtVariations.dat",
+		"Data/MiscBeams.dat",
+		"Data/MiscBeamsArtVariations.dat",
+		"Data/MiscEffectPacksArtVariations.dat",
+		"Data/MiscObjects.dat",
+		"Data/MiscObjectsArtVariations.dat",
+		"Data/ProjectilesArtVariations.dat",
+		"Data/MonsterVarietiesArtVariations.dat",
+		"Data/MiscProjectileMod.dat",
+		"Data/MiscProjectileModArtVariations.dat",
+		"Data/MiscParticles.dat",
+		"Data/MiscParticlesArtVariations.dat",
+		"Data/MonsterVarietiesArtVariations.dat",
+		"Data/PreloadGroups.dat",
+		"Data/MiscEffectPacks.dat",
+		"Data/BallisticBounceOverride.dat",
+		"Data/DamageEffectVariations.dat",
+		"Data/AttackSkillDamageScalingType.dat",
+		"Data/AttackSkillDamageScalingValues.dat",
+		"Data/FlatPhysicalDamageValues.dat",
+		"Data/SupportGemFamily.dat",
 	}
 	local csdFiles = {
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
 		"^Metadata/StatDescriptions/\\w+.csd$",
 		"^Metadata/StatDescriptions/specific_skill_stat_descriptions/\\w+/\\w+.csd$",
+	}
+	local otFiles = {
+		"^Metadata/Monsters/(?:[\\w-]+/)*[\\w-]+\\.ot$",
+		"^Metadata/Characters/(?:[\\w-]+/)*[\\w-]+\\.ot$",
 	}
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
@@ -343,6 +421,7 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Belts/AbstractBelt.it",
 		"Metadata/Items/Armours/AbstractArmour.it",
 		"Metadata/Items/Armours/Shields/AbstractShield.it",
+		"Metadata/Items/Armours/Shields/AbstractBuckler.it",
 		"Metadata/Items/Armours/Helmets/AbstractHelmet.it",
 		"Metadata/Items/Armours/Gloves/AbstractGloves.it",
 		"Metadata/Items/Armours/Focus/AbstractFocus.it",
@@ -350,5 +429,6 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Armours/BodyArmours/AbstractBodyArmour.it",
 		"Metadata/Items/Amulets/AbstractAmulet.it",
 	}
-	return datFiles, csdFiles, itFiles
+	
+	return datFiles, csdFiles, otFiles, itFiles
 end

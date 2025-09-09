@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Detonates Jagged Ground within {0} metre radius of Slam and each patch of Jagged Ground detonated"
+				text="Explodes Jagged Ground within {0} metre radius of Slam and each patch of Jagged Ground exploded"
 			}
 		},
 		stats={
@@ -24,19 +24,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Jagged Ground detonation radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"

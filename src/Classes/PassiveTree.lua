@@ -19,10 +19,6 @@ local m_sqrt = math.sqrt
 local m_rad = math.rad
 local m_atan2 = math.atan2
 
--- These values are from the 3.6 tree; older trees are missing values for these constants
-local legacySkillsPerOrbit = { 1, 6, 12, 12, 40 }
-local legacyOrbitRadii = { 0, 82, 162, 335, 493 }
-
 -- Retrieve the file at the given URL
 -- This is currently disabled as it does not work due to issues
 -- its possible to fix this but its never used due to us performing preprocessing on tree
@@ -90,6 +86,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	-- Build maps of class name -> class table
 	self.classNameMap = { }
 	self.ascendNameMap = { }
+	self.internalAscendNameMap = { }
 	self.classNotables = { }
 
 	for classId, class in pairs(self.classes) do
@@ -103,15 +100,21 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				ascendClassId = ascendClassId,
 				ascendClass = ascendClass
 			}
+
+			if ascendClass.internalId then
+				self.internalAscendNameMap[ascendClass.internalId] = {
+					classId = classId,
+					class = class,
+					ascendClassId = ascendClassId,
+					ascendClass = ascendClass
+				}
+			end
 		end
 	end
 
-	self.skillsPerOrbit = self.constants.skillsPerOrbit or legacySkillsPerOrbit
-	self.orbitRadii = self.constants.orbitRadii or legacyOrbitRadii
-	self.orbitAnglesByOrbit = {}
-	for orbit, skillsInOrbit in ipairs(self.skillsPerOrbit) do
-		self.orbitAnglesByOrbit[orbit] = self:CalcOrbitAngles(skillsInOrbit)
-	end
+	self.skillsPerOrbit = self.constants.skillsPerOrbit
+	self.orbitRadii = self.constants.orbitRadii
+	self.orbitAnglesByOrbit = self.constants.orbitAnglesByOrbit
 
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
@@ -125,6 +128,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		self:LoadImage(file, data, "CLAMP")
 		for name, position in pairs(fileInfo) do
 			self.ddsMap[name] = {
+				found = data.width > 0,
 				handle = data.handle,
 				width = data.width,
 				height = data.height,
@@ -226,6 +230,12 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			node.type = "AscendClassStart"
 			local ascendClass = self.ascendNameMap[node.ascendancyName].ascendClass
 			ascendClass.startNodeId = node.id
+			if node.isSwitchable then
+				for ascName, _ in pairs(node.options) do
+					local option = self.ascendNameMap[ascName].ascendClass
+					option.startNodeId = node.id
+				end
+			end
 		elseif node.isOnlyImage then
 			node.type = "OnlyImage"
 		elseif node.isJewelSocket then
@@ -247,6 +257,9 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 					self.notableMap[node.dn:lower()] = node
 				end
 			else
+				if node.containJewelSocket then
+					self.sockets[node.id] = node
+				end
 				self.ascendancyMap[node.dn:lower()] = node
 				if not self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] then
 					self.classNotables[self.ascendNameMap[node.ascendancyName].class.name] = { }
@@ -274,31 +287,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			group.ascendancyName = node.ascendancyName
 			if node.isAscendancyStart then
 				group.isAscendancyStart = true
-				self.ascendNameMap[node.ascendancyName].ascendClass.background = {
-					image = "Classes" ..  self.ascendNameMap[node.ascendancyName].ascendClass.name,
-					section = "AscendancyBackground",
-					x = group.x,
-					y = group.y,
-					width = 1500 * self.scaleImage,
-					height = 1500 * self.scaleImage
-				}
-			end
-			if node.classesStart then
-				for _, className in ipairs(node.classesStart) do
-					local class = self.classes[self.classNameMap[className]]
-					if class ~= nil then
-						class.background = {
-							["active"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
-							["bg"] = { width = 2000 * self.scaleImage, height = 2000 * self.scaleImage },
-							image = "Classes" .. className,
-							section = "AscendancyBackground",
-							x = 0,
-							y = 0,
-							width = 1500 * self.scaleImage,
-							height = 1500 * self.scaleImage
-						}
-					end
-				end
 			end
 		elseif node.type == "Notable" or node.type == "Keystone" then
 			self.clusterNodeMap[node.dn] = node
@@ -355,7 +343,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	for nodeId, socket in pairs(self.sockets) do
 		if socket.name == "Charm Socket" then
 			socket.charmSocket = true
-		else
+		elseif not socket.containJewelSocket then
 			socket.nodesInRadius = { }
 			socket.attributesInRadius = { }
 			for radiusIndex, _ in ipairs(data.jewelRadius) do
@@ -529,9 +517,8 @@ end
 
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
 function PassiveTreeClass:ProcessNode(node)
-
 	node.targetSize = self:GetNodeTargetSize(node)
-	node.overlay = self.nodeOverlay[node.type]
+	node.overlay = node.containJewelSocket and node.jewelOverlay or self.nodeOverlay[node.type]
 	if node.overlay then
 		local size = node.targetSize["overlay"] and node.targetSize["overlay"].width or node.targetSize.width
 		node.rsq = size * size
@@ -568,6 +555,16 @@ function PassiveTreeClass:ProcessNode(node)
 			end
 			switchNode.dn = switchNode.name
 			switchNode.sd = switchNode.stats
+
+			if switchNode.jewelOverlay then
+				ConPrintf("SwitchNode with jewelOverlay found: "..switchNode.name)
+				switchNode.overlay = switchNode.jewelOverlay
+				if switchNode.overlay then
+					local size = node.targetSize["overlay"] and node.targetSize["overlay"].width or node.targetSize.width
+					switchNode.rsq = size * size
+					switchNode.size = size
+				end
+			end
 
 			self:ProcessStats(switchNode)
 		end
@@ -781,6 +778,11 @@ function PassiveTreeClass:GetNodeTargetSize(node)
 		return {
 			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
 			width = math.floor(37  * self.scaleImage), height = math.floor( 37  * self.scaleImage)
+		}
+	elseif node.containJewelSocket then
+		return {
+			['overlay'] = { width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage) },
+			width = math.floor(80 * self.scaleImage), height = math.floor(80 * self.scaleImage)
 		}
 	elseif node.ascendancyName then
 		return {

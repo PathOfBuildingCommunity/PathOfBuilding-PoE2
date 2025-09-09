@@ -11,18 +11,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="Increased Cast Speed granted {0}%"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
 				text="{0}% increased Cast Speed while in Demon Form"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -49,15 +40,6 @@ return {
 						[2]="#"
 					}
 				},
-				text="Spell Skill levels granted +{0}"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
 				text="{0:+d} to Level of all Spell Skills while in Demon Form"
 			}
 		},
@@ -78,7 +60,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Lose {0}% of Life per second per Demonflame"
+				text="Lose {0}% of maximum Life per second per Demonflame"
 			}
 		},
 		stats={
@@ -98,7 +80,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Life Loss per second per Demonflame {0}"
+				text="{0} Life Loss per second per Demonflame"
 			}
 		},
 		stats={
@@ -114,42 +96,24 @@ return {
 						[2]="#"
 					}
 				},
-				text="Increased Spell damage granted per Demonflame {0}%"
+				text="Deal {0}% more Spell damage per Demonflame"
 			},
 			[2]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Deal {0}% increased Spell damage per Demonflame"
-			},
-			[3]={
 				limit={
 					[1]={
 						[1]="#",
 						[2]=-1
 					}
 				},
-				text="Deal {0}% reduced Spell damage per Demonflame"
+				text="Deal {0}% less Spell damage per Demonflame"
 			}
 		},
 		stats={
-			[1]="demon_form_spell_damage_+%_per_stack"
+			[1]="demon_form_spell_damage_+%_final_per_stack"
 		}
 	},
 	[6]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum Demonflame {0}"
-			}
 		},
 		stats={
 			[1]="max_demon_form_stacks"
@@ -159,7 +123,7 @@ return {
 	["demon_form_grants_spell_gem_level_+"]=2,
 	["demon_form_life_loss_%_per_minute_per_stack"]=3,
 	["demon_form_life_loss_per_minute_per_stack"]=4,
-	["demon_form_spell_damage_+%_per_stack"]=5,
+	["demon_form_spell_damage_+%_final_per_stack"]=5,
 	["max_demon_form_stacks"]=6,
 	parent="skill_stat_descriptions"
 }

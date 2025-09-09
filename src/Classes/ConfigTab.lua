@@ -867,9 +867,9 @@ function ConfigTabClass:BuildModList()
 					varData.apply(true, modList, enemyModList, self.build)
 				end
 			elseif varData.type == "count" or varData.type == "integer" or varData.type == "countAllowZero" or varData.type == "float" then
-				if input[varData.var] and (input[varData.var] ~= 0 or varData.type == "countAllowZero") then
+				if input[varData.var] and (input[varData.var] ~= 0 or varData.type ~= "count") then
 					varData.apply(input[varData.var], modList, enemyModList, self.build)
-				elseif placeholder[varData.var] and (placeholder[varData.var] ~= 0 or varData.type == "countAllowZero") then
+				elseif placeholder[varData.var] and (placeholder[varData.var] ~= 0 or varData.type ~= "count") then
 					varData.apply(placeholder[varData.var], modList, enemyModList, self.build)
 				end
 			elseif varData.type == "list" then

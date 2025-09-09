@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Impact radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -64,6 +51,26 @@ return {
 		[1]={
 			[1]={
 				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="If any target Hit by Bolt is Shocked, also Shocks all Enemies within a {0} metre radius"
+			}
+		},
+		stats={
+			[1]="active_skill_base_secondary_area_of_effect_radius"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
+				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
@@ -93,21 +100,8 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Arrow duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -115,8 +109,8 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
-	["active_skill_base_secondary_area_of_effect_radius"]=1,
-	["base_skill_effect_duration"]=4,
+	["active_skill_base_secondary_area_of_effect_radius"]=4,
+	["base_skill_effect_duration"]=5,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=5
+	["skill_effect_duration"]=6
 }

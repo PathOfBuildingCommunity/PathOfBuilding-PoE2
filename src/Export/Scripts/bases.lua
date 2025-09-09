@@ -96,20 +96,17 @@ directiveTable.base = function(state, args, out)
 	if state.subType and #state.subType > 0 then
 		out:write('\tsubType = "', state.subType, '",\n')
 	end
-	if maximumQuality ~= 0 then
+	if maximumQuality ~= 0 then --If it crashes on this line, you are missing a .It file for a base ConPrintf(baseItemType.BaseType)
 		out:write('\tquality = ', maximumQuality, ',\n')
 	end
 	if state.type == "Belt" then
-		local beltType = dat("BeltTypes"):GetRow("BaseItemType", baseItemType)
-		if beltType then
-			out:write('\tcharmLimit = ', beltType.CharmCount, ',\n')
-		end
+			out:write('\tcharmLimit = 0,\n')
 	end
 	local itemSpirit = dat("ItemSpirit"):GetRow("BaseItemType", baseItemType)
 	if itemSpirit then
 		out:write('\tspirit = ', itemSpirit.Value, ',\n')
 	end
-	if (baseItemType.Hidden == 0 or state.forceHide) and not baseTypeId:match("Talisman") and not state.forceShow then
+	if state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow then
 		out:write('\thidden = true,\n')
 	end
 	if state.socketLimit then
@@ -136,16 +133,20 @@ directiveTable.base = function(state, args, out)
 			table.insert(implicitModTypes, modDesc.modTags)
 		end
 	end
+	if state.type == "Belt" then
+		table.insert(implicitLines, "Has (1-3) Charm Slots")
+	end
 	if #implicitLines > 0 then
 		out:write('\timplicit = "', table.concat(implicitLines, "\\n"), '",\n')
 	end
 	local inherentSkillType = dat("ItemInherentSkills"):GetRow("BaseItemType", baseItemType)
 	if inherentSkillType then
-		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill)
+		local skillGem = dat("SkillGems"):GetRow("BaseItemType", inherentSkillType.Skill[1].BaseItemType)
+		local gemEffect = dat("GemEffects"):GetRow("GrantedEffect", skillGem.GemEffects[1].GrantedEffect)
 		if #inherentSkillType.Skill > 1 then
 			print("Unhandled Instance - Inherent Skill number more than 1")
 		end
-		out:write('\timplicit = "Grants Skill: Level (1-20) ', inherentSkillType.Skill[1].BaseItemType.Name, '",\n')
+		out:write('\timplicit = "Grants Skill: Level (1-20) ', gemEffect.GrantedEffect.ActiveSkill.DisplayName, '",\n')
 	end
 	out:write('\timplicitModTypes = { ')
 	for i=1,#implicitModTypes do
@@ -196,6 +197,9 @@ directiveTable.base = function(state, args, out)
 		out:write('CritChanceBase = ', weaponType.CritChance / 100, ', ')
 		out:write('AttackRateBase = ', round(1000 / weaponType.Speed, 2), ', ')
 		out:write('Range = ', weaponType.Range, ', ')
+		if weaponType.ReloadTime > 0 then
+			out:write('ReloadTimeBase = ', round(weaponType.ReloadTime / 1000, 2), ', ')
+		end
 		out:write('},\n')
 		itemValueSum = weaponType.DamageMin + weaponType.DamageMax
 	end
@@ -257,24 +261,60 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 	-- Special handling of Runes and SoulCores
-	if state.type == "Rune" or state.type == "SoulCore" then
-		local soulcore = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
-		if soulcore then
-			out:write('\timplicit = ')
-			local stats = { }
-			for i, statKey in ipairs(soulcore.StatsKeysWeapon) do
-				local statValue = soulcore["StatsValuesWeapon"][i]
-				stats[statKey.Id] = { min = statValue, max = statValue }
+	if state.type == "Rune" or state.type == "SoulCore" or state.type == "Talisman" then
+		local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
+		local soulCoresPerClass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
+
+		local stats = { }
+		local outLines = { }
+		if soulCores then
+			if #soulCores.StatsKeysWeapon > 0 then
+				for i, statKey in ipairs(soulCores.StatsKeysWeapon) do
+					local statValue = soulCores["StatsValuesWeapon"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
 			end
-			out:write('"Martial Weapons: ', table.concat(describeStats(stats), '", "'), '\\n')
-			stats = { }  -- reset stats to empty
-			for i, statKey in ipairs(soulcore.StatsKeysArmour) do
-				local statValue = soulcore["StatsValuesArmour"][i]
-				stats[statKey.Id] = { min = statValue, max = statValue }
+			if #soulCores.StatsKeysArmour > 0 then
+				stats = { }  -- reset stats to empty
+				for i, statKey in ipairs(soulCores.StatsKeysArmour) do
+					local statValue = soulCores["StatsValuesArmour"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
 			end
-			out:write('Armour: ', table.concat(describeStats(stats), '", "'), '"')
-			out:write(',\n')
+			if #soulCores.StatsKeysCaster > 0 then
+				stats = { }  -- reset stats to empty
+				for i, statKey in ipairs(soulCores.StatsKeysCaster) do
+					local statValue = soulCores["StatsValuesCaster"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
+			end
+			-- Attribute runes are special case and can socket in everything
+			-- Sceptres are handled in "soulCoresPerClass"
+			if #soulCores.StatsKeysAttributes > 0 then
+				stats = { }  -- reset stats to empty
+				for i, statKey in ipairs(soulCores.StatsKeysAttributes) do
+					local statValue = soulCores["StatsValuesAttributes"][i]
+					stats[statKey.Id] = { min = statValue, max = statValue }
+				end
+				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
+				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
+				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
+			end
 		end
+		-- Check for more slot specific Soulcores/Runes/Talismans
+		if soulCoresPerClass then
+			stats = { }
+			for i, statKey in ipairs(soulCoresPerClass.Stats) do
+				local statValue = soulCoresPerClass["StatsValues"][i]
+				stats[statKey.Id] = { min = statValue, max = statValue }
+			end
+			local coreItemClass = soulCoresPerClass.ItemClass.Id
+			table.insert(outLines, coreItemClass..': ' .. table.concat(describeStats(stats), '\\n'))
+		end
+		out:write('\timplicit = "'..table.concat(outLines, '\\n')..'",\n')
 	end
 	out:write('\treq = { ')
 	local reqLevel = 1
@@ -308,7 +348,7 @@ directiveTable.base = function(state, args, out)
 	end
 	out:write('},\n}\n')
 	
-	if not ((baseItemType.Hidden == 0 or state.forceHide) and not baseTypeId:match("Talisman") and not state.forceShow) then
+	if not (state.forceHide and not baseTypeId:match("Talisman") and not state.forceShow) then
 		bases[state.type] = bases[state.type] or {}
 		local subtype = state.subType and #state.subType and state.subType or ""
 		if not bases[state.type][subtype] or itemValueSum > bases[state.type][subtype][2] then
@@ -442,5 +482,5 @@ end
 
 print("Item bases exported.")
 
---processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
---print("Rare Item Templates Generated and Verified")
+processTemplateFile("Rares", "Bases/", "../Data/", directiveTable)
+print("Rare Item Templates Generated and Verified")

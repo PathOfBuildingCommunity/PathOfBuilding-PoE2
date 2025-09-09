@@ -3,26 +3,18 @@
 
 return {
 	[1]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -55,7 +47,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -88,8 +80,45 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
+	[5]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="Ice Crystals have {0} maximum Life"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Ice Crystal has {0} maximum Life"
+			}
+		},
+		stats={
+			[1]="frost_wall_maximum_life",
+			[2]="frozen_locus_crystal_display_stat"
+		}
+	},
+	["active_skill_area_of_effect_radius"]=2,
+	["active_skill_base_area_of_effect_radius"]=3,
+	["base_knockback_distance"]=1,
+	["base_skill_effect_duration"]=4,
+	["frost_wall_maximum_life"]=5,
+	["frozen_locus_crystal_display_stat"]=5,
 	parent="skill_stat_descriptions"
 }

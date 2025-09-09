@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Banner Aura radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -58,52 +45,51 @@ return {
 	[3]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Banner duration is {0} second, or until you leave the Aura"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="Banner duration is {0} seconds, or until you leave the Aura"
+				text="Aura grants {0:+d}% to all Maximum Elemental Resistances"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration"
+			[1]="base_skill_buff_additional_maximum_all_elemental_resistances_%_to_apply"
 		}
 	},
 	[4]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Aura grants {0}% more Elemental Ailment Threshold"
+			},
+			[2]={
 				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
+					k="negate",
 					v=1
 				},
 				limit={
 					[1]={
 						[1]="#",
-						[2]="#"
+						[2]=-1
 					}
 				},
-				text="Flask charges per second {0}"
-			},
-			[2]={
+				text="Aura grants {0}% less Elemental Ailment Threshold"
+			}
+		},
+		stats={
+			[1]="base_skill_buff_ailment_threshold_+%_final_to_apply"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
 				[1]={
 					k="per_minute_to_per_second_2dp_if_required",
 					v=1
@@ -118,21 +104,12 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_dread_banner_flask_gen_per_min"
+			[1]="base_skill_buff_flask_charge_per_min_to_apply"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Stun and Ailment Threshold {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -141,7 +118,7 @@ return {
 				},
 				text="Aura grants {0}% more Stun Threshold and\nElemental Ailment Threshold"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -156,12 +133,25 @@ return {
 			}
 		},
 		stats={
-			[1]="skill_dread_banner_stun_and_ailment_threshold_+%_final"
+			[1]="base_skill_buff_stun_and_ailment_threshold_+%_final_to_apply"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Banner duration is {0} second"
+			},
+			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -172,8 +162,43 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Banner duration {0}s"
+				text="Banner duration is {0} seconds"
 			}
+		},
+		stats={
+			[1]="base_skill_effect_duration"
+		}
+	},
+	[8]={
+		[1]={
+		},
+		stats={
+			[1]="skill_aura_buff_additional_maximum_all_elemental_resistances_%_magnitude_to_apply"
+		}
+	},
+	[9]={
+		[1]={
+		},
+		stats={
+			[1]="skill_aura_buff_ailment_threshold_+%_final_magnitude_to_apply"
+		}
+	},
+	[10]={
+		[1]={
+		},
+		stats={
+			[1]="skill_aura_buff_flask_charge_per_min_magnitude_to_apply"
+		}
+	},
+	[11]={
+		[1]={
+		},
+		stats={
+			[1]="skill_aura_buff_stun_and_ailment_threshold_+%_final_magnitude_to_apply"
+		}
+	},
+	[12]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -181,9 +206,15 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
+	["base_skill_buff_additional_maximum_all_elemental_resistances_%_to_apply"]=3,
+	["base_skill_buff_ailment_threshold_+%_final_to_apply"]=4,
+	["base_skill_buff_flask_charge_per_min_to_apply"]=5,
+	["base_skill_buff_stun_and_ailment_threshold_+%_final_to_apply"]=6,
+	["base_skill_effect_duration"]=7,
 	parent="skill_stat_descriptions",
-	["skill_dread_banner_flask_gen_per_min"]=4,
-	["skill_dread_banner_stun_and_ailment_threshold_+%_final"]=5,
-	["skill_effect_duration"]=6
+	["skill_aura_buff_additional_maximum_all_elemental_resistances_%_magnitude_to_apply"]=8,
+	["skill_aura_buff_ailment_threshold_+%_final_magnitude_to_apply"]=9,
+	["skill_aura_buff_flask_charge_per_min_magnitude_to_apply"]=10,
+	["skill_aura_buff_stun_and_ailment_threshold_+%_final_magnitude_to_apply"]=11,
+	["skill_effect_duration"]=12
 }

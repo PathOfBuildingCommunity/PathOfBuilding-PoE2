@@ -100,8 +100,11 @@ function main:Init()
 	self.showTitlebarName = true
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
+	self.notSupportedModTooltips = true
+	self.notSupportedTooltipText = " ^8(Not supported in PoB yet)"
 	self.POESESSID = ""
-	self.showPublicBuilds = true
+	--self.showPublicBuilds = true
+	self.showFlavourText = true
 
 	if self.userPath then
 		self:ChangeUserPath(self.userPath, ignoreBuild)
@@ -146,7 +149,7 @@ function main:Init()
 		self.uniqueDB.loading = nil
 		ConPrintf("Uniques loaded")
 
-		--[[for _, raw in pairsYield(data.rares) do
+		for _, raw in pairsYield(data.rares) do
 			newItem = new("Item", raw, "RARE", true)
 			if newItem.base then
 				if newItem.crafted then
@@ -167,7 +170,7 @@ function main:Init()
 		end
 
 		self.rareDB.loading = nil
-		ConPrintf("Rares loaded")]]
+		ConPrintf("Rares loaded")
 	end
 
 	if self.saveNewModCache then
@@ -529,6 +532,9 @@ function main:LoadSettings(ignoreBuild)
 			elseif node.elem == "Accounts" then
 				self.lastAccountName = node.attrib.lastAccountName
 				self.lastRealm = node.attrib.lastRealm
+				self.lastToken = node.attrib.lastToken
+				self.lastRefreshToken = node.attrib.lastRefreshToken
+				self.tokenExpiry = tonumber(node.attrib.tokenExpiry)
 				for _, child in ipairs(node) do
 					if child.elem == "Account" then
 						self.gameAccounts[child.attrib.accountName] = {
@@ -604,6 +610,9 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.slotOnlyTooltips then
 					self.slotOnlyTooltips = node.attrib.slotOnlyTooltips == "true"
 				end
+				if node.attrib.notSupportedModTooltips then
+					self.notSupportedModTooltips = node.attrib.notSupportedModTooltips == "true"
+				end
 				if node.attrib.POESESSID then
 					self.POESESSID = node.attrib.POESESSID or ""
 				end
@@ -613,8 +622,11 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.disableDevAutoSave then
 					self.disableDevAutoSave = node.attrib.disableDevAutoSave == "true"
 				end
-				if node.attrib.showPublicBuilds then
-					self.showPublicBuilds = node.attrib.showPublicBuilds == "true"
+				--if node.attrib.showPublicBuilds then
+					--self.showPublicBuilds = node.attrib.showPublicBuilds == "true"
+				--end
+				if node.attrib.showFlavourText then
+					self.showFlavourText = node.attrib.showFlavourText == "true"
 				end
 			end
 		end
@@ -685,7 +697,7 @@ function main:SaveSettings()
 		return true
 	end
 	t_insert(setXML, mode)
-	local accounts = { elem = "Accounts", attrib = { lastAccountName = self.lastAccountName, lastRealm = self.lastRealm } }
+	local accounts = { elem = "Accounts", attrib = { lastAccountName = self.lastAccountName, lastRealm = self.lastRealm, lastToken = self.lastToken, lastRefreshToken = self.lastRefreshToken, tokenExpiry = tostring(self.tokenExpiry) } }
 	for accountName, account in pairs(self.gameAccounts) do
 		t_insert(accounts, { elem = "Account", attrib = { accountName = accountName, sessionID = account.sessionID } })
 	end
@@ -723,10 +735,12 @@ function main:SaveSettings()
 		lastExportWebsite = self.lastExportWebsite,
 		showWarnings = tostring(self.showWarnings),
 		slotOnlyTooltips = tostring(self.slotOnlyTooltips),
+		notSupportedModTooltips = tostring(self.notSupportedModTooltips),
 		POESESSID = self.POESESSID,
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
-		showPublicBuilds = tostring(self.showPublicBuilds)
+		--showPublicBuilds = tostring(self.showPublicBuilds),
+		showFlavourText = tostring(self.showFlavourText)
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
@@ -901,9 +915,14 @@ function main:OpenOptionsPopup()
 		self.edgeSearchHighlight = state
 	end)
 	
+	--nextRow()
+	--controls.showPublicBuilds = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Latest/Trending builds:", function(state)
+		--self.showPublicBuilds = state
+	--end)
+
 	nextRow()
-	controls.showPublicBuilds = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Latest/Trending builds:", function(state)
-		self.showPublicBuilds = state
+	controls.showFlavourText = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Styled Tooltips with Flavour Text:", function(state)
+		self.showFlavourText = state
 	end)
 
 	nextRow()
@@ -968,6 +987,13 @@ function main:OpenOptionsPopup()
 	controls.slotOnlyTooltips.state = self.slotOnlyTooltips
 	
 	nextRow()
+	controls.notSupportedModTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show tooltip for unsupported mods :", function(state)
+		self.notSupportedModTooltips = state
+	end)
+	controls.notSupportedModTooltips.tooltipText = "Show ^8(Not supported in PoB yet) ^7next to unsupported mods\nRequires PoB to restart for it to take effect"
+	controls.notSupportedModTooltips.state = self.notSupportedModTooltips
+	
+	nextRow()
 	controls.invertSliderScrollDirection = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Invert slider scroll direction:", function(state)
 		self.invertSliderScrollDirection = state
 	end)
@@ -986,7 +1012,8 @@ function main:OpenOptionsPopup()
 	controls.betaTest.state = self.betaTest
 	controls.edgeSearchHighlight.state = self.edgeSearchHighlight
 	controls.titlebarName.state = self.showTitlebarName
-	controls.showPublicBuilds.state = self.showPublicBuilds
+	--controls.showPublicBuilds.state = self.showPublicBuilds
+	controls.showFlavourText.state = self.showFlavourText
 	local initialNodePowerTheme = self.nodePowerTheme
 	local initialColorPositive = self.colorPositive
 	local initialColorNegative = self.colorNegative
@@ -1002,9 +1029,11 @@ function main:OpenOptionsPopup()
 	local initialDefaultItemAffixQuality = self.defaultItemAffixQuality or 0.5
 	local initialShowWarnings = self.showWarnings
 	local initialSlotOnlyTooltips = self.slotOnlyTooltips
+	local initialNotSupportedModTooltips = self.notSupportedModTooltips
 	local initialInvertSliderScrollDirection = self.invertSliderScrollDirection
 	local initialDisableDevAutoSave = self.disableDevAutoSave
-	local initialShowPublicBuilds = self.showPublicBuilds
+	--local initialShowPublicBuilds = self.showPublicBuilds
+	local initialShowFlavourText = self.showFlavourText
 
 	-- last line with buttons has more spacing
 	nextRow(1.5)
@@ -1052,9 +1081,11 @@ function main:OpenOptionsPopup()
 		self.defaultItemAffixQuality = initialDefaultItemAffixQuality
 		self.showWarnings = initialShowWarnings
 		self.slotOnlyTooltips = initialSlotOnlyTooltips
+		self.notSupportedModTooltips = initialNotSupportedModTooltips
 		self.invertSliderScrollDirection = initialInvertSliderScrollDirection
 		self.disableDevAutoSave = initialDisableDevAutoSave
 		self.showPublicBuilds = initialShowPublicBuilds
+		self.showFlavourText = initialShowFlavourText
 		main:ClosePopup()
 	end)
 	nextRow(1.5)

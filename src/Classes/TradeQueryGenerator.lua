@@ -15,14 +15,14 @@ local tradeCategoryNames = {
 	["Ring"] = { "Ring" },
 	["Amulet"] = { "Amulet" },
 	["Belt"] = { "Belt" },
-	["Chest"] = { "Body Armour" },
-	["Helmet"] = { "Helmet" },
-	["Gloves"] = { "Gloves" },
-	["Boots"] = { "Boots" },
+	["Chest"] = { "Body Armour", "Body Armour: Armour", "Body Armour: Armour/Energy Shield", "Body Armour: Armour/Evasion", "Body Armour: Armour/Evasion/Energy Shield", "Body Armour: Energy Shield", "Body Armour: Evasion", "Body Armour: Evasion/Energy Shield" },
+	["Helmet"] = { "Helmet", "Helmet: Armour", "Helmet: Armour/Energy Shield", "Helmet: Armour/Evasion", "Helmet: Armour/Evasion/Energy Shield", "Helmet: Energy Shield", "Helmet: Evasion", "Helmet: Evasion/Energy Shield" },
+	["Gloves"] = { "Gloves: Armour", "Gloves: Armour/Energy Shield", "Gloves: Armour/Evasion", "Gloves: Armour/Evasion/Energy Shield", "Gloves: Energy Shield", "Gloves: Evasion", "Gloves: Evasion/Energy Shield" },
+	["Boots"] = { "Boots", "Boots: Armour", "Boots: Armour/Energy Shield", "Boots: Armour/Evasion", "Boots: Armour/Evasion/Energy Shield", "Boots: Energy Shield", "Boots: Evasion", "Boots: Evasion/Energy Shield" },
 	["Quiver"] = { "Quiver" },
-	["Shield"] = { "Shield" },
+	["Shield"] = { "Shield", "Shield: Armour", "Shield: Armour/Energy Shield", "Shield: Armour/Evasion", "Shield: Evasion" },
 	["Focus"] = { "Focus" },
-	["1HWeapon"] = { "One Handed Mace", "Wand", "Sceptre" },
+	["1HWeapon"] = { "One Handed Mace", "Wand", "Sceptre", "Flail", "Spear" },
 	["2HWeapon"] = { "Staff", "Staff: Warstaff", "Two Handed Mace", "Crossbow", "Bow" },
 	-- ["1HAxe"] = { "One Handed Axe" },
 	-- ["1HSword"] = { "One Handed Sword", "Thrusting One Handed Sword" },
@@ -48,8 +48,8 @@ local tradeCategoryNames = {
 	-- ["RadiusJewel"] = { "Jewel: Radius" },
 	-- not in the game yet.
 	-- ["TrapTool"] = { "TrapTool"}, Unsure if correct
-	-- ["Flail"] = { "Flail" },
-	-- ["Spear"] = { "Spear" }
+	["Flail"] = { "Flail" },
+	["Spear"] = { "Spear" }
 }
 
 -- Build lists of tags present on a given item category
@@ -83,6 +83,7 @@ local tradeStatCategoryIndices = {
 	["Explicit"] = 1,
 	["Implicit"] = 2,
 	["Corrupted"] = 3,
+	["AllocatesXEnchant"] = 3,
 	["Rune"] = 4,
 }
 
@@ -97,7 +98,9 @@ local TradeQueryGeneratorClass = newClass("TradeQueryGenerator", function(self, 
 	self.queryTab = queryTab
 	self.itemsTab = queryTab.itemsTab
 	self.calcContext = { }
-
+	self.lastMaxPrice = nil
+	self.lastMaxPriceTypeIndex = nil
+	self.lastMaxLevel = nil
 end)
 
 local function fetchStats()
@@ -170,6 +173,9 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 		end
 	end
 	for _, statTable in ipairs(statWeights) do
+		if statTable.stat == "FullDPS" and not (baseOutput["FullDPS"] and newOutput["FullDPS"]) then
+			meanStatDiff = meanStatDiff + ratioModSums("TotalDPS", "TotalDotDPS", "CombinedDPS") * statTable.weightMult
+		end
 		meanStatDiff = meanStatDiff + ratioModSums(statTable.stat) * statTable.weightMult
 	end
 	return meanStatDiff
@@ -346,6 +352,7 @@ function TradeQueryGeneratorClass:InitMods()
 		["Explicit"] = { },
 		["Implicit"] = { },
 		["Enchant"] = { },
+		["AllocatesXEnchant"] = { },
 		["Corrupted"] = { },
 		["Rune"] = { },
 	}
@@ -372,14 +379,13 @@ function TradeQueryGeneratorClass:InitMods()
 	self:GenerateModData(data.itemMods.Flask, tradeQueryStatsParsed, { ["LifeFlask"] = true, ["ManaFlask"] = true })
 	self:GenerateModData(data.itemMods.Charm, tradeQueryStatsParsed, { ["Charm"] = true })
 
-	-- megalomaniac tbd
-	-- local clusterNotableMods = {}
-	-- for k, v in pairs(data.itemMods.JewelCluster) do
-	-- 	if k:find("AfflictionNotable") then
-	-- 		clusterNotableMods[k] = v
-	-- 	end
-	-- end
-	-- self:GenerateModData(clusterNotableMods, tradeQueryStatsParsed)
+	for _, entry in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices.AllocatesXEnchant].entries) do
+		if entry.text:sub(1, 10) == "Allocates " then
+			-- The trade id for allocatesX enchants end with "|[nodeID]" for the allocated node.
+			local nodeId = entry.id:sub(entry.id:find("|") + 1)
+			self.modData.AllocatesXEnchant[nodeId] = { tradeMod = entry, specialCaseData = { } }
+		end
+	end
 
 	-- implicit mods
 	for baseName, entry in pairs(data.itemBases) do
@@ -412,9 +418,35 @@ function TradeQueryGeneratorClass:InitMods()
 	end
 
 	-- rune mods
-	for name, modLines in pairs(data.itemMods.Runes) do
-		self:ProcessMod(modLines.armour, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
-		self:ProcessMod(modLines.weapon, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true })
+	for name, runeMods in pairs(data.itemMods.Runes) do
+		for slotType, mods in pairs(runeMods) do
+			if slotType == "weapon" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
+			elseif slotType == "armour" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
+			elseif slotType == "caster" then
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["Wand"] = true, ["Staff"] = true })
+			else
+				-- Mod is slot specific, try to match against a value in tradeCategoryNames
+				local matchedCategory = nil
+				for category, categoryOptions in pairs(tradeCategoryNames) do
+					for i, opt in pairs(categoryOptions) do
+						if opt:lower():match(slotType) then
+							matchedCategory = category
+							break
+						end
+					end
+					if matchedCategory then
+						break
+					end
+				end
+				if matchedCategory then
+					self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { [matchedCategory] = true })
+				else
+					ConPrintf("TradeQuery: Unmatched category for modifier. Slot type: %s Modifier: %s", mods.slotType, mods.name)
+				end
+			end
+		end		
 	end
 
 	local queryModsFile = io.open(queryModFilePath, 'w')
@@ -489,16 +521,21 @@ end
 
 function TradeQueryGeneratorClass:GeneratePassiveNodeWeights(nodesToTest)
 	local start = GetTime()
-	for _, entry in pairs(nodesToTest) do
+	for nodeId, entry in pairs(nodesToTest) do
 		if self.alreadyWeightedMods[entry.tradeMod.id] ~= nil then
+			ConPrintf("Node %s already evaluated", nodeId)
 			goto continue
 		end
-		
-		local nodeName = entry.tradeMod.text:match("1 Added Passive Skill is (.*)") or entry.tradeMod.text:match("Allocates (.*)")
-		if not nodeName then
-			goto continue
+
+		local node = self.itemsTab.build.spec.nodes[tonumber(nodeId)]
+		if not node then
+			local nodeName = entry.tradeMod.text:match("1 Added Passive Skill is (.*)") or entry.tradeMod.text:match("Allocates (.*)")
+			node = nodeName and self.itemsTab.build.spec.tree.notableMap[nodeName:lower()]
+			if not node then
+				ConPrintf("Failed to find node %s", nodeId)
+				goto continue
+			end
 		end
-		local node = self.itemsTab.build.spec.tree.clusterNodeMap[nodeName] or self.itemsTab.build.spec.tree.notableMap[nodeName]
 		
 		local baseOutput = self.calcContext.baseOutput
 		local output = self.calcContext.calcFunc({ addNodes = { [node] = true } })
@@ -533,7 +570,31 @@ function TradeQueryGeneratorClass:OnFrame()
 	end
 end
 
+local currencyTable = {
+	{ name = "Relative", id = nil },
+	{ name = "Exalted Orb", id = "exalted" },
+	{ name = "Chaos Orb", id = "chaos" },
+	{ name = "Divine Orb", id = "divine" },
+	{ name = "Orb of Augmentation", id = "aug" },
+	{ name = "Orb of Transmutation", id = "transmute" },
+	{ name = "Regal Orb", id = "regal" },
+	{ name = "Vaal Orb", id = "vaal" },
+	{ name = "Annulment Orb", id = "annul" },
+	{ name = "Orb of Alchemy", id = "alch" },
+	{ name = "Mirror of Kalandra", id = "mirror" }
+}
+
 function TradeQueryGeneratorClass:StartQuery(slot, options)
+	if self.lastMaxPrice then
+		options.maxPrice = self.lastMaxPrice
+	end
+	if self.lastMaxPriceTypeIndex then
+		options.maxPriceType = currencyTable[self.lastMaxPriceTypeIndex].id
+	end
+	if self.lastMaxLevel then
+		options.maxLevel = self.lastMaxLevel
+	end
+
 	-- Figure out what type of item we're searching for
 	local existingItem = slot and self.itemsTab.items[slot.selItemId]
 	local testItemType = existingItem and existingItem.baseName or "Diamond"
@@ -546,12 +607,12 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 				queryFilters = {},
 				queryExtra = {
 					name = "Megalomaniac",
-					type = "Medium Cluster Jewel"
+					type = "Diamond"
 				},
 				calcNodesInsteadOfMods = true,
 			}
 		end
-	elseif slot.slotName == "Weapon 2" or slot.slotName == "Weapon 1" then
+	elseif slot.slotName:find("^Weapon %d") then
 		if existingItem then
 			if existingItem.type == "Shield" then
 				itemCategoryQueryStr = "armour.shield"
@@ -559,7 +620,7 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "Focus" then
 				itemCategoryQueryStr = "armour.focus"
 				itemCategory = "Focus"
-			elseif existingItem.type == "Buckler" then -- not in game
+			elseif existingItem.type == "Buckler" then
 				itemCategoryQueryStr = "armour.buckler"
 				itemCategory = "Buckler"
 			elseif existingItem.type == "Quiver" then
@@ -592,10 +653,10 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "One Handed Sword" then
 				itemCategoryQueryStr = "weapon.onesword"
 				itemCategory = "1HSword"
-			elseif existingItem.type == "Spear" then -- not in game
+			elseif existingItem.type == "Spear" then
 				itemCategoryQueryStr = "weapon.spear"
-				itemCategory = "1HSword"
-			elseif existingItem.type == "Flail" then -- not in game
+				itemCategory = "Spear"
+			elseif existingItem.type == "Flail" then
 				itemCategoryQueryStr = "weapon.flail"
 				itemCategory = "weapon.flail"
 			elseif existingItem.type == "One Handed Axe" then
@@ -646,7 +707,7 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 	elseif slot.slotName == "Amulet" then
 		itemCategoryQueryStr = "accessory.amulet"
 		itemCategory = "Amulet"
-	elseif slot.slotName == "Ring 1" or slot.slotName == "Ring 2" then
+	elseif slot.slotName == "Ring 1" or slot.slotName == "Ring 2" or slot.slotName == "Ring 3" then
 		itemCategoryQueryStr = "accessory.ring"
 		itemCategory = "Ring"
 	elseif slot.slotName == "Belt" then
@@ -715,7 +776,7 @@ end
 
 function TradeQueryGeneratorClass:ExecuteQuery()
 	if self.calcContext.special.calcNodesInsteadOfMods then
-		self:GeneratePassiveNodeWeights(self.modData.PassiveNode)
+		self:GeneratePassiveNodeWeights(self.modData.AllocatesXEnchant)
 		return
 	end
 	self:GenerateModWeights(self.modData["Explicit"])
@@ -795,12 +856,12 @@ function TradeQueryGeneratorClass:FinishQuery()
 		end
 	end
 	if not options.includeMirrored then
-	    queryTable.query.filters.misc_filters = {
-	    	disabled = false,
-	    	filters = {
-	    		mirrored = false,
-	    	}
-	    }
+		queryTable.query.filters.misc_filters = {
+			disabled = false,
+			filters = {
+				mirrored = false,
+			}
+		}
 	end
 
 	if options.maxPrice and options.maxPrice > 0 then
@@ -863,7 +924,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	controls.includeCorrupted.state = not context.slotTbl.alreadyCorrupted and (self.lastIncludeCorrupted == nil or self.lastIncludeCorrupted == true)
 	controls.includeCorrupted.enabled = not context.slotTbl.alreadyCorrupted
 
-	local canHaveRunes = slot.slotName:find("Weapon 1") or slot.slotName:find("Weapon 2") or slot.slotName:find("Helmet") or slot.slotName:find("Body Armour") or slot.slotName:find("Gloves") or slot.slotName:find("Boots")
+	local canHaveRunes = slot and (slot.slotName:find("Weapon 1") or slot.slotName:find("Weapon 2") or slot.slotName:find("Helmet") or slot.slotName:find("Body Armour") or slot.slotName:find("Gloves") or slot.slotName:find("Boots"))
 	controls.includeRunes = new("CheckBoxControl", {"TOPRIGHT",controls.includeCorrupted,"BOTTOMRIGHT"}, {0, 5, 18}, "Rune Mods:", function(state) end)
 	controls.includeRunes.state = canHaveRunes and (self.lastIncludeRunes == nil or self.lastIncludeRunes == true)
 	controls.includeRunes.enabled = canHaveRunes
@@ -892,29 +953,19 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	end
 
 	-- Add max price limit selection dropbox
-	local currencyTable = {
-		{ name = "Relative", id = nil },
-		{ name = "Exalted Orb", id = "exalted" },
-		{ name = "Chaos Orb", id = "chaos" },
-		{ name = "Divine Orb", id = "divine" },
-		{ name = "Orb of Augmentation", id = "aug" },
-		{ name = "Orb of Transmutation", id = "transmute" },
-		{ name = "Regal Orb", id = "regal" },
-		{ name = "Vaal Orb", id = "vaal" },
-		{ name = "Annulment Orb", id = "annul" },
-		{ name = "Orb of Alchemy", id = "alch" },
-		{ name = "Mirror of Kalandra", id = "mirror" }
-	}
 	local currencyDropdownNames = { }
 	for _, currency in ipairs(currencyTable) do
 		t_insert(currencyDropdownNames, currency.name)
 	end
 	controls.maxPrice = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 70, 18}, nil, nil, "%D")
+	controls.maxPrice.buf = self.lastMaxPrice and tostring(self.lastMaxPrice) or ""
 	controls.maxPriceType = new("DropDownControl", {"LEFT",controls.maxPrice,"RIGHT"}, {5, 0, 150, 18}, currencyDropdownNames, nil)
+	controls.maxPriceType.selIndex = self.lastMaxPriceTypeIndex or 1
 	controls.maxPriceLabel = new("LabelControl", {"RIGHT",controls.maxPrice,"LEFT"}, {-5, 0, 0, 16}, "^7Max Price:")
 	updateLastAnchor(controls.maxPrice)
 
 	controls.maxLevel = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, nil, nil, "%D")
+	controls.maxLevel.buf = self.lastMaxLevel and tostring(self.lastMaxLevel) or ""
 	controls.maxLevelLabel = new("LabelControl", {"RIGHT",controls.maxLevel,"LEFT"}, {-5, 0, 0, 16}, "Max Level:")
 	updateLastAnchor(controls.maxLevel)
 
@@ -966,10 +1017,13 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 		end
 		if controls.maxPrice.buf then
 			options.maxPrice = tonumber(controls.maxPrice.buf)
+			self.lastMaxPrice = options.maxPrice
 			options.maxPriceType = currencyTable[controls.maxPriceType.selIndex].id
+			self.lastMaxPriceTypeIndex = controls.maxPriceType.selIndex
 		end
 		if controls.maxLevel.buf then
 			options.maxLevel = tonumber(controls.maxLevel.buf)
+			self.lastMaxLevel = options.maxLevel
 		end
 		if controls.sockets and controls.sockets.buf then
 			options.sockets = tonumber(controls.sockets.buf)

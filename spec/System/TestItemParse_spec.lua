@@ -1,6 +1,6 @@
 describe("TestItemParse", function()
 	local function raw(s, base)
-		base = base or "Arcane Robe"
+		base = base or "Arcane Raiment"
 		return "Rarity: Rare\nName\n"..base.."\n"..s
 	end
 
@@ -146,6 +146,10 @@ describe("TestItemParse", function()
 		assert.truthy(item.mirrored)
 		item = new("Item", raw("Corrupted"))
 		assert.truthy(item.corrupted)
+		item = new("Item", raw("Leech 6.61% of Physical Attack Damage as Mana (fractured)"))
+		assert.truthy(item.fractured)
+		item = new("Item", raw("Adds 36 to 48 Fire Damage (desecrated)"))
+		assert.truthy(item.desecrated)
 		item = new("Item", raw("Crafted: true"))
 		assert.truthy(item.crafted)
 		item = new("Item", raw("Unreleased: true"))
@@ -178,6 +182,13 @@ describe("TestItemParse", function()
 		-- enchant also sets enchant and implicit
 		assert.truthy(item.enchantModLines[1].enchant)
 		assert.truthy(item.enchantModLines[1].implicit)
+	end)
+	
+	it("fractured", function()
+		local item = new("Item", raw("{fractured}+8 to Strength"))
+		assert.truthy(item.explicitModLines[1].fractured)
+		item = new("Item", raw("+8 to Strength (fractured)"))
+		assert.truthy(item.explicitModLines[1].fractured)
 	end)
 
 	it("implicit", function()
@@ -214,5 +225,49 @@ describe("TestItemParse", function()
 		assert.are.equals("Rope Cuffs", item.baseName)
 		assert.are.equals(1, #item.explicitModLines)
 		assert.are.equals("+50% chance to Ignite", item.explicitModLines[1].line)
+	end)
+
+	it("attribute converted", function()
+		local item = new("Item", [[
+			Test Item
+			Aegis Quarterstaff
+			Quality: 20
+			Sockets: S S S
+			Rune: Soul Core of Cholotl
+			Rune: Soul Core of Zantipi
+			Rune: Soul Core of Atmohua
+			LevelReq: 79
+			Implicits: 4
+			{enchant}{rune}Convert 20% of Requirements to Dexterity
+			{enchant}{rune}Convert 20% of Requirements to Intelligence
+			{enchant}{rune}Convert 20% of Requirements to Strength
+			{tags:block}{range:1}+(10-15)% to Block chance
+			Corrupted
+			]])
+		item:BuildAndParseRaw()
+		assert.are.equals(35, item.requirements.strMod)
+		assert.are.equals(86, item.requirements.dexMod)
+		assert.are.equals(55, item.requirements.intMod)	
+		
+	end)
+
+	it("multi-line rune mod", function()
+		-- Thruldana is Bow-only as well
+		local item = new("Item", [[
+			Test Item
+			Crude Bow
+			Quality: 20
+			Sockets: S S
+			Rune: Talisman of Thruldana
+			Rune: Talisman of Thruldana
+			Implicits: 2
+			{enchant}{rune}50% reduced Poison Duration
+			{enchant}{rune}Targets can be affected by +2 of your Poisons at the same time
+		]])
+		item:BuildAndParseRaw()
+		
+		assert.are.equals(2, #item.sockets)
+		assert.are.equals(2, #item.runeModLines)
+		
 	end)
 end)

@@ -14,6 +14,34 @@ return {
 					k="divide_by_ten_1dp_if_required",
 					v=1
 				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=10,
+						[2]=10
+					}
+				},
+				text="{0:+d} metre to Impact radius"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0:+d} metres to Impact radius"
+			},
+			[3]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
 				limit={
 					[1]={
 						[1]=10,
@@ -22,7 +50,7 @@ return {
 				},
 				text="Impact radius is {0} metre"
 			},
-			[2]={
+			[4]={
 				[1]={
 					k="divide_by_ten_1dp_if_required",
 					v=1
@@ -42,19 +70,6 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Impact radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_secondary_area_of_effect_radius"

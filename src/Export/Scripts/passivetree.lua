@@ -5,34 +5,34 @@ local json = require("dkjson")
 -- by session we would like to don't extract the same file multiple times
 main.treeCacheExtract = main.treeCacheExtract or { }
 local cacheExtract = main.treeCacheExtract
+local ignoreFilter = "^%[DNT"
 
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
 loadStatFile("passive_skill_stat_descriptions.csd")
 
-local function extractFromGgpk(listToExtract, useRegex)
-	useRegex = useRegex or false
-	local sweetSpotCharacter = 6000
-	printf("Extracting ...")
-	local fileList = ''
-	for _, fname in ipairs(listToExtract) do
-		-- we are going to validate if the file is already extracted in this session
-		if not cacheExtract[fname] then
-			cacheExtract[fname] = true
-			fileList = fileList .. '"' .. string.lower(fname) .. '" '
+local function CalcOrbitAngles(nodesInOrbit)
+	local orbitAngles = {}
 
-			if fileList:len() > sweetSpotCharacter then
-				main.ggpk:ExtractFilesWithBun(fileList, useRegex)
-				fileList = ''
-			end
+	if nodesInOrbit == 16 then
+		-- Every 30 and 45 degrees, per https://github.com/grindinggear/skilltree-export/blob/3.17.0/README.md
+		orbitAngles = { 0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330 }
+	elseif nodesInOrbit == 40 then
+		-- Every 10 and 45 degrees
+		orbitAngles = { 0, 10, 20, 30, 40, 45, 50, 60, 70, 80, 90, 100, 110, 120, 130, 135, 140, 150, 160, 170, 180, 190, 200, 210, 220, 225, 230, 240, 250, 260, 270, 280, 290, 300, 310, 315, 320, 330, 340, 350 }
+	else
+		-- Uniformly spaced
+		for i = 0, nodesInOrbit do
+			orbitAngles[i + 1] = 360 * i / nodesInOrbit
 		end
 	end
 
-	if fileList:len() > 0 then
-		main.ggpk:ExtractFilesWithBun(fileList, useRegex)
-		fileList = ''
+	for i, degrees in ipairs(orbitAngles) do
+		orbitAngles[i] = math.rad(degrees)
 	end
+
+	return orbitAngles
 end
 
 local function bits(int, s, e)
@@ -142,7 +142,7 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 			table.insert(filesToExtract, icon4k)
 		end
 	end
-	extractFromGgpk(filesToExtract)
+	main.ggpk:ExtractList(filesToExtract, cacheExtract)
 
 	for icon, sections in pairs(sheet.files) do
 		local tex = Texture.new()
@@ -196,7 +196,7 @@ local function parseUIImages()
 	if main.ggpk.txt[file] then
 		text = main.ggpk.txt[file]
 	else
-		extractFromGgpk({file})
+		main.ggpk:ExtractList({file}, cacheExtract)
 		text = convertUTF16to8(getFile(file))
 		main.ggpk.txt[file] = text
 	end
@@ -251,7 +251,7 @@ local use4kIfPossible = false
 local idPassiveTree = 'Default'
 -- Find a way to get version
 local basePath = GetWorkDir() .. "/../TreeData/"
-local version = "0_1"
+local version = "0_3"
 local path = basePath .. version .. "/"
 local fileTree = path .. "tree.lua"
 
@@ -268,7 +268,7 @@ local psgFile = rowPassiveTree.PassiveSkillGraph .. ".psg"
 
 printf("Extracting passives tree " .. idPassiveTree .. " from " .. psgFile)
 
-extractFromGgpk({psgFile})
+main.ggpk:ExtractList({psgFile}, cacheExtract)
 
 printf("Parsing passives tree " .. idPassiveTree .. " from " .. main.ggpk.oozPath .. psgFile)
 
@@ -373,6 +373,7 @@ local sheets = {
 	newSheet("lines", defaultMaxWidth, 100),
 	newSheet("jewel-sockets", defaultMaxWidth, 100),
 	newSheet("legion", defaultMaxWidth, 100),
+	newSheet("monster-categories", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -385,6 +386,7 @@ local sheetLocations = {
 	["lines"] = 8,
 	["jewel-sockets"] = 9,
 	["legion"] = 10,
+	["monster-categories"] = 11,
 }
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
@@ -415,43 +417,43 @@ local gBgLarge = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
 addToSheet(getSheet("group-background"), gBgLarge, "groupBackground", commonMetadata("PSGroupBackground3"))
 
 printf("Getting PassiveFrame")
-local pFrameNormal = uiImages[string.lower(uIArt.PassiveFrameNormal)].path
+local pFrameNormal = uiImages[string.lower(uIArt.PassiveFrame.Normal)].path
 addToSheet(getSheet("group-background"), pFrameNormal, "frame", commonMetadata("PSSkillFrame"))
 
-local pFrameActive = uiImages[string.lower(uIArt.PassiveFrameActive)].path
+local pFrameActive = uiImages[string.lower(uIArt.PassiveFrame.Active)].path
 addToSheet(getSheet("group-background"), pFrameActive, "frame", commonMetadata("PSSkillFrameActive"))
 
-local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrameCanAllocate)].path
+local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonMetadata("PSSkillFrameHighlighted"))
 
 printf("Getting KeystoneFrame")
-local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrameNormal)].path
+local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrame.Normal)].path
 addToSheet(getSheet("group-background"), kFrameNormal, "frame", commonMetadata("KeystoneFrameUnallocated"))
 
-local kFrameActive = uiImages[string.lower(uIArt.KeystoneFrameActive)].path
+local kFrameActive = uiImages[string.lower(uIArt.KeystoneFrame.Active)].path
 addToSheet(getSheet("group-background"), kFrameActive, "frame", commonMetadata("KeystoneFrameAllocated"))
 
-local kFrameCanAllocate = uiImages[string.lower(uIArt.KeystoneFrameCanAllocate)].path
+local kFrameCanAllocate = uiImages[string.lower(uIArt.KeystoneFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), kFrameCanAllocate, "frame", commonMetadata("KeystoneFrameCanAllocate"))
 
 printf("Getting NotableFrame")
-local nFrameNormal = uiImages[string.lower(uIArt.NotableFrameNormal)].path
+local nFrameNormal = uiImages[string.lower(uIArt.NotableFrame.Normal)].path
 addToSheet(getSheet("group-background"), nFrameNormal, "frame", commonMetadata("NotableFrameUnallocated"))
 
-local nFrameActive = uiImages[string.lower(uIArt.NotableFrameActive)].path
+local nFrameActive = uiImages[string.lower(uIArt.NotableFrame.Active)].path
 addToSheet(getSheet("group-background"), nFrameActive, "frame", commonMetadata("NotableFrameAllocated"))
 
-local nFrameCanAllocate = uiImages[string.lower(uIArt.NotableFrameCanAllocate)].path
+local nFrameCanAllocate = uiImages[string.lower(uIArt.NotableFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), nFrameCanAllocate, "frame", commonMetadata("NotableFrameCanAllocate"))
 
 printf("Getting GroupBackgroundBlank")
-local gBgSmallBlank = uiImages[string.lower(uIArt.GroupBackgroundSmallBlank)].path
+local gBgSmallBlank = uiImages[string.lower(uIArt.GroupBackgroundSmall)].path
 addToSheet(getSheet("group-background"), gBgSmallBlank, "groupBackground", commonMetadata("PSGroupBackgroundSmallBlank"))
 
-local gBgMediumBlank = uiImages[string.lower(uIArt.GroupBackgroundMediumBlank)].path
+local gBgMediumBlank = uiImages[string.lower(uIArt.GroupBackgroundMedium)].path
 addToSheet(getSheet("group-background"), gBgMediumBlank, "groupBackground", commonMetadata("PSGroupBackgroundMediumBlank"))
 
-local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLargeBlank)].path
+local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
 addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonMetadata("PSGroupBackgroundLargeBlank"))
 
 printf("Getting JewelSocketFrame")
@@ -501,10 +503,29 @@ addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnor
 -- adding jewel sockets
 local jewelArt = dat("PassiveJewelArt")
 for jewel in jewelArt:Rows() do
+	if jewel.Item.Name:find(ignoreFilter) ~= nil then
+		printf("Ignoring jewel socket " .. jewel.Item.Name)
+		goto nexttogo
+	end
 	local asset = uiImages[string.lower(jewel.JewelArt)]
 	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
+	:: nexttogo	::
+end
+
+-- adding monster types
+local monsterCategories = dat("MonsterCategories")
+for category in monsterCategories:Rows() do
+	if category.Type:find(ignoreFilter) ~= nil then
+		printf("Ignoring category" .. category.Type)
+		goto nexttogo
+	end
+	local asset = uiImages[string.lower(category.HudImage)]
+	printf("Adding category " .. category.Type .. " " .. asset.path .. " to sprite")
+	local name = category.Type
+	addToSheet(getSheet("monster-categories"), asset.path, "monster-categories", commonMetadata(name))
+	:: nexttogo	::
 end
 
 -- adding legion assets
@@ -536,39 +557,41 @@ end
 local tree = {
 	["tree"] = idPassiveTree,
 	["min_x"]= 0,
-    ["min_y"]= 0,
-    ["max_x"]= 0,
-    ["max_y"]= 0,
+	["min_y"]= 0,
+	["max_x"]= 0,
+	["max_y"]= 0,
 	["classes"] = {},
 	["groups"] = { },
 	["nodes"]= { },
 	["assets"]={},
 	["ddsCoords"] = {},
+	["jewelSlots"] = {},
 	["constants"]= { -- calculate this
-        ["classes"]= {
-            ["StrDexIntClass"]= 0,
-            ["StrClass"]= 1,
-            ["DexClass"]= 2,
-            ["IntClass"]= 3,
-            ["StrDexClass"]= 4,
-            ["StrIntClass"]= 5,
-            ["DexIntClass"]= 6
-        },
-        ["characterAttributes"]= {
-            ["Strength"]= 0,
-            ["Dexterity"]= 1,
-            ["Intelligence"]= 2
-        },
-        ["PSSCentreInnerRadius"]= 130,
-        ["skillsPerOrbit"]= {},
-        ["orbitRadii"]= {
+		["classes"]= {
+			["StrDexIntClass"]= 0,
+			["StrClass"]= 1,
+			["DexClass"]= 2,
+			["IntClass"]= 3,
+			["StrDexClass"]= 4,
+			["StrIntClass"]= 5,
+			["DexIntClass"]= 6
+		},
+		["characterAttributes"]= {
+			["Strength"]= 0,
+			["Dexterity"]= 1,
+			["Intelligence"]= 2
+		},
+		["PSSCentreInnerRadius"]= 130,
+		["skillsPerOrbit"]= {},
+		["orbitAnglesByOrbit"] = {},
+		["orbitRadii"]= {
 			0, 82, 162, 335, 493, 662, 846, 251, 1080, 1322
-        }
-    },
+		},
+	},
 }
 
 printf("Generating classes...")
-local ignoreFilter = "^%[DNT%]"
+local ascedancyReplacements = {}
 for i, classId in ipairs(psg.passives) do
 	local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", classId)
 	if passiveRow == nil then
@@ -599,6 +622,16 @@ for i, classId in ipairs(psg.passives) do
 			["base_dex"] = character.BaseDexterity,
 			["base_int"] = character.BaseIntelligence,
 			["ascendancies"] = {},
+			["background"] = {
+				["active"] = { width = 2000, height = 2000 },
+				["bg"] = { width = 2000, height = 2000 },
+				image = "Classes" .. character.Name,
+				section = "AscendancyBackground",
+				x = 0,
+				y = 0,
+				width = 1500,
+				height = 1500
+			}
 		}
 
 		-- add assets
@@ -609,13 +642,26 @@ for i, classId in ipairs(psg.passives) do
 
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
-			if ascendency.Name:find(ignoreFilter) ~= nil then
+			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled then
 				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
+			end
+			if ascendency.Replace then
+				ascedancyReplacements[ascendency.Replace.Name] = ascendency.Name
 			end
 			table.insert(classDef.ascendancies, {
 				["id"] = ascendency.Name,
 				["name"] = ascendency.Name,
+				["internalId"] = ascendency.Id,
+				["replace"] = ascendency.Replace and ascendency.Replace.Name or nil,
+				["background"] = {
+					image = "Classes" .. ascendency.Name,
+					section = "AscendancyBackground",
+					x = 0,
+					y = 0,
+					width = 1500,
+					height = 1500
+				}
 			})
 
 			-- add assets
@@ -706,10 +752,15 @@ for i, group in ipairs(psg.groups) do
 		if passiveRow == nil then
 			printf("Passive skill " .. passive.id .. " not found")
 		else
-			if passiveRow.Name:find(ignoreFilter) ~= nil then
+			if passiveRow.Name == "" then
+				printf("Ignoring passive skill " .. passive.id .. " No name")
+				goto exitNode
+			end
+			if passiveRow.Name:find(ignoreFilter) ~= nil and passiveRow.Name ~= "[DNT] Kite Fisher" and passiveRow.Name ~= "[DNT] Troller" and passiveRow.Name ~= "[DNT] Spearfisher" and passiveRow.Name ~= "[DNT] Angler" and passiveRow.Name ~= "[DNT] Whaler" then
 				printf("Ignoring passive skill " .. passiveRow.Name)
 				goto exitNode
 			end
+			printf("Passive skill " .. passiveRow.Name .. "(id: " .. passiveRow.Id .. ") found")
 			node["name"] = escapeGGGString(passiveRow.Name)
 			node["icon"] = passiveRow.Icon
 			if passiveRow.Keystone then
@@ -734,12 +785,38 @@ for i, group in ipairs(psg.groups) do
 			-- Ascendancy
 			if passiveRow.Ascendancy ~= nil then
 				groupIsAscendancy = true
-				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil then
+				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil or passiveRow.Ascendancy.isDisabled then
 					printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
 					goto exitNode
 				end
 				node["ascendancyName"] = passiveRow.Ascendancy.Name
 				node["isAscendancyStart"] = passiveRow.AscendancyStart or nil
+
+				-- support for jewel sockets in ascendancy
+				if passiveRow.JewelSocket then
+					node["containJewelSocket"] = true
+
+					local uioverride = passiveRow.Ascendancy.UIArt.JewelFrame
+					if uioverride then
+						local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
+						addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
+
+						local uiSocketActive = uiImages[string.lower(uioverride.Active)]
+						addToSheet(getSheet("group-background"), uiSocketActive.path, "frame", commonMetadata(nil))
+
+						local uiSocketCanAllocate = uiImages[string.lower(uioverride.CanAllocate)]
+						addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
+
+						node.jewelOverlay = {
+							alloc = uiSocketActive.path,
+							path = uiSocketCanAllocate.path,
+							unalloc = uiSocketNormal.path,
+						}
+						
+					else
+						printf("Jewel socket not found for ascendancy " .. passiveRow.Ascendancy.Name)
+					end
+				end
 
 				ascendancyGroups = ascendancyGroups or {}
 				ascendancyGroups[passiveRow.Ascendancy.Name] = ascendancyGroups[passiveRow.Ascendancy.Name] or { }
@@ -783,10 +860,10 @@ for i, group in ipairs(psg.groups) do
 
 			-- support for images
 			if passiveRow.MasteryGroup ~= nil then
-				node["activeEffectImage"] = passiveRow.MasteryGroup.Background
+				node["activeEffectImage"] = passiveRow.MasteryGroup.MasteryArt.Effect
 
-				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.Background)]
-				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonMetadata(passiveRow.MasteryGroup.Background))
+				local uiEffect = uiImages[string.lower(passiveRow.MasteryGroup.MasteryArt.Effect)]
+				addToSheet(getSheet("mastery-active-effect"), uiEffect.path, "masteryActiveEffect", commonMetadata(passiveRow.MasteryGroup.MasteryArt.Effect))
 			end
 
 			-- if the passive is "Attribute" we are going to add values
@@ -889,6 +966,63 @@ for i, group in ipairs(psg.groups) do
 				}
 			end
 
+			if passiveRow.Ascendancy and ascedancyReplacements[passiveRow.Ascendancy.Name] then
+				node["isSwitchable"] = true
+				local ascendancyRow = dat("ascendancy"):GetRow("Name", ascedancyReplacements[passiveRow.Ascendancy.Name])
+
+				local nodeInfo = {
+					["ascendancyName"] = ascedancyReplacements[passiveRow.Ascendancy.Name]
+				}
+
+				local switchNode = dat("ascendancypassiveskilloverrides"):GetRow("OriginalNode", passiveRow)
+				if switchNode then
+					nodeInfo.id = switchNode.SwitchedNode.PassiveSkillNodeId
+					nodeInfo.name = switchNode.SwitchedNode.Name
+					nodeInfo.icon = switchNode.SwitchedNode.Icon
+					nodeInfo.stats = {}
+
+					-- add to assets
+					addToSheet(getSheet("skills"), switchNode.SwitchedNode.Icon, "normalActive", commonMetadata(nil))
+					addToSheet(getSheet("skills-disabled"), switchNode.SwitchedNode.Icon, "normalInactive", commonMetadata(nil))
+
+					-- Stats
+					if switchNode.SwitchedNode.Stats ~= nil then
+						local parseStats = {}
+						for k, stat in ipairs(switchNode.SwitchedNode.Stats) do
+							parseStats[stat.Id] = { min = switchNode.SwitchedNode["Stat" .. k], max = switchNode.SwitchedNode["Stat" .. k] }
+						end
+						local out, orders = describeStats(parseStats)
+						for k, line in ipairs(out) do
+							table.insert(nodeInfo["stats"], line)
+						end
+					end
+				end
+
+				if passiveRow.JewelSocket and ascendancyRow.UIArt.JewelFrame then
+					-- override the jewel socket assets if any
+					local uioverride = ascendancyRow.UIArt.JewelFrame
+					
+					local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
+					addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
+
+					local uiSocketActive = uiImages[string.lower(uioverride.Active)]
+					addToSheet(getSheet("group-background"), uiSocketActive.path, "frame", commonMetadata(nil))
+
+					local uiSocketCanAllocate = uiImages[string.lower(uioverride.CanAllocate)]
+					addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
+
+					nodeInfo.jewelOverlay = {
+						alloc = uiSocketActive.path,
+						path = uiSocketCanAllocate.path,
+						unalloc = uiSocketNormal.path,
+					}
+				end
+
+				node["options"] = {
+					[ascedancyReplacements[passiveRow.Ascendancy.Name]] = nodeInfo
+				}
+			end
+
 			-- classStartName
 			if #passiveRow.ClassStart > 0 then
 				node["classesStart"] = {}
@@ -905,6 +1039,15 @@ for i, group in ipairs(psg.groups) do
 			end
 			if passiveRow.MultipleChoiceOption then
 				node["isMultipleChoiceOption"] = true
+			end
+
+			-- Support for Smith of Kitava
+			if passiveRow["FreeAllocate"] == true then
+				node["isFreeAllocate"] = true
+			end
+
+			if passiveRow["ApplyToArmour?"] == true then
+				node["applyToArmour"] = true
 			end
 		end
 		
@@ -940,6 +1083,7 @@ for i, group in ipairs(psg.groups) do
 	end
 end
 
+MakeDir(basePath .. version)
 -- write file with missing Stats
 if #missingStatInfo > 0 then
 	local file = io.open(basePath .. version .. "/missingStats.txt", "w")
@@ -949,12 +1093,24 @@ if #missingStatInfo > 0 then
 	file:close()
 end
 
+-- Generating jewel slots
+printf("Generating jewel slots...")
+local jewelSlots = dat("passivejewelslots")
+for jewelSlot in jewelSlots:Rows() do
+	table.insert(tree.jewelSlots, jewelSlot.Passive.PassiveSkillNodeId)
+end
+
 -- updating skillsPerOrbit
 printf("Updating skillsPerOrbit...")
 for i, orbit in ipairs(orbitsConstants) do
 	-- only numbers base on 12
 	orbit = i == 1 and orbit or math.ceil(orbit / 12) * 12
 	tree.constants.skillsPerOrbit[i] = orbit
+end
+
+-- calculate the orbit radius
+for orbit, skillsInOrbit in ipairs(tree.constants.skillsPerOrbit) do
+	tree.constants.orbitAnglesByOrbit[orbit] = CalcOrbitAngles(skillsInOrbit)
 end
 
 -- Update position of ascendancy base on min / max 
@@ -989,17 +1145,41 @@ for i, classId in ipairs(psg.passives) do
 	local j = 1
 	for _, class in ipairs(classes) do
 		for _, ascendancy in ipairs(class.ascendancies) do
+			printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
+			
+			local angle = startAngle + (j - 1) * angleStep
+			local cX = hardCoded * math.cos(angle)
+			local cY = hardCoded * math.sin(angle)
+
 			local info = ascendancyGroups[ascendancy.id]
+			if info == nil then
+				printf("Ascendancy group " .. ascendancy.id .. " not found")
+				goto continuepositioning
+			end
 			local ascendancyNode = tree.nodes[info.startId]
+			if ascendancyNode == nil then
+				printf("Ascendancy node " .. ascendancy.id .. " not found")
+				goto continuepositioning
+			end
+
+			ascendancy.background.x = cX
+			ascendancy.background.y = cY
+
 			local groupAscendancy = tree.groups[ascendancyNode.group]
 
-			local angle = startAngle + (j - 1) * angleStep
-			local newX = hardCoded * math.cos(angle)
-			local newY = hardCoded * math.sin(angle)
+			local innerRadious = dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
+
+			local newInnerX = cX + math.cos(angleToCenter) * innerRadious
+			local newInnerY = cY + math.sin(angleToCenter) * innerRadious
+
+			local nodeAngle = tree.constants.orbitAnglesByOrbit[ascendancyNode.orbit + 1][ascendancyNode.orbitIndex + 1]
+			local orbitRadius = tree.constants.orbitRadii[ascendancyNode.orbit + 1]
+			local newX = newInnerX - math.sin(nodeAngle) * orbitRadius
+			local newY = newInnerY + math.cos(nodeAngle) * orbitRadius
 
 			local offsetX = newX - groupAscendancy.x
 			local offsetY = newY - groupAscendancy.y
-		
+
 			-- now update the whole groups with the offset
 			for groupId, value in pairs(info) do
 				if type(value) == "boolean" then
@@ -1014,12 +1194,45 @@ for i, classId in ipairs(psg.passives) do
 					tree.max_y = math.max(tree.max_y, group.y + hardCoded / 2)
 				end
 			end
+
 			j = j + 1
+			:: continuepositioning ::
 		end
 	end
 end
 
-MakeDir(basePath .. version)
+printf("Fixing replace ascendancies position...")
+for from, to in pairs(ascedancyReplacements) do
+	local fromAscendancy
+	local toAscendancy
+	for _, class in ipairs(tree.classes) do
+		for _, ascendancy in ipairs(class.ascendancies) do
+			if ascendancy.name == from then
+				fromAscendancy = ascendancy
+			end
+			if ascendancy.name == to then
+				toAscendancy = ascendancy
+			end
+		end
+	end
+
+	if fromAscendancy == nil then
+		printf("From ascendancy " .. from .. " not found")
+		goto continuereplace
+	end
+	if toAscendancy == nil then
+		printf("To ascendancy " .. to .. " not found")
+		goto continuereplace
+	end
+
+	fromAscendancy.replaceBy = to
+
+	toAscendancy.background.x = fromAscendancy.background.x
+	toAscendancy.background.y = fromAscendancy.background.y
+
+	:: continuereplace ::
+end
+
 
 printf("Generating sprite info...")
 for i, sheet in ipairs(sheets) do
@@ -1072,7 +1285,7 @@ for _, lines in ipairs(linesFiles) do
 	table.insert(linesDds, lines.mask)
 end
 
-extractFromGgpk(linesDds)
+main.ggpk:ExtractList(linesDds, cacheExtract)
 nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "lines", linesDds, true)
 
 -- change extension from dds to png

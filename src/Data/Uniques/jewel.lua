@@ -5,12 +5,14 @@ return {
 [[
 The Adorned
 Diamond
+Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Limited to: 1
 (0-100)% increased Effect of Jewel Socket Passive Skills
 containing Corrupted Magic Jewels
 ]],[[
 Controlled Metamorphosis
 Diamond
+Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Variant: Very Small Ring
 Variant: Small Ring
 Variant: Medium-Small Ring
@@ -54,6 +56,7 @@ Limited to: 3
 [[
 Heroic Tragedy
 Timeless Jewel
+Source: Drops from unique{Olroth, Origin of the Fall}
 Limited to: 1 Historic
 Variant: Vorana
 Variant: Medved

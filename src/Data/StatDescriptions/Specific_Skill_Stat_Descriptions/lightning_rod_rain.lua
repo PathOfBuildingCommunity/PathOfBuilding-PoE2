@@ -9,19 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Burst radius {0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -38,9 +25,13 @@ return {
 					[1]={
 						[1]=10,
 						[2]=10
+					},
+					[2]={
+						[1]=0,
+						[2]=0
 					}
 				},
-				text="Burst radius is {0} metre"
+				text="{0:+d} metre to Burst radius"
 			},
 			[2]={
 				[1]={
@@ -51,13 +42,52 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]=0,
+						[2]=0
+					}
+				},
+				text="{0:+d} metres to Burst radius"
+			},
+			[3]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=10,
+						[2]=10
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Burst radius is {0} metre"
+			},
+			[4]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Burst radius is {0} metres"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="active_skill_base_area_of_effect_radius",
+			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
 	[4]={
@@ -98,22 +128,13 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Number of Chains before Arrow disappears {0}"
-			},
-			[2]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
 				text="Arrow disappears after being Chained to once"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]=2,
@@ -132,13 +153,29 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]="#",
+						[1]=1,
+						[2]=99
+					}
+				},
+				text="{0}% chance to cause an additional Burst on impact"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=100,
 						[2]="#"
 					}
 				},
-				text="Maximum active Arrows {0}"
-			},
-			[2]={
+				text="Causes an additional Burst on impact"
+			}
+		},
+		stats={
+			[1]="lightning_rod_%_chance_for_additional_burst_on_landing"
+		}
+	},
+	[7]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1,
@@ -147,7 +184,7 @@ return {
 				},
 				text="Maximum {0} active Arrow"
 			},
-			[3]={
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -161,32 +198,29 @@ return {
 			[1]="number_of_lightning_rods_allowed"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum Arrow duration {0}s"
-			}
 		},
 		stats={
 			[1]="skill_effect_duration"
+		}
+	},
+	[9]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_lightning_rod_number_of_chains_allowed"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["active_skill_base_secondary_area_of_effect_radius"]=1,
 	["base_skill_effect_duration"]=4,
+	["lightning_rod_%_chance_for_additional_burst_on_landing"]=6,
 	["lightning_rod_number_of_chains_allowed"]=5,
-	["number_of_lightning_rods_allowed"]=6,
+	["number_of_lightning_rods_allowed"]=7,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=7
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
+	["skill_effect_duration"]=8,
+	["virtual_lightning_rod_number_of_chains_allowed"]=9
 }

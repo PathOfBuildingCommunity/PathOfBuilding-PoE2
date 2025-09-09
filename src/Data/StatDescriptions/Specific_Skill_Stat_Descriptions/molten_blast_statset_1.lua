@@ -9,15 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Projectiles fired per explosion {0}"
-			}
 		},
 		stats={
 			[1]="total_number_of_projectiles_to_fire"

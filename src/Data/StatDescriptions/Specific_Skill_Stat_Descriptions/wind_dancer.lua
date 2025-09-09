@@ -4,16 +4,14 @@
 return {
 	[1]={
 		[1]={
+		},
+		stats={
+			[1]="virtual_wind_dancer_maximum_number_of_stages"
+		}
+	},
+	[2]={
+		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Maximum stages {0}"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -27,22 +25,9 @@ return {
 			[1]="wind_dancer_maximum_number_of_stages"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Stage gain interval {0}s"
-			},
-			[2]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -60,27 +45,18 @@ return {
 			[1]="wind_dancer_stages_gained_every_x_ms"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="More Evasion Rating per stage {0}%"
-			},
-			[2]={
 				limit={
 					[1]={
 						[1]=1,
 						[2]="#"
 					}
 				},
-				text="{0}% more Evasion Rating per stage\nOn being Hit by a Melee Attack, consume all stages to trigger Gale Force"
+				text="{0}% more Evasion Rating per stage\nOn being Hit by an Enemy, consume all\nstages to trigger Gale Force"
 			},
-			[3]={
+			[2]={
 				[1]={
 					k="negate",
 					v=1
@@ -91,7 +67,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% less Evasion Rating per stage\nOn being Hit by a Melee Attack, consume all stages to trigger Gale Force"
+				text="{0}% less Evasion Rating per stage\nOn being Hit by an Enemy, consume all\nstages to trigger Gale Force"
 			}
 		},
 		stats={
@@ -99,7 +75,8 @@ return {
 		}
 	},
 	parent="skill_stat_descriptions",
-	["wind_dancer_evasion_rating_+%_final_per_stage"]=3,
-	["wind_dancer_maximum_number_of_stages"]=1,
-	["wind_dancer_stages_gained_every_x_ms"]=2
+	["virtual_wind_dancer_maximum_number_of_stages"]=1,
+	["wind_dancer_evasion_rating_+%_final_per_stage"]=4,
+	["wind_dancer_maximum_number_of_stages"]=2,
+	["wind_dancer_stages_gained_every_x_ms"]=3
 }
