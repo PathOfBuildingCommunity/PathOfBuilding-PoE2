@@ -1101,9 +1101,8 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
-	-- THIS LINE FOR RARITY CALC
+	-- Stat sorting category calcs
 	output.EffectiveLootRarityMod = calcLib.mod(modDB, nil, "LootRarity")
-	-- THIS LINE FOR SPIRIT
 	output.Spirit = m_floor(calcLib.val(modDB, nil, "Spirit"))
 
 	-- Special Rarity / Quantity Calc for Bisco's
