@@ -96,10 +96,13 @@ UniqueLoseTailwindOnHit1
 Constricting Command
 Viper Cap
 League: Dawn of the Hunt
+Variant: Pre 0.3.0
+Variant: Current
 UniqueIncreasedLife49
 UniqueAllAttributes14
 UniqueLifeRegeneration20
-UniquePinAlmostPinnedEnemies1
+{variant:1}UniquePinAlmostPinnedEnemies1
+{variant:2}UniqueLessEnemiesToBeSurrounded1
 ]],[[
 Elevore
 Hunter Hood

@@ -96,10 +96,13 @@ Lose all Tailwind when Hit
 Constricting Command
 Viper Cap
 League: Dawn of the Hunt
+Variant: Pre 0.3.0
+Variant: Current
 +(80-120) to maximum Life
 +(10-15) to all Attributes
 (8-12) Life Regeneration per second
-Pin Enemies which are Primed for Pinning
+{variant:1}Pin Enemies which are Primed for Pinning
+{variant:2}Require (2-5) fewer enemies to be Surrounded
 ]],[[
 Elevore
 Hunter Hood
