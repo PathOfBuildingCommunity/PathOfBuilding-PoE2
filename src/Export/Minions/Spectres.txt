@@ -902,8 +902,11 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire
 #emit
 
-#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotSpearLightning
 #flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning
 #emit
 
 #spectre Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrolSpectre

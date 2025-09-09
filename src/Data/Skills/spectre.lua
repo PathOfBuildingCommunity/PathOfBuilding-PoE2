@@ -3836,6 +3836,7 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 				spell = true,
 				projectile = true,
 				triggerable = true,
+				duration = true,
 				hit = true,
 			},
 			constantStats = {
@@ -5923,6 +5924,150 @@ skills["VaalHumanoidShockRifle"] = {
 				"spell_maximum_base_lightning_damage",
 				"is_area_damage",
 				"base_is_projectile",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["VaalZealotLightningSpark"] = {
+	name = "Spark",
+	hidden = true,
+	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	castTime = 1.2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, storedUses = 1, levelRequirement = 0, cooldown = 0.2, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spark",
+			baseEffectiveness = 2.8499999046326,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "spark_statset_0",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				duration = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 2000 },
+				{ "spell_maximum_action_distance_+%", -35 },
+				{ "spark_random_duration_%", 44 },
+				{ "shock_chance_+%", 150 },
+				{ "base_projectile_speed_+%", -30 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["VaalZealotLightningSparkNova"] = {
+	name = "Spark Nova",
+	hidden = true,
+	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Spark Nova",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "spark_statset_0",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				triggerable = true,
+				duration = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 2000 },
+				{ "number_of_additional_projectiles", 4 },
+				{ "spark_random_duration_%", 44 },
+				{ "shock_chance_+%", 150 },
+				{ "base_projectile_speed_+%", -30 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"projectiles_nova",
+				"base_is_projectile",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 0.5, 1.5, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GSVaalZealotLightningBlast"] = {
+	name = "Lightning Blast",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	castTime = 1.2,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Lightning Blast",
+			baseEffectiveness = 4,
+			incrementalEffectiveness = 0.10000000149012,
+			damageIncrementalEffectiveness = 0.017500000074506,
+			statDescriptionScope = "geometry_spell",
+			baseFlags = {
+				spell = true,
+				triggerable = true,
+				hit = true,
+			},
+			baseMods = {
+				skill("cooldown", 10.5),
+			},
+			constantStats = {
+				{ "shock_chance_+%", 300 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
 			},
 			notMinionStat = {
 				"spell_minimum_base_lightning_damage",

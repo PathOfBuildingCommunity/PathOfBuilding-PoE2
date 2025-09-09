@@ -626,7 +626,7 @@ statMap = {
 
 #skill MPSBreachEliteFallenLunarisMonsterChaosSpark Chaos Spark
 #set MPSBreachEliteFallenLunarisMonsterChaosSpark
-#flags spell projectile triggerable hit
+#flags spell projectile triggerable duration hit
 #mods
 #skillEnd
 
@@ -932,5 +932,24 @@ statMap = {
 #skill VaalHumanoidShockRifle Shock Rifle
 #set VaalHumanoidShockRifle
 #flags spell projectile hit
+#mods
+#skillEnd
+
+#skill VaalZealotLightningSpark Spark
+#set VaalZealotLightningSpark
+#flags spell projectile triggerable duration hit
+#mods
+#skillEnd
+
+#skill VaalZealotLightningSparkNova Spark Nova
+#set VaalZealotLightningSparkNova
+#flags spell projectile triggerable duration hit
+#mods
+#skillEnd
+
+#skill GSVaalZealotLightningBlast Lightning Blast
+#set GSVaalZealotLightningBlast
+#flags spell triggerable hit
+#baseMod skill("cooldown", 10.5)
 #mods
 #skillEnd

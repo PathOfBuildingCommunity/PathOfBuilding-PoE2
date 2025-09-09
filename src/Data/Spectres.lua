@@ -10175,12 +10175,50 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire"] = {
 	},
 }
 
-minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
+minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotSpearLightning"] = {
 	name = "Powered Zealot",
-	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "lightning_affinity", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "fast_movement", "human", "humanoid", "lightning_affinity", "melee", "not_str", "red_blood", "very_fast_movement", },
 	extraFlags = {
 		recommendedSpectre = true,
 	},
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.2,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.245,
+	attackRange = 20,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	baseMovementSpeed = 52,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Etched Ravine (Act 6)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedLightning",
+		"VaalZealotLightningSpark",
+		"GTVaalZealotSpearLightningBlast",
+		"VaalZealotLightningSparkNova",
+		"GSVaalZealotLightningBlast",
+		"SOVaalZealotLightningBlast",
+	},
+	modList = {
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+	},
+}
+
+minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
+	name = "Powered Zealot",
+	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "lightning_affinity", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.3,
