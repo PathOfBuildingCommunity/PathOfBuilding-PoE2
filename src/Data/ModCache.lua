@@ -4410,8 +4410,7 @@ c["Damaging Ailments deal damage 5% faster"]={{[1]={flags=0,keywordFlags=0,name=
 c["Damaging Spells consume a Power Charge if able to trigger Abyssal Apparition"]={nil,"Damaging Spells consume a Power Charge if able to trigger Abyssal Apparition "}
 c["Darkness Reservation lasts for 5 seconds"]={nil,"Darkness Reservation lasts for 5 seconds "}
 c["Darkness Reservation lasts for 5 seconds +8 to Maximum Darkness per Level"]={nil,"Darkness Reservation lasts for 5 seconds +8 to Maximum Darkness per Level "}
-c["Dazes on Hit"]={nil,"Dazes on Hit "}
-c["Dazes on Hit 50% increased Melee Damage against Heavy Stunned enemies"]={nil,"Dazes on Hit 50% increased Melee Damage against Heavy Stunned enemies "}
+c["Dazes on Hit"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="DazeChance",type="BASE",value=100}},nil}
 c["Deal 30% of Overkill damage to enemies within 2 metres of the enemy killed"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=30}}," Overkill  to enemies within 2 metres of the enemy killed "}
 c["Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%"]={{[1]={[1]={actor="enemy",limit=200,limitTotal=true,type="Multiplier",var="EnemyPresenceSeconds"},[2]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=4}},nil}
 c["Deal no Non-Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DealNoPhysical",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="DealNoLightning",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="DealNoCold",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="DealNoChaos",type="FLAG",value=true}},nil}
