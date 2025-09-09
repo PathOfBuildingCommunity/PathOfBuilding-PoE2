@@ -2396,6 +2396,10 @@ local specialModList = {
 		flag("IgniteToChaos", { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}),
 		mod("SkillData", "LIST", { key = "IgniteToChaos", value = true }, { type = "SkillType", skillType = SkillType.Spell },{ type = "SkillType", skillType = SkillType[firstToUpper(spellType)]}),
 	} end,
+	["mana leech recovers based on elemental damage types instead of physical damage"] = { 
+		flag("ManaLeechBasedOnElementalDamage"),
+		flag("Condition:NoManaLeechFromPhysicalDamage"),
+	},
 	-- Legacy support
 	["(%d+)%% chance to defend with double armour"] = function(numChance) return {
 		mod("ArmourDefense", "MAX", 100, "Armour Mastery: Max Calc", { type = "Condition", var = "ArmourMax" }),

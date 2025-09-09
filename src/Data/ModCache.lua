@@ -5142,7 +5142,7 @@ c["Mana Flasks gain 0.1 charges per Second"]={{[1]={flags=0,keywordFlags=0,name=
 c["Mana Flasks gain 0.22 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesGenerated",type="BASE",value=0.22}},nil}
 c["Mana Flasks gain 0.25 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesGenerated",type="BASE",value=0.25}},nil}
 c["Mana Flasks used while on Low Mana apply Recovery Instantly"]={{[1]={[1]={type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="ManaFlaskInstantRecovery",type="BASE",value=100}},nil}
-c["Mana Leech recovers based on Elemental Damage Types instead of Physical Damage"]={nil,"Mana Leech recovers based on Elemental Damage Types instead of Physical Damage "}
+c["Mana Leech recovers based on Elemental Damage Types instead of Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ManaLeechBasedOnElementalDamage",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Condition:NoManaLeechFromPhysicalDamage",type="FLAG",value=true}},nil}
 c["Mana Recovery from Regeneration is not applied"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedByManaRegen",type="FLAG",value=true}},nil}
 c["Mana Recovery other than Regeneration cannot Recover Mana"]={nil,"Mana Recovery other than Regeneration cannot Recover Mana "}
 c["Mark Skills have 10% increased Use Speed"]={{}," Use Speed "}
