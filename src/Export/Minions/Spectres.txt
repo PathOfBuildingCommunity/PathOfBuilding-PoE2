@@ -132,6 +132,10 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre
 #emit
 
+-- Bloodfever
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverButcherSpectre
+#emit
+
 -- Crab
 #spectre Metadata/Monsters/QuillCrab/QuillCrab
 #emit

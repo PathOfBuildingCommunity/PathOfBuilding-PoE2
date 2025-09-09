@@ -1382,6 +1382,43 @@ minions["Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre"] = {
 	},
 }
 
+-- Bloodfever
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverButcherSpectre"] = {
+	name = "Harano, the Meat Carver",
+	monsterTags = { "1HAxe_onhit_audio", "fast_movement", "human", "humanoid", "karui", "not_dex", "not_int", "red_blood", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.75,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 15,
+	accuracy = 1,
+	weaponType1 = "One Handed Axe",
+	baseMovementSpeed = 39,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DTTKaruiBloodFeverButcherLeap",
+		"GABloodFeverButcherLeapSlamImpact",
+		"GABloodFeverButcherSlamImpact",
+		"CGEBloodfeverKaruiFast",
+	},
+	modList = {
+		mod("PhysicalDamage", "INC", 0, 0, 0), -- MonsterBleedImplicit [physical_damage_+% = 0]
+		mod("BleedChance", "BASE", 100, 1, 0), -- MonsterBleedImplicit [attacks_inflict_bleeding_on_hit = 1]
+		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
+	},
+}
+
 -- Crab
 minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	name = "Porcupine Crab",

@@ -138,6 +138,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill DTTKaruiBloodFeverButcherLeap
+#set DTTKaruiBloodFeverButcherLeap
+#flags attack
+#mods
+#skillEnd
+
 #skill DTTHellscapeStabbySkyStab
 #set DTTHellscapeStabbySkyStab
 #flags attack melee projectile

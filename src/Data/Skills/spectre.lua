@@ -617,6 +617,38 @@ skills["DeathKnightSlamEAA"] = {
 		},
 	}
 }
+skills["DTTKaruiBloodFeverButcherLeap"] = {
+	name = "Dash",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Movement] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6.75, },
+	},
+	statSets = {
+		[1] = {
+			label = "Dash",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+			},
+			constantStats = {
+				{ "walk_emerge_extra_distance", -5 },
+				{ "leap_slam_minimum_distance", 28 },
+				{ "attack_maximum_action_distance_+", 30 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["DTTHellscapeStabbySkyStab"] = {
 	name = "Basic Attack",
 	hidden = true,
