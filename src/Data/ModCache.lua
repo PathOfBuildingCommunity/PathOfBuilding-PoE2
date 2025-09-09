@@ -4214,8 +4214,7 @@ c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage"]={
 c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
 c["Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
 c["Blood Magic"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Blood Magic"}},nil}
-c["Blue: Skills have 30% less cost"]={nil,"Blue: Skills have 30% less cost "}
-c["Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving"]={nil,"Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving "}
+c["Blue: Skills have 30% less cost"]={{[1]={[1]={type="Condition",var="MostNumerousBlueSocketedSupports"},flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=-30}},nil}
 c["Body Armour grants +100% of Armour also applies to Chaos Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=100}},"  also applies to Chaos Damage "}
 c["Body Armour grants +50% of Armour also applies to Elemental Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=50}},"  also applies to Elemental Damage "}
 c["Body Armour grants +75% to Cold Resistance"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=75}},nil}
@@ -4599,10 +4598,7 @@ c["Fire Spells Convert 100% of Fire Damage to Chaos Damage"]={{[1]={[1]={skillTy
 c["Fissure Skills have a 20% chance to create an additional Fissure"]={nil,"Fissure Skills have a 20% chance to create an additional Fissure "}
 c["Flammability Magnitude is doubled"]={{},"Magnitude  "}
 c["Flasks gain 0.17 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesGenerated",type="BASE",value=0.17}},nil}
-c["For each colour of Socketed Support Gem that is most numerous, gain:"]={nil,"For each colour of Socketed Support Gem that is most numerous, gain: "}
-c["For each colour of Socketed Support Gem that is most numerous, gain: Red: Hits against you have no Critical Damage Bonus"]={nil,"For each colour of Socketed Support Gem that is most numerous, gain: Red: Hits  have no Critical Damage Bonus "}
-c["For each colour of Socketed Support Gem that is most numerous, gain: Red: Hits against you have no Critical Damage Bonus Blue: Skills have 30% less cost"]={nil,"For each colour of Socketed Support Gem that is most numerous, gain: Red: Hits  have no Critical Damage Bonus Blue: Skills have 30% less cost "}
-c["For each colour of Socketed Support Gem that is most numerous, gain: Red: Hits against you have no Critical Damage Bonus Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving"]={nil,"For each colour of Socketed Support Gem that is most numerous, gain: Red: Hits  have no Critical Damage Bonus Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving "}
+c["For each colour of Socketed Support Gem that is most numerous, gain:"]={{},nil}
 c["Frenzy or Power Charge"]={nil,"Frenzy or Power Charge "}
 c["Fully Armour Broken enemies you kill with Hits Shatter"]={nil,"Fully Armour Broken enemies you kill with Hits Shatter "}
 c["Fully Broken Armour effects also apply to Fire Damage Taken from Hits"]={nil,"Fully Broken Armour effects also apply to Fire Damage Taken from Hits "}
@@ -5453,9 +5449,7 @@ c["Recover Life equal to 20% of Mana Flask's Recovery Amount when used Recover M
 c["Recover Mana equal to 20% of Life Flask's Recovery Amount when used"]={nil,"Recover Mana equal to 20% of Life Flask's Recovery Amount when used "}
 c["Recover all Mana when Used"]={nil,"Recover all Mana when Used "}
 c["Recover all Mana when Used Deals 25% of current Mana as Chaos Damage to you when Effect ends"]={nil,"Recover all Mana when Used Deals 25% of current Mana as Chaos Damage to you when Effect ends "}
-c["Red: Hits against you have no Critical Damage Bonus"]={nil,"Red: Hits  have no Critical Damage Bonus "}
-c["Red: Hits against you have no Critical Damage Bonus Blue: Skills have 30% less cost"]={nil,"Red: Hits  have no Critical Damage Bonus Blue: Skills have 30% less cost "}
-c["Red: Hits against you have no Critical Damage Bonus Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving"]={nil,"Red: Hits  have no Critical Damage Bonus Blue: Skills have 30% less cost Green: 40% less Movement Speed Penalty from using Skills while Moving "}
+c["Red: Hits against you have no Critical Damage Bonus"]={{[1]={[1]={type="Condition",var="MostNumerousRedSocketedSupports"},flags=0,keywordFlags=0,name="ReduceCritExtraDamage",type="BASE",value=100}},nil}
 c["Reflects opposite Ring"]={{},nil}
 c["Regenerate (0.7-1.2)% of Life per second"]={nil,"Regenerate (0.7-1.2)% of Life per second "}
 c["Regenerate 0.05 Life per second per Maximum Energy Shield"]={{[1]={[1]={div=1,stat="MaximumEnergyShield",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.05}},nil}

@@ -3038,6 +3038,14 @@ local specialModList = {
 	["skills gain (%d+)%% increased skill speed per socketed green support gem"] = function(num) return { 
 		mod("SkillSpeedIncreasedPerGreenSupport", "FLAG", num) 
 	} end,
+	["for each colour of socketed support gem that is most numerous, gain:"] = {}, 
+	["red: hits against you have no critical damage bonus"] = { 
+		mod("ReduceCritExtraDamage", "BASE", 100, { type = "Condition", var = "MostNumerousRedSocketedSupports" })
+	}, 
+	["blue: skills have (%d+)%% less cost"] = function(count) return {
+		mod("ManaCost", "MORE", -count, { type = "Condition", var = "MostNumerousBlueSocketedSupports" })
+	} end,
+	
 	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },

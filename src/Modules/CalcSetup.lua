@@ -1833,5 +1833,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.modDB.conditions["MajorityBlueSocketedSupports"] = true;
 	end
 	
+	-- Gem Studded, Gemling notable support
+	if (slotSupportGemSocketsCount.R >= slotSupportGemSocketsCount.G) and (slotSupportGemSocketsCount.R >= slotSupportGemSocketsCount.B) then
+		env.modDB.conditions["MostNumerousRedSocketedSupports"] = true;
+	elseif (slotSupportGemSocketsCount.G >= slotSupportGemSocketsCount.R) and (slotSupportGemSocketsCount.G >= slotSupportGemSocketsCount.B) then
+		env.modDB.conditions["MostNumerousGreenSocketedSupports"] = true;
+	elseif (slotSupportGemSocketsCount.B >= slotSupportGemSocketsCount.R) and (slotSupportGemSocketsCount.B >= slotSupportGemSocketsCount.G) then
+		env.modDB.conditions["MostNumerousBlueSocketedSupports"] = true;
+	end
+	
 	return env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB
 end
