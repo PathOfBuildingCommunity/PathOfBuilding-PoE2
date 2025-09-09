@@ -115,6 +115,7 @@ end
 
 function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	local localSmallIncEffect = 0
+	local localNotableIncEffect = 0
 	local modList = new("ModList")
 	if node.type == "Keystone" then
 		modList:AddMod(node.keystoneMod)
@@ -225,11 +226,31 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 				localSmallIncEffect = mod.value
 			end
 		end
+		if mod.name == "JewelNotablePassiveSkillEffect" then
+			for _, modCriteria in ipairs(mod) do
+				if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
+					if (tonumber(modCriteria.var:match("(%d)")) == (env.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
+						localNotableIncEffect = mod.value
+					end
+					hasWSCondition = true
+				end
+			end
+			if not hasWSCondition then
+				localNotableIncEffect = mod.value
+			end
+		end
 	end
 	
 	-- Apply Inc Node scaling from Hulking Form
 	if (incSmallPassiveSkill + localSmallIncEffect) > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + (incSmallPassiveSkill + localSmallIncEffect) / 100
+		local scaledList = new("ModList")
+		scaledList:ScaleAddList(modList, scale)
+		modList = scaledList
+	end
+	
+	if localNotableIncEffect > 0 and node.type == "Notable" and not node.isAttribute and not node.ascendancyName then
+		local scale = 1 + localNotableIncEffect / 100
 		local scaledList = new("ModList")
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList

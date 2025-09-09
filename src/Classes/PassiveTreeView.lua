@@ -1223,7 +1223,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		tooltip:AddSeparator(14)
 	end
 
-	local function addModInfoToTooltip(node, i, line, localSmallIncEffect)
+	local function addModInfoToTooltip(node, i, line, localIncEffect)
 		if node.mods[i] then
 			if launch.devModeAlt and node.mods[i].list then
 				-- Modifier debugging info
@@ -1239,9 +1239,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 				end
 			end
 			
-			-- Apply Inc Node scaling from Hulking Form only visually
-			if (incSmallPassiveSkillEffect + localSmallIncEffect) > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
-				local scale = 1 + (incSmallPassiveSkillEffect + localSmallIncEffect) / 100
+			-- Apply Inc Node scaling from Hulking Form + Radius Jewels only visually
+			if (incSmallPassiveSkillEffect + localIncEffect) > 0 and (node.type == "Normal" or node.type == "Notable") and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
+				local scale = 1 + (node.type == "Normal" and incSmallPassiveSkillEffect or 0 + localIncEffect) / 100
 				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
 				-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
@@ -1303,7 +1303,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	-- loop over mods generated in CalcSetup by rad.func calls and grab the lines added
 	-- processStats once on copied node to cleanly setup for the tooltip
 	local function processTimeLostModsAndGetLocalEffect(mNode, build)
-		local localSmallIncEffect = 0
+		local localIncEffect = 0
 		local hasWSCondition = false
 		local newSd = copyTable(build.spec.tree.nodes[mNode.id].sd)
 		for _, mod in ipairs(mNode.finalModList) do
@@ -1313,7 +1313,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 				if modCriteria.type == "Condition" and modCriteria.var and modCriteria.var:match("^WeaponSet") then
 					if (tonumber(modCriteria.var:match("(%d)")) == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
 						if mod.name == "JewelSmallPassiveSkillEffect" then
-							localSmallIncEffect = mod.value
+							localIncEffect = mod.value
+						elseif mod.name == "JewelNotablePassiveSkillEffect" then
+							localIncEffect = mod.value
 						elseif mod.parsedLine then
 							mergeStats(newSd, mod.parsedLine, build.spec)
 						end
@@ -1323,7 +1325,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 			if not hasWSCondition then
 				if mod.name == "JewelSmallPassiveSkillEffect" then
-					localSmallIncEffect = mod.value
+					localIncEffect = mod.value
+				elseif mod.name == "JewelNotablePassiveSkillEffect" then
+						localIncEffect = mod.value
 				elseif mod.parsedLine then
 					mergeStats(newSd, mod.parsedLine, build.spec)
 				end
@@ -1331,7 +1335,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 		mNode.sd = copyTable(newSd)
 		build.spec.tree:ProcessStats(mNode)
-		return localSmallIncEffect
+		return localIncEffect
 	end
 	
 	-- we only want to run the timeLost function on a node that can could be in a jewel socket radius of up to Large
@@ -1358,12 +1362,12 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	end
 	if mNode.sd and mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
-		local localSmallIncEffect = 0
+		local localIncEffect = 0
 		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
-			localSmallIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
+			localIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
 		end
 		for i, line in ipairs(mNode.sd) do
-			addModInfoToTooltip(mNode, i, line, localSmallIncEffect)
+			addModInfoToTooltip(mNode, i, line, localIncEffect)
 		end
 	end
 
