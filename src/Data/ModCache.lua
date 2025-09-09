@@ -5770,7 +5770,7 @@ c["Your Hits cannot be Evaded by Pinned Enemies"]={nil,"Your Hits cannot be Evad
 c["Your Life Flask also applies to your Minions"]={nil,"Your Life Flask also applies to your Minions "}
 c["Your Life Flask also applies to your Minions Minions cannot Die while affected by a Life Flask"]={nil,"Your Life Flask also applies to your Minions Minions cannot Die while affected by a Life Flask "}
 c["Your Life cannot change while you have Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EternalLife",type="FLAG",value=true}},nil}
-c["Your Minions are Gigantic"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="MORE",value=20}}},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="MORE",value=20}}}},nil}
+c["Your Minions are Gigantic"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Gigantic",type="FLAG",value=true}}}},nil}
 c["Your Offerings affect you instead of your Minions"]={nil,"Your Offerings affect you instead of your Minions "}
 c["Your Offerings affect you instead of your Minions Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy"]={nil,"Your Offerings affect you instead of your Minions Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy "}
 c["Your Offerings can target Enemies in Culling range"]={nil,"Your Offerings can target Enemies in Culling range "}

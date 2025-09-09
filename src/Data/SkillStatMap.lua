@@ -2238,6 +2238,9 @@ return {
 ["minion_block_%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("BlockChance", "BASE", nil) }),
 },
+["minions_are_gigantic"] = {
+	mod("MinionModifier", "LIST", { mod = flag("Gigantic") }),
+},
 ["base_number_of_zombies_allowed"] = {
 	mod("ActiveZombieLimit", "BASE", nil),
 },

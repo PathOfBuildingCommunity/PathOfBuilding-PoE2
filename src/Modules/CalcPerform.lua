@@ -307,6 +307,10 @@ local function doActorAttribsConditions(env, actor)
 			modDB:NewMod("Life", "INC", m_floor(40 * shrineEffectMod), "Massive Shrine")
 			modDB:NewMod("AreaOfEffect", "INC", m_floor(40 * shrineEffectMod), "Massive Shrine")
 		end
+		if modDB:Flag(nil, "Gigantic") then
+			modDB:NewMod("Life", "MORE", 20, "Gigantic")
+			modDB:NewMod("Damage", "MORE", 20, "Gigantic")
+		end
 	end
 	if env.mode_effective then
 		if env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "FireExposureChance") > 0 or modDB:Sum("BASE", nil, "FireExposureChance") > 0 then

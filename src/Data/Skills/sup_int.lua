@@ -3103,13 +3103,6 @@ skills["SupportHulkingMinionsPlayer"] = {
 			label = "Hulking Minions",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["minions_are_gigantic"] = {
-					mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", nil) }),
-					mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
-					mult = 20,
-				},
-			},
 			baseFlags = {
 			},
 			stats = {

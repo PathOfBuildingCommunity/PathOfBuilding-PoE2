@@ -4172,8 +4172,7 @@ local specialModList = {
 	["companions gain your strength"] = { flag("StrengthAddedToCompanions") },
 	["half of your strength is added to your minions"] = { flag("HalfStrengthAddedToMinions") },
 	["your minions are gigantic"] = {
-		mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 20) }),
-		mod("MinionModifier", "LIST", { mod = mod("Life", "MORE", 20) }),
+		mod("MinionModifier", "LIST", { mod = flag("Gigantic") }),
 	},
 	["minions created recently have (%d+)%% increased attack and cast speed"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
 	["minions created recently have (%d+)%% increased movement speed"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", num) }, { type = "Condition", var = "MinionsCreatedRecently" }) } end,
