@@ -1969,7 +1969,7 @@ c["25% chance to be inflicted with Bleeding when Hit"]={{}," to be inflicted  wh
 c["25% chance to cause Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=25}},nil}
 c["25% chance to gain a Power Charge on Critical Hit"]={nil,"a Power Charge "}
 c["25% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=25}},nil}
-c["25% chance to inflict Daze with Hits against Enemies further than 6m"]={{}," to inflict Daze   "}
+c["25% chance to inflict Daze with Hits against Enemies further than 6m"]={{[1]={[1]={threshold=60,type="MultiplierThreshold",var="enemyDistance"},flags=0,keywordFlags=262144,name="DazeChance",type="BASE",value=25}},nil}
 c["25% chance to inflict Withered for 2 seconds on Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["25% chance to not destroy Corpses when Consuming Corpses"]={{}," to not destroy Corpses when Consuming Corpses "}
 c["25% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=25}},nil}

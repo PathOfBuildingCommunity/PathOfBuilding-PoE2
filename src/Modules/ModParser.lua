@@ -789,6 +789,7 @@ local modNameList = {
 	["aura magnitudes"] = { "AuraEffect" },
 	-- Other negative effects
 	["to daze"] = "DazeChance",
+	["to inflict daze"] = "DazeChance",
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },
