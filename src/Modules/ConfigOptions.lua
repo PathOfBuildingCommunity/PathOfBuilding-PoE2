@@ -336,6 +336,9 @@ local configSettings = {
 		modList:NewMod("SkillData", "LIST", { key = "skeletonLife", value = val }, "Config", { type = "SkillName", skillName = "Dark Pact" })
 	end },
 	{ label = "Demon Form:", ifSkill = "Demon Form" },
+	{ var = "inDemonForm", type = "check", label = "Are you in Demon Form?", ifSkill = "Demon Form", defaultState = true, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:DemonForm", "FLAG", true, "Config", { type = "StatThreshold", stat = "Life", threshold = 2 })
+	end },
 	{ var = "demonFormStacks", type = "count", label = "Demonflame Stacks", ifSkill = "Demon Form", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:DemonFlameStacks", "BASE", val, "Config", { type = "Condition", var = "MasteredDarknessLimit", neg = true} )
 		modList:NewMod("Multiplier:DemonFlameStacks", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "MasteredDarknessLimit"} )

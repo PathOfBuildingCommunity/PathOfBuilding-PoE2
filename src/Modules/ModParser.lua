@@ -3097,7 +3097,7 @@ local specialModList = {
 		flag("Condition:CanGainQuicksandHourglass")
 	} end,
 	-- Witch -- Infernalist
-	["maximum 10 demonflame"] = { flag("Condition:MasteredDarknessLimit") },
+	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {

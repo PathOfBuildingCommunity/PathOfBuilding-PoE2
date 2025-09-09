@@ -1617,14 +1617,14 @@ skills["DemonFormPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "demon_transformation",
 			statMap = {
-				["demon_form_spell_damage_+%_per_stack"] = {
-					mod("Damage", "INC", nil, 0, KeywordFlag.Spell, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form"}, { type = "Multiplier", var = "DemonFlameStacks" }, { type = "StatThreshold", stat = "Life", threshold = 2 } ),
+				["demon_form_spell_damage_+%_final_per_stack"] = {
+					mod("Damage", "MORE", nil, 0, KeywordFlag.Spell, { type = "Condition", var = "DemonForm" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form"}, { type = "Multiplier", var = "DemonFlameStacks", limitVar = "DemonFlameMaximum" } ),
 				},
 				["demon_form_grants_cast_speed_+%"] = {
-					mod("Speed", "INC", nil, ModFlag.Cast, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form" }, { type = "StatThreshold", stat = "Life", threshold = 2 } ),
+					mod("Speed", "INC", nil, ModFlag.Cast, 0, { type = "Condition", var = "DemonForm" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form" } ),
 				},
-				["demon_form_life_loss_%_per_minute_per_stack"] = {
-					mod("LifeDemonDegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form" }, { type = "StatThreshold", stat = "Life", threshold = 2 } ),
+				["demon_form_life_loss_per_minute_per_stack"] = {
+					mod("LifeDegen", "BASE", nil, 0, 0, { type = "Condition", var = "DemonForm" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Demon Form" }, { type = "Multiplier", var = "DemonFlameStacks", limitVar = "DemonFlameMaximum" } ),
 					div = 60,
 				},
 			},

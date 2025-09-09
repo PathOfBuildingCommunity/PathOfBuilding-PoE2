@@ -4426,7 +4426,7 @@ c["Defend with 200% of Armour during effect"]={nil,"Defend with 200% of Armour d
 c["Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot inflict Bleeding on you "}
 c["Deflected Hits cannot inflict Maim on you"]={nil,"Deflected Hits cannot inflict Maim on you "}
 c["Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you "}
-c["Demonflame has no maximum"]={nil,"Demonflame has no maximum "}
+c["Demonflame has no maximum"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:DemonFlameMaximum",type="BASE",value=999}},nil}
 c["Detonator skills have 40% increased Area of Effect"]={nil,"Detonator skills have 40% increased Area of Effect "}
 c["Detonator skills have 40% increased Area of Effect Detonator skills have 80% reduced damage"]={nil,"Detonator skills have 40% increased Area of Effect Detonator skills have 80% reduced damage "}
 c["Detonator skills have 8% increased Area of Effect"]={nil,"Detonator skills have 8% increased Area of Effect "}
