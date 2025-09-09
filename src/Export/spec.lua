@@ -531,10 +531,10 @@ return {
 		},
 		[39]={
 			list=false,
-			name="",
+			name="Targeting",
 			refTo="",
 			type="Int",
-			width=100
+			width=70
 		}
 	},
 	activeskilltype={
@@ -5701,17 +5701,17 @@ return {
 		},
 		[19]={
 			list=false,
-			name="",
+			name="UniqueMonsterDamageTakenFromMinions",
 			refTo="",
 			type="Int",
-			width=150
+			width=250
 		},
 		[20]={
 			list=false,
 			name="MoreDamageAgainstNonUnique",
 			refTo="",
 			type="Int",
-			width=180
+			width=250
 		}
 	},
 	deliriumstashtablayout={
@@ -7667,14 +7667,14 @@ return {
 		},
 		[35]={
 			list=false,
-			name="",
+			name="CostBaseEffectiveness",
 			refTo="",
 			type="Float",
 			width=150
 		},
 		[36]={
 			list=false,
-			name="",
+			name="CostIncrementalEffectiveness",
 			refTo="",
 			type="Float",
 			width=150
@@ -12324,10 +12324,10 @@ return {
 		},
 		[10]={
 			list=false,
-			name="",
+			name="TargetingBehaviour",
 			refTo="",
 			type="Int",
-			width=70
+			width=100
 		}
 	},
 	monstervarieties={
