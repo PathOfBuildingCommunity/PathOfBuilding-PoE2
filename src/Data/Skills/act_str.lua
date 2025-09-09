@@ -2464,6 +2464,7 @@ skills["CrossbowRequiemPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "rapid_shot_requiem",
 			baseFlags = {
+				attack = true,
 				projectile = true,
 				area = true,
 			},

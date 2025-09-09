@@ -182,7 +182,7 @@ statMap = {
 #from item
 #skill CrossbowRequiemPlayer
 #set CrossbowRequiemPlayer
-#flags projectile area
+#flags attack projectile area
 #mods
 #skillEnd
 
