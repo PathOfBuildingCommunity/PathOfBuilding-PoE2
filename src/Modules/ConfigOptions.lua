@@ -336,12 +336,11 @@ local configSettings = {
 		modList:NewMod("SkillData", "LIST", { key = "skeletonLife", value = val }, "Config", { type = "SkillName", skillName = "Dark Pact" })
 	end },
 	{ label = "Demon Form:", ifSkill = "Demon Form" },
-	{ var = "inDemonForm", type = "check", label = "Are you in Demon Form?", ifSkill = "Demon Form", defaultState = true, apply = function(val, modList, enemyModList)
+	{ var = "inDemonForm", type = "check", label = "Are you in Demon Form?", ifSkill = "Demon Form", defaultState = true, tooltip = "Players need a minimum of 2 ^xE05030Life ^7to enter Demon Form, so you cannot use it with Chaos Inoculation", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:DemonForm", "FLAG", true, "Config", { type = "StatThreshold", stat = "Life", threshold = 2 })
 	end },
-	{ var = "demonFormStacks", type = "count", label = "Demonflame Stacks", ifSkill = "Demon Form", apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:DemonFlameStacks", "BASE", val, "Config", { type = "Condition", var = "MasteredDarknessLimit", neg = true} )
-		modList:NewMod("Multiplier:DemonFlameStacks", "BASE", m_min(val, 10), "Config", { type = "Condition", var = "MasteredDarknessLimit"} )
+	{ var = "demonFormStacks", type = "count", label = "Demonflame Stacks", ifSkill = "Demon Form", defaultPlaceholderState = 10, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:DemonFlameStacks", "BASE", val, "Config", { type = "Condition", var = "DemonForm" } )
 	end },
 	{ label = "Doom Blast:", ifSkill = "Doom Blast" },
 	{ var = "doomBlastSource", type = "list", label = "Doom Blast Trigger Source:", ifSkill = "Doom Blast", list = {{val="expiration",label="Curse Expiration"},{val="replacement",label="Curse Replacement"},{val="vixen",label="Vixen's Curse"},{val="hexblast",label="Hexblast Replacement"}}, defaultIndex = 3},
