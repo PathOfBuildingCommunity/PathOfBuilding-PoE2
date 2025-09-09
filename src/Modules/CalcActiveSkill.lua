@@ -528,9 +528,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		if totemBase.grantedEffect and totemBase.gemData then
 			activeSkill.skillData.totemBase = totemBase
 		end
-		local totemLevelRequirement = activeSkill.skillData.totemBase and activeSkill.skillData.totemBase.grantedEffect.levels[totemBase.skillLevel].levelRequirement or activeEffect.grantedEffect.levels[activeEffect.level].levelRequirement
-		-- Note: Some active skills related to totem base skills (e.g. on Shockwave Totem) have level requirement = 0, making the additional ` > 0` check necessary
-		activeSkill.skillData.totemLevel = (totemLevelRequirement and (totemLevelRequirement > 0)) and totemLevelRequirement or 1
+		activeSkill.skillData.totemLevel = data.minionLevelTable[totemBase.skillLevel] or 1
 
 		-- Get skill totem ID for totem skills
 		-- This is used to calculate totem life
