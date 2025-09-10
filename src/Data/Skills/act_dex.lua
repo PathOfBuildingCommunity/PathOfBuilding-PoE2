@@ -7453,6 +7453,11 @@ skills["SnipePlayer"] = {
 			label = "Icy Blast",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "channelled_snipe_statset_2",
+			statMap = {
+				["snipe_damage_+%_final_if_created_from_unique"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,

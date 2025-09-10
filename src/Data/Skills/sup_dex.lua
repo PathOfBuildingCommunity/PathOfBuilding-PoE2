@@ -1327,6 +1327,17 @@ skills["SupportCommiseratePlayer"] = {
 			label = "Commiserate",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ailment_effect_+%_final_while_afflicted_by_relevant_ailment"] = {
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "Bleeding" }),
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Ignite, { type = "Condition", var = "Ignited" }),
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "Condition", var = "Poisoned" }),
+					mod("EnemyShockMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Shocked" }),
+					mod("EnemyChillMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Chilled" }),
+					mod("EnemyFreezeEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Frozen" }),
+					mod("EnemyElectrocuteEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5785,6 +5796,9 @@ skills["SupportWindowOfOpportunityPlayerTwo"] = {
 			statMap = {
 				["support_window_of_opportunity_perfect_timing_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "PerfectTiming" }),
+				},
+				["gain_%_of_evasion_as_deflection_rating_on_perfect_timing_for_8_seconds"] = {
+					mod("EvasionGainAsDeflection", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Window of Opportunity II" }),
 				},
 			},
 			baseFlags = {

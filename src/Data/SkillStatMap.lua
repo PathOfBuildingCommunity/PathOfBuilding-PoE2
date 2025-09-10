@@ -961,6 +961,9 @@ return {
 	mod("ChanceToIgnoreEnemyPhysicalDamageReduction", "BASE", nil),
 	base = 100,
 },
+["hits_ignore_enemy_monster_physical_damage_reduction_%_chance"] = {
+	mod("ChanceToIgnoreEnemyPhysicalDamageReduction", "BASE", nil),
+},
 -- PvP Damage
 ["support_makes_skill_mine_pvp_damage_+%_final"] = {
 	mod("PvpDamageMultiplier", "MORE", nil),
@@ -2342,6 +2345,9 @@ return {
 ["support_command_skill_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
 },
+["minion_command_skill_cooldown_speed_+%"] = {
+	mod("MinionModifier", "LIST", { mod = mod("CooldownRecovery", "INC", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
+},
 --Golem
 ["golem_buff_effect_+%"] = {
 	mod("BuffEffect", "INC", nil, 0, 0)
@@ -2738,6 +2744,12 @@ return {
 	-- Display Only
 },
 ["quality_display_base_totem_duration_is_gem"] = {
+	-- Display Only
+},
+["quality_display_base_number_of_crossbow_bolts_is_gem"] = {
+	-- Display Only
+},
+["skill_specific_stat_description_mode"] = {
 	-- Display Only
 },
 }

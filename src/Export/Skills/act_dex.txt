@@ -460,6 +460,11 @@ end,
 #mods
 #set SnipeFrozenExplosionPlayer
 #flags attack projectile area
+statMap = {
+	["snipe_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 

@@ -539,6 +539,11 @@ skills["SupportAtaluiBloodlettingPlayer"] = {
 			label = "Atalui's Bloodletting",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["gain_%_of_damage_as_physical_per_10_life_cost"] = {
+					mod("DamageGainAsPhysical", "BASE", nil, 0, 0, { type = "PerStat", stat = "LifeCost", div = 10 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -4203,6 +4208,11 @@ skills["SupportKnockbackPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_arms_length_knockback_distance_+%_final"] = {
+					mod("EnemyKnockbackDistance", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
