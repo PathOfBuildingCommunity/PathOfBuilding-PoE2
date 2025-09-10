@@ -495,6 +495,17 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					end))
 				end
 			end
+			if varData.ifSkillType then
+				t_insert(shownFuncs, listOrSingleIfOption(varData.ifSkillType, function(ifOption)
+					for _, activeSkill in ipairs(self.build.calcsTab.mainEnv.player.activeSkillList) do
+						-- only checking flags of skill in main env. rework may be required
+						if activeSkill.skillTypes[ifOption] then
+							return true
+						end
+					end
+					return false
+				end))
+			end
 			if varData.ifSkillFlag then
 				t_insert(shownFuncs, listOrSingleIfOption(varData.ifSkillFlag, function(ifOption)
 					for _, activeSkill in ipairs(self.build.calcsTab.mainEnv.player.activeSkillList) do

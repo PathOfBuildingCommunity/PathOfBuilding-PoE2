@@ -1078,6 +1078,9 @@ function calcs.perform(env, skipEHP)
 			minionType[activeSkill.activeEffect.grantedEffect.id] = true
 		end
 		env.modDB.multipliers["PersistentMinionTypes"] = minionTypeCount
+		if activeSkill.activeEffect.grantedEffect and activeSkill.skillTypes[SkillType.CreatesCompanion] then
+			modDB:NewMod("Condition:HaveCompanion", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
+		end
 		if env.mode_buffs and skillFlags.warcry then
 			if activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") and not modDB:Flag(nil, "RallyingActive") then
 				env.player.modDB:NewMod("RallyingExertMoreDamagePerAlly", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryExertDamageBonus"))

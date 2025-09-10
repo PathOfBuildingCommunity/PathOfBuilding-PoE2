@@ -685,6 +685,17 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	if skillModList:Flag(nil, "CompanionDamageAppliesToPlayer") then
+		-- Companion Damage conversion from Inspiring Ally
+		local tempCfg = copyTable(skillCfg, true)
+		tempCfg.skillTypes[SkillType.CreatesCompanion] = true -- Add companion skill tag to cfg so it doesn't fail
+		for _, value in ipairs(skillModList:List(tempCfg, "MinionModifier")) do
+			if value.mod.name == "Damage" and value.mod.type == "INC" then
+				local mod = value.mod
+				skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			end
+		end
+	end
 	if skillModList:Flag(nil, "MinionAttackSpeedAppliesToPlayer") then
 		-- Minion Damage conversion from Spiritual Command
 		local multiplier = (skillModList:Max(skillCfg, "ImprovedMinionAttackSpeedAppliesToPlayer") or 100) / 100

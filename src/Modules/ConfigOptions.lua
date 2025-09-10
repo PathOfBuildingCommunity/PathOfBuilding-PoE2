@@ -950,6 +950,9 @@ Huge sets the radius to 11.
 	{ var = "conditionSummonedGolemInPast10Sec", type = "check", label = "Summoned Golem in past 10 Seconds?", ifCond = "SummonedGolemInPast10Sec", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:SummonedGolemInPast10Sec", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "companionInPresence", type = "check", label = "Is a Companion in your Presence?", ifSkillType = SkillType.CreatesCompanion, defaultState = true, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:CompanionInPresence", "FLAG", true, "Config", { type = "Condition", var = "HaveCompanion" })
+	end },
 	{ var = "multiplierNearbyAlly", type = "count", label = "# of Nearby Allies:", ifMult = "NearbyAlly", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:NearbyAlly", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
