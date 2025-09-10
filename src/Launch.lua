@@ -299,14 +299,18 @@ function launch:DownloadPage(url, callback, params)
 			errMsg = "No data returned"
 		end
 		ConPrintf("Download complete. Status: %s", errMsg or "OK")
-		return responseHeader, responseBody, errMsg
+		return {responseHeader, responseBody}, errMsg
 	]]
 	local id = LaunchSubScript(script, "", "ConPrintf", url, params.header, params.body, self.connectionProtocol, self.proxyURL)
 	if id then
 		self.subScripts[id] = {
 			type = "DOWNLOAD",
-			callback = function(responseHeader, responseBody, errMsg)
-				callback({header=responseHeader, body=responseBody}, errMsg)
+			callback = function(response, errMsg)
+				if response then
+					callback({header=response[1], body=response[2]}, errMsg)
+				else
+					callback({}, errMsg)
+				end
 			end
 		}
 	end

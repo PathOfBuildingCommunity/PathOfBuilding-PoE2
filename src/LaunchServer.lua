@@ -197,4 +197,4 @@ while (os.time() < stopAt) and shouldRetry do
 	attempt = attempt + 1
 end
 server:close()
-return code, state, port
+return {code, state, port}
