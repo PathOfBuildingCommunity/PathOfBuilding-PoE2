@@ -1,7 +1,7 @@
 return {
 	{
 		["Act"] = 1,
-		["ActName"] = "Act 1",
+		["Description"] = "Act 1",
 		["Area"] = "Clearfell",
 		["Info"] = "Beira",
 		["Stat"] = "+10% to Cold Resistance",
@@ -10,7 +10,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["ActName"] = "Act 1",
+		["Description"] = "Act 1",
 		["Area"] = "Hunting Grounds",
 		["Info"] = "Crowbell",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -20,7 +20,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["ActName"] = "Act 1",
+		["Description"] = "Act 1",
 		["Area"] = "Freythorn",
 		["Info"] = "King In The Mists",
 		["Stat"] = "+30 to Spirit",
@@ -29,7 +29,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["ActName"] = "Act 1",
+		["Description"] = "Act 1",
 		["Area"] = "Ogham Farmlands",
 		["Info"] = "Una's Lute",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -39,7 +39,7 @@ return {
 	},
 	{
 		["Act"] = 1,
-		["ActName"] = "Act 1",
+		["Description"] = "Act 1",
 		["Area"] = "Ogham Manor",
 		["Info"] = "Candlemass",
 		["Stat"] = "+20 to maximum Life",
@@ -48,7 +48,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["ActName"] = "Act 2",
+		["Description"] = "Act 2",
 		["Area"] = "Keth",
 		["Info"] = "Kabala",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -58,7 +58,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["ActName"] = "Act 2",
+		["Description"] = "Act 2",
 		["Area"] = "Valley of the Titans",
 		["Info"] = "Medallion",
 		["Options"] = {
@@ -70,7 +70,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["ActName"] = "Act 2",
+		["Description"] = "Act 2",
 		["Area"] = "Deshar",
 		["Info"] = "The Final Letter",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -80,7 +80,7 @@ return {
 	},
 	{
 		["Act"] = 2,
-		["ActName"] = "Act 2",
+		["Description"] = "Act 2",
 		["Area"] = "Spires of Deshar",
 		["Info"] = "Sisters of Garukhan Shrine",
 		["Stat"] = "+10% to Lightning Resistance",
@@ -89,7 +89,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["ActName"] = "Act 3",
+		["Description"] = "Act 3",
 		["Area"] = "Jungle Ruins",
 		["Info"] = "Mighty Silverfist",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -99,7 +99,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["ActName"] = "Act 3",
+		["Description"] = "Act 3",
 		["Area"] = "Azak Bog",
 		["Info"] = "Ignagduk",
 		["Stat"] = "+30 to Spirit",
@@ -108,7 +108,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["ActName"] = "Act 3",
+		["Description"] = "Act 3",
 		["Area"] = "Venom Crypts",
 		["Info"] = "Venom Draught",
 		["Options"] = {
@@ -121,7 +121,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["ActName"] = "Act 3",
+		["Description"] = "Act 3",
 		["Area"] = "Jiquani's Machinarium",
 		["Info"] = "Blackjaw",
 		["Stat"] = "+10% to Fire Resistance",
@@ -130,7 +130,7 @@ return {
 	},
 	{
 		["Act"] = 3,
-		["ActName"] = "Act 3",
+		["Description"] = "Act 3",
 		["Area"] = "Aggorat",
 		["Info"] = "Blood Sacrifice",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -140,7 +140,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["ActName"] = "Act 4",
+		["Description"] = "Act 4",
 		["Area"] = "Isle Of Kin",
 		["Info"] = "Blind Beast",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -150,7 +150,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["ActName"] = "Act 4",
+		["Description"] = "Act 4",
 		["Area"] = "Eye of Hinekora",
 		["Info"] = "Silent Hall",
 		["Stat"] = "5% increased Maximum Mana",
@@ -159,7 +159,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["ActName"] = "Act 4",
+		["Description"] = "Act 4",
 		["Area"] = "Halls Of The Dead",
 		["Info"] = "Tawhoa's Test",
 		["Options"] = {
@@ -171,7 +171,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["ActName"] = "Act 4",
+		["Description"] = "Act 4",
 		["Area"] = "Halls Of The Dead",
 		["Info"] = "Tasalio's Test",
 		["Options"] = {
@@ -183,7 +183,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["ActName"] = "Act 4",
+		["Description"] = "Act 4",
 		["Area"] = "Halls Of The Dead",
 		["Info"] = "Ngamahu's Test",
 		["Options"] = {
@@ -195,7 +195,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["ActName"] = "Act 4",
+		["Description"] = "Act 4",
 		["Area"] = "Trial Of The Ancestors",
 		["Info"] = "Hinekora",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -205,7 +205,7 @@ return {
 	},
 	{
 		["Act"] = 4,
-		["ActName"] = "Act 4",
+		["Description"] = "Act 4",
 		["Area"] = "Abandoned Prison",
 		["Info"] = "Goddess of Justice",
 		["Options"] = {
@@ -217,7 +217,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["ActName"] = "Interlude 1",
+		["Description"] = "Interlude 1",
 		["Area"] = "Wolvenhold",
 		["Info"] = "Oswin",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -227,7 +227,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["ActName"] = "Interlude 2",
+		["Description"] = "Interlude 2",
 		["Area"] = "Khari Bazaar",
 		["Info"] = "Clearing The Way",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -237,7 +237,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["ActName"] = "Interlude 2",
+		["Description"] = "Interlude 2",
 		["Area"] = "Khari Crossing",
 		["Info"] = "Molten Shrine",
 		["Stat"] = "5% increased maximum Life",
@@ -246,7 +246,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["ActName"] = "Interlude 2",
+		["Description"] = "Interlude 2",
 		["Area"] = "Qimah",
 		["Info"] = "Seven Pillars",
 		["Options"] = {
@@ -263,7 +263,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["ActName"] = "Interlude 3",
+		["Description"] = "Interlude 3",
 		["Area"] = "Kriar Village",
 		["Info"] = "Lythara",
 		["Stat"] = "+40 to Spirit",
@@ -272,7 +272,7 @@ return {
 	},
 	{
 		["Act"] = 5,
-		["ActName"] = "Interlude 3",
+		["Description"] = "Interlude 3",
 		["Area"] = "Howling Caves",
 		["Info"] = "Abominable Yeti",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
@@ -282,7 +282,7 @@ return {
 	},
 	{
 		["Act"] = 6,
-		["ActName"] = "Epilog",
+		["Description"] = "Epilog",
 		["Area"] = "Kingsmarch",
 		["Info"] = "Siege Of Oriath",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
