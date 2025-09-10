@@ -69,7 +69,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 		if quest.useConfig == false then
 			goto continue
 		end
-		local key = "questAct" .. quest.Act .. quest.Description .. quest.Area .. quest.Info
+		local key = "quest" .. quest.Description .. quest.Area .. quest.Info
 		local label = string.format("%s: %s", quest.Description, quest.Area)
 		local source = string.format("Quest:%s: %s", quest.Description, quest.Area)
 		if quest.Stat then
