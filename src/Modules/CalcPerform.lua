@@ -97,32 +97,37 @@ local function addWeaponBaseStats(actor)
 		end
 	end
 end
--- Calculate Presence radius
+
+-- Generic radius/area calculator for a given key prefix (e.g. "Presence", "Surrounded")
 ---@param actor table
-local function calcPresenceRadius(actor)
+---@param key string  -- e.g. "Presence" or "Surrounded"
+local function calcBuffRadius(actor, key)
+	local radiusKey, areaKey , modKey = key .. "Radius", key .. "Area", key .. "Mod"
 	-- Calculate modifications to radius first
-	local baseRadius = actor.modDB:Sum("BASE", nil, "PresenceRadius")
-	local incRadius = actor.modDB:Sum("INC", nil, "PresenceRadius")
-	local moreRadius = actor.modDB:More(nil, "PresenceRadius")
-	local scaledRadius = actor.modDB:Override(nil, "PresenceRadius") or baseRadius * (1 + incRadius / 100) * moreRadius
+	local baseRadius = actor.modDB:Sum("BASE", nil, radiusKey)
+	local incRadius  = actor.modDB:Sum("INC",  nil, radiusKey)
+	local moreRadius = actor.modDB:More(nil, radiusKey)
+	local scaledRadius = actor.modDB:Override(nil, radiusKey) or (baseRadius * (1 + incRadius / 100) * moreRadius)
 	-- Calculate modifications to area second
 	local baseArea = math.pi * (scaledRadius * scaledRadius)
-	local incArea = actor.modDB:Sum("INC", nil, "PresenceArea")
-	local moreArea = actor.modDB:More(nil, "PresenceArea")
-	local scaledArea = actor.modDB:Override(nil, "PresenceArea") or baseArea * (1 + incArea / 100) * moreArea
+	local incArea  = actor.modDB:Sum("INC",  nil, areaKey)
+	local moreArea = actor.modDB:More(nil, areaKey)
+	local scaledArea = actor.modDB:Override(nil, areaKey) or (baseArea * (1 + incArea / 100) * moreArea)
 	-- Convert back to final radius
 	local finalRadius = math.floor(math.sqrt(scaledArea / math.pi))
-	actor.output["PresenceRadius"] = finalRadius
-	actor.output["PresenceRadiusMetres"] = finalRadius / 10
-	if scaledRadius / baseRadius ~= 1 then actor.output["PresenceMod"] = scaledRadius / baseRadius end
+	actor.output[radiusKey] = finalRadius
+	actor.output[radiusKey .. "Metres"] = finalRadius / 10
+	if scaledRadius / baseRadius ~= 1 then
+		actor.output[modKey] = scaledRadius / baseRadius
+	end
 	if actor.breakdown then
-		actor.breakdown.PresenceRadius = actor.breakdown.area(scaledRadius, (1 + incArea / 100) * moreArea, finalRadius)
+		actor.breakdown[radiusKey] = actor.breakdown.area(scaledRadius, (1 + incArea / 100) * moreArea, finalRadius)
 		if baseRadius ~= scaledRadius then
-			actor.breakdown.PresenceMod = {}
-			t_insert(actor.breakdown.PresenceMod, s_format( "%.1fm ^8(base radius)", baseRadius / 10))
-			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(inc)", 1 + incRadius / 100))
-			t_insert(actor.breakdown.PresenceMod, s_format( " x %.2f  ^8(more)", moreRadius))
-			t_insert(actor.breakdown.PresenceMod, s_format( "= %.1fm", scaledRadius / 10))
+			actor.breakdown[modKey] = {}
+			t_insert(actor.breakdown[modKey], s_format("%.1fm ^8(base radius)", baseRadius / 10))
+			t_insert(actor.breakdown[modKey], s_format(" x %.2f  ^8(inc)", 1 + incRadius / 100))
+			t_insert(actor.breakdown[modKey], s_format(" x %.2f  ^8(more)", moreRadius))
+			t_insert(actor.breakdown[modKey], s_format(" = %.1fm", scaledRadius / 10))
 		end
 	end
 end
@@ -384,10 +389,13 @@ local function doActorAttribsConditions(env, actor)
 			end
 		end
 	end
-	-- Calculate Presence value and set condition
-	calcPresenceRadius(actor)
+	-- Calculate Presence / Surrounded value and set condition
+	calcBuffRadius(actor, "Presence")
+	calcBuffRadius(actor, "Surrounded")
 	local enemyDistance = m_max(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 0)
+	local surroundedMinimum= m_max(modDB:Sum("BASE", nil, "SurroundedMinimum"), 0)
 	condList["EnemyInPresence"] = output.PresenceRadius >= enemyDistance
+	condList["Surrounded"] = surroundedMinimum == 0 or surroundedMinimum == 1 and output.SurroundedRadius >= enemyDistance
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit

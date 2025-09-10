@@ -1405,6 +1405,8 @@ return {
 	}, },
 	{ label = "Presence Mod", haveOutput = "PresenceMod", { format = "{2:output:PresenceMod}", { breakdown = "PresenceMod" }, { modName = "PresenceRadius", cfg = "skill" }} , },
 	{ label = "Presence Radius", haveOutput = "PresenceRadius", { format = "{1:output:PresenceRadiusMetres}m", { breakdown = "PresenceRadius" }, { modName = "PresenceArea", cfg = "skill"} }, },
+	{ label = "Surrounded Mod", haveOutput = "SurroundedMod", { format = "{2:output:SurroundedMod}", { breakdown = "SurroundedMod" }, { modName = "SurroundedRadius", cfg = "skill" }} , },
+	{ label = "Surrounded Radius", haveOutput = "SurroundedRadius", { format = "{1:output:SurroundedRadiusMetres}m", { breakdown = "SurroundedRadius" }, { modName = "SurroundedArea", cfg = "skill"} }, },
 	{ label = "Chance to Blind", { format = "{0:mod:1}%", { modName = "BlindChance", modType = "BASE", cfg = "skill" }, }, },
 	{ label = "Chance to Daze", { format = "{0:mod:1}%", { modName = "DazeChance", modType = "BASE", cfg = "skill" }, }, },
 	{ label = "Chance to Rearm", haveOutput = "HazardRearmChance", { format = "{2:mod:1}%", { modName = "HazardRearmChance", modType = "BASE", cfg = "skill"}, }, },

@@ -208,6 +208,7 @@ data.misc = { -- magic numbers
 	TrapTriggerRadiusBase = 10,
 	MineDetonationRadiusBase = 60,
 	MineAuraRadiusBase = 35,
+	SurroundedRadiusBase = 30,
 	MinionRevivalTimeBase = data.characterConstants["global_resummon_time_ms"] / 1000,
 	BrandAttachmentRangeBase = 30,
 	ProjectileDistanceCap = 150,

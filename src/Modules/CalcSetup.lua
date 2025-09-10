@@ -91,6 +91,8 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("PhysicalDamageReduction", "BASE", -15, "Base", { type = "Condition", var = "Crushed" })
 	modDB:NewMod("CritChanceCap", "BASE", 100, "Base")
 	modDB:NewMod("PresenceRadius", "BASE", data.characterConstants["base_presence_radius"], "Base")
+	modDB:NewMod("SurroundedRadius", "BASE", data.misc.SurroundedRadiusBase, "Base")
+	modDB:NewMod("SurroundedMinimum", "BASE", data.gameConstants["BaseRequiredEnemiesToBeConsideredSurrounded"], "Base")
 	modDB.conditions["Buffed"] = env.mode_buffs
 	modDB.conditions["Combat"] = env.mode_combat
 	modDB.conditions["Effective"] = env.mode_effective
