@@ -1,66 +1,66 @@
 return {
 	{
-		-- "Beira of the Rotten Pack"
 		["Act"] = 1,
-		["Type"] = "",
+		["ActName"] = "Act 1",
 		["Area"] = "Clearfell",
+		["Info"] = "Beira",
 		["Stat"] = "+10% to Cold Resistance",
 		["AreaLevel"] = 2,
 		["useConfig"] = true
 	},
 	{
-		-- "The Crowbell"
 		["Act"] = 1,
-		["Type"] = "",
+		["ActName"] = "Act 1",
 		["Area"] = "Hunting Grounds",
+		["Info"] = "Crowbell",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 10,
 		["useConfig"] = false
 	},
 	{
-		-- "The King in the Mists"
 		["Act"] = 1,
-		["Type"] = "",
+		["ActName"] = "Act 1",
 		["Area"] = "Freythorn",
+		["Info"] = "King In The Mists",
 		["Stat"] = "+30 to Spirit",
 		["AreaLevel"] = 11,
 		["useConfig"] = true
 	},
 	{
-		-- Una's Lute
 		["Act"] = 1,
-		["Type"] = "",
+		["ActName"] = "Act 1",
 		["Area"] = "Ogham Farmlands",
+		["Info"] = "Una's Lute",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 12,
 		["useConfig"] = false
 	},
 	{
-		-- "Candlemass, the Living Rite"
 		["Act"] = 1,
-		["Type"] = "",
+		["ActName"] = "Act 1",
 		["Area"] = "Ogham Manor",
+		["Info"] = "Candlemass",
 		["Stat"] = "+20 to maximum Life",
 		["AreaLevel"] = 15,
 		["useConfig"] = true
 	},
 	{
-		-- "Kabala, Constrictor Queen"
 		["Act"] = 2,
-		["Type"] = "",
+		["ActName"] = "Act 2",
 		["Area"] = "Keth",
+		["Info"] = "Kabala",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 25,
 		["useConfig"] = false
 	},
 	{
-		-- "Medallion"
 		["Act"] = 2,
-		["Type"] = "",
+		["ActName"] = "Act 2",
 		["Area"] = "Valley of the Titans",
+		["Info"] = "Medallion",
 		["Options"] = {
 			"30% increased Charm Charges Gained\n\t+1 Charm Slot",
 			"30% increased Charm Effect Duration\n\t+1 Charm Slot",
@@ -69,48 +69,48 @@ return {
 		["useConfig"] = true
 	},
 	{
-		-- "Final Letter"
 		["Act"] = 2,
-		["Type"] = "",
+		["ActName"] = "Act 2",
 		["Area"] = "Deshar",
+		["Info"] = "The Final Letter",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 28,
 		["useConfig"] = false
 	},
 	{
-		-- "Sisters of Garukhan Shrine"
 		["Act"] = 2,
-		["Type"] = "",
-		["Area"] = "The Spires of Deshar",
+		["ActName"] = "Act 2",
+		["Area"] = "Spires of Deshar",
+		["Info"] = "Sisters of Garukhan Shrine",
 		["Stat"] = "+10% to Lightning Resistance",
 		["AreaLevel"] = 30,
 		["useConfig"] = true
 	},
 	{
-		-- "Mighty Silverfist"
 		["Act"] = 3,
-		["Type"] = "",
+		["ActName"] = "Act 3",
 		["Area"] = "Jungle Ruins",
+		["Info"] = "Mighty Silverfist",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 34,
 		["useConfig"] = false
 	},
 	{
-		-- "Ignagduk, the Bog Witch"
 		["Act"] = 3,
-		["Type"] = "",
-		["Area"] = "The Azak Bog",
+		["ActName"] = "Act 3",
+		["Area"] = "Azak Bog",
+		["Info"] = "Ignagduk",
 		["Stat"] = "+30 to Spirit",
 		["AreaLevel"] = 36,
 		["useConfig"] = true
 	},
 	{
-		-- "Venom Draught"
 		["Act"] = 3,
-		["Type"] = "",
-		["Area"] = "The Venom Crypts",
+		["ActName"] = "Act 3",
+		["Area"] = "Venom Crypts",
+		["Info"] = "Venom Draught",
 		["Options"] = {
 			"25% increased Stun Threshold",
 			"30% increased Elemental Ailment Threshold",
@@ -120,48 +120,48 @@ return {
 		["useConfig"] = true
 	},
 	{
-		-- "Blackjaw, the Remnant"
 		["Act"] = 3,
-		["Type"] = "",
+		["ActName"] = "Act 3",
 		["Area"] = "Jiquani's Machinarium",
+		["Info"] = "Blackjaw",
 		["Stat"] = "+10% to Fire Resistance",
 		["AreaLevel"] = 37,
 		["useConfig"] = true
 	},
 	{
-		-- "Blood Sacrifice"
 		["Act"] = 3,
-		["Type"] = "",
+		["ActName"] = "Act 3",
 		["Area"] = "Aggorat",
+		["Info"] = "Blood Sacrifice",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 44,
 		["useConfig"] = false
 	},
 	{
-		-- The Blind Beast
 		["Act"] = 4,
-		["Type"] = "",
+		["ActName"] = "Act 4",
 		["Area"] = "Isle Of Kin",
+		["Info"] = "Blind Beast",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 51,
 		["useConfig"] = false
 	},
 	{
-		-- Silent Hall
 		["Act"] = 4,
-		["Type"] = "",
+		["ActName"] = "Act 4",
 		["Area"] = "Eye of Hinekora",
+		["Info"] = "Silent Hall",
 		["Stat"] = "5% increased Maximum Mana",
 		["AreaLevel"] = 51,
 		["useConfig"] = true
 	},
 	{
-		-- Halls of the dead
 		["Act"] = 4,
-		["Type"] = "",
-		["Area"] = "Tawhoa's Test",
+		["ActName"] = "Act 4",
+		["Area"] = "Halls Of The Dead",
+		["Info"] = "Tawhoa's Test",
 		["Options"] = {
 			"+5 to Dexterity",
 			"+5% to Lightning Resistance",
@@ -170,10 +170,10 @@ return {
 		["useConfig"] = true
 	},
 	{
-		-- Halls of the dead
 		["Act"] = 4,
-		["Type"] = "",
-		["Area"] = "Tasalio's Test",
+		["ActName"] = "Act 4",
+		["Area"] = "Halls Of The Dead",
+		["Info"] = "Tasalio's Test",
 		["Options"] = {
 			"+5 to Intelligence",
 			"+5% to Cold Resistance",
@@ -182,10 +182,10 @@ return {
 		["useConfig"] = true
 	},
 	{
-		-- Halls of the dead
 		["Act"] = 4,
-		["Type"] = "",
-		["Area"] = "Ngamahu's Test",
+		["ActName"] = "Act 4",
+		["Area"] = "Halls Of The Dead",
+		["Info"] = "Ngamahu's Test",
 		["Options"] = {
 			"+5 to Strength",
 			"+5% to Fire Resistance",
@@ -194,20 +194,20 @@ return {
 		["useConfig"] = true
 	},
 	{
-		-- Hinekora
 		["Act"] = 4,
-		["Type"] = "",
+		["ActName"] = "Act 4",
 		["Area"] = "Trial Of The Ancestors",
+		["Info"] = "Hinekora",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 51,
 		["useConfig"] = false
 	},
 	{
-		-- "Goddess of Justice"
 		["Act"] = 4,
-		["Type"] = "",
-		["Area"] = "Abandoned prison",
+		["ActName"] = "Act 4",
+		["Area"] = "Abandoned Prison",
+		["Info"] = "Goddess of Justice",
 		["Options"] = {
 			"30% increased Life Recovery from Flasks",
 			"30% increased Mana Recovery from Flasks",
@@ -216,39 +216,39 @@ return {
 		["useConfig"] = true
 	},
 	{
-		-- "Oswin, the Dread Warden"
 		["Act"] = 5,
-		["Type"] = "Interlude 1",
+		["ActName"] = "Interlude 1",
 		["Area"] = "Wolvenhold",
+		["Info"] = "Oswin",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 64,
 		["useConfig"] = false
 	},
 	{
-		-- "Clearing The Way"
 		["Act"] = 5,
-		["Type"] = "Interlude 2",
+		["ActName"] = "Interlude 2",
 		["Area"] = "Khari Bazaar",
+		["Info"] = "Clearing The Way",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 61,
 		["useConfig"] = false
 	},
 	{
-		-- "Molten Shrine"
 		["Act"] = 5,
-		["Type"] = "Interlude 2",
-		["Area"] = "The Khari Crossing",
+		["ActName"] = "Interlude 2",
+		["Area"] = "Khari Crossing",
+		["Info"] = "Molten Shrine",
 		["Stat"] = "5% increased maximum Life",
 		["AreaLevel"] = 61,
 		["useConfig"] = true
 	},
 	{
-		-- "The Seven Pillars"
 		["Act"] = 5,
-		["Type"] = "Interlude 2",
+		["ActName"] = "Interlude 2",
 		["Area"] = "Qimah",
+		["Info"] = "Seven Pillars",
 		["Options"] = {
 			"+5% to Elemental Resistances",
 			"3% increased Movement Speed",
@@ -262,29 +262,29 @@ return {
 		["useConfig"] = true
 	},
 	{
-		-- "Lythara, the Wayward Spear"
 		["Act"] = 5,
-		["Type"] = "Interlude 3",
+		["ActName"] = "Interlude 3",
 		["Area"] = "Kriar Village",
+		["Info"] = "Lythara",
 		["Stat"] = "+40 to Spirit",
 		["AreaLevel"] = 61,
 		["useConfig"] = true
 	},
 	{
-		-- "The Abominable Yeti"
 		["Act"] = 5,
-		["Type"] = "Interlude 3",
+		["ActName"] = "Interlude 3",
 		["Area"] = "Howling Caves",
+		["Info"] = "Abominable Yeti",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 62,
 		["useConfig"] = false
 	},
 	{
-		-- "Siege Of Oriath"
 		["Act"] = 6,
-		["Type"] = "Epilog",
+		["ActName"] = "Epilog",
 		["Area"] = "Kingsmarch",
+		["Info"] = "Siege Of Oriath",
 		["Stat"] = "+2 Weapon Set Passive Skill Points",
 		["questPoints"] = 2,
 		["AreaLevel"] = 62,

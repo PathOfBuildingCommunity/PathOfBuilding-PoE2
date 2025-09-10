@@ -55,7 +55,7 @@ end
 
 local function addQuestModsRewardsConfigOptions(configSettings)
 	table.insert(configSettings, { section = "Quest Rewards", col = 3 })
-	
+
 	-- Loop through sections of line to apply multiple mods
 	local function applyModsFromString(source, str, modList)
 		for line in tostring(str):gmatch("[^\r\n]+") do
@@ -69,16 +69,16 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 		if quest.useConfig == false then
 			goto continue
 		end
-		local key   = "questAct" .. quest.Act .. quest.Type .. quest.Area
-		local label = string.format("Act %d %s: %s", quest.Act, quest.Type, quest.Area)
-		local source = string.format("Quest:Act %d %s %s", quest.Act, quest.Type, quest.Area)
+		local key = "questAct" .. quest.Act .. quest.ActName .. quest.Area .. quest.Info
+		local label = string.format("%s: %s", quest.ActName, quest.Area)
+		local source = string.format("Quest:%s: %s", quest.ActName, quest.Area)
 		if quest.Stat then
 			table.insert(configSettings, {
 				var = key,
 				label = label,
 				type = "check",
 				defaultState = true,
-				tooltip = quest.Stat,
+				tooltip = "^x88FFFF" .. quest.Info .. "^7\n" .. quest.Stat,
 				apply = function(val, modList, enemyModList)
 					applyModsFromString(source, quest.Stat, modList)
 				end
@@ -94,7 +94,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				type = "list",
 				list = listOptions,
 				defaultIndex = 1,
-				tooltip = "Choose one of the following options:\n" .. table.concat(quest.Options, "\n"),
+				tooltip = "^x88FFFF" .. quest.Info .. "^7\nOne of the following:\n" .. table.concat(quest.Options, "\n"),
 				apply = function(val, modList, enemyModList)
 				if val == "None" then
 					return
