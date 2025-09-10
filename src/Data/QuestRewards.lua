@@ -123,7 +123,7 @@ return {
 		-- "Blackjaw, the Remnant"
 		["Act"] = 3,
 		["Type"] = "",
-		["Area"] = "Jiquanis Machinarium",
+		["Area"] = "Jiquani's Machinarium",
 		["Stat"] = "+10% to Fire Resistance",
 		["AreaLevel"] = 37,
 		["useConfig"] = true
@@ -256,7 +256,7 @@ return {
 			"20% increased Presence Area Of Effect",
 			"12% increased Cooldown Recovery Rate",
 			"+5 to all Attributes",
-			"5% increased Experience Gain\n\t-5% to Elemental Resistances\n\t3% reduced Movement Speed\n\t15% reduced Global Defences\n\t20% reduced Presence Area Of Effect\n\t12% reduced Cooldown Recovery Rate\n\t-5 to all Attributes", 
+			"5% increased Experience Gain\n\t-5% to Elemental Resistances\n\t3% reduced Movement Speed\n\t15% reduced Global Defences\n\t20% reduced Presence Area Of Effect\n\t12% reduced Cooldown Recovery Rate\n\t5% reduced Attributes",
 		},
 		["AreaLevel"] = 63,
 		["useConfig"] = true
