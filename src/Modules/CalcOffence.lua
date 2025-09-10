@@ -1210,7 +1210,7 @@ function calcs.offence(env, actor, activeSkill)
 				output.PierceCount = 100
 				output.PierceCountString = "All targets"
 			else
-				output.PierceCount = skillModList:Sum("BASE", skillCfg, "PierceCount")
+				output.PierceCount = skillModList:Sum("BASE", skillCfg, "PierceCount") + skillModList:Sum("BASE", skillCfg, "PierceChance") / 100
 				output.PierceCountString = output.PierceCount
 			end
 			if output.PierceCount > 0 then
