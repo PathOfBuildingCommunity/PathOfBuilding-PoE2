@@ -2457,11 +2457,17 @@ local specialModList = {
 	["leeche?s? ([%d%.]+)%% of (%a+) damage as life"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num),
 	} end,
+	["leeche?s? ([%d%.]+)%% of (%a+) damage as energy shield"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageEnergyShieldLeech", "BASE", num),
+	} end,
 	["leeche?s? ([%d%.]+)%% of (%a+) attack damage as mana"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageManaLeech", "BASE", num, nil, ModFlag.Attack, 0),
 	} end,
 	["leeche?s? ([%d%.]+)%% of (%a+) attack damage as life"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num, nil, ModFlag.Attack, 0),
+	} end,
+	["leeche?s? ([%d%.]+)%% of (%a+) attack damage as energy shield"] = function(num, _, dmgType) return {
+		mod(firstToUpper(dmgType) .. "DamageEnergyShieldLeech", "BASE", num, nil, ModFlag.Attack, 0),
 	} end,
 	["(%a+%s?%a*) leech recovers based on y?o?u?r? ?(%a+) damage as well as physical damage"] = function(_, resource, dmgType)
 		local resourceTable = {
