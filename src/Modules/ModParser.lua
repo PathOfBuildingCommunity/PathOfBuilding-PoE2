@@ -2463,6 +2463,44 @@ local specialModList = {
 	["leeche?s? ([%d%.]+)%% of (%a+) attack damage as life"] = function(num, _, dmgType) return {
 		mod(firstToUpper(dmgType) .. "DamageLifeLeech", "BASE", num, nil, ModFlag.Attack, 0),
 	} end,
+	["(%a+%s?%a*) leech recovers based on y?o?u?r? ?(%a+) damage as well as physical damage"] = function(_, resource, dmgType)
+		local resourceTable = {
+			["life"] = "Life",
+			["mana"] = "Mana",
+			["energy shield"] = "EnergyShield",
+		}
+		if resourceTable[resource] then
+			return { flag(resourceTable[resource] .. "LeechBasedOn" .. firstToUpper(dmgType) .. "Damage"), }
+		else
+			return { nil }
+		end
+	end,
+	["(%a+%s?%a*) leech recovers based on y?o?u?r? ?(%a+) damage instead of physical damage"] = function(_, resource, dmgType)
+		local resourceTable = {
+			["life"] = "Life",
+			["mana"] = "Mana",
+			["energy shield"] = "EnergyShield",
+		}
+		if resourceTable[resource] then
+			return { flag(resourceTable[resource] .. "LeechBasedOn" .. firstToUpper(dmgType) .. "Damage"), flag("Condition:No" .. resourceTable[resource] .. "LeechFromPhysicalDamage"), }
+		else
+			return { nil }
+		end
+	end,
+	["leech recovers based on y?o?u?r? ?(%a+) damage as well as physical damage"] = function(_, dmgType)
+		return { 
+			flag("LifeLeechBasedOn" .. firstToUpper(dmgType) .. "Damage"), 
+			flag("ManaLeechBasedOn" .. firstToUpper(dmgType) .. "Damage"), 
+			flag("EnergyShieldLeechBasedOn" .. firstToUpper(dmgType) .. "Damage"),
+		}
+	end,
+	["leech recovers based on y?o?u?r? ?(%a+) damage instead of physical damage"] = function(_, dmgType)
+		return { 
+			flag("LifeLeechBasedOn" .. firstToUpper(dmgType) .. "Damage"), flag("Condition:NoLifeLeechFromPhysicalDamage"), 
+			flag("ManaLeechBasedOn" .. firstToUpper(dmgType) .. "Damage"), flag("Condition:NoManaLeechFromPhysicalDamage"), 
+			flag("EnergyShieldLeechBasedOn" .. firstToUpper(dmgType) .. "Damage"), flag("Condition:NoEnergyShieldLeechFromPhysicalDamage"), 
+		}
+	end,
 	-- Amazon
 	["chance to hit with attacks can exceed 100%%"] = {flag("Condition:HitChanceCanExceed100", { type = "Skilltype", skillType = SkillType.Attack})},
 	["gain additional critical hit chance equal to (%d+)%% of excess chance to hit with attacks"] = function(num) return { mod("CritChance", "BASE", 0.01 * num, { type = "Multiplier", var = "ExcessHitChance" }, { type = "SkillType", skillType = SkillType.Attack})} end,
@@ -2472,7 +2510,6 @@ local specialModList = {
 		mod(firstToUpper(dmgType) .. "Min", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
 		mod(firstToUpper(dmgType) .. "Max", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 2", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "OffHandAttack" }),
 	} end,
-	["life leech recovers based on your elemental damage as well as physical damage"] = { flag("LifeLeechBasedOnElementalDamage"), },
 	["evasion rating from equipped helmet, gloves and boots is doubled"] = { mod("Evasion", "MORE", 100, { type = "SlotName", slotNameList = { "Helmet", "Boots", "Gloves" } })	},
 	["evasion rating from equipped body armour is halved"] = { mod("Evasion", "MORE", -50, { type = "SlotName", slotName = "Body Armour" }) },
 	-- Ascendant
@@ -3046,7 +3083,10 @@ local specialModList = {
 		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
 	["effect and duration of flames of chayula on you is doubled"] = { mod("Multiplier:FlameEffect", "BASE", 1) } ,
-	["mana leech recovers based on other damage types damage as well as physical damage"] = { flag("PhysicalAsAllDamageManaLeech") },
+	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
+		flag("ManaLeechBasedOnElementalDamage"),
+		flag("ManaLeechBasedOnChaosDamage"), 
+	},
 	-- Monk - Invoker
 	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("IgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
 	["(%d+)%% chance on shocking enemies to created shocked ground"] = { mod("ShockBase", "BASE", data.nonDamagingAilment["Shock"].default, { type = "ActorCondition", actor = "enemy", var = "OnShockedGround" }) },
