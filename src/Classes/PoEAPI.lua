@@ -80,8 +80,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 	if id then
 		launch.subScripts[id] = {
 			type = "DOWNLOAD",
-			callback = function(response, errMsg)
-				local code, state, port = unpack(response or {})
+			callback = function(code, errMsg, state, port)
 				if not code then
 					ConPrintf("Failed to get code from server: %s", errMsg)
 					self.authToken = nil
