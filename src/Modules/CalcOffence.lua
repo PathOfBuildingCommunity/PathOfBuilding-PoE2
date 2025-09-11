@@ -3279,7 +3279,7 @@ function calcs.offence(env, actor, activeSkill)
 
 			if critOverride == 100 then
 				output.PreEffectiveCritChance = 100
-				output.PreForkCritChance = 100
+				output.PreBifurcateCritChance = 100
 				output.CritChance = 100
 			else
 				local base = 0
@@ -3305,9 +3305,9 @@ function calcs.offence(env, actor, activeSkill)
 				if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
 				end
-				output.PreForkCritChance = output.CritChance
-				local preForkCritChance = output.CritChance
-				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+				output.PreBifurcateCritChance = output.CritChance
+				local preBifurcateCritChance = output.CritChance
+				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
 				end
 				if breakdown and output.CritChance ~= baseCrit then
@@ -3339,11 +3339,11 @@ function calcs.offence(env, actor, activeSkill)
 					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
 						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preLuckyCritChance / 100, preLuckyCritChance / 100))
-						t_insert(breakdown.CritChance, s_format("= %.2f%%", preForkCritChance))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preBifurcateCritChance))
 					end
-					if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
-						t_insert(breakdown.CritChance, "Critical Strike Forks:")
-						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preForkCritChance / 100, preForkCritChance / 100))
+					if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
+						t_insert(breakdown.CritChance, "Critical Strike Bifurcates:")
+						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preBifurcateCritChance / 100, preBifurcateCritChance / 100))
 						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
 					end
 				end
@@ -3363,23 +3363,23 @@ function calcs.offence(env, actor, activeSkill)
 				end
 
 				output.PreEffectiveCritMultiplier = 1 + extraDamage
-				-- if crit forks are enabled, roll for crit twice and add multiplier for each
-				if env.mode_effective and skillModList:Flag(cfg, "ForkCrit") then
+				-- if crit bifurcates are enabled, roll for crit twice and add multiplier for each
+				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 					-- get crit chance and calculate odds of critting twice
-					local critChancePercentage = output.PreForkCritChance
-					local forkMultiChance = (critChancePercentage ^ 2) / 100
-					output.CritForks = forkMultiChance
+					local critChancePercentage = output.PreBifurcateCritChance
+					local bifurcateMultiChance = (critChancePercentage ^ 2) / 100
+					output.CritBifurcates = bifurcateMultiChance
 					local damageBonus = extraDamage
-					local forkedBonus = forkMultiChance * extraDamage / 100
+					local bifurcatedBonus = bifurcateMultiChance * extraDamage / 100
 					if breakdown and enemyInc ~= 1 then
-						breakdown.CritForks = {
+						breakdown.CritBifurcates = {
 							s_format("%.2f%% ^8(effective crit chance)", critChancePercentage),
 							s_format("x %.2f%%", critChancePercentage),
-							s_format("= %.2f%% ^8(crit forks chance)", forkMultiChance),
+							s_format("= %.2f%% ^8(crit Bifurcates chance)", bifurcateMultiChance),
 						}
 					end
-					extraDamage = damageBonus + forkedBonus
-					skillModList:NewMod("CritMultiplier", "MORE", floor(forkMultiChance, 2), "Forked Crit Damage Bonus")
+					extraDamage = damageBonus + bifurcatedBonus
+					skillModList:NewMod("CritMultiplier", "MORE", floor(bifurcateMultiChance, 2), "Bifurcated Crit Damage Bonus")
 				end
 
 				if env.mode_effective then
@@ -4064,7 +4064,7 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("CritChance", "AVERAGE")
 		combineStat("PreEffectiveCritMultiplier", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
-		combineStat("CritForks", "AVERAGE")
+		combineStat("CritBifurcates", "AVERAGE")
 		combineStat("AverageDamage", "DPS")
 		combineStat("PvpAverageDamage", "DPS")
 		combineStat("TotalDPS", "DPS")
