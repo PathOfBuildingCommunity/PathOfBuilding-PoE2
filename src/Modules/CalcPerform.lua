@@ -572,7 +572,8 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("ChaosDamageTaken", "INC", effect, "Withered", { type = "Multiplier", var = "WitheredStack", limit = 10 } )
 		end
 		if enemyDB:Flag(nil, "Condition:ArmourFullyBroken") then
-			enemyDB:NewMod("PhysicalDamageTaken", "INC", 20, "Fully Broken Armour", ModFlag.Hit)
+			local effect = 20 * (1 + modDB:Sum("INC", nil, "FullyBrokenArmourEffect") / 100)
+			enemyDB:NewMod("PhysicalDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
 		end
 		if modDB:Flag(nil, "Blind") and not modDB:Flag(nil, "CannotBeBlinded") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
