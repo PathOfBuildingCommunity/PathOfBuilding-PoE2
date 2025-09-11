@@ -345,13 +345,13 @@ return {
 		{ label = "Tvalue Override (ms)", modName = "MultiplierPvpTvalueOverride" }, 
 		{ label = "PvP Multiplier", cfg = "skill", modName = "PvpDamageMultiplier" }, 
 	}, },
-	{ label = "Skill DPS", flag = "notAverage", notFlag = "triggered", { format = "{1:output:TotalDPS}", { breakdown = "TotalDPS" }, { label = "DPS Multiplier", modName = "DPS" }, }, },
+	{ label = "Skill DPS", flag = "notAverage", notFlag = "triggered", { format = "{1:output:TotalDPS}", { breakdown = "TotalDPS" }, { label = "DPS Multiplier", modName = "DPS", cfg = "skill" }, }, },
 	{ label = "Skill PvP DPS", flag = "notAveragePvP", { format = "{1:output:PvpTotalDPS}", { breakdown = "PvpTotalDPS" }, 
 		{ label = "Tvalue Override (ms)", modName = "MultiplierPvpTvalueOverride" }, 
 		{ label = "PvP Multiplier", cfg = "skill", modName = "PvpDamageMultiplier" },  
 		{ label = "DPS Multiplier", modName = "DPS" }, 
 	}, },
-	{ label = "Skill DPS", flag = "triggered", { format = "{1:output:TotalDPS}", { breakdown = "TotalDPS" }, { label = "DPS Multiplier", modName = "DPS" }, }, },
+	{ label = "Skill DPS", flag = "triggered", { format = "{1:output:TotalDPS}", { breakdown = "TotalDPS" }, { label = "DPS Multiplier", modName = "DPS", cfg = "skill" }, }, },
 } }
 } },
 { 3, "Warcries", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Exerting Warcries", data = {

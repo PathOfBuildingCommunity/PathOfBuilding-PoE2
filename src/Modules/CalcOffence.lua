@@ -892,14 +892,15 @@ function calcs.offence(env, actor, activeSkill)
 	if skillModList:Flag(nil, "SequentialProjectiles") and not skillModList:Flag(nil, "OneShotProj") and not skillModList:Flag(nil,"NoAdditionalProjectiles") and not skillModList:Flag(nil, "TriggeredBySnipe") then
 		-- Applies DPS multiplier based on projectile count
 		if skillModList:Sum("BASE", skillCfg, "BarrageRepeats") > 0 then
-			skillData.dpsMultiplier = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * (calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage"))
+			local dpsMulti = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * (calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage"))
+			skillModList:NewMod("DPS", "MORE", dpsMulti, "Barrage Repeats")
 		else
 			local additionalProjectiles = calcLib.val(skillModList, "ProjectileCount", skillCfg) - 1
 			if additionalProjectiles > 0 then
 				local barrageAttackTimePenalty = skillModList:Sum("BASE", skillCfg, "BarrageAttackTimePenalty") 
 				if barrageAttackTimePenalty == 0 then barrageAttackTimePenalty = 100 end -- If not otherwise specified on the skill, each additional projectile adds 100% of attack time
 				skillModList:ReplaceMod("SkillAttackTime", "MORE", barrageAttackTimePenalty * additionalProjectiles, activeSkill.activeEffect.grantedEffect.name .. s_format(": %d%% attack time per add. projectile", barrageAttackTimePenalty) )
-				skillData.dpsMultiplier = skillModList:Sum("BASE", skillCfg, "ProjectileCount")
+				skillModList:NewMod("DPS", "MORE", skillModList:Sum("BASE", skillCfg, "ProjectileCount"), "Barrage Repeats")
 			end
 		end
 	end
@@ -1054,10 +1055,10 @@ function calcs.offence(env, actor, activeSkill)
 					local mod = value.mod
 					skillModList:NewMod("CritChance", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 				end
-				env.player.mainSkill.skillData.dpsMultiplier = (1 + output.SealMax * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty"))
+				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", (output.SealMax * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty")) * 100, "Unleash")
 				env.player.mainSkill.skillData.hitTimeOverride = m_max(output.TimeMaxSeals, totalCastSpeed * 1.1)
 			else
-				env.player.mainSkill.skillData.dpsMultiplier = 1 + 1 / output.SealCooldown / (totalCastSpeed * 1.1) * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty")
+				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", round(1 / output.SealCooldown / (totalCastSpeed * 1.1) * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") * 100, 2), "Unleash")
 			end
 		end
 
@@ -2784,9 +2785,8 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 	-- Other Misc DPS multipliers (like custom source)
-	skillData.dpsMultiplier = ( skillData.dpsMultiplier or 1 ) * ( 1 + skillModList:Sum("INC", skillCfg, "DPS") / 100 ) * skillModList:More(skillCfg, "DPS")
 	if env.configInput.repeatMode == "FINAL" or skillModList:Flag(nil, "OnlyFinalRepeat") then
-		skillData.dpsMultiplier = skillData.dpsMultiplier / (output.Repeats or 1)
+		skillModList:NewMod("DPS", "MORE", -100 / (output.Repeats or 1), "Only Final Repeat")
 	end
 	if skillModList:Flag(nil, "TriggeredBySnipe") then
 		skillFlags.channelRelease = true
@@ -3169,7 +3169,7 @@ function calcs.offence(env, actor, activeSkill)
 					output.RuthlessBlowChance = round(100 / output.RuthlessBlowMaxCount)
 				elseif ruthlessEffect == "MAX" then
 					output.RuthlessBlowChance = 100
-					skillData.dpsMultiplier = skillData.dpsMultiplier / (output.RuthlessBlowMaxCount or 1)
+					skillModList:NewMod("DPS", "MORE", -100 / (output.RuthlessBlowMaxCount or 1), "Only Ruthless Blows")
 				end
 			else
 				output.RuthlessBlowChance = 0
@@ -3434,6 +3434,8 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		output.DoubleDamageEffect = output.DoubleDamageChance / 100
 		output.ScaledDamageEffect = output.ScaledDamageEffect * (1 + output.DoubleDamageEffect + output.TripleDamageEffect)
+		
+		skillData.dpsMultiplier = ( skillData.dpsMultiplier or 1 ) * calcLib.mod(skillModList, skillCfg, "DPS")
 
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier
 
