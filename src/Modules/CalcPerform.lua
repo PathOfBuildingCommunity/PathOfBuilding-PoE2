@@ -194,31 +194,33 @@ local function doActorAttribsConditions(env, actor)
 		end
 	end
 	if actor.weaponData2.type then
-		local info = env.data.weaponTypeInfo[actor.weaponData2.type]
-		condList["Using"..info.flag] = true
-		if actor.weaponData2.countsAsAll1H then
-			actor.weaponData2["AddedUsingAxe"] = not condList["UsingAxe"]
-			condList["UsingAxe"] = true
-			actor.weaponData2["AddedUsingSword"] = actor.weaponData2.name:match("Varunastra") or not condList["UsingSword"] --Varunastra is a sword
-			condList["UsingSword"] = true
-			actor.weaponData2["AddedUsingDagger"] = not condList["UsingDagger"]
-			condList["UsingDagger"] = true
-			actor.weaponData2["AddedUsingMace"] = not condList["UsingMace"]
-			condList["UsingMace"] = true
-			actor.weaponData2["AddedUsingClaw"] = not condList["UsingClaw"]
-			condList["UsingClaw"] = true
-			actor.weaponData2["AddedUsingSpear"] = not condList["UsingSpear"]
-			condList["UsingSpear"] = true
-			-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
-			condList["WieldingDifferentWeaponTypes"] = true
-		end
-		if info.melee then
-			condList["UsingMeleeWeapon"] = true
-		end
-		if info.oneHand then
-			condList["UsingOneHandedWeapon"] = true
-		else
-			condList["UsingTwoHandedWeapon"] = true
+		if actor.weaponData2.type ~= "None" then
+			local info = env.data.weaponTypeInfo[actor.weaponData2.type]
+			condList["Using"..info.flag] = true
+			if actor.weaponData2.countsAsAll1H then
+				actor.weaponData2["AddedUsingAxe"] = not condList["UsingAxe"]
+				condList["UsingAxe"] = true
+				actor.weaponData2["AddedUsingSword"] = actor.weaponData2.name:match("Varunastra") or not condList["UsingSword"] --Varunastra is a sword
+				condList["UsingSword"] = true
+				actor.weaponData2["AddedUsingDagger"] = not condList["UsingDagger"]
+				condList["UsingDagger"] = true
+				actor.weaponData2["AddedUsingMace"] = not condList["UsingMace"]
+				condList["UsingMace"] = true
+				actor.weaponData2["AddedUsingClaw"] = not condList["UsingClaw"]
+				condList["UsingClaw"] = true
+				actor.weaponData2["AddedUsingSpear"] = not condList["UsingSpear"]
+				condList["UsingSpear"] = true
+				-- GGG stated that a single Varunastra satisfied requirement for wielding two different weapons
+				condList["WieldingDifferentWeaponTypes"] = true
+			end
+			if info.melee then
+				condList["UsingMeleeWeapon"] = true
+			end
+			if info.oneHand then
+				condList["UsingOneHandedWeapon"] = true
+			else
+				condList["UsingTwoHandedWeapon"] = true
+			end
 		end
 	end
 	if actor.weaponData1.type and actor.weaponData2.type then
