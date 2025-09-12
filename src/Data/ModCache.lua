@@ -1430,7 +1430,7 @@ c["15% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywor
 c["15% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance against Blinded Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
-c["15% increased Critical Hit Chance against Enemies that have entered your Presence Recently"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},"  against Enemies that have entered your Presence Recently "}
+c["15% increased Critical Hit Chance against Enemies that have entered your Presence Recently"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="EnteredPresenceRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance with Daggers"]={{[1]={flags=524292,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
@@ -2702,7 +2702,7 @@ c["50% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifie
 c["50% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=50}},nil}
 c["50% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=50}},nil}
 c["50% increased Cost of Skills for each 200 total Mana Spent Recently"]={{[1]={[1]={div=200,type="Multiplier",var="ManaSpentRecently"},flags=0,keywordFlags=0,name="Cost",type="INC",value=50}},nil}
-c["50% increased Critical Damage Bonus against Enemies that have exited your Presence Recently"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=50}},"  against Enemies that have exited your Presence Recently "}
+c["50% increased Critical Damage Bonus against Enemies that have exited your Presence Recently"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="ExitedPresenceRecently"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=50}},nil}
 c["50% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=50}},nil}
 c["50% increased Critical Hit Chance against Blinded Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=50}},nil}
 c["50% increased Critical Hit Chance against Enemies on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=50}},nil}
@@ -4417,7 +4417,7 @@ c["Doubles Mana Costs"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="MORE
 c["Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life"]={nil,"Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life "}
 c["Drop Shocked Ground while moving, lasting 8 seconds"]={nil,"Drop Shocked Ground while moving, lasting 8 seconds "}
 c["Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow"]={nil,"Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow "}
-c["Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
+c["Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Multiplier",var="TotemsSummoned"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=2}}}},nil}
 c["Effect is not removed when Unreserved Life is Filled"]={nil,"Effect is not removed when Unreserved Life is Filled "}
 c["Effect is not removed when Unreserved Life is Filled 30% of Damage taken during effect Recouped as Life"]={nil,"Effect is not removed when Unreserved Life is Filled 30% of Damage taken during effect Recouped as Life "}
 c["Effect is not removed when Unreserved Mana is Filled"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskEffectNotRemoved",type="FLAG",value=true}},nil}

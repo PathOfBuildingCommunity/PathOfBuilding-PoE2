@@ -1564,6 +1564,12 @@ Huge sets the radius to 11.
 	{ var = "enemyMultiplierEnemyPresenceSeconds", type = "count", label = "Enemy in Your Presence Duration", tooltip = "Number of seconds the enemy has been in your presence.", ifEnemyMult = "EnemyPresenceSeconds", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:EnemyPresenceSeconds", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
+	{ var = "conditionEnemyExitedPresenceRecently", type = "check", label = "Enemy exited Presence Recently?", ifEnemyCond = "ExitedPresenceRecently", tooltip = "Enemy has exited your Presence recently", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:ExitedPresenceRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "conditionEnemyExitedPresenceRecently", type = "check", label = "Enemy entered Presence Recently?", ifEnemyCond = "EnteredPresenceRecently", tooltip = "Enemy has entered your Presence recently", apply = function(val, modList, enemyModList)
+		enemyModList:NewMod("Condition:EnteredPresenceRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionEnemyMoving", type = "check", label = "Is the enemy Moving?", ifMod = "BleedChance", tooltip = "Bleeding deals an extra 100% damage while the target is moving, or if the Bleeding is Aggravated", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:Moving", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },

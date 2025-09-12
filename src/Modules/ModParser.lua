@@ -1794,6 +1794,8 @@ local modTagList = {
 	["while there is only one nearby enemy"] = { tagList = { { type = "Multiplier", var = "NearbyEnemies", limit = 1 }, { type = "Condition", var = "OnlyOneNearbyEnemy" } } },
 	["while t?h?e?r?e? ?i?s? ?a rare or unique enemy i?s? ?nearby"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "NearbyRareOrUniqueEnemy", "RareOrUnique" } } },
 	["while a rare or unique enemy is in your presence"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "NearbyRareOrUniqueEnemy", "RareOrUnique" } } },
+	["against enemies that have exited your presence recently"] = { tag = { type = "ActorCondition", actor = "enemy", var = "ExitedPresenceRecently" } },
+	["against enemies that have entered your presence recently"] = { tag = { type = "ActorCondition", actor = "enemy", var = "EnteredPresenceRecently" } },
 	["if you[' ]h?a?ve been stunned recently"] = { tag = { type = "Condition", var = "StunnedRecently" } },
 	["if you[' ]h?a?ve been heavy stunned recently"] = { tag = { type = "Condition", var = "StunnedRecently" } },
 	["if you haven't been stunned recently"] = { tag = { type = "Condition", var = "StunnedRecently", neg = true } },
@@ -4271,6 +4273,7 @@ local specialModList = {
 	["you can cast (%d+) additional brands"] = function(num) return { mod("ActiveBrandLimit", "BASE", num) } end,
 	["(%d+)%% increased damage while you are wielding a bow and have a totem"] = function(num) return { mod("Damage", "INC", num, { type = "Condition", var = "HaveTotem" }, { type = "Condition", var = "UsingBow" }) } end,
 	["each totem applies (%d+)%% increased damage taken to enemies near it"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
+	["each totem applies (%d+)%% increased damage taken to enemies in their presence"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["totems gain %+(%d+)%% to (%w+) resistance"] = function(num, _, resistance) return { mod("Totem"..firstToUpper(resistance).."Resist", "BASE", num) } end,
 	["totems gain %+(%d+)%% to all elemental resistances"] = function(num) return { mod("TotemElementalResist", "BASE", num) } end,
 	-- Minions
