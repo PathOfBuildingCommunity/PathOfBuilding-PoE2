@@ -4580,12 +4580,11 @@ c["Gain 15 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKil
 c["Gain 15 Mana per Enemy Hit with Attacks"]={{[1]={flags=4,keywordFlags=65536,name="ManaOnHit",type="BASE",value=15}},nil}
 c["Gain 15 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=15}},nil}
 c["Gain 15% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=15}},nil}
-c["Gain 15% of Damage as Extra Cold Damage while on Chilled Ground"]={{[1]={[1]={type="Condition",var="OnChilledGround"},flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=15}},"   while  "}
+c["Gain 15% of Damage as Extra Cold Damage while on Chilled Ground"]={{[1]={[1]={type="Condition",var="OnChilledGround"},flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=15}},nil}
 c["Gain 15% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=15}},nil}
-c["Gain 15% of Damage as Extra Fire Damage while on Ignited Ground"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=15}},"   while on Ignited Ground "}
+c["Gain 15% of Damage as Extra Fire Damage while on Ignited Ground"]={{[1]={[1]={type="Condition",var="OnIgnitedGround"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=15}},nil}
 c["Gain 15% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=15}},nil}
-c["Gain 15% of Damage as Extra Lightning Damage while on Shocked Ground"]={{[1]={[1]={type="Condition",var="OnShockedGround"},flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=15}},"   while  "}
-c["Gain 15% of Damage as Extra Lightning Damage while on Shocked Ground 40% reduced effect of Shock on you"]={{[1]={[1]={type="Condition",var="OnShockedGround"},flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=15}},"   while  40% reduced effect of Shock on you "}
+c["Gain 15% of Damage as Extra Lightning Damage while on Shocked Ground"]={{[1]={[1]={type="Condition",var="OnShockedGround"},flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=15}},nil}
 c["Gain 15% of maximum Energy Shield as additional Freeze Threshold"]={{[1]={[1]={percent=15,stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="FreezeThreshold",type="BASE",value=1}},nil}
 c["Gain 15% of maximum Life as Extra maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeGainAsEnergyShield",type="BASE",value=15}},nil}
 c["Gain 18 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=18}},nil}

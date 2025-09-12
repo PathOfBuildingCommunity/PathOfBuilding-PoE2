@@ -979,6 +979,10 @@ Huge sets the radius to 11.
 		modList:NewMod("Condition:OnBurningGround", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:Burning", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionOnIgnitedGround", type = "check", label = "Are you on ^xB97123Ignited ^7Ground?", ifCond = "OnIgnitedGround", implyCond = "Ignited", tooltip = "This also implies that you are ^xB97123Ignited.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:OnIgnitedGround", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:Ignited", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionOnChilledGround", type = "check", label = "Are you on ^x3F6DB3Chilled ^7Ground?", ifCond = "OnChilledGround", implyCond = "Chilled", tooltip = "This also implies that you are ^x3F6DB3Chilled.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:OnChilledGround", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("Condition:Chilled", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
