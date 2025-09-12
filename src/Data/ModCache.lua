@@ -1989,8 +1989,7 @@ c["25% increased Critical Damage Bonus if you've dealt a Non-Critical Hit Recent
 c["25% increased Critical Damage Bonus with Daggers"]={{[1]={flags=524292,keywordFlags=0,name="CritMultiplier",type="INC",value=25}},nil}
 c["25% increased Critical Damage Bonus with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="CritMultiplier",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
-c["25% increased Critical Hit Chance against Marked Enemies"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},"  against Marked Enemies "}
-c["25% increased Critical Hit Chance against Marked Enemies +10 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},"  against Marked Enemies +10 to Dexterity "}
+c["25% increased Critical Hit Chance against Marked Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance against Shocked Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Shocked"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
@@ -2034,9 +2033,7 @@ c["25% increased Life Recovery from Flasks used when on Low Life"]={{[1]={[1]={t
 c["25% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=25}},nil}
 c["25% increased Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=25}},nil}
 c["25% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=25}},nil}
-c["25% increased Magnitude of Ailments you inflict against Marked Enemies"]={{[1]={flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=25}},"  against Marked Enemies "}
-c["25% increased Magnitude of Ailments you inflict against Marked Enemies 25% increased Critical Hit Chance against Marked Enemies"]={{[1]={flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=25}},"  against Marked Enemies 25% increased Critical Hit Chance against Marked Enemies "}
-c["25% increased Magnitude of Ailments you inflict against Marked Enemies 25% increased Critical Hit Chance against Marked Enemies +10 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=25}},"  against Marked Enemies 25% increased Critical Hit Chance against Marked Enemies +10 to Dexterity "}
+c["25% increased Magnitude of Ailments you inflict against Marked Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=25}},nil}
 c["25% increased Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=25}},nil}
 c["25% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=25}},nil}
 c["25% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=25}},nil}
@@ -2439,7 +2436,7 @@ c["4% increased Energy Shield per Power Charge"]={{[1]={[1]={type="Multiplier",v
 c["4% increased Magnitude of Unholy Might Buffs you grant per 100 maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={[1]={effectName="BlackenedHeart",effectType="Aura",type="GlobalEffect",unscalable=true},mod={[1]={actor="parent",div=100,stat="Mana",type="PerStat"},flags=0,keywordFlags=0,name="Multiplier:UnholyMightMagnitude",type="BASE",value=4}}}},nil}
 c["4% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},nil}
 c["4% increased Movement Speed if you've Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},nil}
-c["4% increased Movement Speed if you've used a Mark Recently"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},"  if you've used a Mark Recently "}
+c["4% increased Movement Speed if you've used a Mark Recently"]={{[1]={[1]={type="Condition",var="CastMarkRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=4}},nil}
 c["4% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=4},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=4}},nil}
 c["4% increased Spell Damage per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["4% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=4}},nil}
@@ -5072,7 +5069,7 @@ c["Mana Flasks used while on Low Mana apply Recovery Instantly"]={{[1]={[1]={typ
 c["Mana Leech recovers based on Elemental Damage Types instead of Physical Damage"]={nil,"Mana Leech recovers based on Elemental Damage Types instead of Physical Damage "}
 c["Mana Recovery from Regeneration is not applied"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedByManaRegen",type="FLAG",value=true}},nil}
 c["Mana Recovery other than Regeneration cannot Recover Mana"]={nil,"Mana Recovery other than Regeneration cannot Recover Mana "}
-c["Mark Skills have 10% increased Use Speed"]={{}," Use Speed "}
+c["Mark Skills have 10% increased Use Speed"]={{[1]={[1]={skillType=98,type="SkillType"},flags=0,keywordFlags=0,name="Speed",type="INC",value=10}},nil}
 c["Mark Skills have 25% increased Skill Effect Duration"]={{[1]={[1]={skillType=98,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
 c["Maximum 10 Fragile Regrowth"]={nil,"Maximum 10 Fragile Regrowth "}
 c["Maximum 10 Fragile Regrowth 0.5% of maximum Life Regenerated per second per Fragile Regrowth"]={nil,"Maximum 10 Fragile Regrowth 0.5% of maximum Life Regenerated per second per Fragile Regrowth "}
