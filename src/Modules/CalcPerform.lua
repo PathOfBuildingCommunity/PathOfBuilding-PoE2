@@ -2947,6 +2947,7 @@ function calcs.perform(env, skipEHP)
 				end
 				min = min * (modDB:Sum("INC", nil, element.."ExposureEffect") / 100 + 1)
 				enemyDB:NewMod("Condition:Has"..element.."Exposure", "FLAG", true, "")
+				enemyDB:NewMod("Condition:HasExposure", "FLAG", true, "")
 				enemyDB:NewMod(element.."Resist", "BASE", m_min(min, modDB:Override(nil, "ExposureMin")), source)
 				modDB:NewMod("Condition:AppliedExposureRecently", "FLAG", true, "")
 			end
