@@ -853,6 +853,7 @@ local modNameList = {
 	["to chain an additional time from terrain"] = "TerrainChainChance",
 	["to apply lightning exposure on hit"] = "LightningExposureChance",
 	["to pierce an enemy"] = "PierceChance",
+	["to chain an additional time"] = "ChainChance",
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not consume a bolt"] = "ChanceToNotConsumeAmmo",
 	-- Flask and Charm modifiers
@@ -1063,6 +1064,7 @@ local modFlagList = {
 	["of travel skills"] = { tag = { type = "SkillType", skillType = SkillType.Travel } },
 	["of banner skills"] = { tag = { type = "SkillType", skillType = SkillType.Banner } },
 	["with lightning skills"] = { keywordFlags = KeywordFlag.Lightning },
+	["for lightning skills"] = { keywordFlags = KeywordFlag.Lightning },
 	["with cold skills"] = { keywordFlags = KeywordFlag.Cold },
 	["with fire skills"] = { keywordFlags = KeywordFlag.Fire },
 	["with elemental skills"] = { keywordFlags = bor(KeywordFlag.Lightning, KeywordFlag.Cold, KeywordFlag.Fire) },

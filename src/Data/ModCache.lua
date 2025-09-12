@@ -1655,7 +1655,7 @@ c["20% chance for Damage of Enemies Hitting you to be Unlucky 20% chance for Dam
 c["20% chance for Damage with Hits to be Lucky"]={{[1]={flags=0,keywordFlags=0,name="LuckyHitsChance",type="BASE",value=20}},nil}
 c["20% chance for Energy Shield Recharge to start when you Kill an Enemy"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=20}}," for  Recharge to start  "}
 c["20% chance for Flasks you use to not consume Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskChanceNotConsumeCharges",type="BASE",value=20}},nil}
-c["20% chance for Lightning Skills to Chain an additional time"]={{}," for Lightning Skills to Chain an additional time "}
+c["20% chance for Lightning Skills to Chain an additional time"]={{[1]={flags=0,keywordFlags=128,name="ChainChance",type="BASE",value=20}},nil}
 c["20% chance to Aggravate Bleeding on targets you Critically Hit with Attacks"]={{}," to Aggravate Bleeding on targets you Critically Hit  "}
 c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks"]={{}," to Aggravate Bleeding on targets you Hit  "}
 c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=20}}," to Aggravate Bleeding on targets you Hit  Empowered Attacks deal 30% increased  "}
@@ -1939,6 +1939,7 @@ c["25% chance on Shocking Enemies to created Shocked Ground"]={{[1]={[1]={actor=
 c["25% chance that when Volatility on you explodes, you regain an equivalent amount of Volatility"]={{}," that when Volatility on you explodes, you regain an equivalent amount of Volatility "}
 c["25% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidChaosDamageChance",type="BASE",value=25}},nil}
 c["25% chance to Avoid Physical Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidPhysicalDamageChance",type="BASE",value=25}},nil}
+c["25% chance to Chain an additional time"]={{[1]={flags=0,keywordFlags=0,name="ChainChance",type="BASE",value=25}},nil}
 c["25% chance to Intimidate Enemies for 4 seconds on Hit"]={{}," to Intimidate Enemies   "}
 c["25% chance to Maim on Hit"]={{}," to Maim  "}
 c["25% chance to Maim on Hit Adds 17 to 28 Physical Damage"]={{[1]={flags=4,keywordFlags=0,name="PhysicalDamage",type="BASE",value=25}}," to Maim  Adds 17 to 28  "}
@@ -2174,9 +2175,7 @@ c["3% reduced maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC
 c["30 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=30}},nil}
 c["30 to 40 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=30}}," to 40 Physical  "}
 c["30% chance for Lightning Damage with Hits to be Lucky"]={{[1]={flags=0,keywordFlags=0,name="LightningLuckyHitsChance",type="BASE",value=30}},nil}
-c["30% chance to Chain an additional time"]={{}," to Chain an additional time "}
-c["30% chance to Chain an additional time 172% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=30}}," to Chain an additional time 172% increased  "}
-c["30% chance to Chain an additional time Adds 53 to 86 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="BASE",value=30}}," to Chain an additional time Adds 53 to 86  "}
+c["30% chance to Chain an additional time"]={{[1]={flags=0,keywordFlags=0,name="ChainChance",type="BASE",value=30}},nil}
 c["30% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceChance",type="BASE",value=30}},nil}
 c["30% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},nil}
 c["30% chance to Poison on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PoisonChance",type="BASE",value=30}},nil}
@@ -2876,7 +2875,7 @@ c["6% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=
 c["6% reduced Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=-6}},nil}
 c["6% reduced Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-6}},nil}
 c["60 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=60}},nil}
-c["60% chance for Lightning Skills to Chain an additional time"]={{}," for Lightning Skills to Chain an additional time "}
+c["60% chance for Lightning Skills to Chain an additional time"]={{[1]={flags=0,keywordFlags=128,name="ChainChance",type="BASE",value=60}},nil}
 c["60% faster start of Energy Shield Recharge if you've been Stunned Recently"]={{[1]={[1]={type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=60}},nil}
 c["60% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=60}},nil}
 c["60% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=60}},nil}

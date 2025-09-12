@@ -680,7 +680,7 @@ return {
 	{ label = "2 Add. Proj. Chance", haveOutput = "TwoAdditionalProjectiles", { format = "{output:TwoAdditionalProjectiles}%", { modName = { "TwoAdditionalProjectilesChance", "NoAdditionalProjectiles" }, cfg = "skill" }, }, },
 	{ label = "Pierce Count", haveOutput = "PierceCount", { format = "{output:PierceCountString}", { modName = { "CannotPierce", "PierceCount", "PierceChance", "PierceAllTargets" }, cfg = "skill" }, }, },
 	{ label = "Fork Count", haveOutput = "ForkCountMax", { format = "{output:ForkCountString}", { modName = { "CannotFork", "ForkCountMax" }, cfg = "skill" }, }, },
-	{ label = "Max Chain Count", haveOutput = "ChainMax", { format = "{output:ChainMaxString}", { modName = { "CannotChain", "ChainCountMax", "NoAdditionalChains" }, cfg = "skill" }, }, },
+	{ label = "Max Chain Count", haveOutput = "ChainMax", { format = "{output:ChainMaxString}", { modName = { "CannotChain", "ChainCountMax", "ChainChance", "NoAdditionalChains" }, cfg = "skill" }, }, },
 	{ label = "Terrain Chain", haveOutput = "TerrainChain", { format = "{output:TerrainChain}%", { modName = { "TerrainChainChance", "NoAdditionalChains" }, cfg = "skill" }, }, },
 	{ label = "Split Count", haveOutput = "SplitCountString", { format = "{output:SplitCountString}", 
 	{ label = "Player modifiers", modName = { "CannotSplit", "SplitCount", "AdditionalProjectilesAddSplitsInstead", "AdditionalChainsAddSplitsInstead" }, cfg = "skill" },
