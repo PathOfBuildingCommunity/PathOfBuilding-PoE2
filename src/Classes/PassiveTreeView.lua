@@ -1308,7 +1308,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	local function processTimeLostModsAndGetLocalEffect(mNode, build)
 		local localIncEffect = 0
 		local hasWSCondition = false
-		local newSd = copyTable(build.spec.tree.nodes[mNode.id].sd)
+		local newSd = copyTable(mNode.sd)
 		for _, mod in ipairs(mNode.finalModList) do
 			-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
 			-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
@@ -1348,7 +1348,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		local isInRadius = false
 		for id, socket in pairs(build.itemsTab.sockets) do
 			if build.itemsTab.activeSocketList and socket.inactive == false or socket.inactive == nil then
-				isInRadius = isInRadius or (build.spec.nodes[id] and build.spec.nodes[id].nodesInRadius and build.spec.nodes[id].nodesInRadius[3][node.id] ~= nil)
+				isInRadius = isInRadius or (build.spec.nodes[id] and build.spec.nodes[id].nodesInRadius and build.spec.nodes[id].nodesInRadius[4][node.id] ~= nil)
 				if isInRadius then break end
 			end
 		end
@@ -1366,7 +1366,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	if mNode.sd and mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
 		local localIncEffect = 0
-		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
+		if not (mNode.isAttribute and not mNode.conqueredBy) and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
 			localIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
 		end
 		for i, line in ipairs(mNode.sd) do

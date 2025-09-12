@@ -6501,6 +6501,18 @@ local jewelOtherFuncs = {
 			end
 		end
 	end,
+	["conquered (%w+) Passive Skills also grant (.*)$"] = function(type, mod)
+		return function(node, out, data)
+			if node and (node.type == firstToUpper(type) or (node.type == "Normal" and not node.isAttribute and firstToUpper(type) == "Small") or (node.type == "Normal" and node.isAttribute and firstToUpper(type) == "Attribute")) then
+				local modList, line = parseMod(mod)
+				if not line and modList[1] then -- something failed to parse, do not add to list
+					modList[1].parsedLine = capitalizeWordsInString(mod)
+					modList[1].source = data.modSource
+					out:AddMod(modList[1])
+				end
+			end
+		end
+	end,
 	--------
 	["50% increased Effect of non-Keystone Passive Skills in Radius"] = function(node, out, data)
 		if node and node.type ~= "Keystone" then
@@ -6699,15 +6711,9 @@ for k, v in pairs(jewelOtherFuncs) do
 		-- Need to not modify any nodes already modified by timeless jewels
 		-- Some functions return a function instead of simply adding mods, so if
 		-- we don't see a node right away, run the outer function first
-		if cap1 and type(cap1) == "table" and cap1.conqueredBy then
-			return
-		end
 		local innerFuncOrNil = v(cap1, cap2, cap3, cap4, cap5)
 		-- In all (current) cases, there is only one nested layer, so no need for recursion
 		return function(node, out, other)
-			if node and type(node) == "table" and node.conqueredBy then
-				return
-			end
 			return innerFuncOrNil(node, out, other)
 		end
 	end, type = "Other" }
