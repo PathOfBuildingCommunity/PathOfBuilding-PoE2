@@ -1459,7 +1459,7 @@ Huge sets the radius to 11.
 	{ var = "conditionTauntedEnemyRecently", type = "check", label = "Taunted an enemy Recently?", ifCond = "TauntedEnemyRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:TauntedEnemyRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "conditionReloadedlRecently", type = "check", label = "Have you Reloaded Recently?", ifSkillType = SkillType.CrossbowAmmoSkill, apply = function(val, modList, enemyModList)
+	{ var = "conditionReloadedRecently", type = "check", label = "Have you Reloaded Recently?", ifSkillType = SkillType.CrossbowAmmoSkill, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ReloadedRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionLostEnduranceChargeInPast8Sec", type = "check", label = "Lost an Endurance Charge in the past 8s?", ifCond = "LostEnduranceChargeInPast8Sec", apply = function(val, modList, enemyModList)
