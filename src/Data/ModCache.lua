@@ -4962,11 +4962,11 @@ c["Inherent loss of Rage is 20% slower"]={{[1]={flags=0,keywordFlags=0,name="Inh
 c["Inherent loss of Rage is 25% slower"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLoss",type="INC",value=-25}},nil}
 c["Instant Recovery"]={{[1]={flags=0,keywordFlags=0,name="FlaskInstantRecovery",type="BASE",value=100}},nil}
 c["Intelligence's inherent bonus is 1% increased Evasion Rating per 2 Intelligence instead"]={{[1]={[1]={div="2",stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="NoIntBonusToMana",type="FLAG",value=true}},nil}
-c["Invocated Spells deal 15% increased Damage"]={nil,"Invocated Spells deal 15% increased Damage "}
-c["Invocated Spells have 15% increased Critical Hit Chance"]={nil,"Invocated Spells have 15% increased Critical Hit Chance "}
-c["Invocated Spells have 40% chance to consume half as much Energy"]={nil,"Invocated Spells have 40% chance to consume half as much Energy "}
-c["Invocated Spells have 40% increased Critical Hit Chance"]={nil,"Invocated Spells have 40% increased Critical Hit Chance "}
-c["Invocated skills have 30% increased Maximum Energy"]={nil,"Invocated skills have 30% increased Maximum Energy "}
+c["Invocated Spells deal 15% increased Damage"]={{[1]={[1]={type="Condition",var="InvocationSkill"},flags=0,keywordFlags=131072,name="Damage",type="INC",value=15}},nil}
+c["Invocated Spells have 15% increased Critical Hit Chance"]={{[1]={[1]={type="Condition",var="InvocationSkill"},flags=0,keywordFlags=131072,name="CritChance",type="INC",value=15}},nil}
+c["Invocated Spells have 40% chance to consume half as much Energy"]={{}," to consume half as much Energy "}
+c["Invocated Spells have 40% increased Critical Hit Chance"]={{[1]={[1]={type="Condition",var="InvocationSkill"},flags=0,keywordFlags=131072,name="CritChance",type="INC",value=40}},nil}
+c["Invocated skills have 30% increased Maximum Energy"]={{}," Maximum Energy "}
 c["Invocation Skills cannot gain Energy while Triggering Spells"]={nil,"Invocation Skills cannot gain Energy while Triggering Spells "}
 c["Invocation Skills cannot gain Energy while Triggering Spells Invoked Spells consume 50% less Energy"]={nil,"Invocation Skills cannot gain Energy while Triggering Spells Invoked Spells consume 50% less Energy "}
 c["Invocation Skills instead Trigger Spells every 2 seconds"]={nil,"Invocation Skills instead Trigger Spells every 2 seconds "}

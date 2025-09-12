@@ -178,6 +178,9 @@ return {
 ["base_skill_cost_life_instead_of_mana"] = {
 	flag("CostLifeInsteadOfMana"),
 },
+["generic_ongoing_triggerer_is_invocation_skill"] = {
+	flag("Condition:InvocationSkill"),
+},
 ["base_skill_cost_life_instead_of_mana_%"] = {
 	mod("HybridManaAndLifeCost_Life", "BASE", nil),
 },

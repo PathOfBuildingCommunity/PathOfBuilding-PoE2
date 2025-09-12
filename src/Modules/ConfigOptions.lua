@@ -1428,6 +1428,9 @@ Huge sets the radius to 11.
 	{ var = "trapsPerThrow", type = "count", label = "# of Traps per throw:", ifFlag = "trap", tooltip = "This will override the number of Traps per throw", apply = function(val, modList, enemyModList)
 		modList:NewMod("TrapThrowCount", "OVERRIDE", val, "Config", {type = "Condition", var = "Combat"})
 	end },
+	{ var = "conditionTriggeredSkillRecently", type = "check", label = "Have you Triggered a skill Recently?", ifSkillType = SkillType.Triggered, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:TriggeredSkillRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionCursedEnemyRecently", type = "check", label = "Have you Cursed an enemy Recently?",  ifCond="CursedEnemyRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:CursedEnemyRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
