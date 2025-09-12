@@ -5485,8 +5485,7 @@ c["Regenerate 0.2% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,na
 c["Regenerate 0.4% of maximum Life per second if you have been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.4}},nil}
 c["Regenerate 0.5% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
 c["Regenerate 0.75% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.75}},nil}
-c["Regenerate 1 Life per second per 8 Life spent in the past 8 seconds"]={{[1]={[1]={div=8,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=1}},"  spent in the past 8 seconds "}
-c["Regenerate 1 Life per second per 8 Life spent in the past 8 seconds 50% more Life Cost of Skills"]={{[1]={[1]={div=8,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=1}},"  spent in the past 8 seconds 50% more  "}
+c["Regenerate 1 Life per second per 8 Life spent in the past 8 seconds"]={{[1]={[1]={div=8,type="Multiplier",var="LifeSpentPast8s"},flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=1}},nil}
 c["Regenerate 1% of maximum Life per Second if you've used a Life Flask in the past 10 seconds"]={{[1]={[1]={type="Condition",var="UsingLifeFlask"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
 c["Regenerate 1% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
 c["Regenerate 1% of maximum Life per second while affected by any Damaging Ailment"]={{[1]={[1]={type="Condition",varList={[1]="Poisoned",[2]="Ignited",[3]="Bleeding"}},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=1}},nil}
@@ -5653,7 +5652,7 @@ c["Triggered Spells deal 40% increased Spell Damage"]={{[1]={[1]={skillType=37,t
 c["Triple Attribute requirements of Martial Weapons"]={{[1]={flags=0,keywordFlags=0,name="GlobalWeaponAttributeRequirements",type="MORE",value=200}},nil}
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
-c["Undead Minions have 25% less maximum Life"]={nil,"Undead Minions have 25% less maximum Life "}
+c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="MORE",value=-25}}}},nil}
 c["Unlimited number of Summoned Totems"]={nil,"Unlimited number of Summoned Totems "}
 c["Unlimited number of Summoned Totems Totems reserve 75 Spirit each"]={nil,"Unlimited number of Summoned Totems Totems reserve 75 Spirit each "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
@@ -5697,7 +5696,7 @@ c["Warcry Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=63,ty
 c["When a Banner expires, recover 15% of the Glory required for that Banner"]={nil,"When a Banner expires, recover 15% of the Glory required for that Banner "}
 c["When a Party Member in your Presence Casts a Spell, you"]={nil,"When a Party Member in your Presence Casts a Spell, you "}
 c["When a Party Member in your Presence Casts a Spell, you Sacrifice 20% of Mana and they Leech that Mana"]={nil,"When a Party Member in your Presence Casts a Spell, you Sacrifice 20% of Mana and they Leech that Mana "}
-c["When taking damage from Hits, 20% of Life Loss is prevented, then 150% of Life Loss prevented this way is Lost over 4 seconds"]={nil,"When taking damage from Hits, 20% of Life Loss is prevented, then 150% of Life Loss prevented this way is Lost over 4 seconds "}
+c["When taking damage from Hits, 20% of Life Loss is prevented, then 150% of Life Loss prevented this way is Lost over 4 seconds"]={{[1]={flags=0,keywordFlags=0,name="LifeLossPrevented",type="BASE",value=20},[2]={flags=0,keywordFlags=0,name="LifeLossLost",type="BASE",value="150"}},nil}
 c["When you Consume a Charge Trigger Chaotic Surge to gain 2 Chaos Surges"]={nil,"When you Consume a Charge Trigger Chaotic Surge to gain 2 Chaos Surges "}
 c["When you Consume a Charge Trigger Chaotic Surge to gain 2 Chaos Surges Life Leech recovers based on your Chaos damage instead of Physical damage"]={nil,"When you Consume a Charge Trigger Chaotic Surge to gain 2 Chaos Surges Life Leech recovers based on your Chaos damage instead of Physical damage "}
 c["When you Consume a Frenzy Charge Trigger Elemental Surge to gain 3 Lightning Surges"]={nil,"When you Consume a Frenzy Charge Trigger Elemental Surge to gain 3 Lightning Surges "}
