@@ -52,6 +52,11 @@ local conquerorList = {
 	["vorana"]		=	{ id = 1, type = "kalguur" },
 	["medved"]		=	{ id = 2, type = "kalguur" },
 	["olroth"]		=	{ id = 3, type = "kalguur" },
+	["amanamu"]		=	{ id = 1, type = "abyss" },
+	["kulemak"]		=	{ id = 2, type = "abyss" },
+	["kurgal"]		=	{ id = 3, type = "abyss" },
+	["tecrod"]		=	{ id = 4, type = "abyss" },
+	["ulaman"]		=	{ id = 5, type = "abyss" },
 }
 -- List of modifier forms
 local formList = {
@@ -5658,9 +5663,12 @@ local specialModList = {
 	["%+(%d+)%% to quality"] = function(num) return { mod("Quality", "BASE", num) } end,
 	["infernal blow debuff deals an additional (%d+)%% of damage per charge"] = function(num) return { mod("DebuffEffect", "BASE", num, { type = "SkillName", skillName = "Infernal Blow", includeTransfigured = true }) } end,
 	-- Legion modifiers
-	["remembrancing (%d+) songworthy deeds by the line of (.+)"] = function(num, _, name)
-		return { mod("JewelData", "LIST",
-			{ key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } }) } end,
+	["remembrancing (%d+) songworthy deeds by the line of (.+)"] = function(num, _, name) return {
+		mod("JewelData", "LIST", { key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } })
+	} end,
+	["glorifying the defilement of (%d+) souls in tribute to (.+)"] = function(num, _, name) return {
+		mod("JewelData", "LIST", { key = "conqueredBy", value = { id = num, conqueror = conquerorList[name:lower()] } })
+	} end,
 	["passives in radius are conquered by the (%D+)"] = { },
 	["historic"] = { },
 	-- Display-only modifiers

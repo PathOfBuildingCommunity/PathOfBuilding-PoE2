@@ -121,7 +121,7 @@ function parseStats(datFileRow, legionPassive)
 		}
 		-- Describing stats here to get the orders
 		local statLines, orders = describeStats(stat)
-		stat[statId].statOrder = orders[1]
+		stat[statId].statOrder = orders[1] or 99999
 		legionPassive.stats[statId] = stat[statId]
 		for i, line in ipairs(statLines) do
 			table.insert(legionPassive.sd, line)
