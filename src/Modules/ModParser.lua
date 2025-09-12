@@ -854,6 +854,7 @@ local modNameList = {
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
 	["effect of charms"] = "CharmEffect",
+	["magnitudes"] = "Magnitude",
 	["amount recovered"] = "FlaskRecovery",
 	["life recovered"] = "FlaskRecovery",
 	["life recovery from flasks used"] = "FlaskLifeRecovery",
