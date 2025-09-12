@@ -573,6 +573,7 @@ local modNameList = {
 	["effect of impales you inflict"] = "ImpaleEffect",
 	["effects of impale inflicted"] = "ImpaleEffect", -- typo / old wording change
 	["effect of impales inflicted"] = "ImpaleEffect",
+	["magnitude of impales inflicted"] = "ImpaleEffect",
 	-- Projectile modifiers
 	["projectile"] = "ProjectileCount",
 	["projectiles"] = "ProjectileCount",
@@ -759,6 +760,7 @@ local modNameList = {
 	["magnitude of ignite you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
 	["ignite magnitude"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
 	["magnitude of poison you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
+	["effect of poison you inflict"] = { "AilmentEffect", keywordFlags = KeywordFlag.Poison },
 	["magnitude of ailments you inflict"] = "AilmentMagnitude",
 	["magnitude of damaging ailments you inflict"] = { "AilmentMagnitude", keywordFlags = bor(KeywordFlag.Poison, KeywordFlag.Bleed, KeywordFlag.Ignite) },
 	["effect of lightning ailments"] = "EnemyShockMagnitude",
@@ -858,6 +860,7 @@ local modNameList = {
 	["to apply lightning exposure on hit"] = "LightningExposureChance",
 	["to pierce an enemy"] = "PierceChance",
 	["to chain an additional time"] = "ChainChance",
+	["penalty to accuracy rating at range"] = "AccuracyPenalty",
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not consume a bolt"] = "ChanceToNotConsumeAmmo",
 	-- Flask and Charm modifiers
@@ -981,7 +984,7 @@ local modFlagList = {
 	-- Skill types
 	["spell"] = { flags = ModFlag.Spell },
 	["for spells"] = { flags = ModFlag.Spell },
-	["for spell skills"] = {flags = ModFlag.Spell },
+	["for spell skills"] = { flags = ModFlag.Spell },
 	["for spell damage"] = { flags = ModFlag.Spell },
 	["with spell damage"] = { flags = ModFlag.Spell },
 	["with spells"] = { keywordFlags = KeywordFlag.Spell },
@@ -1810,6 +1813,8 @@ local modTagList = {
 	["if you[' ]h?a?ve hit a cursed enemy recently"] = { tagList = { { type = "Condition", var = "HitRecently" }, { type = "ActorCondition", actor = "enemy", var = "Cursed" } } },
 	["if you[' ]h?a?ve dealt a projectile attack hit in the past eight seconds"] = { tag = { type = "Condition", var = "HitProjectileRecently" } },
 	["if you[' ]h?a?ve dealt a melee hit in the past eight seconds"] = { tag = { type = "Condition", var = "HitMeleeRecently" } },
+	["if you[' ]h?a?ve dealt a melee hit in the past eight seconds"] = { tag = { type = "Condition", var = "HitMeleeRecently" } },
+	["if you[' ]h?a?ve hit an enemy with a melee attack recently"] = { tag = { type = "Condition", var = "HitMeleeRecently" } },
 	["if you[' ]h?a?ve triggered a skill recently"] = { tag = { type = "Condition", var = "TriggeredSkillRecently" } },
 	["when you or your totems hit an enemy with a spell"] = { tag = { type = "Condition", varList = { "HitSpellRecently","TotemsHitSpellRecently" } }, },
 	["on hit with spells"] = { tag = { type = "Condition", var = "HitSpellRecently" } },
@@ -2030,6 +2035,7 @@ local modTagList = {
 	["against enemies that are affected by elemental ailments"] = { tag = { type = "ActorCondition", actor = "enemy", varList = { "Frozen","Chilled","Shocked","Ignited","Scorched","Brittle","Sapped" } } },
 	["against enemies that are affected by no elemental ailments"] = { tagList = { { type = "ActorCondition", actor = "enemy", varList = { "Frozen","Chilled","Shocked","Ignited","Scorched","Brittle","Sapped" }, neg = true }, { type = "Condition", var = "Effective" } } },
 	["against enemies affected by (%d+) spider's webs"] = function(num) return { tag = { type = "MultiplierThreshold", actor = "enemy", var = "Spider's WebStack", threshold = num } } end,
+	["on targets that are not poisoned"] = { tag = { type = "MultiplierThreshold", var = "PoisonStacks", threshold = 1, upper = true } },
 	["against enemies on consecrated ground"] = { tag = { type = "ActorCondition", actor = "enemy", var = "OnConsecratedGround" } },
 	["if (%d+)%% of curse duration expired"] = function(num) return { tag = { type = "MultiplierThreshold", actor = "enemy", var = "CurseExpired", threshold = num } } end,
 	["against enemies with (%w+) exposure"] = function(element) return { tag = { type = "ActorCondition", actor = "enemy", var = "Has"..(firstToUpper(element).."Exposure") } } end,
@@ -2145,6 +2151,9 @@ local specialModList = {
 	["enemies you or your totems kill have (%d+)%% chance to explode, dealing (%d+)%% of their maximum life as (.+) damage"] = function(chance, _, amount, type) -- Hinekora, Death's Fury 3.23
 		return explodeFunc(chance, amount, type)
 	end,
+	["enemies you kill with empowered attacks have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
+		return explodeFunc(chance, amount, type)
+	end,
 	["enemies you kill while using pride have (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Sublime Vision
 		return explodeFunc(chance, amount, type, { type = "Condition", var = "AffectedByPride" })
 	end,
@@ -2226,7 +2235,7 @@ local specialModList = {
 		mod("SpellSuppressionChance", "OVERRIDE", 0, "Acrobatics"),
 	},
 	["maximum chance to dodge spell hits is (%d+)%%"] = function(num) return { mod("SpellDodgeChanceMax", "OVERRIDE", num, "Acrobatics") } end,
-	["halves the amount of life granted by strength"] = { flag("HalvesLifeFromStrength")},
+	["inherent life granted by strength is halved"] = { flag("HalvesLifeFromStrength")},
 	["dexterity provides no bonus to evasion rating"] = { flag("NoDexBonusToEvasion") },
 	["dexterity provides no inherent bonus to evasion rating"] = { flag("NoDexBonusToEvasion") },
 	["your hits can't be evaded"] = { flag("CannotBeEvaded") },
@@ -3493,6 +3502,7 @@ local specialModList = {
 	["gain a flask charge when you deal a critical hit while affected by precision"] = { mod("FlaskChargeOnCritChance", "BASE", 100, { type = "Condition", var = "AffectedByPrecision" }) },
 	["gain a flask charge when you deal a critical hit while at maximum frenzy charges"] = { mod("FlaskChargeOnCritChance", "BASE", 100, { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }) },
 	["enemies poisoned by you cannot deal critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit", { type = "Condition", var = "Poisoned" }) }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit", { type = "Condition", var = "Poisoned" })}) },
+	["pinned enemies cannot deal critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit", { type = "Condition", var = "Pinned" }) }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit", { type = "Condition", var = "Pinned" })}) },
 	["enemies you mark cannot deal critical hits"] =  { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit", { type = "Condition", var = "Marked" }) }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit", { type = "Condition", var = "Marked" })}) },
 	["hits against you cannot be critical hits if you've been stunned recently"] =  { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit") }, {type = "Condition", var = "StunnedRecently" }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit")}, {type = "Condition", var = "StunnedRecently" })},
 	["nearby enemies cannot deal critical hits"] = { mod("EnemyModifier", "LIST", { mod = flag("NeverCrit")  }), mod("EnemyModifier", "LIST", { mod = flag("Condition:NeverCrit") }) },
@@ -4212,6 +4222,7 @@ local specialModList = {
 	["debuffs on you expire (%d+)%% faster"] = function(num) return { mod("SelfDebuffExpirationRate", "BASE", num) } end,
 	["buffs on you expire (%d+)%% slower"] = function(num) return { mod("Duration", "INC", num, { type = "SkillType", skillType = SkillType.Buff }) } end,
 	["warcries debilitate enemies for (%d+) seconds?"] = { mod("DebilitateChance", "BASE", 100) },
+	["warcries debilitate enemies"] = { mod("DebilitateChance", "BASE", 100) },
 	["debilitate enemies for (%d+) seconds? when you suppress their spell damage"] = { mod("DebilitateChance", "BASE", 100) },
 	["debilitate nearby enemies for (%d+) seconds? when f?l?a?s?k? ?effect ends"] = { mod("DebilitateChance", "BASE", 100) },
 	["counterattacks have a (%d+)%% chance to debilitate on hit for (%d+) seconds?"] = function (num) return { mod("DebilitateChance", "BASE", num) } end,
@@ -4459,7 +4470,6 @@ local specialModList = {
 	["bow attacks fire (%d+) additional arrows"] = function(num) return { mod("ProjectileCount", "BASE", num, nil, ModFlag.Bow) } end,
 	["bow attacks fire (%d+) additional arrows if you haven't cast dash recently"] = function(num) return { mod("ProjectileCount", "BASE", num, nil, ModFlag.Bow, { type = "Condition", var = "CastDashRecently", neg = true }) } end,
 	["wand attacks fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Wand) },
-	["(%d+)%% chance for crossbow attacks to not consume a bolt"] = function(num) return { mod("ChanceToNotConsumeAmmo", "BASE", num, nil, ModFlag.Crossbow, { type = "SkillType", skillType = SkillType.CrossbowSkill }) } end,
 	["loads? an additional bolt"] = { mod("CrossbowBoltCount", "BASE", 1, nil, ModFlag.Crossbow, { type = "SkillType", skillType = SkillType.CrossbowSkill }) },
 	["loads? (%d+) additional bolts?"] = function(num) return { mod("CrossbowBoltCount", "BASE", num, nil, ModFlag.Crossbow, { type = "SkillType", skillType = SkillType.CrossbowSkill }) } end,
 	["grenade skills fire an additional projectile"] = { mod("ProjectileCount", "BASE", 1, nil, ModFlag.Projectile, { type = "SkillType", skillType = SkillType.Grenade })},
@@ -5357,6 +5367,8 @@ local specialModList = {
 	["you have resolute technique while you do not have elemental overload"] = { mod("Keystone", "LIST", "Resolute Technique", { neg = true, type = "Condition", var = "HaveElementalOverload" }) },
 	["hits ignore enemy monster fire resistance while you are ignited"] = { flag("IgnoreFireResistance", { type = "Condition", var = "Ignited" }) },
 	["your hits can't be evaded by blinded enemies"] = { flag("CannotBeEvaded", { type = "ActorCondition", actor = "enemy", var = "Blinded" }) },
+	["your hits cannot be evaded by pinned enemies"] = { flag("CannotBeEvaded", { type = "ActorCondition", actor = "enemy", var = "Pinned" }) },
+	["your hits cannot be evaded by heavy stunned enemies"] = { flag("CannotBeEvaded", { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }) },
 	["blind does not affect your chance to hit"] = { flag("IgnoreBlindHitChance") },
 	["enemies blinded by you while you are blinded have malediction"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMalediction", { type = "Condition", var = "Blinded" }) }, { type = "Condition", var = "Blinded" }, { type = "Condition", var = "CannotBeBlinded", neg = true }) },
 	["enemies blinded by you have malediction"] = { mod("EnemyModifier", "LIST", { mod = flag("HasMalediction", { type = "Condition", var = "Blinded" }) }) },
