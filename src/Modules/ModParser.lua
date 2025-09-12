@@ -4049,6 +4049,7 @@ local specialModList = {
 	["gain arcane surge after spending a total of (%d+) life"] = function(num) return {
 		mod("ExtraAura", "LIST", { mod = flag("Condition:ArcaneSurge")}, { type = "MultiplierThreshold", var = "LifeSpentRecently", threshold = num }),
 	} end,
+	["arcane surge grants more life regeneration rate instead of mana regeneration rate"] = { flag("ArcaneSurgeLifeRegen") },
 	["gain onslaught for (%d+) seconds on hit while at maximum frenzy charges"] = { flag("Onslaught", { type = "StatThreshold", stat = "FrenzyCharges", thresholdStat = "FrenzyChargesMax" }, { type = "Condition", var = "HitRecently" }) },
 	["enemies in your chilling areas take (%d+)%% increased lightning damage"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("LightningDamageTaken", "INC", num) }, { type = "ActorCondition", actor = "enemy", var = "InChillingArea" }) } end,
 	["warcries count as having (%d+) additional nearby enemies"] = function(num) return {

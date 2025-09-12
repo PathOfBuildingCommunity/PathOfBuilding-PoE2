@@ -4066,7 +4066,7 @@ c["Ancestrally Boosted Attacks deal 8% increased Damage"]={nil,"Ancestrally Boos
 c["Any number of Poisons from this Weapon can affect a target at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=0,keywordFlags=0,name="PoisonStacks",type="OVERRIDE",value=math.huge}},nil}
 c["Apply 5 Critical Weakness to Enemies when Consuming a Mark on them"]={nil,"Apply 5 Critical Weakness to Enemies when Consuming a Mark on them "}
 c["Apply Debilitate to Enemies 3 Metres in front of you while actively Blocking"]={nil,"Apply Debilitate to Enemies 3 Metres in front of you while actively Blocking "}
-c["Arcane Surge grants more Life Regeneration Rate instead of Mana Regeneration Rate"]={nil,"Arcane Surge grants more Life Regeneration Rate instead of Mana Regeneration Rate "}
+c["Arcane Surge grants more Life Regeneration Rate instead of Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeLifeRegen",type="FLAG",value=true}},nil}
 c["Archon Buffs also grant +20% to all Elemental Resistances"]={nil,"Archon Buffs also grant +20% to all Elemental Resistances "}
 c["Archon Buffs also grant +20% to all Elemental Resistances Archon Buffs also grant 10% increased Movement Speed"]={nil,"Archon Buffs also grant +20% to all Elemental Resistances Archon Buffs also grant 10% increased Movement Speed "}
 c["Archon Buffs also grant 10% increased Movement Speed"]={nil,"Archon Buffs also grant 10% increased Movement Speed "}
