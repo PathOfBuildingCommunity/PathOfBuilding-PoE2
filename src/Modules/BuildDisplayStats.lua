@@ -100,6 +100,7 @@ local displayStats = {
 	{ stat = "ReqInt", label = "Intelligence Required", color = colorCodes.INTELLIGENCE, fmt = "d", lowerIsBetter = true, condFunc = function(v,o) return v > o.Int end, warnFunc = function(v,o) return "You do not meet the Intelligence requirement of " .. (o.ReqIntItem.source == "Item" and o.ReqIntItem.sourceItem.name or o.ReqIntItem.source == "Gem" and o.ReqIntItem.sourceGem.nameSpec) end },
 	{ },
 	{ stat = "Devotion", label = "Devotion", color = colorCodes.RARE, fmt = "d" },
+	{ stat = "Tribute", label = "Tribute", color = colorCodes.RARE, fmt = "d" },
 	{ },
 	{ stat = "TotalEHP", label = "Effective Hit Pool", fmt = ".0f", compPercent = true },
 	{ stat = "PvPTotalTakenHit", label = "PvP Hit Taken", fmt = ".1f", flag = "isPvP", lowerIsBetter = true },

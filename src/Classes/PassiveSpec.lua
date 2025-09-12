@@ -961,7 +961,7 @@ end
 function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
 	local visited = { }
-	local attributes = { "Dexterity", "Intelligence", "Strength" }
+	local attributes = { "Dexterity", "Intelligence", "Strength", "Attribute" }
 	-- Check all nodes for other nodes which depend on them (i.e. are only connected to the tree through that node)
 	self.switchableNodes = { }
 	for id, node in pairs(self.nodes) do
@@ -1036,6 +1036,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			local jewelType = 5
 			if conqueredBy.conqueror.type == "kalguur" then
 				jewelType = 1
+			elseif conqueredBy.conqueror.type == "abyss" then
+				jewelType = 2
 			end
 			local seed = conqueredBy.id
 			if jewelType == 5 then
@@ -1195,6 +1197,14 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			--		local legionNode = legionNodes[110] -- eternal_small_blank
 			--		self:ReplaceNode(node, legionNode)
 			--	end
+				if conqueredBy.conqueror.type == "abyss" then
+					if isValueInArray(attributes, node.dn) then
+						self:NodeAdditionOrReplacementFromString(node, " \n+3 to Tribute")
+					else
+						local legionNode = legionNodes[201] -- abyss_small_tribute
+						self:ReplaceNode(node, legionNode)
+					end
+				end
 			end
 			self:ReconnectNodeToClassStart(node)
 		end

@@ -85,8 +85,8 @@ c["+0.15% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="Cr
 c["+0.15% to Thorns Critical Hit Chance +25% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  +25% to Thorns Critical Hit Chance "}
 c["+0.5 metres to Dodge Roll distance while Surrounded"]={{}," metres to Dodge Roll distance  "}
 c["+0.5 metres to Dodge Roll distance while Surrounded 10% increased Movement Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},[2]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="MovementSpeed",type="BASE",value=0.5}}," metres to Dodge Roll distance  10% increased   "}
-c["+0.5% to Thorns Critical Hit Chance per 50 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.5}}," Thorns  per 50 Tribute "}
-c["+0.5% to Thorns Critical Hit Chance per 50 Tribute 2% increased Thorns damage per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.5}}," Thorns  per 50 Tribute 2% increased Thorns damage per 10 Tribute "}
+c["+0.5% to Thorns Critical Hit Chance per 50 Tribute"]={{[1]={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.5}}," Thorns   "}
+c["+0.5% to Thorns Critical Hit Chance per 50 Tribute 2% increased Thorns damage per 10 Tribute"]={{[1]={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},[2]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.5}}," Thorns   2% increased Thorns damage  "}
 c["+0.6% to Unarmed Melee Attack Critical Hit Chance"]={{[1]={flags=16777477,keywordFlags=0,name="CritChance",type="BASE",value=0.6}},nil}
 c["+1 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=1}},nil}
 c["+1 Life per 4 Dexterity"]={{[1]={[1]={div=4,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=1}},nil}
@@ -106,8 +106,7 @@ c["+1 to Maximum Energy Shield per 8 Maximum Life"]={{[1]={[1]={div=8,stat="Life
 c["+1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
 c["+1 to Maximum Mana per 6 Maximum Life"]={{[1]={[1]={div=6,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=1}},nil}
 c["+1 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=1}},nil}
-c["+1 to Maximum Rage per 50 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=1}},"  per 50 Tribute "}
-c["+1 to Maximum Rage per 50 Tribute Inherent loss of Rage is 2% slower per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=1}},"  per 50 Tribute Inherent loss of Rage is 2% slower per 10 Tribute "}
+c["+1 to Maximum Rage per 50 Tribute"]={{[1]={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=1}},nil}
 c["+1 to Maximum Spirit per 25 Maximum Life"]={{[1]={[1]={div=25,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},nil}
 c["+1 to Maximum Spirit per 50 Maximum Life"]={{[1]={[1]={div=50,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=1}},nil}
 c["+1 to Minimum Endurance Charges while you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="EnduranceChargesMin",type="BASE",value=1}},nil}
@@ -258,10 +257,9 @@ c["+2 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",v
 c["+2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=2}},nil}
 c["+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently"]={{}," metres to Dodge Roll distance if you haven't Dodge Rolled Recently "}
 c["+2 metres to Dodge Roll distance if you haven't Dodge Rolled Recently -1 metre to Dodge Roll distance if you've Dodge Rolled Recently"]={{}," metres to Dodge Roll distance if you haven't Dodge Rolled Recently -1 metre to Dodge Roll distance  "}
-c["+2 to Dexterity per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=2}},"  per 25 Tribute "}
-c["+2 to Dexterity per 25 Tribute 2% increased Parried Debuff Duration per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=2}},"  per 25 Tribute 2% increased Parried Debuff Duration per 10 Tribute "}
+c["+2 to Dexterity per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Dex",type="BASE",value=2}},nil}
 c["+2 to Evasion Rating per 1 Item Energy Shield on Equipped Helmet"]={{[1]={[1]={div=1,stat="EnergyShieldOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=2}},nil}
-c["+2 to Intelligence per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=2}},"  per 25 Tribute "}
+c["+2 to Intelligence per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Int",type="BASE",value=2}},nil}
 c["+2 to Level of all Cold Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="cold",value=2}}},nil}
 c["+2 to Level of all Fire Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="fire",value=2}}},nil}
 c["+2 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="lightning",value=2}}},nil}
@@ -277,8 +275,7 @@ c["+2 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChar
 c["+2 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=2}},nil}
 c["+2 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=2}},nil}
 c["+2 to Melee Strike Range"]={{[1]={flags=0,keywordFlags=0,name="MeleeWeaponRange",type="BASE",value=2},[2]={flags=0,keywordFlags=0,name="UnarmedRange",type="BASE",value=2}},nil}
-c["+2 to Strength per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=2}},"  per 25 Tribute "}
-c["+2 to Strength per 25 Tribute 2% increased Stun Buildup per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=2}},"  per 25 Tribute 2% increased Stun Buildup per 10 Tribute "}
+c["+2 to Strength per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Str",type="BASE",value=2}},nil}
 c["+2% to Maximum Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=2}},nil}
 c["+2% to Maximum Cold Resistance if you have at least 5 Blue Support Gems Socketed"]={{[1]={[1]={threshold=5,type="MultiplierThreshold",var="BlueSupportGems"},flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=2}},nil}
 c["+2% to Maximum Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=2}},nil}
@@ -773,7 +770,7 @@ c["+5 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",val
 c["+5 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5}},nil}
 c["+5 to Strength and Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="StrDex",type="BASE",value=5}},nil}
 c["+5 to Strength and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="StrInt",type="BASE",value=5}},nil}
-c["+5 to Tribute"]={{}," Tribute "}
+c["+5 to Tribute"]={{[1]={flags=0,keywordFlags=0,name="Tribute",type="BASE",value=5}},nil}
 c["+5 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=5},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=5}},nil}
 c["+5 to any Attribute"]={{},nil}
 c["+5 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},nil}
@@ -931,7 +928,7 @@ c["0% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Durati
 c["0.1 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.1}},nil}
 c["0.5% of maximum Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
 c["1 Rage Regenerated for every 25 Mana Regeneration per Second"]={{[1]={[1]={div=25,stat="ManaRegen",type="PerStat"},flags=0,keywordFlags=0,name="RageRegen",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
-c["1% chance when you gain a Charge to gain an additional Charge per 10 Tribute"]={{}," when you gain a Charge to gain an additional Charge per 10 Tribute "}
+c["1% chance when you gain a Charge to gain an additional Charge per 10 Tribute"]={{}," when you gain a Charge to gain an additional Charge  "}
 c["1% increased Area of Effect for Attacks per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=1}},nil}
 c["1% increased Armour per 2 Dexterity"]={{[1]={[1]={div=2,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 10 Dexterity"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
@@ -940,29 +937,25 @@ c["1% increased Attack Speed per 20 Spirit"]={{[1]={[1]={div=20,stat="Spirit",ty
 c["1% increased Attack Speed per 25 Dexterity"]={{[1]={[1]={div=25,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 250 Accuracy Rating"]={{[1]={[1]={div=250,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Cast Speed per 20 Spirit"]={{[1]={[1]={div=20,stat="Spirit",type="PerStat"},flags=16,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
-c["1% increased Cooldown Recovery Rate per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=1}},"  per 10 Tribute "}
-c["1% increased Cooldown Recovery Rate per 10 Tribute +2 to Intelligence per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=1}},"  per 10 Tribute +2 to Intelligence per 25 Tribute "}
+c["1% increased Cooldown Recovery Rate per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=1}},nil}
 c["1% increased Critical Damage Bonus per 50 Life"]={{[1]={[1]={div=50,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=1}},nil}
 c["1% increased Damage per 1% Chance to Block"]={{[1]={[1]={div=1,stat="BlockChance",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["1% increased Damage per 15 Strength"]={{[1]={[1]={div=15,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
 c["1% increased Energy Shield Recharge Rate per 4 Dexterity"]={{[1]={[1]={div=4,stat="Dex",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=1}},nil}
 c["1% increased Energy Shield per 2 Strength"]={{[1]={[1]={div=2,stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=1}},nil}
 c["1% increased Evasion Rating per 2 Intelligence"]={{[1]={[1]={div=2,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=1}},nil}
-c["1% increased Life and Mana Recovery from Flasks per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=1},[2]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=1}},"  per 10 Tribute "}
+c["1% increased Life and Mana Recovery from Flasks per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=1},[2]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=1}},nil}
 c["1% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=1}},nil}
 c["1% increased Movement Speed for each time you've Blocked in the past 10 seconds"]={{[1]={[1]={type="Multiplier",var="BlockedPast10Sec"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=1}},nil}
 c["1% increased Movement Speed per 500 Evasion Rating"]={{[1]={[1]={div=500,stat="Evasion",type="PerStat"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=1}},nil}
 c["1% increased Movement Speed per 800 Evasion Rating"]={{[1]={[1]={div=800,stat="Evasion",type="PerStat"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=1}},nil}
-c["1% increased Spirit Reservation Efficiency of Skills per 20 Tribute"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=1}},"  per 20 Tribute "}
-c["1% increased Spirit Reservation Efficiency of Skills per 20 Tribute 2% reduced Presence Area of Effect per 10 Tribute"]={{[1]={flags=512,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=1}},"  per 20 Tribute 2% reduced Presence  of Effect per 10 Tribute "}
-c["1% increased damage taken per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=1}},"  per 10 Tribute "}
+c["1% increased Spirit Reservation Efficiency of Skills per 20 Tribute"]={{[1]={[1]={actor="parent",div=20,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=1}},nil}
+c["1% increased damage taken per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=1}},nil}
 c["1% increased maximum Darkness per 1% Chaos Resistance"]={{[1]={[1]={div=1,stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="Darkness",type="INC",value=1}},nil}
-c["1% of Maximum Life Converted to Energy Shield per 20 Tribute"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=1}},"   per 20 Tribute "}
-c["1% of damage taken Recouped as Life per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=1}},"  per 10 Tribute "}
-c["1% of damage taken Recouped as Life per 10 Tribute Recover 1% of maximum Life on Kill per 50 Tribute"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=1}},"  per 10 Tribute Recover 1% of maximum Life  per 50 Tribute "}
-c["1% of damage taken Recouped as Mana per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=1}},"  per 10 Tribute "}
-c["1% of damage taken Recouped as Mana per 10 Tribute Recover 1% of maximum Mana on Kill per 50 Tribute"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=1}},"  per 10 Tribute Recover 1% of maximum Mana  per 50 Tribute "}
-c["1% reduced Duration of Damaging Ailments per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-1},[2]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=-1},[3]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=-1}},"  per 10 Tribute "}
+c["1% of Maximum Life Converted to Energy Shield per 20 Tribute"]={{[1]={[1]={actor="parent",div=20,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=1}},nil}
+c["1% of damage taken Recouped as Life per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=1}},nil}
+c["1% of damage taken Recouped as Mana per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=1}},nil}
+c["1% reduced Duration of Damaging Ailments per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-1},[2]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=-1},[3]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=-1}},nil}
 c["10 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=10}},nil}
 c["10 Life gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="LifeOnBlock",type="BASE",value=10}},nil}
 c["10% Chance to build an additional Combo on Hit"]={{}," to build an additional Combo  "}
@@ -1648,37 +1641,33 @@ c["180% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",typ
 c["19% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=19}},nil}
 c["195% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=195}},nil}
 c["2% chance to Recover all Life when you Kill an Enemy"]={{[1]={[1]={percent=2,stat="Life",type="PercentStat"},[2]={type="Condition",var="AverageResourceGain"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1},[2]={[1]={percent=100,stat="Life",type="PercentStat"},[2]={type="Condition",var="MaxResourceGain"},flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=1}},nil}
-c["2% increased Accuracy Rating per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=2}},"  per 10 Tribute "}
-c["2% increased Accuracy Rating per 10 Tribute 2% reduced Light Radius per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=2}},"  per 10 Tribute 2% reduced Light Radius per 10 Tribute "}
+c["2% increased Accuracy Rating per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=2}},nil}
 c["2% increased Area of Effect for Attacks per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=2}},nil}
-c["2% increased Armour per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=2}},"  per 10 Tribute "}
-c["2% increased Armour per 10 Tribute 5% increased Stun Threshold per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=2}},"  per 10 Tribute 5% increased Stun Threshold per 25 Tribute "}
+c["2% increased Armour per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="INC",value=2}},nil}
 c["2% increased Attack Damage per 75 Item Armour and Evasion Rating on Equipped Shield"]={{[1]={[1]={div=75,statList={[1]="ArmourOnWeapon 2",[2]="EvasionOnWeapon 2"},type="PerStat"},[2]={type="Condition",var="UsingShield"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
 c["2% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
 c["2% increased Attack Speed per 10 Dexterity"]={{[1]={[1]={div=10,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
 c["2% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=2}},nil}
 c["2% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=2}},nil}
 c["2% increased Damage per 5 of your lowest Attribute"]={{[1]={[1]={div=5,stat="LowestAttribute",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
-c["2% increased Evasion Rating per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=2}},"  per 10 Tribute "}
-c["2% increased Life Recovery rate per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=2}},"  per 10 Tribute "}
+c["2% increased Evasion Rating per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=2}},nil}
+c["2% increased Life Recovery rate per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=2}},nil}
 c["2% increased Lightning Damage per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=2}},nil}
-c["2% increased Magnitude of Damaging Ailments you inflict per 10 Tribute"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=2}},"  per 10 Tribute "}
-c["2% increased Magnitude of Damaging Ailments you inflict per 10 Tribute 1% reduced Duration of Damaging Ailments per 10 Tribute"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=2}},"  per 10 Tribute 1% reduced Duration of Damaging Ailments per 10 Tribute "}
-c["2% increased Mana Cost Efficiency per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=2}},"  per 10 Tribute "}
-c["2% increased Mana Recovery rate per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoveryRate",type="INC",value=2}},"  per 10 Tribute "}
+c["2% increased Magnitude of Damaging Ailments you inflict per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=2}},nil}
+c["2% increased Mana Cost Efficiency per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=2}},nil}
+c["2% increased Mana Recovery rate per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ManaRecoveryRate",type="INC",value=2}},nil}
 c["2% increased Maximum Life per socketed Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="Life",type="INC",value=2}},nil}
 c["2% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}},nil}
 c["2% increased Movement Speed while Sprinting"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}},"  while Sprinting "}
-c["2% increased Parried Debuff Duration per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}," Parried Debuff  per 10 Tribute "}
+c["2% increased Parried Debuff Duration per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}," Parried Debuff   "}
 c["2% increased Spirit per socketed Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="Spirit",type="INC",value=2}},nil}
-c["2% increased Stun Buildup per 10 Tribute"]={{}," Stun Buildup per 10 Tribute "}
-c["2% increased Thorns damage per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=2}},"  per 10 Tribute "}
+c["2% increased Stun Buildup per 10 Tribute"]={{}," Stun Buildup  "}
+c["2% increased Thorns damage per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=2}},nil}
 c["2% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=2}},nil}
 c["2% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=2}},nil}
-c["2% reduced Energy Shield Recharge Rate per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=-2}},"  per 25 Tribute "}
-c["2% reduced Energy Shield Recharge Rate per 25 Tribute 4% increased maximum Energy Shield per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=-2}},"  per 25 Tribute 4% increased maximum Energy Shield per 10 Tribute "}
-c["2% reduced Light Radius per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-2}},"  per 10 Tribute "}
-c["2% reduced Presence Area of Effect per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-2}},"  per 10 Tribute "}
+c["2% reduced Energy Shield Recharge Rate per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=-2}},nil}
+c["2% reduced Light Radius per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-2}},nil}
+c["2% reduced Presence Area of Effect per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-2}},nil}
 c["20 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=20}},nil}
 c["20 to 30 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=20}}," to 30 Physical  "}
 c["20% Chance to build an additional Combo on Hit"]={{}," to build an additional Combo  "}
@@ -1867,7 +1856,7 @@ c["20% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",
 c["20% increased Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=20}},nil}
 c["20% increased Totem Placement range"]={{[1]={flags=0,keywordFlags=16384,name="WeaponRange",type="INC",value=20}},"  Placement  "}
 c["20% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=20}},nil}
-c["20% increased Tribute"]={{}," Tribute "}
+c["20% increased Tribute"]={{[1]={flags=0,keywordFlags=0,name="Tribute",type="INC",value=20}},nil}
 c["20% increased Warcry Speed"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=20}},nil}
 c["20% increased Withered Magnitude"]={{[1]={flags=0,keywordFlags=0,name="WitherEffect",type="INC",value=20}},nil}
 c["20% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=20}},nil}
@@ -2163,8 +2152,7 @@ c["29% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage"
 c["3 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=3}},nil}
 c["3% chance to Avoid Elemental Ailments"]={{[1]={flags=0,keywordFlags=0,name="AvoidElementalAilments",type="BASE",value=3}},nil}
 c["3% chance to gain Volatility on Kill"]={nil,"Volatility  "}
-c["3% faster Curse Activation per 20 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=3}},"  per 20 Tribute "}
-c["3% faster Curse Activation per 20 Tribute 3% increased Curse Duration per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=3}},"  per 20 Tribute 3% increased Curse Duration per 10 Tribute "}
+c["3% faster Curse Activation per 20 Tribute"]={{[1]={[1]={actor="parent",div=20,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=3}},nil}
 c["3% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=3}},nil}
 c["3% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Attack Speed per 20 Dexterity"]={{[1]={[1]={div=20,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
@@ -2184,14 +2172,12 @@ c["3% increased Attack and Cast Speed with Lightning Skills"]={{[1]={flags=0,key
 c["3% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=3},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=3},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=3},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=3}},nil}
 c["3% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Cast Speed with Cold Skills"]={{[1]={flags=16,keywordFlags=64,name="Speed",type="INC",value=3}},nil}
-c["3% increased Charm Effect Duration per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=3}},"  per 25 Tribute "}
-c["3% increased Charm Effect Duration per 25 Tribute Charms applied to you have 1% increased Effect per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=3}},"  per 25 Tribute Charms applied to you have 1% increased Effect per 10 Tribute "}
+c["3% increased Charm Effect Duration per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=3}},nil}
 c["3% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=3}},nil}
-c["3% increased Curse Duration per 10 Tribute"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=3}},"  per 10 Tribute "}
+c["3% increased Curse Duration per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=2,name="Duration",type="INC",value=3}},nil}
 c["3% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=3}},nil}
 c["3% increased Evasion Rating per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="INC",value=3}},nil}
-c["3% increased Flask Effect Duration per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=3}},"  per 25 Tribute "}
-c["3% increased Flask Effect Duration per 25 Tribute 1% increased Life and Mana Recovery from Flasks per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=3}},"  per 25 Tribute 1% increased Life and Mana Recovery from Flasks per 10 Tribute "}
+c["3% increased Flask Effect Duration per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=3}},nil}
 c["3% increased Melee Attack Speed"]={{[1]={flags=257,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
 c["3% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=3}},nil}
 c["3% increased Movement Speed if you've Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=3}},nil}
@@ -2211,8 +2197,7 @@ c["3% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="Lif
 c["3% of Elemental Damage taken Recouped as Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LightningEnergyShieldRecoup",type="BASE",value=3},[2]={flags=0,keywordFlags=0,name="ColdEnergyShieldRecoup",type="BASE",value=3},[3]={flags=0,keywordFlags=0,name="FireEnergyShieldRecoup",type="BASE",value=3}},nil}
 c["3% of Physical Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalLifeRecoup",type="BASE",value=3}},nil}
 c["3% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=3}},nil}
-c["3% reduced Accuracy Rating per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-3}},"  per 25 Tribute "}
-c["3% reduced Accuracy Rating per 25 Tribute 5% increased Attack Critical Hit Chance per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-3}},"  per 25 Tribute 5% increased Attack Critical Hit Chance per 10 Tribute "}
+c["3% reduced Accuracy Rating per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-3}},nil}
 c["3% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-3}},nil}
 c["3% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-3}},"  Penalty from using Skills  "}
 c["3% reduced maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-3}},nil}
@@ -2490,8 +2475,8 @@ c["4% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="I
 c["4% increased Spell Damage per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=4}},nil}
 c["4% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=4}},nil}
 c["4% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=4}},nil}
-c["4% increased Warcry Speed per 25 Tribute"]={{[1]={flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=4}},"  per 25 Tribute "}
-c["4% increased maximum Energy Shield per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=4}},"  per 10 Tribute "}
+c["4% increased Warcry Speed per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=4,name="WarcrySpeed",type="INC",value=4}},nil}
+c["4% increased maximum Energy Shield per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=4}},nil}
 c["4% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=4}},nil}
 c["4% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=4}},nil}
 c["4% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=4}},nil}
@@ -2668,7 +2653,7 @@ c["5% chance when collecting an Elemental Infusion to gain an"]={{}," when colle
 c["5% chance when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type"]={{}," when collecting an Elemental Infusion to gain an additional Elemental Infusion of the same type "}
 c["5% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=5}},nil}
 c["5% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=5}},nil}
-c["5% increased Attack Critical Hit Chance per 10 Tribute"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=5}},"  per 10 Tribute "}
+c["5% increased Attack Critical Hit Chance per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["5% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
 c["5% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
 c["5% increased Attack Speed with Daggers"]={{[1]={flags=524293,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
@@ -2682,7 +2667,7 @@ c["5% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="Coo
 c["5% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["5% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
 c["5% increased Damage taken while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=5}},nil}
-c["5% increased Defences from Equipped Shield per 25 Tribute"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=5}},"   per 25 Tribute "}
+c["5% increased Defences from Equipped Shield per 25 Tribute"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},[3]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Defences",type="INC",value=5}},nil}
 c["5% increased Deflection Rating"]={{[1]={flags=0,keywordFlags=0,name="DeflectionRating",type="INC",value=5}},nil}
 c["5% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=5}},nil}
 c["5% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=5},[2]={flags=0,keywordFlags=0,name="EnemyBleedDuration",type="INC",value=5},[3]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=5}},nil}
@@ -2706,7 +2691,7 @@ c["5% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Dura
 c["5% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=5},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=5}},nil}
 c["5% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=5}},nil}
 c["5% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=5}},nil}
-c["5% increased Stun Threshold per 25 Tribute"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=5}},"  per 25 Tribute "}
+c["5% increased Stun Threshold per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=5}},nil}
 c["5% increased effect of Archon Buffs on you"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=5}},"  of Archon Buffs on you "}
 c["5% increased total Power counted by Warcries"]={{[1]={flags=0,keywordFlags=0,name="WarcryPower",type="INC",value=5}},nil}
 c["5% of Damage from Hits is taken from your Damageable Companion's Life before you"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}},"  from Hits is taken from your Damageable Companion's Life before you "}
@@ -3029,8 +3014,7 @@ c["8% increased Armour and Evasion Rating while Leeching"]={{[1]={[1]={type="Con
 c["8% increased Armour per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="Armour",type="INC",value=8}},nil}
 c["8% increased Attack Area Damage"]={{[1]={flags=513,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
-c["8% increased Attack Damage per 10 Tribute"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=8}},"  per 10 Tribute "}
-c["8% increased Attack Damage per 10 Tribute 1% increased damage taken per 10 Tribute"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=8}},"  per 10 Tribute 1% increased damage taken per 10 Tribute "}
+c["8% increased Attack Damage per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=8}},nil}
 c["8% increased Attack Speed if you've Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=8}},nil}
@@ -4484,8 +4468,7 @@ c["Elemental Damage also Contributes to Bleeding Magnitude"]={{[1]={flags=0,keyw
 c["Empowered Attacks Gain 15% of Physical Damage as Extra Fire damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=15}},nil}
 c["Empowered Attacks deal 10% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["Empowered Attacks deal 16% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
-c["Empowered Attacks deal 2% increased damage per 10 Tribute"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},"  per 10 Tribute "}
-c["Empowered Attacks deal 2% increased damage per 10 Tribute 4% increased Warcry Speed per 25 Tribute"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=4,name="Damage",type="INC",value=2}},"  per 10 Tribute 4% increased  Speed per 25 Tribute "}
+c["Empowered Attacks deal 2% increased damage per 10 Tribute"]={{[1]={[1]={type="Condition",var="Empowered"},[2]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
 c["Empowered Attacks deal 20% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["Empowered Attacks deal 50% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
@@ -4735,8 +4718,8 @@ c["Gain Arcane Surge when a Minion Dies 30% increased maximum Energy Shield"]={{
 c["Gain Cold Thorns Damage equal to 18% of your maximum Mana"]={nil,"Cold Thorns Damage equal to 18% of your maximum Mana "}
 c["Gain Deflection Rating equal to 10% of Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsDeflection",type="BASE",value=10}},nil}
 c["Gain Deflection Rating equal to 16% of Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsDeflection",type="BASE",value=16}},nil}
-c["Gain Deflection Rating equal to 2% of Evasion Rating per 25 Tribute"]={nil,"Deflection Rating equal to 2% of Evasion Rating per 25 Tribute "}
-c["Gain Deflection Rating equal to 2% of Evasion Rating per 25 Tribute 2% increased Evasion Rating per 10 Tribute"]={nil,"Deflection Rating equal to 2% of Evasion Rating per 25 Tribute 2% increased Evasion Rating per 10 Tribute "}
+c["Gain Deflection Rating equal to 2% of Evasion Rating per 25 Tribute"]={nil,"Deflection Rating equal to 2% of Evasion Rating  "}
+c["Gain Deflection Rating equal to 2% of Evasion Rating per 25 Tribute 2% increased Evasion Rating per 10 Tribute"]={nil,"Deflection Rating equal to 2% of Evasion Rating  2% increased Evasion Rating  "}
 c["Gain Deflection Rating equal to 20% of Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourGainAsDeflection",type="BASE",value=20}},nil}
 c["Gain Deflection Rating equal to 25% of Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsDeflection",type="BASE",value=25}},nil}
 c["Gain Deflection Rating equal to 3% of Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsDeflection",type="BASE",value=3}},nil}
@@ -5029,7 +5012,7 @@ c["Infusion Remnants you create are always a Random Element"]={nil,"Infusion Rem
 c["Inherent Life granted by Strength is halved"]={nil,"Inherent Life granted by Strength is halved "}
 c["Inherent Rage Loss starts 1 second later"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLossDelay",type="BASE",value=1}},nil}
 c["Inherent bonuses gained from Attributes are doubled"]={{[1]={flags=0,keywordFlags=0,name="DoubledInherentAttributeBonuses",type="FLAG",value=true}},nil}
-c["Inherent loss of Rage is 2% slower per 10 Tribute"]={{},"Inherent loss of Rage slower per 10 Tribute "}
+c["Inherent loss of Rage is 2% slower per 10 Tribute"]={{},"Inherent loss of Rage slower  "}
 c["Inherent loss of Rage is 20% slower"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLoss",type="INC",value=-20}},nil}
 c["Inherent loss of Rage is 25% slower"]={{[1]={flags=0,keywordFlags=0,name="InherentRageLoss",type="INC",value=-25}},nil}
 c["Instant Recovery"]={{[1]={flags=0,keywordFlags=0,name="FlaskInstantRecovery",type="BASE",value=100}},nil}
@@ -5189,7 +5172,7 @@ c["Minions cannot Die while affected by a Life Flask 30% increased Flask Charges
 c["Minions cause 15% increased Stun Buildup"]={nil,"cause 15% increased Stun Buildup "}
 c["Minions deal (25-35)% increased Damage"]={nil,"(25-35)% increased Damage "}
 c["Minions deal (8-13)% increased Damage"]={nil,"(8-13)% increased Damage "}
-c["Minions deal 1% increased damage per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=1}}}},"  per 10 Tribute "}
+c["Minions deal 1% increased damage per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}}}},nil}
 c["Minions deal 10% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},nil}
 c["Minions deal 10% increased Damage with Command Skills for each different type of Persistent Minion in your Presence"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={type="Condition",var="CommandableSkill"},[2]={type="Multiplier",var="PersistentMinionTypes"},flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}}},nil}
 c["Minions deal 12% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}}},nil}
@@ -5249,12 +5232,10 @@ c["Minions have 20% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name=
 c["Minions have 25% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Evasion",type="INC",value=25}}}},nil}
 c["Minions have 25% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=25}}}},nil}
 c["Minions have 3% increased Attack and Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=3}}}},nil}
-c["Minions have 3% increased Attack and Cast Speed per 50 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=3}}}},"  per 50 Tribute "}
-c["Minions have 3% increased Attack and Cast Speed per 50 Tribute Minions deal 1% increased damage per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=3}}}},"  per 50 Tribute s deal 1% increased damage per 10 Tribute "}
+c["Minions have 3% increased Attack and Cast Speed per 50 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Speed",type="INC",value=3}}}},nil}
 c["Minions have 30% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=30}}}},nil}
 c["Minions have 4% increased Attack and Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Speed",type="INC",value=4}}}},nil}
-c["Minions have 4% increased Cooldown Recovery Rate per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=4}}}},"  per 10 Tribute "}
-c["Minions have 4% increased Cooldown Recovery Rate per 10 Tribute Minions lose 2% Life per 10 Tribute you have when following Commands"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=4}}}},"  per 10 Tribute s lose 2% Life per 10 Tribute you have when following Commands "}
+c["Minions have 4% increased Cooldown Recovery Rate per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=4}}}},nil}
 c["Minions have 40% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40}}}},nil}
 c["Minions have 40% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=40}}}},nil}
 c["Minions have 40% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=40}}}},nil}
@@ -5267,7 +5248,7 @@ c["Minions have 8% increased Attack and Cast Speed"]={{[1]={flags=0,keywordFlags
 c["Minions have 8% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=8}}}},nil}
 c["Minions have 80% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=80}}}},nil}
 c["Minions have Unholy Might"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:UnholyMight",type="FLAG",value=true}}}},nil}
-c["Minions lose 2% Life per 10 Tribute you have when following Commands"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="BASE",value=-2}}}},"%  per 10 Tribute you have when following Commands "}
+c["Minions lose 2% Life per 10 Tribute you have when following Commands"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Life",type="BASE",value=-2}}}},"%   you have when following Commands "}
 c["Minions' Resistances are equal to yours"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="FireResist",type="PerStat"},flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=1}}},[2]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="ColdResist",type="PerStat"},flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=1}}},[3]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="LightningResist",type="PerStat"},flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=1}}},[4]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",stat="ChaosResist",type="PerStat"},flags=0,keywordFlags=0,name="ChaosResist",type="OVERRIDE",value=1}}}},nil}
 c["Modifiers to Fire Resistance also grant Cold and Lightning Resistance at 50% of their value"]={{[1]={flags=0,keywordFlags=0,name="FireResConvertToCold",type="BASE",value=50},[2]={flags=0,keywordFlags=0,name="FireResConvertToLightning",type="BASE",value=50}},nil}
 c["Modifiers to Maximum Block Chance instead apply to Maximum Resistances"]={{[1]={flags=0,keywordFlags=0,name="MaxBlockChanceModsApplyMaxResist",type="FLAG",value=true}},nil}
@@ -5411,7 +5392,7 @@ c["Projectiles do one of the following at random: Fork an additional time Chain 
 c["Projectiles do one of the following at random: Fork an additional time Chain an additional time Chain from Terrain an additional time"]={nil,"Projectiles do one of the following at random: Fork an additional time Chain an additional time Chain from Terrain an additional time "}
 c["Projectiles do one of the following at random: Fork an additional time Chain an additional time Chain from Terrain an additional time Cannot collide with targets"]={nil,"Projectiles do one of the following at random: Fork an additional time Chain an additional time Chain from Terrain an additional time Cannot collide with targets "}
 c["Projectiles from Spells cannot Pierce"]={{[1]={flags=2,keywordFlags=0,name="CannotPierce",type="FLAG",value=true}},nil}
-c["Projectiles have 10% chance for an additional Projectile when Forking per 10 Tribute"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=10}}," for an additional  when Forking per 10 Tribute "}
+c["Projectiles have 10% chance for an additional Projectile when Forking per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=10}}," for an additional  when Forking  "}
 c["Projectiles have 10% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=10}},nil}
 c["Projectiles have 15% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=15}},nil}
 c["Projectiles have 15% increased Critical Hit Chance against Enemies further than 6m"]={{[1]={[1]={threshold=60,type="MultiplierThreshold",var="enemyDistance"},flags=1024,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
