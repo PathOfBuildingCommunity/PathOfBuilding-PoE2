@@ -1456,6 +1456,9 @@ Huge sets the radius to 11.
 	{ var = "conditionTauntedEnemyRecently", type = "check", label = "Taunted an enemy Recently?", ifCond = "TauntedEnemyRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:TauntedEnemyRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionReloadedlRecently", type = "check", label = "Have you Reloaded Recently?", ifSkillType = SkillType.CrossbowAmmoSkill, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ReloadedRecently", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "conditionLostEnduranceChargeInPast8Sec", type = "check", label = "Lost an Endurance Charge in the past 8s?", ifCond = "LostEnduranceChargeInPast8Sec", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:LostEnduranceChargeInPast8Sec", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -1531,6 +1534,9 @@ Huge sets the radius to 11.
 	end },
 	-- Section: Effective DPS options
 	{ section = "For Effective DPS", col = 1 },
+	{ var = "enemyDistance", type = "count", label = "Distance to enemy:", tooltip = "10 units equals 1 metre\nPlayer and Minion Attacks incur an Accuracy penalty based on distance from the origin of the damage to the target,\nwith no penalty for targets within 2 metres and up to 90% less Accuracy for targets further than 12 metres away-", defaultPlaceholderState = 20, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:enemyDistance", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
 	{ var = "skillForkCount", type = "count", label = "# of times Skill has Forked:", ifFlag = "forking", apply = function(val, modList, enemyModList)
 		modList:NewMod("ForkedCount", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
@@ -1540,17 +1546,20 @@ Huge sets the radius to 11.
 	{ var = "skillPierceCount", type = "count", label = "# of times Skill has Pierced:", ifStat = "PiercedCount", ifFlag = "piercing", apply = function(val, modList, enemyModList)
 		modList:NewMod("PiercedCount", "BASE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ var = "enemyDistance", type = "count", label = "Distance to enemy:", tooltip = "10 units equals 1 metre\nPlayer and Minion Attacks incur an Accuracy penalty based on distance from the origin of the damage to the target,\nwith no penalty for targets within 2 metres and up to 90% less Accuracy for targets further than 12 metres away-", defaultPlaceholderState = 20, apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:enemyDistance", "BASE", val, "Config", { type = "Condition", var = "Effective" })
-	end },
-	{ var = "conditionAtCloseRange", type = "check", label = "Is the enemy at Close Range?", ifCond = "AtCloseRange", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:AtCloseRange", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-	end },
 	{ var = "multiplierBoltsReloadedPer6Seconds", type = "countAllowZero", label = "# bolts reloaded past 6 seconds", tooltip = "Override number of bolts reloaded in the past 6 seconds.\nUsed to calculate damage bonus from Fresh Clip I support.\nAssumes calculated average if no value is specified.", ifSkill = "Fresh Clip I", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:BoltsReloadedPastSixSeconds", "OVERRIDE", val, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "multiplierBoltsReloadedPer8Seconds", type = "countAllowZero", label = "# bolts reloaded past 8 seconds", tooltip = "Override number of bolts reloaded in the past 8 seconds.\nUsed to calculate damage bonus from Fresh Clip II support.\nAssumes calculated average if no value is specified.", ifSkill = "Fresh Clip II", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:BoltsReloadedPastEightSeconds", "OVERRIDE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "multiplierDifferentAmmoFired", type = "count", label = "# different Ammo Types Shot past 10s", tooltip = "Number of different Ammunition types used in tha past 10s", ifMult = "DifferentAmmoFired", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:DifferentAmmoFired", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "multiplierDifferentGrenadeFired", type = "count", label = "# different Grenade Types Shot past 10s", tooltip = "Number of different Grenade types used in tha past 10s", ifMult = "DifferentGrenadeFired", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:DifferentGrenadeFired", "BASE", val, "Config", { type = "Condition", var = "Effective" })
+	end },
+	{ var = "conditionAtCloseRange", type = "check", label = "Is the enemy at Close Range?", ifCond = "AtCloseRange", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:AtCloseRange", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "enemyMultiplierEnemyPresenceSeconds", type = "count", label = "Enemy in Your Presence Duration", tooltip = "Number of seconds the enemy has been in your presence.", ifEnemyMult = "EnemyPresenceSeconds", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Multiplier:EnemyPresenceSeconds", "BASE", val, "Config", { type = "Condition", var = "Effective" })

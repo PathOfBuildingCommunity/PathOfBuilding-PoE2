@@ -2659,6 +2659,7 @@ function calcs.offence(env, actor, activeSkill)
 				output.BoltCount = skillData.boltCount
 				output.EffectiveBoltCount = output.BoltCount
 				output.ChanceToNotConsumeAmmo = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ChanceToNotConsumeAmmo")
+				output.ChanceToReloadInstantly = m_min(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "InstantReloadChance"), 100)
 				if output.ChanceToNotConsumeAmmo > 0 then
 					if output.ChanceToNotConsumeAmmo < 100 then
 						output.EffectiveBoltCount = output.BoltCount / (1 - (output.ChanceToNotConsumeAmmo / 100))
@@ -2669,11 +2670,12 @@ function calcs.offence(env, actor, activeSkill)
 				output.TotalFiringTime = 1 / output.FiringRate * ((output.ChanceToNotConsumeAmmo >= 100) and 0 or output.EffectiveBoltCount)
 				output.ReloadRate = 1 / skillData.reloadTime
 				output.ReloadTime = skillData.reloadTime
-				output.Speed = (output.ChanceToNotConsumeAmmo >= 100) and output.FiringRate or (1 / ((output.TotalFiringTime + output.ReloadTime) / (output.EffectiveBoltCount)))
+				output.EffectiveReloadTime = output.ReloadTime * (1 - output.ChanceToReloadInstantly / 100)
+				output.Speed = (output.ChanceToNotConsumeAmmo >= 100) and output.FiringRate or (1 / ((output.TotalFiringTime + output.EffectiveReloadTime) / (output.EffectiveBoltCount)))
 
 				-- Average bolts reloaded past six second for purposes of calculating Fresh Clip support damage bonus
-				local boltsReloadedPastSixSeconds = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPastSixSeconds") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount * 6 / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
-				local boltsReloadedPastEightSeconds = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPastEightSeconds") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount * 8 / (output.TotalFiringTime + output.ReloadTime)) -- assume 0 bolts reloaded when none are consumed
+				local boltsReloadedPastSixSeconds = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPastSixSeconds") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount * 6 / (output.TotalFiringTime + output.EffectiveReloadTime)) -- assume 0 bolts reloaded when none are consumed
+				local boltsReloadedPastEightSeconds = skillModList:Override({ source = "Config"}, "Multiplier:BoltsReloadedPastEightSeconds") or (output.ChanceToNotConsumeAmmo > 100) and 0 or (output.BoltCount * 8 / (output.TotalFiringTime + output.EffectiveReloadTime)) -- assume 0 bolts reloaded when none are consumed
 				if boltsReloadedPastSixSeconds > 0 then
 					skillModList:ReplaceMod("Multiplier:BoltsReloadedPastSixSeconds", "BASE", boltsReloadedPastSixSeconds, activeSkill.activeEffect.grantedEffect.name)
 				end
@@ -2733,10 +2735,10 @@ function calcs.offence(env, actor, activeSkill)
 
 					breakdown.Speed = { }
 					t_insert(breakdown.Speed, s_format("  %.2fs ^8(total firing time)", output.TotalFiringTime))
-					t_insert(breakdown.Speed, s_format("+ %.2fs ^8(reload time)", output.ReloadTime))
-					t_insert(breakdown.Speed, s_format("= %.2fs ^8(total attack time)", output.TotalFiringTime + output.ReloadTime))
+					t_insert(breakdown.Speed, s_format("+ %.2fs ^8(eff. reload time)", output.EffectiveReloadTime))
+					t_insert(breakdown.Speed, s_format("= %.2fs ^8(total attack time)", output.TotalFiringTime + output.EffectiveReloadTime))
 					t_insert(breakdown.Speed, s_format("\n"))
-					t_insert(breakdown.Speed, s_format("  %.2fs ^8(total attack time)", output.TotalFiringTime + output.ReloadTime))
+					t_insert(breakdown.Speed, s_format("  %.2fs ^8(total attack time)", output.TotalFiringTime + output.EffectiveReloadTime))
 					t_insert(breakdown.Speed, s_format("/ %.2f ^8(eff. bolt count)", output.EffectiveBoltCount))
 					t_insert(breakdown.Speed, s_format("= %.2fs ^8(eff. attack time)", 1 / output.Speed))
 					t_insert(breakdown.Speed, s_format("\n"))
@@ -4101,11 +4103,13 @@ function calcs.offence(env, actor, activeSkill)
 			-- Combine stats related to reload and bolt functionality
 			combineStat("FiringRate", "AVERAGE")
 			combineStat("ReloadTime", "AVERAGE")
+			combineStat("EffectiveReloadTime", "AVERAGE")
 			combineStat("ReloadRate", "AVERAGE")
 			combineStat("BoltCount", "AVERAGE")
 			combineStat("EffectiveBoltCount", "AVERAGE")
 			combineStat("TotalFiringTime", "AVERAGE")
 			combineStat("ChanceToNotConsumeAmmo", "AVERAGE")
+			combineStat("ChanceToReloadInstantly", "AVERAGE")
 
 			-- Add stats related to "Chance to not consume a bolt" to breakdown
 			if breakdown then
@@ -4115,6 +4119,13 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.EffectiveBoltCount, s_format("/ (1 - %.2f) ^8(chance to not consume)", m_min(output.ChanceToNotConsumeAmmo / 100, 1)))
 					t_insert(breakdown.EffectiveBoltCount, s_format("\n"))
 					t_insert(breakdown.EffectiveBoltCount, s_format("= %.2f ^8(effective bolt count)", output.EffectiveBoltCount or (1/0))) -- 1/0 is used as a stand-in for "infinite"
+				end
+				if output.ChanceToReloadInstantly then
+					breakdown.EffectiveReloadTime = { }
+					t_insert(breakdown.EffectiveReloadTime, s_format("%.2f ^8(reload time)", output.ReloadTime))
+					t_insert(breakdown.EffectiveReloadTime, s_format("* (1 - %.2f) ^8(chance to reload instantly)", m_min(output.ChanceToReloadInstantly / 100, 1)))
+					t_insert(breakdown.EffectiveReloadTime, s_format("\n"))
+					t_insert(breakdown.EffectiveReloadTime, s_format("= %.2f ^8(effective reload time)", output.EffectiveReloadTime))
 				end
 
 			end
@@ -5388,8 +5399,8 @@ function calcs.offence(env, actor, activeSkill)
 			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "UseMaxUnleash") then
 				useSpeed = env.player.mainSkill.skillData.hitTimeOverride / repeats
 				timeType = "full unleash"
-			elseif output.ReloadTime then -- Crossbows: Account for mana cost only happening on reload (once all bolts are fired)
-				useSpeed = (not output.EffectiveBoltCount) and 0 or (1 / (output.TotalFiringTime + output.ReloadTime))
+			elseif output.EffectiveReloadTime then -- Crossbows: Account for mana cost only happening on reload (once all bolts are fired)
+				useSpeed = (not output.EffectiveBoltCount) and 0 or (1 / (output.TotalFiringTime + output.EffectiveReloadTime))
 				timeType = "effective reload"
 			else
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.Speed > 0 and output.Speed or 1 / output.Cooldown) or output.Speed) / repeats

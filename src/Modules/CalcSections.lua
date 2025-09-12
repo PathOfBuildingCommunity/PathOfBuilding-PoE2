@@ -499,6 +499,7 @@ return {
 	{ label = "Inc. Reload Speed", haveOutput = "ReloadTime", notFlag = "triggered", { format = "{0:mod:1}%", { modName = "ReloadSpeed", modType = "INC", cfg = "skill"}, }, },
 	{ label = "More Reload Speed", haveOutput = "ReloadTime", notFlag = "triggered", { format = "{0:mod:1}%", { modName = "ReloadSpeed", modType = "MORE", cfg = "skill"}, }, },
 	{ label = "Reload Time", haveOutput = "ReloadTime", notFlag = "triggered", { format = "{2:output:ReloadTime}s", { breakdown = "ReloadTime" }, }, },
+	{ label = "Eff. Reload Time", haveOutput = "ChanceToReloadInstantly", { format = "{2:output:EffectiveReloadTime}", { breakdown = "EffectiveReloadTime" }, }, },
 	{ label = "Attacks per second", flag = "bothWeaponAttack", notFlag = "triggered", { format = "{2:output:Speed}", { breakdown = "Speed" }, }, },
 	{ label = "Attack time", flag = "attack", notFlag = "triggered", { format = "{2:output:Time}s", { breakdown = "MainHand.Time" }, }, },
 	{ label = "Inc. Cast Speed", flag = "spell", notFlag = "triggered", { format = "{0:mod:1}%", { modName = "Speed", modType = "INC", cfg = "skill", }, }, },

@@ -1182,7 +1182,7 @@ c["10% reduced effect of Shock on you"]={{[1]={flags=0,keywordFlags=0,name="Self
 c["10% reduced maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=-10}},nil}
 c["100 Passive Skill Points become Weapon Set Skill Points"]={{[1]={flags=0,keywordFlags=0,name="PassivePointsToWeaponSetPoints",type="BASE",value=100}},nil}
 c["100% chance to Daze Enemies whose Hits you Block while Actively Blocking"]={{[1]={flags=0,keywordFlags=0,name="DazeChance",type="BASE",value=100}},"  Enemies whose Hits you Block ly Blocking "}
-c["100% chance to not consume a bolt if you've Reloaded Recently"]={{}," to not consume a bolt if you've Reloaded Recently "}
+c["100% chance to not consume a bolt if you've Reloaded Recently"]={{[1]={[1]={type="Condition",var="ReloadedRecently"},flags=0,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=100}},nil}
 c["100% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=100}},nil}
 c["100% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=100}},nil}
 c["100% increased Armour Break Duration"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=100}},"  Break Duration "}
@@ -1999,7 +1999,7 @@ c["25% increased Culling Strike Threshold Gain 13% of Damage as Extra Chaos Dama
 c["25% increased Damage during any Flask Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage while you have a Totem"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage while your Companion is in your Presence"]={{[1]={[1]={type="Condition",var="CompanionInPresence"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
-c["25% increased Damage with Crossbows for each type of Ammunition fired in the past 10 seconds"]={{[1]={flags=67108868,keywordFlags=0,name="Damage",type="INC",value=25}},"   for each type of Ammunition fired in the past 10 seconds "}
+c["25% increased Damage with Crossbows for each type of Ammunition fired in the past 10 seconds"]={{[1]={[1]={limitVar="AmmoTypes",type="Multiplier",var="DifferentAmmoFired"},flags=67108868,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage with Hits against Blinded Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage with Hits against Enemies affected by Elemental Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Ignited",[5]="Scorched",[6]="Brittle",[7]="Sapped"}},flags=0,keywordFlags=262144,name="Damage",type="INC",value=25}},nil}
@@ -2181,8 +2181,8 @@ c["30% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceCha
 c["30% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},nil}
 c["30% chance to Poison on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PoisonChance",type="BASE",value=30}},nil}
 c["30% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=30}},nil}
-c["30% chance to not consume a bolt if you've Reloaded Recently"]={{}," to not consume a bolt if you've Reloaded Recently "}
-c["30% chance when you Reload a Crossbow to be immediate"]={{}," when you Reload a  to be immediate "}
+c["30% chance to not consume a bolt if you've Reloaded Recently"]={{[1]={[1]={type="Condition",var="ReloadedRecently"},flags=0,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=30}},nil}
+c["30% chance when you Reload a Crossbow to be immediate"]={{[1]={flags=0,keywordFlags=0,name="InstantReloadChance",type="BASE",value=30}},nil}
 c["30% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=30}},nil}
 c["30% faster start of Energy Shield Recharge when not on Full Life"]={{[1]={[1]={neg=true,type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=30}},nil}
 c["30% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=30}},nil}
@@ -4627,7 +4627,7 @@ c["Gain 35% Base Chance to Block from Equipped Shield instead of the Shield's va
 c["Gain 35% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=35}},nil}
 c["Gain 4% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=4}},nil}
 c["Gain 4% of Damage as Extra Fire Damage for"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=4}},"   for "}
-c["Gain 4% of Damage as Extra Fire Damage for every different Grenade fired in the past 8 seconds"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=4}},"   for every different  fired in the past 8 seconds "}
+c["Gain 4% of Damage as Extra Fire Damage for every different Grenade fired in the past 8 seconds"]={{[1]={[1]={limitVar="GrenadeTypes",type="Multiplier",var="DifferentGrenadeFired"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=4}},nil}
 c["Gain 40 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=40}},nil}
 c["Gain 40% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=40}},nil}
 c["Gain 5 Life per Enemy Hit with Attacks"]={{[1]={flags=4,keywordFlags=65536,name="LifeOnHit",type="BASE",value=5}},nil}
@@ -5716,7 +5716,6 @@ c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="Unaff
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
 c["apply to Energy Shield Recharge Rate"]={nil,"apply to Energy Shield Recharge Rate "}
 c["apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour"]={nil,"apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour "}
-c["every different Grenade fired in the past 8 seconds"]={nil,"every different Grenade fired in the past 8 seconds "}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
 c["the enemy's Power for 6 seconds, up to a total of 500"]={nil,"the enemy's Power for 6 seconds, up to a total of 500 "}
