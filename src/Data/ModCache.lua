@@ -2551,8 +2551,8 @@ c["40% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShock
 c["40% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=40}},nil}
 c["40% increased Skill Speed while an enemy with an Open Weakness is in your Presence"]={{[1]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="Speed",type="INC",value=40},[2]={[1]={type="Condition",var="OpenWeaknessEnemyPresence"},flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=40}},nil}
 c["40% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
-c["40% increased Spell Damage if one of your Minions has died Recently"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},"   if one of your Minions has died Recently "}
-c["40% increased Spell Damage with Spells that cost Life"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},"   with Spells that cost Life "}
+c["40% increased Spell Damage if one of your Minions has died Recently"]={{[1]={[1]={type="Condition",var="MinionsDiedRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
+c["40% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=40}},nil}
 c["40% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=40}},nil}
 c["40% increased Stun Buildup"]={{}," Stun Buildup "}
 c["40% increased Stun Buildup Adds 11 to 20 Physical Damage to Attacks"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=40}}," Stun Buildup Adds 11 to 20  to Attacks "}
@@ -5144,9 +5144,9 @@ c["Minions have +20% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,nam
 c["Minions have +20% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=20}}}},nil}
 c["Minions have +22% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=22}}}},nil}
 c["Minions have +23% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}}}},nil}
-c["Minions have +3% to Maximum Cold Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=3}}}}," s "}
-c["Minions have +3% to Maximum Fire Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3}}}}," s "}
-c["Minions have +3% to Maximum Fire Resistances Minions have +20% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3}}}}," s s have +20% to Fire Resistance "}
+c["Minions have +3% to Maximum Cold Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=3}}}},nil}
+c["Minions have +3% to Maximum Fire Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=3}}}},nil}
+c["Minions have +3% to Maximum Lightning Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=3}}}},nil}
 c["Minions have +3% to Maximum Lightning Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=3}}}}," s "}
 c["Minions have +3% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResistMax",type="BASE",value=3}}}},nil}
 c["Minions have +4% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=4}}}},nil}
