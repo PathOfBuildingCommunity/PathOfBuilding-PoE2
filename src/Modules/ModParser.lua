@@ -189,6 +189,7 @@ local modNameList = {
 	["cost efficiency of skills"] = "CostEfficiency",
 	["mana cost efficiency"] = "ManaCostEfficiency",
 	["mana cost efficiency of skills"] = "ManaCostEfficiency",
+	["mana cost efficiency of attacks"] = { "ManaCostEfficiency", tag = { type = "SkillType", skillType = SkillType.Attack } },
 	["life cost efficiency"] = "LifeCostEfficiency",
 	["life cost efficiency of skills"] = "LifeCostEfficiency",
 	["spirit cost efficiency"] = "SpiritCostEfficiency",
@@ -201,6 +202,8 @@ local modNameList = {
 	["soul cost efficiency of skills"] = "SoulCostEfficiency",
 	["rage cost efficiency"] = "RageCostEfficiency",
 	["rage cost efficiency of skills"] = "RageCostEfficiency",
+	["skill mana costs converted to life costs"] = "HybridManaAndLifeCost_Life", 
+	["spell mana cost converted to life cost"] = { "HybridManaAndLifeCost_Life", tag = { type = "SkillType", skillType = SkillType.Spell } },
 	["mana reserved"] = "ManaReserved",
 	["mana reservation"] = "ManaReserved",
 	["mana reservation of skills"] = { "ManaReserved", tag = { type = "SkillType", skillType = SkillType.Aura } },
@@ -1075,9 +1078,9 @@ local modFlagList = {
 	["for stance skills"] = { tag = { type = "SkillType", skillType = SkillType.Stance } },
 	["of stance skills"] = { tag = { type = "SkillType", skillType = SkillType.Stance } },
 	["mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
+	["of marks"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
 	["of mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
 	["of your mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
-	["with skills that cost life"] = { tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
 	["with command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["for command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["minion"] = { addToMinion = true },
@@ -1586,6 +1589,8 @@ local modTagList = {
 	["while affected by a normal abyss jewel"] = { tag = { type = "MultiplierThreshold", var = "NormalAbyssJewels", threshold = 1 } },
 	["while an enemy with an open weakness is in your presence"] = { tag = { type = "Condition", var = "OpenWeaknessEnemyPresence" } }, -- This one means there's an enemy that has open weakness "nearby"
 	["against enemies with an open weakness"] = { tag = { type = "Condition", var = "EnemyHasOpenWeakness" } }, -- This one means the enemy you're targeting has open weakness
+	["with skills that cost life"] = { tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
+	["with spells that cost life"] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
 	-- Gem conditions
 	["if you have at least (%d+) (%a+) support gems socketed"] = function(count, _, color) return { tag = { type = "MultiplierThreshold", var = firstToUpper(color) .. "SupportGems", threshold = count } }  end,
 	["if you have at least (%d+) red, green and blue support gems socketed"] = function(count) 
@@ -1748,7 +1753,9 @@ local modTagList = {
 	["during any flask effect"] = { tag = { type = "Condition", var = "UsingFlask" } },
 	["while under no flask effects"] = { tag = { type = "Condition", var = "UsingFlask", neg = true } },
 	["during effect of any mana flask"] = { tag = { type = "Condition", var = "UsingManaFlask" } },
+	["during any mana flask effect"] = { tag = { type = "Condition", var = "UsingManaFlask" } },
 	["during effect of any life flask"] = { tag = { type = "Condition", var = "UsingLifeFlask" } },
+	["during any life flask effect"] = { tag = { type = "Condition", var = "UsingLifeFlask" } },
 	["if you've used a life flask in the past 10 seconds"] = { tag = { type = "Condition", var = "UsingLifeFlask" } },
 	["if you've used a mana flask in the past 10 seconds"] = { tag = { type = "Condition", var = "UsingManaFlask" } },
 	["while you have no life flask uses left"] = { tag = { type = "Condition", var = "NoLifeFlaskUsesLeft" } },
@@ -5520,13 +5527,7 @@ local specialModList = {
     ["skills cost life instead of (%d+)%% of mana cost"] = function(num) return {
         mod("HybridManaAndLifeCost_Life", "BASE", num),
     } end,
-	["(%d+)%% of skill mana costs converted to life costs"] = function(num) return {
-        mod("HybridManaAndLifeCost_Life", "BASE", num),
-    } end,
 	["skill mana costs converted to life costs"] = { mod("HybridManaAndLifeCost_Life", "BASE", 100) },
-	["(%d+)%% of spell mana cost converted to life cost"] = function(num) return {
-        mod("HybridManaAndLifeCost_Life", "BASE", num,{ type = "SkillType", skillType = SkillType.Spell }),
-    } end,
 	["attack skills cost life instead of (%d+)%% of mana cost"] = function(num) return { 
 		mod("HybridManaAndLifeCost_Life", "BASE", num, nil, ModFlag.Attack) 
 	} end,

@@ -1315,7 +1315,7 @@ c["12% increased Spell Damage if you have consumed an Elemental Infusion Recentl
 c["12% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
-c["12% increased Spell Damage with Spells that cost Life"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},"   with Spells that cost Life "}
+c["12% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=12}},nil}
 c["12% increased Stun Buildup"]={{}," Stun Buildup "}
 c["12% increased Stun Buildup 10% increased Damage with Maces"]={{[1]={flags=1048580,keywordFlags=0,name="Damage",type="INC",value=12}}," Stun Buildup 10% increased   "}
 c["12% increased Stun Buildup Gain additional Stun Threshold equal to 10% of maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}}," Stun Buildup Gain additional  equal to 10% of maximum Energy Shield "}
@@ -2273,7 +2273,7 @@ c["30% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hi
 c["30% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=30}},nil}
 c["30% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30}},nil}
 c["30% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=30}},nil}
-c["30% increased Mana Cost Efficiency of Attacks during any Mana Flask Effect"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=30}},"  of Attacks during any Mana Flask Effect "}
+c["30% increased Mana Cost Efficiency of Attacks during any Mana Flask Effect"]={{[1]={[1]={skillType=1,type="SkillType"},[2]={type="Condition",var="UsingManaFlask"},flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=30}},nil}
 c["30% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=30}},nil}
 c["30% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}},nil}
 c["30% increased Mana Regeneration Rate while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=30}},nil}
@@ -2792,7 +2792,7 @@ c["50% of Elemental Damage taken as Chaos Damage"]={{[1]={flags=0,keywordFlags=0
 c["50% of Evasion Rating also grants Elemental Damage reduction"]={{[1]={flags=0,keywordFlags=0,name="EvasionAppliesToFireDamageTaken",type="BASE",value=50},[2]={flags=0,keywordFlags=0,name="EvasionAppliesToColdDamageTaken",type="BASE",value=50},[3]={flags=0,keywordFlags=0,name="EvasionAppliesToLightningDamageTaken",type="BASE",value=50}},nil}
 c["50% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=50}},nil}
 c["50% of Physical Damage prevented Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="BASE",value=50}},"  prevented Recouped as Life "}
-c["50% of Skill Mana costs Converted to Life Costs during any Life Flask Effect"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="BASE",value=50}}," Skill s Converted to Life Costs during any Life Flask Effect "}
+c["50% of Skill Mana costs Converted to Life Costs during any Life Flask Effect"]={{[1]={[1]={type="Condition",var="UsingLifeFlask"},flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=50}},nil}
 c["50% of charges used by Charms granted to your Life Flasks"]={{[1]={[3]={type="Multiplier",var="AvgCharmChargesUsed"},flags=0,keywordFlags=0,name="FlaskChargesGained",type="MORE",value=0.5}},nil}
 c["50% of your Base Life Regeneration is granted to Allies in your Presence"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50},onlyAllies=true}}}," your Base  is granted to "}
 c["50% of your Base Life Regeneration is granted to Allies in your Presence +10 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=50},onlyAllies=true}}}," your Base  is granted to +10 to all Attributes "}
@@ -2861,8 +2861,7 @@ c["6% increased Reservation Efficiency of Herald Skills"]={{[1]={[1]={skillType=
 c["6% increased Reservation Efficiency of Minion Skills"]={{[1]={[1]={skillType=6,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=6}},nil}
 c["6% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=6},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=6}},nil}
 c["6% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
-c["6% increased Spell Damage with Spells that cost Life"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},"   with Spells that cost Life "}
-c["6% increased Spell Damage with Spells that cost Life 8% of Spell Mana Cost Converted to Life Cost"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},"   with Spells that cost Life 8% of Spell Mana Cost Converted to Life Cost "}
+c["6% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=6}},nil}
 c["6% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=6}},nil}
 c["6% increased Spirit Reservation Efficiency of Skills"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=6}},nil}
 c["6% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=6}},nil}
@@ -2903,8 +2902,7 @@ c["60% increased Freeze Threshold"]={{[1]={flags=0,keywordFlags=0,name="FreezeTh
 c["60% increased Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="IceCrystalLife",type="INC",value=60}},nil}
 c["60% increased Magnitude of Abyssal Wasting you inflict"]={{}," Magnitude of Abyssal Wasting you inflict "}
 c["60% increased Magnitude of Abyssal Wasting you inflict Abyssal Wasting you inflict has Infinite Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=60}}," Magnitude of Abyssal Wasting you inflict Abyssal Wasting you inflict has Infinite  "}
-c["60% increased Mana Cost Efficiency of Marks"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=60}},"  of Marks "}
-c["60% increased Mana Cost Efficiency of Marks 4% increased Movement Speed if you've used a Mark Recently"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=60}},"  of Marks 4% increased Movement Speed if you've used a Mark Recently "}
+c["60% increased Mana Cost Efficiency of Marks"]={{[1]={[1]={skillType=98,type="SkillType"},flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=60}},nil}
 c["60% increased Mana Regeneration Rate while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=60}},nil}
 c["60% increased Melee Damage if you've dealt a Projectile Attack Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitProjectileRecently"},flags=256,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["60% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=60}},nil}
