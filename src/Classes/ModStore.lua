@@ -246,7 +246,11 @@ function ModStoreClass:HasMod(modType, cfg, ...)
 end
 
 function ModStoreClass:GetCondition(var, cfg, noMod)
-	return self.conditions[var] or (self.parent and self.parent:GetCondition(var, cfg, true)) or (not noMod and self:Flag(cfg, conditionName[var]))
+	if (cfg and cfg.overrideCond and cfg.overrideCond[var] ~= nil) then
+		return cfg.overrideCond[var]
+	else
+		return  self.conditions[var] or (self.parent and self.parent:GetCondition(var, cfg, true)) or (not noMod and self:Flag(cfg, conditionName[var]))
+	end
 end
 
 function ModStoreClass:GetMultiplier(var, cfg, noMod)
