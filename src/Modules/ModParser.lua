@@ -3358,6 +3358,7 @@ local specialModList = {
 	["increases and reductions to cast speed also apply to trap throwing speed"] = { flag("CastSpeedAppliesToTrapThrowingSpeed") },
 	["increases and reductions to armour also apply to energy shield recharge rate at (%d+)%% of their value"] = function(num) return { flag("ArmourAppliesToEnergyShieldRecharge"), mod("ImprovedArmourAppliesToEnergyShieldRecharge", "MAX", num) } end,
 	["increases and reductions to projectile speed also apply to damage with bows"] = { flag("ProjectileSpeedAppliesToBowDamage") },
+	["increases and reductions to mana regeneration rate also apply to energy shield recharge rate"] = { flag("ManaRegenAppliesToEnergyShieldRecharge") },
 	["modifiers to maximum (%a+) resistance also [ga][rp][ap][nl][ty] ?t?o? maximum (%a+) and (%a+) resistances?"] = function(_, resFrom, resTo1, resTo2) return {
 		mod((resFrom:gsub("^%l", string.upper)).."MaxResConvertTo"..(resTo1:gsub("^%l", string.upper)), "BASE", 100),
 		mod((resFrom:gsub("^%l", string.upper)).."MaxResConvertTo"..(resTo2:gsub("^%l", string.upper)), "BASE", 100),
@@ -5743,6 +5744,7 @@ local suffixTypes = {
 	["added as energy shield"] = "GainAsEnergyShield",
 	["as extra maximum energy shield"] = "GainAsEnergyShield",
 	["converted to energy shield"] = "ConvertToEnergyShield",
+	["as armour"] = "GainAsArmour",
 	["as extra armour"] = "GainAsArmour",
 	["as physical damage"] = "AsPhysical",
 	["as lightning damage"] = "AsLightning",

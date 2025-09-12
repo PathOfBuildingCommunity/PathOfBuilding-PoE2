@@ -4630,6 +4630,7 @@ c["Gain 4% of Damage as Extra Fire Damage for"]={{[1]={flags=0,keywordFlags=0,na
 c["Gain 4% of Damage as Extra Fire Damage for every different Grenade fired in the past 8 seconds"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=4}},"   for every different  fired in the past 8 seconds "}
 c["Gain 40 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=40}},nil}
 c["Gain 40% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=40}},nil}
+c["Gain 40% of Maximum Mana as Armour"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsArmour",type="BASE",value=40}},nil}
 c["Gain 5 Life per Enemy Hit with Attacks"]={{[1]={flags=4,keywordFlags=65536,name="LifeOnHit",type="BASE",value=5}},nil}
 c["Gain 5 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=5}},nil}
 c["Gain 5 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=5}},nil}
@@ -4646,7 +4647,7 @@ c["Gain 5% of Maximum Mana as Extra Maximum Energy Shield while you have at leas
 c["Gain 5% of maximum Mana as Extra maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsEnergyShield",type="BASE",value=5}},nil}
 c["Gain 50 Life per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=50}},nil}
 c["Gain 50% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=50}},nil}
-c["Gain 50% of Maximum Mana as Armour"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="BASE",value=50}},"  as Armour "}
+c["Gain 50% of Maximum Mana as Armour"]={{[1]={flags=0,keywordFlags=0,name="ManaGainAsArmour",type="BASE",value=50}},nil}
 c["Gain 50% of maximum Energy Shield as additional Freeze Threshold"]={{[1]={[1]={percent=50,stat="EnergyShield",type="PercentStat"},flags=0,keywordFlags=0,name="FreezeThreshold",type="BASE",value=1}},nil}
 c["Gain 6 Mana per Enemy Killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=6}},nil}
 c["Gain 6% of Elemental Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsCold",type="BASE",value=6}},nil}
@@ -4933,7 +4934,7 @@ c["Increases and Reductions to Armour also apply to Energy Shield"]={nil,"Increa
 c["Increases and Reductions to Armour also apply to Energy Shield Recharge Rate at 40% of their value"]={{[1]={flags=0,keywordFlags=0,name="ArmourAppliesToEnergyShieldRecharge",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedArmourAppliesToEnergyShieldRecharge",type="MAX",value=40}},nil}
 c["Increases and Reductions to Companion Damage also apply to you"]={{[1]={flags=0,keywordFlags=0,name="CompanionDamageAppliesToPlayer",type="FLAG",value=true}},nil}
 c["Increases and Reductions to Mana Regeneration Rate also"]={nil,"Increases and Reductions to Mana Regeneration Rate also "}
-c["Increases and Reductions to Mana Regeneration Rate also apply to Energy Shield Recharge Rate"]={nil,"Increases and Reductions to Mana Regeneration Rate also apply to Energy Shield Recharge Rate "}
+c["Increases and Reductions to Mana Regeneration Rate also apply to Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegenAppliesToEnergyShieldRecharge",type="FLAG",value=true}},nil}
 c["Increases and Reductions to Minion Attack Speed also affect you"]={{[1]={flags=0,keywordFlags=0,name="MinionAttackSpeedAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionAttackSpeedAppliesToPlayer",type="MAX",value=100}},nil}
 c["Increases and Reductions to Minion Damage also affect you"]={{[1]={flags=0,keywordFlags=0,name="MinionDamageAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionDamageAppliesToPlayer",type="MAX",value=100}},nil}
 c["Increases and Reductions to Projectile Speed also apply to Damage with Bows"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeedAppliesToBowDamage",type="FLAG",value=true}},nil}
@@ -5714,8 +5715,6 @@ c["Your Offerings can target Enemies in Culling range Your Offerings affect you 
 c["Your base Energy Shield Recharge Delay is 10 seconds"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeBase",type="OVERRIDE",value=10}},nil}
 c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedBySlows",type="FLAG",value=true}},nil}
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
-c["apply to Energy Shield Recharge Rate"]={nil,"apply to Energy Shield Recharge Rate "}
-c["apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour"]={nil,"apply to Energy Shield Recharge Rate Gain 50% of Maximum Mana as Armour "}
 c["every different Grenade fired in the past 8 seconds"]={nil,"every different Grenade fired in the past 8 seconds "}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}

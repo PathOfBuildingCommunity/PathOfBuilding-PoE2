@@ -1046,6 +1046,14 @@ function calcs.defence(env, actor)
 			modDB:NewMod("EnergyShieldRecharge", "INC", m_floor(mod.value * multiplier), mod.source, mod.flags, mod.keywordFlags, unpack(modifiers))
 		end
 	end
+	
+	if modDB:Flag(nil, "ManaRegenAppliesToEnergyShieldRecharge") then
+		-- Mana Regen conversion from Waveshaper
+		for i, value in ipairs(modDB:Tabulate("INC",  { }, "ManaRegen")) do
+			local mod = value.mod
+			modDB:NewMod("EnergyShieldRecharge", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 
 	if modDB:Flag(nil, "EnergyShieldIncreasedByOvercappedColdRes") then
 		for i, value in ipairs(modDB:Tabulate("FLAG", nil, "EnergyShieldIncreasedByOvercappedColdRes")) do
