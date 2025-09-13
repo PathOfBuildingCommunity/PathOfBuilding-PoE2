@@ -696,6 +696,44 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill HisFoulEmergencePlayer
+#set HisFoulEmergencePlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#from item
+#skill ScatteringCalamityPlayer
+#set ScatteringCalamityPlayer
+#flags spell projectile
+#mods
+#set ScatteringCalamityExplosionPlayer
+#flags spell area projectile
+#mods
+#skillEnd
+
+#from item
+#skill VileDisruptionPlayer
+#set VileDisruptionPlayer
+#flags spell area
+#mods
+#skillEnd
+
+#from item
+#skill HisWinnowingFlamePlayer
+#set HisWinnowingFlamePlayer
+#flags spell area
+#mods
+#skillEnd
+
+#from item
+#skill TriggeredHisWinnowingFlamePillarPlayer
+#set TriggeredHisWinnowingFlamePillarPlayer
+#flags hit area
+#mods
+#skillEnd
+
 #skill HypothermiaPlayer
 #set HypothermiaPlayer
 #flags spell curse area duration
@@ -1141,6 +1179,19 @@ statMap = {
 #set SummonSpectrePlayer
 #flags spell minion spectre duration permanentMinion
 #baseMod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3
+#mods
+#skillEnd
+
+#from item
+#skill MetaSpellslingerPlayer
+#set MetaSpellslingerPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SupportSpellslingerPlayer
+#set SupportSpellslingerPlayer
 #mods
 #skillEnd
 

@@ -498,6 +498,10 @@ c["+3 to Level of all Herald of Plague Skills"]={{[1]={flags=0,keywordFlags=0,na
 c["+3 to Level of all Herald of Thunder Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="herald of thunder",value=3}}},nil}
 c["+3 to Level of all Hexblast Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="hexblast",value=3}}},nil}
 c["+3 to Level of all High Velocity Rounds Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="high velocity rounds",value=3}}},nil}
+c["+3 to Level of all His Foul Emergence Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="his foul emergence",value=3}}},nil}
+c["+3 to Level of all His Scattering Calamity Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="his scattering calamity",value=3}}},nil}
+c["+3 to Level of all His Vile Intrusion Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="his vile intrusion",value=3}}},nil}
+c["+3 to Level of all His Winnowing Flame Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="his winnowing flame",value=3}}},nil}
 c["+3 to Level of all Hypothermia Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="hypothermia",value=3}}},nil}
 c["+3 to Level of all Ice Nova Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ice nova",value=3}}},nil}
 c["+3 to Level of all Ice Shards Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ice shards",value=3}}},nil}
@@ -610,8 +614,9 @@ c["+3 to Level of all Spear Throw Skills"]={{[1]={flags=0,keywordFlags=0,name="G
 c["+3 to Level of all Spear of Solaris Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spear of solaris",value=3}}},nil}
 c["+3 to Level of all Spearfield Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spearfield",value=3}}},nil}
 c["+3 to Level of all Spectre:  Skills"]={{}," Level of all :  Skills "}
-c["+3 to Level of all Spectre:  Skills +3 to Level of all Spiral Volley Skills"]={{}," Level of all :  Skills +3 to Level of allSkills "}
+c["+3 to Level of all Spectre:  Skills +3 to Level of all Spellslinger Skills"]={{}," Level of all :  Skills +3 to Level of allSkills "}
 c["+3 to Level of all Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spell",value=3}}},nil}
+c["+3 to Level of all Spellslinger Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spellslinger",value=3}}},nil}
 c["+3 to Level of all Spiral Volley Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spiral volley",value=3}}},nil}
 c["+3 to Level of all Staggering Palm Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="staggering palm",value=3}}},nil}
 c["+3 to Level of all Stampede Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="stampede",value=3}}},nil}
@@ -4852,15 +4857,12 @@ c["Grants Skill: Level 20 Herald of Ice"]={{[1]={flags=0,keywordFlags=0,name="Ex
 c["Grants Skill: Level 20 Herald of Thunder"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="HeraldOfThunderPlayer"}}},nil}
 c["Grants Skill: Level 20 His Dark Horizon"]={nil,nil}
 c["Grants Skill: Level 20 His Dark Horizon Grants Skill: Level 20 His Foul Emergence"]={nil,nil}
-c["Grants Skill: Level 20 His Foul Emergence"]={nil,nil}
-c["Grants Skill: Level 20 His Foul Emergence Grants Skill: Level 20 His Grave Command"]={nil,nil}
+c["Grants Skill: Level 20 His Foul Emergence"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="HisFoulEmergencePlayer"}}},nil}
 c["Grants Skill: Level 20 His Grave Command"]={nil,nil}
 c["Grants Skill: Level 20 His Grave Command Grants Skill: Level 20 His Scattering Calamity"]={nil,nil}
-c["Grants Skill: Level 20 His Scattering Calamity"]={nil,nil}
-c["Grants Skill: Level 20 His Scattering Calamity Grants Skill: Level 20 His Vile Intrusion"]={nil,nil}
-c["Grants Skill: Level 20 His Vile Intrusion"]={nil,nil}
-c["Grants Skill: Level 20 His Vile Intrusion Grants Skill: Level 20 His Winnowing Flame"]={nil,nil}
-c["Grants Skill: Level 20 His Winnowing Flame"]={nil,nil}
+c["Grants Skill: Level 20 His Scattering Calamity"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ScatteringCalamityPlayer"}}},nil}
+c["Grants Skill: Level 20 His Vile Intrusion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="VileDisruptionPlayer"}}},nil}
+c["Grants Skill: Level 20 His Winnowing Flame"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="HisWinnowingFlamePlayer"}}},nil}
 c["Grants Skill: Level 20 Icestorm"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="IcestormPlayer"}}},nil}
 c["Grants Skill: Level 20 Impurity"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="ImpurityPlayer"}}},nil}
 c["Grants Skill: Level 20 Lightning Bolt"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=20,skillId="LightningBoltPlayer"}}},nil}
