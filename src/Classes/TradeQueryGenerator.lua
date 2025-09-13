@@ -80,11 +80,11 @@ for type, bases in pairs(data.itemBaseLists) do
 end
 
 local tradeStatCategoryIndices = {
-	["Explicit"] = 1,
-	["Implicit"] = 2,
-	["Corrupted"] = 3,
-	["AllocatesXEnchant"] = 3,
-	["Rune"] = 4,
+	["Explicit"] = 2,
+	["Implicit"] = 3,
+	["Corrupted"] = 4,
+	["AllocatesXEnchant"] = 5,
+	["Rune"] = 6,
 }
 
 local MAX_FILTERS = 35
