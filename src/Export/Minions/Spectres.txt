@@ -643,6 +643,10 @@ local minions, mod, flag = ...
 #flags recommendedBeast
 #emit
 
+#spectre Metadata/Monsters/VultureZombie/VultureDemon
+#flags recommendedBeast
+#emit
+
 #spectre Metadata/Monsters/SandLeaper02/DesertLeaper1_
 #emit
 

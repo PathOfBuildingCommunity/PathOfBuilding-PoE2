@@ -7075,6 +7075,45 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	},
 }
 
+minions["Metadata/Monsters/VultureZombie/VultureDemon"] = {
+	name = "Vile Vulture",
+	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "fast_movement", "flying", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
+	life = 2.3,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.73,
+	damageSpread = 0.2,
+	attackTime = 1.86,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 44,
+	spectreReservation = 93,
+	companionReservation = 45.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Confluence (Map)",
+		"Deshar (Act 2)",
+		"Shrike Island (Act 4)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"VultureDemonLeap",
+		"GAVultureZombieLeap",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+	},
+}
+
 minions["Metadata/Monsters/SandLeaper02/DesertLeaper1_"] = {
 	name = "Crag Leaper",
 	monsterTags = { "beast", "fast_movement", "insect", "melee", "not_int", "not_str", "physical_affinity", "SpearWood_onhit_audio", "very_fast_movement", },
