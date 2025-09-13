@@ -222,6 +222,7 @@ skills["GasShotSkeletonSniperMinion"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "sniper_gas_shot_statset_2",
 			baseFlags = {
+				attack = true,
 				hit = true,
 				area = true,
 			},

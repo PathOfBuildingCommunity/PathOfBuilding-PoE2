@@ -37,7 +37,7 @@ local skills, mod, flag, skill = ...
 #flags attack area duration
 #mods
 #set GasShotCloudExplodeSkeletonSniperMinion
-#flags hit area
+#flags attack area
 #mods
 #skillEnd
 
