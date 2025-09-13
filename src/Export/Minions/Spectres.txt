@@ -373,7 +373,9 @@ local minions, mod, flag = ...
 
 -- Twilight Order
 #spectre Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier
-#flags recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderOfficer_
 #emit
 
 -- Vaal Humanoid

@@ -1376,6 +1376,40 @@ skills["GATwilightSoldierStab"] = {
 		},
 	}
 }
+skills["GATwilightOfficerSmite"] = {
+	name = "Smite",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.15, storedUses = 1, levelRequirement = 0, cooldown = 5.5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Smite",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			baseMods = {
+				skill("cooldown", 12),
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 80 },
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GATwilightOrderSoldierChargeImpact"] = {
 	name = "Charge Impact",
 	hidden = true,

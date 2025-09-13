@@ -259,6 +259,13 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GATwilightOfficerSmite Smite
+#set GATwilightOfficerSmite
+#flags triggerable attack
+#baseMod skill("cooldown", 12)
+#mods
+#skillEnd
+
 #skill GATwilightOrderSoldierChargeImpact Charge Impact
 #set GATwilightOrderSoldierChargeImpact
 #flags triggerable attack

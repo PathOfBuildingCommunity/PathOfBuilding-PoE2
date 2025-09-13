@@ -3976,9 +3976,6 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 minions["Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier"] = {
 	name = "Twilight Order Soldier",
 	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "cold_affinity", "human", "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
-	extraFlags = {
-		recommendedSpectre = true,
-	},
 	life = 1.1,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.5,
@@ -4008,6 +4005,46 @@ minions["Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier"] = {
 		"GATwilightSoldierPierceTrigger",
 		"TCTwilghtOrderSoldierCharge",
 		"GATwilightOrderSoldierChargeImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderOfficer_"] = {
+	name = "Twilight Order Officer",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "cold_affinity", "fast_movement", "human", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.6,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.6,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.6,
+	damageSpread = 0.2,
+	attackTime = 1.755,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Two Handed Sword",
+	baseMovementSpeed = 43,
+	spectreReservation = 71,
+	companionReservation = 37.8,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GATwilightOfficerSmite",
+		"GATwilightOfficerSmiteSpectre",
+		"EGTwilightOrderOfficerSmiteAura",
+		"EGTwilightOrderOfficerEnergyShieldWarCry",
+		"EASTwilightOfficerFrozenLegion",
+		"GATwilightOfficerFrozenLegionTriggered",
 	},
 	modList = {
 		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
