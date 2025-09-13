@@ -1221,3 +1221,15 @@ local minions, mod, flag = ...
 
 #spectre Metadata/Monsters/DrownedCrawler/DrownedCrawler__
 #emit
+
+#spectre Metadata/Monsters/Pirates/PirateBootyBlaster
+#emit
+
+#spectre Metadata/Monsters/ManOWar/ManoWar
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateCannon
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateBarrel
+#emit

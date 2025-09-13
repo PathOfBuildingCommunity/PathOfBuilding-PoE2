@@ -13765,3 +13765,151 @@ minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
 		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
+
+minions["Metadata/Monsters/Pirates/PirateBootyBlaster"] = {
+	name = "Rotting Soulcatcher",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "humanoid", "not_dex", "not_str", "physical_affinity", "ranged", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.25,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 7,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MMSBootyBlasterSoulRelease",
+		"GSSoulBlast",
+		"EASBootyBlasterSoulRelease",
+		"MPSBootyBlasterSoulRelease",
+		"MMSBootyBlasterSoulReleaseFlinch",
+	},
+	modList = {
+		-- strafe_distance_+% [strafe_distance_+% = -60]
+		mod("StunDuration", "OVERRIDE", 4.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4866]
+	},
+}
+
+minions["Metadata/Monsters/ManOWar/ManoWar"] = {
+	name = "Man o' War",
+	monsterTags = { "caster", "lightning_affinity", "not_dex", "not_str", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", "water", },
+	life = 1.75,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 1.75,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 18,
+	spectreReservation = 76,
+	companionReservation = 39.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSJellyfishLightningTendrils",
+		"TBJellyfishLightningTendrilsLeft",
+		"GTJellyfishLightningTendrilsLeft",
+		"GTJellyfishLightningTendrilsRight",
+		"TBJellyfishLightningTendrilsRight",
+		"GSJellyfishLightningTendrilsLeft",
+	},
+	modList = {
+		-- how_stunning [how_stunning = 75]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/Pirates/PirateCannon"] = {
+	name = "Rotting Cannoneer",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "humanoid", "physical_affinity", "ranged", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 8,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPWPirateCannonball",
+		"GAPirateCannonballImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+	},
+}
+
+minions["Metadata/Monsters/Pirates/PirateBarrel"] = {
+	name = "Rotting Demolitionist",
+	monsterTags = { "allows_inc_aoe", "fire_affinity", "humanoid", "physical_affinity", "ranged", "skeleton", "slow_movement", "StaffWood_onhit_audio", "undead", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 28,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPWPirateBarrelToss",
+		"EASPirateBarrelPickup",
+		"EASPirateBarrelBurn",
+		"GAPirateBarrelTossImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+	},
+}
