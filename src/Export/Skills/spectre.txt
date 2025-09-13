@@ -235,15 +235,52 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GADrownedCrawlerSwipe Swipe
+#set GADrownedCrawlerSwipe
+#flags triggerable attack
+#mods
+#skillEnd
+
 #skill GAFigureheadSlamGhostFlame Slam
 #set GAFigureheadSlamGhostFlame
-#flags triggerable attack
+#flags triggerable attack area
+#mods
+#skillEnd
+
+#skill GAKaruiSpiritTurtleSlam Slam
+#set GAKaruiSpiritTurtleSlam
+#flags triggerable attack area
 #mods
 #skillEnd
 
 #skill GASaltGolemMelee
 #set GASaltGolemMelee
 #flags triggerable attack
+#mods
+#skillEnd
+
+#skill GATwilightSoldierStab Stab
+#set GATwilightSoldierStab
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GATwilightOfficerSmite Smite
+#set GATwilightOfficerSmite
+#flags triggerable attack
+#baseMod skill("cooldown", 12)
+#mods
+#skillEnd
+
+#skill GATwilightOrderSoldierChargeImpact Charge Impact
+#set GATwilightOrderSoldierChargeImpact
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill TCTwilghtOrderSoldierCharge Charge
+#set TCTwilghtOrderSoldierCharge
+#flags attack melee area
 #mods
 #skillEnd
 

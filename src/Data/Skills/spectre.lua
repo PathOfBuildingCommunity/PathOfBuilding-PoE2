@@ -1249,6 +1249,35 @@ skills["GACenobiteBloaterSlam"] = {
 		},
 	}
 }
+skills["GADrownedCrawlerSwipe"] = {
+	name = "Swipe",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Swipe",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			stats = {
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GAFigureheadSlamGhostFlame"] = {
 	name = "Slam",
 	hidden = true,
@@ -1267,10 +1296,45 @@ skills["GAFigureheadSlamGhostFlame"] = {
 			baseFlags = {
 				triggerable = true,
 				attack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "melee_range_+", 42 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAKaruiSpiritTurtleSlam"] = {
+	name = "Slam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 2, storedUses = 1, levelRequirement = 0, cooldown = 7, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 2 },
+				{ "voll_slam_damage_+%_final_at_centre", 25 },
 			},
 			stats = {
 				"is_area_damage",
@@ -1303,6 +1367,152 @@ skills["GASaltGolemMelee"] = {
 			},
 			stats = {
 				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GATwilightSoldierStab"] = {
+	name = "Stab",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1.5,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.2, storedUses = 1, levelRequirement = 0, cooldown = 4.5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Stab",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 20 },
+			},
+			stats = {
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GATwilightOfficerSmite"] = {
+	name = "Smite",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.15, storedUses = 1, levelRequirement = 0, cooldown = 5.5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Smite",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			baseMods = {
+				skill("cooldown", 12),
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 80 },
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GATwilightOrderSoldierChargeImpact"] = {
+	name = "Charge Impact",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charge Impact",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_cold", 80 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TCTwilghtOrderSoldierCharge"] = {
+	name = "Charge",
+	hidden = true,
+	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	weaponTypes = {
+		["None"] = true,
+		["One Handed Sword"] = true,
+		["One Handed Mace"] = true,
+		["Flail"] = true,
+		["Spear"] = true,
+		["One Handed Axe"] = true,
+		["Dagger"] = true,
+		["Claw"] = true,
+	},
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "base_movement_velocity_+%", 0 },
+			},
+			stats = {
+				"ignores_proximity_shield",
+				"is_area_damage",
+				"skill_cannot_be_interrupted",
+				"skill_cannot_be_stunned",
+				"skill_cannot_be_knocked_back",
+				"global_knockback",
+				"action_attack_or_cast_time_uses_animation_length",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
