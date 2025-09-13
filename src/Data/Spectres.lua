@@ -1454,6 +1454,37 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	},
 }
 
+minions["Metadata/Monsters/CrabMonsters/CrabCoconut"] = {
+	name = "Coconut Crab",
+	monsterTags = { "beast", "crustacean_beast", "extra_extra_small_height", "hard_armour", "is_unarmed", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "puncturing_weapon", "Unarmed_onhit_audio", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.65,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 29,
+	spectreReservation = 36,
+	companionReservation = 24.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shoreline Hideout (Act 4)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+	},
+}
+
 minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 	name = "Porcupine Crab",
 	monsterTags = { "allows_additional_projectiles", "beast", "fire_affinity", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "red_blood", "slow_movement", },
