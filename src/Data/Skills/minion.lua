@@ -1172,10 +1172,19 @@ skills["LivingLightningZap"] = {
 			label = "Zap",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["living_lightning_damage_+%_final_per_additional_hit"] = {
+					mod("Damage", "MORE", nil),
+					div = 3/2, --Average over 3 hits
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
 				chaining = true,
+			},
+			baseMods = {
+				skill("timeOverride", 0.001, { type = "Multiplier", var = "LivingLightningAttackTime" }),
 			},
 			constantStats = {
 				{ "number_of_chains", 3 },

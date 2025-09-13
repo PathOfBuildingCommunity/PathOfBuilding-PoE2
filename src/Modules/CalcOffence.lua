@@ -2840,6 +2840,8 @@ function calcs.offence(env, actor, activeSkill)
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
+		elseif skillData.timeOverride and not skillData.triggeredOnDeath then
+			output.Time = skillData.timeOverride
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			output.HitTime = output.Time * skillData.hitTimeMultiplier
 			if output.Cooldown and skillData.triggered then

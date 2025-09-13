@@ -284,6 +284,9 @@ return {
 ["display_skill_minions_level_is_corpse_level"] = {
 	skill("minionLevelIsEnemyLevel", true),
 },
+["display_minion_level_from_triggering_skill_level"] = {
+	skill("minionLevelIsTriggeredSkillLevel", true),
+},
 ["active_skill_minion_added_damage_+%_final"] = {
 	skill("minionDamageEffectiveness", nil),
 },
@@ -2196,6 +2199,9 @@ return {
 ["active_skill_minion_bleeding_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed) }),
 },
+["minion_base_physical_damage_%_to_convert_to_lightning"] = {
+	mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToLightning", "BASE", nil) }),
+},
 ["minion_critical_strike_chance_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("CritChance", "INC", nil) }),
 },
@@ -2274,6 +2280,15 @@ return {
 },
 ["base_number_of_arbalists"] = {
 	mod("ActiveArbalistLimit", "BASE", nil),
+},
+["base_number_of_living_lightning_allowed"] = {
+	mod("ActiveLivingLightningLimit", "BASE", nil),
+},
+["base_number_of_skeletal_constructs_allowed"] = {
+	mod("ActiveUnearthBoneConstructLimit", "BASE", nil),
+},
+["maximum_hatching_elementals_allowed"] = {
+	mod("ActiveSkitteringStoneLimit", "BASE", nil),
 },
 ["base_number_of_champions_of_light_allowed"] = {
 	mod("ActiveSentinelOfPurityLimit", "BASE", nil),

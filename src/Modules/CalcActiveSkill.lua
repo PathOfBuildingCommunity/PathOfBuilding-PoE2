@@ -161,6 +161,7 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			-- Track how many active skills are supported by this support effect
 			if supportEffect.isSupporting and activeEffect.srcInstance then
 				supportEffect.isSupporting[activeEffect.srcInstance] = true
+				supportEffect.activeSkillLevel = activeEffect.srcInstance.level
 			end
 			if supportEffect.grantedEffect.addFlags and not summonSkill then
 				-- Support skill adds flags to supported skills (eg. Remote Mine adds 'mine')
@@ -789,6 +790,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			minion.type = minionType
 			minion.minionData = env.data.minions[minionType]
 			minion.level = activeSkill.skillData.minionLevelIsEnemyLevel and env.enemyLevel or 
+								activeSkill.skillData.minionLevelIsTriggeredSkillLevel and activeEffect.srcInstance.supportEffect and activeEffect.srcInstance.supportEffect.activeSkillLevel and data.minionLevelTable[activeEffect.srcInstance.supportEffect.activeSkillLevel] or 
 								activeSkill.skillData.minionLevelIsPlayerLevel and (m_min(env.build and env.build.characterLevel or activeSkill.skillData.minionLevel or activeEffect.grantedEffectLevel.levelRequirement, activeSkill.skillData.minionLevelIsPlayerLevel)) or 
 								activeSkill.skillData.minionLevel or data.minionLevelTable[activeSkill.activeEffect.level] or 1
 			-- fix minion level between 1 and 100

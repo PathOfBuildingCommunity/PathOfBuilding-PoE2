@@ -188,6 +188,13 @@ skills["MinionInstability"] = {
 #skill LivingLightningZap Zap
 #set LivingLightningZap
 #flags attack melee chaining
+statMap = {
+	["living_lightning_damage_+%_final_per_additional_hit"] = {
+		mod("Damage", "MORE", nil),
+		div = 3/2, --Average over 3 hits
+	},
+},
+#baseMod skill("timeOverride", 0.001, { type = "Multiplier", var = "LivingLightningAttackTime" })
 #mods
 #skillEnd
 

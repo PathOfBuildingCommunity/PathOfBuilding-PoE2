@@ -3593,6 +3593,14 @@ skills["TriggeredLivingLightningPlayer"] = {
 			label = "Living Lightning",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_living_lightning",
+			statMap = {
+				["living_lightning_maximum_number_of_attacks"] = {
+				mod("MinionModifier", "LIST", { mod = mod("RepeatCount", "BASE", nil), }),
+				},
+				["living_lightning_beam_attack_time_ms"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:LivingLightningAttackTime", "BASE", nil) }),
+				},
+			},
 			baseFlags = {
 				minion = true,
 			},
@@ -3668,6 +3676,12 @@ skills["TriggeredLivingLightningPlayerTwo"] = {
 				["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 					mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 10 }) }),
 					div = 10,
+				},
+				["living_lightning_maximum_number_of_attacks"] = {
+				mod("MinionModifier", "LIST", { mod = mod("RepeatCount", "BASE", nil), }),
+				},
+				["living_lightning_beam_attack_time_ms"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:LivingLightningAttackTime", "BASE", nil) }),
 				},
 			},
 			baseFlags = {
