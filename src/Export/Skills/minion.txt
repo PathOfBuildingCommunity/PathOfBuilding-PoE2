@@ -37,7 +37,7 @@ local skills, mod, flag, skill = ...
 #flags attack area duration
 #mods
 #set GasShotCloudExplodeSkeletonSniperMinion
-#flags hit area
+#flags attack area
 #mods
 #skillEnd
 
@@ -47,6 +47,12 @@ local skills, mod, flag, skill = ...
 #mods
 #set BoneshatterShockwaveBruteMinion
 #flags attack area
+#mods
+#skillEnd
+
+#skill ShatteringRoarSkeletalBruteMinion
+#set ShatteringRoarSkeletalBruteMinion
+#flags hit duration warcry
 #mods
 #skillEnd
 
@@ -71,8 +77,8 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
-#skill IceBombSkeletonMageMinion
-#set IceBombSkeletonMageMinion
+#skill IceArmourSkeletonMageMinion
+#set IceArmourSkeletonMageMinion
 #flags spell duration
 #mods
 #skillEnd
