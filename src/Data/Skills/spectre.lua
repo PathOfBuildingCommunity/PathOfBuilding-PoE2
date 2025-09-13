@@ -1249,6 +1249,35 @@ skills["GACenobiteBloaterSlam"] = {
 		},
 	}
 }
+skills["GADrownedCrawlerSwipe"] = {
+	name = "Swipe",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.2, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Swipe",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+			},
+			stats = {
+				"base_skill_can_be_blocked",
+				"base_skill_can_be_avoided_by_dodge_roll",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["GAFigureheadSlamGhostFlame"] = {
 	name = "Slam",
 	hidden = true,

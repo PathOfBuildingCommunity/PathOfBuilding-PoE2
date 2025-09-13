@@ -13659,3 +13659,109 @@ minions["Metadata/Monsters/PlagueBringer/TwilightOrderPlagueBringer"] = {
 		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
+
+minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
+	name = "Drowned Explorer",
+	monsterTags = { "1HSword_onhit_audio", "humanoid", "melee", "melee_mod", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.3,
+	attackTime = 1.755,
+	attackRange = 9,
+	accuracy = 1,
+	weaponType1 = "One Handed Sword",
+	baseMovementSpeed = 8,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Glacial Tarn (Act 6)",
+		"Journey's End (Act 4)",
+		"Kedge Bay (Act 4)",
+		"The Drowned City (Act 3)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead"] = {
+	name = "Drowned Bearer",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "fire_affinity", "melee_mod", "physical_affinity", "undead", "very_slow_movement", "zombie", },
+	life = 1.8,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.8,
+	damageSpread = 0.2,
+	attackTime = 4.8,
+	attackRange = 20,
+	accuracy = 1,
+	weaponType1 = "Two Handed Mace",
+	baseMovementSpeed = 7,
+	spectreReservation = 77,
+	companionReservation = 40.2,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Kedge Bay (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MASStatueWretchPush",
+		"GAFigureheadSlamGhostFlame",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
+	},
+}
+
+minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
+	name = "Drowned Crawler",
+	monsterTags = { "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_fast_movement", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.6,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.17,
+	attackRange = 8,
+	accuracy = 1,
+	weaponType1 = "None",
+	baseMovementSpeed = 62,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Kedge Bay (Act 4)",
+		"The Drowned City (Act 3)",
+		"Found in Maps",
+	},
+	skillList = {
+		"GADrownedCrawlerSwipe",
+		"DTTDrownedCrawlerLeap",
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+	},
+}

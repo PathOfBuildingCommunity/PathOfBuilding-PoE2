@@ -1212,3 +1212,12 @@ local minions, mod, flag = ...
 
 #spectre Metadata/Monsters/PlagueBringer/TwilightOrderPlagueBringer
 #emit
+
+#spectre Metadata/Monsters/DrownedCrew/DrownedCrewSword_
+#emit
+
+#spectre Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead
+#emit
+
+#spectre Metadata/Monsters/DrownedCrawler/DrownedCrawler__
+#emit

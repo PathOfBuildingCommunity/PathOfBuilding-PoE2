@@ -235,6 +235,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GADrownedCrawlerSwipe Swipe
+#set GADrownedCrawlerSwipe
+#flags triggerable attack
+#mods
+#skillEnd
+
 #skill GAFigureheadSlamGhostFlame Slam
 #set GAFigureheadSlamGhostFlame
 #flags triggerable attack area
