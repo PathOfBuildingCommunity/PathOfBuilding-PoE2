@@ -237,7 +237,13 @@ statMap = {
 
 #skill GAFigureheadSlamGhostFlame Slam
 #set GAFigureheadSlamGhostFlame
-#flags triggerable attack
+#flags triggerable attack area
+#mods
+#skillEnd
+
+#skill GAKaruiSpiritTurtleSlam Slam
+#set GAKaruiSpiritTurtleSlam
+#flags triggerable attack area
 #mods
 #skillEnd
 

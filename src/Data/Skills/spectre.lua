@@ -1267,10 +1267,45 @@ skills["GAFigureheadSlamGhostFlame"] = {
 			baseFlags = {
 				triggerable = true,
 				attack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "melee_range_+", 42 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 40 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["GAKaruiSpiritTurtleSlam"] = {
+	name = "Slam",
+	hidden = true,
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 2, storedUses = 1, levelRequirement = 0, cooldown = 7, },
+	},
+	statSets = {
+		[1] = {
+			label = "Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				triggerable = true,
+				attack = true,
+				area = true,
+			},
+			constantStats = {
+				{ "attack_maximum_action_distance_+", 2 },
+				{ "voll_slam_damage_+%_final_at_centre", 25 },
 			},
 			stats = {
 				"is_area_damage",

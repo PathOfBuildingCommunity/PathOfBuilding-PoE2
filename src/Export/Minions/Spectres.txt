@@ -140,6 +140,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/QuillCrab/QuillCrab
 #emit
 
+#spectre Metadata/Monsters/CrabMonsters/CrabCoconut
+#emit
+
 #spectre Metadata/Monsters/QuillCrab/QuillCrabBig
 #emit
 
@@ -1185,4 +1188,7 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
+#emit
+
+#spectre Metadata/Monsters/KaruiSpiritTortoise/SpiritTortoise_
 #emit

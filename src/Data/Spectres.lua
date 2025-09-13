@@ -13391,3 +13391,40 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
 		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
+
+minions["Metadata/Monsters/KaruiSpiritTortoise/SpiritTortoise_"] = {
+	name = "Guardian Turtle",
+	monsterTags = { "allows_inc_aoe", "beast", "cold_affinity", "melee", "not_dex", "physical_affinity", "red_blood", "reptile_beast", "Snap_onhit_audio", "very_slow_movement", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.4,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 20,
+	accuracy = 1,
+	baseMovementSpeed = 12,
+	spectreReservation = 113,
+	companionReservation = 51.9,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Eye of Hinekora (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"EDSSpiritTurtleFireSprayLeft",
+		"EDSSpiritTurtleFireSprayRight",
+		"GAKaruiSpiritTurtleSlam",
+		"MeleeAtAnimationSpeedComboTEMP",
+		"CGESpiritTurtleChilledGround",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 5.266, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5266]
+	},
+}
