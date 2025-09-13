@@ -1365,6 +1365,8 @@ return {
 		{ label = "Configured Sap", modName = "SapVal", enemy = true, modType = "BASE" },
 		{ label = "Guaranteed Saps", modName = "SapOverride", modType = "BASE" },
 	}, },
+	{ label = "Electrocute Build-up", { format = "{0:output:ElectrocuteBuildupOnHit}%", { modName = "ElectrocuteBuildupOnHit" }, }, },
+	{ label = "Poise", { format = "{0:output:EnemyPoiseThreshold}", { modName = "EnemyPoiseThreshold" }, }, },
 } }
 } },
 { 1, "MiscEffects", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Other Effects", data = {
@@ -1828,7 +1830,7 @@ return {
 	{ label = "Weap. Swap Speed", { format = "{0:output:WeaponSwapSpeed} ms", { breakdown = "WeaponSwapSpeedMod" }, { modName = { "WeaponSwapSpeed" } }, }, },
 } }, { defaultCollapsed = false, label = "Stun Duration", data = {
 	{ label = "Stun Avoid Chance", haveOutput = "StunAvoidChance", { format = "{0:output:StunAvoidChance}%",  { breakdown = "StunAvoidChance" }, { modName = "AvoidStun" }, }, },
-	{ label = "Stun Threshold", { format = "{0:output:StunThreshold}", { breakdown = "StunThreshold" }, { modName = { "StunThreshold", "StunThresholdManaPercent", "StunThresholdEnergyShieldPercent" } }, }, },
+	{ label = "Stun Threshold", { format = "{	0:output:StunThreshold}", { breakdown = "StunThreshold" }, { modName = { "StunThreshold", "StunThresholdManaPercent", "StunThresholdEnergyShieldPercent" } }, }, },
 	{ label = "Stun Chance", { format = "{0:output:SelfStunChance}%", { breakdown = "SelfStunChance" }, }, },
 	{ label = "Interrupt Avoid Ch.", haveOutput = "InterruptStunAvoidChance", { format = "{0:output:InterruptStunAvoidChance}%", { modName = "AvoidInterruptStun" }, }, },
 	{ label = "Stun Duration", { format = "{2:output:StunDuration}s", 

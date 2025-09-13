@@ -4352,6 +4352,9 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate ailment thresholds
 	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "AilmentThreshold")
 	output['EnemyAilmentThreshold'] = enemyThreshold
+	local enemyPoiseThreshold = data.monsterPoiseThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "PoiseThreshold")
+	output['EnemyPoiseThreshold'] = enemyPoiseThreshold
+
 
 	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
 	for _, pass in ipairs(passList) do
@@ -4887,9 +4890,40 @@ function calcs.offence(env, actor, activeSkill)
 		output["FreezeChanceOnHit"] = 0
 		output["FreezeChanceOnCrit"] = 0
 		skillFlags["inflictFreeze"] = false
-		output["ElectrocuteChanceOnHit"] = 0
-		output["ElectrocuteChanceOnCrit"] = 0
 		skillFlags["inflictElectrocute"] = false
+		
+		
+		
+		
+		-- Calculate poise-related debuffs
+		for _, ailment in ipairs({"Freeze", "Electrocute", "HeavyStun"}) do 
+			local damageTypes
+			if ailment == "HeavyStun" then
+				damageTypes = { DamageType = "Physical" }
+			else 
+				damageTypes = data.defaultAilmentDamageTypes[ailment].ScalesFrom
+			end
+			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, damageTypes)
+			-- TODO: average for now, can do more complicated calculation later
+			local hitAvg = hitMin + (hitMax - hitMin) / 2
+			local critAvg = critMin + (critMax - critMin) / 2
+			local inc = skillModList:Sum("INC", cfg, "Enemy"..ailment.."Buildup")
+			local more = data.gameConstants[ailment .. "ThresholdModifier"] or 0
+			local hitPoiseBuildup = hitAvg / enemyPoiseThreshold * data.gameConstants[ailment .. "DamageScale"]
+			hitPoiseBuildup = hitPoiseBuildup * (1 + inc / 100) * (1 + more / 100)
+			local critPoiseBuildup = critAvg / enemyPoiseThreshold * data.gameConstants[ailment .. "DamageScale"]
+			critPoiseBuildup = critPoiseBuildup * (1 + inc / 100) * (1 + more / 100)
+
+
+
+			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
+				output[ailment.."BuildupOnHit"] = m_min(100, hitPoiseBuildup)
+				output[ailment.."BuildupOnCrit"] = m_min(100, critPoiseBuildup)
+			else
+				output[ailment.."BuildupOnHit"] = 0
+				output[ailment.."BuildupOnCrit"] = 0
+			end
+		end
 
 		-- Calculate scaling threshold ailment chance
 		for _, ailment in ipairs({"Ignite", "Shock"}) do

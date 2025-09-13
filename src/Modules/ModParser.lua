@@ -834,6 +834,10 @@ local modNameList = {
 	-- Other negative effects
 	["to daze"] = "DazeChance",
 	["to inflict daze"] = "DazeChance",
+	-- Build-up effects
+	["electrocute buildup"] = "EnemyElectrocuteBuildup",
+	["stun buildup"] = "EnemyStunBuildup",
+	["freeze buildup"] = "EnemyFreezeBuildup",
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },
