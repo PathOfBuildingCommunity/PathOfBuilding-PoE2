@@ -1454,6 +1454,89 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 	},
 }
 
+minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
+	name = "Quill Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "cold_affinity", "crustacean_beast", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "red_blood", "slow_movement", },
+	extraFlags = {
+		recommendedBeast = true,
+		recommendedSpectre = true,
+	},
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 40,
+	accuracy = 1,
+	baseMovementSpeed = 23,
+	spectreReservation = 38,
+	companionReservation = 25.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Glacial Tarn (Act 6)",
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Untainted Paradise (Map)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstTropical",
+		"QuillCrabSpikeShrapnelTropical",
+		"CGEQuillCrabTropicalChill",
+		"GSQuillCrabColdImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/QuillCrab/QuillCrabBigTropical"] = {
+	name = "Quill Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "cold_affinity", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "red_blood", "slow_movement", },
+	extraFlags = {
+		recommendedBeast = true,
+		recommendedSpectre = true,
+	},
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 50,
+	accuracy = 1,
+	baseMovementSpeed = 27,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Glacial Tarn (Act 6)",
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Untainted Paradise (Map)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstTropical",
+		"QuillCrabSpikeShrapnelTropical",
+		"CGEQuillCrabTropicalChill",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
 minions["Metadata/Monsters/CrabMonsters/CrabCoconut"] = {
 	name = "Coconut Crab",
 	monsterTags = { "beast", "crustacean_beast", "extra_extra_small_height", "hard_armour", "is_unarmed", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "puncturing_weapon", "Unarmed_onhit_audio", },

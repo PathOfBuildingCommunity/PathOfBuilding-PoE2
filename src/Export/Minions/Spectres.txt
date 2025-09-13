@@ -140,6 +140,14 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/QuillCrab/QuillCrab
 #emit
 
+#spectre Metadata/Monsters/QuillCrab/QuillCrabTropical
+#flags recommendedBeast recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabBigTropical
+#flags recommendedBeast recommendedSpectre
+#emit
+
 #spectre Metadata/Monsters/CrabMonsters/CrabCoconut
 #emit
 
