@@ -570,8 +570,6 @@ Metadata/Monsters/Pirates/CaptainRothBossCannon                                 
 Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightningSkitterMine_		----		Skitter Mine
 Metadata/Monsters/KaruiSoulCaster/KaruiSpiritSummon                                       		----		Ancestral Mask
 Metadata/Monsters/SudokuTotemBoss/SudokuBossUpperFace                                     		----		Daemon
-Metadata/Monsters/BloodFeverKarui/BloodFeverBlob                                          		----		Blood-fevered Pustule
-Metadata/Monsters/BloodFeverKarui/BloodFeverButcherSpectre                                		----		Harano, the Meat Carver
 Metadata/Monsters/ParasiteMonsters/ParasiteMonster01                                      		----		Armoured Parasite
 Metadata/Monsters/ParasiteMonsters/ParasiteMonster02                                      		----		Kreth Parasite
 Metadata/Monsters/MorayClanMonster/MorayClan                                              		----		Moray Clan
@@ -602,8 +600,8 @@ Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                               
 -- Don't fully trust this, coded wrong. But it did catch some that were removed. --
 
 Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__                   		----		(not found in MonsterVarieties)
-Metadata/Monsters/NettleAnt/NettleAntInterlude                                            		----		(not found in MonsterVarieties)
 Metadata/Monsters/SaltGolem/SaltGolem_                                                    		----		(not found in MonsterVarieties)
+Metadata/Monsters/RockSliderSpectre                                                       		----		Boulder Ant
 
 -- Duplicate Spectre Names --
 -- Some duplicate Spectres have been imported, like Terracotta Soldier, as there is a 10 spirit and 60 spirit version.--
