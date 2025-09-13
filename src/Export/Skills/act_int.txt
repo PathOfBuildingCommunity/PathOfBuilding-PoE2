@@ -1140,6 +1140,7 @@ statMap = {
 #skill SummonSpectrePlayer
 #set SummonSpectrePlayer
 #flags spell minion spectre duration permanentMinion
+#baseMod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3
 #mods
 #skillEnd
 
