@@ -13624,3 +13624,38 @@ minions["Metadata/Monsters/KaruiSpiritTortoise/SpiritTortoise_"] = {
 		mod("StunDuration", "OVERRIDE", 5.266, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5266]
 	},
 }
+
+minions["Metadata/Monsters/PlagueBringer/TwilightOrderPlagueBringer"] = {
+	name = "Gargantuan Wasp",
+	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "insect", "melee", "physical_affinity", "very_fast_movement", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.755,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 56,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Ashen Forest (Act 6)",
+		"Found in Maps",
+		"Trenches (Map)",
+	},
+	skillList = {
+		"MASExtraAttackDistance6",
+		"MeleeAtAnimationSpeedComboTEMP2",
+		"DTTPlagueBringerDash",
+	},
+	modList = {
+		mod("PhysicalDamageLifeLeech", "BASE", 125, 1, 0), -- PlagueBringerLifeLeechInherent [base_life_leech_from_physical_attack_damage_permyriad = 12500]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+	},
+}

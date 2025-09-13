@@ -559,7 +559,6 @@ Metadata/Monsters/BloodClan/BloodClanHarpooner                                  
 Metadata/Monsters/BloodClan/BloodClanBirdFisherman                                        		----		Sea-tribe Spearfisher
 Metadata/Monsters/BloodClan/BloodClanBird                                                 		----		Sea-tribe Avian
 Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Nettle Ant
-Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Frozen Mandibles
 Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey                               		----		Constructed Monkey
 Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead                           		----		Constructed Monkey Head
 Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion                     		----		Viper Servant

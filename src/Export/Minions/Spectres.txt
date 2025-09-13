@@ -1209,3 +1209,6 @@ local minions, mod, flag = ...
 
 #spectre Metadata/Monsters/KaruiSpiritTortoise/SpiritTortoise_
 #emit
+
+#spectre Metadata/Monsters/PlagueBringer/TwilightOrderPlagueBringer
+#emit
