@@ -40,12 +40,12 @@ local tradeCategoryNames = {
 	["2HMace"] = { "Two Handed Mace" },
 	-- ["FishingRod"] = { "Fishing Rod" },
 	["BaseJewel"] = { "Jewel" },
-	["AnyJewel"] = { "Jewel" },
+	["RadiusJewel"] = { "Jewel: Radius" },
+	["AnyJewel"] = { "Jewel", "Jewel: Radius" },
 	["LifeFlask"] = { "Flask: Life" },
 	["ManaFlask"] = { "Flask: Mana" },
 	["Charm"] = { "Charm" },
 	-- doesn't have trade mods
-	-- ["RadiusJewel"] = { "Jewel: Radius" },
 	-- not in the game yet.
 	-- ["TrapTool"] = { "TrapTool"}, Unsure if correct
 	["Flail"] = { "Flail" },
@@ -375,7 +375,7 @@ function TradeQueryGeneratorClass:InitMods()
 
 	self:GenerateModData(data.itemMods.Item, tradeQueryStatsParsed, regularItemMask)
 	self:GenerateModData(data.itemMods.Corruption, tradeQueryStatsParsed, regularItemMask)
-	self:GenerateModData(data.itemMods.Jewel, tradeQueryStatsParsed, { ["BaseJewel"] = true, ["AnyJewel"] = true })
+	self:GenerateModData(data.itemMods.Jewel, tradeQueryStatsParsed, { ["BaseJewel"] = true, ["AnyJewel"] = true, ["RadiusJewel"] = true })
 	self:GenerateModData(data.itemMods.Flask, tradeQueryStatsParsed, { ["LifeFlask"] = true, ["ManaFlask"] = true })
 	self:GenerateModData(data.itemMods.Charm, tradeQueryStatsParsed, { ["Charm"] = true })
 
