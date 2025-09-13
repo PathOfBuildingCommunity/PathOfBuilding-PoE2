@@ -247,6 +247,24 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GATwilightSoldierStab Stab
+#set GATwilightSoldierStab
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill GATwilightOrderSoldierChargeImpact Charge Impact
+#set GATwilightOrderSoldierChargeImpact
+#flags triggerable attack
+#mods
+#skillEnd
+
+#skill TCTwilghtOrderSoldierCharge Charge
+#set TCTwilghtOrderSoldierCharge
+#flags attack melee area
+#mods
+#skillEnd
+
 #skill GAHellscapeFleshLeapImpact Leap Slam
 #set GAHellscapeFleshLeapImpact
 #flags attack triggerable

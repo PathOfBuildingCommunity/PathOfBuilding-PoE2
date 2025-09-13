@@ -644,7 +644,7 @@ minions["ManifestWeapon"] = {
 
 minions["RavenousSwarm"] = {
 	name = "Ravenous Swarm",
-	monsterTags = { "slow_movement", "Unarmed_onhit_audio", },
+	monsterTags = { "beast", "slow_movement", "Unarmed_onhit_audio", },
 	life = 0.7,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
@@ -659,6 +659,7 @@ minions["RavenousSwarm"] = {
 	baseMovementSpeed = 24,
 	spectreReservation = 50,
 	companionReservation = 30,
+	monsterCategory = "Beast",
 	spawnLocation = {
 	},
 	skillList = {

@@ -3114,6 +3114,51 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 	},
 }
 
+-- Quadrilla
+minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
+	name = "Quadrilla",
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 21,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Howling Caves (Act 6)",
+		"Jungle Ruins (Act 3)",
+		"Riverside (Map)",
+		"Rupture (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"GAQuadrillaSunder",
+		"EAAQuadrillaThrow",
+		"MeleeAtAnimationSpeed",
+		"GPAQuadrillaRock",
+		"SSMQuadrillaRock",
+		"QuadrillaShieldCharge",
+		"TCQuadrillaCharge",
+		"EASQuadrillaTaunt",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
 -- Rat
 minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 	name = "Rotted Rat",
@@ -3710,7 +3755,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
 	},
 }
 
---Terracotta Soldier
+-- Terracotta Soldier
 minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 	name = "Terracotta Soldier",
 	monsterTags = { "1HBluntMetal_onhit_audio", "construct", "melee", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
@@ -3776,48 +3821,45 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 	},
 }
 
--- Quadrilla
-minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
-	name = "Quadrilla",
-	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+-- Twilight Order
+minions["Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier"] = {
+	name = "Twilight Order Soldier",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "cold_affinity", "human", "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
 	extraFlags = {
-		recommendedBeast = true,
+		recommendedSpectre = true,
 	},
-	life = 2,
+	life = 1.1,
 	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.75,
+	armour = 0.5,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 2,
+	damage = 1.1,
 	damageSpread = 0.2,
-	attackTime = 1.995,
-	attackRange = 21,
+	attackTime = 1.755,
+	attackRange = 12,
 	accuracy = 1,
-	baseMovementSpeed = 46,
-	spectreReservation = 84,
-	companionReservation = 42.3,
-	monsterCategory = "Beast",
+	weaponType1 = "One Handed Sword",
+	baseMovementSpeed = 34,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Howling Caves (Act 6)",
-		"Jungle Ruins (Act 3)",
-		"Riverside (Map)",
-		"Rupture (Map)",
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
 		"Found in Maps",
 	},
 	skillList = {
-		"GAQuadrillaSunder",
-		"EAAQuadrillaThrow",
 		"MeleeAtAnimationSpeed",
-		"GPAQuadrillaRock",
-		"SSMQuadrillaRock",
-		"QuadrillaShieldCharge",
-		"TCQuadrillaCharge",
-		"EASQuadrillaTaunt",
+		"GATwilightSoldierStab",
+		"GATwilightSoldierPierceTrigger",
+		"TCTwilghtOrderSoldierCharge",
+		"GATwilightOrderSoldierChargeImpact",
 	},
 	modList = {
-		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -7082,7 +7124,7 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 
 minions["Metadata/Monsters/RockSliderSpectre"] = {
 	name = "Boulder Ant",
-	monsterTags = { "beast", "Beast_onhit_audio", "cannot_be_monolith", "insect", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", },
+	monsterTags = { "Beast_onhit_audio", "cannot_be_monolith", "insect", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", },
 	life = 0.75,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.75,
@@ -7099,7 +7141,6 @@ minions["Metadata/Monsters/RockSliderSpectre"] = {
 	baseMovementSpeed = 32,
 	spectreReservation = 40,
 	companionReservation = 26.1,
-	monsterCategory = "Beast",
 	spawnLocation = {
 		"Isle of Kin (Act 4)",
 		"The Halani Gates (Act 2)",
@@ -8567,7 +8608,7 @@ minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 
 minions["Metadata/Monsters/SwarmHost/SwarmHost"] = {
 	name = "Bloodthief Queen",
-	monsterTags = { "allows_inc_aoe", "Beast_onhit_audio", "insect", "melee", "monster_applies_poison", "monster_has_on_death_mechanic", "monster_summons_adds", "physical_affinity", "very_slow_movement", },
+	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "insect", "melee", "monster_applies_poison", "monster_has_on_death_mechanic", "monster_summons_adds", "physical_affinity", "very_slow_movement", },
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = -30,
@@ -8582,6 +8623,7 @@ minions["Metadata/Monsters/SwarmHost/SwarmHost"] = {
 	baseMovementSpeed = 11,
 	spectreReservation = 99,
 	companionReservation = 47.4,
+	monsterCategory = "Beast",
 	spawnLocation = {
 		"Qimah (Act 6)",
 		"Sandswept Marsh (Act 3)",

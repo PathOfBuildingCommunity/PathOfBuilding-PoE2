@@ -288,6 +288,11 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield
 #emit
 
+-- Quadrilla
+#spectre Metadata/Monsters/Quadrilla/Quadrilla
+#flags recommendedBeast
+#emit
+
 -- Rat
 #spectre Metadata/Monsters/RatMonster/RatMonster
 #emit
@@ -344,7 +349,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
 #emit
 
---Terracotta Soldier
+-- Terracotta Soldier
 #spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre
 #emit
 
@@ -352,9 +357,9 @@ local minions, mod, flag = ...
 #flags recommendedSpectre
 #emit
 
--- Quadrilla
-#spectre Metadata/Monsters/Quadrilla/Quadrilla
-#flags recommendedBeast
+-- Twilight Order
+#spectre Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier
+#flags recommendedSpectre
 #emit
 
 -- Vaal Humanoid
