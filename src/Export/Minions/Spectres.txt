@@ -164,6 +164,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/ShellMonster/ShellMonster
 #emit
 
+#spectre Metadata/Monsters/ShellMonster/ShellMonsterPoison_
+#emit
+
 -- Cultists
 #spectre Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow
 #flags recommendedSpectre

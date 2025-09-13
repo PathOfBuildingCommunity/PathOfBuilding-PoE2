@@ -1715,6 +1715,43 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	},
 }
 
+minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison_"] = {
+	name = "Caustic Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "crustacean_beast", "MonsterStab_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "slow_movement", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = -30,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 22,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Untainted Paradise (Map)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"ShellMonsterDeathMortarPoison",
+		"EDSShellMonsterPoisonSpray",
+		"ShellMonsterSprayMortarPoison",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+	},
+}
+
 -- Cultists
 minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 	name = "Cultist Archer",

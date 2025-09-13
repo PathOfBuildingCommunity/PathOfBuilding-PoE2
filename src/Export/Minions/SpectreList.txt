@@ -13,6 +13,7 @@ Metadata/Monsters/InsectMinion/InsectTest                                       
 Metadata/Monsters/Spiker/Spiker3_                                                         		----		Porcupine Goliath
 Metadata/Monsters/MudBurrower/BrambleBurrower                                             		----		Bramble Burrower
 Metadata/Monsters/StonebackRhoa/BrambleRhoa                                               		----		Bramble Rhoa
+Metadata/Monsters/CrabMonsters/CrabCoconut                                                		----		Coconut Crab
 Metadata/Monsters/Wraith/WraithSpookyCold                                                 		----		Frost Wraith
 Metadata/Monsters/Wraith/WraithSpookyLightning                                            		----		Lightning Wraith
 Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/CorruptedEliteGuard       		----		Iron Thaumaturgist
@@ -31,6 +32,7 @@ Metadata/Monsters/BitterGuy/BitterGuyChild2Surge                                
 Metadata/Monsters/QuillCrab/QuillCrab                                                     		----		Porcupine Crab
 Metadata/Monsters/QuillCrab/QuillCrabPoison                                               		----		Venomous Crab
 Metadata/Monsters/QuillCrab/QuillCrabBigPoison_                                           		----		Venomous Crab Matriarch
+Metadata/Monsters/QuillCrab/QuillCrabTropical                                             		----		Quill Crab
 Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed                              		----		Drowned
 Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedDryUnarmed                           		----		Lumbering Dead
 Metadata/Monsters/Urchins/SlingUrchin1                                                    		----		Vile Imp
@@ -129,13 +131,13 @@ Metadata/Monsters/SaltGolem/SaltGolemNoEmerge_                                  
 Metadata/Monsters/HyenaMonster/HyenaMonster                                               		----		Hyena Demon
 Metadata/Monsters/HyenaMonster/HyenaCentaurSpear                                          		----		Sun Clan Scavenger
 Metadata/Monsters/ShellMonster/ShellMonster                                               		----		Brimstone Crab
+Metadata/Monsters/ShellMonster/ShellMonsterPoison_                                        		----		Caustic Crab
 Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_                                		----		Regurgitating Vulture
 Metadata/Monsters/SandLeaper02/DesertLeaper1_                                             		----		Crag Leaper
 Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer                                   		----		Dread Servant
 Metadata/Monsters/SandGolemancer/SandGolemancer                                           		----		Desiccated Lich
 Metadata/Monsters/MarAcolyte/MarAcolyte                                                   		----		Mar Acolyte
 Metadata/Monsters/WingedFiend/WingedFiend                                                 		----		Winged Fiend
-Metadata/Monsters/RockSliderSpectre                                                       		----		Boulder Ant
 Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01                    		----		Lost-men Zealot
 Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield                      		----		Lost-men Brute
 Metadata/Monsters/SkeletonSnake                                                           		----		Gilded Cobra
@@ -157,6 +159,7 @@ Metadata/Monsters/PorcupineAnt/PorcupineAntSmall                                
 Metadata/Monsters/CaveDweller/CaveDweller                                                 		----		Tombshrieker
 Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge                                       		----		Vesper Bat
 Metadata/Monsters/SummonedPhantasm/DesertPhantasm                                         		----		Sand Spirit
+Metadata/Monsters/VultureZombie/VultureDemon                                              		----		Vile Vulture
 Metadata/Monsters/Kinarha/KinarhaSpectre                                                  		----		Kinarha
 Metadata/Monsters/Zombies/Maraketh/MarakethZombie                                         		----		Maraketh Undead
 Metadata/Monsters/PlagueMorphs/PlagueMorph1                                               		----		Corrupted Corpse
@@ -215,7 +218,7 @@ Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle                          
 Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1                                 		----		Ill-fated Explorer
 Metadata/Monsters/Quadrilla/Quadrilla                                                     		----		Quadrilla
 Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Nettle Ant
-Metadata/Monsters/NettleAnt/NettleAnt__                                                   		----		Frozen Mandibles
+Metadata/Monsters/NettleAnt/NettleAntInterlude                                            		----		Frozen Mandibles
 Metadata/Monsters/SnakeHulk/SnakeHulk                                                     		----		Entwined Hulk
 Metadata/Monsters/SerpentHusk/SerpentHusk__                                               		----		Snakethroat Shambler
 Metadata/Monsters/GutViper/GutViper                                                       		----		Entrailhome Shambler
