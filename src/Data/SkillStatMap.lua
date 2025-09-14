@@ -944,7 +944,8 @@ return {
 	mod("Damage", "INC", nil, 0, 0, { type = "Condition", var = "CastOnFrostbolt" }),
 },
 ["active_skill_damage_+%_final_while_dual_wielding"] = {
-	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "DualWielding" })
+	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "DualWielding" }),
+	skill("doubleHitsWhenDualWielding", true),
 },
 ["active_skill_additive_minion_damage_modifiers_apply_to_all_damage_at_%_value"] = {
 	flag("MinionDamageAppliesToPlayer"),
