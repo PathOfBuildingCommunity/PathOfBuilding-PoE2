@@ -77,7 +77,7 @@ local function writeMods(outName, condFunc)
 					out:write('weightVal = { ', table.concat(GoldModPrices.SpawnWeights, ', '), ' }, ')
 				else -- no spawn tags exist for flask/charm/corrupted/jewel mods
 					-- flasks/charms
-					if mod.Domain == 2 then
+					if mod.Domain == 2 and GoldModPrices then
 						if isValueInArray(lifeFlaskModTypes, mod.Type.Id) then
 							out:write('"life_flask", ')
 						elseif isValueInArray(manaFlaskModTypes, mod.Type.Id) then
