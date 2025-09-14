@@ -438,8 +438,17 @@ statMap = {
 
 #from tree
 #skill TemperWeaponPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:TemperWeaponStage")
+end,
 #set TemperWeaponPlayer
-#flags
+#flags channelRelease
+statMap = {
+	["imbue_weapon_max_exerts"] = {
+		mod("Multiplier:TemperWeaponMaxStages", "BASE", nil),
+		div = 3,
+	},
+},
 #mods
 #skillEnd
 

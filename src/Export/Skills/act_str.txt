@@ -546,6 +546,9 @@ statMap = {
 #skillEnd
 
 #skill PlasmaBlastPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.channelTimeMultiplier = 1
+end,
 #set PlasmaBlastPlayer
 #flags attack projectile channelRelease
 #mods
@@ -681,6 +684,7 @@ statMap = {
 #skill PerfectStrikePlayer
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 end,
 #set PerfectStrikePlayer
 #flags attack area melee duration channelRelease
@@ -801,11 +805,40 @@ statMap = {
 #skillEnd
 
 #skill SuperchargedSlamPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+end,
 #set SuperchargedSlamPlayer
-#flags attack area melee
+#flags attack area melee channelRelease
+statMap = {
+	["channelled_slam_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+	},
+	["channelled_slam_max_stages"] = {
+		mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
+#baseMod mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" })
 #mods
 #set SuperchargedSlamAftershockPlayer
-#flags attack area melee
+#flags attack area melee channelRelease
+statMap = {
+	["channelled_slam_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+	},
+	["channelled_slam_max_stages"] = {
+		mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+	},
+	["aftershock_radius_+_per_previous_aftershock"] = {
+		skill("radiusExtra", nil, { type = "Multiplier", var = "SuperchargedSlamStage", limit = 30, limitTotal = true }),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
+#baseMod mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" })
 #mods
 #skillEnd
 

@@ -131,7 +131,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	-- Run first pass radius jewels // jewel functions caught by jewelOtherFuncs
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
-			if rad.item.baseName:find("Time%-Lost") == nil then
+			if rad.item.baseName:find("Time%-Lost") == nil and rad.item.baseName:find("Timeless Jewel") == nil then
 				rad.func(node, modList, rad.data)
 			elseif not node.isAttribute and (node.type == "Normal" or node.type == "Notable") then
 				local cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]

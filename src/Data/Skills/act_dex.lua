@@ -897,6 +897,9 @@ skills["SummonBeastPlayer"] = {
 				duration = true,
 				permanentMinion = true,
 			},
+			baseMods = {
+				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
+			},
 			constantStats = {
 				{ "minion_base_resummon_time_ms", 12000 },
 			},
@@ -1131,6 +1134,7 @@ skills["DetonatingArrowPlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
 			end,
 	statSets = {
 		[1] = {
@@ -7293,6 +7297,7 @@ skills["SnipePlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 			end,
 	statSets = {
 		[1] = {

@@ -136,6 +136,10 @@ return {
 ["spell_cast_time_cannot_be_modified"] = {
 	skill("fixedCastTime", true),
 },
+["base_minimum_channel_time_ms"] = {
+	skill("minChannelTime", true),
+	div = 1000,
+},
 ["global_always_hit"] = {
 	skill("cannotBeEvaded", true),
 },
@@ -283,6 +287,9 @@ return {
 },
 ["display_skill_minions_level_is_corpse_level"] = {
 	skill("minionLevelIsEnemyLevel", true),
+},
+["display_minion_level_from_triggering_skill_level"] = {
+	skill("minionLevelIsTriggeredSkillLevel", true),
 },
 ["active_skill_minion_added_damage_+%_final"] = {
 	skill("minionDamageEffectiveness", nil),
@@ -515,6 +522,10 @@ return {
 -- Speed
 ["attack_and_cast_speed_+%"] = {
 	mod("Speed", "INC", nil),
+},
+["skill_speed_+%"] = {
+	mod("Speed", "INC", nil),
+	mod("WarcrySpeed", "INC", nil),
 },
 ["cast_speed_+%_granted_from_skill"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
@@ -941,7 +952,8 @@ return {
 	mod("Damage", "INC", nil, 0, 0, { type = "Condition", var = "CastOnFrostbolt" }),
 },
 ["active_skill_damage_+%_final_while_dual_wielding"] = {
-	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "DualWielding" })
+	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "DualWielding" }),
+	skill("doubleHitsWhenDualWielding", true),
 },
 ["active_skill_additive_minion_damage_modifiers_apply_to_all_damage_at_%_value"] = {
 	flag("MinionDamageAppliesToPlayer"),
@@ -2199,6 +2211,9 @@ return {
 ["active_skill_minion_bleeding_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed) }),
 },
+["minion_base_physical_damage_%_to_convert_to_lightning"] = {
+	mod("MinionModifier", "LIST", { mod = mod("PhysicalDamageConvertToLightning", "BASE", nil) }),
+},
 ["minion_critical_strike_chance_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("CritChance", "INC", nil) }),
 },
@@ -2277,6 +2292,15 @@ return {
 },
 ["base_number_of_arbalists"] = {
 	mod("ActiveArbalistLimit", "BASE", nil),
+},
+["base_number_of_living_lightning_allowed"] = {
+	mod("ActiveLivingLightningLimit", "BASE", nil),
+},
+["base_number_of_skeletal_constructs_allowed"] = {
+	mod("ActiveUnearthBoneConstructLimit", "BASE", nil),
+},
+["maximum_hatching_elementals_allowed"] = {
+	mod("ActiveSkitteringStoneLimit", "BASE", nil),
 },
 ["base_number_of_champions_of_light_allowed"] = {
 	mod("ActiveSentinelOfPurityLimit", "BASE", nil),
@@ -2749,6 +2773,9 @@ return {
 ["quality_display_sandstorm_swipe_is_gem"] = {
 	-- Display Only
 },
+["cast_speed_modifiers_apply_to_over_time_cost"] = {
+	-- Display Only
+},
 ["quality_display_base_totem_duration_is_gem"] = {
 	-- Display Only
 },
@@ -2756,6 +2783,9 @@ return {
 	-- Display Only
 },
 ["skill_specific_stat_description_mode"] = {
+	-- Display Only
+},
+["quality_display_supercharged_slam_is_gem"] = {
 	-- Display Only
 },
 }

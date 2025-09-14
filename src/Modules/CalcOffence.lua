@@ -68,13 +68,11 @@ local function calcConvertedDamage(activeSkill, output, cfg, damageType)
 	local conversionTable = activeSkill.conversionTable
 	for _, otherType in ipairs(dmgTypeList) do
 		local convMult = conversionTable[otherType][damageType]
-		local moreMinDamage = skillModList:More(cfg, "Min"..otherType.."Damage")
-		local moreMaxDamage = skillModList:More(cfg, "Max"..otherType.."Damage")
 		if convMult > 0 then
 			-- Damage is being converted/gained from the other damage type
 			local min, max = output[otherType.."MinBase"], output[otherType.."MaxBase"]
-			convertedMin = convertedMin + (min or 0) * convMult * moreMinDamage
-			convertedMax = convertedMax + (max or 0) * convMult * moreMaxDamage
+			convertedMin = convertedMin + (min or 0) * convMult
+			convertedMax = convertedMax + (max or 0) * convMult
 		end
 	end
 	if convertedMin ~= 0 and convertedMax ~= 0 then
@@ -90,12 +88,12 @@ local function calcGainedDamage(activeSkill, output, cfg, damageType)
 
 	local gainedMin, gainedMax = 0, 0
 	for _, otherType in ipairs(dmgTypeList) do
-		local baseMin = m_floor(output[otherType.."MinBase"])
-		local baseMax = m_floor(output[otherType.."MaxBase"])
+		local baseMin = m_floor(output[otherType.."MinBase"] * activeSkill.skillConversionTable[otherType].mult)
+		local baseMax = m_floor(output[otherType.."MaxBase"] * activeSkill.skillConversionTable[otherType].mult)
 		local gainMult = gainTable[otherType][damageType]
 		if gainMult and gainMult > 0 then
 			-- Damage is being converted/gained from the other damage type
-			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, cfg, output, otherType)
+			local convertedMin, convertedMax = calcConvertedDamage(activeSkill, output, cfg, otherType)
 			gainedMin = gainedMin + (baseMin + convertedMin) * gainMult
 			gainedMax = gainedMax + (baseMax + convertedMax) * gainMult
 		end
@@ -2047,15 +2045,18 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Calculate damage conversion percentages
+	activeSkill.skillConversionTable = wipeTable(activeSkill.skillConversionTable)
 	activeSkill.conversionTable = wipeTable(activeSkill.conversionTable)
 	activeSkill.gainTable = wipeTable(activeSkill.gainTable)
 
 	-- Initialize conversion tables
 	for _, type in ipairs(dmgTypeList) do
+		activeSkill.skillConversionTable[type] = {}
 		activeSkill.conversionTable[type] = {}
 		activeSkill.gainTable[type] = {}
 		for _, otherType in ipairs(dmgTypeList) do
 			activeSkill.conversionTable[type][otherType] = 0
+			activeSkill.skillConversionTable[type][otherType] = 0
 		end
 	end
 
@@ -2102,6 +2103,7 @@ function calcs.offence(env, actor, activeSkill)
 			activeSkill.conversionTable[damageType][toType] = amount
 		end
 		activeSkill.conversionTable[damageType].mult = 1 - m_min(skillTotal / 100, 1)
+		activeSkill.skillConversionTable[damageType].mult = 1 - m_min(skillTotal / 100, 1)
 	end
 
 	-- Second step: Process global conversion and gains
@@ -2264,6 +2266,12 @@ function calcs.offence(env, actor, activeSkill)
 			output[stat] = (output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)
 		elseif mode == "AVERAGE" then
 			output[stat] = ((output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)) / 2
+		elseif mode == "CRIT" then
+			if skillFlags.bothWeaponAttack and skillData.doubleHitsWhenDualWielding then
+				output[stat] = (output.MainHand[stat] or 0) + (output.OffHand[stat] or 0) - ((output.MainHand[stat] or 0) * (output.OffHand[stat] or 0) / 100)
+			else
+				output[stat] = ((output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)) / 2
+			end
 		elseif mode == 'HARMONICMEAN' then
 			if output.MainHand[stat] == 0 or output.OffHand[stat] == 0 then
 				output[stat] = 0
@@ -2635,6 +2643,12 @@ function calcs.offence(env, actor, activeSkill)
 				output.Speed = output.Speed * globalOutput.ActionSpeedMod
 				output.CastRate = output.Speed
 			end
+			if skillData.channelTimeMultiplier then
+				local minTime = skillData.minChannelTime or 0
+				local channelTime = skillData.channelTimeOverride or output.Speed
+				output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
+				output.ChannelSpeed = output.Speed or output.Time
+			end
 			if skillFlags.totem then
 				-- Totem skill. Apply action speed
 				local totemActionSpeed = 1 + (modDB:Sum("INC", nil, "TotemActionSpeed") / 100)
@@ -2777,9 +2791,12 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			output.HitTime = output.Time * skillData.hitTimeMultiplier
+			if skillFlags.channelRelease and skillData.minChannelTime then
+				output.HitTime = m_max(output.HitTime, skillData.minChannelTime)
+			end
 			if output.Cooldown and skillData.triggered then
 				output.HitSpeed = 1 / (m_max(output.HitTime, output.Cooldown))
-			elseif output.Cooldown then
+			elseif output.Cooldown and not skillFlags.channelRelease then
 				output.HitSpeed = 1 / (output.HitTime + output.Cooldown)
 			else
 				output.HitSpeed = 1 / output.HitTime
@@ -2835,11 +2852,22 @@ function calcs.offence(env, actor, activeSkill)
 				}
 			end
 		end
+		if skillData.channelTimeMultiplier then
+			local minTime = skillData.minChannelTime or 0
+			local channelTime = skillData.channelTimeOverride or output.Speed
+			output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
+			output.ChannelSpeed = output.Speed or output.Time
+		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
+		elseif skillData.timeOverride and not skillData.triggeredOnDeath then
+			output.Time = skillData.timeOverride
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			output.HitTime = output.Time * skillData.hitTimeMultiplier
+			if skillFlags.channelRelease and skillData.minChannelTime then
+				output.HitTime = m_max(output.HitTime, skillData.minChannelTime)
+			end
 			if output.Cooldown and skillData.triggered then
 				output.HitSpeed = 1 / (m_max(output.HitTime, output.Cooldown))
 			elseif output.Cooldown then
@@ -2850,6 +2878,20 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 	if breakdown then
+		if skillData.channelTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
+			breakdown.ChannelTime = { }
+			if skillData.minChannelTime then
+				t_insert(breakdown.ChannelTime, s_format("%.2fs ^8(minimum channel time)", skillData.minChannelTime))
+				t_insert(breakdown.ChannelTime, s_format(""))
+			end
+			if isAttack then
+				t_insert(breakdown.ChannelTime, s_format("%.2f ^8(attack time per stage)", 1 / output.ChannelSpeed))
+			else
+				t_insert(breakdown.ChannelTime, s_format("%.2f ^8(cast time per stage)", 1 / output.ChannelSpeed))
+			end
+			t_insert(breakdown.ChannelTime, s_format("x %.2f ^8(channel time multiplier)", skillData.channelTimeMultiplier))
+			t_insert(breakdown.ChannelTime, s_format("= %.2f", output.ChannelTime))
+		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			breakdown.HitSpeed = { }
 			t_insert(breakdown.HitSpeed, s_format("1 / %.2f ^8(hit time override)", output.HitTime))
@@ -4100,7 +4142,7 @@ function calcs.offence(env, actor, activeSkill)
 	if isAttack then
 		-- Combine crit stats, average damage and DPS
 		combineStat("PreEffectiveCritChance", "AVERAGE")
-		combineStat("CritChance", "AVERAGE")
+		combineStat("CritChance", "CRIT")
 		combineStat("PreEffectiveCritMultiplier", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
 		combineStat("CritBifurcates", "AVERAGE")

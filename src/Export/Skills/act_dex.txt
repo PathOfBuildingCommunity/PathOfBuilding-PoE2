@@ -91,6 +91,7 @@ statMap = {
 #skill SummonBeastPlayer
 #set SummonBeastPlayer
 #flags spell minion summonBeast duration permanentMinion
+#baseMod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3
 #mods
 #skillEnd
 
@@ -103,6 +104,7 @@ statMap = {
 #skill DetonatingArrowPlayer
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
 end,
 #set DetonatingArrowPlayer
 #flags attack projectile channelRelease
@@ -451,6 +453,7 @@ statMap = {
 #skill SnipePlayer
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 end,
 #set SnipePlayer
 #flags attack projectile channelRelease
