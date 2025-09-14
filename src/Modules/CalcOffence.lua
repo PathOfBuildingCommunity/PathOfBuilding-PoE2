@@ -2266,6 +2266,12 @@ function calcs.offence(env, actor, activeSkill)
 			output[stat] = (output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)
 		elseif mode == "AVERAGE" then
 			output[stat] = ((output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)) / 2
+		elseif mode == "CRIT" then
+			if skillFlags.bothWeaponAttack and skillData.doubleHitsWhenDualWielding then
+				output[stat] = (output.MainHand[stat] or 0) + (output.OffHand[stat] or 0) - ((output.MainHand[stat] or 0) * (output.OffHand[stat] or 0) / 100)
+			else
+				output[stat] = ((output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)) / 2
+			end
 		elseif mode == 'HARMONICMEAN' then
 			if output.MainHand[stat] == 0 or output.OffHand[stat] == 0 then
 				output[stat] = 0
@@ -4104,7 +4110,7 @@ function calcs.offence(env, actor, activeSkill)
 	if isAttack then
 		-- Combine crit stats, average damage and DPS
 		combineStat("PreEffectiveCritChance", "AVERAGE")
-		combineStat("CritChance", "AVERAGE")
+		combineStat("CritChance", "CRIT")
 		combineStat("PreEffectiveCritMultiplier", "AVERAGE")
 		combineStat("CritMultiplier", "AVERAGE")
 		combineStat("CritBifurcates", "AVERAGE")
