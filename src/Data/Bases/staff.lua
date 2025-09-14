@@ -227,8 +227,8 @@ itemBases["Hefty Quarterstaff"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, warstaff = true, karui_basetype = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 39, PhysicalMax = 82, CritChanceBase = 10, AttackRateBase = 1.35, Range = 13, },
-	req = { level = 46, dex = 64, int = 26, },
+	weapon = { PhysicalMin = 39, PhysicalMax = 80, CritChanceBase = 10, AttackRateBase = 1.35, Range = 13, },
+	req = { level = 45, dex = 63, int = 26, },
 }
 itemBases["Smooth Quarterstaff"] = {
 	type = "Staff",

@@ -1,3 +1,89 @@
+VERSION[0.12.0][2025/09/14]
+
+--- The Third Edict ---
+* Add support for Deflection (Edvinas-Smita)
+* Add new Abyss, Act 4 and Interlude Spectres (Blitz54)
+* Update Quest Rewards with 0.3 changes (Nightblade)
+* Add Support for sprinting (LocalIdentity)
+* Add Abyss Timeless Jewel and support for Keystone mods (LocalIdentity)
+* Add 25% more damage for Spectres and Beasts (LocalIdentity)
+
+--- New to Path of Building ---
+* Add support for Demon Form (Blitz54)
+* Add support for Detonation time (TPlant)
+* Add ability to sort tree and gear slots by Spirit and Item Rarity (Mizkii)
+* Add Support for Time-Lost Notable Passive effect mod on radius Jewels (LocalIdentity)
+
+--- Tree ---
+* Add support for 50+ misc tree mods (LocalIdentity)
+* Add support for "Walker of the Wilds" Keystone and other "leech recovers based on x" mods (majochem)
+* Add support for Ballista Nodes on the Tree (LocalIdentity)
+* Add support for many Companion mods on the tree (LocalIdentity)
+* Add support for Gem related Notables at the bottom of the tree (Mamotromico)
+* Add support for Gigantic Following and Hulking Minions (Blitz54)
+* Add support for Aura Magnitude mods on the tree (LocalIdentity)
+* Add support for Cost Efficiency mods (Wires77)
+* Add support for Lucky / Unlucky mods on the Tree and gear (Edvinas-Smita)
+* Add support for Tactician's Artillery Squad Minion (LocalIdentity)
+* Add support for Flammability Magnitude & Infernalist's Bringer of Flame (ImmotephSimon)
+
+--- Skills ---
+* Add support for Bonestorm, Flameblast, Incinerate, Supercharged Slam DPS (LocalIdentity)
+* Add support for many support gems by (majochem, LocalIdentity)
+* Implement Stoicism support and fix Innervate Support (christian-trzcinski)
+* Add Support for Living Lightning Minion (LocalIdentity)
+* Add support for Skills granted by The Unborn Lich staff (LocalIdentity)
+
+--- Items ---
+* Add support for Constricting Command Surrounded mod (LocalIdentity)
+* Add support for many Rune mods (LocalIdentity)
+* Add Mask of the Sanguimancer unique (Blitz54)
+* Add support for Bones of Ullr 0.3.0 wording (Blitz54)
+* Add support for mods on Waveshaper (LocalIdentity)
+
+--- Fixed Crashes ---
+* Fix Crash when using Bow with +1 Arrow Rune (LocalIdentity)
+* Fix Crash when adding custom mods to some Items (Wires77)
+* Fix Crash on Tree tab (LocalIdentity)
+
+--- User Interface ---
+* Display skill DPS modifiers in breakdown table (LocalIdentity)
+* Add Flavour Text to Lineage Gems (Blitz54)
+* Add Undying Hate Flavour Text (Blitz54)
+* Add breakdown for Daze Chance on Calcs tab (ImmotephSimon)
+* Update Arcane Surge config tooltip (LocalIdentity)
+* Fix display of some stats in gem tooltips (LocalIdentity)
+* Fix quality stats on gems not showing up in gem tooltip (LocalIdentity)
+* Fix extra misc lines showing up when copying and pasting items into PoB (Wires77)
+
+--- Fixed Calculations ---
+* Fix Crit chance for Spells with Infusion variants (LocalIdentity)
+* Fix Payload support "Grenade activate a second time" stat not affecting DPS (LocalIdentity)
+* Fix Requiem not showing damage values (LocalIdentity)
+* Fix Minion Gas Arrow skill not showing Poison / Explode damage (LocalIdentity)
+* Fix Damage conversion / gain calcs (LocalIdentity)
+* Fix Crit Chance when hitting with 2 weapons at once (LocalIdentity)
+
+--- Fixed Behaviours ---
+* Fix account import not working sometimes (redgoldlace)
+* Fix many Melee skills not hitting with both weapons when dual-wielding (LocalIdentity)
+* Fix Herald of Blood buff not applying for conditional mods (Wires77)
+* Fix Totems using the wrong level for Life calculations (LocalIdentity)
+* Fix Lightning Conduit "more damage with hits per 5% shock" mod (majochem)
+* Fix Dance with Death incorrectly working with Hollow Palm Technique (LocalIdentity)
+* Fix Trade search for Megalomaniac (Wires77)
+* Fix Trade search not working for Radius Jewels (LocalIdentity)
+
+--- Accuracy Improvements ---
+* Fix Bifurcates Crit mod not working on Tangletongue (LocalIdentity)
+* Fix incorrect radius on Explosive Spear (LocalIdentity)
+* Fix incorrect base types on Crown of Eyes and The Prisoner's Manacles (Wires77)
+* Fix Heart of the Well modifier names (Blitz54)
+* Update Constricting Command unique helmet mod (Wires77)
+
+--- Other changes ---
+* Generate automatic changelogs for Beta releases (Musholic)
+
 VERSION[0.11.2][2025/09/02]
 
 --- Fixed Crashes ---

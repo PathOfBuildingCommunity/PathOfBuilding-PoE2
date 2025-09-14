@@ -39,10 +39,10 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="minion_duration"
 		}
 	},
 	["base_skill_effect_duration"]=1,
-	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=2
+	["minion_duration"]=2,
+	parent="skill_stat_descriptions"
 }

@@ -64,7 +64,7 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="forge_hammer_base_maximum_number_of_fissures"
+			[1]="forge_hammer_maximum_number_of_fissures"
 		}
 	},
 	[4]={
@@ -75,7 +75,8 @@ return {
 		}
 	},
 	["base_skill_effect_duration"]=1,
-	["forge_hammer_base_maximum_number_of_fissures"]=3,
+	["forge_hammer_base_maximum_number_of_fissures"]=2,
+	["forge_hammer_maximum_number_of_fissures"]=3,
 	parent="skill_stat_descriptions",
 	["skill_effect_duration"]=4
 }

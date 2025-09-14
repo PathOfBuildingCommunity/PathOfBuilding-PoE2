@@ -175,6 +175,13 @@ return {
 			[1]="living_lightning_maximum_number_of_attacks"
 		}
 	},
+	[8]={
+		[1]={
+		},
+		stats={
+			[1]="minion_duration"
+		}
+	},
 	["base_number_of_living_lightning_allowed"]=4,
 	["base_skill_effect_duration"]=3,
 	["chance_to_trigger_living_lightning_on_lightning_damage_%"]=1,
@@ -182,5 +189,6 @@ return {
 	["living_lightning_beam_attack_time_ms"]=6,
 	["living_lightning_maximum_number_of_attacks"]=7,
 	["minion_base_physical_damage_%_to_convert_to_lightning"]=5,
+	["minion_duration"]=8,
 	parent="skill_stat_descriptions"
 }

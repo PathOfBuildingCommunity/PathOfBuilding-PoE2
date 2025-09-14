@@ -649,6 +649,7 @@ skills["BloodhoundsMarkExplosionPlayer"] = {
 			statDescriptionScope = "hunters_mark_explosion",
 			baseFlags = {
 				nonWeaponAttack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 26 },
@@ -664,6 +665,7 @@ skills["BloodhoundsMarkExplosionPlayer"] = {
 				"base_skill_show_average_damage_instead_of_dps",
 				"cannot_cause_bleeding",
 				"triggerable_in_any_set",
+				"is_area_damage",
 			},
 			notMinionStat = {
 				"main_hand_weapon_minimum_physical_damage",
@@ -896,6 +898,9 @@ skills["SummonBeastPlayer"] = {
 				summonBeast = true,
 				duration = true,
 				permanentMinion = true,
+			},
+			baseMods = {
+				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
 			},
 			constantStats = {
 				{ "minion_base_resummon_time_ms", 12000 },
@@ -1131,6 +1136,7 @@ skills["DetonatingArrowPlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
 			end,
 	statSets = {
 		[1] = {
@@ -3628,14 +3634,14 @@ skills["HeraldOfPlaguePlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "herald_of_agony",
 			statMap = {
-				["herald_of_agony_poison_on_enemies_you_kill_spread_to_enemies_within_x"] = {
+				["herald_of_agony_poison_spread_on_kill_radius_base_magnitude_to_grant"] = {
 					mod("PoisonProlifRange", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Plague" }),
 				},
 			},
 			baseFlags = {
 			},
 			stats = {
-				"herald_of_agony_poison_on_enemies_you_kill_spread_to_enemies_within_x",
+				"herald_of_agony_poison_spread_on_kill_radius_base_magnitude_to_grant",
 				"hinder_chance_%_on_spreading_poioson",
 				"base_deal_no_damage",
 			},
@@ -7293,6 +7299,7 @@ skills["SnipePlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 			end,
 	statSets = {
 		[1] = {
@@ -9317,6 +9324,11 @@ skills["ToxicDomainPlayer"] = {
 	color = 2,
 	description = "Create an area of Toxic Bloom on the ground around you. While in the Bloom, you have increased Skill costs, Regenerate Life, and your Projectile Attacks attach a Toxic Pustule, which can be Poisoned. Pustules will Detonate after a duration or when enough Poison has been applied, dealing more damage based on the stored Poison damage and applying Poison in an area around it.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Chaos] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Physical] = true, },
+	weaponTypes = {
+		["Spear"] = true,
+		["Crossbow"] = true,
+		["Bow"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_base_area_of_effect_radius", 0.15 },
@@ -9600,6 +9612,7 @@ skills["ToxicGrowthPlayer"] = {
 				"projectiles_fire_at_ground",
 				"disable_visual_hit_effect",
 				"quality_display_base_number_of_projectiles_is_gem",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { 2, 1, 17, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
@@ -9651,6 +9664,7 @@ skills["ToxicGrowthPlayer"] = {
 			baseFlags = {
 				attack = true,
 				projectile = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 8 },
@@ -9680,6 +9694,7 @@ skills["ToxicGrowthPlayer"] = {
 				"projectiles_fire_at_ground",
 				"disable_visual_hit_effect",
 				"quality_display_base_number_of_projectiles_is_gem",
+				"is_area_damage",
 				"display_statset_hide_usage_stats",
 			},
 			levels = {
@@ -10503,6 +10518,7 @@ skills["TriggeredVoltaicMarkNovaPlayer"] = {
 			statDescriptionScope = "voltaic_mark_nova",
 			baseFlags = {
 				nonWeaponAttack = true,
+				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 26 },
@@ -10515,6 +10531,7 @@ skills["TriggeredVoltaicMarkNovaPlayer"] = {
 				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
 				"display_statset_hide_usage_stats",
 				"triggerable_in_any_set",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { 1, 14, statInterpolation = { 1, 1, }, actorLevel = 1, },
@@ -10914,6 +10931,7 @@ skills["WhirlwindLancePlayer"] = {
 				attack = true,
 				duration = true,
 				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -10943,6 +10961,7 @@ skills["WhirlwindLancePlayer"] = {
 				"visual_hit_effect_physical_is_wind",
 				"display_statset_hide_usage_stats",
 				"base_skill_show_average_damage_instead_of_dps",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { baseMultiplier = 0.6, actorLevel = 1, },

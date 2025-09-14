@@ -61,6 +61,7 @@ local minions, mod = ...
 #emit
 
 #monster Metadata/Monsters/SkeletalConstruct/BoneConstructPlayerSummoned UnearthBoneConstruct
+#limit ActiveUnearthBoneConstructLimit
 #emit
 
 #monster Metadata/Monsters/RhoaPlayerSummoned/RhoaPlayerSummoned SummonedRhoa
@@ -73,6 +74,7 @@ local minions, mod = ...
 #emit
 
 #monster Metadata/Monsters/Monsters/LivingLightningPlayerSummoned LivingLightning
+#limit ActiveLivingLightningLimit
 #emit
 
 #monster Metadata/Monsters/Daemon/ArtilleryPlayer/SummonArtilleryDaemon TacticianMinion

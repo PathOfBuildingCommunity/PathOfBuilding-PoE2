@@ -82,8 +82,8 @@ itemBases["Crossblade Spear"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, onehand = true, spear = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 28, PhysicalMax = 52, CritChanceBase = 5, AttackRateBase = 1.55, Range = 15, },
-	req = { level = 46, str = 26, dex = 64, },
+	weapon = { PhysicalMin = 28, PhysicalMax = 51, CritChanceBase = 5, AttackRateBase = 1.55, Range = 15, },
+	req = { level = 45, str = 26, dex = 63, },
 }
 itemBases["Seaglass Spear"] = {
 	type = "Spear",

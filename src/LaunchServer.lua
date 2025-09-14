@@ -177,6 +177,7 @@ end
 -- IO, so that it can operate concurrently, but hopefully that isn't necessary.
 local attempt = 1
 local stopAt = os.time() + 30
+local errMsg
 local shouldRetry, code, state = true, nil, nil
 while (os.time() < stopAt) and shouldRetry do
 	-- `settimeout`` applies only to individual operations, but we're more concerned with not spending more than 30
@@ -197,4 +198,7 @@ while (os.time() < stopAt) and shouldRetry do
 	attempt = attempt + 1
 end
 server:close()
-return code, state, port
+if os.time() >= stopAt then
+	errMsg = "Timeout reached without a response received by the local server"
+end
+return code, errMsg, state, port

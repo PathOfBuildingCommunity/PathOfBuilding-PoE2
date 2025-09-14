@@ -5824,12 +5824,22 @@ skills["TemperWeaponPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 5, cost = { ManaPerMinute = 4319, }, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 5, cost = { ManaPerMinute = 4596, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:TemperWeaponStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Temper Weapon",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["imbue_weapon_max_exerts"] = {
+					mod("Multiplier:TemperWeaponMaxStages", "BASE", nil),
+					div = 3,
+				},
+			},
 			baseFlags = {
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "imbue_weapon_max_exerts", 12 },

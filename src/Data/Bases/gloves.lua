@@ -60,8 +60,8 @@ itemBases["Detailed Mitts"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, gloves = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 90, },
-	req = { level = 46, str = 57, },
+	armour = { Armour = 88, },
+	req = { level = 45, str = 56, },
 }
 itemBases["Titan Mitts"] = {
 	type = "Gloves",
@@ -221,8 +221,8 @@ itemBases["Fine Bracers"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, gloves = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 81, },
-	req = { level = 46, dex = 57, },
+	armour = { Evasion = 79, },
+	req = { level = 45, dex = 56, },
 }
 itemBases["Hardened Bracers"] = {
 	type = "Gloves",
@@ -383,7 +383,7 @@ itemBases["Pauascale Gloves"] = {
 	tags = { karui_basetype = true, gloves = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 32, },
-	req = { level = 46, int = 57, },
+	req = { level = 45, int = 56, },
 }
 itemBases["Embroidered Gloves"] = {
 	type = "Gloves",
@@ -523,8 +523,8 @@ itemBases["Plate Gauntlets"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_dex_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 49, Evasion = 44, },
-	req = { level = 46, str = 32, dex = 32, },
+	armour = { Armour = 48, Evasion = 44, },
+	req = { level = 45, str = 32, dex = 32, },
 }
 itemBases["Burnished Gauntlets"] = {
 	type = "Gloves",
@@ -654,8 +654,8 @@ itemBases["Verisium Cuffs"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_int_armour = true, armour = true, gloves = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 49, EnergyShield = 18, },
-	req = { level = 46, str = 32, int = 32, },
+	armour = { Armour = 48, EnergyShield = 17, },
+	req = { level = 45, str = 32, int = 32, },
 }
 itemBases["Righteous Cuffs"] = {
 	type = "Gloves",
@@ -785,8 +785,8 @@ itemBases["Buckled Wraps"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, gloves = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 44, EnergyShield = 18, },
-	req = { level = 46, dex = 32, int = 32, },
+	armour = { Evasion = 44, EnergyShield = 17, },
+	req = { level = 45, dex = 32, int = 32, },
 }
 itemBases["Furtive Wraps"] = {
 	type = "Gloves",

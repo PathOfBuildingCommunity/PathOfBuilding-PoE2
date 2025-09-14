@@ -37,6 +37,13 @@ return {
 	},
 	[2]={
 		[1]={
+		},
+		stats={
+			[1]="minion_duration"
+		}
+	},
+	[3]={
+		[1]={
 			[1]={
 				limit={
 					[1]={
@@ -64,7 +71,7 @@ return {
 			[1]="power_charged_zombie_damage_taken_-%_final"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -93,7 +100,7 @@ return {
 			[1]="power_charged_zombie_hit_damage_+%_final"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -122,7 +129,7 @@ return {
 			[1]="power_charged_zombie_movement_speed_+%_final"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -151,18 +158,11 @@ return {
 			[1]="raise_zombie_empowerment_effect_+%"
 		}
 	},
-	[6]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
 	["base_skill_effect_duration"]=1,
+	["minion_duration"]=2,
 	parent="skill_stat_descriptions",
-	["power_charged_zombie_damage_taken_-%_final"]=2,
-	["power_charged_zombie_hit_damage_+%_final"]=3,
-	["power_charged_zombie_movement_speed_+%_final"]=4,
-	["raise_zombie_empowerment_effect_+%"]=5,
-	["skill_effect_duration"]=6
+	["power_charged_zombie_damage_taken_-%_final"]=3,
+	["power_charged_zombie_hit_damage_+%_final"]=4,
+	["power_charged_zombie_movement_speed_+%_final"]=5,
+	["raise_zombie_empowerment_effect_+%"]=6
 }

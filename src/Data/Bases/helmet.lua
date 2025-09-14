@@ -70,8 +70,8 @@ itemBases["Commander Greathelm"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 180, },
-	req = { level = 46, str = 66, },
+	armour = { Armour = 176, },
+	req = { level = 45, str = 64, },
 }
 itemBases["Fierce Greathelm"] = {
 	type = "Helmet",
@@ -271,8 +271,8 @@ itemBases["Corsair Cap"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 162, },
-	req = { level = 46, dex = 66, },
+	armour = { Evasion = 158, },
+	req = { level = 45, dex = 64, },
 }
 itemBases["Leatherbound Hood"] = {
 	type = "Helmet",
@@ -472,8 +472,8 @@ itemBases["Vermeil Circlet"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 64, },
-	req = { level = 46, int = 66, },
+	armour = { EnergyShield = 63, },
+	req = { level = 45, int = 64, },
 }
 itemBases["Jade Tiara"] = {
 	type = "Helmet",
@@ -663,8 +663,8 @@ itemBases["Closed Helm"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_dex_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 99, Evasion = 89, },
-	req = { level = 46, str = 37, dex = 37, },
+	armour = { Armour = 97, Evasion = 87, },
+	req = { level = 45, str = 36, dex = 36, },
 }
 itemBases["Decorated Helm"] = {
 	type = "Helmet",
@@ -834,8 +834,8 @@ itemBases["Spiritbone Crown"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_int_armour = true, helmet = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 99, EnergyShield = 35, },
-	req = { level = 46, str = 37, int = 37, },
+	armour = { Armour = 97, EnergyShield = 35, },
+	req = { level = 45, str = 36, int = 36, },
 }
 itemBases["Lavish Crown"] = {
 	type = "Helmet",
@@ -1005,8 +1005,8 @@ itemBases["Solid Mask"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, helmet = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 89, EnergyShield = 35, },
-	req = { level = 46, dex = 37, int = 37, },
+	armour = { Evasion = 87, EnergyShield = 35, },
+	req = { level = 45, dex = 36, int = 36, },
 }
 itemBases["Shaded Mask"] = {
 	type = "Helmet",

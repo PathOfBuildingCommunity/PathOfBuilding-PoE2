@@ -15,6 +15,39 @@ return {
 						[2]=1000
 					}
 				},
+				text="Duration between launching Wellsprites is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Duration between launching Wellsprites is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_secondary_skill_effect_duration"
+		}
+	},
+	[2]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
 				text="Hover duration is {0} second"
 			},
 			[2]={
@@ -35,7 +68,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				limit={
@@ -51,7 +84,7 @@ return {
 			[1]="blazing_cluster_maximum_number_of_projectiles_allowed"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -102,25 +135,34 @@ return {
 			[2]="quality_display_ember_fusilade_is_gem"
 		}
 	},
-	[4]={
+	[5]={
+		[1]={
+		},
+		stats={
+			[1]="secondary_skill_effect_duration"
+		}
+	},
+	[6]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[5]={
+	[7]={
 		[1]={
 		},
 		stats={
 			[1]="total_number_of_projectiles_to_fire"
 		}
 	},
-	["base_skill_effect_duration"]=1,
-	["blazing_cluster_maximum_number_of_projectiles_allowed"]=2,
-	["ember_fusillade_damage_+%_final_per_ember_fired"]=3,
+	["base_secondary_skill_effect_duration"]=1,
+	["base_skill_effect_duration"]=2,
+	["blazing_cluster_maximum_number_of_projectiles_allowed"]=3,
+	["ember_fusillade_damage_+%_final_per_ember_fired"]=4,
 	parent="skill_stat_descriptions",
-	["quality_display_ember_fusilade_is_gem"]=3,
-	["skill_effect_duration"]=4,
-	["total_number_of_projectiles_to_fire"]=5
+	["quality_display_ember_fusilade_is_gem"]=4,
+	["secondary_skill_effect_duration"]=5,
+	["skill_effect_duration"]=6,
+	["total_number_of_projectiles_to_fire"]=7
 }

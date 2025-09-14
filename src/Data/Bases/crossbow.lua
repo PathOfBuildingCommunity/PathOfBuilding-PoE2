@@ -83,8 +83,8 @@ itemBases["Blackfire Crossbow"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, karui_basetype = true, ranged = true, weapon = true, twohand = true, crossbow = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 20, PhysicalMax = 82, CritChanceBase = 7, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
-	req = { level = 46, str = 46, dex = 46, },
+	weapon = { PhysicalMin = 20, PhysicalMax = 80, CritChanceBase = 7, AttackRateBase = 1.6, Range = 120, ReloadTimeBase = 0.85, },
+	req = { level = 45, str = 45, dex = 45, },
 }
 itemBases["Piercing Crossbow"] = {
 	type = "Crossbow",

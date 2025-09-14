@@ -125,6 +125,13 @@ return {
 	},
 	[5]={
 		[1]={
+		},
+		stats={
+			[1]="minion_duration"
+		}
+	},
+	[6]={
+		[1]={
 			[1]={
 				limit={
 					[1]={
@@ -152,7 +159,7 @@ return {
 			[1]="pain_offering_attack_and_cast_speed_+%"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
 				limit={
@@ -181,20 +188,13 @@ return {
 			[1]="pain_offering_damage_+%"
 		}
 	},
-	[7]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_secondary_skill_effect_duration"]=1,
 	["base_skill_effect_duration"]=4,
-	["pain_offering_attack_and_cast_speed_+%"]=5,
-	["pain_offering_damage_+%"]=6,
+	["minion_duration"]=5,
+	["pain_offering_attack_and_cast_speed_+%"]=6,
+	["pain_offering_damage_+%"]=7,
 	parent="skill_stat_descriptions",
-	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
-	["skill_effect_duration"]=7
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3
 }

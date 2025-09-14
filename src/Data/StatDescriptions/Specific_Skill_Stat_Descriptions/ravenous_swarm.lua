@@ -78,6 +78,13 @@ return {
 	},
 	[4]={
 		[1]={
+		},
+		stats={
+			[1]="minion_duration"
+		}
+	},
+	[5]={
+		[1]={
 			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
@@ -109,7 +116,7 @@ return {
 			[1]="ravenous_swarm_create_new_swarm_every_X_ms"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -134,18 +141,11 @@ return {
 			[1]="ravenous_swarm_maximum_swarm_count"
 		}
 	},
-	[6]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_effect_duration"]=3,
+	["minion_duration"]=4,
 	parent="skill_stat_descriptions",
-	["ravenous_swarm_create_new_swarm_every_X_ms"]=4,
-	["ravenous_swarm_maximum_swarm_count"]=5,
-	["skill_effect_duration"]=6
+	["ravenous_swarm_create_new_swarm_every_X_ms"]=5,
+	["ravenous_swarm_maximum_swarm_count"]=6
 }

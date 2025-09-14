@@ -45,6 +45,51 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Consumes {0:+d} Corpse"
+			},
+			[2]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Consumes {0:+d} Corpses"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Consumes up to 1 Corpse"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Consumes up to {0} Corpses"
+			}
+		},
+		stats={
+			[1]="feast_of_flesh_number_of_corpses"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=3
@@ -88,61 +133,16 @@ return {
 			}
 		},
 		stats={
-			[1]="base_life_recovery_per_minute",
-			[2]="base_mana_recovery_per_minute",
-			[3]="feast_of_flesh_regeneration_duration"
-		}
-	},
-	[4]={
-		[1]={
-			[1]={
-				["gem_quality"]=true,
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="Consumes {0:+d} Corpse"
-			},
-			[2]={
-				["gem_quality"]=true,
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Consumes {0:+d} Corpses"
-			},
-			[3]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="Consumes up to 1 Corpse"
-			},
-			[4]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Consumes up to {0} Corpses"
-			}
-		},
-		stats={
-			[1]="feast_of_flesh_number_of_corpses"
+			[1]="feast_of_flesh_recover_X_life_per_corpse_consumed",
+			[2]="feast_of_flesh_recover_X_mana_per_corpse_consumed",
+			[3]="feast_of_flesh_recovery_duration"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_life_recovery_per_minute"]=3,
-	["base_mana_recovery_per_minute"]=3,
-	["feast_of_flesh_number_of_corpses"]=4,
-	["feast_of_flesh_regeneration_duration"]=3,
+	["feast_of_flesh_number_of_corpses"]=3,
+	["feast_of_flesh_recover_X_life_per_corpse_consumed"]=4,
+	["feast_of_flesh_recover_X_mana_per_corpse_consumed"]=4,
+	["feast_of_flesh_recovery_duration"]=4,
 	parent="skill_stat_descriptions"
 }

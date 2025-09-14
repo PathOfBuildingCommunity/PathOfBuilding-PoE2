@@ -99,8 +99,8 @@ itemBases["Crucible Tower Shield"] = {
 	tags = { karui_basetype = true, str_armour = true, str_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 26, Armour = 112, MovementPenalty = 0.03, },
-	req = { level = 46, str = 66, },
+	armour = { BlockChance = 26, Armour = 110, MovementPenalty = 0.03, },
+	req = { level = 45, str = 64, },
 }
 itemBases["Ancestor Tower Shield"] = {
 	type = "Shield",
@@ -463,8 +463,8 @@ itemBases["Laminate Buckler"] = {
 	tags = { karui_basetype = true, buckler = true, dex_shield = true, dex_armour = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Parry",
 	implicitModTypes = { },
-	armour = { BlockChance = 20, Evasion = 81, },
-	req = { level = 46, dex = 66, },
+	armour = { BlockChance = 20, Evasion = 79, },
+	req = { level = 45, dex = 64, },
 }
 itemBases["Pearl Buckler"] = {
 	type = "Shield",
@@ -1147,8 +1147,8 @@ itemBases["Wayward Crest Shield"] = {
 	tags = { karui_basetype = true, str_int_armour = true, str_int_shield = true, armour = true, default = true, shield = true, },
 	implicit = "Grants Skill: Level (1-20) Raise Shield",
 	implicitModTypes = { },
-	armour = { BlockChance = 25, Armour = 62, EnergyShield = 22, MovementPenalty = 0.015, },
-	req = { level = 46, str = 37, int = 37, },
+	armour = { BlockChance = 25, Armour = 61, EnergyShield = 22, MovementPenalty = 0.015, },
+	req = { level = 45, str = 36, int = 36, },
 }
 itemBases["Seer Crest Shield"] = {
 	type = "Shield",

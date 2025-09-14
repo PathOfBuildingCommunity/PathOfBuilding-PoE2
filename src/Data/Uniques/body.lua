@@ -490,8 +490,8 @@ Variant: Current
 -10% to Fire Resistance
 {variant:1}+(13-17)% to Chaos Resistance
 {variant:2}+(13-17)% to Chaos Resistance
-{variant:1}(25-50)% increased Flask Charges used
-{variant:2}(20-30)% increased Flask Charges used
+{variant:1}(25-50)% increased Flask Charges gained
+{variant:2}(20-30)% increased Flask Charges gained
 50% less Flask Charges used
 ]],[[
 Icetomb

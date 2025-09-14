@@ -140,6 +140,17 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/QuillCrab/QuillCrab
 #emit
 
+#spectre Metadata/Monsters/QuillCrab/QuillCrabTropical
+#flags recommendedBeast recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/QuillCrab/QuillCrabBigTropical
+#flags recommendedBeast recommendedSpectre
+#emit
+
+#spectre Metadata/Monsters/CrabMonsters/CrabCoconut
+#emit
+
 #spectre Metadata/Monsters/QuillCrab/QuillCrabBig
 #emit
 
@@ -151,6 +162,9 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/ShellMonster/ShellMonster
+#emit
+
+#spectre Metadata/Monsters/ShellMonster/ShellMonsterPoison_
 #emit
 
 -- Cultists
@@ -288,6 +302,11 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield
 #emit
 
+-- Quadrilla
+#spectre Metadata/Monsters/Quadrilla/Quadrilla
+#flags recommendedBeast
+#emit
+
 -- Rat
 #spectre Metadata/Monsters/RatMonster/RatMonster
 #emit
@@ -344,7 +363,7 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade
 #emit
 
---Terracotta Soldier
+-- Terracotta Soldier
 #spectre Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre
 #emit
 
@@ -352,9 +371,11 @@ local minions, mod, flag = ...
 #flags recommendedSpectre
 #emit
 
--- Quadrilla
-#spectre Metadata/Monsters/Quadrilla/Quadrilla
-#flags recommendedBeast
+-- Twilight Order
+#spectre Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier
+#emit
+
+#spectre Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderOfficer_
 #emit
 
 -- Vaal Humanoid
@@ -621,6 +642,10 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_
+#flags recommendedBeast
+#emit
+
+#spectre Metadata/Monsters/VultureZombie/VultureDemon
 #flags recommendedBeast
 #emit
 
@@ -1180,4 +1205,286 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
+#emit
+
+#spectre Metadata/Monsters/KaruiSpiritTortoise/SpiritTortoise_
+#emit
+
+#spectre Metadata/Monsters/PlagueBringer/TwilightOrderPlagueBringer
+#emit
+
+#spectre Metadata/Monsters/DrownedCrew/DrownedCrewSword_
+#emit
+
+#spectre Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead
+#emit
+
+#spectre Metadata/Monsters/DrownedCrawler/DrownedCrawler__
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateBootyBlaster
+#emit
+
+#spectre Metadata/Monsters/ManOWar/ManoWar
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateCannon
+#emit
+
+#spectre Metadata/Monsters/Pirates/PirateBarrel
+#emit
+
+#spectre Metadata/Monsters/GullGoliath/GullGoliath_
+#emit
+
+#spectre Metadata/Monsters/GullMen/GullMen
+#emit
+
+#spectre Metadata/Monsters/GullCarrion/GullCarrion
+#emit
+
+#spectre Metadata/Monsters/WingedFiend/CrawGull
+#emit
+
+#spectre Metadata/Monsters/Skeletons/FleshPicked/FleshPickedSkeletonNoEmerge
+#emit
+
+#spectre Metadata/Monsters/HarpyMonster/RavenHarpyShrikeIsland
+#emit
+
+#spectre Metadata/Monsters/HarpyMonster/GullHarpy
+#emit
+
+#spectre Metadata/Monsters/CageSkeleton/CageSkeleton_
+#emit
+
+#spectre Metadata/Monsters/PrisonTorturerZombieMonster/ZombieTorturer
+#emit
+
+#spectre Metadata/Monsters/NecromancerRemakeBook/SpinedNecromancer
+#emit
+
+#spectre Metadata/Monsters/NecromancerRemakeBook/SpinedNecromancer
+#emit
+
+#spectre Metadata/Monsters/RatMonster/RatMonsterPrison
+#emit
+
+#spectre Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_
+#emit
+
+#spectre Metadata/Monsters/SkeletonProwler/SkeletonProwlerWet_
+#emit
+
+#spectre Metadata/Monsters/PaleWalker/PaleWalkerWave
+#emit
+
+#spectre Metadata/Monsters/PaleWalker/PaleWalkerMirage
+#emit
+
+#spectre Metadata/Monsters/PaleWalker/PaleWalkerShield_
+#emit
+
+#spectre Metadata/Monsters/PrisonStalker/UpperPrisonStalker
+#emit
+
+#spectre Metadata/Monsters/TarHulk/PaleHulk_
+#emit
+
+#spectre Metadata/Monsters/Skeletons/DrownedSkeleton/DrownedSkeleton_
+#emit
+
+#spectre Metadata/Monsters/RumCarrier/PaleCrawler_
+#emit
+
+#spectre Metadata/Monsters/PaleFishman/PaleFisherman
+#emit
+
+#spectre Metadata/Monsters/ElephantRhino/ElephantRhino
+#emit
+
+#spectre Metadata/Monsters/DeepDwellerBoss/SpikedDweller
+#emit
+
+#spectre Metadata/Monsters/StonebackRhoa/StonebackRhoa
+#emit
+
+#spectre Metadata/Monsters/StonebackRhoa/GoblinStonebackRhoa
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinStabber
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinStabberNoSkull
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinSpearman/GoblinSpearman
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinStiltsFighter/GoblinStiltsFighter
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinDrummer/GoblinDrummer
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman
+#emit
+
+#spectre Metadata/Monsters/HarpyMonster/MagmaHarpy/MagmaHarpy
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinMiner/GoblinMinerMining
+#emit
+
+#spectre Metadata/Monsters/Goblins/GoblinMiner/GoblinMinerTorch
+#emit
+
+#spectre Metadata/Monsters/ElectricStingray/ElectricStingray_
+#emit
+
+#spectre Metadata/Monsters/JellfishNettler/JellyfishNettlerSmall
+#emit
+
+#spectre Metadata/Monsters/JellfishNettler/JellyfishNettlerBig
+#emit
+
+#spectre Metadata/Monsters/TentacleDemonFemale/TentacleWhipper
+#emit
+
+#spectre Metadata/Monsters/GiantStarfish/GiantStarfish_
+#emit
+
+#spectre Metadata/Monsters/CarrionWing/CarrionWing_
+#emit
+
+#spectre Metadata/Monsters/BrineMaiden/BrineMaiden
+#emit
+
+#spectre Metadata/Monsters/ProwlerLeviathan/ProwlerLeviathan
+#emit
+
+#spectre Metadata/Monsters/KaruiTuatara/KaruiTuatara_
+#emit
+
+#spectre Metadata/Monsters/KaruiSoulCaster/KaruiSoulCaster_
+#emit
+
+#spectre Metadata/Monsters/FallenKarui/FallenKaruiArcher_______
+#emit
+
+#spectre Metadata/Monsters/FallenKarui/FallenKaruiShieldAxe
+#emit
+
+#spectre Metadata/Monsters/FallenKarui/FallenKaruiTwoHandAxe
+#emit
+
+#spectre Metadata/Monsters/FallenKarui/FallenKaruiOneHandMace
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneNgamahu/FirebreatherStandalone
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneNgamahu/BlackbarkDemolisherStandalone
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneTasalio/SpearfisherStandalone
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneTasalio/RiptideStandalone
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneTasalio/TrawlerStandalone_
+#emit
+
+#spectre Metadata/Monsters/PlagueSwarm/TwilightOrderPlagueSwarm
+#emit
+
+#spectre Metadata/Monsters/PlagueSwarm/LargeParasiticCrab
+#emit
+
+#spectre Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Cleaver/ExcavatorCleaver
+#emit
+
+#spectre Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Maul/ExcavatorMaulSpectre
+#emit
+
+#spectre Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Orb/ExcavatorOrb
+#emit
+
+#spectre Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Raptor/ExcavatorRaptor
+#emit
+
+#spectre Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Sceptre/ExcavatorSceptre
+#emit
+
+#spectre Metadata/Monsters/Anchorman/BloatedAnchorman
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregSword
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer
+#emit
+
+#spectre Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverDrunk
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverHook
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverSpear
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverKarui1HAxe_
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverKarui2HAxe
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverKarui1HMace
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverBoar
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverMedicineWoman
+#emit
+
+#spectre Metadata/Monsters/KaruiWarriorHorn/KaruiWarriorHorn_
+#emit
+
+#spectre Metadata/Monsters/BloodFeverKarui/BloodFeverBloater
+#emit
+
+#spectre Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataAxe_
+#emit
+
+#spectre Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataMace_
+#emit
+
+#spectre Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataArcher_
+#emit
+
+#spectre Metadata/Monsters/TwilightOrderSorceror/TwilightOrderSorcerer
+#emit
+
+#spectre Metadata/Monsters/TwilightOrderCleric/TwilightOrderCleric
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/Boar/TawhoaBoarStandalone
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/Tuatata/TawhoaTuataraStandalone
+#emit
+
+#spectre Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/MedicineWoman/TawhoaMedicineWomanStandalone__
 #emit
