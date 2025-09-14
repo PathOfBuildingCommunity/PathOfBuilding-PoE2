@@ -136,6 +136,10 @@ return {
 ["spell_cast_time_cannot_be_modified"] = {
 	skill("fixedCastTime", true),
 },
+["base_minimum_channel_time_ms"] = {
+	skill("minChannelTime", true),
+	div = 1000,
+},
 ["global_always_hit"] = {
 	skill("cannotBeEvaded", true),
 },
@@ -518,6 +522,10 @@ return {
 -- Speed
 ["attack_and_cast_speed_+%"] = {
 	mod("Speed", "INC", nil),
+},
+["skill_speed_+%"] = {
+	mod("Speed", "INC", nil),
+	mod("WarcrySpeed", "INC", nil),
 },
 ["cast_speed_+%_granted_from_skill"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
@@ -2761,6 +2769,9 @@ return {
 ["quality_display_sandstorm_swipe_is_gem"] = {
 	-- Display Only
 },
+["cast_speed_modifiers_apply_to_over_time_cost"] = {
+	-- Display Only
+},
 ["quality_display_base_totem_duration_is_gem"] = {
 	-- Display Only
 },
@@ -2768,6 +2779,9 @@ return {
 	-- Display Only
 },
 ["skill_specific_stat_description_mode"] = {
+	-- Display Only
+},
+["quality_display_supercharged_slam_is_gem"] = {
 	-- Display Only
 },
 }

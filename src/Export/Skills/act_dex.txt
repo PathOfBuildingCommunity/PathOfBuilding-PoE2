@@ -104,6 +104,7 @@ statMap = {
 #skill DetonatingArrowPlayer
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:DetonatingArrowStage")
 end,
 #set DetonatingArrowPlayer
 #flags attack projectile channelRelease
@@ -452,6 +453,7 @@ statMap = {
 #skill SnipePlayer
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 end,
 #set SnipePlayer
 #flags attack projectile channelRelease

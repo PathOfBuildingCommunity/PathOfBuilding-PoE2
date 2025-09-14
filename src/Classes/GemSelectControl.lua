@@ -548,7 +548,7 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	-- Will need rework if a gem can have 2+ additional supports
 	self:AddGrantedEffectInfo(gemInstance, grantedEffect, true)
 	for _, statSet in ipairs(grantedEffect.statSets) do
-		self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+		self:AddStatSetInfo(gemInstance, grantedEffect, statSet, nil , _)
 	end
 
 	for _, additional in ipairs(additionalEffects or {}) do
@@ -560,11 +560,11 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			self.tooltip:AddSeparator(10)
 			self:AddGrantedEffectInfo(gemInstance, additional)
 			for _, statSet in ipairs(additional.statSets) do
-				self:AddStatSetInfo(gemInstance, additional, statSet)
+				self:AddStatSetInfo(gemInstance, additional, statSet, nil, _)
 			end
 		else
 			for _, statSet in ipairs(additional.statSets) do
-				self:AddStatSetInfo(gemInstance, additional, statSet, true)
+				self:AddStatSetInfo(gemInstance, additional, statSet, true, _)
 			end
 		end
 	end
@@ -692,10 +692,10 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		end
 	end
 end
-function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLabel)
+function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLabel, index)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local statSetLevel = statSet.levels[displayInstance.level] or { }
-	if statSet.label ~= grantedEffect.name and statSet.label ~= "" and not noLabel then
+	if not (index == 1 and statSet.label == grantedEffect.name) and statSet.label ~= "" and not noLabel then
 		self.tooltip:AddSeparator(10)
 		self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
 		self.tooltip:AddSeparator(10)

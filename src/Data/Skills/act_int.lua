@@ -1798,6 +1798,11 @@ skills["BonestormPlayer"] = {
 		[39] = { critChance = 15, levelRequirement = 90, cost = { ManaPerMinute = 20158, }, },
 		[40] = { critChance = 15, levelRequirement = 90, cost = { ManaPerMinute = 21924, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage")
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage")
+				activeSkill.skillData.dpsMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -1805,9 +1810,15 @@ skills["BonestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0068999999202788,
 			statDescriptionScope = "bone_spike_statset_0",
+			statMap = {
+				["base_number_of_allowed_bone_storm_projectiles"] = {
+					mod("Multiplier:BonestormMaxStages", "BASE", nil),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				projectile = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "base_number_of_projectiles", 1 },
@@ -1886,10 +1897,22 @@ skills["BonestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0068999999202788,
 			statDescriptionScope = "bone_spike_statset_1",
+			statMap = {
+				["bone_spear_power_charged_aoe_+%_final_per_additional_power_charge"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+				},
+				["bone_spear_power_charged_aoe_+"] = {
+					skill("radiusExtra", nil, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
+				},
+				["base_number_of_allowed_bone_storm_projectiles"] = {
+					mod("Multiplier:BonestormMaxStages", "BASE", nil),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
 				projectile = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -8080,6 +8103,9 @@ skills["FlameblastPlayer"] = {
 		[39] = { critChance = 8, storedUses = 1, levelRequirement = 90, cooldown = 15, cost = { ManaPerMinute = 19137, }, },
 		[40] = { critChance = 8, storedUses = 1, levelRequirement = 90, cooldown = 15, cost = { ManaPerMinute = 20814, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:FlameblastStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Flameblast",
@@ -8087,9 +8113,21 @@ skills["FlameblastPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["charged_blast_spell_damage_+%_final_per_stack"] = {
+					mod("Damage", "MORE", nil, ModFlag.Spell, 0, { type = "Multiplier", var = "FlameblastStage" }),
+				},
+				["vaal_flameblast_radius_+_per_stage"] = {
+					skill("radiusExtra", nil, { type = "Multiplier", var = "FlameblastStage" }),
+				},
+				["flameblast_maximum_stages"] = {
+					mod("Multiplier:FlameblastMaxStages", "BASE", nil),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "charged_blast_spell_damage_+%_final_per_stack", 75 },
@@ -10292,6 +10330,7 @@ skills["GatheringStormPlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 			end,
 	statSets = {
 		[1] = {
@@ -13371,6 +13410,9 @@ skills["IncineratePlayer"] = {
 		[39] = { critChance = 6, levelRequirement = 90, },
 		[40] = { critChance = 6, levelRequirement = 90, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:IncinerateStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Incinerate",
@@ -13378,10 +13420,23 @@ skills["IncineratePlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "incinerate_player_statset_0",
+			statMap = {
+				["incinerate_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "IncinerateStage" }),
+				},
+				["incinerate_maximum_stages"] = {
+					mod("Multiplier:IncinerateMaxStages", "BASE", nil),
+				},
+				["incinerate_gain_stage_every_x_ms"] = {
+					skill("channelTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
 				duration = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "incinerate_cone_angle", 20 },

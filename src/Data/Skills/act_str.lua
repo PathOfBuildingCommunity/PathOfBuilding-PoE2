@@ -9233,6 +9233,9 @@ skills["PlasmaBlastPlayer"] = {
 		[39] = { baseMultiplier = 139.44, levelRequirement = 0, },
 		[40] = { baseMultiplier = 150.22, levelRequirement = 0, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.channelTimeMultiplier = 1
+			end,
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -11639,6 +11642,7 @@ skills["PerfectStrikePlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 			end,
 	statSets = {
 		[1] = {
@@ -14079,15 +14083,33 @@ skills["SuperchargedSlamPlayer"] = {
 		[39] = { attackTime = 1000, baseMultiplier = 8.63, levelRequirement = 90, cost = { ManaPerMinute = 11734, }, },
 		[40] = { attackTime = 1000, baseMultiplier = 9.21, levelRequirement = 90, cost = { ManaPerMinute = 12487, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Impact",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "channelled_slam_statset_0",
+			statMap = {
+				["channelled_slam_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+				},
+				["channelled_slam_max_stages"] = {
+					mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
 				melee = true,
+				channelRelease = true,
+			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
@@ -14150,10 +14172,27 @@ skills["SuperchargedSlamPlayer"] = {
 			label = "Aftershock",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "channelled_slam_statset_1",
+			statMap = {
+				["channelled_slam_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+				},
+				["channelled_slam_max_stages"] = {
+					mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+				},
+				["aftershock_radius_+_per_previous_aftershock"] = {
+					skill("radiusExtra", nil, { type = "Multiplier", var = "SuperchargedSlamStage", limit = 30, limitTotal = true }),
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
 				melee = true,
+				channelRelease = true,
+			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },

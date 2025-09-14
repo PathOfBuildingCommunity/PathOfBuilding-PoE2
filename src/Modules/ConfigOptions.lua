@@ -364,10 +364,6 @@ local configSettings = {
 	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through Flame Wall?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FlameWallAddedDamage", "FLAG", true, "Config")
 	end },
-	{ label = "Bonestorm:", ifSkill = "Bonestorm" },
-	{ var = "bonestormAddedDamage", type = "check", label = "Enemy has Bonestorm debuff?", ifSkill = "Bonestorm", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:BonestormAddedDamage", "FLAG", true, "Config")
-	end },
 	{ label = "Flicker Strike:", ifSkill = "Flicker Strike", includeTransfigured = true },
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Flicker Strike", includeTransfigured = true })

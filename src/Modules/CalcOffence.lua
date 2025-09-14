@@ -2637,6 +2637,12 @@ function calcs.offence(env, actor, activeSkill)
 				output.Speed = output.Speed * globalOutput.ActionSpeedMod
 				output.CastRate = output.Speed
 			end
+			if skillData.channelTimeMultiplier then
+				local minTime = skillData.minChannelTime or 0
+				local channelTime = skillData.channelTimeOverride or output.Speed
+				output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
+				output.ChannelSpeed = output.Speed or output.Time
+			end
 			if skillFlags.totem then
 				-- Totem skill. Apply action speed
 				local totemActionSpeed = 1 + (modDB:Sum("INC", nil, "TotemActionSpeed") / 100)
@@ -2779,9 +2785,12 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			output.HitTime = output.Time * skillData.hitTimeMultiplier
+			if skillFlags.channelRelease and skillData.minChannelTime then
+				output.HitTime = m_max(output.HitTime, skillData.minChannelTime)
+			end
 			if output.Cooldown and skillData.triggered then
 				output.HitSpeed = 1 / (m_max(output.HitTime, output.Cooldown))
-			elseif output.Cooldown then
+			elseif output.Cooldown and not skillFlags.channelRelease then
 				output.HitSpeed = 1 / (output.HitTime + output.Cooldown)
 			else
 				output.HitSpeed = 1 / output.HitTime
@@ -2837,6 +2846,12 @@ function calcs.offence(env, actor, activeSkill)
 				}
 			end
 		end
+		if skillData.channelTimeMultiplier then
+			local minTime = skillData.minChannelTime or 0
+			local channelTime = skillData.channelTimeOverride or output.Speed
+			output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
+			output.ChannelSpeed = output.Speed or output.Time
+		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
@@ -2844,6 +2859,9 @@ function calcs.offence(env, actor, activeSkill)
 			output.Time = skillData.timeOverride
 		elseif skillData.hitTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
 			output.HitTime = output.Time * skillData.hitTimeMultiplier
+			if skillFlags.channelRelease and skillData.minChannelTime then
+				output.HitTime = m_max(output.HitTime, skillData.minChannelTime)
+			end
 			if output.Cooldown and skillData.triggered then
 				output.HitSpeed = 1 / (m_max(output.HitTime, output.Cooldown))
 			elseif output.Cooldown then
@@ -2854,6 +2872,20 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 	if breakdown then
+		if skillData.channelTimeMultiplier and output.Time and not skillData.triggeredOnDeath then
+			breakdown.ChannelTime = { }
+			if skillData.minChannelTime then
+				t_insert(breakdown.ChannelTime, s_format("%.2fs ^8(minimum channel time)", skillData.minChannelTime))
+				t_insert(breakdown.ChannelTime, s_format(""))
+			end
+			if isAttack then
+				t_insert(breakdown.ChannelTime, s_format("%.2f ^8(attack time per stage)", 1 / output.ChannelSpeed))
+			else
+				t_insert(breakdown.ChannelTime, s_format("%.2f ^8(cast time per stage)", 1 / output.ChannelSpeed))
+			end
+			t_insert(breakdown.ChannelTime, s_format("x %.2f ^8(channel time multiplier)", skillData.channelTimeMultiplier))
+			t_insert(breakdown.ChannelTime, s_format("= %.2f", output.ChannelTime))
+		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
 			breakdown.HitSpeed = { }
 			t_insert(breakdown.HitSpeed, s_format("1 / %.2f ^8(hit time override)", output.HitTime))

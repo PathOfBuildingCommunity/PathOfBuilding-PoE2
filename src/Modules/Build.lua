@@ -1793,7 +1793,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeEffect.grantedEffect.parts[controls.mainSkillPart.selIndex].stagesMin or 1)
 					end
 				end
-				activeSkill.activeEffect.statSet = activeSkill.activeEffect.statSet or { }
+				activeSkill.activeEffect.statSet = activeSkill.activeEffect.statSet or activeSkill.activeEffect.statSetCalcs or { }
 				activeSkill.activeEffect.statSet.skillFlags = activeSkill.activeEffect.statSet.skillFlags or { }
 				if activeSkill.activeEffect.statSet.skillFlags.mine then
 					controls.mainSkillMineCount.shown = true
