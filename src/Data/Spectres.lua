@@ -15212,6 +15212,38 @@ minions["Metadata/Monsters/ElectricStingray/ElectricStingray_"] = {
 	},
 }
 
+minions["Metadata/Monsters/JellfishNettler/JellyfishNettlerSmall"] = {
+	name = "Skittering Jellycrab",
+	monsterTags = { "beast", "caster", "cleaving_weapon", "crustacean_beast", "flesh_armour", "is_unarmed", "lightning_affinity", "medium_movement", "melee", "not_str", "physical_affinity", "Unarmed_onhit_audio", "water", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	evasion = 0.2,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 5,
+	accuracy = 1,
+	baseMovementSpeed = 29,
+	spectreReservation = 38,
+	companionReservation = 25.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedLightning",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 1.983, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1983]
+	},
+}
+
 minions["Metadata/Monsters/JellfishNettler/JellyfishNettlerBig"] = {
 	name = "Skittering Jellycrab",
 	monsterTags = { "beast", "caster", "cleaving_weapon", "crustacean_beast", "fast_movement", "flesh_armour", "is_unarmed", "lightning_affinity", "melee", "not_dex", "not_str", "physical_affinity", "Unarmed_onhit_audio", "water", },
@@ -15365,44 +15397,6 @@ minions["Metadata/Monsters/CarrionWing/CarrionWing_"] = {
 	},
 	modList = {
 		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
-	},
-}
-
-minions["Metadata/Monsters/BrineMaiden/BrineMaiden"] = {
-	name = "Brine Maiden",
-	monsterTags = { "allows_additional_projectiles", "beast", "Beast_onhit_audio", "caster", "cold_affinity", "humanoid", "medium_movement", "melee", "not_str", "physical_affinity", "red_blood", },
-	life = 1.25,
-	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.1,
-	evasion = 0.25,
-	fireResist = 0,
-	coldResist = 75,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.25,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 14,
-	accuracy = 1,
-	baseMovementSpeed = 32,
-	spectreReservation = 59,
-	companionReservation = 33.6,
-	monsterCategory = "Beast",
-	spawnLocation = {
-		"Howling Caves (Act 6)",
-		"Rugosa (Map)",
-		"Singing Caverns (Act 4)",
-		"Found in Maps",
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"GTBrineMaidenScreech",
-		"GSBrineMaidenScreech",
-		"BrineMaidenIceBarage",
-		"MPSBrineMaidenIceProjectile",
-		"GSSirenArenaEmergeStalagmiteBreakInwardEG",
-	},
-	modList = {
 	},
 }
 

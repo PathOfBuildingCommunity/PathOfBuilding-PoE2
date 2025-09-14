@@ -1345,6 +1345,9 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/ElectricStingray/ElectricStingray_
 #emit
 
+#spectre Metadata/Monsters/JellfishNettler/JellyfishNettlerSmall
+#emit
+
 #spectre Metadata/Monsters/JellfishNettler/JellyfishNettlerBig
 #emit
 
@@ -1355,9 +1358,6 @@ local minions, mod, flag = ...
 #emit
 
 #spectre Metadata/Monsters/CarrionWing/CarrionWing_
-#emit
-
-#spectre Metadata/Monsters/BrineMaiden/BrineMaiden
 #emit
 
 #spectre Metadata/Monsters/BrineMaiden/BrineMaiden

@@ -247,6 +247,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill GAFirebreatherFireSlam Slam
+#set GAFirebreatherFireSlam
+#flags triggerable spell area hit
+#mods
+#skillEnd
+
 #skill GAGullGoliathSlam Slam
 #set GAGullGoliathSlam
 #flags triggerable attack area
@@ -372,6 +378,18 @@ statMap = {
 #skill MPSCrawGullSpit Spit
 #set MPSCrawGullSpit
 #flags triggerable projectile spell hit
+#mods
+#skillEnd
+
+#skill MPSKaruiCasterProjectile Basic Spell (Cold)
+#set MPSKaruiCasterProjectile
+#flags triggerable projectile spell hit
+#mods
+#skillEnd
+
+#skill MPSGoblinMinerRockThrow Rock Throw
+#set MPSGoblinMinerRockThrow
+#flags triggerable attack projectile hit
 #mods
 #skillEnd
 
@@ -703,6 +721,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MPSElectricStingRayProjectile Basic Spell (Lightning)
+#set MPSElectricStingRayProjectile
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
 #skill MPSExpeditionBoneCultistProjectiles Basic Spell (Cold)
 #set MPSExpeditionBoneCultistProjectiles
 #flags spell projectile triggerable hit
@@ -1024,5 +1048,53 @@ statMap = {
 #set GSVaalZealotLightningBlast
 #flags spell triggerable hit
 #baseMod skill("cooldown", 10.5)
+#mods
+#skillEnd
+
+#skill JellyfishNettlerArc Arc
+#set JellyfishNettlerArc
+#flags spell triggerable hit
+#mods
+#skillEnd
+
+#skill SSMJellyfishNettlerMinions Summon Minions
+#set SSMJellyfishNettlerMinions
+#flags spell
+#mods
+#skillEnd
+
+#skill MeleeGiantStarfishTentacle1
+#set MeleeGiantStarfishTentacle1
+#flags melee attack
+#mods
+#skillEnd
+
+#skill MPSStarfishVomit Vomit
+#set MPSStarfishVomit
+#flags spell projectile hit
+#mods
+#skillEnd
+
+#skill GSStarFishSpitImpact Vomit Impact
+#set GSStarFishSpitImpact
+#flags spell hit
+#mods
+#skillEnd
+
+#skill CGEStarFishSpitCausticGround Vomit Ground
+#set CGEStarFishSpitCausticGround
+#flags spell area hit duration
+#mods
+#skillEnd
+
+#skill MPSBrineMaidenIceProjectile Ice Projectile
+#set MPSBrineMaidenIceProjectile
+#flags spell projectile hit
+#mods
+#skillEnd
+
+#skill GAKaruiTuataraTailSlam Tail Slam
+#set GAKaruiTuataraTailSlam
+#flags attack
 #mods
 #skillEnd
