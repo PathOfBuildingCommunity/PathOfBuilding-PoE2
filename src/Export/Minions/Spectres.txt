@@ -1288,9 +1288,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/PrisonStalker/UpperPrisonStalker
 #emit
 
-#spectre Metadata/Monsters/PrisonStalker/UpperPrisonStalker
-#emit
-
 #spectre Metadata/Monsters/TarHulk/PaleHulk_
 #emit
 

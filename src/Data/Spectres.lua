@@ -14527,40 +14527,6 @@ minions["Metadata/Monsters/PrisonStalker/UpperPrisonStalker"] = {
 	},
 }
 
-minions["Metadata/Monsters/PrisonStalker/UpperPrisonStalker"] = {
-	name = "Eternal Guard",
-	monsterTags = { "Claw_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "undead", "very_fast_movement", },
-	life = 1.15,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.4,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.09,
-	damageSpread = 0.2,
-	attackTime = 0.99,
-	attackRange = 8,
-	accuracy = 1,
-	baseMovementSpeed = 52,
-	spectreReservation = 55,
-	companionReservation = 32.1,
-	monsterCategory = "Undead",
-	spawnLocation = {
-		"Abandoned Prison (Act 4)",
-		"Solitary Confinement (Act 4)",
-		"Found in Maps",
-	},
-	skillList = {
-		"EASStalkerTeleportStrike",
-		"GAStalkerTeleportStrike",
-		"MeleeAtAnimationSpeedComboTEMP",
-	},
-	modList = {
-		mod("StunDuration", "OVERRIDE", 2.616, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2616]
-	},
-}
-
 minions["Metadata/Monsters/TarHulk/PaleHulk_"] = {
 	name = "Pale Abductor",
 	monsterTags = { "allows_inc_aoe", "Beast_onhit_audio", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "undead", "very_slow_movement", "zombie", },
