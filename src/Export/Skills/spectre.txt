@@ -296,6 +296,24 @@ statMap = {
 #mods
 #skillEnd
 
+#skill TCExcavatorOrbCharge Orb Charge
+#set TCExcavatorOrbCharge
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill GSExcavatorOrbExplosion Orb Explosion
+#set GSExcavatorOrbExplosion
+#flags spell triggerable area hit
+#mods
+#skillEnd
+
+#skill GSExcavatorOrbDonutExplosion Orb Donut Explosion
+#set GSExcavatorOrbDonutExplosion
+#flags spell triggerable area hit
+#mods
+#skillEnd
+
 #skill GAHellscapeFleshLeapImpact Leap Slam
 #set GAHellscapeFleshLeapImpact
 #flags attack triggerable
@@ -389,6 +407,12 @@ statMap = {
 
 #skill MPSGoblinMinerRockThrow Rock Throw
 #set MPSGoblinMinerRockThrow
+#flags triggerable attack projectile hit
+#mods
+#skillEnd
+
+#skill MPSSpearfisherSpearThrow Spear Throw
+#set MPSSpearfisherSpearThrow
 #flags triggerable attack projectile hit
 #mods
 #skillEnd
@@ -1096,5 +1120,59 @@ statMap = {
 #skill GAKaruiTuataraTailSlam Tail Slam
 #set GAKaruiTuataraTailSlam
 #flags attack
+#mods
+#skillEnd
+
+#skill GSExcavatorRaptorTriangleSlam Slam
+#set GSExcavatorRaptorTriangleSlam
+#flags spell triggerable hit
+#mods
+#skillEnd
+
+#skill TBExcavatorSceptreErraticBeam Beam
+#set TBExcavatorSceptreErraticBeam
+#flags spell attack triggerable hit
+#mods
+#skillEnd
+
+#skill MASKelpDregCrossbow
+#set MASKelpDregCrossbow
+#flags attack projectile melee triggerable hit
+#mods
+#skillEnd
+
+#skill MASKelpDregCrossbowPhys
+#set MASKelpDregCrossbowPhys
+#flags attack projectile melee triggerable hit
+#mods
+#skillEnd
+
+#skill MASKelpDregCrossbowIce
+#set MASKelpDregCrossbowIce
+#flags attack projectile melee triggerable hit
+#mods
+#skillEnd
+
+#skill MPWKelpDregPunctureIce Puncture
+#set MPWKelpDregPunctureIce
+#flags attack projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPWKelpDregPuncture Puncture
+#set MPWKelpDregPuncture
+#flags attack projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSTwilightSorcerorFireball Fireball
+#set MPSTwilightSorcerorFireball
+#flags spell projectile triggerable hit
+#mods
+#skillEnd
+
+#skill MPSTwilightClericProjectile Basic Spell
+#set MPSTwilightClericProjectile
+#flags spell projectile triggerable hit
 #mods
 #skillEnd
