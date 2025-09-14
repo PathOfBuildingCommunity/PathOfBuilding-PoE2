@@ -1,5 +1,4 @@
 VERSION[0.12.0][2025/09/14]
-<!-- Release notes generated using configuration in .github/release.yml at dev -->
 
 --- The Third Edict ---
 * Add support for Deflection (Edvinas-Smita)
@@ -30,7 +29,7 @@ VERSION[0.12.0][2025/09/14]
 
 --- Skills ---
 * Add support for Bonestorm, Flameblast, Incinerate, Supercharged Slam DPS (LocalIdentity)
-* Add support for many support gems by (@majochem, @LocalIdentity) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1310, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1351
+* Add support for many support gems by (majochem, LocalIdentity)
 * Implement Stoicism support and fix Innervate Support (christian-trzcinski)
 * Add Support for Living Lightning Minion (LocalIdentity)
 * Add support for Skills granted by The Unborn Lich staff (LocalIdentity)

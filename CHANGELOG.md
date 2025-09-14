@@ -1,6 +1,6 @@
 # Changelog
 
-## [v0.12.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.0) (2025/09/14)
+## [v0.12.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.0) (2025/09/15)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.11.2...v0.12.0)
 
@@ -9,8 +9,8 @@
 ## What's Changed
 ### The Third Edict
 - Add support for Deflection [\#1300](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1300) ([Edvinas-Smita](https://github.com/Edvinas-Smita))
-- Add new Abyss, Act 4 and Interlude Spectres [\#1369](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1295, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1369) ([Blitz54](https://github.com/Blitz54))
-- Update Quest Rewards with 0.3 changes [\#1347](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1328, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1347) ([Nightblade](https://github.com/Nightblade))
+- Add new Abyss, Act 4 and Interlude Spectres [\#1369](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1295), [\#1369](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1369) ([Blitz54](https://github.com/Blitz54))
+- Update Quest Rewards with 0.3 changes [\#1347](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1328), [\#1347](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1347) ([Nightblade](https://github.com/Nightblade))
 - Add Support for sprinting [\#1358](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1358) ([LocalIdentity](https://github.com/LocalIdentity))
 - Add Abyss Timeless Jewel and support for Keystone mods [\#1364](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1364) ([LocalIdentity](https://github.com/LocalIdentity))
 - Add 25% more damage for Spectres and Beasts [\#1375](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1375) ([LocalIdentity](https://github.com/LocalIdentity))
@@ -20,7 +20,7 @@
 - Add ability to sort tree and gear slots by Spirit and Item Rarity [\#1325](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1325) ([Mizkii](https://github.com/Mizkii))
 - Add Support for Time-Lost Notable Passive effect mod on radius Jewels [\#1342](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1342) ([LocalIdentity](https://github.com/LocalIdentity))
 ### Tree
-- Add support for 50+ misc tree mods [\#1359](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1353, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1359) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for 50+ misc tree mods [\#1353](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1353), [\#1359](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1359) ([LocalIdentity](https://github.com/LocalIdentity))
 - Add support for "Walker of the Wilds" Keystone and other "leech recovers based on x" mods [\#1348](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1348) ([majochem](https://github.com/majochem))
 - Add support for Ballista Nodes on the Tree [\#1331](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1331) ([LocalIdentity](https://github.com/LocalIdentity))
 - Add support for many Companion mods on the tree [\#1350](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1350) ([LocalIdentity](https://github.com/LocalIdentity))
@@ -33,7 +33,7 @@
 - Add support for Flammability Magnitude & Infernalist's Bringer of Flame [\#1323](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1323) ([ImmotephSimon](https://github.com/ImmotephSimon))
 ### Skills
 - Add support for Bonestorm, Flameblast, Incinerate, Supercharged Slam DPS [\#1382](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1382) ([LocalIdentity](https://github.com/LocalIdentity))
-* Add support for many support gems by (@majochem, @LocalIdentity) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1310, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1351
+- Add support for many support gems [\#1310](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1310), [\#1351](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1351) ([majochem](https://github.com/majochem), [LocalIdentity](https://github.com/LocalIdentity))
 - Implement Stoicism support and fix Innervate Support [\#1275](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1275) ([christian-trzcinski](https://github.com/christian-trzcinski))
 - Add Support for Living Lightning Minion [\#1377](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1377) ([LocalIdentity](https://github.com/LocalIdentity))
 - Add support for Skills granted by The Unborn Lich staff [\#1376](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1376) ([LocalIdentity](https://github.com/LocalIdentity))
