@@ -4896,14 +4896,8 @@ function calcs.offence(env, actor, activeSkill)
 		
 		
 		-- Calculate poise-related debuffs
-		for _, ailment in ipairs({"Freeze", "Electrocute", "HeavyStun"}) do 
-			local damageTypes
-			if ailment == "HeavyStun" then
-				damageTypes = { DamageType = "Physical" }
-			else 
-				damageTypes = data.defaultAilmentDamageTypes[ailment].ScalesFrom
-			end
-			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, damageTypes)
+		for _, ailment in ipairs({"Freeze", "Electrocute", "HeavyStun", "Pin"}) do 
+			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, data.buildupTypes[ailment].ScalesFrom)
 			-- TODO: average for now, can do more complicated calculation later
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
 			local critAvg = critMin + (critMax - critMin) / 2

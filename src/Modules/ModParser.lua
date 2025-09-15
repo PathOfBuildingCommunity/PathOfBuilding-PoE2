@@ -838,6 +838,7 @@ local modNameList = {
 	["electrocute buildup"] = "EnemyElectrocuteBuildup",
 	["stun buildup"] = "EnemyStunBuildup",
 	["freeze buildup"] = "EnemyFreezeBuildup",
+	["pin buildup"] = "EnemyPinBuildup",
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },

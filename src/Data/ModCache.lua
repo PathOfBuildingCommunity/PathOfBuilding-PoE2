@@ -1322,8 +1322,8 @@ c["12% increased Spell Damage if you have consumed an Elemental Infusion Recentl
 c["12% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
-c["12% increased Stun Buildup 10% increased Damage with Maces"]={{[1]={flags=1048580,keywordFlags=0,name="Damage",type="INC",value=12}}," Stun Buildup 10% increased   "}
-c["12% increased Stun Buildup Gain additional Stun Threshold equal to 10% of maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}}," Stun Buildup Gain additional  equal to 10% of maximum Energy Shield "}
+c["12% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=12}},nil}
+c["12% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=12}},nil}
 c["12% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=12}},nil}
@@ -1497,7 +1497,7 @@ c["15% increased Melee Damage with Hits at Close Range"]={{[1]={[1]={type="Condi
 c["15% increased Minion Duration"]={{[1]={[1]={skillType=77,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=15}},nil}
 c["15% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=15}},nil}
 c["15% increased Parried Debuff Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=15}}," Parried Debuff  "}
-c["15% increased Pin Buildup"]={{}," Pin Buildup "}
+c["15% increased Pin Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyPinBuildup",type="INC",value=15}},nil}
 c["15% increased Pin duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=15}}," Pin  "}
 c["15% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=15}},nil}
 c["15% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=15}},nil}
@@ -1649,7 +1649,7 @@ c["2% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpe
 c["2% increased Movement Speed while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}},nil}
 c["2% increased Parried Debuff Duration per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}," Parried Debuff   "}
 c["2% increased Spirit per socketed Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="Spirit",type="INC",value=2}},nil}
-c["2% increased Stun Buildup per 10 Tribute"]={{}," Stun Buildup  "}
+c["2% increased Stun Buildup per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=2}},nil}
 c["2% increased Thorns damage per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=2}},nil}
 c["2% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=2}},nil}
 c["2% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=2}},nil}
@@ -1807,7 +1807,7 @@ c["20% increased Parried Debuff Duration"]={{[1]={flags=0,keywordFlags=0,name="D
 c["20% increased Parry Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Parry Range"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="WeaponRange",type="INC",value=20}},nil}
 c["20% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=20}},nil}
-c["20% increased Pin Buildup"]={{}," Pin Buildup "}
+c["20% increased Pin Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyPinBuildup",type="INC",value=20}},nil}
 c["20% increased Pin duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Pin  "}
 c["20% increased Pin duration Pinned Enemies cannot deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Pin  Pinned Enemies cannot deal Critical Hits "}
 c["20% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPoisonDuration",type="INC",value=20}},nil}
@@ -2279,9 +2279,7 @@ c["30% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSp
 c["30% increased Parried Debuff Magnitude"]={{}," Parried Debuff Magnitude "}
 c["30% increased Parry Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Parry Range"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="WeaponRange",type="INC",value=30}},nil}
-c["30% increased Pin Buildup"]={{}," Pin Buildup "}
-c["30% increased Pin Buildup 5% increased Movement Speed if you've Pinned an Enemy Recently"]={{[1]={[1]={type="Condition",var="PinnedEnemyRecently"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=30}}," Pin Buildup 5% increased   "}
-c["30% increased Pin Buildup Bleeding you inflict on Pinned Enemies is Aggravated"]={{}," Pin Buildup Bleeding you inflict on Pinned Enemies is Aggravated "}
+c["30% increased Pin Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyPinBuildup",type="INC",value=30}},nil}
 c["30% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=30}},nil}
 c["30% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitMeleeRecently"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=30}},nil}
