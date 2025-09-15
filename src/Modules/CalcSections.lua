@@ -1683,7 +1683,7 @@ return {
 	extra = "{0:output:EffectiveBlockChance}%",
 	{ label = "Block Chance", { format = "{0:output:BlockChance}% (+{0:output:BlockChanceOverCap}%)",
 		{ breakdown = "BlockChance" },
-		{ modName = { "BlockChance", "ReplaceShieldBlock" } }, 
+		{ modName = { "BlockChance", "ReplaceShieldBlock", "BlockChanceMax" } }, 
 	}, },
 	{ label = "Taken From Block", haveOutput = "ShowBlockEffect", { format = "{0:output:DamageTakenOnBlock}%", 
 		{ breakdown = "BlockEffect" }, 
