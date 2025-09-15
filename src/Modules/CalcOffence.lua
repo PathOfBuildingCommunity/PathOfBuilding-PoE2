@@ -88,8 +88,8 @@ local function calcGainedDamage(activeSkill, output, cfg, damageType)
 
 	local gainedMin, gainedMax = 0, 0
 	for _, otherType in ipairs(dmgTypeList) do
-		local baseMin = m_floor(output[otherType.."MinBase"] * activeSkill.skillConversionTable[otherType].mult)
-		local baseMax = m_floor(output[otherType.."MaxBase"] * activeSkill.skillConversionTable[otherType].mult)
+		local baseMin = m_floor(output[otherType.."MinBase"] * activeSkill.conversionTable[otherType].mult)
+		local baseMax = m_floor(output[otherType.."MaxBase"] * activeSkill.conversionTable[otherType].mult)
 		local gainMult = gainTable[otherType][damageType]
 		if gainMult and gainMult > 0 then
 			-- Damage is being converted/gained from the other damage type
@@ -2045,18 +2045,15 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Calculate damage conversion percentages
-	activeSkill.skillConversionTable = wipeTable(activeSkill.skillConversionTable)
 	activeSkill.conversionTable = wipeTable(activeSkill.conversionTable)
 	activeSkill.gainTable = wipeTable(activeSkill.gainTable)
 
 	-- Initialize conversion tables
 	for _, type in ipairs(dmgTypeList) do
-		activeSkill.skillConversionTable[type] = {}
 		activeSkill.conversionTable[type] = {}
 		activeSkill.gainTable[type] = {}
 		for _, otherType in ipairs(dmgTypeList) do
 			activeSkill.conversionTable[type][otherType] = 0
-			activeSkill.skillConversionTable[type][otherType] = 0
 		end
 	end
 
@@ -2103,7 +2100,6 @@ function calcs.offence(env, actor, activeSkill)
 			activeSkill.conversionTable[damageType][toType] = amount
 		end
 		activeSkill.conversionTable[damageType].mult = 1 - m_min(skillTotal / 100, 1)
-		activeSkill.skillConversionTable[damageType].mult = 1 - m_min(skillTotal / 100, 1)
 	end
 
 	-- Second step: Process global conversion and gains
