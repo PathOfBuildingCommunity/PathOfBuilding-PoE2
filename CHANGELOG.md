@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.12.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.1) (2025/09/15)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.0...v0.12.1)
+
+
+## What's Changed
+### User Interface
+- Add Passive Tree search tip when looking for multiple mods [\#1388](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1388) ([Nightblade](https://github.com/Nightblade))
+### Fixed Calculations
+- Fix Damage "Gain as" when using Conversion mods on gear / tree [\#1390](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1390) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
+
 ## [v0.12.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.0) (2025/09/14)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.11.2...v0.12.0)

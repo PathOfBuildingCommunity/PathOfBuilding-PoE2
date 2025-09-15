@@ -1,3 +1,12 @@
+VERSION[0.12.1][2025/09/15]
+
+--- User Interface ---
+* Add Passive Tree search tip when looking for multiple mods (Nightblade)
+
+--- Fixed Calculations ---
+* Fix Damage "Gain as" when using Conversion mods on gear / tree (LocalIdentity)
+
+
 VERSION[0.12.0][2025/09/14]
 
 --- The Third Edict ---
