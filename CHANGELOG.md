@@ -17,7 +17,6 @@
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.11.2...v0.12.0)
 
-<!-- Release notes generated using configuration in .github/release.yml at dev -->
 
 ## What's Changed
 ### The Third Edict
