@@ -1365,8 +1365,10 @@ return {
 		{ label = "Configured Sap", modName = "SapVal", enemy = true, modType = "BASE" },
 		{ label = "Guaranteed Saps", modName = "SapOverride", modType = "BASE" },
 	}, },
-	{ label = "Electrocute Build-up", { format = "{0:output:ElectrocuteBuildupOnHit}%", { modName = "ElectrocuteBuildupOnHit" }, }, },
-	{ label = "Poise", { format = "{0:output:EnemyPoiseThreshold}", { modName = "EnemyPoiseThreshold" }, }, },
+	{ label = "Buildup", { format = "{1:output:MaxBuildup}%",
+		{ breakdown = "Buildup" }, 
+		{ label = "Player modifiers", modName = { "EnemyElectrocuteBuildup", "EnemyFreezeBuildup", "EnemyHeavyStunBuildup", "EnemyPinBuildup"  } },
+	}, },
 } }
 } },
 { 1, "MiscEffects", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Other Effects", data = {

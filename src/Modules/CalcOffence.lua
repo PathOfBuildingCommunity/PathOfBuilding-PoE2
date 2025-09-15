@@ -4892,8 +4892,16 @@ function calcs.offence(env, actor, activeSkill)
 		skillFlags["inflictFreeze"] = false
 		skillFlags["inflictElectrocute"] = false
 		
-		
-		
+		-- Poise breakdown
+		if breakdown then
+			breakdown.Buildup = {
+				"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+				"Enemy poise: " .. enemyPoiseThreshold,
+				"",
+				"Expected buildup:",
+			}
+			output["MaxBuildup"] = 0
+		end
 		
 		-- Calculate poise-related debuffs
 		for _, ailment in ipairs({"Freeze", "Electrocute", "HeavyStun", "Pin"}) do 
@@ -4908,16 +4916,41 @@ function calcs.offence(env, actor, activeSkill)
 			local critPoiseBuildup = critAvg / enemyPoiseThreshold * data.gameConstants[ailment .. "DamageScale"]
 			critPoiseBuildup = critPoiseBuildup * (1 + inc / 100) * (1 + more / 100)
 
+			
+			
 
 
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
-				output[ailment.."BuildupOnHit"] = m_min(100, hitPoiseBuildup)
-				output[ailment.."BuildupOnCrit"] = m_min(100, critPoiseBuildup)
+				output[ailment .. "BuildupOnHit"] = m_min(100, hitPoiseBuildup)
+				output[ailment .. "BuildupOnCrit"] = m_min(100, critPoiseBuildup)
 			else
-				output[ailment.."BuildupOnHit"] = 0
-				output[ailment.."BuildupOnCrit"] = 0
+				output[ailment .. "BuildupOnHit"] = 0
+				output[ailment .. "BuildupOnCrit"] = 0
+			end
+
+			if breakdown then
+				local displayedAilment = ailment
+				if ailment == "HeavyStun" then
+					displayedAilment = "Heavy Stun"
+				end
+				local displayValue
+				if output[ailment .. "BuildupOnHit"] == 0 then
+					displayValue = "0"
+				else
+					displayValue = s_format("%.1f", output[ailment .. "BuildupOnHit"] * 100)
+				end
+				t_insert(breakdown.Buildup, displayedAilment .. ": " .. displayValue .. "%" )
+
+				if output[ailment .. "BuildupOnHit"] > output["MaxBuildup"] then
+					output["MaxBuildup"] = output[ailment .. "BuildupOnHit"]
+				end
 			end
 		end
+
+		if breakdown then
+			output["MaxBuildup"] = output["MaxBuildup"] * 100
+		end
+
 
 		-- Calculate scaling threshold ailment chance
 		for _, ailment in ipairs({"Ignite", "Shock"}) do
