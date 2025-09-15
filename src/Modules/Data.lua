@@ -356,6 +356,10 @@ data.buildupTypes = {
 		["HeavyStun"] = {
 			["ScalesFrom"] = {
 				["Physical"] = true,
+				["Fire"] = true,
+				["Cold"] = true,
+				["Lightning"] = true,
+				["Chaos"] = true,
 			}
 		},
 		["Pin"] = {
