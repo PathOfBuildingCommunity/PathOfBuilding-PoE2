@@ -1426,8 +1426,8 @@ return {
 	{ label = "Enemy Life Recovery", haveOutput = "EnemyLifeRegen", { format =  "{0:output:EnemyLifeRegen}%", { modName = "LifeRegen", modType = "INC", enemy = true }, }, },
 	{ label = "Enemy Mana Recovery", haveOutput = "EnemyManaRegen", { format =  "{0:output:EnemyManaRegen}%", { modName = "ManaRegen", modType = "INC", enemy = true }, }, },
 	{ label = "Enemy ES Recovery", haveOutput = "EnemyEnergyShieldRegen", { format =  "{0:output:EnemyEnergyShieldRegen}%", { modName = "EnergyShieldRegen", modType = "INC", enemy = true }, }, },
-	{ label = "MS While Casting", { format = "{2:output:MovementSpeedWhileUsingSkill}", { breakdown = "MovementSpeedWhileUsingSkill" }, { modName = { "SkillMovementSpeed", "MovementSpeedPenalty" }, cfg = "skill" }, }, },
-	} }
+	{ label = "MS While Casting", { format = "{1:output:MovementSpeedWhileUsingSkillPercent}%", { breakdown = "MovementSpeedWhileUsingSkill" }, { modName = { "SkillMovementSpeed", "MovementSpeedPenalty" }, cfg = "skill" }, }, },
+} }
 } },
 -- attributes/resists
 { 1, "Attributes", 2, colorCodes.NORMAL, {{ defaultCollapsed = false, label = "Attributes", data = {

@@ -327,6 +327,12 @@ return {
 ["movement_speed_+%_final_while_performing_action"] = {
 	mod("SkillMovementSpeed", "MORE", nil),
 },
+["support_mobility_movement_speed_penalty_+%_final_while_performing_action"] = {
+	mod("MovementSpeedPenalty", "MORE", nil),
+},
+["support_deliberation_movement_speed_penalty_+%_final_while_performing_action"] = {
+	mod("MovementSpeedPenalty", "MORE", nil),
+},
 --
 -- Defensive modifiers
 --

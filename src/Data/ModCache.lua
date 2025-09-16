@@ -2805,7 +2805,7 @@ c["50% less Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="Flas
 c["50% less Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="MORE",value=-50}},nil}
 c["50% less Mana Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoveryRate",type="MORE",value=-50}},nil}
 c["50% less Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="MORE",value=-50}},nil}
-c["50% less Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="MORE",value=-50}},"  Penalty from using Skills  "}
+c["50% less Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-50}},nil}
 c["50% more Armour from Equipped Body Armour"]={{[1]={[1]={slotName="Body Armour",type="SlotName"},flags=0,keywordFlags=0,name="Armour",type="MORE",value=50}},nil}
 c["50% more Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="MORE",value=50}},nil}
 c["50% more Damage against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}},nil}
