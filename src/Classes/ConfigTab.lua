@@ -25,7 +25,9 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 	-- Initialise config sets
 	self.configSets = { }
 	self.configSetOrderList = { 1 }
+	self.configAddCustomMod = { 2 }
 	self:NewConfigSet(1)
+	self:NewConfigSet(2)
 	self:SetActiveConfigSet(1, true)
 	
 	self.enemyLevel = 1
@@ -37,7 +39,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 
 	self.controls.sectionAnchor = new("LabelControl", { "TOPLEFT", self, "TOPLEFT" }, { 0, 20, 0, 0 }, "")
 
-	-- Set selector
+	-- SetOrderList
 	self.controls.setSelect = new("DropDownControl", { "TOPLEFT", self.controls.sectionAnchor, "TOPLEFT" }, { 76, -12, 210, 20 }, nil, function(index, value)
 		self:SetActiveConfigSet(self.configSetOrderList[index])
 		self:AddUndoState()
@@ -49,6 +51,20 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 	self.controls.setLabel = new("LabelControl", { "RIGHT", self.controls.setSelect, "LEFT" }, { -2, 0, 0, 16 }, "^7Config set:")
 	self.controls.setManage = new("ButtonControl", { "LEFT", self.controls.setSelect, "RIGHT" }, { 4, 0, 90, 20 }, "Manage...", function()
 		self:OpenConfigSetManagePopup()
+	end)
+
+	-- AddCustomMod
+	self.controls.setSelect = new("DropDownControl", { "TOPLEFT", self.controls.sectionAnchor, "TOPLEFT" }, { 76, -12, 250, 20 }, nil, function(index, value)
+		self:SetActiveConfigSet(self.configAddCustomMod[index])
+		self:AddUndoState()
+	end)
+	self.controls.setSelect.enableDroppedWidth = true
+	self.controls.setSelect.enabled = function()
+		return #self.configAddCustomMod > 1
+	end
+
+	self.controls.addCustomMod = new("ButtonControl", { "LEFT", self.controls.setSelect, "RIGHT" }, { 100, 0, 90, 20 }, "Add custom mod...", function()
+		self:OpenAddCustomModPopup()
 	end)
 
 	self.controls.search = new("EditControl", { "TOPLEFT", self.controls.sectionAnchor, "TOPLEFT" }, { 8, 15, 360, 20 }, "", "Search", "%c", 100, function()
@@ -954,6 +970,31 @@ function ConfigTabClass:OpenConfigSetManagePopup()
 		end),
 	})
 end
+
+function ConfigTabClass:OpenAddCustomModPopup()
+	local addCustomModCtrl = new("ConfigAddCustomMod", nil, {0, 50, 350, 200}, self)
+	main:OpenPopup(370, 290, "Add custom mod", {
+		addCustomModCtrl,
+		new("ButtonControl", nil, {0, 20, 90, 20}, "Add", function()
+			local selected = addCustomModCtrl.selValue
+			local modList = new("ModList")
+			local enemyModList = new("ModList")
+			local currentText = self.input.customMods
+			-- append the new selection
+			local newText = currentText .. (currentText ~= "" and "\n" or "") .. addCustomModCtrl.selValue
+			-- set the text box with the updated string
+			self.input.customMods = newText
+			self:BuildModList()
+			self.build.buildFlag = true
+			self:UpdateControls()
+			
+		end),
+		new("ButtonControl", nil, {0, 260, 90, 20}, "Done", function()
+			main:ClosePopup()
+		end),
+	})
+end
+
 
 -- Creates a new config set
 function ConfigTabClass:NewConfigSet(configSetId, title)
