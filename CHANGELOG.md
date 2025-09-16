@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.12.2](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.2) (2025/09/16)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.1...v0.12.2)
+
+
+## What's Changed
+### Fixed Behaviours
+- Fix Channel Time on Incinerate [\#1397](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1397) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Turtle Charm Max Block override not working [\#1393](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1393) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix +1 Corrupted gems not importing with the correct level [\#1398](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1398) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
+
 ## [v0.12.1](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.1) (2025/09/15)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.0...v0.12.1)
