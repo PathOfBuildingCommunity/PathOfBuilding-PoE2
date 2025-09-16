@@ -5696,6 +5696,7 @@ local specialModList = {
 	["attacks have added maximum lightning damage equal to (%d+)%% of maximum mana"] = function(num) return {
 		mod("LightningMax", "BASE", 1, { type = "PercentStat", stat = "Mana" , percent = num }, { type = "SkillType", skillType = SkillType.Attack }),
 	} end,
+	["(%d+)%% reduced movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "INC", -num) } end,
 		-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,

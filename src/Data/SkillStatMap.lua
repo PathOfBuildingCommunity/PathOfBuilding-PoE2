@@ -324,6 +324,9 @@ return {
 ["hazard_rearm_%_chance"] = {
 	mod("HazardRearmChance", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Hazard } ),
 },
+["movement_speed_+%_final_while_performing_action"] = {
+	mod("SkillMovementSpeed", "MORE", nil),
+},
 --
 -- Defensive modifiers
 --

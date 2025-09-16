@@ -1184,7 +1184,7 @@ c["10% reduced Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC
 c["10% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-10}},nil}
 c["10% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-10}},nil}
 c["10% reduced Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},nil}
-c["10% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},"  Penalty from using Skills  "}
+c["10% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-10}},nil}
 c["10% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},"  Penalty ly Blocking "}
 c["10% reduced Poison Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfPoisonDuration",type="INC",value=-10}},nil}
 c["10% reduced Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-10}},nil}
@@ -1344,7 +1344,7 @@ c["12% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["12% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=12}},nil}
 c["12% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=12}},nil}
 c["12% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=12}},nil}
-c["12% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-12}},"  Penalty from using Skills  "}
+c["12% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-12}},nil}
 c["12.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=12.5}},nil}
 c["120% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=120}},nil}
 c["120% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=120}},nil}
@@ -2197,7 +2197,7 @@ c["3% of Physical Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,
 c["3% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=3}},nil}
 c["3% reduced Accuracy Rating per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-3}},nil}
 c["3% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-3}},nil}
-c["3% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-3}},"  Penalty from using Skills  "}
+c["3% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-3}},nil}
 c["3% reduced maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-3}},nil}
 c["30 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=30}},nil}
 c["30 to 40 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=30}}," to 40 Physical  "}
@@ -3072,8 +3072,7 @@ c["8% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,n
 c["8% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=8}},nil}
 c["8% of Spell Mana Cost Converted to Life Cost"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=8}},nil}
 c["8% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-8}},nil}
-c["8% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-8}},"  Penalty from using Skills  "}
-c["8% reduced Movement Speed Penalty from using Skills while moving 14% increased Skill Effect Duration"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-8}},"  Penalty from using Skills  14% increased Skill Effect Duration "}
+c["8% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-8}},nil}
 c["8% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-8}},nil}
 c["8% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
 c["80% chance to Avoid being Chilled"]={{[1]={flags=0,keywordFlags=0,name="AvoidChill",type="BASE",value=80}},nil}

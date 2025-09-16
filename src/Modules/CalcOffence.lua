@@ -2928,6 +2928,25 @@ function calcs.offence(env, actor, activeSkill)
 		output.QuantityMultiplier = quantityMultiplier
 	end
 
+	do
+		local penaltyMod = m_max((100 + activeSkill.skillModList:Sum("INC", nil, "MovementSpeedPenalty")), 0) / 100
+		local base = activeSkill.skillModList:More(activeSkill.skillCfg, "SkillMovementSpeed") or 0
+		local total = (1 - base) * penaltyMod
+		output.MovementSpeedWhileUsingSkill = (1 - total) * output.MovementSpeedMod
+		if breakdown then
+			breakdown.MovementSpeedWhileUsingSkill = {
+				"Minimum Movement Speed while using this skill",
+				"^8(This is the lowest movement speed you will reach while using this skill,",
+				"^8subject to acceleration and deceleration)",
+				s_format("1 - (%.2f ^8(movement speed penalty from using skill)", 1 - base),
+				s_format("x %.2f) ^8(increased/reduced penalty)", penaltyMod),
+				s_format("= %.2f", 1 - total),
+				s_format("x %.2f ^8(movement speed modifier)", output.MovementSpeedMod),
+				s_format("= %.2f", output.MovementSpeedWhileUsingSkill),
+			}
+		end
+	end
+	
 	--Calculate damage (exerts, crits, ruthless, DPS, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
