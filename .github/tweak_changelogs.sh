@@ -2,11 +2,19 @@
 
 RELEASE_VERSION="$1"
 
+# Delete until and including the first line containing "<!-- Release notes generated"
+sed -i '1,/^<!-- Release notes generated/d' temp_change.md
+
+# Check if there is more than one non-empty line (the full changelog line) before we continue
+if [ $(grep -c '^[[:space:]]*[^[:space:]]' temp_change.md) -le 1 ]; then
+    echo "No changes to release $RELEASE_VERSION"
+    rm temp_change.md
+    exit 1
+fi
+
 # Remove all CR characters from all changelog files
 sed -i 's/\r//g' temp_change.md CHANGELOG.md changelog.txt
 
-# Delete until and including the first line containing "<!-- Release notes generated"
-sed -i '1,/^<!-- Release notes generated/d' temp_change.md
 # Reverse the order of lines in the file (last line becomes first, etc.)
 sed -i '1h;1d;$!H;$!d;G' temp_change.md
 # Convert "**Full Changelog**: URL" format to markdown link format "[Full Changelog](URL)"
