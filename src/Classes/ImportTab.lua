@@ -45,7 +45,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
-	self.controls.sectionCharImport.height = function() return self.charImportMode == "AUTHENTICATION" and 60 or 200 end
+	self.controls.sectionCharImport.height = function() return self.charImportMode == "AUTHENTICATION" and 60 or 240 end
 
 	-- Stage: Authenticate
 	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
@@ -96,7 +96,20 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		return self.charImportMode == "SELECTCHAR"
 	end
 	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "Import:")
-	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 170, 20}, "Passive Tree and Jewels", function()
+	self.controls.charImportFull = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 80, 20}, "Full Import", function()
+		if self.build.spec:CountAllocNodes() > 0 then
+			main:OpenConfirmPopup("Character Import", "Full import will overwrite your current passive tree and replace items/skills.", "Import", function()
+				self:DownloadFullImport()
+			end)
+		else
+			self:DownloadFullImport()
+		end
+	end)
+	self.controls.charImportFullOptions = new("LabelControl", {"LEFT",self.controls.charImportFull,"RIGHT"}, {8, 0, 200, 16}, "(uses below options)")
+	self.controls.charImportFull.enabled = function()
+		return self.charImportMode == "SELECTCHAR"
+	end
+	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "LEFT"}, {8, 36, 200, 20}, "Only Passive Tree and Jewels", function()
 		if self.build.spec:CountAllocNodes() > 0 then
 			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
 				self:DownloadPassiveTree()
@@ -109,7 +122,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 		return self.charImportMode == "SELECTCHAR"
 	end
 	self.controls.charImportTreeClearJewels = new("CheckBoxControl", {"LEFT",self.controls.charImportTree,"RIGHT"}, {90, 0, 18}, "Delete jewels:", nil, "Delete all existing jewels when importing.", true)
-	self.controls.charImportItems = new("ButtonControl", {"LEFT",self.controls.charImportTree, "LEFT"}, {0, 36, 110, 20}, "Items and Skills", function()
+	self.controls.charImportItems = new("ButtonControl", {"LEFT",self.controls.charImportTree, "LEFT"}, {0, 24, 140, 20}, "Only Items and Skills", function()
 		self:DownloadItems()
 	end)
 	self.controls.charImportItems.enabled = function()
@@ -580,6 +593,14 @@ end
 function ImportTabClass:DownloadItems()
 	self:DownloadCharacter(function(charData)
 		self:ImportItemsAndSkills(charData)
+	end)
+end
+
+function ImportTabClass:DownloadFullImport()
+	self:DownloadCharacter(function(charData)
+		self:ImportPassiveTreeAndJewels(charData)
+		self:ImportItemsAndSkills(charData)
+		self.charImportStatus = colorCodes.POSITIVE.."Full import successful."
 	end)
 end
 
