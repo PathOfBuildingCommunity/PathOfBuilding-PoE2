@@ -2641,7 +2641,10 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if skillData.channelTimeMultiplier then
 				local minTime = skillData.minChannelTime or 0
-				local channelTime = skillData.channelTimeOverride or output.Speed
+				local channelTime = output.Speed
+				if skillData.channelTimeOverride then
+					channelTime = 1 / skillData.channelTimeOverride
+				end
 				output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
 				output.ChannelSpeed = output.Speed or output.Time
 			end
@@ -2850,7 +2853,10 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		if skillData.channelTimeMultiplier then
 			local minTime = skillData.minChannelTime or 0
-			local channelTime = skillData.channelTimeOverride or output.Speed
+			local channelTime = output.Speed
+			if skillData.channelTimeOverride then
+				channelTime = 1 / skillData.channelTimeOverride
+			end
 			output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
 			output.ChannelSpeed = output.Speed or output.Time
 		end
