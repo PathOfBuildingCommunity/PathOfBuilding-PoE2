@@ -839,6 +839,7 @@ local modNameList = {
 	["stun buildup"] = "EnemyStunBuildup",
 	["freeze buildup"] = "EnemyFreezeBuildup",
 	["pin buildup"] = "EnemyPinBuildup",
+	["immobilisation buildup"] = "EnemyImmobilisationBuildup",
 	-- Misc modifiers
 	["movement speed"] = "MovementSpeed",
 	["attack, cast and movement speed"] = { "Speed", "MovementSpeed" },
@@ -3128,6 +3129,7 @@ local specialModList = {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }),
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
+	["projectile damage can pin"] = flag("CanPin", nil, ModFlag.Projectile),
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })

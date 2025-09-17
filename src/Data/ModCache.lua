@@ -1083,7 +1083,7 @@ c["10% increased Global Defences per Socket filled"]={{[1]={[1]={type="Global"},
 c["10% increased Grenade Area of Effect"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Hazard Area of Effect"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=10}},nil}
 c["10% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=10}},nil}
-c["10% increased Immobilisation buildup against Constructs"]={{}," Immobilisation buildup against Constructs "}
+c["10% increased Immobilisation buildup against Constructs"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=10}},"  against Constructs "}
 c["10% increased Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC",value=10}},nil}
 c["10% increased Knockback Distance"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="INC",value=10}},nil}
 c["10% increased Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=10}},nil}
@@ -1467,7 +1467,7 @@ c["15% increased Global Physical Damage"]={{[1]={[1]={type="Global"},flags=0,key
 c["15% increased Glory generation"]={{}," Glory generation "}
 c["15% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=15}},nil}
 c["15% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=15}},nil}
-c["15% increased Immobilisation buildup"]={{}," Immobilisation buildup "}
+c["15% increased Immobilisation buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=15}},nil}
 c["15% increased Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC",value=15}},nil}
 c["15% increased Life Cost of Skills"]={{[1]={flags=0,keywordFlags=0,name="LifeCost",type="INC",value=15}},nil}
 c["15% increased Life Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="LifeFlaskChargesGained",type="INC",value=15}},nil}
@@ -1709,7 +1709,7 @@ c["20% increased Attack Damage while you have no Life Flask uses left"]={{[1]={[
 c["20% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["20% increased Attack Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=1,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
 c["20% increased Ballista Critical Hit Chance"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="CritChance",type="INC",value=20}},nil}
-c["20% increased Ballista Immobilisation buildup"]={{},"  Immobilisation buildup "}
+c["20% increased Ballista Immobilisation buildup"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="EnemyImmobilisationBuildup",type="INC",value=20}},nil}
 c["20% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlindEffect",type="INC",value=20}}}},nil}
 c["20% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=20}},nil}
 c["20% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=20}},nil}
@@ -1773,7 +1773,7 @@ c["20% increased Global Defences"]={{[1]={[1]={type="Global"},flags=0,keywordFla
 c["20% increased Global Physical Damage"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=20}},nil}
 c["20% increased Glory generation for Banner Skills"]={{}," Glory generation for Banner Skills "}
 c["20% increased Hazard Duration"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
-c["20% increased Hazard Immobilisation buildup"]={{},"  Immobilisation buildup "}
+c["20% increased Hazard Immobilisation buildup"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=20}},nil}
 c["20% increased Hinder Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Hinder  "}
 c["20% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=20}},nil}
 c["20% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=20}},nil}
@@ -2257,7 +2257,7 @@ c["30% increased Flask Mana Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="
 c["30% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=30}},nil}
 c["30% increased Freeze Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=30}},nil}
 c["30% increased Freeze Threshold"]={{[1]={flags=0,keywordFlags=0,name="FreezeThreshold",type="INC",value=30}},nil}
-c["30% increased Hazard Immobilisation buildup"]={{},"  Immobilisation buildup "}
+c["30% increased Hazard Immobilisation buildup"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=30}},nil}
 c["30% increased Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=30}},nil}
 c["30% increased Life Regeneration rate during Effect of any Life Flask"]={{[1]={[1]={type="Condition",var="UsingLifeFlask"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=30}},nil}
 c["30% increased Life Regeneration rate while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=30}},nil}
@@ -2545,7 +2545,7 @@ c["40% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,n
 c["40% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},nil}
 c["40% less Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="MORE",value=-40}},nil}
 c["40% less minimum Physical Attack Damage"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="MinPhysicalDamage",type="MORE",value=-40}},nil}
-c["40% more Immobilisation buildup"]={{}," Immobilisation buildup "}
+c["40% more Immobilisation buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="MORE",value=40}},nil}
 c["40% more maximum Physical Attack Damage"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="MaxPhysicalDamage",type="MORE",value=40}},nil}
 c["40% of Physical Damage taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=40}},nil}
 c["40% of Physical damage from Hits taken as Lightning damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsLightning",type="BASE",value=40}},nil}
@@ -2679,7 +2679,7 @@ c["50% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",typ
 c["50% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=50}},nil}
 c["50% increased Attack damage while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=1,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["50% increased Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=50},[2]={flags=0,keywordFlags=0,name="DexRequirement",type="INC",value=50},[3]={flags=0,keywordFlags=0,name="IntRequirement",type="INC",value=50}},nil}
-c["50% increased Ballista Immobilisation buildup"]={{},"  Immobilisation buildup "}
+c["50% increased Ballista Immobilisation buildup"]={{[1]={[1]={type="Condition",var="BallistaSkill"},flags=0,keywordFlags=16384,name="EnemyImmobilisationBuildup",type="INC",value=50}},nil}
 c["50% increased Blind Effect"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="BlindEffect",type="INC",value=50}}}},nil}
 c["50% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=50}},nil}
 c["50% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=50}},nil}
@@ -2724,7 +2724,7 @@ c["50% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreez
 c["50% increased Grenade Detonation Time"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="DetonationTime",type="INC",value=50}},nil}
 c["50% increased Hazard Area of Effect"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=50}},nil}
 c["50% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=50}},nil}
-c["50% increased Immobilisation buildup against Constructs"]={{}," Immobilisation buildup against Constructs "}
+c["50% increased Immobilisation buildup against Constructs"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=50}},"  against Constructs "}
 c["50% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=50}},nil}
 c["50% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=50}},nil}
 c["50% increased Mana Regeneration Rate while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=50}},nil}
@@ -2997,7 +2997,7 @@ c["8% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreeze
 c["8% increased Glory generation"]={{}," Glory generation "}
 c["8% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=8}},nil}
 c["8% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=8}},nil}
-c["8% increased Immobilisation buildup"]={{}," Immobilisation buildup "}
+c["8% increased Immobilisation buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyImmobilisationBuildup",type="INC",value=8}},nil}
 c["8% increased Knockback Distance"]={{[1]={flags=0,keywordFlags=0,name="EnemyKnockbackDistance",type="INC",value=8}},nil}
 c["8% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=8}},nil}
 c["8% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=8}},nil}
