@@ -1514,8 +1514,7 @@ c["15% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["15% increased Spell Damage if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=15}},nil}
 c["15% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=15}},nil}
-c["15% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=15}},"  with  Damage "}
-c["15% increased Stun Buildup with Melee Damage +15 to Strength"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=15}},"  with  Damage +15 to Strength "}
+c["15% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=15}},nil}
 c["15% increased Stun Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="INC",value=15}},nil}
 c["15% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=15}},nil}
 c["15% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=15}},nil}
@@ -1619,7 +1618,7 @@ c["18% increased Projectile Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="P
 c["18% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=18}},nil}
 c["18% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=18}},nil}
 c["18% increased Stun Buildup with Maces"]={{[1]={flags=1048580,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=18}},nil}
-c["18% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=18}},"  with  Damage "}
+c["18% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=18}},nil}
 c["18% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=18}},nil}
 c["18% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=18}},nil}
 c["18% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=18}},nil}
@@ -2296,8 +2295,7 @@ c["30% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBui
 c["30% increased Stun Buildup against Enemies that are on Low Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},nil}
 c["30% increased Stun Buildup against enemies within 2 metres"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},"  against enemies within 2 metres "}
 c["30% increased Stun Buildup against enemies within 2 metres +5 to Strength and Dexterity"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},"  against enemies within 2 metres +5 to Strength and Dexterity "}
-c["30% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},"  with  Damage "}
-c["30% increased Stun Buildup with Melee Damage Projectiles deal 75% increased Damage against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},"  with  Damage Projectiles deal 75% increased Damage  "}
+c["30% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},nil}
 c["30% increased Stun Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},nil}
 c["30% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=30}},nil}
 c["30% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}},nil}
@@ -5314,8 +5312,7 @@ c["Prevent +15% of Damage from Deflected Critical Hits"]={nil,"Prevent +15% of D
 c["Prevent +3% of Damage from Deflected Hits"]={{[1]={flags=0,keywordFlags=0,name="DeflectEffect",type="BASE",value=3}},nil}
 c["Prevent +6% of Damage from Deflected Hits"]={{[1]={flags=0,keywordFlags=0,name="DeflectEffect",type="BASE",value=6}},nil}
 c["Projectile Attacks have a 12% chance to fire two additional Projectiles while moving"]={nil,"Projectile Attacks have a 12% chance to fire two additional Projectiles while moving "}
-c["Projectile Damage builds Pin"]={nil,"Projectile Damage builds Pin "}
-c["Projectile Damage builds Pin Pinned enemies cannot perform actions"]={nil,"Projectile Damage builds Pin Pinned enemies cannot perform actions "}
+c["Projectile Damage builds Pin"]={{[1]={flags=1024,keywordFlags=0,name="CanPin",type="FLAG",value=true}},nil}
 c["Projectiles Pierce all Ignited enemies"]={nil,"Projectiles Pierce all Ignited enemies "}
 c["Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage"]={nil,"Projectiles Pierce all Ignited enemies Attacks Gain 10% of Damage as Extra Fire Damage "}
 c["Projectiles Pierce enemies with Fully Broken Armour"]={{[1]={[1]={type="Condition",var="ArmourFullyBroken"},flags=0,keywordFlags=0,name="PierceCount",type="BASE",value=1}},nil}

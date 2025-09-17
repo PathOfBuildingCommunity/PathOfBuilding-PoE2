@@ -4920,7 +4920,7 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				local displayedAilment = ailment
 				globalBreakdown[ailment .. "Buildup"] = {
-							"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+					"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
 					"Enemy poise: " .. enemyPoiseThreshold,
 					"",
 				}

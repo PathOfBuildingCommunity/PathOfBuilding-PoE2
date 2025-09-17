@@ -1017,6 +1017,7 @@ local modFlagList = {
 	["crossbow"] = { flags = ModFlag.Crossbow },
 	["for crossbow attacks"] = { flags = ModFlag.Crossbow, tag = { type = "SkillType", skillType = SkillType.CrossbowSkill }  },
 	["with melee attacks"] = { flags = ModFlag.Melee },
+	["with melee damage"] = { flags = ModFlag.Melee },
 	["with melee critical hits"] = { flags = ModFlag.Melee, tag = { type = "Condition", var = "CriticalStrike" } },
 	["with melee skills"] = { tag = { type = "SkillType", skillType = SkillType.Melee } },
 	["with bow skills"] = { keywordFlags = KeywordFlag.Bow },
@@ -3129,7 +3130,7 @@ local specialModList = {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }),
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
-	["projectile damage can pin"] = flag("CanPin", nil, ModFlag.Projectile),
+	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })

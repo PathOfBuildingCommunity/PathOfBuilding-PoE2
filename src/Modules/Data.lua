@@ -364,7 +364,6 @@ data.buildupTypes = {
 		},
 		["Pin"] = {
 			["ScalesFrom"] = {
-				["Physical"] = true,
 			}
 		},
 }
@@ -399,16 +398,6 @@ data.defaultAilmentDamageTypes = {
 		["Chill"] = {
 			["ScalesFrom"] = {
 				["Cold"] = true,
-			}
-		},
-		["Freeze"] = {
-			["ScalesFrom"] = {
-				["Cold"] = true,
-			}
-		},
-		["Electrocute"] = {
-			["ScalesFrom"] = {
-				["Lightning"] = true,
 			}
 		},
 	}
