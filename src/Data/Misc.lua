@@ -219,10 +219,10 @@ data.characterConstants = {
 	["branching_fissure_placement_along_main_fissure_variance_%"] = 5,
 	["branching_fissure_min_branch_angle"] = 40,
 	["branching_fissure_max_branch_angle"] = 80,
+	["dodge_roll_sprint_minimum_time_ms"] = 100,
 	["dodge_roll_sprint_turn_rate"] = 150,
 	["sprint_movement_speed_+%"] = 50,
 	["sprint_end_stun_linger_duration_ms"] = 200,
-	["dodge_roll_sprint_minimum_time_ms"] = 500,
 	["base_speed"] = 37,
 }
 -- From Metadata/Monsters/Monster.ot

@@ -1205,6 +1205,7 @@ return {
 } },
 { 1, "EleAilments", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Non-Damaging Ailments", data = {
 	{ label = "Enemy Ail. Thresh.", { format = "{0:output:EnemyAilmentThreshold}", { modName = "EnemyAilmentThreshold" }, }, },
+	{ label = "Enemy Poise", { format = "{0:output:EnemyPoiseThreshold}", { modName = "EnemyPoiseThreshold" }, }, },
 	{ label = "Scorch Effect Mod", bgCol = colorCodes.SCORCHBG, flag = "scorch", { format = "x {2:output:ScorchEffectMod}",
 		{ breakdown = "ScorchEffectMod" },
 		{ breakdown = "MainHand.ScorchDPS" },
