@@ -1478,6 +1478,16 @@ return {
 ["base_lightning_damage_can_electrocute"] = {
 	flag("LightningCanElectrocute"),
 },
+["base_lightning_damage_can_electrocute"] = {
+	flag("LightningCanElectrocute"),
+},
+["base_all_damage_can_pin"] = {
+	{ flag("CanPin", nil, ModFlag.Physical) },
+	{ flag("CanPin", nil, ModFlag.Cold) },
+	{ flag("CanPin", nil, ModFlag.Fire) },
+	{ flag("CanPin", nil, ModFlag.Lightning) },
+	{ flag("CanPin", nil, ModFlag.Chaos) },
+},
 ["is_hazard"] = {
 	flag("CanCreateHazards"),
 },
@@ -2588,6 +2598,9 @@ return {
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
+["active_skill_pins_as_though_dealt_damage_+%_final"] = {
+	mod("EnemyPinBuildup", "MORE", nil),
 },
 --
 -- Spectre or Minion-specific stats
