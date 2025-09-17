@@ -898,6 +898,15 @@ for skillGem in dat("SkillGems"):Rows() do
 					out:write('\t\tadditionalGrantedEffectId' .. tostring(count) .. ' = "', additionalGrantedEffect.Id, '",\n')
 				end
 			end
+			if gemEffect.GrantedEffectDisplayOrder then
+				local grantedEffectDisplayOrder = { }
+				for _, order in ipairs(gemEffect.GrantedEffectDisplayOrder) do
+					table.insert(grantedEffectDisplayOrder, order)
+				end
+				if next(grantedEffectDisplayOrder) then
+					out:write('\t\tgrantedEffectDisplayOrder = { ', table.concat(grantedEffectDisplayOrder, ", "), ' },\n')
+				end
+			end
 			if #gemEffect.SecondarySupportName > 0 then
 				out:write('\t\tsecondaryEffectName = "', gemEffect.SecondarySupportName, '",\n')
 			end
