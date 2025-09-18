@@ -4433,10 +4433,9 @@ c["Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot i
 c["Deflected Hits cannot inflict Maim on you"]={nil,"Deflected Hits cannot inflict Maim on you "}
 c["Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you "}
 c["Demonflame has no maximum"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:DemonFlameMaximum",type="BASE",value=999}},nil}
-c["Detonator skills have 40% increased Area of Effect"]={nil,"Detonator skills have 40% increased Area of Effect "}
-c["Detonator skills have 40% increased Area of Effect Detonator skills have 80% reduced damage"]={nil,"Detonator skills have 40% increased Area of Effect Detonator skills have 80% reduced damage "}
-c["Detonator skills have 8% increased Area of Effect"]={nil,"Detonator skills have 8% increased Area of Effect "}
-c["Detonator skills have 80% reduced damage"]={nil,"Detonator skills have 80% reduced damage "}
+c["Detonator skills have 40% increased Area of Effect"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}},nil}
+c["Detonator skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
+c["Detonator skills have 80% reduced damage"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["Dodge Roll avoids all Hits"]={nil,"Dodge Roll avoids all Hits "}
 c["Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
 c["Dodge Roll cannot Avoid Damage"]={nil,"Dodge Roll cannot Avoid Damage "}
