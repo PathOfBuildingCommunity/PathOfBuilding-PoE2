@@ -1096,7 +1096,7 @@ c["10% increased Lightning Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name=
 c["10% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=10}},nil}
 c["10% increased Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=10}},nil}
 c["10% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=10}},nil}
-c["10% increased Magnitude of Non-Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=10},[3]={flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=10}},nil}
+c["10% increased Magnitude of Non-Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=10},[2]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=10},[3]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=10}},nil}
 c["10% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=10}},nil}
 c["10% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=10}},nil}
 c["10% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=10}},nil}
@@ -1127,7 +1127,7 @@ c["10% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["10% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["10% increased Spirit Reservation Efficiency of Skills"]={{[1]={flags=0,keywordFlags=0,name="SpiritReservationEfficiency",type="INC",value=10}},nil}
 c["10% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=10}},nil}
-c["10% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=10}},nil}
+c["10% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=10}},nil}
 c["10% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},nil}
 c["10% increased Stun Threshold for each time you've been Hit by an Enemy Recently, up to 100%"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},"  for each time you've been Hit by an Enemy Recently, up to 100% "}
 c["10% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=10}},nil}
@@ -1323,7 +1323,7 @@ c["12% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",t
 c["12% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=12}},nil}
-c["12% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=12}},nil}
+c["12% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=12}},nil}
 c["12% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=12}},nil}
 c["12% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=12}},nil}
@@ -1513,8 +1513,8 @@ c["15% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="
 c["15% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Spell Damage if you've dealt a Critical Hit Recently"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=15}},nil}
-c["15% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=15}},nil}
-c["15% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=15}},nil}
+c["15% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=15}},nil}
+c["15% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=15}},nil}
 c["15% increased Stun Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="INC",value=15}},nil}
 c["15% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=15}},nil}
 c["15% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=15}},nil}
@@ -1614,11 +1614,11 @@ c["18% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="Co
 c["18% increased Critical Damage Bonus with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="CritMultiplier",type="INC",value=18}},nil}
 c["18% increased Curse Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="CurseEffect",type="INC",value=18}},nil}
 c["18% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=18}},nil}
-c["18% increased Projectile Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=18}},"  Stun Buildup "}
+c["18% increased Projectile Stun Buildup"]={{[1]={flags=1024,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=18}},nil}
 c["18% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=18}},nil}
-c["18% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=18}},nil}
-c["18% increased Stun Buildup with Maces"]={{[1]={flags=1048580,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=18}},nil}
-c["18% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=18}},nil}
+c["18% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=18}},nil}
+c["18% increased Stun Buildup with Maces"]={{[1]={flags=1048580,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=18}},nil}
+c["18% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=18}},nil}
 c["18% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=18}},nil}
 c["18% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=18}},nil}
 c["18% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=18}},nil}
@@ -1648,7 +1648,7 @@ c["2% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpe
 c["2% increased Movement Speed while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=2}},nil}
 c["2% increased Parried Debuff Duration per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Duration",type="INC",value=2}}," Parried Debuff   "}
 c["2% increased Spirit per socketed Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="Spirit",type="INC",value=2}},nil}
-c["2% increased Stun Buildup per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=2}},nil}
+c["2% increased Stun Buildup per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=2}},nil}
 c["2% increased Thorns damage per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=2}},nil}
 c["2% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=2}},nil}
 c["2% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=2}},nil}
@@ -1788,7 +1788,7 @@ c["20% increased Magnitude of Bleeding you inflict"]={{[1]={flags=0,keywordFlags
 c["20% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=20}},nil}
 c["20% increased Magnitude of Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=14680064,name="AilmentMagnitude",type="INC",value=20}},nil}
 c["20% increased Magnitude of Impales inflicted with Spells"]={{[1]={flags=0,keywordFlags=131072,name="ImpaleEffect",type="INC",value=20}},nil}
-c["20% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=20},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=20},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=20}},nil}
+c["20% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=20},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=20},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=20}},nil}
 c["20% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=20}},nil}
 c["20% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=20}},nil}
 c["20% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=20}},nil}
@@ -1813,7 +1813,7 @@ c["20% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPois
 c["20% increased Power Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesDuration",type="INC",value=20}},nil}
 c["20% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=20}},nil}
 c["20% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
-c["20% increased Projectile Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=20}},"  Stun Buildup "}
+c["20% increased Projectile Stun Buildup"]={{[1]={flags=1024,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=20}},nil}
 c["20% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=20}},nil}
 c["20% increased Reload Speed"]={{[1]={flags=1,keywordFlags=0,name="ReloadSpeed",type="INC",value=20}},nil}
 c["20% increased Reservation Efficiency of Herald Skills"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=20}},nil}
@@ -1822,8 +1822,8 @@ c["20% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Dur
 c["20% increased Spell Area Damage"]={{[1]={flags=514,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=20}},nil}
-c["20% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=20}},nil}
-c["20% increased Stun Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=20}},nil}
+c["20% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=20}},nil}
+c["20% increased Stun Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=20}},nil}
 c["20% increased Stun Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunDuration",type="INC",value=20}},nil}
 c["20% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=20}},nil}
 c["20% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=20}},nil}
@@ -1852,7 +1852,7 @@ c["20% less Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="MORE",va
 c["20% less Damage taken if you have not been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-20}},nil}
 c["20% more Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="MORE",value=20}},nil}
 c["20% more Damage against Heavy Stunned Enemies with Maces"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},flags=1048580,keywordFlags=0,name="Damage",type="MORE",value=20}},nil}
-c["20% more Stun Buildup with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="MORE",value=20}},nil}
+c["20% more Stun Buildup with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=20}},nil}
 c["20% of Cold Damage taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageTakenAsFire",type="BASE",value=20}},nil}
 c["20% of Damage from Hits is taken from your nearest Totem's Life before you"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="takenFromTotemsBeforeYou",type="BASE",value=20}},nil}
 c["20% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=20}},nil}
@@ -2057,7 +2057,7 @@ c["25% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShock
 c["25% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=25}},nil}
 c["25% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
-c["25% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=25}},nil}
+c["25% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=25}},nil}
 c["25% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=25}},nil}
 c["25% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=25}},nil}
 c["25% increased Stun Threshold while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=25}},nil}
@@ -2263,8 +2263,8 @@ c["30% increased Life Regeneration rate while Surrounded"]={{[1]={[1]={type="Con
 c["30% increased Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=30}},nil}
 c["30% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=30}},nil}
 c["30% increased Magnitude of Chill you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=30}},nil}
-c["30% increased Magnitude of Non-Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30},[2]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=30},[3]={flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=30}},nil}
-c["30% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=30},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyFreezeEffect",type="INC",value=30}},nil}
+c["30% increased Magnitude of Non-Damaging Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30},[2]={flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=30},[3]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=30}},nil}
+c["30% increased Magnitude of Non-Damaging Ailments you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30},[2]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyChillMagnitude",type="INC",value=30},[3]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=30}},nil}
 c["30% increased Magnitude of Poison you inflict"]={{[1]={flags=0,keywordFlags=2097152,name="AilmentMagnitude",type="INC",value=30}},nil}
 c["30% increased Magnitude of Shock you inflict"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=30}},nil}
 c["30% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=30}},nil}
@@ -2291,12 +2291,11 @@ c["30% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="
 c["30% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Spell Damage if you have consumed an Elemental Infusion Recently"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=30}},"   if you have consumed an Elemental Infusion Recently "}
 c["30% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=30}},nil}
-c["30% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},nil}
-c["30% increased Stun Buildup against Enemies that are on Low Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},nil}
-c["30% increased Stun Buildup against enemies within 2 metres"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},"  against enemies within 2 metres "}
-c["30% increased Stun Buildup against enemies within 2 metres +5 to Strength and Dexterity"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},"  against enemies within 2 metres +5 to Strength and Dexterity "}
-c["30% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},nil}
-c["30% increased Stun Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=30}},nil}
+c["30% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=30}},nil}
+c["30% increased Stun Buildup against Enemies that are on Low Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=30}},nil}
+c["30% increased Stun Buildup against enemies within 2 metres"]={{[1]={[1]={threshold=20,type="MultiplierThreshold",upper=true,var="enemyDistance"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=30}},nil}
+c["30% increased Stun Buildup with Melee Damage"]={{[1]={flags=256,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=30}},nil}
+c["30% increased Stun Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=30}},nil}
 c["30% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=30}},nil}
 c["30% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}},nil}
 c["30% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}},nil}
@@ -2364,7 +2363,7 @@ c["31% increased Magnitude of Unholy Might buffs you grant You have Unholy Might
 c["32% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=32}},nil}
 c["33% increased Damage with Hits against Enemies affected by Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Ignited",[5]="Scorched",[6]="Brittle",[7]="Sapped",[8]="Poisoned",[9]="Bleeding"}},flags=0,keywordFlags=262144,name="Damage",type="INC",value=33}},nil}
 c["33% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=33}},nil}
-c["33% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=33}},nil}
+c["33% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=33}},nil}
 c["33% of Elemental Damage Converted to Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToCold",type="BASE",value=33}},nil}
 c["33% of Elemental Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToFire",type="BASE",value=33}},nil}
 c["33% of Elemental Damage Converted to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToLightning",type="BASE",value=33}},nil}
@@ -2386,7 +2385,7 @@ c["35% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["35% increased Projectile Speed with this Weapon"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=8192,keywordFlags=0,name="ProjectileSpeed",type="INC",value=35}},nil}
 c["35% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=35}},nil}
 c["35% increased Spell Area Damage"]={{[1]={flags=514,keywordFlags=0,name="Damage",type="INC",value=35}},nil}
-c["35% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=35}},nil}
+c["35% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=35}},nil}
 c["35% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=35}},nil}
 c["35% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=35}},nil}
 c["35% less Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="MORE",value=-35}},nil}
@@ -2510,7 +2509,7 @@ c["40% increased Life and Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlag
 c["40% increased Life and Mana Recovery from Flasks while you have an active Charm"]={{[1]={[1]={type="Condition",var="UsingCharm"},flags=0,keywordFlags=0,name="FlaskLifeRecovery",type="INC",value=40},[2]={[1]={type="Condition",var="UsingCharm"},flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=40}},nil}
 c["40% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=40}},nil}
 c["40% increased Lightning Damage while affected by Herald of Thunder"]={{[1]={[1]={type="Condition",var="AffectedByHeraldofThunder"},flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=40}},nil}
-c["40% increased Magnitude of Bleeding you inflict against Pinned Enemies"]={{[1]={flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=40}},"  against Pinned Enemies "}
+c["40% increased Magnitude of Bleeding you inflict against Pinned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Pinned"},flags=0,keywordFlags=4194304,name="AilmentMagnitude",type="INC",value=40}},nil}
 c["40% increased Magnitude of Shock you inflict with Critical Hits"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="EnemyShockMagnitude",type="INC",value=40}},nil}
 c["40% increased Mana Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="ManaCostEfficiency",type="INC",value=40}},nil}
 c["40% increased Mana Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="FlaskManaRecovery",type="INC",value=40}},nil}
@@ -2525,7 +2524,7 @@ c["40% increased Poison Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyPois
 c["40% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=40}},nil}
 c["40% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Projectile Damage with Spears while there are no Enemies within 3m"]={{[1]={flags=268436484,keywordFlags=0,name="Damage",type="INC",value=40}},"   while there are no Enemies within 3m "}
-c["40% increased Projectile Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="INC",value=40}},"  Stun Buildup "}
+c["40% increased Projectile Stun Buildup"]={{[1]={flags=1024,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},nil}
 c["40% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=40}},nil}
 c["40% increased Shock Duration"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=40}},nil}
 c["40% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=40}},nil}
@@ -2534,7 +2533,7 @@ c["40% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["40% increased Spell Damage if one of your Minions has died Recently"]={{[1]={[1]={type="Condition",var="MinionsDiedRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Spell Damage with Spells that cost Life"]={{[1]={[1]={stat="LifeCost",threshold=1,type="StatThreshold"},flags=2,keywordFlags=131072,name="Damage",type="INC",value=40}},nil}
 c["40% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=40}},nil}
-c["40% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=40}},nil}
+c["40% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},nil}
 c["40% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=40}},nil}
 c["40% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=40}},nil}
 c["40% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=40}},nil}
@@ -3226,10 +3225,8 @@ c["All Damage from Hits against Bleeding targets Contributes to Chill Magnitude 
 c["All Damage from Hits against Poisoned targets Contributes to Chill Magnitude"]={nil,"All Damage from Hits against Poisoned targets Contributes to Chill Magnitude "}
 c["All Damage from Hits against Poisoned targets Contributes to Chill Magnitude 25% increased Magnitude of Poison you inflict"]={nil,"All Damage from Hits against Poisoned targets Contributes to Chill Magnitude 25% increased Magnitude of Poison you inflict "}
 c["All Damage from Hits with this Weapon Contributes to Chill Magnitude"]={nil,"All Damage from Hits with this Weapon Contributes to Chill Magnitude "}
-c["All Damage from Hits with this Weapon Contributes to Freeze Buildup"]={nil,"All Damage from Hits with this Weapon Contributes to Freeze Buildup "}
-c["All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling Strike against Frozen Enemies"]={nil,"All Damage from Hits with this Weapon Contributes to Freeze Buildup Culling Strike against Frozen Enemies "}
-c["All Damage from Hits with this Weapon Contributes to Pin Buildup"]={nil,"All Damage from Hits with this Weapon Contributes to Pin Buildup "}
-c["All Damage from Hits with this Weapon Contributes to Pin Buildup 30% increased Projectile Speed with this Weapon"]={nil,"All Damage from Hits with this Weapon Contributes to Pin Buildup 30% increased Projectile Speed with this Weapon "}
+c["All Damage from Hits with this Weapon Contributes to Freeze Buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanFreeze",type="FLAG",value=true}},nil}
+c["All Damage from Hits with this Weapon Contributes to Pin Buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanPin",type="FLAG",value=true}},nil}
 c["All Damage from you and Allies in your Presence"]={nil,"All Damage from you and "}
 c["All Damage from you and Allies in your Presence contributes to Flammability and Ignite Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdCanIgnite",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningCanIgnite",type="FLAG",value=true}}},[3]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true}}},[4]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="PhysicalCanIgnite",type="FLAG",value=true}}}},nil}
 c["All Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=100}},nil}
@@ -3242,7 +3239,7 @@ c["All Flames of Chayula that you manifest are Blue"]={nil,"All Flames of Chayul
 c["All Flames of Chayula that you manifest are Purple"]={nil,"All Flames of Chayula that you manifest are Purple "}
 c["All Flames of Chayula that you manifest are Red"]={nil,"All Flames of Chayula that you manifest are Red "}
 c["All bonuses from Equipped Amulet apply to your Minions instead of you"]={{},nil}
-c["All damage with this Weapon causes Electrocution buildup"]={nil,"All damage with this Weapon causes Electrocution buildup "}
+c["All damage with this Weapon causes Electrocution buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanElectrocution",type="FLAG",value=true}},nil}
 c["Allies in your Presence Gain 20% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=20},onlyAllies=true}}},nil}
 c["Allies in your Presence Gain 25% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=25},onlyAllies=true}}},nil}
 c["Allies in your Presence Gain 25% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=25},onlyAllies=true}}},nil}
@@ -4215,17 +4212,13 @@ c["Cannot use Projectile Attacks"]={{[1]={[1]={skillType=1,type="SkillType"},[2]
 c["Cannot use Shield Skills"]={{[1]={[1]={skillType=10,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true}},nil}
 c["Cannot use Warcries"]={{[1]={[1]={skillType=63,type="SkillType"},flags=0,keywordFlags=0,name="DisableSkill",type="FLAG",value=true}},nil}
 c["Carry a Chest which adds 20 Inventory Slots"]={{},nil}
-c["Causes 200% increased Stun Buildup"]={nil,"Causes 200% increased Stun Buildup "}
-c["Causes 200% increased Stun Buildup All Damage from Hits with this Weapon Contributes to Chill Magnitude"]={nil,"Causes 200% increased Stun Buildup All Damage from Hits with this Weapon Contributes to Chill Magnitude "}
-c["Causes 50% increased Stun Buildup"]={nil,"Causes 50% increased Stun Buildup "}
-c["Causes 50% increased Stun Buildup 172% increased Physical Damage"]={nil,"Causes 50% increased Stun Buildup 172% increased Physical Damage "}
-c["Causes 50% increased Stun Buildup 80% increased Physical Damage"]={nil,"Causes 50% increased Stun Buildup 80% increased Physical Damage "}
-c["Causes 50% increased Stun Buildup Adds 85 to 131 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireMin",type="BASE",value=85},[2]={flags=0,keywordFlags=0,name="FireMax",type="BASE",value=131}},"Causes 50% increased   "}
-c["Causes 50% increased Stun Buildup Always deals Critical Hits against Heavy Stunned Enemies"]={nil,"Causes 50% increased Stun Buildup Always deals Critical Hits against Heavy Stunned Enemies "}
-c["Causes 60% increased Stun Buildup"]={nil,"Causes 60% increased Stun Buildup "}
-c["Causes 60% increased Stun Buildup Heavy Stuns Enemies that are on Full Life"]={nil,"Causes 60% increased Stun Buildup Heavy Stuns Enemies that are on Full Life "}
+c["Causes 175% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=175}},nil}
+c["Causes 200% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=200}},nil}
+c["Causes 40% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},nil}
+c["Causes 50% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=50}},nil}
+c["Causes 60% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=60}},nil}
 c["Causes Bleeding on Hit"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=100}},nil}
-c["Causes Double Stun Buildup"]={{[1]={[1]={globalLimit=100,globalLimitKey="EnemyStunBuildupDoubledLimit",type="Multiplier",var="EnemyStunBuildupDoubled"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:EnemyStunBuildupDoubled",type="OVERRIDE",value=1}},nil}
+c["Causes Double Stun Buildup"]={{[1]={[1]={globalLimit=100,globalLimitKey="EnemyHeavyStunBuildupDoubledLimit",type="Multiplier",var="EnemyHeavyStunBuildupDoubled"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:EnemyHeavyStunBuildupDoubled",type="OVERRIDE",value=1}},nil}
 c["Causes Enemies to Explode on Critical kill, for 10% of their Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=10,chance=1,keyOfScaledMod="chance",type="Physical"}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Chain an additional time"]={nil,"Chain an additional time "}
 c["Chain an additional time Chain from Terrain an additional time"]={nil,"Chain an additional time Chain from Terrain an additional time "}
@@ -4238,10 +4231,8 @@ c["Chance to Deflect is Lucky"]={{[1]={flags=0,keywordFlags=0,name="DeflectIsLuc
 c["Chance to Evade is Unlucky"]={{[1]={flags=0,keywordFlags=0,name="UnluckyEvade",type="FLAG",value=true}},nil}
 c["Chance to Hit with Attacks can exceed 100%"]={{[1]={[1]={skillType=1,type="Skilltype"},flags=0,keywordFlags=0,name="Condition:HitChanceCanExceed100",type="FLAG",value=true}},nil}
 c["Chaos Damage from Fire Spells Contributes to Flammability and Ignite Magnitudes"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="ChaosCanIgnite",type="FLAG",value=true}},nil}
-c["Chaos Damage from Hits also Contributes to Electrocute Buildup"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup "}
-c["Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage"]={nil,"Chaos Damage from Hits also Contributes to Electrocute Buildup Attacks Gain 20% of Physical Damage as extra Chaos Damage "}
-c["Chaos Damage from Hits also Contributes to Freeze Buildup"]={nil,"Chaos Damage from Hits also Contributes to Freeze Buildup "}
-c["Chaos Damage from Hits also Contributes to Freeze Buildup Chaos Damage from Hits also Contributes to Electrocute Buildup"]={nil,"Chaos Damage from Hits also Contributes to Freeze Buildup Chaos Damage from Hits also Contributes to Electrocute Buildup "}
+c["Chaos Damage from Hits also Contributes to Electrocute Buildup"]={{[1]={flags=0,keywordFlags=0,name="ChaosCanElectrocute",type="FLAG",value=true}},nil}
+c["Chaos Damage from Hits also Contributes to Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="ChaosCanFreeze",type="FLAG",value=true}},nil}
 c["Chaos Damage from Hits also Contributes to Shock Chance"]={{[1]={flags=0,keywordFlags=0,name="ChaosCanShock",type="FLAG",value=true}},nil}
 c["Chaos Resistance is doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="ChaosResistDoubledLimit",type="Multiplier",var="ChaosResistDoubled"},flags=0,keywordFlags=0,name="ChaosResist",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:ChaosResistDoubled",type="OVERRIDE",value=1}},nil}
 c["Chaos Resistance is zero"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="OVERRIDE",value=0}},nil}
@@ -4417,7 +4408,7 @@ c["Empowered Attacks deal 20% increased Damage"]={{[1]={[1]={type="Condition",va
 c["Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["Empowered Attacks deal 50% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["Empowered Attacks deal 8% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
-c["Empowered Attacks have 50% increased Stun Buildup"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=50}},nil}
+c["Empowered Attacks have 50% increased Stun Buildup"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=50}},nil}
 c["Enemies Blinded by you have 15% reduced Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=-15}}}},nil}
 c["Enemies Blinded by you have 50% reduced Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=-50}}}},nil}
 c["Enemies Chilled by your Hits can be Shattered as though Frozen"]={nil,"your Hits can be Shattered as though Frozen "}
@@ -4875,7 +4866,7 @@ c["Has 6 Rune Sockets"]={nil,"Has 6 Rune Sockets "}
 c["Hazards cannot be triggered for 3 seconds after being created"]={nil,"Hazards cannot be triggered for 3 seconds after being created "}
 c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
 c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}
-c["Heavy Stuns Enemies that are on Full Life"]={nil,"Heavy Stuns Enemies that are on Full Life "}
+c["Heavy Stuns Enemies that are on Full Life"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Condition:HeavyStunned",type="FLAG",value=true}}}},nil}
 c["Herald Skills deal 20% increased Damage"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["Herald Skills deal 30% increased Damage"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["Herald Skills have 25% increased Area of Effect"]={{[1]={[1]={skillType=52,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=25}},nil}
@@ -5034,7 +5025,7 @@ c["Lightning Damage of Enemies Hitting you is Unlucky during effect"]={nil,"Ligh
 c["Lightning Resistance does not affect Lightning damage taken"]={{[1]={flags=0,keywordFlags=0,name="SelfIgnoreLightningResistance",type="FLAG",value=true}},nil}
 c["Lightning Resistance is unaffected by Area Penalties"]={nil,"Lightning Resistance is unaffected by Area Penalties "}
 c["Lightning Resistance is unaffected by Area Penalties You can only Socket Emerald Jewels in this item"]={nil,"Lightning Resistance is unaffected by Area Penalties You can only Socket Emerald Jewels in this item "}
-c["Lightning damage from Hits Contributes to Electrocution Buildup"]={nil,"Lightning damage from Hits Contributes to Electrocution Buildup "}
+c["Lightning damage from Hits Contributes to Electrocution Buildup"]={{[1]={flags=0,keywordFlags=0,name="LightningCanElectrocution",type="FLAG",value=true}},nil}
 c["Link Skills Link to 1 additional random target"]={nil,"Link Skills Link to 1 additional random target "}
 c["Link Skills can target Damageable Minions"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanLinkToMinions",type="FLAG",value=true}},nil}
 c["Link Skills have 10% increased Buff Effect"]={{[1]={[1]={skillType=107,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=10}},nil}
@@ -5109,7 +5100,7 @@ c["Minions Revive 5% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalT
 c["Minions Revive 50% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-50}},nil}
 c["Minions cannot Die while affected by a Life Flask"]={nil,"cannot Die while affected by a Life Flask "}
 c["Minions cannot Die while affected by a Life Flask 30% increased Flask Charges gained"]={nil,"cannot Die while affected by a Life Flask 30% increased Flask Charges gained "}
-c["Minions cause 15% increased Stun Buildup"]={nil,"cause 15% increased Stun Buildup "}
+c["Minions cause 15% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=15}}}},nil}
 c["Minions deal (25-35)% increased Damage"]={nil,"(25-35)% increased Damage "}
 c["Minions deal (8-13)% increased Damage"]={nil,"(8-13)% increased Damage "}
 c["Minions deal 1% increased damage per 10 Tribute"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}}}},nil}
@@ -5242,8 +5233,8 @@ c["Other Modifiers to Movement Speed do not apply Other Modifiers to Movement Sp
 c["Pain Attunement"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Pain Attunement"}},nil}
 c["Parried enemies take more Spell Damage instead of more Attack Damage"]={nil,"Parried enemies take more Spell Damage instead of more Attack Damage "}
 c["Parried enemies take more Spell Damage instead of more Attack Damage 100% increased Parried Debuff Duration"]={nil,"Parried enemies take more Spell Damage instead of more Attack Damage 100% increased Parried Debuff Duration "}
-c["Parry has 20% increased Stun Buildup"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=20}},nil}
-c["Parry has 25% increased Stun Buildup"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="EnemyStunBuildup",type="INC",value=25}},nil}
+c["Parry has 20% increased Stun Buildup"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=20}},nil}
+c["Parry has 25% increased Stun Buildup"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=25}},nil}
 c["Parrying applies 10 Stacks of Critical Weakness"]={nil,"Parrying applies 10 Stacks of Critical Weakness "}
 c["Parrying applies 10 Stacks of Critical Weakness 100% increased Parry Damage"]={nil,"Parrying applies 10 Stacks of Critical Weakness 100% increased Parry Damage "}
 c["Passives in Radius can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="intuitiveLeapLike",value=true}}},nil}
@@ -5283,8 +5274,8 @@ c["Passives in radius of Zealot's Oath can be Allocated without being connected 
 c["Permanently Intimidate enemies on Block"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Intimidated",type="FLAG",value=true}}}},nil}
 c["Persistent Buffs have 50% less Reservation"]={{[1]={[1]={skillType=139,type="SkillType"},[2]={skillType=5,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="MORE",value=-50}},nil}
 c["Physical Damage Reduction from Armour is based on your combined Armour and Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionAppliesToPhysicalDamageTaken",type="BASE",value=100}},nil}
-c["Physical Damage is Pinning"]={nil,"Physical Damage is Pinning "}
-c["Physical Spell Critical Hits build Pin"]={nil,"Physical Spell Critical Hits build Pin "}
+c["Physical Damage is Pinning"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanPin",type="FLAG",value=true}},nil}
+c["Physical Spell Critical Hits build Pin"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=2,keywordFlags=16,name="CanPin",type="FLAG",value=true}},nil}
 c["Pin Enemies which are Primed for Pinning"]={nil,"Pin Enemies which are Primed for Pinning "}
 c["Pin Enemies which are Primed for Pinning Require 5 fewer enemies to be Surrounded"]={nil,"Pin Enemies which are Primed for Pinning Require 5 fewer enemies to be Surrounded "}
 c["Pinned Enemies cannot deal Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Pinned"},flags=0,keywordFlags=0,name="NeverCrit",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Pinned"},flags=0,keywordFlags=0,name="Condition:NeverCrit",type="FLAG",value=true}}}},nil}
