@@ -1378,7 +1378,7 @@ return {
 	{ label = "Stun Buildup", haveOutput = "HeavyStunBuildupOnHit", { format = "{1:output:HeavyStunBuildupOnHit}%",
 		{ breakdown = "HeavyStunBuildup" }, 
 		{ label = "Player modifiers", modName = { "EnemyHeavyStunBuildup", "EnemyImmobilisationBuildup"  }, cfg = "skill" },
-		{ label = "Enemy modifiers", modName = { "PoiseThreshold", "EnemyHeavyStunThreshold" }, enemy = true },
+		{ label = "Enemy modifiers", modName = { "PoiseThreshold", "EnemyHeavyStunThreshold", "EnemyStunThreshold" }, enemy = true },
 	}, },
 	{ label = "Pin Buildup", haveOutput = "PinBuildupOnHit", { format = "{1:output:PinBuildupOnHit}%",
 		{ breakdown = "PinBuildup" }, 
@@ -1848,7 +1848,7 @@ return {
 	{ label = "Weap. Swap Speed", { format = "{0:output:WeaponSwapSpeed} ms", { breakdown = "WeaponSwapSpeedMod" }, { modName = { "WeaponSwapSpeed" } }, }, },
 } }, { defaultCollapsed = false, label = "Stun Duration", data = {
 	{ label = "Stun Avoid Chance", haveOutput = "StunAvoidChance", { format = "{0:output:StunAvoidChance}%",  { breakdown = "StunAvoidChance" }, { modName = "AvoidStun" }, }, },
-	{ label = "Stun Threshold", { format = "{	0:output:StunThreshold}", { breakdown = "StunThreshold" }, { modName = { "StunThreshold", "StunThresholdManaPercent", "StunThresholdEnergyShieldPercent" } }, }, },
+	{ label = "Stun Threshold", { format = "{0:output:StunThreshold}", { breakdown = "StunThreshold" }, { modName = { "StunThreshold", "StunThresholdManaPercent", "StunThresholdEnergyShieldPercent" } }, }, },
 	{ label = "Stun Chance", { format = "{0:output:SelfStunChance}%", { breakdown = "SelfStunChance" }, }, },
 	{ label = "Interrupt Avoid Ch.", haveOutput = "InterruptStunAvoidChance", { format = "{0:output:InterruptStunAvoidChance}%", { modName = "AvoidInterruptStun" }, }, },
 	{ label = "Stun Duration", { format = "{2:output:StunDuration}s", 

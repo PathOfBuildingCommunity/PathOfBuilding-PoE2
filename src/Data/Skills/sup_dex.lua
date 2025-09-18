@@ -1334,8 +1334,8 @@ skills["SupportCommiseratePlayer"] = {
 					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "Condition", var = "Poisoned" }),
 					mod("EnemyShockMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Shocked" }),
 					mod("EnemyChillMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Chilled" }),
-					mod("EnemyFreezeEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Frozen" }),
-					mod("EnemyElectrocuteEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
+					mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "Condition", var = "Frozen" }),
+					mod("EnemyElectrocuteBuildup", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
 				},
 			},
 			baseFlags = {
