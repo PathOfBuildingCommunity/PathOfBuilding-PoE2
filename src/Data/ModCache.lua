@@ -1439,8 +1439,7 @@ c["15% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name=
 c["15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
 c["15% increased Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
-c["15% increased Cost Efficiency of Attacks"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},"  of Attacks "}
-c["15% increased Cost Efficiency of Attacks 18% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},"  of Attacks 18% of Skill Mana Costs Converted to Life Costs "}
+c["15% increased Cost Efficiency of Attacks"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}

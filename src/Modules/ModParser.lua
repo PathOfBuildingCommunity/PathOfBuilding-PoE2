@@ -193,6 +193,7 @@ local modNameList = {
 	-- Cost efficiency
 	["cost efficiency"] = "CostEfficiency",
 	["cost efficiency of skills"] = "CostEfficiency",
+	["cost efficiency of attacks"] = { "CostEfficiency", tag = { type = "SkillType", skillType = SkillType.Attack } },
 	["mana cost efficiency"] = "ManaCostEfficiency",
 	["mana cost efficiency of skills"] = "ManaCostEfficiency",
 	["mana cost efficiency of attacks"] = { "ManaCostEfficiency", tag = { type = "SkillType", skillType = SkillType.Attack } },
