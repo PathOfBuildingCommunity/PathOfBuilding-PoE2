@@ -345,7 +345,6 @@ data.nonDamagingAilment = {
 data.buildupTypes = {
 		["Electrocute"] = {
 			["ScalesFrom"] = {
-				["Lightning"] = true,
 			}
 		},
 		["Freeze"] = {
