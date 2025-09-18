@@ -4352,8 +4352,6 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate ailment thresholds
 	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "AilmentThreshold")
 	output['EnemyAilmentThreshold'] = enemyThreshold
-	local enemyPoiseThreshold = data.monsterPoiseThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "PoiseThreshold")
-	output['EnemyPoiseThreshold'] = enemyPoiseThreshold
 
 
 	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
@@ -4384,7 +4382,7 @@ function calcs.offence(env, actor, activeSkill)
 			-- check against input valid types
 			if ((defaultDamageTypes and defaultDamageTypes[damageType])
 				or (ailmentData[ailmentType] and damageType == ailmentData[ailmentType].associatedType)) then
-				if skillModList:Flag(cfg, damageType.."Cannot"..ailmentType) then
+				if skillModList:Flag(cfg, damageType.."Cannot"..ailmentType) or skillModList:Flag(cfg, "Cannot"..ailmentType) then
 					return false
 				end
 				return true
@@ -4894,6 +4892,7 @@ function calcs.offence(env, actor, activeSkill)
 		
 		-- Calculate poise-related debuffs
 		for _, ailment in ipairs({"Freeze", "Electrocute", "HeavyStun", "Pin"}) do 
+			local enemyPoiseThreshold = data.monsterPoiseThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "PoiseThreshold", "Enemy"..ailment.."Threshold")
 			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, data.buildupTypes[ailment].ScalesFrom)
 			-- TODO: average for now, can do more complicated calculation later
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
@@ -4904,11 +4903,7 @@ function calcs.offence(env, actor, activeSkill)
 			hitPoiseBuildup = hitPoiseBuildup * (1 + inc / 100) * more * 100
 			local critPoiseBuildup = critAvg * data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold
 			critPoiseBuildup = critPoiseBuildup * (1 + inc / 100) * more * 100
-
 			
-			
-
-
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
 				globalOutput[ailment .. "BuildupOnHit"] = m_min(100, hitPoiseBuildup)
 				globalOutput[ailment .. "BuildupOnCrit"] = m_min(100, critPoiseBuildup)
@@ -4918,7 +4913,6 @@ function calcs.offence(env, actor, activeSkill)
 			end
 
 			if breakdown then
-				local displayedAilment = ailment
 				globalBreakdown[ailment .. "Buildup"] = {
 					"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
 					"Enemy poise: " .. enemyPoiseThreshold,
