@@ -1,5 +1,18 @@
 # Changelog
 
+## [beta](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/beta) (2025/09/19)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.2...beta)
+
+
+## What's Changed
+### New to Path of Building
+- Add Movement Speed while using skill to sidebar [\#1403](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1403) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Behaviours
+- Load Crossbow Damage skills by default instead of Ammo Skill [\#1405](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1405) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
+
 ## [v0.12.2](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.2) (2025/09/16)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.1...v0.12.2)

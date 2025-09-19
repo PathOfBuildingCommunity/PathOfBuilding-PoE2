@@ -1,3 +1,12 @@
+VERSION[beta][2025/09/19]
+
+--- New to Path of Building ---
+- Add Movement Speed while using skill to sidebar (LocalIdentity)
+
+--- Fixed Behaviours ---
+- Load Crossbow Damage skills by default instead of Ammo Skill (LocalIdentity)
+
+
 VERSION[0.12.2][2025/09/16]
 
 --- Fixed Behaviours ---
