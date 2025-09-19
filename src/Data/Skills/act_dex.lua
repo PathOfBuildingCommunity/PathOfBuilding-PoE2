@@ -3123,6 +3123,9 @@ skills["GasArrowPlayer"] = {
 				projectile = true,
 				area = true,
 			},
+			baseMods = {
+				flag("fakeHit"),
+			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 18 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
