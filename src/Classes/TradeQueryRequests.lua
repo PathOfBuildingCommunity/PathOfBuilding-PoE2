@@ -118,8 +118,12 @@ function TradeQueryRequestsClass:SearchWithQueryWeightAdjusted(realm, league, qu
 						return callback(nil, errMsg)
 					end
 					local fetchedItemIds = {}
+					local idSet = {}
 					for _, value in pairs(items) do
-						table.insert(fetchedItemIds, value.id)
+						if not idSet[value.id] then
+							idSet[value.id] = true
+							table.insert(fetchedItemIds, value.id)
+						end
 					end
 					for _, value in pairs(previousSearchItems) do
 						if #items >= self.maxFetchPerSearch then
