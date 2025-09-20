@@ -1218,7 +1218,7 @@ c["100% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",
 c["100% increased Critical Damage Bonus against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=100}},nil}
 c["100% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
 c["100% increased Critical Hit Chance against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=100}},nil}
-c["100% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
+c["100% increased Culling Strike Threshold"]={{[1]={flags=0,keywordFlags=0,name="CullPercent",type="INC",value=100}},nil}
 c["100% increased Defences from Equipped Shield"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},flags=0,keywordFlags=0,name="Defences",type="INC",value=100}},nil}
 c["100% increased Effect of Jewel Socket Passive Skills"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Jewel Socket Passive Skills "}
 c["100% increased Effect of Jewel Socket Passive Skills containing Corrupted Magic Jewels"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="corruptedMagicJewelIncEffect",value=100}}},nil}
@@ -1745,8 +1745,7 @@ c["20% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0
 c["20% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
 c["20% increased Critical Hit Chance if you have Killed Recently"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
 c["20% increased Critical Hit Chance if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=20}},nil}
-c["20% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
-c["20% increased Culling Strike Threshold Culling Strike against Beasts while your Companion is in your Presence"]={{}," Culling Strike Threshold Culling Strike against Beasts  "}
+c["20% increased Culling Strike Threshold"]={{[1]={flags=0,keywordFlags=0,name="CullPercent",type="INC",value=20}},nil}
 c["20% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=20}},nil}
 c["20% increased Damage against Enemies with Fully Broken Armour"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="ArmourFullyBroken"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["20% increased Damage for each different Warcry you've used Recently"]={{[1]={flags=0,keywordFlags=4,name="Damage",type="INC",value=20}},"  for each different  you've used Recently "}
@@ -2020,8 +2019,7 @@ c["25% increased Critical Hit Chance against Shocked Enemies"]={{[1]={[1]={actor
 c["25% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=25}},nil}
 c["25% increased Critical Hit Chance with Traps"]={{[1]={flags=0,keywordFlags=4096,name="CritChance",type="INC",value=25}},nil}
-c["25% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
-c["25% increased Culling Strike Threshold Gain 13% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=25}}," Culling Strike Threshold Gain 13% of  as Extra Chaos Damage "}
+c["25% increased Culling Strike Threshold"]={{[1]={flags=0,keywordFlags=0,name="CullPercent",type="INC",value=25}},nil}
 c["25% increased Damage during any Flask Effect"]={{[1]={[1]={type="Condition",var="UsingFlask"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage while you have a Totem"]={{[1]={[1]={type="Condition",var="HaveTotem"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
 c["25% increased Damage while your Companion is in your Presence"]={{[1]={[1]={type="Condition",var="CompanionInPresence"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
@@ -2516,8 +2514,8 @@ c["40% increased Critical Hit Chance against Enemies that are affected by no Ele
 c["40% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=40}},nil}
 c["40% increased Critical Spell Damage Bonus"]={{[1]={flags=2,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
 c["40% increased Crossbow Reload Speed"]={{[1]={flags=67108865,keywordFlags=0,name="ReloadSpeed",type="INC",value=40}},nil}
-c["40% increased Culling Strike Threshold against Immobilised Enemies"]={{}," Culling Strike Threshold  "}
-c["40% increased Culling Strike Threshold against Rare or Unique Enemies"]={{}," Culling Strike Threshold  "}
+c["40% increased Culling Strike Threshold against Immobilised Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Immobilised"},flags=0,keywordFlags=0,name="CullPercent",type="INC",value=40}},nil}
+c["40% increased Culling Strike Threshold against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=0,name="CullPercent",type="INC",value=40}},nil}
 c["40% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=40}},nil}
 c["40% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage against Dazed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Dazed"},flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
@@ -2657,7 +2655,7 @@ c["5% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",
 c["5% increased Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamage",type="INC",value=5}},nil}
 c["5% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=5}},nil}
 c["5% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
-c["5% increased Culling Strike Threshold"]={{}," Culling Strike Threshold "}
+c["5% increased Culling Strike Threshold"]={{[1]={flags=0,keywordFlags=0,name="CullPercent",type="INC",value=5}},nil}
 c["5% increased Damage taken while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=5}},nil}
 c["5% increased Defences from Equipped Shield per 25 Tribute"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingShield"},[3]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Defences",type="INC",value=5}},nil}
 c["5% increased Deflection Rating"]={{[1]={flags=0,keywordFlags=0,name="DeflectionRating",type="INC",value=5}},nil}

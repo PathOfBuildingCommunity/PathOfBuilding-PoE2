@@ -869,6 +869,7 @@ local modNameList = {
 	["penalty to accuracy rating at range"] = "AccuracyPenalty",
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
+	["culling strike threshold"] = "CullPercent",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
