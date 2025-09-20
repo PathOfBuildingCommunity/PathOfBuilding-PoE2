@@ -81,8 +81,11 @@ function TradeQueryRateLimiterClass:ParsePolicy(headerString)
         policies[policyName].retryAfter = os.time() + retryAfter
     end
     local ruleNames = {}
-    for match in headers["x-rate-limit-rules"]:gmatch("[^,]+") do
-        ruleNames[#ruleNames+1] = match:lower()
+    local rulesHeader = headers["x-rate-limit-rules"]
+    if rulesHeader and rulesHeader ~= "" then
+        for match in rulesHeader:gmatch("[^,]+") do
+            ruleNames[#ruleNames+1] = match:lower()
+        end
     end
     for _, ruleName in pairs(ruleNames) do
         policies[policyName][ruleName] = {}
