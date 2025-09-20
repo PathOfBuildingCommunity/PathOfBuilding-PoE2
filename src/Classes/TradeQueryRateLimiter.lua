@@ -246,7 +246,10 @@ function TradeQueryRateLimiterClass:AgeOutRequests(policy, time)
             for window, windowValue in pairs(rule.state) do
                 if timestamp >= (requestHistory.lastCheck - window) and timestamp < (now - window) then
                     -- timestamp that used to be in the window on last check
-                    windowValue.request = math.max(windowValue.request - 1, 0)
+                    if not windowValue.decremented then
+                        windowValue.request = math.max(windowValue.request - 1, 0)
+                        windowValue.decremented = true
+                    end
                 end
             end
         end
@@ -254,6 +257,12 @@ function TradeQueryRateLimiterClass:AgeOutRequests(policy, time)
             table.remove(requestHistory.timestamps, i)
         end
     end
+    -- Reset flags after processing
+	for _, rule in pairs(self.policies[policy]) do
+		for window, windowValue in pairs(rule.state) do
+			windowValue.decremented = nil
+		end
+	end
     requestHistory.lastCheck = now
 end
 
