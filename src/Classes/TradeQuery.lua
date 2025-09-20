@@ -65,7 +65,7 @@ function TradeQueryClass:FetchCurrencyConversionTable(callback)
 		"https://www.pathofexile.com/api/trade2/data/static",
 		function(response, errMsg)
 			if errMsg then
-				callback(response, errMsg)
+				-- SKIP CALLBACK ON ERROR TO PREVENT PARTIAL DATA
 				return
 			end
 			local obj = dkjson.decode(response.body)
