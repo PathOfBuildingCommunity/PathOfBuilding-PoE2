@@ -1247,19 +1247,21 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 				local scale = 1 + (node.type == "Normal" and incSmallPassiveSkillEffect or 0 + localIncEffect) / 100
 				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
-				-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
-				if modsList[1] and modsList[1].type == "FLAG" then
-					modsList[1].value = tonumber(line:match("%d+"))
-				end
 				scaledList:ScaleAddList(modsList, scale)
 				for j, mod in ipairs(scaledList) do
-					local newValue = 0
+					local newValue
 					if type(mod.value) == "number" then
 						newValue = mod.value
 					elseif type(mod.value) == "table" then
-						newValue = mod.value.mod.value
+						if mod.value.mod then
+							newValue = mod.value.mod.value
+						else
+							newValue = mod.value.value
+						end
 					end
-					line = line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
+					if type(newValue) == "number" then
+						line = line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
+					end
 				end
 				-- line = line .. "  ^8(Effect increased by "..incSmallPassiveSkillEffect.."%)"
 			end
