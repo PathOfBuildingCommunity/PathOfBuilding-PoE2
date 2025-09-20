@@ -534,7 +534,8 @@ return {
 },
 ["skill_speed_+%"] = {
 	mod("Speed", "INC", nil),
-	mod("WarcrySpeed", "INC", nil),
+	mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry),
+	mod("TotemPlacementSpeed", "INC", nil),
 },
 ["cast_speed_+%_granted_from_skill"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
