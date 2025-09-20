@@ -1604,16 +1604,6 @@ function calcs.defence(env, actor)
 		local recoveryRateMod = output[resource.."RecoveryRateMod"] or 1
 		if modDB:Flag(nil, "No"..resource.."Regen") or modDB:Flag(nil, "CannotGain"..resource) then
 			output[resource.."Regen"] = 0
-		elseif resource == "Life" and modDB:Flag(nil, "ZealotsOath") then
-			output.LifeRegen = 0
-			local lifeBase = modDB:Sum("BASE", nil, "LifeRegen")
-			if lifeBase > 0 then
-				modDB:NewMod("EnergyShieldRegen", "BASE", lifeBase, "Zealot's Oath")
-			end
-			local lifePercent = modDB:Sum("BASE", nil, "LifeRegenPercent")
-			if lifePercent > 0 then
-				modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "Zealot's Oath")
-			end
 		else
 			if inc ~= 0 then -- legacy chain breaker increase/decrease regen rate to different resource.
 				for j=i+1,#resources do
@@ -1641,7 +1631,12 @@ function calcs.defence(env, actor)
 		output[resource.."Degen"] = degenRate
 		local recoveryRate = modDB:Sum("BASE", nil, resource.."Recovery") * recoveryRateMod
 		output[resource.."Recovery"] = recoveryRate
-		output[resource.."RegenRecovery"] = (modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") and 0 or regenRate) - degenRate + recoveryRate
+		local overflowRecovery = modDB:Sum("BASE", nil, "Overflow"..resource.."Recovery")
+		output[resource.."RegenRecovery"] = (modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") and 0 or regenRate) - degenRate + recoveryRate + overflowRecovery
+		if resource == "Life" and modDB:Flag(nil, "ZealotsOath") and output[resource.."RegenRecovery"] > 0 then
+			modDB:NewMod("OverflowEnergyShieldRecovery", "BASE", output.LifeRegenRecovery - recoveryRate, "Zealot's Oath")
+			output[resource.."RegenRecovery"] = 0
+		end
 		if output[resource.."RegenRecovery"] > 0 then
 			modDB:NewMod("Condition:CanGain"..resource, "FLAG", true, resourceName.."Regen")
 		end
@@ -1664,7 +1659,14 @@ function calcs.defence(env, actor)
 			end
 			if recoveryRate ~= 0 then
 				t_insert(breakdown[resource.."RegenRecovery"], s_format("+ %.1f ^8(recovery)", recoveryRate))
+				t_insert(breakdown[resource.."RegenRecovery"], s_format("= %.1f ^8per second", output[resource.."RegenRecovery"] - overflowRecovery))
+			end
+			if overflowRecovery ~= 0 then
+				t_insert(breakdown[resource.."RegenRecovery"], s_format("+ %.1f ^8(overflow recovery)", overflowRecovery))
 				t_insert(breakdown[resource.."RegenRecovery"], s_format("= %.1f ^8per second", output[resource.."RegenRecovery"]))
+			end
+			if resource == "Life" and modDB:Flag(nil, "ZealotsOath") then
+				t_insert(breakdown[resource.."RegenRecovery"], s_format("Excess recovery applied to Energy Shield", output[resource.."RegenRecovery"]))
 			end
 		end
 	end
