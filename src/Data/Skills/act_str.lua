@@ -10697,6 +10697,11 @@ skills["MagmaBarrierPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "igneous_shield",
+			statMap = {
+				["skill_igneous_shield_grants_block_chance_+%"] = {
+					mod("BlockChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Magma Barrier" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

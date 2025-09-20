@@ -627,6 +627,11 @@ statMap = {
 #skill MagmaBarrierPlayer
 #set MagmaBarrierPlayer
 #flags
+statMap = {
+	["skill_igneous_shield_grants_block_chance_+%"] = {
+		mod("BlockChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Magma Barrier" }),
+	},
+},
 #mods
 #skillEnd
 
