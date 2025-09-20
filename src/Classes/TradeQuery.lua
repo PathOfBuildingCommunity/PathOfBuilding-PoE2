@@ -78,7 +78,7 @@ function TradeQueryClass:FetchCurrencyConversionTable(callback)
 				end
 			end
 			for _, value in pairs(currencyTable) do
-				currencyConversionTradeMap[value.text] = value.id
+				currencyConversionTradeMap[value.text:lower()] = value.id
 			end
 			self.currencyConversionTradeMap = currencyConversionTradeMap
 			if callback then
