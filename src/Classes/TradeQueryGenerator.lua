@@ -841,17 +841,47 @@ function TradeQueryGeneratorClass:FinishQuery()
 		sort = { ["statgroup.0"] = "desc" },
 		engine = "new"
 	}
-	
+
+	local options = self.calcContext.options
+
+	local num_extra = 2
+	if not options.includeMirrored then
+		num_extra = num_extra + 1
+	end
+	if options.maxPrice and options.maxPrice > 0 then
+		num_extra = num_extra + 1
+	end
+	if options.maxLevel and options.maxLevel > 0 then
+		num_extra = num_extra + 1
+	end
+	if options.sockets and options.sockets > 0 then
+		num_extra = num_extra + 1
+	end
+
+	local effective_max = MAX_FILTERS - num_extra
+
+	-- Prioritize top mods by abs(weight)
+	table.sort(self.modWeights, function(a, b) return math.abs(a.weight) > math.abs(b.weight) end)
+
+	local prioritizedMods = {}
+	for i, entry in ipairs(self.modWeights) do
+		if #prioritizedMods < effective_max then
+			table.insert(prioritizedMods, entry)
+		else
+			break
+		end
+	end
+
+	self.modWeights = prioritizedMods
+
 	for k, v in pairs(self.calcContext.special.queryExtra or {}) do
 		queryTable.query[k] = v
 	end
 
-	local options = self.calcContext.options
-
 	for _, entry in pairs(self.modWeights) do
 		t_insert(queryTable.query.stats[1].filters, { id = entry.tradeModId, value = { weight = (entry.invert == true and entry.weight * -1 or entry.weight) } })
 		filters = filters + 1
-		if filters == MAX_FILTERS then
+		if filters == effective_max then
 			break
 		end
 	end
