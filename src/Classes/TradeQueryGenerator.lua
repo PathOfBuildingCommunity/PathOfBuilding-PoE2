@@ -1002,6 +1002,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	-- basic filtering by slot for sockets Megalomaniac does not have slot and Sockets use "Jewel nodeId"
 	if slot and not isJewelSlot and not slot.slotName:find("Flask") and not slot.slotName:find("Belt") and not slot.slotName:find("Ring") and not slot.slotName:find("Amulet") and not slot.slotName:find("Charm") then
 		controls.sockets = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 70, 18}, nil, nil, "%D")
+		controls.sockets.buf = self.lastSockets and tostring(self.lastSockets) or ""
 		controls.socketsLabel = new("LabelControl", {"RIGHT",controls.sockets,"LEFT"}, {-5, 0, 0, 16}, "# of Empty Sockets:")
 		updateLastAnchor(controls.sockets)
 	end
@@ -1057,6 +1058,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 		end
 		if controls.sockets and controls.sockets.buf then
 			options.sockets = tonumber(controls.sockets.buf)
+			self.lastSockets = options.sockets
 		end
 		options.statWeights = statWeights
 
