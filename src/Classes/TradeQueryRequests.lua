@@ -528,7 +528,10 @@ function TradeQueryRequestsClass:buildUrl(root, realm, league, queryId)
 	if realm and realm ~='pc' then
 		result = result .. "/" .. realm
 	end	
-	result = result .. "/" .. league:gsub(" ", "+")
+	local encodedLeague = league:gsub("[^%w%-%.%_%~]", function(c)
+		return string.format("%%%02X", string.byte(c))
+	end):gsub(" ", "+")
+	result = result .. "/" .. encodedLeague
 	if queryId then
 		result = result .. "/" .. queryId
 	end
