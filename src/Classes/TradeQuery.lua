@@ -105,7 +105,7 @@ function TradeQueryClass:PullLeagueList()
 				table.sort(json_data, function(a, b)
 					if a.endAt == nil then return false end
 					if b.endAt == nil then return true end
-					return #a.id < #b.id
+					return a.id < b.id
 				end)
 				self.itemsTab.leagueDropList = {}
 				for _, league_data in pairs(json_data) do
