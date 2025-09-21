@@ -1521,6 +1521,8 @@ return {
 },
 ["support_pin_buildup_pin_instead_of_stun"] = {
 	flag("PinBuildupInsteadOfHeavyStunBuildup"),
+	flag("CannotStun"),
+	flag("CannotHeavyStun"),
 },
 ["support_pin_pin_buildup_+%_final"] = {
 	mod("EnemyPinBuildup", "MORE", nil),
