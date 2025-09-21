@@ -1914,7 +1914,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("PoiseThreshold", "MORE", 310, "Map Boss", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("PoiseThreshold", "MORE", 213, "Map Boss", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1952,7 +1952,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("PoiseThreshold", "MORE", 938, "Xesht", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("PoiseThreshold", "MORE", 838, "Xesht", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1989,7 +1989,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
 			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("PoiseThreshold", "MORE", 938, "Xesht", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("PoiseThreshold", "MORE", 838, "Xesht", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
