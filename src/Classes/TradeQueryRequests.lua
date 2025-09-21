@@ -25,38 +25,43 @@ function TradeQueryRequestsClass:ProcessQueue()
 			local policy = self.rateLimiter:GetPolicyName(key)
 			local now = os.time()
 			local timeNext = self.rateLimiter:NextRequestTime(policy, now)
-			if now >= timeNext then
-				local request = table.remove(queue, 1)
-				local requestId = self.rateLimiter:InsertRequest(policy)
-				local onComplete = function(response, errMsg)
-					self.rateLimiter:FinishRequest(policy, requestId)
-					self.rateLimiter:UpdateFromHeader(response.header)
-					if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
-						table.insert(queue, 1, request)
-						return
-					end
-					-- if limit rules don't return account then the POESESSID is invalid.
-					if response.header:match("X%-Rate%-Limit%-Rules: (.-)\n"):match("Account") == nil and main.POESESSID ~= "" then
-						main.POESESSID = ""
-						if errMsg then
-							errMsg = errMsg .. "\nPOESESSID is invalid. Please Re-Log and reset"
-						else
-							errMsg = "POESESSID is invalid. Please Re-Log and reset"
+			if not (queue[1].retryTime and now < queue[1].retryTime) then
+				if now >= timeNext then
+					local request = table.remove(queue, 1)
+					local requestId = self.rateLimiter:InsertRequest(policy)
+					local onComplete = function(response, errMsg)
+						self.rateLimiter:FinishRequest(policy, requestId)
+						self.rateLimiter:UpdateFromHeader(response.header)
+						if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
+							request.attempts = (request.attempts or 0) + 1
+							local backoff = m_min(2 ^ request.attempts, 60)
+							request.retryTime = os.time() + backoff
+							table.insert(queue, 1, request)
+							return
 						end
+						-- if limit rules don't return account then the POESESSID is invalid.
+						if response.header:match("X%-Rate%-Limit%-Rules: (.-)\n"):match("Account") == nil and main.POESESSID ~= "" then
+							main.POESESSID = ""
+							if errMsg then
+								errMsg = errMsg .. "\nPOESESSID is invalid. Please Re-Log and reset"
+							else
+								errMsg = "POESESSID is invalid. Please Re-Log and reset"
+							end
+						end
+						request.callback(response.body, errMsg, unpack(request.callbackParams or {}))
 					end
-					request.callback(response.body, errMsg, unpack(request.callbackParams or {}))
+					-- self:SendRequest(request.url , onComplete, {body = request.body, poesessid = main.POESESSID})
+					local header = "Content-Type: application/json"
+					if main.POESESSID ~= "" then
+						header = header .. "\nCookie: POESESSID=" .. main.POESESSID
+					end
+					launch:DownloadPage(request.url, onComplete, {
+						header = header,
+						body = request.body,
+					})
+				else
+					break
 				end
-				-- self:SendRequest(request.url , onComplete, {body = request.body, poesessid = main.POESESSID})
-				local header = "Content-Type: application/json"
-				if main.POESESSID ~= "" then
-					header = header .. "\nCookie: POESESSID=" .. main.POESESSID
-				end
-				launch:DownloadPage(request.url, onComplete, {
-					header = header,
-					body = request.body, 
-				})
-			else
-				break
 			end
 		end
 	end
