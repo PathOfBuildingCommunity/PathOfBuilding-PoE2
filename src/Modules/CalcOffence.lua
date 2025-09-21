@@ -4428,16 +4428,17 @@ function calcs.offence(env, actor, activeSkill)
 			for _, damageType in ipairs(dmgTypeList) do
 				if canDoAilment(ailment, damageType, defaultDamageTypes) then
 					local override = skillModList:Override(cfg, ailment .. damageType .. "HitDamage")
+					local more = skillModList:More(cfg, damageType .. ailment .. "Buildup")
 					local ailmentHitMin = override or output[damageType.."StoredHitMin"] or 0
 					local ailmentHitMax = override or output[damageType.."StoredHitMax"] or 0
-					hitMin = hitMin + ailmentHitMin
-					hitMax = hitMax + ailmentHitMax
-					output[ailment .. damageType .. "Min"] = ailmentHitMin
-					output[ailment .. damageType .. "Max"] = ailmentHitMax
+					hitMin = hitMin + ailmentHitMin * more
+					hitMax = hitMax + ailmentHitMax * more
+					output[ailment .. damageType .. "Min"] = ailmentHitMin * more
+					output[ailment .. damageType .. "Max"] = ailmentHitMax * more
 					if canCrit then
 						override = skillModList:Override(cfg, ailment .. damageType .. "CritDamage")
-						critMin = critMin + (override or output[damageType.."StoredCritMin"] or 0)
-						critMax = critMax + (override or output[damageType.."StoredCritMax"] or 0)
+						critMin = critMin + (override or output[damageType.."StoredCritMin"] or 0) * more
+						critMax = critMax + (override or output[damageType.."StoredCritMax"] or 0) * more
 					end
 				end
 			end
