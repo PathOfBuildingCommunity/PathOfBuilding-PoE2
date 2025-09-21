@@ -548,6 +548,11 @@ statMap = {
 #skill FreezingMarkPlayer
 #set FreezingMarkPlayer
 #flags area duration
+statMap = {
+	["freezing_mark_hit_damage_freeze_multiplier_+%_final"] = {
+		mod("FreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 

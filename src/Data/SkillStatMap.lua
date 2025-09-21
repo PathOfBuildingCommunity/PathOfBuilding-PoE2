@@ -2838,4 +2838,7 @@ return {
 ["quality_display_active_skill_pins_as_though_dealt_damage_+%_final_is_gem"] = {
 	-- Display Only
 },
+["quality_display_freezing_mark_is_gem"] = {
+	-- Display Only
+},
 }

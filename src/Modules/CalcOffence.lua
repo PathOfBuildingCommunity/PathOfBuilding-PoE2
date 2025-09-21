@@ -4904,7 +4904,7 @@ function calcs.offence(env, actor, activeSkill)
 			local hitAvg = hitMin + (hitMax - hitMin) / 2
 			local critAvg = critMin + (critMax - critMin) / 2
 			local inc = skillModList:Sum("INC", cfg, not skillModList:Flag(cfg, "PinBuildupInsteadOf"..ailment.."Buildup") and "Enemy"..ailment.."Buildup", "EnemyImmobilisationBuildup")
-			local more = skillModList:More(cfg, "Enemy"..ailment.."Buildup", "EnemyImmobilisationBuildup")
+			local more = skillModList:More(cfg, "Enemy"..ailment.."Buildup", "EnemyImmobilisationBuildup") * calcLib.mod(enemyDB, nil, ailment.."Buildup", "ImmobilisationBuildup", ailment == "HeavyStun" and "StunBuildup")
 			local hitPoiseBuildup = hitAvg * data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold
 			hitPoiseBuildup = hitPoiseBuildup * (1 + inc / 100) * more * 100
 			local critPoiseBuildup = critAvg * data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold

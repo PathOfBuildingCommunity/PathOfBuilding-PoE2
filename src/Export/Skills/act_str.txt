@@ -397,6 +397,11 @@ statMap = {
 #skill LeapSlamPlayer
 #set LeapSlamPlayer
 #flags attack area melee
+statMap = {
+	["active_skill_consume_enemy_fully_broken_armour_to_gain_hit_damage_stun_multiplier_+%"] = {
+		mod("EnemyHeavyStunBuildup", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -739,11 +744,30 @@ statMap = {
 #skillEnd
 
 #skill ShieldChargePlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = 1
+	activeSkill.skillData.channelTimeMultiplier = 1
+end,
 #set ShieldChargePlayer
-#flags attack area melee shieldAttack
+#flags attack area melee shieldAttack channelRelease
+statMap = {
+	["shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final"] = {
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #set ShieldChargeFinalConePlayer
-#flags attack area melee shieldAttack
+#flags attack area melee shieldAttack channelRelease
+statMap = {
+	["shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final"] = {
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
+#baseMod skill("minChannelTime", 1.3)
 #mods
 #skillEnd
 
