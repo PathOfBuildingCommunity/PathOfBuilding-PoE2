@@ -100,12 +100,14 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
 #skill BlackPowderBlitzReservationPlayer
 #set BlackPowderBlitzReservationPlayer
 #flags
 #mods
 #skillEnd
 
+#from item
 #skill BlackPowderBlitzPlayer
 #set BlackPowderBlitzPlayer
 #flags hit area
@@ -327,6 +329,7 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
 #skill GeminiSurgePlayer
 #set GeminiSurgeColdPlayer
 #flags attack area
@@ -842,12 +845,14 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
 #skill MetaCastLightningSpellOnHitPlayer
 #set MetaCastLightningSpellOnHitPlayer
 #flags
 #mods
 #skillEnd
 
+#from item
 #skill SupportMetaCastLightningSpellOnHitPlayer
 #set SupportMetaCastLightningSpellOnHitPlayer
 #flags
@@ -860,6 +865,7 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
 #skill ValakosChargePlayer
 #set ValakosChargePlayer
 #flags area
