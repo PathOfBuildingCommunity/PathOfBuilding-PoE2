@@ -666,6 +666,8 @@ function calcs.offence(env, actor, activeSkill)
 		if skillModList:Flag(nil, "SkillSpeedIncreasedPerGreenSupport") then
 			modData = lookupModData("SkillSpeedIncreasedPerGreenSupport")
 			skillModList:NewMod("Speed", "INC", greenSupportCount * modData.value, modData.source)
+			skillModList:NewMod("WarcrySpeed", "INC", greenSupportCount * modData.value, modData.source)
+			skillModList:NewMod("TotemPlacementSpeed", "INC", greenSupportCount * modData.value, modData.source)
 		end
 		if skillModList:Flag(nil, "SkillCritChanceIncreasedPerBlueSupport") then
 			modData = lookupModData("SkillCritChanceIncreasedPerBlueSupport")

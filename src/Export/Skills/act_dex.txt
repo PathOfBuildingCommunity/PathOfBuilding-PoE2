@@ -147,21 +147,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill ElementalSiphonPlayer
-#set ElementalSiphonPlayer
-#flags attack area melee
-#mods
-#set ElementalSiphonColdPlayer
-#flags
-#mods
-#set ElementalSiphonFirePlayer
-#flags
-#mods
-#set ElementalSiphonLightningPlayer
-#flags
-#mods
-#skillEnd
-
 #skill ElementalSunderingPlayer
 #set ElementalSunderingPlayer
 #flags
@@ -344,6 +329,7 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
 #skill PhantasmalArrowPlayer
 #set PhantasmalArrowPlayer
 #flags attack projectile duration
