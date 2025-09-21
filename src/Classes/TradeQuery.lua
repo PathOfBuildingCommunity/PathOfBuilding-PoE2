@@ -368,7 +368,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		"In Person Trade Only",
 		"Any"
 	}
-	self.pbTradeModeSelectionIndex = 3 -- Default to "In Person Trade Only"
+	self.pbTradeModeSelectionIndex = self.pbTradeModeSelectionIndex or 3
 	self.controls.tradeModeSelection = new("DropDownControl", {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-pane_margins_horizontal, -pane_margins_vertical, 220, row_height}, self.tradeModeList, function(index, value)
 		self.pbTradeModeSelectionIndex = index
 	end)
@@ -500,12 +500,8 @@ Highest Weight - Displays the order retrieved from trade]]
 				self.controls[index] = nil
 			end
 		end
-		self.resultTbl = { }
-		self.sortedResultTbl = { }
-		self.itemIndexTbl = { }
-		self.queryIdTbl = { }
-		self.totalPrice = { }
 	end
+
 	self.controls.fullPrice = new("LabelControl", {"BOTTOM", nil, "BOTTOM"}, {0, -row_height - pane_margins_vertical - row_vertical_padding, pane_width - 2 * pane_margins_horizontal, row_height}, "")
 	self.controls.close = new("ButtonControl", {"BOTTOM", nil, "BOTTOM"}, {0, -pane_margins_vertical, 90, row_height}, "Done", function()
 		main:ClosePopup()
