@@ -4077,6 +4077,7 @@ skills["ConvalescenceActivePlayer"] = {
 skills["CracklingPalmPlayer"] = {
 	name = "Crackling Palm",
 	baseTypeName = "Crackling Palm",
+	fromItem = true,
 	color = 3,
 	description = "When you Hit with Unarmed Melee Attacks, calls down lightning bolts which deal Unarmed Attack damage to all surrounding enemies.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Attack] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.NoAttackOrCastTime] = true, },
@@ -4256,6 +4257,7 @@ skills["CracklingPalmPlayer"] = {
 skills["MetaCastCurseOnBlockPlayer"] = {
 	name = "Curse on Block",
 	baseTypeName = "Curse on Block",
+	fromItem = true,
 	color = 3,
 	description = "While active, gains Energy when you Block and triggers socketed Curses on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, [SkillType.Triggers] = true, },
@@ -4369,6 +4371,7 @@ skills["MetaCastCurseOnBlockPlayer"] = {
 skills["SupportMetaCastCurseOnBlockPlayer"] = {
 	name = "SupportMetaCastCurseOnBlockPlayer",
 	hidden = true,
+	fromItem = true,
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, SkillType.Triggerable, SkillType.AND, },
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
@@ -6906,6 +6909,7 @@ skills["FallingThunderPlayer"] = {
 skills["FeastOfFleshPlayer"] = {
 	name = "Feast of Flesh",
 	baseTypeName = "Feast of Flesh",
+	fromItem = true,
 	color = 3,
 	description = "Consume Corpses near you to recover Life and Mana over a short time per Corpse Consumed.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Unleashable] = true, [SkillType.Buff] = true, },
@@ -9956,6 +9960,7 @@ skills["FrozenLocusPlayer"] = {
 skills["FulminationPlayer"] = {
 	name = "Fulmination",
 	baseTypeName = "Fulmination",
+	fromItem = true,
 	color = 3,
 	description = "While active, the first time any Skill Hits a Shocked enemy in your Presence, that Skill also Hits other Shocked enemies in your Presence, up to a maximum.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AffectsPresence] = true, [SkillType.Damage] = true, [SkillType.NoAttackInPlace] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Lightning] = true, },

@@ -2070,14 +2070,11 @@ local function flag(name, ...)
 	return mod(name, "FLAG", true, ...)
 end
 
-local gemIdLookup = {
-	["power charge on critical hit"] = "SupportPowerChargeOnCritical",
-}
-for name, grantedEffect in pairs(data.skills) do
-	if not grantedEffect.hidden or grantedEffect.fromItem or grantedEffect.fromTree then
-		local gemName = grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or grantedEffect.name:lower()
-		gemIdLookup[gemName] = grantedEffect.id
-	end
+local gemIdLookup = { }
+for gemId, gemData in pairs(data.gems) do
+	local grantedEffect = gemData.grantedEffect
+	local gemName = (grantedEffect.fromItem or grantedEffect.fromTree) and grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or gemData.name:lower()
+	gemIdLookup[gemName] = grantedEffect.id
 end
 local function grantedExtraSkill(name, level, noSupports)
 	name = name:gsub(" skill","")
