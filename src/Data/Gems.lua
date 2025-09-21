@@ -7366,6 +7366,7 @@ return {
 		variantId = "BlackPowderBlitzReservation",
 		grantedEffectId = "BlackPowderBlitzReservationPlayer",
 		additionalGrantedEffectId1 = "BlackPowderBlitzPlayer",
+		grantedEffectDisplayOrder = { 1 },
 		tags = {
 			buff = true,
 			strength = true,
@@ -7616,6 +7617,7 @@ return {
 		variantId = "HighVelocityRounds",
 		grantedEffectId = "HighVelocityRoundsAmmoPlayer",
 		additionalGrantedEffectId1 = "HighVelocityRoundsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7643,6 +7645,7 @@ return {
 		variantId = "FragmentationRounds",
 		grantedEffectId = "FragmentationRoundsAmmoPlayer",
 		additionalGrantedEffectId1 = "FragmentationRoundsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7670,6 +7673,7 @@ return {
 		variantId = "SiegeCascade",
 		grantedEffectId = "SiegeCascadeAmmoPlayer",
 		additionalGrantedEffectId1 = "SiegeCascadePlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7696,6 +7700,7 @@ return {
 		variantId = "ArmourPiercingRounds",
 		grantedEffectId = "ArmourPiercingBoltsAmmoPlayer",
 		additionalGrantedEffectId1 = "ArmourPiercingBoltsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7721,6 +7726,7 @@ return {
 		variantId = "ExplosiveShot",
 		grantedEffectId = "ExplosiveShotAmmoPlayer",
 		additionalGrantedEffectId1 = "ExplosiveShotPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7748,6 +7754,7 @@ return {
 		variantId = "IncendiaryShot",
 		grantedEffectId = "IncendiaryShotAmmoPlayer",
 		additionalGrantedEffectId1 = "IncendiaryShotPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7775,6 +7782,7 @@ return {
 		variantId = "RapidShot",
 		grantedEffectId = "RapidShotAmmoPlayer",
 		additionalGrantedEffectId1 = "RapidShotPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7800,6 +7808,7 @@ return {
 		variantId = "GlacialBolt",
 		grantedEffectId = "GlacialBoltAmmoPlayer",
 		additionalGrantedEffectId1 = "GlacialBoltPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7827,6 +7836,7 @@ return {
 		variantId = "PermafrostBolts",
 		grantedEffectId = "PermafrostBoltsAmmoPlayer",
 		additionalGrantedEffectId1 = "PermafrostBoltsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7854,6 +7864,7 @@ return {
 		variantId = "HailstormRounds",
 		grantedEffectId = "HailstormRoundsAmmoPlayer",
 		additionalGrantedEffectId1 = "HailstormRoundsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7881,6 +7892,7 @@ return {
 		variantId = "IceShards",
 		grantedEffectId = "IceShardsAmmoPlayer",
 		additionalGrantedEffectId1 = "IceShardsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7909,6 +7921,7 @@ return {
 		variantId = "PlasmaBlast",
 		grantedEffectId = "PlasmaBlastAmmoPlayer",
 		additionalGrantedEffectId1 = "PlasmaBlastPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7936,6 +7949,7 @@ return {
 		variantId = "GalvanicShards",
 		grantedEffectId = "GalvanicShardsAmmoPlayer",
 		additionalGrantedEffectId1 = "GalvanicShardsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7963,6 +7977,7 @@ return {
 		variantId = "StormblastBolts",
 		grantedEffectId = "StormblastBoltsAmmoPlayer",
 		additionalGrantedEffectId1 = "StormblastBoltsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -7990,6 +8005,7 @@ return {
 		variantId = "ShockburstRounds",
 		grantedEffectId = "ShockburstRoundsAmmoPlayer",
 		additionalGrantedEffectId1 = "ShockburstRoundsPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -10246,6 +10262,7 @@ return {
 		variantId = "WarBanner",
 		grantedEffectId = "WarBannerReservationPlayer",
 		additionalGrantedEffectId1 = "WarBannerPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -10273,6 +10290,7 @@ return {
 		variantId = "DefianceBanner",
 		grantedEffectId = "DefianceBannerReservationPlayer",
 		additionalGrantedEffectId1 = "DefianceBannerPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -10300,6 +10318,7 @@ return {
 		variantId = "DreadBanner",
 		grantedEffectId = "DreadBannerReservationPlayer",
 		additionalGrantedEffectId1 = "DreadBannerPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,
@@ -11313,6 +11332,7 @@ return {
 		grantedEffectId = "MetaMirageArcherPlayer",
 		additionalGrantedEffectId1 = "SupportMirageArcherPlayer",
 		additionalGrantedEffectId2 = "MirageArcherSpawnPlayer",
+		grantedEffectDisplayOrder = { 1, 2 },
 		tags = {
 			buff = true,
 			dexterity = true,
@@ -15814,6 +15834,7 @@ return {
 		variantId = "CrossbowRequiem",
 		grantedEffectId = "CrossbowRequiemAmmoPlayer",
 		additionalGrantedEffectId1 = "CrossbowRequiemPlayer",
+		grantedEffectDisplayOrder = { 1, 0 },
 		tags = {
 			strength = true,
 			dexterity = true,

@@ -6,7 +6,7 @@ on:
           releaseVersion:
               description: 'Version number to use for this release'
               required: true
-              default: '2.x.x'
+              default: '0.x.x'
           releaseNoteUrl:
               description: 'Enter the location of edited release notes to use'
               required: false

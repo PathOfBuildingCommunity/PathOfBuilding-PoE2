@@ -1888,7 +1888,7 @@ function calcs.offence(env, actor, activeSkill)
 			local baseCostNoMult = skillModList:Sum("BASE", skillCfg, resource.."CostNoMult") or 0 -- Flat cost from gem e.g. Divine Blessing
 			local divineBlessingCorrection = 0
 			if val.upfront then
-				baseCost = baseCost + skillModList:Sum("BASE", skillCfg, resource.."CostBase") -- Rage Cost
+				baseCost = baseCost + skillModList:Sum("BASE", skillCfg, resource.."CostBase") -- Rage Cost or Cost an additional x% max Life/ES
 				val.totalCost = skillModList:Sum("BASE", skillCfg, resource.."Cost", "Cost")
 				if resource == "Mana" and activeSkill.skillTypes[SkillType.ReservationBecomesCost] and val.percent == false then --Divine Blessing / Totem auras
 					local reservedFlat = activeSkill.skillData[val.text.."ReservationFlat"] or activeSkill.activeEffect.grantedEffectLevel[val.text.."ReservationFlat"] or 0
@@ -1901,7 +1901,8 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			val.baseCost = val.baseCost + baseCost
 			val.baseCostNoMult = val.baseCostNoMult + baseCostNoMult
-			val.finalBaseCost = (m_floor(val.baseCost * mult) + val.baseCostNoMult) + divineBlessingCorrection
+			local finalBaseCostRaw = val.baseCost * mult + val.baseCostNoMult + divineBlessingCorrection
+			val.finalBaseCost = m_floor(finalBaseCostRaw)
 			val.baseCostRaw = val.baseCostRaw and (val.baseCost * mult + val.baseCostNoMult + divineBlessingCorrection)
 			if val.type == "Life" then
 				local manaType = resource:gsub("Life", "Mana")
@@ -1915,13 +1916,13 @@ function calcs.offence(env, actor, activeSkill)
 					costs[manaType].baseCostNoMult = 0
 				elseif additionalLifeCost > 0 or hybridLifeCost > 0 then
 					val.baseCost = costs[manaType].baseCost
-					val.finalBaseCost = val.finalBaseCost + round(costs[manaType].finalBaseCost * hybridLifeCost) + m_floor(val.baseCost * mult) * additionalLifeCost
+					val.finalBaseCost = round(finalBaseCostRaw + round(costs[manaType].finalBaseCost * hybridLifeCost) + m_floor(val.baseCost * mult) * additionalLifeCost)
 				end
 			elseif val.type == "ES" then
 				local manaType = resource:gsub("ES", "Mana")
 			  	if additionalESCost > 0 then
 			  		val.baseCost = costs[manaType].baseCost
-			  		val.finalBaseCost = val.finalBaseCost + round(costs[manaType].finalBaseCost * additionalESCost)
+			  		val.finalBaseCost = round(finalBaseCostRaw + round(costs[manaType].finalBaseCost * additionalESCost))
 				end
 			elseif val.type == "Rage" then
 				if skillModList:Flag(skillCfg, "CostRageInsteadOfSouls") then -- Hateforge
@@ -1995,10 +1996,10 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown[costName], s_format("+ %d ^8(additional "..val.text.." cost)", val.baseCostNoMult))
 				end
 				if val.type == "Life" and (hybridLifeCost + additionalLifeCost) ~= 0 and not skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then
-					t_insert(breakdown[costName], s_format("* %.2f ^8(mana cost conversion)", hybridLifeCost + additionalLifeCost))
+					t_insert(breakdown[costName], s_format("x %.2f ^8(mana cost conversion)", hybridLifeCost + additionalLifeCost))
 				end
 				if val.type == "ES" and additionalESCost ~= 0 and not skillModList:Flag(skillCfg, "CostLifeInsteadOfMana") then
-					t_insert(breakdown[costName], s_format("* %.2f ^8(mana cost conversion)", additionalESCost))
+					t_insert(breakdown[costName], s_format("x %.2f ^8(mana cost conversion)", additionalESCost))
 				end
 				if inc ~= 0 then
 					t_insert(breakdown[costName], s_format("x %.2f ^8(increased/reduced "..val.text.." cost)", 1 + inc/100))
@@ -2652,7 +2653,10 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if skillData.channelTimeMultiplier then
 				local minTime = skillData.minChannelTime or 0
-				local channelTime = skillData.channelTimeOverride or output.Speed
+				local channelTime = output.Speed
+				if skillData.channelTimeOverride then
+					channelTime = 1 / skillData.channelTimeOverride
+				end
 				output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
 				output.ChannelSpeed = output.Speed or output.Time
 			end
@@ -2861,7 +2865,10 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		if skillData.channelTimeMultiplier then
 			local minTime = skillData.minChannelTime or 0
-			local channelTime = skillData.channelTimeOverride or output.Speed
+			local channelTime = output.Speed
+			if skillData.channelTimeOverride then
+				channelTime = 1 / skillData.channelTimeOverride
+			end
 			output.ChannelTime = m_max(skillData.channelTimeMultiplier / channelTime, minTime)
 			output.ChannelSpeed = output.Speed or output.Time
 		end
@@ -2933,6 +2940,31 @@ function calcs.offence(env, actor, activeSkill)
 		output.QuantityMultiplier = quantityMultiplier
 	end
 
+	if activeSkill.skillTypes[SkillType.UsableWhileMoving] then
+		local inc = skillModList:Sum("INC", skillCfg, "MovementSpeedPenalty")
+		local more = skillModList:More(skillCfg, "MovementSpeedPenalty")
+		local penaltyMod = m_max(0, skillModList:Override(skillCfg, "MovementSpeedPenalty") or (1 + inc / 100) * more)
+		local base = calcLib.mod(skillModList, skillCfg, "SkillMovementSpeed")
+		local total = (1 - base) * penaltyMod
+		output.MovementSpeedWhileUsingSkill = (1 - total) * output.MovementSpeedMod
+		output.MovementSpeedWhileUsingSkillPercent = (1 - total) * 100
+		if breakdown then
+			breakdown.MovementSpeedWhileUsingSkill = {
+				"Minimum Movement Speed while using this skill",
+				"^8(This is the lowest movement speed you will reach while using this skill,",
+				"^8subject to acceleration and deceleration)",
+				"",
+				s_format("%d%% ^8(movement speed penalty from using skill)", 100 - base * 100),
+				s_format("x %.2f) ^8(increased/reduced penalty)", 1 + inc / 100),
+				s_format("x %.2f) ^8(more/less penalty)", more),
+				s_format("= %.1f%% ^8(movement speed penalty)", 100 - output.MovementSpeedWhileUsingSkillPercent),
+				s_format(""),
+				s_format("100%% - %.1f%% ^8(100 - movement speed penalty)", 100 - output.MovementSpeedWhileUsingSkillPercent),
+				s_format("= %.1f%% ^8(movement speed while casting)", output.MovementSpeedWhileUsingSkillPercent),
+			}
+		end
+	end
+	
 	--Calculate damage (exerts, crits, ruthless, DPS, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown

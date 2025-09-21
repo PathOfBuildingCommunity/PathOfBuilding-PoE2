@@ -886,7 +886,7 @@ function calcs.defence(env, actor)
 		-- Unnatural Resilience needs FireResistTotal before we calc FireResistMax
 		output[elem.."ResistTotal"] = total
 		if modDB:Flag(nil, "MaxBlockChanceModsApplyMaxResist") then
-			local blockMaxBonus = modDB:Sum("BASE", nil, "BlockChanceMax") - 75 -- Subtract base block cap
+			local blockMaxBonus = modDB:Override(nil, "BlockChanceMax") and 0 or modDB:Sum("BASE", nil, "BlockChanceMax")
 			max = (modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))) + blockMaxBonus
 		else
 			max = modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))
@@ -941,9 +941,9 @@ function calcs.defence(env, actor)
 
 	-- Block
 	if modDB:Flag(nil, "MaxBlockChanceModsApplyMaxResist") then
-		output.BlockChanceMax = 75
+		output.BlockChanceMax = modDB:Override(nil, "BlockChanceMax") or modDB:Sum("BASE", nil, "BaseBlockChanceMax")
 	else
-		output.BlockChanceMax = m_min(modDB:Sum("BASE", nil, "BlockChanceMax"), data.misc.BlockChanceCap)
+		output.BlockChanceMax = m_min(modDB:Override(nil, "BlockChanceMax") or (modDB:Sum("BASE", nil, "BaseBlockChanceMax") + modDB:Sum("BASE", nil, "BlockChanceMax")), data.misc.BlockChanceCap)
 	end
 	if modDB:Flag(nil, "MaximumBlockAttackChanceIsEqualToParent") then
 		output.BlockChanceMax = actor.parent.output.BlockChanceMax
@@ -976,7 +976,7 @@ function calcs.defence(env, actor)
 	if modDB:Flag(nil, "SpellBlockChanceMaxIsBlockChanceMax") then
 		output.SpellBlockChanceMax = output.BlockChanceMax
 	else
-		output.SpellBlockChanceMax = m_min(modDB:Sum("BASE", nil, "SpellBlockChanceMax"), data.misc.BlockChanceCap)
+		output.SpellBlockChanceMax = m_min(modDB:Override(nil, "BlockChanceMax") or (modDB:Sum("BASE", nil, "BaseSpellBlockChanceMax") + modDB:Sum("BASE", nil, "SpellBlockChanceMax")), data.misc.BlockChanceCap)
 	end
 	if modDB:Flag(nil, "MaxSpellBlockIfNotBlockedRecently") then 
 		output.SpellBlockChance = output.SpellBlockChanceMax
@@ -1604,16 +1604,6 @@ function calcs.defence(env, actor)
 		local recoveryRateMod = output[resource.."RecoveryRateMod"] or 1
 		if modDB:Flag(nil, "No"..resource.."Regen") or modDB:Flag(nil, "CannotGain"..resource) then
 			output[resource.."Regen"] = 0
-		elseif resource == "Life" and modDB:Flag(nil, "ZealotsOath") then
-			output.LifeRegen = 0
-			local lifeBase = modDB:Sum("BASE", nil, "LifeRegen")
-			if lifeBase > 0 then
-				modDB:NewMod("EnergyShieldRegen", "BASE", lifeBase, "Zealot's Oath")
-			end
-			local lifePercent = modDB:Sum("BASE", nil, "LifeRegenPercent")
-			if lifePercent > 0 then
-				modDB:NewMod("EnergyShieldRegenPercent", "BASE", lifePercent, "Zealot's Oath")
-			end
 		else
 			if inc ~= 0 then -- legacy chain breaker increase/decrease regen rate to different resource.
 				for j=i+1,#resources do
@@ -1641,7 +1631,12 @@ function calcs.defence(env, actor)
 		output[resource.."Degen"] = degenRate
 		local recoveryRate = modDB:Sum("BASE", nil, resource.."Recovery") * recoveryRateMod
 		output[resource.."Recovery"] = recoveryRate
-		output[resource.."RegenRecovery"] = (modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") and 0 or regenRate) - degenRate + recoveryRate
+		local overflowRecovery = modDB:Sum("BASE", nil, "Overflow"..resource.."Recovery")
+		output[resource.."RegenRecovery"] = (modDB:Flag(nil, "UnaffectedBy"..resource.."Regen") and 0 or regenRate) - degenRate + recoveryRate + overflowRecovery
+		if resource == "Life" and modDB:Flag(nil, "ZealotsOath") and output[resource.."RegenRecovery"] > 0 then
+			modDB:NewMod("OverflowEnergyShieldRecovery", "BASE", output.LifeRegenRecovery - recoveryRate, "Zealot's Oath")
+			output[resource.."RegenRecovery"] = 0
+		end
 		if output[resource.."RegenRecovery"] > 0 then
 			modDB:NewMod("Condition:CanGain"..resource, "FLAG", true, resourceName.."Regen")
 		end
@@ -1664,7 +1659,14 @@ function calcs.defence(env, actor)
 			end
 			if recoveryRate ~= 0 then
 				t_insert(breakdown[resource.."RegenRecovery"], s_format("+ %.1f ^8(recovery)", recoveryRate))
+				t_insert(breakdown[resource.."RegenRecovery"], s_format("= %.1f ^8per second", output[resource.."RegenRecovery"] - overflowRecovery))
+			end
+			if overflowRecovery ~= 0 then
+				t_insert(breakdown[resource.."RegenRecovery"], s_format("+ %.1f ^8(overflow recovery)", overflowRecovery))
 				t_insert(breakdown[resource.."RegenRecovery"], s_format("= %.1f ^8per second", output[resource.."RegenRecovery"]))
+			end
+			if resource == "Life" and modDB:Flag(nil, "ZealotsOath") then
+				t_insert(breakdown[resource.."RegenRecovery"], s_format("Excess recovery applied to Energy Shield", output[resource.."RegenRecovery"]))
 			end
 		end
 	end

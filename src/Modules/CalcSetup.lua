@@ -24,8 +24,8 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("TotemColdResistMax", "BASE", 75, "Base")
 	modDB:NewMod("TotemLightningResistMax", "BASE", 75, "Base")
 	modDB:NewMod("TotemChaosResistMax", "BASE", 75, "Base")
-	modDB:NewMod("BlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
-	modDB:NewMod("SpellBlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
+	modDB:NewMod("BaseBlockChanceMax", "OVERRIDE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
+	modDB:NewMod("BaseSpellBlockChanceMax", "OVERRIDE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
 	modDB:NewMod("SpellDodgeChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("ChargeDuration", "BASE", 15, "Base")
 	modDB:NewMod("PowerChargesMax", "BASE", data.characterConstants["max_power_charges"], "Base")
@@ -1741,11 +1741,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 					group.displayLabel = nil
 					for _, gemInstance in ipairs(group.gemList) do
 						local grantedEffect = gemInstance.gemData and gemInstance.gemData.grantedEffect or gemInstance.grantedEffect
+						local gemName = gemInstance.gemData and gemInstance.gemData.name
 						if grantedEffect and not grantedEffect.support and gemInstance.enabled then
 							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
 							else
-								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. grantedEffect.name
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemName or grantedEffect.name
 							end
 						end
 					end

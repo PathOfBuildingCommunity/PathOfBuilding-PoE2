@@ -1446,6 +1446,7 @@ return {
 	{ label = "Enemy Life Recovery", haveOutput = "EnemyLifeRegen", { format =  "{0:output:EnemyLifeRegen}%", { modName = "LifeRegen", modType = "INC", enemy = true }, }, },
 	{ label = "Enemy Mana Recovery", haveOutput = "EnemyManaRegen", { format =  "{0:output:EnemyManaRegen}%", { modName = "ManaRegen", modType = "INC", enemy = true }, }, },
 	{ label = "Enemy ES Recovery", haveOutput = "EnemyEnergyShieldRegen", { format =  "{0:output:EnemyEnergyShieldRegen}%", { modName = "EnergyShieldRegen", modType = "INC", enemy = true }, }, },
+	{ label = "MS While Casting", { format = "{1:output:MovementSpeedWhileUsingSkillPercent}%", { breakdown = "MovementSpeedWhileUsingSkill" }, { modName = { "SkillMovementSpeed", "MovementSpeedPenalty" }, cfg = "skill" }, }, },
 } }
 } },
 -- attributes/resists
@@ -1703,7 +1704,7 @@ return {
 	extra = "{0:output:EffectiveBlockChance}%",
 	{ label = "Block Chance", { format = "{0:output:BlockChance}% (+{0:output:BlockChanceOverCap}%)",
 		{ breakdown = "BlockChance" },
-		{ modName = { "BlockChance", "ReplaceShieldBlock" } }, 
+		{ modName = { "BlockChance", "ReplaceShieldBlock", "BlockChanceMax" } }, 
 	}, },
 	{ label = "Taken From Block", haveOutput = "ShowBlockEffect", { format = "{0:output:DamageTakenOnBlock}%", 
 		{ breakdown = "BlockEffect" }, 

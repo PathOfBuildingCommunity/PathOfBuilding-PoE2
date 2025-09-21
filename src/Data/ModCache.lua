@@ -1175,7 +1175,7 @@ c["10% reduced Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="INC
 c["10% reduced Light Radius"]={{[1]={flags=0,keywordFlags=0,name="LightRadius",type="INC",value=-10}},nil}
 c["10% reduced Magnitude of Ignite on you"]={{[1]={flags=0,keywordFlags=0,name="SelfIgniteEffect",type="INC",value=-10}},nil}
 c["10% reduced Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},nil}
-c["10% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},"  Penalty from using Skills  "}
+c["10% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-10}},nil}
 c["10% reduced Movement Speed Penalty while Actively Blocking"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-10}},"  Penalty ly Blocking "}
 c["10% reduced Poison Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfPoisonDuration",type="INC",value=-10}},nil}
 c["10% reduced Projectile Speed"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeed",type="INC",value=-10}},nil}
@@ -1331,7 +1331,7 @@ c["12% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["12% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=12}},nil}
 c["12% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=12}},nil}
 c["12% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenFromManaBeforeLife",type="BASE",value=12}},nil}
-c["12% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-12}},"  Penalty from using Skills  "}
+c["12% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-12}},nil}
 c["12.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=12.5}},nil}
 c["120% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=120}},nil}
 c["120% increased Armour and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEnergyShield",type="INC",value=120}},nil}
@@ -1426,8 +1426,7 @@ c["15% increased Chill Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name=
 c["15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}},nil}
 c["15% increased Cooldown Recovery Rate for Grenade Skills"]={{[1]={[1]={skillType=158,type="SkillType"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=15}},nil}
 c["15% increased Cost Efficiency"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
-c["15% increased Cost Efficiency of Attacks"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},"  of Attacks "}
-c["15% increased Cost Efficiency of Attacks 18% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},"  of Attacks 18% of Skill Mana Costs Converted to Life Costs "}
+c["15% increased Cost Efficiency of Attacks"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CostEfficiency",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Damage Bonus for Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
@@ -2172,7 +2171,7 @@ c["3% of Physical Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,
 c["3% of Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=3}},nil}
 c["3% reduced Accuracy Rating per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="Accuracy",type="INC",value=-3}},nil}
 c["3% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-3}},nil}
-c["3% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-3}},"  Penalty from using Skills  "}
+c["3% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-3}},nil}
 c["3% reduced maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-3}},nil}
 c["30 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=30}},nil}
 c["30 to 40 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=30}}," to 40 Physical  "}
@@ -2756,7 +2755,7 @@ c["50% less Life Recovery from Flasks"]={{[1]={flags=0,keywordFlags=0,name="Flas
 c["50% less Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="MORE",value=-50}},nil}
 c["50% less Mana Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRecoveryRate",type="MORE",value=-50}},nil}
 c["50% less Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="MORE",value=-50}},nil}
-c["50% less Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="MORE",value=-50}},"  Penalty from using Skills  "}
+c["50% less Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="MORE",value=-50}},nil}
 c["50% more Armour from Equipped Body Armour"]={{[1]={[1]={slotName="Body Armour",type="SlotName"},flags=0,keywordFlags=0,name="Armour",type="MORE",value=50}},nil}
 c["50% more Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="MORE",value=50}},nil}
 c["50% more Damage against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}},nil}
@@ -3023,8 +3022,7 @@ c["8% of Damage is taken from Mana before Life"]={{[1]={flags=0,keywordFlags=0,n
 c["8% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=8}},nil}
 c["8% of Spell Mana Cost Converted to Life Cost"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=8}},nil}
 c["8% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=-8}},nil}
-c["8% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-8}},"  Penalty from using Skills  "}
-c["8% reduced Movement Speed Penalty from using Skills while moving 14% increased Skill Effect Duration"]={{[1]={[1]={type="Condition",var="Moving"},flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=-8}},"  Penalty from using Skills  14% increased Skill Effect Duration "}
+c["8% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-8}},nil}
 c["8% reduced Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-8}},nil}
 c["8% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
 c["80% chance to Avoid being Chilled"]={{[1]={flags=0,keywordFlags=0,name="AvoidChill",type="BASE",value=80}},nil}
@@ -4074,7 +4072,7 @@ c["Attacks Gain 8% of Damage as Extra Cold Damage"]={{[1]={flags=1,keywordFlags=
 c["Attacks Gain 8% of Damage as Extra Fire Damage"]={{[1]={flags=1,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=8}},nil}
 c["Attacks consume an Endurance Charge to Critically Hit"]={nil,"Attacks consume an Endurance Charge to Critically Hit "}
 c["Attacks consume an Endurance Charge to Critically Hit Take 100 Chaos damage per second per Endurance Charge"]={nil,"Attacks consume an Endurance Charge to Critically Hit Take 100 Chaos damage per second per Endurance Charge "}
-c["Attacks cost an additional 6% of your maximum Mana"]={{[1]={[1]={percent=6,stat="Mana",type="PercentStat"},flags=0,keywordFlags=65536,name="ManaCost",type="BASE",value=1}},nil}
+c["Attacks cost an additional 6% of your maximum Mana"]={{[1]={[1]={floor=true,percent=6,stat="Mana",type="PercentStat"},flags=0,keywordFlags=65536,name="ManaCostBase",type="BASE",value=1}},nil}
 c["Attacks gain increased Accuracy Rating equal to their Critical Hit Chance"]={nil,"increased Accuracy Rating equal to their Critical Hit Chance "}
 c["Attacks have +1% to Critical Hit Chance"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="BASE",value=1}},nil}
 c["Attacks have 10% chance to Maim on Hit"]={{}," to Maim  "}
@@ -4376,10 +4374,9 @@ c["Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot i
 c["Deflected Hits cannot inflict Maim on you"]={nil,"Deflected Hits cannot inflict Maim on you "}
 c["Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you"]={nil,"Deflected Hits cannot inflict Maim on you Deflected Hits cannot inflict Bleeding on you "}
 c["Demonflame has no maximum"]={{[1]={flags=0,keywordFlags=0,name="Multiplier:DemonFlameMaximum",type="BASE",value=999}},nil}
-c["Detonator skills have 40% increased Area of Effect"]={nil,"Detonator skills have 40% increased Area of Effect "}
-c["Detonator skills have 40% increased Area of Effect Detonator skills have 80% reduced damage"]={nil,"Detonator skills have 40% increased Area of Effect Detonator skills have 80% reduced damage "}
-c["Detonator skills have 8% increased Area of Effect"]={nil,"Detonator skills have 8% increased Area of Effect "}
-c["Detonator skills have 80% reduced damage"]={nil,"Detonator skills have 80% reduced damage "}
+c["Detonator skills have 40% increased Area of Effect"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=40}},nil}
+c["Detonator skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
+c["Detonator skills have 80% reduced damage"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["Dodge Roll avoids all Hits"]={nil,"Dodge Roll avoids all Hits "}
 c["Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
 c["Dodge Roll cannot Avoid Damage"]={nil,"Dodge Roll cannot Avoid Damage "}
@@ -5196,8 +5193,7 @@ c["No Inherent loss of Rage during effect 50% increased Duration"]={nil,"No Inhe
 c["No Movement Speed Penalty while Shield is Raised"]={nil,"No Movement Speed Penalty while Shield is Raised "}
 c["No Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMin"}},[2]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMax"}},[3]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalDPS"}}},nil}
 c["No inherent Mana Regeneration"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoInherentManaRegen",type="FLAG",value=true}},nil}
-c["Non-Channelling Spells cost an additional 6% of your maximum Life"]={nil,"cost an additional 6% of your maximum Life "}
-c["Non-Channelling Spells cost an additional 6% of your maximum Life Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={nil,"cost an additional 6% of your maximum Life Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life "}
+c["Non-Channelling Spells cost an additional 6% of your maximum Life"]={{[1]={[1]={floor=true,percent=6,stat="Life",type="PercentStat"},[2]={neg=true,skillType=48,type="SkillType"},flags=0,keywordFlags=131072,name="LifeCostBase",type="BASE",value=1}},nil}
 c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
 c["Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["Offering Skills have 15% increased Buff effect"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=15}},nil}

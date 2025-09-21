@@ -756,6 +756,9 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 					else
 						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
 					end
+					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption") then
+						gemInstance.level = gemInstance.level + tonumber(skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption"))
+					end
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
 				end

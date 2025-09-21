@@ -535,7 +535,7 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	if grantedEffect.name:match("^Spectre:") or grantedEffect.name:match("^Companion:") then
 		self.tooltip:AddLine(20, colorCodes.GEM .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name))	
 	else
-		self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+		self.tooltip:AddLine(20, colorCodes.GEM .. gemInstance.gemData.name)
 	end
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(18, colorCodes.NORMAL .. gemInstance.gemData.gemType)

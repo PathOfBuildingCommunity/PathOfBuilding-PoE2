@@ -7123,7 +7123,7 @@ return {
 		},
 		[13]={
 			list=true,
-			name="",
+			name="GrantedEffectDisplayOrder",
 			refTo="",
 			type="Int",
 			width=150
