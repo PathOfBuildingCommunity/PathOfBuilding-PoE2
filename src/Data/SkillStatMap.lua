@@ -318,6 +318,12 @@ return {
 	skill("castTimeOverride", nil),
 	div = 1000,
 },
+["active_skill_requires_X_glory"] = {
+	skill("gloryCost", nil),
+},
+["active_skill_generates_mp_%_glory_per_attack_hit"] = {
+	mod("GloryPctOnHitMp", "BASE", nil, 0, KeywordFlag.Attack, { type = "GlobalEffect", effectType = "Aura" }),
+},
 ["skill_cannot_gain_repeat_bonuses"] = {
 	flag("NoRepeatBonuses"),
 },
@@ -2488,7 +2494,6 @@ return {
 ["banner_aura_magnitude_+%_final_per_resource"] = {
 	mod("AuraEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "BannerValour" }, { type = "Condition", var = "BannerPlanted" }),
 },
-
 -- Crossbow
 ["reload_speed_+%"] = {
 	mod("ReloadSpeed", "INC", nil),

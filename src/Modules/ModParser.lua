@@ -870,6 +870,7 @@ local modNameList = {
 	["penalty to accuracy rating at range"] = "AccuracyPenalty",
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
+	["glory generation"] = "GloryGeneration",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1100,6 +1101,7 @@ local modFlagList = {
 	["of your mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
 	["with command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["for command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
+	["for banner skills"] = { tag = { type = "SkillType", skillType = SkillType.Banner } },
 	["minion"] = { addToMinion = true },
 	["zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
 	["raised zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
