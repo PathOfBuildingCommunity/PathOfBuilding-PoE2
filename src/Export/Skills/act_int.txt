@@ -216,6 +216,8 @@ statMap = {
 statMap = {
 	["charge_mastery_skill_speed_+%_final_with_frenzy_charges"] = {
 		mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+		mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 	},
 	["charge_mastery_crit_chance_+%_final_with_power_charges"] = {
 		mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
@@ -1306,8 +1308,10 @@ statMap = {
 	["trinity_damage_+%_final_to_grant_per_50_resonance"] = {
 		mod("ElementalDamage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ResonanceCount", div = 30 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
 	},
-	["trinity_attack_speed_+%_while_all_resonance_is_at_least_250_to_grant"] = {
+	["trinity_skill_speed_+%_while_all_resonance_is_at_least_250_to_grant"] = {
 		mod("Speed", "INC", nil, 0, 0, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+		mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+		mod("TotemPlacementSpeed", "INC", nil, 0, 0, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
 	},
 	["quality_display_trinity_is_gem"] = {
 		-- Display only
