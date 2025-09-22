@@ -92,7 +92,7 @@ end
 function GemSelectClass:PopulateGemList()
 	wipeTable(self.gems)
 	local showAll = self.skillsTab.showSupportGemTypes == "ALL"
-	local showAwakened = self.skillsTab.showSupportGemTypes == "AWAKENED"
+	local showLineage = self.skillsTab.showSupportGemTypes == "LINEAGE"
 	local showNormal = self.skillsTab.showSupportGemTypes == "NORMAL"
 	local matchLevel = self.skillsTab.defaultGemLevel == "characterLevel"
 	local characterLevel = self.skillsTab.build and self.skillsTab.build.characterLevel or 1
@@ -116,7 +116,7 @@ function GemSelectClass:FilterSupport(gemId, gemData)
 	return (not gemData.grantedEffect.support
 		or showSupportTypes == "ALL"
 		or (showSupportTypes == "NORMAL" and not gemData.grantedEffect.plusVersionOf)
-		or (showSupportTypes == "AWAKENED" and gemData.grantedEffect.plusVersionOf))
+		or (showSupportTypes == "LINEAGE" and gemData.grantedEffect.isLineage))
 end
 
 function GemSelectClass:BuildList(buf)
