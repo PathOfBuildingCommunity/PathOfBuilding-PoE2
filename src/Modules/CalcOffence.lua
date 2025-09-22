@@ -5602,12 +5602,12 @@ function calcs.offence(env, actor, activeSkill)
 	if skillData.gloryCost then
 		output.GloryCost = skillData.gloryCost
 	end
-	
-	local gloryPctOnHitMp = (modDB:Sum("BASE", skillCfg, "GloryPctOnHitMp") or 0) / 100 --local gloryPctOnHitMp = calcLib.mod(modDB, skillCfg, "GloryPctOnHitMp")
+	 
+	local gloryPctOnHitMp = modDB:Max(skillCfg, "GloryPctOnHitMp") or 0
 	if gloryPctOnHitMp > 0 then
-		local inc = modDB:Sum("INC", skillCfg, "GloryGeneration") / 100
+		local inc = modDB:Sum("INC", skillCfg, "GloryGeneration")
 		local monsterPower = 20
-		output.GloryPerSecond = gloryPctOnHitMp * (1+inc) * output.Speed * monsterPower
+		output.GloryPerSecond = gloryPctOnHitMp * (1+inc/100) * output.Speed * monsterPower
 	end
 
 	-- Calculate combined DPS estimate, including DoTs
