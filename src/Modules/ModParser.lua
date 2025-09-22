@@ -870,6 +870,7 @@ local modNameList = {
 	["penalty to accuracy rating at range"] = "AccuracyPenalty",
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
+	["to cause aftershocks"] = "AftershockChance",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1587,6 +1588,19 @@ local modTagList = {
 	["for each remaining chain"] = { tag = { type = "PerStat", stat = "ChainRemaining" } },
 	["for each enemy pierced"] = { tag = { type = "PerStat", stat = "PiercedCount" } },
 	["for each time they've pierced"] = { tag = { type = "PerStat", stat = "PiercedCount" } },
+	["for mace slam skills"] = { tagList = {
+		{ type = "Condition", var = "UsingMace" }, 
+		{ type = "SkillType", skillType = SkillType.Slam } }},
+
+	["for mace strike skills"] = { tagList = { 
+		{ type = "Condition", var = "UsingMace" }, 
+		{ type = "SkillType", skillType = SkillType.Strike } }},
+
+	["you use yourself"] = { tagList = { 
+		{ type = "SkillType", skillType = SkillType.UsedByTotem, neg = true }, 
+		{ type = "SkillType", skillType = SkillType.Triggered, neg = true }, 
+		{ type = "SkillType", skillType = SkillType.Trapped, neg = true } }},
+	-- [", dealing the same damage to enemies within ([%d%.]+) metres"] = {}, why the hell is this not working
 	-- Stat conditions
 	["with (%d+) or more strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
 	["with at least (%d+) strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
@@ -5705,6 +5719,7 @@ local specialModList = {
 	} end,
 	["(%d+)%% reduced movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "INC", -num) } end,
 	["(%d+)%% less movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "MORE", -num) } end,
+	"(%d+)% chance",
 		-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,

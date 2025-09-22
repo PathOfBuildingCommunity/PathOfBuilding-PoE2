@@ -968,11 +968,9 @@ c["10% chance for Attack Hits to apply ten Incision"]={{[1]={flags=0,keywordFlag
 c["10% chance for Enemies you Kill to Explode, dealing 100%"]={{}," for Enemies you Kill to Explode, dealing 100% "}
 c["10% chance for Enemies you Kill to Explode, dealing 100% of their maximum Life as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=100,chance=0.1,keyOfScaledMod="chance",type="Physical"}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["10% chance for Flasks you use to not consume Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskChanceNotConsumeCharges",type="BASE",value=10}},nil}
-c["10% chance for Mace Slam Skills you use yourself to cause Aftershocks"]={{}," for Mace Slam Skills you use yourself to cause Aftershocks "}
-c["10% chance for Mace Slam Skills you use yourself to cause Aftershocks 10% chance for Mace Strike Skills you use yourself to cause Aftershocks, dealing"]={{}," for Mace Slam Skills you use yourself to cause Aftershocks 10% chance forSkills you use yourself to cause Aftershocks, dealing "}
-c["10% chance for Mace Slam Skills you use yourself to cause Aftershocks 10% chance for Mace Strike Skills you use yourself to cause Aftershocks, dealing the same damage to enemies within 1.8 metres"]={{[1]={[1]={includeTransfigured=true,skillName="Mace Strike",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=10}}," for Mace Slam Skills you use yourself to cause Aftershocks 10% chance forSkills you use yourself to cause Aftershocks, dealing the same  to enemies within 1.8 metres "}
-c["10% chance for Mace Strike Skills you use yourself to cause Aftershocks, dealing"]={{}," forSkills you use yourself to cause Aftershocks, dealing "}
-c["10% chance for Mace Strike Skills you use yourself to cause Aftershocks, dealing the same damage to enemies within 1.8 metres"]={{[1]={[1]={includeTransfigured=true,skillName="Mace Strike",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=10}}," forSkills you use yourself to cause Aftershocks, dealing the same  to enemies within 1.8 metres "}
+c["10% chance for Mace Slam Skills you use yourself to cause Aftershocks"]={{[1]={[1]={type="Condition",var="UsingMace"},[2]={skillType=92,type="SkillType"},[3]={neg=true,skillType=95,type="SkillType"},[4]={neg=true,skillType=37,type="SkillType"},[5]={neg=true,skillType=33,type="SkillType"},flags=0,keywordFlags=0,name="AftershockChance",type="BASE",value=10}},nil}
+c["10% chance for Mace Strike Skills you use yourself to cause Aftershocks, dealing"]={{[1]={[1]={type="Condition",var="UsingMace"},[2]={type="SkillType"},[3]={neg=true,skillType=95,type="SkillType"},[4]={neg=true,skillType=37,type="SkillType"},[5]={neg=true,skillType=33,type="SkillType"},flags=0,keywordFlags=0,name="AftershockChance",type="BASE",value=10}},"   , dealing "}
+c["10% chance for Mace Strike Skills you use yourself to cause Aftershocks, dealing the same damage to enemies within 1.8 metres"]={{[1]={[1]={type="Condition",var="UsingMace"},[2]={type="SkillType"},[3]={neg=true,skillType=95,type="SkillType"},[4]={neg=true,skillType=37,type="SkillType"},[5]={neg=true,skillType=33,type="SkillType"},flags=0,keywordFlags=0,name="AftershockChance",type="BASE",value=10}},"   , dealing the same damage to enemies within 1.8 metres "}
 c["10% chance to Aggravate Bleeding on targets you Hit with Attacks"]={{}," to Aggravate Bleeding on targets you Hit  "}
 c["10% chance to Aggravate Bleeding on targets you Hit with Attacks 8% increased Attack Speed while a Rare or Unique Enemy is in your Presence"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="NearbyRareOrUniqueEnemy",[2]="RareOrUnique"}},flags=1,keywordFlags=65536,name="Speed",type="BASE",value=10}}," to Aggravate Bleeding on targets you Hit  8% increased   "}
 c["10% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=10}},nil}
@@ -1958,7 +1956,7 @@ c["25% chance for Attacks to Maim on Hit against Poisoned Enemies"]={{},"  to Ma
 c["25% chance for Attacks to Maim on Hit against Poisoned Enemies 25% increased Magnitude of Poison you inflict"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Poisoned"},flags=1,keywordFlags=2097152,name="AilmentMagnitude",type="BASE",value=25}},"  to Maim on Hit  25% increased  "}
 c["25% chance for Lightning Damage with Hits to be Lucky"]={{[1]={flags=0,keywordFlags=0,name="LightningLuckyHitsChance",type="BASE",value=25}},nil}
 c["25% chance for Projectiles to Pierce Enemies within 3m distance of you"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=25}}," for  to Pierce Enemies within 3m distance of you "}
-c["25% chance for Slam Skills you use yourself to cause Aftershocks"]={{}," for Slam Skills you use yourself to cause Aftershocks "}
+c["25% chance for Slam Skills you use yourself to cause Aftershocks"]={{[1]={[1]={neg=true,skillType=95,type="SkillType"},[2]={neg=true,skillType=37,type="SkillType"},[3]={neg=true,skillType=33,type="SkillType"},flags=0,keywordFlags=0,name="AftershockChance",type="BASE",value=25}}," for Slam Skills   "}
 c["25% chance for Trigger skills to refund half of Energy Spent"]={{}," for Trigger skills to refund half of Energy Spent "}
 c["25% chance on Consuming a Shock on an Enemy to reapply it"]={{}," on Consuming a Shock on an Enemy to reapply it "}
 c["25% chance on Shocking Enemies to created Shocked Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnShockedGround"},flags=0,keywordFlags=0,name="ShockBase",type="BASE",value=20}},nil}
@@ -2632,7 +2630,7 @@ c["5 to 10 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDa
 c["5 to 10 Physical Thorns damage Pain Attunement"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=5}}," to 10 Physical  Pain Attunement "}
 c["5% Chance to build an additional Combo on Hit"]={{}," to build an additional Combo  "}
 c["5% additional Physical Damage Reduction while you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=5}},nil}
-c["5% chance for Slam Skills you use yourself to cause Aftershocks"]={{}," for Slam Skills you use yourself to cause Aftershocks "}
+c["5% chance for Slam Skills you use yourself to cause Aftershocks"]={{[1]={[1]={neg=true,skillType=95,type="SkillType"},[2]={neg=true,skillType=37,type="SkillType"},[3]={neg=true,skillType=33,type="SkillType"},flags=0,keywordFlags=0,name="AftershockChance",type="BASE",value=5}}," for Slam Skills   "}
 c["5% chance to Blind Enemies on Hit"]={{[1]={flags=0,keywordFlags=0,name="BlindChance",type="BASE",value=5}},nil}
 c["5% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=5}},nil}
 c["5% chance to Daze on Hit"]={{[1]={flags=4,keywordFlags=0,name="DazeChance",type="BASE",value=5}},nil}
@@ -2989,7 +2987,7 @@ c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Co
 c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=75}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["8 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=8}},nil}
-c["8% chance for Mace Slam Skills you use yourself to cause Aftershocks"]={{}," for Mace Slam Skills you use yourself to cause Aftershocks "}
+c["8% chance for Mace Slam Skills you use yourself to cause Aftershocks"]={{[1]={[1]={type="Condition",var="UsingMace"},[2]={skillType=92,type="SkillType"},[3]={neg=true,skillType=95,type="SkillType"},[4]={neg=true,skillType=37,type="SkillType"},[5]={neg=true,skillType=33,type="SkillType"},flags=0,keywordFlags=0,name="AftershockChance",type="BASE",value=8}},nil}
 c["8% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=8}},nil}
 c["8% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=8}},nil}
 c["8% faster start of Energy Shield Recharge"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRechargeFaster",type="INC",value=8}},nil}

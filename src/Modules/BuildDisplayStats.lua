@@ -77,6 +77,7 @@ local displayStats = {
 	{ stat = "AreaOfEffectRadiusMetres", label = "AoE Radius", fmt = ".1fm" },
 	{ stat = "BrandAttachmentRangeMetre", label = "Attachment Range", fmt = ".1fm", flag = "brand" },
 	{ stat = "BrandTicks", label = "Activations per Brand", fmt = "d", flag = "brand" },
+	{ stat = "AftershockChance", label = "Aftershock Chance", fmt = ".0f%%" },
 	{ stat = "ManaCost", label = "Mana Cost", fmt = "d", color = colorCodes.MANA, pool = "ManaUnreserved", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaHasCost end },
 	{ stat = "ManaPercentCost", label = "Mana Cost", fmt = "d%%", color = colorCodes.MANA, pool = "ManaUnreservedPercent", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaPercentHasCost end },
 	{ stat = "ManaPerSecondCost", label = "Mana Cost per second", fmt = ".2f", color = colorCodes.MANA, pool = "ManaUnreserved", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaPerSecondHasCost end },

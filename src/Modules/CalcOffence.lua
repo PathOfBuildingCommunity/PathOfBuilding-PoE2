@@ -5267,6 +5267,10 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("ImpaleModifier", "CHANCE", "ImpaleChance")
 	end
 
+	output.AftershockChance = skillModList:Sum("BASE", skillCfg, "AftershockChance")
+	print("aftershock chance:" .. output.AftershockChance)
+
+
 	if skillData.decay and canDeal.Chaos then
 		-- Calculate DPS for Decay effect
 		skillFlags.decay = true
