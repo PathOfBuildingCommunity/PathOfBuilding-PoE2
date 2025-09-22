@@ -3084,6 +3084,8 @@ skills["ChargeRegulationPlayer"] = {
 			statMap = {
 				["charge_mastery_skill_speed_+%_final_with_frenzy_charges"] = {
 					mod("Speed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
+					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "FrenzyCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
 				},
 				["charge_mastery_crit_chance_+%_final_with_power_charges"] = {
 					mod("CritChance", "MORE", nil, 0, 0, { type = "StatThreshold", stat = "PowerCharges", threshold = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charge Infusion" }),
@@ -4077,6 +4079,7 @@ skills["ConvalescenceActivePlayer"] = {
 skills["CracklingPalmPlayer"] = {
 	name = "Crackling Palm",
 	baseTypeName = "Crackling Palm",
+	fromItem = true,
 	color = 3,
 	description = "When you Hit with Unarmed Melee Attacks, calls down lightning bolts which deal Unarmed Attack damage to all surrounding enemies.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Attack] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.NoAttackOrCastTime] = true, },
@@ -4256,6 +4259,7 @@ skills["CracklingPalmPlayer"] = {
 skills["MetaCastCurseOnBlockPlayer"] = {
 	name = "Curse on Block",
 	baseTypeName = "Curse on Block",
+	fromItem = true,
 	color = 3,
 	description = "While active, gains Energy when you Block and triggers socketed Curses on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, [SkillType.Triggers] = true, },
@@ -4369,6 +4373,7 @@ skills["MetaCastCurseOnBlockPlayer"] = {
 skills["SupportMetaCastCurseOnBlockPlayer"] = {
 	name = "SupportMetaCastCurseOnBlockPlayer",
 	hidden = true,
+	fromItem = true,
 	support = true,
 	requireSkillTypes = { SkillType.AppliesCurse, SkillType.Triggerable, SkillType.AND, },
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
@@ -6906,6 +6911,7 @@ skills["FallingThunderPlayer"] = {
 skills["FeastOfFleshPlayer"] = {
 	name = "Feast of Flesh",
 	baseTypeName = "Feast of Flesh",
+	fromItem = true,
 	color = 3,
 	description = "Consume Corpses near you to recover Life and Mana over a short time per Corpse Consumed.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Unleashable] = true, [SkillType.Buff] = true, },
@@ -9956,6 +9962,7 @@ skills["FrozenLocusPlayer"] = {
 skills["FulminationPlayer"] = {
 	name = "Fulmination",
 	baseTypeName = "Fulmination",
+	fromItem = true,
 	color = 3,
 	description = "While active, the first time any Skill Hits a Shocked enemy in your Presence, that Skill also Hits other Shocked enemies in your Presence, up to a maximum.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AffectsPresence] = true, [SkillType.Damage] = true, [SkillType.NoAttackInPlace] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Lightning] = true, },
@@ -21030,8 +21037,10 @@ skills["TrinityPlayer"] = {
 				["trinity_damage_+%_final_to_grant_per_50_resonance"] = {
 					mod("ElementalDamage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ResonanceCount", div = 30 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
 				},
-				["trinity_attack_speed_+%_while_all_resonance_is_at_least_250_to_grant"] = {
+				["trinity_skill_speed_+%_while_all_resonance_is_at_least_250_to_grant"] = {
 					mod("Speed", "INC", nil, 0, 0, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+					mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
+					mod("TotemPlacementSpeed", "INC", nil, 0, 0, { type = "MultiplierThreshold", var = "ResonanceCount", threshold = 250 },{ type = "GlobalEffect", effectType = "Buff", effectName = "Trinity" }),
 				},
 				["quality_display_trinity_is_gem"] = {
 					-- Display only

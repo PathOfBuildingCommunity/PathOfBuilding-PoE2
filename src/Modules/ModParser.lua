@@ -745,7 +745,7 @@ local modNameList = {
 	["warcry speed"] = { "WarcrySpeed", keywordFlags = KeywordFlag.Warcry },
 	["attack and cast speed"] = "Speed",
 	["use speed"] = "Speed",
-	["skill speed"] = { "Speed", "WarcrySpeed" },
+	["skill speed"] = { "Speed", "WarcrySpeed", "TotemPlacementSpeed" },
 	["reload speed"] = { "ReloadSpeed", flags = ModFlag.Attack },
 	["dps"] = "DPS",
 	-- Elemental ailments
@@ -2084,14 +2084,11 @@ local function flag(name, ...)
 	return mod(name, "FLAG", true, ...)
 end
 
-local gemIdLookup = {
-	["power charge on critical hit"] = "SupportPowerChargeOnCritical",
-}
-for name, grantedEffect in pairs(data.skills) do
-	if not grantedEffect.hidden or grantedEffect.fromItem or grantedEffect.fromTree then
-		local gemName = grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or grantedEffect.name:lower()
-		gemIdLookup[gemName] = grantedEffect.id
-	end
+local gemIdLookup = { }
+for gemId, gemData in pairs(data.gems) do
+	local grantedEffect = gemData.grantedEffect
+	local gemName = (grantedEffect.fromItem or grantedEffect.fromTree) and grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or gemData.name:lower()
+	gemIdLookup[gemName] = grantedEffect.id
 end
 local function grantedExtraSkill(name, level, noSupports)
 	name = name:gsub(" skill","")
@@ -2163,7 +2160,7 @@ local explodeFunc = function(chance, amount, type, ...)
 	local amounts = {}
 	amounts[type] = amountNumber
 	return {
-		mod("ExplodeMod", "LIST", { type = firstToUpper(type), chance = chance / 100, amount = amountNumber, keyOfScaledMod = "chance" }, ...),
+		mod("ExplodeMod", "LIST", { type = firstToUpper(type), value = chance, amount = amountNumber, keyOfScaledMod = "chance" }, ...),
 		flag("CanExplode")
 	}
 end
@@ -2246,6 +2243,7 @@ local specialModList = {
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
 		mod("Speed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}), 
 		mod("WarcrySpeed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}),
+		mod("TotemPlacementSpeed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}),
 	} end,
 	["(%d+) rage regenerated for every (%d+) mana regeneration per second"] = function(num, _, div) return {
 		mod("RageRegen", "BASE", num, {type = "PerStat", stat = "ManaRegen", div = tonumber(div) }) ,

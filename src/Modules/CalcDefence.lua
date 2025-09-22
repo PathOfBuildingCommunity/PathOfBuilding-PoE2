@@ -233,7 +233,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					local baseFlatVal = values.baseFlat * mult
 					values.reservedFlat = 0
 					if values.more > 0 and values.inc > -100 and baseFlatVal ~= 0 then
-						values.reservedFlat = m_max(m_ceil(baseFlatVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
+						values.reservedFlat = m_max(round(baseFlatVal * (100 + values.inc) / 100 * values.more / (1 + values.efficiency / 100), 0), 0)
 					end
 				end
 				if activeSkill.skillData[name.."ReservationPercentForced"] then
@@ -251,6 +251,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 				end
 				if activeSkill.skillTypes[SkillType.MultipleReservation] then
 					local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
+					values.count = activeSkillCount
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
 					values.reservedFlat = values.reservedFlat * m_max(activeSkillCount - minionFreeSpiritCount, 0)
 				end
@@ -282,6 +283,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 							more = values.more ~= 1 and ("x "..values.more),
 							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
 							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
+							count = values.count and ("x " ..values.count),
 							total = values.reservedFlat,
 						})
 					end

@@ -6739,7 +6739,7 @@ skills["VoidIllusionSpawnPlayer"] = {
 								else
 									activeSkill.skillData[explodeMod.type.."EffectiveExplodePercentage"] = explodeMod.amount
 								end
-								output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.chance
+								output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.value / 100
 							end
 						end
 					else
@@ -6747,7 +6747,7 @@ skills["VoidIllusionSpawnPlayer"] = {
 						local explodeModList = activeSkill.skillModList:List(activeSkill.skillCfg, "ExplodeMod")
 						for _, explodeMod in ipairs(explodeModList) do
 							local amountChance = typeAmountChances[explodeMod.type] or { }
-							amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.chance
+							amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.value / 100
 							typeAmountChances[explodeMod.type] = amountChance
 						end
 						for type, amountChance in pairs(typeAmountChances) do
