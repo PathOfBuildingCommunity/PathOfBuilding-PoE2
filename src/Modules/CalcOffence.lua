@@ -5609,7 +5609,7 @@ function calcs.offence(env, actor, activeSkill)
 	if gloryPctOnHitMp > 0 then
 		local inc = modDB:Sum("INC", skillCfg, "GloryGeneration")
 		local monsterPower = 20
-		output.GloryPerSecond = gloryPctOnHitMp * (1+inc/100) * output.Speed * monsterPower
+		output.BannerGloryPerSecond = gloryPctOnHitMp * (1+inc/100) * output.Speed * monsterPower
 	end
 
 	-- Calculate combined DPS estimate, including DoTs
