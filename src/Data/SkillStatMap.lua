@@ -541,7 +541,8 @@ return {
 },
 ["skill_speed_+%"] = {
 	mod("Speed", "INC", nil),
-	mod("WarcrySpeed", "INC", nil),
+	mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry),
+	mod("TotemPlacementSpeed", "INC", nil),
 },
 ["cast_speed_+%_granted_from_skill"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast),
@@ -1992,6 +1993,12 @@ return {
 },
 ["off_hand_maximum_added_fire_damage_per_15_shield_armour"] = {
 	mod("FireMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnWeapon 2", div = 15 }),
+},
+["off_hand_minimum_added_fire_damage_per_15_shield_evasion"] = {
+	mod("FireMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 15 }),
+},
+["off_hand_maximum_added_fire_damage_per_15_shield_evasion"] = {
+	mod("FireMax", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "EvasionOnWeapon 2", div = 15 }),
 },
 ["off_hand_minimum_added_physical_damage_per_15_shield_armour"] = {
 	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", stat = "ArmourOnWeapon 2", div = 15 }),

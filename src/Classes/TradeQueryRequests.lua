@@ -498,11 +498,11 @@ function TradeQueryRequestsClass:FetchLeagues(realm, callback)
 					errMsg = json_data and json_data.error or "Failed to parse trade leagues JSON"
 				end
 				local leagues = {}
-					for _, value in pairs(json_data.result) do
-						if value.realm == realm then
-							table.insert(leagues, value.id)
-						end
+				for _, value in pairs(json_data.result) do
+					if value.realm == realm then
+						table.insert(leagues, value.id)
 					end
+				end
 				callback(leagues, errMsg)
 			end,
 			{header = header}
