@@ -101,7 +101,11 @@ function GemSelectClass:PopulateGemList()
 		if (self.sortGemsBy and gemData.tags[self.sortGemsBy] == true or not self.sortGemsBy) then
 			local levelRequirement = (gemData.grantedEffect.levels and gemData.grantedEffect.levels[1] and gemData.grantedEffect.levels[1].levelRequirement) or 1
 			if characterLevel >= levelRequirement or not matchLevel then
-				self.gems["Default:" .. gemId] = gemData
+				if (showLineage or showAll) and gemData.grantedEffect.isLineage then
+					self.gems["Default:" .. gemId] = gemData
+				elseif (showNormal or showAll) and not gemData.grantedEffect.isLineage then
+					self.gems["Default:" .. gemId] = gemData
+				end
 			end
 		end
 	end
@@ -115,7 +119,7 @@ function GemSelectClass:FilterSupport(gemId, gemData)
 	local showSupportTypes = self.skillsTab.showSupportGemTypes
 	return (not gemData.grantedEffect.support
 		or showSupportTypes == "ALL"
-		or (showSupportTypes == "NORMAL" and not gemData.grantedEffect.plusVersionOf)
+		or (showSupportTypes == "NORMAL" and not gemData.grantedEffect.isLineage)
 		or (showSupportTypes == "LINEAGE" and gemData.grantedEffect.isLineage))
 end
 
