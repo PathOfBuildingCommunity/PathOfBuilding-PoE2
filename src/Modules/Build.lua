@@ -1066,6 +1066,7 @@ function buildMode:ResetModFlags()
 	self.configTab.modFlag = false
 	self.treeTab.modFlag = false
 	self.treeTab.searchFlag = false
+	self.treeTab.autoAttrFlag = false
 	self.spec.modFlag = false
 	self.skillsTab.modFlag = false
 	self.itemsTab.modFlag = false
@@ -1185,7 +1186,7 @@ function buildMode:OnFrame(inputEvents)
 		self.calcsTab:Draw(tabViewPort, inputEvents)
 	end
 
-	self.unsaved = self.modFlag or self.notesTab.modFlag or self.partyTab.modFlag or self.configTab.modFlag or self.treeTab.modFlag or self.treeTab.searchFlag or self.spec.modFlag or self.skillsTab.modFlag or self.itemsTab.modFlag or self.calcsTab.modFlag
+	self.unsaved = self.modFlag or self.notesTab.modFlag or self.partyTab.modFlag or self.configTab.modFlag or self.treeTab.modFlag or self.treeTab.searchFlag or self.treeTab.autoAttrFlag or self.spec.modFlag or self.skillsTab.modFlag or self.itemsTab.modFlag or self.calcsTab.modFlag
 
 	SetDrawLayer(5)
 

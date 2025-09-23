@@ -130,6 +130,32 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				for nodeId in node.attrib.nodes:gmatch("%d+") do
 					weaponSets[tonumber(nodeId)] = weaponSet
 				end
+			elseif node.elem == "AutoAttributeConfig" then
+				-- TODO continue autoAttributeConfig loading
+				local autoAttributeConfig = { }
+				if node.attrib then
+					autoAttributeConfig.enabled = node.attrib.enabled == "true"
+					autoAttributeConfig.ignoreItemMods = node.attrib.ignoreItemMods == "true"
+					autoAttributeConfig.useAttrReq = node.attrib.useAttrReq == "true"
+					for _, attrEntry in ipairs(node) do
+						if (not attrEntry.elem) or (not attrEntry.attrib) then
+							launch:ShowErrMsg("^1Error parsing '%s': 'AutoAttributeConfig' element has invalid structure^7", dbFileName)
+							return true
+						end
+						autoAttributeConfig[attrEntry.elem] = { }
+						autoAttributeConfig[attrEntry.elem].max = attrEntry.attrib.max ~= "nil" and tonumber(attrEntry.attrib.max) or nil
+						autoAttributeConfig[attrEntry.elem].weight = attrEntry.attrib.weight ~= "nil" and tonumber(attrEntry.attrib.weight) or nil
+						autoAttributeConfig[attrEntry.elem].useMaxVal = attrEntry.attrib.useMaxVal == "true"
+					end
+				else
+					launch:ShowErrMsg("^1Error parsing '%s': 'AutoAttributeConfig' element missing 'attrib' attribute^7", dbFileName)
+					return true
+				end
+				-- Add static and calculated values
+				autoAttributeConfig = self.build.treeTab:UpdateAutoAttributeConfig(autoAttributeConfig, true)
+				self.autoAttributeConfig = copyTable(autoAttributeConfig)
+				self.autoAttributeConfigSaved = copyTable(autoAttributeConfig) --extra entry to detect changes later
+
 			end
 		end
 	end
@@ -255,6 +281,29 @@ function PassiveSpecClass:Save(xml)
 		t_insert(overrides, attributeOverride)
 	end
 	t_insert(xml, overrides)
+	
+	local autoAttributeConfig = {
+		elem = "AutoAttributeConfig"
+	}
+	if self.autoAttributeConfig then
+		-- This only saves values to the xml that are neither static, nor calculated. The rest is regenerated on load
+		autoAttributeConfig.attrib = {
+			enabled = tostring(self.autoAttributeConfig.enabled),
+			ignoreItemMods = tostring(self.autoAttributeConfig.ignoreItemMods),
+			useAttrReq = tostring(self.autoAttributeConfig.useAttrReq),
+		}
+		for _, attr in ipairs({"str", "dex", "int"}) do
+			local attrEntry = { elem = tostring(attr), 
+				attrib = { 
+					weight = tostring(self.autoAttributeConfig[attr].weight),
+					max = tostring(self.autoAttributeConfig[attr].max),
+					useMaxVal = tostring(self.autoAttributeConfig[attr].useMaxVal),
+				}
+			}
+			t_insert(autoAttributeConfig, attrEntry)
+		end
+		t_insert(xml, autoAttributeConfig)
+	end
 
 end
 
