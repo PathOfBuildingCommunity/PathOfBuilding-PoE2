@@ -1799,8 +1799,8 @@ skills["BonestormPlayer"] = {
 		[40] = { critChance = 15, levelRequirement = 90, cost = { ManaPerMinute = 21924, }, },
 	},
 			preDamageFunc = function(activeSkill, output)
-				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1
-				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1
+				activeSkill.skillData.hitTimeMultiplier = math.ceil(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1)
+				activeSkill.skillData.channelTimeMultiplier = math.ceil(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1)
 				activeSkill.skillData.dpsMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage")
 			end,
 	statSets = {
