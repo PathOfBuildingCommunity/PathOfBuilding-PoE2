@@ -350,7 +350,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		-- Draw left cap first, then influence icon on top
 		DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader1 then
+		if self.influenceHeader1 and self.tooltipHeader ~= "JEWEL" then
 			DrawImage(self.influenceIcon1, headerX+5, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
 		end
 
@@ -370,7 +370,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		-- Draw right cap
 		DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader2 then
+		if self.influenceHeader2 and self.tooltipHeader ~= "JEWEL" then
 			DrawImage(self.influenceIcon2, headerX + headerTotalWidth - headerSideWidth+10, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
 		end
 	end
