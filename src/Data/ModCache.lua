@@ -1047,7 +1047,7 @@ c["10% increased Stun Buildup 16% increased Melee Damage +10 to Strength"]={{[1]
 c["10% increased Stun Buildup Ancestrally Boosted Attacks deal 16% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}," Stun Buildup Ancestrally Boosted Attacks deal 16% increased  "}
 c["10% increased Stun Buildup Damage Penetrates 5% Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}," Stun Buildup  Penetrates 5% Fire Resistance "}
 c["10% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},nil}
-c["10% increased Stun Threshold for each time you've been Hit by an Enemy Recently, up to 100%"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},"  for each time you've been Hit by an Enemy Recently, up to 100% "}
+c["10% increased Stun Threshold for each time you've been Hit by an Enemy Recently, up to 100%"]={{[1]={[1]={limit=100,limitTotal=true,type="Multiplier",var="BeenHitRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},nil}
 c["10% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=10}},nil}
 c["10% increased Trap Damage"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=10}},nil}
 c["10% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=10}},nil}
