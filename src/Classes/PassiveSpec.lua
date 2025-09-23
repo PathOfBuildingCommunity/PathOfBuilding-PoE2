@@ -706,11 +706,26 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		node.allocMode = (node.ascendancyName or node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket) and 0 or self.allocMode
 		self.allocNodes[node.id] = node
 	else
+		local cachedPlayerAttr = nil -- Used for iterative, automatic determination of desired attribute nodes
+		local cachedPathAttrResults = nil --Used for temp storage of mods gained from the nodes, which are not yet included in the playerModDb until after allocation
+		
+		if self.autoAttributeConfig and self.autoAttributeConfig.enabled and ((((altPath and altPath.pathDist) or 0) > 1) or ((node.pathDist or 0) > 1) ) then
+			for _, pathNode in ipairs(altPath or node.path) do
+				if pathNode.finalModList and #pathNode.finalModList > 0 then
+					-- Choosing a function to return results, rather than passing the ModList itself because I don't want to modify the playerModDB later
+					cachedPathAttrResults = self:GetTempPathAttributeResults(pathNode.finalModList)
+				end
+			end
+		end
 		for _, pathNode in ipairs(altPath or node.path) do
 			pathNode.alloc = true
 			pathNode.allocMode = (node.ascendancyName or pathNode.type == "Keystone" or pathNode.type == "Socket" or pathNode.containJewelSocket) and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
 			if pathNode.isAttribute then 
+				if self.autoAttributeConfig and self.autoAttributeConfig.enabled then
+					-- Note: cachedPathAttrResults is passed every time, but only used if `cachedPlayerAttr == nil`
+					self.attributeIndex, cachedPlayerAttr = self:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResults)
+				end
 				self:SwitchAttributeNode(pathNode.id, self.attributeIndex or 1)
 			end
 			self.allocNodes[pathNode.id] = pathNode
@@ -2078,4 +2093,93 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 		
 		self.hashOverrides[nodeId] = newNode
 	end
+end
+
+-- Function to auto calculate which attribute to allocate based on desired user weights
+-- Should only be called if `self.autoAttributeConfig and self.autoAttributeConfig.enabled`
+---@param cachedPlayerAttr table | nil optional table with cached playerAttribute values. Used when iterating over multiple attribute nodes without having to recalculate each time. Ignored if `nil`
+---@param cachedPathAttrResults table | nil optional table that contains a cumulative effects of `finalModList` from non-attribute nodes on the path that need to be taken into account for attribute total estimation
+---@return number attributeIndex, table playerAttr returns a number for the `attributeIndex` and the `playerAttr` table for future iterations
+function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResults)
+	local autoAttributeConfig = self.autoAttributeConfig
+	local defaultAttrNodeValue = 5 -- doesn't seem to be anywhere in `data`, so I am storing it here, in case it ever changes
+	local playerAttr
+	local attributeList = { "dex", "int", "str" }
+	if cachedPlayerAttr ~= nil then
+		playerAttr = cachedPlayerAttr
+	else
+		-- Mod-based analysis is only performed once per path to reduce performance impact, otherwise cachedPlayerAttr is used
+		local playerModDB = self.build.calcsTab.mainEnv.player.modDB
+		local itemModDB = self.build.calcsTab.mainEnv.itemModDB
+
+		-- Initialize player attribute values
+		playerAttr = { }
+		for _, attr in ipairs(attributeList) do
+			local attrUpper = attr:gsub("^%l", string.upper)
+			playerAttr[attr] = { }
+			
+			-- Calculating individual factor values instead of just using `mainOutput` because they are used to "simulate" effects for multi-node allocation
+			playerAttr[attr].base = playerModDB:Sum("BASE", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].base or 0)
+			playerAttr[attr].inc = playerModDB:Sum("INC", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].inc or 0)
+			playerAttr[attr].more = playerModDB:More(nil, attrUpper) * (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].more or 1)
+
+			-- Remove item effects if configured 
+			-- Note: I believe this currently wouldn't work with "override" mods or "Omniscience", but I don't think those exist in PoE2 atm
+			if autoAttributeConfig.ignoreItemMods then
+				playerAttr[attr].itemBase = itemModDB:Sum("BASE", nil, attrUpper)
+				playerAttr[attr].itemInc = playerModDB:Sum("INC", nil, attrUpper)
+				playerAttr[attr].itemMore = itemModDB:More(nil, attrUpper)
+				playerAttr[attr].base = playerAttr[attr].base - playerAttr[attr].itemBase
+				playerAttr[attr].inc = playerAttr[attr].inc - playerAttr[attr].itemInc
+				playerAttr[attr].more = playerAttr[attr].more / playerAttr[attr].itemMore
+			end
+
+			playerAttr[attr].mult = (1 + (playerAttr[attr].inc / 100)) * playerAttr[attr].more
+			playerAttr[attr].total = playerAttr[attr].base * playerAttr[attr].mult
+		end
+	end
+	
+	playerAttr.sumTotal = playerAttr.dex.total + playerAttr.int.total + playerAttr.str.total 
+	playerAttr.dex.ratio = playerAttr.dex.total / playerAttr.sumTotal
+	playerAttr.int.ratio = playerAttr.int.total / playerAttr.sumTotal
+	playerAttr.str.ratio = playerAttr.str.total / playerAttr.sumTotal
+
+	local maxDiff = 0
+	local neededAttr = nil
+
+	-- Update weights based on attribute requirements if necessary
+	if autoAttributeConfig.useAttrReq then
+		self.autoAttributeConfig = self.build.treeTab:UpdateAutoAttributeConfig(autoAttributeConfig)
+	end
+
+	for _, attr in ipairs(attributeList) do
+		-- Check if the max value is set and if it's already been exceeded.
+		if autoAttributeConfig[attr].max == nil or (not autoAttributeConfig[attr].useMaxVal) or playerAttr[attr].total < autoAttributeConfig[attr].max then
+			local diff = autoAttributeConfig[attr].ratio - playerAttr[attr].ratio
+			if diff > maxDiff then
+				maxDiff = diff
+				neededAttr = attr
+			end
+		end
+	end
+	-- Add effect of new attribute node to `playerAttr` for further iterations
+	if neededAttr ~= nil then
+		playerAttr[neededAttr].base = playerAttr[neededAttr].base + defaultAttrNodeValue
+		playerAttr[neededAttr].total = playerAttr[neededAttr].base * playerAttr[neededAttr].mult
+	end
+
+	return autoAttributeConfig[neededAttr] and autoAttributeConfig[neededAttr].id or 1, playerAttr
+end
+
+-- Analyzes a `finalModList` from a path with respect to effects on `dex`/ `int` / `str` for use in `GetAutoAttribute`
+function PassiveSpecClass:GetTempPathAttributeResults(modList, attrResults)
+	attrResults = attrResults or { dex = { }, int= { }, str = { } }
+	for attr, _ in pairs(attrResults) do
+		local attrUpper = attr:gsub("^%l", string.upper)
+		attrResults[attr].base = (attrResults[attr].base or 0) + modList:Sum("BASE", nil, attrUpper)
+		attrResults[attr].inc = (attrResults[attr].inc or 0) + modList:Sum("INC", nil, attrUpper)
+		attrResults[attr].more = (attrResults[attr].more or 1) * modList:More(nil, attrUpper)
+	end
+
+	return attrResults
 end

@@ -325,11 +325,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				build.buildFlag = true
 			elseif hoverNode.path and not shouldBlockGlobalNodeAllocation(hoverNode) then
 				-- Handle allocation of unallocated nodes
-				if hoverNode.isAttribute and not hotkeyPressed then
-					build.treeTab:ModifyAttributePopup(hoverNode)
+				if hoverNode.isAttribute and not hotkeyPressed and not (spec.autoAttributeConfig and spec.autoAttributeConfig.enabled) then
+						build.treeTab:ModifyAttributePopup(hoverNode)
 				else
 					-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
-					-- same flow for hotkey attribute and non attribute nodes
+					-- same flow for hotkey attribute, automatic attributes, and non-attribute nodes
 					if hotkeyPressed then
 						processAttributeHotkeys(hoverNode.isAttribute)
 					end
