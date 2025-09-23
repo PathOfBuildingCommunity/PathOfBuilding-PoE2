@@ -114,6 +114,8 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.controls.compareSelect.maxDroppedWidth = 1000
 	self.controls.compareSelect.enableDroppedWidth = true
 	self.controls.compareSelect.enableChangeBoxWidth = true
+
+	-- Reset Tree Button
 	self.controls.reset = new("ButtonControl", { "LEFT", self.controls.compareCheck, "RIGHT" }, { 8, 0, 100, 20 }, "Reset Tree", function()
 		local controls = { }
 		local buttonY = 65
@@ -132,6 +134,11 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		main:OpenPopup(470, 100, "Reset Tree", controls, nil, "edit", "cancel")
 	end)
 
+	-- Automatic Attribute Allocation Button
+	-- TODO check if that's where/how I want autoAttribute button positioned
+	--local updateAutoAttributeConfigAnchor = function(anchor) self.controls.autoAttributeButton:SetAnchor("LEFT", anchor, "RIGHT") end
+	self.controls.autoAttributeButton = new("ButtonControl", { "LEFT", self.controls.reset, "RIGHT" }, { 8, 0, 150, 20 }, "Auto Attribute Config", function() self:ConfigureAutoAttributePopup() end)
+
 	-- Tree Version Dropdown
 	self.treeVersions = { }
 	for _, num in ipairs(treeVersionList) do
@@ -141,7 +148,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		}
 		t_insert(self.treeVersions, value)
 	end
-	self.controls.versionText = new("LabelControl", { "LEFT", self.controls.reset, "RIGHT" }, { 8, 0, 0, 16 }, "Version:")
+	self.controls.versionText = new("LabelControl", { "LEFT", self.controls.autoAttributeButton, "RIGHT" }, { 8, 0, 0, 16 }, "Version:")
 	self.controls.versionSelect = new("DropDownControl", { "LEFT", self.controls.versionText, "RIGHT" }, { 8, 0, 60, 20 }, self.treeVersions, function(index, selected)
 		if selected.value ~= self.build.spec.treeVersion then
 			self:OpenVersionConvertPopup(selected.value, true)
@@ -795,6 +802,186 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 		"unallocated node to your last used attribute\n\n"
 	)
 	main:OpenPopup(550, 185, "Choose Attribute", controls, "save")
+end
+
+-- Popup for configuration of automatic attribute allocation
+function TreeTabClass:ConfigureAutoAttributePopup()
+	if self.build.spec.autoAttributeConfig == nil then
+		self.build.spec.autoAttributeConfig = self:UpdateAutoAttributeConfig() -- will initialize if not yet set
+	end
+	local controls = { }
+	-- Main popup window
+	local window = {
+		width = 450,
+		height = 330,
+	}
+	local config = copyTable(self.build.spec.autoAttributeConfig)
+
+	-- TODO convert all sizes to static values instead?
+
+	-- 'save' and 'cancel' buttons
+	local mainButton = {
+		y = m_floor(window.height * 0.9),
+		x = m_floor(window.width * 0.15),
+	}
+	local settingsSection = {
+		width = m_floor(window.width * 0.9),
+		height = m_floor(window.height * 0.5),
+		gapTop = m_floor(window.height * 0.25),
+		marginX = m_floor(window.width * 0.1),
+		marginY = 20,
+	}
+	local settingsColumns = {
+		[1] = { 
+			id = "attribute",
+			header = "Attribute",
+			width = m_floor(window.width * 0.25),
+			height = 16,
+		},
+		[2] = { 
+			id = "weight",
+			header = "Weight",
+			width = m_floor(window.width * 0.15),
+			height = 16,
+		},
+		[3] = { 
+			id = "maxVal",
+			header = "Max Value",
+			width = m_floor(window.width * 0.15),
+			height = 16,
+		},
+		[4] = { 
+			id = "useMaxVal",
+			header = "Limit to Max?",
+			width = m_floor(window.width * 0.15),
+			height = 16,
+		},
+	}
+
+	-- Main Checkbox
+	controls.enabledLabel = new("LabelControl", nil, { m_floor(-window.width * 0.2), m_floor(window.height * 0.10), m_floor(window.width * 0.3), 16 }, "^7Automatic Attribute Allocation")
+	controls.enabledCheck = new("CheckBoxControl", { "LEFT", controls.enabledLabel, "RIGHT" }, { 10, 0, 18 }, "", function(value) config.enabled = value end, "^7Enabling this option will automatically decide which attribute to allocate on travel nodes, \naccording to the configured weights and current total attributes", config.enabled)
+	
+	-- Section for detail setting
+	-- Headers
+	controls.settingsSection = new("SectionControl", nil, { 0, settingsSection.gapTop, settingsSection.width, settingsSection.height }, "^7Allocation Settings")
+	for i, column in ipairs(settingsColumns) do
+		local anchor = i == 1 and { "TOPLEFT", controls.settingsSection, "TOPLEFT" } or {"LEFT", controls[settingsColumns[i-1].id .. "Label"], "RIGHT" }
+		local marginY = i == 1 and settingsSection.marginY or 0
+		controls[column.id .. "Label"] = new("LabelControl", anchor, {  i ~= 1 and settingsSection.marginX or 8, marginY, column.width, column.height }, "^7" .. column.header)
+	end
+	-- Attribute settings
+	local attributeList = {"str", "dex", "int"}
+	for i, attr in ipairs (attributeList) do
+		controls[attr .. "Label"] = new("LabelControl", { "TOPLEFT", i == 1 and controls.attributeLabel or controls[attributeList[i-1] .. "Label"], "BOTTOMLEFT" }, {  0, settingsSection.marginY / 2, settingsColumns[1].width, settingsColumns[1].height - 2 }, colorCodes[config[attr].name:upper()] ..  config[attr].name .. ":^7")
+		controls[attr .. "Weight"] = new("EditControl", {"LEFT", controls[attr .. "Label"], "LEFT"}, { settingsSection.marginX + controls.attributeLabel.width(), 0, settingsColumns[2].width, settingsColumns[2].height },  config[attr].weight, nil, "%D", nil, function(value) 
+			if not config.useAttrReq then
+				config[attr].weight = tonumber(value) 
+			else -- make sure weight display value is updated to current stats, if attribute requirements are to be used
+				local attrReq = self.build.calcsTab.mainOutput["Req" .. attr:gsub("^%l", string.upper)] or 0
+				config[attr].weight = tonumber(attrReq)
+				controls[attr .. "Weight"]:SetText(tostring(attrReq), false)
+			end
+		end, nil, nil, true)
+		controls[attr .. "MaxVal"] = new("EditControl", {"LEFT", controls[attr .. "Weight"], "LEFT"}, { settingsSection.marginX + controls.weightLabel.width(), 0, settingsColumns[3].width, settingsColumns[3].height },  config[attr].max, nil, "%D", nil, function(value) config[attr].max = tonumber(value) end, nil, nil, true)
+		controls[attr .. "UseMaxVal"] = new("CheckBoxControl", {"LEFT", controls[attr .. "MaxVal"], "LEFT"}, { settingsSection.marginX + controls.maxValLabel.width(), 0, settingsColumns[4].height },  "", function(state) 
+				if state then -- If box is switched to 'checked', only allow change if less than two boxes are checked
+					local maxCheckCount = (config.str.useMaxVal and 1 or 0) + (config.dex.useMaxVal and 1 or 0) + (config.int.useMaxVal and 1 or 0)
+					if maxCheckCount < 2 then
+						config[attr].useMaxVal = state
+					else
+						controls[attr .. "UseMaxVal"].state = false
+					end
+				else
+					config[attr].useMaxVal = state
+				end
+			end, "Enabling a \"Max Value\" will ignore the weight and stop allocating this attribute once the threshold is exceeded\n^8(no more than two attributes can be limited this way)^7", config[attr].useMaxVal)
+	end
+
+	-- Use Attribute Requirements option
+	controls.useAttrReqLabel = new("LabelControl", { "TOPLEFT", controls.intLabel, "BOTTOMLEFT" }, {  0, settingsSection.marginY, settingsColumns[1].width, settingsColumns[1].height }, "^7Use Attribute Requirements")
+	controls.useAttrReqCheck = new("CheckBoxControl", { "TOPLEFT", controls.intMaxVal, "BOTTOMLEFT" }, { 0, settingsSection.marginY -1, 18 }, "", function(state) 
+			config.useAttrReq = state
+			if state then
+				for _, attr in ipairs (attributeList) do
+					controls[attr .. "Weight"]:SetText(self.build.calcsTab.mainOutput["Req" .. attr:gsub("^%l", string.upper) .. "String"] or "0", true)
+				end
+			end
+		end, 
+		"^7Enabling this option will automatically set the weights to current attribute requirements\n^8(You can still manually set \"Max Value\")^7", config.useAttrReq
+		)
+	-- Ignore Item Mods option
+	controls.ignoreItemModsLabel = new("LabelControl", { "TOPLEFT", controls.useAttrReqLabel, "BOTTOMLEFT" }, { 0, 10, settingsColumns[1].width, settingsColumns[1].height, }, "^7Ignore Item Mods")
+	controls.ignoreItemModsCheck = new("CheckBoxControl", { "TOP", controls.useAttrReqCheck, "BOTTOM" }, { 0, 10, 18 }, "", function(value) config.ignoreItemMods = value end, "^7Enabling this option will ignore attributes gained from items, when calculating total player attributes\n^8(This includes both flat and percentage modifiers)^7", config.ignoreItemMods)
+	
+	controls.save = new("ButtonControl", nil, { -mainButton.x, mainButton.y, 100, 20 }, "Save", function()
+		
+		self.build.spec.autoAttributeConfig = self:UpdateAutoAttributeConfig(copyTable(config))
+		
+		-- Enable "Save" build button, if autoAttributeConfig changed
+		if not tableDeepEquals(self.build.spec.autoAttributeConfig, self.build.spec.autoAttributeConfigSaved) then 
+			self.autoAttrFlag = true
+		end
+		main:ClosePopup()
+	end)
+	controls.cancel = new("ButtonControl", nil, { mainButton.x, mainButton.y, 100, 20 }, "Cancel", function()
+		main:ClosePopup()
+	end)
+	
+	main:OpenPopup(window.width, window.height, "Auto Attribute Config", controls, "save", nil, "cancel")
+end
+
+-- Create the default autoAttributeConfig in case the popup is opened for the first time
+---@return table defaultConfig
+function TreeTabClass:InitAutoAttributeConfig()
+	local defaultConfig = {
+			enabled = false,
+			ignoreItemMods = false, -- Whether to calculate player totals without the effects from items
+			useAttrReq = false, -- Whether weights are auto-populated based on current attribute requirements
+			dex = { weight = nil, max = nil, useMaxVal = false, id = 2, name = "Dexterity" }, -- "weight" and "max" determined by user, "id" and "name" is static
+			int = { weight = nil, max = nil, useMaxVal = false, id = 3, name = "Intelligence" },
+			str = { weight = nil, max = nil, useMaxVal = false, id = 1, name = "Strength" },
+		}
+	return defaultConfig
+end
+
+-- Update calculated and potentially static values that are not part of the autoAttributeConfig popup form
+---@param autoAttributeConfig table | nil the autoAttributeConfig you're strting from, if any
+---@param addStaticInfo boolean | nil whether to add static infor like the 'id' and 'name' of attributes (e.g. when loading from a save file)
+---@return table @returns the updated config
+function TreeTabClass:UpdateAutoAttributeConfig(autoAttributeConfig, addStaticInfo)
+	-- Initialize config if empty
+	if autoAttributeConfig == nil then
+		autoAttributeConfig = self:InitAutoAttributeConfig()
+	end
+
+	-- Static values (Should only be necessary when loading from xml)
+	if addStaticInfo then
+		local staticInfo = {
+			dex = { id = 2, name = "Dexterity" },
+			int = { id = 3, name = "Intelligence" },
+			str = { id = 1, name = "Strength" },
+		}
+		for key, value in pairs(staticInfo) do
+			autoAttributeConfig[key].id = value.id
+			autoAttributeConfig[key].name = value.name
+		end
+	end
+
+	-- Calculated values
+	if autoAttributeConfig.useAttrReq then
+		-- Make sure weights based on attribute requirements are up to date
+		autoAttributeConfig.dex.weight = self.build.calcsTab.mainOutput["ReqDex"] or 0
+		autoAttributeConfig.int.weight = self.build.calcsTab.mainOutput["ReqInt"] or 0
+		autoAttributeConfig.str.weight = self.build.calcsTab.mainOutput["ReqStr"] or 0
+	end
+	
+	autoAttributeConfig.totalWeight = (autoAttributeConfig.dex.weight or 0) + (autoAttributeConfig.int.weight or 0) + (autoAttributeConfig.str.weight or 0)
+	autoAttributeConfig.dex.ratio = autoAttributeConfig.totalWeight == 0 and (1/3) or (autoAttributeConfig.dex.weight or 0) / autoAttributeConfig.totalWeight
+	autoAttributeConfig.int.ratio = autoAttributeConfig.totalWeight == 0 and (1/3) or (autoAttributeConfig.int.weight or 0) / autoAttributeConfig.totalWeight
+	autoAttributeConfig.str.ratio = autoAttributeConfig.totalWeight == 0 and (1/3) or (autoAttributeConfig.str.weight or 0) / autoAttributeConfig.totalWeight
+
+	return autoAttributeConfig
 end
 
 function TreeTabClass:SaveMasteryPopup(node, listControl)
