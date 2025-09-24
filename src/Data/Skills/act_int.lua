@@ -4796,9 +4796,14 @@ skills["CorpseCloudPlayer"] = {
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "corpse_cloud_statset_0",
 			baseFlags = {
-				spell = true,
 				area = true,
 				duration = true,
+				spell = true,
+			},
+			baseMods = {
+				mod("PoisonChance", "BASE", 100),
+				skill("explodeCorpse", true),
+				skill("corpseExplosionDamageType", "Chaos"),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
