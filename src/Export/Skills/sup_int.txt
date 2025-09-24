@@ -564,6 +564,11 @@ statMap = {
 
 #skill SupportFocusedCursePlayer
 #set SupportFocusedCursePlayer
+statMap = {
+	["support_focus_curse_curse_delay_+%_final"] = {
+		mod("CurseDelay", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
