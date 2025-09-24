@@ -5590,15 +5590,11 @@ c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High In
 c["While on High Infernal Flame, you and Allies in your Presence Gain 50% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and 50% of Damage as Fire Damage "}
 c["While you are not on Low Mana, you and Allies in your Presence have Unholy Might"]={{[1]={[1]={neg=true,type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:UnholyMight",type="FLAG",value=true}}}},nil}
 c["Withered you inflict has infinite Duration"]={nil,"Withered you inflict has infinite Duration "}
-c["You and Allies in your Presence have +23% to Chaos Resistance"]={nil,"+23% to Chaos Resistance "}
-c["You and Allies in your Presence have +23% to Chaos Resistance You and Allies in your Presence have 10% increased Cooldown Recovery Rate"]={nil,"+23% to Chaos Resistance You and Allies in your Presence have 10% increased Cooldown Recovery Rate "}
-c["You and Allies in your Presence have 10% increased Cooldown Recovery Rate"]={nil,"10% increased Cooldown Recovery Rate "}
-c["You and Allies in your Presence have 10% increased Cooldown Recovery Rate 30% increased Accuracy Rating against Enemies affected by Abyssal Wasting"]={nil,"10% increased Cooldown Recovery Rate 30% increased Accuracy Rating against Enemies affected by Abyssal Wasting "}
-c["You and Allies in your Presence have 12% increased Attack Speed"]={nil,"12% increased Attack Speed "}
-c["You and Allies in your Presence have 12% increased Cast Speed"]={nil,"12% increased Cast Speed "}
-c["You and Allies in your Presence have 12% increased Cast Speed 30% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting"]={nil,"12% increased Cast Speed 30% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting "}
-c["You and Allies in your Presence have 28% increased Accuracy Rating"]={nil,"28% increased Accuracy Rating "}
-c["You and Allies in your Presence have 28% increased Accuracy Rating You and Allies in your Presence have 12% increased Attack Speed"]={nil,"28% increased Accuracy Rating You and Allies in your Presence have 12% increased Attack Speed "}
+c["You and Allies in your Presence have +23% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}}}},nil}
+c["You and Allies in your Presence have 10% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=10}}}},nil}
+c["You and Allies in your Presence have 12% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=12}}}},nil}
+c["You and Allies in your Presence have 12% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=12}}}},nil}
+c["You and Allies in your Presence have 28% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=28}}}},nil}
 c["You are Blind"]={{[1]={[1]={neg=true,type="Condition",var="CannotBeBlinded"},flags=0,keywordFlags=0,name="Condition:Blinded",type="FLAG",value=true}},nil}
 c["You are Immune to Bleeding"]={{[1]={flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
 c["You are considered on Low Life while at 75% of maximum Life or below instead"]={{[1]={flags=0,keywordFlags=0,name="LowLifePercentage",type="BASE",value=0.75}},nil}
