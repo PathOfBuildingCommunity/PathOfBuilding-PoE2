@@ -1589,13 +1589,8 @@ local modTagList = {
 	["for each enemy pierced"] = { tag = { type = "PerStat", stat = "PiercedCount" } },
 	["for each time they've pierced"] = { tag = { type = "PerStat", stat = "PiercedCount" } },
 	["for slam skills"] = { tag = { type = "SkillType", skillType = SkillType.Slam } },
-	["for mace slam skills"] = { tagList = {
-		{ type = "Condition", var = "UsingMace" }, 
-		{ type = "SkillType", skillType = SkillType.Slam } }},
-	["you use yourself"] = { tagList = { 
-		{ type = "SkillType", skillType = SkillType.UsedByTotem, neg = true }, 
-		{ type = "SkillType", skillType = SkillType.Triggered, neg = true }, 
-		{ type = "SkillType", skillType = SkillType.Trapped, neg = true } }},
+	["for mace slam skills"] = { tagList = { { type = "Condition", var = "UsingMace" }, { type = "SkillType", skillType = SkillType.Slam } }},
+	["you use yourself"] = { tagList = { { type = "SkillType", skillType = SkillType.UsedByTotem, neg = true }, { type = "SkillType", skillType = SkillType.Triggered, neg = true }, { type = "SkillType", skillType = SkillType.Trapped, neg = true } }},
 	-- Stat conditions
 	["with (%d+) or more strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
 	["with at least (%d+) strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
@@ -5717,6 +5712,9 @@ local specialModList = {
 	} end,
 	["(%d+)%% reduced movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "INC", -num) } end,
 	["(%d+)%% less movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "MORE", -num) } end,
+	["slam skills you use yourself cause aftershocks"] = {
+		mod("AftershockChance", "BASE", 100, { type = "SkillType", skillType = SkillType.Slam }, { type = "SkillType", skillType = SkillType.UsedByTotem, neg = true }, { type = "SkillType", skillType = SkillType.Triggered, neg = true }, { type = "SkillType", skillType = SkillType.Trapped, neg = true })
+	},
 		-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,

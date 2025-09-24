@@ -5438,7 +5438,7 @@ c["Skills have a 5% chance to not consume Glory"]={nil,"a 5% chance to not consu
 c["Skills reserve 50% less Spirit"]={{[1]={flags=0,keywordFlags=0,name="SpiritReserved",type="MORE",value=-50}},nil}
 c["Skills used by Totems have 30% more Skill Speed"]={{[1]={flags=0,keywordFlags=16384,name="Speed",type="MORE",value=30},[2]={flags=0,keywordFlags=16384,name="WarcrySpeed",type="MORE",value=30},[3]={flags=0,keywordFlags=16384,name="TotemPlacementSpeed",type="MORE",value=30}},nil}
 c["Slam Skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=92,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
-c["Slam Skills you use yourself cause Aftershocks"]={nil,"Slam Skills you use yourself cause Aftershocks "}
+c["Slam Skills you use yourself cause Aftershocks"]={{[1]={[1]={skillType=92,type="SkillType"},[2]={neg=true,skillType=95,type="SkillType"},[3]={neg=true,skillType=37,type="SkillType"},[4]={neg=true,skillType=33,type="SkillType"},flags=0,keywordFlags=0,name="AftershockChance",type="BASE",value=100}},nil}
 c["Sorcery Ward recovers 50% faster"]={nil,"recovers 50% faster "}
 c["Soul Eater"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanHaveSoulEater",type="FLAG",value=true}},nil}
 c["Spell Skills have 10% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=-10}},nil}

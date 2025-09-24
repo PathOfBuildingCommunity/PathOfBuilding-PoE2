@@ -2925,6 +2925,13 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
+	if (skillModList:Sum("BASE", skillCfg, "AftershockChance", "AftershockChanceQuarterSecond") or 0) > 0 then
+		local aftershockChance = skillModList:Sum("BASE", skillCfg, "AftershockChance")
+		local inc = (skillModList:Sum("BASE", skillCfg, "AftershockChanceQuarterSecond") or 0) * m_floor(1 / output.Speed)  / 0.25
+		aftershockChance = aftershockChance * (1 + inc / 100)
+		skillModList:NewMod("DPS", "MORE", aftershockChance, "Aftershock Chance")
+	end
+
 	-- Grab quantity multiplier
 	local quantityMultiplier = m_max(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "QuantityMultiplier"), 1)
 	if quantityMultiplier > 1 then
@@ -4024,8 +4031,7 @@ function calcs.offence(env, actor, activeSkill)
 		local repeatPenalty = skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable]  and not skillModList:Flag(nil, "NoRepeatBonuses") and calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") or 1
 		globalOutput.AverageBurstDamage = output.AverageDamage + output.AverageDamage * (globalOutput.AverageBurstHits - 1) * repeatPenalty or 0
 		globalOutput.ShowBurst = globalOutput.AverageBurstHits > 1
-		local aftershockChance = (1 + skillModList:Sum("BASE", skillCfg, "AftershockChance")/100) or 1
-		output.TotalDPS = output.AverageDamage * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier * quantityMultiplier * aftershockChance
+		output.TotalDPS = output.AverageDamage * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier * quantityMultiplier
 		if breakdown then
 			if output.CritEffect ~= 1 then
 				breakdown.AverageHit = { }
@@ -5269,10 +5275,6 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("ImpaleStoredDamage", "AVERAGE")
 		combineStat("ImpaleModifier", "CHANCE", "ImpaleChance")
 	end
-
-	output.AftershockChance = skillModList:Sum("BASE", skillCfg, "AftershockChance")
-	print("aftershock chance:" .. output.AftershockChance)
-
 
 	if skillData.decay and canDeal.Chaos then
 		-- Calculate DPS for Decay effect
