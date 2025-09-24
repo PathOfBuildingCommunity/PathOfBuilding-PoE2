@@ -1963,6 +1963,7 @@ local modTagList = {
 	["branded enemy's"] = { tag = { type = "MultiplierThreshold", var = "BrandsAttachedToEnemy", threshold = 1 } },
 	["to enemies they're attached to"] = { tag = { type = "MultiplierThreshold", var = "BrandsAttachedToEnemy", threshold = 1 } },
 	["for each hit you've taken recently up to a maximum of (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "BeenHitRecently", limit = num, limitTotal = true } } end,
+	["for each time you've been hit by an enemy recently, up to (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "BeenHitRecently", limit = num, limitTotal = true } } end,
 	["for each nearby enemy, up to (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "NearbyEnemies", limit = num, limitTotal = true } } end,
 	["while you have iron reflexes"] = { tag = { type = "Condition", var = "HaveIronReflexes" } },
 	["while you do not have iron reflexes"] = { tag = { type = "Condition", var = "HaveIronReflexes", neg = true } },
