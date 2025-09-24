@@ -1346,7 +1346,7 @@ local preFlagList = {
 	["^nearby allies [hgd][ae][via][enl] "] = { newAura = true, newAuraOnlyAllies = true },
 	["allies in your presence "] = { newAura = true, newAuraOnlyAllies = true },
 	["allies in your presence [hgd][ae][via][enl] "] = { newAura = true, newAuraOnlyAllies = true },
-	["^you and allies in your presence "] = { newAura = true },
+	["^you and allies in your presence [hgd][ae][via][enl] "] = { newAura = true },
 	["^every rage also grants "] = { tag = { type = "Multiplier", var = "RageEffect" } },
 	["^each rage also grants "] = { tag = { type = "Multiplier", var = "RageEffect" } },
 	["^you and allies affected by auras from your skills [hgd][ae][via][enl] "] = { tag = { type = "Condition", var = "AffectedByAura" } },
