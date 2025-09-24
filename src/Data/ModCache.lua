@@ -1911,6 +1911,7 @@ c["25% increased Blind duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",
 c["25% increased Blind duration 25% increased Damage with Hits against Blinded Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=262144,name="Duration",type="INC",value=25}}," Blind  25% increased Damage   "}
 c["25% increased Block Recovery"]={{[1]={flags=0,keywordFlags=0,name="BlockRecovery",type="INC",value=25}},nil}
 c["25% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=25}},nil}
+c["25% increased Bolt Speed"]={{[1]={flags=67108864,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
 c["25% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
 c["25% increased Chance to Block if you've Blocked with Active Block Recently"]={{[1]={[1]={type="Condition",var="ActiveBlockedRecently"},flags=0,keywordFlags=0,name="BlockChance",type="INC",value=25}},nil}
 c["25% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=25}},nil}
@@ -2134,10 +2135,7 @@ c["30% increased Attack Damage if you've Cast a Spell Recently"]={{[1]={[1]={typ
 c["30% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=30}},nil}
 c["30% increased Block chance while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="BlockChance",type="INC",value=30}},nil}
-c["30% increased Bolt Speed"]={{}," Bolt Speed "}
-c["30% increased Bolt Speed 172% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}}," Bolt Speed 172% increased  "}
-c["30% increased Bolt Speed 60% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}}," Bolt Speed 60% increased  "}
-c["30% increased Bolt Speed Adds 85 to 131 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}}," Bolt Speed Adds 85 to 131  "}
+c["30% increased Bolt Speed"]={{[1]={flags=67108864,keywordFlags=0,name="ProjectileSpeed",type="INC",value=30}},nil}
 c["30% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=30}},nil}
 c["30% increased Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=30}},nil}
