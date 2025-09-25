@@ -3296,6 +3296,10 @@ function calcs.offence(env, actor, activeSkill)
 			activeSkill.activeEffect.grantedEffect.explosiveArrowFunc(activeSkill, output, globalOutput, globalBreakdown, env)
 		end
 
+		if skillData.gloryCost then
+			output.GloryCost = skillData.gloryCost
+		end
+
 		-- Calculate crit chance, crit multiplier, and their combined effect
 		if skillModList:Flag(cfg, "NeverCrit") then
 			output.PreEffectiveCritChance = 0
@@ -3994,6 +3998,15 @@ function calcs.offence(env, actor, activeSkill)
 		output.LifeOnHitRate = output.LifeOnHit * hitRate
 		output.EnergyShieldOnHitRate = output.EnergyShieldOnHit * hitRate
 		output.ManaOnHitRate = output.ManaOnHit * hitRate
+		local gloryOnHit = modDB:Max(skillCfg, "GloryMonsterPowerPercentOnHit") or 0
+		if globalBreakdown then
+			if gloryOnHit > 0 then
+				local inc = modDB:Sum("INC", skillCfg, "GloryGeneration")
+
+				local power = m_max(modDB:Sum("BASE", nil, "Multiplier:EnemyPower"), 1)
+				globalOutput.BannerGloryPerSecond = gloryOnHit * (1+inc/100) * hitRate * power
+			end
+		end	
 
 		-- Calculate gain on kill
 		if skillFlags.mine or skillFlags.trap or skillFlags.totem then
@@ -5599,17 +5612,6 @@ function calcs.offence(env, actor, activeSkill)
 		if breakdown and breakdown.SelfHitDamage then
 			breakdown.SelfHitDamage[#breakdown.SelfHitDamage] = nil -- Remove new line at the end
 		end
-	end
-
-	if skillData.gloryCost then
-		output.GloryCost = skillData.gloryCost
-	end
-	 
-	local gloryPctOnHitMp = modDB:Max(skillCfg, "GloryPctOnHitMp") or 0
-	if gloryPctOnHitMp > 0 then
-		local inc = modDB:Sum("INC", skillCfg, "GloryGeneration")
-		local monsterPower = 20
-		output.BannerGloryPerSecond = gloryPctOnHitMp * (1+inc/100) * output.Speed * monsterPower
 	end
 
 	-- Calculate combined DPS estimate, including DoTs
