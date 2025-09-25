@@ -871,6 +871,7 @@ local modNameList = {
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
 	["glory generation"] = "GloryGeneration",
+	["to not consume glory"] = "ChanceToNotConsumeGlory",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1274,7 +1275,7 @@ local preFlagList = {
 	["^non%-channelling spells [hd][ae][va][el] "] = { flags = ModFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Channel, neg = true } },
 	["^non%-vaal skills deal "] = { tag = { type = "SkillType", skillType = SkillType.Vaal, neg = true } },
 	["^bolts fired by crossbow attacks [hd][ae][va][el] "] = { flags = ModFlag.Crossbow, tag = { type = "SkillType", skillType = SkillType.CrossbowSkill }  },
-	["^skills [hgdf][aei][vari][eln] "] = { },
+	["^skills [hgdf][aei][vari][eln] a?n? ?"] = { },
 	["^triggered spells [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Triggered  } },
 	["^totems have "] = { keywordFlags = KeywordFlag.Totem },
 	["^persistent buffs have "] = { tagList = { { type = "SkillType", skillType = SkillType.Persistent }, { type = "SkillType", skillType = SkillType.Buff } } },

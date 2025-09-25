@@ -5434,9 +5434,9 @@ c["Skills have 33% chance to not consume a Cooldown when used"]={{[1]={[1]={skil
 c["Skills have 5% chance to not remove Elemental Infusions but still count as consuming them"]={{}," to not remove Elemental Infusions but still count as consuming them "}
 c["Skills have 6% increased Skill Speed per Connected green Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillSpeedIncreasedPerGreenSupport",type="FLAG",value=6}},nil}
 c["Skills have a 125% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=125}},nil}
-c["Skills have a 15% chance to not consume Glory"]={nil,"a 15% chance to not consume Glory "}
+c["Skills have a 15% chance to not consume Glory"]={{[1]={flags=0,keywordFlags=0,name="ChanceToNotConsumeGlory",type="BASE",value=15}},nil}
 c["Skills have a 150% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=150}},nil}
-c["Skills have a 5% chance to not consume Glory"]={nil,"a 5% chance to not consume Glory "}
+c["Skills have a 5% chance to not consume Glory"]={{[1]={flags=0,keywordFlags=0,name="ChanceToNotConsumeGlory",type="BASE",value=5}},nil}
 c["Skills reserve 50% less Spirit"]={{[1]={flags=0,keywordFlags=0,name="SpiritReserved",type="MORE",value=-50}},nil}
 c["Skills used by Totems have 30% more Skill Speed"]={{[1]={flags=0,keywordFlags=16384,name="Speed",type="MORE",value=30},[2]={flags=0,keywordFlags=16384,name="WarcrySpeed",type="MORE",value=30},[3]={flags=0,keywordFlags=16384,name="TotemPlacementSpeed",type="MORE",value=30}},nil}
 c["Slam Skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=92,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
