@@ -2500,7 +2500,7 @@ c["40% more maximum Physical Attack Damage"]={{[1]={[1]={skillType=1,type="Skill
 c["40% of Physical Damage taken as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageTakenAsFire",type="BASE",value=40}},nil}
 c["40% of Physical damage from Hits taken as Lightning damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageFromHitsTakenAsLightning",type="BASE",value=40}},nil}
 c["40% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-40}},nil}
-c["40% reduced Duration of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-40}},"  of Bleeding on You "}
+c["40% reduced Duration of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-40}},nil}
 c["40% reduced Duration of Ignite, Shock and Chill on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockDuration",type="INC",value=-40},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=-40},[3]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=-40}},nil}
 c["40% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-40}},nil}
 c["40% reduced Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=-40}},nil}
@@ -2735,7 +2735,7 @@ c["50% of your Base Life Regeneration is granted to Allies in your Presence +30 
 c["50% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-50}},nil}
 c["50% reduced Charm Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="CharmDuration",type="INC",value=-50}},nil}
 c["50% reduced Chill Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillDuration",type="INC",value=-50}},nil}
-c["50% reduced Duration of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},"  of Bleeding on You "}
+c["50% reduced Duration of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-50}},nil}
 c["50% reduced Duration of Curses on you"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-50}},"  of Curses on you "}
 c["50% reduced Effect of Chill on you"]={{[1]={flags=0,keywordFlags=0,name="SelfChillEffect",type="INC",value=-50}},nil}
 c["50% reduced Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=-50}},nil}
@@ -2843,7 +2843,7 @@ c["60% increased Presence Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="P
 c["60% increased Projectile Damage if you've dealt a Melee Hit in the past eight seconds"]={{[1]={[1]={type="Condition",var="HitMeleeRecently"},flags=1024,keywordFlags=0,name="Damage",type="INC",value=60}},nil}
 c["60% increased Rarity of Items found"]={{[1]={flags=0,keywordFlags=0,name="LootRarity",type="INC",value=60}},nil}
 c["60% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
-c["60% reduced Duration of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=-60}},"  of Bleeding on You "}
+c["60% reduced Duration of Bleeding on You"]={{[1]={flags=0,keywordFlags=0,name="SelfBleedDuration",type="INC",value=-60}},nil}
 c["60% reduced Ice Crystal Life"]={{[1]={flags=0,keywordFlags=0,name="IceCrystalLife",type="INC",value=-60}},nil}
 c["60% reduced Poison Duration on you"]={{[1]={flags=0,keywordFlags=0,name="SelfPoisonDuration",type="INC",value=-60}},nil}
 c["60% reduced Reload Speed"]={{[1]={flags=1,keywordFlags=0,name="ReloadSpeed",type="INC",value=-60}},nil}
