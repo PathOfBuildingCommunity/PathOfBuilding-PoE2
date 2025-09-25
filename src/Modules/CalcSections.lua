@@ -1427,7 +1427,10 @@ return {
 	{ label = "Enemy Mana Recovery", haveOutput = "EnemyManaRegen", { format =  "{0:output:EnemyManaRegen}%", { modName = "ManaRegen", modType = "INC", enemy = true }, }, },
 	{ label = "Enemy ES Recovery", haveOutput = "EnemyEnergyShieldRegen", { format =  "{0:output:EnemyEnergyShieldRegen}%", { modName = "EnergyShieldRegen", modType = "INC", enemy = true }, }, },
 	{ label = "MS While Casting", { format = "{1:output:MovementSpeedWhileUsingSkillPercent}%", { breakdown = "MovementSpeedWhileUsingSkill" }, { modName = { "SkillMovementSpeed", "MovementSpeedPenalty" }, cfg = "skill" }, }, },
-	{ label = "Banner glory", {format = "{0:output:BannerGloryPerSecond}/s"}}
+	{ label = "Glory", {format = "-",
+		{ breakdown = "GloryDisplay" },
+		{ label = "Glory modifiers", modName = {"GloryGeneration", "ChanceToNotConsumeGlory"} },
+	}, },
 } }
 } },
 -- attributes/resists

@@ -4004,7 +4004,13 @@ function calcs.offence(env, actor, activeSkill)
 				local inc = modDB:Sum("INC", skillCfg, "GloryGeneration")
 
 				local power = m_max(modDB:Sum("BASE", nil, "Multiplier:EnemyPower"), 1)
-				globalOutput.BannerGloryPerSecond = gloryOnHit * (1+inc/100) * hitRate * power
+				if breakdown then
+					globalBreakdown["GloryDisplay"] = {
+						"Increased generation: " .. s_format("%.0f%%", inc),
+						"Chance to not consume glory: " .. s_format("%.0f%%", modDB:Sum("BASE", skillCfg, "ChanceToNotConsumeGlory")),
+						"Banner glory: " .. s_format("%.0f/s", gloryOnHit * (1+inc/100) * hitRate * power)
+					}
+				end
 			end
 		end	
 
@@ -4217,6 +4223,7 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("ManaOnHit", "DPS")
 		combineStat("ManaOnHitRate", "DPS")
 		combineStat("ManaOnKill", "DPS")
+		combineStat("BannerGloryPerSecond" ,"AVERAGE")
 		for _, damageType in ipairs(dmgTypeList) do
 			combineStat(damageType.."StoredCombinedAvg", "DPS")
 		end
