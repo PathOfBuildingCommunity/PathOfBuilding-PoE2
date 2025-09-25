@@ -5609,7 +5609,7 @@ c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby
 c["You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item "}
 c["You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Sapphire Jewels in this item "}
 c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
-c["You cannot Sprint"]={nil,"You cannot Sprint "}
+c["You cannot Sprint"]={{[1]={flags=0,keywordFlags=0,name="Condition:CannotSprint",type="FLAG",value=true}},nil}
 c["You cannot be Chilled for 6 seconds after being Chilled"]={nil,"You cannot be Chilled for 6 seconds after being Chilled "}
 c["You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen"]={nil,"You cannot be Chilled for 6 seconds after being Chilled You cannot be Frozen for 6 seconds after being Frozen "}
 c["You cannot be Chilled or Frozen"]={{[1]={flags=0,keywordFlags=0,name="ChillImmune",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FreezeImmune",type="FLAG",value=true}},nil}
