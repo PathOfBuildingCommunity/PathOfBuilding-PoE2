@@ -830,6 +830,7 @@ local modNameList = {
 	["bleeding duration"] = { "EnemyBleedDuration" },
 	["bleed duration on you"] = "SelfBleedDuration",
 	["bleeding duration on you"] = "SelfBleedDuration",
+	["duration of bleeding on you"] = "SelfBleedDuration",
 	["to blind enemies on hit"] = { "BlindChance" },
 	["curse magnitudes"] = { "CurseEffect" },
 	["aura magnitudes"] = { "AuraEffect" },
