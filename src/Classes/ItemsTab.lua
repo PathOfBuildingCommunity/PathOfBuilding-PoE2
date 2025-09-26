@@ -452,12 +452,8 @@ holding Shift will put it in the second.]])
 		function(index, value)
 			self.displayItem.catalyst = index - 1
 			if not self.displayItem.catalystQuality then
-				if string.match(self.displayItem.name, "Breach Ring") then 
-					self.displayItem.catalystQuality = 50 
-				else 
-					self.displayItem.catalystQuality = 20 
-				end 
-				self.controls.displayItemCatalystQualityEdit:SetText(self.displayItem.catalystQuality)
+				self.displayItem.catalystQuality = string.match(self.displayItem.name, "Breach Ring") and 50 or 20
+				self.controls.displayItemCatalystQualityEdit:SetVal(self.displayItem.catalystQuality)
 			end
 			if self.displayItem.crafted then
 				for i = 1, self.displayItem.affixLimit do
@@ -472,18 +468,12 @@ holding Shift will put it in the second.]])
 	self.controls.displayItemCatalyst.shown = function()
 		return self.displayItem and (self.displayItem.crafted or self.displayItem.hasModTags) and (self.displayItem.base.type == "Amulet" or self.displayItem.base.type == "Ring")
 	end
-	self.controls.displayItemCatalystQualityEdit = new("EditControl", {"LEFT",self.controls.displayItemCatalyst,"RIGHT"}, {2, 0, 60, 20}, nil, nil, "%D", 2, function(buf)
-		self.displayItem.catalystQuality = tonumber(buf)
-		if self.displayItem.crafted then
-			for i = 1, self.displayItem.affixLimit do
-				-- Force affix selectors to update
-				local drop = self.controls["displayItemAffix"..i]
-				drop.selFunc(drop.selIndex, drop.list[drop.selIndex])
-			end
-		end
+	self.controls.displayItemCatalystQualityEdit = new("SliderControl", {"LEFT",self.controls.displayItemCatalyst,"RIGHT"}, {2, 0, 60, 20}, function(val)
+		self.displayItem.catalystQuality = round(tonumber(val) * (string.match(self.displayItem.name, "Breach Ring") and 50 or 20))
 		self.displayItem:BuildAndParseRaw()
 		self:UpdateDisplayItemTooltip()
 	end)
+	self.controls.displayItemCatalystQualityEdit.width = 100;
 	self.controls.displayItemCatalystQualityEdit.shown = function()
 		return self.displayItem and (self.displayItem.crafted or self.displayItem.hasModTags) and self.displayItem.catalyst and self.displayItem.catalyst > 0
 	end
@@ -1491,9 +1481,10 @@ function ItemsTabClass:SetDisplayItem(item)
 		self.controls.displayItemQualityEdit:SetText(item.quality)
 		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1)
 		if item.catalystQuality then
-			self.controls.displayItemCatalystQualityEdit:SetText(m_max(item.catalystQuality, 0))
+			local val = item.catalystQuality / (string.match(self.displayItem.name, "Breach Ring") and 50 or 20)
+			self.controls.displayItemCatalystQualityEdit:SetVal(m_max(val, 0))
 		else
-			self.controls.displayItemCatalystQualityEdit:SetText(0)
+			self.controls.displayItemCatalystQualityEdit:SetVal(0)
 		end
 		self:UpdateCustomControls()
 		self:UpdateRuneControls()
