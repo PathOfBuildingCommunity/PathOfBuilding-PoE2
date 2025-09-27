@@ -42,7 +42,8 @@ local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter", function(se
     -- convenient name lookup, can be extended
     self.policyNames = {
         ["search"] = "trade-search-request-limit",
-        ["fetch"] = "trade-fetch-request-limit"
+        ["fetch"] = "trade-fetch-request-limit",
+        ["whisper"] = "trade-whisper-request-limit"
     }
     self.delayCache = {}
     self.requestId = 0
@@ -53,6 +54,7 @@ local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter", function(se
     self.pendingRequests = {
         ["trade-search-request-limit"] = {},
         ["trade-fetch-request-limit"] = {},
+        ["trade-whisper-request-limit"] = {},
         ["character-list-request-limit-poe2"] = {},
         ["character-request-limit-poe2"] = {}
     }
