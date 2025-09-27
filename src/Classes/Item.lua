@@ -27,6 +27,8 @@ local catalystTags = {
 	{ "attribute" },
 }
 
+local minimumReqLevel = { }
+
 local function getCatalystScalar(catalystId, tags, quality)
 	if not catalystId or type(catalystId) ~= "number" or not catalystTags[catalystId] or not tags or type(tags) ~= "table" or #tags == 0 then
 		return 1
@@ -484,7 +486,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.armourData[specName] = specToNumber(specVal)
 				elseif specName == "Requires Level" then
 					self.requirements.level = specToNumber(specVal)
-					self.requirements.baseLevel = specToNumber(specVal)
+					minimumReqLevel = minimumReqLevel or {}
+					table.insert(minimumReqLevel, { name = self.name, level = self.requirements.level })
 				elseif specName == "Level" then
 					-- Requirements from imported items can't always be trusted
 					importedLevelReq = specToNumber(specVal)
@@ -1789,10 +1792,16 @@ function ItemClass:BuildModList()
 		local chosenLevel = skillDef.levels[skillLevel] or skillDef.levels[#skillDef.levels]
 		local gemLevelReq = chosenLevel.levelRequirement
 
-		local reqLevel = math.max(self.requirements.baseLevel or 0, gemLevelReq)
-		if gemLevelReq ~= 0 then
-			self.requirements.level = reqLevel
+		local minReqLevel
+		for _, entry in ipairs(minimumReqLevel) do
+			if entry.name == self.title then
+				minReqLevel = entry.level
+				break
+			end
 		end
+
+		local reqLevel = math.max( gemLevelReq, minReqLevel or 0)
+		self.requirements.level = reqLevel
 
 		if self.base.type == "Sceptre" or self.base.type == "Wand" or self.base.type == "Staff" then
 			self.requirements.int = calcLib.getGemStatRequirement(reqLevel, gem.reqInt)
