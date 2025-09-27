@@ -5926,6 +5926,7 @@ local resourceTypes = {
 	["energy shield, life and mana"] = { "Life", "Mana", "EnergyShield" },
 	["energy shield, mana and life"] = { "Life", "Mana", "EnergyShield" },
 	["rage"] = "Rage",
+	["glory"] = "Glory",
 }
 do
 	local maximumResourceTypes = { }

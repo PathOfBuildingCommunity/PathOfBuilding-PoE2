@@ -3296,9 +3296,11 @@ function calcs.offence(env, actor, activeSkill)
 			activeSkill.activeEffect.grantedEffect.explosiveArrowFunc(activeSkill, output, globalOutput, globalBreakdown, env)
 		end
 
-		if skillData.gloryCost then
-			local more = modDB:More(nil	, "GloryCost")
-			output.GloryCost = skillData.gloryCost * more
+		
+		local gloryCost = skillData.gloryCost or 0
+		if gloryCost > 0 then
+			local more = skillModList:More(skillCfg , "GloryCost")
+			output.GloryCost = gloryCost * more
 			if globalOutput then
 				globalOutput.ShowGlory = 1
 			end
