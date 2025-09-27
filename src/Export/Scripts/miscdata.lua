@@ -9,6 +9,7 @@ local allyDamage = ""
 local damage = ""
 local armour = ""
 local ailmentThreshold = ""
+local poiseThreshold = ""
 local minionLevel = ""
 for stats in dat("DefaultMonsterStats"):Rows() do
 	evasion = evasion .. stats.Evasion .. ", "
@@ -19,6 +20,7 @@ for stats in dat("DefaultMonsterStats"):Rows() do
 	allyDamage = allyDamage .. stats.MinionDamage .. ", "
 	armour = armour .. stats.Armour .. ", "
 	ailmentThreshold = ailmentThreshold .. stats.AilmentThreshold .. ", "
+	poiseThreshold = poiseThreshold .. stats.PoiseThreshold .. ", "
 end
 -- Table was incorrect is PoE 1 but seems to be correct for PoE 2. Keeping here just in case
 --for i = 1, 100 do
@@ -33,6 +35,7 @@ out:write('data.monsterDamageTable = { '..damage..'}\n')
 out:write('data.monsterAllyDamageTable = { '..allyDamage..'}\n')
 out:write('data.monsterArmourTable = { '..armour..'}\n')
 out:write('data.monsterAilmentThresholdTable = { '..ailmentThreshold..'}\n')
+out:write('data.monsterPoiseThresholdTable = { '..poiseThreshold..'}\n')
 out:write('\n')
 
 out:write('-- From MinionGemLevelScaling.dat\n')

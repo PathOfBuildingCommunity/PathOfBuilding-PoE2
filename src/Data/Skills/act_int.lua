@@ -8509,6 +8509,11 @@ skills["FreezingMarkPlayer"] = {
 			label = "Mark",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "freezing_mark",
+			statMap = {
+				["freezing_mark_hit_damage_freeze_multiplier_+%_final"] = {
+					mod("FreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				duration = true,
