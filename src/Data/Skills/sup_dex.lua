@@ -4109,7 +4109,6 @@ skills["SupportPrecisionPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Precision",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 10, levelRequirement = 0, },
 	},
@@ -4145,7 +4144,6 @@ skills["SupportPrecisionPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Precision",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 20, levelRequirement = 0, },
 	},
@@ -5656,7 +5654,6 @@ skills["SupportWarmbloodedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "WarmBlooded",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
 	},

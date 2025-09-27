@@ -334,15 +334,13 @@ directiveTable.skill = function(state, args, out)
 				end
 				out:write('},\n')
 			end
-			if supportGem.Lineage then
+			if supportGem.Lineage and supportGem.FlavourText then
 				out:write('\tisLineage = true,\n')
-				if supportGem.FlavourText then
-					out:write('\tflavourText = {')
-					for _, line in ipairs(cleanAndSplit(supportGem.FlavourText.Text)) do
-						out:write('"', line, '", ')
-					end
-					out:write('},\n')
+				out:write('\tflavourText = {')
+				for _, line in ipairs(cleanAndSplit(supportGem.FlavourText.Text)) do
+					out:write('"', line, '", ')
 				end
+				out:write('},\n')
 			end
 		end
 		if skill.isTrigger then

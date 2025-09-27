@@ -988,7 +988,6 @@ skills["SupportClarityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 10, levelRequirement = 0, },
 	},
@@ -1024,7 +1023,6 @@ skills["SupportClarityPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 20, levelRequirement = 0, },
 	},
@@ -4133,7 +4131,6 @@ skills["SupportMysticismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
 	},
@@ -4169,7 +4166,6 @@ skills["SupportMysticismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
 	},
@@ -4940,7 +4936,6 @@ skills["SupportStrongHeartedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "StrongHearted",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
 	},
@@ -5123,7 +5118,6 @@ skills["SupportUpwellingPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
 	},
@@ -5154,7 +5148,6 @@ skills["SupportUpwellingPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
 	},

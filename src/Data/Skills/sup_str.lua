@@ -1272,7 +1272,6 @@ skills["SupportCannibalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Cannibalism",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
 	},
@@ -1308,7 +1307,6 @@ skills["SupportCannibalismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Cannibalism",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
 	},
@@ -1543,7 +1541,6 @@ skills["SupportCoolheadedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "CoolHeaded",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
 	},
@@ -2064,7 +2061,6 @@ skills["SupportDirestrikePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Direstrike",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 20, levelRequirement = 0, },
 	},
@@ -2100,7 +2096,6 @@ skills["SupportDirestrikePlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Direstrike",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 40, levelRequirement = 0, },
 	},
@@ -3650,7 +3645,6 @@ skills["SupportHerbalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Herbalism",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
 	},
@@ -3686,7 +3680,6 @@ skills["SupportHerbalismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Herbalism",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
 	},
@@ -7155,7 +7148,6 @@ skills["SupportVitalityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Vitality",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 20, levelRequirement = 0, },
 	},
@@ -7192,7 +7184,6 @@ skills["SupportVitalityPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Vitality",},
-	isLineage = true,
 	levels = {
 		[1] = { spiritReservationFlat = 40, levelRequirement = 0, },
 	},
