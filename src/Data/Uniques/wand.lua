@@ -18,6 +18,7 @@ Grants Skill: Level 20 Pinnacle of Power
 ]],[[
 Cursecarver
 Acrid Wand
+Requires Level 33
 League: Dawn of the Hunt
 Variant: Elemental Weakness
 Variant: Vulnerability
