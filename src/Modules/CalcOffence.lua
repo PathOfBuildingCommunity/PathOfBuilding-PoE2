@@ -4020,7 +4020,8 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			local gloryOnHit = modDB:Max(skillCfg, "GloryOnHit")
 			if gloryOnHit and not output.GloryCost then
-				t_insert(globalBreakdown["Glory"], s_format("%.0f active glory/s for banners", gloryOnHit * (1+inc/100) * hitRate * power))
+				local incBanner = modDB:Sum("INC", skillCfg, "GloryOnHit") or 0
+				t_insert(globalBreakdown["Glory"], s_format("%.0f active glory/s for banners", gloryOnHit * (1+inc/100) * (1+incBanner/100) * hitRate * power))
 				globalOutput.ShowGlory = 1
 			end
 			if skillData.gloryOnStun then

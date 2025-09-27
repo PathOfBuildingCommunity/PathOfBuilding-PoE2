@@ -872,6 +872,7 @@ local modNameList = {
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
 	["glory generation"] = "GloryGeneration",
+	["glory generation for banner skills"] = "GloryOnHit",
 	["to not consume glory"] = "ChanceToNotConsumeGlory",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",

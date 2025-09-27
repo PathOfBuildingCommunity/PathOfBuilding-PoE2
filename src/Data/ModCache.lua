@@ -1698,7 +1698,7 @@ c["20% increased Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name
 c["20% increased Frenzy Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=20}},nil}
 c["20% increased Global Defences"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=20}},nil}
 c["20% increased Global Physical Damage"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=20}},nil}
-c["20% increased Glory generation for Banner Skills"]={{[1]={flags=0,keywordFlags=0,name="GloryGeneration",type="INC",value=20}},"  for Banner Skills "}
+c["20% increased Glory generation for Banner Skills"]={{[1]={flags=0,keywordFlags=0,name="GloryOnHit",type="INC",value=20}},nil}
 c["20% increased Hazard Duration"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
 c["20% increased Hazard Immobilisation buildup"]={{},"  Immobilisation buildup "}
 c["20% increased Hinder Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Hinder  "}
