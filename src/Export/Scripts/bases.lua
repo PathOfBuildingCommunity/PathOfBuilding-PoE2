@@ -305,14 +305,17 @@ directiveTable.base = function(state, args, out)
 			end
 		end
 		-- Check for more slot specific Soulcores/Runes/Talismans
-		if soulCoresPerClass then
-			stats = { }
-			for i, statKey in ipairs(soulCoresPerClass.Stats) do
-				local statValue = soulCoresPerClass["StatsValues"][i]
+		local soulCoresPerClassList = dat("SoulCoresPerClass"):GetRowList("BaseItemType", baseItemType) or {}
+		for _, row in ipairs(soulCoresPerClassList) do
+			stats = {}
+			for i, statKey in ipairs(row.Stats or {}) do
+				local statValue = row.StatsValues[i]
 				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			local coreItemClass = soulCoresPerClass.ItemClass.Id
-			table.insert(outLines, coreItemClass..': ' .. table.concat(describeStats(stats), '\\n'))
+			if next(stats) then
+				local coreItemClass = row.ItemClass and row.ItemClass.Id or "unknown"
+				table.insert(outLines, coreItemClass .. ': ' .. table.concat(describeStats(stats), '\\n'))
+			end
 		end
 		out:write('\timplicit = "'..table.concat(outLines, '\\n')..'",\n')
 	end

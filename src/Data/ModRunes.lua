@@ -29,6 +29,11 @@ return {
 				"30% faster start of Energy Shield Recharge",
 				statOrder = { 963 },
 		},
+		["focus"] = {
+				type = "Rune",
+				"30% faster start of Energy Shield Recharge",
+				statOrder = { 963 },
+		},
 	},
 	["Quipolatl's Soul Core of Flow"] = {
 		["helmet"] = {
@@ -90,6 +95,11 @@ return {
 		},
 	},
 	["Estazunti's Soul Core of Convalescence"] = {
+		["helmet"] = {
+				type = "Rune",
+				"6% of Damage taken Recouped as Life",
+				statOrder = { 966 },
+		},
 		["boots"] = {
 				type = "Rune",
 				"10% increased speed of Recoup Effects",
@@ -272,6 +282,11 @@ return {
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 946 },
 		},
+		["shield"] = {
+				type = "Rune",
+				"Hits against you have 20% reduced Critical Damage Bonus",
+				statOrder = { 946 },
+		},
 	},
 	["Soul Core of Atmohua"] = {
 		["weapon"] = {
@@ -307,6 +322,75 @@ return {
 				type = "Rune",
 				"Convert 20% of Requirements to Intelligence",
 				statOrder = { 7231 },
+		},
+	},
+	["Amanamu's Gaze"] = {
+		["helmet"] = {
+				type = "Rune",
+				"Remove a Damaging Ailment when you use a Command Skill",
+				statOrder = { 9016 },
+		},
+		["boots"] = {
+				type = "Rune",
+				"1% increased Movement Speed per 15 Spirit, up to a maximum of 40%",
+				"Other Modifiers to Movement Speed do not apply",
+				statOrder = { 8470, 8470.1 },
+		},
+		["body armour"] = {
+				type = "Rune",
+				"+2 to Armour per 1 Spirit",
+				statOrder = { 4253 },
+		},
+	},
+	["Kurgal's Gaze"] = {
+		["helmet"] = {
+				type = "Rune",
+				"Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
+				statOrder = { 4101 },
+		},
+		["gloves"] = {
+				type = "Rune",
+				"40% increased effect of Arcane Surge on you",
+				statOrder = { 2882 },
+		},
+		["boots"] = {
+				type = "Rune",
+				"15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
+				statOrder = { 7376 },
+		},
+	},
+	["Tecrod's Gaze"] = {
+		["body armour"] = {
+				type = "Rune",
+				"Regenerate 1.5% of maximum Life per second",
+				statOrder = { 1614 },
+		},
+		["gloves"] = {
+				type = "Rune",
+				"25% increased Life Cost Efficiency",
+				statOrder = { 4539 },
+		},
+		["boots"] = {
+				type = "Rune",
+				"10% increased Movement Speed when on Low Life",
+				statOrder = { 1478 },
+		},
+	},
+	["Ulaman's Gaze"] = {
+		["helmet"] = {
+				type = "Rune",
+				"+1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet",
+				statOrder = { 4013 },
+		},
+		["gloves"] = {
+				type = "Rune",
+				"Critical Hit chance is Lucky against Parried enemies",
+				statOrder = { 5359 },
+		},
+		["body armour"] = {
+				type = "Rune",
+				"Prevent +3% of Damage from Deflected Hits",
+				statOrder = { 4511 },
 		},
 	},
 	["Desert Rune"] = {
@@ -1264,6 +1348,11 @@ return {
 		},
 	},
 	["Serpent Talisman"] = {
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence have 8% increased Attack Speed",
+				statOrder = { 890 },
+		},
 		["gloves"] = {
 				type = "Rune",
 				"5% increased Curse Magnitudes",
@@ -1276,8 +1365,18 @@ return {
 				"Minions have 12% increased maximum Life",
 				statOrder = { 958 },
 		},
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence deal 30% increased Damage",
+				statOrder = { 878 },
+		},
 	},
 	["Owl Talisman"] = {
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence have 8% increased Cast Speed",
+				statOrder = { 891 },
+		},
 		["focus"] = {
 				type = "Rune",
 				"10% increased Cooldown Recovery Rate",
@@ -1285,6 +1384,11 @@ return {
 		},
 	},
 	["Cat Talisman"] = {
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence have 14% increased Critical Hit Chance",
+				statOrder = { 888 },
+		},
 		["gloves"] = {
 				type = "Rune",
 				"15% increased Accuracy Rating",
@@ -1292,6 +1396,11 @@ return {
 		},
 	},
 	["Wolf Talisman"] = {
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence have 14% increased Critical Damage Bonus",
+				statOrder = { 889 },
+		},
 		["gloves"] = {
 				type = "Rune",
 				"10% increased Magnitude of Bleeding you inflict",
@@ -1304,8 +1413,18 @@ return {
 				"50% increased Thorns Critical Hit Chance",
 				statOrder = { 9475 },
 		},
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence deal 1 to 40 added Attack Lightning Damage",
+				statOrder = { 882 },
+		},
 	},
 	["Boar Talisman"] = {
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence Regenerate 8 Life per second",
+				statOrder = { 893 },
+		},
 		["gloves"] = {
 				type = "Rune",
 				"Gain 1 Rage on Melee Hit",
@@ -1318,8 +1437,18 @@ return {
 				"8% increased Area of Effect",
 				statOrder = { 1554 },
 		},
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence deal 12 to 18 added Attack Physical Damage",
+				statOrder = { 879 },
+		},
 	},
 	["Ox Talisman"] = {
+		["sceptre"] = {
+				type = "Rune",
+				"Allies in your Presence have +8% to all Elemental Resistances",
+				statOrder = { 892 },
+		},
 		["shield"] = {
 				type = "Rune",
 				"10% increased Block chance",
@@ -1332,12 +1461,22 @@ return {
 				"8% increased Rarity of Items found",
 				statOrder = { 913 },
 		},
+		["sceptre"] = {
+				type = "Rune",
+				"10% increased Spirit",
+				statOrder = { 839 },
+		},
 	},
 	["Fox Talisman"] = {
 		["body armour"] = {
 				type = "Rune",
 				"+2% to Quality of all Skills",
 				statOrder = { 4152 },
+		},
+		["sceptre"] = {
+				type = "Rune",
+				"30% increased Presence Area of Effect",
+				statOrder = { 998 },
 		},
 	},
 }
