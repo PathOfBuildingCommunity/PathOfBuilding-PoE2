@@ -3297,7 +3297,8 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		if skillData.gloryCost then
-			output.GloryCost = skillData.gloryCost
+			local more = modDB:More(nil	, "GloryCost")
+			output.GloryCost = skillData.gloryCost * more
 			if globalOutput then
 				globalOutput.ShowGlory = 1
 			end
@@ -4016,7 +4017,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			local bannerGloryPerSecond = modDB:Sum("BASE", skillCfg, "BannerGloryPerSecond")
 			if bannerGloryPerSecond then
-				t_insert(globalBreakdown["Glory"], s_format("%.0f passive glory/s for banners", bannerGloryPerSecond))
+				t_insert(globalBreakdown["Glory"], s_format("%.0f passive glory/s for banners", bannerGloryPerSecond * (1+inc/100)))
 			end
 			local gloryOnHit = modDB:Max(skillCfg, "GloryOnHit")
 			if gloryOnHit and not output.GloryCost then

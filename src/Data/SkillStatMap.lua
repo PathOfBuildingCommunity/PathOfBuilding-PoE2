@@ -329,6 +329,9 @@ return {
 	skill("gloryOnStun", nil),
 	div = 100
 },
+["support_glory_required_+%_final"] = {
+	mod("GloryCost", "MORE", nil),
+},
 ["skill_cannot_gain_repeat_bonuses"] = {
 	flag("NoRepeatBonuses"),
 },
