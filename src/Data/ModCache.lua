@@ -1047,7 +1047,7 @@ c["10% increased Stun Buildup 16% increased Melee Damage +10 to Strength"]={{[1]
 c["10% increased Stun Buildup Ancestrally Boosted Attacks deal 16% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}," Stun Buildup Ancestrally Boosted Attacks deal 16% increased  "}
 c["10% increased Stun Buildup Damage Penetrates 5% Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=10}}," Stun Buildup  Penetrates 5% Fire Resistance "}
 c["10% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},nil}
-c["10% increased Stun Threshold for each time you've been Hit by an Enemy Recently, up to 100%"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},"  for each time you've been Hit by an Enemy Recently, up to 100% "}
+c["10% increased Stun Threshold for each time you've been Hit by an Enemy Recently, up to 100%"]={{[1]={[1]={limit=100,limitTotal=true,type="Multiplier",var="BeenHitRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=10}},nil}
 c["10% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=10}},nil}
 c["10% increased Trap Damage"]={{[1]={flags=0,keywordFlags=4096,name="Damage",type="INC",value=10}},nil}
 c["10% increased Warcry Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=4,name="CooldownRecovery",type="INC",value=10}},nil}
@@ -1911,6 +1911,7 @@ c["25% increased Blind duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",
 c["25% increased Blind duration 25% increased Damage with Hits against Blinded Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=262144,name="Duration",type="INC",value=25}}," Blind  25% increased Damage   "}
 c["25% increased Block Recovery"]={{[1]={flags=0,keywordFlags=0,name="BlockRecovery",type="INC",value=25}},nil}
 c["25% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=25}},nil}
+c["25% increased Bolt Speed"]={{[1]={flags=67108864,keywordFlags=0,name="ProjectileSpeed",type="INC",value=25}},nil}
 c["25% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=25}},nil}
 c["25% increased Chance to Block if you've Blocked with Active Block Recently"]={{[1]={[1]={type="Condition",var="ActiveBlockedRecently"},flags=0,keywordFlags=0,name="BlockChance",type="INC",value=25}},nil}
 c["25% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=25}},nil}
@@ -2134,10 +2135,7 @@ c["30% increased Attack Damage if you've Cast a Spell Recently"]={{[1]={[1]={typ
 c["30% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=30}},nil}
 c["30% increased Block chance while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="BlockChance",type="INC",value=30}},nil}
-c["30% increased Bolt Speed"]={{}," Bolt Speed "}
-c["30% increased Bolt Speed 172% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}}," Bolt Speed 172% increased  "}
-c["30% increased Bolt Speed 60% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=30}}," Bolt Speed 60% increased  "}
-c["30% increased Bolt Speed Adds 85 to 131 Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="FireDamage",type="INC",value=30}}," Bolt Speed Adds 85 to 131  "}
+c["30% increased Bolt Speed"]={{[1]={flags=67108864,keywordFlags=0,name="ProjectileSpeed",type="INC",value=30}},nil}
 c["30% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=30}},nil}
 c["30% increased Charm Charges used"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesUsed",type="INC",value=30}},nil}
@@ -5589,15 +5587,11 @@ c["While on High Infernal Flame, you and Allies in your"]={nil,"While on High In
 c["While on High Infernal Flame, you and Allies in your Presence Gain 50% of Damage as Fire Damage"]={nil,"While on High Infernal Flame, you and 50% of Damage as Fire Damage "}
 c["While you are not on Low Mana, you and Allies in your Presence have Unholy Might"]={{[1]={[1]={neg=true,type="Condition",var="LowMana"},flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:UnholyMight",type="FLAG",value=true}}}},nil}
 c["Withered you inflict has infinite Duration"]={nil,"Withered you inflict has infinite Duration "}
-c["You and Allies in your Presence have +23% to Chaos Resistance"]={nil,"+23% to Chaos Resistance "}
-c["You and Allies in your Presence have +23% to Chaos Resistance You and Allies in your Presence have 10% increased Cooldown Recovery Rate"]={nil,"+23% to Chaos Resistance You and Allies in your Presence have 10% increased Cooldown Recovery Rate "}
-c["You and Allies in your Presence have 10% increased Cooldown Recovery Rate"]={nil,"10% increased Cooldown Recovery Rate "}
-c["You and Allies in your Presence have 10% increased Cooldown Recovery Rate 30% increased Accuracy Rating against Enemies affected by Abyssal Wasting"]={nil,"10% increased Cooldown Recovery Rate 30% increased Accuracy Rating against Enemies affected by Abyssal Wasting "}
-c["You and Allies in your Presence have 12% increased Attack Speed"]={nil,"12% increased Attack Speed "}
-c["You and Allies in your Presence have 12% increased Cast Speed"]={nil,"12% increased Cast Speed "}
-c["You and Allies in your Presence have 12% increased Cast Speed 30% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting"]={nil,"12% increased Cast Speed 30% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting "}
-c["You and Allies in your Presence have 28% increased Accuracy Rating"]={nil,"28% increased Accuracy Rating "}
-c["You and Allies in your Presence have 28% increased Accuracy Rating You and Allies in your Presence have 12% increased Attack Speed"]={nil,"28% increased Accuracy Rating You and Allies in your Presence have 12% increased Attack Speed "}
+c["You and Allies in your Presence have +23% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=23}}}},nil}
+c["You and Allies in your Presence have 10% increased Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=10}}}},nil}
+c["You and Allies in your Presence have 12% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=12}}}},nil}
+c["You and Allies in your Presence have 12% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=12}}}},nil}
+c["You and Allies in your Presence have 28% increased Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="Accuracy",type="INC",value=28}}}},nil}
 c["You are Blind"]={{[1]={[1]={neg=true,type="Condition",var="CannotBeBlinded"},flags=0,keywordFlags=0,name="Condition:Blinded",type="FLAG",value=true}},nil}
 c["You are Immune to Bleeding"]={{[1]={flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
 c["You are considered on Low Life while at 75% of maximum Life or below instead"]={{[1]={flags=0,keywordFlags=0,name="LowLifePercentage",type="BASE",value=0.75}},nil}
