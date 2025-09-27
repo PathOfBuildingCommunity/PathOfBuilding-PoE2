@@ -2408,6 +2408,9 @@ return {
 ["slam_aftershock_chance_%"] = {
 	mod("AftershockChance", "BASE", nil)
 },
+["chance_to_aftershock_+%_per_250_ms_attack_time"] = {
+	mod("AftershockChanceQuarterSecond", "BASE", nil)
+},
 -- Curse
 ["curse_effect_+%"] = {
 	mod("CurseEffect", "INC", nil),
