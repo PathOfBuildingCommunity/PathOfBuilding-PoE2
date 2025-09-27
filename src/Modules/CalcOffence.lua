@@ -3297,7 +3297,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		
-		local gloryCost = skillData.gloryCost or 0
+		local gloryCost = skillModList:Sum("BASE", nil, "GloryCost") -- skillData.gloryCost or 0
 		if gloryCost > 0 then
 			local more = skillModList:More(skillCfg , "GloryCost")
 			output.GloryCost = gloryCost * more
@@ -4010,6 +4010,9 @@ function calcs.offence(env, actor, activeSkill)
 			globalBreakdown["Glory"] = {}
 			local power = modDB:Sum("BASE", nil, "Multiplier:EnemyPower") or 1
 			local inc = modDB:Sum("INC", skillCfg, "GloryGeneration") or 0
+			if output.GloryCost then
+				t_insert(globalBreakdown["Glory"], s_format("Uses %.0f glory", output.GloryCost))
+			end
 			if inc > 0 then
 				t_insert(globalBreakdown["Glory"], "" .. s_format("%.0f%% increased generation", inc))
 			end

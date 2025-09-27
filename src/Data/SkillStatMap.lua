@@ -319,7 +319,8 @@ return {
 	div = 1000,
 },
 ["active_skill_requires_X_glory"] = {
-	skill("gloryCost", nil),
+	-- skill("gloryCost", nil),
+	mod("GloryCost", "BASE", nil),
 },
 ["active_skill_generates_mp_%_glory_per_attack_hit"] = {
 	mod("GloryOnHit", "MAX", nil, 0, KeywordFlag.Attack, { type = "GlobalEffect", effectType = "Aura" }),
