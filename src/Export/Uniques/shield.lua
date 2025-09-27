@@ -338,6 +338,7 @@ UniqueChaosResist1
 ]],[[
 Prism Guardian
 Sectarian Crest Shield
+Requires Level 65
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
 Variant: Current
