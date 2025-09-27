@@ -4065,8 +4065,7 @@ c["Banner Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=88,ty
 c["Banner Skills have 30% increased Duration"]={{[1]={[1]={skillType=88,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
 c["Banners also grant +25% to all Elemental Resistances to you and Allies"]={{[1]={[1]={skillType=88,type="SkillType"},flags=0,keywordFlags=0,name="ExtraAuraEffect",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=25}}}},nil}
 c["Banners always have maximum Valour"]={nil,"Banners always have maximum Valour "}
-c["Banners gain 5 Glory per second"]={nil,"Banners gain 5 Glory per second "}
-c["Banners gain 5 Glory per second There is no Limit on the number of Banners you can place"]={nil,"Banners gain 5 Glory per second There is no Limit on the number of Banners you can place "}
+c["Banners gain 5 Glory per second"]={{[1]={flags=0,keywordFlags=0,name="BannerGloryPerSecond",type="BASE",value=5}},nil}
 c["Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence"]={nil,"Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence "}
 c["Base Bleeding Duration is 1 second"]={{[1]={flags=0,keywordFlags=0,name="BleedDurationBase",type="OVERRIDE",value="1"}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 7%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=7}},nil}

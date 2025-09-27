@@ -3125,6 +3125,9 @@ local specialModList = {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }),
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
+	["banners gain (%d+) glory per second"] = function(num) return {
+		mod("BannerGloryPerSecond", "BASE", num)
+	} end,
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })

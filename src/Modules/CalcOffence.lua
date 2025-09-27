@@ -3298,6 +3298,9 @@ function calcs.offence(env, actor, activeSkill)
 
 		if skillData.gloryCost then
 			output.GloryCost = skillData.gloryCost
+			if globalOutput then
+				globalOutput.ShowGlory = 1
+			end
 		end
 
 		-- Calculate crit chance, crit multiplier, and their combined effect
@@ -3998,21 +4001,33 @@ function calcs.offence(env, actor, activeSkill)
 		output.LifeOnHitRate = output.LifeOnHit * hitRate
 		output.EnergyShieldOnHitRate = output.EnergyShieldOnHit * hitRate
 		output.ManaOnHitRate = output.ManaOnHit * hitRate
-		local gloryOnHit = modDB:Max(skillCfg, "GloryMonsterPowerPercentOnHit") or 0
+		
+		
 		if globalBreakdown then
-			if gloryOnHit > 0 then
-				local inc = modDB:Sum("INC", skillCfg, "GloryGeneration")
-
-				local power = m_max(modDB:Sum("BASE", nil, "Multiplier:EnemyPower"), 1)
-				if breakdown then
-					globalBreakdown["GloryDisplay"] = {
-						"Increased generation: " .. s_format("%.0f%%", inc),
-						"Chance to not consume glory: " .. s_format("%.0f%%", modDB:Sum("BASE", skillCfg, "ChanceToNotConsumeGlory")),
-						"Banner glory: " .. s_format("%.0f/s", gloryOnHit * (1+inc/100) * hitRate * power)
-					}
-				end
+			globalBreakdown["Glory"] = {}
+			local power = 1 * (modDB:Sum("BASE", nil, "Multiplier:EnemyPower") or 1)
+			local inc = modDB:Sum("INC", skillCfg, "GloryGeneration") or 0
+			if inc then
+				t_insert(globalBreakdown["Glory"], "" .. s_format("%.0f%% increased generation", inc))
 			end
-		end	
+			local chanceToNotConsume = modDB:Sum("BASE", skillCfg, "ChanceToNotConsumeGlory")
+			if chanceToNotConsume then
+				t_insert(globalBreakdown["Glory"], s_format("%.0f%% chance to not consume", chanceToNotConsume))
+			end
+			local bannerGloryPerSecond = modDB:Sum("BASE", skillCfg, "BannerGloryPerSecond")
+			if bannerGloryPerSecond then
+				t_insert(globalBreakdown["Glory"], s_format("%.0f passive glory/s for banners", bannerGloryPerSecond))
+			end
+			local gloryOnHit = modDB:Max(skillCfg, "GloryOnHit")
+			if gloryOnHit and not output.GloryCost then
+				t_insert(globalBreakdown["Glory"], s_format("%.0f active glory/s for banners", gloryOnHit * (1+inc/100) * hitRate * power))
+				globalOutput.ShowGlory = 1
+			end
+			if skillData.gloryOnStun then
+				t_insert(globalBreakdown["Glory"], s_format("%.0f glory gained on stun", skillData.gloryOnStun * (1+inc/100) * power))
+				globalOutput.ShowGlory = 1
+			end
+		end
 
 		-- Calculate gain on kill
 		if skillFlags.mine or skillFlags.trap or skillFlags.totem then
@@ -4223,7 +4238,6 @@ function calcs.offence(env, actor, activeSkill)
 		combineStat("ManaOnHit", "DPS")
 		combineStat("ManaOnHitRate", "DPS")
 		combineStat("ManaOnKill", "DPS")
-		combineStat("BannerGloryPerSecond" ,"AVERAGE")
 		for _, damageType in ipairs(dmgTypeList) do
 			combineStat(damageType.."StoredCombinedAvg", "DPS")
 		end

@@ -322,7 +322,11 @@ return {
 	skill("gloryCost", nil),
 },
 ["active_skill_generates_mp_%_glory_per_attack_hit"] = {
-	mod("GloryMonsterPowerPercentOnHit", "MAX", nil, 0, KeywordFlag.Attack, { type = "GlobalEffect", effectType = "Aura" }),
+	mod("GloryOnHit", "MAX", nil, 0, KeywordFlag.Attack, { type = "GlobalEffect", effectType = "Aura" }),
+	div = 100
+},
+["active_skill_generates_mp_%_glory_per_heavy_stun"] = {
+	skill("gloryOnStun", nil),
 	div = 100
 },
 ["skill_cannot_gain_repeat_bonuses"] = {
