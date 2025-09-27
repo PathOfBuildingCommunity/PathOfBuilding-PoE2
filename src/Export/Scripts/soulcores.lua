@@ -114,17 +114,28 @@ directiveTable.base = function(state, args, out)
 	end
 
 	-- Handle special case of new runes on specific item types
-	if soulCoresPerClass then
-		local stats = { }  -- reset stats to empty
-		for i, statKey in ipairs(soulCoresPerClass.Stats) do
-			local statValue = soulCoresPerClass["StatsValues"][i]
+	local soulCoresPerClassList = dat("SoulCoresPerClass"):GetRowList("BaseItemType", baseItemType) or {}
+	local mergedSlotStats = {}
+
+	for _, row in ipairs(soulCoresPerClassList) do
+		local stats = {} -- reset stats to empty
+		for i, statKey in ipairs(row.Stats or {}) do
+			local statValue = row.StatsValues[i]
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
-		local itemClassId = soulCoresPerClass.ItemClass.Id
+		local slotType = (row.ItemClass and row.ItemClass.Id or "unknown"):lower()
 		if next(stats) then
-			addRuneStats(stats, itemClassId:lower(), modLines)
+			mergedSlotStats[slotType] = mergedSlotStats[slotType] or {}
+			for k,v in pairs(stats) do
+				mergedSlotStats[slotType][k] = v
+			end
 		end
 	end
+
+	for slotType, stats in pairs(mergedSlotStats) do
+		addRuneStats(stats, slotType, modLines)
+	end
+
 	writeModLines(modLines, out)
 	out:write('\t},\n')
 end

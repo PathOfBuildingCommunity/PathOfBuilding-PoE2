@@ -6,6 +6,7 @@ return {
 Adonia's Ego
 Siphoning Wand
 League: Dawn of the Hunt
+Requires Level 65
 Implicits: 2
 Grants Skill: Level (1-20) Power Siphon
 Grants Skill: Level 20 Pinnacle of Power
@@ -17,6 +18,7 @@ UniqueMaximumPowerChargesWand_1
 ]],[[
 Cursecarver
 Acrid Wand
+Requires Level 33
 League: Dawn of the Hunt
 Variant: Elemental Weakness
 Variant: Vulnerability

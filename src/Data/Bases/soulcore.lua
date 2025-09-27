@@ -27,7 +27,7 @@ itemBases["Atmohua's Soul Core of Retreat"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Body Armour: 30% faster start of Energy Shield Recharge",
+	implicit = "Body Armour: 30% faster start of Energy Shield Recharge\nFocus: 30% faster start of Energy Shield Recharge",
 	req = { level = 65, },
 }
 itemBases["Quipolatl's Soul Core of Flow"] = {
@@ -76,7 +76,7 @@ itemBases["Estazunti's Soul Core of Convalescence"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier3 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Boots: 10% increased speed of Recoup Effects",
+	implicit = "Boots: 10% increased speed of Recoup Effects\nHelmet: 6% of Damage taken Recouped as Life",
 	req = { level = 65, },
 }
 itemBases["Tacati's Soul Core of Affliction"] = {
@@ -188,7 +188,7 @@ itemBases["Soul Core of Ticaba"] = {
 	type = "SoulCore",
 	tags = { soul_core = true, soul_core_tier2 = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Martial Weapons: +5% to Critical Damage Bonus\nBody Armour: Hits against you have 20% reduced Critical Damage Bonus",
+	implicit = "Martial Weapons: +5% to Critical Damage Bonus\nBody Armour: Hits against you have 20% reduced Critical Damage Bonus\nShield: Hits against you have 20% reduced Critical Damage Bonus",
 	req = { level = 35, },
 }
 itemBases["Soul Core of Atmohua"] = {
@@ -211,6 +211,34 @@ itemBases["Soul Core of Zantipi"] = {
 	implicitModTypes = { },
 	implicit = "Martial Weapons: Convert 20% of Requirements to Intelligence\nArmour: Convert 20% of Requirements to Intelligence",
 	req = { level = 35, },
+}
+itemBases["Amanamu's Gaze"] = {
+	type = "SoulCore",
+	tags = { default = true, },
+	implicitModTypes = { },
+	implicit = "Helmet: Remove a Damaging Ailment when you use a Command Skill\nBody Armour: +2 to Armour per 1 Spirit\nBoots: 1% increased Movement Speed per 15 Spirit, up to a maximum of 40%\nOther Modifiers to Movement Speed do not apply",
+	req = { level = 65, },
+}
+itemBases["Kurgal's Gaze"] = {
+	type = "SoulCore",
+	tags = { default = true, },
+	implicitModTypes = { },
+	implicit = "Helmet: Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate\nGloves: 40% increased effect of Arcane Surge on you\nBoots: 15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
+	req = { level = 65, },
+}
+itemBases["Tecrod's Gaze"] = {
+	type = "SoulCore",
+	tags = { default = true, },
+	implicitModTypes = { },
+	implicit = "Body Armour: Regenerate 1.5% of maximum Life per second\nGloves: 25% increased Life Cost Efficiency\nBoots: 10% increased Movement Speed when on Low Life",
+	req = { level = 65, },
+}
+itemBases["Ulaman's Gaze"] = {
+	type = "SoulCore",
+	tags = { default = true, },
+	implicitModTypes = { },
+	implicit = "Helmet: +1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet\nGloves: Critical Hit chance is Lucky against Parried enemies\nBody Armour: Prevent +3% of Damage from Deflected Hits",
+	req = { level = 65, },
 }
 
 itemBases["Desert Rune"] = {
@@ -736,76 +764,76 @@ itemBases["Serpent Talisman"] = {
 	type = "Talisman",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Gloves: 5% increased Curse Magnitudes",
+	implicit = "Gloves: 5% increased Curse Magnitudes\nSceptre: Allies in your Presence have 8% increased Attack Speed",
 	req = { },
 }
 itemBases["Primate Talisman"] = {
 	type = "Talisman",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Helmet: Minions have 12% increased maximum Life",
+	implicit = "Helmet: Minions have 12% increased maximum Life\nSceptre: Allies in your Presence deal 30% increased Damage",
 	req = { },
 }
 itemBases["Owl Talisman"] = {
 	type = "Talisman",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Focus: 10% increased Cooldown Recovery Rate",
+	implicit = "Focus: 10% increased Cooldown Recovery Rate\nSceptre: Allies in your Presence have 8% increased Cast Speed",
 	req = { },
 }
 itemBases["Cat Talisman"] = {
 	type = "Talisman",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Gloves: 15% increased Accuracy Rating",
+	implicit = "Gloves: 15% increased Accuracy Rating\nSceptre: Allies in your Presence have 14% increased Critical Hit Chance",
 	req = { },
 }
 itemBases["Wolf Talisman"] = {
 	type = "Talisman",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Gloves: 10% increased Magnitude of Bleeding you inflict",
+	implicit = "Gloves: 10% increased Magnitude of Bleeding you inflict\nSceptre: Allies in your Presence have 14% increased Critical Damage Bonus",
 	req = { },
 }
 itemBases["Stag Talisman"] = {
 	type = "Talisman",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Helmet: 50% increased Thorns Critical Hit Chance",
+	implicit = "Helmet: 50% increased Thorns Critical Hit Chance\nSceptre: Allies in your Presence deal 1 to 40 added Attack Lightning Damage",
 	req = { },
 }
 itemBases["Boar Talisman"] = {
 	type = "Talisman",
 	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Gloves: Gain 1 Rage on Melee Hit",
+	implicit = "Gloves: Gain 1 Rage on Melee Hit\nSceptre: Allies in your Presence Regenerate 8 Life per second",
 	req = { },
 }
 itemBases["Bear Talisman"] = {
 	type = "Talisman",
 	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Helmet: 8% increased Area of Effect",
+	implicit = "Helmet: 8% increased Area of Effect\nSceptre: Allies in your Presence deal 12 to 18 added Attack Physical Damage",
 	req = { },
 }
 itemBases["Ox Talisman"] = {
 	type = "Talisman",
 	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Shield: 10% increased Block chance",
+	implicit = "Shield: 10% increased Block chance\nSceptre: Allies in your Presence have +8% to all Elemental Resistances",
 	req = { },
 }
 itemBases["Rabbit Talisman"] = {
 	type = "Talisman",
 	tags = { sacred_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Body Armour: 8% increased Rarity of Items found",
+	implicit = "Body Armour: 8% increased Rarity of Items found\nSceptre: 10% increased Spirit",
 	req = { },
 }
 itemBases["Fox Talisman"] = {
 	type = "Talisman",
 	tags = { sacred_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
-	implicit = "Body Armour: +2% to Quality of all Skills",
+	implicit = "Body Armour: +2% to Quality of all Skills\nSceptre: 30% increased Presence Area of Effect",
 	req = { },
 }

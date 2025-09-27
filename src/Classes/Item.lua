@@ -27,6 +27,8 @@ local catalystTags = {
 	{ "attribute" },
 }
 
+local minimumReqLevel = { }
+
 local function getCatalystScalar(catalystId, tags, quality)
 	if not catalystId or type(catalystId) ~= "number" or not catalystTags[catalystId] or not tags or type(tags) ~= "table" or #tags == 0 then
 		return 1
@@ -484,6 +486,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.armourData[specName] = specToNumber(specVal)
 				elseif specName == "Requires Level" then
 					self.requirements.level = specToNumber(specVal)
+					minimumReqLevel = minimumReqLevel or {}
+					table.insert(minimumReqLevel, { name = self.name, level = self.requirements.level })
 				elseif specName == "Level" then
 					-- Requirements from imported items can't always be trusted
 					importedLevelReq = specToNumber(specVal)
@@ -1765,6 +1769,46 @@ function ItemClass:BuildModList()
 	for _, modLine in ipairs(self.explicitModLines) do
 		processModLine(modLine)
 	end
+	self.grantedSkills = { }
+	for _, skill in ipairs(baseList:List(nil, "ExtraSkill")) do
+		if skill.name ~= "Unknown" then
+			t_insert(self.grantedSkills, {
+				skillId = skill.skillId,
+				level = skill.level,
+				noSupports = skill.noSupports,
+				source = self.modSource,
+				triggered = skill.triggered,
+				triggerChance = skill.triggerChance,
+			})
+		end
+	end
+
+	if #self.grantedSkills >= 1 then
+		local skillDef = data.skills[self.grantedSkills[1].skillId]
+		local gemId = data.gemForSkill[skillDef]
+		local gem = data.gems[gemId]
+
+		local skillLevel = self.grantedSkills[1].level or #skillDef.levels
+		local chosenLevel = skillDef.levels[skillLevel] or skillDef.levels[#skillDef.levels]
+		local gemLevelReq = chosenLevel.levelRequirement
+
+		local minReqLevel
+		for _, entry in ipairs(minimumReqLevel) do
+			if entry.name == self.title then
+				minReqLevel = entry.level
+				break
+			end
+		end
+
+		local reqLevel = math.max( gemLevelReq, minReqLevel or 0)
+		self.requirements.level = reqLevel
+
+		if self.base.type == "Sceptre" or self.base.type == "Wand" or self.base.type == "Staff" then
+			self.requirements.int = calcLib.getGemStatRequirement(reqLevel, gem.reqInt)
+			self.requirements.dex = calcLib.getGemStatRequirement(reqLevel, gem.reqDex)
+			self.requirements.str = calcLib.getGemStatRequirement(reqLevel, gem.reqStr)
+		end
+	end
 	if self.name == "Tabula Rasa, Simple Robe" or self.name == "Skin of the Loyal, Simple Robe" or self.name == "Skin of the Lords, Simple Robe" or self.name == "The Apostate, Cabalist Regalia" then
 		-- Hack to remove the energy shield and base int requirement
 		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
@@ -1789,20 +1833,6 @@ function ItemClass:BuildModList()
 		self.requirements.dexMod = m_floor((self.requirements.dex + calcLocal(baseList, "DexRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "DexRequirement", "INC", 0) / 100))
 		self.requirements.intMod = m_floor((self.requirements.int + calcLocal(baseList, "IntRequirement", "BASE", 0)) * (1 + calcLocal(baseList, "IntRequirement", "INC", 0) / 100))
 	end
-	self.grantedSkills = { }
-	for _, skill in ipairs(baseList:List(nil, "ExtraSkill")) do
-		if skill.name ~= "Unknown" then
-			t_insert(self.grantedSkills, {
-				skillId = skill.skillId,
-				level = skill.level,
-				noSupports = skill.noSupports,
-				source = self.modSource,
-				triggered = skill.triggered,
-				triggerChance = skill.triggerChance,
-			})
-		end
-	end
-
 	if self.itemSocketCount > 0 then
 		-- Ensure that there are the correct number of abyssal sockets present
 		local newSockets = { }
