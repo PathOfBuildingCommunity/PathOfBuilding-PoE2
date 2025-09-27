@@ -4005,13 +4005,13 @@ function calcs.offence(env, actor, activeSkill)
 		
 		if globalBreakdown then
 			globalBreakdown["Glory"] = {}
-			local power = 1 * (modDB:Sum("BASE", nil, "Multiplier:EnemyPower") or 1)
+			local power = modDB:Sum("BASE", nil, "Multiplier:EnemyPower") or 1
 			local inc = modDB:Sum("INC", skillCfg, "GloryGeneration") or 0
-			if inc then
+			if inc > 0 then
 				t_insert(globalBreakdown["Glory"], "" .. s_format("%.0f%% increased generation", inc))
 			end
-			local chanceToNotConsume = modDB:Sum("BASE", skillCfg, "ChanceToNotConsumeGlory")
-			if chanceToNotConsume then
+			local chanceToNotConsume = modDB:Sum("BASE", skillCfg, "ChanceToNotConsumeGlory") or 0
+			if chanceToNotConsume > 0 then
 				t_insert(globalBreakdown["Glory"], s_format("%.0f%% chance to not consume", chanceToNotConsume))
 			end
 			local bannerGloryPerSecond = modDB:Sum("BASE", skillCfg, "BannerGloryPerSecond")
