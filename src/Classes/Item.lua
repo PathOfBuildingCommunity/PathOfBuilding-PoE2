@@ -1787,11 +1787,12 @@ function ItemClass:BuildModList()
 
 		local skillLevel = self.grantedSkills[1].level or #skillDef.levels
 		local chosenLevel = skillDef.levels[skillLevel] or skillDef.levels[#skillDef.levels]
-		local gemLevelReq = chosenLevel.levelRequirement or 0
+		local gemLevelReq = chosenLevel.levelRequirement
 
-		-- take the higher of the item's baseLevel (if it exists) or gemLevelReq
 		local reqLevel = math.max(self.requirements.baseLevel or 0, gemLevelReq)
-		self.requirements.level = reqLevel
+		if gemLevelReq ~= 0 then
+			self.requirements.level = reqLevel
+		end
 
 		if self.base.type == "Sceptre" or self.base.type == "Wand" or self.base.type == "Staff" then
 			self.requirements.int = calcLib.getGemStatRequirement(reqLevel, gem.reqInt)

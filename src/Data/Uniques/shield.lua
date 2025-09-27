@@ -387,6 +387,7 @@ Regenerate 3% of maximum Life per second while on Low Life
 ]],[[
 Saffell's Frame
 Emblem Crest Shield
+Requires Level 16
 Implicits: 1
 Grants Skill: Raise Shield
 +(15-25)% to Fire Resistance

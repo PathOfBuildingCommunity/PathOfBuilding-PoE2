@@ -361,6 +361,7 @@ UniqueLifeRegenerationPercentOnLowLife1
 ]],[[
 Saffell's Frame
 Emblem Crest Shield
+Requires Level 16
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueFireResist6
