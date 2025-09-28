@@ -49,6 +49,7 @@ Implicits: 3
 ]],[[
 Guiding Palm of the Eye
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Ice

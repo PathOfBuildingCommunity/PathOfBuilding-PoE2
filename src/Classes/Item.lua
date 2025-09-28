@@ -360,6 +360,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.prefixes = { }
 	self.suffixes = { }
 	self.requirements = { }
+	self.requirements.runeLevel = 0
 	self.requirements.str = 0
 	self.requirements.dex = 0
 	self.requirements.int = 0
@@ -438,6 +439,16 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					self.itemSocketCount = #self.sockets
 				elseif specName == "Rune" then
 					t_insert(self.runes, specVal)
+					local runeLevel = 0
+					local runeData = data.itemMods.Runes[specVal]
+					if runeData then
+						for _, slotData in pairs(runeData) do
+							runeLevel = math.max(runeLevel, slotData.rank[1])
+						end
+					end
+					if runeLevel > 0 and (not self.requirements.runeLevel or runeLevel > self.requirements.runeLevel) then
+						self.requirements.runeLevel = runeLevel
+					end
 				elseif specName == "Radius" and self.type == "Jewel" then
 					self.jewelRadiusLabel = specVal:match("^[%a ]+")
 					if specVal:match("^%a+") == "Variable" then
@@ -487,7 +498,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				elseif specName == "Requires Level" then
 					self.requirements.level = specToNumber(specVal)
 					minimumReqLevel = minimumReqLevel or {}
-					table.insert(minimumReqLevel, { name = self.name, level = self.requirements.level })
+					table.insert(minimumReqLevel, { name = self.name, level = specVal })
 				elseif specName == "Level" then
 					-- Requirements from imported items can't always be trusted
 					importedLevelReq = specToNumber(specVal)
@@ -971,12 +982,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 	
-	if self.base and not self.requirements.level then
+	if self.base and not self.requirements.baseLevel then
 		if importedLevelReq and #self.sockets == 0 then
 			-- Requirements on imported items can only be trusted for items with no sockets
 			self.requirements.level = importedLevelReq
+			self.requirements.baseLevel = self.base.req.level
 		else
 			self.requirements.level = self.base.req.level
+			self.requirements.baseLevel = self.base.req.level
 		end
 	end
 	self.affixLimit = 0
@@ -1783,6 +1796,17 @@ function ItemClass:BuildModList()
 		end
 	end
 
+	local reqLevel = 0
+	local minReqLevel
+
+	-- look up base minimum requirement
+	for _, entry in ipairs(minimumReqLevel) do
+		if entry.name == self.title then
+			minReqLevel = entry.level
+			break
+		end
+	end
+
 	if #self.grantedSkills >= 1 then
 		local skillDef = data.skills[self.grantedSkills[1].skillId]
 		local gemId = data.gemForSkill[skillDef]
@@ -1792,23 +1816,23 @@ function ItemClass:BuildModList()
 		local chosenLevel = skillDef.levels[skillLevel] or skillDef.levels[#skillDef.levels]
 		local gemLevelReq = chosenLevel.levelRequirement
 
-		local minReqLevel
-		for _, entry in ipairs(minimumReqLevel) do
-			if entry.name == self.title then
-				minReqLevel = entry.level
-				break
-			end
-		end
+		reqLevel = m_max(gemLevelReq, minReqLevel or 0, self.requirements.runeLevel or 0, self.requirements.baseLevel or 0)
 
-		local reqLevel = math.max( gemLevelReq, minReqLevel or 0)
-		self.requirements.level = reqLevel
+		-- Rune level and unique base level don't scale attribute requirements. Example, Cursecarver has 33 minimum required level
+		-- but the intelligence requirement will be 21 at level 4 skill.
+		local attrLevel = m_max(gemLevelReq, self.requirements.baseLevel or 0)
 
 		if self.base.type == "Sceptre" or self.base.type == "Wand" or self.base.type == "Staff" then
-			self.requirements.int = calcLib.getGemStatRequirement(reqLevel, gem.reqInt)
-			self.requirements.dex = calcLib.getGemStatRequirement(reqLevel, gem.reqDex)
-			self.requirements.str = calcLib.getGemStatRequirement(reqLevel, gem.reqStr)
+			self.requirements.int = calcLib.getGemStatRequirement(attrLevel, gem.reqInt)
+			self.requirements.dex = calcLib.getGemStatRequirement(attrLevel, gem.reqDex)
+			self.requirements.str = calcLib.getGemStatRequirement(attrLevel, gem.reqStr)
 		end
+	else
+		reqLevel = m_max(minReqLevel or 0, self.requirements.runeLevel or 0, self.requirements.baseLevel or 0)
 	end
+
+	self.requirements.level = reqLevel
+
 	if self.name == "Tabula Rasa, Simple Robe" or self.name == "Skin of the Loyal, Simple Robe" or self.name == "Skin of the Lords, Simple Robe" or self.name == "The Apostate, Cabalist Regalia" then
 		-- Hack to remove the energy shield and base int requirement
 		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })

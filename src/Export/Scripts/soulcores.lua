@@ -37,7 +37,7 @@ directiveTable.base = function(state, args, out)
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
 	
 	-- Special handling of Runes and SoulCores
-	local function addRuneStats(stats, slotType, modLines)
+	local function addRuneStats(stats, slotType, modLines, rank)
 		local stats, orders = describeStats(stats)
 		if #orders > 0 then
 			local out = {
@@ -45,6 +45,7 @@ directiveTable.base = function(state, args, out)
 				slotType = slotType,
 				label = stats,
 				statOrder = orders,
+				rank = rank,
 			}
 			table.insert(modLines, out)
 		end
@@ -54,20 +55,25 @@ directiveTable.base = function(state, args, out)
 		for _, modLine in ipairs(modLines) do
 			out:write('\t\t["'..modLine.slotType..'"] = {\n')
 			out:write('\t\t\t\ttype = "Rune",\n')
-			-- for j, label in ipairs(modLine.label) do
-			out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
-			out:write('\t\t\t\tstatOrder = { '..table.concat(modLine.statOrder, ', ')..' },\n')
-			-- end
+			-- only write labels/statOrder if present
+			if modLine.label and #modLine.label > 0 then
+				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
+				local statOrder = modLine.statOrder or {}
+				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
+			end
+			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
 			out:write('\t\t},\n')
 		end
 	end
 
 	-- Check for Standard Weapon, Armour, Caster Runes
 	local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
-	local soulCoresPerClass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
 	out:write('\t["', displayName, '"] = {\n')
 	local modLines = { }
+	local rank = 0
 	if soulCores then
+		rank = soulCores.Rank or 0
+
 		-- weapons
 		local stats = { }
 		for i, statKey in ipairs(soulCores.StatsKeysWeapon) do
@@ -75,7 +81,7 @@ directiveTable.base = function(state, args, out)
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
 		if next(stats) then
-			addRuneStats(stats, "weapon", modLines)
+			addRuneStats(stats, "weapon", modLines, rank)
 		end
 
 		-- armour
@@ -85,7 +91,7 @@ directiveTable.base = function(state, args, out)
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
 		if next(stats) then
-			addRuneStats(stats, "armour", modLines)
+			addRuneStats(stats, "armour", modLines, rank)
 		end
 
 		-- caster check (wand & staff)
@@ -95,7 +101,7 @@ directiveTable.base = function(state, args, out)
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
 		if next(stats) then
-			addRuneStats(stats, "caster", modLines)
+			addRuneStats(stats, "caster", modLines, rank)
 		end
 
 		-- Check if the row is an Attribute rune which can go in all slots
@@ -106,9 +112,9 @@ directiveTable.base = function(state, args, out)
 				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
 			if next(stats) then
-				addRuneStats(stats, "weapon", modLines)
-				addRuneStats(stats, "armour", modLines)
-				addRuneStats(stats, "caster", modLines)
+				addRuneStats(stats, "weapon", modLines, rank)
+				addRuneStats(stats, "armour", modLines, rank)
+				addRuneStats(stats, "caster", modLines, rank)
 			end
 		end
 	end
@@ -133,7 +139,14 @@ directiveTable.base = function(state, args, out)
 	end
 
 	for slotType, stats in pairs(mergedSlotStats) do
-		addRuneStats(stats, slotType, modLines)
+		-- use the soulCores.Rank (if present) for per-class slots too
+		addRuneStats(stats, slotType, modLines, rank)
+	end
+
+	-- If nothing produced stats but the soulCores row carries a Rank, export a rank-only entry
+	if #modLines == 0 and rank then
+		-- produce a rank-only entry (no labels/statOrder) so other code can read Rank
+		table.insert(modLines, { slotType = "weapon", label = {}, statOrder = {}, rank = rank })
 	end
 
 	writeModLines(modLines, out)
