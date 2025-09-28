@@ -224,12 +224,12 @@ function main:Init()
 		end
 	}
 
-	self.controls.copyScriptOutput = new("ButtonControl",{"TOPRIGHT", self.controls.scriptOutput, "BOTTOMRIGHT"},{0, 4, 80, 20},"Copy",function()
+	self.controls.copyScriptOutput = new("ButtonControl", {"TOPRIGHT", self.controls.scriptOutput, "BOTTOMRIGHT"}, {0, 4, 80, 20}, "Copy", function()
 	        local lines = {}
 	        local textList = self.controls.scriptOutput.list or {}  -- grab the actual list
 	        for _, entry in ipairs(textList) do
 	            local line = entry[1] or ""
-	            line = line:gsub("^%^[0-9a-fA-F]+", "")  -- remove color codes
+	            line = line:gsub("^%^[0-9]+", "")  -- remove color codes
 	            if line ~= "" then
 	                table.insert(lines, line)
 	            end
