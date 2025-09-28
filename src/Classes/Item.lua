@@ -982,15 +982,16 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 	
-	if self.base and not self.requirements.baseLevel then
+	if self.base and not self.requirements.level then
 		if importedLevelReq and #self.sockets == 0 then
 			-- Requirements on imported items can only be trusted for items with no sockets
 			self.requirements.level = importedLevelReq
-			self.requirements.baseLevel = self.base.req.level
 		else
 			self.requirements.level = self.base.req.level
-			self.requirements.baseLevel = self.base.req.level
 		end
+	end
+	if self.base and not self.requirements.baseLevel then
+		self.requirements.baseLevel = self.base.req.level
 	end
 	self.affixLimit = 0
 	if self.crafted then
