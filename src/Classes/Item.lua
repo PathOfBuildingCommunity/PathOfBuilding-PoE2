@@ -991,7 +991,17 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		end
 	end
 	if self.base and not self.requirements.baseLevel then
-		self.requirements.baseLevel = self.base.req.level
+		-- Add only if not already present, to prevent overwriting original value.
+		local exists = false
+		for _, entry in ipairs(minimumReqLevel) do
+			if entry.name == self.title then
+				exists = true
+				break
+			end
+		end
+		if not exists then
+			self.requirements.baseLevel = self.base.req.level
+		end
 	end
 	self.affixLimit = 0
 	if self.crafted then
@@ -1800,7 +1810,6 @@ function ItemClass:BuildModList()
 	local reqLevel = 0
 	local minReqLevel
 
-	-- look up base minimum requirement
 	for _, entry in ipairs(minimumReqLevel) do
 		if entry.name == self.title then
 			minReqLevel = entry.level
@@ -1829,6 +1838,8 @@ function ItemClass:BuildModList()
 			self.requirements.str = calcLib.getGemStatRequirement(attrLevel, gem.reqStr)
 		end
 	else
+		-- If no granted skills, we want to use the "Requires Level" from the unique instead of the base armour type level requirement.
+		-- Currently there are no Uniques that use a lower level than the base, but maybe in the future.
 		reqLevel = m_max(minReqLevel or 0, self.requirements.runeLevel or 0, self.requirements.baseLevel or 0)
 	end
 
