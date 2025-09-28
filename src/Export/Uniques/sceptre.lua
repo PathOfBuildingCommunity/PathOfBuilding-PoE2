@@ -61,6 +61,7 @@ UniqueColdShrine1
 ]],[[
 Guiding Palm of the Heart
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Fire
@@ -73,6 +74,7 @@ UniqueFireShrine1
 ]],[[
 Guiding Palm of the Mind
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Lightning
@@ -85,6 +87,7 @@ UniqueLightningShrine1
 ]],[[
 Palm of the Dreamer
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Impurity
