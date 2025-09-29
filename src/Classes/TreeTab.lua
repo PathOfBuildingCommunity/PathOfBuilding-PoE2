@@ -809,7 +809,17 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	if self.build.spec.autoAttributeConfig == nil then
 		self.build.spec.autoAttributeConfig = self:UpdateAutoAttributeConfig() -- will initialize if not yet set
 	end
+	
 	local controls = { }
+	local function toggleOptions(state)
+		-- used to disable/enable config fields when main option is set
+		for key, control in pairs(controls) do
+			if not (key:find("Label123") or key:find("enabled") or key:find("apply") or key:find("cancel")) then
+				control.enabled = state
+			end
+		end
+	end
+
 	-- Main popup window
 	local window = {
 		width = 450,
@@ -860,7 +870,11 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 
 	-- Main Checkbox
 	controls.enabledLabel = new("LabelControl", nil, { m_floor(-window.width * 0.2), m_floor(window.height * 0.10), m_floor(window.width * 0.3), 16 }, "^7Automatic Attribute Allocation")
-	controls.enabledCheck = new("CheckBoxControl", { "LEFT", controls.enabledLabel, "RIGHT" }, { 10, 0, 18 }, "", function(value) config.enabled = value end, "^7Enabling this option will automatically decide which attribute to allocate on travel nodes, \naccording to the configured weights and current total attributes", config.enabled)
+	controls.enabledCheck = new("CheckBoxControl", { "LEFT", controls.enabledLabel, "RIGHT" }, { 10, 0, 18 }, "", 
+		function(value) 
+			config.enabled = value 
+			toggleOptions(value)
+		end, "^7Enabling this option will automatically decide which attribute to allocate on travel nodes, \naccording to the configured weights and current total attributes", config.enabled)
 	
 	-- Section for detail setting
 	-- Headers
@@ -914,7 +928,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	controls.ignoreItemModsLabel = new("LabelControl", { "TOPLEFT", controls.useAttrReqLabel, "BOTTOMLEFT" }, { 0, 10, settingsColumns[1].width, settingsColumns[1].height, }, "^7Ignore Item Mods")
 	controls.ignoreItemModsCheck = new("CheckBoxControl", { "TOP", controls.useAttrReqCheck, "BOTTOM" }, { 0, 10, 18 }, "", function(value) config.ignoreItemMods = value end, "^7Enabling this option will ignore attributes gained from items, when calculating total player attributes\n^8(This includes both flat and percentage modifiers)^7", config.ignoreItemMods)
 	
-	controls.save = new("ButtonControl", nil, { -mainButton.x, mainButton.y, 100, 20 }, "Save", function()
+	controls.apply = new("ButtonControl", nil, { -mainButton.x, mainButton.y, 100, 20 }, "Apply", function()
 		
 		self.build.spec.autoAttributeConfig = self:UpdateAutoAttributeConfig(copyTable(config))
 		
@@ -928,7 +942,9 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 		main:ClosePopup()
 	end)
 	
-	main:OpenPopup(window.width, window.height, "Auto Attribute Config", controls, "save", nil, "cancel")
+	main:OpenPopup(window.width, window.height, "Auto Attribute Config", controls, "apply", nil, "cancel")
+	toggleOptions(controls.enabledCheck.state)
+	
 end
 
 -- Create the default autoAttributeConfig in case the popup is opened for the first time
