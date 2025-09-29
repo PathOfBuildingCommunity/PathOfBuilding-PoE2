@@ -303,6 +303,7 @@ function PassiveSpecClass:Save(xml)
 			t_insert(autoAttributeConfig, attrEntry)
 		end
 		t_insert(xml, autoAttributeConfig)
+		self.autoAttributeConfigSaved = copyTable(self.autoAttributeConfig)
 	end
 
 end
