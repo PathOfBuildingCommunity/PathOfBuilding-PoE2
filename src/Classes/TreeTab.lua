@@ -886,6 +886,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	end
 	-- Attribute settings
 	local attributeList = {"str", "dex", "int"}
+	local attrEditTabGroup = { }
 	for i, attr in ipairs (attributeList) do
 		controls[attr .. "Label"] = new("LabelControl", { "TOPLEFT", i == 1 and controls.attributeLabel or controls[attributeList[i-1] .. "Label"], "BOTTOMLEFT" }, {  0, settingsSection.marginY / 2, settingsColumns[1].width, settingsColumns[1].height - 2 }, colorCodes[config[attr].name:upper()] ..  config[attr].name .. ":^7")
 		controls[attr .. "Weight"] = new("EditControl", {"LEFT", controls[attr .. "Label"], "LEFT"}, { settingsSection.marginX + controls.attributeLabel.width(), 0, settingsColumns[2].width, settingsColumns[2].height },  config[attr].weight, nil, "%D", nil, function(value) 
@@ -897,7 +898,9 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 				controls[attr .. "Weight"]:SetText(tostring(attrReq), false)
 			end
 		end, nil, nil, true)
+		controls[attr .. "Weight"]:AddToTabGroup(attrEditTabGroup)
 		controls[attr .. "MaxVal"] = new("EditControl", {"LEFT", controls[attr .. "Weight"], "LEFT"}, { settingsSection.marginX + controls.weightLabel.width(), 0, settingsColumns[3].width, settingsColumns[3].height },  config[attr].max, nil, "%D", nil, function(value) config[attr].max = tonumber(value) end, nil, nil, true)
+		controls[attr .. "MaxVal"]:AddToTabGroup(attrEditTabGroup)
 		controls[attr .. "UseMaxVal"] = new("CheckBoxControl", {"LEFT", controls[attr .. "MaxVal"], "LEFT"}, { settingsSection.marginX + controls.maxValLabel.width(), 0, settingsColumns[4].height },  "", function(state) 
 				if state then -- If box is switched to 'checked', only allow change if less than two boxes are checked
 					local maxCheckCount = (config.str.useMaxVal and 1 or 0) + (config.dex.useMaxVal and 1 or 0) + (config.int.useMaxVal and 1 or 0)
