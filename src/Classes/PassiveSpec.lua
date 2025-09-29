@@ -759,11 +759,11 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		local cachedPlayerAttr = nil -- Used for iterative, automatic determination of desired attribute nodes
 		local cachedPathAttrResults = nil --Used for temp storage of mods gained from the nodes, which are not yet included in the playerModDb until after allocation
 		
-		if self.autoAttributeConfig and self.autoAttributeConfig.enabled and ((((altPath and altPath.pathDist) or 0) > 1) or ((node.pathDist or 0) > 1) ) then
+		if self.autoAttributeConfig and self.autoAttributeConfig.enabled and ((((altPath and #altPath) or 0) > 1) or ((node.pathDist or 0) > 1) ) then
 			for _, pathNode in ipairs(altPath or node.path) do
 				if pathNode.finalModList and #pathNode.finalModList > 0 then
 					-- Choosing a function to return results, rather than passing the ModList itself because I don't want to modify the playerModDB later
-					cachedPathAttrResults = self:GetTempPathAttributeResults(pathNode.finalModList)
+					cachedPathAttrResults = self:GetTempPathAttributeResults(pathNode.finalModList, cachedPathAttrResults)
 				end
 			end
 		end
@@ -2204,7 +2204,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 
 	for _, attr in ipairs(attributeList) do
 		-- Check if the max value is set and if it's already been exceeded.
-		if autoAttributeConfig[attr].max == nil or (not autoAttributeConfig[attr].useMaxVal) or playerAttr[attr].total < autoAttributeConfig[attr].max then
+		if autoAttributeConfig[attr].max == nil or (not autoAttributeConfig[attr].useMaxVal) or playerAttr[attr].total <= autoAttributeConfig[attr].max then
 			local diff = autoAttributeConfig[attr].ratio - playerAttr[attr].ratio
 			if diff > maxDiff then
 				maxDiff = diff
@@ -2222,8 +2222,8 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 end
 
 -- Analyzes a `finalModList` from a path with respect to effects on `dex`/ `int` / `str` for use in `GetAutoAttribute`
-function PassiveSpecClass:GetTempPathAttributeResults(modList, attrResults)
-	attrResults = attrResults or { dex = { }, int= { }, str = { } }
+function PassiveSpecClass:GetTempPathAttributeResults(modList, cachedAttrResults)
+	local attrResults = cachedAttrResults or { dex = { }, int= { }, str = { } }
 	for attr, _ in pairs(attrResults) do
 		local attrUpper = attr:gsub("^%l", string.upper)
 		attrResults[attr].base = (attrResults[attr].base or 0) + modList:Sum("BASE", nil, attrUpper)
