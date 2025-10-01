@@ -2394,6 +2394,9 @@ return {
 ["minion_command_skill_cooldown_speed_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("CooldownRecovery", "INC", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
 },
+["is_resummoning_minion"] = {
+	flag("RevivingMinion")
+},
 --Golem
 ["golem_buff_effect_+%"] = {
 	mod("BuffEffect", "INC", nil, 0, 0)

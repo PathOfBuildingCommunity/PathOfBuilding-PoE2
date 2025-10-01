@@ -5051,15 +5051,15 @@ c["Meta Skills have 20% increased Reservation Efficiency"]={nil,"Meta Skills hav
 c["Minions Break Armour equal to 3% of Physical damage dealt"]={nil,"Break Armour equal to 3% of Physical damage dealt "}
 c["Minions Recoup 15% of Damage taken as Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=15}}}},nil}
 c["Minions Regenerate 3% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}}}},nil}
-c["Minions Revive 10% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-10}},nil}
-c["Minions Revive 13% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-13}},nil}
-c["Minions Revive 15% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-15}},nil}
+c["Minions Revive 10% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalSpeed",type="INC",value=10}},nil}
+c["Minions Revive 13% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalSpeed",type="INC",value=13}},nil}
+c["Minions Revive 15% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalSpeed",type="INC",value=15}},nil}
 c["Minions Revive 15% faster if all your Minions are Companions"]={nil,"Revive 15% faster if all your Minions are Companions "}
-c["Minions Revive 25% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-25}},nil}
-c["Minions Revive 3% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-3}},nil}
+c["Minions Revive 25% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalSpeed",type="INC",value=25}},nil}
+c["Minions Revive 3% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalSpeed",type="INC",value=3}},nil}
 c["Minions Revive 35% faster if all your Minions are Companions"]={nil,"Revive 35% faster if all your Minions are Companions "}
-c["Minions Revive 5% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-5}},nil}
-c["Minions Revive 50% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalTime",type="INC",value=-50}},nil}
+c["Minions Revive 5% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalSpeed",type="INC",value=5}},nil}
+c["Minions Revive 50% faster"]={{[1]={flags=0,keywordFlags=0,name="MinionRevivalSpeed",type="INC",value=50}},nil}
 c["Minions cannot Die while affected by a Life Flask"]={nil,"cannot Die while affected by a Life Flask "}
 c["Minions cannot Die while affected by a Life Flask 30% increased Flask Charges gained"]={nil,"cannot Die while affected by a Life Flask 30% increased Flask Charges gained "}
 c["Minions cause 15% increased Stun Buildup"]={nil,"cause 15% increased Stun Buildup "}
