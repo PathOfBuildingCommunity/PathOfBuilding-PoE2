@@ -3483,10 +3483,6 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		output.ScaledDamageEffect = 1
-		
-		if output.CritChance ~= 0 then
-			skillModList.conditions["CritInPast8Sec"] = true
-		end
 
 		-- Calculate chance and multiplier for dealing triple damage on Normal and Crit
 		output.TripleDamageChanceOnCrit = m_min(skillModList:Sum("BASE", cfg, "TripleDamageChanceOnCrit"), 100)
