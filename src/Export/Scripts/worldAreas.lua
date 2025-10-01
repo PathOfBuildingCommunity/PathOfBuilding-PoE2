@@ -148,7 +148,7 @@ out:write('local worldAreas, _ = ...\n\n')
 for area in dat("WorldAreas"):Rows() do
 	if area.Name and area.Name ~= "NULL" and not area.Name:match("DNT") and area.Id then
 		-- Skip areas ending with _NoBoss
-		if area.Id:sub(-7) == "_NoBoss" then
+		if area.Id:match("Design") or area.Id:match("Programming") or area.Id == "BlackTest" then
 			goto continue
 		end
 		local monsters = areaIdToMonsters[area.Id] or {}
