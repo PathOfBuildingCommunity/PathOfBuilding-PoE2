@@ -64,7 +64,7 @@ itemBases["Cultist Bow"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, vaal_basetype = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 10, PhysicalMax = 17, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	weapon = { PhysicalMin = 10, PhysicalMax = 17, ChaosMin = 19, ChaosMax = 37, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 33, dex = 60, },
 }
 itemBases["Zealot Bow"] = {
@@ -166,7 +166,7 @@ itemBases["Adherent Bow"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 21, PhysicalMax = 34, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	weapon = { PhysicalMin = 21, PhysicalMax = 34, ChaosMin = 31, ChaosMax = 59, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 59, dex = 104, },
 }
 itemBases["Militant Bow"] = {
@@ -222,7 +222,7 @@ itemBases["Fanatic Bow"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, ranged = true, weapon = true, default = true, twohand = true, bow = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 42, PhysicalMax = 70, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
+	weapon = { PhysicalMin = 42, PhysicalMax = 70, ChaosMin = 43, ChaosMax = 71, CritChanceBase = 5, AttackRateBase = 1.2, Range = 120, },
 	req = { level = 79, dex = 163, },
 }
 itemBases["Warmonger Bow"] = {
