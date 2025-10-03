@@ -167,6 +167,11 @@ statMap = {
 
 #skill SupportBleedPlayerFour
 #set SupportBleedPlayerFour
+statMap = {
+	["support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies"] = {
+		mod("PhysicalDamage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+	},
+},
 #mods
 #skillEnd
 

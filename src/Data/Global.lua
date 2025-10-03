@@ -555,6 +555,7 @@ SkillType = {
 	SupportedByFlamePillar = 245,
 	CanCreateStoneElementals = 246,
 	RemnantCannotBeShared = 247,
+	GamepadDoNotForceSkillAtLocation = 248,
 }
 
 GlobalCache = { 

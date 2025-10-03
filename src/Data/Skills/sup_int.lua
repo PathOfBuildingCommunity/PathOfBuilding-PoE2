@@ -2933,7 +2933,7 @@ skills["SupportFleetingRemnantsPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "remnant_pickup_range_+%", 100 },
+				{ "remnant_pickup_range_+%", 35 },
 			},
 			stats = {
 			},
@@ -2963,7 +2963,7 @@ skills["SupportFleetingRemnantsPlayerTwo"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "remnant_pickup_range_+%", 100 },
+				{ "remnant_pickup_range_+%", 35 },
 				{ "chance_%_to_create_additional_remnant", 20 },
 			},
 			stats = {
@@ -3591,7 +3591,7 @@ skills["TriggeredLivingLightningPlayer"] = {
 	minionList = {
 		"LivingLightning",
 	},
-	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Minion] = true, [SkillType.Lightning] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.SingleLevelSkill] = true, [SkillType.MinionsAreUndamagable] = true, [SkillType.CreatesMinion] = true, },
+	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Minion] = true, [SkillType.Lightning] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.SingleLevelSkill] = true, [SkillType.MinionsAreUndamagable] = true, [SkillType.CreatesMinion] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3666,7 +3666,7 @@ skills["TriggeredLivingLightningPlayerTwo"] = {
 	minionList = {
 		"LivingLightning",
 	},
-	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Minion] = true, [SkillType.Lightning] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.SingleLevelSkill] = true, [SkillType.MinionsAreUndamagable] = true, [SkillType.CreatesMinion] = true, },
+	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Minion] = true, [SkillType.Lightning] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.SingleLevelSkill] = true, [SkillType.MinionsAreUndamagable] = true, [SkillType.CreatesMinion] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3772,7 +3772,7 @@ skills["SupportMagneticRemnantsPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "remnant_pickup_range_+%", 100 },
+				{ "remnant_pickup_range_+%", 35 },
 			},
 			stats = {
 			},
@@ -5571,7 +5571,7 @@ skills["SupportZenithPlayer"] = {
 }
 skills["SupportZenithPlayerTwo"] = {
 	name = "Zenith II",
-	description = "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana, and Recoup a portion of Skill costs as Mana. Does not modify Skills used by Minions.",
+	description = "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana, and Recoup a portion of their Mana cost. Does not modify Skills used by Minions.",
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Damage, SkillType.AND, SkillType.DegenOnlySpellDamage, },

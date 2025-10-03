@@ -4352,12 +4352,13 @@ skills["ParryPlayer"] = {
 				{ "movement_speed_+%_final_while_performing_action", -50 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
 				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
-				{ "base_maximum_active_block_distance", 10 },
+				{ "base_maximum_active_block_distance_for_non_projectiles", 10 },
+				{ "base_maximum_active_block_distance_for_projectiles", 15 },
 				{ "base_parry_buff_damage_taken_+%_final_to_apply", 50 },
 				{ "base_skill_effect_duration", 2000 },
 				{ "active_skill_hit_damage_stun_multiplier_+%_final", 400 },
 				{ "active_skill_heavy_stun_decay_after_action_delay_ms", 2000 },
-				{ "stun_threshold_+%_final_while_performing_action", -60 },
+				{ "stun_threshold_+%_final_while_performing_action", -40 },
 				{ "active_skill_override_turn_duration_ms", 100 },
 			},
 			stats = {
@@ -6668,6 +6669,7 @@ skills["VoidIllusionSpawnPlayer"] = {
 				"hide_minion_frame",
 				"triggered_by_void_illusion",
 				"quality_display_active_skill_base_area_of_effect_radius_is_gem",
+				"base_skill_sources_hollow_palm_physical_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
