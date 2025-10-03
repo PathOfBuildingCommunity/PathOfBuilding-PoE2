@@ -120,6 +120,11 @@ statMap = {
 #mods
 #set BoneshatterShockwavePlayer
 #flags attack melee area
+statMap = {
+	["boneshatter_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -442,6 +447,11 @@ statMap = {
 #mods
 #set FragmentationRoundsFreezeShatterPlayer
 #flags attack projectile area
+statMap = {
+	["frag_rounds_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 
