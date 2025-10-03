@@ -153,6 +153,11 @@ statMap = {
 #mods
 #set ElementalSunderingColdPlayer
 #flags attack area
+statMap = {
+	["elemental_sundering_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #set ElementalSunderingFirePlayer
 #flags attack area
@@ -320,6 +325,11 @@ statMap = {
 
 #skill SupportMirageArcherPlayer
 #set SupportMirageArcherPlayer
+statMap = {
+	["support_lingering_mirage_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
