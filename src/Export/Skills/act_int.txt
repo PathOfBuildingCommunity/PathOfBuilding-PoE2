@@ -128,8 +128,8 @@ statMap = {
 
 #skill BonestormPlayer
 preDamageFunc = function(activeSkill, output)
-	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1
-	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1
+	activeSkill.skillData.hitTimeMultiplier = math.ceil(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1)
+	activeSkill.skillData.channelTimeMultiplier = math.ceil(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage") / output.ProjectileCount or 1)
 	activeSkill.skillData.dpsMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:BonestormStage")
 end,
 #set BonestormPlayer
@@ -1073,8 +1073,7 @@ statMap = {
 #flags minion
 statMap = {
 	["harvester_minion_resummon_speed_+%_final"] = {
-		mod("MinionRevivalTime", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
-		mult = -1,
+		mod("MinionRevivalSpeed", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 	},
 },
 #mods
@@ -1182,6 +1181,11 @@ statMap = {
 #skill SnapPlayer
 #set SnapColdPlayer
 #flags area spell
+statMap = {
+	["snap_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #set SnapLightningPlayer
 #flags area spell

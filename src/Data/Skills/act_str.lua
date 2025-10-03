@@ -1627,6 +1627,11 @@ skills["BoneshatterPlayer"] = {
 			baseEffectiveness = 0.18279999494553,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "boneshatter",
+			statMap = {
+				["boneshatter_damage_+%_final_if_created_from_unique"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
@@ -6844,6 +6849,11 @@ skills["FragmentationRoundsPlayer"] = {
 			label = "Vs Frozen",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "burst_shot_piercing_statset_1",
+			statMap = {
+				["frag_rounds_damage_+%_final_if_created_from_unique"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,

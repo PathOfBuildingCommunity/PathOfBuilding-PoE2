@@ -2054,6 +2054,11 @@ skills["SupportEmbitterPlayer"] = {
 			label = "Embitter",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["all_damage_gained_as_cold_instead"] = {
+					flag("DamageGainIsOnlyCold"),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -2616,6 +2621,11 @@ skills["SupportFocusedCursePlayer"] = {
 			label = "Focused Curse",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_focus_curse_curse_delay_+%_final"] = {
+					mod("CurseDelay", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3828,7 +3838,7 @@ skills["SupportMagnifiedAreaPlayerTwo"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
-				["support_area_concentrate_area_damage_+%_final"] = {
+				["support_increased_area_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, ModFlag.Area),
 				},
 			},

@@ -790,9 +790,6 @@ local minions, mod, flag = ...
 #spectre Metadata/Monsters/PlagueSwarm/BloodDrone
 #emit
 
-#spectre Metadata/Monsters/SwarmHost/SwarmHost
-#emit
-
 #spectre Metadata/Monsters/IgguranRaider/BladeStalkerPale
 #emit
 

@@ -1177,7 +1177,7 @@ end
 
 function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassiveSkillEffect)
 	-- Special case for sockets
-	if node.type == "Socket" and node.alloc then
+	if (node.type == "Socket" or node.containJewelSocket) and node.alloc then
 		local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(node.id)
 		if jewel then
 			build.itemsTab:AddItemTooltip(tooltip, jewel, { nodeId = node.id })
@@ -1376,7 +1376,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 	end
 
-	if node.containJewelSocket then
+	if node.containJewelSocket and node.alloc then
 		tooltip:AddSeparator(14)
 		-- Jewel socket with a jewel in it, show the jewel tooltip instead of the node tooltip
 		local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(node.id)

@@ -84,7 +84,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				end
 			})
 		elseif quest.Options then
-			local listOptions = { { label = "Nothing", val = "None" } }
+			local listOptions = { { label = "^1Nothing^7", val = "None" } }
 			for _, option in ipairs(quest.Options) do
 				table.insert(listOptions, { label = option, val = option })
 			end

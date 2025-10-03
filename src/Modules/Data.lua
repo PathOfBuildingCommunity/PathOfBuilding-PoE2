@@ -337,9 +337,9 @@ data.nonDamagingAilmentTypeList = { "Chill", "Freeze", "Shock" }
 data.nonElementalAilmentTypeList = { "Bleed", "Poison" }
 
 data.nonDamagingAilment = {
-	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
+	["Chill"] = { associatedType = "Cold", alt = false, default = 30, min = 30, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
 	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = data.gameConstants["FreezeDuration"] },
-	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
+	["Shock"] = { associatedType = "Lightning", alt = false, default = data.gameConstants["BaseShockMagnitude"], min = data.gameConstants["BaseShockMagnitude"], max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
 
 data.buildupTypes = {

@@ -1129,6 +1129,20 @@ statMap = {
 
 #skill SupportRigwaldsFerocityPlayer
 #set SupportRigwaldsFerocityPlayer
+statMap = {
+	["support_rigwald_attack_speed_+%_final_in_weapon_set_one"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet1" }),
+	},
+	["support_rigwald_damage_+%_final_in_weapon_set_one"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet1" }),
+	},
+	["support_rigwald_attack_speed_+%_final_in_weapon_set_two"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet2" }),
+	},
+	["support_rigwald_damage_+%_final_in_weapon_set_two"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet2" }),
+	},
+},
 #mods
 #skillEnd
 

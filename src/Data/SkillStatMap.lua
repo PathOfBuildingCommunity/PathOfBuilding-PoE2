@@ -502,7 +502,7 @@ return {
 	mod("ElusiveEffect", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
 },
 ["blind_effect_+%"] = {
-	mod("BlindEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Vaal Blade Flurry" }),
+	mod("BlindEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
 },
 ["global_chance_to_blind_on_hit_%"] = {
 	mod("BlindChance", "BASE", nil),
@@ -754,6 +754,9 @@ return {
 ["physical_damage_+%"] = {
 	mod("PhysicalDamage", "INC", nil),
 },
+["active_skill_physical_damage_+%_final"] = {
+	mod("PhysicalDamage", "MORE", nil),
+},
 ["lightning_damage_+%"] = {
 	mod("LightningDamage", "INC", nil),
 },
@@ -763,8 +766,14 @@ return {
 ["cold_damage_+%"] = {
 	mod("ColdDamage", "INC", nil),
 },
+["active_skill_cold_damage_+%_final"] = {
+	mod("ColdDamage", "MORE", nil),
+},
 ["fire_damage_+%"] = {
 	mod("FireDamage", "INC", nil),
+},
+["active_skill_fire_damage_+%_final"] = {
+	mod("FireDamage", "MORE", nil),
 },
 ["chaos_damage_+%"] = {
 	mod("ChaosDamage", "INC", nil),
@@ -2442,6 +2451,9 @@ return {
 },
 ["minion_command_skill_cooldown_speed_+%"] = {
 	mod("MinionModifier", "LIST", { mod = mod("CooldownRecovery", "INC", nil, 0, 0, {type = "Condition", var = "CommandableSkill"}) }),
+},
+["is_resummoning_minion"] = {
+	flag("RevivingMinion")
 },
 --Golem
 ["golem_buff_effect_+%"] = {

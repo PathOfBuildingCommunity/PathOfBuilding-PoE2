@@ -447,6 +447,11 @@ statMap = {
 
 #skill SupportEmbitterPlayer
 #set SupportEmbitterPlayer
+statMap = {
+	["all_damage_gained_as_cold_instead"] = {
+		flag("DamageGainIsOnlyCold"),
+	},
+},
 #mods
 #skillEnd
 
@@ -569,6 +574,11 @@ statMap = {
 
 #skill SupportFocusedCursePlayer
 #set SupportFocusedCursePlayer
+statMap = {
+	["support_focus_curse_curse_delay_+%_final"] = {
+		mod("CurseDelay", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -850,7 +860,7 @@ statMap = {
 #skill SupportMagnifiedAreaPlayerTwo
 #set SupportMagnifiedAreaPlayerTwo
 statMap = {
-	["support_area_concentrate_area_damage_+%_final"] = {
+	["support_increased_area_damage_+%_final"] = {
 		mod("Damage", "MORE", nil, ModFlag.Area),
 	},
 },

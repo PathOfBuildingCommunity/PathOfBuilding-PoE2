@@ -132,6 +132,9 @@ directiveTable.base = function(state, args, out)
 			table.insert(implicitLines, line)
 			table.insert(implicitModTypes, modDesc.modTags)
 		end
+		if mod.Id == "SpearImplicitDisplaySpearThrow1" then
+			table.insert(implicitLines, "Grants Skill: Spear Throw")
+		end
 	end
 	if state.type == "Belt" then
 		table.insert(implicitLines, "Has (1-3) Charm Slots")
@@ -163,8 +166,34 @@ directiveTable.base = function(state, args, out)
 			["local_weapon_implicit_hidden_%_base_damage_is_lightning"] = "Lightning",
 			["local_weapon_implicit_hidden_%_base_damage_is_chaos"] = "Chaos",
 		}
+		local modAddedMinMap = {
+			["local_weapon_implicit_hidden_added_minimum_fire_damage"] = "Fire",
+			["local_weapon_implicit_hidden_added_minimum_cold_damage"] = "Cold",
+			["local_weapon_implicit_hidden_added_minimum_lightning_damage"] = "Lightning",
+			["local_weapon_implicit_hidden_added_minimum_chaos_damage"] = "Chaos",
+		}
+		local modAddedMaxMap = {
+			["local_weapon_implicit_hidden_added_maximum_fire_damage"] = "Fire",
+			["local_weapon_implicit_hidden_added_maximum_cold_damage"] = "Cold",
+			["local_weapon_implicit_hidden_added_maximum_lightning_damage"] = "Lightning",
+			["local_weapon_implicit_hidden_added_maximum_chaos_damage"] = "Chaos",
+		}
 		local conversion = {
 			["Physical"] = 100,
+			["Fire"] = 0,
+			["Cold"] = 0,
+			["Lightning"] = 0,
+			["Chaos"] = 0,
+		}
+		local addedMin = {
+			["Physical"] = 0,
+			["Fire"] = 0,
+			["Cold"] = 0,
+			["Lightning"] = 0,
+			["Chaos"] = 0,
+		}
+		local addedMax = {
+			["Physical"] = 0,
 			["Fire"] = 0,
 			["Cold"] = 0,
 			["Lightning"] = 0,
@@ -180,6 +209,16 @@ directiveTable.base = function(state, args, out)
 						conversion[dmgType] = conversion[dmgType] + value
 						total = total + value
 					end
+					local addedMinDamage = modAddedMinMap[mod["Stat"..i].Id]
+					if addedMinDamage then
+						local value = mod["Stat"..i.."Value"][1]
+						addedMin[addedMinDamage] = addedMin[addedMinDamage] + value
+					end
+					local addedMaxDamage = modAddedMaxMap[mod["Stat"..i].Id]
+					if addedMaxDamage then
+						local value = mod["Stat"..i.."Value"][1]
+						addedMax[addedMaxDamage] = addedMax[addedMaxDamage] + value
+					end
 				end
 			end
 		end
@@ -192,6 +231,12 @@ directiveTable.base = function(state, args, out)
 			end
 			if conversion[type] ~= 0 then
 				out:write(type, 'Min = ', math.floor(weaponType.DamageMin * conversion[type]), ', ', type, 'Max = ', math.floor(weaponType.DamageMax * conversion[type]), ', ')
+			end
+			if addedMin[type] ~= 0 then
+				out:write(type, 'Min = ', addedMin[type], ', ')
+			end
+			if addedMax[type] ~= 0 then
+				out:write(type,'Max = ', addedMax[type], ', ')
 			end
 		end
 		out:write('CritChanceBase = ', weaponType.CritChance / 100, ', ')
@@ -305,14 +350,17 @@ directiveTable.base = function(state, args, out)
 			end
 		end
 		-- Check for more slot specific Soulcores/Runes/Talismans
-		if soulCoresPerClass then
-			stats = { }
-			for i, statKey in ipairs(soulCoresPerClass.Stats) do
-				local statValue = soulCoresPerClass["StatsValues"][i]
+		local soulCoresPerClassList = dat("SoulCoresPerClass"):GetRowList("BaseItemType", baseItemType) or {}
+		for _, row in ipairs(soulCoresPerClassList) do
+			stats = {}
+			for i, statKey in ipairs(row.Stats or {}) do
+				local statValue = row.StatsValues[i]
 				stats[statKey.Id] = { min = statValue, max = statValue }
 			end
-			local coreItemClass = soulCoresPerClass.ItemClass.Id
-			table.insert(outLines, coreItemClass..': ' .. table.concat(describeStats(stats), '\\n'))
+			if next(stats) then
+				local coreItemClass = row.ItemClass and row.ItemClass.Id or "unknown"
+				table.insert(outLines, coreItemClass .. ': ' .. table.concat(describeStats(stats), '\\n'))
+			end
 		end
 		out:write('\timplicit = "'..table.concat(outLines, '\\n')..'",\n')
 	end

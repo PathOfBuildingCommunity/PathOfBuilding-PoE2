@@ -195,7 +195,6 @@ Metadata/Monsters/VaalSavage/VaalSavageDelinquent                               
 Metadata/Monsters/VaalSavage/VaalSavageTorchbearer                                        		----		Azak Torchbearer
 Metadata/Monsters/VaalSavage/VaalSavageGiant                                              		----		Azak Mauler
 Metadata/Monsters/PlagueSwarm/BloodDrone                                                  		----		Bloodthief Wasp
-Metadata/Monsters/SwarmHost/SwarmHost                                                     		----		Bloodthief Queen
 Metadata/Monsters/BloodClan/BloodClanTrapper                                              		----		Sea-tribe Trapper
 Metadata/Monsters/BloodClan/BloodClanVillager                                             		----		Sea-tribe Villager
 Metadata/Monsters/BloodClan/BloodClanCaster                                               		----		Sea-tribe Caster

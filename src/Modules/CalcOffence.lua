@@ -1347,16 +1347,16 @@ function calcs.offence(env, actor, activeSkill)
 			}
 		end
 	end
-	if activeSkill.skillTypes[SkillType.CreatesSkeletonMinion] then
-		local minionRevivalTimeMod = calcLib.mod(skillModList, skillCfg, "MinionRevivalTime")
+	if skillModList:Flag(skillCfg, "RevivingMinion") then
+		local MinionRevivalSpeedMod = calcLib.mod(skillModList, skillCfg, "MinionRevivalSpeed")
 		local baseMinionRevivalTime = data.misc.MinionRevivalTimeBase
-		output.MinionRevivalTime = baseMinionRevivalTime * minionRevivalTimeMod
+		output.MinionRevivalSpeed = baseMinionRevivalTime * (1 / MinionRevivalSpeedMod)
 		if breakdown then
-			breakdown.MinionRevivalTime = {
+			breakdown.MinionRevivalSpeed = {
 				s_format("%.3fs ^8(Base Revival Time)", baseMinionRevivalTime),
-				s_format("x %.2f ^8(effect modifiers)", minionRevivalTimeMod),
+				s_format("x 1 / %.2f ^8(effect modifiers)", MinionRevivalSpeedMod),
 				s_format("\n"),
-				s_format("= %.3fs ^8(Total Revival Time)", output.MinionRevivalTime),
+				s_format("= %.3fs ^8(Total Revival Time)", output.MinionRevivalSpeed),
 			}
 		end
 	end
@@ -2181,7 +2181,11 @@ function calcs.offence(env, actor, activeSkill)
 				"Skill"..damageType.."DamageGainAs"..toType,
 				isElemental[damageType] and "SkillElementalDamageGainAs"..toType or nil,
 				damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..toType or nil), 0)
-			activeSkill.gainTable[damageType][toType] = (globalGain + skillGain) / 100
+			if skillModList:Flag(skillCfg, "DamageGainIsOnlyCold") and toType ~= "Cold" then
+				activeSkill.gainTable[damageType]["Cold"] = (activeSkill.gainTable[damageType]["Cold"] or 0) + (globalGain + skillGain) / 100
+			else
+				activeSkill.gainTable[damageType][toType] = (activeSkill.gainTable[damageType][toType] or 0) + (globalGain + skillGain) / 100
+			end
 		end
 	end
 
@@ -3491,10 +3495,6 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		output.ScaledDamageEffect = 1
-		
-		if output.CritChance ~= 0 then
-			skillModList.conditions["CritInPast8Sec"] = true
-		end
 
 		-- Calculate chance and multiplier for dealing triple damage on Normal and Crit
 		output.TripleDamageChanceOnCrit = m_min(skillModList:Sum("BASE", cfg, "TripleDamageChanceOnCrit"), 100)
