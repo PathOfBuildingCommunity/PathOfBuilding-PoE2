@@ -5172,7 +5172,7 @@ c["Offerings have 15% increased Maximum Life"]={nil,"Offerings have 15% increase
 c["Offerings have 30% increased Maximum Life"]={nil,"Offerings have 30% increased Maximum Life "}
 c["Offerings have 30% increased Maximum Life Recover 3% of maximum Life when you create an Offering"]={nil,"Offerings have 30% increased Maximum Life Recover 3% of maximum Life when you create an Offering "}
 c["Offerings have 30% reduced Maximum Life"]={nil,"Offerings have 30% reduced Maximum Life "}
-c["On Freezing Enemies create Chilled Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnChilledGround"},flags=0,keywordFlags=0,name="ChillBase",type="BASE",value=10}},nil}
+c["On Freezing Enemies create Chilled Ground"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="OnChilledGround"},flags=0,keywordFlags=0,name="ChillBase",type="BASE",value=30}},nil}
 c["On Heavy Stunning a Rare or Unique Enemy, your next Attack within 4 seconds will be Ancestrally Boosted"]={nil,"On Heavy Stunning a Rare or Unique Enemy, your next Attack within 4 seconds will be Ancestrally Boosted "}
 c["On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed"]={nil,"On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed "}
 c["On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed Gain 1% of damage as Physical damage for 3 seconds per Charge consumed this way"]={nil,"On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges are consumed Gain 1% of damage as Physical damage for 3 seconds per Charge consumed this way "}
