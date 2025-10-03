@@ -2170,7 +2170,11 @@ function calcs.offence(env, actor, activeSkill)
 				"Skill"..damageType.."DamageGainAs"..toType,
 				isElemental[damageType] and "SkillElementalDamageGainAs"..toType or nil,
 				damageType ~= "Chaos" and "SkillNonChaosDamageGainAs"..toType or nil), 0)
-			activeSkill.gainTable[damageType][toType] = (globalGain + skillGain) / 100
+			if skillModList:Flag(skillCfg, "DamageGainIsOnlyCold") and toType ~= "Cold" then
+				activeSkill.gainTable[damageType]["Cold"] = (activeSkill.gainTable[damageType]["Cold"] or 0) + (globalGain + skillGain) / 100
+			else
+				activeSkill.gainTable[damageType][toType] = (activeSkill.gainTable[damageType][toType] or 0) + (globalGain + skillGain) / 100
+			end
 		end
 	end
 

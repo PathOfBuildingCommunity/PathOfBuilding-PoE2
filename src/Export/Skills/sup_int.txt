@@ -442,6 +442,11 @@ statMap = {
 
 #skill SupportEmbitterPlayer
 #set SupportEmbitterPlayer
+statMap = {
+	["all_damage_gained_as_cold_instead"] = {
+		flag("DamageGainIsOnlyCold"),
+	},
+},
 #mods
 #skillEnd
 
