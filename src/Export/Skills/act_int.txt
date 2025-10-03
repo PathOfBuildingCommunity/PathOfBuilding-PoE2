@@ -1177,6 +1177,11 @@ statMap = {
 #skill SnapPlayer
 #set SnapColdPlayer
 #flags area spell
+statMap = {
+	["snap_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #set SnapLightningPlayer
 #flags area spell

@@ -1703,6 +1703,11 @@ skills["ElementalSunderingPlayer"] = {
 			label = "Cold",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "extract_elements_statset_1",
+			statMap = {
+				["elemental_sundering_damage_+%_final_if_created_from_unique"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -4915,6 +4920,11 @@ skills["SupportMirageArcherPlayer"] = {
 			label = "SupportMirageArcherPlayer",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "meta_gem_stat_descriptions",
+			statMap = {
+				["support_lingering_mirage_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

@@ -18613,6 +18613,11 @@ skills["SnapPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "shatter",
+			statMap = {
+				["snap_damage_+%_final_if_created_from_unique"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				spell = true,
