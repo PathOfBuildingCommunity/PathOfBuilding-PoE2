@@ -1,5 +1,43 @@
 # Changelog
 
+## [beta](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/beta) (2025/10/03)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.2...beta)
+
+
+## What's Changed
+### New to Path of Building
+- Add Movement Speed while using skill to sidebar [\#1403](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1403) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Rathpith Globe Life Cost mod [\#1423](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1423) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Primed to Explode and Price of Freedom [\#1411](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1411) ([Blitz54](https://github.com/Blitz54))
+- Add support for Magma Barrier Block chance buff + Evasion on Shield mod [\#1429](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1429) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for "you and allies" Grip of Kulemak mods [\#1440](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1440) ([Blitz54](https://github.com/Blitz54))
+- Add support for Bolt Speed [\#1444](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1444) ([Blitz54](https://github.com/Blitz54))
+- Add support for Focused Curse [\#1445](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1445) ([Blitz54](https://github.com/Blitz54))
+- Add support for Unbending [\#1446](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1446) ([Blitz54](https://github.com/Blitz54))
+### Fixed Crashes
+- Fix Crash when hovering over some Tree nodes with Hulking Form allocated [\#1428](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1428) ([LocalIdentity](https://github.com/LocalIdentity))
+### User Interface
+- Fix Header Influence Icon Showing on Jewel Sockets [\#1439](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1439) ([Blitz54](https://github.com/Blitz54))
+- Fix display name for Blind II effect mod [\#1451](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1451) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Tooltip for Lich Socket [\#1447](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1447) ([Blitz54](https://github.com/Blitz54))
+- Make unset quest rewards more visible [\#1460](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1460) ([Nightblade](https://github.com/Nightblade))
+- Add CTRL + C to error message to copy error text [\#1461](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1461) ([Blitz54](https://github.com/Blitz54))
+### Fixed Calculations
+- Fix Zealots Oath to apply excess Life Regen as ES Regen [\#1416](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1416) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix stat values for some Tree nodes when using Hulking Form [\#1414](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1414) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix 50% Less Curse Effect on Boss [\#1410](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1410) ([Blitz54](https://github.com/Blitz54))
+- Fix Minion Reservation values + add Minion Count to breakdown [\#1430](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1430) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Bonestorm Cast time not having breakpoints for extra projectiles [\#1443](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1443) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Behaviours
+- Load Crossbow Damage skills by default instead of Ammo Skill [\#1405](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1405) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Prism of Belief + levels not working with some Skill Gems [\#1435](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1435) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Skill Speed not affecting Totem Placement Speed [\#1432](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1432) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Bosses missing 50% less Exposure Effect [\#1431](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1431) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Block Chance not showing up for majority of builds [\#1442](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1442) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
+
 ## [v0.12.2](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.12.2) (2025/09/16)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.1...v0.12.2)

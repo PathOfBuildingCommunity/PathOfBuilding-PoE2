@@ -1,3 +1,40 @@
+VERSION[beta][2025/10/03]
+
+--- New to Path of Building ---
+- Add Movement Speed while using skill to sidebar (LocalIdentity)
+- Add support for Rathpith Globe Life Cost mod (LocalIdentity)
+- Add support for Primed to Explode and Price of Freedom (Blitz54)
+- Add support for Magma Barrier Block chance buff + Evasion on Shield mod (LocalIdentity)
+- Add support for "you and allies" Grip of Kulemak mods (Blitz54)
+- Add support for Bolt Speed (Blitz54)
+- Add support for Focused Curse (Blitz54)
+- Add support for Unbending (Blitz54)
+
+--- Fixed Crashes ---
+- Fix Crash when hovering over some Tree nodes with Hulking Form allocated (LocalIdentity)
+
+--- User Interface ---
+- Fix Header Influence Icon Showing on Jewel Sockets (Blitz54)
+- Fix display name for Blind II effect mod (LocalIdentity)
+- Fix Tooltip for Lich Socket (Blitz54)
+- Make unset quest rewards more visible (Nightblade)
+- Add CTRL + C to error message to copy error text (Blitz54)
+
+--- Fixed Calculations ---
+- Fix Zealots Oath to apply excess Life Regen as ES Regen (LocalIdentity)
+- Fix stat values for some Tree nodes when using Hulking Form (LocalIdentity)
+- Fix 50% Less Curse Effect on Boss (Blitz54)
+- Fix Minion Reservation values + add Minion Count to breakdown (LocalIdentity)
+- Fix Bonestorm Cast time not having breakpoints for extra projectiles (LocalIdentity)
+
+--- Fixed Behaviours ---
+- Load Crossbow Damage skills by default instead of Ammo Skill (LocalIdentity)
+- Fix Prism of Belief + levels not working with some Skill Gems (LocalIdentity)
+- Fix Skill Speed not affecting Totem Placement Speed (LocalIdentity)
+- Fix Bosses missing 50% less Exposure Effect (LocalIdentity)
+- Fix Block Chance not showing up for majority of builds (LocalIdentity)
+
+
 VERSION[0.12.2][2025/09/16]
 
 --- Fixed Behaviours ---
