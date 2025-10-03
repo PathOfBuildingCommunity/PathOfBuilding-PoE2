@@ -772,6 +772,17 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	if skillModList:Flag(nil, "PinBuildupInsteadOfHeavyStunBuildup") then
+		-- Fortifying Cry mod
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyPinBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+		for i, value in ipairs(skillModList:Tabulate("MORE", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyPinBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if skillModList:Flag(nil, "ProjectileSpeedAppliesToProjectileDamage") then
 		-- Projectile speed to projectile damage conversion
 		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ProjectileSpeed")) do
@@ -3234,28 +3245,25 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 		end
-
-		output.RuthlessBlowHitEffect = 1
-		output.RuthlessBlowAilmentEffect = 1
+		
 		output.FistOfWarDamageEffect = 1
 		if env.mode_combat then
 			local ruthlessEffect = env.configInput.ruthlessSupportMode or "AVERAGE"
-			-- Calculate Ruthless Blow chance/multipliers + Fist of War multipliers
-			output.RuthlessBlowMaxCount = skillModList:Sum("BASE", cfg, "RuthlessBlowMaxCount")
-			if output.RuthlessBlowMaxCount > 0 and ( not skillCfg.skillCond["usedByMirage"] or (skillData.mirageUses or 0) > output.RuthlessBlowMaxCount ) then
+			local ruthlessBlowMaxCount = skillModList:Sum("BASE", cfg, "RuthlessBlowMaxCount")
+			local ruthlessBlowChance
+			if ruthlessBlowMaxCount > 0 and ( not skillCfg.skillCond["usedByMirage"] or (skillData.mirageUses or 0) > ruthlessBlowMaxCount ) then
 				if ruthlessEffect == "AVERAGE" then
-					output.RuthlessBlowChance = round(100 / output.RuthlessBlowMaxCount)
+					ruthlessBlowChance = round(100 / ruthlessBlowMaxCount)
 				elseif ruthlessEffect == "MAX" then
-					output.RuthlessBlowChance = 100
-					skillModList:NewMod("DPS", "MORE", -100 / (output.RuthlessBlowMaxCount or 1), "Only Ruthless Blows")
+					ruthlessBlowChance = 100
+					skillModList:NewMod("DPS", "MORE", -100 + 100 / (ruthlessBlowMaxCount or 1), "Only Ruthless Blows")
 				end
 			else
-				output.RuthlessBlowChance = 0
+				ruthlessBlowChance = 0
 			end
-			output.RuthlessBlowHitMultiplier = 1 + skillModList:Sum("BASE", cfg, "RuthlessBlowHitMultiplier") / 100
-			output.RuthlessBlowAilmentMultiplier = 1 + skillModList:Sum("BASE", cfg, "RuthlessBlowAilmentMultiplier") / 100
-			output.RuthlessBlowHitEffect = 1 - output.RuthlessBlowChance / 100 + output.RuthlessBlowChance / 100 * output.RuthlessBlowHitMultiplier
-			output.RuthlessBlowAilmentEffect = 1 - output.RuthlessBlowChance / 100 + output.RuthlessBlowChance / 100 * output.RuthlessBlowAilmentMultiplier
+			local ruthlessBlowStunMultiplier = skillModList:Sum("BASE", cfg, "RuthlessBlowStunMultiplier") / 100
+			local ruthlessBlowStunEffect = (ruthlessBlowChance / 100) * ruthlessBlowStunMultiplier
+			skillModList:NewMod("EnemyHeavyStunBuildup", "MORE", ruthlessBlowStunEffect * 100, "Ruthless Blows")
 
 			globalOutput.FistOfWarCooldown = skillModList:Sum("BASE", cfg, "FistOfWarCooldown") or 0
 			-- If Fist of War & Active Skill is a Slam Skill & NOT a Vaal Skill & NOT used by mirage or other
@@ -3627,9 +3635,6 @@ function calcs.offence(env, actor, activeSkill)
 						elseif output.TripleDamageEffect ~= 0 then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(multiplier from %d%% chance to deal triple damage)", 1 + output.TripleDamageEffect, output.TripleDamageChance))
 						end
-						if output.RuthlessBlowHitEffect ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(ruthless blow effect modifier)", output.RuthlessBlowHitEffect))
-						end
 						if output.FistOfWarDamageEffect ~= 1 then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(fist of war effect modifier)", output.FistOfWarDamageEffect))
 						end
@@ -3641,9 +3646,9 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					end
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-						output.allMult = output.ScaledDamageEffect * output.RuthlessBlowHitEffect * output.FistOfWarDamageEffect * globalOutput.MaxOffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * globalOutput.MaxOffensiveWarcryEffect
 					else
-						output.allMult = output.ScaledDamageEffect * output.RuthlessBlowHitEffect * output.FistOfWarDamageEffect * globalOutput.OffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * globalOutput.OffensiveWarcryEffect
 					end
 					local allMult = output.allMult
 					if pass == 1 then
@@ -4387,6 +4392,7 @@ function calcs.offence(env, actor, activeSkill)
 	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "AilmentThreshold")
 	output['EnemyAilmentThreshold'] = enemyThreshold
 
+
 	-- Calculate ailments and debuffs (poison, bleed, ignite, impale, exposure, etc)
 	for _, pass in ipairs(passList) do
 		globalOutput, globalBreakdown = output, breakdown
@@ -4415,13 +4421,13 @@ function calcs.offence(env, actor, activeSkill)
 			-- check against input valid types
 			if ((defaultDamageTypes and defaultDamageTypes[damageType])
 				or (ailmentData[ailmentType] and damageType == ailmentData[ailmentType].associatedType)) then
-				if skillModList:Flag(cfg, damageType.."Cannot"..ailmentType) then
+				if skillModList:Flag(cfg, damageType.."Cannot"..ailmentType) or skillModList:Flag(cfg, "Cannot"..ailmentType) then
 					return false
 				end
 				return true
 			end
 			-- Process overrides eg. LightningCanFreeze
-			if skillModList:Flag(cfg, damageType.."Can"..ailmentType) then
+			if skillModList:Flag(cfg, damageType.."Can"..ailmentType) or skillModList:Flag(cfg, "Can"..ailmentType) then
 				return true
 			end
 			return false
@@ -4456,16 +4462,17 @@ function calcs.offence(env, actor, activeSkill)
 			for _, damageType in ipairs(dmgTypeList) do
 				if canDoAilment(ailment, damageType, defaultDamageTypes) then
 					local override = skillModList:Override(cfg, ailment .. damageType .. "HitDamage")
+					local more = skillModList:More(cfg, damageType .. ailment .. "Buildup")
 					local ailmentHitMin = override or output[damageType.."StoredHitMin"] or 0
 					local ailmentHitMax = override or output[damageType.."StoredHitMax"] or 0
-					hitMin = hitMin + ailmentHitMin
-					hitMax = hitMax + ailmentHitMax
-					output[ailment .. damageType .. "Min"] = ailmentHitMin
-					output[ailment .. damageType .. "Max"] = ailmentHitMax
+					hitMin = hitMin + ailmentHitMin * more
+					hitMax = hitMax + ailmentHitMax * more
+					output[ailment .. damageType .. "Min"] = ailmentHitMin * more
+					output[ailment .. damageType .. "Max"] = ailmentHitMax * more
 					if canCrit then
 						override = skillModList:Override(cfg, ailment .. damageType .. "CritDamage")
-						critMin = critMin + (override or output[damageType.."StoredCritMin"] or 0)
-						critMax = critMax + (override or output[damageType.."StoredCritMax"] or 0)
+						critMin = critMin + (override or output[damageType.."StoredCritMin"] or 0) * more
+						critMax = critMax + (override or output[damageType.."StoredCritMax"] or 0) * more
 					end
 				end
 			end
@@ -4921,9 +4928,41 @@ function calcs.offence(env, actor, activeSkill)
 		output["FreezeChanceOnHit"] = 0
 		output["FreezeChanceOnCrit"] = 0
 		skillFlags["inflictFreeze"] = false
-		output["ElectrocuteChanceOnHit"] = 0
-		output["ElectrocuteChanceOnCrit"] = 0
 		skillFlags["inflictElectrocute"] = false
+		
+		-- Calculate poise-related debuffs
+		for _, ailment in ipairs({"Freeze", "Electrocute", "HeavyStun", "Pin"}) do 
+			local enemyPoiseThreshold = data.monsterPoiseThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "PoiseThreshold", ailment.."Threshold", ailment == "HeavyStun" and "EnemyStunThreshold")
+			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, data.buildupTypes[ailment].ScalesFrom)
+			-- TODO: average for now, can do more complicated calculation later
+			local hitAvg = hitMin + (hitMax - hitMin) / 2
+			local critAvg = critMin + (critMax - critMin) / 2
+			local inc = skillModList:Sum("INC", cfg, not skillModList:Flag(cfg, "PinBuildupInsteadOf"..ailment.."Buildup") and "Enemy"..ailment.."Buildup", "EnemyImmobilisationBuildup")
+			local more = skillModList:More(cfg, "Enemy"..ailment.."Buildup", "EnemyImmobilisationBuildup") * calcLib.mod(enemyDB, nil, ailment.."Buildup", "ImmobilisationBuildup", ailment == "HeavyStun" and "StunBuildup")
+			local hitPoiseBuildup = hitAvg * data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold
+			hitPoiseBuildup = hitPoiseBuildup * (1 + inc / 100) * more * 100
+			local critPoiseBuildup = critAvg * data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold
+			critPoiseBuildup = critPoiseBuildup * (1 + inc / 100) * more * 100
+			
+			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
+				globalOutput[ailment .. "BuildupOnHit"] = m_min(100, hitPoiseBuildup)
+				globalOutput[ailment .. "BuildupOnCrit"] = m_min(100, critPoiseBuildup)
+			else
+				globalOutput[ailment .. "BuildupOnHit"] = 0
+				globalOutput[ailment .. "BuildupOnCrit"] = 0
+			end
+
+			if breakdown then
+				globalBreakdown[ailment .. "Buildup"] = {
+					"Enemy level: " .. env.enemyLevel .. (env.configInput.enemyLevel and " ^8(overridden from the Configuration tab" or " ^8(can be overridden in the Configuration tab)"),
+					"Enemy poise: " .. enemyPoiseThreshold,
+					"",
+				}
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Regular Hit Poise buildup %.1f%%", hitPoiseBuildup))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Poise buildup %.1f%%", critPoiseBuildup))
+			end
+		end
+
 
 		-- Calculate scaling threshold ailment chance
 		for _, ailment in ipairs({"Ignite", "Shock"}) do

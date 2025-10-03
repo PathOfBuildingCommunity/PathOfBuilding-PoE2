@@ -968,6 +968,11 @@ skills["SupportChaoticFreezePlayer"] = {
 			label = "Chaotic Freeze",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_chaotic_freeze_dots_allow_enemies_to_be_frozen_by_chaos_damage"] = {
+					flag("ChaosCanFreeze", { type = "GlobalEffect", effectType = "Buff", effectName = "Chaotic Freeze" }),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -4545,6 +4550,14 @@ skills["SupportRimePlayer"] = {
 			label = "Rime",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["chilled_ground_applies_%_freeze_multiplier_taken"] = {
+					mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Rime" }, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }),
+				},
+				["support_winterblast_chill_effect_+%_final"] = {
+					mod("EnemyChillMagnitude", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

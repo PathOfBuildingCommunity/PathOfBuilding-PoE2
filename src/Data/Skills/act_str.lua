@@ -5927,6 +5927,11 @@ skills["LeapSlamPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "leap_slam",
+			statMap = {
+				["active_skill_consume_enemy_fully_broken_armour_to_gain_hit_damage_stun_multiplier_+%"] = {
+					mod("EnemyHeavyStunBuildup", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -12622,16 +12627,28 @@ skills["ShieldChargePlayer"] = {
 		[39] = { attackTime = 600, baseMultiplier = 2.36, critChance = 5, levelRequirement = 90, cost = { ManaPerMinute = 10702, }, },
 		[40] = { attackTime = 600, baseMultiplier = 2.48, critChance = 5, levelRequirement = 90, cost = { ManaPerMinute = 11389, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = 1
+				activeSkill.skillData.channelTimeMultiplier = 1
+			end,
 	statSets = {
 		[1] = {
 			label = "Area of Effect",
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "channel_shield_charge",
+			statMap = {
+				["shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final"] = {
+					mod("EnemyHeavyStunBuildup", "MORE", nil),
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
 				melee = true,
 				shieldAttack = true,
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 24 },
@@ -12709,11 +12726,22 @@ skills["ShieldChargePlayer"] = {
 			label = "Collision",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "channel_shield_charge",
+			statMap = {
+				["shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final"] = {
+					mod("EnemyHeavyStunBuildup", "MORE", nil),
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
 				melee = true,
 				shieldAttack = true,
+				channelRelease = true,
+			},
+			baseMods = {
+				skill("minChannelTime", 1.3),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 24 },

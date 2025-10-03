@@ -1157,6 +1157,9 @@ return {
 ["skill_overwhelming_pressure_aura_enemy_ailment_threshold_+%"] = {
 	mod("AilmentThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Overwhelming Presence"}),
 },
+["skill_overwhelming_pressure_aura_enemy_stun_threshold_+%"] = {
+	mod("EnemyStunThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Overwhelming Presence"}),
+},
 ["bleed_on_hit_with_attacks_%"] = {
 	mod("BleedChance", "BASE", nil, ModFlag.Attack),
 },
@@ -1294,10 +1297,13 @@ return {
 ["active_skill_shock_effect_+%_final"] = {
 	mod("EnemyShockMagnitude", "MORE", nil),
 },
+["active_skill_electrocutes_as_though_dealt_damage_+%_final"] = {
+	mod("EnemyElectrocuteBuildup", "MORE", nil),
+},
 ["non_damaging_ailment_effect_+%"] = {
 	mod("EnemyChillMagnitude", "INC", nil),
 	mod("EnemyShockMagnitude", "INC", nil),
-	mod("EnemyFreezeEffect", "INC", nil),
+	mod("EnemyFreezeBuildup", "INC", nil),
 },
 ["lightning_ailment_effect_+%"] = {
 	mod("EnemyShockMagnitude", "INC", nil),
@@ -1312,10 +1318,16 @@ return {
 },
 ["cold_ailment_effect_+%"] = {
 	mod("EnemyChillMagnitude", "INC", nil),
-	mod("EnemyFreezeEffect", "INC", nil),
+	mod("EnemyFreezeBuildup", "INC", nil),
+},
+["hit_damage_freeze_multiplier_+%"] = {
+	mod("EnemyFreezeBuildup", "INC", nil),
 },
 ["active_skill_hit_damage_freeze_multiplier_+%_final"] = {
-	mod("EnemyFreezeEffect", "MORE", nil),
+	mod("EnemyFreezeBuildup", "MORE", nil),
+},
+["support_hypothermia_hit_damage_freeze_multiplier_+%_final"] = {
+	mod("EnemyFreezeBuildup", "MORE", nil),
 },
 ["base_poison_effect_+%"] = {
 	mod("AilmentEffect", "INC", nil),
@@ -1422,6 +1434,10 @@ return {
 ["shock_minimum_damage_taken_increase_%+"] = {
 	mod("ShockMinimum", "BASE", nil),
 },
+["active_skill_pins_as_though_dealt_damage_+%_final"] = {
+	mod("EnemyPinBuildup", "MORE", nil),
+},
+
 -- Global flags
 ["never_ignite"] = {
 	flag("CannotIgnite"),
@@ -1438,6 +1454,13 @@ return {
 },
 ["never_chill"] = {
 	flag("CannotChill"),
+},
+["cannot_pin"] = {
+	flag("CannotPin"),
+},
+["cannot_stun"] = {
+	flag("CannotHeavyStun"),
+	flag("CannotStun"),
 },
 ["cannot_cause_bleeding"] = {
 	flag("CannotBleed"),
@@ -1491,11 +1514,28 @@ return {
 	flag("FireCanShock"),
 	flag("ChaosCanShock"),
 },
+["chaos_damage_can_freeze"] = {
+	flag("ChaosCanFreeze"),
+},
 ["base_chaos_damage_can_ignite"] = {
 	flag("ChaosCanIgnite"),
 },
 ["base_lightning_damage_can_electrocute"] = {
 	flag("LightningCanElectrocute"),
+},
+["base_all_damage_can_pin"] = {
+	flag("CanPin"),
+},
+["support_pin_physical_damage_can_pin"] = {
+	flag("PhysicalCanPin"),
+},
+["support_pin_buildup_pin_instead_of_stun"] = {
+	flag("PinBuildupInsteadOfHeavyStunBuildup"),
+	flag("CannotStun"),
+	flag("CannotHeavyStun"),
+},
+["support_pin_pin_buildup_+%_final"] = {
+	mod("EnemyPinBuildup", "MORE", nil),
 },
 ["is_hazard"] = {
 	flag("CanCreateHazards"),
@@ -1512,6 +1552,15 @@ return {
 ["impale_phys_reduction_%_penalty"] = {
 	mod("EnemyImpalePhysicalDamageReduction", "BASE", nil),
 	mult = -1,
+},
+["support_brink_hit_damage_stun_multiplier_+%_final"] = {
+	mod("EnemyHeavyStunBuildup", "MORE", nil),
+},
+["active_skill_hit_damage_stun_multiplier_+%_final"] = {
+	mod("EnemyHeavyStunBuildup", "MORE", nil),
+},
+["active_skill_minion_hit_damage_stun_multiplier_+%_final"] = {
+	mod("MinionModifier", "LIST", { mod = mod("EnemyHeavyStunBuildup", "MORE", nil) }),
 },
 ["base_stun_duration_+%"] = {
 	mod("EnemyStunDuration", "INC", nil),
@@ -2814,6 +2863,12 @@ return {
 	-- Display Only
 },
 ["quality_display_supercharged_slam_is_gem"] = {
+	-- Display Only
+},
+["quality_display_active_skill_pins_as_though_dealt_damage_+%_final_is_gem"] = {
+	-- Display Only
+},
+["quality_display_freezing_mark_is_gem"] = {
 	-- Display Only
 },
 }
