@@ -1917,7 +1917,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("KnockbackDistanceOnSelf", "MORE", -75, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique12
 			enemyModList:NewMod("SlowEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique11
 			enemyModList:NewMod("MinimumMovementSpeed", "BASE", 20, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique9
-			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique2
 			enemyModList:NewMod("PoiseThreshold", "MORE", 213, "Map Boss", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
@@ -1959,7 +1959,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("KnockbackDistanceOnSelf", "MORE", -75, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique12
 			enemyModList:NewMod("SlowEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique11
 			enemyModList:NewMod("MinimumMovementSpeed", "BASE", 20, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique9
-			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique2
 			enemyModList:NewMod("PoiseThreshold", "MORE", 838, "Xesht", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
@@ -2000,7 +2000,7 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("SlowEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique11
 			enemyModList:NewMod("MinimumMovementSpeed", "BASE", 20, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique9
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
-			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique2
 			enemyModList:NewMod("PoiseThreshold", "MORE", 838, "Xesht", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
