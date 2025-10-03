@@ -2611,7 +2611,7 @@ skills["SupportChargeInhibitionPlayer"] = {
 }
 skills["SupportInnervatePlayer"] = {
 	name = "Innervate",
-	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills infuses all of your Attacks with Lightning damage for a short time.",
+	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills imbues all of your Attacks with Lightning damage for a short time.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },

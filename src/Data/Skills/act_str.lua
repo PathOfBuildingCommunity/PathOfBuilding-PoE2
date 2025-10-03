@@ -382,8 +382,8 @@ skills["AncestralWarriorTotemPlayer"] = {
 	name = "Ancestral Warrior Totem",
 	baseTypeName = "Ancestral Warrior Totem",
 	color = 1,
-	description = "Consume 3 Endurance Charges to Raise a Totem that uses socketed Mace Skills. This Totem has no Limit. Cannot use Channelling Skills or Skills with Cooldowns.",
-	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Meta] = true, [SkillType.Area] = true, [SkillType.NoAttackInPlace] = true, [SkillType.HasUsageCondition] = true, [SkillType.RequiresCharges] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, [SkillType.UnlimitedTotems] = true, },
+	description = "Consume 3 Endurance Charges to Raise a Totem that uses socketed Mace Skills. Cannot use Channelling Skills or Skills with Cooldowns.",
+	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Meta] = true, [SkillType.Area] = true, [SkillType.NoAttackInPlace] = true, [SkillType.HasUsageCondition] = true, [SkillType.RequiresCharges] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, },
 	weaponTypes = {
 		["One Handed Mace"] = true,
 		["Two Handed Mace"] = true,
@@ -449,6 +449,7 @@ skills["AncestralWarriorTotemPlayer"] = {
 				{ "base_totem_range", 60 },
 				{ "ancestral_spirit_base_lockout_time_ms", 600 },
 				{ "active_skill_requires_X_endurance_charges", 3 },
+				{ "non_modifiable_totem_limit", 10 },
 			},
 			stats = {
 				"totem_elemental_resistance_%",
