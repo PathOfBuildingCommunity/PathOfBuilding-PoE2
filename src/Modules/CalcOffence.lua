@@ -2929,6 +2929,13 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
+	if (skillModList:Sum("BASE", skillCfg, "AftershockChance", "AftershockChanceQuarterSecond") or 0) > 0 then
+		local aftershockChance = skillModList:Sum("BASE", skillCfg, "AftershockChance")
+		local inc = (skillModList:Sum("BASE", skillCfg, "AftershockChanceQuarterSecond") or 0) * m_floor(1 / output.Speed)  / 0.25
+		aftershockChance = aftershockChance * (1 + inc / 100)
+		skillModList:NewMod("DPS", "MORE", aftershockChance, "Aftershock Chance")
+	end
+
 	-- Grab quantity multiplier
 	local quantityMultiplier = m_max(activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "QuantityMultiplier"), 1)
 	if quantityMultiplier > 1 then

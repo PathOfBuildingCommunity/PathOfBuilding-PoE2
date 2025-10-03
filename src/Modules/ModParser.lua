@@ -872,6 +872,7 @@ local modNameList = {
 	["penalty to accuracy rating at range"] = "AccuracyPenalty",
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
+	["to cause aftershocks"] = "AftershockChance",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1589,6 +1590,9 @@ local modTagList = {
 	["for each remaining chain"] = { tag = { type = "PerStat", stat = "ChainRemaining" } },
 	["for each enemy pierced"] = { tag = { type = "PerStat", stat = "PiercedCount" } },
 	["for each time they've pierced"] = { tag = { type = "PerStat", stat = "PiercedCount" } },
+	["for slam skills"] = { tag = { type = "SkillType", skillType = SkillType.Slam } },
+	["for mace slam skills"] = { tagList = { { type = "Condition", var = "UsingMace" }, { type = "SkillType", skillType = SkillType.Slam } }},
+	["you use yourself"] = { tagList = { { type = "SkillType", skillType = SkillType.UsedByTotem, neg = true }, { type = "SkillType", skillType = SkillType.Triggered, neg = true }, { type = "SkillType", skillType = SkillType.Trapped, neg = true } }},
 	-- Stat conditions
 	["with (%d+) or more strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
 	["with at least (%d+) strength"] = function(num) return { tag = { type = "StatThreshold", stat = "Str", threshold = num } } end,
@@ -5096,6 +5100,11 @@ local specialModList = {
 		-- MultiplierThreshold is on RageStacks because Rage is only set in CalcPerform if Condition:CanGainRage is true, Bear's Girdle does not flag CanGainRage
 		mod("EnemyModifier", "LIST", { mod = flag("Condition:Intimidated") }, { type = "MultiplierThreshold", var = "RageStack", threshold = 1 })
 	},
+	["(%d+)%% chance for mace strike skills you use yourself to cause aftershocks, dealing the same damage to enemies within ([%d%.]+) metres"] = function (num, _) return {
+		mod("AftershockChance", "BASE", num,
+		{ type = "Condition", var = "UsingMace" }, 
+		{ type = "SkillType", skillType = SkillType.MeleeSingleTarget } )
+	} end,
 	-- Flasks
 	["flasks do not apply to you"] = { flag("FlasksDoNotApplyToPlayer") },
 	["flasks apply to your zombies and spectres"] = { flag("FlasksApplyToMinion", { type = "SkillName", skillNameList = { "Raise Zombie", "Raise Spectre" }, includeTransfigured = true }) },
@@ -5719,6 +5728,9 @@ local specialModList = {
 	} end,
 	["(%d+)%% reduced movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "INC", -num) } end,
 	["(%d+)%% less movement speed penalty from using skills while moving"] = function(num) return { mod("MovementSpeedPenalty", "MORE", -num) } end,
+	["slam skills you use yourself cause aftershocks"] = {
+		mod("AftershockChance", "BASE", 100, { type = "SkillType", skillType = SkillType.Slam }, { type = "SkillType", skillType = SkillType.UsedByTotem, neg = true }, { type = "SkillType", skillType = SkillType.Triggered, neg = true }, { type = "SkillType", skillType = SkillType.Trapped, neg = true })
+	},
 		-- Conditional Player Quantity / Rarity
 	["(%d+)%% increased quantity of items dropped by slain normal enemies"] = function(num) return { mod("LootQuantityNormalEnemies", "INC", num) } end,
 	["(%d+)%% increased rarity of items dropped by slain magic enemies"] = function(num) return { mod("LootRarityMagicEnemies", "INC", num) } end,
