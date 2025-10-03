@@ -850,7 +850,7 @@ statMap = {
 #skill SupportMagnifiedAreaPlayerTwo
 #set SupportMagnifiedAreaPlayerTwo
 statMap = {
-	["support_area_concentrate_area_damage_+%_final"] = {
+	["support_increased_area_damage_+%_final"] = {
 		mod("Damage", "MORE", nil, ModFlag.Area),
 	},
 },
