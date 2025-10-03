@@ -1894,7 +1894,7 @@ Huge sets the radius to 11.
 				defaultLevel = build.configTab.enemyLevel
 			end
 
-			local defaultDamage = round(data.monsterDamageTable[defaultLevel] * 1.5)
+			local defaultDamage = round(data.monsterDamageTable[defaultLevel] * 1.5 * data.misc.normalEnemyDPSMult)
 			build.configTab.varControls['enemyPhysicalDamage']:SetPlaceholder(defaultDamage, true)
 			build.configTab.varControls['enemyLightningDamage']:SetPlaceholder(defaultDamage, true)
 			build.configTab.varControls['enemyColdDamage']:SetPlaceholder(defaultDamage, true)
