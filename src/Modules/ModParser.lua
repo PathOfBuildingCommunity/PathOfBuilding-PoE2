@@ -2554,6 +2554,7 @@ local specialModList = {
 	["you cannot be maimed"] = { flag("MaimImmune") },
 	["you cannot be impaled"] = { flag("ImpaleImmune") },
 	["cannot dodge roll or sprint"] = { flag("Condition:CannotDodgeRoll"), flag("Condition:CannotSprint") },
+	["you cannot sprint"] = { flag("Condition:CannotSprint") },
 	-- Exerted Attacks
 	["exerted attacks deal (%d+)%% increased damage"] = function(num) return { mod("ExertIncrease", "INC", num, nil, ModFlag.Attack, 0) } end,
 	["exerted attacks have (%d+)%% chance to deal double damage"] = function(num) return { mod("ExertDoubleDamageChance", "BASE", num, nil, ModFlag.Attack, 0) } end,
