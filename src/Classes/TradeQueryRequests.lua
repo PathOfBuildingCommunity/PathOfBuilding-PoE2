@@ -14,6 +14,7 @@ local TradeQueryRequestsClass = newClass("TradeQueryRequests", function(self, ra
 	self.requestQueue = {
 		["search"] = {},
 		["fetch"] = {},
+		["whisper"] = {},
 	}
 	self.hostName = "https://www.pathofexile.com/"
 end)
@@ -30,13 +31,15 @@ function TradeQueryRequestsClass:ProcessQueue()
 				local requestId = self.rateLimiter:InsertRequest(policy)
 				local onComplete = function(response, errMsg)
 					self.rateLimiter:FinishRequest(policy, requestId)
-					self.rateLimiter:UpdateFromHeader(response.header)
-					if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
+					if response and response.header then
+						self.rateLimiter:UpdateFromHeader(response.header)
+					end
+					if response and response.header and response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
 						table.insert(queue, 1, request)
 						return
 					end
 					-- if limit rules don't return account then the POESESSID is invalid.
-					if response.header:match("X%-Rate%-Limit%-Rules: (.-)\n"):match("Account") == nil and main.POESESSID ~= "" then
+					if response and response.header and response.header:match("X%-Rate%-Limit%-Rules: (.-)\n") and response.header:match("X%-Rate%-Limit%-Rules: (.-)\n"):match("Account") == nil and main.POESESSID ~= "" then
 						main.POESESSID = ""
 						if errMsg then
 							errMsg = errMsg .. "\nPOESESSID is invalid. Please Re-Log and reset"
@@ -44,17 +47,23 @@ function TradeQueryRequestsClass:ProcessQueue()
 							errMsg = "POESESSID is invalid. Please Re-Log and reset"
 						end
 					end
-					request.callback(response.body, errMsg, unpack(request.callbackParams or {}))
+					request.callback(response and response.body or nil, errMsg, unpack(request.callbackParams or {}))
 				end
-				-- self:SendRequest(request.url , onComplete, {body = request.body, poesessid = main.POESESSID})
-				local header = "Content-Type: application/json"
+				
+				local header = request.headers or "Content-Type: application/json\nUser-Agent: Path of Building Community"
 				if main.POESESSID ~= "" then
 					header = header .. "\nCookie: POESESSID=" .. main.POESESSID
 				end
-				launch:DownloadPage(request.url, onComplete, {
+				
+				local downloadOptions = {
 					header = header,
-					body = request.body, 
-				})
+					body = request.body
+				}
+				if request.body then
+					downloadOptions.post = "raw"
+				end
+				
+				launch:DownloadPage(request.url, onComplete, downloadOptions)
 			else
 				break
 			end
@@ -414,6 +423,8 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 					currency = trade_entry.listing.price.currency,
 					item_string = table.concat(rawLines, "\n"),
 					whisper = trade_entry.listing.whisper,
+					whisper_token = trade_entry.listing.whisper_token,
+					hideout_token = trade_entry.listing.hideout_token,
 					weight = trade_entry.item.pseudoMods and trade_entry.item.pseudoMods[1]:match("Sum: (.+)") or "0",
 					id = trade_entry.id
 				})
@@ -524,4 +535,41 @@ function TradeQueryRequestsClass:buildUrl(root, realm, league, queryId)
 		result = result .. "/" .. queryId
 	end
 	return result	
+end
+
+---@param callback fun(items:table, errMsg:string)
+function TradeQueryRequestsClass:SendWhisper(token, refererUrl, callback)
+	ConPrintf("Attempting to send whisper with token: " .. tostring(token))
+
+	-- Manually construct the JSON string to ensure a space after the colon
+	local requestBody = '{"token": "' .. token .. '"}'
+
+	-- Construct the full headers required by the whisper API
+	local headers = {
+		"Content-Type: application/json",
+		"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+		"X-Requested-With: XMLHttpRequest"
+	}
+	if refererUrl then
+		table.insert(headers, "Referer: " .. refererUrl)
+	end
+
+	table.insert(self.requestQueue["whisper"], {
+		url = self.hostName .. "api/trade2/whisper",
+		body = requestBody,
+		headers = table.concat(headers, "\n"),
+		callback = function(responseBody, errMsg)
+			ConPrintf("Whisper API Response Body: " .. tostring(responseBody))
+			ConPrintf("Whisper API Error Message: " .. tostring(errMsg))
+			if errMsg then
+				return callback(nil, errMsg)
+			end
+			local response, jsonErr = dkjson.decode(responseBody)
+			if not response then
+				errMsg = "Failed to decode Whisper JSON response: " .. (jsonErr or "Empty response")
+				return callback(nil, errMsg)
+			end
+			callback(response, errMsg)
+		end,
+	})
 end
