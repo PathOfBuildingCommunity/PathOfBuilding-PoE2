@@ -808,6 +808,18 @@ worldAreas["HideoutShoreline"] = {
 	},
 }
 
+worldAreas["HideoutArenaKulemak"] = {
+	name = "Black Cathedral Hideout (Act 1)",
+	baseName = "Black Cathedral Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
 worldAreas["KaruiShowcase"] = {
 	name = "Heart of the Tribe (Act 4)",
 	baseName = "Heart of the Tribe",
@@ -1998,7 +2010,6 @@ worldAreas["G3_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bloodthief Queen",
 		"Bloodthief Wasp",
 		"Bogfelled Commoner",
 		"Bogfelled Slave",
@@ -2868,7 +2879,7 @@ worldAreas["P1_1"] = {
 	name = "Scorched Farmlands (Act 6)",
 	baseName = "Scorched Farmlands",
 	description = "The fields burn as the night brings new terror",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = { "EzomyteStrongbox", "frost_shrine" },
 	act = 6,
 	level = 54,
 	isMap = false,
@@ -3158,7 +3169,6 @@ worldAreas["P2_6"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bloodthief Queen",
 		"Bloodthief Wasp",
 		"Drudge Osseodon",
 		"Gilded Cobra",
@@ -3792,7 +3802,8 @@ worldAreas["MapWoodland"] = {
 		"Ill-fated Explorer",
 	},
 	bossVarieties = {
-		"Tierney, the Hateful",
+		"Murtagh, the Engorged",
+		"Colm, the Rancorous",
 	},
 }
 
@@ -3842,7 +3853,7 @@ worldAreas["MapHive"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bane Sapling",
+		"Plague Nymph",
 	},
 	bossVarieties = {
 		"The Fungus Behemoth",
@@ -4576,7 +4587,7 @@ worldAreas["MapRupture"] = {
 	name = "Rupture (Map)",
 	baseName = "Rupture",
 	description = "In the end, the river will always conquer the dam.",
-	tags = { "map", "area_with_water", "swamp_biome" },
+	tags = { "map", "area_with_water", "swamp_biome", "VaalStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4606,13 +4617,16 @@ worldAreas["MapOvergrown"] = {
 		"Scorpion Monkey",
 		"Snakethroat Shambler",
 	},
+	bossVarieties = {
+		"Tetzcatl, the Blazing Guardian",
+	},
 }
 
 worldAreas["MapCaldera"] = {
 	name = "Caldera (Map)",
 	baseName = "Caldera",
 	description = "An undrinkable lagoon girt in unbreathable air.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4676,7 +4690,6 @@ worldAreas["MapSevenWaters"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Rasp Scavenger",
-		"Regurgitating Vulture",
 		"Vile Vulture",
 	},
 	bossVarieties = {
@@ -4753,7 +4766,7 @@ worldAreas["MapWaywardIsle"] = {
 	name = "Wayward Isle (Map)",
 	baseName = "Wayward Isle",
 	description = "The bones of marooned wanderers assemble here.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "MarakethStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4766,13 +4779,16 @@ worldAreas["MapWaywardIsle"] = {
 		"Skullslinger",
 		"Spinesnatcher",
 	},
+	bossVarieties = {
+		"Lord of the Pit",
+	},
 }
 
 worldAreas["MapStronghold"] = {
 	name = "Stronghold (Map)",
 	baseName = "Stronghold",
 	description = "Merchants and pirates alike need a safe port to peddle their wares.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "EzomyteStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4859,7 +4875,7 @@ worldAreas["MapCliffside"] = {
 	name = "Cliffside (Map)",
 	baseName = "Cliffside",
 	description = "The grandest sculptures are carved with neither hammer nor chisel.",
-	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "mountain_biome" },
+	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "mountain_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4882,7 +4898,7 @@ worldAreas["MapSinkhole"] = {
 	name = "Sinkhole (Map)",
 	baseName = "Sinkhole",
 	description = "Spirits gather where the world falls away.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4906,7 +4922,7 @@ worldAreas["MapFlotsam"] = {
 	name = "Flotsam (Map)",
 	baseName = "Flotsam",
 	description = "Violent seas and hungry shores devour vessels, crew and all.",
-	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome" },
+	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -5891,7 +5907,6 @@ worldAreas["G_Endgame_Town"] = {
 		"Blood-fevered Wisewoman",
 		"Bloodrite Guard",
 		"Bloodrite Priest",
-		"Bloodthief Queen",
 		"Bloodthief Wasp",
 		"Bloom Serpent",
 		"Bogfelled Commoner",
@@ -6000,7 +6015,6 @@ worldAreas["G_Endgame_Town"] = {
 		"Hunchback Clubber",
 		"Hyena Demon",
 		"Ill-fated Explorer",
-		"Iron Enforcer",
 		"Iron Guard",
 		"Iron Sharpshooter",
 		"Iron Spearman",
@@ -6046,7 +6060,6 @@ worldAreas["G_Endgame_Town"] = {
 		"Rabid Dog",
 		"Rasp Scavenger",
 		"Rattling Gibbet",
-		"Regurgitating Vulture",
 		"Rhex",
 		"Ribrattle",
 		"Righteous Axewielder",
