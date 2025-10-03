@@ -3,6 +3,10 @@ local itemBases = ...
 
 #type SoulCore
 #baseMatch Metadata/Items/SoulCores/SoulCore
+#baseMatch Metadata/Items/SoulCores/AmanamusGaze
+#baseMatch Metadata/Items/SoulCores/KurgalsGaze
+#baseMatch Metadata/Items/SoulCores/TecrodsGaze
+#baseMatch Metadata/Items/SoulCores/UlamansGaze
 
 #type Rune
 #baseMatch Metadata/Items/SoulCores/Rune
