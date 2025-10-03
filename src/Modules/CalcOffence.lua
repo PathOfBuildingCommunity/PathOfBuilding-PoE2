@@ -3519,7 +3519,8 @@ function calcs.offence(env, actor, activeSkill)
 			criticalCull = m_min(criticalCull, criticalCull * (1 - (1 - output.CritChance / 100) ^ hitRate))
 		end
 		local regularCull = skillModList:Max(cfg, "CullPercent") or 0
-		local maxCullPercent = m_max(criticalCull, regularCull)
+		local incCull = (1 + skillModList:Sum("INC", cfg, "CullPercent") / 100)
+		local maxCullPercent = m_max(criticalCull, regularCull) * incCull
 		globalOutput.CullPercent = maxCullPercent
 		globalOutput.CullMultiplier = 100 / (100 - globalOutput.CullPercent)
 
