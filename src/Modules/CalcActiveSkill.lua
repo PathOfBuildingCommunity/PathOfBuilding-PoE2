@@ -624,6 +624,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					activeSkill.triggeredBy = skillEffect
 				end
 			end
+			skillModList:NewMod("Multiplier:SupportCount", "BASE", 1, "Support Count")
 			if level.PvPDamageMultiplier then
 				skillModList:NewMod("PvpDamageMultiplier", "MORE", level.PvPDamageMultiplier, skillEffect.grantedEffect.modSource)
 			end
