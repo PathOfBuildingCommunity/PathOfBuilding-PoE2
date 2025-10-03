@@ -2480,6 +2480,10 @@ function calcs.offence(env, actor, activeSkill)
 		if enemyDB:Flag(nil, "CannotBlockAttacks") and isAttack then
 			output.enemyBlockChance = 0
 		end
+		
+		if skillModList:Flag(cfg, "fakeHit") then
+			output.enemyBlockChance = 0
+		end
 
 		output.HitChance = output.AccuracyHitChance * (1 - output.enemyBlockChance / 100)
 		if output.enemyBlockChance > 0 and not isAttack then
@@ -3608,9 +3612,9 @@ function calcs.offence(env, actor, activeSkill)
 			local lifeLeechTotal = 0
 			local energyShieldLeechTotal = 0
 			local manaLeechTotal = 0
-			local noLifeLeech = skillModList:Flag(cfg, "CannotLeechLife") or enemyDB:Flag(nil, "CannotLeechLifeFromSelf") or skillModList:Flag(cfg, "CannotGainLife")
-			local noEnergyShieldLeech = skillModList:Flag(cfg, "CannotLeechEnergyShield") or enemyDB:Flag(nil, "CannotLeechEnergyShieldFromSelf") or skillModList:Flag(cfg, "CannotGainEnergyShield")
-			local noManaLeech = skillModList:Flag(cfg, "CannotLeechMana") or enemyDB:Flag(nil, "CannotLeechManaFromSelf") or skillModList:Flag(cfg, "CannotGainMana")
+			local noLifeLeech = skillModList:Flag(cfg, "CannotLeechLife") or enemyDB:Flag(nil, "CannotLeechLifeFromSelf") or skillModList:Flag(cfg, "CannotGainLife") or skillModList:Flag(cfg, "fakeHit")
+			local noEnergyShieldLeech = skillModList:Flag(cfg, "CannotLeechEnergyShield") or enemyDB:Flag(nil, "CannotLeechEnergyShieldFromSelf") or skillModList:Flag(cfg, "CannotGainEnergyShield") or skillModList:Flag(cfg, "fakeHit")
+			local noManaLeech = skillModList:Flag(cfg, "CannotLeechMana") or enemyDB:Flag(nil, "CannotLeechManaFromSelf") or skillModList:Flag(cfg, "CannotGainMana") or skillModList:Flag(cfg, "fakeHit")
 			for _, damageType in ipairs(dmgTypeList) do
 				local damageTypeHitMin, damageTypeHitMax, damageTypeHitAvg, damageTypeLuckyChance, damageTypeHitAvgLucky, damageTypeHitAvgNotLucky = 0, 0, 0, 0, 0
 				if skillFlags.hit and canDeal[damageType] then
@@ -5601,6 +5605,20 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 
+	
+	-- Set hit damage to 0 for skills that only apply ailment as though they hit
+	if skillModList:Flag(cfg, "fakeHit") then
+		output.AverageHit = 0
+		output.AverageDamage = 0
+		output.TotalDPS = 0
+		output.TotalMin = 0
+		output.TotalMax = 0
+		for _, damageType in ipairs(dmgTypeList) do
+			output[damageType.."Min"] = 0
+			output[damageType.."Max"] = 0
+		end
+	end
+	
 	-- Calculate combined DPS estimate, including DoTs
 	local baseDPS = output[(skillData.showAverage and "AverageDamage") or "TotalDPS"]
 	output.CombinedDPS = baseDPS
