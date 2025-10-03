@@ -642,7 +642,7 @@ return {
 	{ label = "Armour Break / hit", haveOutput = "ArmourBreakPerHit", { format = "{0:output:ArmourBreakPerHit}", { modName = "ArmourBreakPerHit", modType = "BASE"} }, },
 	{ label = "Soul Cost", color = colorCodes.RAGE, haveOutput = "SoulHasCost", { format = "{0:output:SoulCost}", { breakdown = "SoulCost" }, { modName = { "SoulCost" }, cfg = "skill" }, }, },
 	{ label = "Active Minion Limit", haveOutput = "ActiveMinionLimit", { format = "{0:output:ActiveMinionLimit}" } },
-	{ label = "Minion Revival Time", haveOutput = "MinionRevivalTime", { format = "{2:output:MinionRevivalTime}", { breakdown = "MinionRevivalTime" }, { modName = { "MinionRevivalTime" } } },},
+	{ label = "Minion Revival Time", haveOutput = "MinionRevivalSpeed", { format = "{2:output:MinionRevivalSpeed}s", { breakdown = "MinionRevivalSpeed" }, { modName = { "MinionRevivalSpeed" } } },},
 	{ label = "Quantity Multiplier", haveOutput = "QuantityMultiplier", { format = "{0:output:QuantityMultiplier}",
 	    { breakdown = "QuantityMultiplier" },
 	    { modName = { "QuantityMultiplier" }, cfg = "skill" },
