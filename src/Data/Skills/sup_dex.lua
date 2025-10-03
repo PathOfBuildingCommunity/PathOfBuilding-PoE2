@@ -4948,6 +4948,20 @@ skills["SupportRigwaldsFerocityPlayer"] = {
 			label = "Rigwald's Ferocity",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rigwald_attack_speed_+%_final_in_weapon_set_one"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet1" }),
+				},
+				["support_rigwald_damage_+%_final_in_weapon_set_one"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet1" }),
+				},
+				["support_rigwald_attack_speed_+%_final_in_weapon_set_two"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet2" }),
+				},
+				["support_rigwald_damage_+%_final_in_weapon_set_two"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet2" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
