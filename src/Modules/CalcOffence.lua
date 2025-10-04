@@ -3300,6 +3300,16 @@ function calcs.offence(env, actor, activeSkill)
 			activeSkill.activeEffect.grantedEffect.explosiveArrowFunc(activeSkill, output, globalOutput, globalBreakdown, env)
 		end
 
+		
+		local gloryCost = skillModList:Sum("BASE", nil, "GloryCost") -- skillData.gloryCost or 0
+		if gloryCost > 0 then
+			local more = skillModList:More(skillCfg , "GloryCost")
+			output.GloryCost = gloryCost * more
+			if globalOutput then
+				globalOutput.ShowGlory = 1
+			end
+		end
+
 		-- Calculate crit chance, crit multiplier, and their combined effect
 		if skillModList:Flag(cfg, "NeverCrit") then
 			output.PreEffectiveCritChance = 0
@@ -3994,6 +4004,39 @@ function calcs.offence(env, actor, activeSkill)
 		output.LifeOnHitRate = output.LifeOnHit * hitRate
 		output.EnergyShieldOnHitRate = output.EnergyShieldOnHit * hitRate
 		output.ManaOnHitRate = output.ManaOnHit * hitRate
+		
+		
+		if globalBreakdown then
+			globalBreakdown["Glory"] = {}
+			local power = modDB:Sum("BASE", nil, "Multiplier:EnemyPower") or 1
+			local inc = modDB:Sum("INC", skillCfg, "GloryGeneration") or 0
+			if output.GloryCost then
+				t_insert(globalBreakdown["Glory"], s_format("Uses %.0f glory", output.GloryCost))
+			end
+			if inc > 0 then
+				t_insert(globalBreakdown["Glory"], "" .. s_format("%.0f%% increased generation", inc))
+			end
+			local chanceToNotConsume = modDB:Sum("BASE", skillCfg, "ChanceToNotConsumeGlory") or 0
+			if chanceToNotConsume > 0 then
+				t_insert(globalBreakdown["Glory"], s_format("%.0f%% chance to not consume", chanceToNotConsume))
+			end
+			local bannerGloryPerSecond = modDB:Sum("BASE", skillCfg, "BannerGloryPerSecond")
+			if bannerGloryPerSecond then
+				t_insert(globalBreakdown["Glory"], s_format("%.0f passive glory/s for banners", bannerGloryPerSecond * (1+inc/100)))
+			end
+			local gloryOnHit = modDB:Max(skillCfg, "GloryOnHit")
+			if gloryOnHit and not output.GloryCost then
+				local incBanner = modDB:Sum("INC", skillCfg, "GloryOnHit") or 0
+				local internalCooldown = 3
+				local hitRateReduction = hitRate / internalCooldown
+				t_insert(globalBreakdown["Glory"], s_format("%.0f active glory/s for banners", gloryOnHit * (1+(inc+incBanner)/100) * hitRate * hitRateReduction * power))
+				globalOutput.ShowGlory = 1
+			end
+			if skillData.gloryOnStun then
+				t_insert(globalBreakdown["Glory"], s_format("%.0f glory gained on stun", skillData.gloryOnStun * (1+inc/100) * power))
+				globalOutput.ShowGlory = 1
+			end
+		end
 
 		-- Calculate gain on kill
 		if skillFlags.mine or skillFlags.trap or skillFlags.totem then

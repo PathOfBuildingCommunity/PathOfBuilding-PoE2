@@ -670,6 +670,7 @@ local modNameList = {
 	["to deal triple damage"] = "TripleDamageChance",
 	["curse activation"] = "CurseActivation",
 	["ice crystal life"] = "IceCrystalLife",
+	["glory cost"] = "GloryCost",
 	-- Effects
 	["onslaught effect"] = "OnslaughtEffect",
 	["effect of onslaught on you"] = "OnslaughtEffect",
@@ -872,6 +873,9 @@ local modNameList = {
 	["penalty to accuracy rating at range"] = "AccuracyPenalty",
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
+	["glory generation"] = "GloryGeneration",
+	["glory generation for banner skills"] = "GloryOnHit",
+	["to not consume glory"] = "ChanceToNotConsumeGlory",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1275,7 +1279,7 @@ local preFlagList = {
 	["^non%-channelling spells [hd][ae][va][el] "] = { flags = ModFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Channel, neg = true } },
 	["^non%-vaal skills deal "] = { tag = { type = "SkillType", skillType = SkillType.Vaal, neg = true } },
 	["^bolts fired by crossbow attacks [hd][ae][va][el] "] = { flags = ModFlag.Crossbow, tag = { type = "SkillType", skillType = SkillType.CrossbowSkill }  },
-	["^skills [hgdf][aei][vari][eln] "] = { },
+	["^skills [hgdf][aei][vari][eln] a?n? ?"] = { },
 	["^triggered spells [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "SkillType", skillType = SkillType.Triggered  } },
 	["^totems have "] = { keywordFlags = KeywordFlag.Totem },
 	["^persistent buffs have "] = { tagList = { { type = "SkillType", skillType = SkillType.Persistent }, { type = "SkillType", skillType = SkillType.Buff } } },
@@ -3127,6 +3131,9 @@ local specialModList = {
 	["allies in your presence gain added attack damage equal to (%d+)%% of your main hand weapon's damage"] = function(num) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }),
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
+	} end,
+	["banners gain (%d+) glory per second"] = function(num) return {
+		mod("BannerGloryPerSecond", "BASE", num)
 	} end,
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
@@ -5933,6 +5940,7 @@ local resourceTypes = {
 	["energy shield, life and mana"] = { "Life", "Mana", "EnergyShield" },
 	["energy shield, mana and life"] = { "Life", "Mana", "EnergyShield" },
 	["rage"] = "Rage",
+	["glory"] = "Glory",
 }
 do
 	local maximumResourceTypes = { }

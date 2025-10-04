@@ -1386,7 +1386,7 @@ c["15% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Fla
 c["15% increased Freeze Buildup"]={{}," Freeze Buildup "}
 c["15% increased Freeze Buildup 15% increased Chill and Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=15},[2]={flags=0,keywordFlags=0,name="EnemyChillDuration",type="INC",value=15}}," Freeze Buildup 15% increased   "}
 c["15% increased Global Physical Damage"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=15}},nil}
-c["15% increased Glory generation"]={{}," Glory generation "}
+c["15% increased Glory generation"]={{[1]={flags=0,keywordFlags=0,name="GloryGeneration",type="INC",value=15}},nil}
 c["15% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=15}},nil}
 c["15% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=15}},nil}
 c["15% increased Immobilisation buildup"]={{}," Immobilisation buildup "}
@@ -1698,7 +1698,7 @@ c["20% increased Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name
 c["20% increased Frenzy Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=20}},nil}
 c["20% increased Global Defences"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="Defences",type="INC",value=20}},nil}
 c["20% increased Global Physical Damage"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=20}},nil}
-c["20% increased Glory generation for Banner Skills"]={{}," Glory generation for Banner Skills "}
+c["20% increased Glory generation for Banner Skills"]={{[1]={flags=0,keywordFlags=0,name="GloryOnHit",type="INC",value=20}},nil}
 c["20% increased Hazard Duration"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=20}},nil}
 c["20% increased Hazard Immobilisation buildup"]={{},"  Immobilisation buildup "}
 c["20% increased Hinder Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Hinder  "}
@@ -2946,7 +2946,7 @@ c["8% increased Flask Charges gained"]={{[1]={flags=0,keywordFlags=0,name="Flask
 c["8% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=8}},nil}
 c["8% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=8},[2]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=8}},nil}
 c["8% increased Freeze Buildup"]={{}," Freeze Buildup "}
-c["8% increased Glory generation"]={{}," Glory generation "}
+c["8% increased Glory generation"]={{[1]={flags=0,keywordFlags=0,name="GloryGeneration",type="INC",value=8}},nil}
 c["8% increased Ignite Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyIgniteDuration",type="INC",value=8}},nil}
 c["8% increased Ignite Magnitude"]={{[1]={flags=0,keywordFlags=8388608,name="AilmentMagnitude",type="INC",value=8}},nil}
 c["8% increased Immobilisation buildup"]={{}," Immobilisation buildup "}
@@ -3227,7 +3227,7 @@ c["Allies in your Presence have 15% increased Attack Speed"]={{[1]={flags=0,keyw
 c["Allies in your Presence have 15% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=15},onlyAllies=true}}},nil}
 c["Allies in your Presence have 20% increased Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=20},onlyAllies=true}}},nil}
 c["Allies in your Presence have 20% increased Cast Speed"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=16,keywordFlags=0,name="Speed",type="INC",value=20},onlyAllies=true}}},nil}
-c["Allies in your Presence have 30% increased Glory generation"]={{}," Glory generation "}
+c["Allies in your Presence have 30% increased Glory generation"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="GloryGeneration",type="INC",value=30},onlyAllies=true}}},nil}
 c["Allies in your Presence have 32% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=32},onlyAllies=true}}},nil}
 c["Allies in your Presence have 32% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritChance",type="INC",value=32},onlyAllies=true}}},nil}
 c["Allies in your Presence have 40% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=40},onlyAllies=true}}},nil}
@@ -4062,8 +4062,7 @@ c["Banner Skills have 30% increased Area of Effect"]={{[1]={[1]={skillType=88,ty
 c["Banner Skills have 30% increased Duration"]={{[1]={[1]={skillType=88,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
 c["Banners also grant +25% to all Elemental Resistances to you and Allies"]={{[1]={[1]={skillType=88,type="SkillType"},flags=0,keywordFlags=0,name="ExtraAuraEffect",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=25}}}},nil}
 c["Banners always have maximum Valour"]={nil,"Banners always have maximum Valour "}
-c["Banners gain 5 Glory per second"]={nil,"Banners gain 5 Glory per second "}
-c["Banners gain 5 Glory per second There is no Limit on the number of Banners you can place"]={nil,"Banners gain 5 Glory per second There is no Limit on the number of Banners you can place "}
+c["Banners gain 5 Glory per second"]={{[1]={flags=0,keywordFlags=0,name="BannerGloryPerSecond",type="BASE",value=5}},nil}
 c["Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence"]={nil,"Barrageable Attacks with this Bow Repeat +1 time if no enemies are in your Presence "}
 c["Base Bleeding Duration is 1 second"]={{[1]={flags=0,keywordFlags=0,name="BleedDurationBase",type="OVERRIDE",value="1"}},nil}
 c["Base Critical Hit Chance for Attacks with Weapons is 7%"]={{[1]={flags=0,keywordFlags=0,name="WeaponBaseCritChance",type="OVERRIDE",value=7}},nil}
@@ -5432,9 +5431,9 @@ c["Skills have 33% chance to not consume a Cooldown when used"]={{[1]={[1]={skil
 c["Skills have 5% chance to not remove Elemental Infusions but still count as consuming them"]={{}," to not remove Elemental Infusions but still count as consuming them "}
 c["Skills have 6% increased Skill Speed per Connected green Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillSpeedIncreasedPerGreenSupport",type="FLAG",value=6}},nil}
 c["Skills have a 125% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=125}},nil}
-c["Skills have a 15% chance to not consume Glory"]={nil,"a 15% chance to not consume Glory "}
+c["Skills have a 15% chance to not consume Glory"]={{[1]={flags=0,keywordFlags=0,name="ChanceToNotConsumeGlory",type="BASE",value=15}},nil}
 c["Skills have a 150% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=150}},nil}
-c["Skills have a 5% chance to not consume Glory"]={nil,"a 5% chance to not consume Glory "}
+c["Skills have a 5% chance to not consume Glory"]={{[1]={flags=0,keywordFlags=0,name="ChanceToNotConsumeGlory",type="BASE",value=5}},nil}
 c["Skills reserve 50% less Spirit"]={{[1]={flags=0,keywordFlags=0,name="SpiritReserved",type="MORE",value=-50}},nil}
 c["Skills used by Totems have 30% more Skill Speed"]={{[1]={flags=0,keywordFlags=16384,name="Speed",type="MORE",value=30},[2]={flags=0,keywordFlags=16384,name="WarcrySpeed",type="MORE",value=30},[3]={flags=0,keywordFlags=16384,name="TotemPlacementSpeed",type="MORE",value=30}},nil}
 c["Slam Skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=92,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
