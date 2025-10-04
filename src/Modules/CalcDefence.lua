@@ -32,7 +32,7 @@ function calcs.hitChance(evasion, accuracy, uncapped)
 	if accuracy < 0 then
 		return 5
 	end
-	local rawChance = ( accuracy * 1.25 ) / ( accuracy + evasion * 0.3 ) * 100
+	local rawChance = ( 1 - ( 0.95 * evasion ) / ( evasion + 4 * accuracy ) ) * 100
 	return uncapped and m_max(round(rawChance), 5) or m_max(m_min(round(rawChance), 100), 5)
 end
 -- Calculate Deflect chance
