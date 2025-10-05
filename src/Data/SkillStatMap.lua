@@ -1155,7 +1155,7 @@ return {
 },
 -- Ailments
 ["skill_overwhelming_pressure_aura_enemy_ailment_threshold_+%"] = {
-	mod("AilmentThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Overwhelming Presence"}),
+	mod("EnemyAilmentThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Overwhelming Presence"}),
 },
 ["skill_overwhelming_pressure_aura_enemy_stun_threshold_+%"] = {
 	mod("EnemyStunThreshold", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Overwhelming Presence"}),

@@ -4061,7 +4061,20 @@ local specialModList = {
 	["damage with hits is lucky against heavy stunned enemies"] = { mod("LuckyHitsChance", "BASE", 100, { type = "ActorCondition", actor = "enemy", var = "HeavyStunned" }) },
 	["damage with hits is lucky against enemies that are on low life"] = { mod("LuckyHitsChance", "BASE", 100, { type = "ActorCondition", actor = "enemy", var = "LowLife" }) },
 	["your damage with hits is lucky"] = { mod("LuckyHitsChance", "BASE", 100) },
-	["(%w+) damage with hits is lucky"] = function(_, damageType) return { mod(firstToUpper(damageType).."LuckyHitsChance", "BASE", 100) } end,
+	["(physical|fire|cold|lightning|chaos) damage with hits is lucky"] = function(_, damageType) return { mod(firstToUpper(damageType).."LuckyHitsChance", "BASE", 100) } end,
+	["(%w+) damage with hits is lucky"] = function(_, damageType)
+		local validTypes = {
+			Physical = true,
+			Fire = true,
+			Cold = true,
+			Lightning = true,
+			Chaos = true,
+		}
+		damageType = firstToUpper(damageType)
+		if validTypes[damageType] then
+			return { mod(damageType.."LuckyHitsChance", "BASE", 100) }
+		end
+	end,
 	["(%d+)%% chance for (%w*) ?damage with hits to be lucky"] = function(num, _, damageType) return { mod(firstToUpper(damageType).."LuckyHitsChance", "BASE", num) } end,
 	["elemental damage with hits is lucky while you are shocked"] = { flag("ElementalLuckHits", { type = "Condition", var = "Shocked" }) },
 	["break (%d+)%% of armour on heavy stunning an enemy"] = { flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }) },

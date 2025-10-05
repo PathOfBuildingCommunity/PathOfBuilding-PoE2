@@ -4389,7 +4389,7 @@ function calcs.offence(env, actor, activeSkill)
 	skillFlags.impale = false
 
 	-- Calculate ailment thresholds
-	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "AilmentThreshold")
+	local enemyThreshold = data.monsterAilmentThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "EnemyAilmentThreshold")
 	output['EnemyAilmentThreshold'] = enemyThreshold
 
 
@@ -4478,7 +4478,47 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			return hitMin, hitMax, critMin, critMax
 		end
-
+		
+		---Calculates damage to be used in poise related ailment calculations
+		---@param ailment string
+		---@param defaultDamageTypes table
+		---@return number, number, number, number min / max / avg hit, min / max/ avg crit damage
+		local function calcMinMaxPoiseSourceDamage(ailment, defaultDamageTypes)
+			local canCrit = not skillModList:Flag(cfg, "AilmentsAreNeverFromCrit")
+			local hitMin, hitMax, hitAvg = 0, 0, 0
+			local critMin, critMax , critAvg = 0, 0, 0
+			local poseDamageAvg = 0
+			local critChance = output.CritChance
+			for _, damageType in ipairs(dmgTypeList) do
+				if canDoAilment(ailment, damageType, defaultDamageTypes) then
+					local override = skillModList:Override(cfg, ailment .. damageType .. "HitDamage")
+					local more = skillModList:More(cfg, damageType .. ailment .. "Buildup")
+					local ailmentHitMin = override or output[damageType.."StoredHitMin"] or 0
+					local ailmentHitMax = override or output[damageType.."StoredHitMax"] or 0
+					local ailmentAverage = override or output[damageType.."HitAverage"] or 0
+					local effMulti = output[damageType.."EffMult"] or 1
+					hitMin = hitMin + ailmentHitMin * more * effMulti
+					hitMax = hitMax + ailmentHitMax * more * effMulti
+					hitAvg = hitAvg + ailmentAverage * more
+					output[ailment .. damageType .. "Min"] = ailmentHitMin * more
+					output[ailment .. damageType .. "Max"] = ailmentHitMax * more
+					output[ailment .. damageType .. "Max"] = ailmentAverage * more
+					if canCrit then
+						override = skillModList:Override(cfg, ailment .. damageType .. "CritDamage")
+						critMin = critMin + (override or output[damageType.."StoredCritMin"] or 0) * more * effMulti
+						critMax = critMax + (override or output[damageType.."StoredCritMax"] or 0) * more * effMulti
+						critAvg = critAvg + (override or output[damageType.."CritAverage"] or 0) * more
+					end
+				end
+			end
+			if canCrit then
+				poseDamageAvg = hitAvg * (1 - critChance / 100) + critAvg * critChance / 100
+			else
+				poseDamageAvg = hitAvg
+			end
+			return hitMin, hitMax, hitAvg, critMin, critMax, critAvg, poseDamageAvg
+		end
+		
 		---Calculate the inflict chance and base damage of a secondary effect (bleed/poison/ignite/shock/freeze)
 		---@param ailment string
 		---@param sourceCritChance number
@@ -4932,24 +4972,24 @@ function calcs.offence(env, actor, activeSkill)
 		
 		-- Calculate poise-related debuffs
 		for _, ailment in ipairs({"Freeze", "Electrocute", "HeavyStun", "Pin"}) do 
-			local enemyPoiseThreshold = data.monsterPoiseThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "PoiseThreshold", ailment.."Threshold", ailment == "HeavyStun" and "EnemyStunThreshold")
-			local hitMin, hitMax, critMin, critMax = calcMinMaxUnmitigatedAilmentSourceDamage(ailment, data.buildupTypes[ailment].ScalesFrom)
+			local enemyPoiseThreshold = m_floor(data.monsterPoiseThresholdTable[env.enemyLevel] * calcLib.mod(enemyDB, nil, "PoiseThreshold", ailment.."Threshold", ailment == "HeavyStun" and "EnemyStunThreshold", (ailment == "Freeze" or ailment == "Electrocute") and "EnemyAilmentThreshold"))
+			local hitMin, hitMax, hitAvg, critMin, critMax, critAvg, poiseAvg = calcMinMaxPoiseSourceDamage(ailment, data.buildupTypes[ailment].ScalesFrom)
 			-- TODO: average for now, can do more complicated calculation later
-			local hitAvg = hitMin + (hitMax - hitMin) / 2
-			local critAvg = critMin + (critMax - critMin) / 2
 			local inc = skillModList:Sum("INC", cfg, not skillModList:Flag(cfg, "PinBuildupInsteadOf"..ailment.."Buildup") and "Enemy"..ailment.."Buildup", "EnemyImmobilisationBuildup")
 			local more = skillModList:More(cfg, "Enemy"..ailment.."Buildup", "EnemyImmobilisationBuildup") * calcLib.mod(enemyDB, nil, ailment.."Buildup", "ImmobilisationBuildup", ailment == "HeavyStun" and "StunBuildup")
-			local hitPoiseBuildup = hitAvg * data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold
-			hitPoiseBuildup = hitPoiseBuildup * (1 + inc / 100) * more * 100
-			local critPoiseBuildup = critAvg * data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold
-			critPoiseBuildup = critPoiseBuildup * (1 + inc / 100) * more * 100
+			local poiseBuildup = data.gameConstants[ailment .. "DamageScale"] / enemyPoiseThreshold * (1 + inc / 100) * more * 100
+			local minHit = hitMin * poiseBuildup
+			local maxHit = hitMax * poiseBuildup
+			local hitPoiseBuildup = hitAvg * poiseBuildup
+			local minCrit = critMin * poiseBuildup
+			local maxCrit = critMax * poiseBuildup
+			local critPoiseBuildup = critAvg * poiseBuildup
+			local totalAvgPoiseBuildup = poiseAvg * poiseBuildup
 			
 			if skillFlags.hit and not skillModList:Flag(cfg, "Cannot"..ailment) then
-				globalOutput[ailment .. "BuildupOnHit"] = m_min(100, hitPoiseBuildup)
-				globalOutput[ailment .. "BuildupOnCrit"] = m_min(100, critPoiseBuildup)
+				globalOutput[ailment .. "BuildupAvg"] = totalAvgPoiseBuildup
 			else
-				globalOutput[ailment .. "BuildupOnHit"] = 0
-				globalOutput[ailment .. "BuildupOnCrit"] = 0
+				globalOutput[ailment .. "BuildupAvg"] = 0
 			end
 
 			if breakdown then
@@ -4958,8 +4998,19 @@ function calcs.offence(env, actor, activeSkill)
 					"Enemy poise: " .. enemyPoiseThreshold,
 					"",
 				}
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Regular Hit Poise buildup %.1f%%", hitPoiseBuildup))
-				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Poise buildup %.1f%%", critPoiseBuildup))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Regular Hit "..ailment.." buildup"))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Min: %.1f%%", minHit))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Max: %.1f%%", maxHit))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Avg: %.1f%%", hitPoiseBuildup))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format(""))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit "..ailment.." buildup"))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Min: %.1f%%", minCrit))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Max: %.1f%%", maxCrit))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Crit Avg: %.1f%%", critPoiseBuildup))
+				
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format(""))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("Average "..ailment.." buildup"))
+				t_insert(globalBreakdown[ailment .. "Buildup"], s_format("= %.1f%%", totalAvgPoiseBuildup))
 			end
 		end
 
