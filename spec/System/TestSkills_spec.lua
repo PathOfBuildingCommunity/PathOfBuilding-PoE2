@@ -59,6 +59,22 @@ describe("TestSkills", function()
 		assert.are.equals(6, stackedCost) -- 9/(1 + 0.25 + 0.25) = 9/1.5 = 6
 	end)
 
+	it("Test Atalui Bloodletting damage with life cost", function()
+		-- Mana cost 96 * 1.5 = 144, max lightning damage 70
+		build.skillsTab:PasteSocketGroup("Ball Lightning 20/0  1\nAtalui's Bloodletting 1/0  1")
+
+		build.configTab.input.customMods = "Blood Magic"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local lifeCost = build.calcsTab.mainOutput.LifeCost
+		local damage = build.calcsTab.mainOutput.PhysicalSummedMaxBase
+		-- 14.4% * 2 gain as physical = 70 * .288 = 20.16
+		assert.are.equals(144, lifeCost)
+		assert.are.equals(20, damage)
+		assert.are.equals(20, build.calcsTab.mainOutput.PhysicalStoredHitMax)
+	end)
+
 	it("Test cost efficiency with cost modifiers", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
