@@ -82,8 +82,8 @@ itemBases["Morning Star"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, onehand = true, mace = true, weapon = true, one_hand_weapon = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 33, PhysicalMax = 50, CritChanceBase = 6.5, AttackRateBase = 1.45, Range = 11, },
-	req = { level = 46, str = 82, },
+	weapon = { PhysicalMin = 33, PhysicalMax = 49, CritChanceBase = 6.5, AttackRateBase = 1.45, Range = 11, },
+	req = { level = 45, str = 80, },
 }
 itemBases["Jade Club"] = {
 	type = "One Handed Mace",
@@ -336,8 +336,8 @@ itemBases["Pointed Maul"] = {
 	socketLimit = 4,
 	tags = { two_hand_weapon = true, karui_basetype = true, mace = true, weapon = true, twohand = true, default = true, },
 	implicitModTypes = { },
-	weapon = { PhysicalMin = 69, PhysicalMax = 104, CritChanceBase = 6.5, AttackRateBase = 1.1, Range = 13, },
-	req = { level = 46, str = 82, },
+	weapon = { PhysicalMin = 68, PhysicalMax = 102, CritChanceBase = 6.5, AttackRateBase = 1.1, Range = 13, },
+	req = { level = 45, str = 80, },
 }
 itemBases["Totemic Greatclub"] = {
 	type = "Two Handed Mace",

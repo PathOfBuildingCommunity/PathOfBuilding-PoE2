@@ -90,8 +90,8 @@ itemBases["Juggernaut Plate"] = {
 	socketLimit = 4,
 	tags = { body_armour = true, str_armour = true, armour = true, karui_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 274, MovementPenalty = 0.05, },
-	req = { level = 46, str = 74, },
+	armour = { Armour = 269, MovementPenalty = 0.05, },
+	req = { level = 45, str = 72, },
 }
 itemBases["Chieftain Cuirass"] = {
 	type = "Body Armour",
@@ -346,8 +346,8 @@ itemBases["Corsair Vest"] = {
 	socketLimit = 4,
 	tags = { body_armour = true, dex_armour = true, armour = true, karui_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 247, MovementPenalty = 0.03, },
-	req = { level = 46, dex = 74, },
+	armour = { Evasion = 242, MovementPenalty = 0.03, },
+	req = { level = 45, dex = 72, },
 }
 itemBases["Smuggler Coat"] = {
 	type = "Body Armour",
@@ -602,8 +602,8 @@ itemBases["Elementalist Robe"] = {
 	socketLimit = 4,
 	tags = { body_armour = true, int_armour = true, armour = true, karui_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { EnergyShield = 98, MovementPenalty = 0.03, },
-	req = { level = 46, int = 74, },
+	armour = { EnergyShield = 97, MovementPenalty = 0.03, },
+	req = { level = 45, int = 72, },
 }
 itemBases["Mystic Raiment"] = {
 	type = "Body Armour",
@@ -838,8 +838,8 @@ itemBases["Knight Armour"] = {
 	socketLimit = 4,
 	tags = { body_armour = true, str_dex_armour = true, armour = true, karui_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 151, Evasion = 136, MovementPenalty = 0.04, },
-	req = { level = 46, str = 41, dex = 41, },
+	armour = { Armour = 148, Evasion = 133, MovementPenalty = 0.04, },
+	req = { level = 45, str = 41, dex = 41, },
 }
 itemBases["Ancestral Mail"] = {
 	type = "Body Armour",
@@ -1118,8 +1118,8 @@ itemBases["Cleric Vestments"] = {
 	socketLimit = 4,
 	tags = { body_armour = true, str_int_armour = true, armour = true, karui_basetype = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 151, EnergyShield = 54, MovementPenalty = 0.04, },
-	req = { level = 46, str = 41, int = 41, },
+	armour = { Armour = 148, EnergyShield = 53, MovementPenalty = 0.04, },
+	req = { level = 45, str = 41, int = 41, },
 }
 itemBases["Tideseer Mantle"] = {
 	type = "Body Armour",
@@ -1354,8 +1354,8 @@ itemBases["Scoundrel Jacket"] = {
 	socketLimit = 4,
 	tags = { body_armour = true, karui_basetype = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 136, EnergyShield = 54, MovementPenalty = 0.03, },
-	req = { level = 46, dex = 41, int = 41, },
+	armour = { Evasion = 133, EnergyShield = 53, MovementPenalty = 0.03, },
+	req = { level = 45, dex = 41, int = 41, },
 }
 itemBases["Ascetic Garb"] = {
 	type = "Body Armour",

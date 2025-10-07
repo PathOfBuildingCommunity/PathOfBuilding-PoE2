@@ -19,7 +19,7 @@ return {
 			}
 		},
 		stats={
-			[1]="herald_of_agony_poison_on_enemies_you_kill_spread_to_enemies_within_x"
+			[1]="herald_of_agony_poison_spread_on_kill_radius_base_magnitude_to_grant"
 		}
 	},
 	[2]={
@@ -38,7 +38,7 @@ return {
 			[1]="hinder_chance_%_on_spreading_poioson"
 		}
 	},
-	["herald_of_agony_poison_on_enemies_you_kill_spread_to_enemies_within_x"]=1,
+	["herald_of_agony_poison_spread_on_kill_radius_base_magnitude_to_grant"]=1,
 	["hinder_chance_%_on_spreading_poioson"]=2,
 	parent="skill_stat_descriptions"
 }

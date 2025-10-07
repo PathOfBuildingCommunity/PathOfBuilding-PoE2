@@ -24,8 +24,8 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("TotemColdResistMax", "BASE", 75, "Base")
 	modDB:NewMod("TotemLightningResistMax", "BASE", 75, "Base")
 	modDB:NewMod("TotemChaosResistMax", "BASE", 75, "Base")
-	modDB:NewMod("BlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
-	modDB:NewMod("SpellBlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
+	modDB:NewMod("BaseBlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
+	modDB:NewMod("BaseSpellBlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
 	modDB:NewMod("SpellDodgeChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("ChargeDuration", "BASE", 15, "Base")
 	modDB:NewMod("PowerChargesMax", "BASE", data.characterConstants["max_power_charges"], "Base")
@@ -70,7 +70,8 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("Damage", "MORE", -10, "Base", { type = "Condition", var = "Debilitated"})
 	modDB:NewMod("Condition:Burning", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "Condition", var = "Ignited" })
 	modDB:NewMod("Condition:Poisoned", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "MultiplierThreshold", var = "PoisonStack", threshold = 1 })
-	modDB:NewMod("ShockBase", "BASE", 20, "Base", { type = "ActorCondition", actor = "enemy", var = "Shocked" })
+	modDB:NewMod("ShockBase", "BASE", data.gameConstants["BaseShockMagnitude"], "Base", { type = "ActorCondition", actor = "enemy", var = "Shocked" })
+	modDB:NewMod("ChillBase", "BASE", 30, "Base", { type = "ActorCondition", actor = "enemy", var = "Chilled" })
 	modDB:NewMod("Blind", "FLAG", true, "Base", { type = "Condition", var = "Blinded" })
 	modDB:NewMod("Chill", "FLAG", true, "Base", { type = "Condition", var = "Chilled" })
 	modDB:NewMod("Freeze", "FLAG", true, "Base", { type = "Condition", var = "Frozen" })
@@ -131,7 +132,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill)
 	-- Run first pass radius jewels // jewel functions caught by jewelOtherFuncs
 	for _, rad in pairs(env.radiusJewelList) do
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
-			if rad.item.baseName:find("Time%-Lost") == nil then
+			if rad.item.baseName:find("Time%-Lost") == nil and rad.item.baseName:find("Timeless Jewel") == nil then
 				rad.func(node, modList, rad.data)
 			elseif not node.isAttribute and (node.type == "Normal" or node.type == "Notable") then
 				local cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]
@@ -601,6 +602,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("ManaRegen", "BASE", env.data.misc.ManaRegenBase, "Base", { type = "PerStat", stat = "Mana", div = 1 }, { type = "Condition", var = "NoInherentManaRegen", neg = true })
 		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
+		modDB:NewMod("Tribute", "BASE", 0, "Base")
 		modDB:NewMod("Evasion", "BASE", data.characterConstants["evasion_rating_per_level"] / 100, "Base", { type = "Multiplier", var = "Level", base = data.characterConstants["base_evasion_rating"] })
 		modDB:NewMod("Accuracy", "BASE", data.characterConstants["accuracy_rating_per_level"], "Base", { type = "Multiplier", var = "Level", base = -data.characterConstants["accuracy_rating_per_level"] })
 		modDB:NewMod("CritMultiplier", "BASE", data.characterConstants["base_critical_hit_damage_bonus"], "Base")
@@ -635,6 +637,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("AilmentMagnitude", "MORE", data.monsterConstants["bleeding_moving_damage_%_of_base_override"] - 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", varList = { "Moving", "BleedAggravated" } }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
 		modDB:NewMod("Condition:BloodStance", "FLAG", true, "Base", { type = "Condition", var = "SandStance", neg = true })
 		modDB:NewMod("Condition:PrideMinEffect", "FLAG", true, "Base", { type = "Condition", var = "PrideMaxEffect", neg = true })
+		modDB:NewMod("MovementSpeed", "INC", 50, "Base", { type = "Condition", var = "Sprinting" })
+		modDB:NewMod("Condition:CanSprint", "FLAG", true, "Base", { type = "Condition", var = "CannotSprint", neg = true })
 		modDB:NewMod("PerBrutalTripleDamageChance", "BASE", data.characterConstants["chance_to_deal_triple_damage_%_per_brutal_charge"], "Base")
 		modDB:NewMod("PerAfflictionAilmentDamage", "BASE", 8, "Base")
 		modDB:NewMod("PerAfflictionNonDamageEffect", "BASE", 8, "Base")
@@ -1735,11 +1739,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 					group.displayLabel = nil
 					for _, gemInstance in ipairs(group.gemList) do
 						local grantedEffect = gemInstance.gemData and gemInstance.gemData.grantedEffect or gemInstance.grantedEffect
+						local gemName = gemInstance.gemData and gemInstance.gemData.name
 						if grantedEffect and not grantedEffect.support and gemInstance.enabled then
 							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
 							else
-								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. grantedEffect.name
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemName or grantedEffect.name
 							end
 						end
 					end

@@ -20340,9 +20340,9 @@ return {
 			}
 		},
 		stats={
-			[1]="base_life_recovery_per_minute",
-			[2]="base_mana_recovery_per_minute",
-			[3]="feast_of_flesh_regeneration_duration"
+			[1]="feast_of_flesh_recover_X_life_per_corpse_consumed",
+			[2]="feast_of_flesh_recover_X_mana_per_corpse_consumed",
+			[3]="feast_of_flesh_recovery_duration"
 		}
 	},
 	[922]={
@@ -39325,11 +39325,9 @@ return {
 	["base_inflict_fire_exposure_on_hit_%_chance"]=517,
 	["base_inflict_lightning_exposure_on_hit_%_chance"]=518,
 	["base_life_leech_from_physical_attack_damage_permyriad"]=57,
-	["base_life_recovery_per_minute"]=921,
 	["base_life_regeneration_rate_per_minute"]=201,
 	["base_lightning_damage_can_electrocute"]=519,
 	["base_mana_leech_rate_+%"]=356,
-	["base_mana_recovery_per_minute"]=921,
 	["base_mana_regeneration_rate_per_minute"]=319,
 	["base_movement_velocity_+%"]=99,
 	["base_number_of_crossbow_bolts"]=520,
@@ -39878,7 +39876,9 @@ return {
 	["eye_of_winter_spiral_angle_+%"]=918,
 	["eye_of_winter_spiral_fire_frequency_+%"]=919,
 	["faster_bleed_%"]=920,
-	["feast_of_flesh_regeneration_duration"]=921,
+	["feast_of_flesh_recover_X_life_per_corpse_consumed"]=921,
+	["feast_of_flesh_recover_X_mana_per_corpse_consumed"]=921,
+	["feast_of_flesh_recovery_duration"]=921,
 	["fire_beam_additional_stack_damage_+%_final"]=922,
 	["fire_beam_enemy_fire_resistance_%_maximum"]=923,
 	["fire_beam_enemy_fire_resistance_%_per_stack"]=924,

@@ -82,7 +82,7 @@ itemBases["Runed Focus"] = {
 	tags = { karui_basetype = true, focus = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 40, },
-	req = { level = 46, int = 66, },
+	req = { level = 45, int = 64, },
 }
 itemBases["Whorl Focus"] = {
 	type = "Focus",

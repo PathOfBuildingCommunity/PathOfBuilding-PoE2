@@ -246,7 +246,11 @@ function ModStoreClass:HasMod(modType, cfg, ...)
 end
 
 function ModStoreClass:GetCondition(var, cfg, noMod)
-	return self.conditions[var] or (self.parent and self.parent:GetCondition(var, cfg, true)) or (not noMod and self:Flag(cfg, conditionName[var]))
+	if (cfg and cfg.overrideCond and cfg.overrideCond[var] ~= nil) then
+		return cfg.overrideCond[var]
+	else
+		return  self.conditions[var] or (self.parent and self.parent:GetCondition(var, cfg, true)) or (not noMod and self:Flag(cfg, conditionName[var]))
+	end
 end
 
 function ModStoreClass:GetMultiplier(var, cfg, noMod)
@@ -388,7 +392,7 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 				mult = target:GetMultiplier(tag.var, cfg)
 			end
 			local threshold = tag.threshold or thresholdTarget:GetMultiplier(tag.thresholdVar, cfg)
-			if (tag.upper and mult > threshold) or (not tag.upper and mult < threshold) then
+			if (tag.upper and mult > threshold) or (tag.equals and mult ~= threshold) or (not (tag.upper and tag.exact) and mult < threshold) then
 				return
 			end
 		elseif tag.type == "PerStat" then

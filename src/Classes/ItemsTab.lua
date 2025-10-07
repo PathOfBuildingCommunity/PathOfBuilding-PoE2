@@ -2885,24 +2885,26 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 			for _, modLine in ipairs(modList) do
 				if item:CheckModLineVariant(modLine) then
 					if scale ~= 1 then
-						local codyModLine = copyTable(modLine)
+						local copyModLine = copyTable(modLine)
 						local modsList = copyTable(modLine.modList)
 						local scaledList = new("ModList")
-						-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
-						if modsList[1] and modsList[1].type == "FLAG" then
-							modsList[1].value = tonumber(codyModLine.line:match("%d+"))
-						end
 						scaledList:ScaleAddList(modsList, scale)
 						for j, mod in ipairs(scaledList) do
-							local newValue = 0
+							local newValue
 							if type(mod.value) == "number" then
 								newValue = mod.value
 							elseif type(mod.value) == "table" then
-								newValue = mod.value.mod.value
+								if mod.value.mod then
+									newValue = mod.value.mod.value
+								else
+									newValue = mod.value.value
+								end
 							end
-							codyModLine.line = codyModLine.line:gsub("%d*%.?%d+", math.abs(newValue))
+							if type(newValue) == "number" then
+								copyModLine.line = copyModLine.line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
+							end
 						end
-						tooltip:AddLine(16, itemLib.formatModLine(codyModLine, dbMode))
+						tooltip:AddLine(16, itemLib.formatModLine(copyModLine, dbMode))
 					else
 						tooltip:AddLine(16, itemLib.formatModLine(modLine, dbMode))
 					end

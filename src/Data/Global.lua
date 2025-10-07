@@ -243,6 +243,7 @@ ModFlag.Fishing =	 0x0000000002000000
 ModFlag.Crossbow =	 0x0000000004000000
 ModFlag.Flail =		 0x0000000008000000
 ModFlag.Spear =		 0x0000000010000000
+ModFlag.Warstaff =	 0x0000000020000000
 -- Weapon classes
 ModFlag.WeaponMelee =0x0000000100000000
 ModFlag.WeaponRanged=0x0000000200000000

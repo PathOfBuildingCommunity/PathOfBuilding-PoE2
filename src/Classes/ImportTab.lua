@@ -160,11 +160,11 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.exportFrom:SelByValue(self.exportWebsiteSelected or main.lastExportWebsite or "Pastebin", "id")
 	self.controls.generateCodeByLink = new("ButtonControl", { "LEFT", self.controls.exportFrom, "RIGHT"}, {8, 0, 100, 20}, "Share", function()
 		local exportWebsite = exportWebsitesList[self.controls.exportFrom.selIndex]
-		local response = buildSites.UploadBuild(self.controls.generateCodeOut.buf, exportWebsite)
-		if response then
+		local subScriptId = buildSites.UploadBuild(self.controls.generateCodeOut.buf, exportWebsite)
+		if subScriptId then
 			self.controls.generateCodeOut:SetText("")
 			self.controls.generateCodeByLink.label = "Creating link..."
-			launch:RegisterSubScript(response, function(pasteLink, errMsg)
+			launch:RegisterSubScript(subScriptId, function(pasteLink, errMsg)
 				self.controls.generateCodeByLink.label = "Share"
 				if errMsg then
 					main:OpenMessagePopup(exportWebsite.id, "Error creating link:\n"..errMsg)
@@ -755,6 +755,9 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 						gemInstance.level = tonumber(skillData.properties[_ + 1].values[1][1]:match("(%d+) Level[s]? from Gem"))
 					else
 						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
+					end
+					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption") then
+						gemInstance.level = gemInstance.level + tonumber(skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption"))
 					end
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))

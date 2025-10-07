@@ -101,9 +101,17 @@ return {
 			[1]="maximum_hatching_elementals_allowed"
 		}
 	},
+	[5]={
+		[1]={
+		},
+		stats={
+			[1]="minion_duration"
+		}
+	},
 	["base_skill_effect_duration"]=3,
 	["display_minion_level_from_triggering_skill_level"]=2,
 	["maximum_hatching_elementals_allowed"]=4,
+	["minion_duration"]=5,
 	parent="skill_stat_descriptions",
 	["support_hatching_elementals_number_of_elementals_per_hatch"]=1
 }

@@ -37,7 +37,7 @@ local skills, mod, flag, skill = ...
 #flags attack area duration
 #mods
 #set GasShotCloudExplodeSkeletonSniperMinion
-#flags hit area
+#flags attack area
 #mods
 #skillEnd
 
@@ -47,6 +47,12 @@ local skills, mod, flag, skill = ...
 #mods
 #set BoneshatterShockwaveBruteMinion
 #flags attack area
+#mods
+#skillEnd
+
+#skill ShatteringRoarSkeletalBruteMinion
+#set ShatteringRoarSkeletalBruteMinion
+#flags hit duration warcry
 #mods
 #skillEnd
 
@@ -71,8 +77,8 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
-#skill IceBombSkeletonMageMinion
-#set IceBombSkeletonMageMinion
+#skill IceArmourSkeletonMageMinion
+#set IceArmourSkeletonMageMinion
 #flags spell duration
 #mods
 #skillEnd
@@ -188,6 +194,13 @@ skills["MinionInstability"] = {
 #skill LivingLightningZap Zap
 #set LivingLightningZap
 #flags attack melee chaining
+statMap = {
+	["living_lightning_damage_+%_final_per_additional_hit"] = {
+		mod("Damage", "MORE", nil),
+		div = 3/2, --Average over 3 hits
+	},
+},
+#baseMod skill("timeOverride", 0.001, { type = "Multiplier", var = "LivingLightningAttackTime" })
 #mods
 #skillEnd
 

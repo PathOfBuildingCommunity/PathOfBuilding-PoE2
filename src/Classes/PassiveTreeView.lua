@@ -945,9 +945,12 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						if conqueror == "kalguur" then
 							conqueror = "kalguuran"
 						end
-
 						local circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle1.dds")
 						local circle2 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle2.dds")
+						if conqueror == "abyss" then
+							circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/".. conqueror .."/".. conqueror .."passiveskillscreenjewelcircle1.dds")
+							circle2 = circle1
+						end
 						DrawImage(circle1.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle1))
 						DrawImage(circle2.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle2))
 					else
@@ -1174,7 +1177,7 @@ end
 
 function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassiveSkillEffect)
 	-- Special case for sockets
-	if node.type == "Socket" and node.alloc then
+	if (node.type == "Socket" or node.containJewelSocket) and node.alloc then
 		local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(node.id)
 		if jewel then
 			build.itemsTab:AddItemTooltip(tooltip, jewel, { nodeId = node.id })
@@ -1240,23 +1243,25 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 			
 			-- Apply Inc Node scaling from Hulking Form + Radius Jewels only visually
-			if (incSmallPassiveSkillEffect + localIncEffect) > 0 and (node.type == "Normal" or node.type == "Notable") and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
+			if (((incSmallPassiveSkillEffect + localIncEffect) > 0 and node.type == "Normal") or (localIncEffect > 0 and node.type == "Notable")) and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
 				local scale = 1 + (node.type == "Normal" and incSmallPassiveSkillEffect or 0 + localIncEffect) / 100
 				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
-				-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
-				if modsList[1] and modsList[1].type == "FLAG" then
-					modsList[1].value = tonumber(line:match("%d+"))
-				end
 				scaledList:ScaleAddList(modsList, scale)
 				for j, mod in ipairs(scaledList) do
-					local newValue = 0
+					local newValue
 					if type(mod.value) == "number" then
 						newValue = mod.value
 					elseif type(mod.value) == "table" then
-						newValue = mod.value.mod.value
+						if mod.value.mod then
+							newValue = mod.value.mod.value
+						else
+							newValue = mod.value.value
+						end
 					end
-					line = line:gsub("%d*%.?%d+", math.abs(newValue))
+					if type(newValue) == "number" then
+						line = line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
+					end
 				end
 				-- line = line .. "  ^8(Effect increased by "..incSmallPassiveSkillEffect.."%)"
 			end
@@ -1305,7 +1310,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	local function processTimeLostModsAndGetLocalEffect(mNode, build)
 		local localIncEffect = 0
 		local hasWSCondition = false
-		local newSd = copyTable(build.spec.tree.nodes[mNode.id].sd)
+		local newSd = copyTable(mNode.sd)
 		for _, mod in ipairs(mNode.finalModList) do
 			-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
 			-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
@@ -1345,7 +1350,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		local isInRadius = false
 		for id, socket in pairs(build.itemsTab.sockets) do
 			if build.itemsTab.activeSocketList and socket.inactive == false or socket.inactive == nil then
-				isInRadius = isInRadius or (build.spec.nodes[id] and build.spec.nodes[id].nodesInRadius and build.spec.nodes[id].nodesInRadius[3][node.id] ~= nil)
+				isInRadius = isInRadius or (build.spec.nodes[id] and build.spec.nodes[id].nodesInRadius and build.spec.nodes[id].nodesInRadius[4][node.id] ~= nil)
 				if isInRadius then break end
 			end
 		end
@@ -1363,7 +1368,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	if mNode.sd and mNode.sd[1] and not mNode.allMasteryOptions then
 		tooltip:AddLine(16, "")
 		local localIncEffect = 0
-		if not mNode.isAttribute and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
+		if not (mNode.isAttribute and not mNode.conqueredBy) and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
 			localIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
 		end
 		for i, line in ipairs(mNode.sd) do
@@ -1371,7 +1376,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 	end
 
-	if node.containJewelSocket then
+	if node.containJewelSocket and node.alloc then
 		tooltip:AddSeparator(14)
 		-- Jewel socket with a jewel in it, show the jewel tooltip instead of the node tooltip
 		local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(node.id)

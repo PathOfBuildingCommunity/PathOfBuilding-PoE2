@@ -338,6 +338,7 @@ UniqueChaosResist1
 ]],[[
 Prism Guardian
 Sectarian Crest Shield
+Requires Level 65
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
 Variant: Current
@@ -361,6 +362,7 @@ UniqueLifeRegenerationPercentOnLowLife1
 ]],[[
 Saffell's Frame
 Emblem Crest Shield
+Requires Level 16
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueFireResist6

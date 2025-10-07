@@ -1190,43 +1190,46 @@ return {
 			["Time-Lost Sapphire"]=5,
 			["Timeless Jewel"]=6
 		},
+		["legion_1024_1024_BC7.dds.zst"]={
+			["art/textures/interface/2d/2dart/uiimages/ingame/abyss/abysspassiveskillscreenjewelcircle1.dds"]=1
+		},
 		["legion_128_128_BC1.dds.zst"]={
-			["Art/2DArt/SkillIcons/passives/AbyssDexNotable.dds"]=13,
-			["Art/2DArt/SkillIcons/passives/AbyssIntNotable.dds"]=11,
-			["Art/2DArt/SkillIcons/passives/AbyssStrNotable.dds"]=12,
-			["Art/2DArt/SkillIcons/passives/AmanamusDefiance.dds"]=20,
+			["Art/2DArt/SkillIcons/passives/AbyssDexNotable.dds"]=14,
+			["Art/2DArt/SkillIcons/passives/AbyssIntNotable.dds"]=12,
+			["Art/2DArt/SkillIcons/passives/AbyssStrNotable.dds"]=13,
+			["Art/2DArt/SkillIcons/passives/AmanamusDefiance.dds"]=21,
 			["Art/2DArt/SkillIcons/passives/CorruptedDefences.dds"]=32,
-			["Art/2DArt/SkillIcons/passives/DevotionNotable.dds"]=8,
+			["Art/2DArt/SkillIcons/passives/DevotionNotable.dds"]=6,
 			["Art/2DArt/SkillIcons/passives/DivineFlesh.dds"]=31,
-			["Art/2DArt/SkillIcons/passives/EternalEmpireDefensiveNotable.dds"]=6,
+			["Art/2DArt/SkillIcons/passives/EternalEmpireDefensiveNotable.dds"]=7,
 			["Art/2DArt/SkillIcons/passives/EternalEmpireOffensiveNotable.dds"]=34,
 			["Art/2DArt/SkillIcons/passives/EternalYouth.dds"]=27,
-			["Art/2DArt/SkillIcons/passives/FocusedRage.dds"]=4,
+			["Art/2DArt/SkillIcons/passives/FocusedRage.dds"]=5,
 			["Art/2DArt/SkillIcons/passives/GlancingBlows.dds"]=23,
-			["Art/2DArt/SkillIcons/passives/InnerConviction.dds"]=9,
+			["Art/2DArt/SkillIcons/passives/InnerConviction.dds"]=10,
 			["Art/2DArt/SkillIcons/passives/KalguuranDexKeystone.dds"]=39,
 			["Art/2DArt/SkillIcons/passives/KalguuranDexNotable.dds"]=22,
-			["Art/2DArt/SkillIcons/passives/KalguuranIntKeystone.dds"]=3,
-			["Art/2DArt/SkillIcons/passives/KalguuranIntNotable.dds"]=21,
+			["Art/2DArt/SkillIcons/passives/KalguuranIntKeystone.dds"]=4,
+			["Art/2DArt/SkillIcons/passives/KalguuranIntNotable.dds"]=11,
 			["Art/2DArt/SkillIcons/passives/KalguuranStrKeystone.dds"]=38,
 			["Art/2DArt/SkillIcons/passives/KalguuranStrNotable.dds"]=25,
-			["Art/2DArt/SkillIcons/passives/KulemaksSovereignty.dds"]=19,
-			["Art/2DArt/SkillIcons/passives/KurgasAmbition.dds"]=16,
+			["Art/2DArt/SkillIcons/passives/KulemaksSovereignty.dds"]=20,
+			["Art/2DArt/SkillIcons/passives/KurgasAmbition.dds"]=17,
 			["Art/2DArt/SkillIcons/passives/MiracleMaker.dds"]=33,
 			["Art/2DArt/SkillIcons/passives/OasisKeystone.dds"]=24,
-			["Art/2DArt/SkillIcons/passives/PowerOfPurpose.dds"]=18,
+			["Art/2DArt/SkillIcons/passives/PowerOfPurpose.dds"]=19,
 			["Art/2DArt/SkillIcons/passives/SharpandBrittle.dds"]=29,
 			["Art/2DArt/SkillIcons/passives/SoulTetherKeystone.dds"]=26,
-			["Art/2DArt/SkillIcons/passives/StrengthOfBlood.dds"]=10,
+			["Art/2DArt/SkillIcons/passives/StrengthOfBlood.dds"]=9,
 			["Art/2DArt/SkillIcons/passives/SupremeDecadence.dds"]=28,
-			["Art/2DArt/SkillIcons/passives/SupremeEgo.dds"]=2,
-			["Art/2DArt/SkillIcons/passives/SupremeGrandstand.dds"]=7,
+			["Art/2DArt/SkillIcons/passives/SupremeEgo.dds"]=3,
+			["Art/2DArt/SkillIcons/passives/SupremeGrandstand.dds"]=8,
 			["Art/2DArt/SkillIcons/passives/SupremeProdigy.dds"]=37,
-			["Art/2DArt/SkillIcons/passives/TecrodsBrutality.dds"]=15,
-			["Art/2DArt/SkillIcons/passives/TemperedByWar.dds"]=5,
-			["Art/2DArt/SkillIcons/passives/TheBlindMonk.dds"]=1,
-			["Art/2DArt/SkillIcons/passives/TranscendenceKeystone.dds"]=17,
-			["Art/2DArt/SkillIcons/passives/UlamansVision.dds"]=14,
+			["Art/2DArt/SkillIcons/passives/TecrodsBrutality.dds"]=16,
+			["Art/2DArt/SkillIcons/passives/TemperedByWar.dds"]=1,
+			["Art/2DArt/SkillIcons/passives/TheBlindMonk.dds"]=2,
+			["Art/2DArt/SkillIcons/passives/TranscendenceKeystone.dds"]=18,
+			["Art/2DArt/SkillIcons/passives/UlamansVision.dds"]=15,
 			["Art/2DArt/SkillIcons/passives/VaalNotableDefensive.dds"]=30,
 			["Art/2DArt/SkillIcons/passives/VaalNotableOffensive.dds"]=35,
 			["Art/2DArt/SkillIcons/passives/WindDancer.dds"]=36
@@ -1235,15 +1238,15 @@ return {
 			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreeneternalempirejewelcircle1.dds"]=9,
 			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreeneternalempirejewelcircle2.dds"]=8,
 			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkalguuranjewelcircle1.dds"]=10,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkalguuranjewelcircle2.dds"]=4,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkaruijewelcircle1.dds"]=3,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkaruijewelcircle2.dds"]=12,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenmarakethjewelcircle1.dds"]=1,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenmarakethjewelcircle2.dds"]=6,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreentemplarjewelcircle1.dds"]=5,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreentemplarjewelcircle2.dds"]=7,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenvaaljewelcircle1.dds"]=2,
-			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenvaaljewelcircle2.dds"]=11
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkalguuranjewelcircle2.dds"]=7,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkaruijewelcircle1.dds"]=12,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenkaruijewelcircle2.dds"]=5,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenmarakethjewelcircle1.dds"]=6,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenmarakethjewelcircle2.dds"]=4,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreentemplarjewelcircle1.dds"]=3,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreentemplarjewelcircle2.dds"]=2,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenvaaljewelcircle1.dds"]=11,
+			["art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreenvaaljewelcircle2.dds"]=1
 		},
 		["legion_64_64_BC1.dds.zst"]={
 			["Art/2DArt/SkillIcons/passives/AbyssJewelNode.dds"]=1,
@@ -22169,7 +22172,8 @@ return {
 			},
 			skill=2335,
 			stats={
-				[1]="20% increased Spell Damage"
+				[1]="20% increased Spell Damage",
+				[2]="15% increased Projectile Speed for Spell Skills"
 			}
 		},
 		[2361]={
@@ -22230,7 +22234,7 @@ return {
 				[1]="25% increased Attack Damage if you have been Heavy Stunned Recently",
 				[2]="25% increased Attack Damage while you have no Life Flask uses left",
 				[3]="25% increased Attack Damage while Surrounded",
-				[4]="25% increased Attack Damage when on Low Life"
+				[4]="25% increased Attack Damage while on Low Life"
 			}
 		},
 		[2408]={
@@ -28774,7 +28778,8 @@ return {
 			},
 			skill=7062,
 			stats={
-				[1]="30% chance to not consume a bolt if you've Reloaded Recently"
+				[1]="Bolts fired by Crossbow Attacks have 30% chance to not",
+				[2]="expend Ammunition if you've Reloaded Recently"
 			}
 		},
 		[7068]={
@@ -30539,7 +30544,7 @@ return {
 			},
 			skill=8531,
 			stats={
-				[1]="100% increased Critical Hit Chance against Enemies on Full Life"
+				[1]="100% increased Critical Hit Chance against Enemies that are on Full Life"
 			}
 		},
 		[8535]={
@@ -43239,7 +43244,7 @@ return {
 			},
 			skill=17600,
 			stats={
-				[1]="Life Leech from your Hits also applies to your Companion"
+				[1]="Leeching Life from your Hits causes your Companion to also Leech the same amount of Life"
 			}
 		},
 		[17602]={
@@ -45968,7 +45973,7 @@ return {
 			},
 			group=1168,
 			icon="Art/2DArt/SkillIcons/passives/stun2h.dds",
-			name="Daze on Hit",
+			name="Lightning and Cold Damage",
 			orbit=3,
 			orbitIndex=16,
 			skill=19461,
@@ -48428,7 +48433,7 @@ return {
 			skill=21748,
 			stats={
 				[1]="40% faster Curse Activation",
-				[2]="Your Curses have 20% increased Effect if 50% of Curse Duration expired"
+				[2]="Your Curses have 20% increased Magnitudes if 50% of Curse Duration expired"
 			}
 		},
 		[21755]={
@@ -51097,7 +51102,7 @@ return {
 			},
 			group=595,
 			icon="Art/2DArt/SkillIcons/passives/lightningint.dds",
-			name="Lightning Exposure Effect",
+			name="Lightning Damage",
 			orbit=7,
 			orbitIndex=22,
 			skill=23724,
@@ -54854,7 +54859,7 @@ return {
 			},
 			group=1250,
 			icon="Art/2DArt/SkillIcons/passives/stun2h.dds",
-			name="Daze on Hit",
+			name="Criticals vs Dazed Enemies",
 			orbit=2,
 			orbitIndex=12,
 			skill=26572,
@@ -58717,7 +58722,7 @@ return {
 			},
 			skill=29527,
 			stats={
-				[1]="50% increased Critical Hit Chance against Enemies on Full Life",
+				[1]="50% increased Critical Hit Chance against Enemies that are on Full Life",
 				[2]="Cannot be Blinded while on Full Life",
 				[3]="80% increased Damage with Hits against Enemies that are on Full Life"
 			}
@@ -70554,7 +70559,7 @@ return {
 			},
 			group=595,
 			icon="Art/2DArt/SkillIcons/passives/lightningint.dds",
-			name="Lightning Exposure Effect",
+			name="Lightning Damage",
 			orbit=3,
 			orbitIndex=0,
 			skill=38270,
@@ -74669,7 +74674,7 @@ return {
 			orbitIndex=0,
 			skill=41186,
 			stats={
-				[1]="12% increased Totem Placement speed"
+				[1]="20% increased Totem Placement speed"
 			}
 		},
 		[41210]={
@@ -93462,7 +93467,7 @@ return {
 			orbitIndex=20,
 			skill=54437,
 			stats={
-				[1]="20% increased Attack Damage when on Low Life"
+				[1]="20% increased Attack Damage while on Low Life"
 			}
 		},
 		[54447]={
@@ -96398,8 +96403,8 @@ return {
 			},
 			skill=56453,
 			stats={
-				[1]="40% increased Attack Damage when on Full Life",
-				[2]="60% increased Attack Damage when on Low Life"
+				[1]="40% increased Attack Damage while on Full Life",
+				[2]="60% increased Attack Damage while on Low Life"
 			}
 		},
 		[56472]={
@@ -97205,6 +97210,7 @@ return {
 			}
 		},
 		[56988]={
+			activeEffectImage="Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryLightningPattern",
 			connections={
 			},
 			group=1184,
@@ -98246,9 +98252,9 @@ return {
 			orbitIndex=0,
 			skill=57819,
 			stats={
-				[1]="Skills gain 20% increased Critical Hit Chance per socketed blue Support Gem",
-				[2]="Skills gain 20% increased Damage per socketed red Support Gem",
-				[3]="Skills gain 6% increased Skill Speed per socketed green Support Gem"
+				[1]="Skills deal 20% increased Damage per Connected red Support Gem",
+				[2]="Skills have 6% increased Skill Speed per Connected green Support Gem",
+				[3]="Skills have 20% increased Critical Hit Chance per Connected blue Support Gem"
 			}
 		},
 		[57821]={
@@ -103347,7 +103353,7 @@ return {
 			},
 			group=1250,
 			icon="Art/2DArt/SkillIcons/passives/stun2h.dds",
-			name="Daze on Hit",
+			name="Damage vs Dazed Enemies",
 			orbit=2,
 			orbitIndex=16,
 			skill=61718,

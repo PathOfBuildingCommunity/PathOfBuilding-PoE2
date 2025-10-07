@@ -337,9 +337,9 @@ data.nonDamagingAilmentTypeList = { "Chill", "Freeze", "Shock" }
 data.nonElementalAilmentTypeList = { "Bleed", "Poison" }
 
 data.nonDamagingAilment = {
-	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
+	["Chill"] = { associatedType = "Cold", alt = false, default = 30, min = 30, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
 	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = data.gameConstants["FreezeDuration"] },
-	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
+	["Shock"] = { associatedType = "Lightning", alt = false, default = data.gameConstants["BaseShockMagnitude"], min = data.gameConstants["BaseShockMagnitude"], max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
 
 data.defaultAilmentDamageTypes = {
@@ -515,6 +515,7 @@ data.weaponTypeInfo = {
 	["Spear"] = { oneHand = true, melee = true, flag = "Spear" },
 	["Flail"] = { oneHand = true, melee = true, flag = "Flail" },
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff" },
+	["Warstaff"] = { oneHand = false, melee = true, flag = "Warstaff" },
 	["Wand"] = { oneHand = true, melee = false, flag = "Wand" },
 	["One Handed Axe"] = { oneHand = true, melee = true, flag = "Axe" },
 	["One Handed Mace"] = { oneHand = true, melee = true, flag = "Mace" },
@@ -890,6 +891,18 @@ local function setupGem(gem, gemId)
 		table.insert(gem.grantedEffectList, data.skills[gem["additionalGrantedEffectId"..i]])
 		table.insert(gem.additionalGrantedEffects, data.skills[gem["additionalGrantedEffectId"..i]])
 		i = i + 1
+	end
+	if gem.grantedEffectDisplayOrder then
+		local tempTable = {}
+		local moved = false
+		for i, temp in ipairs(gem.grantedEffectList) do
+			if gem.grantedEffectDisplayOrder[i] then
+				tempTable[i] = gem.grantedEffectList[gem.grantedEffectDisplayOrder[i] + 1]
+			else
+				tempTable[i] = temp
+			end
+		end
+		gem.grantedEffectList = tempTable
 	end
 	gem.naturalMaxLevel = gem.naturalMaxLevel or (#gem.grantedEffect.levels > 20 and #gem.grantedEffect.levels - 20) or (gem.grantedEffect.levels[3][1] and 3) or 1
 end

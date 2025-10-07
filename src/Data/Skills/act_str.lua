@@ -1146,7 +1146,7 @@ skills["BerserkPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "rage_effect_+%", 0.5 },
+		{ "skill_base_rage_effect_+%_to_apply", 0.5 },
 	},
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
@@ -1196,7 +1196,7 @@ skills["BerserkPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "berserk",
 			statMap = {
-				["life_loss_%_per_minute_per_rage_while_not_losing_rage"] = {
+				["skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"] = {
 					mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 					div = 60
 				},
@@ -1211,11 +1211,10 @@ skills["BerserkPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "life_loss_%_per_minute_per_rage_while_not_losing_rage", 6 },
-				{ "rage_art_variation", 2 },
+				{ "skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply", 6 },
 			},
 			stats = {
-				"rage_effect_+%",
+				"skill_base_rage_effect_+%_to_apply",
 			},
 			levels = {
 				[1] = { 40, statInterpolation = { 1, }, actorLevel = 1, },
@@ -1265,6 +1264,7 @@ skills["BerserkPlayer"] = {
 skills["BlackPowderBlitzReservationPlayer"] = {
 	name = "Black Powder Blitz",
 	baseTypeName = "Black Powder Blitz",
+	fromItem = true,
 	color = 1,
 	description = "Replaces your dodge roll with an explosive-assisted leap, firing off a round from your prosthetic cannon leg that Blinds and Ignites enemies in the area you escape from. The explosion will cause any Grenades in its area of effect to also explode.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.DodgeReplacement] = true, [SkillType.Detonator] = true, },
@@ -1374,6 +1374,7 @@ skills["BlackPowderBlitzReservationPlayer"] = {
 skills["BlackPowderBlitzPlayer"] = {
 	name = "Black Powder Blitz",
 	hidden = true,
+	fromItem = true,
 	skillTypes = { [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, [SkillType.Travel] = true, [SkillType.CanCancelActions] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Fire] = true, [SkillType.Jumping] = true, },
 	castTime = 0.7,
 	qualityStats = {
@@ -1626,6 +1627,11 @@ skills["BoneshatterPlayer"] = {
 			baseEffectiveness = 0.18279999494553,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "boneshatter",
+			statMap = {
+				["boneshatter_damage_+%_final_if_created_from_unique"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
@@ -2659,6 +2665,7 @@ skills["DefianceBannerReservationPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Banner] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "base_reservation_efficiency_+%", 0.5 },
 	},
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
@@ -2763,7 +2770,6 @@ skills["DefianceBannerPlayer"] = {
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.Aura] = true, [SkillType.NoAttackInPlace] = true, [SkillType.HasUsageCondition] = true, },
 	castTime = 0.5,
 	qualityStats = {
-		{ "base_reservation_efficiency_+%", 0.5 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -2896,6 +2902,7 @@ skills["DreadBannerReservationPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Banner] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "base_reservation_efficiency_+%", 0.5 },
 	},
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
@@ -3000,7 +3007,6 @@ skills["DreadBannerPlayer"] = {
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.Aura] = true, [SkillType.NoAttackInPlace] = true, [SkillType.HasUsageCondition] = true, },
 	castTime = 0.5,
 	qualityStats = {
-		{ "base_reservation_efficiency_+%", 0.5 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -4684,6 +4690,7 @@ skills["ToxicGrenadePlayer"] = {
 skills["GeminiSurgePlayer"] = {
 	name = "Gemini Surge",
 	baseTypeName = "Gemini Surge",
+	fromItem = true,
 	color = 1,
 	description = "Grants your weapon Surges. Non-Melee Projectile Attacks with that weapon Consume Surges to cause the Projectiles fired to explode at the end of their flight.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.NoAttackOrCastTime] = true, },
@@ -6837,6 +6844,11 @@ skills["FragmentationRoundsPlayer"] = {
 			label = "Vs Frozen",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "burst_shot_piercing_statset_1",
+			statMap = {
+				["frag_rounds_damage_+%_final_if_created_from_unique"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -9233,6 +9245,9 @@ skills["PlasmaBlastPlayer"] = {
 		[39] = { baseMultiplier = 139.44, levelRequirement = 0, },
 		[40] = { baseMultiplier = 150.22, levelRequirement = 0, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.channelTimeMultiplier = 1
+			end,
 	statSets = {
 		[1] = {
 			label = "Projectile",
@@ -10643,7 +10658,7 @@ skills["MagmaBarrierPlayer"] = {
 	baseTypeName = "Magma Barrier",
 	color = 1,
 	description = "While active, increases your Block Chance passively and imbues your Shield with lava over time. When fully imbued, your next Block with your Shield raised will expend the lava to create an explosion, granting you an Endurance Charge.",
-	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.GeneratesCharges] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Fire] = true, [SkillType.Persistent] = true, [SkillType.GeneratesCharges] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
 		{ "skill_igneous_shield_grants_block_chance_+%", 0.25 },
@@ -10695,6 +10710,11 @@ skills["MagmaBarrierPlayer"] = {
 			label = "Buff",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "igneous_shield",
+			statMap = {
+				["skill_igneous_shield_grants_block_chance_+%"] = {
+					mod("BlockChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Magma Barrier" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -10825,6 +10845,7 @@ skills["MagmaSprayPlayer"] = {
 				"off_hand_maximum_added_fire_damage_per_15_shield_evasion",
 				"base_skill_show_average_damage_instead_of_dps",
 				"display_statset_hide_usage_stats",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { 4, 6, 6, 8, 6, 8, statInterpolation = { 1, 1, 1, 1, 1, 1, }, actorLevel = 1, },
@@ -11639,6 +11660,7 @@ skills["PerfectStrikePlayer"] = {
 	},
 			preDamageFunc = function(activeSkill, output)
 				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 			end,
 	statSets = {
 		[1] = {
@@ -14079,15 +14101,33 @@ skills["SuperchargedSlamPlayer"] = {
 		[39] = { attackTime = 1000, baseMultiplier = 8.63, levelRequirement = 90, cost = { ManaPerMinute = 11734, }, },
 		[40] = { attackTime = 1000, baseMultiplier = 9.21, levelRequirement = 90, cost = { ManaPerMinute = 12487, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Impact",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "channelled_slam_statset_0",
+			statMap = {
+				["channelled_slam_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+				},
+				["channelled_slam_max_stages"] = {
+					mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
 				melee = true,
+				channelRelease = true,
+			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
@@ -14150,10 +14190,27 @@ skills["SuperchargedSlamPlayer"] = {
 			label = "Aftershock",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "channelled_slam_statset_1",
+			statMap = {
+				["channelled_slam_damage_+%_final_per_stage"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+				},
+				["channelled_slam_max_stages"] = {
+					mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+				},
+				["aftershock_radius_+_per_previous_aftershock"] = {
+					skill("radiusExtra", nil, { type = "Multiplier", var = "SuperchargedSlamStage", limit = 30, limitTotal = true }),
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
 				melee = true,
+				channelRelease = true,
+			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
@@ -14221,6 +14278,7 @@ skills["SuperchargedSlamPlayer"] = {
 skills["MetaCastLightningSpellOnHitPlayer"] = {
 	name = "Thundergod's Wrath",
 	baseTypeName = "Thundergod's Wrath",
+	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you Hit enemies with Melee Attacks and triggers socketed Lightning spells on reaching maximum Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Lightning] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, [SkillType.Triggers] = true, },
@@ -14335,6 +14393,7 @@ skills["MetaCastLightningSpellOnHitPlayer"] = {
 skills["SupportMetaCastLightningSpellOnHitPlayer"] = {
 	name = "SupportMetaCastLightningSpellOnHitPlayer",
 	hidden = true,
+	fromItem = true,
 	support = true,
 	requireSkillTypes = { SkillType.Spell, SkillType.Triggerable, SkillType.Lightning, SkillType.AND, SkillType.AND, },
 	addSkillTypes = { SkillType.Triggered, SkillType.Cooldown, },
@@ -14561,6 +14620,7 @@ skills["TimeOfNeedPlayer"] = {
 skills["ValakosChargePlayer"] = {
 	name = "Valako's Charge",
 	baseTypeName = "Valako's Charge",
+	fromItem = true,
 	color = 1,
 	description = "While active, taking Lightning damage builds up charge on you. Reaching full charge expends all charge to Trigger this skill, creating a Chaining lightning bolt that arcs to nearby enemies.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Chains] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggered] = true, [SkillType.NoAttackOrCastTime] = true, },
@@ -15017,6 +15077,7 @@ skills["WarBannerReservationPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Banner] = true, [SkillType.NoAttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "base_reservation_efficiency_+%", 0.5 },
 	},
 	levels = {
 		[1] = { spiritReservationFlat = 30, levelRequirement = 0, },
@@ -15121,7 +15182,6 @@ skills["WarBannerPlayer"] = {
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.Aura] = true, [SkillType.NoAttackInPlace] = true, [SkillType.HasUsageCondition] = true, },
 	castTime = 0.5,
 	qualityStats = {
-		{ "base_reservation_efficiency_+%", 0.5 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },

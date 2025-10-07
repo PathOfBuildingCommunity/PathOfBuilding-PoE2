@@ -6,23 +6,15 @@ local itemBases = ...
 
 #subType Armour
 #baseMatch Metadata/Items/Armours/Shields/FourShieldStr%d+
-#baseMatch Metadata/Items/Armours/Shields/FourShieldStr%d+Cruel
-#baseMatch Metadata/Items/Armours/Shields/FourShieldStr%d+Endgame
 
 #subType Evasion
 #baseMatch Metadata/Items/Armours/Shields/FourShieldDex%d+
-#baseMatch Metadata/Items/Armours/Shields/FourShieldDex%d+Cruel
-#baseMatch Metadata/Items/Armours/Shields/FourShieldDex%d+Endgame
 
 #subType Armour/Evasion
 #baseMatch Metadata/Items/Armours/Shields/FourShieldStrDex%d+
-#baseMatch Metadata/Items/Armours/Shields/FourShieldStrDex%d+Cruel
-#baseMatch Metadata/Items/Armours/Shields/FourShieldStrDex%d+Endgame
 
 #subType Armour/Energy Shield
 #baseMatch Metadata/Items/Armours/Shields/FourShieldStrInt%d+
-#baseMatch Metadata/Items/Armours/Shields/FourShieldStrInt%d+Cruel
-#baseMatch Metadata/Items/Armours/Shields/FourShieldStrInt%d+Endgame
 
 #subType
 #base Metadata/Items/Armours/Shields/ShieldDemigods

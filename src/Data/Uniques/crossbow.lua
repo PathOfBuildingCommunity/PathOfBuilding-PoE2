@@ -46,6 +46,7 @@ Implicits: 1
 (40-60)% increased Physical Damage
 (30-40)% increased Attack Speed
 30% reduced Reload Speed
-100% chance to not consume a bolt if you've Reloaded Recently
+Bolts fired by Crossbow Attacks have 100% chance to not
+expend Ammunition if you've Reloaded Recently
 ]],
 }

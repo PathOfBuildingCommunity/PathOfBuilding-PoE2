@@ -28,7 +28,7 @@ Variant: Current
 +(60-80) to maximum Life
 {variant:2}+(20-25)% to Fire Resistance
 25% increased Light Radius
-When you Leech Life from a Hit, Allies in your Presence also Leech the same amount of Life
+Leeching Life from your Hits causes Allies in your Presence to also Leech the same amount of Life
 ]],[[
 Deidbell
 Elite Greathelm

@@ -60,8 +60,8 @@ itemBases["Reefsteel Greaves"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, boots = true, str_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 135, },
-	req = { level = 46, str = 62, },
+	armour = { Armour = 132, },
+	req = { level = 45, str = 60, },
 }
 itemBases["Monument Greaves"] = {
 	type = "Boots",
@@ -221,8 +221,8 @@ itemBases["Flared Boots"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, boots = true, dex_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 121, },
-	req = { level = 46, dex = 62, },
+	armour = { Evasion = 119, },
+	req = { level = 45, dex = 60, },
 }
 itemBases["Leatherplate Boots"] = {
 	type = "Boots",
@@ -383,7 +383,7 @@ itemBases["Flax Sandals"] = {
 	tags = { karui_basetype = true, boots = true, int_armour = true, armour = true, default = true, },
 	implicitModTypes = { },
 	armour = { EnergyShield = 48, },
-	req = { level = 46, int = 62, },
+	req = { level = 45, int = 60, },
 }
 itemBases["Studded Sandals"] = {
 	type = "Boots",
@@ -523,8 +523,8 @@ itemBases["Covered Sabatons"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_dex_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 74, Evasion = 67, },
-	req = { level = 46, str = 35, dex = 35, },
+	armour = { Armour = 73, Evasion = 65, },
+	req = { level = 45, str = 34, dex = 34, },
 }
 itemBases["Flexile Sabatons"] = {
 	type = "Boots",
@@ -654,8 +654,8 @@ itemBases["Weaver Leggings"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, str_int_armour = true, armour = true, boots = true, default = true, },
 	implicitModTypes = { },
-	armour = { Armour = 74, EnergyShield = 27, },
-	req = { level = 46, str = 35, int = 35, },
+	armour = { Armour = 73, EnergyShield = 26, },
+	req = { level = 45, str = 34, int = 34, },
 }
 itemBases["Gilt Leggings"] = {
 	type = "Boots",
@@ -785,8 +785,8 @@ itemBases["Steelpoint Shoes"] = {
 	socketLimit = 3,
 	tags = { karui_basetype = true, boots = true, armour = true, default = true, dex_int_armour = true, },
 	implicitModTypes = { },
-	armour = { Evasion = 67, EnergyShield = 27, },
-	req = { level = 46, dex = 35, int = 35, },
+	armour = { Evasion = 65, EnergyShield = 26, },
+	req = { level = 45, dex = 34, int = 34, },
 }
 itemBases["Velour Shoes"] = {
 	type = "Boots",

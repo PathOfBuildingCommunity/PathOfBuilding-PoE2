@@ -2114,6 +2114,8 @@ skills["SupportFerocityPlayer"] = {
 			statMap = {
 				["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
 					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -3187,6 +3189,8 @@ skills["SupportMultishotPlayer"] = {
 				},
 				["support_scattershot_skill_speed_+%_final"] = {
 					mod("Speed", "MORE", nil),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry),
+					mod("TotemPlacementSpeed", "MORE", nil),
 				},
 			},
 			baseFlags = {
@@ -3228,6 +3232,8 @@ skills["SupportMultishotPlayerTwo"] = {
 				},
 				["support_scattershot_skill_speed_+%_final"] = {
 					mod("Speed", "MORE", nil),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry),
+					mod("TotemPlacementSpeed", "MORE", nil),
 				},
 			},
 			baseFlags = {
@@ -4942,6 +4948,20 @@ skills["SupportRigwaldsFerocityPlayer"] = {
 			label = "Rigwald's Ferocity",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rigwald_attack_speed_+%_final_in_weapon_set_one"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet1" }),
+				},
+				["support_rigwald_damage_+%_final_in_weapon_set_one"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet1" }),
+				},
+				["support_rigwald_attack_speed_+%_final_in_weapon_set_two"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet2" }),
+				},
+				["support_rigwald_damage_+%_final_in_weapon_set_two"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet2" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

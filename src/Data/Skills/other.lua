@@ -5824,12 +5824,22 @@ skills["TemperWeaponPlayer"] = {
 		[39] = { storedUses = 1, levelRequirement = 90, cooldown = 5, cost = { ManaPerMinute = 4319, }, },
 		[40] = { storedUses = 1, levelRequirement = 90, cooldown = 5, cost = { ManaPerMinute = 4596, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:TemperWeaponStage")
+			end,
 	statSets = {
 		[1] = {
 			label = "Temper Weapon",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["imbue_weapon_max_exerts"] = {
+					mod("Multiplier:TemperWeaponMaxStages", "BASE", nil),
+					div = 3,
+				},
+			},
 			baseFlags = {
+				channelRelease = true,
 			},
 			constantStats = {
 				{ "imbue_weapon_max_exerts", 12 },
@@ -6729,7 +6739,7 @@ skills["VoidIllusionSpawnPlayer"] = {
 								else
 									activeSkill.skillData[explodeMod.type.."EffectiveExplodePercentage"] = explodeMod.amount
 								end
-								output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.chance
+								output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.value / 100
 							end
 						end
 					else
@@ -6737,7 +6747,7 @@ skills["VoidIllusionSpawnPlayer"] = {
 						local explodeModList = activeSkill.skillModList:List(activeSkill.skillCfg, "ExplodeMod")
 						for _, explodeMod in ipairs(explodeModList) do
 							local amountChance = typeAmountChances[explodeMod.type] or { }
-							amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.chance
+							amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.value / 100
 							typeAmountChances[explodeMod.type] = amountChance
 						end
 						for type, amountChance in pairs(typeAmountChances) do

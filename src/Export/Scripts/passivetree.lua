@@ -535,18 +535,19 @@ end
 
 
 local artsToLegion = {
-	"Art/2DArt/UIImages/InGame/PassiveSkillScreenMarakethJewelCircle2",
-	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKalguuranJewelCircle1",
-	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKaruiJewelCircle2",
+	"Art/2DArt/UIImages/InGame/Abyss/AbyssPassiveSkillScreenJewelCircle1",
 	"Art/2DArt/UIImages/InGame/PassiveSkillScreenEternalEmpireJewelCircle1",
 	"Art/2DArt/UIImages/InGame/PassiveSkillScreenEternalEmpireJewelCircle2",
-	"Art/2DArt/UIImages/InGame/PassiveSkillScreenTemplarJewelCircle2",
-	"Art/2DArt/UIImages/InGame/PassiveSkillScreenTemplarJewelCircle1",
-	"Art/2DArt/UIImages/InGame/PassiveSkillScreenVaalJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKalguuranJewelCircle1",
 	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKalguuranJewelCircle2",
 	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKaruiJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenKaruiJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenMarakethJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenMarakethJewelCircle2",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenTemplarJewelCircle1",
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenTemplarJewelCircle2",
 	"Art/2DArt/UIImages/InGame/PassiveSkillScreenVaalJewelCircle1",
-	"Art/2DArt/UIImages/InGame/PassiveSkillScreenMarakethJewelCircle1"
+	"Art/2DArt/UIImages/InGame/PassiveSkillScreenVaalJewelCircle2",
 }
 
 for _, art in ipairs(artsToLegion) do

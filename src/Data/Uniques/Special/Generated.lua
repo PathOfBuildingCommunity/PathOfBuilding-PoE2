@@ -75,10 +75,13 @@ end
 
 do
 	local excludedGems = {
+		"Detonate Minion",
+		"Rhoa Mount",
 	}
 	local gems = { }
 	for _, gemData in pairs(data.gems) do
-		if not gemData.tags.support and not isValueInArray(excludedGems, gemData.name) then
+		if not gemData.tags.support and not isValueInArray(excludedGems, gemData.name) and not gemData.grantedEffect.hidden and not gemData.grantedEffect.fromItem and not gemData.grantedEffect.fromTree then
+			gemData.name = gemData.name:gsub("Spectre: {0}", "Summon Spectre"):gsub("Companion: {0}", "Tamed Companion")
 			table.insert(gems, gemData.name)
 		end
 	end

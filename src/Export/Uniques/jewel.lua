@@ -67,4 +67,23 @@ Radius: Very Large
 Passives in radius are Conquered by the Kalguur
 Historic
 ]],
+[[
+Undying Hate
+Timeless Jewel
+Source: Drops from unique{Vessel of Kulemak}
+Limited to: 1 Historic
+Variant: Amanamu
+Variant: Kulemak
+Variant: Kurgal
+Variant: Tecrod
+Variant: Ulaman
+Radius: Very Large
+{variant:1}Glorifying the defilement of (100-8000) souls in tribute to Amanamu
+{variant:2}Glorifying the defilement of (100-8000) souls in tribute to Kulemak
+{variant:3}Glorifying the defilement of (100-8000) souls in tribute to Kurgal
+{variant:4}Glorifying the defilement of (100-8000) souls in tribute to Tecrod
+{variant:5}Glorifying the defilement of (100-8000) souls in tribute to Ulaman
+Passives in radius are Conquered by the Abyssals
+Historic
+]],
 }

@@ -9957,7 +9957,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Supported Crossbow Attacks have {0}% chance to not consume a bolt"
+				text="Bolts fired by Supported Crossbow Attacks have {0}% chance to not expend Ammunition"
 			}
 		},
 		stats={

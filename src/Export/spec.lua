@@ -7123,7 +7123,7 @@ return {
 		},
 		[13]={
 			list=true,
-			name="",
+			name="GrantedEffectDisplayOrder",
 			refTo="",
 			type="Int",
 			width=150
@@ -17457,6 +17457,20 @@ return {
 			name="StatsValuesAttributes",
 			refTo="",
 			type="Int",
+			width=150
+		},
+		[11]={
+			list=false,
+			name="Limit",
+			refTo="SoulCoreLimits",
+			type="Key",
+			width=150
+		},
+		[12]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
 			width=150
 		}
 	},

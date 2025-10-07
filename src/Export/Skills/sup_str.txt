@@ -1537,16 +1537,31 @@ statMap = {
 
 #skill SupportUhtredAuguryPlayer
 #set SupportUhtredAuguryPlayer
+statMap = {
+	["supported_active_skill_gem_level_+_if_two_other_supports"] = {
+		mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "MultiplierThreshold", var = "SupportCount", threshold = 3, equals = true }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportUhtredExodusPlayer
 #set SupportUhtredExodusPlayer
+statMap = {
+	["supported_active_skill_gem_level_+_if_no_other_supports"] = {
+		mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "MultiplierThreshold", var = "SupportCount", threshold = 1, equals = true }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportUhtredOmenPlayer
 #set SupportUhtredOmenPlayer
+statMap = {
+	["supported_active_skill_gem_level_+_if_one_other_support"] = {
+		mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "MultiplierThreshold", var = "SupportCount", threshold = 2, equals = true }),
+	},
+},
 #mods
 #skillEnd
 
