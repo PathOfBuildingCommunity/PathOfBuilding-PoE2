@@ -750,16 +750,27 @@ function PassiveSpecClass:AllocNode(node, altPath, hotkeyPressed)
 		return
 	end
 
+	local cachedPlayerAttr = nil -- Used for iterative, automatic determination of desired attribute nodes
+	local cachedPathAttrResults = nil --Used for temp storage of mod effects gained from the nodes, which are not yet included in the playerModDb until after allocation
+	local function handleAttributeNode(attrNode)
+		if not attrNode.isAttribute then return end
+		if (not hotkeyPressed) and self.autoAttributeConfig and self.autoAttributeConfig.enabled then
+			-- Note: cachedPathAttrResults is passed every time, but only used if `cachedPlayerAttr == nil`
+			self.attributeIndex, cachedPlayerAttr = self:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResults)
+		end
+		self:SwitchAttributeNode(attrNode.id, self.attributeIndex or 1)
+	end
 	-- Allocate all nodes along the path
 	if #node.intuitiveLeapLikesAffecting > 0 then
 		node.alloc = true
 		node.allocMode = (node.ascendancyName or node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket) and 0 or self.allocMode
+		if node.isAttribute then
+			handleAttributeNode(node)
+		end
 		self.allocNodes[node.id] = node
 	else
-		local cachedPlayerAttr = nil -- Used for iterative, automatic determination of desired attribute nodes
-		local cachedPathAttrResults = nil --Used for temp storage of mods gained from the nodes, which are not yet included in the playerModDb until after allocation
-		
 		if (not hotkeyPressed) and self.autoAttributeConfig and self.autoAttributeConfig.enabled and ((((altPath and #altPath) or 0) > 1) or ((node.pathDist or 0) > 1) ) then
+			-- Precalculate effects on attributes from non-attribues passives, if necessary
 			for _, pathNode in ipairs(altPath or node.path) do
 				if pathNode.finalModList and #pathNode.finalModList > 0 then
 					-- Choosing a function to return results, rather than passing the ModList itself because I don't want to modify the playerModDB later
@@ -772,11 +783,7 @@ function PassiveSpecClass:AllocNode(node, altPath, hotkeyPressed)
 			pathNode.allocMode = (node.ascendancyName or pathNode.type == "Keystone" or pathNode.type == "Socket" or pathNode.containJewelSocket) and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute, configured auto attribute, or default to Strength if allocating before choosing an attribute
 			if pathNode.isAttribute then 
-				if (not hotkeyPressed) and self.autoAttributeConfig and self.autoAttributeConfig.enabled then
-					-- Note: cachedPathAttrResults is passed every time, but only used if `cachedPlayerAttr == nil`
-					self.attributeIndex, cachedPlayerAttr = self:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResults)
-				end
-				self:SwitchAttributeNode(pathNode.id, self.attributeIndex or 1)
+				handleAttributeNode(pathNode)
 			end
 			self.allocNodes[pathNode.id] = pathNode
 		end
