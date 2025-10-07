@@ -969,7 +969,7 @@ function TreeTabClass:InitAutoAttributeConfig()
 end
 
 -- Update calculated and potentially static values that are not part of the autoAttributeConfig popup form
----@param autoAttributeConfig table | nil the autoAttributeConfig you're strting from, if any
+---@param autoAttributeConfig table | nil the autoAttributeConfig you're starting from, if any
 ---@param addStaticInfo boolean | nil whether to add static infor like the 'id' and 'name' of attributes (e.g. when loading from a save file)
 ---@return table @returns the updated config
 function TreeTabClass:UpdateAutoAttributeConfig(autoAttributeConfig, addStaticInfo)
