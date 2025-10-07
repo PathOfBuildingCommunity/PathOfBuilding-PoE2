@@ -367,7 +367,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
 				end
-				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath, hotkeyPressed)
+				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath, true) -- passing `true` because both right-click and hotkey have priority over auto attribute allocation
 				spec:AddUndoState()
 				build.buildFlag = true
 			end
