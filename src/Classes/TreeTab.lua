@@ -801,7 +801,11 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 		..colorCodes.RARE.."Right-click ^8an allocated node to toggle attribute types or to set an\n" .. 
 		"unallocated node to your last used attribute\n\n"
 	)
-	main:OpenPopup(550, 185, "Choose Attribute", controls, "save")
+
+	controls.autoAttributeHint = new("LabelControl", {"TOPLEFT", controls.hotkeyTooltip, "BOTTOMLEFT"}, {0, 80, 0, 16}, 
+		colorCodes.TIP .. "Hint: ^8You can also configure ratios for automatic attribute allocation\nClick the '^7Auto Attribute Config^8' button at the bottom of the tree menu" .."^7")
+
+	main:OpenPopup(550, 265, "Choose Attribute", controls, "save")
 end
 
 -- Popup for configuration of automatic attribute allocation
