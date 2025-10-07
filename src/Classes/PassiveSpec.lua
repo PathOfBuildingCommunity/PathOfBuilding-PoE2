@@ -2211,7 +2211,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 
 	for _, attr in ipairs(attributeList) do
 		-- Check if the max value is set and if it's already been exceeded.
-		if autoAttributeConfig[attr].max == nil or (not autoAttributeConfig[attr].useMaxVal) or playerAttr[attr].total <= autoAttributeConfig[attr].max then
+		if autoAttributeConfig[attr].max == nil or (not autoAttributeConfig[attr].useMaxVal) or playerAttr[attr].total < autoAttributeConfig[attr].max then
 			local diff = autoAttributeConfig[attr].ratio - playerAttr[attr].ratio
 			if diff > maxDiff then
 				maxDiff = diff
