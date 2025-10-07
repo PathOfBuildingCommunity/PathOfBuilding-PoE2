@@ -1385,6 +1385,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 	end
 
+	-- Attribute Allocation hints
+	if node.isAttribute then
+		tooltip:AddSeparator(14)
+		self:AddAutoAttributeConfigHintToTooltip(tooltip, node, build)
+		tooltip:AddSeparator(14)
+	end
+
 	-- Reminder text
 	if node.reminderText then
 		tooltip:AddSeparator(14)
@@ -1526,6 +1533,22 @@ function PassiveTreeViewClass:AddGlobalNodeWarningsToTooltip(tooltip, node, buil
 		tooltip:AddSeparator(14)
 		tooltip:AddLine(14, colorCodes.WARNING .. warningText)
 		tooltip:AddLine(14, colorCodes.TIP .. tipText)
+	end
+end
+
+-- Helper function to add information about currently active auto attribute allocation config
+function PassiveTreeViewClass:AddAutoAttributeConfigHintToTooltip(tooltip, node, build)
+	if not node.isAttribute then return end
+	local config = build.spec.autoAttributeConfig
+
+	if config and config.enabled then
+		local hintTxt = colorCodes.TIP .. "Automatic Attribute Allocation is " .. colorCodes.POSITIVE .. "enabled^7"
+		local configTxt = "^7Weights: "
+		configTxt = configTxt .. colorCodes.STRENGTH .. "Str: ^7" .. (config.str.weight or 0) .. (config.str.useMaxVal and (" ^8[max: " .. (config.str.max or "0") .. "]") or "") .. " ^7| "
+		configTxt = configTxt .. colorCodes.DEXTERITY .. "Dex: ^7" .. (config.dex.weight or 0) .. (config.dex.useMaxVal and (" ^8[max: " .. (config.dex.max or "0") .. "]") or "") .. " ^7| "
+		configTxt = configTxt .. colorCodes.INTELLIGENCE .. "Int: ^7" .. (config.int.weight or 0) .. (config.int.useMaxVal and (" ^8[max: " .. (config.int.max or "0") .. "]") or "") .. "^7"
+		tooltip:AddLine(14, hintTxt)
+		tooltip:AddLine(14, configTxt)
 	end
 end
 
