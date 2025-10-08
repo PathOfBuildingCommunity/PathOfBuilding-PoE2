@@ -2205,7 +2205,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 		end
 	end
 	
-	playerAttr.sumTotal = playerAttr.dex.total + playerAttr.int.total + playerAttr.str.total 
+	playerAttr.sumTotal = m_max(1, playerAttr.dex.total + playerAttr.int.total + playerAttr.str.total ) -- use m_max to protect against division by 0 (e.g. in "Omniscience"-like scenarios)
 	playerAttr.dex.ratio = playerAttr.dex.total / playerAttr.sumTotal
 	playerAttr.int.ratio = playerAttr.int.total / playerAttr.sumTotal
 	playerAttr.str.ratio = playerAttr.str.total / playerAttr.sumTotal
