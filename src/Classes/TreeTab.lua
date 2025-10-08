@@ -134,9 +134,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		main:OpenPopup(470, 100, "Reset Tree", controls, nil, "edit", "cancel")
 	end)
 
-	-- Automatic Attribute Allocation Button
-	-- TODO check if that's where/how I want autoAttribute button positioned
-	--local updateAutoAttributeConfigAnchor = function(anchor) self.controls.autoAttributeButton:SetAnchor("LEFT", anchor, "RIGHT") end
+	-- Auto Attribute Config Button
 	self.controls.autoAttributeButton = new("ButtonControl", { "LEFT", self.controls.reset, "RIGHT" }, { 8, 0, 150, 20 }, "Auto Attribute Config", function() self:ConfigureAutoAttributePopup() end)
 
 	-- Tree Version Dropdown
@@ -815,6 +813,8 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	end
 	
 	local controls = { }
+	local config = copyTable(self.build.spec.autoAttributeConfig)
+
 	local function toggleOptions(state)
 		-- used to disable/enable config fields when main option is set
 		for key, control in pairs(controls) do
@@ -823,65 +823,64 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 			end
 		end
 	end
-
+	
+	-- UI dimensions
 	-- Main popup window
 	local window = {
 		width = 450,
 		height = 330,
 	}
-	local config = copyTable(self.build.spec.autoAttributeConfig)
-
-	-- TODO convert all sizes to static values instead?
-
 	-- 'save' and 'cancel' buttons
 	local mainButton = {
-		y = m_floor(window.height * 0.9),
-		x = m_floor(window.width * 0.15),
+		y = 290,
+		x = 60,
 	}
+	-- config settings
 	local settingsSection = {
-		width = m_floor(window.width * 0.9),
-		height = m_floor(window.height * 0.5),
-		gapTop = m_floor(window.height * 0.25),
-		marginX = m_floor(window.width * 0.1),
+		width = 400,
+		height = 165,
+		gapTop = 80,
+		marginX = 45,
 		marginY = 20,
 	}
 	local settingsColumns = {
 		[1] = { 
 			id = "attribute",
 			header = "Attribute",
-			width = m_floor(window.width * 0.25),
+			width = 110,
 			height = 16,
 		},
 		[2] = { 
 			id = "weight",
 			header = "Weight",
-			width = m_floor(window.width * 0.15),
+			width = 65,
 			height = 16,
 		},
 		[3] = { 
 			id = "maxVal",
 			header = "Max Value",
-			width = m_floor(window.width * 0.15),
+			width = 65,
 			height = 16,
 		},
 		[4] = { 
 			id = "useMaxVal",
 			header = "Limit to Max?",
-			width = m_floor(window.width * 0.15),
+			width = 65,
 			height = 16,
 		},
 	}
 
+	-- Actual control elements
 	-- Main Checkbox
-	controls.enabledLabel = new("LabelControl", nil, { m_floor(-window.width * 0.2), m_floor(window.height * 0.10), m_floor(window.width * 0.3), 16 }, "^7Automatic Attribute Allocation")
+	controls.enabledLabel = new("LabelControl", nil, { -90, 35, 135, 16 }, "^7Automatic Attribute Allocation")
 	controls.enabledCheck = new("CheckBoxControl", { "LEFT", controls.enabledLabel, "RIGHT" }, { 10, 0, 18 }, "", 
 		function(value) 
 			config.enabled = value 
 			toggleOptions(value)
 		end, "^7Enabling this option will automatically decide which attribute to allocate on travel nodes, \naccording to the configured weights and current total attributes", config.enabled)
 	
-	-- Section for detail setting
-	-- Headers
+	-- Section for config settings
+	-- Header columns
 	controls.settingsSection = new("SectionControl", nil, { 0, settingsSection.gapTop, settingsSection.width, settingsSection.height }, "^7Allocation Settings")
 	for i, column in ipairs(settingsColumns) do
 		local anchor = i == 1 and { "TOPLEFT", controls.settingsSection, "TOPLEFT" } or {"LEFT", controls[settingsColumns[i-1].id .. "Label"], "RIGHT" }

@@ -131,7 +131,6 @@ function PassiveSpecClass:Load(xml, dbFileName)
 					weaponSets[tonumber(nodeId)] = weaponSet
 				end
 			elseif node.elem == "AutoAttributeConfig" then
-				-- TODO continue autoAttributeConfig loading
 				local autoAttributeConfig = { }
 				if node.attrib then
 					autoAttributeConfig.enabled = node.attrib.enabled == "true"
