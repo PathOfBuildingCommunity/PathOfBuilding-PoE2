@@ -508,10 +508,24 @@ for jewel in jewelArt:Rows() do
 		goto nexttogo
 	end
 	local asset = uiImages[string.lower(jewel.JewelArt)]
-	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
+	printf("Adding jewel socket " .. name .. " " .. asset.path .. " to sprite")
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
 	:: nexttogo	::
+end
+
+-- adding unique jewel sockets
+local uniqueJewelArt = dat("PassiveJewelUniqueArt")
+for jewel in uniqueJewelArt:Rows() do
+	if jewel.WordsKey.Text:find(ignoreFilter) ~= nil then
+		printf("Ignoring unique jewel socket " .. jewel.Item.Name)
+		goto nexttogo
+	end
+	local asset = uiImages[string.lower(jewel.JewelArt)]
+	local name = jewel.WordsKey.Text
+	printf("Adding unique jewel socket " .. name .. " " .. asset.path .. " to sprite")
+	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
+	:: nexttogo ::
 end
 
 -- adding monster types
