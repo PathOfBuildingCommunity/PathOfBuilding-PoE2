@@ -317,6 +317,10 @@ function describeStats(stats)
 					val[spec.v].min = ItemClasses[val[spec.v].min].Name
 					val[spec.v].max = ItemClasses[val[spec.v].max].Name
 					val[spec.v].fmt = "s"
+				elseif spec.k == "one_hundred_divide_by_value" then
+					val[spec.v].min = 100 / val[spec.v].min
+					val[spec.v].max = 100 / val[spec.v].max
+					val[spec.v].fmt = "g"
 				elseif spec.k == "multiplicative_damage_modifier" then
 					val[spec.v].min = 100 + val[spec.v].min
 					val[spec.v].max = 100 + val[spec.v].max
