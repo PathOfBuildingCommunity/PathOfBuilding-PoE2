@@ -157,9 +157,9 @@ end
 out:write('}\n')
 
 out:write('-- From GoldRespecPrices.dat\n')
-out:write('data.goldRespecPrices = {\n')
+out:write('data.goldRespecPrices = { ')
 for row in dat("GoldRespecPrices"):Rows() do
-	out:write('\t[' .. row.Level .. '] = ' .. row.Cost .. ',\n')
+	out:write(row.Cost .. ', ')
 end
 out:write('}\n')
 
