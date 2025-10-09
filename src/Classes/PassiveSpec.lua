@@ -2219,7 +2219,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 		else
 			playerAttr[attr].eligible = true
 			playerAttr[attr].effTotal = playerAttr[attr].total
-			effConfigWeightTotal = effConfigWeightTotal + autoAttributeConfig[attr].weight
+			effConfigWeightTotal = effConfigWeightTotal + (autoAttributeConfig[attr].weight or 0)
 		end
 	end
 	
@@ -2235,7 +2235,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 	-- Find attribute with greatest diff from effective target ratio
 	for _, attr in ipairs(attributeList) do
 		if playerAttr[attr].eligible then
-			local effConfigRatio = autoAttributeConfig[attr].weight / m_max(effConfigWeightTotal, 1 )
+			local effConfigRatio = (autoAttributeConfig[attr].weight or 0) / m_max(effConfigWeightTotal, 1 )
 			local diff = effConfigRatio - playerAttr[attr].effRatio
 			if (maxDiff == nil) or (diff > maxDiff) then
 				maxDiff = diff
