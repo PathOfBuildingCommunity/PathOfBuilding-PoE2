@@ -1173,7 +1173,7 @@ function calcs.perform(env, skipEHP)
 			if item.name:match("Kalandra's Touch") then
 				if slot == "Ring 2" then
 					item = env.player.itemList["Ring 1"]
-				else
+				elseif slot == "Ring 1" then
 					item = env.player.itemList["Ring 2"]
 				end
 			end
