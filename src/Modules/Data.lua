@@ -1008,3 +1008,5 @@ data.questRewards = LoadModule("Data/QuestRewards")
 data.flavourText = LoadModule("Data/FlavourText")
 data.worldAreas = {}
 LoadModule("Data/WorldAreas", data.worldAreas)
+
+data.goldRespecPrices = LoadModule("Data/GoldRespecPrices")
