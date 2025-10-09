@@ -1180,15 +1180,24 @@ return {
 			AscendancyMiddle=1
 		},
 		["jewel-sockets_152_156_BC7.dds.zst"]={
-			Diamond=6,
-			Emerald=4,
-			Ruby=1,
-			Sapphire=7,
-			["Time-Lost Diamond"]=6,
-			["Time-Lost Emerald"]=2,
-			["Time-Lost Ruby"]=3,
+			["Against the Darkness"]=14,
+			["Controlled Metamorphosis"]=7,
+			Diamond=14,
+			Emerald=12,
+			["From Nothing"]=10,
+			["Heart of the Well"]=2,
+			["Heroic Tragedy"]=8,
+			Megalomaniac=15,
+			["Prism of Belief"]=6,
+			Ruby=13,
+			Sapphire=1,
+			["The Adorned"]=4,
+			["Time-Lost Diamond"]=14,
+			["Time-Lost Emerald"]=9,
+			["Time-Lost Ruby"]=11,
 			["Time-Lost Sapphire"]=5,
-			["Timeless Jewel"]=6
+			["Timeless Jewel"]=14,
+			["Undying Hate"]=3
 		},
 		["legion_1024_1024_BC7.dds.zst"]={
 			["art/textures/interface/2d/2dart/uiimages/ingame/abyss/abysspassiveskillscreenjewelcircle1.dds"]=1
