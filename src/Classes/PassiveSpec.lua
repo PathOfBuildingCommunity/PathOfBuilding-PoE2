@@ -2210,7 +2210,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 	playerAttr.int.ratio = playerAttr.int.total / playerAttr.sumTotal
 	playerAttr.str.ratio = playerAttr.str.total / playerAttr.sumTotal
 
-	local maxDiff = 0
+	local maxDiff = nil
 	local neededAttr = nil
 
 	-- Update weights based on attribute requirements if necessary
@@ -2222,7 +2222,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 		-- Check if the max value is set and if it's already been exceeded.
 		if autoAttributeConfig[attr].max == nil or (not autoAttributeConfig[attr].useMaxVal) or playerAttr[attr].total < autoAttributeConfig[attr].max then
 			local diff = autoAttributeConfig[attr].ratio - playerAttr[attr].ratio
-			if diff > maxDiff then
+			if (maxDiff == nil) or (diff > maxDiff) then
 				maxDiff = diff
 				neededAttr = attr
 			end
