@@ -2205,23 +2205,38 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 		end
 	end
 	
-	playerAttr.sumTotal = m_max(1, playerAttr.dex.total + playerAttr.int.total + playerAttr.str.total ) -- use m_max to protect against division by 0 (e.g. in "Omniscience"-like scenarios)
-	playerAttr.dex.ratio = playerAttr.dex.total / playerAttr.sumTotal
-	playerAttr.int.ratio = playerAttr.int.total / playerAttr.sumTotal
-	playerAttr.str.ratio = playerAttr.str.total / playerAttr.sumTotal
-
-	local maxDiff = nil
-	local neededAttr = nil
-
 	-- Update weights based on attribute requirements if necessary
 	if autoAttributeConfig.useAttrReq then
 		self.autoAttributeConfig = self.build.treeTab:UpdateAutoAttributeConfig(autoAttributeConfig)
 	end
-
+	
+	-- Mark attributes ineligible if the max value is set and already exceeded.
+	local effConfigWeightTotal = 0
 	for _, attr in ipairs(attributeList) do
-		-- Check if the max value is set and if it's already been exceeded.
-		if autoAttributeConfig[attr].max == nil or (not autoAttributeConfig[attr].useMaxVal) or playerAttr[attr].total < autoAttributeConfig[attr].max then
-			local diff = autoAttributeConfig[attr].ratio - playerAttr[attr].ratio
+		if autoAttributeConfig[attr].max ~= nil and autoAttributeConfig[attr].useMaxVal and (playerAttr[attr].total >= autoAttributeConfig[attr].max) then
+			playerAttr[attr].eligible = false
+			playerAttr[attr].effTotal = 0
+		else
+			playerAttr[attr].eligible = true
+			playerAttr[attr].effTotal = playerAttr[attr].total
+			effConfigWeightTotal = effConfigWeightTotal + autoAttributeConfig[attr].weight
+		end
+	end
+	
+	-- Calculating effective totals and ratios that exclude attributes that already exceed max
+	playerAttr.effSumTotal = m_max(1, playerAttr.dex.effTotal + playerAttr.int.effTotal + playerAttr.str.effTotal ) -- use m_max to protect against division by 0 (e.g. in "Omniscience"-like scenarios)
+	playerAttr.dex.effRatio = playerAttr.dex.effTotal / playerAttr.effSumTotal
+	playerAttr.int.effRatio = playerAttr.int.effTotal / playerAttr.effSumTotal
+	playerAttr.str.effRatio = playerAttr.str.effTotal / playerAttr.effSumTotal
+
+	local maxDiff = nil
+	local neededAttr = nil
+
+	-- Find attribute with greatest diff from effective target ratio
+	for _, attr in ipairs(attributeList) do
+		if playerAttr[attr].eligible then
+			local effConfigRatio = autoAttributeConfig[attr].weight / m_max(effConfigWeightTotal, 1 )
+			local diff = effConfigRatio - playerAttr[attr].effRatio
 			if (maxDiff == nil) or (diff > maxDiff) then
 				maxDiff = diff
 				neededAttr = attr
