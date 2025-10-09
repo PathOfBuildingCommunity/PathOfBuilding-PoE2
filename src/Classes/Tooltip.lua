@@ -270,17 +270,17 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		Desecrated = "Assets/VeiledItemSymbol.png",
 	}
 	local headerConfigs = {
-		RELIC = {left="Assets/ItemsHeaderFoilLeft.png",middle="Assets/ItemsHeaderFoilMiddle.png",right="Assets/ItemsHeaderFoilRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
-		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png",middle="Assets/ItemsHeaderUniqueMiddle.png",right="Assets/ItemsHeaderUniqueRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
-		RARE = {left="Assets/ItemsHeaderRareLeft.png",middle="Assets/ItemsHeaderRareMiddle.png",right="Assets/ItemsHeaderRareRight.png",height=56,sideWidth=43,middleWidth=43,textYOffset=2},
-		MAGIC = {left="Assets/ItemsHeaderMagicLeft.png",middle="Assets/ItemsHeaderMagicMiddle.png",right="Assets/ItemsHeaderMagicRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-		NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png",middle="Assets/ItemsHeaderWhiteMiddle.png",right="Assets/ItemsHeaderWhiteRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-		GEM = {left="Assets/ItemsHeaderGemLeft.png",middle="Assets/ItemsHeaderGemMiddle.png",right="Assets/ItemsHeaderGemRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=4},
-		JEWEL = {left="Assets/JewelPassiveHeaderLeft.png",middle="Assets/JewelPassiveHeaderMiddle.png",right="Assets/JewelPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-		NOTABLE = {left="Assets/NotablePassiveHeaderLeft.png",middle="Assets/NotablePassiveHeaderMiddle.png",right="Assets/NotablePassiveHeaderRight.png",height=38,sideWidth=38,middleWidth=32,textYOffset=2},
-		PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png",middle="Assets/NormalPassiveHeaderMiddle.png",right="Assets/NormalPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-		KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png",middle="Assets/KeystonePassiveHeaderMiddle.png",right="Assets/KeystonePassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
-		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png",middle="Assets/AscendancyPassiveHeaderMiddle.png",right="Assets/AscendancyPassiveHeaderRight.png",height=38,sideWidth=32,middleWidth=32,textYOffset=2},
+		RELIC = {left="Assets/ItemsHeaderFoilLeft.png", middle="Assets/ItemsHeaderFoilMiddle.png", right="Assets/ItemsHeaderFoilRight.png", height=56, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png", middle="Assets/ItemsHeaderUniqueMiddle.png", right="Assets/ItemsHeaderUniqueRight.png", height=56, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		RARE = {left="Assets/ItemsHeaderRareLeft.png", middle="Assets/ItemsHeaderRareMiddle.png", right="Assets/ItemsHeaderRareRight.png", height=56, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		MAGIC = {left="Assets/ItemsHeaderMagicLeft.png", middle="Assets/ItemsHeaderMagicMiddle.png", right="Assets/ItemsHeaderMagicRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+		NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png", middle="Assets/ItemsHeaderWhiteMiddle.png", right="Assets/ItemsHeaderWhiteRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+		GEM = {left="Assets/ItemsHeaderGemLeft.png", middle="Assets/ItemsHeaderGemMiddle.png", right="Assets/ItemsHeaderGemRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		JEWEL = {left="Assets/JewelPassiveHeaderLeft.png", middle="Assets/JewelPassiveHeaderMiddle.png", right="Assets/JewelPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
+		NOTABLE = {left="Assets/NotablePassiveHeaderLeft.png", middle="Assets/NotablePassiveHeaderMiddle.png", right="Assets/NotablePassiveHeaderRight.png", height=38, sideWidth=38, middleWidth=32, textYOffset=2},
+		PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png", middle="Assets/NormalPassiveHeaderMiddle.png", right="Assets/NormalPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
+		KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png", middle="Assets/KeystonePassiveHeaderMiddle.png", right="Assets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
+		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png", middle="Assets/AscendancyPassiveHeaderMiddle.png", right="Assets/AscendancyPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
 	}
 	local config
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
@@ -350,7 +350,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		-- Draw left cap first, then influence icon on top
 		DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader1 and self.tooltipHeader ~= "JEWEL" then
+		if self.influenceHeader1 and config.allowInfluenceIcon then
 			DrawImage(self.influenceIcon1, headerX+5, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
 		end
 
@@ -370,7 +370,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		-- Draw right cap
 		DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader2 and self.tooltipHeader ~= "JEWEL" then
+		if self.influenceHeader2 and config.allowInfluenceIcon then
 			DrawImage(self.influenceIcon2, headerX + headerTotalWidth - headerSideWidth+10, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
 		end
 	end

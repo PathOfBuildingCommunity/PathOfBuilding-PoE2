@@ -1972,6 +1972,9 @@ return {
 ["off_hand_base_weapon_attack_duration_ms"] = {
 	skill("setOffHandAttackTime", nil),
 },
+["base_skill_sources_hollow_palm_physical_damage"] = {
+	flag("UseHollowPalmDamage"),
+},
 ["off_hand_minimum_added_physical_damage_per_15_shield_armour_and_evasion_rating"] = {
 	mod("PhysicalMin", "BASE", nil, 0, 0, { type = "Condition", var = "OffHandAttack" }, { type = "PerStat", statList = { "ArmourOnWeapon 2", "EvasionOnWeapon 2" }, div = 15, }),
 },
@@ -2196,6 +2199,9 @@ return {
 },
 ["base_number_of_totems_allowed"] = {
 	mod("ActiveTotemLimit", "BASE", nil),
+},
+["non_modifiable_totem_limit"] = {
+	mod("ActiveTotemLimit", "OVERRIDE", nil),
 },
 ["summon_totem_cast_speed_+%"] = {
 	mod("TotemPlacementSpeed", "INC", nil),

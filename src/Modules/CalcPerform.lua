@@ -1034,7 +1034,8 @@ function calcs.perform(env, skipEHP)
 			enemyDB.multipliers["BrandsAttached"] = m_max(actual, enemyDB.multipliers["BrandsAttached"] or 0)
 		end
 		if skillFlags.totem then
-			local limit = env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit" )
+			local override = env.player.mainSkill.skillModList:Override(env.player.mainSkill.skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit" )
+			local limit = override or env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "ActiveTotemLimit", "ActiveBallistaLimit" )
 			output.ActiveTotemLimit = m_max(limit, output.ActiveTotemLimit or 0)
 			output.TotemsSummoned = modDB:Override(nil, "TotemsSummoned") or output.ActiveTotemLimit
 			enemyDB.multipliers["TotemsSummoned"] = m_max(output.TotemsSummoned or 0, enemyDB.multipliers["TotemsSummoned"] or 0)
@@ -1172,7 +1173,7 @@ function calcs.perform(env, skipEHP)
 			if item.name:match("Kalandra's Touch") then
 				if slot == "Ring 2" then
 					item = env.player.itemList["Ring 1"]
-				else
+				elseif slot == "Ring 1" then
 					item = env.player.itemList["Ring 2"]
 				end
 			end

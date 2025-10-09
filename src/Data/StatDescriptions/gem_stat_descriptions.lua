@@ -15985,7 +15985,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% of Supported Skills costs are Recouped as Mana"
+				text="{0}% of Supported Skills' Mana cost is Recouped as Mana"
 			}
 		},
 		stats={
@@ -16404,7 +16404,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Restore {0}% of maximum Life on use per one second cooldown of Supported Skills"
+				text="When a Supported Skill consumes a cooldown use, recover {0}% of maximum Life per second of cooldown"
 			}
 		},
 		stats={

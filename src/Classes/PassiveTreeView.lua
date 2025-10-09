@@ -652,7 +652,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
-					overlay = jewel.baseName
+					if jewel.rarity == "UNIQUE" then
+						overlay = jewel.title
+					else
+						overlay = jewel.baseName
+					end
 				end
 			elseif node.type == "OnlyImage" then
 				-- This is the icon that appears in the center of many groups

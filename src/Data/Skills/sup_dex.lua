@@ -2611,7 +2611,7 @@ skills["SupportChargeInhibitionPlayer"] = {
 }
 skills["SupportInnervatePlayer"] = {
 	name = "Innervate",
-	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills infuses all of your Attacks with Lightning damage for a short time.",
+	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills imbues all of your Attacks with Lightning damage for a short time.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
@@ -5077,7 +5077,7 @@ skills["SupportSecondWindPlayerTwo"] = {
 }
 skills["SupportSecondWindPlayerThree"] = {
 	name = "Second Wind III",
-	description = "Supports skills with cooldowns, giving them extra uses of that cooldown and causing them to restore Life on use.\nCannot support instant or triggered skills, or modify the skills of minions.",
+	description = "Supports skills with cooldowns, giving them extra uses of that cooldown and causing them to recover your Life when a cooldown is consumed.\nCannot support instant or triggered skills, or modify the skills of minions.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },

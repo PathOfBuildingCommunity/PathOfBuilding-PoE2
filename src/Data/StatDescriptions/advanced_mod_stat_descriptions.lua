@@ -522,7 +522,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Glorifying the defilement of {1} souls in tribute to Amanamu(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+				text="Glorifying the defilement of {1} souls in tribute to Amanamu(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable"
 			},
 			[25]={
 				limit={
@@ -543,7 +543,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Glorifying the defilement of {1} souls in tribute to Kulemak(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+				text="Glorifying the defilement of {1} souls in tribute to Kulemak(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable"
 			},
 			[26]={
 				limit={
@@ -564,7 +564,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Glorifying the defilement of {1} souls in tribute to Kurgal(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+				text="Glorifying the defilement of {1} souls in tribute to Kurgal(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable"
 			},
 			[27]={
 				limit={
@@ -585,7 +585,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Glorifying the defilement of {1} souls in tribute to Tecrod(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+				text="Glorifying the defilement of {1} souls in tribute to Tecrod(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable"
 			},
 			[28]={
 				limit={
@@ -606,7 +606,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Glorifying the defilement of {1} souls in tribute to Ulaman(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals"
+				text="Glorifying the defilement of {1} souls in tribute to Ulaman(Amanamu-Ulaman)\nPassives in radius are Conquered by the Abyssals\nDesecration makes this item unstable"
 			}
 		},
 		stats={

@@ -13915,7 +13915,7 @@ return {
 		},
 		[4]={
 			list=false,
-			name="JewelAsset",
+			name="JewelArt",
 			refTo="",
 			type="String",
 			width=560

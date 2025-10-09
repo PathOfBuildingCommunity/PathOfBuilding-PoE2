@@ -1673,7 +1673,7 @@ c["20% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,nam
 c["20% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=20}},nil}
 c["20% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=20}},nil}
 c["20% increased Elemental Infusion duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Elemental Infusion  "}
-c["20% increased Elemental Infusion duration Remnants can be collected from 15% further away"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Elemental Infusion  Remnants can be collected from 15% further away "}
+c["20% increased Elemental Infusion duration Remnants can be collected from 20% further away"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=20}}," Elemental Infusion  Remnants can be collected from 20% further away "}
 c["20% increased Endurance Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesDuration",type="INC",value=20}},nil}
 c["20% increased Energy Shield Recharge Rate"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldRecharge",type="INC",value=20}},nil}
 c["20% increased Energy Shield Recovery Rate if you haven't been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="EnergyShieldRecoveryRate",type="INC",value=20}},nil}
@@ -5380,9 +5380,8 @@ c["Remembrancing 4050 songworthy deeds by the line of Olroth"]={{[1]={flags=0,ke
 c["Remembrancing 8000 songworthy deeds by the line of Medved"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=2,type="kalguur"},id=8000}}}},nil}
 c["Remembrancing 8000 songworthy deeds by the line of Olroth"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=3,type="kalguur"},id=8000}}}},nil}
 c["Remembrancing 8000 songworthy deeds by the line of Vorana"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="conqueredBy",value={conqueror={id=1,type="kalguur"},id=8000}}}},nil}
-c["Remnants can be collected from 10% further away"]={nil,"Remnants can be collected from 10% further away "}
 c["Remnants can be collected from 15% further away"]={nil,"Remnants can be collected from 15% further away "}
-c["Remnants can be collected from 30% further away"]={nil,"Remnants can be collected from 30% further away "}
+c["Remnants can be collected from 20% further away"]={nil,"Remnants can be collected from 20% further away "}
 c["Remnants have 10% increased effect"]={nil,"Remnants have 10% increased effect "}
 c["Remnants have 2% increased effect per 10 Tribute"]={nil,"Remnants have 2% increased effect per 10 Tribute "}
 c["Remnants you create reappear once, 3 seconds after being collected"]={nil,"Remnants you create reappear once, 3 seconds after being collected "}
