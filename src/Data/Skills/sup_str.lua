@@ -913,6 +913,11 @@ skills["SupportBleedPlayerFour"] = {
 			label = "Bleed IV",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies"] = {
+					mod("PhysicalDamage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
