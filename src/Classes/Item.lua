@@ -1812,7 +1812,7 @@ function ItemClass:BuildModList()
 
 	for _, entry in ipairs(minimumReqLevel) do
 		if entry.name == self.title then
-			minReqLevel = entry.level
+			minReqLevel = tonumber(entry.level)
 			break
 		end
 	end

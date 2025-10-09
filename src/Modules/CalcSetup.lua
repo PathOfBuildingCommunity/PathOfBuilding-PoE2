@@ -603,7 +603,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
 		modDB:NewMod("Tribute", "BASE", 0, "Base")
-		modDB:NewMod("Evasion", "BASE", data.characterConstants["evasion_rating_per_level"] / 100, "Base", { type = "Multiplier", var = "Level", base = data.characterConstants["base_evasion_rating"] })
+		modDB:NewMod("Evasion", "BASE", data.characterConstants["base_evasion_rating"], "Base")
 		modDB:NewMod("Accuracy", "BASE", data.characterConstants["accuracy_rating_per_level"], "Base", { type = "Multiplier", var = "Level", base = -data.characterConstants["accuracy_rating_per_level"] })
 		modDB:NewMod("CritMultiplier", "BASE", data.characterConstants["base_critical_hit_damage_bonus"], "Base")
 		modDB:NewMod("DotMultiplier", "BASE", 50, "Base", { type = "Condition", var = "CriticalStrike" })
@@ -1140,7 +1140,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					else
 						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
-					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1") or (slotName == "Ring 3" and "Ring 2")]
+					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
 					if otherRing and not otherRing.name:match("Kalandra's Touch") then
 						for _, mod in ipairs(otherRing.modList or otherRing.slotModList[slot.slotNum] or {}) do
 							-- Filter out SocketedIn type mods
