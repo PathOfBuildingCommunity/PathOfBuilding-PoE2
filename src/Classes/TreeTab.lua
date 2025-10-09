@@ -83,11 +83,16 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 						end
 						if respec > 0 or respecAscendancy > 0 then
 							local goldCost = data.goldRespecPrices[build.characterLevel]
-							tooltip:AddLine(16, "^xFFD700"..(respec * goldCost) .. " Gold ^7required to switch to this tree.")
-							local nodeWord = respec == 1 and "node differs" or "nodes differ"
-							local ascendWord = respecAscendancy == 1 and "node differs" or "nodes differ"
-							tooltip:AddLine(16, string.format("^7\t%d Passive %s from your current tree.", respec, nodeWord))
-							tooltip:AddLine(16, string.format("^7\t%d Ascendancy %s from your current tree.", respecAscendancy, ascendWord))
+							local totalGold = (respec * goldCost) + (respecAscendancy * goldCost * 5)
+							tooltip:AddLine(16, string.format("^xFFD700%d Gold ^7required to switch to this tree.", totalGold))
+							if respec > 0 then
+								local nodeWord = respec == 1 and "Passive node to be refunded" or "Passive nodes to be refunded"
+								tooltip:AddLine(16, string.format("^7\t%d %s.", respec, nodeWord))
+							end
+							if respecAscendancy > 0 then
+								local ascendWord = respecAscendancy == 1 and "Ascendancy node to be refunded" or "Ascendancy nodes to be refunded"
+								tooltip:AddLine(16, string.format("^7\t%d %s.", respecAscendancy, ascendWord))
+							end
 						end
 					end
 				end
