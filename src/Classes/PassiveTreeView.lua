@@ -1458,7 +1458,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 		end
 	end
-	local goldCost = data.goldRespecPrices[build.characterLevel].Cost
+	local goldCost = data.goldRespecPrices[build.characterLevel]
 	if node.ascendancyName then
 		goldCost = goldCost * 5
 	end

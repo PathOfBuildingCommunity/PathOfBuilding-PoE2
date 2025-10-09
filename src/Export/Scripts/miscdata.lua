@@ -156,6 +156,13 @@ for row in dat("FlatPhysicalDamageValues"):Rows() do
 end
 out:write('}\n')
 
+out:write('-- From GoldRespecPrices.dat\n')
+out:write('data.goldRespecPrices = {\n')
+for row in dat("GoldRespecPrices"):Rows() do
+	out:write('\t[' .. row.Level .. '] = ' .. row.Cost .. ',\n')
+end
+out:write('}\n')
+
 out:close()
 
 print("Misc data exported.")
