@@ -3,18 +3,13 @@
 
 return {
 	[1]={
-		stats={
-			[1]="never_ignite"
-		}
-	},
-	[2]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[2]={
 		[1]={
 			[1]={
 				[1]={
@@ -90,7 +85,7 @@ return {
 			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
-	[4]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -128,11 +123,10 @@ return {
 			[2]="vaal_firestorm_number_of_meteors"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["fire_storm_fireball_delay_ms"]=4,
-	["never_ignite"]=1,
+	["active_skill_area_of_effect_radius"]=1,
+	["active_skill_base_area_of_effect_radius"]=2,
+	["fire_storm_fireball_delay_ms"]=3,
 	parent="skill_stat_descriptions",
-	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
-	["vaal_firestorm_number_of_meteors"]=4
+	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=2,
+	["vaal_firestorm_number_of_meteors"]=3
 }

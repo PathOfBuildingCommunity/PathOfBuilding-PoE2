@@ -32,7 +32,7 @@ return {
 			}
 		},
 		stats={
-			[1]="base_maximum_active_block_distance"
+			[1]="base_maximum_active_block_distance_for_non_projectiles"
 		}
 	},
 	[2]={
@@ -127,7 +127,7 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="maximum_active_block_distance"
+			[1]="maximum_active_block_distance_for_non_projectiles"
 		}
 	},
 	[5]={
@@ -172,10 +172,10 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
-	["base_maximum_active_block_distance"]=1,
+	["base_maximum_active_block_distance_for_non_projectiles"]=1,
 	["base_parry_buff_damage_taken_+%_final_to_apply"]=2,
 	["base_skill_effect_duration"]=3,
-	["maximum_active_block_distance"]=4,
+	["maximum_active_block_distance_for_non_projectiles"]=4,
 	["off_hand_maximum_added_physical_damage_per_5_shield_evasion_rating"]=5,
 	["off_hand_minimum_added_physical_damage_per_5_shield_evasion_rating"]=5,
 	parent="skill_stat_descriptions",

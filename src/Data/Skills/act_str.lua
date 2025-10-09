@@ -582,7 +582,7 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 			baseFlags = {
 			},
 			baseMods = {
-				mod("ActiveTotemLimit", "BASE", 1),
+				mod("ActiveTotemLimit", "OVERRIDE", 10),
 			},
 			constantStats = {
 				{ "skill_disabled_unless_cloned", 2 },

@@ -36597,7 +36597,7 @@ return {
 			orbitIndex=8,
 			skill=12488,
 			stats={
-				[1]="Remnants can be collected from 30% further away"
+				[1]="Remnants can be collected from 20% further away"
 			}
 		},
 		[12498]={
@@ -38466,7 +38466,7 @@ return {
 			orbitIndex=18,
 			skill=13909,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[13937]={
@@ -69603,7 +69603,7 @@ return {
 			orbitIndex=0,
 			skill=37593,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[37594]={
@@ -79098,7 +79098,7 @@ return {
 			orbitIndex=136,
 			skill=44484,
 			stats={
-				[1]="Remnants can be collected from 30% further away"
+				[1]="Remnants can be collected from 20% further away"
 			}
 		},
 		[44490]={
@@ -104702,7 +104702,7 @@ return {
 			orbitIndex=12,
 			skill=62679,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[62732]={
@@ -105075,7 +105075,7 @@ return {
 			orbitIndex=3,
 			skill=63009,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[63021]={
@@ -106387,7 +106387,7 @@ return {
 			skill=64046,
 			stats={
 				[1]="20% increased Elemental Infusion duration",
-				[2]="Remnants can be collected from 15% further away"
+				[2]="Remnants can be collected from 20% further away"
 			}
 		},
 		[64050]={

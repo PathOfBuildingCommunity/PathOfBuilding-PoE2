@@ -53,7 +53,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"+4 to Maximum Rage",
-				statOrder = { 8890 },
+				statOrder = { 8888 },
 				rank = { 50 },
 		},
 	},
@@ -118,7 +118,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"10% increased speed of Recoup Effects",
-				statOrder = { 8941 },
+				statOrder = { 8939 },
 				rank = { 50 },
 		},
 	},
@@ -150,13 +150,13 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Minions deal 40% increased Damage with Command Skills",
-				statOrder = { 8351 },
+				statOrder = { 8352 },
 				rank = { 50 },
 		},
 		["sceptre"] = {
 				type = "Rune",
 				"Minions deal 40% increased Damage with Command Skills",
-				statOrder = { 8351 },
+				statOrder = { 8352 },
 				rank = { 50 },
 		},
 	},
@@ -164,7 +164,7 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"15% chance to Poison on Hit with this weapon",
-				statOrder = { 7228 },
+				statOrder = { 7227 },
 				rank = { 0 },
 		},
 		["armour"] = {
@@ -282,7 +282,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"10% increased Quantity of Gold Dropped by Slain Enemies",
-				statOrder = { 6384 },
+				statOrder = { 6383 },
 				rank = { 0 },
 		},
 	},
@@ -338,13 +338,13 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Strength",
-				statOrder = { 7232 },
+				statOrder = { 7231 },
 				rank = { 0 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Strength",
-				statOrder = { 7232 },
+				statOrder = { 7231 },
 				rank = { 0 },
 		},
 	},
@@ -352,13 +352,13 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Dexterity",
-				statOrder = { 7230 },
+				statOrder = { 7229 },
 				rank = { 0 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Dexterity",
-				statOrder = { 7230 },
+				statOrder = { 7229 },
 				rank = { 0 },
 		},
 	},
@@ -366,13 +366,13 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Intelligence",
-				statOrder = { 7231 },
+				statOrder = { 7230 },
 				rank = { 0 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Convert 20% of Requirements to Intelligence",
-				statOrder = { 7231 },
+				statOrder = { 7230 },
 				rank = { 0 },
 		},
 	},
@@ -380,14 +380,14 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"Remove a Damaging Ailment when you use a Command Skill",
-				statOrder = { 9016 },
+				statOrder = { 9014 },
 				rank = { 60 },
 		},
 		["boots"] = {
 				type = "Rune",
 				"1% increased Movement Speed per 15 Spirit, up to a maximum of 40%",
 				"Other Modifiers to Movement Speed do not apply",
-				statOrder = { 8470, 8470.1 },
+				statOrder = { 8471, 8471.1 },
 				rank = { 60 },
 		},
 		["body armour"] = {
@@ -413,7 +413,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
-				statOrder = { 7376 },
+				statOrder = { 7375 },
 				rank = { 60 },
 		},
 	},
@@ -633,7 +633,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
-				statOrder = { 9367 },
+				statOrder = { 9365 },
 				rank = { 15 },
 		},
 	},
@@ -647,7 +647,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"10% increased Life and Mana Recovery from Flasks",
-				statOrder = { 6145 },
+				statOrder = { 6144 },
 				rank = { 15 },
 		},
 		["caster"] = {
@@ -833,7 +833,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
-				statOrder = { 9367 },
+				statOrder = { 9365 },
 				rank = { 0 },
 		},
 	},
@@ -847,7 +847,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"8% increased Life and Mana Recovery from Flasks",
-				statOrder = { 6145 },
+				statOrder = { 6144 },
 				rank = { 0 },
 		},
 		["caster"] = {
@@ -1033,7 +1033,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
-				statOrder = { 9367 },
+				statOrder = { 9365 },
 				rank = { 30 },
 		},
 	},
@@ -1047,7 +1047,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"12% increased Life and Mana Recovery from Flasks",
-				statOrder = { 6145 },
+				statOrder = { 6144 },
 				rank = { 30 },
 		},
 		["caster"] = {
@@ -1247,7 +1247,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"6 to 9 Physical Thorns damage",
-				statOrder = { 9486 },
+				statOrder = { 9484 },
 				rank = { 0 },
 		},
 	},
@@ -1261,7 +1261,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"14 to 21 Physical Thorns damage",
-				statOrder = { 9486 },
+				statOrder = { 9484 },
 				rank = { 15 },
 		},
 	},
@@ -1275,7 +1275,7 @@ return {
 		["armour"] = {
 				type = "Rune",
 				"31 to 52 Physical Thorns damage",
-				statOrder = { 9486 },
+				statOrder = { 9484 },
 				rank = { 30 },
 		},
 	},
@@ -1283,13 +1283,13 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Minions gain 10% of their Physical Damage as Extra Lightning Damage",
-				statOrder = { 8395 },
+				statOrder = { 8396 },
 				rank = { 0 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"Minions take 10% of Physical Damage as Lightning Damage",
-				statOrder = { 8396 },
+				statOrder = { 8397 },
 				rank = { 0 },
 		},
 	},
@@ -1297,13 +1297,13 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Meta Skills gain 10% increased Energy",
-				statOrder = { 5919 },
+				statOrder = { 5918 },
 				rank = { 0 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"1 to 100 Lightning Thorns damage",
-				statOrder = { 9485 },
+				statOrder = { 9483 },
 				rank = { 0 },
 		},
 	},
@@ -1325,13 +1325,13 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Attacks with this Weapon have 10% chance to inflict Lightning Exposure",
-				statOrder = { 7163 },
+				statOrder = { 7162 },
 				rank = { 0 },
 		},
 		["armour"] = {
 				type = "Rune",
 				"10% reduced effect of Shock on you",
-				statOrder = { 9111 },
+				statOrder = { 9109 },
 				rank = { 0 },
 		},
 	},
@@ -1347,13 +1347,13 @@ return {
 		["weapon"] = {
 				type = "Rune",
 				"Gain 5% of Damage as Extra Damage of all Elements",
-				statOrder = { 8556 },
+				statOrder = { 8557 },
 				rank = { 50 },
 		},
 		["caster"] = {
 				type = "Rune",
 				"Gain 5% of Damage as Extra Damage of all Elements",
-				statOrder = { 8556 },
+				statOrder = { 8557 },
 				rank = { 50 },
 		},
 	},
@@ -1375,7 +1375,7 @@ return {
 		["boots"] = {
 				type = "Rune",
 				"6% reduced Movement Speed Penalty from using Skills while moving",
-				statOrder = { 8471 },
+				statOrder = { 8472 },
 				rank = { 50 },
 		},
 	},
@@ -1407,7 +1407,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"20% increased Exposure Effect",
-				statOrder = { 6032 },
+				statOrder = { 6031 },
 				rank = { 50 },
 		},
 	},
@@ -1439,7 +1439,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"20% increased Magnitude of Non-Damaging Ailments you inflict",
-				statOrder = { 8536 },
+				statOrder = { 8537 },
 				rank = { 50 },
 		},
 	},
@@ -1463,7 +1463,7 @@ return {
 		["caster"] = {
 				type = "Rune",
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
-				statOrder = { 9270 },
+				statOrder = { 9268 },
 				rank = { 50 },
 		},
 	},
@@ -1471,7 +1471,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"20% increased Withered Magnitude",
-				statOrder = { 9737 },
+				statOrder = { 9735 },
 				rank = { 50 },
 		},
 	},
@@ -1528,7 +1528,7 @@ return {
 				type = "Rune",
 				"25% reduced Poison Duration",
 				"Targets can be affected by +1 of your Poisons at the same time",
-				statOrder = { 2777, 8616 },
+				statOrder = { 2777, 8614 },
 				rank = { 50 },
 		},
 	},
@@ -1536,7 +1536,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"15% increased total Power counted by Warcries",
-				statOrder = { 9711 },
+				statOrder = { 9709 },
 				rank = { 50 },
 		},
 	},
@@ -1560,7 +1560,7 @@ return {
 		["body armour"] = {
 				type = "Rune",
 				"+1 Charm Slot",
-				statOrder = { 8606 },
+				statOrder = { 8604 },
 				rank = { 50 },
 		},
 	},
@@ -1568,7 +1568,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"6% increased Reservation Efficiency of Minion Skills",
-				statOrder = { 8401 },
+				statOrder = { 8402 },
 				rank = { 50 },
 		},
 	},
@@ -1646,7 +1646,7 @@ return {
 		["helmet"] = {
 				type = "Rune",
 				"50% increased Thorns Critical Hit Chance",
-				statOrder = { 9475 },
+				statOrder = { 9473 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
@@ -1666,7 +1666,7 @@ return {
 		["gloves"] = {
 				type = "Rune",
 				"Gain 1 Rage on Melee Hit",
-				statOrder = { 6339 },
+				statOrder = { 6338 },
 				rank = { 0 },
 		},
 	},
