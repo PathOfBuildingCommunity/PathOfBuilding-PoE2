@@ -734,7 +734,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Hollow Palm Technique added phys for skills that would use Quarterstaff
-	if activeSkill.actor.modDB.conditions.HollowPalm and activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff then
+	if activeSkill.actor.modDB.conditions.HollowPalm and (activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff) or skillModList:Flag(activeSkill.skillCfg, "UseHollowPalmDamage") then
 		local gemLevel = activeEffect.level
 		local physMin = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][1]
 		local physMax = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][2]

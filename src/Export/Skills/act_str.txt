@@ -40,7 +40,7 @@ statMap = {
 		mod("Speed", "MORE", nil, ModFlag.Attack),
 	},
 },
-#baseMod mod("ActiveTotemLimit", "BASE", 1)
+#baseMod mod("ActiveTotemLimit", "OVERRIDE", 10)
 #mods
 #skillEnd
 

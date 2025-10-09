@@ -2631,7 +2631,7 @@ skills["FreezingSalvoPlayer"] = {
 	baseTypeName = "Freezing Salvo",
 	color = 2,
 	description = "Passively coalesces icy missiles from the air over time. Using the skill fires a missile, firing an additional missile for each that has been accumulated. Fires an additional missile, up to its current missile count, targeting each Ice Fragment in its Area of effect, causing the Fragments to Detonate immediately.",
-	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.CannotChain] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.HasSeals] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.CannotChain] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.HasSeals] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackInPlace] = true, [SkillType.UsableWhileMoving] = true, },
 	weaponTypes = {
 		["Bow"] = true,
 	},
