@@ -1568,7 +1568,8 @@ function calcs.perform(env, skipEHP)
 						elseif reqSource.source == "Gem" then
 							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
 						elseif reqSource.source == "Support Gems" then
-							row.sourceName = reqSource[attr]/5 .. " " .. attr .. " Support Gems"
+							local attrName = ({Str="Strength",Dex="Dexterity",Int="Intelligence"})[attr]
+							row.sourceName = (reqSource[attr]/5).." "..colorCodes[string.upper(attrName)]..attrName.." Support Gems"
 						end
 						t_insert(breakdown["Req"..breakdownAttr].rowList, row)
 					end
