@@ -1546,6 +1546,8 @@ function calcs.perform(env, skipEHP)
 						output[attr.."RequirementsOn"..reqSource.sourceSlot] = req;
 					elseif reqSource.source == "Gem" then
 						req = m_floor(reqSource[attr] * reqMultGem)
+					elseif reqSource.source == "Support Gems" then
+						req = m_floor(reqSource[attr])
 					end
 					if req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val) then
 						out.val = req
@@ -1565,6 +1567,8 @@ function calcs.perform(env, skipEHP)
 							end
 						elseif reqSource.source == "Gem" then
 							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
+						elseif reqSource.source == "Support Gems" then
+							row.sourceName = reqSource[attr]/5 .. " " .. attr .. " Support Gems"
 						end
 						t_insert(breakdown["Req"..breakdownAttr].rowList, row)
 					end
