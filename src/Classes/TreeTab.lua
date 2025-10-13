@@ -993,9 +993,9 @@ function TreeTabClass:UpdateAutoAttributeConfig(autoAttributeConfig, addStaticIn
 	-- Calculated values
 	if autoAttributeConfig.useAttrReq then
 		-- Make sure weights based on attribute requirements are up to date
-		autoAttributeConfig.dex.weight = self.build.calcsTab.mainOutput["ReqDex"] or 0
-		autoAttributeConfig.int.weight = self.build.calcsTab.mainOutput["ReqInt"] or 0
-		autoAttributeConfig.str.weight = self.build.calcsTab.mainOutput["ReqStr"] or 0
+		autoAttributeConfig.dex.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqDex"] or 0) or autoAttributeConfig.dex.weight -- Additional `nil` check for `mainOutput`, e.g. in case of initial load
+		autoAttributeConfig.int.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqInt"] or 0) or autoAttributeConfig.int.weight
+		autoAttributeConfig.str.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqStr"] or 0) or autoAttributeConfig.str.weight
 	end
 	
 	autoAttributeConfig.totalWeight = (autoAttributeConfig.dex.weight or 0) + (autoAttributeConfig.int.weight or 0) + (autoAttributeConfig.str.weight or 0)
