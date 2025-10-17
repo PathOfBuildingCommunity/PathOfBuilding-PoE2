@@ -52,20 +52,33 @@ function TooltipClass:CheckForUpdate(...)
 	end
 end
 
-function TooltipClass:AddLine(size, text)
+function TooltipClass:AddLine(size, text, font)
 	if text then
 		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do	
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
-				t_insert(self.blocks, { height = size + 2})
+				t_insert(self.blocks, { height = size + 2 })
 			else
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
+			if (self.tooltipHeader == "UNIQUE"
+				or self.tooltipHeader == "RARE"
+				or self.tooltipHeader == "MAGIC"
+				or self.tooltipHeader == "NORMAL"
+				or self.tooltipHeader == "GEM"
+				or self.tooltipHeader == "NOTABLE"
+				or self.tooltipHeader == "PASSIVE"
+				or self.tooltipHeader == "KEYSTONE"
+				or self.tooltipHeader == "JEWEL"
+				or self.tooltipHeader == "ASCENDANCY")
+				and not font then
+				font = "FONTIN SC"
+			end
 			if self.maxWidth then
 				for _, line in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
-					t_insert(self.lines, { size = size, text = line, block = #self.blocks })
+					t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = font or "VAR" })
 				end
 			else
-				t_insert(self.lines, { size = size, text = line, block = #self.blocks })
+				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = font or "VAR" })
 			end
 		end
 	end
@@ -123,14 +136,14 @@ function TooltipClass:GetSize()
 			ttH = ttH + data.size + 2
 		end
 		if data.text then
-			ttW = m_max(ttW, DrawStringWidth(data.size, "VAR", data.text))
+			ttW = m_max(ttW, DrawStringWidth(data.size, data.font, data.text))
 		end
 	end
 
 	-- Account for recipe display
 	if self.recipe and self.lines[1] then
 		local title = self.lines[1]
-		local imageX = DrawStringWidth(title.size, "VAR", title.text) + title.size
+		local imageX = DrawStringWidth(title.size, "FONTIN SC", title.text) + title.size
 		local recipeTextSize = (title.size * 3) / 4
 		for _, recipeInfo in ipairs(self.recipe) do
 			local recipeName = recipeInfo.name
@@ -139,7 +152,7 @@ function TooltipClass:GetSize()
 			if #recipeNameShort > 3 and recipeNameShort:sub(-3) == "Oil" then
 				recipeNameShort = recipeNameShort:sub(1, #recipeNameShort - 3)
 			end
-			imageX = imageX + DrawStringWidth(recipeTextSize, "VAR", recipeNameShort) + title.size * 1.25
+			imageX = imageX + DrawStringWidth(recipeTextSize, "FONTIN SC", recipeNameShort) + title.size * 1.25
 		end
 		ttW = m_max(ttW, imageX)
 	end
@@ -175,14 +188,14 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			local padding = 4
 
 			-- Measure total width for centering
-			local totalWidth = DrawStringWidth(titleSize, "VAR", title.text)
+			local totalWidth = DrawStringWidth(titleSize, "FONTIN SC", title.text)
 			local oilWidths = {}
 			for _, r in ipairs(self.recipe) do
 				local rn = r.name
 				if #rn > 3 and rn:sub(-3) == "Oil" then
 					rn = rn:sub(1, #rn - 3)
 				end
-				local textW = DrawStringWidth(recipeTextSize, "VAR", rn)
+				local textW = DrawStringWidth(recipeTextSize, "FONTIN SC", rn)
 				local iconW = titleSize
 				table.insert(oilWidths, {rn, r.sprite, textW, iconW})
 				totalWidth = totalWidth + textW + iconW + padding
@@ -191,14 +204,14 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			-- Center title + oils
 			local curX = ttX + ttW / 2 - totalWidth / 2
 			-- Draw title
-			t_insert(drawStack, {curX, y + (titleSize - titleSize)/2, "LEFT", titleSize, "VAR", title.text})
-			curX = curX + DrawStringWidth(titleSize, "VAR", title.text) + 6
+			t_insert(drawStack, {curX, y + (titleSize - titleSize)/2, "LEFT", titleSize, "FONTIN SC", title.text})
+			curX = curX + DrawStringWidth(titleSize, "FONTIN SC", title.text) + 6
 
 			-- Draw oils
 			local maxOilHeight = 0
 			for _, part in ipairs(oilWidths) do
 				local rn, sprite, textW, iconW = part[1], part[2], part[3], part[4]
-				t_insert(drawStack, {curX, y + (titleSize - recipeTextSize)/2, "LEFT", recipeTextSize, "VAR", rn})
+				t_insert(drawStack, {curX, y + (titleSize - recipeTextSize)/2, "LEFT", recipeTextSize, "FONTIN SC", rn})
 				curX = curX + textW
 				t_insert(drawStack, {sprite, curX, y, iconW, iconW})
 				curX = curX + iconW + padding
@@ -222,10 +235,11 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			end
 			currentBlock = data.block
 
+			local font = data.font or "VAR"
 			if self.center then
-				t_insert(drawStack, {x + ttW / 2, y, "CENTER_X", data.size, "VAR", data.text})
+				t_insert(drawStack, {x + ttW / 2, y, "CENTER_X", data.size, font, data.text})
 			else
-				t_insert(drawStack, {x + 6, y, "LEFT", data.size, "VAR", data.text})
+				t_insert(drawStack, {x + 6, y, "LEFT", data.size, font, data.text})
 			end
 			y = y + data.size + 2
 
@@ -260,7 +274,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 	-- ensure ttW is at least title width + 50 pixels, this fixes the header image for Magic items and some Tree passives.
 	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
-		local titleW = DrawStringWidth(self.lines[1].size, "VAR", self.lines[1].text)
+		local titleW = DrawStringWidth(self.lines[1].size, "FONTIN SC", self.lines[1].text)
 		if titleW + 50 > ttW then
 			ttW = titleW + 50
 		end

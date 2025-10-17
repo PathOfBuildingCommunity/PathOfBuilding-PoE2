@@ -2070,7 +2070,7 @@ function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compare
 			end
 			if (diff > 0.001 or diff < -0.001) and (not statData.condFunc or statData.condFunc(statVal1,compareOutput) or statData.condFunc(statVal2,baseOutput)) then
 				if count == 0 then
-					tooltip:AddLine(14, header)
+					tooltip:AddLine(14, header, "VAR")
 				end
 				local color = ((statData.lowerIsBetter and diff < 0) or (not statData.lowerIsBetter and diff > 0)) and colorCodes.POSITIVE or colorCodes.NEGATIVE
 				local val = diff * ((statData.pc or statData.mod) and 100 or 1)
@@ -2090,7 +2090,7 @@ function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compare
 				if nodeCount then
 					line = line .. s_format(" ^8[%+"..statData.fmt.."%s per point]", diff * ((statData.pc or statData.mod) and 100 or 1) / nodeCount, pcPerPt)
 				end
-				tooltip:AddLine(14, line)
+				tooltip:AddLine(14, line, "VAR")
 				count = count + 1
 			end
 		end
@@ -2147,7 +2147,7 @@ do
 			end
 		end	
 		if req[1] then
-			tooltip:AddLine(16, "^x7F7F7FRequires "..table.concat(req, "^x7F7F7F, "))
+			tooltip:AddLine(18, "^x7F7F7FRequires "..table.concat(req, "^x7F7F7F, "))
 			tooltip:AddSeparator(10)
 		end	
 		wipeTable(req)
