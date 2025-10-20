@@ -3015,7 +3015,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 
 			if flavour then
 				for _, line in ipairs(flavour) do
-					tooltip:AddLine(17, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
+					tooltip:AddLine(18, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
 				end
 				tooltip:AddSeparator(14)
 			end

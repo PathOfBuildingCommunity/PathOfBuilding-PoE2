@@ -1151,7 +1151,7 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 		local size = band(b_rshift(node.id, 4), 0x3)
 		local large = band(b_rshift(node.id, 6), 0x7)
 		local medium = band(b_rshift(node.id, 9), 0x3)
-		tooltip:AddLine(17, string.format("^7Cluster node index: %d, size: %d, large index: %d, medium index: %d", index, size, large, medium))
+		tooltip:AddLine(18, string.format("^7Cluster node index: %d, size: %d, large index: %d, medium index: %d", index, size, large, medium))
 	end
 	if node.type == "Socket" and node.nodesInRadius then
 		local attribTotals = { }
@@ -1162,13 +1162,13 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 			end
 		end
 		if attribTotals["Str"] >= 40 then
-			tooltip:AddLine(17, "^7Can support "..colorCodes.STRENGTH.."Strength ^7threshold jewels")
+			tooltip:AddLine(18, "^7Can support "..colorCodes.STRENGTH.."Strength ^7threshold jewels")
 		end
 		if attribTotals["Dex"] >= 40 then
-			tooltip:AddLine(17, "^7Can support "..colorCodes.DEXTERITY.."Dexterity ^7threshold jewels")
+			tooltip:AddLine(18, "^7Can support "..colorCodes.DEXTERITY.."Dexterity ^7threshold jewels")
 		end
 		if attribTotals["Int"] >= 40 then
-			tooltip:AddLine(17, "^7Can support "..colorCodes.INTELLIGENCE.."Intelligence ^7threshold jewels")
+			tooltip:AddLine(18, "^7Can support "..colorCodes.INTELLIGENCE.."Intelligence ^7threshold jewels")
 		end
 	end
 	if node.type == "Socket" and node.alloc then
@@ -1187,7 +1187,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			build.itemsTab:AddItemTooltip(tooltip, jewel, { nodeId = node.id })
 			if node.distanceToClassStart and node.distanceToClassStart > 0 then
 				tooltip:AddSeparator(14)
-				tooltip:AddLine(17, string.format("^7Distance to start: %d", node.distanceToClassStart))
+				tooltip:AddLine(16, string.format("^7Distance to start: %d", node.distanceToClassStart))
 			end
 		else
 			self:AddNodeName(tooltip, node, build)
@@ -1208,7 +1208,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	if launch.devModeAlt then
 		if node.power and node.power.offence then
 			-- Power debugging info
-			tooltip:AddLine(17, string.format("DPS power: %g   Defence power: %g", node.power.offence, node.power.defence))
+			tooltip:AddLine(16, string.format("DPS power: %g   Defence power: %g", node.power.offence, node.power.defence))
 		end
 	end
 
@@ -1224,7 +1224,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 
 		-- add connection info for debugging
 		for _, connection in ipairs(node.connections) do
-			tooltip:AddLine(17, string.format("^7Connection: %d, Orbit: %d", connection.id, connection.orbit))
+			tooltip:AddLine(18, string.format("^7Connection: %d, Orbit: %d", connection.id, connection.orbit))
 		end
 
 		tooltip:AddSeparator(14)
@@ -1273,9 +1273,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			if line ~= " " and (node.mods[i].extra or not node.mods[i].list) then 
 				local line = colorCodes.UNSUPPORTED..line
 				line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
-				tooltip:AddLine(17, line)
+				tooltip:AddLine(18, line)
 			else
-				tooltip:AddLine(17, colorCodes.MAGIC..line)
+				tooltip:AddLine(18, colorCodes.MAGIC..line)
 			end
 		end
 	end
@@ -1370,7 +1370,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		ConPrintf("Node %d has no sd", node.id)
 	end
 	if mNode.sd and mNode.sd[1] and not mNode.allMasteryOptions then
-		tooltip:AddLine(17, "")
+		tooltip:AddLine(18, "")
 		local localIncEffect = 0
 		if not (mNode.isAttribute and not mNode.conqueredBy) and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
 			localIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
