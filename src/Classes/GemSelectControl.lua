@@ -480,7 +480,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local cursorX, cursorY = GetCursorPos()
 			self.tooltip:Clear()
 			if gemInstance and gemInstance.gemData then
-				if main.showFlavourText then self.tooltip.titleYOffset = 5 end --The image for Gems has an aspect ratio that makes the title not centered.
+				self.tooltip.titleYOffset = 5 --The image for Gems has an aspect ratio that makes the title not centered.
 				self:AddGemTooltip(gemInstance)
 			else
 				self.tooltip:AddLine(16, toolTipText)
@@ -570,7 +570,7 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			end
 		end
 	end
-	if grantedEffect.flavourText and main.showFlavourText then
+	if grantedEffect.flavourText then
 		self.tooltip:AddSeparator(10)
 		for _, line in ipairs(grantedEffect.flavourText) do
 			self.tooltip:AddLine(18, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
@@ -690,7 +690,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	if grantedEffect.description then
 		local wrap = main:WrapString(grantedEffect.description, 16, m_max(DrawStringWidth(18, "FONTIN SC", gemInstance.gemData.tagString), 400))
 		for _, line in ipairs(wrap) do
-			self.tooltip:AddLine(18, colorCodes.FRACTURED..line, "FONTIN ITALIC")
+			self.tooltip:AddLine(18, colorCodes.GEMDESCRIPTION..line, "FONTIN ITALIC")
 		end
 	end
 end

@@ -2968,7 +2968,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Show flavour text:
-	if item.rarity == "UNIQUE" and main.showFlavourText == true then
+	if item.rarity == "UNIQUE" then
 		local flavourTable = flavourLookup[item.title]
 		if flavourTable then
 			local flavour = nil

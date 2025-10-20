@@ -243,7 +243,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			end
 			y = y + data.size + 2
 
-		elseif data.separatorImage and main.showFlavourText then
+		elseif data.separatorImage then
 			local sepSize = data.size or 10
 			if currentBlock ~= data.block and y + sepSize > ttY + math.min(ttH, viewPort.height) then
 				y = ttY + 2 * BORDER_WIDTH
@@ -284,9 +284,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		Desecrated = "Assets/VeiledItemSymbol.png",
 	}
 	local headerConfigs = {
-		RELIC = {left="Assets/ItemsHeaderFoilLeft.png", middle="Assets/ItemsHeaderFoilMiddle.png", right="Assets/ItemsHeaderFoilRight.png", height=56, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
-		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png", middle="Assets/ItemsHeaderUniqueMiddle.png", right="Assets/ItemsHeaderUniqueRight.png", height=56, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
-		RARE = {left="Assets/ItemsHeaderRareLeft.png", middle="Assets/ItemsHeaderRareMiddle.png", right="Assets/ItemsHeaderRareRight.png", height=56, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		RELIC = {left="Assets/ItemsHeaderFoilLeft.png", middle="Assets/ItemsHeaderFoilMiddle.png", right="Assets/ItemsHeaderFoilRight.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png", middle="Assets/ItemsHeaderUniqueMiddle.png", right="Assets/ItemsHeaderUniqueRight.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		RARE = {left="Assets/ItemsHeaderRareLeft.png", middle="Assets/ItemsHeaderRareMiddle.png", right="Assets/ItemsHeaderRareRight.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
 		MAGIC = {left="Assets/ItemsHeaderMagicLeft.png", middle="Assets/ItemsHeaderMagicMiddle.png", right="Assets/ItemsHeaderMagicRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
 		NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png", middle="Assets/ItemsHeaderWhiteMiddle.png", right="Assets/ItemsHeaderWhiteRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
 		GEM = {left="Assets/ItemsHeaderGemLeft.png", middle="Assets/ItemsHeaderGemMiddle.png", right="Assets/ItemsHeaderGemRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
@@ -297,7 +297,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png", middle="Assets/AscendancyPassiveHeaderMiddle.png", right="Assets/AscendancyPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
 	}
 	local config
-	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
+	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
 		config = headerConfigs[rarity] or headerConfigs.NORMAL
 		self.titleYOffset = config.textYOffset or 0
@@ -329,7 +329,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	SetDrawColor(1, 1, 1)
 
 	-- Item header (drawn within borders)
-	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
+	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
 		local config = headerConfigs[rarity] or headerConfigs.NORMAL
 
@@ -397,7 +397,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			if line[1] and type(line[1]) == "table" and line[1].isSeparator then
 				-- Only skip first separator for items and skill gems
 				local tooltipType = self.tooltipHeader and tostring(self.tooltipHeader):upper() or ""
-				if main.showFlavourText and not firstSeparatorSkipped and 
+				if not firstSeparatorSkipped and 
 				(tooltipType == "RELIC" or tooltipType == "UNIQUE" or tooltipType == "RARE" or tooltipType == "MAGIC" or tooltipType == "GEM") then
 					firstSeparatorSkipped = true
 					skip = true
