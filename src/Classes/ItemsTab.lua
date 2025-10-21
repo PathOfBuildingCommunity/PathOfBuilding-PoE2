@@ -2884,6 +2884,7 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 		if modList[1] then
 			for _, modLine in ipairs(modList) do
 				if item:CheckModLineVariant(modLine) then
+					local bg = modLine.desecrated and "HoverModBgAbyss" or nil
 					if scale ~= 1 then
 						local copyModLine = copyTable(modLine)
 						local modsList = copyTable(modLine.modList)
@@ -2904,9 +2905,9 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 								copyModLine.line = copyModLine.line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
 							end
 						end
-						tooltip:AddLine(18, itemLib.formatModLine(copyModLine, dbMode))
+						tooltip:AddLine(18, itemLib.formatModLine(copyModLine, dbMode), nil, bg)
 					else
-						tooltip:AddLine(18, itemLib.formatModLine(modLine, dbMode))
+						tooltip:AddLine(18, itemLib.formatModLine(modLine, dbMode), nil, bg)
 					end
 
 					-- Show mods from granted Notables

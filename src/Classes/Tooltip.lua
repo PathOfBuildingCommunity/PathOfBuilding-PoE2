@@ -52,14 +52,25 @@ function TooltipClass:CheckForUpdate(...)
 	end
 end
 
-function TooltipClass:AddLine(size, text, font)
+function TooltipClass:AddLine(size, text, font, background)
 	if text then
-		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do	
+		-- Capture the first color code, if any
+		local colorPrefix = text:match("^(%^[x%dA-Fa-f]+)")
+
+		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
+			-- If line doesn’t start with a color, reuse prefix
+			if colorPrefix and not line:find("^%^[x%dA-Fa-f]+") then
+				line = colorPrefix .. line
+			end
+
+			-- Handle tooltip block heights
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
 				t_insert(self.blocks, { height = size + 2 })
 			else
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
+
+			-- Default font for item tooltips
 			if (self.tooltipHeader == "UNIQUE"
 				or self.tooltipHeader == "RARE"
 				or self.tooltipHeader == "MAGIC"
@@ -73,12 +84,22 @@ function TooltipClass:AddLine(size, text, font)
 				and not font then
 				font = "FONTIN SC"
 			end
+
+			-- Handle wrapping with color continuity
 			if self.maxWidth then
-				for _, line in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
-					t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = font or "VAR" })
+				local wrapped = main:WrapString(line, size, self.maxWidth - H_PAD)
+				local lastColor = line:match("(%^[x%dA-Fa-f]+)[^%^]*$") or colorPrefix
+				for i, linePart in ipairs(wrapped) do
+					-- Ensure each wrapped segment keeps last known color
+					if not linePart:find("^%^[x%dA-Fa-f]+") then
+						linePart = (lastColor or "") .. linePart
+					end
+					-- Update lastColor if another color code appears
+					lastColor = linePart:match("(%^[x%dA-Fa-f]+)[^%^]*$") or lastColor
+					t_insert(self.lines, { size = size, text = linePart, block = #self.blocks, font = font or "VAR", background = background })
 				end
 			else
-				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = font or "VAR" })
+				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = font or "VAR", background = background })
 			end
 		end
 	end
@@ -237,9 +258,9 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 
 			local font = data.font or "VAR"
 			if self.center then
-				t_insert(drawStack, {x + ttW / 2, y, "CENTER_X", data.size, font, data.text})
+				t_insert(drawStack, {x + ttW / 2, y, "CENTER_X", data.size, font, data.text, background = data.background})
 			else
-				t_insert(drawStack, {x + 6, y, "LEFT", data.size, font, data.text})
+				t_insert(drawStack, {x + 6, y, "LEFT", data.size, font, data.text, background = data.background})
 			end
 			y = y + data.size + 2
 
@@ -422,6 +443,31 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				end
 			end
 		else
+			-- Draw background if specified, used for gem mod lines and desecrated mods on items.
+			local bg = line.background
+			if bg then
+				if type(bg) == "string" then
+					if not self._bgHandles then
+						self._bgHandles = {}
+					end
+					if not self._bgHandles[bg] then
+						local h = NewImageHandle()
+						h:Load("Assets/" .. bg .. ".png")
+						self._bgHandles[bg] = h
+					end
+					bg = self._bgHandles[bg]
+				end
+
+				local x = ttX
+				local y = line[2] - 2
+				local width = ttW - 8
+				local height = line[4] + 3
+
+				SetDrawColor(1,1,1,1)
+				DrawImage(bg, x + 4, y, width, height)
+			end
+
+			-- Draw text line
 			DrawString(unpack(line))
 		end
 	end

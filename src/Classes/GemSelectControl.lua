@@ -717,8 +717,10 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLa
 		--	end
 		--end
 		local descriptions, lineMap = self.skillsTab.build.data.describeStats(stats, statSet.statDescriptionScope)
-		for _, line in ipairs(descriptions) do
+		for i, line in ipairs(descriptions) do
 			local source = statSet.statMap[lineMap[line]] or self.skillsTab.build.data.skillStatMap[lineMap[line]]
+			local bg = (i % 2 == 0) and "GemHoverModBg" or nil  -- every second line gets background
+
 			if source then
 				if launch.devModeAlt then
 					local devText = lineMap[line]
@@ -730,14 +732,14 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLa
 					end
 					line = line .. " ^2" .. devText
 				end
-				self.tooltip:AddLine(18, colorCodes.MAGIC .. line)
+				self.tooltip:AddLine(18, colorCodes.MAGIC .. line, nil, bg)
 			else
 				if launch.devModeAlt then
 					line = line .. " ^1" .. lineMap[line]
 				end
 				local line = colorCodes.UNSUPPORTED .. line
 				line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
-				self.tooltip:AddLine(18, line)
+				self.tooltip:AddLine(18, line, nil, bg)
 			end
 		end
 	end
