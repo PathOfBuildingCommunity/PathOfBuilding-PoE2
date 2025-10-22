@@ -72,6 +72,7 @@ function TooltipClass:AddLine(size, text, font, background)
 
 			-- Default font for item tooltips
 			if (self.tooltipHeader == "UNIQUE"
+				or self.tooltipHeader == "RELIC"
 				or self.tooltipHeader == "RARE"
 				or self.tooltipHeader == "MAGIC"
 				or self.tooltipHeader == "NORMAL"
