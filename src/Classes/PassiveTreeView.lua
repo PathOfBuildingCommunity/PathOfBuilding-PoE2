@@ -652,7 +652,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 				local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 				if isAlloc and jewel then
-					if jewel.rarity == "UNIQUE" then
+					if jewel.rarity == "UNIQUE" and jewel.title ~= "Grand Spectrum" then
 						overlay = jewel.title
 					else
 						overlay = jewel.baseName
