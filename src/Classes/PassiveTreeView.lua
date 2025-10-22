@@ -963,9 +963,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						self:DrawImageRotated(self.jewelShadedOuterRing, scrX, scrY, outerSize * 2, outerSize * 2,  -t * 0.8)
 						self:DrawImageRotated(self.jewelShadedOuterRingFlipped, scrX, scrY, outerSize * 2, outerSize * 2, t)
 
-						-- keep the inner rings static
-						DrawImage(self.jewelShadedInnerRing, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
-						DrawImage(self.jewelShadedInnerRingFlipped, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
+						self:DrawImageRotated(self.jewelShadedInnerRing, scrX, scrY, innerSize * 2, innerSize * 2, -t * 1.2)
+						self:DrawImageRotated(self.jewelShadedInnerRingFlipped, scrX, scrY, innerSize * 2, innerSize * 2, t * 1.0)
 					end
 				end
 			end
