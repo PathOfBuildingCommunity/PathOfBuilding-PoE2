@@ -24,7 +24,7 @@ UniqueTriggerEmberFusilladeOnSpellCast1
 ]],[[
 Earthbound
 Voltaic Staff
-Implicits: 1
+Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
 UniqueLightningDamageOnWeapon1

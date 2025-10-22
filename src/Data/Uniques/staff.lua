@@ -24,7 +24,7 @@ Trigger Ember Fusillade Skill on casting a Spell
 ]],[[
 Earthbound
 Voltaic Staff
-Implicits: 1
+Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
 (80-120)% increased Lightning Damage

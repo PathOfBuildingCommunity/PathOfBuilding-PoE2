@@ -955,11 +955,15 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/".. conqueror .."/".. conqueror .."passiveskillscreenjewelcircle1.dds")
 							circle2 = circle1
 						end
-						DrawImage(circle1.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle1))
-						DrawImage(circle2.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle2))
+						local t = GetTime() * 0.00003
+						self:DrawImageRotated(circle1.handle, scrX, scrY, outerSize * 2, outerSize * 2, -t * 0.8, unpack(circle1))
+						self:DrawImageRotated(circle2.handle, scrX, scrY, outerSize * 2, outerSize * 2, t, unpack(circle2))
 					else
-						DrawImage(self.jewelShadedOuterRing, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.jewelShadedOuterRingFlipped, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+						local t = GetTime() * 0.00003
+						self:DrawImageRotated(self.jewelShadedOuterRing, scrX, scrY, outerSize * 2, outerSize * 2,  -t * 0.8)
+						self:DrawImageRotated(self.jewelShadedOuterRingFlipped, scrX, scrY, outerSize * 2, outerSize * 2, t)
+
+						-- keep the inner rings static
 						DrawImage(self.jewelShadedInnerRing, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
 						DrawImage(self.jewelShadedInnerRingFlipped, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
 					end
@@ -988,6 +992,22 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	else
 		DrawImage(data.handle, x - width, y - height, width * 2, height * 2, unpack(data))
 	end
+end
+
+function PassiveTreeViewClass:DrawImageRotated(handle, x, y, width, height, angle, ...)
+    local hw, hh = width / 2, height / 2
+    local cosA, sinA = math.cos(angle), math.sin(angle)
+
+    local x1 = x - hw * cosA + hh * sinA
+    local y1 = y - hw * sinA - hh * cosA
+    local x2 = x + hw * cosA + hh * sinA
+    local y2 = y + hw * sinA - hh * cosA
+    local x3 = x + hw * cosA - hh * sinA
+    local y3 = y + hw * sinA + hh * cosA
+    local x4 = x - hw * cosA - hh * sinA
+    local y4 = y - hw * sinA + hh * cosA
+
+    DrawImageQuad(handle, x1, y1, x2, y2, x3, y3, x4, y4, ...)
 end
 
 function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, treeToScreen)

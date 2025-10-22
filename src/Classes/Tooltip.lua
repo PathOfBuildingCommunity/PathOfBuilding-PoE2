@@ -354,6 +354,23 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
 		local config = headerConfigs[rarity] or headerConfigs.NORMAL
+		-- Animate RELIC header color (light green → bright yellow → white)
+		if rarity == "RELIC" then
+			local t = GetTime() * 0.003
+
+			-- Three phase-shifted sine waves
+			local s1 = math.sin(t)
+			local s2 = math.sin(t + 2.094) -- +120°
+			local s3 = math.sin(t + 4.188) -- +240°
+
+			local r = 0.8 + 0.2 * ((s1 + 1) / 2)   -- boosts yellows/whites
+			local g = 0.75 + 0.25 * ((s2 + 1) / 2) -- slightly darker green range
+			local b = 0.6 + 0.15 * ((s3 + 1) / 2)  -- minimal blue, keeps warmth
+
+			SetDrawColor(r, g, b)
+		else
+			SetDrawColor(1, 1, 1)
+		end
 
 		self.titleYOffset = config.textYOffset or 0
 
