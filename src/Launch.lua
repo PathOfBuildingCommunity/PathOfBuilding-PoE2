@@ -8,6 +8,37 @@
 local startTime = GetTime()
 APP_NAME = "Path of Building (PoE2)"
 
+local pathSeparator = package.config:sub(1,1)
+local isWindows = pathSeparator == "\\"
+local updateProcessCandidates = {
+	"Path{space}of{space}Building-PoE2.exe",
+	"PathOfBuilding-PoE2.exe",
+}
+
+-- Returns the total number of running processes that match any known PoB executable names.
+local function getMatchingProcessCount()
+	if not isWindows then
+		-- Non-Windows platforms rely on manual confirmation instead of auto-detection.
+		return 1
+	end
+
+	local total = 0
+	for _, name in ipairs(updateProcessCandidates) do
+		local handle = io.popen(string.format('tasklist /FO CSV /FI "IMAGENAME eq %s" /NH', name))
+		if not handle then
+			return nil, "tasklist unavailable"
+		end
+		for line in handle:lines() do
+			if line ~= "" and not line:match("^INFO:") then
+				total = total + 1
+			end
+		end
+		handle:close()
+	end
+
+	return total
+end
+
 SetWindowTitle(APP_NAME)
 ConExecute("set vid_mode 8")
 ConExecute("set vid_resizable 3")
@@ -314,6 +345,17 @@ end
 
 function launch:ApplyUpdate(mode)
 	if mode == "basic" then
+		local touchesRuntime, err = self:PendingRuntimeUpdateTouchesRuntime()
+		if touchesRuntime == nil then
+			ConPrintf("Warning: Unable to inspect runtime update operations: %s", err or "unknown error")
+			touchesRuntime = true
+		end
+		if touchesRuntime and not self:EnsureUpdateExclusiveAccess() then
+			return
+		end
+		if not isWindows then
+			self.runtimeUpdateManualConfirmPromptShown = nil
+		end
 		-- Need to revert to the basic environment to fully apply the update
 		LoadModule("UpdateApply", "Update/opFile.txt")
 		SpawnProcess(GetRuntimePath()..'/Update', 'UpdateApply.lua Update/opFileRuntime.txt')
@@ -324,6 +366,61 @@ function launch:ApplyUpdate(mode)
 		Restart()
 		self.doRestart = "Updating..."
 	end
+end
+
+function launch:GetAdditionalInstanceCount()
+	-- Subtract one for the current process; returns 0 if no other instance matches.
+	local count, err = getMatchingProcessCount()
+	if not count then
+		return nil, err
+	end
+	if count <= 1 then
+		return 0
+	end
+	return count - 1
+end
+
+function launch:PendingRuntimeUpdateTouchesRuntime()
+	local file, err = io.open("Update/opFileRuntime.txt", "r")
+	if not file then
+		return nil, err or "missing operations file"
+	end
+	for line in file:lines() do
+		if line:match("^move%s") then
+			file:close()
+			return true
+		end
+	end
+	file:close()
+	return false
+end
+
+function launch:EnsureUpdateExclusiveAccess()
+	if not isWindows then
+		-- On Unix-like platforms the updater cannot reliably detect sibling processes, so require manual confirmation.
+		if not self.runtimeUpdateManualConfirmPromptShown then
+			self.runtimeUpdateManualConfirmPromptShown = true
+			local prompt = "^3Linux/Unix confirmation required:^0\n\nClose every other Path of Building window before updating core runtime files.\nOnce all other instances are closed, press Update again to continue.\n\nPress Enter or Escape to dismiss this message."
+			self:ShowPrompt(1, 0.5, 0, prompt)
+			return false
+		end
+		return true
+	end
+	-- Block runtime updates until all other PoB processes exit to avoid DLL write failures.
+	local otherCount, err = self:GetAdditionalInstanceCount()
+	if otherCount == nil then
+		ConPrintf("Warning: Update could not verify other running instances: %s", err)
+		return true
+	end
+	if otherCount > 0 then
+		local plural = otherCount > 1
+		local instanceLabel = plural and "instances" or "instance"
+		local verb = plural and "are" or "is"
+		local prompt = string.format("^1Update paused:\n\n^0%d other Path of Building %s %s still running.\nClose every other copy before applying this update, then press Update again.\n\nPress Enter or Escape to dismiss this message.", otherCount, instanceLabel, verb)
+		self:ShowPrompt(1, 0.5, 0, prompt)
+		return false
+	end
+	return true
 end
 
 function launch:CheckForUpdate(inBackground)
