@@ -345,12 +345,7 @@ end
 
 function launch:ApplyUpdate(mode)
 	if mode == "basic" then
-		local touchesRuntime, err = self:PendingRuntimeUpdateTouchesRuntime()
-		if touchesRuntime == nil then
-			ConPrintf("Warning: Unable to inspect runtime update operations: %s", err or "unknown error")
-			touchesRuntime = true
-		end
-		if touchesRuntime and not self:EnsureUpdateExclusiveAccess() then
+		if not self:EnsureUpdateExclusiveAccess() then
 			return
 		end
 		if not isWindows then
@@ -378,21 +373,6 @@ function launch:GetAdditionalInstanceCount()
 		return 0
 	end
 	return count - 1
-end
-
-function launch:PendingRuntimeUpdateTouchesRuntime()
-	local file, err = io.open("Update/opFileRuntime.txt", "r")
-	if not file then
-		return nil, err or "missing operations file"
-	end
-	for line in file:lines() do
-		if line:match("^move%s") then
-			file:close()
-			return true
-		end
-	end
-	file:close()
-	return false
 end
 
 function launch:EnsureUpdateExclusiveAccess()
