@@ -12,7 +12,9 @@ local pathSeparator = package.config:sub(1,1)
 local isWindows = pathSeparator == "\\"
 local updateProcessCandidates = {
 	"Path{space}of{space}Building-PoE2.exe",
+	"Path{space}of{space}Building.exe",
 	"PathOfBuilding-PoE2.exe",
+	"Path of Building (PoE2).exe",
 }
 
 -- Returns the total number of running processes that match any known PoB executable names.
@@ -22,19 +24,27 @@ local function getMatchingProcessCount()
 		return 1
 	end
 
-	local total = 0
+	local candidateSet = { }
 	for _, name in ipairs(updateProcessCandidates) do
-		local handle = io.popen(string.format('tasklist /FO CSV /FI "IMAGENAME eq %s" /NH', name))
-		if not handle then
-			return nil, "tasklist unavailable"
-		end
-		for line in handle:lines() do
-			if line ~= "" and not line:match("^INFO:") then
+		candidateSet[name:lower()] = true
+		local withSpaces = name:gsub("{space}", " ")
+		candidateSet[withSpaces:lower()] = true
+	end
+
+	local total = 0
+	local handle = io.popen('tasklist /FO CSV /NH')
+	if not handle then
+		return nil, "tasklist unavailable"
+	end
+	for line in handle:lines() do
+		if line ~= "" and not line:match("^INFO:") then
+			local image = line:match('^"([^"]+)"')
+			if image and candidateSet[image:lower()] then
 				total = total + 1
 			end
 		end
-		handle:close()
 	end
+	handle:close()
 
 	return total
 end
