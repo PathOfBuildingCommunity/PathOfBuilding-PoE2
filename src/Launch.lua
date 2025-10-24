@@ -12,7 +12,6 @@ local pathSeparator = package.config:sub(1,1)
 local isWindows = pathSeparator == "\\"
 local updateProcessCandidates = {
 	"Path{space}of{space}Building-PoE2.exe",
-	"Path{space}of{space}Building.exe",
 	"PathOfBuilding-PoE2.exe",
 	"Path of Building (PoE2).exe",
 }
