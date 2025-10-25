@@ -98,6 +98,7 @@ function main:Init()
 	self.decimalSeparator = "."
 	self.defaultItemAffixQuality = 0.5
 	self.showTitlebarName = true
+	self.dpiScaleOverridePercent = GetDPIScaleOverridePercent and GetDPIScaleOverridePercent() or 0
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
 	self.notSupportedModTooltips = true
@@ -633,6 +634,10 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.showFlavourText then
 					self.showFlavourText = node.attrib.showFlavourText == "true"
 				end
+				if node.attrib.dpiScaleOverridePercent then
+					self.dpiScaleOverridePercent = tonumber(node.attrib.dpiScaleOverridePercent) or 0
+					SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
+				end
 			end
 		end
 	end
@@ -745,7 +750,8 @@ function main:SaveSettings()
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
 		--showPublicBuilds = tostring(self.showPublicBuilds),
-		showFlavourText = tostring(self.showFlavourText)
+		showFlavourText = tostring(self.showFlavourText),
+		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent)
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
@@ -852,6 +858,24 @@ function main:OpenOptionsPopup()
 		controls.proxyType:SelByValue(scheme, "scheme")
 		controls.proxyURL:SetText(url)
 	end
+
+	nextRow()
+	controls.dpiScaleOverride = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 150, 18 }, {
+		{ label = "Use system default", percent = 0 },
+		{ label = "100%", percent = 100 },
+		{ label = "125%", percent = 125 },
+		{ label = "150%", percent = 150 },
+		{ label = "175%", percent = 175 },
+		{ label = "200%", percent = 200 },
+		{ label = "225%", percent = 225 },
+		{ label = "250%", percent = 250 },
+	}, function(index, value)
+		self.dpiScaleOverridePercent = value.percent
+		SetDPIScaleOverridePercent(value.percent)
+	end)
+	controls.dpiScaleOverrideLabel = new("LabelControl", { "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7UI scaling override:")
+	controls.dpiScaleOverride.tooltipText = "Overrides Windows DPI scaling inside Path of Building.\nChoose a percentage between 100% and 250% or revert to the system default."
+	controls.dpiScaleOverride:SelByValue(self.dpiScaleOverridePercent, "percent")
 
 	nextRow()
 	controls.buildPath = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 290, 18 })
@@ -1039,6 +1063,7 @@ function main:OpenOptionsPopup()
 	local initialDisableDevAutoSave = self.disableDevAutoSave
 	--local initialShowPublicBuilds = self.showPublicBuilds
 	local initialShowFlavourText = self.showFlavourText
+	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
 
 	-- last line with buttons has more spacing
 	nextRow(1.5)
@@ -1064,6 +1089,7 @@ function main:OpenOptionsPopup()
 		if not launch.devMode then
 			main:SetManifestBranch(self.betaTest and "beta" or "master")
 		end
+		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 		main:SaveSettings()
 	end)
@@ -1091,6 +1117,8 @@ function main:OpenOptionsPopup()
 		self.disableDevAutoSave = initialDisableDevAutoSave
 		self.showPublicBuilds = initialShowPublicBuilds
 		self.showFlavourText = initialShowFlavourText
+		self.dpiScaleOverridePercent = initialDpiScaleOverridePercent
+		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 	end)
 	nextRow(1.5)
