@@ -312,11 +312,22 @@ function launch:DownloadPage(url, callback, params)
 	end
 end
 
+function launch:StartRuntimeUpdateProcess()
+	local runtimePath = GetRuntimePath()
+	local args = "UpdateApply.lua Update/opFileRuntime.txt"
+	if isWindows and SpawnProcessHidden then
+		SpawnProcessHidden(runtimePath.."/Update", args)
+	else
+		SpawnProcess(runtimePath.."/Update", args)
+	end
+	return true
+end
+
 function launch:ApplyUpdate(mode)
 	if mode == "basic" then
 		-- Need to revert to the basic environment to fully apply the update
 		LoadModule("UpdateApply", "Update/opFile.txt")
-		SpawnProcess(GetRuntimePath()..'/Update', 'UpdateApply.lua Update/opFileRuntime.txt')
+		self:StartRuntimeUpdateProcess()
 		Exit()
 	elseif mode == "normal" then
 		-- Update can be applied while normal environment is running

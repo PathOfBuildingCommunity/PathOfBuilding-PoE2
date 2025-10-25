@@ -152,6 +152,9 @@ function ConPrintTable(tbl, noRecurse) end
 function ConExecute(cmd) end
 function ConClear() end
 function SpawnProcess(cmdName, args) end
+function SpawnProcessHidden(cmdName, args)
+	return SpawnProcess(cmdName, args)
+end
 function OpenURL(url) end
 function SetProfiling(isEnabled) end
 function Restart() end
