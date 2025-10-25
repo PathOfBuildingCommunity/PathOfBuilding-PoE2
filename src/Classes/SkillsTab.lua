@@ -1081,7 +1081,6 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			gemInstance.gemData = nil
 		end
 		if gemInstance.gemData or gemInstance.grantedEffect then
-			gemInstance.new = nil
 			local grantedEffect = gemInstance.grantedEffect or gemInstance.gemData.grantedEffect
 			if grantedEffect.color == 1 then
 				gemInstance.color = colorCodes.STRENGTH
@@ -1095,6 +1094,10 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			if prevDefaultLevel and gemInstance.gemData and gemInstance.gemData.naturalMaxLevel ~= prevDefaultLevel then
 				gemInstance.level = gemInstance.gemData.naturalMaxLevel
 				gemInstance.naturalMaxLevel = gemInstance.level
+			elseif gemInstance.new then
+				gemInstance.level = gemInstance.gemData.naturalMaxLevel
+				gemInstance.naturalMaxLevel = gemInstance.level
+				gemInstance.new = nil
 			end
 			calcLib.validateGemLevel(gemInstance)
 			if gemInstance.gemData then
