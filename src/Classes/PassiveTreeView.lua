@@ -1206,7 +1206,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			build.itemsTab:AddItemTooltip(tooltip, jewel, { nodeId = node.id })
 			if node.distanceToClassStart and node.distanceToClassStart > 0 then
 				tooltip:AddSeparator(14)
-				tooltip:AddLine(16, string.format("^7Distance to start: %d", node.distanceToClassStart))
+				tooltip:AddLine(16, string.format("^7Distance to start: %d", node.distanceToClassStart), "VAR")
 			end
 		else
 			self:AddNodeName(tooltip, node, build)

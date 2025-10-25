@@ -477,7 +477,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				end
 
 				local x = ttX
-				local y = line[2] - 2
+				local y = line[2] - 1
 				local width = ttW - 8
 				local height = line[4] + 3
 
