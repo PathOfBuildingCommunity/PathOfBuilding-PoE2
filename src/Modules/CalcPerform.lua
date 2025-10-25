@@ -585,6 +585,9 @@ local function doActorMisc(env, actor)
 		if enemyDB:Flag(nil, "Condition:ArmourFullyBroken") then
 			local effect = 20 * (1 + modDB:Sum("INC", nil, "FullyBrokenArmourEffect") / 100)
 			enemyDB:NewMod("PhysicalDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
+			if modDB:Flag(nil, "ArmourBreakFireDamageTaken") then
+				enemyDB:NewMod("FireDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
+			end
 		end
 		if modDB:Flag(nil, "Blind") and not modDB:Flag(nil, "CannotBeBlinded") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
