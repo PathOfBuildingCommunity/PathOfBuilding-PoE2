@@ -481,6 +481,7 @@ end
 -- 5. Builds a list of active skills and their supports (calcs.createActiveSkill)
 -- 6. Builds modifier lists for all active skills (calcs.buildActiveSkillModList)
 function calcs.initEnv(build, mode, override, specEnv)
+	ClearMatchKeywordFlagsCache()
 	-- accelerator variables
 	local cachedPlayerDB = specEnv and specEnv.cachedPlayerDB or nil
 	local cachedEnemyDB = specEnv and specEnv.cachedEnemyDB or nil
@@ -1814,10 +1815,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 	end
 
-
-	-- Merge Requirements Tables
-	env.requirementsTable = tableConcat(env.requirementsTableItems, env.requirementsTableGems)
-
 	-- This needs to be done here at the end as otherwise we will only consider gems in the
 	-- selected active skill group
 	-- Calculate skill gem and support gem counts
@@ -1852,7 +1849,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 	env.modDB.multipliers.RedSupportGems = (env.modDB.multipliers.RedSupportGems or 0) + slotSupportGemSocketsCount.R
 	env.modDB.multipliers.GreenSupportGems = (env.modDB.multipliers.GreenSupportGems or 0) + slotSupportGemSocketsCount.G
 	env.modDB.multipliers.BlueSupportGems = (env.modDB.multipliers.BlueSupportGems or 0) + slotSupportGemSocketsCount.B
-	
+	t_insert(env.requirementsTableGems, {
+		source = "Support Gems",
+		--sourceName = slotSupportGemSocketsCount.G .. " Green Support Gems",
+		Str = tonumber(slotSupportGemSocketsCount.R * 5),
+		Dex = tonumber(slotSupportGemSocketsCount.G * 5),
+		Int = tonumber(slotSupportGemSocketsCount.B * 5),
+	})
+
+	-- Merge Requirements Tables
+	env.requirementsTable = tableConcat(env.requirementsTableItems, env.requirementsTableGems)
+
 	-- Crystallised Immunity notable support
 	if (slotSupportGemSocketsCount.R > slotSupportGemSocketsCount.G) and (slotSupportGemSocketsCount.R > slotSupportGemSocketsCount.B) then
 		env.modDB.conditions["MajorityRedSocketedSupports"] = true;

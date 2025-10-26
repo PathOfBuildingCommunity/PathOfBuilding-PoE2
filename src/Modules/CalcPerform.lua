@@ -585,6 +585,9 @@ local function doActorMisc(env, actor)
 		if enemyDB:Flag(nil, "Condition:ArmourFullyBroken") then
 			local effect = 20 * (1 + modDB:Sum("INC", nil, "FullyBrokenArmourEffect") / 100)
 			enemyDB:NewMod("PhysicalDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
+			if modDB:Flag(nil, "ArmourBreakFireDamageTaken") then
+				enemyDB:NewMod("FireDamageTaken", "INC", effect, "Fully Broken Armour", ModFlag.Hit)
+			end
 		end
 		if modDB:Flag(nil, "Blind") and not modDB:Flag(nil, "CannotBeBlinded") then
 			if not modDB:Flag(nil, "IgnoreBlindHitChance") then
@@ -1546,6 +1549,8 @@ function calcs.perform(env, skipEHP)
 						output[attr.."RequirementsOn"..reqSource.sourceSlot] = req;
 					elseif reqSource.source == "Gem" then
 						req = m_floor(reqSource[attr] * reqMultGem)
+					elseif reqSource.source == "Support Gems" then
+						req = m_floor(reqSource[attr])
 					end
 					if req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val) then
 						out.val = req
@@ -1565,6 +1570,9 @@ function calcs.perform(env, skipEHP)
 							end
 						elseif reqSource.source == "Gem" then
 							row.sourceName = s_format("%s%s ^7%d/%d", reqSource.sourceGem.color, reqSource.sourceGem.nameSpec, reqSource.sourceGem.level, reqSource.sourceGem.quality)
+						elseif reqSource.source == "Support Gems" then
+							local attrName = ({Str="Strength",Dex="Dexterity",Int="Intelligence"})[attr]
+							row.sourceName = (reqSource[attr]/5).." "..colorCodes[string.upper(attrName)]..attrName.." Support Gems"
 						end
 						t_insert(breakdown["Req"..breakdownAttr].rowList, row)
 					end

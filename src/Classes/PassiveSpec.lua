@@ -2085,6 +2085,7 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 		
 		local option = newNode.options[attributeIndex]
 		self:ReplaceNode(newNode, option)
+		self.tree:ProcessStats(newNode)
 		
 		self.hashOverrides[nodeId] = newNode
 	end
