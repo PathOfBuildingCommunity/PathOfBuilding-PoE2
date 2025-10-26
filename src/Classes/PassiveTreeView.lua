@@ -1560,8 +1560,8 @@ function PassiveTreeViewClass:AddGlobalNodeWarningsToTooltip(tooltip, node, buil
 
 	if warningText ~= "" then
 		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, colorCodes.WARNING .. warningText)
-		tooltip:AddLine(14, colorCodes.TIP .. tipText)
+		tooltip:AddLine(14, colorCodes.WARNING .. warningText, "VAR")
+		tooltip:AddLine(14, colorCodes.TIP .. tipText, "VAR")
 	end
 end
 
