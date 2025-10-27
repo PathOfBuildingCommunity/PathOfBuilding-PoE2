@@ -19,8 +19,7 @@ local updateProcessCandidates = {
 -- Returns the total number of running processes that match any known PoB executable names.
 local function getMatchingProcessCount()
 	if not isWindows then
-		-- Non-Windows platforms rely on manual confirmation instead of auto-detection.
-		return 1
+		return nil, "Process detection only supported on Windows"
 	end
 
 	if not GetProcessCount then
@@ -358,9 +357,6 @@ function launch:ApplyUpdate(mode)
 		if not self:EnsureUpdateExclusiveAccess() then
 			return
 		end
-		if not isWindows then
-			self.runtimeUpdateManualConfirmPromptShown = nil
-		end
 		-- Need to revert to the basic environment to fully apply the update
 		LoadModule("UpdateApply", "Update/opFile.txt")
 		SpawnProcess(GetRuntimePath()..'/Update', 'UpdateApply.lua Update/opFileRuntime.txt')
@@ -386,16 +382,6 @@ function launch:GetAdditionalInstanceCount()
 end
 
 function launch:EnsureUpdateExclusiveAccess()
-	if not isWindows then
-		-- On Unix-like platforms the updater cannot reliably detect sibling processes, so require manual confirmation.
-		if not self.runtimeUpdateManualConfirmPromptShown then
-			self.runtimeUpdateManualConfirmPromptShown = true
-			local prompt = "^3Linux/Unix confirmation required:^0\n\nClose every other Path of Building window before updating core runtime files.\nOnce all other instances are closed, press Update again to continue.\n\nPress Enter or Escape to dismiss this message."
-			self:ShowPrompt(1, 0.5, 0, prompt)
-			return false
-		end
-		return true
-	end
 	-- Block runtime updates until all other PoB processes exit to avoid DLL write failures.
 	local otherCount, err = self:GetAdditionalInstanceCount()
 	if otherCount == nil then
