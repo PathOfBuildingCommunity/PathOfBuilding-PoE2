@@ -23,29 +23,30 @@ local function getMatchingProcessCount()
 		return 1
 	end
 
-	local candidateSet = { }
-	for _, name in ipairs(updateProcessCandidates) do
-		candidateSet[name:lower()] = true
-		local withSpaces = name:gsub("{space}", " ")
-		candidateSet[withSpaces:lower()] = true
+	if not GetProcessCount then
+		return nil, "GetProcessCount helper unavailable"
 	end
 
-	local total = 0
-	local handle = io.popen('tasklist /FO CSV /NH')
-	if not handle then
-		return nil, "tasklist unavailable"
-	end
-	for line in handle:lines() do
-		if line ~= "" and not line:match("^INFO:") then
-			local image = line:match('^"([^"]+)"')
-			if image and candidateSet[image:lower()] then
-				total = total + 1
-			end
+	local names = { }
+	local seen = { }
+	for _, name in ipairs(updateProcessCandidates) do
+		local actual = name:gsub("{space}", " ")
+		local key = actual:lower()
+		if not seen[key] then
+			seen[key] = true
+			table.insert(names, actual)
 		end
 	end
-	handle:close()
 
-	return total
+	local ok, count = pcall(GetProcessCount, names)
+	if not ok then
+		return nil, tostring(count)
+	end
+	if type(count) ~= "number" or count < 0 then
+		return nil, "GetProcessCount returned invalid value"
+	end
+
+	return count
 end
 
 SetWindowTitle(APP_NAME)
