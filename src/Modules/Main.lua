@@ -82,10 +82,10 @@ function main:Init()
 		-- If running in dev mode or standalone mode, put user data in the script path
 		self.userPath = GetScriptPath().."/"
 	else
-		local invalidPath
-		self.userPath, invalidPath = GetUserPath()
+		local invalidPath, errMsg
+		self.userPath, invalidPath, errMsg = GetUserPath()
 		if not self.userPath then
-			self:OpenPathPopup(invalidPath, ignoreBuild)
+			self:OpenPathPopup(invalidPath, errMsg, ignoreBuild)
 		else
 			self.userPath = self.userPath.."/Path of Building (PoE2)/"
 		end
@@ -103,6 +103,7 @@ function main:Init()
 	self.decimalSeparator = "."
 	self.defaultItemAffixQuality = 0.5
 	self.showTitlebarName = true
+	self.dpiScaleOverridePercent = GetDPIScaleOverridePercent and GetDPIScaleOverridePercent() or 0
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
 	self.notSupportedModTooltips = true
@@ -333,7 +334,7 @@ end
 
 function main:OnFrame()
 	self.screenW, self.screenH = GetScreenSize()
-	self.screenScale = GetScreenScale()
+	self.screenScale = GetScreenScale and GetScreenScale() or 1
 	if self.screenScale ~= 1.0 then
 		self.screenW = math.floor(self.screenW / self.screenScale)
 		self.screenH = math.floor(self.screenH / self.screenScale)
@@ -511,6 +512,11 @@ end
 
 function main:LoadSettings(ignoreBuild)
 	local setXML, errMsg = common.xml.LoadXMLFile(self.userPath.."Settings.xml")
+	if errMsg and not errMsg:match(".*No such file or directory") then
+		ConPrintf("Error: '%s'", errMsg)
+		launch:ShowErrMsg("^1"..errMsg)
+		return true
+	end
 	if not setXML then
 		return true
 	elseif setXML[1].elem ~= "PathOfBuilding2" then
@@ -638,6 +644,10 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.showFlavourText then
 					self.showFlavourText = node.attrib.showFlavourText == "true"
 				end
+				if node.attrib.dpiScaleOverridePercent then
+					self.dpiScaleOverridePercent = tonumber(node.attrib.dpiScaleOverridePercent) or 0
+					SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
+				end
 			end
 		end
 	end
@@ -645,6 +655,11 @@ end
 
 function main:LoadSharedItems()
 	local setXML, errMsg = common.xml.LoadXMLFile(self.userPath.."Settings.xml")
+	if errMsg and not errMsg:match(".*No such file or directory") then
+		ConPrintf("Error: '%s'", errMsg)
+		launch:ShowErrMsg("^1"..errMsg)
+		return true
+	end
 	if not setXML then
 		return true
 	elseif setXML[1].elem ~= "PathOfBuilding2" then
@@ -750,7 +765,8 @@ function main:SaveSettings()
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
 		--showPublicBuilds = tostring(self.showPublicBuilds),
-		showFlavourText = tostring(self.showFlavourText)
+		showFlavourText = tostring(self.showFlavourText),
+		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent)
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
@@ -759,17 +775,16 @@ function main:SaveSettings()
 	end
 end
 
-function main:OpenPathPopup(invalidPath, ignoreBuild)
+function main:OpenPathPopup(invalidPath, errMsg, ignoreBuild)
 	local controls = { }
 	local defaultLabelPlacementX = 8
 
 	controls.label = new("LabelControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, 20, 206, 16 }, function()
-		return "^7User settings path contains unicode characters and cannot be loaded."..
+		return "^7User settings path cannot be loaded: ".. errMsg ..
 		"\nCurrent Path: "..invalidPath:gsub("?", "^1?^7").."/Path of Building/"..
-		"\nSpecify a new location for your Settings.xml:"
-	end)
-	controls.explainButton = new("ButtonControl", { "LEFT", controls.label, "RIGHT" }, { 4, 0, 20, 20 }, "?", function()
-		OpenURL("https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/wiki/Why-do-I-have-to-change-my-Settings-path%3F")
+		"\nIf this location is managed by OneDrive, navigate to that folder and manually try" ..
+		"\nto open Settings.xml in a text editor before re-opening Path of Building" ..
+		"\nOtherwise, specify a new location for your Settings.xml:"
 	end)
 	controls.userPath = new("EditControl", { "TOPLEFT", controls.label, "TOPLEFT" }, { 0, 60, 206, 20 }, invalidPath, nil, nil, nil, function(buf)
 		invalidPath = sanitiseText(buf)
@@ -857,6 +872,24 @@ function main:OpenOptionsPopup()
 		controls.proxyType:SelByValue(scheme, "scheme")
 		controls.proxyURL:SetText(url)
 	end
+
+	nextRow()
+	controls.dpiScaleOverride = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 150, 18 }, {
+		{ label = "Use system default", percent = 0 },
+		{ label = "100%", percent = 100 },
+		{ label = "125%", percent = 125 },
+		{ label = "150%", percent = 150 },
+		{ label = "175%", percent = 175 },
+		{ label = "200%", percent = 200 },
+		{ label = "225%", percent = 225 },
+		{ label = "250%", percent = 250 },
+	}, function(index, value)
+		self.dpiScaleOverridePercent = value.percent
+		SetDPIScaleOverridePercent(value.percent)
+	end)
+	controls.dpiScaleOverrideLabel = new("LabelControl", { "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7UI scaling override:")
+	controls.dpiScaleOverride.tooltipText = "Overrides Windows DPI scaling inside Path of Building.\nChoose a percentage between 100% and 250% or revert to the system default."
+	controls.dpiScaleOverride:SelByValue(self.dpiScaleOverridePercent, "percent")
 
 	nextRow()
 	controls.buildPath = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 290, 18 })
@@ -1044,6 +1077,7 @@ function main:OpenOptionsPopup()
 	local initialDisableDevAutoSave = self.disableDevAutoSave
 	--local initialShowPublicBuilds = self.showPublicBuilds
 	local initialShowFlavourText = self.showFlavourText
+	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
 
 	-- last line with buttons has more spacing
 	nextRow(1.5)
@@ -1069,6 +1103,7 @@ function main:OpenOptionsPopup()
 		if not launch.devMode then
 			main:SetManifestBranch(self.betaTest and "beta" or "master")
 		end
+		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 		main:SaveSettings()
 	end)
@@ -1096,6 +1131,8 @@ function main:OpenOptionsPopup()
 		self.disableDevAutoSave = initialDisableDevAutoSave
 		self.showPublicBuilds = initialShowPublicBuilds
 		self.showFlavourText = initialShowFlavourText
+		self.dpiScaleOverridePercent = initialDpiScaleOverridePercent
+		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 	end)
 	nextRow(1.5)
