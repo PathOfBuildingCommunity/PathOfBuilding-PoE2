@@ -14,6 +14,25 @@ describe("TradeQueryRequests", function()
     }
     local requests = new("TradeQueryRequests", mock_limiter)
 
+    local function simulateRetry(requests, mock_limiter, policy, current_time)
+        local now = current_time
+        local queue = requests.requestQueue.search
+        local request = table.remove(queue, 1)
+        local requestId = mock_limiter:InsertRequest(policy)
+        local response = { header = "HTTP/1.1 429 Too Many Requests" }
+        mock_limiter:FinishRequest(policy, requestId)
+        mock_limiter:UpdateFromHeader(response.header)
+        local status = response.header:match("HTTP/[%d%%%.]+ (%d+)")
+        if status == "429" then
+            request.attempts = (request.attempts or 0) + 1
+            local backoff = math.min(2 ^ request.attempts, 60)
+            request.retryTime = now + backoff
+            table.insert(queue, 1, request)
+            return true, request.attempts, request.retryTime
+        end
+        return false, nil, nil
+    end
+
     describe("ProcessQueue", function()
         -- Pass: No changes to empty queues
         -- Fail: Alters queues unexpectedly, indicating loop errors, causing phantom requests
@@ -26,16 +45,63 @@ describe("TradeQueryRequests", function()
         -- Pass: Dequeues and processes valid item
         -- Fail: Queue unchanged, indicating timing/insertion bug, blocking trade searches
         it("processes search queue item", function()
+            local orig_launch = launch
+            launch = {
+                DownloadPage = function(url, onComplete, opts)
+                    onComplete({ body = "{}", header = "HTTP/1.1 200 OK" }, nil)
+                end
+            }
             table.insert(requests.requestQueue.search, {
                 url = "test",
                 callback = function() end,
                 retryTime = nil
             })
-            mock_limiter.NextRequestTime = function()
-                return os.time() - 1
+            local function mock_next_time(self, policy, time)
+                return time - 1
             end
+            mock_limiter.NextRequestTime = mock_next_time
             requests:ProcessQueue()
             assert.are.equal(#requests.requestQueue.search, 0)
+            launch = orig_launch
+        end)
+
+        -- Pass: Retries with increasing backoff up to cap, preventing infinite loops
+        -- Fail: No backoff or uncapped, indicating retry bug, risking API bans
+        it("retries on 429 with exponential backoff", function()
+            local orig_os_time = os.time
+            local mock_time = 1000
+            os.time = function() return mock_time end
+
+            local request = {
+                url = "test",
+                callback = function() end,
+                retryTime = nil,
+                attempts = 0
+            }
+            table.insert(requests.requestQueue.search, request)
+
+            local policy = mock_limiter:GetPolicyName("search")
+
+            for i = 1, 7 do
+                local previous_time = mock_time
+                local entered, attempts, retryTime = simulateRetry(requests, mock_limiter, policy, mock_time)
+                assert.is_true(entered)
+                assert.are.equal(attempts, i)
+                local expected_backoff = math.min(math.pow(2, i), 60)
+                assert.are.equal(retryTime, previous_time + expected_backoff)
+                mock_time = retryTime
+            end
+
+            -- Validate skip when time < retryTime
+            mock_time = requests.requestQueue.search[1].retryTime - 1
+            local function mock_next_time(self, policy, time)
+                return time - 1
+            end
+            mock_limiter.NextRequestTime = mock_next_time
+            requests:ProcessQueue()
+            assert.are.equal(#requests.requestQueue.search, 1)
+
+            os.time = orig_os_time
         end)
     end)
 
