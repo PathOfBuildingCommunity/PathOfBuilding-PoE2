@@ -1,6 +1,26 @@
 describe("TradeQuery Currency Conversion", function()
     local mock_tradeQuery = new("TradeQuery", { itemsTab = {} })
 
+    -- test case for commit: "Skip callback on errors to prevent incomplete conversions"
+    describe("FetchCurrencyConversionTable", function()
+        -- Pass: Callback not called on error
+        -- Fail: Callback called, indicating partial data risk
+        it("skips callback on error", function()
+            local orig_launch = launch
+            local spy = { called = false }
+            launch = {
+                DownloadPage = function(url, callback, opts)
+                    callback(nil, "test error")
+                end
+            }
+            mock_tradeQuery:FetchCurrencyConversionTable(function()
+                spy.called = true
+            end)
+            launch = orig_launch
+            assert.is_false(spy.called)
+        end)
+    end)
+
     describe("ConvertCurrencyToChaos", function()
         -- Pass: Ceils amount to integer (e.g., 4.9 -> 5)
         -- Fail: Wrong value or nil, indicating broken rounding/baseline logic, causing inaccurate chaos totals
