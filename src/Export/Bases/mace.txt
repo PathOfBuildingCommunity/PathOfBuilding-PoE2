@@ -2,9 +2,9 @@
 local itemBases = ...
 
 #type One Handed Mace
-#socketLimit 2
+#socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandMaces/AbstractOneHandMace
 
 #type Two Handed Mace
-#socketLimit 3
+#socketLimit 4
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandMaces/AbstractTwoHandMace

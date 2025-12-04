@@ -19,7 +19,7 @@ return {
 			}
 		},
 		stats={
-			[1]="life_leech_from_physical_attack_damage_permyriad_per_rage"
+			[1]="skill_base_life_leech_from_physical_attack_damage_permyriad_per_rage_to_apply"
 		}
 	},
 	[2]={
@@ -39,7 +39,7 @@ return {
 			}
 		},
 		stats={
-			[1]="life_loss_%_per_minute_per_rage_while_not_losing_rage"
+			[1]="skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"
 		}
 	},
 	[3]={
@@ -68,11 +68,11 @@ return {
 			}
 		},
 		stats={
-			[1]="rage_effect_+%"
+			[1]="skill_base_rage_effect_+%_to_apply"
 		}
 	},
-	["life_leech_from_physical_attack_damage_permyriad_per_rage"]=1,
-	["life_loss_%_per_minute_per_rage_while_not_losing_rage"]=2,
 	parent="skill_stat_descriptions",
-	["rage_effect_+%"]=3
+	["skill_base_life_leech_from_physical_attack_damage_permyriad_per_rage_to_apply"]=1,
+	["skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"]=2,
+	["skill_base_rage_effect_+%_to_apply"]=3
 }

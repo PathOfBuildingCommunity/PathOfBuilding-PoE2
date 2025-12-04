@@ -113,7 +113,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Banner duration is {0} second, or until you leave the Aura"
+				text="Banner duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -126,7 +126,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Banner duration is {0} seconds, or until you leave the Aura"
+				text="Banner duration is {0} seconds"
 			}
 		},
 		stats={

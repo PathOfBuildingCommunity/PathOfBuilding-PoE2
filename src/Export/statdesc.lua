@@ -44,7 +44,7 @@ function loadStatFile(fileName)
 				curLang = { }
 				--curDescriptor.lang[langName] = curLang
 			elseif not line:match('table_only') then
-				local statLimits, text, special = line:match('([%d%-#| !]+)%s*"(.-)"%s*(.*)')
+				local statLimits, quality, text, special = line:match('([%d%-#| !]+)%s*([%w_]*)%s*"(.-)"%s*(.*)')
 				if statLimits then
 					local desc = { text = escapeGGGString(text):gsub("\\([^nb])", "\\n%1"), limit = { } }
 					for statLimit in statLimits:gmatch("[!%d%-#|]+") do
@@ -82,6 +82,10 @@ function loadStatFile(fileName)
 							v = true,
 						})
 						nk["canonical_line"] = true
+					end
+					if quality:match("gem_quality") then
+						desc[quality] = true
+						nk["gem_quality"] = true
 					end
 					table.insert(curLang, desc)
 				end
@@ -313,6 +317,10 @@ function describeStats(stats)
 					val[spec.v].min = ItemClasses[val[spec.v].min].Name
 					val[spec.v].max = ItemClasses[val[spec.v].max].Name
 					val[spec.v].fmt = "s"
+				elseif spec.k == "one_hundred_divide_by_value" then
+					val[spec.v].min = round(100 / val[spec.v].min, 2)
+					val[spec.v].max = round(100 / val[spec.v].max, 2)
+					val[spec.v].fmt = "g"
 				elseif spec.k == "multiplicative_damage_modifier" then
 					val[spec.v].min = 100 + val[spec.v].min
 					val[spec.v].max = 100 + val[spec.v].max
@@ -382,7 +390,7 @@ function describeStats(stats)
 			end):gsub("%%%%","%%")
 			local order = descriptor.order
 			for line in (statDesc.."\\n"):gmatch("([^\\]+)\\n") do
-				table.insert(out, line)
+				table.insert(out, sanitiseText(line))
 				table.insert(orders, order)
 				order = order + 0.1
 			end

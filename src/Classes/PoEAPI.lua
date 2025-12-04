@@ -70,7 +70,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 
 	local authUrl = string.format(
 		"https://www.pathofexile.com/oauth/authorize?client_id=pob&response_type=code&scope=%s&state=%s&code_challenge=%s&code_challenge_method=S256"
-		,table.concat(scopesOAuth, " ")
+		,table.concat(scopesOAuth, "%20")
 		,initialState
 		,code_challenge
 	)
@@ -80,9 +80,9 @@ function PoEAPIClass:FetchAuthToken(callback)
 	if id then
 		launch.subScripts[id] = {
 			type = "DOWNLOAD",
-			callback = function(code, state, port)
+			callback = function(code, errMsg, state, port)
 				if not code then
-					ConPrintf("Failed to get code from server")
+					ConPrintf("Failed to get code from server: %s", errMsg)
 					self.authToken = nil
 					self.refreshToken = nil
 					self.tokenExpiry = nil

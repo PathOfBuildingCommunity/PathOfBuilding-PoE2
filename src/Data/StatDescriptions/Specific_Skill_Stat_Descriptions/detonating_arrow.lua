@@ -42,7 +42,15 @@ return {
 			[1]="active_skill_secondary_area_of_effect_radius"
 		}
 	},
+	[3]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_detonating_arrow_max_number_of_stages"
+		}
+	},
 	["active_skill_base_secondary_area_of_effect_radius"]=1,
 	["active_skill_secondary_area_of_effect_radius"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["virtual_detonating_arrow_max_number_of_stages"]=3
 }

@@ -99,11 +99,11 @@ return {
 						[2]="#"
 					}
 				},
-				text="Deals {0}% of Consumed Blood Loss as additional unscalable Physical Attack Damage"
+				text="Enemies lose Life equal to {0}% of Consumed Blood Loss"
 			}
 		},
 		stats={
-			[1]="blood_hunt_explosion_%_blood_loss_to_deal_unscalable"
+			[1]="blood_hunt_explosion_%_blood_loss_to_deal_as_life_loss"
 		}
 	},
 	[5]={
@@ -130,7 +130,7 @@ return {
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["blood_hunt_X_blood_loss_consumed_for_skill_area_of_effect_+%_final"]=5,
-	["blood_hunt_explosion_%_blood_loss_to_deal_unscalable"]=4,
+	["blood_hunt_explosion_%_blood_loss_to_deal_as_life_loss"]=4,
 	["blood_hunt_skill_area_of_effect_+%_final_per_X_blood_loss_consumed_up_to_500%"]=5,
 	["cannot_cause_bleeding"]=1,
 	parent="skill_stat_descriptions",

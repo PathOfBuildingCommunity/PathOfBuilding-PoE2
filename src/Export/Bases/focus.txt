@@ -2,6 +2,6 @@
 local itemBases = ...
 
 #type Focus
-#socketLimit 2
+#socketLimit 3
 
 #baseMatch BaseType Metadata/Items/Armours/Focus/AbstractFocus

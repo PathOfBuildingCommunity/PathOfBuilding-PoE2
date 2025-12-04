@@ -93,6 +93,17 @@ UniqueLightningResist24
 UniqueTailwindOnCriticalStrike1
 UniqueLoseTailwindOnHit1
 ]],[[
+Constricting Command
+Viper Cap
+League: Dawn of the Hunt
+Variant: Pre 0.3.0
+Variant: Current
+UniqueIncreasedLife49
+UniqueAllAttributes14
+UniqueLifeRegeneration20
+{variant:1}UniquePinAlmostPinnedEnemies1
+{variant:2}UniqueLessEnemiesToBeSurrounded1
+]],[[
 Elevore
 Hunter Hood
 Variant: Pre 0.1.1
@@ -167,7 +178,7 @@ Variant: Current
 {variant:2}UniqueEnergyShieldAsPercentOfLife1
 ]],[[
 Crown of Eyes
-Coral Circlet
+Vermeil Circlet
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShieldPercent23
 UniqueIncreasedAccuracy9
@@ -194,6 +205,7 @@ UniqueConsumeCorpseRecoverLife1
 ]],[[
 Forbidden Gaze
 Chain Tiara
+Source: No longer obtainable
 Variant: Pre 0.1.1
 Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent1
@@ -261,11 +273,14 @@ UniquePerfectTimingWindow1
 The Bringer of Rain
 Decorated Helm
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 UniqueLocalIncreasedArmourAndEvasion27
 UniqueIncreasedAccuracy11
 UniqueLifeRegeneration16
 UniqueDisableChestSlot1
 UniqueUseTwoHandedWeaponOneHand1
+{variant:2}UniqueCriticalStrikeChance15
 ]],[[
 Erian's Cobble
 Guarded Helm
@@ -379,6 +394,7 @@ UniqueGlobalSkillGemLevel1
 ]],[[
 The Deepest Tower
 Spiritbone Crown
+Source: No longer obtainable
 League: Dawn of the Hunt
 UniqueLocalIncreasedArmourAndEnergyShield18
 UniqueIncreasedLife46
@@ -444,6 +460,23 @@ UniqueIncreasedMana5
 UniqueNearbyAlliesAllDamage1
 {variant:2}UniqueDexterity32
 UniqueAllDamage1
+]],[[
+Mask of the Sanguimancer
+Face Mask
+UniqueLocalBaseEvasionRatingAndEnergyShield2
+UniqueSpellCriticalStrikeChance1
+UniqueStrength8
+UniqueIntelligence10
+UniqueBloodMagic1
+]],[[
+Mind of the Council
+Death Mask
+League: Dawn of the Hunt
+UniqueLocalIncreasedEvasionAndEnergyShield16
+UniqueIncreasedMana42
+UniqueLightningResist20
+UniqueAttackManaCost1
+UniqueAttackMaxLightningDamage1
 ]],[[
 The Three Dragons
 Solid Mask

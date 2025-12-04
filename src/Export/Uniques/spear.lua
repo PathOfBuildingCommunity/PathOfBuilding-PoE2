@@ -62,22 +62,29 @@ UniqueLocalAlwaysMinimumOrMaximum1
 Spire of Ire
 Helix Spear
 League: Dawn of the Hunt
+Variant: Pre 0.2.1
+Variant: Current
 Implicits: 2
 Grants Skill: Spear Throw
 Grants Skill: Level (1-20) Chaotic Infusion
 UniqueLocalIncreasedAttackSpeed21
-UniqueLifeLeechLocal3
-UniqueLocalChaosDamage2
+{variant:1}UniqueLifeLeechLocal3[6,10]
+{variant:2}UniqueLifeLeechLocal3
+{variant:1}UniqueLocalChaosDamage2[106,146][181,221]
+{variant:2}UniqueLocalChaosDamage2
 UniqueChaosInfusionFromCharge1
 UniqueLifeLeechChaosDamage1
 ]],[[
 Tangletongue
 Forked Spear
+Variant: Pre 0.3.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage21
-UniqueLocalCriticalStrikeChance8
+{variant:1}UniqueLocalCriticalStrikeChance8[1000,2000]
+{variant:2}UniqueLocalCriticalStrikeChance8
 UniqueIntelligence34
 UniqueRollCriticalChanceTwice1
 UniqueLifeCost2
@@ -87,7 +94,7 @@ Ironhead Spear
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Spear Throw
-UniqueLocalIncreasedPhysicalDamagePercent11
+UniqueLocalIncreasedPhysicalDamagePercent12
 UniqueLocalIncreasedAttackSpeed16
 UniqueStrength38
 UniqueMeleeSplash1

@@ -102,12 +102,28 @@ return {
 	},
 	[5]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Explodes after enemy is dealt damage equal to {0}% of its Ailment Threshold"
+			}
+		},
+		stats={
+			[1]="living_bomb_damage_threshold_%_of_ailment_threshold"
+		}
+	},
+	[6]={
+		[1]={
 		},
 		stats={
 			[1]="living_bomb_number_of_bombs_allowed"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 		},
 		stats={
@@ -118,7 +134,8 @@ return {
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_effect_duration"]=3,
 	["living_bomb_base_number_of_bombs_allowed"]=4,
-	["living_bomb_number_of_bombs_allowed"]=5,
+	["living_bomb_damage_threshold_%_of_ailment_threshold"]=5,
+	["living_bomb_number_of_bombs_allowed"]=6,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=6
+	["skill_effect_duration"]=7
 }

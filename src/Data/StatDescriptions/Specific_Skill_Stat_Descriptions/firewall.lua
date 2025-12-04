@@ -116,6 +116,27 @@ return {
 					[1]={
 						[1]="#",
 						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Projectiles which pass through the Infused wall deal {0} to {1} Added Lightning Damage"
+			}
+		},
+		stats={
+			[1]="flame_wall_minimum_added_lightning_damage_to_add_to_projectile",
+			[2]="flame_wall_maximum_added_lightning_damage_to_add_to_projectile"
+		}
+	},
+	[6]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
 					}
 				},
 				text="Projectiles which pass through the wall gain extra {0}% damage as Fire"
@@ -125,7 +146,7 @@ return {
 			[1]="flame_wall_projectiles_gain_all_damage_%_as_fire"
 		}
 	},
-	[6]={
+	[7]={
 		[1]={
 			[1]={
 				[1]={
@@ -145,7 +166,7 @@ return {
 			[1]="secondary_base_fire_damage_to_deal_per_minute"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
 			[1]={
 				[1]={
@@ -165,21 +186,21 @@ return {
 			[1]="secondary_intermediary_fire_skill_dot_damage_to_deal_per_minute"
 		}
 	},
-	[8]={
+	[9]={
 		[1]={
 		},
 		stats={
 			[1]="secondary_skill_effect_duration"
 		}
 	},
-	[9]={
+	[10]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[10]={
+	[11]={
 		[1]={
 			[1]={
 				limit={
@@ -204,13 +225,15 @@ return {
 	["base_secondary_skill_effect_duration"]=2,
 	["base_skill_effect_duration"]=3,
 	["flame_wall_maximum_added_fire_damage"]=4,
+	["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"]=5,
 	["flame_wall_minimum_added_fire_damage"]=4,
-	["flame_wall_projectiles_gain_all_damage_%_as_fire"]=5,
+	["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"]=5,
+	["flame_wall_projectiles_gain_all_damage_%_as_fire"]=6,
 	parent="skill_stat_descriptions",
-	["secondary_base_fire_damage_to_deal_per_minute"]=6,
-	["secondary_intermediary_fire_skill_dot_damage_to_deal_per_minute"]=7,
-	["secondary_skill_effect_duration"]=8,
-	["skill_effect_duration"]=9,
-	["spell_maximum_base_fire_damage"]=10,
-	["spell_minimum_base_fire_damage"]=10
+	["secondary_base_fire_damage_to_deal_per_minute"]=7,
+	["secondary_intermediary_fire_skill_dot_damage_to_deal_per_minute"]=8,
+	["secondary_skill_effect_duration"]=9,
+	["skill_effect_duration"]=10,
+	["spell_maximum_base_fire_damage"]=11,
+	["spell_minimum_base_fire_damage"]=11
 }

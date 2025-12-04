@@ -703,12 +703,12 @@ function PassiveSpecClass:AllocNode(node, altPath)
 	-- Allocate all nodes along the path
 	if #node.intuitiveLeapLikesAffecting > 0 then
 		node.alloc = true
-		node.allocMode = node.ascendancyName and 0 or self.allocMode
+		node.allocMode = (node.ascendancyName or node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket) and 0 or self.allocMode
 		self.allocNodes[node.id] = node
 	else
 		for _, pathNode in ipairs(altPath or node.path) do
 			pathNode.alloc = true
-			pathNode.allocMode = node.ascendancyName and 0 or self.allocMode
+			pathNode.allocMode = (node.ascendancyName or pathNode.type == "Keystone" or pathNode.type == "Socket" or pathNode.containJewelSocket) and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
 			if pathNode.isAttribute then 
 				self:SwitchAttributeNode(pathNode.id, self.attributeIndex or 1)
@@ -961,7 +961,7 @@ end
 function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
 	local visited = { }
-	local attributes = { "Dexterity", "Intelligence", "Strength" }
+	local attributes = { "Dexterity", "Intelligence", "Strength", "Attribute" }
 	-- Check all nodes for other nodes which depend on them (i.e. are only connected to the tree through that node)
 	self.switchableNodes = { }
 	for id, node in pairs(self.nodes) do
@@ -972,8 +972,12 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		-- ignore cluster jewel nodes that don't have an id in the tree
 		if self.tree.nodes[id] then
 			local nodeToReplace = self.tree.nodes[id]
-			if self.tree.nodes[id].isSwitchable and self.tree.nodes[id].options[self.curClassName] then
-				nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+			if self.tree.nodes[id].isSwitchable then
+				if self.tree.nodes[id].options[self.curClassName] then
+					nodeToReplace = self.tree.nodes[id].options[self.curClassName]
+				elseif self.tree.nodes[id].options[self.curAscendClassName] then
+					nodeToReplace = self.tree.nodes[id].options[self.curAscendClassName]
+				end
 				self.switchableNodes[nodeToReplace.id] = node
 			end
 			self:ReplaceNode(node, nodeToReplace)
@@ -1032,6 +1036,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			local jewelType = 5
 			if conqueredBy.conqueror.type == "kalguur" then
 				jewelType = 1
+			elseif conqueredBy.conqueror.type == "abyss" then
+				jewelType = 2
 			end
 			local seed = conqueredBy.id
 			if jewelType == 5 then
@@ -1191,6 +1197,14 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			--		local legionNode = legionNodes[110] -- eternal_small_blank
 			--		self:ReplaceNode(node, legionNode)
 			--	end
+				if conqueredBy.conqueror.type == "abyss" then
+					if isValueInArray(attributes, node.dn) then
+						self:NodeAdditionOrReplacementFromString(node, " \n+3 to Tribute")
+					else
+						local legionNode = legionNodes[201] -- abyss_small_tribute
+						self:ReplaceNode(node, legionNode)
+					end
+				end
 			end
 			self:ReconnectNodeToClassStart(node)
 		end
@@ -1415,6 +1429,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 end
 
 function PassiveSpecClass:ReplaceNode(old, newNode)
+	old.overlay = newNode.overlay
+	old.icon = newNode.icon
 	-- Edited nodes can share a name
 	if old.sd == newNode.sd then
 		return 1
@@ -1426,8 +1442,6 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.modList = new("ModList")
 	old.modList:AddList(newNode.modList)
 	old.keystoneMod = newNode.keystoneMod
-	old.icon = newNode.icon
-	old.spriteId = newNode.spriteId
 	old.activeEffectImage = newNode.activeEffectImage
 	old.reminderText = newNode.reminderText or { }
 end
@@ -2065,11 +2079,14 @@ function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusInde
 end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
-	local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-	if not newNode.isAttribute then return end -- safety check
-	
-	local option = newNode.options[attributeIndex]
-	self:ReplaceNode(newNode, option)
-	
-	self.hashOverrides[nodeId] = newNode
+	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
+		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+		if not newNode.isAttribute then return end -- safety check
+		
+		local option = newNode.options[attributeIndex]
+		self:ReplaceNode(newNode, option)
+		self.tree:ProcessStats(newNode)
+		
+		self.hashOverrides[nodeId] = newNode
+	end
 end

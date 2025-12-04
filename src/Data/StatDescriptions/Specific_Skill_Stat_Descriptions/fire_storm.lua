@@ -210,7 +210,7 @@ return {
 						[2]=1
 					}
 				},
-				text="{0} Improved Bolt per Ignite Consumed"
+				text="Improveds {0} Bolt per Ignite Consumed"
 			},
 			[2]={
 				limit={
@@ -219,7 +219,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0} Improved Bolts per Ignite Consumed"
+				text="Improves {0} Bolts per Ignite Consumed"
 			}
 		},
 		stats={

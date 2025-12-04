@@ -157,6 +157,13 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
+	[9]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_circle_of_power_max_stages"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
 	["base_circle_of_power_mana_%_spend_per_upgrade"]=4,
@@ -164,5 +171,6 @@ return {
 	["circle_of_power_max_stages"]=6,
 	["circle_of_power_spell_damage_+%_final_per_stage"]=7,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=8
+	["skill_effect_duration"]=8,
+	["virtual_circle_of_power_max_stages"]=9
 }

@@ -18,6 +18,7 @@ local skillTypes = {
 	"act_int",
 	"other",
 	"minion",
+	"spectre",
 	"sup_str",
 	"sup_dex",
 	"sup_int",
@@ -67,16 +68,31 @@ end
 local function makeSkillDataMod(dataKey, dataValue, ...)
 	return makeSkillMod("SkillData", "LIST", { key = dataKey, value = dataValue }, 0, 0, ...)
 end
-local function processMod(grantedEffect, mod)
+local function processMod(grantedEffect, mod, statName)
 	mod.source = grantedEffect.modSource
 	if type(mod.value) == "table" and mod.value.mod then
 		mod.value.mod.source = "Skill:"..grantedEffect.id
 	end
+	
 	for _, tag in ipairs(mod) do
 		if tag.type == "GlobalEffect" then
 			grantedEffect.hasGlobalEffect = true
 			break
 		end
+	end
+	
+	local notMinionStat = false
+	for _, statStet in ipairs(grantedEffect.statSets) do
+		if statStet.notMinionStat and statName and (grantedEffect.support or grantedEffect.skillTypes and grantedEffect.skillTypes[SkillType.Buff]) then
+			for _, notMinionStatName in ipairs(statStet.notMinionStat) do
+				if notMinionStatName == statName then
+					notMinionStat = true
+				end
+			end
+		end
+	end
+	if notMinionStat then
+		t_insert(mod, { type = "ActorCondition", actor = "parent", neg = true })
 	end
 end
 
@@ -123,6 +139,7 @@ data.powerStatList = {
 	{ stat="ManaRegen", label="Mana regen" },
 	{ stat="ManaLeechRate", label="Mana leech" },
 	{ stat="Ward", label="Ward" },
+	{ stat="Spirit", label="Spirit" },
 	{ stat="Str", label="Strength" },
 	{ stat="Dex", label="Dexterity" },
 	{ stat="Int", label="Intelligence" },
@@ -147,35 +164,38 @@ data.powerStatList = {
 	{ stat="BlockChance", label="Block Chance" },
 	{ stat="SpellBlockChance", label="Spell Block Chance" },
 	{ stat="SpellSuppressionChance", label="Spell Suppression Chance" },
+	{ stat="EffectiveLootRarityMod", label="Rarity of Items found" },
 }
 
 data.misc = { -- magic numbers
 	ServerTickTime = 0.033,
 	ServerTickRate = 1 / 0.033,
-	AccuracyPerDexBase = 5,
+	AccuracyPerDexBase = 6,
 	LowPoolThreshold = 0.35,
 	TemporalChainsEffectCap = 75,
 	BuffExpirationSlowCap = 0.25,
-	DamageReductionCap = 90,
-	EnemyPhysicalDamageReductionCap = 75,
+	DamageReductionCap = data.characterConstants["maximum_physical_damage_reduction_%"],
+	EnemyPhysicalDamageReductionCap = data.monsterConstants["maximum_physical_damage_reduction_%"],
 	ResistFloor = -200,
 	MaxResistCap = 90,
-	EvadeChanceCap = 95,
+	EvadeChanceCap = data.gameConstants["DefaultMaxEvadeChancePercent"],
 	DodgeChanceCap = 75,
 	BlockChanceCap = 90,
 	SuppressionChanceCap = 100,
 	SuppressionEffect = 50,
+	DeflectEffect = data.gameConstants["BasePercentDamageDeflected"],
 	AvoidChanceCap = 75,
 	AccuracyFalloffStart = 20,
-	AccuracyFalloffEnd = 120,
-	MaxAccuracyRangePenalty = 90,
+	AccuracyFalloffEnd = 90,
+	MaxAccuracyRangePenalty = -data.characterConstants["accuracy_rating_+%_final_at_max_distance_scaled"],
 	ArmourRatio = 10,
 	NegArmourDmgBonusCap = 100,
-	EnergyShieldRechargeBase = 0.125,
+	ManaRegenBase = data.characterConstants["character_inherent_mana_regeneration_rate_per_minute_%"] / 60 / 100,
+	EnergyShieldRechargeBase = data.characterConstants["energy_shield_recharge_rate_per_minute_%"] / 60 / 100,
 	EnergyShieldRechargeDelay = 4,
 	WardRechargeDelay = 2,
 	Transfiguration = 0.3,
-	EnemyMaxResist = 75,
+	EnemyMaxResist = data.monsterConstants["base_maximum_all_resistances_%"],
 	LeechRateBase = 0.02,
 	DotDpsCap = 35791394, -- (2 ^ 31 - 1) / 60 (int max / 60 seconds)
 	BleedPercentBase = data.gameConstants["BleedingHitDamagePercentPerMinute"] / 60 / 100,
@@ -188,17 +208,22 @@ data.misc = { -- magic numbers
 	TrapTriggerRadiusBase = 10,
 	MineDetonationRadiusBase = 60,
 	MineAuraRadiusBase = 35,
-	MinionRevivalTimeBase = 7.5,
+	SurroundedRadiusBase = 30,
+	MinionRevivalTimeBase = data.characterConstants["global_resummon_time_ms"] / 1000,
 	BrandAttachmentRangeBase = 30,
 	ProjectileDistanceCap = 150,
 	MinStunChanceNeeded = 20,
 	StunBaseMult = 200,
-	StunBaseDuration = 0.35,
-	StunNotMeleeDamageMult = 0.75,
+	StunBaseDuration = data.characterConstants["stun_base_duration_override_ms"] / 1000,
+	MinionBaseStunDuration = (data.monsterConstants["stun_base_duration_override_ms"] + data.playerMinionIntrinsicStats["stun_base_duration_override_ms"]) / 1000,
+	MeleeStunMult = data.monsterConstants["melee_hit_damage_stun_multiplier_+%_final_from_ot"] / 100,
+	PhysicalStunMult = data.monsterConstants["physical_hit_damage_stun_multiplier_+%_final_from_ot"] / 100,
+	PlayerMovementSpeed = data.characterConstants["base_speed"],
 	MaxEnemyLevel = 85,
 	maxExperiencePenaltyFreeAreaLevel = 70,
 	experiencePenaltyMultiplier = 0.06,
 	-- Expected values to calculate EHP
+	normalEnemyDPSMult = 1 / 4.40,
 	stdBossDPSMult = 4 / 4.40,
 	pinnacleBossDPSMult = 8 / 4.40,
 	pinnacleBossPen = 15 / 5,
@@ -219,7 +244,6 @@ data.misc = { -- magic numbers
 	PvpElemental2 = 150,
 	PvpNonElemental1 = 0.57,
 	PvpNonElemental2 = 90,
-	presenceRadiusBase = 40, -- in units (base entity "Presence" radius of patch 0.2.0 is 4 meters)
 }
 
 data.skillColorMap = { colorCodes.STRENGTH, colorCodes.DEXTERITY, colorCodes.INTELLIGENCE, colorCodes.NORMAL }
@@ -278,6 +302,7 @@ data.keystones = {
 	"Acrobatics",
 	"Ancestral Bond",
 	"Avatar of Fire",
+	"Blackflame Covenant",
 	"Blood Magic",
 	"Bulwark",
 	"Chaos Inoculation",
@@ -290,6 +315,7 @@ data.keystones = {
 	"Giant's Blood",
 	"Glancing Blows",
 	"Heartstopper",
+	"Hollow Palm Technique",
 	"Iron Reflexes",
 	"Mind Over Matter",
 	"Necromantic Talisman",
@@ -297,9 +323,11 @@ data.keystones = {
 	"Pain Attunement",
 	"Resolute Technique",
 	"Resonance",
+	"Ritual Cadence",
 	"Trusted Kinship",
 	"Unwavering Stance",
 	"Vaal Pact",
+	"Walker of the Wilds",
 	"Whispers of Doom",
 	"Zealot's Oath",
 }
@@ -310,9 +338,9 @@ data.nonDamagingAilmentTypeList = { "Chill", "Freeze", "Shock" }
 data.nonElementalAilmentTypeList = { "Bleed", "Poison" }
 
 data.nonDamagingAilment = {
-	["Chill"] = { associatedType = "Cold", alt = false, default = 10, min = 5, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
+	["Chill"] = { associatedType = "Cold", alt = false, default = 30, min = 30, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
 	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = data.gameConstants["FreezeDuration"] },
-	["Shock"] = { associatedType = "Lightning", alt = false, default = 20, min = 20, max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
+	["Shock"] = { associatedType = "Lightning", alt = false, default = data.gameConstants["BaseShockMagnitude"], min = data.gameConstants["BaseShockMagnitude"], max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
 
 data.defaultAilmentDamageTypes = {
@@ -488,6 +516,7 @@ data.weaponTypeInfo = {
 	["Spear"] = { oneHand = true, melee = true, flag = "Spear" },
 	["Flail"] = { oneHand = true, melee = true, flag = "Flail" },
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff" },
+	["Warstaff"] = { oneHand = false, melee = true, flag = "Warstaff" },
 	["Wand"] = { oneHand = true, melee = false, flag = "Wand" },
 	["One Handed Axe"] = { oneHand = true, melee = true, flag = "Axe" },
 	["One Handed Mace"] = { oneHand = true, melee = true, flag = "Mace" },
@@ -499,13 +528,13 @@ data.weaponTypeInfo = {
 	["Two Handed Sword"] = { oneHand = false, melee = true, flag = "Sword" },
 }
 data.unarmedWeaponData = {
-	[0] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
-	[1] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
-	[2] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
-	[3] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
-	[4] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
-	[5] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
-	[6] = { type = "None", AttackRate = 1.4, CritChance = 0, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
+	[0] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
+	[1] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
+	[2] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
+	[3] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[4] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
+	[5] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
+	[6] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)
@@ -568,7 +597,8 @@ data.itemMods = {
 	Charm = LoadModule("Data/ModCharm"),
 	Jewel = LoadModule("Data/ModJewel"),
 	Corruption = LoadModule("Data/ModCorrupted"),
-	Runes = LoadModule("Data/ModRunes")
+	Runes = LoadModule("Data/ModRunes"),
+	Exclusive = LoadModule("Data/ModItemExclusive")
 }
 
 -- update JewelRadius affixes for Time-Lost jewels
@@ -584,6 +614,7 @@ do
 	end
 end
 
+data.essences = LoadModule("Data/Essence")
 data.costs = LoadModule("Data/Costs")
 do
 	local map = { }
@@ -781,7 +812,7 @@ data.skillStatMapMeta = {
 			map = copyTable(map)
 			t[key] = map
 			for _, mod in ipairs(map) do
-				processMod(t._grantedEffect, mod)
+				processMod(t._grantedEffect, mod, key)
 			end
 			return map
 		end
@@ -814,14 +845,14 @@ for skillId, grantedEffect in pairs(data.skills) do
 		statSet.statMap = statSet.statMap or { }
 		setmetatable(statSet.statMap, data.skillStatMapMeta)
 		statSet.statMap._grantedEffect = grantedEffect
-		for _, map in pairs(statSet.statMap) do
+		for name, map in pairs(statSet.statMap) do
 			-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 			for _, modOrGroup in ipairs(map) do
 				if modOrGroup.name then
-					processMod(grantedEffect, modOrGroup)
+					processMod(grantedEffect, modOrGroup, name)
 				else
 					for _, mod in ipairs(modOrGroup) do
-						processMod(grantedEffect, mod)
+						processMod(grantedEffect, mod, name)
 					end
 				end
 			end
@@ -861,6 +892,18 @@ local function setupGem(gem, gemId)
 		table.insert(gem.grantedEffectList, data.skills[gem["additionalGrantedEffectId"..i]])
 		table.insert(gem.additionalGrantedEffects, data.skills[gem["additionalGrantedEffectId"..i]])
 		i = i + 1
+	end
+	if gem.grantedEffectDisplayOrder then
+		local tempTable = {}
+		local moved = false
+		for i, temp in ipairs(gem.grantedEffectList) do
+			if gem.grantedEffectDisplayOrder[i] then
+				tempTable[i] = gem.grantedEffectList[gem.grantedEffectDisplayOrder[i] + 1]
+			else
+				tempTable[i] = temp
+			end
+		end
+		gem.grantedEffectList = tempTable
 	end
 	gem.naturalMaxLevel = gem.naturalMaxLevel or (#gem.grantedEffect.levels > 20 and #gem.grantedEffect.levels - 20) or (gem.grantedEffect.levels[3][1] and 3) or 1
 end
@@ -962,3 +1005,7 @@ LoadModule("Data/Uniques/Special/Generated")
 LoadModule("Data/Uniques/Special/New")
 
 data.questRewards = LoadModule("Data/QuestRewards")
+
+data.flavourText = LoadModule("Data/FlavourText")
+data.worldAreas = {}
+LoadModule("Data/WorldAreas", data.worldAreas)

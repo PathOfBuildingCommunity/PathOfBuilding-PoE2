@@ -96,7 +96,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Deal {0}% increased Spell damage per Demonflame"
+				text="Deal {0}% more Spell damage per Demonflame"
 			},
 			[2]={
 				limit={
@@ -105,11 +105,11 @@ return {
 						[2]=-1
 					}
 				},
-				text="Deal {0}% reduced Spell damage per Demonflame"
+				text="Deal {0}% less Spell damage per Demonflame"
 			}
 		},
 		stats={
-			[1]="demon_form_spell_damage_+%_per_stack"
+			[1]="demon_form_spell_damage_+%_final_per_stack"
 		}
 	},
 	[6]={
@@ -123,7 +123,7 @@ return {
 	["demon_form_grants_spell_gem_level_+"]=2,
 	["demon_form_life_loss_%_per_minute_per_stack"]=3,
 	["demon_form_life_loss_per_minute_per_stack"]=4,
-	["demon_form_spell_damage_+%_per_stack"]=5,
+	["demon_form_spell_damage_+%_final_per_stack"]=5,
 	["max_demon_form_stacks"]=6,
 	parent="skill_stat_descriptions"
 }

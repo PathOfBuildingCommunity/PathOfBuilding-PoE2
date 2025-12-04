@@ -13,6 +13,16 @@ return {
 		}
 	},
 	[3]={
+		stats={
+			[1]="projectiles_can_shotgun"
+		}
+	},
+	[4]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -33,7 +43,7 @@ return {
 			[2]="skill_can_fire_arrows"
 		}
 	},
-	[4]={
+	[6]={
 		[1]={
 			[1]={
 				limit={
@@ -58,27 +68,12 @@ return {
 			[1]="number_of_chains"
 		}
 	},
-	[5]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Multiple fragments can Hit the same target\nMultiple Fragments hitting a target simultaneously will combine their damage into a single Hit"
-			}
-		},
-		stats={
-			[1]="projectiles_can_shotgun"
-		}
-	},
-	["base_number_of_projectiles"]=3,
+	["base_knockback_distance"]=4,
+	["base_number_of_projectiles"]=5,
 	["base_projectiles_cannot_chain"]=1,
-	["number_of_chains"]=4,
+	["number_of_chains"]=6,
 	parent="skill_stat_descriptions",
-	["projectiles_can_shotgun"]=5,
+	["projectiles_can_shotgun"]=3,
 	["quality_display_base_number_of_projectiles_is_gem"]=2,
-	["skill_can_fire_arrows"]=3
+	["skill_can_fire_arrows"]=5
 }

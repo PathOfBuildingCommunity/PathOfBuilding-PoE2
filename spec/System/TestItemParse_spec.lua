@@ -1,6 +1,6 @@
 describe("TestItemParse", function()
 	local function raw(s, base)
-		base = base or "Arcane Robe"
+		base = base or "Arcane Raiment"
 		return "Rarity: Rare\nName\n"..base.."\n"..s
 	end
 
@@ -146,8 +146,10 @@ describe("TestItemParse", function()
 		assert.truthy(item.mirrored)
 		item = new("Item", raw("Corrupted"))
 		assert.truthy(item.corrupted)
-		item = new("Item", raw("Fractured Item"))
+		item = new("Item", raw("Leech 6.61% of Physical Attack Damage as Mana (fractured)"))
 		assert.truthy(item.fractured)
+		item = new("Item", raw("Adds 36 to 48 Fire Damage (desecrated)"))
+		assert.truthy(item.desecrated)
 		item = new("Item", raw("Crafted: true"))
 		assert.truthy(item.crafted)
 		item = new("Item", raw("Unreleased: true"))
@@ -243,9 +245,29 @@ describe("TestItemParse", function()
 			Corrupted
 			]])
 		item:BuildAndParseRaw()
-		assert.are.equals(45, item.requirements.strMod)
-		assert.are.equals(111, item.requirements.dexMod)
-		assert.are.equals(71, item.requirements.intMod)	
+		assert.are.equals(35, item.requirements.strMod)
+		assert.are.equals(86, item.requirements.dexMod)
+		assert.are.equals(55, item.requirements.intMod)	
+		
+	end)
+
+	it("multi-line rune mod", function()
+		-- Thruldana is Bow-only as well
+		local item = new("Item", [[
+			Test Item
+			Crude Bow
+			Quality: 20
+			Sockets: S S
+			Rune: Talisman of Thruldana
+			Rune: Talisman of Thruldana
+			Implicits: 2
+			{enchant}{rune}50% reduced Poison Duration
+			{enchant}{rune}Targets can be affected by +2 of your Poisons at the same time
+		]])
+		item:BuildAndParseRaw()
+		
+		assert.are.equals(2, #item.sockets)
+		assert.are.equals(2, #item.runeModLines)
 		
 	end)
 end)

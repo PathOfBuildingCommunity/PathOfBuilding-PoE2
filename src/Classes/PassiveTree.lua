@@ -230,6 +230,12 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			node.type = "AscendClassStart"
 			local ascendClass = self.ascendNameMap[node.ascendancyName].ascendClass
 			ascendClass.startNodeId = node.id
+			if node.isSwitchable then
+				for ascName, _ in pairs(node.options) do
+					local option = self.ascendNameMap[ascName].ascendClass
+					option.startNodeId = node.id
+				end
+			end
 		elseif node.isOnlyImage then
 			node.type = "OnlyImage"
 		elseif node.isJewelSocket then
@@ -549,6 +555,16 @@ function PassiveTreeClass:ProcessNode(node)
 			end
 			switchNode.dn = switchNode.name
 			switchNode.sd = switchNode.stats
+
+			if switchNode.jewelOverlay then
+				ConPrintf("SwitchNode with jewelOverlay found: "..switchNode.name)
+				switchNode.overlay = switchNode.jewelOverlay
+				if switchNode.overlay then
+					local size = node.targetSize["overlay"] and node.targetSize["overlay"].width or node.targetSize.width
+					switchNode.rsq = size * size
+					switchNode.size = size
+				end
+			end
 
 			self:ProcessStats(switchNode)
 		end

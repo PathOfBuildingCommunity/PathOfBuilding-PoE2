@@ -3,13 +3,18 @@
 
 return {
 	[1]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[2]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -42,7 +47,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -75,7 +80,7 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -109,10 +114,11 @@ return {
 			[2]="frozen_locus_crystal_display_stat"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
-	["frost_wall_maximum_life"]=4,
-	["frozen_locus_crystal_display_stat"]=4,
+	["active_skill_area_of_effect_radius"]=2,
+	["active_skill_base_area_of_effect_radius"]=3,
+	["base_knockback_distance"]=1,
+	["base_skill_effect_duration"]=4,
+	["frost_wall_maximum_life"]=5,
+	["frozen_locus_crystal_display_stat"]=5,
 	parent="skill_stat_descriptions"
 }

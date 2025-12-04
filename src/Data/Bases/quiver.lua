@@ -33,21 +33,21 @@ itemBases["Two-Point Quiver"] = {
 itemBases["Blunt Quiver"] = {
 	type = "Quiver",
 	tags = { quiver = true, default = true, },
-	implicit = "(20-30)% reduced Enemy Stun Threshold",
+	implicit = "(25-40)% increased Stun Buildup",
 	implicitModTypes = { {  }, },
 	req = { level = 32, },
 }
 itemBases["Toxic Quiver"] = {
 	type = "Quiver",
 	tags = { quiver = true, default = true, },
-	implicit = "(10-15)% chance to Poison on Hit with Attacks",
+	implicit = "(20-30)% chance to Poison on Hit with Attacks",
 	implicitModTypes = { { "poison", "chaos", "attack", "ailment" }, },
 	req = { level = 39, },
 }
 itemBases["Serrated Quiver"] = {
 	type = "Quiver",
 	tags = { quiver = true, default = true, },
-	implicit = "Attacks have (10-15)% chance to cause Bleeding",
+	implicit = "Attacks have (20-30)% chance to cause Bleeding",
 	implicitModTypes = { { "bleed", "physical", "attack", "ailment" }, },
 	req = { level = 44, },
 }

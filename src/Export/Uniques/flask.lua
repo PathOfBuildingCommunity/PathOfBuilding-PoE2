@@ -3,6 +3,14 @@
 return {
 -- Flask: Life
 [[
+Blood of the Warrior
+Gargantuan Life Flask
+League: Rise of the Abyssal
+UniqueFlaskMoreLife__1
+UniqueFlaskEffectNotRemovedOnFullLife__1
+UniqueDuringRageFlaskEffects__1
+UniqueFlaskDuration__1
+]],[[
 Olroth's Resolve
 Ultimate Life Flask
 Source: Drops from unique{Olroth, Origin of the Fall}

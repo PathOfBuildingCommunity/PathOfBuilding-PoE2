@@ -8,13 +8,23 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="base_skill_detonation_time"
+		}
+	},
+	[3]={
+		stats={
+			[1]="skill_detonation_time"
+		}
+	},
+	[4]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -47,164 +57,27 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					},
-					[3]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="Fires {0:+d} Pustule"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					},
-					[3]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="Fires {0:+d} Pustules"
-			},
-			[3]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]=1
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					},
-					[3]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fires {0} Pustule"
-			},
-			[4]={
-				limit={
-					[1]={
-						[1]=2,
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					},
-					[3]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Fires {0} Pustules"
-			}
-		},
-		stats={
-			[1]="base_number_of_projectiles",
-			[2]="skill_can_fire_arrows",
-			[3]="quality_display_base_number_of_projectiles_is_gem"
-		}
-	},
-	[5]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Maximum pustule duration is {0} second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum pustule duration is {0} seconds"
-			}
-		},
-		stats={
-			[1]="base_skill_effect_duration"
-		}
-	},
 	[6]={
 		[1]={
 			[1]={
 				limit={
 					[1]={
-						[1]=1,
-						[2]=1
-					}
-				},
-				text="Limit {0} pustule"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]=2,
+						[1]="#",
 						[2]="#"
 					}
 				},
-				text="Limit {0} pustules"
+				text="Pustules store expected damage of Poisons inflicted on them"
 			}
 		},
 		stats={
-			[1]="number_of_poisonbloom_arrow_bloom_allowed"
+			[1]="skill_specific_stat_description_mode"
 		}
 	},
-	[7]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
-	[8]={
-		[1]={
-		},
-		stats={
-			[1]="virtual_poisonbloom_arrow_bloom_limit"
-		}
-	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
+	["active_skill_area_of_effect_radius"]=4,
+	["active_skill_base_area_of_effect_radius"]=5,
 	["active_skill_base_secondary_area_of_effect_radius"]=1,
-	["base_number_of_projectiles"]=4,
-	["base_skill_effect_duration"]=5,
-	["number_of_poisonbloom_arrow_bloom_allowed"]=6,
+	["base_skill_detonation_time"]=2,
 	parent="skill_stat_descriptions",
-	["quality_display_base_number_of_projectiles_is_gem"]=4,
-	["skill_can_fire_arrows"]=4,
-	["skill_effect_duration"]=7,
-	["virtual_poisonbloom_arrow_bloom_limit"]=8
+	["skill_detonation_time"]=3,
+	["skill_specific_stat_description_mode"]=6
 }

@@ -13,12 +13,15 @@ local scopes = { }
 local function getScope(scopeName)
 	if not scopes[scopeName] then
 		local scope = nil
-		local file = io.open("Data/StatDescriptions/specific_skill_stat_descriptions/"..scopeName..".lua", 'rb')
+		-- Allow lowercase "specific_skill_stat_descriptions/<name>" by stripping the prefix (Linux is case-sensitive).
+		local normalizedScopeName = scopeName:gsub("^specific_skill_stat_descriptions/", "")
+
+		local file = io.open("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..normalizedScopeName..".lua", 'rb')
 		if file then
-			file.close()
-			scope = LoadModule("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..scopeName)
+			file:close()
+			scope = LoadModule("Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..normalizedScopeName)
 		else
-			scope = LoadModule("Data/StatDescriptions/"..scopeName)
+			scope = LoadModule("Data/StatDescriptions/"..normalizedScopeName)
 		end 
 		scope.name = scopeName
 		if scope.parent then
@@ -35,22 +38,24 @@ local function getScope(scopeName)
 	end
 end
 
-local function matchLimit(lang, val) 
+local function matchLimit(lang, val, quality)
 	for _, desc in ipairs(lang) do
-		local match = true
-		for i, limit in ipairs(desc.limit) do
-			if limit[1] == "!" then
-				if val[i].min == limit[2] then
+		if quality or not desc.gem_quality then -- Skip gem_quality lines for regular mods
+			local match = true
+			for i, limit in ipairs(desc.limit) do
+				if limit[1] == "!" then
+					if val[i].min == limit[2] then
+						match = false
+						break
+					end
+				elseif (limit[2] ~= "#" and val[i].min > limit[2]) or (limit[1] ~= "#" and val[i].min < limit[1]) then
 					match = false
 					break
 				end
-			elseif (limit[2] ~= "#" and val[i].min > limit[2]) or (limit[1] ~= "#" and val[i].min < limit[1]) then
-				match = false
-				break
 			end
-		end
-		if match then
-			return desc
+			if match then
+				return desc
+			end
 		end
 	end
 end
@@ -131,8 +136,8 @@ local function applySpecial(val, spec)
 		val[spec.v].max = val[spec.v].max / 1000
 		val[spec.v].fmt = "g"
 	elseif spec.k == "per_minute_to_per_second" then
-		val[spec.v].min = val[spec.v].min / 60
-		val[spec.v].max = val[spec.v].max / 60
+		val[spec.v].min = floor(val[spec.v].min / 60, 1)
+		val[spec.v].max = floor(val[spec.v].max / 60, 1)
 		val[spec.v].fmt = "g"
 	elseif spec.k == "per_minute_to_per_second_0dp" then
 		val[spec.v].min = round(val[spec.v].min / 60)
@@ -178,6 +183,10 @@ local function applySpecial(val, spec)
 		val[spec.v].min = ItemClasses[val[spec.v].min].Name
 		val[spec.v].max = ItemClasses[val[spec.v].max].Name
 		val[spec.v].fmt = "s"
+	elseif spec.k == "one_hundred_divide_by_value" then
+		val[spec.v].min = round(100 / val[spec.v].min, 2)
+		val[spec.v].max = round(100 / val[spec.v].max, 2)
+		val[spec.v].fmt = "g"
 	elseif spec.k == "multiplicative_damage_modifier" then
 		val[spec.v].min = 100 + val[spec.v].min
 		val[spec.v].max = 100 + val[spec.v].max
@@ -215,7 +224,7 @@ local function applySpecial(val, spec)
 	end
 end
 
-return function(stats, scopeName)
+return function(stats, scopeName, quality)
 	local rootScope = getScope(scopeName)
 
 	-- Figure out which descriptions we need, and identify them by the first stat that they describe
@@ -260,7 +269,7 @@ return function(stats, scopeName)
 			end
 			val[i].fmt = "d"
 		end
-		local desc = matchLimit(descriptor.description[1], val)
+		local desc = matchLimit(descriptor.description[1], val, quality)
 		if desc then
 			for _, spec in ipairs(desc) do
 				applySpecial(val, spec)

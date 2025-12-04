@@ -107,6 +107,22 @@ return {
 						[2]="#"
 					}
 				},
+				text="Grants Immunity to Curses"
+			}
+		},
+		stats={
+			[1]="immune_to_curses"
+		}
+	},
+	[8]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
 				text="Grants Immunity to Poison"
 			}
 		},
@@ -120,6 +136,7 @@ return {
 	["base_immune_to_shock"]=4,
 	["immune_to_bleeding"]=5,
 	["immune_to_burning"]=6,
-	["immune_to_poison"]=7,
+	["immune_to_curses"]=7,
+	["immune_to_poison"]=8,
 	parent="stat_descriptions"
 }

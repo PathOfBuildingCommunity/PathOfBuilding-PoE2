@@ -48,6 +48,7 @@ end)
 
 function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	local gemList = self.skillsTab.displayGroup.gemList
+	local displayGemList = self.skillsTab.displayGroup.displayGemList
 	local oldGem
 	if gemList[self.index] then
 		oldGem = copyTable(gemList[self.index], true)
@@ -70,8 +71,6 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	gemInstance.level = self.skillsTab:ProcessGemLevel(gemData)
 	gemInstance.gemData = gemData
 	gemInstance.displayEffect = nil
-	-- Add hovered gem to tooltip
-	self:AddGemTooltip(gemInstance)
 	-- Calculate the impact of using this gem
 	local output = calcFunc(nil, useFullDPS)
 	-- Put the original gem back into the list
@@ -82,7 +81,9 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	else
 		gemList[self.index] = nil
 	end
-
+	
+	self.skillsTab.displayGroup.displayGemList = displayGemList
+	
 	return output, gemInstance
 end
 
@@ -305,8 +306,8 @@ function GemSelectClass:UpdateSortCache()
 	for gemId, gemData in pairs(self.gems) do
 		sortCache.dps[gemId] = baseDPS
 		-- Ignore gems that don't support the active skill
-		if sortCache.canSupport[gemId] or gemData.grantedEffect.hasGlobalEffect then
-			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
+		if sortCache.canSupport[gemId] or (gemData.grantedEffect.hasGlobalEffect and not gemData.grantedEffect.support) then
+			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS, fastCalcOptions, calcBase)
 			-- Check for nil because some fields may not be populated, default to 0
 			sortCache.dps[gemId] = (dpsField == "FullDPS" and output[dpsField] ~= nil and output[dpsField]) or (output.Minion and output.Minion.CombinedDPS) or (output[dpsField] ~= nil and output[dpsField]) or 0
 		end
@@ -330,7 +331,9 @@ function GemSelectClass:SortGemList(gemList)
 			if self.skillsTab.sortGemsByDPS and sortCache.dps[a] ~= sortCache.dps[b] then
 				return sortCache.dps[a] > sortCache.dps[b]
 			else
-				return a < b
+				local nameA = (self.gems[a] and self.gems[a].name) or a
+				local nameB = (self.gems[b] and self.gems[b].name) or b
+				return nameA < nameB
 			end
 		else
 			return sortCache.canSupport[a]
@@ -446,7 +449,22 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local calcFunc, calcBase = self.skillsTab.build.calcsTab:GetMiscCalculator(self.build)
 			if calcFunc then
 				self.tooltip:Clear()
-				local output = self:CalcOutputWithThisGem(calcFunc, self.gems[self.list[self.hoverSel]], self.skillsTab.sortGemsByDPSField == "FullDPS")
+				local gemData = self.gems[self.list[self.hoverSel]]
+				local output = self:CalcOutputWithThisGem(calcFunc, gemData, self.skillsTab.sortGemsByDPSField == "FullDPS", nil, calcBase)
+				local gemInstance = {
+						level = self.skillsTab:ProcessGemLevel(gemData),
+						quality = self.skillsTab.defaultGemQuality or 0,
+						count = 1,
+						enabled = true,
+						enableGlobal1 = true,
+						enableGlobal2 = true,
+						gemId = gemData.id,
+						nameSpec = gemData.name,
+						skillId = gemData.grantedEffectId,
+						displayEffect = nil,
+						gemData = gemData
+					}
+				self:AddGemTooltip(gemInstance)
 				self.tooltip:AddSeparator(10)
 				self.skillsTab.build:AddStatComparesToTooltip(self.tooltip, calcBase, output, "^7Selecting this gem will give you:")
 				self.tooltip:Draw(x, y + height + 2 + (self.hoverSel - 1) * (height - 4) - scrollBar.offset, width, height - 4, viewPort)
@@ -475,6 +493,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			local cursorX, cursorY = GetCursorPos()
 			self.tooltip:Clear()
 			if gemInstance and gemInstance.gemData then
+				if main.showFlavourText then self.tooltip.titleYOffset = 5 end --The image for Gems has an aspect ratio that makes the title not centered.
 				self:AddGemTooltip(gemInstance)
 			else
 				self.tooltip:AddLine(16, toolTipText)
@@ -510,7 +529,6 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			SetDrawColor(colorA,colorA,colorA)
 			DrawString(sx + 8, y, "CENTER_X", height - 2, "VAR", "A")
 
-
 			SetDrawLayer(nil, 10)
 			self.tooltip:Draw(x, y, width, height, viewPort)
 			SetDrawLayer(nil, 0)
@@ -528,17 +546,24 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 	self.tooltip.color = colorCodes.GEM
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
-
-	self.tooltip:AddLine(20, colorCodes.GEM .. grantedEffect.name)
+	self.tooltip.tooltipHeader = "GEM"
+	if grantedEffect.name:match("^Spectre:") or grantedEffect.name:match("^Companion:") then
+		self.tooltip:AddLine(20, colorCodes.GEM .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name))	
+	else
+		self.tooltip:AddLine(20, colorCodes.GEM .. gemInstance.gemData.name)
+	end
 	self.tooltip:AddSeparator(10)
 	self.tooltip:AddLine(18, colorCodes.NORMAL .. gemInstance.gemData.gemType)
 	if gemInstance.gemData.tagString ~= "" then
 		self.tooltip:AddLine(16, "^x7F7F7F" .. gemInstance.gemData.tagString)
 	end
+	if gemInstance.gemData.gemFamily then
+		self.tooltip:AddLine(16, "^x7F7F7FCategory: ^7" .. gemInstance.gemData.gemFamily)
+	end
 	-- Will need rework if a gem can have 2+ additional supports
 	self:AddGrantedEffectInfo(gemInstance, grantedEffect, true)
 	for _, statSet in ipairs(grantedEffect.statSets) do
-		self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+		self:AddStatSetInfo(gemInstance, grantedEffect, statSet, nil , _)
 	end
 
 	for _, additional in ipairs(additionalEffects or {}) do
@@ -550,8 +575,18 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			self.tooltip:AddSeparator(10)
 			self:AddGrantedEffectInfo(gemInstance, additional)
 			for _, statSet in ipairs(additional.statSets) do
-				self:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+				self:AddStatSetInfo(gemInstance, additional, statSet, nil, _)
 			end
+		else
+			for _, statSet in ipairs(additional.statSets) do
+				self:AddStatSetInfo(gemInstance, additional, statSet, true, _)
+			end
+		end
+	end
+	if grantedEffect.flavourText and main.showFlavourText then
+		self.tooltip:AddSeparator(10)
+		for _, line in ipairs(grantedEffect.flavourText) do
+			self.tooltip:AddLine(16, colorCodes.UNIQUE .. line)
 		end
 	end
 end
@@ -559,7 +594,7 @@ end
 function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local grantedEffectLevel = grantedEffect.levels[displayInstance.level] or { }
-	if gemInstance.gemData.Tier then
+	if gemInstance.gemData.Tier and not grantedEffect.isLineage and not grantedEffect.hidden then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier))
 		end
 	if addReq and not grantedEffect.support then
@@ -592,8 +627,18 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			self.tooltip:AddLine(16, string)
 		end
 	else
+		if gemInstance.skillMinion then
+			if gemInstance.nameSpec:match("^Spectre:") then
+				grantedEffectLevel.spiritReservationFlat = data.spectres[gemInstance.skillMinion].spectreReservation
+			elseif gemInstance.nameSpec:match("^Companion:") then
+				grantedEffectLevel.spiritReservationPercent = data.spectres[gemInstance.skillMinion].companionReservation
+			end
+		end
 		if grantedEffectLevel.spiritReservationFlat then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%d Spirit", grantedEffectLevel.spiritReservationFlat))
+		end
+		if grantedEffectLevel.spiritReservationPercent then
+			self.tooltip:AddLine(16, string.format("^x7F7F7FReservation: ^7%.1f%% Spirit", grantedEffectLevel.spiritReservationPercent))
 		end
 		local cost
 		for _, res in ipairs(self.costs) do
@@ -627,7 +672,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			if grantedEffectLevel.baseMultiplier then
 				self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%g%% of base", grantedEffectLevel.baseMultiplier * 100))
 			end
-		else
+		elseif not grantedEffect.hidden then
 			if grantedEffect.castTime > 0 then
 				self.tooltip:AddLine(16, string.format("^x7F7F7FCast Time: ^7%.2f sec", grantedEffect.castTime))
 			else
@@ -637,7 +682,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		if grantedEffectLevel.critChance then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", grantedEffectLevel.critChance))
 		end
-		if gemInstance.gemData.weaponRequirements then
+		if gemInstance.gemData.weaponRequirements and not grantedEffect.hidden then
 			self.tooltip:AddLine(16, "^x7F7F7F Requires: ^7" .. gemInstance.gemData.weaponRequirements)
 		end
 	end
@@ -662,14 +707,14 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		end
 	end
 end
-function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
+function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLabel, index)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local statSetLevel = statSet.levels[displayInstance.level] or { }
-	if statSet.label ~= grantedEffect.name and statSet.label ~= "" then
+	if not (index == 1 and statSet.label == grantedEffect.name) and statSet.label ~= "" and not noLabel then
 		self.tooltip:AddSeparator(10)
 		self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
+		self.tooltip:AddSeparator(10)
 	end
-	self.tooltip:AddSeparator(10)
 	if statSetLevel.critChance then
 		self.tooltip:AddLine(16, string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", statSetLevel.critChance))
 	end
@@ -677,7 +722,7 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
 		self.tooltip:AddLine(16, string.format("^x7F7F7FAttack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100))
 	end
 	if self.skillsTab and self.skillsTab.build.data.describeStats then
-		self.tooltip:AddSeparator(10)
+		if not noLabel then self.tooltip:AddSeparator(10) end
 		local stats = calcLib.buildSkillInstanceStats(displayInstance, grantedEffect, statSet)
 		--if mergeStatsFrom then
 		--	for stat, val in pairs(calcLib.buildSkillInstanceStats(displayInstance, mergeStatsFrom)) do
@@ -703,7 +748,9 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet)
 				if launch.devModeAlt then
 					line = line .. " ^1" .. lineMap[line]
 				end
-				self.tooltip:AddLine(16, colorCodes.UNSUPPORTED .. line)
+				local line = colorCodes.UNSUPPORTED .. line
+				line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
+				self.tooltip:AddLine(16, line)
 			end
 		end
 	end

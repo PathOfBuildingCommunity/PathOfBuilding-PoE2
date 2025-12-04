@@ -58,6 +58,8 @@ local function writeMods(out, statOrder)
 end
 
 local uniqueMods = LoadModule("../Data/ModItemExclusive.lua")
+local modVeiled = LoadModule("../Data/ModVeiled.lua")
+
 for _, name in ipairs(itemTypes) do
 	local out = io.open("../Data/Uniques/"..name..".lua", "w")
 	local statOrder = {}
@@ -83,7 +85,7 @@ for _, name in ipairs(itemTypes) do
 			local variantString = line:match("({variant:[%d,]+})")
 			local fractured = line:match("({fractured})") or ""
 			local modName, legacy = line:gsub("{.+}", ""):match("^([%a%d_]+)([%[%]-,%d]*)")
-			local mod = uniqueMods[modName]
+			local mod = uniqueMods[modName] or modVeiled[modName]
 			if mod then
 				modLines = modLines + 1
 				if variantString then

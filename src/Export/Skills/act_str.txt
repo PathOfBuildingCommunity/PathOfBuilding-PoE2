@@ -5,6 +5,24 @@
 --
 local skills, mod, flag, skill = ...
 
+#skill AncestralCryPlayer
+#set AncestralCryPlayer
+#flags warcry area duration
+#mods
+#skillEnd
+
+#skill AncestralCryShockwavePlayer
+#set AncestralCryShockwavePlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill AncestralCryProjectilePlayer
+#set AncestralCryProjectilePlayer
+#flags attack projectile
+#mods
+#skillEnd
+
 #skill AncestralWarriorTotemPlayer
 #set AncestralWarriorTotemPlayer
 #flags totem attack
@@ -12,8 +30,17 @@ local skills, mod, flag, skill = ...
 #skillEnd
 
 #skill SupportAncestralWarriorTotemPlayer
+addFlags = {
+	totem = true,
+},
 #set SupportAncestralWarriorTotemPlayer
 #flags
+statMap = {
+	["support_ancestral_warrior_totem_attack_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack),
+	},
+},
+#baseMod mod("ActiveTotemLimit", "OVERRIDE", 10)
 #mods
 #skillEnd
 
@@ -33,9 +60,6 @@ local skills, mod, flag, skill = ...
 #set ArtilleryBallistaProjectilePlayer
 #flags attack area projectile totem
 #mods
-#set ArtilleryBallistaProjectileExplodePlayer
-#flags attack area projectile totem
-#mods
 #skillEnd
 
 #skill AttritionPlayer
@@ -52,7 +76,7 @@ statMap = {
 		{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
 		{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 		value = 10,}
-		},
+	},
 },
 #mods
 #skillEnd
@@ -61,7 +85,7 @@ statMap = {
 #set BerserkPlayer
 #flags
 statMap = {
-	["life_loss_%_per_minute_per_rage_while_not_losing_rage"] = {
+	["skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"] = {
 		mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 		div = 60
 	},
@@ -76,12 +100,31 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill BlackPowderBlitzReservationPlayer
+#set BlackPowderBlitzReservationPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill BlackPowderBlitzPlayer
+#set BlackPowderBlitzPlayer
+#flags hit area
+#mods
+#skillEnd
+
 #skill BoneshatterPlayer
 #set BoneshatterPlayer
 #flags attack melee
 #mods
 #set BoneshatterShockwavePlayer
 #flags attack melee area
+statMap = {
+	["boneshatter_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -131,22 +174,36 @@ statMap = {
 #set ClusterGrenadePlayer
 #flags attack area projectile duration
 #mods
-#skillEnd
-
-#skill ClusterGrenadeMiniPlayer
 #set ClusterGrenadeMiniPlayer
 #flags attack area projectile
 #mods
 #skillEnd
 
 #from item
+#skill CrossbowRequiemAmmoPlayer
+#set CrossbowRequiemAmmoPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill CrossbowRequiemPlayer
+#set CrossbowRequiemPlayer
+#flags attack projectile area
+#mods
+#skillEnd
+
+#from item
 #skill StaffConsecratePlayer
 #set StaffConsecratePlayer
-#flags spell
+#flags spell duration
 #mods
 #skillEnd
 
 #skill DefianceBannerReservationPlayer
+#set DefianceBannerReservationPlayer
+#flags
+#mods
 #skillEnd
 
 #skill DefianceBannerPlayer
@@ -165,6 +222,9 @@ statMap = {
 #skillEnd
 
 #skill DreadBannerReservationPlayer
+#set DreadBannerReservationPlayer
+#flags
+#mods
 #skillEnd
 
 #skill DreadBannerPlayer
@@ -228,22 +288,37 @@ statMap = {
 #skill ExplosiveGrenadePlayer
 #set ExplosiveGrenadePlayer
 #flags attack area projectile
-#mods
-#skillEnd
-
-#from item
-#skill ExsanguinatePlayer
-#set ExsanguinatePlayer
-#flags spell duration chaining
-#mods
-#set ExsanguinateDotPlayer
-#flags spell duration chaining
+statMap = {
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #skillEnd
 
 #skill FlashGrenadePlayer
 #set FlashGrenadePlayer
 #flags attack area projectile
+#mods
+#skillEnd
+
+#skill ForgeHammerPlayer
+#set ForgeHammerPlayer
+#flags attack area melee duration
+#mods
+#set ForgeHammerFissurePlayer
+#flags attack area melee duration
+#mods
+#skillEnd
+
+#skill FortifyingCryPlayer
+#set FortifyingCryPlayer
+#flags warcry area duration
+#mods
+#skillEnd
+
+#skill FortifyingCryShockwavePlayer
+#set FortifyingCryShockwavePlayer
+#flags attack melee area shieldAttack
 #mods
 #skillEnd
 
@@ -256,6 +331,16 @@ statMap = {
 #mods
 #set ToxicGrenadeCloudExplosionPlayer
 #flags attack area projectile
+#mods
+#skillEnd
+
+#from item
+#skill GeminiSurgePlayer
+#set GeminiSurgeColdPlayer
+#flags attack area
+#mods
+#set GeminiSurgeFirePlayer
+#flags attack area
 #mods
 #skillEnd
 
@@ -282,6 +367,11 @@ statMap = {
 #skill HeraldOfBloodPlayer
 #set HeraldOfBloodPlayer
 #flags
+statMap = {
+	["display_herald_of_blood_behaviour"] = {
+		flag("Condition:EnemiesExplode", { type = "GlobalEffect", effectType = "Buff", effectName = "Herald of Blood" } ),
+	},
+},
 #mods
 #set HeraldOfBloodExplosionPlayer
 #flags
@@ -300,18 +390,21 @@ statMap = {
 #mods
 #skillEnd
 
-#skill LeapSlamPlayer
-#set LeapSlamPlayer
-#flags attack area melee
+#skill IronWardPlayer
+#set IronWardPlayer
+#flags
 #mods
 #skillEnd
 
-#skill MetaCastLightningSpellOnHitPlayer
-#set MetaCastLightningSpellOnHitPlayer
-#flags spell
+#skill IronWardNovaPlayer
+#set IronWardNovaPlayer
+#flags hit area
 #mods
-#set SupportMetaCastLightningSpellOnHitPlayer
-#flags
+#skillEnd
+
+#skill LeapSlamPlayer
+#set LeapSlamPlayer
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -354,6 +447,11 @@ statMap = {
 #mods
 #set FragmentationRoundsFreezeShatterPlayer
 #flags attack projectile area
+statMap = {
+	["frag_rounds_damage_+%_final_if_created_from_unique"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -461,6 +559,9 @@ statMap = {
 #skillEnd
 
 #skill PlasmaBlastPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.channelTimeMultiplier = 1
+end,
 #set PlasmaBlastPlayer
 #flags attack projectile channelRelease
 #mods
@@ -539,6 +640,11 @@ statMap = {
 #skill MagmaBarrierPlayer
 #set MagmaBarrierPlayer
 #flags
+statMap = {
+	["skill_igneous_shield_grants_block_chance_+%"] = {
+		mod("BlockChance", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Magma Barrier" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -557,6 +663,30 @@ statMap = {
 #mods
 #skillEnd
 
+#skill MetaMortarCannonPlayer
+#set MetaMortarCannonPlayer
+#flags totem attack
+#mods
+#skillEnd
+
+#skill SupportMortarCannonPlayer
+addFlags = {
+	totem = true,
+},
+#set SupportMortarCannonPlayer
+#flags
+statMap = {
+	["support_grenade_ballista_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+	["support_grenade_ballista_attack_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack),
+	},
+},
+#baseMod mod("ActiveTotemLimit", "BASE", 1)
+#mods
+#skillEnd
+
 #skill OilGrenadePlayer
 #set OilGrenadePlayer
 #flags attack area projectile duration
@@ -572,38 +702,19 @@ statMap = {
 #skill PerfectStrikePlayer
 preDamageFunc = function(activeSkill, output)
 	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillData.channelPercentOfAttackTime
 end,
 #set PerfectStrikePlayer
 #flags attack area melee duration channelRelease
 #mods
 #set PerfectStrikeShockwavePlayer
 #flags attack area melee duration channelRelease
-#baseMod mod("Condition:PerfectTiming", "FLAG", true)
-#mods
-#skillEnd
-
-#from item
-#skill ReapPlayer
-#set ReapPlayer
-#flags spell area
 #mods
 #skillEnd
 
 #skill ResonatingShieldPlayer
 #set ResonatingShieldPlayer
 #flags attack area melee shieldAttack
-#mods
-#skillEnd
-
-#skill RipwireBallistaPlayer
-#set RipwireBallistaPlayer
-#flags totem
-#mods
-#skillEnd
-
-#skill RipwireBallistaProjectilePlayer
-#set RipwireBallistaProjectilePlayer
-#flags attack projectile totem
 #mods
 #skillEnd
 
@@ -656,7 +767,7 @@ statMap = {
 
 #skill ShieldWallPlayer
 #set ShieldWallPlayer
-#flags attack shieldAttack melee
+#flags attack shieldAttack melee area
 #mods
 #skillEnd
 
@@ -672,6 +783,21 @@ statMap = {
 #mods
 #set ShockwaveTotemJaggedQuakePlayer
 #flags totem attack area
+#mods
+#skillEnd
+
+#skill SiegeBallistaPlayer
+#set SiegeBallistaPlayer
+#flags totem
+#mods
+#skillEnd
+
+#skill SiegeBallistaProjectilePlayer Artillery
+#set SiegeBallistaProjectilePlayer
+#flags attack projectile totem
+#mods
+#set SiegeBallistaProjectileExplodePlayer
+#flags attack projectile totem
 #mods
 #skillEnd
 
@@ -697,17 +823,70 @@ statMap = {
 #skillEnd
 
 #skill SuperchargedSlamPlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+	activeSkill.skillData.channelTimeMultiplier = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:SuperchargedSlamStage")
+end,
 #set SuperchargedSlamPlayer
-#flags attack area melee
+#flags attack area melee channelRelease
+statMap = {
+	["channelled_slam_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+	},
+	["channelled_slam_max_stages"] = {
+		mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
+#baseMod mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" })
 #mods
 #set SuperchargedSlamAftershockPlayer
-#flags attack area melee
+#flags attack area melee channelRelease
+statMap = {
+	["channelled_slam_damage_+%_final_per_stage"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" }),
+	},
+	["channelled_slam_max_stages"] = {
+		mod("Multiplier:SuperchargedSlamMaxStages", "BASE", nil),
+	},
+	["aftershock_radius_+_per_previous_aftershock"] = {
+		skill("radiusExtra", nil, { type = "Multiplier", var = "SuperchargedSlamStage", limit = 30, limitTotal = true }),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
+#baseMod mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "SuperchargedSlamStage" })
+#mods
+#skillEnd
+
+#from item
+#skill MetaCastLightningSpellOnHitPlayer
+#set MetaCastLightningSpellOnHitPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SupportMetaCastLightningSpellOnHitPlayer
+#set SupportMetaCastLightningSpellOnHitPlayer
+#flags
 #mods
 #skillEnd
 
 #skill TimeOfNeedPlayer
 #set TimeOfNeedPlayer
 #flags duration
+#mods
+#skillEnd
+
+#from item
+#skill ValakosChargePlayer
+#set ValakosChargePlayer
+#flags area
+#mods
+#set ValakosChargeArcPlayer
+#flags spell chaining
 #mods
 #skillEnd
 
@@ -724,6 +903,9 @@ statMap = {
 #skillEnd
 
 #skill WarBannerReservationPlayer
+#set WarBannerReservationPlayer
+#flags
+#mods
 #skillEnd
 
 #skill WarBannerPlayer

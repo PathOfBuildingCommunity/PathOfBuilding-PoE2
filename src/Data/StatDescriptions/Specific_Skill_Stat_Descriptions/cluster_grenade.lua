@@ -8,13 +8,18 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="projectiles_nova"
+		}
+	},
+	[3]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -47,7 +52,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 			[1]={
 				[1]={
@@ -80,17 +85,18 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[5]={
+	[6]={
 		[1]={
 		},
 		stats={
 			[1]="grenade_fuse_duration"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
 	["active_skill_base_secondary_area_of_effect_radius"]=1,
-	["base_skill_effect_duration"]=4,
-	["grenade_fuse_duration"]=5,
-	parent="skill_stat_descriptions"
+	["base_skill_effect_duration"]=5,
+	["grenade_fuse_duration"]=6,
+	parent="skill_stat_descriptions",
+	["projectiles_nova"]=2
 }

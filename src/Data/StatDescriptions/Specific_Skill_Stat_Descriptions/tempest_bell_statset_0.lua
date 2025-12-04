@@ -81,10 +81,18 @@ return {
 			[2]="quality_display_tempest_bell_is_gem"
 		}
 	},
+	[5]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_tempest_bell_hit_limit"
+		}
+	},
 	["base_secondary_skill_effect_duration"]=1,
 	["base_skill_effect_duration"]=2,
 	parent="skill_stat_descriptions",
 	["quality_display_tempest_bell_is_gem"]=4,
 	["skill_effect_duration"]=3,
-	["tempest_bell_hit_limit"]=4
+	["tempest_bell_hit_limit"]=4,
+	["virtual_tempest_bell_hit_limit"]=5
 }

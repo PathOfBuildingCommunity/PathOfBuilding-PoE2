@@ -107,11 +107,19 @@ return {
 			[1]="freezing_salvo_seals_gain_interval_ms"
 		}
 	},
+	[6]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_freezing_salvo_maximum_number_of_seals"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["freezing_salvo_maximum_number_of_seals"]=3,
 	["freezing_salvo_seals_gain_base_interval_ms"]=4,
 	["freezing_salvo_seals_gain_interval_ms"]=5,
 	parent="skill_stat_descriptions",
-	["quality_display_freezing_salvo_is_gem"]=4
+	["quality_display_freezing_salvo_is_gem"]=4,
+	["virtual_freezing_salvo_maximum_number_of_seals"]=6
 }

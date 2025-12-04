@@ -85,8 +85,38 @@ return {
 			[2]="quality_display_active_skill_base_area_of_effect_radius_is_gem"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more damage with Hits for pulses originating\nfrom a Unique enemy"
+			},
+			[2]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% less damage with Hits for pulses originating\nfrom a Unique enemy"
+			}
+		},
+		stats={
+			[1]="elemental_sundering_damage_+%_final_if_created_from_unique"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
+	["elemental_sundering_damage_+%_final_if_created_from_unique"]=3,
 	parent="skill_stat_descriptions",
 	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=2
 }

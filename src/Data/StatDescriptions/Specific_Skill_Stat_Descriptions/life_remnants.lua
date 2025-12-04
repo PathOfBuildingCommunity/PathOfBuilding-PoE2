@@ -61,6 +61,35 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Spawn a Remnant on Hitting a target, no more than once per second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Spawn a Remnant on Hitting a target, no more than once every {0} seconds"
+			}
+		},
+		stats={
+			[1]="life_remnants_spawn_remnant_on_hit_vs_enemy_every_X_ms"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]="#"
 					}
@@ -72,7 +101,7 @@ return {
 			[1]="life_remnants_gain_per_globe"
 		}
 	},
-	[4]={
+	[5]={
 		[1]={
 		},
 		stats={
@@ -80,8 +109,9 @@ return {
 		}
 	},
 	["life_remnants_chance_to_spawn_orb_on_killing_enemy_%"]=1,
-	["life_remnants_gain_per_globe"]=3,
+	["life_remnants_gain_per_globe"]=4,
 	["life_remnants_spawn_remnant_on_crit_vs_enemy_every_X_ms"]=2,
+	["life_remnants_spawn_remnant_on_hit_vs_enemy_every_X_ms"]=3,
 	parent="skill_stat_descriptions",
-	["virtual_life_remnants_gain_per_globe"]=4
+	["virtual_life_remnants_gain_per_globe"]=5
 }

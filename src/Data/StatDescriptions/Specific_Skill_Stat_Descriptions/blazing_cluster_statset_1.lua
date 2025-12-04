@@ -8,6 +8,11 @@ return {
 		}
 	},
 	[2]={
+		stats={
+			[1]="blazing_cluster_maximum_number_of_projectiles_allowed"
+		}
+	},
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -27,7 +32,7 @@ return {
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -60,8 +65,9 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	parent="specific_skill_stat_descriptions/blazing_cluster_statset_0",
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["blazing_cluster_maximum_number_of_projectiles_allowed"]=2,
+	parent="skill_stat_descriptions",
 	["total_number_of_projectiles_to_fire"]=1
 }

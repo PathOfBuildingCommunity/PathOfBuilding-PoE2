@@ -5,42 +5,42 @@
 -- Helmet
 [[
 Armour Helmet
-Paragon Greathelm
+Imperial Greathelm
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Evasion Helmet
-Trapper Hood
+Freebooter Cap
 Crafted: true
 Prefix: LocalIncreasedEvasionRating5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife7
 ]],[[
 Energy Shield Helmet
-Kamasan Tiara
+Ancestral Tiara
 Crafted: true
 Prefix: IncreasedLife7
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield7
 ]],[[
 Armour/Evasion Helmet
-Champion Helm
+Gladiatorial Helm
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife7
 ]],[[
 Armour/Energy Shield Helmet
-Divine Crown
+Cryptic Crown
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife7
 ]],[[
 Evasion/Energy Shield Helmet
-Soaring Mask
+Grinning Mask
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -49,42 +49,42 @@ Prefix: IncreasedLife7
 -- Gloves
 [[
 Armour Gloves
-Vaal Mitts
+Massive Mitts
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRating4
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Evasion Gloves
-Barbed Bracers
+Polished Bracers
 Crafted: true
 Prefix: LocalIncreasedEvasionRating3
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 ]],[[
 Energy Shield Gloves
-Vaal Gloves
+Sirenscale Gloves
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: LocalIncreasedEnergyShield6
 ]],[[
 Armour/Evasion Gloves
-Cultist Gauntlets
+Blacksteel Gauntlets
 Crafted: true
 Prefix: LocalBaseArmourAndEvasionRating3
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 ]],[[
 Armour/Energy Shield Gloves
-Gleaming Cuffs
+Adherent Cuffs
 Crafted: true
 Prefix: LocalBaseArmourAndEnergyShield3_
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 ]],[[
 Evasion/Energy Shield Gloves
-Vaal Wraps
+Secured Wraps
 Crafted: true
 Prefix: LocalBaseEvasionRatingAndEnergyShield3
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
@@ -151,42 +151,42 @@ Prefix: IncreasedSpirit6
 -- Boots
 [[
 Armour Boots
-Vaal Greaves
+Tasalian Greaves
 Crafted: true
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion Boots
-Dragonscale Boots
+Drakeskin Boots
 Crafted: true
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Energy Shield Boots
-Sandsworn Sandals
+Sekhema Sandals
 Crafted: true
 Prefix: IncreasedLife6
 Prefix: LocalIncreasedEnergyShieldPercent5
 Prefix: MovementVelocity5
 ]],[[
 Armour/Evasion Boots
-Fortress Sabatons
+Blacksteel Sabatons
 Crafted: true
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Armour/Energy Shield Boots
-Warlock Leggings
+Cryptic Leggings
 Crafted: true
 Prefix: LocalIncreasedArmourAndEnergyShield5
 Prefix: IncreasedLife6
 Prefix: MovementVelocity5
 ]],[[
 Evasion/Energy Shield Boots
-Quickslip Shoes
+Daggerfoot Shoes
 Crafted: true
 Prefix: LocalIncreasedEvasionAndEnergyShield5_
 Prefix: IncreasedLife6
@@ -195,28 +195,28 @@ Prefix: MovementVelocity5
 -- Shields
 [[
 Armour Shield
-Vaal Tower Shield
+Tawhoan Tower Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedPhysicalDamageReductionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Evasion Shield
-Ancient Buckler
+Desert Buckler
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedEvasionRatingPercent5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Evasion Shield
-Soaring Targe
+Golden Targe
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEvasion5
 Prefix: IncreasedLife8
 ]],[[
 Armour/Energy Shield Shield
-Vaal Crest Shield
+Blacksteel Crest Shield
 Crafted: true
 Prefix: LocalIncreasedBlockPercentage5
 Prefix: LocalIncreasedArmourAndEnergyShield5

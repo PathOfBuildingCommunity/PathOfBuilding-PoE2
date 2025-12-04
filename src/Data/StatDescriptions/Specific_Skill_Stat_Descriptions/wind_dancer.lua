@@ -4,6 +4,13 @@
 return {
 	[1]={
 		[1]={
+		},
+		stats={
+			[1]="virtual_wind_dancer_maximum_number_of_stages"
+		}
+	},
+	[2]={
+		[1]={
 			[1]={
 				limit={
 					[1]={
@@ -18,7 +25,7 @@ return {
 			[1]="wind_dancer_maximum_number_of_stages"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				[1]={
@@ -38,7 +45,7 @@ return {
 			[1]="wind_dancer_stages_gained_every_x_ms"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 			[1]={
 				limit={
@@ -68,7 +75,8 @@ return {
 		}
 	},
 	parent="skill_stat_descriptions",
-	["wind_dancer_evasion_rating_+%_final_per_stage"]=3,
-	["wind_dancer_maximum_number_of_stages"]=1,
-	["wind_dancer_stages_gained_every_x_ms"]=2
+	["virtual_wind_dancer_maximum_number_of_stages"]=1,
+	["wind_dancer_evasion_rating_+%_final_per_stage"]=4,
+	["wind_dancer_maximum_number_of_stages"]=2,
+	["wind_dancer_stages_gained_every_x_ms"]=3
 }

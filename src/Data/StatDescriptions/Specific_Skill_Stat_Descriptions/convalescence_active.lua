@@ -5,6 +5,22 @@ return {
 	[1]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Cooldown is {0} seconds"
+			}
+		},
+		stats={
+			[1]="skill_specific_stat_description_mode"
+		}
+	},
+	[2]={
+		[1]={
+			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -78,7 +94,7 @@ return {
 			[2]="quality_display_base_skill_effect_duration_is_gem"
 		}
 	},
-	[2]={
+	[3]={
 		[1]={
 			[1]={
 				limit={
@@ -94,16 +110,17 @@ return {
 			[1]="display_this_skill_cooldown_does_not_recover_during_buff"
 		}
 	},
-	[3]={
+	[4]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	["base_skill_effect_duration"]=1,
-	["display_this_skill_cooldown_does_not_recover_during_buff"]=2,
+	["base_skill_effect_duration"]=2,
+	["display_this_skill_cooldown_does_not_recover_during_buff"]=3,
 	parent="skill_stat_descriptions",
-	["quality_display_base_skill_effect_duration_is_gem"]=1,
-	["skill_effect_duration"]=3
+	["quality_display_base_skill_effect_duration_is_gem"]=2,
+	["skill_effect_duration"]=4,
+	["skill_specific_stat_description_mode"]=1
 }

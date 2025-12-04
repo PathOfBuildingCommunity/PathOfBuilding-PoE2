@@ -3,13 +3,23 @@
 
 return {
 	[1]={
+		stats={
+			[1]="base_knockback_distance"
+		}
+	},
+	[2]={
+		stats={
+			[1]="projectiles_can_shotgun"
+		}
+	},
+	[3]={
 		[1]={
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
 		}
 	},
-	[2]={
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -29,7 +39,7 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[3]={
+	[5]={
 		[1]={
 			[1]={
 				limit={
@@ -72,27 +82,12 @@ return {
 			[3]="quality_display_base_number_of_projectiles_is_gem"
 		}
 	},
-	[4]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Multiple fragments can Hit the same target\nMultiple Fragments hitting a target simultaneously will combine their damage into a single Hit"
-			}
-		},
-		stats={
-			[1]="projectiles_can_shotgun"
-		}
-	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	["base_number_of_projectiles"]=3,
+	["active_skill_area_of_effect_radius"]=3,
+	["active_skill_base_area_of_effect_radius"]=4,
+	["base_knockback_distance"]=1,
+	["base_number_of_projectiles"]=5,
 	parent="skill_stat_descriptions",
-	["projectiles_can_shotgun"]=4,
-	["quality_display_base_number_of_projectiles_is_gem"]=3,
-	["skill_can_fire_arrows"]=3
+	["projectiles_can_shotgun"]=2,
+	["quality_display_base_number_of_projectiles_is_gem"]=5,
+	["skill_can_fire_arrows"]=5
 }
