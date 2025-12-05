@@ -630,6 +630,9 @@ function main:LoadSettings(ignoreBuild)
 				--if node.attrib.showPublicBuilds then
 					--self.showPublicBuilds = node.attrib.showPublicBuilds == "true"
 				--end
+				if node.attrib.showAnimations then
+					self.showAnimations = node.attrib.showAnimations == "true"
+				end
 				if node.attrib.dpiScaleOverridePercent then
 					self.dpiScaleOverridePercent = tonumber(node.attrib.dpiScaleOverridePercent) or 0
 					SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
@@ -746,6 +749,7 @@ function main:SaveSettings()
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
 		--showPublicBuilds = tostring(self.showPublicBuilds),
+		showAnimations = tostring(self.showAnimations),
 		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent)
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
@@ -945,6 +949,11 @@ function main:OpenOptionsPopup()
 	--end)
 
 	nextRow()
+	controls.showAnimations = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
+		self.showAnimations = state
+	end)
+
+	nextRow()
 	drawSectionHeader("build", "Build-related options")
 
 	controls.showThousandsSeparators = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT"}, { defaultLabelPlacementX, currentY, 20 }, "^7Show thousands separators:", function(state)
@@ -1032,6 +1041,7 @@ function main:OpenOptionsPopup()
 	controls.edgeSearchHighlight.state = self.edgeSearchHighlight
 	controls.titlebarName.state = self.showTitlebarName
 	--controls.showPublicBuilds.state = self.showPublicBuilds
+	controls.showAnimations.state = self.showAnimations
 	local initialNodePowerTheme = self.nodePowerTheme
 	local initialColorPositive = self.colorPositive
 	local initialColorNegative = self.colorNegative
@@ -1051,6 +1061,7 @@ function main:OpenOptionsPopup()
 	local initialInvertSliderScrollDirection = self.invertSliderScrollDirection
 	local initialDisableDevAutoSave = self.disableDevAutoSave
 	--local initialShowPublicBuilds = self.showPublicBuilds
+	local initialShowAnimations = self.showAnimations
 	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
 
 	-- last line with buttons has more spacing
@@ -1104,6 +1115,7 @@ function main:OpenOptionsPopup()
 		self.invertSliderScrollDirection = initialInvertSliderScrollDirection
 		self.disableDevAutoSave = initialDisableDevAutoSave
 		self.showPublicBuilds = initialShowPublicBuilds
+		self.showAnimations = initialShowAnimations
 		self.dpiScaleOverridePercent = initialDpiScaleOverridePercent
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()

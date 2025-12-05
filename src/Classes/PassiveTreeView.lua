@@ -938,10 +938,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							if keystone and keystone.x and keystone.y then
 								innerSize = 150 * scale
 								local keyX, keyY = treeToScreen(keystone.x, keystone.y)
-								DrawImage(self.jewelShadedOuterRing, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
-								DrawImage(self.jewelShadedOuterRingFlipped, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
-								DrawImage(self.jewelShadedInnerRing, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
-								DrawImage(self.jewelShadedInnerRingFlipped, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
+								self:DrawImageRotated(self.jewelShadedOuterRing, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
+								self:DrawImageRotated(self.jewelShadedOuterRingFlipped, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
+								self:DrawImageRotated(self.jewelShadedInnerRing, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
+								self:DrawImageRotated(self.jewelShadedInnerRingFlipped, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2, 1)
 							end
 						end
 					elseif jewel.jewelData and jewel.jewelData.conqueredBy and jewel.jewelData.conqueredBy.conqueror and jewel.jewelData.conqueredBy.conqueror.type then
@@ -955,16 +955,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 							circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/".. conqueror .."/".. conqueror .."passiveskillscreenjewelcircle1.dds")
 							circle2 = circle1
 						end
-						local t = GetTime() * 0.00003
-						self:DrawImageRotated(circle1.handle, scrX, scrY, outerSize * 2, outerSize * 2, -t * 0.8, unpack(circle1))
-						self:DrawImageRotated(circle2.handle, scrX, scrY, outerSize * 2, outerSize * 2, t, unpack(circle2))
+						self:DrawImageRotated(circle1.handle, scrX, scrY, outerSize * 2, outerSize * 2, -0.7, unpack(circle1))
+						self:DrawImageRotated(circle2.handle, scrX, scrY, outerSize * 2, outerSize * 2, 0.7, unpack(circle2))
 					else
-						local t = GetTime() * 0.00003
-						self:DrawImageRotated(self.jewelShadedOuterRing, scrX, scrY, outerSize * 2, outerSize * 2,  -t * 0.8)
-						self:DrawImageRotated(self.jewelShadedOuterRingFlipped, scrX, scrY, outerSize * 2, outerSize * 2, t)
+						self:DrawImageRotated(self.jewelShadedOuterRing, scrX, scrY, outerSize * 2, outerSize * 2,  -0.7)
+						self:DrawImageRotated(self.jewelShadedOuterRingFlipped, scrX, scrY, outerSize * 2, outerSize * 2, 0.7)
 
-						self:DrawImageRotated(self.jewelShadedInnerRing, scrX, scrY, innerSize * 2, innerSize * 2, -t * 1.2)
-						self:DrawImageRotated(self.jewelShadedInnerRingFlipped, scrX, scrY, innerSize * 2, innerSize * 2, t * 1.0)
+						self:DrawImageRotated(self.jewelShadedInnerRing, scrX, scrY, innerSize * 2, innerSize * 2, -0.7)
+						self:DrawImageRotated(self.jewelShadedInnerRingFlipped, scrX, scrY, innerSize * 2, innerSize * 2, 0.7)
 					end
 				end
 			end
@@ -994,19 +992,28 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 end
 
 function PassiveTreeViewClass:DrawImageRotated(handle, x, y, width, height, angle, ...)
-    local hw, hh = width / 2, height / 2
-    local cosA, sinA = math.cos(angle), math.sin(angle)
+	if main.showAnimations == false then
+		-- Skip rotation and animation
+		DrawImage(handle, x - width / 2, y - height / 2, width, height, ...)
+		return
+	end
 
-    local x1 = x - hw * cosA + hh * sinA
-    local y1 = y - hw * sinA - hh * cosA
-    local x2 = x + hw * cosA + hh * sinA
-    local y2 = y + hw * sinA - hh * cosA
-    local x3 = x + hw * cosA - hh * sinA
-    local y3 = y + hw * sinA + hh * cosA
-    local x4 = x - hw * cosA - hh * sinA
-    local y4 = y - hw * sinA + hh * cosA
+	local t = GetTime() * 0.00003
+	local rot = angle * t
 
-    DrawImageQuad(handle, x1, y1, x2, y2, x3, y3, x4, y4, ...)
+	local hw, hh = width / 2, height / 2
+	local cosA, sinA = math.cos(rot), math.sin(rot)
+
+	local x1 = x - hw * cosA + hh * sinA
+	local y1 = y - hw * sinA - hh * cosA
+	local x2 = x + hw * cosA + hh * sinA
+	local y2 = y + hw * sinA - hh * cosA
+	local x3 = x + hw * cosA - hh * sinA
+	local y3 = y + hw * sinA + hh * cosA
+	local x4 = x - hw * cosA - hh * sinA
+	local y4 = y - hw * sinA + hh * cosA
+
+	DrawImageQuad(handle, x1, y1, x2, y2, x3, y3, x4, y4, ...)
 end
 
 function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, treeToScreen)
