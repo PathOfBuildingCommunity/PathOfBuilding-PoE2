@@ -14356,7 +14356,7 @@ return {
 		[19]={
 			list=true,
 			name="ReminderTexts",
-			refTo="ClientStrings",
+			refTo="ReminderText",
 			type="Key",
 			width=150
 		},
