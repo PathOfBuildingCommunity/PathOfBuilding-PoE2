@@ -2157,11 +2157,11 @@ end
 function buildMode:LoadDB(xmlText, fileName)
 	-- Parse the XML
 	local dbXML, errMsg = common.xml.ParseXML(xmlText)
-	if not dbXML then
-		launch:ShowErrMsg("^1Error loading '%s': %s", fileName, errMsg)
+	if errMsg and errMsg:match(".*file returns nil") then
+		main:OpenCloudErrorPopup(fileName)
 		return true
-	elseif #dbXML == 0 then
-		main:OpenMessagePopup("Error", "Build file is empty, or error parsing xml.\n\n"..fileName)
+	elseif errMsg then
+		launch:ShowErrMsg("^1"..errMsg)
 		return true
 	elseif dbXML[1].elem ~= "PathOfBuilding2" then
 		launch:ShowErrMsg("^1Error parsing '%s': 'PathOfBuilding2' root element missing", fileName)
