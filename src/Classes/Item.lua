@@ -636,7 +636,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				if modLine.desecrated then
 					self.desecrated = true
-					modLine.desecrated = true
 				end
 				if modLine.fractured then
 					self.fractured = true

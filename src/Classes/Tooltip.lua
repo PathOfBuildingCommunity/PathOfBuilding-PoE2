@@ -54,53 +54,24 @@ end
 
 function TooltipClass:AddLine(size, text, font, background)
 	if text then
-		-- Capture the first color code, if any
-		local colorPrefix = text:match("^(%^[x%dA-Fa-f]+)")
-
-		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do
-			-- If line doesn’t start with a color, reuse prefix
-			if colorPrefix and not line:find("^%^[x%dA-Fa-f]+") then
-				line = colorPrefix .. line
-			end
-
-			-- Handle tooltip block heights
+		local fontToUse
+		if main.showFlavourText then
+			fontToUse = font or "VAR"
+		else
+			fontToUse = "VAR"
+		end
+		for line in s_gmatch(text .. "\n", "([^\n]*)\n") do 
 			if line:match("^.*(Equipping)") == "Equipping" or line:match("^.*(Removing)") == "Removing" then
-				t_insert(self.blocks, { height = size + 2 })
+				t_insert(self.blocks, { height = size + 2})
 			else
 				self.blocks[#self.blocks].height = self.blocks[#self.blocks].height + size + 2
 			end
-
-			-- Default font for item tooltips
-			if (self.tooltipHeader == "UNIQUE"
-				or self.tooltipHeader == "RELIC"
-				or self.tooltipHeader == "RARE"
-				or self.tooltipHeader == "MAGIC"
-				or self.tooltipHeader == "NORMAL"
-				or self.tooltipHeader == "GEM"
-				or self.tooltipHeader == "NOTABLE"
-				or self.tooltipHeader == "PASSIVE"
-				or self.tooltipHeader == "KEYSTONE"
-				or self.tooltipHeader == "JEWEL"
-				or self.tooltipHeader == "ASCENDANCY")
-				and not font then
-				font = "FONTIN SC"
-			end
-
-			-- Handle wrapping with color continuity
 			if self.maxWidth then
-				local wrapped = main:WrapString(line, size, self.maxWidth - H_PAD)
-				local lastColor = line:match("(%^[x%dA-Fa-f]+)[^%^]*$") or colorPrefix
-				for i, linePart in ipairs(wrapped) do
-					-- Ensure each wrapped segment keeps last known color
-					if not linePart:find("^%^[x%dA-Fa-f]+") then
-						linePart = (lastColor or "") .. linePart
-					end
-					-- Update lastColor if another color code appears
-					lastColor = linePart:match("(%^[x%dA-Fa-f]+)[^%^]*$") or lastColor
-					t_insert(self.lines, { size = size, text = linePart, block = #self.blocks, font = font or "VAR", background = background })
+				for _, wrappedLine in ipairs(main:WrapString(line, size, self.maxWidth - H_PAD)) do
+					t_insert(self.lines, { size = size, text = wrappedLine, block = #self.blocks, font = fontToUse, center = self.center, background = background })
 				end
 			else
-				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = font or "VAR", background = background })
+				t_insert(self.lines, { size = size, text = line, block = #self.blocks, font = fontToUse, center = self.center, background = background })
 			end
 		end
 	end
@@ -265,7 +236,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			end
 			y = y + data.size + 2
 
-		elseif data.separatorImage then
+		elseif data.separatorImage and main.showFlavourText then
 			local sepSize = data.size or 10
 			if currentBlock ~= data.block and y + sepSize > ttY + math.min(ttH, viewPort.height) then
 				y = ttY + 2 * BORDER_WIDTH
@@ -295,7 +266,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	local ttW, ttH = self:GetSize()
 
 	-- ensure ttW is at least title width + 50 pixels, this fixes the header image for Magic items and some Tree passives.
-	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
+	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local titleW = DrawStringWidth(self.lines[1].size, "FONTIN SC", self.lines[1].text)
 		if titleW + 50 > ttW then
 			ttW = titleW + 50
@@ -319,7 +290,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png", middle="Assets/AscendancyPassiveHeaderMiddle.png", right="Assets/AscendancyPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
 	}
 	local config
-	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
+	if self.tooltipHeader and  main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
 		config = headerConfigs[rarity] or headerConfigs.NORMAL
 		self.titleYOffset = config.textYOffset or 0
@@ -436,7 +407,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			if line[1] and type(line[1]) == "table" and line[1].isSeparator then
 				-- Only skip first separator for items and skill gems
 				local tooltipType = self.tooltipHeader and tostring(self.tooltipHeader):upper() or ""
-				if not firstSeparatorSkipped and 
+				if main.showFlavourText and not firstSeparatorSkipped and
 				(tooltipType == "RELIC" or tooltipType == "UNIQUE" or tooltipType == "RARE" or tooltipType == "MAGIC" or tooltipType == "GEM") then
 					firstSeparatorSkipped = true
 					skip = true

@@ -105,6 +105,7 @@ function main:Init()
 	self.notSupportedTooltipText = " ^8(Not supported in PoB yet)"
 	self.POESESSID = ""
 	--self.showPublicBuilds = true
+	self.showFlavourText = true
 
 	if self.userPath then
 		self:ChangeUserPath(self.userPath, ignoreBuild)
@@ -635,6 +636,9 @@ function main:LoadSettings(ignoreBuild)
 				--if node.attrib.showPublicBuilds then
 					--self.showPublicBuilds = node.attrib.showPublicBuilds == "true"
 				--end
+				if node.attrib.showFlavourText then
+					self.showFlavourText = node.attrib.showFlavourText == "true"
+				end
 				if node.attrib.showAnimations then
 					self.showAnimations = node.attrib.showAnimations == "true"
 				end
@@ -759,6 +763,7 @@ function main:SaveSettings()
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
 		--showPublicBuilds = tostring(self.showPublicBuilds),
+		showFlavourText = tostring(self.showFlavourText),
 		showAnimations = tostring(self.showAnimations),
 		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent)
 	} })
@@ -958,6 +963,11 @@ function main:OpenOptionsPopup()
 	--end)
 
 	nextRow()
+	controls.showFlavourText = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Styled Tooltips with Flavour Text:", function(state)
+		self.showFlavourText = state
+	end)
+
+	nextRow()
 	controls.showAnimations = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
 		self.showAnimations = state
 	end)
@@ -1050,6 +1060,7 @@ function main:OpenOptionsPopup()
 	controls.edgeSearchHighlight.state = self.edgeSearchHighlight
 	controls.titlebarName.state = self.showTitlebarName
 	--controls.showPublicBuilds.state = self.showPublicBuilds
+	controls.showFlavourText.state = self.showFlavourText
 	controls.showAnimations.state = self.showAnimations
 	local initialNodePowerTheme = self.nodePowerTheme
 	local initialColorPositive = self.colorPositive
@@ -1070,6 +1081,7 @@ function main:OpenOptionsPopup()
 	local initialInvertSliderScrollDirection = self.invertSliderScrollDirection
 	local initialDisableDevAutoSave = self.disableDevAutoSave
 	--local initialShowPublicBuilds = self.showPublicBuilds
+	local initialShowFlavourText = self.showFlavourText
 	local initialShowAnimations = self.showAnimations
 	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
 
@@ -1124,6 +1136,7 @@ function main:OpenOptionsPopup()
 		self.invertSliderScrollDirection = initialInvertSliderScrollDirection
 		self.disableDevAutoSave = initialDisableDevAutoSave
 		self.showPublicBuilds = initialShowPublicBuilds
+		self.showFlavourText = initialShowFlavourText
 		self.showAnimations = initialShowAnimations
 		self.dpiScaleOverridePercent = initialDpiScaleOverridePercent
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
