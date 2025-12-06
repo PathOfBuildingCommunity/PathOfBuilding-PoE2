@@ -136,7 +136,8 @@ function TooltipClass:GetSize()
 	-- Account for recipe display
 	if self.recipe and self.lines[1] then
 		local title = self.lines[1]
-		local imageX = DrawStringWidth(title.size, "FONTIN SC", title.text) + title.size
+		local font = main.showFlavourText and "FONTIN" or "VAR"
+		local imageX = DrawStringWidth(title.size, font, title.text) + title.size
 		local recipeTextSize = (title.size * 3) / 4
 		for _, recipeInfo in ipairs(self.recipe) do
 			local recipeName = recipeInfo.name
@@ -145,7 +146,7 @@ function TooltipClass:GetSize()
 			if #recipeNameShort > 3 and recipeNameShort:sub(-3) == "Oil" then
 				recipeNameShort = recipeNameShort:sub(1, #recipeNameShort - 3)
 			end
-			imageX = imageX + DrawStringWidth(recipeTextSize, "FONTIN SC", recipeNameShort) + title.size * 1.25
+			imageX = imageX + DrawStringWidth(recipeTextSize, font, recipeNameShort) + title.size * 1.25
 		end
 		ttW = m_max(ttW, imageX)
 	end
@@ -171,9 +172,15 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 	local currentBlock = 1
 	local maxColumnHeight = 0
 	local drawStack = {}
+	local font
 
 	for i, data in ipairs(self.lines) do
 		-- Handle first line with recipe/oils
+		if main.showFlavourText then
+			font = data.font or "VAR"
+		else
+			font = "VAR"
+		end
 		if self.recipe and i == 1 and data.text then
 			local title = data
 			local titleSize = title.size
@@ -181,14 +188,14 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			local padding = 4
 
 			-- Measure total width for centering
-			local totalWidth = DrawStringWidth(titleSize, "FONTIN SC", title.text)
+			local totalWidth = DrawStringWidth(titleSize, font, title.text)
 			local oilWidths = {}
 			for _, r in ipairs(self.recipe) do
 				local rn = r.name
 				if #rn > 3 and rn:sub(-3) == "Oil" then
 					rn = rn:sub(1, #rn - 3)
 				end
-				local textW = DrawStringWidth(recipeTextSize, "FONTIN SC", rn)
+				local textW = DrawStringWidth(recipeTextSize, font, rn)
 				local iconW = titleSize
 				table.insert(oilWidths, {rn, r.sprite, textW, iconW})
 				totalWidth = totalWidth + textW + iconW + padding
@@ -197,14 +204,17 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			-- Center title + oils
 			local curX = ttX + ttW / 2 - totalWidth / 2
 			-- Draw title
-			t_insert(drawStack, {curX, y + (titleSize - titleSize)/2, "LEFT", titleSize, "FONTIN SC", title.text})
-			curX = curX + DrawStringWidth(titleSize, "FONTIN SC", title.text) + 6
+			t_insert(drawStack, {curX, y + (titleSize - titleSize)/2, "LEFT", titleSize, font, title.text})
+			curX = curX + DrawStringWidth(titleSize, font, title.text) + 6
 
 			-- Draw oils
 			local maxOilHeight = 0
 			for _, part in ipairs(oilWidths) do
 				local rn, sprite, textW, iconW = part[1], part[2], part[3], part[4]
-				t_insert(drawStack, {curX, y + (titleSize - recipeTextSize)/2, "LEFT", recipeTextSize, "FONTIN SC", rn})
+				if main.showFlavourText then
+					rn = "^xF8E6CA" .. rn
+				end
+				t_insert(drawStack, {curX, y + (titleSize - recipeTextSize)/2, "LEFT", recipeTextSize, font, rn})
 				curX = curX + textW
 				t_insert(drawStack, {sprite, curX, y, iconW, iconW})
 				curX = curX + iconW + padding
@@ -267,7 +277,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 	-- ensure ttW is at least title width + 50 pixels, this fixes the header image for Magic items and some Tree passives.
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
-		local titleW = DrawStringWidth(self.lines[1].size, "FONTIN SC", self.lines[1].text)
+		local titleW = DrawStringWidth(self.lines[1].size, self.lines[1].font, self.lines[1].text)
 		if titleW + 50 > ttW then
 			ttW = titleW + 50
 		end
@@ -283,14 +293,14 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		MAGIC = {left="Assets/ItemsHeaderMagicLeft.png", middle="Assets/ItemsHeaderMagicMiddle.png", right="Assets/ItemsHeaderMagicRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
 		NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png", middle="Assets/ItemsHeaderWhiteMiddle.png", right="Assets/ItemsHeaderWhiteRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
 		GEM = {left="Assets/ItemsHeaderGemLeft.png", middle="Assets/ItemsHeaderGemMiddle.png", right="Assets/ItemsHeaderGemRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		JEWEL = {left="Assets/JewelPassiveHeaderLeft.png", middle="Assets/JewelPassiveHeaderMiddle.png", right="Assets/JewelPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
-		NOTABLE = {left="Assets/NotablePassiveHeaderLeft.png", middle="Assets/NotablePassiveHeaderMiddle.png", right="Assets/NotablePassiveHeaderRight.png", height=38, sideWidth=38, middleWidth=32, textYOffset=2},
-		PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png", middle="Assets/NormalPassiveHeaderMiddle.png", right="Assets/NormalPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
-		KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png", middle="Assets/KeystonePassiveHeaderMiddle.png", right="Assets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
-		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png", middle="Assets/AscendancyPassiveHeaderMiddle.png", right="Assets/AscendancyPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=2},
+		JEWEL = {left="Assets/JewelPassiveHeaderLeft.png", middle="Assets/JewelPassiveHeaderMiddle.png", right="Assets/JewelPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		NOTABLE = {left="Assets/NotablePassiveHeaderLeft.png", middle="Assets/NotablePassiveHeaderMiddle.png", right="Assets/NotablePassiveHeaderRight.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+		PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png", middle="Assets/NormalPassiveHeaderMiddle.png", right="Assets/NormalPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png", middle="Assets/KeystonePassiveHeaderMiddle.png", right="Assets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png", middle="Assets/AscendancyPassiveHeaderMiddle.png", right="Assets/AscendancyPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 	}
 	local config
-	if self.tooltipHeader and  main.showFlavourText and self.lines[1] and self.lines[1].text then
+	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
 		config = headerConfigs[rarity] or headerConfigs.NORMAL
 		self.titleYOffset = config.textYOffset or 0
@@ -322,7 +332,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	SetDrawColor(1, 1, 1)
 
 	-- Item header (drawn within borders)
-	if self.tooltipHeader and self.lines[1] and self.lines[1].text then
+	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
 		local rarity = tostring(self.tooltipHeader):upper()
 		local config = headerConfigs[rarity] or headerConfigs.NORMAL
 		-- Animate RELIC header color (light green → bright yellow → white)
@@ -372,30 +382,32 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
 		end
 
-		-- Draw left cap first, then influence icon on top
-		DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader1 and config.allowInfluenceIcon then
-			DrawImage(self.influenceIcon1, headerX+5, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
-		end
-
-		-- Draw middle fill
-		if headerMiddleAreaWidth > 0 then
-			local drawX = headerX + headerSideWidth
-			local endX = headerX + headerTotalWidth - headerSideWidth
-			while drawX + headerMiddleWidth <= endX do
-				DrawImage(self.headerMiddle, drawX, headerY, headerMiddleWidth, headerHeight)
-				drawX = drawX + headerMiddleWidth
+		if main.showFlavourText then
+			-- Draw left cap first, then influence icon on top
+			DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
+			if self.influenceHeader1 and config.allowInfluenceIcon then
+				DrawImage(self.influenceIcon1, headerX+5, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
 			end
-			local remainingWidth = endX - drawX
-			if remainingWidth > 0 then
-				DrawImage(self.headerMiddle, drawX, headerY, remainingWidth, headerHeight)
-			end
-		end
 
-		-- Draw right cap
-		DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
-		if self.influenceHeader2 and config.allowInfluenceIcon then
-			DrawImage(self.influenceIcon2, headerX + headerTotalWidth - headerSideWidth+10, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
+			-- Draw middle fill
+			if headerMiddleAreaWidth > 0 then
+				local drawX = headerX + headerSideWidth
+				local endX = headerX + headerTotalWidth - headerSideWidth
+				while drawX + headerMiddleWidth <= endX do
+					DrawImage(self.headerMiddle, drawX, headerY, headerMiddleWidth, headerHeight)
+					drawX = drawX + headerMiddleWidth
+				end
+				local remainingWidth = endX - drawX
+				if remainingWidth > 0 then
+					DrawImage(self.headerMiddle, drawX, headerY, remainingWidth, headerHeight)
+				end
+			end
+
+			-- Draw right cap
+			DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
+			if self.influenceHeader2 and config.allowInfluenceIcon then
+				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - headerSideWidth+10, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
+			end
 		end
 	end
 
@@ -452,7 +464,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				local width = ttW - 8
 				local height = line[4] + 3
 
-				SetDrawColor(1,1,1,1)
+				SetDrawColor(1,1,1,1) -- this makes second line with background print white. Need to save current print color
 				DrawImage(bg, x + 4, y, width, height)
 			end
 
