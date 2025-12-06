@@ -897,7 +897,7 @@ function calcs.defence(env, actor)
 		output[elem.."ResistTotal"] = total
 		if modDB:Flag(nil, "MaxBlockChanceModsApplyMaxResist") then
 			local blockMaxBonus = modDB:Override(nil, "BlockChanceMax") and 0 or modDB:Sum("BASE", nil, "BlockChanceMax")
-			max = (modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))) + blockMaxBonus
+			max = modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax") + blockMaxBonus)
 		else
 			max = modDB:Override(nil, elem.."ResistMax") or m_min(data.misc.MaxResistCap, modDB:Sum("BASE", nil, elem.."ResistMax", isElemental[elem] and "ElementalResistMax"))
 		end		
