@@ -12018,20 +12018,20 @@ return {
 	},
 	[492]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="Supported Skills Gain {0}% of Damage as extra Physical Damage per 10 Life cost"
-			}
-		},
-		stats={
-			[1]="gain_%_of_damage_as_physical_per_10_life_cost"
-		}
-	},
+[1]={
+limit={
+[1]={
+[1]=1,
+[2]="#"
+}
+},
+text="Supported Skills Gain {0}% of Damage as extra Physical Damage per 20 Life cost, up to 40%"
+}
+},
+stats={
+[1]="gain_%_of_damage_as_physical_per_20_life_cost"
+}
+},
 	[493]={
 		[1]={
 			[1]={
@@ -30676,7 +30676,7 @@ return {
 	["fully_broken_armour_duration_ms_removed_on_hit"]=480,
 	["gain_%_damage_as_lighting_per_mana_flask_charge_consumed"]=491,
 	["gain_%_of_base_wand_damage_as_added_spell_damage"]=481,
-	["gain_%_of_damage_as_physical_per_10_life_cost"]=492,
+["gain_%_of_damage_as_physical_per_20_life_cost"]=492,
 	["gain_%_of_evasion_as_deflection_rating_on_perfect_timing_for_8_seconds"]=493,
 	["gain_1_rage_on_use_%_chance"]=482,
 	["gain_X_guard_on_heavy_stun_per_10_strength"]=483,

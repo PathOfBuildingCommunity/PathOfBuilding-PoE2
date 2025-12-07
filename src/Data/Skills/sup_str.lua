@@ -531,29 +531,29 @@ skills["SupportAtaluiBloodlettingPlayer"] = {
 	gemFamily = { "Lifetap",},
 	isLineage = true,
 	flavourText = {"Atazek and Atalui rose, battered and dark, bleeding from a hundred", "different wounds. She gave her brother a sinister grin. \"Shall we", "show them what happens to those who challenge the Vaal?\"", },
-	levels = {
-		[1] = { manaMultiplier = 50, levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Atalui's Bloodletting",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["gain_%_of_damage_as_physical_per_10_life_cost"] = {
-					mod("DamageGainAsPhysical", "BASE", nil, 0, 0, { type = "PerStat", stat = "LifeCost", div = 10 }),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "blood_magic_skill_life_cost_+%_final", 0 },
-				{ "base_skill_cost_life_instead_of_mana_%", 100 },
-				{ "gain_%_of_damage_as_physical_per_10_life_cost", 2 },
-			},
-			stats = {
-			},
-			levels = {
+levels = {
+[1] = { levelRequirement = 0, },
+},
+statSets = {
+[1] = {
+label = "Atalui's Bloodletting",
+incrementalEffectiveness = 0.054999999701977,
+statDescriptionScope = "gem_stat_descriptions",
+statMap = {
+["gain_%_of_damage_as_physical_per_20_life_cost"] = {
+mod("DamageGainAsPhysical", "BASE", nil, 0, 0, { type = "PerStat", stat = "LifeCost", div = 20, limit = 20, limitTotal = true }),
+},
+},
+baseFlags = {
+},
+constantStats = {
+{ "blood_magic_skill_life_cost_+%_final", 0 },
+{ "base_skill_cost_life_instead_of_mana_%", 100 },
+{ "gain_%_of_damage_as_physical_per_20_life_cost", 2 },
+},
+stats = {
+},
+levels = {
 				[1] = { actorLevel = 1, },
 			},
 		},
