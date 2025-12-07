@@ -61,3 +61,4 @@ You can find instructions on how to contribute code and bug reports [here](CONTR
 
 For 3rd-party licences, see [LICENSE](LICENSE.md).
 The licencing information is considered to be part of the documentation.
+
