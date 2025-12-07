@@ -1252,16 +1252,16 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	-- add position dev info
 	if launch.devModeAlt then
 		tooltip:AddSeparator(14)
-		tooltip:AddLine(18, string.format("^7Position: %d, %d", node.x, node.y))
-		tooltip:AddLine(18, string.format("Angle: %f", node.angle))
-		tooltip:AddLine(18, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
-		tooltip:AddLine(18, string.format("Group: %d", node.g))
-		tooltip:AddLine(18, string.format("AllocMode: %d", node.allocMode))
+		tooltip:AddLine(16, string.format("^7Position: %d, %d", node.x, node.y))
+		tooltip:AddLine(16, string.format("Angle: %f", node.angle))
+		tooltip:AddLine(16, string.format("Orbit: %d, Orbit Index: %d", node.orbit, node.orbitIndex))
+		tooltip:AddLine(16, string.format("Group: %d", node.g))
+		tooltip:AddLine(16, string.format("AllocMode: %d", node.allocMode))
 		tooltip:AddSeparator(14)
 
 		-- add connection info for debugging
 		for _, connection in ipairs(node.connections) do
-			tooltip:AddLine(18, string.format("^7Connection: %d, Orbit: %d", connection.id, connection.orbit))
+			tooltip:AddLine(16, string.format("^7Connection: %d, Orbit: %d", connection.id, connection.orbit))
 		end
 
 		tooltip:AddSeparator(14)
@@ -1407,7 +1407,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		ConPrintf("Node %d has no sd", node.id)
 	end
 	if mNode.sd and mNode.sd[1] and not mNode.allMasteryOptions then
-		tooltip:AddLine(18, "")
+		tooltip:AddLine(16, "")
 		local localIncEffect = 0
 		if not (mNode.isAttribute and not mNode.conqueredBy) and (mNode.type == "Normal" or mNode.type == "Notable") and isNodeInARadius(node) then
 			localIncEffect = processTimeLostModsAndGetLocalEffect(mNode, build)
@@ -1473,29 +1473,29 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 		if count == 0 then
 			if isGranted then
-				tooltip:AddLine(14, string.format("^7This node is granted by an item. Removing it will cause no changes"), "VAR")
+				tooltip:AddLine(14, string.format("^7This node is granted by an item. Removing it will cause no changes"))
 			else
-				tooltip:AddLine(14, string.format("^7No changes from %s this node%s.", node.alloc and "unallocating" or "allocating", node.intuitiveLeapLikesAffecting == 0 and pathLength > 1 and " or the nodes leading to it" or ""), "VAR")
+				tooltip:AddLine(14, string.format("^7No changes from %s this node%s.", node.alloc and "unallocating" or "allocating", node.intuitiveLeapLikesAffecting == 0 and pathLength > 1 and " or the nodes leading to it" or ""))
 			end
 		end
-		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D to disable the display of stat differences.")
 	else
 		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D to enable the display of stat differences.", "VAR")
+		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D to enable the display of stat differences.")
 	end
 
 	-- Pathing distance
 	tooltip:AddSeparator(14)
 	if node.path and #node.path > 0 then
 		if self.traceMode and isValueInArray(self.tracePath, node) then
-			tooltip:AddLine(14, "^7"..#self.tracePath .. " nodes in trace path", "VAR")
+			tooltip:AddLine(14, "^7"..#self.tracePath .. " nodes in trace path")
 			tooltip:AddLine(14, colorCodes.TIP)
 		else
-			tooltip:AddLine(14, "^7"..node.pathDist .. " points to node" .. (#node.intuitiveLeapLikesAffecting > 0 and " ^8(Can be allocated without pathing to it)" or ""), "VAR")
+			tooltip:AddLine(14, "^7"..node.pathDist .. " points to node" .. (#node.intuitiveLeapLikesAffecting > 0 and " ^8(Can be allocated without pathing to it)" or ""))
 			tooltip:AddLine(14, colorCodes.TIP)
 			if #node.path > 1 then
 				-- Handy hint!
-				tooltip:AddLine(14, "Tip: To reach this node by a different path, hold Shift, then trace the path and click this node", "VAR")
+				tooltip:AddLine(14, "Tip: To reach this node by a different path, hold Shift, then trace the path and click this node")
 			end
 		end
 	end
@@ -1505,21 +1505,21 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	end
 	if node.depends and #node.depends > 1 then
 		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, "^7"..#node.depends .. " points gained from unallocating these nodes", "VAR")
-		tooltip:AddLine(14, "^xFFD700"..formatNumSep(#node.depends * goldCost) .. " Gold ^7required to unallocate these nodes", "VAR")
+		tooltip:AddLine(14, "^7"..#node.depends .. " points gained from unallocating these nodes")
+		tooltip:AddLine(14, "^xFFD700"..formatNumSep(#node.depends * goldCost) .. " Gold ^7required to unallocate these nodes")
 		tooltip:AddLine(14, colorCodes.TIP)
 	elseif node.alloc then
-		tooltip:AddLine(14, "^xFFD700"..formatNumSep(#node.depends * goldCost) .. " Gold ^7required to unallocate this node", "VAR")
+		tooltip:AddLine(14, "^xFFD700"..formatNumSep(#node.depends * goldCost) .. " Gold ^7required to unallocate this node")
 		tooltip:AddLine(14, colorCodes.TIP)
 	end
 
 	self:AddGlobalNodeWarningsToTooltip(tooltip, node, build)
 
 	if node.type == "Socket" then
-		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Shift or Ctrl to hide this tooltip.", "VAR")
+		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Shift or Ctrl to hide this tooltip.")
 	else
-		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Ctrl to hide this tooltip.", "VAR")
-		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+C to copy this node's text.", "VAR")
+		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Ctrl to hide this tooltip.")
+		tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+C to copy this node's text.")
 	end
 end
 
@@ -1578,8 +1578,8 @@ function PassiveTreeViewClass:AddGlobalNodeWarningsToTooltip(tooltip, node, buil
 
 	if warningText ~= "" then
 		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, colorCodes.WARNING .. warningText, "VAR")
-		tooltip:AddLine(14, colorCodes.TIP .. tipText, "VAR")
+		tooltip:AddLine(14, colorCodes.WARNING .. warningText)
+		tooltip:AddLine(14, colorCodes.TIP .. tipText)
 	end
 end
 

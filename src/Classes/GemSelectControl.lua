@@ -585,7 +585,7 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			end
 		end
 	end
-	if grantedEffect.flavourText then
+	if grantedEffect.flavourText and main.showFlavourText then
 		self.tooltip:AddSeparator(10)
 		for _, line in ipairs(grantedEffect.flavourText) do
 			self.tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
@@ -627,7 +627,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			if grantedEffectLevel.storedUses and grantedEffectLevel.storedUses > 1 then
 				string = string .. string.format(" (%d uses)", grantedEffectLevel.storedUses)
 			end
-			self.tooltip:AddLine(fontSizeBig, string)
+			self.tooltip:AddLine(fontSizeBig, string, "FONTIN SC")
 		end
 	else
 		if gemInstance.skillMinion then
@@ -704,7 +704,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		self.skillsTab.build:AddRequirementsToTooltip(self.tooltip, reqLevel, reqStr, reqDex, reqInt)
 	end
 	if grantedEffect.description then
-		local wrap = main:WrapString(grantedEffect.description, 16, m_max(DrawStringWidth(18, "VAR", gemInstance.gemData.tagString), 400))
+		local wrap = main:WrapString(grantedEffect.description, 16, m_max(DrawStringWidth(fontSizeBig, "VAR", gemInstance.gemData.tagString), 400))
 		for _, line in ipairs(wrap) do
 			self.tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION..line, "FONTIN ITALIC")
 		end
@@ -738,7 +738,6 @@ function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLa
 		for i, line in ipairs(descriptions) do
 			local source = statSet.statMap[lineMap[line]] or self.skillsTab.build.data.skillStatMap[lineMap[line]]
 			local bg = (i % 2 == 0) and "GemHoverModBg" or nil  -- every second line gets background
-
 			if source then
 				if launch.devModeAlt then
 					local devText = lineMap[line]
