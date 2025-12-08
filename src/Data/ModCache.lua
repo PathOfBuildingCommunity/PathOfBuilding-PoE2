@@ -81,8 +81,8 @@ c["+0 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerCharge
 c["+0% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=0}},nil}
 c["+0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=0}},nil}
 c["+0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},nil}
-c["+0.15% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  "}
 c["+0.15% to Thorns Critical Hit Chance +25% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  +25% to Thorns Critical Hit Chance "}
+c["+0.2% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.2}}," Thorns  "}
 c["+0.5 metres to Dodge Roll distance while Surrounded"]={{}," metres to Dodge Roll distance  "}
 c["+0.5 metres to Dodge Roll distance while Surrounded 10% increased Movement Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},[2]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="MovementSpeed",type="BASE",value=0.5}}," metres to Dodge Roll distance  10% increased   "}
 c["+0.5% to Thorns Critical Hit Chance per 50 Tribute"]={{[1]={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.5}}," Thorns   "}
@@ -890,8 +890,8 @@ c["10% chance to Defend with 200% of Armour"]={{[1]={[1]={type="Condition",var="
 c["10% chance to Gain Arcane Surge when you deal a Critical Hit"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
 c["10% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceChance",type="BASE",value=10}},nil}
 c["10% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=10}},nil}
-c["10% chance to gain Volatility on Kill"]={nil,"Volatility  "}
-c["10% chance to gain a Frenzy Charge on Hit"]={nil,"a Frenzy Charge on Hit "}
+c["10% chance to gain Volatility on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="VolatilityChance",type="BASE",value=10}},nil}
+c["10% chance to gain a Frenzy Charge on Hit"]={{[1]={flags=4,keywordFlags=0,name="FrenzyChargeChance",type="BASE",value=10}},nil}
 c["10% chance to inflict Bleeding on Critical Hit with Attacks"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=65536,name="BleedChance",type="BASE",value=10}},nil}
 c["10% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=10}},nil}
 c["10% chance to inflict Cold Exposure on Hit if you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="ColdExposureChance",type="BASE",value=10}},nil}
@@ -1317,7 +1317,7 @@ c["15% chance to Impale on Spell Hit"]={{[1]={flags=2,keywordFlags=0,name="Impal
 c["15% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceChance",type="BASE",value=15}},nil}
 c["15% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=15}},nil}
 c["15% chance to cause Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=15}},nil}
-c["15% chance to gain a Power Charge on Critical Hit"]={nil,"a Power Charge "}
+c["15% chance to gain a Power Charge on Critical Hit"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="PowerChargeChance",type="BASE",value=15}},nil}
 c["15% chance to inflict Bleeding on Critical Hit"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=15}},nil}
 c["15% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=15}},nil}
 c["15% chance to not destroy Corpses when Consuming Corpses"]={{}," to not destroy Corpses when Consuming Corpses "}
@@ -1601,9 +1601,8 @@ c["20% chance to Knock Enemies Back with Hits at Close Range"]={{}," to Knock En
 c["20% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceChance",type="BASE",value=20}},nil}
 c["20% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=20}},nil}
 c["20% chance to cause Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=20}},nil}
-c["20% chance to gain Flame Archon when you Ignite an Enemy"]={nil,"Flame Archon when you Ignite an Enemy "}
-c["20% chance to gain a Power Charge on Hit"]={nil,"a Power Charge on Hit "}
-c["20% chance to gain a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges"]={nil,"a Power Charge on Hit Lose all Power Charges on reaching maximum Power Charges "}
+c["20% chance to gain Flame Archon when you Ignite an Enemy"]={{}," to gain Flame Archon when you Ignite an Enemy "}
+c["20% chance to gain a Power Charge on Hit"]={{[1]={flags=4,keywordFlags=0,name="PowerChargeChance",type="BASE",value=20}},nil}
 c["20% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=20}},nil}
 c["20% chance to load a bolt into all Crossbow skills on Kill"]={{}," to load a bolt into all  skills  "}
 c["20% chance to load a bolt into all Crossbow skills on Kill Sacrifice 300 Life to not consume the last bolt when firing"]={{[1]={[1]={type="Condition",var="KilledRecently"},[2]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=67108864,keywordFlags=0,name="Life",type="BASE",value=20}}," to load a bolt into all  skills 300  to not consume the last bolt when firing "}
@@ -1860,9 +1859,9 @@ c["240% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="Physical
 c["25 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=25}},nil}
 c["25 to 35 Cold Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=25}}," to 35 Cold  "}
 c["25 to 35 Fire Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=25}}," to 35 Fire  "}
-c["25% Chance to gain a Charge when you Kill an Enemy"]={nil,"a Charge  "}
-c["25% Chance to gain a Charge when you Kill an Enemy Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"]={nil,"a Charge  Creates Ignited Ground  when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life "}
-c["25% Chance to gain a Charge when you Kill an Enemy Energy Shield Recharge starts on use"]={nil,"a Charge  Energy Shield Recharge starts on use "}
+c["25% Chance to gain a Charge when you Kill an Enemy"]={{}," to gain a Charge  "}
+c["25% Chance to gain a Charge when you Kill an Enemy Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="FireDamage",type="BASE",value=25}}," to gain a Charge  Creates Ignited Ground  when used, Igniting enemies as though dealing  equal to 500% of your maximum Life "}
+c["25% Chance to gain a Charge when you Kill an Enemy Energy Shield Recharge starts on use"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=25}}," to gain a Charge   Recharge starts on use "}
 c["25% chance for Attacks to Maim on Hit against Poisoned Enemies"]={{},"  to Maim on Hit  "}
 c["25% chance for Attacks to Maim on Hit against Poisoned Enemies 25% increased Magnitude of Poison you inflict"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Poisoned"},flags=1,keywordFlags=2097152,name="AilmentMagnitude",type="BASE",value=25}},"  to Maim on Hit  25% increased  "}
 c["25% chance for Lightning Damage with Hits to be Lucky"]={{[1]={flags=0,keywordFlags=0,name="LightningLuckyHitsChance",type="BASE",value=25}},nil}
@@ -1883,7 +1882,7 @@ c["25% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChanc
 c["25% chance to Poison on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PoisonChance",type="BASE",value=25}},nil}
 c["25% chance to be inflicted with Bleeding when Hit"]={{}," to be inflicted  when Hit "}
 c["25% chance to cause Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=25}},nil}
-c["25% chance to gain a Power Charge on Critical Hit"]={nil,"a Power Charge "}
+c["25% chance to gain a Power Charge on Critical Hit"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="PowerChargeChance",type="BASE",value=25}},nil}
 c["25% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=25}},nil}
 c["25% chance to inflict Daze with Hits against Enemies further than 6m"]={{[1]={[1]={threshold=60,type="MultiplierThreshold",var="enemyDistance"},flags=0,keywordFlags=262144,name="DazeChance",type="BASE",value=25}},nil}
 c["25% chance to inflict Withered for 2 seconds on Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
@@ -2058,7 +2057,7 @@ c["28% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keyw
 c["29% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=29}},nil}
 c["3 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=3}},nil}
 c["3% chance to Avoid Elemental Ailments"]={{[1]={flags=0,keywordFlags=0,name="AvoidElementalAilments",type="BASE",value=3}},nil}
-c["3% chance to gain Volatility on Kill"]={nil,"Volatility  "}
+c["3% chance to gain Volatility on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="VolatilityChance",type="BASE",value=3}},nil}
 c["3% faster Curse Activation per 20 Tribute"]={{[1]={[1]={actor="parent",div=20,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CurseActivation",type="INC",value=3}},nil}
 c["3% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=3}},nil}
 c["3% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=3}},nil}
@@ -2544,7 +2543,7 @@ c["5% chance to Blind Enemies on Hit"]={{[1]={flags=0,keywordFlags=0,name="Blind
 c["5% chance to Blind Enemies on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="BlindChance",type="BASE",value=5}},nil}
 c["5% chance to Daze on Hit"]={{[1]={flags=4,keywordFlags=0,name="DazeChance",type="BASE",value=5}},nil}
 c["5% chance to Gain Arcane Surge when you deal a Critical Hit"]={{[1]={[1]={type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}},nil}
-c["5% chance to gain Volatility on Kill"]={nil,"Volatility  "}
+c["5% chance to gain Volatility on Kill"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="VolatilityChance",type="BASE",value=5}},nil}
 c["5% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=5}},nil}
 c["5% chance to not destroy Corpses when Consuming Corpses"]={{}," to not destroy Corpses when Consuming Corpses "}
 c["5% chance when collecting an Elemental Infusion to gain an"]={{}," when collecting an Elemental Infusion to gain an "}
@@ -2612,8 +2611,8 @@ c["50% chance for Surges to suffuse your Projectiles without being Consumed"]={{
 c["50% chance to Avoid Death from Hits"]={{}," to Avoid Death from Hits "}
 c["50% chance to Knock Back Bleeding Enemies with Hits"]={{}," to Knock Back Bleeding Enemies  "}
 c["50% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceChance",type="BASE",value=50}},nil}
-c["50% chance to gain Onslaught on Killing Blow with Axes"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=65540,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}," ing Blow  "}
-c["50% chance to gain Volatility when you are Stunned"]={nil,"Volatility when you are Stunned "}
+c["50% chance to gain Onslaught on Killing Blow with Axes"]={{[1]={[1]={type="Condition",var="KilledRecently"},flags=65540,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}},"  ing Blow  "}
+c["50% chance to gain Volatility when you are Stunned"]={{[1]={flags=0,keywordFlags=0,name="VolatilityChance",type="BASE",value=50}},"  when you are Stunned "}
 c["50% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=50}},nil}
 c["50% chance when collecting an Elemental Infusion to gain another different Elemental Infusion"]={{}," when collecting an Elemental Infusion to gain another different Elemental Infusion "}
 c["50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge"]={{}," when you gain a Frenzy Charge to gain an additional Frenzy Charge "}
