@@ -246,7 +246,7 @@ function TooltipClass:CalculateColumns(ttY, ttX, ttH, ttW, viewPort)
 			local lineX = lineCentered and (x + ttW / 2) or (x + 6)
 			local lineAlign = lineCentered and "CENTER_X" or "LEFT"
 
-			t_insert(drawStack, {lineX, y, lineAlign, data.size, font, data.text})
+			t_insert(drawStack, {lineX, y, lineAlign, data.size, font, data.text, background = data.background})
 			y = y + data.size + 2
 
 		elseif data.separatorImage and main.showFlavourText then
