@@ -854,6 +854,23 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawColor(1, 1, 1)
 			end
 		end
+		if IsKeyDown("ALT") and hoverNode and node ~= hoverNode then
+			local dx = node.x - hoverNode.x
+			local dy = node.y - hoverNode.y
+			local distSq = dx*dx + dy*dy
+			for _, radData in ipairs(build.data.jewelRadius) do
+				if radData.inner == 0 then
+					local r = radData.outer * build.data.gameConstants["PassiveTreeJewelDistanceMultiplier"]
+					if distSq <= r * r then
+						SetDrawLayer(nil, 30)
+						SetDrawColor(radData.col)
+						local size = 140 * scale / self.zoom ^ 0.2
+						DrawImage(self.highlightRing, scrX - size, scrY - size, size * 2, size * 2)
+						break
+					end
+				end
+			end
+		end
 		if self.searchStrResults[nodeId] then
 			-- Node matches the search string, show the highlight circle
 			SetDrawLayer(nil, 30)
@@ -895,78 +912,88 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	
 	-- Draw ring overlays for jewel sockets
 	SetDrawLayer(nil, 25)
-	for nodeId in pairs(tree.sockets) do
-		local node = spec.nodes[nodeId]
-		if node and node.name ~= "Charm Socket" and node.containJewelSocket ~= true and (not node.expansionJewel or node.expansionJewel.size == 2) then
-			local scrX, scrY = treeToScreen(node.x, node.y)
-			local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
-			if node == hoverNode then
-				local isThreadOfHope = jewel and jewel.jewelRadiusLabel == "Variable"
-				if isThreadOfHope then
-					for _, radData in ipairs(build.data.jewelRadius) do
-						local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
-						local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
-						-- Jewel in socket is Thread of Hope or similar, draw it's annulus
-						if innerSize ~= 0 then
-							SetDrawColor(radData.col)
-							DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-							DrawImage(self.ring, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
-						end
-					end
-				else
-					for _, radData in ipairs(build.data.jewelRadius) do
-						local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
-						local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
-						-- Jewel in socket is not Thread of Hope or similar, draw normal jewel radius
-						if innerSize == 0 then
-							SetDrawColor(radData.col)
-							DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						end
-					end
-				end
-			elseif node.alloc then
-				if jewel and jewel.jewelRadiusIndex then
-					-- Draw only the selected jewel radius
-					local radData = build.data.jewelRadius[jewel.jewelRadiusIndex]
-					local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
-					local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale * 1.06
-					SetDrawColor(1,1,1,0.7)
-					if jewel.title == "From Nothing" then
-						-- From Nothing ring shows on the allocated Keystone
-						for keystoneName, _ in pairs(jewel.jewelData.fromNothingKeystones) do
-							local keystone = spec.tree.keystoneMap[keystoneName]
-							if keystone and keystone.x and keystone.y then
-								innerSize = 150 * scale
-								local keyX, keyY = treeToScreen(keystone.x, keystone.y)
-								DrawImage(self.jewelShadedOuterRing, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
-								DrawImage(self.jewelShadedOuterRingFlipped, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
-								DrawImage(self.jewelShadedInnerRing, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
-								DrawImage(self.jewelShadedInnerRingFlipped, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
-							end
-						end
-					elseif jewel.jewelData and jewel.jewelData.conqueredBy and jewel.jewelData.conqueredBy.conqueror and jewel.jewelData.conqueredBy.conqueror.type then
-						local conqueror = jewel.jewelData.conqueredBy.conqueror.type
-						if conqueror == "kalguur" then
-							conqueror = "kalguuran"
-						end
-						local circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle1.dds")
-						local circle2 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle2.dds")
-						if conqueror == "abyss" then
-							circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/".. conqueror .."/".. conqueror .."passiveskillscreenjewelcircle1.dds")
-							circle2 = circle1
-						end
-						DrawImage(circle1.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle1))
-						DrawImage(circle2.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle2))
-					else
-						DrawImage(self.jewelShadedOuterRing, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.jewelShadedOuterRingFlipped, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
-						DrawImage(self.jewelShadedInnerRing, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
-						DrawImage(self.jewelShadedInnerRingFlipped, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
-					end
-				end
-			end
-		end
-	end
+    if IsKeyDown("ALT") and hoverNode then
+        local scrX, scrY = treeToScreen(hoverNode.x, hoverNode.y)
+        for _, radData in ipairs(build.data.jewelRadius) do
+            if radData.inner == 0 then
+                local outerSize = radData.outer * build.data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+                SetDrawColor(radData.col)
+                DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+            end
+        end
+    end
+    for nodeId in pairs(tree.sockets) do
+        local node = spec.nodes[nodeId]
+        if node and node.name ~= "Charm Socket" and node.containJewelSocket ~= true and (not node.expansionJewel or node.expansionJewel.size == 2) then
+            local scrX, scrY = treeToScreen(node.x, node.y)
+            local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
+            if node == hoverNode then
+                local isThreadOfHope = jewel and jewel.jewelRadiusLabel == "Variable"
+                if isThreadOfHope then
+                    for _, radData in ipairs(build.data.jewelRadius) do
+                        local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+                        local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+                        -- Jewel in socket is Thread of Hope or similar, draw it's annulus
+                        if innerSize ~= 0 then
+                            SetDrawColor(radData.col)
+                            DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+                            DrawImage(self.ring, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
+                        end
+                    end
+                else
+                    for _, radData in ipairs(build.data.jewelRadius) do
+                        local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+                        local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+                        -- Jewel in socket is not Thread of Hope or similar, draw normal jewel radius
+                        if innerSize == 0 then
+                            SetDrawColor(radData.col)
+                            DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+                        end
+                    end
+                end
+            elseif node.alloc then
+                if jewel and jewel.jewelRadiusIndex then
+                    -- Draw only the selected jewel radius
+                    local radData = build.data.jewelRadius[jewel.jewelRadiusIndex]
+                    local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+                    local innerSize = radData.inner * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale * 1.06
+                    SetDrawColor(1,1,1,0.7)
+                    if jewel.title == "From Nothing" then
+                        -- From Nothing ring shows on the allocated Keystone
+                        for keystoneName, _ in pairs(jewel.jewelData.fromNothingKeystones) do
+                            local keystone = spec.tree.keystoneMap[keystoneName]
+                            if keystone and keystone.x and keystone.y then
+                                innerSize = 150 * scale
+                                local keyX, keyY = treeToScreen(keystone.x, keystone.y)
+                                DrawImage(self.jewelShadedOuterRing, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
+                                DrawImage(self.jewelShadedOuterRingFlipped, keyX - outerSize, keyY - outerSize, outerSize * 2, outerSize * 2)
+                                DrawImage(self.jewelShadedInnerRing, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
+                                DrawImage(self.jewelShadedInnerRingFlipped, keyX - innerSize, keyY - innerSize, innerSize * 2, innerSize * 2)
+                            end
+                        end
+                    elseif jewel.jewelData and jewel.jewelData.conqueredBy and jewel.jewelData.conqueredBy.conqueror and jewel.jewelData.conqueredBy.conqueror.type then
+                        local conqueror = jewel.jewelData.conqueredBy.conqueror.type
+                        if conqueror == "kalguur" then
+                            conqueror = "kalguuran"
+                        end
+                        local circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle1.dds")
+                        local circle2 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/passiveskillscreen".. conqueror .."jewelcircle2.dds")
+                        if conqueror == "abyss" then
+                            circle1 = tree:GetAssetByName("art/textures/interface/2d/2dart/uiimages/ingame/".. conqueror .."/".. conqueror .."passiveskillscreenjewelcircle1.dds")
+                            circle2 = circle1
+                        end
+                        DrawImage(circle1.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle1))
+                        DrawImage(circle2.handle, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2, unpack(circle2))
+                    else
+                        DrawImage(self.jewelShadedOuterRing, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+                        DrawImage(self.jewelShadedOuterRingFlipped, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+                        DrawImage(self.jewelShadedInnerRing, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
+                        DrawImage(self.jewelShadedInnerRingFlipped, scrX - innerSize, scrY - innerSize, innerSize * 2, innerSize * 2)
+                    end
+                end
+            end
+        end
+    end
 end
 
 -- Draws the given asset at the given position
