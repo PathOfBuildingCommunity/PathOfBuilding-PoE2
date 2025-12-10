@@ -450,6 +450,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			-- Draw background if specified, used for gem mod lines and desecrated mods on items.
 			local bg = line.background
 			if bg then
+				-- Save current draw color BEFORE drawing background image, otherwise wrapped strings print white text for later lines.
+				local prevR, prevG, prevB, prevA = GetDrawColor()
+				
 				if type(bg) == "string" then
 					if not self._bgHandles then
 						self._bgHandles = {}
@@ -466,9 +469,11 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				local y = line[2] - 1
 				local width = ttW - 8
 				local height = line[4] + 3
-
-				SetDrawColor(1,1,1,1) -- this makes second line with background print white. Need to save current print color
+				SetDrawColor(1,1,1,1)
 				DrawImage(bg, x + 4, y, width, height)
+				
+				-- Restore color BEFORE DrawString
+				SetDrawColor(prevR, prevG, prevB, prevA)
 			end
 
 			-- Draw text line
