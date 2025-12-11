@@ -2229,6 +2229,8 @@ local specialModList = {
 	["(%d+)%% chance for enemies you kill to explode, dealing (%d+)%% of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Zealous Inquisition (Witchhunter Ascendancy)
 		return explodeFunc(chance, amount, type)
 	end,
+	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function (num) return { mod("Damage", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
+	["(%d+)%% increased area of effect of ancestrally boosted attacks"] = function (num) return { mod("AreaOfEffect", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
 	-- Keystones
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
 		mod("Speed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}), 
@@ -3112,10 +3114,6 @@ local specialModList = {
 	["you gain (%d+)%% increased damage for each trap"] = function(num) return { mod("Damage", "INC", num, { type = "PerStat", stat = "ActiveTrapLimit" }) } end,
 	["you gain (%d+)%% increased area of effect for each mine"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "PerStat", stat = "ActiveMineLimit" }) } end,
 	["triggers level (%d+) summon triggerbots when allocated"] = { flag("HaveTriggerBots") },
-
-	-- TEST
-	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function (num) return { mod("Damage", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
-	["(%d+)%% increased area of effect of ancestrally boosted attacks"] = function (num) return { mod("AreaOfEffect", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
 	-- Slayer
 	["cannot be stunned while leeching"] = { flag("StunImmune", { type = "Condition", var = "Leeching" }), },
 	["you are immune to bleeding while leeching"] = { flag("BleedImmune", { type = "Condition", var = "Leeching" }), },
