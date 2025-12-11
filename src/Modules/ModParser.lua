@@ -3114,7 +3114,8 @@ local specialModList = {
 	["triggers level (%d+) summon triggerbots when allocated"] = { flag("HaveTriggerBots") },
 
 	-- TEST
-	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function (num) return { mod("Damage", "INC", num, { type="AncestrallyBoosted"})} end,
+	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function (num) return { mod("Damage", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
+	["(%d+)%% increased area of effect of ancestrally boosted attacks"] = function (num) return { mod("AreaOfEffect", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
 	-- Slayer
 	["cannot be stunned while leeching"] = { flag("StunImmune", { type = "Condition", var = "Leeching" }), },
 	["you are immune to bleeding while leeching"] = { flag("BleedImmune", { type = "Condition", var = "Leeching" }), },
