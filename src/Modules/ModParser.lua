@@ -3112,6 +3112,9 @@ local specialModList = {
 	["you gain (%d+)%% increased damage for each trap"] = function(num) return { mod("Damage", "INC", num, { type = "PerStat", stat = "ActiveTrapLimit" }) } end,
 	["you gain (%d+)%% increased area of effect for each mine"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "PerStat", stat = "ActiveMineLimit" }) } end,
 	["triggers level (%d+) summon triggerbots when allocated"] = { flag("HaveTriggerBots") },
+
+	-- TEST
+	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function (num) return { mod("Damage", "INC", num, { type="AncestrallyBoosted"})} end,
 	-- Slayer
 	["cannot be stunned while leeching"] = { flag("StunImmune", { type = "Condition", var = "Leeching" }), },
 	["you are immune to bleeding while leeching"] = { flag("BleedImmune", { type = "Condition", var = "Leeching" }), },

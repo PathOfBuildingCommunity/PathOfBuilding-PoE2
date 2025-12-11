@@ -81,8 +81,8 @@ c["+0 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerCharge
 c["+0% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=0}},nil}
 c["+0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=0}},nil}
 c["+0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},nil}
-c["+0.15% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  "}
 c["+0.15% to Thorns Critical Hit Chance +25% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  +25% to Thorns Critical Hit Chance "}
+c["+0.2% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.2}}," Thorns  "}
 c["+0.5 metres to Dodge Roll distance while Surrounded"]={{}," metres to Dodge Roll distance  "}
 c["+0.5 metres to Dodge Roll distance while Surrounded 10% increased Movement Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},[2]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="MovementSpeed",type="BASE",value=0.5}}," metres to Dodge Roll distance  10% increased   "}
 c["+0.5% to Thorns Critical Hit Chance per 50 Tribute"]={{[1]={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.5}}," Thorns   "}
@@ -3992,10 +3992,9 @@ c["Alternating every 5 seconds: Take 30% less Damage from Hits"]={nil,"Alternati
 c["Always Hits"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CannotBeEvaded",type="FLAG",value=true}},nil}
 c["Always Poison on Hit with this weapon"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=8192,keywordFlags=0,name="PoisonChance",type="OVERRIDE",value=100}},nil}
 c["Always deals Critical Hits against Heavy Stunned Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HeavyStunned"},[2]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CritChance",type="OVERRIDE",value=100}},nil}
-c["Ancestrally Boosted Attacks deal 16% increased Damage"]={nil,"Ancestrally Boosted Attacks deal 16% increased Damage "}
-c["Ancestrally Boosted Attacks deal 30% increased Damage"]={nil,"Ancestrally Boosted Attacks deal 30% increased Damage "}
-c["Ancestrally Boosted Attacks deal 30% increased Damage On Heavy Stunning a Rare or Unique Enemy, your next Attack within 4 seconds will be Ancestrally Boosted"]={nil,"Ancestrally Boosted Attacks deal 30% increased Damage On Heavy Stunning a Rare or Unique Enemy, your next Attack within 4 seconds will be Ancestrally Boosted "}
-c["Ancestrally Boosted Attacks deal 8% increased Damage"]={nil,"Ancestrally Boosted Attacks deal 8% increased Damage "}
+c["Ancestrally Boosted Attacks deal 16% increased Damage"]={{[1]={[1]={type="AncestrallyBoosted"},flags=0,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
+c["Ancestrally Boosted Attacks deal 30% increased Damage"]={{[1]={[1]={type="AncestrallyBoosted"},flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
+c["Ancestrally Boosted Attacks deal 8% increased Damage"]={{[1]={[1]={type="AncestrallyBoosted"},flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["Any number of Poisons from this Weapon can affect a target at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=0,keywordFlags=0,name="PoisonStacks",type="OVERRIDE",value=math.huge}},nil}
 c["Apply 5 Critical Weakness to Enemies when Consuming a Mark on them"]={nil,"Apply 5 Critical Weakness to Enemies when Consuming a Mark on them "}
 c["Apply Debilitate to Enemies 3 Metres in front of you while actively Blocking"]={nil,"Apply Debilitate to Enemies 3 Metres in front of you while actively Blocking "}
