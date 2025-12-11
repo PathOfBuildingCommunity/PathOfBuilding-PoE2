@@ -2229,6 +2229,8 @@ local specialModList = {
 	["(%d+)%% chance for enemies you kill to explode, dealing (%d+)%% of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Zealous Inquisition (Witchhunter Ascendancy)
 		return explodeFunc(chance, amount, type)
 	end,
+	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function (num) return { mod("Damage", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
+	["(%d+)%% increased area of effect of ancestrally boosted attacks"] = function (num) return { mod("AreaOfEffect", "INC", num, {type="Condition", var="AncestrallyBoosted"})} end,
 	-- Keystones
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
 		mod("Speed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}), 
