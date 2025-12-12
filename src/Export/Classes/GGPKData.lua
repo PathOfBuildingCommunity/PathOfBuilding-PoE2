@@ -143,11 +143,11 @@ function GGPKClass:ExtractList(listToExtract, cache, useRegex)
 end
 
 function GGPKClass:AddDatFiles()
-	local datFiles = scanDir(self.oozPath .. "Data\\", '%w+%.dat$')
+	local datFiles = scanDir(self.oozPath .. "Data\\Balance\\", '%w+%.dat$')
 	for _, f in ipairs(datFiles) do
 		local record = { }
 		record.name = f
-		local rawFile = io.open(self.oozPath .. "Data\\" .. f, 'rb')
+		local rawFile = io.open(self.oozPath .. "Data\\Balance\\" .. f, 'rb')
 		record.data = rawFile:read("*all")
 		rawFile:close()
 		--ConPrintf("FILENAME: %s", fname)
@@ -156,11 +156,11 @@ function GGPKClass:AddDatFiles()
 end
 
 function GGPKClass:AddDat64Files()
-	local datFiles = scanDir(self.oozPath .. "Data\\", '%w+%.datc64$')
+	local datFiles = scanDir(self.oozPath .. "Data\\Balance\\", '%w+%.datc64$')
 	for _, f in ipairs(datFiles) do
 		local record = { }
 		record.name = f
-		local rawFile = io.open(self.oozPath .. "Data\\" .. f, 'rb')
+		local rawFile = io.open(self.oozPath .. "Data\\Balance\\" .. f, 'rb')
 		record.data = rawFile:read("*all")
 		rawFile:close()
 		--ConPrintf("FILENAME: %s", fname)
