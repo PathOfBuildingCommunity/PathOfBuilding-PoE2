@@ -16471,15 +16471,15 @@ return {
 		},
 		[4]={
 			list=false,
-			name="",
-			refTo="",
+			name="EffectSource",
+			refTo="MiscEffectPacks",
 			type="Key",
 			width=150
 		},
 		[5]={
 			list=false,
-			name="",
-			refTo="",
+			name="EffectDestination",
+			refTo="MiscEffectPacks",
 			type="Key",
 			width=150
 		},
@@ -16558,28 +16558,63 @@ return {
 			name="",
 			refTo="",
 			type="Int",
-			width=100
+			width=50
 		},
 		[17]={
 			list=false,
 			name="",
 			refTo="",
 			type="Bool",
-			width=100
+			width=50
 		},
 		[18]={
 			list=false,
 			name="TransformedState",
 			refTo="",
 			type="String",
-			width=150
+			width=120
 		},
 		[19]={
 			list=false,
 			name="",
 			refTo="",
+			type="Float",
+			width=50
+		},
+		[20]={
+			list=false,
+			name="",
+			refTo="",
 			type="Bool",
+			width=50
+		},
+		[21]={
+			list=false,
+			name="EffectParticles",
+			refTo="MiscEffectPacks",
+			type="Key",
 			width=150
+		},
+		[22]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[23]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		},
+		[24]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
 		}
 	},
 	shapeshifttransformdata={
@@ -18438,6 +18473,181 @@ return {
 	topologies={
 	},
 	tormentspirits={
+		[1]={
+			list=false,
+			name="MonsterVariety",
+			refTo="MonsterVarieties",
+			type="Key",
+			width=150
+		},
+		[2]={
+			list=true,
+			name="SpiritMods",
+			refTo="",
+			type="Key",
+			width=60
+		},
+		[3]={
+			list=true,
+			name="TouchedMods",
+			refTo="Mods",
+			type="Key",
+			width=300
+		},
+		[4]={
+			list=true,
+			name="MonsterPossessedMods1",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="MinZoneLevel",
+			refTo="",
+			type="Int",
+			width=90
+		},
+		[6]={
+			list=false,
+			name="MaxZoneLevel",
+			refTo="",
+			type="Int",
+			width=90
+		},
+		[7]={
+			list=false,
+			name="SpawnWeight",
+			refTo="",
+			type="Int",
+			width=90
+		},
+		[8]={
+			list=false,
+			name="SummonedMonster",
+			refTo="MonsterVarieties",
+			type="Key",
+			width=110
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[10]={
+			list=true,
+			name="RarePossessedMod",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[11]={
+			list=true,
+			name="UniquePossessedMod",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[12]={
+			list=false,
+			name="SpawnStat",
+			refTo="Stats",
+			type="Key",
+			width=150
+		},
+		[13]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[14]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[15]={
+			list=true,
+			name="PlayerPossessedMods",
+			refTo="Mods",
+			type="Key",
+			width=400
+		},
+		[16]={
+			list=true,
+			name="Quest",
+			refTo="QuestFlags",
+			type="Key",
+			width=100
+		},
+		[17]={
+			list=false,
+			name="CharmStat",
+			refTo="Stats",
+			type="Key",
+			width=150
+		},
+		[18]={
+			list=true,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[19]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[20]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=20
+		},
+		[21]={
+			list=false,
+			name="MonsterPossessedMods2",
+			refTo="Mods",
+			type="Key",
+			width=150
+		},
+		[22]={
+			list=true,
+			name="TalismanBase",
+			refTo="BaseItemTypes",
+			type="Key",
+			width=150
+		},
+		[23]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[24]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		},
+		[25]={
+			list=true,
+			name="",
+			refTo="",
+			type="Int",
+			width=50
+		}
 	},
 	totemdefendervarieties={
 	},
