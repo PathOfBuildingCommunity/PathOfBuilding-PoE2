@@ -909,8 +909,8 @@ for i, group in ipairs(psg.groups) do
 					local almostOnce = false
 					while handle do
 						almostOnce = true
-						print(statDescription:gsub("Metadata/Balance/StatDescriptions", "") .. ".csd")
-						-- loadStatFile(statDescription:gsub("Metadata/Balance/StatDescriptions/", "") .. ".csd")
+						print(statDescription:gsub("Data/StatDescriptions", "") .. ".csd")
+						-- loadStatFile(statDescription:gsub("Data/StatDescriptions/", "") .. ".csd")
 						if not handle:NextFile() then
 							break
 						end

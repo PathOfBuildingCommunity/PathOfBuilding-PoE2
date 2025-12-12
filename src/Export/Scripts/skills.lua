@@ -732,7 +732,7 @@ directiveTable.set = function(state, args, out)
 			state.statDescriptionScope = "gem_stat_descriptions"
 		end
 	else
-		state.statDescriptionScope = state.granted.ActiveSkill.StatDescription:gsub("^Metadata/Balance/StatDescriptions/", ""):
+		state.statDescriptionScope = state.granted.ActiveSkill.StatDescription:gsub("^Data/StatDescriptions/", ""):
 		-- Need to subtract 1 from setIndex because GGG indexes from 0
 		gsub("specific_skill_stat_descriptions/", ""):gsub("statset_0", "statset_"..(skill.setIndex - 1)):gsub("/$", ""):gsub("/", "_"), '",\n'
 	end
