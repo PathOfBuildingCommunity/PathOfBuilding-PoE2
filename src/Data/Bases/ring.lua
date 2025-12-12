@@ -4,132 +4,132 @@ local itemBases = ...
 
 itemBases["Golden Hoop"] = {
 	type = "Ring",
-	tags = { ring = true, demigods = true, not_for_sale = true, default = true, },
+	tags = { default = true, demigods = true, not_for_sale = true, ring = true, },
 	implicit = "+(8-12) to all Attributes",
 	implicitModTypes = { { "attribute" }, },
 	req = { level = 12, },
 }
 itemBases["Iron Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "Adds 1 to 4 Physical Damage to Attacks",
 	implicitModTypes = { { "physical_damage", "damage", "physical", "attack" }, },
 	req = { },
 }
 itemBases["Lazuli Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+(20-30) to maximum Mana",
 	implicitModTypes = { { "resource", "mana" }, },
 	req = { },
 }
 itemBases["Ruby Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+(20-30)% to Fire Resistance",
 	implicitModTypes = { { "elemental", "fire", "resistance" }, },
 	req = { level = 8, },
 }
 itemBases["Sapphire Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+(20-30)% to Cold Resistance",
 	implicitModTypes = { { "elemental", "cold", "resistance" }, },
 	req = { level = 12, },
 }
 itemBases["Topaz Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+(20-30)% to Lightning Resistance",
 	implicitModTypes = { { "elemental", "lightning", "resistance" }, },
 	req = { level = 16, },
 }
 itemBases["Amethyst Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+(7-13)% to Chaos Resistance",
 	implicitModTypes = { { "chaos", "resistance" }, },
 	req = { level = 20, },
 }
 itemBases["Emerald Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+(120-160) to Accuracy Rating",
 	implicitModTypes = { { "attack" }, },
 	req = { level = 26, },
 }
 itemBases["Pearl Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "(7-10)% increased Cast Speed",
 	implicitModTypes = { { "caster", "speed" }, },
 	req = { level = 32, },
 }
 itemBases["Prismatic Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+(7-10)% to all Elemental Resistances",
 	implicitModTypes = { { "elemental", "fire", "cold", "lightning", "resistance" }, },
 	req = { level = 35, },
 }
 itemBases["Gold Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "(6-15)% increased Rarity of Items found",
 	implicitModTypes = { { "drop" }, },
 	req = { level = 40, },
 }
 itemBases["Unset Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "Grants 1 additional Skill Slot",
 	implicitModTypes = { {  }, },
 	req = { level = 44, },
 }
 itemBases["Abyssal Signet"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "Inflict Abyssal Wasting on Hit",
 	implicitModTypes = { {  }, },
 	req = { },
 }
 itemBases["Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicitModTypes = { },
 	req = { },
 }
 itemBases["Dusk Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+1 Prefix Modifier allowed\n-1 Suffix Modifier allowed",
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
 itemBases["Gloam Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "-1 Prefix Modifier allowed\n+1 Suffix Modifier allowed",
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
 itemBases["Penumbra Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "+2 Prefix Modifiers allowed\n-2 Suffix Modifiers allowed",
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
 itemBases["Tenebrous Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "-2 Prefix Modifiers allowed\n+2 Suffix Modifiers allowed",
 	implicitModTypes = { {  }, {  }, },
 	req = { },
 }
 itemBases["Breach Ring"] = {
 	type = "Ring",
-	tags = { ring = true, default = true, },
+	tags = { default = true, ring = true, },
 	implicit = "Maximum Quality is 40%",
 	implicitModTypes = { {  }, },
 	req = { level = 40, },

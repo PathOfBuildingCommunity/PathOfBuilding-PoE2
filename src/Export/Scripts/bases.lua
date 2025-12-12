@@ -115,12 +115,17 @@ directiveTable.base = function(state, args, out)
 	out:write('\ttags = { ')
 	local combinedTags = { }
 	for _, tag in ipairs(baseItemTags or {}) do
-		combinedTags[tag] = tag
+		combinedTags[tag] = true
 	end
 	for _, tag in ipairs(baseItemType.Tags) do
-		combinedTags[tag.Id] = tag.Id
+		combinedTags[tag.Id] = true
 	end
-	for _, tag in pairs(combinedTags) do
+	local combinedTagList = { }
+	for tag in pairs(combinedTags) do
+		table.insert(combinedTagList, tag)
+	end
+	table.sort(combinedTagList)
+	for _, tag in ipairs(combinedTagList) do
 		out:write(tag, ' = true, ')
 	end
 	out:write('},\n')
