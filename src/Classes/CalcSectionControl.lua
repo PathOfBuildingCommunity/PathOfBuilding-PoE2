@@ -278,7 +278,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 						if self.calcsTab:SearchMatch(rowData.label) then
 							textColor = colorCodes.HIGHLIGHT
 						end
-						DrawString(x + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label.."^7:")
+						DrawString(x + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label..":")
 					end
 					for colour, colData in ipairs(rowData) do
 						-- Draw column separator at the left end of the cell
