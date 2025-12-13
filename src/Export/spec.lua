@@ -13827,7 +13827,7 @@ return {
 			name="",
 			refTo="",
 			type="Key",
-			width=260
+			width=40
 		},
 		[6]={
 			list=false,
@@ -14774,53 +14774,53 @@ return {
 			name="Id",
 			refTo="",
 			type="String",
-			width=150
+			width=380
 		},
 		[2]={
 			list=false,
-			name="",
+			name="Normal",
 			refTo="",
 			type="String",
 			width=591
 		},
 		[3]={
 			list=false,
-			name="",
+			name="NormalActive",
 			refTo="",
 			type="String",
 			width=633
 		},
 		[4]={
 			list=false,
-			name="",
+			name="Intermediate",
 			refTo="",
 			type="String",
 			width=591
 		},
 		[5]={
 			list=false,
-			name="",
+			name="IntermediateActive",
 			refTo="",
 			type="String",
 			width=591
 		},
 		[6]={
 			list=false,
-			name="",
+			name="Mask",
 			refTo="",
 			type="String",
 			width=493
 		},
 		[7]={
 			list=false,
-			name="",
+			name="LineOrnament1",
 			refTo="",
 			type="String",
 			width=381
 		},
 		[8]={
 			list=false,
-			name="",
+			name="LineOrnament2",
 			refTo="",
 			type="String",
 			width=381
