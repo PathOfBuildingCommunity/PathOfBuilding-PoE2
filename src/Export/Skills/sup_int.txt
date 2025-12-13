@@ -10,13 +10,45 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
+#skill SupportExplosiveGrowthPlayerTwo
+#set SupportExplosiveGrowthPlayerTwo
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveGrowthPlayerTwo
+#set TriggeredExplosiveGrowthPlayerTwo
+#flags
+#mods
+#skillEnd
+
+#skill SupportExplosiveGrowthPlayer
+#set SupportExplosiveGrowthPlayer
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveGrowthPlayer
+#set TriggeredExplosiveGrowthPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportAcrimonyPlayer
 #set SupportAcrimonyPlayer
 #mods
 #skillEnd
 
+#skill SupportAdvancingStormPlayer
+#set SupportAdvancingStormPlayer
+#mods
+#skillEnd
+
 #skill SupportAhnsCitadelPlayer
 #set SupportAhnsCitadelPlayer
+#mods
+#skillEnd
+
+#skill SupportAmbrosiaPlayerTwo
+#set SupportAmbrosiaPlayerTwo
 #mods
 #skillEnd
 
@@ -75,6 +107,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBhatairsVengeancePlayer
+#set SupportBhatairsVengeancePlayer
+#mods
+#skillEnd
+
 #skill SupportBiddingPlayer
 #set SupportBiddingPlayer
 #mods
@@ -100,6 +137,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBitingFrostPlayerTwo
+#set SupportBitingFrostPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportBlazingCriticalPlayer
+#set SupportBlazingCriticalPlayer
+#mods
+#skillEnd
+
 #skill SupportBoneShrapnelPlayer
 #set SupportBoneShrapnelPlayer
 #mods
@@ -117,6 +164,11 @@ statMap = {
 
 #skill SupportBoundlessEnergyPlayerTwo
 #set SupportBoundlessEnergyPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportBrittleArmourPlayer
+#set SupportBrittleArmourPlayer
 #mods
 #skillEnd
 
@@ -162,6 +214,26 @@ statMap = {
 #baseMod mod("EnemyIgniteChance", "BASE", 100)
 #baseMod mod("IgniteStacks", "OVERRIDE", 1)
 #baseMod flag("NeverCrit")
+#mods
+#skillEnd
+
+#skill SupportCatalysingElementsPlayer
+#set SupportCatalysingElementsPlayer
+#mods
+#skillEnd
+
+#skill TriggeredCatalysingDischargePlayer
+#set TriggeredCatalysingDischargePlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeFirePlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeLightningPlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeColdPlayer
+#flags
 #mods
 #skillEnd
 
@@ -267,6 +339,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportConcussiveSpellsPlayer
+#set SupportConcussiveSpellsPlayer
+#mods
+#skillEnd
+
 #skill SupportConsideredCastingPlayer
 #set SupportConsideredCastingPlayer
 statMap = {
@@ -295,6 +372,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDeadlyCurrentPlayer
+#set SupportDeadlyCurrentPlayer
+#mods
+#skillEnd
+
+#skill TriggeredDeadlyCurrentPlayer
+#set TriggeredDeadlyCurrentPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportCracklingBarrierPlayer
 #set SupportCracklingBarrierPlayer
 #mods
@@ -302,6 +390,17 @@ statMap = {
 
 #skill SupportCrazedMinionsPlayer
 #set SupportCrazedMinionsPlayer
+#mods
+#skillEnd
+
+#skill SupportCreepingChillPlayer
+#set SupportCreepingChillPlayer
+#mods
+#skillEnd
+
+#skill TriggeredCreepingChillPlayer
+#set TriggeredCreepingChillPlayer
+#flags
 #mods
 #skillEnd
 
@@ -398,6 +497,20 @@ statMap = {
 		mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "Condition", var = "AilmentConsumed" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportShockingRiftPlayer
+#set SupportShockingRiftPlayer
+#mods
+#skillEnd
+
+#skill TriggeredShockingRiftPlayer
+#set TriggeredShockingRiftPlayer
+#flags
+#mods
+#set TriggeredShockingRiftFinalPulsePlayer
+#flags
 #mods
 #skillEnd
 
@@ -676,6 +789,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportHayoxisBindingPlayer
+#set SupportHayoxisBindingPlayer
+#mods
+#skillEnd
+
+#skill SupportTriggeredAnnihilationPlayer
+#set SupportTriggeredAnnihilationPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportCurseEffectPlayer
 #set SupportCurseEffectPlayer
 #mods
@@ -720,6 +844,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportIceBitePlayerTwo
+#set SupportIceBitePlayerTwo
+#mods
+#skillEnd
+
 #skill SupportIciclePlayer
 #set SupportIciclePlayer
 statMap = {
@@ -754,6 +883,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportInevitableCriticalsPlayerTwo
+#set SupportInevitableCriticalsPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportIntenseAgonyPlayer
 #set SupportIntenseAgonyPlayer
 statMap = {
@@ -774,6 +908,11 @@ statMap = {
 
 #skill SupportKalisasCrescendoPlayer
 #set SupportKalisasCrescendoPlayer
+#mods
+#skillEnd
+
+#skill SupportKhatalsRejuvenationPlayer
+#set SupportKhatalsRejuvenationPlayer
 #mods
 #skillEnd
 
@@ -899,6 +1038,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportMarkOfSiphoningPlayerTwo
+#set SupportMarkOfSiphoningPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportMarkOfSiphoningPlayer
+#set SupportMarkOfSiphoningPlayer
+#mods
+#skillEnd
+
 #skill SupportMinionInstabilityPlayer
 #set SupportMinionInstabilityPlayer
 statMap = {
@@ -932,6 +1081,11 @@ statMap = {
 		mod("Damage", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportMorganasTempestPlayer
+#set SupportMorganasTempestPlayer
 #mods
 #skillEnd
 
@@ -970,6 +1124,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportOisinsOathPlayer
+#set SupportOisinsOathPlayer
+#mods
+#skillEnd
+
 #skill SupportPerpetualChargePlayer
 #set SupportPerpetualChargePlayer
 #mods
@@ -1005,6 +1164,16 @@ statMap = {
 		mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", limit = 1 }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportPracticalMagicPlayer
+#set SupportPracticalMagicPlayer
+#mods
+#skillEnd
+
+#skill SupportPracticalMagicPlayerTwo
+#set SupportPracticalMagicPlayerTwo
 #mods
 #skillEnd
 
@@ -1078,6 +1247,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportShockConductionPlayerTwo
+#set SupportShockConductionPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportEnergyShieldOnShockKillPlayer
 #set SupportEnergyShieldOnShockKillPlayer
 statMap = {
@@ -1119,6 +1293,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportStaticShocksPlayer
+#set SupportStaticShocksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredStaticShocksPlayer
+#set TriggeredStaticShocksPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportStormfirePlayer
 #set SupportStormfirePlayer
 #mods
@@ -1146,6 +1331,16 @@ statMap = {
 
 #skill SupportTecrodsRevengePlayer
 #set SupportTecrodsRevengePlayer
+#mods
+#skillEnd
+
+#skill SupportThrillOfTheKillPlayerTwo
+#set SupportThrillOfTheKillPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportThrillOfTheKillPlayer
+#set SupportThrillOfTheKillPlayer
 #mods
 #skillEnd
 
@@ -1231,10 +1426,27 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportXibaquasRendingPlayer
+#set SupportXibaquasRendingPlayer
+#mods
+#skillEnd
+
+#skill TriggeredXibaquasRendingPlayer
+#set TriggeredXibaquasRendingPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportZarokhsRefrainPlayer
 #set SupportZarokhsRefrainPlayer
 #mods
 #skillEnd
+
+#skill SupportZarokhsRevoltPlayer
+#set SupportZarokhsRevoltPlayer
+#mods
+#skillEnd
+
 
 #skill SupportZenithPlayer
 #set SupportZenithPlayer

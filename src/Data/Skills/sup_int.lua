@@ -37,6 +37,301 @@ skills["SupportAbidingHexPlayer"] = {
 		},
 	}
 }
+skills["SupportExplosiveGrowthPlayerTwo"] = {
+	name = "Accelerated Growth II",
+	description = "Supports Plant Skills, causing them to Trigger an explosion after they have been Overgrown, Blinding enemies Hit.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Plant, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "AcceleratedGrowth",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Accelerated Growth II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_explosive_growth_trigger_explosion_on_plant_growth",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredExplosiveGrowthPlayerTwo"] = {
+	name = "Accelerated Growth",
+	hidden = true,
+	description = "Spawn a verdant flower that grows and explodes.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 10, levelRequirement = 0, },
+		[2] = { critChance = 10, levelRequirement = 0, },
+		[3] = { critChance = 10, levelRequirement = 0, },
+		[4] = { critChance = 10, levelRequirement = 0, },
+		[5] = { critChance = 10, levelRequirement = 0, },
+		[6] = { critChance = 10, levelRequirement = 0, },
+		[7] = { critChance = 10, levelRequirement = 0, },
+		[8] = { critChance = 10, levelRequirement = 0, },
+		[9] = { critChance = 10, levelRequirement = 0, },
+		[10] = { critChance = 10, levelRequirement = 0, },
+		[11] = { critChance = 10, levelRequirement = 0, },
+		[12] = { critChance = 10, levelRequirement = 0, },
+		[13] = { critChance = 10, levelRequirement = 0, },
+		[14] = { critChance = 10, levelRequirement = 0, },
+		[15] = { critChance = 10, levelRequirement = 0, },
+		[16] = { critChance = 10, levelRequirement = 0, },
+		[17] = { critChance = 10, levelRequirement = 0, },
+		[18] = { critChance = 10, levelRequirement = 0, },
+		[19] = { critChance = 10, levelRequirement = 0, },
+		[20] = { critChance = 10, levelRequirement = 0, },
+		[21] = { critChance = 10, levelRequirement = 0, },
+		[22] = { critChance = 10, levelRequirement = 0, },
+		[23] = { critChance = 10, levelRequirement = 0, },
+		[24] = { critChance = 10, levelRequirement = 0, },
+		[25] = { critChance = 10, levelRequirement = 0, },
+		[26] = { critChance = 10, levelRequirement = 0, },
+		[27] = { critChance = 10, levelRequirement = 0, },
+		[28] = { critChance = 10, levelRequirement = 0, },
+		[29] = { critChance = 10, levelRequirement = 0, },
+		[30] = { critChance = 10, levelRequirement = 0, },
+		[31] = { critChance = 10, levelRequirement = 0, },
+		[32] = { critChance = 10, levelRequirement = 0, },
+		[33] = { critChance = 10, levelRequirement = 0, },
+		[34] = { critChance = 10, levelRequirement = 0, },
+		[35] = { critChance = 10, levelRequirement = 0, },
+		[36] = { critChance = 10, levelRequirement = 0, },
+		[37] = { critChance = 10, levelRequirement = 0, },
+		[38] = { critChance = 10, levelRequirement = 0, },
+		[39] = { critChance = 10, levelRequirement = 0, },
+		[40] = { critChance = 10, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Accelerated Growth",
+			baseEffectiveness = 1.2000000476837,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.0082000000402331,
+			statDescriptionScope = "triggered_explosive_growth",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_support_explosive_growth_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 18 },
+				{ "support_explosive_growth_explosion_delay_X_ms", 1200 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
+				{ "global_chance_to_blind_on_hit_%", 100 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"triggerable_in_any_set",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 4, 6, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 5, 8, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 7, 10, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 9, 13, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 11, 17, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 14, 21, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 17, 25, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 20, 30, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 24, 36, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 28, 42, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 32, 49, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 38, 57, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 44, 65, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 50, 75, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 58, 86, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 66, 99, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 75, 113, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 86, 129, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 98, 147, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 111, 167, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 127, 190, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 144, 216, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 164, 246, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 186, 279, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 211, 317, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 240, 360, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 272, 408, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 309, 464, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 351, 527, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 400, 599, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 454, 682, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 517, 776, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 589, 883, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 671, 1006, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 765, 1148, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 873, 1310, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 997, 1496, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 1140, 1710, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 1305, 1957, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 1494, 2241, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["SupportExplosiveGrowthPlayer"] = {
+	name = "Accelerated Growth",
+	description = "Supports Plant Skills, causing them to Trigger an explosion after they have been Overgrown.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Plant, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "AcceleratedGrowth",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Accelerated Growth",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_explosive_growth_trigger_explosion_on_plant_growth",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredExplosiveGrowthPlayer"] = {
+	name = "Accelerated Growth",
+	hidden = true,
+	description = "Spawn a verdant flower that grows and explodes.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 10, levelRequirement = 0, },
+		[2] = { critChance = 10, levelRequirement = 0, },
+		[3] = { critChance = 10, levelRequirement = 0, },
+		[4] = { critChance = 10, levelRequirement = 0, },
+		[5] = { critChance = 10, levelRequirement = 0, },
+		[6] = { critChance = 10, levelRequirement = 0, },
+		[7] = { critChance = 10, levelRequirement = 0, },
+		[8] = { critChance = 10, levelRequirement = 0, },
+		[9] = { critChance = 10, levelRequirement = 0, },
+		[10] = { critChance = 10, levelRequirement = 0, },
+		[11] = { critChance = 10, levelRequirement = 0, },
+		[12] = { critChance = 10, levelRequirement = 0, },
+		[13] = { critChance = 10, levelRequirement = 0, },
+		[14] = { critChance = 10, levelRequirement = 0, },
+		[15] = { critChance = 10, levelRequirement = 0, },
+		[16] = { critChance = 10, levelRequirement = 0, },
+		[17] = { critChance = 10, levelRequirement = 0, },
+		[18] = { critChance = 10, levelRequirement = 0, },
+		[19] = { critChance = 10, levelRequirement = 0, },
+		[20] = { critChance = 10, levelRequirement = 0, },
+		[21] = { critChance = 10, levelRequirement = 0, },
+		[22] = { critChance = 10, levelRequirement = 0, },
+		[23] = { critChance = 10, levelRequirement = 0, },
+		[24] = { critChance = 10, levelRequirement = 0, },
+		[25] = { critChance = 10, levelRequirement = 0, },
+		[26] = { critChance = 10, levelRequirement = 0, },
+		[27] = { critChance = 10, levelRequirement = 0, },
+		[28] = { critChance = 10, levelRequirement = 0, },
+		[29] = { critChance = 10, levelRequirement = 0, },
+		[30] = { critChance = 10, levelRequirement = 0, },
+		[31] = { critChance = 10, levelRequirement = 0, },
+		[32] = { critChance = 10, levelRequirement = 0, },
+		[33] = { critChance = 10, levelRequirement = 0, },
+		[34] = { critChance = 10, levelRequirement = 0, },
+		[35] = { critChance = 10, levelRequirement = 0, },
+		[36] = { critChance = 10, levelRequirement = 0, },
+		[37] = { critChance = 10, levelRequirement = 0, },
+		[38] = { critChance = 10, levelRequirement = 0, },
+		[39] = { critChance = 10, levelRequirement = 0, },
+		[40] = { critChance = 10, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Accelerated Growth",
+			baseEffectiveness = 1.2000000476837,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.0082000000402331,
+			statDescriptionScope = "triggered_explosive_growth",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_support_explosive_growth_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 18 },
+				{ "support_explosive_growth_explosion_delay_X_ms", 1200 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 10 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"triggerable_in_any_set",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 4, 6, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 5, 8, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 7, 10, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 9, 13, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 11, 17, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 14, 21, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 17, 25, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 20, 30, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 24, 36, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 28, 42, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 32, 49, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 38, 57, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 44, 65, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 50, 75, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 58, 86, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 66, 99, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 75, 113, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 86, 129, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 98, 147, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 111, 167, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 127, 190, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 144, 216, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 164, 246, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 186, 279, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 211, 317, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 240, 360, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 272, 408, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 309, 464, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 351, 527, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 400, 599, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 454, 682, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 517, 776, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 589, 883, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 671, 1006, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 765, 1148, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 873, 1310, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 997, 1496, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 1140, 1710, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 1305, 1957, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 1494, 2241, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
 skills["SupportAcrimonyPlayer"] = {
 	name = "Acrimony",
 	description = "Supports Skills which can Damage Enemies. Enemies affected by Damage over time from Supported Skills which was not caused by a Damaging Ailment have reduced Life regeneration rate. Only the strongest instance of this Debuff will apply. Does not Support Skills used by Minions.",
@@ -61,6 +356,38 @@ skills["SupportAcrimonyPlayer"] = {
 				{ "skill_enemies_affected_by_non_ailment_damage_over_time_life_regeneration_rate_+%", -50 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportAdvancingStormPlayer"] = {
+	name = "Advancing Storm",
+	description = "Supports Spells which create Storms, causing them to originate from the player and move towards the target location. Cannot Support Triggered Skills.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Storm, SkillType.Spell, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.HasUsageCondition, SkillType.SupportedByCleanse, SkillType.NOT, SkillType.AND, SkillType.HasReservation, SkillType.UsedByTotem, SkillType.Triggered, },
+	gemFamily = { "MovingStorms",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Advancing Storm",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "storm_base_movement_speed", 25 },
+			},
+			stats = {
+				"storm_skills_spawn_at_initiator_location",
+				"self_targeted_storm_skills_target_a_location_instead",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -94,6 +421,38 @@ skills["SupportAhnsCitadelPlayer"] = {
 			},
 			stats = {
 				"wall_is_created_along_a_fissure_instead",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportAmbrosiaPlayerTwo"] = {
+	name = "Ambrosia II",
+	description = "Supports Skills you use yourself which damage enemies with Hits. Supported Skills consume a percentage of your maximum Mana Flask charges, Gaining a percentage of damage as extra Lightning damage per Mana Flask charge consumed.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Meta, },
+	gemFamily = { "Ambrosia",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Ambrosia II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "consume_%_of_maximum_mana_flask_charges_on_skill_use", 35 },
+				{ "gain_%_damage_as_lighting_per_mana_flask_charge_consumed", 1 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -319,6 +678,39 @@ skills["SupportAtzirisAllurePlayer"] = {
 		},
 	}
 }
+skills["SupportBhatairsVengeancePlayer"] = {
+	name = "Bhatair's Vengeance",
+	description = "Supports Attacks and Warcries you use yourself. Freezing an enemy with Supported Skills infuses you and your allies with Cold damage for a short time. ",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Warcry, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.Triggered, SkillType.UsedByTotem, },
+	gemFamily = { "IceBite",},
+	isLineage = true,
+	flavourText = {"It is said that the Steward of Tales roams Wraeclast still,", "lost in the form of a Wyvern, full of sorrow and fury at", "the loss of his beloved pupils to the King in the Mists...", },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Bhatair's Vengeance",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "supported_skill_grants_shatter_fang_to_you_and_allies_in_presence_for_base_X_ms_on_freeze", 20000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportBiddingPlayer"] = {
 	name = "Bidding I",
 	description = "Supports Minion Skills. Supported Minions deal more damage and have increased Cooldown Recovery Rate with Command Skills.",
@@ -448,6 +840,71 @@ skills["SupportBitingFrostPlayer"] = {
 		},
 	}
 }
+skills["SupportBitingFrostPlayerTwo"] = {
+	name = "Biting Frost II",
+	description = "Supports any skill that Hits enemies, causing them to deal more damage to Frozen enemies but consume their Freeze, leaving them Chilled. Cannot support skills that Consume Freeze.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.SkillConsumesFreeze, SkillType.SupportedByElementalDischarge, },
+	gemFamily = { "BitingFrost",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Biting Frost II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final", 40 },
+				{ "support_biting_frost_damage_+%_final_vs_frozen_unique_enemies", 20 },
+			},
+			stats = {
+				"never_freeze",
+				"support_active_skill_consume_enemy_freeze_to_apply_chill",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportBlazingCriticalPlayer"] = {
+	name = "Blazing Critical",
+	description = "Supports Skills you use yourself which Hit enemies. Critical Hits with Supported Skills imbue all of your Attacks with Fire damage for a duration.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.Triggered, SkillType.UsedByTotem, },
+	gemFamily = { "BlazingCritical",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Blazing Critical",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit", 15 },
+				{ "support_blazing_crits_base_duration_ms", 5000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportBoneShrapnelPlayer"] = {
 	name = "Bone Shrapnel",
 	description = "Supports Skills which Hit Enemies. Supported Skills trigger Bone Shrapnel explosions when killing Pinned Enemies.",
@@ -561,6 +1018,36 @@ skills["SupportBoundlessEnergyPlayerTwo"] = {
 			},
 			constantStats = {
 				{ "energy_generated_+%", 45 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportBrittleArmourPlayer"] = {
+	name = "Brittle Armour",
+	description = "Supports Skills which can Hit enemies. Hits with Supported Skills which Freeze enemies cause Physical damage against them to Break their Armour while they remain Frozen.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ArmourBreak",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Brittle Armour",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "freeze_applies_%_physical_damage_taken_as_armour_break", 100 },
 			},
 			stats = {
 			},
@@ -796,6 +1283,335 @@ skills["TriggeredBurningRunesPlayer"] = {
 				[38] = { actorLevel = 265.17199707031, },
 				[39] = { actorLevel = 276.62298583984, },
 				[40] = { actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["SupportCatalysingElementsPlayer"] = {
+	name = "Catalysing Elements",
+	description = "Supports Skills which are boosted by Elemental Ground Surfaces, Triggering Catalysing Discharge of the corresponding type when they are boosted by an allied Elemental Ground Surface.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.InteractsWithElementalGround, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ElementalDischarge",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Catalysing Elements",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_catalysing_elements_triggers_elemental_discharge",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredCatalysingDischargePlayer"] = {
+	name = "Catalysing Discharge",
+	hidden = true,
+	description = "Triggered when supported skill is boosted by an Elemental Ground Surface to deal damage of the matching Element.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[3] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[4] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[5] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[6] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[7] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[8] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[9] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[10] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[11] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[12] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[13] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[14] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[15] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[16] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[17] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[18] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[19] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[20] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[21] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[22] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[23] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[24] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[25] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[26] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[27] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[28] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[29] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[30] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[31] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[32] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[33] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[34] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[35] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[36] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[37] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[38] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[39] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+		[40] = { cooldown = 1, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Catalysing Discharge",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "triggered_elemental_discharge",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 20 },
+			},
+			stats = {
+				"is_area_damage",
+				"triggered_by_catalysing_elements",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 3.4519999027252, },
+				[3] = { actorLevel = 6.7670001983643, },
+				[4] = { actorLevel = 10.307999610901, },
+				[5] = { actorLevel = 14.074999809265, },
+				[6] = { actorLevel = 18.068000793457, },
+				[7] = { actorLevel = 22.287000656128, },
+				[8] = { actorLevel = 26.732000350952, },
+				[9] = { actorLevel = 31.40299987793, },
+				[10] = { actorLevel = 36.299999237061, },
+				[11] = { actorLevel = 41.423000335693, },
+				[12] = { actorLevel = 46.771999359131, },
+				[13] = { actorLevel = 52.34700012207, },
+				[14] = { actorLevel = 58.147998809814, },
+				[15] = { actorLevel = 64.175003051758, },
+				[16] = { actorLevel = 70.428001403809, },
+				[17] = { actorLevel = 76.906997680664, },
+				[18] = { actorLevel = 83.611999511719, },
+				[19] = { actorLevel = 90.542999267578, },
+				[20] = { actorLevel = 97.699996948242, },
+				[21] = { actorLevel = 105.08300018311, },
+				[22] = { actorLevel = 112.69200134277, },
+				[23] = { actorLevel = 120.52700042725, },
+				[24] = { actorLevel = 128.58799743652, },
+				[25] = { actorLevel = 136.875, },
+				[26] = { actorLevel = 145.38800048828, },
+				[27] = { actorLevel = 154.12699890137, },
+				[28] = { actorLevel = 163.09199523926, },
+				[29] = { actorLevel = 172.28300476074, },
+				[30] = { actorLevel = 181.69999694824, },
+				[31] = { actorLevel = 191.34300231934, },
+				[32] = { actorLevel = 201.21200561523, },
+				[33] = { actorLevel = 211.30700683594, },
+				[34] = { actorLevel = 221.62800598145, },
+				[35] = { actorLevel = 232.17500305176, },
+				[36] = { actorLevel = 242.94799804688, },
+				[37] = { actorLevel = 253.94700622559, },
+				[38] = { actorLevel = 265.17199707031, },
+				[39] = { actorLevel = 276.62298583984, },
+				[40] = { actorLevel = 288.29998779297, },
+			},
+		},
+		[2] = {
+			label = "Fire",
+			baseEffectiveness = 2.0999999046326,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.008899999782443,
+			statDescriptionScope = "triggered_elemental_discharge",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 20 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"triggered_by_catalysing_elements",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 7, 10, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 9, 13, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 12, 18, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 16, 23, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 20, 30, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 24, 37, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 30, 45, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 36, 53, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 42, 63, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 50, 75, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 58, 88, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 68, 102, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 79, 118, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 91, 137, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 105, 158, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 121, 182, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 139, 208, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 159, 239, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 182, 274, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 209, 313, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 239, 358, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 273, 409, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 311, 467, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 356, 533, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 406, 609, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 464, 696, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 530, 795, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 606, 909, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 693, 1039, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 793, 1189, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 908, 1361, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 1040, 1560, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 1192, 1789, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 1368, 2053, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 1572, 2358, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 1807, 2711, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 2080, 3120, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 2397, 3595, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 2764, 4146, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 3192, 4788, critChance = 6, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+		[3] = {
+			label = "Lightning",
+			baseEffectiveness = 2.0999999046326,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.008899999782443,
+			statDescriptionScope = "triggered_elemental_discharge",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 20 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"is_area_damage",
+				"triggered_by_catalysing_elements",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 1, 16, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 1, 21, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 2, 29, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 2, 37, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 2, 47, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 3, 58, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 4, 71, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 4, 85, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 5, 101, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 6, 118, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 7, 139, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 9, 162, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 10, 188, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 11, 217, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 13, 250, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 15, 288, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 17, 330, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 20, 378, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 23, 433, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 26, 496, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 30, 567, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 34, 647, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 39, 739, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 44, 844, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 51, 964, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 58, 1102, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 66, 1259, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 76, 1439, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 87, 1645, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 99, 1883, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 113, 2155, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 130, 2470, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 149, 2832, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 171, 3250, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 196, 3733, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 226, 4292, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 260, 4940, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 300, 5692, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 346, 6565, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 399, 7581, critChance = 9, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+		[4] = {
+			label = "Cold",
+			baseEffectiveness = 1.875,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.008899999782443,
+			statDescriptionScope = "triggered_elemental_discharge",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 20 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"triggered_by_catalysing_elements",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
+			levels = {
+				[1] = { 6, 9, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 8, 12, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 11, 16, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 14, 21, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 18, 26, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 22, 33, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 27, 40, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 32, 48, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 38, 57, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 45, 67, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 52, 78, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 61, 91, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 70, 106, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 82, 122, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 94, 141, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 108, 162, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 124, 186, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 142, 213, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 163, 244, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 186, 279, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 213, 319, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 243, 365, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 278, 417, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 317, 476, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 363, 544, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 414, 621, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 473, 710, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 541, 811, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 619, 928, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 708, 1062, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 810, 1215, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 928, 1393, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 1065, 1597, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 1222, 1833, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 1403, 2105, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 1614, 2420, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 1857, 2786, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 2140, 3210, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 2468, 3702, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 2850, 4275, critChance = 11, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -1250,6 +2066,34 @@ skills["SupportConcentratedAreaPlayer"] = {
 		},
 	}
 }
+skills["SupportConcussiveSpellsPlayer"] = {
+	name = "Concussive Spells",
+	description = "Supports Spells which Hit enemies. Supported Skills Daze on Critically Hitting enemies with Physical damage.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ConcussiveSpells",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Concussive Spells",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"spell_daze_on_critical_hit_dealing_physical_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportConsideredCastingPlayer"] = {
 	name = "Considered Casting",
 	description = "Supports Spell Skills that Hit Enemies and you cast yourself, boosting Damage at the cost of Cast Speed.",
@@ -1355,6 +2199,155 @@ skills["SupportCorpseConservationPlayer"] = {
 		},
 	}
 }
+skills["SupportDeadlyCurrentPlayer"] = {
+	name = "Coursing Current",
+	description = "Supports Skills which Hit enemies. Shocking an enemy with Supported Skills Triggers Coursing Current, which sends Chaining Lightning Projectiles to nearby Drenched enemies.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "DeadlyCurrent",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Coursing Current",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_%_chance_to_trigger_deadly_current_on_shock", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredDeadlyCurrentPlayer"] = {
+	name = "Coursing Current",
+	hidden = true,
+	description = "Sends a Chaining Lightning Projectile from the Shocked enemy towards a nearby Drenched enemy, dealing Spell damage.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Lightning] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Chains] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[2] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[3] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[4] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[5] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[6] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[7] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[8] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[9] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[10] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[11] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[12] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[13] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[14] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[15] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[16] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[17] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[18] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[19] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[20] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[21] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[22] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[23] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[24] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[25] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[26] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[27] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[28] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[29] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[30] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[31] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[32] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[33] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[34] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[35] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[36] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[37] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[38] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[39] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+		[40] = { cooldown = 0.2, critChance = 10, levelRequirement = 0, storedUses = 6, },
+	},
+	statSets = {
+		[1] = {
+			label = "Coursing Current",
+			baseEffectiveness = 1.3999999761581,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.0074000000022352,
+			statDescriptionScope = "triggered_deadly_current",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "number_of_chains", 6 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"triggered_by_deadly_current_support",
+				"projectile_only_collide_with_wet_targets",
+				"base_is_projectile",
+				"cannot_chain_to_previous_targets",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 1, 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 1, 14, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 1, 19, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 1, 25, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 1, 32, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 1, 39, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 1, 47, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 1, 56, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 2, 66, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 2, 77, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 2, 89, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 3, 103, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 3, 119, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 3, 136, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 4, 156, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 5, 177, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 5, 202, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 6, 229, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 7, 259, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 8, 294, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 9, 332, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 10, 375, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 11, 423, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 12, 478, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 14, 539, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 16, 608, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 18, 686, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 20, 773, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 22, 872, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 25, 984, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 28, 1111, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 32, 1254, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 36, 1417, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 41, 1601, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 46, 1811, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 53, 2049, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 59, 2320, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 67, 2629, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 76, 2981, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 87, 3383, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
 skills["SupportCracklingBarrierPlayer"] = {
 	name = "Crackling Barrier",
 	description = "Supports Channelling Skills. While Channelling Supported Skills, you gain Lightning Thorns based off of your maximum Mana.",
@@ -1412,6 +2405,148 @@ skills["SupportCrazedMinionsPlayer"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportCreepingChillPlayer"] = {
+	name = "Creeping Chill",
+	description = "Supports any Skill that creates Ice Crystals, causing that Skill to Consume a Power Charge if possible to create Chilled Ground around the Crystal.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.IceCrystal, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "CreepingChill",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Creeping Chill",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_creeping_chill_consume_X_power_charges_to_trigger_on_ice_crystals", 1 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredCreepingChillPlayer"] = {
+	name = "Creeping Chill",
+	hidden = true,
+	description = "Creates spreading Chilled Ground around Ice Crystals created by Supported Skills.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.CreatesGroundEffect] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Creeping Chill",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "triggered_creeping_chill",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_support_creeping_chill_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 12 },
+				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 50 },
+				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 300 },
+				{ "support_creeping_chill_cold_damage_equal_to_%_ice_crystal_maximum_life", 100 },
+			},
+			stats = {
+				"display_statset_hide_usage_stats",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 3.4519999027252, },
+				[3] = { actorLevel = 6.7670001983643, },
+				[4] = { actorLevel = 10.307999610901, },
+				[5] = { actorLevel = 14.074999809265, },
+				[6] = { actorLevel = 18.068000793457, },
+				[7] = { actorLevel = 22.287000656128, },
+				[8] = { actorLevel = 26.732000350952, },
+				[9] = { actorLevel = 31.40299987793, },
+				[10] = { actorLevel = 36.299999237061, },
+				[11] = { actorLevel = 41.423000335693, },
+				[12] = { actorLevel = 46.771999359131, },
+				[13] = { actorLevel = 52.34700012207, },
+				[14] = { actorLevel = 58.147998809814, },
+				[15] = { actorLevel = 64.175003051758, },
+				[16] = { actorLevel = 70.428001403809, },
+				[17] = { actorLevel = 76.906997680664, },
+				[18] = { actorLevel = 83.611999511719, },
+				[19] = { actorLevel = 90.542999267578, },
+				[20] = { actorLevel = 97.699996948242, },
+				[21] = { actorLevel = 105.08300018311, },
+				[22] = { actorLevel = 112.69200134277, },
+				[23] = { actorLevel = 120.52700042725, },
+				[24] = { actorLevel = 128.58799743652, },
+				[25] = { actorLevel = 136.875, },
+				[26] = { actorLevel = 145.38800048828, },
+				[27] = { actorLevel = 154.12699890137, },
+				[28] = { actorLevel = 163.09199523926, },
+				[29] = { actorLevel = 172.28300476074, },
+				[30] = { actorLevel = 181.69999694824, },
+				[31] = { actorLevel = 191.34300231934, },
+				[32] = { actorLevel = 201.21200561523, },
+				[33] = { actorLevel = 211.30700683594, },
+				[34] = { actorLevel = 221.62800598145, },
+				[35] = { actorLevel = 232.17500305176, },
+				[36] = { actorLevel = 242.94799804688, },
+				[37] = { actorLevel = 253.94700622559, },
+				[38] = { actorLevel = 265.17199707031, },
+				[39] = { actorLevel = 276.62298583984, },
+				[40] = { actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -1958,6 +3093,229 @@ skills["SupportDrainedAilmentPlayer"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportShockingRiftPlayer"] = {
+	name = "Electromagnetism",
+	description = "Supports Skills that which Hit enemies. When Supported Skills Shock an enemy that is nearby other Shocked enemies, trigger Electromagnetism, sucking in nearby enemies, Hindering them, and dealing Lightning damage at an interval.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ShockingRift",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Electromagnetism",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "try_consuming_shock_to_trigger_shocking_rift_in_radius_on_shocking_enemy", 40 },
+				{ "consume_shock_of_X_enemies_to_trigger_shocking_rift", 3 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredShockingRiftPlayer"] = {
+	name = "Electromagnetism",
+	hidden = true,
+	description = "Pull enemies in and pulse Lightning damage, Hindering enemies Hit. Each pulse increases in damage, with the final pulse dealing additional damage.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.Lightning] = true, [SkillType.AttackInPlace] = true, [SkillType.Damage] = true, [SkillType.Spell] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 9, levelRequirement = 0, },
+		[2] = { critChance = 9, levelRequirement = 0, },
+		[3] = { critChance = 9, levelRequirement = 0, },
+		[4] = { critChance = 9, levelRequirement = 0, },
+		[5] = { critChance = 9, levelRequirement = 0, },
+		[6] = { critChance = 9, levelRequirement = 0, },
+		[7] = { critChance = 9, levelRequirement = 0, },
+		[8] = { critChance = 9, levelRequirement = 0, },
+		[9] = { critChance = 9, levelRequirement = 0, },
+		[10] = { critChance = 9, levelRequirement = 0, },
+		[11] = { critChance = 9, levelRequirement = 0, },
+		[12] = { critChance = 9, levelRequirement = 0, },
+		[13] = { critChance = 9, levelRequirement = 0, },
+		[14] = { critChance = 9, levelRequirement = 0, },
+		[15] = { critChance = 9, levelRequirement = 0, },
+		[16] = { critChance = 9, levelRequirement = 0, },
+		[17] = { critChance = 9, levelRequirement = 0, },
+		[18] = { critChance = 9, levelRequirement = 0, },
+		[19] = { critChance = 9, levelRequirement = 0, },
+		[20] = { critChance = 9, levelRequirement = 0, },
+		[21] = { critChance = 9, levelRequirement = 0, },
+		[22] = { critChance = 9, levelRequirement = 0, },
+		[23] = { critChance = 9, levelRequirement = 0, },
+		[24] = { critChance = 9, levelRequirement = 0, },
+		[25] = { critChance = 9, levelRequirement = 0, },
+		[26] = { critChance = 9, levelRequirement = 0, },
+		[27] = { critChance = 9, levelRequirement = 0, },
+		[28] = { critChance = 9, levelRequirement = 0, },
+		[29] = { critChance = 9, levelRequirement = 0, },
+		[30] = { critChance = 9, levelRequirement = 0, },
+		[31] = { critChance = 9, levelRequirement = 0, },
+		[32] = { critChance = 9, levelRequirement = 0, },
+		[33] = { critChance = 9, levelRequirement = 0, },
+		[34] = { critChance = 9, levelRequirement = 0, },
+		[35] = { critChance = 9, levelRequirement = 0, },
+		[36] = { critChance = 9, levelRequirement = 0, },
+		[37] = { critChance = 9, levelRequirement = 0, },
+		[38] = { critChance = 9, levelRequirement = 0, },
+		[39] = { critChance = 9, levelRequirement = 0, },
+		[40] = { critChance = 9, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Pulse",
+			baseEffectiveness = 0.75,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.0074000000022352,
+			statDescriptionScope = "triggered_shocking_rift",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_shocking_rift_support_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 20 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 25 },
+				{ "number_of_shocking_rifts_allowed", 3 },
+				{ "shocking_rift_number_of_pulses", 5 },
+				{ "shocking_rift_pulse_interval_ms", 850 },
+				{ "shocking_rift_damage_+%_final_per_pulse_performed", 20 },
+				{ "shocking_rift_speed_+%_per_shock_consumed", 25 },
+				{ "shocking_rift_hinder_ms", 900 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"never_shock",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 1, 6, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 1, 7, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 1, 10, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 1, 13, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 1, 16, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 1, 20, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 1, 24, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 2, 29, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 2, 34, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 2, 40, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 2, 47, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 3, 54, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 3, 62, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 4, 71, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 4, 81, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 5, 93, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 6, 105, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 6, 120, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 7, 135, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 8, 153, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 9, 173, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 10, 196, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 12, 221, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 13, 249, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 15, 281, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 17, 317, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 19, 358, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 21, 404, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 24, 455, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 27, 514, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 31, 580, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 34, 655, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 39, 740, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 44, 836, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 50, 945, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 56, 1070, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 64, 1211, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 72, 1372, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 82, 1556, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 93, 1766, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+		[2] = {
+			label = "Final Pulse",
+			baseEffectiveness = 1.5,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.0074000000022352,
+			statDescriptionScope = "triggered_shocking_rift",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_shocking_rift_support_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 20 },
+				{ "shocking_rift_damage_+%_final_per_pulse_performed", 20 },
+				{ "shocking_rift_hinder_ms", 900 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"never_shock",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 1, 6, 1, 11, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
+				[2] = { 1, 7, 1, 15, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 1, 10, 1, 20, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 1, 13, 1, 26, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 1, 16, 2, 33, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 1, 20, 2, 40, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 1, 24, 3, 49, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 2, 29, 3, 58, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 2, 34, 4, 69, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 2, 40, 4, 80, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 2, 47, 5, 93, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 3, 54, 6, 108, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 3, 62, 7, 124, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 4, 71, 7, 142, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 4, 81, 9, 163, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 5, 93, 10, 185, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 6, 105, 11, 211, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 6, 120, 13, 239, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 7, 135, 14, 271, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 8, 153, 16, 307, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 9, 173, 18, 347, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 10, 196, 21, 392, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 12, 221, 23, 442, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 13, 249, 26, 499, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 15, 281, 30, 563, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 136.875, },
+				[26] = { 17, 317, 33, 635, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 19, 358, 38, 716, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 21, 404, 42, 807, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 24, 455, 48, 911, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 27, 514, 54, 1028, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 31, 580, 61, 1160, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 34, 655, 69, 1310, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 39, 740, 78, 1479, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 44, 836, 88, 1672, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 50, 945, 99, 1890, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 56, 1070, 113, 2139, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 64, 1211, 127, 2422, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 72, 1372, 144, 2744, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 82, 1556, 164, 3112, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 93, 1766, 186, 3531, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -3100,6 +4458,159 @@ skills["SupportGambleshotPlayer"] = {
 		},
 	}
 }
+skills["SupportHayoxisBindingPlayer"] = {
+	name = "Hayoxi's Fulmination",
+	description = "Supports Curse Skills. Supported Curse Skills create areas which Curse enemies so long as they are within them. Cursed areas from Supported Skills gather power before erupting in a column of annihilating light after a moderate delay.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { },
+	addSkillTypes = { SkillType.Cooldown, SkillType.SupportedByHayoxi, SkillType.Limit, },
+	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByHayoxi, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, SkillType.Triggered, },
+	gemFamily = { "CursedGround",},
+	isLineage = true,
+	flavourText = {"The Architect of Destruction slipped explosive powder", "under the royal temple one pinch at a time. For years,", "he clung to that, never finding the courage to light it.", },
+	levels = {
+		[1] = { cooldown = 2, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Hayoxi's Fulmination",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "maximum_curse_zones_allowed", 2 },
+				{ "trigger_from_hayhoxis_binding_after_x_ms", 7000 },
+			},
+			stats = {
+				"curse_apply_as_curse_zone",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportTriggeredAnnihilationPlayer"] = {
+	name = "Annihilation",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Instant] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.Lightning] = true, [SkillType.Cold] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 9, levelRequirement = 0, },
+		[2] = { critChance = 9, levelRequirement = 0, },
+		[3] = { critChance = 9, levelRequirement = 0, },
+		[4] = { critChance = 9, levelRequirement = 0, },
+		[5] = { critChance = 9, levelRequirement = 0, },
+		[6] = { critChance = 9, levelRequirement = 0, },
+		[7] = { critChance = 9, levelRequirement = 0, },
+		[8] = { critChance = 9, levelRequirement = 0, },
+		[9] = { critChance = 9, levelRequirement = 0, },
+		[10] = { critChance = 9, levelRequirement = 0, },
+		[11] = { critChance = 9, levelRequirement = 0, },
+		[12] = { critChance = 9, levelRequirement = 0, },
+		[13] = { critChance = 9, levelRequirement = 0, },
+		[14] = { critChance = 9, levelRequirement = 0, },
+		[15] = { critChance = 9, levelRequirement = 0, },
+		[16] = { critChance = 9, levelRequirement = 0, },
+		[17] = { critChance = 9, levelRequirement = 0, },
+		[18] = { critChance = 9, levelRequirement = 0, },
+		[19] = { critChance = 9, levelRequirement = 0, },
+		[20] = { critChance = 9, levelRequirement = 0, },
+		[21] = { critChance = 9, levelRequirement = 0, },
+		[22] = { critChance = 9, levelRequirement = 0, },
+		[23] = { critChance = 9, levelRequirement = 0, },
+		[24] = { critChance = 9, levelRequirement = 0, },
+		[25] = { critChance = 9, levelRequirement = 0, },
+		[26] = { critChance = 9, levelRequirement = 0, },
+		[27] = { critChance = 9, levelRequirement = 0, },
+		[28] = { critChance = 9, levelRequirement = 0, },
+		[29] = { critChance = 9, levelRequirement = 0, },
+		[30] = { critChance = 9, levelRequirement = 0, },
+		[31] = { critChance = 9, levelRequirement = 0, },
+		[32] = { critChance = 9, levelRequirement = 0, },
+		[33] = { critChance = 9, levelRequirement = 0, },
+		[34] = { critChance = 9, levelRequirement = 0, },
+		[35] = { critChance = 9, levelRequirement = 0, },
+		[36] = { critChance = 9, levelRequirement = 0, },
+		[37] = { critChance = 9, levelRequirement = 0, },
+		[38] = { critChance = 9, levelRequirement = 0, },
+		[39] = { critChance = 9, levelRequirement = 0, },
+		[40] = { critChance = 9, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Annihilation",
+			baseEffectiveness = 8,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.0096000004559755,
+			statDescriptionScope = "annihilation",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_hayhoxis_binding_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 17 },
+				{ "annihilation_blast_duration_ms", 2000 },
+				{ "annihilation_hit_intervals", 6 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"display_annihilation_tag_conversion",
+				"is_area_damage",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 25, 37, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 34, 50, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 46, 69, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 60, 90, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 76, 114, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 94, 141, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 115, 172, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 138, 207, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 165, 247, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 195, 292, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 229, 343, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 268, 401, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 312, 468, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 362, 543, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 419, 628, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 484, 726, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 558, 837, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 643, 964, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 739, 1109, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 850, 1275, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 977, 1465, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 1122, 1683, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 1288, 1933, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 1480, 2220, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 1700, 2550, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 1953, 2930, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 2245, 3368, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 2582, 3873, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 2972, 4458, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 3423, 5134, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 3945, 5918, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 4551, 6827, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 5256, 7884, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 6075, 9112, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 7029, 10544, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 8143, 12214, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 9444, 14166, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 10966, 16448, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 12749, 19123, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 14841, 22261, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
 skills["SupportCurseEffectPlayer"] = {
 	name = "Heightened Curse",
 	description = "Supports Curse Skills, magnifying their power.",
@@ -3285,6 +4796,38 @@ skills["SupportIceBitePlayer"] = {
 			constantStats = {
 				{ "support_ice_bite_buff_grant_%_added_cold_attack_damage", 25 },
 				{ "support_ice_bite_base_buff_duration", 5000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportIceBitePlayerTwo"] = {
+	name = "Ice Bite II",
+	description = "Supports Attacks and Warcries you use yourself. Freezing an enemy with supported skills infuses all of your Attacks with Cold damage for a short time.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Warcry, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.Triggered, SkillType.UsedByTotem, },
+	gemFamily = { "IceBite",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Ice Bite II",
+			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_ice_bite_buff_grant_%_added_cold_attack_damage", 30 },
+				{ "support_ice_bite_base_buff_duration", 6000 },
 			},
 			stats = {
 			},
@@ -3517,6 +5060,41 @@ skills["SupportInevitableCriticalsPlayer"] = {
 		},
 	}
 }
+skills["SupportInevitableCriticalsPlayerTwo"] = {
+	name = "Inexorable Critical II",
+	description = "Supports any skill you use yourself that Hits enemies, causing it to accumulate Critical Hit chance over time, but also reduce your Critical Damage Bonus.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.Triggered, SkillType.UsedByTotem, },
+	gemFamily = { "InexorableCritical",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Inexorable Critical II",
+			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_inevitable_criticals_critical_strike_chance_+%_per_second", 40 },
+				{ "support_inevitable_criticals_critical_strike_chance_+%_cap", 200 },
+				{ "support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second", -10 },
+				{ "support_inevitable_criticals_critical_strike_multiplier_+%_final_cap", -50 },
+			},
+			stats = {
+				"supported_by_inevitable_criticals",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportIntenseAgonyPlayer"] = {
 	name = "Intense Agony",
 	description = "Supports Spells that deal non-Ailment damage over time, causing them to have a shorter duration but deal substantially more damage over time with Debuffs inflicted against enemies on full life.",
@@ -3621,6 +5199,36 @@ skills["SupportKalisasCrescendoPlayer"] = {
 				{ "apply_unaffected_by_pacifying_curses_for_x_ms_on_curse_expiry", 8000 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportKhatalsRejuvenationPlayer"] = {
+	name = "Khatal's Rejuvenation",
+	description = "Supports Skills that generate Remnants. Picking up Remnants from Supported Skills grants Khatal's Rejuvenation.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.GeneratesRemnants, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "KhatalsRejuvenation",},
+	isLineage = true,
+	flavourText = {"The surging geysers flooded the tunnels of the ancient", "enemy, destroying whole legions. His akhara turned to", "praise the tale-man Khatal, but he was dust on the wind.", },
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, reservationMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Khatal's Rejuvenation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_lineage_remnants_grant_cdr_buff_on_collection",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -4234,6 +5842,67 @@ skills["SupportManaLeechPlayer"] = {
 		},
 	}
 }
+skills["SupportMarkOfSiphoningPlayerTwo"] = {
+	name = "Mark of Siphoning II",
+	description = "Supports Mark Skills, causing enemies they Mark to Leech Life and Mana to you when you Hit them with Attacks.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "MarkOfSiphoning",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 40, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mark of Siphoning II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "marked_enemies_leech_attack_damage_taken_as_mana_to_you_permyriad", 500 },
+				{ "marked_enemies_leech_attack_damage_taken_as_life_to_you_permyriad", 500 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportMarkOfSiphoningPlayer"] = {
+	name = "Mark of Siphoning",
+	description = "Supports Mark Skills, causing enemies they Mark to Leech Mana to you when you Hit them with Attacks.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "MarkOfSiphoning",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mark of Siphoning",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "marked_enemies_leech_attack_damage_taken_as_mana_to_you_permyriad", 500 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportMinionInstabilityPlayer"] = {
 	name = "Minion Instability",
 	description = "Supports skills which create Minions, causing them to violently explode when reduced to Low Life.",
@@ -4374,6 +6043,44 @@ skills["SupportMinionPactPlayerTwo"] = {
 		},
 	}
 }
+skills["SupportMorganasTempestPlayer"] = {
+	name = "Morgana's Tempest",
+	description = "Supports Spells which create Storms, increasing their Limit and causing them to move from the player towards the target location faster, but become less effective. Cannot Support Triggered Skills.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Storm, SkillType.Spell, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.HasUsageCondition, SkillType.SupportedByCleanse, SkillType.NOT, SkillType.AND, SkillType.HasReservation, SkillType.UsedByTotem, SkillType.Triggered, },
+	gemFamily = { "MovingStorms","Overabundance",},
+	isLineage = true,
+	flavourText = {"On the nights the fugue would come over her, the Ezomytes would", "gather below, begging her to bring the rains. Atop the Taisce,", "wailing with unknown sorrows, her cries made the skies rage.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Morgana's Tempest",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "storm_base_movement_speed", 25 },
+				{ "support_approaching_storms_movement_speed_+%_final", 60 },
+				{ "support_approaching_storms_area_of_effect_+%_final", -25 },
+				{ "support_approaching_storms_damage_+%_final", -35 },
+				{ "support_storm_skill_limit_+", 1 },
+			},
+			stats = {
+				"storm_skills_spawn_at_initiator_location",
+				"self_targeted_storm_skills_target_a_location_instead",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportMusterPlayer"] = {
 	name = "Muster",
 	description = "Supports Skills which summon Minions. Supported Minions deal more Damage the more different kinds of Reviving Minions you have summoned.",
@@ -4505,6 +6212,36 @@ skills["SupportNadirPlayer"] = {
 				{ "skill_X_minimum_stages", 1 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportOisinsOathPlayer"] = {
+	name = "Oisín's Oath",
+	description = "Supports Skills which Hit enemies, causing their Mana Leech to recover based on Elemental damage instead of Physical damage.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.Damage, SkillType.Spell, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ManaLeech",},
+	isLineage = true,
+	flavourText = {"The first Warden of Eaves swore to patrol the border twixt the worlds forevermore, so that the tragedy of Gruthkul's stampede would never recur. In time, his vigil on the edge began to... change him.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Oisín's Oath",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"mana_leech_from_elemental_instead",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -4674,6 +6411,68 @@ skills["SupportPotentialPlayer"] = {
 			},
 			stats = {
 				"skill_cannot_generate_power_charges",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportPracticalMagicPlayer"] = {
+	name = "Practical Magic I",
+	description = "Supports Skills which Hit enemies. Heavy Stunning an enemy with Supported Skills increases your Spell damage for a duration.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { },
+	gemFamily = { "PracticalMagic",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Practical Magic I",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_stunning_magic_grant_spell_damage_+%_buff_on_heavy_stunning", 30 },
+				{ "support_stunning_magic_buff_duration_ms", 8000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportPracticalMagicPlayerTwo"] = {
+	name = "Practical Magic II",
+	description = "Supports Skills which Hit enemies. Heavy Stunning an enemy with Supported Skills increases your Spell damage for a duration.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { },
+	gemFamily = { "PracticalMagic",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Practical Magic II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_stunning_magic_grant_spell_damage_+%_buff_on_heavy_stunning", 40 },
+				{ "support_stunning_magic_buff_duration_ms", 8000 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5068,6 +6867,38 @@ skills["SupportShockConductionPlayer"] = {
 		},
 	}
 }
+skills["SupportShockConductionPlayerTwo"] = {
+	name = "Shock Conduction II",
+	description = "Supports any skill that Hits enemies, giving it a chance to also Shock nearby enemies when you Shock an enemy. Always Shocks enemies which are Drenched.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ShockConduction",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Shock Conduction II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_%_chance_to_shock_nearby_enemy_on_shock", 50 },
+				{ "shock_nearby_enemy_base_area_of_effect_radius", 25 },
+			},
+			stats = {
+				"always_shock_wet_enemies",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportEnergyShieldOnShockKillPlayer"] = {
 	name = "Shock Siphon",
 	description = "Supports any skill that Hits enemies, causing you to recover Energy Shield when it kills a Shocked enemy.",
@@ -5220,6 +7051,161 @@ skills["SupportSpellEchoPlayer"] = {
 		},
 	}
 }
+skills["SupportStaticShocksPlayer"] = {
+	name = "Static Shocks",
+	description = "Supports Skills which can Hit enemies. Shocking an enemy with Supported Skills Triggers Static Shocks, causing that enemy to become a source of Lightning damage sending pulses towards nearby enemies.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Minion, SkillType.SkillGrantedBySupport, },
+	gemFamily = { "GroundingShocks",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Static Shocks",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "grounding_shocks_chance_%_to_create_orb_on_shocking_enemy", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredStaticShocksPlayer"] = {
+	name = "Static Shocks",
+	hidden = true,
+	description = "Attaches a Static Shock to a target that pulses Lightning damage to the attached target and nearby enemies. Targets can have a maximum of one Static Shock attached to them.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Lightning] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Sustained] = true, [SkillType.Spell] = true, [SkillType.Duration] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[2] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[3] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[4] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[5] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[6] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[7] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[8] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[9] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[10] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[11] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[12] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[13] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[14] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[15] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[16] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[17] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[18] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[19] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[20] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[21] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[22] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[23] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[24] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[25] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[26] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[27] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[28] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[29] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[30] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[31] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[32] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[33] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[34] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[35] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[36] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[37] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[38] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[39] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+		[40] = { cooldown = 0.4, critChance = 9, levelRequirement = 0, storedUses = 3, },
+	},
+	statSets = {
+		[1] = {
+			label = "Static Shocks",
+			baseEffectiveness = 0.60000002384186,
+			incrementalEffectiveness = 0.12999999523163,
+			damageIncrementalEffectiveness = 0.008899999782443,
+			statDescriptionScope = "triggered_grounding_shocks",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_grounding_shocks_support_on_shock_%", 100 },
+				{ "base_skill_effect_duration", 4000 },
+				{ "active_skill_base_area_of_effect_radius", 30 },
+				{ "maximum_grounding_shocks_allowed", 5 },
+				{ "grounding_shocks_pulse_delay_ms", 650 },
+				{ "grounding_shocks_maximum_targets_per_aoe", 6 },
+			},
+			stats = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+				"never_shock",
+				"shapeshift_ignore_form_check",
+				"usable_with_talisman",
+				"usable_while_shapeshifted",
+			},
+			notMinionStat = {
+				"spell_minimum_base_lightning_damage",
+				"spell_maximum_base_lightning_damage",
+			},
+			levels = {
+				[1] = { 1, 4, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 1, 6, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 1, 8, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 1, 11, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 1, 13, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 1, 17, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 1, 20, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 1, 24, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 2, 29, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 2, 34, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 2, 40, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 2, 46, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 3, 54, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 3, 62, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 4, 71, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 4, 82, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 5, 94, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 6, 108, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 7, 124, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 7, 142, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 9, 162, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 10, 185, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 11, 211, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 13, 241, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 15, 276, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 17, 315, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 19, 360, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 22, 411, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 25, 470, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 28, 538, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 32, 616, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 37, 706, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 43, 809, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 49, 929, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 56, 1067, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 65, 1226, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 74, 1411, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 86, 1626, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 99, 1876, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 114, 2166, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
 skills["SupportStormfirePlayer"] = {
 	name = "Stormfire",
 	description = "Supports any skill that Hits enemies. Enemies Shocked by Supported Skills take a percentage of damage from Ignite as Lightning damage as well as Fire damage.",
@@ -5350,6 +7336,70 @@ skills["SupportTecrodsRevengePlayer"] = {
 			},
 			stats = {
 				"support_last_gasp_minion_soul_eater_while_undying",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportThrillOfTheKillPlayerTwo"] = {
+	name = "Thrill of the Kill II",
+	description = "Supports Skills you use yourself which Hit enemies. Culling a Shocked enemy with Supported Skills infuses all of your Attacks with Lightning damage and grants an increased chance to Shock for a short time.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, SkillType.Triggered, },
+	gemFamily = { "ThrillOfTheKill",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Thrill of the Kill II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_thrill_of_the_kill_buff_grant_%_added_lightning_attack_damage", 25 },
+				{ "support_thrill_of_the_kill_buff_base_duration_ms", 8000 },
+				{ "support_thrill_of_the_kill_buff_shock_chance_+%", 40 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportThrillOfTheKillPlayer"] = {
+	name = "Thrill of the Kill",
+	description = "Supports Skills you use yourself which Hit enemies. Culling a Shocked enemy with Supported Skills infuses all of your Attacks with Lightning damage for a short time.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, SkillType.Triggered, },
+	gemFamily = { "ThrillOfTheKill",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Thrill of the Kill",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_thrill_of_the_kill_buff_grant_%_added_lightning_attack_damage", 25 },
+				{ "support_thrill_of_the_kill_buff_base_duration_ms", 8000 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5819,6 +7869,71 @@ skills["SupportWitheringTouchPlayer"] = {
 		},
 	}
 }
+skills["SupportXibaquasRendingPlayer"] = {
+	name = "Xibaqua's Rending",
+	description = "Supports Skills that leap into the air, causing Corpses in the area you land to violently explode, damaging surrounding enemies.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Jumping, },
+	addSkillTypes = { SkillType.Area, SkillType.Fire, SkillType.Damage, SkillType.Triggers, },
+	excludeSkillTypes = { },
+	gemFamily = { "XibaquasRending",},
+	isLineage = true,
+	flavourText = {"Born of the gods, his treachery was met with divine fury.", "One by one, the gods reclaimed their flesh, until all that", "remained was a droplet of pure light: the first Vaal.", },
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 15, },
+	},
+	statSets = {
+		[1] = {
+			label = "Xibaqua's Rending",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_vaal_lineage_trigger_detonate_on_landing",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredXibaquasRendingPlayer"] = {
+	name = "Fiery Reclamation",
+	hidden = true,
+	description = "Deals Fire damage in an area around the exploding Corpse based on its maximum Life.",
+	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.TargetsDestructibleCorpses] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fiery Reclamation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "triggered_detonate_dead_on_landing",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_by_vaal_lineage_detonate_on_landing_support_%_chance", 100 },
+				{ "detonate_on_landing_maximum_number_of_corpses_to_detonate", 100 },
+				{ "corpse_explosion_monster_life_permillage_fire", 60 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 35 },
+				{ "active_skill_base_area_of_effect_radius", 15 },
+				{ "explosion_delay_ms", 400 },
+			},
+			stats = {
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportZarokhsRefrainPlayer"] = {
 	name = "Zarokh's Refrain",
 	description = "Supports Spells that affect an area around you or a target location. Supported Spells echo thrice, causing their effects to happen again after a short delay, but Supported Skills are given a short Cooldown. Cannot support Channelling skills, Remote skills, skills which already have a Cooldown, or skills which are Triggered.",
@@ -5853,6 +7968,41 @@ skills["SupportZarokhsRefrainPlayer"] = {
 		},
 	}
 }
+skills["SupportZarokhsRevoltPlayer"] = {
+	name = "Zarokh's Revolt",
+	description = "Supports Spells you cast yourself, making their effect reoccur up to five times when cast, but giving them a moderate Cooldown. Cannot support Channelling Skills.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Unleashable, SkillType.Spell, SkillType.AND, },
+	addSkillTypes = { SkillType.HasSeals, SkillType.SupportedByUnleash, SkillType.Cooldown, },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, SkillType.HasReservation, SkillType.Vaal, SkillType.Instant, SkillType.Channel, SkillType.ComboStacking, SkillType.HasSeals, SkillType.SupportedByUnleash, SkillType.NOT, SkillType.AND, },
+	gemFamily = { "Seal",},
+	isLineage = true,
+	flavourText = {"Zarokh's ire built over the centuries as he planned his escape.", "The Afarud would find what he sought, and then... the", "Weeping Black would break the chains of his prison.", },
+	levels = {
+		[1] = { PvPDamageMultiplier = -40, cooldown = 10, levelRequirement = 0, manaMultiplier = 100, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Zarokh's Revolt",
+			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },
+				{ "unleash_support_seal_gain_frequency_as_%_of_total_cast_time", 50 },
+				{ "support_anticipation_rapid_fire_count", 5 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+
 skills["SupportZenithPlayer"] = {
 	name = "Zenith I",
 	description = "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana. Does not modify Skills used by Minions.",
