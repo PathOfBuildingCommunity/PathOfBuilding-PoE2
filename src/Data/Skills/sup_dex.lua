@@ -5682,7 +5682,6 @@ skills["SupportTasaliosRhythmPlayer"] = {
 		},
 	}
 }
-
 skills["SupportTulsStillnessPlayer"] = {
 	name = "Tul's Stillness",
 	description = "Supports Skills that can cause Damaging Hits, granting extra Chaos damage and causing Chaos damage to Contribute to Freeze Buildup.",

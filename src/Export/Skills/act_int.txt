@@ -951,6 +951,13 @@ statMap = {
 #mods
 #skillEnd
 
+#from Item
+#skill MirrorOfRefractionPlayer
+#set MirrorOfRefractionPlayer
+#flags duration
+#mods
+#skillEnd
+
 #skill OrbOfStormsPlayer
 #set OrbOfStormsPlayer
 #flags spell chaining

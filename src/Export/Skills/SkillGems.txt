@@ -642,6 +642,7 @@ Mana Drain                    		----		ManaDrainPlayer
 Mana Remnants                 		----		ManaRemnantsPlayer
 Mana Tempest                  		----		ManaTempestPlayer
 Mantra of Destruction         		----		MantraOfDestructionPlayer
+Mirror of Refraction          		----		MirrorOfRefractionPlayer
 Orb of Storms                 		----		OrbOfStormsPlayer
 Pain Offering                 		----		PainOfferingPlayer
 Power Siphon                  		----		PowerSiphonPlayer
@@ -654,7 +655,6 @@ Raise Zombie                  		----		RaiseZombiePlayer
 Ravenous Swarm                		----		RavenousSwarmPlayer
 Reap                          		----		ReapPlayer
 Reaper's Invocation           		----		MetaReapersInvocationPlayer	SupportReapersInvocationPlayer
-Rolling Magma                 		----		RollingMagmaPlayer
 Sacrifice                     		----		SacrificePlayer
 Shattering Palm               		----		ShatteringPalmPlayer	ShatteringPalmExplosionPlayer
 Sigil of Power                		----		SigilOfPowerPlayer

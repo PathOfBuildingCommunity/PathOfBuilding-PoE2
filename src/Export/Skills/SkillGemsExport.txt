@@ -4308,6 +4308,12 @@
 #mods
 #skillEnd
 
+#skill MirrorOfRefractionPlayer
+#set MirrorOfRefractionPlayer
+#flags
+#mods
+#skillEnd
+
 #skill OrbOfStormsPlayer
 #set OrbOfStormsPlayer
 #flags
