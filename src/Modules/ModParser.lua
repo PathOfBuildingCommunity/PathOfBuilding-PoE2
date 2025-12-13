@@ -2074,8 +2074,14 @@ local function flag(name, ...)
 	return mod(name, "FLAG", true, ...)
 end
 
+local gems = {}
+for id in pairs(data.gems) do
+    table.insert(gems, id)
+end
+table.sort(gems)
 local gemIdLookup = { }
-for gemId, gemData in pairs(data.gems) do
+for _, gem in ipairs(gems) do
+	local gemData = data.gems[gem]
 	local grantedEffect = gemData.grantedEffect
 	local gemName = (grantedEffect.fromItem or grantedEffect.fromTree) and grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or gemData.name:lower()
 	gemIdLookup[gemName] = grantedEffect.id
