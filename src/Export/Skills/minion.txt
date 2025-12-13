@@ -232,3 +232,105 @@ statMap = {
 #flags attack melee area
 #mods
 #skillEnd
+
+#skill CorpseBeetleExplode
+#set CorpseBeetleExplode
+#flags spell area
+#mods
+#skillEnd
+
+#skill WaterBubbleWaterDjinn
+#set WaterBubbleWaterDjinn
+#flags duration area
+#mods
+#skillEnd
+
+#skill ChilledGroundBurstWaterDjinn
+#set ChilledGroundBurstWaterDjinn
+#flags spell area
+#mods
+#skillEnd
+
+#skill ESRechargeForceRestartWaterDjinn
+#set ESRechargeForceRestartWaterDjinn
+#flags duration
+#mods
+#skillEnd
+
+#skill ChilledGroundOasisConvertWaterDjinn
+#set ChilledGroundOasisConvertWaterDjinn
+#flags duration
+#mods
+#skillEnd
+
+#skill PassiveTriggeredManaWaveWaterDjinn
+#set PassiveTriggeredManaWaveWaterDjinn
+#flags duration
+#mods
+#skillEnd
+
+#skill LivingBombFireDjinn
+#set LivingBombFireDjinn
+#flags spell area hit
+#mods
+#skillEnd
+
+#skill FireRuneFireDjinn
+#set FireRuneFireDjinn
+#flags spell projectile
+#mods
+#set FireRuneHazardFireDjinn
+#flags spell duration
+#mods
+#set FireRuneTornadoFireDjinn
+#flags spell area duration
+#mods
+#skillEnd
+
+#skill MeteorFireDjinn
+#set MeteorFireDjinn
+#flags spell area
+#mods
+#set MeteorFireDjinnWave
+#flags spell area
+#mods
+#skillEnd
+
+#skill MassFusilladeFireDjinn
+#set MassFusilladeFireDjinn
+#flags spell projectile area
+#mods
+#set MassFusilladeExplodeFireDjinn
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill FlameSliceFireDjinn
+#set FlameSliceFireDjinn
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill KnifeThrowSandDjinn
+#set KnifeThrowSandDjinn
+#flags spell projectile
+#mods
+#set KnifeThrowSandDjinnCascade
+#flags spell projectile area
+#mods
+#skillEnd
+
+#skill ExplosiveTeleportSandDjinn
+#set ExplosiveTeleportSandDjinn
+#flags spell area
+#mods
+#set ExplosiveTeleportCloneSandDjinn
+#flags spell area
+#mods
+#skillEnd
+
+#skill HandSlamSandDjinn
+#set HandSlamSandDjinn
+#flags spell area
+#mods
+#skillEnd

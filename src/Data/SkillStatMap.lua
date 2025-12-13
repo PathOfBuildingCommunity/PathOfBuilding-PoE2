@@ -2357,6 +2357,9 @@ return {
 ["skill_hyena_cackle_size"] = {
 	mod("HyenaLimit", "BASE", nil),
 },
+["maximum_corpse_beetles_allowed"] = {
+	mod("BeetleLimit", "BASE", nil),
+},
 ["active_skill_minion_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 },

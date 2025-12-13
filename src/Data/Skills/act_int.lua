@@ -5919,7 +5919,9 @@ skills["EmberFusilladePlayer"] = {
 		},
 		[2] = {
 			label = "Explosion",
+			baseEffectiveness = 2.0999999046326,
 			incrementalEffectiveness = 0.054999999701977,
+			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "ember_fusillade_statset_1",
 			baseFlags = {
 				spell = true,
@@ -7164,7 +7166,9 @@ skills["FireballPlayer"] = {
 		},
 		[2] = {
 			label = "Explosion",
+			baseEffectiveness = 2.5999999046326,
 			incrementalEffectiveness = 0.054999999701977,
+			damageIncrementalEffectiveness = 0.0074000000022352,
 			statDescriptionScope = "fireball",
 			baseFlags = {
 				spell = true,
@@ -7450,7 +7454,9 @@ skills["FireboltPlayer"] = {
 		},
 		[2] = {
 			label = "Explosion",
+			baseEffectiveness = 3.1199998855591,
 			incrementalEffectiveness = 0.054999999701977,
+			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "firebolt",
 			baseFlags = {
 				spell = true,
@@ -11880,7 +11886,9 @@ skills["ScatteringCalamityPlayer"] = {
 		},
 		[2] = {
 			label = "Explosion",
+			baseEffectiveness = 3.5,
 			incrementalEffectiveness = 0.054999999701977,
+			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "scattering_calamity_statset_1",
 			baseFlags = {
 				spell = true,

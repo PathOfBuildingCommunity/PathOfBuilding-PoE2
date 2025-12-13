@@ -4391,12 +4391,6 @@
 #mods
 #skillEnd
 
-#skill RollingMagmaPlayer
-#set RollingMagmaPlayer
-#flags
-#mods
-#skillEnd
-
 #skill SacrificePlayer
 #set SacrificePlayer
 #flags
@@ -5593,20 +5587,47 @@
 #mods
 #skillEnd
 
+#skill AlignFatePlayer
+#set AlignFatePlayer
+#flags
+#mods
+#skillEnd
+
 #skill AncestralSpiritsPlayer
 #set AncestralSpiritsPlayer
 #flags
 #mods
 #skillEnd
 
-#skill BleedingConcoctionPlayer
-#set BleedingConcoctionPlayer
+#skill ApocalypsePlayer
+#set ApocalypsePlayer
 #flags
 #mods
 #skillEnd
 
-#skill BlinkSandPlayer
-#set BlinkSandPlayer
+#skill ApocalypseColdPlayer
+#set ApocalypseColdPlayer
+#flags
+#mods
+#skillEnd
+
+#skill ApocalypseFirePlayer
+#set ApocalypseFirePlayer
+#flags
+#mods
+#skillEnd
+
+#skill ApocalypseLightningPlayer
+#set ApocalypseLightningPlayer
+#flags
+#mods
+#set ApocalypseLightningFinalStrikePlayer
+#flags
+#mods
+#skillEnd
+
+#skill BleedingConcoctionPlayer
+#set BleedingConcoctionPlayer
 #flags
 #mods
 #skillEnd
@@ -5776,6 +5797,30 @@
 #mods
 #skillEnd
 
+#skill CorpseBeetlesPlayer
+#set CorpseBeetlesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CommandCorpseBeetleExplodePlayer
+#set CommandCorpseBeetleExplodePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SummonSandDjinnPlayer
+#set SummonSandDjinnPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CommandSandDjinnKnifeThrowPlayer
+#set CommandSandDjinnKnifeThrowPlayer
+#flags
+#mods
+#skillEnd
+
 #skill LifeRemnantsPlayer
 #set LifeRemnantsPlayer
 #flags
@@ -5806,8 +5851,32 @@
 #mods
 #skillEnd
 
+#skill BearMaulPlayer
+#set BearMaulPlayer
+#flags
+#mods
+#skillEnd
+
 #skill MeditatePlayer
 #set MeditatePlayer
+#flags
+#mods
+#skillEnd
+
+#skill MomentOfVulnerabilityPlayer
+#set MomentOfVulnerabilityPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SummonWaterDjinnPlayer
+#set SummonWaterDjinnPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CommandWaterDjinnBubblePlayer
+#set CommandWaterDjinnBubblePlayer
 #flags
 #mods
 #skillEnd
@@ -5854,8 +5923,38 @@
 #mods
 #skillEnd
 
+#skill SummonFireDjinnPlayer
+#set SummonFireDjinnPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CommandFireDjinnLivingBombPlayer
+#set CommandFireDjinnLivingBombPlayer
+#flags
+#mods
+#skillEnd
+
 #skill ShatteringConcoctionPlayer
 #set ShatteringConcoctionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WolfShredPlayer
+#set WolfShredPlayer
+#flags
+#mods
+#set WolfShredThirdPlayer
+#flags
+#mods
+#set WolfShredFinalPlayer
+#flags
+#mods
+#skillEnd
+
+#skill IceFragmentsPlayer
+#set IceFragmentsPlayer
 #flags
 #mods
 #skillEnd

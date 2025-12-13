@@ -847,3 +847,190 @@ minions["WolfMinion"] = {
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 	},
 }
+
+minions["BeetleMinion"] = {
+	name = "Corpse Beetle",
+	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "insect", "sand_blood", "very_fast_movement", },
+	life = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1,
+	attackRange = 6,
+	accuracy = 1,
+	limit = "BeetleLimit",
+	baseMovementSpeed = 90,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"CorpseBeetleExplode",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		mod("CurseImmune", "FLAG", 1, 0, 0), -- immune_to_curses [immune_to_curses = 1]
+		-- immune_to_auras_from_other_entities [immune_to_auras_from_other_entities = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_monster_no_drops_or_experience [set_monster_no_drops_or_experience = 1]
+		-- set_monster_do_not_fracture [set_monster_do_not_fracture = 1]
+		mod("FrenzyChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_frenzy_charges [set_max_frenzy_charges = 0]
+		mod("EnduranceChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_endurance_charges [set_max_endurance_charges = 0]
+		mod("PowerChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_power_charges [set_max_power_charges = 0]
+		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_phase_through_objects [set_phase_through_objects = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+	},
+}
+
+minions["WaterDjinn"] = {
+	name = "Navira, the Last Mirage",
+	monsterTags = { "humanoid", "medium_movement", "Unarmed_onhit_audio", "water", "water_elemental", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 0,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"WaterBubbleWaterDjinn",
+		"ChilledGroundBurstWaterDjinn",
+		"ESRechargeForceRestartWaterDjinn",
+		"ChilledGroundOasisConvertWaterDjinn",
+		"PassiveTriggeredManaWaveWaterDjinn",
+	},
+	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- no_blood_on_death [no_blood_on_death = 1]
+		mod("DamageTaken", "MORE", -100, 0, 0), -- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		mod("Life", "OVERRIDE", 1, 0, 0), -- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
+		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
+		-- hide_buff_visuals [hide_buff_visuals = 1]
+		-- hide_mini_life_bar [hide_mini_life_bar = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+		-- set_cannot_die [set_cannot_die = 1]
+		mod("StunDuration", "OVERRIDE", 5.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5600]
+		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
+		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
+		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
+	},
+}
+
+minions["FireDjinn"] = {
+	name = "Ruzhan, the Blazing Sword",
+	monsterTags = { "elemental", "fire", "humanoid", "medium_movement", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.4,
+	damageSpread = 0.2,
+	attackTime = 0,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"LivingBombFireDjinn",
+		"FireRuneFireDjinn",
+		"MeteorFireDjinn",
+		"MassFusilladeFireDjinn",
+		"FlameSliceFireDjinn",
+	},
+	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- no_blood_on_death [no_blood_on_death = 1]
+		mod("DamageTaken", "MORE", -100, 0, 0), -- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		mod("Life", "OVERRIDE", 1, 0, 0), -- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
+		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
+		-- hide_buff_visuals [hide_buff_visuals = 1]
+		-- hide_mini_life_bar [hide_mini_life_bar = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+		-- set_cannot_die [set_cannot_die = 1]
+		mod("StunDuration", "OVERRIDE", 5.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5600]
+		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
+		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
+		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
+	},
+}
+
+minions["SandDjinn"] = {
+	name = "Kelari, the Tainted Sands",
+	monsterTags = { "earth_elemental", "humanoid", "medium_movement", "sand_blood", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 0,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"KnifeThrowSandDjinn",
+		"ExplosiveTeleportSandDjinn",
+		"HandSlamSandDjinn",
+	},
+	modList = {
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+		-- no_blood_on_death [no_blood_on_death = 1]
+		mod("DamageTaken", "MORE", -100, 0, 0), -- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
+		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
+		mod("Life", "OVERRIDE", 1, 0, 0), -- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
+		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
+		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
+		-- hide_buff_visuals [hide_buff_visuals = 1]
+		-- hide_mini_life_bar [hide_mini_life_bar = 1]
+		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
+		-- set_cannot_die [set_cannot_die = 1]
+		mod("StunDuration", "OVERRIDE", 5.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5600]
+		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
+		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
+		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
+	},
+}

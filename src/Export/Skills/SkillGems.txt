@@ -855,7 +855,9 @@ Zenith II                     		----		SupportZenithPlayerTwo
 
 						--------- Active Other ---------
 Acidic Concoction             		----		AcidicConcoctionPlayer
+Align Fate                    		----		AlignFatePlayer
 Ancestral Spirits             		----		AncestralSpiritsPlayer
+Apocalypse                    		----		ApocalypsePlayer	ApocalypseColdPlayer	ApocalypseFirePlayer	ApocalypseLightningPlayer
 Bleeding Concoction           		----		BleedingConcoctionPlayer
 Blood Boil                    		----		BloodBoilPlayer
 Bow Shot                      		----		MeleeBowPlayer
@@ -876,20 +878,28 @@ Fulminating Concoction        		----		FulminatingConcoctionPlayer
 Future-Past                   		----		FuturePastPlayer
 Inevitable Agony              		----		InevitableAgonyPlayer
 Into the Breach               		----		IntoTheBreachPlayer
+Kelari's Malediction          		----		CorpseBeetlesPlayer	CommandCorpseBeetleExplodePlayer
+Kelari, the Tainted Sands     		----		SummonSandDjinnPlayer	CommandSandDjinnKnifeThrowPlayer
 Life Remnants                 		----		LifeRemnantsPlayer
 Mace Strike                   		----		Melee1HMacePlayer
 Mace Strike                   		----		Melee2HMacePlayer
 Mace Strike                   		----		MeleeMaceMacePlayer
 Manifest Weapon               		----		ManifestWeaponPlayer
+Maul                          		----		BearMaulPlayer
 Meditate                      		----		MeditatePlayer
+Moment of Vulnerability       		----		MomentOfVulnerabilityPlayer
+Navira, the Last Mirage       		----		SummonWaterDjinnPlayer	CommandWaterDjinnBubblePlayer
 Parry                         		----		ParryPlayer
 Pinnacle of Power             		----		PinnacleOfPowerPlayer
 Punch                         		----		MeleeUnarmedPlayer
 Quarterstaff Strike           		----		MeleeQuarterstaffPlayer
 Raise Shield                  		----		ShieldBlockPlayer
+Rend                          		----		WyvernRendPlayer
 Ritual Sacrifice              		----		RitualSacrificePlayer
 Runic Tempering               		----		RunicTemperingPlayer
+Ruzhan, the Blazing Sword     		----		SummonFireDjinnPlayer	CommandFireDjinnLivingBombPlayer
 Shattering Concoction         		----		ShatteringConcoctionPlayer
+Shred                         		----		WolfShredPlayer	IceFragmentsPlayer
 Sorcery Ward                  		----		SorceryWardPlayer
 Spear Stab                    		----		MeleeSpearOffHandPlayer
 Spear Stab                    		----		MeleeSpearPlayer

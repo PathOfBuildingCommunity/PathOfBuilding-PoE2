@@ -4161,6 +4161,7 @@ skills["LightningArrowPlayer"] = {
 		},
 		[2] = {
 			label = "Beam",
+			baseEffectiveness = 0.6700000166893,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "lightning_arrow_statset_1",
 			baseFlags = {

@@ -4069,6 +4069,7 @@ skills["EarthquakePlayer"] = {
 		},
 		[2] = {
 			label = "Aftershock",
+			baseEffectiveness = 1.5,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "earthquake_statset_1",
 			statMap = {
@@ -13601,6 +13602,7 @@ skills["MoltenCrashPlayer"] = {
 		},
 		[2] = {
 			label = "Fissures",
+			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "molten_crash_statset_1",
 			baseFlags = {
@@ -14356,6 +14358,7 @@ skills["OilGrenadePlayer"] = {
 		},
 		[2] = {
 			label = "Oil Ground",
+			baseEffectiveness = 16,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "oil_grenade_statset_1",
 			statMap = {
