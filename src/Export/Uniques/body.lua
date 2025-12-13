@@ -624,10 +624,12 @@ Morior Invictus
 Grand Regalia
 Has Alt Variant: true
 Has Alt Variant Two: true
+Has Alt Variant Three: true
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
-Selected Variant: 2
-Selected Alt Variant: 4
-Selected Alt Variant Two: 6
+Selected Variant: 19
+Selected Alt Variant: 2
+Selected Alt Variant Two: 4
+Selected Alt Variant Three: 6
 Variant: Spirit (Pre 0.2.0)
 Variant: Spirit
 Variant: Life (Pre 0.2.0)
@@ -645,8 +647,11 @@ Variant: Chaos Resistance
 Variant: Stun Threshold
 Variant: Life Regeneration
 Variant: Reduced Crit Damage
+Variant: Pre 0.4.0
+Variant: Current
 Sockets: S S S S
-UniqueLocalArmourAndEvasionAndEnergyShield1
+{variant:18}UniqueLocalArmourAndEvasionAndEnergyShield1[200,300]
+{variant:19}UniqueLocalArmourAndEvasionAndEnergyShield1
 {variant:1}UniqueSpiritPerSocketable1[10,10]
 {variant:2}UniqueSpiritPerSocketable1
 {variant:3}UniqueMaximumLifePerSocketable1

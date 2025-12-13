@@ -507,10 +507,14 @@ UniqueGlobalItemAttributeRequirements1
 Solus Ipse
 Grand Visage
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
+Variant: Pre 0.4.0
+Variant: Current
 UniqueIncreasedMana12
 UniqueLightRadius9
-UniqueLocalArmourAndEvasionAndEnergyShield2
+{variant:1}UniqueLocalArmourAndEvasionAndEnergyShield2[100,150]
+{variant:2}UniqueLocalArmourAndEvasionAndEnergyShield2
 UniqueGlobalItemAttributeRequirements2
-UniqueSupportGemLimit1
+{variant:1}UniqueSupportGemLimit1[1,1]
+{variant:2}UniqueSupportGemLimit1
 ]],
 }
