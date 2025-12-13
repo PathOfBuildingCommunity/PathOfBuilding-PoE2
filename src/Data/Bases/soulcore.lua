@@ -712,126 +712,126 @@ itemBases["The Greatwolf's Rune of Willpower"] = {
 }
 
 itemBases["Talisman of Sirrius"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 8% increased Attack Speed",
 	req = { },
 }
 itemBases["Talisman of Thruldana"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Martial Weapons: 25% reduced Poison Duration\nTargets can be affected by +1 of your Poisons at the same time",
 	req = { },
 }
 itemBases["Talisman of Grold"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 15% increased total Power counted by Warcries",
 	req = { },
 }
 itemBases["Talisman of Eeshta"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 10% increased Cost Efficiency",
 	req = { },
 }
 itemBases["Talisman of Egrin"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: Enemies you Curse take 5% increased Damage",
 	req = { },
 }
 itemBases["Talisman of Maxarius"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: +1 Charm Slot",
 	req = { },
 }
 itemBases["Talisman of Ralakesh"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 6% increased Reservation Efficiency of Minion Skills",
 	req = { },
 }
 itemBases["Serpent Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 5% increased Curse Magnitudes\nSceptre: Allies in your Presence have 8% increased Attack Speed",
 	req = { },
 }
 itemBases["Primate Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: Minions have 12% increased maximum Life\nSceptre: Allies in your Presence deal 30% increased Damage",
 	req = { },
 }
 itemBases["Owl Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { primal_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Focus: 10% increased Cooldown Recovery Rate\nSceptre: Allies in your Presence have 8% increased Cast Speed",
 	req = { },
 }
 itemBases["Cat Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 15% increased Accuracy Rating\nSceptre: Allies in your Presence have 14% increased Critical Hit Chance",
 	req = { },
 }
 itemBases["Wolf Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: 10% increased Magnitude of Bleeding you inflict\nSceptre: Allies in your Presence have 14% increased Critical Damage Bonus",
 	req = { },
 }
 itemBases["Stag Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { vivid_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 50% increased Thorns Critical Hit Chance\nSceptre: Allies in your Presence deal 1 to 40 added Attack Lightning Damage",
 	req = { },
 }
 itemBases["Boar Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Gloves: Gain 1 Rage on Melee Hit\nSceptre: Allies in your Presence Regenerate 8 Life per second",
 	req = { },
 }
 itemBases["Bear Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Helmet: 8% increased Area of Effect\nSceptre: Allies in your Presence deal 12 to 18 added Attack Physical Damage",
 	req = { },
 }
 itemBases["Ox Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { wild_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Shield: 10% increased Block chance\nSceptre: Allies in your Presence have +8% to all Elemental Resistances",
 	req = { },
 }
 itemBases["Rabbit Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { sacred_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: 8% increased Rarity of Items found\nSceptre: 10% increased Spirit",
 	req = { },
 }
 itemBases["Fox Talisman"] = {
-	type = "Talisman",
+	type = "Idol",
 	tags = { sacred_talisman = true, talisman = true, default = true, },
 	implicitModTypes = { },
 	implicit = "Body Armour: +2% to Quality of all Skills\nSceptre: 30% increased Presence Area of Effect",
