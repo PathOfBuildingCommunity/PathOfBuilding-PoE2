@@ -497,6 +497,10 @@ return {
 			name="Monk"
 		}
 	},
+	connectionArt={
+		ascendancy="",
+		default=""
+	},
 	constants={
 		PSSCentreInnerRadius=130,
 		characterAttributes={
@@ -19543,6 +19547,28 @@ return {
 	["max_y"]=23749.535199651,
 	["min_x"]=-23185.06380285,
 	["min_y"]=-23534.129135817,
+	nodeOverlay={
+		Keystone={
+			alloc="KeystoneFrameAllocated",
+			path="KeystoneFrameCanAllocate",
+			unalloc="KeystoneFrameUnallocated"
+		},
+		Normal={
+			alloc="PSSkillFrameActive",
+			path="PSSkillFrameHighlighted",
+			unalloc="PSSkillFrame"
+		},
+		Notable={
+			alloc="NotableFrameAllocated",
+			path="NotableFrameCanAllocate",
+			unalloc="NotableFrameUnallocated"
+		},
+		Socket={
+			alloc="JewelFrameAllocated",
+			path="JewelFrameCanAllocate",
+			unalloc="JewelFrameUnallocated"
+		}
+	},
 	nodes={
 		[4]={
 			connections={
