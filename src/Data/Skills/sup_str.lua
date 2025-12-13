@@ -2366,6 +2366,42 @@ skills["SupportDoubleBarrelPlayerThree"] = {
 		},
 	}
 }
+skills["SupportEchoingCryPlayer"] = {
+	name = "Echoing Cry",
+	description = "Supports Warcries. Supported Skills echo, causing their effects to happen again after a short delay, growing larger each time, but are less effective and require you to have travelled a certain distance before use.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Warcry, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "EchoingCry",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 50, },
+	},
+	statSets = {
+		[1] = {
+			label = "Echoing Cry",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "warcry_echo_delay_ms_from_support", 1300 },
+				{ "base_warcry_echo_X_times", 2 },
+				{ "support_echoing_cry_area_of_effect_+%_final", -50 },
+				{ "warcry_echo_area_of_effect_+%_final_per_repeat", 100 },
+				{ "skill_unusable_until_moved_X_distance", 100 },
+				{ "support_echoing_cry_warcry_monster_power_+%_final", -50 },
+				{ "support_echoing_cry_damage_+%_final", -40 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportEfficiencyPlayer"] = {
 	name = "Efficiency I",
 	description = "Supports any skill, making it cost less to use. Cannot support skills which reserve Spirit.",
@@ -2932,6 +2968,329 @@ skills["SupportExploitWeaknessPlayer"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportExposingCryPlayer"] = {
+	name = "Exposing Cry",
+	description = "Supports Warcries. Supported Skills apply Exposure on Hitting enemies.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Warcry, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { },
+	gemFamily = { "ExposingCry",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 30, },
+	},
+	statSets = {
+		[1] = {
+			label = "Exposing Cry",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "all_exposure_on_hit_for_duration_ms", 5000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportFanTheFlamesPlayer"] = {
+	name = "Fan The Flames",
+	description = "Supports Wind Skills which Hit enemies. Hits with Supported Skills against Ignited enemies Trigger a fiery explosion, dealing damage to that enemy and enemies in a cone behind them.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.OR, SkillType.Wind, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "FanTheFlames",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fan The Flames",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_fan_the_flames_trigger_explosion_on_hit_vs_ignited_enemies",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredFanTheFlamesPlayer"] = {
+	name = "Fan the Flames",
+	hidden = true,
+	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.45, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[2] = { baseMultiplier = 0.49, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[3] = { baseMultiplier = 0.54, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[4] = { baseMultiplier = 0.6, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[5] = { baseMultiplier = 0.64, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[6] = { baseMultiplier = 0.7, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[7] = { baseMultiplier = 0.75, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[8] = { baseMultiplier = 0.8, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[9] = { baseMultiplier = 0.84, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[10] = { baseMultiplier = 0.89, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[11] = { baseMultiplier = 0.94, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[12] = { cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[13] = { baseMultiplier = 1.06, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[14] = { baseMultiplier = 1.12, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[15] = { baseMultiplier = 1.19, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[16] = { baseMultiplier = 1.27, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[17] = { baseMultiplier = 1.35, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[18] = { baseMultiplier = 1.43, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[19] = { baseMultiplier = 1.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[20] = { baseMultiplier = 1.63, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[21] = { baseMultiplier = 1.74, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[22] = { baseMultiplier = 1.85, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[23] = { baseMultiplier = 1.98, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[24] = { baseMultiplier = 2.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[25] = { baseMultiplier = 2.25, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[26] = { baseMultiplier = 2.4, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[27] = { baseMultiplier = 2.56, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[28] = { baseMultiplier = 2.73, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[29] = { baseMultiplier = 2.91, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[30] = { baseMultiplier = 3.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[31] = { baseMultiplier = 3.31, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[32] = { baseMultiplier = 3.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[33] = { baseMultiplier = 3.77, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[34] = { baseMultiplier = 4.02, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[35] = { baseMultiplier = 4.29, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[36] = { baseMultiplier = 4.57, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[37] = { baseMultiplier = 4.88, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[38] = { baseMultiplier = 5.2, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[39] = { baseMultiplier = 5.55, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[40] = { baseMultiplier = 5.92, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fan the Flames",
+			baseEffectiveness = 2.2999999523163,
+			incrementalEffectiveness = 0.27349999547005,
+			statDescriptionScope = "triggered_fan_the_flames",
+			baseFlags = {
+				attack = true,
+				area = true,
+			},
+			constantStats = {
+				{ "triggered_by_support_fan_the_flames_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 35 },
+			},
+			stats = {
+				"main_hand_weapon_minimum_fire_damage",
+				"main_hand_weapon_maximum_fire_damage",
+				"attack_is_not_melee_override",
+				"is_area_damage",
+				"display_statset_hide_usage_stats",
+				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
+				"never_ignite",
+			},
+			levels = {
+				[1] = { 7, 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 12, 18, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 18, 28, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 25, 38, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 33, 49, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 41, 61, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 49, 73, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 57, 86, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 67, 100, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 76, 114, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 86, 129, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 97, 145, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 108, 161, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 119, 178, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 131, 196, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 143, 214, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 156, 233, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 169, 253, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 182, 273, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 196, 294, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 211, 316, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 226, 338, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 241, 361, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 257, 385, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 273, 409, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 289, 434, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 307, 460, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 324, 486, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 342, 513, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 360, 541, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 379, 569, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 399, 598, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 418, 628, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 439, 658, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 459, 689, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 480, 720, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 502, 753, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 524, 785, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 546, 819, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 569, 853, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["SupportFanTheFlamesPlayerTwo"] = {
+	name = "Fan The Flames II",
+	description = "Supports Wind Skills which Hit enemies. Hits with Supported Skills against Ignited enemies Trigger a fiery explosion, dealing damage to that enemy and enemies in a cone behind them. The explosion Spreads the initial enemy's Ignite to other enemies Hit.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.OR, SkillType.Wind, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "FanTheFlames",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fan The Flames II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_fan_the_flames_trigger_explosion_on_hit_vs_ignited_enemies",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredFanTheFlamesPlayerTwo"] = {
+	name = "Fan the Flames",
+	hidden = true,
+	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 0.45, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[2] = { baseMultiplier = 0.49, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[3] = { baseMultiplier = 0.54, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[4] = { baseMultiplier = 0.6, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[5] = { baseMultiplier = 0.64, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[6] = { baseMultiplier = 0.7, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[7] = { baseMultiplier = 0.75, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[8] = { baseMultiplier = 0.8, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[9] = { baseMultiplier = 0.84, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[10] = { baseMultiplier = 0.89, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[11] = { baseMultiplier = 0.94, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[12] = { cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[13] = { baseMultiplier = 1.06, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[14] = { baseMultiplier = 1.12, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[15] = { baseMultiplier = 1.19, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[16] = { baseMultiplier = 1.27, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[17] = { baseMultiplier = 1.35, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[18] = { baseMultiplier = 1.43, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[19] = { baseMultiplier = 1.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[20] = { baseMultiplier = 1.63, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[21] = { baseMultiplier = 1.74, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[22] = { baseMultiplier = 1.85, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[23] = { baseMultiplier = 1.98, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[24] = { baseMultiplier = 2.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[25] = { baseMultiplier = 2.25, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[26] = { baseMultiplier = 2.4, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[27] = { baseMultiplier = 2.56, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[28] = { baseMultiplier = 2.73, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[29] = { baseMultiplier = 2.91, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[30] = { baseMultiplier = 3.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[31] = { baseMultiplier = 3.31, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[32] = { baseMultiplier = 3.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[33] = { baseMultiplier = 3.77, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[34] = { baseMultiplier = 4.02, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[35] = { baseMultiplier = 4.29, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[36] = { baseMultiplier = 4.57, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[37] = { baseMultiplier = 4.88, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[38] = { baseMultiplier = 5.2, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[39] = { baseMultiplier = 5.55, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[40] = { baseMultiplier = 5.92, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+	},
+	statSets = {
+		[1] = {
+			label = "Fan the Flames",
+			baseEffectiveness = 2.2999999523163,
+			incrementalEffectiveness = 0.27349999547005,
+			statDescriptionScope = "triggered_fan_the_flames",
+			baseFlags = {
+				attack = true,
+				area = true,
+			},
+			constantStats = {
+				{ "triggered_by_support_fan_the_flames_%", 100 },
+				{ "active_skill_base_area_of_effect_radius", 35 },
+			},
+			stats = {
+				"main_hand_weapon_minimum_fire_damage",
+				"main_hand_weapon_maximum_fire_damage",
+				"triggered_fan_the_flames_spread_ignite_to_hit_enemies",
+				"attack_is_not_melee_override",
+				"is_area_damage",
+				"display_statset_hide_usage_stats",
+				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
+				"never_ignite",
+			},
+			levels = {
+				[1] = { 7, 11, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 12, 18, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 18, 28, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 25, 38, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 33, 49, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 41, 61, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 49, 73, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 57, 86, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 67, 100, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 76, 114, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 86, 129, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 97, 145, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 108, 161, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 119, 178, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 131, 196, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 143, 214, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 156, 233, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 169, 253, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 182, 273, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 196, 294, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 211, 316, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 226, 338, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 241, 361, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 257, 385, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 273, 409, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 289, 434, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 307, 460, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 324, 486, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 342, 513, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 360, 541, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 379, 569, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 399, 598, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 418, 628, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 439, 658, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 459, 689, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 480, 720, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 502, 753, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 524, 785, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 546, 819, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 569, 853, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -4494,6 +4853,36 @@ skills["SupportMarkForDeathPlayer"] = {
 		},
 	}
 }
+skills["SupportMarkForDeathPlayerTwo"] = {
+	name = "Mark for Death II",
+	description = "Supports Mark Skills. Enemies affected by Supported Marks will have their Armour Broken by Physical Damage they take.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "MarkForDeath",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mark for Death II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "marked_target_%_physical_damage_taken_as_armour_break", 15 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportMeatShieldPlayer"] = {
 	name = "Meat Shield I",
 	description = "Supports skills which create Minions, granting them less damage taken but making them deal less damage. Cannot support skills which create undamageable Minions.",
@@ -4565,6 +4954,34 @@ skills["SupportMeatShieldPlayerTwo"] = {
 				{ "support_meat_shield_minion_damage_+%_final", -40 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportOpeningMovePlayer"] = {
+	name = "Opening Move",
+	description = "Supports Travel Skills which Hit enemies. Hits with Supported Skills against enemies on full life will Daze.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.OR, SkillType.Travel, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "OpeningMove",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Opening Move",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"daze_on_hit_vs_enemies_at_full_life",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5451,6 +5868,36 @@ skills["SupportInterludePlayerThree"] = {
 		},
 	}
 }
+skills["SupportRendingApexPlayer"] = {
+	name = "Rending Apex",
+	description = "Supports Strikes that perform a Final Strike at the end of a combination of attacks, causing the Final Strike to Break Armour based on a portion of Attack damage dealt.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.PerformsFinalStrike, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "RendingApex",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Rending Apex",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "final_strike_attack_damage_%_dealt_as_armour_break", 75 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportRetaliatePlayer"] = {
 	name = "Retaliate I",
 	description = "Supports Melee Attack Skills you use yourself. Supported Skills gain much more damage the closer you are to being Heavily Stunned.",
@@ -6056,6 +6503,80 @@ skills["SupportSparPlayer"] = {
 		},
 	}
 }
+skills["SupportSplinteringTotemPlayer"] = {
+	name = "Splinter Totem I",
+	description = "Supports Skills which create Totems, preventing having more than one active Totem but causing that Totem to splinter into smaller versions of itself after it uses an Attack or Spell, with each Totem becoming less effective. Each splintered Totem can further splinter, up to a Limit. Does not Support Skills used by Minions. Only one Totem can be splintering at a time.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UnlimitedTotems, },
+	gemFamily = { "TotemicControl",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Splinter Totem I",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_splinter_totem_X_times", 2 },
+				{ "support_splinter_totem_splinter_after_X_actions", 1 },
+				{ "support_splinter_totem_skill_speed_+%_final_each_splinter", -10 },
+				{ "support_splinter_totem_damage_+%_final_each_splinter", -20 },
+				{ "support_splinter_totem_maximum_life_+%_final_each_splinter", -20 },
+				{ "support_splinter_totem_area_of_effect_+%_final_each_splinter", -20 },
+			},
+			stats = {
+				"number_of_totems_allowed_is_1",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportSplinteringTotemPlayerTwo"] = {
+	name = "Splinter Totem II",
+	description = "Supports Skills which create Totems, preventing having more than one active Totem but causing that Totem to splinter into smaller versions of itself after it uses an Attack or Spell, with each Totem becoming less effective. Each splintered Totem can further splinter, up to a Limit. Does not Support Skills used by Minions. Only one Totem can be splintering at a time.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UnlimitedTotems, },
+	gemFamily = { "TotemicControl",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Splinter Totem II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_splinter_totem_X_times", 2 },
+				{ "support_splinter_totem_splinter_after_X_actions", 1 },
+				{ "support_splinter_totem_skill_speed_+%_final_each_splinter", -7 },
+				{ "support_splinter_totem_damage_+%_final_each_splinter", -15 },
+				{ "support_splinter_totem_maximum_life_+%_final_each_splinter", -15 },
+				{ "support_splinter_totem_area_of_effect_+%_final_each_splinter", -15 },
+			},
+			stats = {
+				"number_of_totems_allowed_is_1",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportSteadfastPlayer"] = {
 	name = "Steadfast I",
 	description = "Supports Channelling Skills you use yourself, granting you higher Stun Threshold while Channelling them.",
@@ -6493,6 +7014,40 @@ skills["SupportTearPlayer"] = {
 			},
 			constantStats = {
 				{ "on_kill_effect_occur_twice_chance_%_vs_bleeding_enemies", 50 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportSlamAftershocksPlayer"] = {
+	name = "Tectonic Slams",
+	description = "Supports Slams you use yourself, causing them to create simultaneous Aftershocks behind the Slam, but lowering Aftershock damage and area of effect with Supported Skills. Cannot Support Skills which create Fissures.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Slam, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, SkillType.CreatesFissure, },
+	gemFamily = { "Aftershock",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 30, },
+	},
+	statSets = {
+		[1] = {
+			label = "Tectonic Slams",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "number_of_dual_cascade_aftershocks", 1 },
+				{ "aftershock_damage_+%_final_from_support_dual_cascade_aftershocks", -45 },
+				{ "aftershock_area_of_effect_+%_final_from_support_dual_cascade_aftershocks", -30 },
+				{ "support_dual_cascade_aftershocks_attack_speed_+%_final", -15 },
 			},
 			stats = {
 			},
@@ -7382,6 +7937,41 @@ skills["SupportXophsPyrePlayer"] = {
 			},
 			stats = {
 				"base_chaos_damage_can_ignite",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportZerphisLegacyPlayer"] = {
+	name = "Zerphi's Infamy",
+	description = "Supports Attacks and Warcries you use yourself. Supported Skills gain a Glory requirement, and build Glory when you spend Life on Skills. Supported Skills deal more damage and have significantly\n increased area of effect.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Area, SkillType.Attack, SkillType.RangedAttack, SkillType.Warcry, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.Buff, SkillType.Persistent, SkillType.Triggered, SkillType.Spell, SkillType.Minion, },
+	gemFamily = { "Zerphi",},
+	isLineage = true,
+	flavourText = {"\"It was the quality of his heinous acts that set him apart, not", "the quantity... all of the physical trauma inflicted occurred", "while the victim was still alive. Perhaps this was the key.\"", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Zerphi's Infamy",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "active_skill_requires_X_glory", 50 },
+				{ "active_skill_generates_%_of_life_spent_as_glory", 5 },
+				{ "support_zerphis_legacy_area_of_effect_+%", 50 },
+				{ "support_zerphis_legacy_damage_+%_final", 50 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

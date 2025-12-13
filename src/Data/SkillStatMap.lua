@@ -2354,6 +2354,12 @@ return {
 ["number_of_spider_minions_allowed"] = {
 	mod("ActiveSpiderLimit", "BASE", nil),
 },
+["skill_hyena_cackle_size"] = {
+	mod("HyenaLimit", "BASE", nil),
+},
+["maximum_corpse_beetles_allowed"] = {
+	mod("BeetleLimit", "BASE", nil),
+},
 ["active_skill_minion_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 },
@@ -2531,6 +2537,9 @@ return {
 	mod("CrossbowBoltCount", "BASE", nil)
 },
 ["projectiles_crossbow_barrage"] = {
+	flag("SequentialProjectiles"),
+},
+["projectiles_barrage"] = {
 	flag("SequentialProjectiles"),
 },
 ["crossbow_barrage_attack_time_ratio_%"] = {

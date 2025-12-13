@@ -594,7 +594,7 @@ end
 function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	local displayInstance = gemInstance.displayEffect or gemInstance
 	local grantedEffectLevel = grantedEffect.levels[displayInstance.level] or { }
-	if gemInstance.gemData.Tier and not grantedEffect.isLineage and not grantedEffect.hidden then
+	if gemInstance.gemData.Tier and gemInstance.gemData.Tier > 0 and not grantedEffect.isLineage and not grantedEffect.hidden then
 			self.tooltip:AddLine(16, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier))
 		end
 	if addReq and not grantedEffect.support then
@@ -709,7 +709,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 end
 function GemSelectClass:AddStatSetInfo(gemInstance, grantedEffect, statSet, noLabel, index)
 	local displayInstance = gemInstance.displayEffect or gemInstance
-	local statSetLevel = statSet.levels[displayInstance.level] or { }
+	local statSetLevel = statSet.levels[displayInstance.level] or statSet.levels[1] or { }
 	if not (index == 1 and statSet.label == grantedEffect.name) and statSet.label ~= "" and not noLabel then
 		self.tooltip:AddSeparator(10)
 		self.tooltip:AddLine(20, colorCodes.GEM .. statSet.label)
