@@ -317,7 +317,6 @@ minions["RaisedSkeletonReaver"] = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 		-- is_skeleton_minion [is_skeleton_minion = 1]
-		-- attack_speed_+%_per_2_rage [attack_speed_+%_per_2_rage = 6]
 	},
 }
 
@@ -592,7 +591,7 @@ minions["SummonedRhoa"] = {
 		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
-		-- set_has_quadruped_head_control [set_has_quadruped_head_control = 1]
+		-- set_has_quadruped_head_control_while_turning [set_has_quadruped_head_control_while_turning = 1]
 		-- set_quadruped_head_turn_duration_ms [set_quadruped_head_turn_duration_ms = 200]
 		-- no_blood_on_death [no_blood_on_death = 1]
 	},
@@ -624,6 +623,7 @@ minions["ManifestWeapon"] = {
 		"DTTAnimateWeaponSpearDashStab",
 		"DTTAnimateWeaponSpearDashStabImpact",
 		"GAAnimateWeaponQuarterstaffSweep",
+		"GAManifestWeaponTalismanRake",
 	},
 	modList = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
@@ -640,6 +640,7 @@ minions["ManifestWeapon"] = {
 		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
 		-- hide_buff_visuals [hide_buff_visuals = 1]
 		-- hide_mini_life_bar [hide_mini_life_bar = 1]
+		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
 	},
 }
 

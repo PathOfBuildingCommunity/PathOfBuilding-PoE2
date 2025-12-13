@@ -17576,6 +17576,36 @@ return {
 			width=390
 		}
 	},
+	soulcorelimits={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="Limit",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="Description",
+			refTo="",
+			type="String",
+			width=200
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		}
+	},
 	soulcores={
 		[1]={
 			list=false,
@@ -17593,8 +17623,8 @@ return {
 		},
 		[3]={
 			list=false,
-			name="Type",
-			refTo="SoulCoreTypes",
+			name="Limit",
+			refTo="SoulCoreLimits",
 			type="Key",
 			width=150
 		},

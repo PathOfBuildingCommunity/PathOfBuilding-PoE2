@@ -103,6 +103,7 @@ Bleed II                      		----		SupportBleedPlayerTwo
 Bleed III                     		----		SupportBleedPlayerThree
 Bleed IV                      		----		SupportBleedPlayerFour
 Bloodlust                     		----		SupportBloodlustPlayer
+Brambleslam                   		----		SupportBrambleslamPlayer	TriggeredBrambleslamPlayer
 Branching Fissures I          		----		SupportBranchingFissuresPlayer
 Branching Fissures II         		----		SupportBranchingFissuresPlayerTwo
 Break Endurance               		----		SupportEnduranceChargeOnArmourBreak
@@ -114,6 +115,7 @@ Brutality III                 		----		SupportBrutalityPlayerThree
 Brutus' Brain                 		----		SupportBrutusBrainPlayer
 Cannibalism I                 		----		SupportCannibalismPlayer
 Cannibalism II                		----		SupportCannibalismPlayerTwo
+Cirel's Cultivation           		----		SupportCirelsCultivationPlayer
 Clash                         		----		SupportClashPlayer
 Compressed Duration I         		----		CompressedDurationSupportPlayer
 Compressed Duration II        		----		CompressedDurationSupportPlayerTwo
@@ -126,6 +128,7 @@ Crater                        		----		SupportCraterPlayer	TriggeredCraterPlayer
 Daresso's Passion             		----		SupportDaressosPassionPlayer
 Dauntless                     		----		SupportDauntlessPlayer
 Dazing Cry                    		----		SupportDazingCryPlayer
+Deadly Resolve                		----		SupportDeadlyResolvePlayer	TriggeredDeadlyResolvePlayer
 Deep Cuts I                   		----		SupportDeepCutsPlayer
 Deep Cuts II                  		----		SupportDeepCutsPlayerTwo
 Defy I                        		----		SupportDefyPlayer
@@ -168,7 +171,6 @@ Font of Blood                 		----		SupportBloodFountainPlayer
 Font of Rage                  		----		SupportRageFountainPlayer
 Fresh Clip I                  		----		SupportFreshClipPlayer
 Fresh Clip II                 		----		SupportFreshClipPlayerTwo
-Greatwood I                   		----		SupportGreatwoodPlayer
 Greatwood II                  		----		SupportGreatwoodPlayerTwo
 Haemocrystals                 		----		SupportHaemocrystalsPlayer	TriggeredHaemocrystalsPlayer
 Hardy Totems I                		----		SupportHardyTotemsPlayer
@@ -198,6 +200,7 @@ Life Leech III                		----		SupportLifeLeechPlayerThree
 Lifetap                       		----		SupportBloodMagicPlayer
 Long Fuse I                   		----		SupportLongFusePlayer
 Long Fuse II                  		----		SupportLongFusePlayerTwo
+Mark for Death                		----		SupportMarkForDeathPlayer
 Meat Shield I                 		----		SupportMeatShieldPlayer
 Meat Shield II                		----		SupportMeatShieldPlayerTwo
 Paquate's Pact                		----		SupportCorruptingCryPlayerThree
@@ -331,7 +334,7 @@ Toxic Growth                  		----		ToxicGrowthPlayer
 Trail of Caltrops             		----		TrailOfCaltropsPlayer	TriggeredTrailOfCaltropsPlayer
 Twister                       		----		TwisterPlayer
 Vine Arrow                    		----		VineArrowPlayer
-Voltaic Mark                  		----		VoltaicMarkPlayer	TriggeredVoltaicMarkNovaPlayer
+Voltaic Mark                  		----		VoltaicMarkPlayer
 Whirling Slash                		----		WhirlingSlashPlayer
 Whirlwind Lance               		----		WhirlwindLancePlayer
 Wind Dancer                   		----		WindDancerPlayer	TriggeredWindDancerPlayer
@@ -356,7 +359,6 @@ Blind II                      		----		SupportBlindPlayerTwo
 Blindside                     		----		SupportBlindsidePlayer
 Bounty I                      		----		SupportBountyPlayer
 Bounty II                     		----		SupportBountyPlayerTwo
-Brambleslam                   		----		SupportBrambleslamPlayer	TriggeredBrambleslamPlayer
 Break Posture                 		----		SupportDazedBreakPlayer
 Bursting Plague               		----		SupportBurstingPlaguePlayer	PlagueBurstPlayer
 Cadence                       		----		SupportCadencePlayer
@@ -377,9 +379,6 @@ Commiserate                   		----		SupportCommiseratePlayer
 Cooldown Recovery I           		----		SupportCooldownRecoveryPlayer
 Cooldown Recovery II          		----		SupportCooldownRecoveryPlayerTwo
 Corrosion                     		----		SupportCorrosionPlayer
-Crescendo I                   		----		SupportCrescendoPlayer
-Crescendo II                  		----		SupportCrescendoPlayerTwo
-Crescendo III                 		----		SupportCrescendoPlayerThree
 Culling Strike I              		----		SupportCullingStrikePlayer
 Culling Strike II             		----		SupportCullingStrikePlayerTwo
 Culmination I                 		----		SupportCulminationPlayer
@@ -402,7 +401,6 @@ Fork                          		----		SupportForkPlayer
 Frenzied Riposte              		----		SupportFrenziedRipostePlayer
 Frozen Spite                  		----		SupportFrozenSpitePlayer	TriggeredSupportFrozenSpiteIceFragmentPlayer
 Fusillade                     		----		SupportFusilladePlayer
-Gambleshot                    		----		SupportGambleshotPlayer
 Garukhan's Resolve            		----		SupportGarukhansResolvePlayer
 Heightened Accuracy I         		----		SupportHeightenedAccuracyPlayer
 Heightened Accuracy II        		----		SupportHeightenedAccuracyPlayerTwo
@@ -425,7 +423,6 @@ Longshot II                   		----		SupportFarCombatPlayerTwo
 Maim                          		----		SupportMaimPlayer
 Malady                        		----		SupportMaladyPlayer
 Mana Bounty                   		----		SupportManaFlaskPlayer
-Mark for Death                		----		SupportMarkForDeathPlayer
 Mobility                      		----		SupportMobilityPlayer
 Momentum                      		----		SupportMomentumPlayer
 Multishot I                   		----		SupportMultishotPlayer
@@ -433,7 +430,7 @@ Multishot II                  		----		SupportMultishotPlayerTwo
 Murderous Intent              		----		SupportEmpoweredCullPlayer
 Neural Overload               		----		SupportNeuralOverloadPlayer
 Nimble Reload                 		----		SupportNimbleReloadPlayer
-Nova Projectiles              		----		SupportNovaProjectilesPlayer
+Nova Projectiles I            		----		SupportNovaProjectilesPlayer
 Outmaneuver                   		----		SupportOutmaneuverPlayer
 Overabundance I               		----		SupportIncreaseLimitPlayer
 Overabundance II              		----		SupportIncreaseLimitPlayerTwo
@@ -444,11 +441,9 @@ Overreach                     		----		SupportOverreachPlayer
 Payload                       		----		SupportPayloadPlayer
 Perfected Endurance           		----		SupportPerfectEndurancePlayer
 Perfection                    		----		SupportPerfectionPlayer
-Perpetual Charge              		----		SupportPerpetualChargePlayer
 Pierce I                      		----		SupportPiercePlayer
 Pierce II                     		----		SupportPiercePlayerTwo
 Pierce III                    		----		SupportPiercePlayerThree
-Piety's Mercy                 		----		SupportPietysMercyPlayer
 Pin I                         		----		SupportPinPlayer
 Pin II                        		----		SupportPinPlayerTwo
 Pin III                       		----		SupportPinPlayerThree
@@ -555,7 +550,7 @@ Flame Wall                    		----		FlameWallPlayer
 Flameblast                    		----		FlameblastPlayer
 Flammability                  		----		FlammabilityPlayer
 Flicker Strike                		----		FlickerStrikePlayer
-Freezing Mark                 		----		FreezingMarkPlayer	TriggeredFreezingMarkNovaPlayer
+Freezing Mark                 		----		FreezingMarkPlayer
 Freezing Shards               		----		FreezingShardsPlayer
 Frost Bomb                    		----		FrostBombPlayer
 Frost Darts                   		----		FrostDartsPlayer
@@ -573,7 +568,6 @@ Heart of Ice                  		----		HeartOfIcePlayer
 Herald of Ice                 		----		HeraldOfIcePlayer
 Herald of Ice                 		----		UniqueHeraldOfIcePlayer
 Hexblast                      		----		HexblastPlayer
-His Dark Horizon              		----		DarkTempestPlayer
 His Foul Emergence            		----		HisFoulEmergencePlayer
 His Scattering Calamity       		----		ScatteringCalamityPlayer
 His Vile Intrusion            		----		VileDisruptionPlayer
@@ -685,6 +679,9 @@ Controlled Destruction        		----		SupportControlledDestructionPlayer
 Corpse Conservation           		----		SupportCorpseConservationPlayer
 Crackling Barrier             		----		SupportCracklingBarrierPlayer
 Crazed Minions                		----		SupportCrazedMinionsPlayer
+Crescendo I                   		----		SupportCrescendoPlayer
+Crescendo II                  		----		SupportCrescendoPlayerTwo
+Crescendo III                 		----		SupportCrescendoPlayerThree
 Crystalline Shards            		----		SupportCrystallineShardsPlayer
 Cursed Ground                 		----		SupportCursedGroundPlayer
 Danse Macabre                 		----		SupportDanseMacabrePlayer
@@ -723,6 +720,7 @@ Freezefork                    		----		SupportFreezeforkPlayer
 Frost Nexus                   		----		SupportChillingIcePlayer
 Frostfire                     		----		SupportFrostfirePlayer
 Frozen Vortex                 		----		SupportFrozenVortexPlayer	TriggeredFrozenVortexPlayer
+Gambleshot                    		----		SupportGambleshotPlayer
 Glacier                       		----		SupportGlacierPlayer
 Harmonic Remnants I           		----		SupportFleetingRemnantsPlayer
 Harmonic Remnants II          		----		SupportFleetingRemnantsPlayerTwo
@@ -759,6 +757,7 @@ Muster                        		----		SupportMusterPlayer
 Mysticism I                   		----		SupportMysticismPlayer
 Mysticism II                  		----		SupportMysticismPlayerTwo
 Nadir                         		----		SupportNadirPlayer
+Perpetual Charge              		----		SupportPerpetualChargePlayer
 Physical Mastery              		----		SupportPhysicalMasteryPlayer
 Pinpoint Critical             		----		SupportPinpointCriticalPlayer
 Potent Exposure               		----		SupportPotentExposurePlayer
@@ -806,7 +805,6 @@ Zenith II                     		----		SupportZenithPlayerTwo
 Acidic Concoction             		----		AcidicConcoctionPlayer
 Ancestral Spirits             		----		AncestralSpiritsPlayer
 Bleeding Concoction           		----		BleedingConcoctionPlayer
-Blink                         		----		BlinkSandPlayer
 Blood Boil                    		----		BloodBoilPlayer
 Bow Shot                      		----		MeleeBowPlayer
 Bursting Fen Toad             		----		ExplodingPoisonToadPlayer

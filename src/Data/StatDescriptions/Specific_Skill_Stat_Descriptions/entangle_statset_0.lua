@@ -22,7 +22,7 @@ return {
 						[2]=10
 					}
 				},
-				text="Root length is {0} metre"
+				text="Fissure length is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -35,7 +35,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Root length is {0} metres"
+				text="Fissure length is {0} metres"
 			}
 		},
 		stats={
@@ -85,22 +85,32 @@ return {
 	[5]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0:+d} to Fissure Limit"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
-				text="Limit {0} Root"
+				text="Limit {0} Fissure"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]=2,
 						[2]="#"
 					}
 				},
-				text="Limit {0} Roots"
+				text="Limit {0} Fissures"
 			}
 		},
 		stats={
@@ -120,7 +130,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="Root duration is {0} second"
+				text="Fissure duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -133,7 +143,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Root duration is {0} seconds"
+				text="Fissure duration is {0} seconds"
 			}
 		},
 		stats={
@@ -175,12 +185,41 @@ return {
 	},
 	[8]={
 		[1]={
+			[1]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Overgrown fissures expire {0}% slower"
+			}
+		},
+		stats={
+			[1]="entangle_duration_speed_+%_when_wet"
+		}
+	},
+	[9]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Fissure Limit@{0}"
+			}
 		},
 		stats={
 			[1]="number_of_entangle_roots_allowed"
 		}
 	},
-	[9]={
+	[10]={
 		[1]={
 		},
 		stats={
@@ -194,7 +233,8 @@ return {
 	["base_number_of_entangle_roots_allowed"]=5,
 	["base_skill_effect_duration"]=6,
 	["entangle_apply_vines_every_X_ms"]=7,
-	["number_of_entangle_roots_allowed"]=8,
+	["entangle_duration_speed_+%_when_wet"]=8,
+	["number_of_entangle_roots_allowed"]=9,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=9
+	["skill_effect_duration"]=10
 }

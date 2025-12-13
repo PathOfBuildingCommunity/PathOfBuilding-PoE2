@@ -401,6 +401,9 @@ return {
 	mod("ManaCost", "MORE", nil),
 	value = -100,
 },
+["base_mana_cost_efficiency_"] = {
+	mod("ManaCostEfficiency", "INC", nil),
+},
 ["base_life_cost_+%"] = {
 	mod("LifeCost", "INC", nil),
 },
@@ -1568,6 +1571,12 @@ return {
 },
 ["base_inflict_fire_exposure_on_hit_%_chance"] = {
 	mod("FireExposureChance", "BASE", nil),
+},
+["all_exposure_on_hit_magnitude"] = {
+	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mult = -1,
 },
 ["offering_spells_effect_+%"] = {
 	mod("BuffEffect", "INC", nil),

@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="DNT Wave radius@{0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -31,11 +18,11 @@ return {
 				},
 				limit={
 					[1]={
-						[1]=1,
-						[2]=1
+						[1]=10,
+						[2]=10
 					}
 				},
-				text="DNT Wave radius is {0} metre"
+				text="Wave radius is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -44,11 +31,11 @@ return {
 				},
 				limit={
 					[1]={
-						[1]=2,
+						[1]="#",
 						[2]="#"
 					}
 				},
-				text="DNT Wave radius is {0} metres"
+				text="Wave radius is {0} metres"
 			}
 		},
 		stats={
@@ -68,7 +55,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="DNT Buff duration is {0} second"
+				text="Buff duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -81,7 +68,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Buff duration is {0} seconds"
+				text="Buff duration is {0} seconds"
 			}
 		},
 		stats={
@@ -92,12 +79,20 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="curse_effect_duration"
+			[1]="skill_effect_duration"
+		}
+	},
+	[5]={
+		[1]={
+		},
+		stats={
+			[1]="water_djinn_mana_wave_mana_regeneration_rate_+%"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_effect_duration"]=3,
-	["curse_effect_duration"]=4,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["skill_effect_duration"]=4,
+	["water_djinn_mana_wave_mana_regeneration_rate_+%"]=5
 }

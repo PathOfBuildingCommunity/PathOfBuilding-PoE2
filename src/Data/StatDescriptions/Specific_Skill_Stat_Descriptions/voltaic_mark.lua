@@ -10,6 +10,55 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Marked enemy becomes Electrocuted when\nHit while Primed for Electrocution"
+			}
+		},
+		stats={
+			[1]="active_skill_show_overload_range_from_voltaic_mark"
+		}
+	},
+	[3]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Buff duration is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Buff duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_secondary_skill_effect_duration"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
 				[1]={
 					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
@@ -40,14 +89,37 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[3]={
+	[5]={
+		[1]={
+		},
+		stats={
+			[1]="secondary_skill_effect_duration"
+		}
+	},
+	[6]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	[4]={
+	[7]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Buff grants {0}% of damage Gained as Lightning damage"
+			}
+		},
+		stats={
+			[1]="thaumaturgist_mark_damage_buff_damage_%_to_gain_as_lightning"
+		}
+	},
+	[8]={
 		[1]={
 			[1]={
 				limit={
@@ -76,9 +148,19 @@ return {
 			[1]="thaumaturgist_mark_enemies_shocked_chance_+%_final"
 		}
 	},
-	[5]={
+	[9]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Shock has {0:+d}% increased effect on Marked enemy"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -87,7 +169,7 @@ return {
 				},
 				text="Shock has {0}% increased effect on Marked enemy"
 			},
-			[2]={
+			[3]={
 				[1]={
 					k="negate",
 					v=1
@@ -105,10 +187,53 @@ return {
 			[1]="thaumaturgist_mark_enemy_shock_effect_+%_taken"
 		}
 	},
-	["base_secondary_skill_effect_duration"]=1,
-	["base_skill_effect_duration"]=2,
+	[10]={
+		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Hits against Marked enemy cause {0:+d}% increased Electrocute buildup"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Hits against Marked enemy cause {0}% increased Electrocute buildup"
+			},
+			[3]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="Hits against Marked enemy cause {0}% reduced Electrocute buildup"
+			}
+		},
+		stats={
+			[1]="thaumaturgist_mark_hit_damage_electrocute_multiplier_+%"
+		}
+	},
+	["active_skill_show_overload_range_from_voltaic_mark"]=2,
+	["base_secondary_skill_effect_duration"]=3,
+	["base_skill_effect_duration"]=4,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=3,
-	["thaumaturgist_mark_enemies_shocked_chance_+%_final"]=4,
-	["thaumaturgist_mark_enemy_shock_effect_+%_taken"]=5
+	["secondary_skill_effect_duration"]=5,
+	["skill_effect_duration"]=6,
+	["thaumaturgist_mark_damage_buff_damage_%_to_gain_as_lightning"]=7,
+	["thaumaturgist_mark_enemies_shocked_chance_+%_final"]=8,
+	["thaumaturgist_mark_enemy_shock_effect_+%_taken"]=9,
+	["thaumaturgist_mark_hit_damage_electrocute_multiplier_+%"]=10
 }

@@ -17,14 +17,6 @@ local skills, mod, flag, skill = ...
 
 #skill SupportAhnsCitadelPlayer
 #set SupportAhnsCitadelPlayer
-statMap = {
-	["support_wall_fortress_hit_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-	["support_wall_fortress_area_of_effect_+%_final"] = {
-		mod("AreaOfEffect", "MORE", nil),
-	},
-},
 #mods
 #skillEnd
 
@@ -313,6 +305,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportCrescendoPlayer
+#set SupportCrescendoPlayer
+#mods
+#skillEnd
+
+#skill SupportCrescendoPlayerTwo
+#set SupportCrescendoPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportCrescendoPlayerThree
+#set SupportCrescendoPlayerThree
+#mods
+#skillEnd
+
 #skill SupportCrystallineShardsPlayer
 #set SupportCrystallineShardsPlayer
 #mods
@@ -425,6 +432,10 @@ statMap = {
 	},
 	["spell_maximum_base_lightning_damage_as_%_of_intelligence"] = {
 		mod("LightningMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "ShockConsumed" }),
+	},
+	["elemental_discharge_no_physical_chaos_damage"] = {
+		flag("DealNoPhysical"),
+		flag("DealNoChaos"),
 	},
 },
 #mods
@@ -655,6 +666,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportGambleshotPlayer
+#set SupportGambleshotPlayer
+statMap = {
+	[ "support_gambleshot_projectile_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
 #skill SupportCurseEffectPlayer
 #set SupportCurseEffectPlayer
 #mods
@@ -717,14 +738,6 @@ statMap = {
 #skill DoomBlastPlayer
 #set DoomBlastPlayer
 #flags spell area
-#baseMod skill("currentManaPercentage", true)
-statMap = {
-	["impending_doom_base_added_chaos_damage_%_of_current_mana"] = {
-		mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
-		mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
-		div = 100,
-	},
-},
 #mods
 #skillEnd
 
@@ -954,6 +967,11 @@ statMap = {
 
 #skill SupportNadirPlayer
 #set SupportNadirPlayer
+#mods
+#skillEnd
+
+#skill SupportPerpetualChargePlayer
+#set SupportPerpetualChargePlayer
 #mods
 #skillEnd
 

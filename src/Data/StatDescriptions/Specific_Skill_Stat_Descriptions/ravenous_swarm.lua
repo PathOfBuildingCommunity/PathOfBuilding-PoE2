@@ -138,7 +138,7 @@ return {
 			}
 		},
 		stats={
-			[1]="ravenous_swarm_maximum_swarm_count"
+			[1]="virtual_ravenous_swarm_maximum_swarm_count"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=1,
@@ -147,5 +147,5 @@ return {
 	["minion_duration"]=4,
 	parent="skill_stat_descriptions",
 	["ravenous_swarm_create_new_swarm_every_X_ms"]=5,
-	["ravenous_swarm_maximum_swarm_count"]=6
+	["virtual_ravenous_swarm_maximum_swarm_count"]=6
 }

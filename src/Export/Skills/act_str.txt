@@ -35,11 +35,6 @@ addFlags = {
 },
 #set SupportAncestralWarriorTotemPlayer
 #flags
-statMap = {
-	["support_ancestral_warrior_totem_attack_speed_+%_final"] = {
-		mod("Speed", "MORE", nil, ModFlag.Attack),
-	},
-},
 #baseMod mod("ActiveTotemLimit", "OVERRIDE", 10)
 #mods
 #skillEnd
@@ -690,6 +685,17 @@ statMap = {
 #skill OilGrenadePlayer
 #set OilGrenadePlayer
 #flags attack area projectile duration
+#mods
+#set OilGrenadeOilGroundPlayer
+#flags attack area projectile duration
+statMap = {
+	["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
+		mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+		mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+		mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mult = -1,
+},
+},
 #mods
 #skillEnd
 

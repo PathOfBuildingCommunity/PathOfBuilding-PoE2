@@ -9,7 +9,7 @@ local skills, mod, flag, skill = ...
 skills["MeleeAtAnimationSpeed"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -42,7 +42,7 @@ skills["MeleeAtAnimationSpeed"] = {
 skills["MinionMelee"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -73,7 +73,7 @@ skills["MinionMelee"] = {
 skills["MinionMeleeStep"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -107,7 +107,7 @@ skills["MinionMeleeStep"] = {
 skills["MinionMeleeBow"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -144,12 +144,12 @@ skills["GasShotSkeletonSniperMinion"] = {
 	name = "Gas Arrow",
 	hidden = true,
 	description = "Rain an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -164,7 +164,6 @@ skills["GasShotSkeletonSniperMinion"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 14 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
-				{ "command_minion_marker_additional_time_ms", 300 },
 			},
 			stats = {
 				"is_commandable_skill",
@@ -193,7 +192,6 @@ skills["GasShotSkeletonSniperMinion"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 14 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
-				{ "command_minion_marker_additional_time_ms", 300 },
 				{ "base_skill_effect_duration", 8000 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 20 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 80 },
@@ -228,7 +226,6 @@ skills["GasShotSkeletonSniperMinion"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 14 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
-				{ "command_minion_marker_additional_time_ms", 300 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 100 },
 			},
 			stats = {
@@ -252,12 +249,12 @@ skills["BoneshatterBruteMinion"] = {
 	name = "Bonebreaker",
 	hidden = true,
 	description = "A Strike that causes a Heavy Stun on enemies that are Primed for Stun. Upon causing a Heavy Stun it will also create a Shockwave, dealing a large amount of damage in an area.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 1.8, cooldown = 4, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 1.8, cooldown = 4, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -306,12 +303,12 @@ skills["ShatteringRoarSkeletalBruteMinion"] = {
 	name = "Shattering Roar",
 	hidden = true,
 	description = "Command a Skeletal Brute to use a Warcry, Intimidating nearby enemies and Consuming Freeze on enemies and allies to deal damage in an Area around them.",
-	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, [SkillType.Minion] = true, },
+	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, [SkillType.Minion] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillConsumesFreeze] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 12, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { cooldown = 8, critChance = 12, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -388,7 +385,7 @@ skills["ArcSkeletonMageMinion"] = {
 	name = "Arc",
 	hidden = true,
 	description = "An arc of Lightning stretches from the caster to a targeted enemy and Chains on to other nearby enemies. Shocked enemies Hit release damaging pulses.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, },
 	castTime = 1.25,
 	qualityStats = {
 	},
@@ -433,12 +430,12 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 	name = "Death Storm",
 	hidden = true,
 	description = "Lightning bolts strike all fallen Skeletons in the area, creating Shocked Ground around them.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 10, storedUses = 1, levelRequirement = 0, cooldown = 5, },
+		[1] = { cooldown = 5, critChance = 10, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -480,7 +477,7 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 skills["FrostBoltSkeletonMageMinion"] = {
 	name = "Ice Shard",
 	hidden = true,
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.Cold] = true, [SkillType.Unleashable] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.Cold] = true, [SkillType.Unleashable] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.25,
 	qualityStats = {
 	},
@@ -561,12 +558,12 @@ skills["IceArmourSkeletonMageMinion"] = {
 	name = "Ice Armour",
 	hidden = true,
 	description = "Command a Skeletal Frost Mage to target a location or Minion and apply Ice Armour to Minions in an area, reducing damage taken from Hits, causing damage to enemies that Hit them, and counting as Frozen for other effects.",
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 12, },
+		[1] = { cooldown = 12, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -637,7 +634,7 @@ skills["IceArmourSkeletonMageMinion"] = {
 skills["HealSkeletonClericMinion"] = {
 	name = "Heal Buff",
 	hidden = true,
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, },
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -707,7 +704,7 @@ skills["FireBombSkeletonMinion"] = {
 	name = "Fire Bomb",
 	hidden = true,
 	description = "Attacks with a bouncing bomb that explodes on hit.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -774,52 +771,52 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 	baseTypeName = "Explosive Demise",
 	color = 2,
 	description = "Detonate an allied Minion whose current Life is below a threshold, dealing heavy Attack damage to nearby enemies.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "arsonist_destructive_link_%_of_life_as_fire_damage", 0.2 },
 	},
 	levels = {
-		[1] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[2] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[3] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[4] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[5] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[6] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[7] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[8] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[9] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[10] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[11] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[12] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[13] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[14] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[15] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[16] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[17] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[18] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[19] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[20] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[21] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[22] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[23] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[24] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[25] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[26] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[27] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[28] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[29] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[30] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[31] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[32] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[33] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[34] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[35] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[36] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[37] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[38] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[39] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[40] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[1] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[2] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[3] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[4] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[5] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[6] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[7] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[8] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[9] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[10] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[11] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[12] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[13] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[14] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[15] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[16] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[17] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[18] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[19] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[20] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[21] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[22] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[23] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[24] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[25] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[26] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[27] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[28] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[29] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[30] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[31] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[32] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[33] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[34] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[35] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[36] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[37] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[38] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[39] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[40] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -893,13 +890,13 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 skills["EnrageSkeletonReaverMinion"] = {
 	name = "Enrage",
 	hidden = true,
-	description = "Enrage all Skeletal Reavers, causing them to lose life over time and gain Rage on hit. Skeletal Reavers do more Attack Damage and gain increased Attack speed based on their Rage.",
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.NoAttackInPlace] = true, },
+	description = "Enrage all Skeletal Reavers, causing them to lose life over time and gain Rage on hit.",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 4, },
+		[1] = { cooldown = 4, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -931,7 +928,7 @@ skills["EnrageSkeletonReaverMinion"] = {
 skills["GAAncestralJadeHulkLeapImpact"] = {
 	name = "Leap Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -960,22 +957,22 @@ skills["TCAncestralLeagueKaruiHulk"] = {
 	name = "Shield Charge",
 	hidden = true,
 	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["None"] = true,
-		["One Handed Sword"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Spear"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
 		["Claw"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["None"] = true,
+		["One Handed Axe"] = true,
+		["One Handed Mace"] = true,
+		["One Handed Sword"] = true,
+		["Spear"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 7, },
+		[1] = { cooldown = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1002,7 +999,7 @@ skills["TCAncestralLeagueKaruiHulk"] = {
 skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 	name = "Projectile Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -1078,12 +1075,12 @@ skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 skills["GAAnimateWeaponMaceSlam"] = {
 	name = "Mace Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -50, storedUses = 1, baseMultiplier = 1.8, cooldown = 10, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -50, baseMultiplier = 1.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1107,7 +1104,7 @@ skills["GAAnimateWeaponMaceSlam"] = {
 skills["DTTAnimateWeaponSpearDashStabImpact"] = {
 	name = "Spear Dash",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1137,12 +1134,12 @@ skills["DTTAnimateWeaponSpearDashStabImpact"] = {
 skills["GAAnimateWeaponQuarterstaffSweep"] = {
 	name = "Quarterstaff Sweep",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.9, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+		[1] = { baseMultiplier = 0.9, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1166,7 +1163,7 @@ skills["GAAnimateWeaponQuarterstaffSweep"] = {
 skills["RavenousSwarmAttack"] = {
 	name = "Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Chaos] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Chaos] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1274,12 +1271,12 @@ skills["LivingLightningZap"] = {
 	name = "Zap",
 	hidden = true,
 	description = "Teleport to a target, dealing Lightning Attack Damage.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Melee] = true, [SkillType.CannotTerrainChain] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Melee] = true, [SkillType.CannotTerrainChain] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 9, storedUses = 1, levelRequirement = 0, cooldown = 0.25, },
+		[1] = { cooldown = 0.25, critChance = 9, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1300,10 +1297,6 @@ skills["LivingLightningZap"] = {
 			baseMods = {
 				skill("timeOverride", 0.001, { type = "Multiplier", var = "LivingLightningAttackTime" }),
 			},
-			constantStats = {
-				{ "number_of_chains", 3 },
-				{ "living_lightning_damage_+%_final_per_additional_hit", -30 },
-			},
 			stats = {
 			},
 			levels = {
@@ -1316,12 +1309,12 @@ skills["DeathFromAboveDaemonMinion"] = {
 	name = "Death From Above",
 	hidden = true,
 	description = "Fires a flare at a target location, attaching to an enemy if it lands on one. Then fires a series of arrow volleys centred around the flare.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 11.4, storedUses = 1, levelRequirement = 0, cooldown = 40, },
+		[1] = { baseMultiplier = 7.63, cooldown = 10, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1339,12 +1332,11 @@ skills["DeathFromAboveDaemonMinion"] = {
 				area = true,
 			},
 			constantStats = {
-				{ "death_from_above_volley_delay_ms", 2000 },
-				{ "death_from_above_number_of_volleys", 4 },
+				{ "death_from_above_volley_delay_ms", 750 },
+				{ "death_from_above_number_of_volleys", 6 },
 				{ "explosion_delay_ms", 250 },
 				{ "active_skill_base_area_of_effect_radius", 140 },
-				{ "active_skill_base_secondary_area_of_effect_radius", 75 },
-				{ "command_minion_marker_additional_time_ms", 300 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 140 },
 			},
 			stats = {
 				"is_commandable_skill",

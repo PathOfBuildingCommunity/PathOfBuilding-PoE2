@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Minimum of {0} second between each backlash"
+				text="DNT-UNUSED Minimum of {0} second between each backlash"
 			}
 		},
 		stats={
@@ -31,7 +31,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% increase Damage taken while you have runes"
+				text="DNT-UNUSED {0}% increase Damage taken while you have runes"
 			},
 			[2]={
 				[1]={
@@ -44,7 +44,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% decrease Damage taken while you have runes"
+				text="DNT-UNUSED {0}% decrease Damage taken while you have runes"
 			}
 		},
 		stats={
@@ -60,7 +60,7 @@ return {
 						[2]=1
 					}
 				},
-				text="DNT Each rune can backlash {0} time"
+				text="DNT-UNUSED Each rune can backlash {0} time"
 			},
 			[2]={
 				limit={
@@ -69,7 +69,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Each rune can backlash {0} times"
+				text="DNT-UNUSED Each rune can backlash {0} times"
 			}
 		},
 		stats={
@@ -85,7 +85,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Maximum {0} Runes"
+				text="DNT-UNUSED Maximum {0} Runes"
 			}
 		},
 		stats={

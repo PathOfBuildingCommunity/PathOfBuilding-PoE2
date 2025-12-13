@@ -885,6 +885,17 @@
 #mods
 #skillEnd
 
+#skill SupportBrambleslamPlayer
+#set SupportBrambleslamPlayer
+#mods
+#skillEnd
+
+#skill TriggeredBrambleslamPlayer
+#set TriggeredBrambleslamPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportBranchingFissuresPlayer
 #set SupportBranchingFissuresPlayer
 #mods
@@ -937,6 +948,11 @@
 
 #skill SupportCannibalismPlayerTwo
 #set SupportCannibalismPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportCirelsCultivationPlayer
+#set SupportCirelsCultivationPlayer
 #mods
 #skillEnd
 
@@ -1003,6 +1019,17 @@
 
 #skill SupportDazingCryPlayer
 #set SupportDazingCryPlayer
+#mods
+#skillEnd
+
+#skill SupportDeadlyResolvePlayer
+#set SupportDeadlyResolvePlayer
+#mods
+#skillEnd
+
+#skill TriggeredDeadlyResolvePlayer
+#set TriggeredDeadlyResolvePlayer
+#flags
 #mods
 #skillEnd
 
@@ -1222,11 +1249,6 @@
 #mods
 #skillEnd
 
-#skill SupportGreatwoodPlayer
-#set SupportGreatwoodPlayer
-#mods
-#skillEnd
-
 #skill SupportGreatwoodPlayerTwo
 #set SupportGreatwoodPlayerTwo
 #mods
@@ -1375,6 +1397,11 @@
 
 #skill SupportLongFusePlayerTwo
 #set SupportLongFusePlayerTwo
+#mods
+#skillEnd
+
+#skill SupportMarkForDeathPlayer
+#set SupportMarkForDeathPlayer
 #mods
 #skillEnd
 
@@ -2147,9 +2174,6 @@
 #set ShockchainArrowPlayer
 #flags
 #mods
-#set ShockchainArrowBeamPlayer
-#flags
-#mods
 #set ShockchainArrowExplosionPlayer
 #flags
 #mods
@@ -2160,9 +2184,6 @@
 #flags
 #mods
 #set SnipeExplosionPlayer
-#flags
-#mods
-#set SnipeHeavyExplosionPlayer
 #flags
 #mods
 #set SnipeFrozenExplosionPlayer
@@ -2299,12 +2320,6 @@
 #mods
 #skillEnd
 
-#skill TriggeredVoltaicMarkNovaPlayer
-#set TriggeredVoltaicMarkNovaPlayer
-#flags
-#mods
-#skillEnd
-
 #skill WhirlingSlashPlayer
 #set WhirlingSlashPlayer
 #flags
@@ -2436,17 +2451,6 @@
 #mods
 #skillEnd
 
-#skill SupportBrambleslamPlayer
-#set SupportBrambleslamPlayer
-#mods
-#skillEnd
-
-#skill TriggeredBrambleslamPlayer
-#set TriggeredBrambleslamPlayer
-#flags
-#mods
-#skillEnd
-
 #skill SupportDazedBreakPlayer
 #set SupportDazedBreakPlayer
 #mods
@@ -2556,21 +2560,6 @@
 
 #skill SupportCorrosionPlayer
 #set SupportCorrosionPlayer
-#mods
-#skillEnd
-
-#skill SupportCrescendoPlayer
-#set SupportCrescendoPlayer
-#mods
-#skillEnd
-
-#skill SupportCrescendoPlayerTwo
-#set SupportCrescendoPlayerTwo
-#mods
-#skillEnd
-
-#skill SupportCrescendoPlayerThree
-#set SupportCrescendoPlayerThree
 #mods
 #skillEnd
 
@@ -2690,11 +2679,6 @@
 #mods
 #skillEnd
 
-#skill SupportGambleshotPlayer
-#set SupportGambleshotPlayer
-#mods
-#skillEnd
-
 #skill SupportGarukhansResolvePlayer
 #set SupportGarukhansResolvePlayer
 #mods
@@ -2805,11 +2789,6 @@
 #mods
 #skillEnd
 
-#skill SupportMarkForDeathPlayer
-#set SupportMarkForDeathPlayer
-#mods
-#skillEnd
-
 #skill SupportMobilityPlayer
 #set SupportMobilityPlayer
 #mods
@@ -2900,11 +2879,6 @@
 #mods
 #skillEnd
 
-#skill SupportPerpetualChargePlayer
-#set SupportPerpetualChargePlayer
-#mods
-#skillEnd
-
 #skill SupportPiercePlayer
 #set SupportPiercePlayer
 #mods
@@ -2917,11 +2891,6 @@
 
 #skill SupportPiercePlayerThree
 #set SupportPiercePlayerThree
-#mods
-#skillEnd
-
-#skill SupportPietysMercyPlayer
-#set SupportPietysMercyPlayer
 #mods
 #skillEnd
 
@@ -3541,9 +3510,6 @@
 #set ExsanguinatePlayer
 #flags
 #mods
-#set ExsanguinateDotPlayer
-#flags
-#mods
 #skillEnd
 
 #skill EyeOfWinterPlayer
@@ -3633,12 +3599,6 @@
 #mods
 #skillEnd
 
-#skill TriggeredFreezingMarkNovaPlayer
-#set TriggeredFreezingMarkNovaPlayer
-#flags
-#mods
-#skillEnd
-
 #skill FreezingShardsPlayer
 #set FreezingShardsPlayer
 #flags
@@ -3683,9 +3643,6 @@
 
 #skill FrozenLocusPlayer
 #set FrozenLocusPlayer
-#flags
-#mods
-#set FrozenLocusGroundPlayer
 #flags
 #mods
 #set FrozenLocusExplodePlayer
@@ -3784,12 +3741,6 @@
 
 #skill HexblastPlayer
 #set HexblastPlayer
-#flags
-#mods
-#skillEnd
-
-#skill DarkTempestPlayer
-#set DarkTempestPlayer
 #flags
 #mods
 #skillEnd
@@ -4556,6 +4507,21 @@
 #mods
 #skillEnd
 
+#skill SupportCrescendoPlayer
+#set SupportCrescendoPlayer
+#mods
+#skillEnd
+
+#skill SupportCrescendoPlayerTwo
+#set SupportCrescendoPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportCrescendoPlayerThree
+#set SupportCrescendoPlayerThree
+#mods
+#skillEnd
+
 #skill SupportCrystallineShardsPlayer
 #set SupportCrystallineShardsPlayer
 #mods
@@ -4770,6 +4736,11 @@
 #mods
 #skillEnd
 
+#skill SupportGambleshotPlayer
+#set SupportGambleshotPlayer
+#mods
+#skillEnd
+
 #skill SupportGlacierPlayer
 #set SupportGlacierPlayer
 #mods
@@ -4977,6 +4948,11 @@
 
 #skill SupportNadirPlayer
 #set SupportNadirPlayer
+#mods
+#skillEnd
+
+#skill SupportPerpetualChargePlayer
+#set SupportPerpetualChargePlayer
 #mods
 #skillEnd
 

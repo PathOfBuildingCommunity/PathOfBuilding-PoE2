@@ -121,7 +121,7 @@ directiveTable.base = function(state, args, out)
 		combinedTags[tag.Id] = true
 	end
 	local combinedTagList = { }
-	for tag in pairs(combinedTags) do
+	for tag in pairsSortByKey(combinedTags) do
 		table.insert(combinedTagList, tag)
 	end
 	table.sort(combinedTagList)
@@ -311,64 +311,6 @@ directiveTable.base = function(state, args, out)
 		end
 	end
 	-- Special handling of Runes and SoulCores
-	if state.type == "Rune" or state.type == "SoulCore" or state.type == "Talisman" then
-		local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
-		local soulCoresPerClass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
-
-		local stats = { }
-		local outLines = { }
-		if soulCores then
-			if #soulCores.StatsKeysWeapon > 0 then
-				for i, statKey in ipairs(soulCores.StatsKeysWeapon) do
-					local statValue = soulCores["StatsValuesWeapon"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-			if #soulCores.StatsKeysArmour > 0 then
-				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulCores.StatsKeysArmour) do
-					local statValue = soulCores["StatsValuesArmour"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-			if #soulCores.StatsKeysCaster > 0 then
-				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulCores.StatsKeysCaster) do
-					local statValue = soulCores["StatsValuesCaster"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-			-- Attribute runes are special case and can socket in everything
-			-- Sceptres are handled in "soulCoresPerClass"
-			if #soulCores.StatsKeysAttributes > 0 then
-				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulCores.StatsKeysAttributes) do
-					local statValue = soulCores["StatsValuesAttributes"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
-				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
-				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-		end
-		-- Check for more slot specific Soulcores/Runes/Talismans
-		local soulCoresPerClassList = dat("SoulCoresPerClass"):GetRowList("BaseItemType", baseItemType) or {}
-		for _, row in ipairs(soulCoresPerClassList) do
-			stats = {}
-			for i, statKey in ipairs(row.Stats or {}) do
-				local statValue = row.StatsValues[i]
-				stats[statKey.Id] = { min = statValue, max = statValue }
-			end
-			if next(stats) then
-				local coreItemClass = row.ItemClass and row.ItemClass.Id or "unknown"
-				table.insert(outLines, coreItemClass .. ': ' .. table.concat(describeStats(stats), '\\n'))
-			end
-		end
-		out:write('\timplicit = "'..table.concat(outLines, '\\n')..'",\n')
-	end
 	out:write('\treq = { ')
 	local reqLevel = 1
 	if weaponType or armourType then
@@ -527,7 +469,6 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
-	"soulcore",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)

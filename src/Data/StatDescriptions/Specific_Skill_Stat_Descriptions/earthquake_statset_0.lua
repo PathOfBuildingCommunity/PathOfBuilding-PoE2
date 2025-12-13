@@ -87,32 +87,19 @@ return {
 			[1]={
 				limit={
 					[1]={
-						[1]=1,
-						[2]=1
+						[1]="#",
+						[2]="#"
 					},
 					[2]={
 						[1]=0,
 						[2]=0
 					}
 				},
-				text="{0:+d} maximum Jagged Ground patch"
+				text="{0:+d} to Jagged Ground patch Limit"
 			},
 			[2]={
 				limit={
 					[1]={
-						[1]=2,
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="{0:+d} maximum Jagged Ground patches"
-			},
-			[3]={
-				limit={
-					[1]={
 						[1]=1,
 						[2]=1
 					},
@@ -121,9 +108,9 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum {0} Jagged Ground patch"
+				text="Limit {0} Jagged Ground patch"
 			},
-			[4]={
+			[3]={
 				limit={
 					[1]={
 						[1]=2,
@@ -134,7 +121,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum {0} Jagged Ground patches"
+				text="Limit {0} Jagged Ground patches"
 			}
 		},
 		stats={
@@ -151,7 +138,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Maximum Jagged Ground patches@{0}"
+				text="Jagged Ground patch Limit@{0}"
 			}
 		},
 		stats={

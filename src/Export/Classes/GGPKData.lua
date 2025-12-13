@@ -283,6 +283,7 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/SoulCores.dat",
 		"Data/Balance/SoulCoreStats.dat",
 		"Data/Balance/SoulCoreTypes.dat",
+		"Data/Balance/SoulCoreLimits.dat",
 		"Data/Balance/SoulCoreStatCategories.dat",
 		"Data/Balance/UtilityFlaskBuffs.dat",
 		"Data/Balance/GrantedSkillSocketNumbers.dat",
