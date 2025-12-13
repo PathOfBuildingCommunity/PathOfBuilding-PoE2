@@ -82,15 +82,18 @@ UniqueRecoverLifePercentOnBlock1
 Svalinn
 Crucible Tower Shield
 Variant: Pre 0.3.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[100,150]
-{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[150,200]
+{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
 {variant:1}UniqueMaximumBlockChance2
-{variant:2}UniqueBaseBlockDamageTaken3
+{variant:2}UniqueBaseBlockDamageTaken3[15,20]
+{variant:3}UniqueBaseBlockDamageTaken3
 UniqueLuckyBlockChance1
 ]],[[
 The Wailing Wall
@@ -313,14 +316,16 @@ UniqueGlobalCooldownRecovery1
 Mahuxotl's Machination
 Omen Crest Shield
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16
 {variant:1}UniqueLocalSoulCoreEffect1[333,666]
-{variant:2}UniqueLocalSoulCoreEffect1
-{variant:2}UniqueEverlastingSacrifice1
+{variant:2}UniqueLocalSoulCoreEffect1[66,333]
+{variant:3}UniqueSoulCoreEffect1
+{variant:2,3}UniqueEverlastingSacrifice1
 ]],[[
 Oaksworn
 Variant: Pre 0.2.0

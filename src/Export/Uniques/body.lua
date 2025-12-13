@@ -436,7 +436,10 @@ UniqueLifeRegeneration3
 Perfidy
 Knight Armour
 Source: Drops from unique{Kosis, The Revelation}
-UniqueLocalIncreasedArmourAndEvasion7
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalIncreasedArmourAndEvasion7[100,150]
+{variant:2}UniqueLocalIncreasedArmourAndEvasion7
 UniquePhysicalDamageAvoidance1
 UniqueChaosDamageAvoidance1
 UniqueEnemiesInPresenceIntimidate1

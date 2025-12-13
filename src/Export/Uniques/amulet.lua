@@ -47,10 +47,13 @@ UniqueLifeLeechAmount1
 Choir of the Storm
 Jade Amulet
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 2
 AmuletImplicitDexterity1
 Grants Skill: Level (1-20) Lightning Bolt
-UniqueLightningResist4
+{variant:1}UniqueLightningResist4[20,30]
+{variant:2}UniqueLightningResist4
 UniqueCriticalStrikesIgnoreLightningResistance1
 UniqueTriggerLightningBoltOnCriticalStrike1
 ]],[[
@@ -159,10 +162,13 @@ UniqueEnergyShieldRegenerationFromLife1
 The Pandemonius
 Lapis Amulet
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Variant: Pre 0.4.0
+Variant: Current
 Requires Level 52
 Implicits: 1
 AmuletImplicitIntelligence1
-UniqueColdResist10
+{variant:1}UniqueColdResist10[20,30]
+{variant:2}UniqueColdResist10
 UniqueColdResistancePenetration1
 UniqueOnHitBlindChilledEnemies1
 ]],[[
@@ -210,6 +216,15 @@ UniqueDexterity28
 UniqueDodgeRollDistance1
 UniqueEvasionRatingDodgeRoll1
 ]],[[
+Strugglescream
+Stellar Amulet
+Variant: Pre 0.4.0
+Variant: Current
+Implicits: 1
+AmuletImplicitAllAttributes1
+{variant:1}UniqueMultipleAnointments1[2,2]
+{variant:2}UniqueMultipleAnointments1
+]],[[
 Ungil's Harmony
 Azure Amulet
 Variant: Pre 0.1.1
@@ -227,14 +242,17 @@ UniqueNoCriticalStrikeMultiplier1
 Xoph's Blood
 Amber Amulet
 Variant: Pre 0.3.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
-UniqueFireResist12
+{variant:1,2}UniqueFireResist12[30,40]
+{variant:3}UniqueFireResist12
 {variant:1}UniqueEnemiesInPresenceFireExposure1[1,1]
-{variant:2}UniqueEnemiesInPresenceFireExposure1
+{variant:2}UniqueEnemiesInPresenceFireExposure1[-10,-10]
+{variant:3}UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet

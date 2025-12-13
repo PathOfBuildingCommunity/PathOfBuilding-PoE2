@@ -234,12 +234,14 @@ Sandstorm Visage
 Chain Tiara
 Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalIncreasedEnergyShield8
 UniqueDexterity3
 UniqueEnemiesInPresenceBlinded1
 {variant:1}UniqueEnemiesInPresenceGainCritWeakness1[1,1]
-{variant:2}UniqueEnemiesInPresenceGainCritWeakness1
+{variant:2}UniqueEnemiesInPresenceGainCritWeakness1[15,15]
+{variant:3}UniqueEnemiesInPresenceGainCritWeakness1
 ]],[[
 Scold's Bridle
 Jade Tiara
@@ -265,7 +267,10 @@ UniqueEldritchBattery1
 Assailum
 Closed Helm
 Source: Drops from unique{Kosis, The Revelation}
-UniqueLocalIncreasedArmourAndEvasion6
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalIncreasedArmourAndEvasion6[50,100]
+{variant:2}UniqueLocalIncreasedArmourAndEvasion6
 UniqueIncreasedAccuracy10
 UniqueCriticalStrikeChance11
 UniquePerfectTimingWindow1
@@ -406,10 +411,14 @@ UniqueEnemiesInPresenceLowLife1
 Keeper of the Arc
 Spiritbone Crown
 Source: Drops from unique{Olroth, Origin of the Fall}
-UniqueLocalIncreasedArmourAndEnergyShield7
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalIncreasedArmourAndEnergyShield7[100,150]
+{variant:2}UniqueLocalIncreasedArmourAndEnergyShield7
 UniqueLifeRegeneration10
 UniqueManaRegeneration26
-UniqueAlternatingDamageTaken1
+{variant:1}UniqueAlternatingDamageTaken1[30,30]
+{variant:2}UniqueAlternatingDamageTaken1
 ]],[[
 Veil of the Night
 Martyr Crown
