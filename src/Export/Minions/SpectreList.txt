@@ -532,22 +532,17 @@ Metadata/Monsters/LeagueIncursionNew/Thaumaturge/SpittingSnakeExperiment        
 -- These are either false spectres, or are disabled in game currently. This is not including duplicate names, just singular copy of a Spectre name.--
 
 Metadata/Monsters/InsectMinion/InsectTest                                                 		----		Testling
-Metadata/Monsters/Wraith/WraithSpookyColdSpectre                                          		----		Frost Wraith
-Metadata/Monsters/Wraith/WraithSpookyLightningSpectre                                     		----		Lightning Wraith
 Metadata/Monsters/MudBurrower/MudBurrowerTailBoss_                                        		----		The Devourer
 Metadata/Monsters/BitterGuy/BitterGuyWifeGhost                                            		----		Isabel, Mourning Wife
 Metadata/Monsters/BitterGuy/BitterGuyChild1Surge_                                         		----		Calum, Weeping Child
 Metadata/Monsters/BitterGuy/BitterGuyChild2Surge                                          		----		Torcall, Sobbing Child
 Metadata/Monsters/Bird/MutantBird                                                         		----		Scourge of the Skies
 Metadata/Monsters/Bird/MutantBirdDog                                                      		----		Flesh Pup
-Metadata/Monsters/Mutewind/MutewindWomanSpearCorroded__                                   		----		Faridun Spearwoman
-Metadata/Monsters/Mutewind/MutewindWomanDualDaggerCorroded__                              		----		Faridun Wind-slicer
 Metadata/Monsters/SaltGolem/SaltGolemNoEmerge_                                            		----		Quake Golem
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                                   		----		Emal
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard02                                      		----		Tanim
 Metadata/Monsters/PitifulFabrications/PitifulFabrication02                                		----		Ribrattle
 Metadata/Monsters/SerpentClanMonster/SerpentClanCasterBossInterlude                       		----		Bewitching Serpent
-Metadata/Monsters/VultureZombie/VultureDemonSpectre                                       		----		Vile Vulture
 Metadata/Monsters/CorpseWheel/PlagueCorpseWheel                                           		----		The Punished
 Metadata/Monsters/BloodClan/BloodClanTrapper                                              		----		Sea-tribe Trapper
 Metadata/Monsters/BloodClan/BloodClanVillager                                             		----		Sea-tribe Villager
@@ -562,14 +557,12 @@ Metadata/Monsters/NettleAnt/NettleAnt__                                         
 Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkey                               		----		Constructed Monkey
 Metadata/Monsters/VaalConstructs/Monkey/VaalConstructMonkeyHead                           		----		Constructed Monkey Head
 Metadata/Monsters/VaalMonsters/ViperNapuatzi/ViperNapuatziSnakeMinion                     		----		Viper Servant
-Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireBow_                      		----		Viper Legionnaire
 Metadata/Monsters/VaalMonsters/Living/Minions/VaalJaguarMinion                            		----		Jaguar Familiar
 Metadata/Monsters/VaalMonsters/Living/Minions/VaalSnakeMinion                             		----		Serpentine Familiar
 Metadata/Monsters/VaalMonsters/Living/Minions/VaalMonkeyMinion_                           		----		Primal Familiar
 Metadata/Monsters/SerpentHusk/snakes/SerpentHuskSnake                                     		----		Snake
 Metadata/Monsters/Pirates/CaptainRothBossCannon                                           		----		Ghost Cannon
 Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLightningSkitterMine_		----		Skitter Mine
-Metadata/Monsters/SkeletonProwler/SkeletonProwler_                                        		----		Prowling Skeleton
 Metadata/Monsters/KaruiSoulCaster/KaruiSpiritSummon                                       		----		Ancestral Mask
 Metadata/Monsters/SudokuTotemBoss/SudokuBossUpperFace                                     		----		Daemon
 Metadata/Monsters/ParasiteMonsters/ParasiteMonster01                                      		----		Armoured Parasite
@@ -587,37 +580,22 @@ Metadata/Monsters/LeagueDelirium/DeliriumMinion4                                
 Metadata/Monsters/LeagueDelirium/DeliriumMinion5_                                         		----		Fury
 Metadata/Monsters/LeagueDelirium/DeliriumMinion6_                                         		----		Turmoil
 Metadata/Monsters/LeagueDelirium/DeliriumDemonColdIceSpear                                		----		Manifested Demon
-Metadata/Monsters/LeagueRitual/DryadFaction/DruidicFallenStag                             		----		Forgotten Stag
 Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleSummon                                  		----		Volatile Scarab
 Metadata/Monsters/TormentedSpirits/Stag/SpiritStag                                        		----		Stag Spirit
 Metadata/Monsters/PlagueNymph/TwilightOrderPlagueNymph                                    		----		Nymph Wasp
 Metadata/Monsters/VaalMonsters/Living/BloodPriests/BloodPool                              		----		Invisible
 Metadata/Monsters/SkeletonSnake/SandSkeletonSnake                                         		----		Skeletal Cobra
-Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionAxeThrowerIncursion                 		----		Vaal Embalmed Berserker
-Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionSwordShieldIncursion                		----		Vaal Embalmed Warrior
-Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionCasterIncursion                     		----		Vaal Embalmed Mage
 Metadata/Monsters/LeagueIncursionNew/Smithy/VaalForgemanIncursion                         		----		Coztic, the Forgehand
 Metadata/Monsters/LeagueIncursionNew/Doctor/DoctorIncursionTier1_                         		----		Pakteni, Flesh Surgeon
 Metadata/Monsters/LeagueIncursionNew/Garrison/VaalOverseerLivingIncursionRare             		----		Temoc, Drill Overseer
-Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidCannonFireIncursion          		----		Cannon Transcendent
-Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidCannonLightningIncursion     		----		Blasting Transcendent
-Metadata/Monsters/LeagueIncursionNew/Constructs/VaalBowlingPinIncursion                   		----		Vaal Construct
-Metadata/Monsters/LeagueIncursionNew/Thaumaturge/MonkeyExperiment                         		----		Experimental Primate
-Metadata/Monsters/LeagueIncursionNew/Thaumaturge/GoreChargerExperiment                    		----		Experimental Boar
-Metadata/Monsters/LeagueIncursionNew/Thaumaturge/SpittingSnakeExperiment                  		----		Experimental Cobra
 
 -- Imported Spectres That Fail Checks --
 -- These spectres are currently imported, but fail the checks. New updates sometimes remove spectres.--
 -- Don't fully trust this, coded wrong. But it did catch some that were removed. --
 
-Metadata/Monsters/Wraith/WraithSpookyLightning                                            		----		(not found in MonsterVarieties)
-Metadata/Monsters/Wraith/WraithSpookyCold                                                 		----		(not found in MonsterVarieties)
-Metadata/Monsters/RockSliderSpectre                                                       		----		Boulder Ant
 Metadata/Monsters/SaltGolem/SaltGolem_                                                    		----		(not found in MonsterVarieties)
-Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__                   		----		(not found in MonsterVarieties)
-Metadata/Monsters/VultureZombie/VultureDemon                                              		----		(not found in MonsterVarieties)
-Metadata/Monsters/NettleAnt/NettleAntInterlude                                            		----		(not found in MonsterVarieties)
 Metadata/Monsters/NettleAnt/NettleAntSummoned                                             		----		Frozen Mandibles
+Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__                   		----		(not found in MonsterVarieties)
 
 -- Duplicate Spectre Names --
 -- Some duplicate Spectres have been imported, like Terracotta Soldier, as there is a 10 spirit and 60 spirit version.--
