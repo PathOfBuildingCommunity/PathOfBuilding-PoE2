@@ -628,6 +628,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					return ""
 				end)
+
+				-- Find for "Bond:" in line and mark bond flag
+				if line:find("Bonded:") then
+					modLine.bonded = true
+				end
+
 				if modLine.rune then
 					modLine.enchant = true
 				end
