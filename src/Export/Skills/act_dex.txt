@@ -431,6 +431,13 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill ShatteringSpitePlayer
+#set ShatteringSpitePlayer
+#flags attack area
+#mods
+#skillEnd
+
 #skill ShockchainArrowPlayer
 #set ShockchainArrowPlayer
 #flags attack projectile

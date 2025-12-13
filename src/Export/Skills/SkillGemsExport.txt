@@ -2502,6 +2502,12 @@
 #mods
 #skillEnd
 
+#skill ShatteringSpitePlayer
+#set ShatteringSpitePlayer
+#flags
+#mods
+#skillEnd
+
 #skill ShockchainArrowPlayer
 #set ShockchainArrowPlayer
 #flags

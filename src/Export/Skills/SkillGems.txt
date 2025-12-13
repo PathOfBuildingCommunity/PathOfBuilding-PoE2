@@ -360,6 +360,7 @@ Rain of Arrows                		----		RainOfArrowsPlayer
 Rake                          		----		RakePlayer
 Rapid Assault                 		----		RapidAssaultPlayer
 Rhoa Mount                    		----		RhoaMountPlayer
+Shattering Spite              		----		ShatteringSpitePlayer
 Shockchain Arrow              		----		ShockchainArrowPlayer
 Snipe                         		----		SnipePlayer
 Sniper's Mark                 		----		SnipersMarkPlayer
