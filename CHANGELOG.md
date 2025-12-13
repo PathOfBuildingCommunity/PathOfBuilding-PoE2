@@ -259,7 +259,7 @@
 - Add support for "Cannot Use - Skills" modifiers [\#1051](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1051) ([Blitz54](https://github.com/Blitz54))
 - Add support for Essentia Sanguis leech mod [\#1102](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1102) ([Blitz54](https://github.com/Blitz54))
 - Add support for Leopold's Applause [\#1136](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1136) ([LocalIdentity](https://github.com/LocalIdentity))
-- Add support for Splinter of Loratta (Unique Spear) [\#1054](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1054) ([majochem](https://github.com/majochem))
+- Add support for Splinter of Lorrata (Unique Spear) [\#1054](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1054) ([majochem](https://github.com/majochem))
 ### Fixed Crashes
 - Fix crash due to outdated state of sub skill dropdown [\#1116](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1116) ([Paliak](https://github.com/Paliak))
 - Fix crash when deleting newly created config set [\#1115](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1115), [\#1120](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1120) ([Paliak](https://github.com/Paliak))

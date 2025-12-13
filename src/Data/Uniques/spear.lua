@@ -38,12 +38,15 @@ Adds (33-41) to (47-53) Fire Damage
 Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target
 (25-40)% chance to Aggravate Bleeding on Hit
 ]],[[
-Splinter of Loratta
+Splinter of Lorrata
 Hardwood Spear
 League: Dawn of the Hunt
+Variant: Pre 0.3.0
+Variant: Current
 Implicits: 1
 Grants Skill: Spear Throw
 Adds (2-3) to (6-8) Physical Damage
+{variant:2}Deal no Elemental Damage
 20% increased Melee Strike Range with this weapon
 Any number of Poisons from this Weapon can affect a target at the same time
 Always Poison on Hit with this weapon
