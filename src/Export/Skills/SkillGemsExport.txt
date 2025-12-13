@@ -1348,6 +1348,11 @@
 #mods
 #skillEnd
 
+#skill SupportEchoingCryPlayer
+#set SupportEchoingCryPlayer
+#mods
+#skillEnd
+
 #skill SupportEfficiencyPlayer
 #set SupportEfficiencyPlayer
 #mods
@@ -1430,6 +1435,33 @@
 
 #skill SupportExploitWeaknessPlayer
 #set SupportExploitWeaknessPlayer
+#mods
+#skillEnd
+
+#skill SupportExposingCryPlayer
+#set SupportExposingCryPlayer
+#mods
+#skillEnd
+
+#skill SupportFanTheFlamesPlayerTwo
+#set SupportFanTheFlamesPlayerTwo
+#mods
+#skillEnd
+
+#skill TriggeredFanTheFlamesPlayerTwo
+#set TriggeredFanTheFlamesPlayerTwo
+#flags
+#mods
+#skillEnd
+
+#skill SupportFanTheFlamesPlayer
+#set SupportFanTheFlamesPlayer
+#mods
+#skillEnd
+
+#skill TriggeredFanTheFlamesPlayer
+#set TriggeredFanTheFlamesPlayer
+#flags
 #mods
 #skillEnd
 
@@ -1542,6 +1574,11 @@
 
 #skill SupportHeftPlayer
 #set SupportHeftPlayer
+#mods
+#skillEnd
+
+#skill SupportHideOfHelbrymPlayer
+#set SupportHideOfHelbrymPlayer
 #mods
 #skillEnd
 
@@ -1660,6 +1697,11 @@
 #mods
 #skillEnd
 
+#skill SupportMarkForDeathPlayerTwo
+#set SupportMarkForDeathPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportMarkForDeathPlayer
 #set SupportMarkForDeathPlayer
 #mods
@@ -1672,6 +1714,11 @@
 
 #skill SupportMeatShieldPlayerTwo
 #set SupportMeatShieldPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportOpeningMovePlayer
+#set SupportOpeningMovePlayer
 #mods
 #skillEnd
 
@@ -1806,6 +1853,11 @@
 #mods
 #skillEnd
 
+#skill SupportRendingApexPlayer
+#set SupportRendingApexPlayer
+#mods
+#skillEnd
+
 #skill SupportRetaliatePlayer
 #set SupportRetaliatePlayer
 #mods
@@ -1898,6 +1950,16 @@
 #mods
 #skillEnd
 
+#skill SupportSplinteringTotemPlayer
+#set SupportSplinteringTotemPlayer
+#mods
+#skillEnd
+
+#skill SupportSplinteringTotemPlayerTwo
+#set SupportSplinteringTotemPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportSteadfastPlayer
 #set SupportSteadfastPlayer
 #mods
@@ -1962,6 +2024,11 @@
 
 #skill SupportTearPlayer
 #set SupportTearPlayer
+#mods
+#skillEnd
+
+#skill SupportSlamAftershocksPlayer
+#set SupportSlamAftershocksPlayer
 #mods
 #skillEnd
 
@@ -2093,6 +2160,11 @@
 
 #skill SupportXophsPyrePlayer
 #set SupportXophsPyrePlayer
+#mods
+#skillEnd
+
+#skill SupportZerphisLegacyPlayer
+#set SupportZerphisLegacyPlayer
 #mods
 #skillEnd
 

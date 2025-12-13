@@ -170,6 +170,7 @@ Direstrike II                 		----		SupportDirestrikePlayerTwo
 Double Barrel I               		----		SupportDoubleBarrelPlayer
 Double Barrel II              		----		SupportDoubleBarrelPlayerTwo
 Double Barrel III             		----		SupportDoubleBarrelPlayerThree
+Echoing Cry                   		----		SupportEchoingCryPlayer
 Efficiency I                  		----		SupportEfficiencyPlayer
 Efficiency II                 		----		SupportEfficiencyPlayerTwo
 Einhar's Beastrite            		----		SupportEinharsBeastritePlayer
@@ -187,6 +188,9 @@ Execute I                     		----		SupportExecutePlayer
 Execute II                    		----		SupportExecutePlayerTwo
 Execute III                   		----		SupportExecutePlayerThree
 Exploit Weakness              		----		SupportExploitWeaknessPlayer
+Exposing Cry                  		----		SupportExposingCryPlayer
+Fan The Flames                		----		SupportFanTheFlamesPlayer	TriggeredFanTheFlamesPlayer
+Fan The Flames II             		----		SupportFanTheFlamesPlayerTwo	TriggeredFanTheFlamesPlayerTwo
 Fire Attunement               		----		SupportAddedFireDamagePlayer
 Fire Exposure                 		----		SupportFireExposurePlayer
 Fire Penetration I            		----		SupportFirePenetrationPlayer
@@ -207,6 +211,7 @@ Hardy Totems I                		----		SupportHardyTotemsPlayer
 Hardy Totems II               		----		SupportHardyTotemsPlayerTwo
 Heavy Swing                   		----		SupportMeleePhysicalDamagePlayer
 Heft                          		----		SupportHeftPlayer
+Helbrym's Hide                		----		SupportHideOfHelbrymPlayer
 Herbalism I                   		----		SupportHerbalismPlayer
 Herbalism II                  		----		SupportHerbalismPlayerTwo
 Holy Descent                  		----		SupportHolyDescentPlayer
@@ -231,8 +236,10 @@ Lifetap                       		----		SupportBloodMagicPlayer
 Long Fuse I                   		----		SupportLongFusePlayer
 Long Fuse II                  		----		SupportLongFusePlayerTwo
 Mark for Death                		----		SupportMarkForDeathPlayer
+Mark for Death II             		----		SupportMarkForDeathPlayerTwo
 Meat Shield I                 		----		SupportMeatShieldPlayer
 Meat Shield II                		----		SupportMeatShieldPlayerTwo
+Opening Move                  		----		SupportOpeningMovePlayer
 Paquate's Pact                		----		SupportCorruptingCryPlayerThree
 Persistent Ground I           		----		SupportPersistentGroundPlayer
 Persistent Ground II          		----		SupportPersistentGroundPlayerTwo
@@ -258,6 +265,7 @@ Relentless Rage               		----		SupportRelentlessRagePlayer
 Remnant Potency I             		----		SupportInterludePlayer
 Remnant Potency II            		----		SupportInterludePlayerTwo
 Remnant Potency III           		----		SupportInterludePlayerThree
+Rending Apex                  		----		SupportRendingApexPlayer
 Retaliate I                   		----		SupportRetaliatePlayer
 Retaliate II                  		----		SupportRetaliatePlayerTwo
 Reverberate                   		----		SupportReveberatePlayer
@@ -274,6 +282,8 @@ Short Fuse II                 		----		SupportShortFusePlayerTwo
 Skittering Stone I            		----		SupportSkitteringStonePlayer	TriggeredSkitteringStonePlayer
 Skittering Stone II           		----		SupportSkitteringStonePlayerTwo	TriggeredSkitteringStonePlayerTwo
 Spar                          		----		SupportSparPlayer
+Splinter Totem I              		----		SupportSplinteringTotemPlayer
+Splinter Totem II             		----		SupportSplinteringTotemPlayerTwo
 Steadfast I                   		----		SupportSteadfastPlayer
 Steadfast II                  		----		SupportSteadfastPlayerTwo
 Stoicism I                    		----		SupportStoicismPlayer
@@ -285,6 +295,7 @@ Stun III                      		----		SupportStunPlayerThree
 Syzygy                        		----		SupportSyzygyPlayer
 Tawhoa's Tending              		----		SupportHardyTotemsPlayerThree	TriggeredSplinterExplosionHardyTotems
 Tear                          		----		SupportTearPlayer
+Tectonic Slams                		----		SupportSlamAftershocksPlayer
 Thornskin I                   		----		SupportThornskinPlayer
 Thornskin II                  		----		SupportThornskinPlayerTwo
 Tireless                      		----		SupportTirelessPlayer
@@ -310,6 +321,7 @@ Vitality I                    		----		SupportVitalityPlayer
 Vitality II                   		----		SupportVitalityPlayerTwo
 Volcanic Eruption             		----		SupportVolcanicEruptionPlayer	TriggeredVolcanicEruptionPlayer
 Xoph's Pyre                   		----		SupportXophsPyrePlayer
+Zerphi's Infamy               		----		SupportZerphisLegacyPlayer
 
 						--------- Active Dexterity ---------
 Alchemist's Boon              		----		AlchemistsBoonPlayer
