@@ -4724,13 +4724,45 @@
 #mods
 #skillEnd
 
+#skill SupportExplosiveGrowthPlayerTwo
+#set SupportExplosiveGrowthPlayerTwo
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveGrowthPlayerTwo
+#set TriggeredExplosiveGrowthPlayerTwo
+#flags
+#mods
+#skillEnd
+
+#skill SupportExplosiveGrowthPlayer
+#set SupportExplosiveGrowthPlayer
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveGrowthPlayer
+#set TriggeredExplosiveGrowthPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportAcrimonyPlayer
 #set SupportAcrimonyPlayer
 #mods
 #skillEnd
 
+#skill SupportAdvancingStormPlayer
+#set SupportAdvancingStormPlayer
+#mods
+#skillEnd
+
 #skill SupportAhnsCitadelPlayer
 #set SupportAhnsCitadelPlayer
+#mods
+#skillEnd
+
+#skill SupportAmbrosiaPlayerTwo
+#set SupportAmbrosiaPlayerTwo
 #mods
 #skillEnd
 
@@ -4764,6 +4796,27 @@
 #mods
 #skillEnd
 
+#skill SupportAtzirisCallPlayer
+#set SupportAtzirisCallPlayer
+#mods
+#skillEnd
+
+#skill TriggeredAtzirisCallPlayer
+#set TriggeredAtzirisCallPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportAtzirisCommunionPlayer
+#set SupportAtzirisCommunionPlayer
+#mods
+#skillEnd
+
+#skill SupportBhatairsVengeancePlayer
+#set SupportBhatairsVengeancePlayer
+#mods
+#skillEnd
+
 #skill SupportBiddingPlayer
 #set SupportBiddingPlayer
 #mods
@@ -4781,6 +4834,16 @@
 
 #skill SupportBitingFrostPlayer
 #set SupportBitingFrostPlayer
+#mods
+#skillEnd
+
+#skill SupportBitingFrostPlayerTwo
+#set SupportBitingFrostPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportBlazingCriticalPlayer
+#set SupportBlazingCriticalPlayer
 #mods
 #skillEnd
 
@@ -4805,6 +4868,11 @@
 #mods
 #skillEnd
 
+#skill SupportBrittleArmourPlayer
+#set SupportBrittleArmourPlayer
+#mods
+#skillEnd
+
 #skill SupportBurgeonPlayer
 #set SupportBurgeonPlayer
 #mods
@@ -4822,6 +4890,26 @@
 
 #skill TriggeredBurningRunesPlayer
 #set TriggeredBurningRunesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportCatalysingElementsPlayer
+#set SupportCatalysingElementsPlayer
+#mods
+#skillEnd
+
+#skill TriggeredCatalysingDischargePlayer
+#set TriggeredCatalysingDischargePlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeFirePlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeLightningPlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeColdPlayer
 #flags
 #mods
 #skillEnd
@@ -4886,6 +4974,11 @@
 #mods
 #skillEnd
 
+#skill SupportConcussiveSpellsPlayer
+#set SupportConcussiveSpellsPlayer
+#mods
+#skillEnd
+
 #skill SupportConsideredCastingPlayer
 #set SupportConsideredCastingPlayer
 #mods
@@ -4901,6 +4994,17 @@
 #mods
 #skillEnd
 
+#skill SupportDeadlyCurrentPlayer
+#set SupportDeadlyCurrentPlayer
+#mods
+#skillEnd
+
+#skill TriggeredDeadlyCurrentPlayer
+#set TriggeredDeadlyCurrentPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportCracklingBarrierPlayer
 #set SupportCracklingBarrierPlayer
 #mods
@@ -4908,6 +5012,17 @@
 
 #skill SupportCrazedMinionsPlayer
 #set SupportCrazedMinionsPlayer
+#mods
+#skillEnd
+
+#skill SupportCreepingChillPlayer
+#set SupportCreepingChillPlayer
+#mods
+#skillEnd
+
+#skill TriggeredCreepingChillPlayer
+#set TriggeredCreepingChillPlayer
+#flags
 #mods
 #skillEnd
 
@@ -4982,6 +5097,20 @@
 #mods
 #skillEnd
 
+#skill SupportShockingRiftPlayer
+#set SupportShockingRiftPlayer
+#mods
+#skillEnd
+
+#skill TriggeredShockingRiftPlayer
+#set TriggeredShockingRiftPlayer
+#flags
+#mods
+#set TriggeredShockingRiftFinalPulsePlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportElementalArmyPlayer
 #set SupportElementalArmyPlayer
 #mods
@@ -5005,6 +5134,46 @@
 
 #skill SupportEmbitterPlayer
 #set SupportEmbitterPlayer
+#mods
+#skillEnd
+
+#skill SupportEmpoweredSparksPlayer
+#set SupportEmpoweredSparksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredSparkEmpowerPlayer
+#set TriggeredSparkEmpowerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredEmpoweredSparkPlayer
+#set TriggeredEmpoweredSparkPlayer
+#flags
+#mods
+#set TriggeredEmpoweredSparkColdInfusedPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportEmpoweredSparksPlayer
+#set SupportEmpoweredSparksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredSparkEmpowerPlayer
+#set TriggeredSparkEmpowerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredEmpoweredSparkPlayerTwo
+#set TriggeredEmpoweredSparkPlayerTwo
+#flags
+#mods
+#set TriggeredEmpoweredSparkColdInfusedPlayerTwo
+#flags
 #mods
 #skillEnd
 
@@ -5038,6 +5207,11 @@
 #mods
 #skillEnd
 
+#skill SupportEternalMarkPlayer
+#set SupportEternalMarkPlayer
+#mods
+#skillEnd
+
 #skill SupportExcisePlayer
 #set SupportExcisePlayer
 #mods
@@ -5045,6 +5219,11 @@
 
 #skill SupportExecratePlayer
 #set SupportExecratePlayer
+#mods
+#skillEnd
+
+#skill SupportExpandPlayer
+#set SupportExpandPlayer
 #mods
 #skillEnd
 
@@ -5150,6 +5329,16 @@
 #mods
 #skillEnd
 
+#skill SupportGorgePlayer
+#set SupportGorgePlayer
+#mods
+#skillEnd
+
+#skill SupportGuatelitzisAblationPlayer
+#set SupportGuatelitzisAblationPlayer
+#mods
+#skillEnd
+
 #skill SupportFleetingRemnantsPlayer
 #set SupportFleetingRemnantsPlayer
 #mods
@@ -5157,6 +5346,17 @@
 
 #skill SupportFleetingRemnantsPlayerTwo
 #set SupportFleetingRemnantsPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportHayoxisBindingPlayer
+#set SupportHayoxisBindingPlayer
+#mods
+#skillEnd
+
+#skill SupportTriggeredAnnihilationPlayer
+#set SupportTriggeredAnnihilationPlayer
+#flags
 #mods
 #skillEnd
 
@@ -5201,6 +5401,11 @@
 #mods
 #skillEnd
 
+#skill SupportIceBitePlayerTwo
+#set SupportIceBitePlayerTwo
+#mods
+#skillEnd
+
 #skill SupportIciclePlayer
 #set SupportIciclePlayer
 #mods
@@ -5222,6 +5427,11 @@
 #mods
 #skillEnd
 
+#skill SupportInevitableCriticalsPlayerTwo
+#set SupportInevitableCriticalsPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportIntenseAgonyPlayer
 #set SupportIntenseAgonyPlayer
 #mods
@@ -5234,6 +5444,11 @@
 
 #skill SupportKalisasCrescendoPlayer
 #set SupportKalisasCrescendoPlayer
+#mods
+#skillEnd
+
+#skill SupportKhatalsRejuvenationPlayer
+#set SupportKhatalsRejuvenationPlayer
 #mods
 #skillEnd
 
@@ -5315,6 +5530,16 @@
 #mods
 #skillEnd
 
+#skill SupportMarkOfSiphoningPlayerTwo
+#set SupportMarkOfSiphoningPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportMarkOfSiphoningPlayer
+#set SupportMarkOfSiphoningPlayer
+#mods
+#skillEnd
+
 #skill SupportMinionInstabilityPlayer
 #set SupportMinionInstabilityPlayer
 #mods
@@ -5335,6 +5560,11 @@
 #mods
 #skillEnd
 
+#skill SupportMorganasTempestPlayer
+#set SupportMorganasTempestPlayer
+#mods
+#skillEnd
+
 #skill SupportMusterPlayer
 #set SupportMusterPlayer
 #mods
@@ -5352,6 +5582,11 @@
 
 #skill SupportNadirPlayer
 #set SupportNadirPlayer
+#mods
+#skillEnd
+
+#skill SupportOisinsOathPlayer
+#set SupportOisinsOathPlayer
 #mods
 #skillEnd
 
@@ -5377,6 +5612,16 @@
 
 #skill SupportPotentialPlayer
 #set SupportPotentialPlayer
+#mods
+#skillEnd
+
+#skill SupportPracticalMagicPlayer
+#set SupportPracticalMagicPlayer
+#mods
+#skillEnd
+
+#skill SupportPracticalMagicPlayerTwo
+#set SupportPracticalMagicPlayerTwo
 #mods
 #skillEnd
 
@@ -5445,6 +5690,11 @@
 #mods
 #skillEnd
 
+#skill SupportShockConductionPlayerTwo
+#set SupportShockConductionPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportEnergyShieldOnShockKillPlayer
 #set SupportEnergyShieldOnShockKillPlayer
 #mods
@@ -5476,6 +5726,17 @@
 #mods
 #skillEnd
 
+#skill SupportStaticShocksPlayer
+#set SupportStaticShocksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredStaticShocksPlayer
+#set TriggeredStaticShocksPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportStormfirePlayer
 #set SupportStormfirePlayer
 #mods
@@ -5493,6 +5754,16 @@
 
 #skill SupportTecrodsRevengePlayer
 #set SupportTecrodsRevengePlayer
+#mods
+#skillEnd
+
+#skill SupportThrillOfTheKillPlayerTwo
+#set SupportThrillOfTheKillPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportThrillOfTheKillPlayer
+#set SupportThrillOfTheKillPlayer
 #mods
 #skillEnd
 
@@ -5561,8 +5832,24 @@
 #mods
 #skillEnd
 
+#skill SupportXibaquasRendingPlayer
+#set SupportXibaquasRendingPlayer
+#mods
+#skillEnd
+
+#skill TriggeredXibaquasRendingPlayer
+#set TriggeredXibaquasRendingPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportZarokhsRefrainPlayer
 #set SupportZarokhsRefrainPlayer
+#mods
+#skillEnd
+
+#skill SupportZarokhsRevoltPlayer
+#set SupportZarokhsRevoltPlayer
 #mods
 #skillEnd
 
