@@ -2764,6 +2764,11 @@
 #mods
 #skillEnd
 
+#skill SupportAtzirisImpatiencePlayer
+#set SupportAtzirisImpatiencePlayer
+#mods
+#skillEnd
+
 #skill SupportBlindPlayer
 #set SupportBlindPlayer
 #mods
@@ -2846,6 +2851,17 @@
 #mods
 #skillEnd
 
+#skill SupportChargedMarkPlayer
+#set SupportChargedMarkPlayer
+#mods
+#skillEnd
+
+#skill TriggeredChargedMarkPlayer
+#set TriggeredChargedMarkPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportChargedShotsPlayer
 #set SupportChargedShotsPlayer
 #mods
@@ -2883,6 +2899,11 @@
 
 #skill SupportCommiseratePlayer
 #set SupportCommiseratePlayer
+#mods
+#skillEnd
+
+#skill SupportControlledHazardPlayer
+#set SupportControlledHazardPlayer
 #mods
 #skillEnd
 
@@ -2961,6 +2982,22 @@
 #mods
 #skillEnd
 
+#skill SupportPietysMercyPlayer
+#set SupportPietysMercyPlayer
+#mods
+#skillEnd
+
+#skill SupportDreamersKnellPlayer
+#set SupportDreamersKnellPlayer
+#mods
+#skillEnd
+
+#skill TriggeredDreamersKnellPlayer
+#set TriggeredDreamersKnellPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportDurabilityPlayer
 #set SupportDurabilityPlayer
 #mods
@@ -2968,6 +3005,11 @@
 
 #skill SupportElectrocutePlayer
 #set SupportElectrocutePlayer
+#mods
+#skillEnd
+
+#skill SupportElectrocuteLineagePlayer
+#set SupportElectrocuteLineagePlayer
 #mods
 #skillEnd
 
@@ -3167,6 +3209,11 @@
 #mods
 #skillEnd
 
+#skill SupportNovaProjectilesTwoPlayer
+#set SupportNovaProjectilesTwoPlayer
+#mods
+#skillEnd
+
 #skill SupportOutmaneuverPlayer
 #set SupportOutmaneuverPlayer
 #mods
@@ -3259,6 +3306,20 @@
 
 #skill SupportPoisonPlayerThree
 #set SupportPoisonPlayerThree
+#mods
+#skillEnd
+
+#skill SupportPoisonSpores
+#set SupportPoisonSpores
+#mods
+#skillEnd
+
+#skill TriggeredPoisonSporesPustule
+#set TriggeredPoisonSporesPustule
+#flags
+#mods
+#set TriggeredPoisonSporesExplosion
+#flags
 #mods
 #skillEnd
 
@@ -3464,6 +3525,11 @@
 
 #skill SupportTacatisIrePlayer
 #set SupportTacatisIrePlayer
+#mods
+#skillEnd
+
+#skill SupportTasaliosRhythmPlayer
+#set SupportTasaliosRhythmPlayer
 #mods
 #skillEnd
 

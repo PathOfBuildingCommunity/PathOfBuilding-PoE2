@@ -110,6 +110,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportAtzirisImpatiencePlayer
+#set SupportAtzirisImpatiencePlayer
+#mods
+#skillEnd
+
 #skill SupportBlindPlayer
 #set SupportBlindPlayer
 #mods
@@ -215,6 +220,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportChargedMarkPlayer
+#set SupportChargedMarkPlayer
+#mods
+#skillEnd
+
+#skill TriggeredChargedMarkPlayer
+#set TriggeredChargedMarkPlayer
+#flags duration
+#mods
+#skillEnd
+
 #skill SupportChargedShotsPlayer
 #set SupportChargedShotsPlayer
 statMap = {
@@ -285,6 +301,11 @@ statMap = {
 		mod("EnemyElectrocuteEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportControlledHazardPlayer
+#set SupportControlledHazardPlayer
 #mods
 #skillEnd
 
@@ -423,7 +444,6 @@ statMap = {
 #set SupportPietysMercyPlayer
 #mods
 #skillEnd
-
 
 #skill SupportDurabilityPlayer
 #set SupportDurabilityPlayer
@@ -731,6 +751,11 @@ statMap = {
 
 #skill SupportNovaProjectilesPlayer
 #set SupportNovaProjectilesPlayer
+#mods
+#skillEnd
+
+#skill SupportNovaProjectilesTwoPlayer
+#set SupportNovaProjectilesTwoPlayer
 statMap = {
 	["support_nova_projectiles_damage_+%_final"] = {
 		mod("Damage", "MORE", nil),
@@ -866,6 +891,20 @@ statMap = {
 		mod("Damage", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportPoisonSpores
+#set SupportPoisonSpores
+#mods
+#skillEnd
+
+#skill TriggeredPoisonSporesPustule
+#set TriggeredPoisonSporesPustule
+#flags
+#mods
+#set TriggeredPoisonSporesExplosion
+#flags attack area
 #mods
 #skillEnd
 
@@ -1207,6 +1246,11 @@ statMap = {
 		mod("PoisonFaster", "INC", nil, 0, 0, { type = "PerStat", stat = "Rage" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportTasaliosRhythmPlayer
+#set SupportTasaliosRhythmPlayer
 #mods
 #skillEnd
 

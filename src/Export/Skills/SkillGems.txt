@@ -397,6 +397,7 @@ Ammo Conservation II          		----		SupportAmmoConservationPlayerTwo
 Ammo Conservation III         		----		SupportAmmoConservationPlayerThree
 Arakaali's Lust               		----		SupportArakaalisLustPlayer
 Arjun's Medal                 		----		SupportAmmoConservationPlayerFour
+Atziri's Impatience           		----		SupportAtzirisImpatiencePlayer
 Blind I                       		----		SupportBlindPlayer
 Blind II                      		----		SupportBlindPlayerTwo
 Blindside                     		----		SupportBlindsidePlayer
@@ -411,6 +412,7 @@ Chain II                      		----		SupportChainPlayerTwo
 Chain III                     		----		SupportChainPlayerThree
 Charge Profusion I            		----		SupportChargeProfusionPlayer
 Charge Profusion II           		----		SupportChargeProfusionPlayerTwo
+Charged Mark                  		----		SupportChargedMarkPlayer	TriggeredChargedMarkPlayer
 Charged Shots I               		----		SupportChargedShotsPlayer
 Charged Shots II              		----		SupportChargedShotsPlayerTwo
 Charm Bounty                  		----		SupportCharmBountyPlayer
@@ -419,6 +421,7 @@ Close Combat II               		----		SupportCloseCombatPlayerTwo
 Combo Finisher I              		----		SupportComboFinisherPlayer
 Combo Finisher II             		----		SupportComboFinisherPlayerTwo
 Commiserate                   		----		SupportCommiseratePlayer
+Controlled Hazard             		----		SupportControlledHazardPlayer
 Cooldown Recovery I           		----		SupportCooldownRecoveryPlayer
 Cooldown Recovery II          		----		SupportCooldownRecoveryPlayerTwo
 Corrosion                     		----		SupportCorrosionPlayer
@@ -434,8 +437,11 @@ Deadly Poison II              		----		SupportDeadlyPoisonPlayerTwo
 Delayed Gratification         		----		SupportDelayedGratificationPlayer
 Delayed Reaction              		----		SupportDelayedReactionPlayer
 Deliberation                  		----		SupportDeliberationPlayer
+Dominus' Grasp                		----		SupportPietysMercyPlayer
+Dreamer's Knell               		----		SupportDreamersKnellPlayer	TriggeredDreamersKnellPlayer
 Durability                    		----		SupportDurabilityPlayer
 Electrocute                   		----		SupportElectrocutePlayer
+Eonyr's Thunder               		----		SupportElectrocuteLineagePlayer
 Escalating Poison             		----		SupportEscalatingPoisonPlayer
 Excoriate                     		----		SupportExcoriatePlayer
 Ferocity                      		----		SupportFerocityPlayer
@@ -474,6 +480,7 @@ Murderous Intent              		----		SupportEmpoweredCullPlayer
 Neural Overload               		----		SupportNeuralOverloadPlayer
 Nimble Reload                 		----		SupportNimbleReloadPlayer
 Nova Projectiles I            		----		SupportNovaProjectilesPlayer
+Nova Projectiles II           		----		SupportNovaProjectilesTwoPlayer
 Outmaneuver                   		----		SupportOutmaneuverPlayer
 Overabundance I               		----		SupportIncreaseLimitPlayer
 Overabundance II              		----		SupportIncreaseLimitPlayerTwo
@@ -493,6 +500,7 @@ Pin III                       		----		SupportPinPlayerThree
 Poison I                      		----		SupportPoisonPlayer
 Poison II                     		----		SupportPoisonPlayerTwo
 Poison III                    		----		SupportPoisonPlayerThree
+Poison Spores                 		----		SupportPoisonSpores	TriggeredPoisonSporesPustule
 Practiced Combo               		----		SupportPracticedComboPlayer
 Precision I                   		----		SupportPrecisionPlayer
 Precision II                  		----		SupportPrecisionPlayerTwo
@@ -534,6 +542,7 @@ Swift Affliction I            		----		SupportSwiftAfflictionPlayer
 Swift Affliction II           		----		SupportSwiftAfflictionPlayerTwo
 Swift Affliction III          		----		SupportSwiftAfflictionPlayerThree
 Tacati's Ire                  		----		SupportTacatisIrePlayer
+Tasalio's Rhythm              		----		SupportTasaliosRhythmPlayer
 Tul's Stillness               		----		SupportTulsStillnessPlayer
 Tumult                        		----		SupportTumultPlayer
 Unerring Power                		----		SupportUnerringPowerPlayer
