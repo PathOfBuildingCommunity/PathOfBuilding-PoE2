@@ -6198,6 +6198,15 @@
 #mods
 #skillEnd
 
+#skill WyvernRendPlayer
+#set WyvernRendPlayer
+#flags
+#mods
+#set WyvernRendEmpoweredPlayer
+#flags
+#mods
+#skillEnd
+
 #skill RitualSacrificePlayer
 #set RitualSacrificePlayer
 #flags
