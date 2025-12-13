@@ -2353,11 +2353,11 @@ function calcs.buildDefenceEstimations(env, actor)
 			if armourReduct ~= 0 then
 				if (percentOfArmourApplies ~= (damageType == "Physical" and 100 or 0)) and (percentOfArmourApplies > 0) then
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of Armour applies", percentOfArmourApplies))
+					t_insert(breakdown[damageType.."DamageReduction"], s_format("Armour contributing to reduction: %d", effectiveArmourFromArmour))
 				end
 				if effectiveArmourFromArmour == effectiveAppliedArmour then
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from Armour: %d%%", armourReduct))
-				else
-					t_insert(breakdown[damageType.."DamageReduction"], s_format("Armour contributing to reduction: %d", effectiveArmourFromArmour))
+				else	
 					for source, amount in pairs(effectiveArmourFromOther) do
 						t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of %s applies", percentOfEvasionApplies, source))
 						t_insert(breakdown[damageType.."DamageReduction"], s_format("%s contributing to reduction: %d",source, amount))
