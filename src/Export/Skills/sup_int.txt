@@ -49,6 +49,16 @@ local skills, mod, flag, skill = ...
 
 #skill SupportAmbrosiaPlayerTwo
 #set SupportAmbrosiaPlayerTwo
+statMap = {
+	["consume_%_of_maximum_mana_flask_charges_on_skill_use"] = {
+		mod("Multiplier:ManaFlaskMaxChargesPercent", "BASE", nil),
+	},
+	["gain_%_damage_as_lighting_per_mana_flask_charge_consumed"] = {
+		mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Multiplier", var = "ManaFlaskChargeConsumed"}),
+	},
+},
+#baseMod mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask1MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true })
+#baseMod mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask2MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true })
 #mods
 #skillEnd
 
@@ -139,11 +149,21 @@ statMap = {
 
 #skill SupportBitingFrostPlayerTwo
 #set SupportBitingFrostPlayerTwo
+statMap = {
+	["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportBlazingCriticalPlayer
 #set SupportBlazingCriticalPlayer
+statMap = {
+	["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
+		mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -846,6 +866,15 @@ statMap = {
 
 #skill SupportIceBitePlayerTwo
 #set SupportIceBitePlayerTwo
+statMap = {
+	["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
+		mod("DamageGainAsCold", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
+	},
+	["support_ice_bite_base_buff_duration"] = {
+		mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff" }),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -885,6 +914,20 @@ statMap = {
 
 #skill SupportInevitableCriticalsPlayerTwo
 #set SupportInevitableCriticalsPlayerTwo
+statMap = {
+	["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+		mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritCap", limitTotal = true }),
+	},
+	["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+		mod("Multiplier:InevitableCritCap", "BASE", nil),
+	},
+	["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+		mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+	},
+	["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+		mod("Multiplier:InevitableCritMultCap", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -1334,13 +1377,13 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportThrillOfTheKillPlayerTwo
-#set SupportThrillOfTheKillPlayerTwo
+#skill SupportThrillOfTheKillPlayer
+#set SupportThrillOfTheKillPlayer
 #mods
 #skillEnd
 
-#skill SupportThrillOfTheKillPlayer
-#set SupportThrillOfTheKillPlayer
+#skill SupportThrillOfTheKillPlayerTwo
+#set SupportThrillOfTheKillPlayerTwo
 #mods
 #skillEnd
 

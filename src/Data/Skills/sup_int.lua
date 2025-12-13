@@ -446,7 +446,19 @@ skills["SupportAmbrosiaPlayerTwo"] = {
 			label = "Ambrosia II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["consume_%_of_maximum_mana_flask_charges_on_skill_use"] = {
+					mod("Multiplier:ManaFlaskMaxChargesPercent", "BASE", nil),
+				},
+				["gain_%_damage_as_lighting_per_mana_flask_charge_consumed"] = {
+					mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Multiplier", var = "ManaFlaskChargeConsumed"}),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask1MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true }),
+				mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask2MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true }),
 			},
 			constantStats = {
 				{ "consume_%_of_maximum_mana_flask_charges_on_skill_use", 35 },
@@ -857,6 +869,11 @@ skills["SupportBitingFrostPlayerTwo"] = {
 			label = "Biting Frost II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -891,6 +908,11 @@ skills["SupportBlazingCriticalPlayer"] = {
 			label = "Blazing Critical",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
+					mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -4823,6 +4845,15 @@ skills["SupportIceBitePlayerTwo"] = {
 			label = "Ice Bite II",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
+					mod("DamageGainAsCold", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
+				},
+				["support_ice_bite_base_buff_duration"] = {
+					mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff" }),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5078,6 +5109,20 @@ skills["SupportInevitableCriticalsPlayerTwo"] = {
 			label = "Inexorable Critical II",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+					mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritCap", limitTotal = true }),
+				},
+				["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+					mod("Multiplier:InevitableCritCap", "BASE", nil),
+				},
+				["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+					mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+				},
+				["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+					mod("Multiplier:InevitableCritMultCap", "BASE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -7343,38 +7388,6 @@ skills["SupportTecrodsRevengePlayer"] = {
 		},
 	}
 }
-skills["SupportThrillOfTheKillPlayerTwo"] = {
-	name = "Thrill of the Kill II",
-	description = "Supports Skills you use yourself which Hit enemies. Culling a Shocked enemy with Supported Skills infuses all of your Attacks with Lightning damage and grants an increased chance to Shock for a short time.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { SkillType.Duration, },
-	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, SkillType.Triggered, },
-	gemFamily = { "ThrillOfTheKill",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Thrill of the Kill II",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_thrill_of_the_kill_buff_grant_%_added_lightning_attack_damage", 25 },
-				{ "support_thrill_of_the_kill_buff_base_duration_ms", 8000 },
-				{ "support_thrill_of_the_kill_buff_shock_chance_+%", 40 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportThrillOfTheKillPlayer"] = {
 	name = "Thrill of the Kill",
 	description = "Supports Skills you use yourself which Hit enemies. Culling a Shocked enemy with Supported Skills infuses all of your Attacks with Lightning damage for a short time.",
@@ -7398,6 +7411,38 @@ skills["SupportThrillOfTheKillPlayer"] = {
 			constantStats = {
 				{ "support_thrill_of_the_kill_buff_grant_%_added_lightning_attack_damage", 25 },
 				{ "support_thrill_of_the_kill_buff_base_duration_ms", 8000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportThrillOfTheKillPlayerTwo"] = {
+	name = "Thrill of the Kill II",
+	description = "Supports Skills you use yourself which Hit enemies. Culling a Shocked enemy with Supported Skills infuses all of your Attacks with Lightning damage and grants an increased chance to Shock for a short time.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { SkillType.Duration, },
+	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, SkillType.Triggered, },
+	gemFamily = { "ThrillOfTheKill",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Thrill of the Kill II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_thrill_of_the_kill_buff_grant_%_added_lightning_attack_damage", 25 },
+				{ "support_thrill_of_the_kill_buff_base_duration_ms", 8000 },
+				{ "support_thrill_of_the_kill_buff_shock_chance_+%", 40 },
 			},
 			stats = {
 			},
