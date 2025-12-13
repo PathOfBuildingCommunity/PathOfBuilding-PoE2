@@ -79,3 +79,11 @@ local minions, mod = ...
 
 #monster Metadata/Monsters/Daemon/ArtilleryPlayer/SummonArtilleryDaemon TacticianMinion
 #emit
+
+#monster Metadata/Monsters/HyenaMonster/HyenaCompanionPlayerSummoned HyenaMinion
+#limit HyenaLimit
+#emit
+
+#monster Metadata/Monsters/Wolves/WolfCompanionPlayerSummoned WolfMinion
+#limit WolfLimit
+#emit

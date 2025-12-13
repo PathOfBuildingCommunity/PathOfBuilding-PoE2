@@ -780,3 +780,70 @@ minions["TacticianMinion"] = {
 		-- set_skill_can_be_active_blocked_from_all_directions [set_skill_can_be_active_blocked_from_all_directions = 1]
 	},
 }
+
+minions["HyenaMinion"] = {
+	name = "Cackling Companion",
+	monsterTags = { "beast", "Beast_onhit_audio", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "very_fast_movement", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.77,
+	damageSpread = 0.2,
+	attackTime = 1,
+	attackRange = 9,
+	accuracy = 1,
+	limit = "HyenaLimit",
+	baseMovementSpeed = 50,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"HyenaCompanionMelee",
+		"HyenaHinderWhoopMinion",
+		"HyenaStandaloneWhoop",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+	},
+}
+
+minions["WolfMinion"] = {
+	name = "Wolf Companion",
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "not_int", "not_str", "Snap_onhit_audio", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 0.8,
+	attackRange = 12,
+	accuracy = 1,
+	limit = "WolfLimit",
+	baseMovementSpeed = 42,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedWolfCompanion",
+		"WolfLeapAttackMinion",
+	},
+	modList = {
+		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
+		-- set_item_drop_slots [set_item_drop_slots = 0]
+		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
+	},
+}

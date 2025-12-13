@@ -214,3 +214,21 @@ statMap = {
 },
 #mods
 #skillEnd
+
+#skill HyenaCompanionMelee
+#set HyenaCompanionMelee
+#flags attack melee
+#mods
+#skillEnd
+
+#skill MeleeAtAnimationSpeedWolfCompanion
+#set MeleeAtAnimationSpeed
+#flags attack melee
+#mods
+#skillEnd
+
+#skill WolfLeapAttackMinion
+#set WolfLeapAttackMinion
+#flags attack melee area
+#mods
+#skillEnd

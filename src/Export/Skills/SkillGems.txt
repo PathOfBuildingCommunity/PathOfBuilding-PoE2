@@ -4,27 +4,40 @@
 						--------- Active Strength ---------
 Ancestral Cry                 		----		AncestralCryPlayer	AncestralCryShockwavePlayer	AncestralCryProjectilePlayer
 Ancestral Warrior Totem       		----		AncestralWarriorTotemPlayer	SupportAncestralWarriorTotemPlayer
+Arctic Howl                   		----		WolfArcticHowlPlayer
 Armour Breaker                		----		ArmourBreakerPlayer
 Artillery Ballista            		----		ArtilleryBallistaPlayer	ArtilleryBallistaProjectilePlayer
 Attrition                     		----		AttritionPlayer
+Barkskin                      		----		BarkskinPlayer
 Berserk                       		----		BerserkPlayer
 Black Powder Blitz            		----		BlackPowderBlitzReservationPlayer	BlackPowderBlitzPlayer
 Boneshatter                   		----		BoneshatterPlayer
+Briarpatch                    		----		BriarpatchPlayer
+Cackling Companions           		----		HyenaCacklePlayer
 Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlockPlayer
 Cast on Melee Kill            		----		MetaCastOnMeleeKillPlayer	SupportMetaCastOnMeleeKillPlayer
 Cast on Melee Stun            		----		MetaCastOnMeleeStunPlayer	SupportMetaCastOnMeleeStunPlayer
 Cluster Grenade               		----		ClusterGrenadePlayer
 Compose Requiem               		----		CrossbowRequiemAmmoPlayer	CrossbowRequiemPlayer
 Consecrate                    		----		StaffConsecratePlayer
+Cross Slash                   		----		WolfCrossSlashPlayer
 Defiance Banner               		----		DefianceBannerReservationPlayer	DefianceBannerPlayer
+Devour                        		----		WyvernDevourPlayer
 Dread Banner                  		----		DreadBannerReservationPlayer	DreadBannerPlayer
 Earthquake                    		----		EarthquakePlayer
 Earthshatter                  		----		EarthshatterPlayer
 Emergency Reload              		----		EmergencyReloadPlayer
+Entangle                      		----		EntanglePlayer
+Eternal Rage                  		----		EternalRagePlayer
 Explosive Grenade             		----		ExplosiveGrenadePlayer
+Feral Invocation              		----		MetaFeralInvocationPlayer	SupportFeralInvocationPlayer
+Ferocious Roar                		----		FerociousRoarMetaPlayer	SupportFerociousRoarPlayer
+Flame Breath                  		----		WyvernFlameBreathPlayer
 Flash Grenade                 		----		FlashGrenadePlayer
 Forge Hammer                  		----		ForgeHammerPlayer
 Fortifying Cry                		----		FortifyingCryPlayer	FortifyingCryShockwavePlayer
+Furious Slam                  		----		FuriousSlamPlayer
+Fury of the Mountain          		----		BearFuryOfTheMountainPlayer
 Gas Grenade                   		----		ToxicGrenadePlayer
 Gemini Surge                  		----		GeminiSurgePlayer
 Hammer of the Gods            		----		HammerOfTheGodsPlayer
@@ -49,14 +62,23 @@ Load Rapid Shot               		----		RapidShotAmmoPlayer	RapidShotPlayer
 Load Shockburst Rounds        		----		ShockburstRoundsAmmoPlayer	ShockburstRoundsPlayer
 Load Siege Cascade            		----		SiegeCascadeAmmoPlayer	SiegeCascadePlayer
 Load Stormblast Bolts         		----		StormblastBoltsAmmoPlayer	StormblastBoltsPlayer
+Lunar Assault                 		----		LunarAssaultPlayer
+Lunar Blessing                		----		WolfLunarBlessingPlayer	WolfLunarBlessingBeamAttackPlayer
 Magma Barrier                 		----		MagmaBarrierPlayer	MagmaSprayPlayer
 Molten Blast                  		----		MoltenBlastPlayer
+Molten Crash                  		----		MoltenCrashPlayer
 Mortar Cannon                 		----		MetaMortarCannonPlayer	SupportMortarCannonPlayer
+Oil Barrage                   		----		OilBarragePlayer
 Oil Grenade                   		----		OilGrenadePlayer
 Overwhelming Presence         		----		OverwhelmingPresencePlayer
 Perfect Strike                		----		PerfectStrikePlayer
+Pounce                        		----		WolfPouncePlayer	SupportCrossSlashPlayer	WolfPounceMarkPlayer	WolfCrossSlashWolfPlayer
+Primal Avatar                 		----		PrimalAvatarPlayer
+Rampage                       		----		BearRampagePlayer
 Resonating Shield             		----		ResonatingShieldPlayer
+Rolling Magma                 		----		RollingMagmaPlayer
 Rolling Slam                  		----		RollingSlamPlayer
+Savage Fury                   		----		SavageFuryPlayer	SavageFuryActivePlayer
 Scavenged Plating             		----		ScavengedPlatingPlayer
 Seismic Cry                   		----		SeismicCryPlayer
 Shard Scavenger               		----		ShardScavengerPlayer
@@ -64,15 +86,23 @@ Shield Charge                 		----		ShieldChargePlayer
 Shield Wall                   		----		ShieldWallPlayer
 Shockwave Totem               		----		ShockwaveTotemPlayer	ShockwaveTotemQuakePlayer
 Siege Ballista                		----		SiegeBallistaPlayer	SiegeBallistaProjectilePlayer
+Spell Totem                   		----		SummonMetaTotemSpellTotemPlayer	SupportMetaTotemSpellTotemPlayer
 Stampede                      		----		StampedePlayer
 Sunder                        		----		SunderPlayer
 Supercharged Slam             		----		SuperchargedSlamPlayer
+Thrashing Vines               		----		ThrashingVinesPlayer
 Thundergod's Wrath            		----		MetaCastLightningSpellOnHitPlayer	SupportMetaCastLightningSpellOnHitPlayer
+Thunderstorm                  		----		ThunderstormPlayer
 Time of Need                  		----		TimeOfNeedPlayer
+Tornado                       		----		TornadoPlayer
 Valako's Charge               		----		ValakosChargePlayer
 Volcanic Fissure              		----		VolcanicFissurePlayer
+Volcano                       		----		VolcanoPlayer
 Voltaic Grenade               		----		ShockGrenadePlayer
+Walking Calamity              		----		WalkingCalamityPlayer	WalkingCalamityMeteorPlayer
 War Banner                    		----		WarBannerReservationPlayer	WarBannerPlayer
+Wing Blast                    		----		WingBlastPlayer
+Wolf Pack                     		----		WolfPackPlayer
 
 						--------- Support Strength ---------
 Aftershock I                  		----		SupportAftershockChancePlayer

@@ -31,6 +31,12 @@
 #mods
 #skillEnd
 
+#skill WolfArcticHowlPlayer
+#set WolfArcticHowlPlayer
+#flags
+#mods
+#skillEnd
+
 #skill ArmourBreakerPlayer
 #set ArmourBreakerPlayer
 #flags
@@ -51,6 +57,12 @@
 
 #skill AttritionPlayer
 #set AttritionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BarkskinPlayer
+#set BarkskinPlayer
 #flags
 #mods
 #skillEnd
@@ -78,6 +90,18 @@
 #flags
 #mods
 #set BoneshatterShockwavePlayer
+#flags
+#mods
+#skillEnd
+
+#skill BriarpatchPlayer
+#set BriarpatchPlayer
+#flags
+#mods
+#skillEnd
+
+#skill HyenaCacklePlayer
+#set HyenaCacklePlayer
 #flags
 #mods
 #skillEnd
@@ -142,6 +166,15 @@
 #mods
 #skillEnd
 
+#skill WolfCrossSlashPlayer
+#set WolfCrossSlashPlayer
+#flags
+#mods
+#set WolfCrossSlashMarkConsumedPlayer
+#flags
+#mods
+#skillEnd
+
 #skill DefianceBannerReservationPlayer
 #set DefianceBannerReservationPlayer
 #flags
@@ -150,6 +183,12 @@
 
 #skill DefianceBannerPlayer
 #set DefianceBannerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WyvernDevourPlayer
+#set WyvernDevourPlayer
 #flags
 #mods
 #skillEnd
@@ -190,8 +229,51 @@
 #mods
 #skillEnd
 
+#skill EntanglePlayer
+#set EntanglePlayer
+#flags
+#mods
+#set EntangleVinePlayer
+#flags
+#mods
+#skillEnd
+
+#skill EternalRagePlayer
+#set EternalRagePlayer
+#flags
+#mods
+#skillEnd
+
 #skill ExplosiveGrenadePlayer
 #set ExplosiveGrenadePlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaFeralInvocationPlayer
+#set MetaFeralInvocationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportFeralInvocationPlayer
+#set SupportFeralInvocationPlayer
+#mods
+#skillEnd
+
+#skill FerociousRoarMetaPlayer
+#set FerociousRoarMetaPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportFerociousRoarPlayer
+#set SupportFerociousRoarPlayer
+#mods
+#skillEnd
+
+#skill WyvernFlameBreathPlayer
+#set WyvernFlameBreathPlayer
 #flags
 #mods
 #skillEnd
@@ -219,6 +301,21 @@
 
 #skill FortifyingCryShockwavePlayer
 #set FortifyingCryShockwavePlayer
+#flags
+#mods
+#skillEnd
+
+#skill FuriousSlamPlayer
+#set FuriousSlamPlayer
+#flags
+#mods
+#set FuriousSlamEnragedPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BearFuryOfTheMountainPlayer
+#set BearFuryOfTheMountainPlayer
 #flags
 #mods
 #skillEnd
@@ -517,6 +614,24 @@
 #mods
 #skillEnd
 
+#skill LunarAssaultPlayer
+#set LunarAssaultPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WolfLunarBlessingPlayer
+#set WolfLunarBlessingPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WolfLunarBlessingBeamAttackPlayer
+#set WolfLunarBlessingBeamAttackPlayer
+#flags
+#mods
+#skillEnd
+
 #skill MagmaBarrierPlayer
 #set MagmaBarrierPlayer
 #flags
@@ -538,6 +653,15 @@
 #mods
 #skillEnd
 
+#skill MoltenCrashPlayer
+#set MoltenCrashPlayer
+#flags
+#mods
+#set MoltenCrashFissurePlayer
+#flags
+#mods
+#skillEnd
+
 #skill MetaMortarCannonPlayer
 #set MetaMortarCannonPlayer
 #flags
@@ -549,8 +673,23 @@
 #mods
 #skillEnd
 
+#skill OilBarragePlayer
+#set OilBarragePlayer
+#flags
+#mods
+#set OilBarrageOilPlayer
+#flags
+#mods
+#set OilBarrageEmpoweredPlayer
+#flags
+#mods
+#skillEnd
+
 #skill OilGrenadePlayer
 #set OilGrenadePlayer
+#flags
+#mods
+#set OilGrenadeOilGroundPlayer
 #flags
 #mods
 #skillEnd
@@ -570,8 +709,49 @@
 #mods
 #skillEnd
 
+#skill WolfPouncePlayer
+#set WolfPouncePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportCrossSlashPlayer
+#set SupportCrossSlashPlayer
+#mods
+#skillEnd
+
+#skill WolfPounceMarkPlayer
+#set WolfPounceMarkPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WolfCrossSlashWolfPlayer
+#set WolfCrossSlashWolfPlayer
+#flags
+#mods
+#skillEnd
+
+#skill PrimalAvatarPlayer
+#set PrimalAvatarPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BearRampagePlayer
+#set BearRampagePlayer
+#flags
+#mods
+#skillEnd
+
 #skill ResonatingShieldPlayer
 #set ResonatingShieldPlayer
+#flags
+#mods
+#skillEnd
+
+#skill RollingMagmaPlayer
+#set RollingMagmaPlayer
 #flags
 #mods
 #skillEnd
@@ -584,6 +764,18 @@
 #flags
 #mods
 #set RollingSlamSecondSlamPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SavageFuryPlayer
+#set SavageFuryPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SavageFuryActivePlayer
+#set SavageFuryActivePlayer
 #flags
 #mods
 #skillEnd
@@ -651,6 +843,17 @@
 #mods
 #skillEnd
 
+#skill SummonMetaTotemSpellTotemPlayer
+#set SummonMetaTotemSpellTotemPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaTotemSpellTotemPlayer
+#set SupportMetaTotemSpellTotemPlayer
+#mods
+#skillEnd
+
 #skill StampedePlayer
 #set StampedePlayer
 #flags
@@ -681,6 +884,12 @@
 #mods
 #skillEnd
 
+#skill ThrashingVinesPlayer
+#set ThrashingVinesPlayer
+#flags
+#mods
+#skillEnd
+
 #skill MetaCastLightningSpellOnHitPlayer
 #set MetaCastLightningSpellOnHitPlayer
 #flags
@@ -692,8 +901,20 @@
 #mods
 #skillEnd
 
+#skill ThunderstormPlayer
+#set ThunderstormPlayer
+#flags
+#mods
+#skillEnd
+
 #skill TimeOfNeedPlayer
 #set TimeOfNeedPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TornadoPlayer
+#set TornadoPlayer
 #flags
 #mods
 #skillEnd
@@ -713,8 +934,32 @@
 #mods
 #skillEnd
 
+#skill VolcanoPlayer
+#set VolcanoPlayer
+#flags
+#mods
+#set VolcanoProjectilePlayer
+#flags
+#mods
+#skillEnd
+
 #skill ShockGrenadePlayer
 #set ShockGrenadePlayer
+#flags
+#mods
+#skillEnd
+
+#skill WalkingCalamityPlayer
+#set WalkingCalamityPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WalkingCalamityMeteorPlayer
+#set WalkingCalamityMeteorPlayer
+#flags
+#mods
+#set WalkingCalamityMeteorLargePlayer
 #flags
 #mods
 #skillEnd
@@ -727,6 +972,21 @@
 
 #skill WarBannerPlayer
 #set WarBannerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WingBlastPlayer
+#set WingBlastPlayer
+#flags
+#mods
+#set WingBlastStunExplosionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WolfPackPlayer
+#set WolfPackPlayer
 #flags
 #mods
 #skillEnd
