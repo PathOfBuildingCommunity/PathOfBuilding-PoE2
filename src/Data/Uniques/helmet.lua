@@ -102,7 +102,7 @@ Variant: Current
 +(10-15) to all Attributes
 (8-12) Life Regeneration per second
 {variant:1}Pin Enemies which are Primed for Pinning
-{variant:2}Require (2-5) fewer enemies to be Surrounded
+{variant:2}Require (2-4) fewer enemies to be Surrounded
 ]],[[
 Elevore
 Hunter Hood
@@ -217,10 +217,15 @@ Variant: Current
 Indigon
 Magus Tiara
 League: Dawn of the Hunt
-(60-100)% increased Energy Shield
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}(60-100)% increased Energy Shield
+{variant:2}(100-140)% increased Energy Shield
 +(80-120) to maximum Mana
-(35-50)% increased Cost of Skills for each 200 total Mana Spent Recently
-(35-50)% increased Spell damage for each 200 total Mana you have Spent Recently
+{variant:1}(35-50)% increased Cost of Skills for each 200 total Mana Spent Recently
+{variant:2}(5-10)% increased Cost of Skills for each 200 total Mana Spent Recently
+{variant:1}(35-50)% increased Spell damage for each 200 total Mana you have Spent Recently
+{variant:2}(10-15)% increased Spell damage for each 200 total Mana you have Spent Recently
 Mana Recovery other than Regeneration cannot Recover Mana
 ]],[[
 Mask of the Stitched Demon
@@ -234,12 +239,14 @@ Sandstorm Visage
 Chain Tiara
 Source: Drops from unique{Zarokh, the Temporal}
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 +(80-120) to maximum Energy Shield
 +(20-30) to Dexterity
 Enemies in your Presence are Blinded
 {variant:1}Every second, inflicts Critical Weakness on enemies in your Presence for 1 second
 {variant:2}Every second, inflicts Critical Weakness on enemies in your Presence for 15 seconds
+{variant:3}Every second, inflicts Critical Weakness on enemies in your Presence for (15-20) seconds
 ]],[[
 Scold's Bridle
 Jade Tiara
@@ -265,7 +272,10 @@ Eldritch Battery
 Assailum
 Closed Helm
 Source: Drops from unique{Kosis, The Revelation}
-(50-100)% increased Armour and Evasion
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}(50-100)% increased Armour and Evasion
+{variant:2}(200-300)% increased Armour and Evasion
 +(200-400) to Accuracy Rating
 (30-50)% increased Critical Hit Chance
 Skills have a (100-150)% longer Perfect Timing window
@@ -274,13 +284,16 @@ The Bringer of Rain
 Decorated Helm
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 (600-800)% increased Armour and Evasion
 +(200-300) to Accuracy Rating
-{variant:2}100% increased Critical Hit Chance
+{variant:2,3}100% increased Critical Hit Chance
 (30-60) Life Regeneration per second
 Can't use Body Armour
 You can wield Two-Handed Axes, Maces and Swords in one hand
+{variant:3}This item gains bonuses from Socketed Items as though it was a Body Armour
+{variant:3}Has 4 Augment Sockets
 ]],[[
 Erian's Cobble
 Guarded Helm
@@ -319,10 +332,13 @@ Variant: Current
 ]],[[
 Greymake
 Brimmed Helm
+Variant: Pre 0.4.0
+Variant: Current
 +(30-50) to Strength
 +(30-50) to Dexterity
 +(30-50) to Intelligence
 -1 to all Attributes per Level
+{variant:2}Has 4 Augment Sockets
 ]],[[
 Ironride
 Visored Helm
@@ -388,8 +404,8 @@ Variant: Pre 0.2.0
 Variant: Current
 {variant:1}(10-20)% increased Rarity of Items found
 {variant:2}(10-15)% increased Rarity of Items found
-Gain 10 Life per Enemy Killed
-Gain 10 Mana per Enemy Killed
+Gain 10 Life per enemy killed
+Gain 10 Mana per enemy killed
 +1 to Level of all Skills
 ]],[[
 The Deepest Tower
@@ -406,12 +422,18 @@ Enemies in your Presence count as being on Low Life
 Keeper of the Arc
 Spiritbone Crown
 Source: Drops from unique{Olroth, Origin of the Fall}
-(100-150)% increased Armour and Energy Shield
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}(100-150)% increased Armour and Energy Shield
+{variant:2}(150-250)% increased Armour and Energy Shield
 (15-25) Life Regeneration per second
 (15-25)% increased Mana Regeneration Rate
-Alternating every 5 seconds:
-Take 30% less Damage from Hits
-Take 30% less Damage over time
+{variant:1}Alternating every 5 seconds:
+{variant:2}Alternating every 5 seconds:
+{variant:1}Take 30% more Damage from Hits
+{variant:2}Take 40% less Damage from Hits
+{variant:1}Take 30% more Damage over time
+{variant:2}Take 40% less Damage over time
 ]],[[
 Veil of the Night
 Martyr Crown
@@ -475,7 +497,10 @@ Blood Magic
 Mind of the Council
 Death Mask
 League: Dawn of the Hunt
-(60-90)% increased Evasion and Energy Shield
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}(60-90)% increased Evasion and Energy Shield
+{variant:2}(150-200)% increased Evasion and Energy Shield
 +(60-90) to maximum Mana
 +(20-30)% to Lightning Resistance
 Attacks cost an additional 6% of your maximum Mana
@@ -491,20 +516,29 @@ Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance
 ]],[[
 The Vertex
 Tribal Mask
+Variant: Pre 0.4.0
+Variant: Equipment
+Variant: Skill Gems
 (100-150)% increased Evasion and Energy Shield
 (20-30)% increased Critical Hit Chance
 +(13-17)% to Chaos Resistance
-Equipment and Skill Gems have 50% reduced Attribute Requirements
+{variant:2}Equipment has no Attribute Requirements
+{variant:3}Skill Gems have no Attribute Requirements
+{variant:1}Equipment and Skill Gems have 50% reduced Attribute Requirements
 ]],
 -- Helmet: Armour/Evasion/Energy Shield
 [[
 Solus Ipse
 Grand Visage
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}(100-150)% increased Armour, Evasion and Energy Shield
+{variant:2}(150-200)% increased Armour, Evasion and Energy Shield
 +(60-100) to maximum Mana
 25% increased Light Radius
-(100-150)% increased Armour, Evasion and Energy Shield
 Equipment and Skill Gems have 25% increased Attribute Requirements
-You can Socket an additional copy of each Lineage Support Gem, in different Skills
+{variant:1}You can Socket an additional copy of each Lineage Support Gem, in different Skills
+{variant:2}You can Socket 2 additional copies of each Lineage Support Gem, in different Skills
 ]],
 }

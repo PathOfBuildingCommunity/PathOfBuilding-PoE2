@@ -71,7 +71,10 @@ UniqueStunThreshold18
 UniqueEnemiesInPresenceMonsterPower1
 ]],[[
 The Surrender
-Stone Tower Shield
+{variant:1}Stone Tower Shield
+{variant:2}Vaal Tower Shield
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance7
@@ -323,8 +326,8 @@ Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16
 {variant:1}UniqueLocalSoulCoreEffect1[333,666]
-{variant:2}UniqueLocalSoulCoreEffect1[66,333]
-{variant:3}UniqueSoulCoreEffect1
+{variant:2}UniqueLocalSoulCoreEffect1[100,100]
+{variant:3}UniqueLocalSoulCoreEffect1
 {variant:2,3}UniqueEverlastingSacrifice1
 ]],[[
 Oaksworn
@@ -346,14 +349,17 @@ Sectarian Crest Shield
 Requires Level 65
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield22
+{variant:3}UniqueIncreasedSpirit14
 UniqueDexterity37
 UniqueAllResistances26
 {variant:1}UniqueSpiritPerMaximumLife1[50,50]
-{variant:2}UniqueSpiritPerMaximumLife1
+{variant:2}UniqueSpiritPerMaximumLife1[25,25]
+{variant:3}UniqueBuffSkillSpiritEfficiencyPerMaximumLife1
 ]],[[
 Rise of the Phoenix
 Omen Crest Shield

@@ -217,10 +217,15 @@ UniqueLightRadius1
 Indigon
 Magus Tiara
 League: Dawn of the Hunt
-UniqueLocalIncreasedEnergyShieldPercent20
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalIncreasedEnergyShieldPercent26[60,100]
+{variant:2}UniqueLocalIncreasedEnergyShieldPercent26
 UniqueIncreasedMana49
-UniqueSpellDamagePerManaSpent1
-UniqueManaCostPerManaSpent1
+{variant:1}UniqueSpellDamagePerManaSpent1[35,50]
+{variant:2}UniqueSpellDamagePerManaSpent1
+{variant:1}UniqueManaCostPerManaSpent1[35,50]
+{variant:2}UniqueManaCostPerManaSpent1
 UniqueCannotRecoverManaExceptRegen1
 ]],[[
 Mask of the Stitched Demon
@@ -269,8 +274,8 @@ Closed Helm
 Source: Drops from unique{Kosis, The Revelation}
 Variant: Pre 0.4.0
 Variant: Current
-{variant:1}UniqueLocalIncreasedArmourAndEvasion6[50,100]
-{variant:2}UniqueLocalIncreasedArmourAndEvasion6
+{variant:1}UniqueLocalIncreasedArmourAndEvasion23[50,100]
+{variant:2}UniqueLocalIncreasedArmourAndEvasion23
 UniqueIncreasedAccuracy10
 UniqueCriticalStrikeChance11
 UniquePerfectTimingWindow1
@@ -279,13 +284,16 @@ The Bringer of Rain
 Decorated Helm
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalIncreasedArmourAndEvasion27
 UniqueIncreasedAccuracy11
 UniqueLifeRegeneration16
 UniqueDisableChestSlot1
 UniqueUseTwoHandedWeaponOneHand1
-{variant:2}UniqueCriticalStrikeChance15
+{variant:2,3}UniqueCriticalStrikeChance15
+{variant:3}Has 4 Augment Sockets
+{variant:3}LocalItemBenefitSocketableAsIfBodyArmourUnique__2
 ]],[[
 Erian's Cobble
 Guarded Helm
@@ -324,10 +332,13 @@ Variant: Current
 ]],[[
 Greymake
 Brimmed Helm
+Variant: Pre 0.4.0
+Variant: Current
 UniqueStrength1
 UniqueDexterity1
 UniqueIntelligence1
 UniqueAllAttributesPerLevel1
+{variant:2}Has 4 Augment Sockets
 ]],[[
 Ironride
 Visored Helm
@@ -413,8 +424,8 @@ Spiritbone Crown
 Source: Drops from unique{Olroth, Origin of the Fall}
 Variant: Pre 0.4.0
 Variant: Current
-{variant:1}UniqueLocalIncreasedArmourAndEnergyShield7[100,150]
-{variant:2}UniqueLocalIncreasedArmourAndEnergyShield7
+{variant:1}UniqueLocalIncreasedArmourAndEnergyShield17[100,150]
+{variant:2}UniqueLocalIncreasedArmourAndEnergyShield17
 UniqueLifeRegeneration10
 UniqueManaRegeneration26
 {variant:1}UniqueAlternatingDamageTaken1[30,30]
@@ -481,7 +492,10 @@ UniqueBloodMagic1
 Mind of the Council
 Death Mask
 League: Dawn of the Hunt
-UniqueLocalIncreasedEvasionAndEnergyShield16
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalIncreasedEvasionAndEnergyShield16[60,90]
+{variant:2}UniqueLocalIncreasedEvasionAndEnergyShield16
 UniqueIncreasedMana42
 UniqueLightningResist20
 UniqueAttackManaCost1
@@ -497,10 +511,15 @@ UniqueLightningFreezes1
 ]],[[
 The Vertex
 Tribal Mask
+Variant: Pre 0.4.0
+Variant: Equipment
+Variant: Skill Gems
 UniqueLocalIncreasedEvasionAndEnergyShield7
 UniqueCriticalStrikeChance1
 UniqueChaosResist2
-UniqueGlobalItemAttributeRequirements1
+{variant:1}UniqueGlobalItemAttributeRequirements1
+{variant:2}UniqueGlobalEquipmentAttributeRequirements1
+{variant:3}UniqueGlobalGemAttributeRequirements1
 ]],
 -- Helmet: Armour/Evasion/Energy Shield
 [[

@@ -71,7 +71,10 @@ Grants Skill: Raise Shield
 Enemies in your Presence count as having double Power
 ]],[[
 The Surrender
-Stone Tower Shield
+{variant:1}Stone Tower Shield
+{variant:2}Vaal Tower Shield
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 (40-60)% increased Block chance
@@ -82,6 +85,7 @@ Recover 4% of maximum Life when you Block
 Svalinn
 Crucible Tower Shield
 Variant: Pre 0.3.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
@@ -89,9 +93,11 @@ Grants Skill: Raise Shield
 Grants Skill: Cast on Block
 {variant:1}(100-150)% increased Armour
 {variant:2}(150-200)% increased Armour
+{variant:3}(200-300)% increased Armour
 {variant:1}-(20-10)% to maximum Block chance
 Chance to Block Damage is Lucky
 {variant:2}You take (15-20)% of damage from Blocked Hits
+{variant:3}You take (0-20)% of damage from Blocked Hits
 ]],[[
 The Wailing Wall
 Effigial Tower Shield
@@ -339,6 +345,7 @@ Grants Skill: Raise Shield
 Mahuxotl's Machination
 Omen Crest Shield
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Implicits: 1
@@ -346,7 +353,8 @@ Grants Skill: Raise Shield
 (333-666)% increased Armour and Energy Shield
 {variant:1}(333-666)% increased effect of Socketed Soul Cores
 {variant:2}100% increased effect of Socketed Soul Cores
-{variant:2}Everlasting Sacrifice
+{variant:3}(66-333)% increased effect of Socketed Soul Cores
+{variant:2,3}Everlasting Sacrifice
 ]],[[
 Oaksworn
 Variant: Pre 0.2.0
@@ -367,12 +375,15 @@ Sectarian Crest Shield
 Requires Level 65
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
-(80-150)% increased Armour and Energy Shield
+(150-200)% increased Armour and Energy Shield
+{variant:3}+50 to Spirit
 +(20-30) to Dexterity
 +(10-20)% to all Elemental Resistances
+{variant:3}1% increased Spirit Reservation Efficiency of Buff Skills per 100 Maximum Life
 {variant:1}+1 to Maximum Spirit per 50 Maximum Life
 {variant:2}+1 to Maximum Spirit per 25 Maximum Life
 ]],[[
