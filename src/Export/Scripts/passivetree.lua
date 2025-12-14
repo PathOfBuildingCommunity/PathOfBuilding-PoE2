@@ -809,6 +809,9 @@ for i, group in ipairs(psg.groups) do
 			printf("Passive skill " .. passiveRow.Name .. "(id: " .. passiveRow.Id .. ") found")
 			node["name"] = escapeGGGString(passiveRow.Name)
 			node["icon"] = passiveRow.Icon
+			if passiveRow.FlavourText ~= "" then
+				node["flavourText"] = passiveRow.FlavourText:gsub('\r',''):gsub('\n','\\n')
+			end
 			if passiveRow.Keystone then
 				node["isKeystone"] = true
 				addToSheet(getSheet("skills"), passiveRow.Icon, "keystoneActive", commonMetadata(nil))

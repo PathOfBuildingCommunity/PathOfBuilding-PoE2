@@ -106,6 +106,7 @@ function main:Init()
 	self.POESESSID = ""
 	--self.showPublicBuilds = true
 	self.showFlavourText = true
+	self.showAnimations = true
 	self.errorReadingSettings = false
 
 	if self.userPath then

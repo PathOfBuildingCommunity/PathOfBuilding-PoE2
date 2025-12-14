@@ -22150,6 +22150,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="Tear my flesh and splinter my bones. You will never break my spirit.",
 			group=180,
 			icon="Art/2DArt/SkillIcons/passives/liferegentoenergyshield.dds",
 			isKeystone=true,
@@ -36362,6 +36363,7 @@ return {
 		[9085]={
 			connections={
 			},
+			flavourText="Each nick and cut brings death one step closer.",
 			group=1052,
 			icon="Art/2DArt/SkillIcons/passives/CrimsonAssaultKeystone.dds",
 			isKeystone=true,
@@ -39036,6 +39038,7 @@ return {
 					orbit=9
 				}
 			},
+			flavourText="\"My heart was fractured. I believed Kelari's words. I knew not his true nature... his ambition. I convinced Ruzhan there were cowards among his ranks. I failed you. And I accept my fate.\" \n\nNavira confessed her failure to Varashta.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/WaterDjinnChiilldedGroundBurst.dds",
 			isNotable=true,
@@ -39941,6 +39944,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="A properly disciplined mind gives rise to structured thought.",
 			group=867,
 			icon="Art/2DArt/SkillIcons/passives/SorceressInvocationSpellsKeystone.dds",
 			isKeystone=true,
@@ -43201,6 +43205,7 @@ return {
 			ascendancyName="Disciple of Varashta",
 			connections={
 			},
+			flavourText="\"And you... there was no excuse for your actions. You defiled them! You have tainted the very sands with the blood of your own! Yet the war rages on. You have achieved nothing. You must pay.\" \n\nVarashta condemned Kelari to the ritual of the barya, sentenced to serve as a Djinn.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/SummonSandDjinn.dds",
 			isNotable=true,
@@ -44730,6 +44735,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="\"Yes... they fell by my blade and fire lashed them for their betrayal! No dekhara is exempt from fighting back the Winter before us. Lest they too know the Doom of the Desert!\" \n\nRuzhan fumed at Varashta, in pure defiance.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/FireDjinnEmberSlash.dds",
 			isNotable=true,
@@ -44807,6 +44813,7 @@ return {
 		[14226]={
 			connections={
 			},
+			flavourText="You circle the black scorpion with enmity, daring it time and again.",
 			group=1333,
 			icon="Art/2DArt/SkillIcons/passives/DancewithDeathKeystone.dds",
 			isKeystone=true,
@@ -45472,6 +45479,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="Stand your ground, child, keep your senses.\nThe pain is fleeting, but victory is forever.",
 			group=445,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneUnwaveringStance.dds",
 			isKeystone=true,
@@ -51899,6 +51907,7 @@ return {
 		[18684]={
 			connections={
 			},
+			flavourText="\"In my dreams I see a great warrior, his skin scorched black, his fists aflame.\"",
 			group=127,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneAvatarOfFire.dds",
 			isKeystone=true,
@@ -53033,6 +53042,7 @@ return {
 		[19288]={
 			connections={
 			},
+			flavourText="Utter trust in your defence unleashes ultimate potential.",
 			group=917,
 			icon="Art/2DArt/SkillIcons/passives/GlancingBlows.dds",
 			isKeystone=true,
@@ -58433,6 +58443,7 @@ return {
 					orbit=8
 				}
 			},
+			flavourText="\"Listen not to his simpering words, he means to languish before you to weaken your resolve! He is duplicitous. An assassin, thriving on deception and lies. His lust for power is what drove his choice!\" \n\nOutrage trembled in Ruzhan's voice at the sentencing.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/SandDjinnExplosiveTeleport.dds",
 			isNotable=true,
@@ -61431,6 +61442,7 @@ return {
 		[25100]={
 			connections={
 			},
+			flavourText="The fewer there are, the less you have to share.",
 			group=1014,
 			icon="Art/2DArt/SkillIcons/passives/OasisKeystone2.dds",
 			isKeystone=true,
@@ -62018,6 +62030,7 @@ return {
 		[25520]={
 			connections={
 			},
+			flavourText="The notes may change, but the song remains the same.",
 			group=1162,
 			icon="Art/2DArt/SkillIcons/passives/ResonanceKeystone.dds",
 			isKeystone=true,
@@ -62293,6 +62306,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="\"Knowing where and when to plunge your knife is more important than the sharpness of your blade. I will not forget my error... and I will be a living example of your wisdom, dear Sekhema.\" \n\nKelari accepted Varashta's sentence and committed himself to her.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/SandDjinnDaggerslamSkill.dds",
 			isNotable=true,
@@ -62348,6 +62362,7 @@ return {
 					orbit=-8
 				}
 			},
+			flavourText="\"I stand before you, as your humble servant. Though I was betrayed, I would do it all again, if it would have saved us. But I accept your sentence. I will atone. I pledge myself to you... forevermore.\" \n\nRuzhan accepted his fate at the barya ritual site.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/FireDjinnMeteoricSlam.dds",
 			isNotable=true,
@@ -66656,6 +66671,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="Why should I dodge blows that I do not fear?",
 			group=691,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneIronReflexes.dds",
 			isKeystone=true,
@@ -72454,6 +72470,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="The Titans did not vanish from this world. Their might lives on - in you.",
 			group=203,
 			icon="Art/2DArt/SkillIcons/passives/GiantBloodKeystone.dds",
 			isKeystone=true,
@@ -73267,6 +73284,7 @@ return {
 			ascendancyName="Disciple of Varashta",
 			connections={
 			},
+			flavourText="\"You knew the twisted plan these fools devised. As Tale Woman, you are their compass in the sandstorm. Yet... you did not act. And now we mourn these honoured dead. You must pay.\"\n \nVarashta condemned Navira to the ritual of the barya, sentenced to serve as a Djinn.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/SummonWaterDjinn.dds",
 			isNotable=true,
@@ -74354,6 +74372,7 @@ return {
 		[33369]={
 			connections={
 			},
+			flavourText="My ancestral pact was sealed. Forevermore, I would gain sustenance\nonly from the ravaged flesh of my enemies.",
 			group=652,
 			icon="Art/2DArt/SkillIcons/passives/vaalpact.dds",
 			isKeystone=true,
@@ -74460,6 +74479,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="Burn the spirit to vitalise the flesh.",
 			group=1264,
 			icon="Art/2DArt/SkillIcons/passives/EternalYouth.dds",
 			isKeystone=true,
@@ -75412,6 +75432,7 @@ return {
 		[33979]={
 			connections={
 			},
+			flavourText="To me, brave companions! Feel my radiance flow through you!",
 			group=1074,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneConduit.dds",
 			isKeystone=true,
@@ -75904,6 +75925,7 @@ return {
 			ascendancyName="Disciple of Varashta",
 			connections={
 			},
+			flavourText="\"You have forsaken your duty to my akhara. Yes... we do not abide weakness. But we also do not abide madness in the fervour of battle! Your slain dekhara will have their justice. You must pay.\" \n\nVarashta condemned Ruzhan to the ritual of the barya, sentenced to serve as a Djinn.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/SummonFireDjinn.dds",
 			isNotable=true,
@@ -76480,6 +76502,7 @@ return {
 		[34497]={
 			connections={
 			},
+			flavourText="Skip a beat, hold your breath. Too slow a poison, only death.",
 			group=1262,
 			icon="Art/2DArt/SkillIcons/passives/HeartstopperKeystone.dds",
 			isKeystone=true,
@@ -79165,6 +79188,7 @@ return {
 					orbit=8
 				}
 			},
+			flavourText="\"The snare was set on our fallen. Beetles burst from their flesh, flooding the sands. Their exploding carapaces halted the advancing enemy... but it was not enough. And for that... I grieve.\" \n\nKelari admitted his wrongdoing to Varashta.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/SandDjinnCorpseBeetles.dds",
 			isNotable=true,
@@ -81207,6 +81231,7 @@ return {
 		[37484]={
 			connections={
 			},
+			flavourText="The irrepressible spirit of the wilds burns within you, roaring to be let loose.",
 			group=133,
 			icon="Art/2DArt/SkillIcons/passives/DruidRageKeystone.dds",
 			isKeystone=true,
@@ -85401,6 +85426,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="I give you everything, my pets. Do not disappoint me.",
 			group=558,
 			icon="Art/2DArt/SkillIcons/passives/NecromanticTalismanKeystone.dds",
 			isKeystone=true,
@@ -87942,6 +87968,7 @@ return {
 		[41861]={
 			connections={
 			},
+			flavourText="Bonds forged in battle surpass ties of blood.",
 			group=1361,
 			icon="Art/2DArt/SkillIcons/passives/MultipleBeastCompanionsKeystone.dds",
 			isKeystone=true,
@@ -89318,6 +89345,7 @@ return {
 		[42680]={
 			connections={
 			},
+			flavourText="Let the Darkness consume you.\nBeyond the veil of death,\nthere burns a black fire.",
 			group=674,
 			icon="Art/2DArt/SkillIcons/passives/FireSpellsBecomeChaosSpellsKeystone.dds",
 			isKeystone=true,
@@ -90555,6 +90583,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="\"Wipe the tears from your face, dear Navira. I did not deceive you. I meant every word. I will forever cherish you, my beloved. Know that I did it all for you... for our future!\" \n\nKelari pleaded with the Tale Woman.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/WaterDjinnESRechargeCommand.dds",
 			isNotable=true,
@@ -91586,6 +91615,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="Great tacticians learn that consistency often trumps potential.",
 			group=227,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneResoluteTechnique.dds",
 			isKeystone=true,
@@ -93676,6 +93706,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="A wooden construct, mute and blind.\nBut fear the wrath of shackled mind.",
 			group=254,
 			icon="Art/2DArt/SkillIcons/passives/totemmax.dds",
 			isKeystone=true,
@@ -94473,6 +94504,7 @@ return {
 					orbit=-9
 				}
 			},
+			flavourText="\"Kelari, you deceiver! I fell for your words, but no longer. Your sentence is a fate too good for you! I would give anything to bring back those who fell to your lies. Instead... I mourn my choices.\" \n\nNavira lambasted Kelari a final time.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/WaterDjinnCommandOasis.dds",
 			isNotable=true,
@@ -94903,6 +94935,7 @@ return {
 		[45918]={
 			connections={
 			},
+			flavourText="While the mind endures, so too will the body.",
 			group=411,
 			icon="Art/2DArt/SkillIcons/passives/heroicspirit.dds",
 			isKeystone=true,
@@ -96413,6 +96446,7 @@ return {
 		[46742]={
 			connections={
 			},
+			flavourText="Balance is good in all things, but especially in the realm of magic.",
 			group=479,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneElementalEquilibrium.dds",
 			isKeystone=true,
@@ -97945,6 +97979,7 @@ return {
 					orbit=2147483647
 				}
 			},
+			flavourText="Your grandchildren will awaken screaming in memory of what I utter today.",
 			group=837,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneWhispersOfDoom.dds",
 			isKeystone=true,
@@ -100698,6 +100733,7 @@ return {
 		[49363]={
 			connections={
 			},
+			flavourText="The world is a pattern, moving in natural waves.\nWith enough force, those waves can be made to converge...",
 			group=532,
 			icon="Art/2DArt/SkillIcons/passives/DruidWildsurgeIncantation.dds",
 			isKeystone=true,
@@ -101073,6 +101109,7 @@ return {
 		[49547]={
 			connections={
 			},
+			flavourText="Hope is a mistake. Pain is the only truth.",
 			group=412,
 			icon="Art/2DArt/SkillIcons/passives/DruidAlternateEnergyShield.dds",
 			isKeystone=true,
@@ -104450,6 +104487,7 @@ return {
 					orbit=0
 				}
 			},
+			flavourText="Lay open your veins, and draw power from your own spilled life.",
 			group=129,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneBloodMagic.dds",
 			isKeystone=true,
@@ -109843,6 +109881,7 @@ return {
 		[55048]={
 			connections={
 			},
+			flavourText="Embrace the pain, drink it in.\nYour enemies will know your agony tenfold.",
 			group=197,
 			icon="Art/2DArt/SkillIcons/passives/KeystonePainAttunement.dds",
 			isKeystone=true,
@@ -112240,6 +112279,7 @@ return {
 		[56349]={
 			connections={
 			},
+			flavourText="Give up everything in pursuit of greatness - even life itself.",
 			group=1181,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneChaosInoculation.dds",
 			isKeystone=true,
@@ -112548,6 +112588,7 @@ return {
 		[56605]={
 			connections={
 			},
+			flavourText="In battle, certainty is worth a little pain.",
 			group=469,
 			icon="Art/2DArt/SkillIcons/passives/BulwarkKeystone.dds",
 			isKeystone=true,
@@ -114082,6 +114123,7 @@ return {
 		[57513]={
 			connections={
 			},
+			flavourText="What need have I for defence when my enemies\nare reduced to ash and splinters?",
 			group=993,
 			icon="Art/2DArt/SkillIcons/passives/KeystoneEldritchBattery.dds",
 			isKeystone=true,
@@ -121122,6 +121164,7 @@ return {
 		[61942]={
 			connections={
 			},
+			flavourText="Strength begets respect. There is no simpler law.",
 			group=158,
 			icon="Art/2DArt/SkillIcons/passives/DruidAnimism.dds",
 			isKeystone=true,
@@ -125150,6 +125193,7 @@ return {
 					orbit=-8
 				}
 			},
+			flavourText="\"I have seen countless battles. I know war! The taste of defeat... The taste of victory! But in this war... everything is at stake. So yes, those you speak of will know my blade. I will do whatever I must!\" \n\nRuzhan confided in his Tale-Woman, Navira.",
 			group=593,
 			icon="Art/2DArt/SkillIcons/passives/DiscipleoftheDjinn/FireDjinnFlameRunes.dds",
 			isNotable=true,
@@ -125169,6 +125213,7 @@ return {
 		[64601]={
 			connections={
 			},
+			flavourText="The body is a weapon waiting to be mastered.",
 			group=1228,
 			icon="Art/2DArt/SkillIcons/passives/HollowPalmTechniqueKeystone.dds",
 			isKeystone=true,
