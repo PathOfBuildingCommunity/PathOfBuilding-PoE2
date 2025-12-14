@@ -343,6 +343,31 @@ data.nonDamagingAilment = {
 	["Shock"] = { associatedType = "Lightning", alt = false, default = data.gameConstants["BaseShockMagnitude"], min = data.gameConstants["BaseShockMagnitude"], max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
 }
 
+data.buildupTypes = {
+		["Electrocute"] = {
+			["ScalesFrom"] = {
+			}
+		},
+		["Freeze"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
+		},
+		["HeavyStun"] = {
+			["ScalesFrom"] = {
+				["Physical"] = true,
+				["Fire"] = true,
+				["Cold"] = true,
+				["Lightning"] = true,
+				["Chaos"] = true,
+			}
+		},
+		["Pin"] = {
+			["ScalesFrom"] = {
+			}
+		},
+}
+
 data.defaultAilmentDamageTypes = {
 		-- damaging
 		["Bleed"] = {
@@ -373,16 +398,6 @@ data.defaultAilmentDamageTypes = {
 		["Chill"] = {
 			["ScalesFrom"] = {
 				["Cold"] = true,
-			}
-		},
-		["Freeze"] = {
-			["ScalesFrom"] = {
-				["Cold"] = true,
-			}
-		},
-		["Electrocute"] = {
-			["ScalesFrom"] = {
-				["Lightning"] = true,
 			}
 		},
 	}

@@ -8530,6 +8530,9 @@ skills["FreezingMarkPlayer"] = {
 				["freezing_mark_damage_buff_damage_%_to_gain_as_cold"] = {
 					mod("DamageGainAsCold", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
 				},
+				["freezing_mark_hit_damage_freeze_multiplier_+%_final"] = {
+					mod("FreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
 			},
 			baseFlags = {
 				area = true,

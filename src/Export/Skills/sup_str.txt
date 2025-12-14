@@ -1370,6 +1370,14 @@ statMap = {
 
 #skill RuthlessSupportPlayer
 #set RuthlessSupportPlayer
+statMap = {
+	["support_ruthless_big_hit_max_count"] = {
+		mod("RuthlessBlowMaxCount", "BASE", nil),
+	},
+	["support_ruthless_big_hit_stun_damage_+%_final"] = {
+		mod("RuthlessBlowStunMultiplier", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -1523,7 +1531,7 @@ statMap = {
 #set SupportStunPlayer
 statMap = {
 	["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-		mod("StunBuildup", "MORE", nil),
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
 	},
 },
 #mods
@@ -1533,7 +1541,7 @@ statMap = {
 #set SupportStunPlayerTwo
 statMap = {
 	["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-		mod("StunBuildup", "MORE", nil),
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
 	},
 },
 #mods
@@ -1543,7 +1551,7 @@ statMap = {
 #set SupportStunPlayerThree
 statMap = {
 	["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-		mod("StunBuildup", "MORE", nil),
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
 	},
 	["support_overpower_damage_+%_final"] = {
 		mod("Damage", "MORE", nil),

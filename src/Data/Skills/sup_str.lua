@@ -6101,6 +6101,14 @@ skills["RuthlessSupportPlayer"] = {
 			label = "Ruthless",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ruthless_big_hit_max_count"] = {
+					mod("RuthlessBlowMaxCount", "BASE", nil),
+				},
+				["support_ruthless_big_hit_stun_damage_+%_final"] = {
+					mod("RuthlessBlowStunMultiplier", "BASE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6799,7 +6807,7 @@ skills["SupportStunPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-					mod("StunBuildup", "MORE", nil),
+					mod("EnemyHeavyStunBuildup", "MORE", nil),
 				},
 			},
 			baseFlags = {
@@ -6834,7 +6842,7 @@ skills["SupportStunPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-					mod("StunBuildup", "MORE", nil),
+					mod("EnemyHeavyStunBuildup", "MORE", nil),
 				},
 			},
 			baseFlags = {
@@ -6869,7 +6877,7 @@ skills["SupportStunPlayerThree"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-					mod("StunBuildup", "MORE", nil),
+					mod("EnemyHeavyStunBuildup", "MORE", nil),
 				},
 				["support_overpower_damage_+%_final"] = {
 					mod("Damage", "MORE", nil),
