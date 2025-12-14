@@ -1029,3 +1029,39 @@ statMap = {
 #flags 
 #mods
 #skillEnd
+
+#skill RollingMagmaPlayer
+#set RollingMagmaPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WingBlastPlayer
+#set WingBlastPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WyvernFlameBreathPlayer
+#set WyvernFlameBreathPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WyvernRendPlayer
+#set WyvernRendPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill OilBarragePlayer
+#set OilBarragePlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WyvernDevourPlayer
+#set WyvernDevourPlayer
+#flags 
+#mods
+#skillEnd
