@@ -1629,6 +1629,13 @@ function calcs.perform(env, skipEHP)
 			modDB:NewMod("EnemyShockMagnitude", "INC", m_floor(mod.value * multiplier), mod.source, mod.flags, mod.keywordFlags, unpack(modifiers))
 		end
 	end
+	if modDB:Flag(nil, "ManaRegenAppliesToRageRegen") then
+		-- Furious Wellspring
+		for i, value in ipairs(modDB:Tabulate("INC",  nil, "ManaRegen")) do
+			local mod = value.mod
+			modDB:NewMod("RageRegen", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 
 	-- Combine buffs/debuffs
 	local buffs = { }
