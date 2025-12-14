@@ -1176,6 +1176,9 @@ function PassiveTreeViewClass:AddNodeName(tooltip, node, build)
 	else
 		tooltip.tooltipHeader = tooltipMap[node.type] or "UNKNOWN"
 	end
+	if node.unlockConstraint then
+		tooltip.tooltipHeader = "ORACLE_" .. tooltip.tooltipHeader
+	end
 	local nodeName = node.dn
 	if main.showFlavourText then
 		nodeName = "^xF8E6CA" .. node.dn

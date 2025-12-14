@@ -301,6 +301,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png", middle="Assets/NormalPassiveHeaderMiddle.png", right="Assets/NormalPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 		KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png", middle="Assets/KeystonePassiveHeaderMiddle.png", right="Assets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png", middle="Assets/AscendancyPassiveHeaderMiddle.png", right="Assets/AscendancyPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		ORACLE_PASSIVE = {left="Assets/OracleNormalPassiveHeaderLeft.png", middle="Assets/OracleNormalPassiveHeaderMiddle.png", right="Assets/OracleNormalPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		ORACLE_NOTABLE = {left="Assets/OracleNotablePassiveHeaderLeft.png", middle="Assets/OracleNotablePassiveHeaderMiddle.png", right="Assets/OracleNotablePassiveHeaderRight.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+		ORACLE_KEYSTONE = {left="Assets/OracleKeystonePassiveHeaderLeft.png", middle="Assets/OracleKeystonePassiveHeaderMiddle.png", right="OracleAssets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 	}
 	local config
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
