@@ -1476,10 +1476,20 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		local dependCount = #node.depends
 		for _, depNode in ipairs(node.depends) do
 			if depNode.unlockConstraint then
-				dependCount = dependCount - 1
+				for _, reqNodeId in ipairs(depNode.unlockConstraint.nodes) do
+					local reqNode = build.spec.nodes[reqNodeId]
+					if reqNode == node and not depNode.alloc then
+						dependCount = dependCount - 1
+						break
+					end
+					if reqNode and not reqNode.alloc then
+						dependCount = dependCount - 1
+						break
+					end
+				end
 			end
 		end
-		if dependCount > 1 then
+		if dependCount > 0 then
 			tooltip:AddSeparator(14)
 			tooltip:AddLine(14, "^7"..dependCount .. " points gained from unallocating these nodes")
 			tooltip:AddLine(14, "^xFFD700"..formatNumSep(dependCount * goldCost) .. " Gold ^7required to unallocate these nodes")
