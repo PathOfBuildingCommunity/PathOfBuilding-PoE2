@@ -12,7 +12,7 @@ local function processStatFile(name, changeOutLocation)
 			line = prepend .. line
 			prepend = ''
 		end
-		local parent = line:match('include "Metadata/StatDescriptions/(.+)%.csd"$')
+		local parent = line:match('include "Data/StatDescriptions/(.+)%.csd"$')
 		if parent then
 			statDescriptor.parent = parent:gsub("\\", "/"):gsub("/statset", "_statset")
 			return
@@ -92,7 +92,7 @@ local function processStatFile(name, changeOutLocation)
 		end
 	end
 
-	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/"..name..".csd"))
+	local text = convertUTF16to8(getFile("Data/StatDescriptions/"..name..".csd"))
 	for line in text:gmatch("[^\r\n]+") do
 		processLine(line)
 	end
@@ -124,7 +124,7 @@ for _, name in ipairs(statFileList) do
 	processStatFile(name)
 end
 
-local handle = NewFileSearch("ggpk/Metadata/StatDescriptions/Specific_Skill_Stat_Descriptions/*.csd")
+local handle = NewFileSearch("ggpk/Data/StatDescriptions/Specific_Skill_Stat_Descriptions/*.csd")
 while handle do
 	processStatFile("specific_skill_stat_descriptions/"..handle:GetFileName():gsub("%.csd", ""))
 	if not handle:NextFile() then
@@ -143,10 +143,10 @@ function scandir(directory)
     pfile:close()
     return t
 end
-local skillSpecificFolders = scandir(main.ggpk.oozPath.."Metadata/StatDescriptions/Specific_Skill_Stat_Descriptions")
+local skillSpecificFolders = scandir(main.ggpk.oozPath.."Data/StatDescriptions/Specific_Skill_Stat_Descriptions")
 
 for _, name in ipairs(skillSpecificFolders) do
-	local handle = NewFileSearch("ggpk/Metadata/StatDescriptions/Specific_Skill_Stat_Descriptions/"..name.."/*.csd")
+	local handle = NewFileSearch("ggpk/Data/StatDescriptions/Specific_Skill_Stat_Descriptions/"..name.."/*.csd")
 	while handle do
 		processStatFile("specific_skill_stat_descriptions/"..name.."/"..handle:GetFileName():gsub("%.csd", ""), true)
 		if not handle:NextFile() then

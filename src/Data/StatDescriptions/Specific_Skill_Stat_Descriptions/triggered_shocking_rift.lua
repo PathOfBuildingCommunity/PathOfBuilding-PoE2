@@ -15,7 +15,7 @@ return {
 						[2]=10
 					}
 				},
-				text="DNT Shocking Rift radius is {0} metre"
+				text="Shocking Rift radius is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -28,7 +28,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Shocking Rift radius is {0} metres"
+				text="Shocking Rift radius is {0} metres"
 			}
 		},
 		stats={
@@ -48,7 +48,7 @@ return {
 						[2]=10
 					}
 				},
-				text="DNT Shocking Rift pull radius is {0} metre"
+				text="Shocking Rift pull radius is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -61,7 +61,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Shocking Rift pull radius is {0} metres"
+				text="Shocking Rift pull radius is {0} metres"
 			}
 		},
 		stats={
@@ -77,7 +77,7 @@ return {
 						[2]=1
 					}
 				},
-				text="DNT Limit {0} Shocking Rift"
+				text="Limit {0} Shocking Rift"
 			},
 			[2]={
 				limit={
@@ -86,7 +86,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Limit {0} Shocking Rifts"
+				text="Limit {0} Shocking Rifts"
 			}
 		},
 		stats={
@@ -102,7 +102,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% more Damage per pulse performed"
+				text="{0}% more Damage per pulse performed"
 			},
 			[2]={
 				limit={
@@ -111,7 +111,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% less Damage per pulse performed"
+				text="{0}% less Damage per pulse performed"
 			}
 		},
 		stats={
@@ -131,7 +131,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="DNT Pulses apply Hinder for {0} second"
+				text="Pulses apply Hinder for {0} second"
 			},
 			[2]={
 				[1]={
@@ -144,7 +144,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Pulses apply Hinder {0} seconds"
+				text="Pulses apply Hinder for {0} seconds"
 			}
 		},
 		stats={
@@ -164,7 +164,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Shocking Rift pulses every second, up to {1} times"
+				text="Shocking Rift pulses every second, up to {1} times"
 			},
 			[2]={
 				[1]={
@@ -181,7 +181,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Shocking Rift pulses every {0} seconds, up to {1} times"
+				text="Shocking Rift pulses every {0} seconds, up to {1} times"
 			}
 		},
 		stats={
@@ -198,7 +198,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% increased Pulse Speed for each Shock Consumed during the Shocking Rift"
+				text="{0}% increased pulse speed for each Shock Consumed by the rift"
 			},
 			[2]={
 				limit={
@@ -207,7 +207,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% reduced Pulse Speed for each Shock Consumed during the Shocking Rift"
+				text="{0}% reduced pulse speed for each Shock Consumed by the rift"
 			}
 		},
 		stats={

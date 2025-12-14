@@ -836,6 +836,14 @@ function PassiveSpecClass:BuildPathFromNode(root)
 		-- All nodes that are 1 node away from the root will be processed first, then all nodes that are 2 nodes away, etc
 		local node = queue[o]
 		o = o + 1
+
+		if node.unlockConstraint then
+			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+				if not self.nodes[nodeId].alloc then
+					goto continue
+				end
+			end
+		end
 		local curDist = node.pathDist
 		-- Iterate through all nodes that are connected to this one
 		for _, other in ipairs(node.linked) do
@@ -845,10 +853,23 @@ function PassiveSpecClass:BuildPathFromNode(root)
 			--    The one exception to that rule is that a path may start from an ascendancy node and pass into the main tree
 			--    This permits pathing from the Ascendant 'Path of the X' nodes into the respective class start areas
 			-- 3. They must not pass away from mastery nodes
+			-- 4. Unlock constraints must be satisfied
+
+			-- validate if the other node have unlockConstraints met
+			local canPath = true
+			if other.unlockConstraint then
+				for _, nodeId in ipairs(other.unlockConstraint.nodes) do
+					if not self.nodes[nodeId].alloc then
+						canPath = false
+						break
+					end
+				end
+			end
+
 			if not other.pathDist then
 				ConPrintTable(other, true)
 			end
-			if node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) then
+			if node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) and canPath then
 				-- The shortest path to the other node is through the current node
 				other.pathDist = curDist
 				if not other.alloc then
@@ -864,6 +885,7 @@ function PassiveSpecClass:BuildPathFromNode(root)
 				i = i + 1
 			end
 		end
+		::continue::
 	end
 end
 
@@ -961,7 +983,7 @@ end
 function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
 	local visited = { }
-	local attributes = { "Dexterity", "Intelligence", "Strength" }
+	local attributes = { "Dexterity", "Intelligence", "Strength", "Attribute" }
 	-- Check all nodes for other nodes which depend on them (i.e. are only connected to the tree through that node)
 	self.switchableNodes = { }
 	for id, node in pairs(self.nodes) do
@@ -1021,6 +1043,16 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	end
 
 	for _, node in pairs(self.nodes) do
+		-- if the node have unlockConstraints, add this node as dependent to the constraint nodes
+		-- we are running here after wiping all depends above
+		if node.unlockConstraint then
+			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+				if self.nodes[nodeId] then
+					t_insert(self.nodes[nodeId].depends, node)
+				end
+			end
+		end
+
 		-- set attribute nodes
 		if self.hashOverrides[node.id] then
 			self:ReplaceNode(node, self.hashOverrides[node.id])
@@ -1036,6 +1068,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			local jewelType = 5
 			if conqueredBy.conqueror.type == "kalguur" then
 				jewelType = 1
+			elseif conqueredBy.conqueror.type == "abyss" then
+				jewelType = 2
 			end
 			local seed = conqueredBy.id
 			if jewelType == 5 then
@@ -1195,6 +1229,14 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			--		local legionNode = legionNodes[110] -- eternal_small_blank
 			--		self:ReplaceNode(node, legionNode)
 			--	end
+				if conqueredBy.conqueror.type == "abyss" then
+					if isValueInArray(attributes, node.dn) then
+						self:NodeAdditionOrReplacementFromString(node, " \n+3 to Tribute")
+					else
+						local legionNode = legionNodes[201] -- abyss_small_tribute
+						self:ReplaceNode(node, legionNode)
+					end
+				end
 			end
 			self:ReconnectNodeToClassStart(node)
 		end
@@ -2075,6 +2117,7 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 		
 		local option = newNode.options[attributeIndex]
 		self:ReplaceNode(newNode, option)
+		self.tree:ProcessStats(newNode)
 		
 		self.hashOverrides[nodeId] = newNode
 	end

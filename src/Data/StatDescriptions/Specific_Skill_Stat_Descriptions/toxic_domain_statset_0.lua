@@ -24,7 +24,7 @@ return {
 	},
 	[5]={
 		stats={
-			[1]="toxic_domain_max_damage_+%_final_from_stored_poison"
+			[1]="toxic_pustule_max_burst_damage_+%_final_from_stored_poison"
 		}
 	},
 	[6]={
@@ -236,6 +236,6 @@ return {
 	["skill_specific_stat_description_mode"]=10,
 	["toxic_domain_healing_per_minute_+"]=11,
 	["toxic_domain_mana_cost_+%"]=12,
-	["toxic_domain_max_damage_+%_final_from_stored_poison"]=5,
-	["toxic_domain_pustule_chance_%"]=13
+	["toxic_domain_pustule_chance_%"]=13,
+	["toxic_pustule_max_burst_damage_+%_final_from_stored_poison"]=5
 }

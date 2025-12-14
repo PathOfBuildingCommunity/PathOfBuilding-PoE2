@@ -6,8 +6,11 @@ return {
 The Adorned
 Diamond
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
+Variant: Pre 0.4.0
+Variant: Current
 Limited to: 1
-CorruptedMagicJewelModEffectUnique__1
+{variant:1}CorruptedMagicJewelModEffectUnique__1[0,100]
+{variant:2}CorruptedMagicJewelModEffectUnique__1
 ]],[[
 Controlled Metamorphosis
 Diamond
@@ -48,8 +51,11 @@ UniqueMaximumSpiritPerStackableJewel1
 [[
 Grand Spectrum
 Sapphire
+Variant: Pre 0.4.0
+Variant: Current
 Limited to: 3
-UniqueAllResistancePerStackableJewel1
+{variant:1}UniqueAllResistancePerStackableJewel1[4,4]
+{variant:2}UniqueAllResistancePerStackableJewel1
 ]],
 -- Jewel: Timeless
 [[
@@ -65,6 +71,25 @@ Radius: Very Large
 {variant:2}Remembrancing (100-8000) songworthy deeds by the line of Medved
 {variant:3}Remembrancing (100-8000) songworthy deeds by the line of Olroth
 Passives in radius are Conquered by the Kalguur
+Historic
+]],
+[[
+Undying Hate
+Timeless Jewel
+Source: Drops from unique{Vessel of Kulemak}
+Limited to: 1 Historic
+Variant: Amanamu
+Variant: Kulemak
+Variant: Kurgal
+Variant: Tecrod
+Variant: Ulaman
+Radius: Very Large
+{variant:1}Glorifying the defilement of (100-8000) souls in tribute to Amanamu
+{variant:2}Glorifying the defilement of (100-8000) souls in tribute to Kulemak
+{variant:3}Glorifying the defilement of (100-8000) souls in tribute to Kurgal
+{variant:4}Glorifying the defilement of (100-8000) souls in tribute to Tecrod
+{variant:5}Glorifying the defilement of (100-8000) souls in tribute to Ulaman
+Passives in radius are Conquered by the Abyssals
 Historic
 ]],
 }

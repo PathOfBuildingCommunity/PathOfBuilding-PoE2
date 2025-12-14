@@ -33,7 +33,7 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}Adds (4-6) to (9-12) Cold Damage
 {variant:2}Adds (8-10) to (13-15) Cold Damage
-Gain 5 Mana per Enemy Killed
+Gain 5 Mana per enemy killed
 (30-50)% increased Freeze Buildup
 {variant:2}30% increased Chill Duration on Enemies
 {variant:1}Attacks Chain an additional time
@@ -46,6 +46,7 @@ Implicits: 1
 (40-60)% increased Physical Damage
 (30-40)% increased Attack Speed
 30% reduced Reload Speed
-100% chance to not consume a bolt if you've Reloaded Recently
+Bolts fired by Crossbow Attacks have 100% chance to not
+expend Ammunition if you've Reloaded Recently
 ]],
 }

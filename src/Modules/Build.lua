@@ -1793,7 +1793,7 @@ function buildMode:RefreshSkillSelectControls(controls, mainGroup, suffix)
 						controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeEffect.grantedEffect.parts[controls.mainSkillPart.selIndex].stagesMin or 1)
 					end
 				end
-				activeSkill.activeEffect.statSet = activeSkill.activeEffect.statSet or { }
+				activeSkill.activeEffect.statSet = activeSkill.activeEffect.statSet or activeSkill.activeEffect.statSetCalcs or { }
 				activeSkill.activeEffect.statSet.skillFlags = activeSkill.activeEffect.statSet.skillFlags or { }
 				if activeSkill.activeEffect.statSet.skillFlags.mine then
 					controls.mainSkillMineCount.shown = true
@@ -2157,11 +2157,11 @@ end
 function buildMode:LoadDB(xmlText, fileName)
 	-- Parse the XML
 	local dbXML, errMsg = common.xml.ParseXML(xmlText)
-	if not dbXML then
-		launch:ShowErrMsg("^1Error loading '%s': %s", fileName, errMsg)
+	if errMsg and errMsg:match(".*file returns nil") then
+		main:OpenCloudErrorPopup(fileName)
 		return true
-	elseif #dbXML == 0 then
-		main:OpenMessagePopup("Error", "Build file is empty, or error parsing xml.\n\n"..fileName)
+	elseif errMsg then
+		launch:ShowErrMsg("^1"..errMsg)
 		return true
 	elseif dbXML[1].elem ~= "PathOfBuilding2" then
 		launch:ShowErrMsg("^1Error parsing '%s': 'PathOfBuilding2' root element missing", fileName)

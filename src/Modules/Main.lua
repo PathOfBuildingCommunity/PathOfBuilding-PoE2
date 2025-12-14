@@ -77,10 +77,10 @@ function main:Init()
 		-- If running in dev mode or standalone mode, put user data in the script path
 		self.userPath = GetScriptPath().."/"
 	else
-		local invalidPath
-		self.userPath, invalidPath = GetUserPath()
+		local invalidPath, errMsg
+		self.userPath, invalidPath, errMsg = GetUserPath()
 		if not self.userPath then
-			self:OpenPathPopup(invalidPath, ignoreBuild)
+			self:OpenPathPopup(invalidPath, errMsg, ignoreBuild)
 		else
 			self.userPath = self.userPath.."/Path of Building (PoE2)/"
 		end
@@ -98,6 +98,7 @@ function main:Init()
 	self.decimalSeparator = "."
 	self.defaultItemAffixQuality = 0.5
 	self.showTitlebarName = true
+	self.dpiScaleOverridePercent = GetDPIScaleOverridePercent and GetDPIScaleOverridePercent() or 0
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
 	self.notSupportedModTooltips = true
@@ -105,12 +106,13 @@ function main:Init()
 	self.POESESSID = ""
 	--self.showPublicBuilds = true
 	self.showFlavourText = true
+	self.errorReadingSettings = false
 
 	if self.userPath then
 		self:ChangeUserPath(self.userPath, ignoreBuild)
 	end
 
-	if launch.devMode and IsKeyDown("CTRL") then
+	if launch.devMode and IsKeyDown("CTRL") or os.getenv("REGENERATE_MOD_CACHE") == "1" then
 		-- If modLib.parseMod doesn't find a cache entry it generates it.
 		-- Not loading pre-generated cache causes it to be rebuilt
 		self.saveNewModCache = true
@@ -328,6 +330,11 @@ end
 
 function main:OnFrame()
 	self.screenW, self.screenH = GetScreenSize()
+	self.screenScale = GetScreenScale and GetScreenScale() or 1
+	if self.screenScale ~= 1.0 then
+		self.screenW = math.floor(self.screenW / self.screenScale)
+		self.screenH = math.floor(self.screenH / self.screenScale)
+	end
 
 	if self.screenH > self.screenW then
 		self.portraitMode = true
@@ -500,7 +507,19 @@ function main:CallMode(func, ...)
 end
 
 function main:LoadSettings(ignoreBuild)
+	if self.errorReadingSettings then
+		return true
+	end
 	local setXML, errMsg = common.xml.LoadXMLFile(self.userPath.."Settings.xml")
+	if errMsg and errMsg:match(".*file returns nil") then
+		self.errorReadingSettings = true
+		self:OpenCloudErrorPopup(self.userPath.."Settings.xml")
+		return true
+	elseif errMsg and not errMsg:match(".*No such file or directory") then
+		self.errorReadingSettings = true
+		launch:ShowErrMsg("^1"..errMsg)
+		return true
+	end
 	if not setXML then
 		return true
 	elseif setXML[1].elem ~= "PathOfBuilding2" then
@@ -628,13 +647,29 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.showFlavourText then
 					self.showFlavourText = node.attrib.showFlavourText == "true"
 				end
+				if node.attrib.dpiScaleOverridePercent then
+					self.dpiScaleOverridePercent = tonumber(node.attrib.dpiScaleOverridePercent) or 0
+					SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
+				end
 			end
 		end
 	end
 end
 
 function main:LoadSharedItems()
+	if self.errorReadingSettings then
+		return true
+	end
 	local setXML, errMsg = common.xml.LoadXMLFile(self.userPath.."Settings.xml")
+	if errMsg and errMsg:match(".*file returns nil") then
+		self.errorReadingSettings = true
+		self:OpenCloudErrorPopup(self.userPath.."Settings.xml")
+		return true
+	elseif errMsg and not errMsg:match(".*No such file or directory") then
+		self.errorReadingSettings = true
+		launch:ShowErrMsg("^1"..errMsg)
+		return true
+	end
 	if not setXML then
 		return true
 	elseif setXML[1].elem ~= "PathOfBuilding2" then
@@ -677,6 +712,9 @@ function main:LoadSharedItems()
 end
 
 function main:SaveSettings()
+	if self.errorReadingSettings then
+		return
+	end
 	local setXML = { elem = "PathOfBuilding2" }
 	local mode = { elem = "Mode", attrib = { mode = self.mode } }
 	for _, val in ipairs({ self:CallMode("GetArgs") }) do
@@ -740,7 +778,8 @@ function main:SaveSettings()
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
 		--showPublicBuilds = tostring(self.showPublicBuilds),
-		showFlavourText = tostring(self.showFlavourText)
+		showFlavourText = tostring(self.showFlavourText),
+		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent)
 	} })
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
@@ -749,17 +788,16 @@ function main:SaveSettings()
 	end
 end
 
-function main:OpenPathPopup(invalidPath, ignoreBuild)
+function main:OpenPathPopup(invalidPath, errMsg, ignoreBuild)
 	local controls = { }
 	local defaultLabelPlacementX = 8
 
 	controls.label = new("LabelControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, 20, 206, 16 }, function()
-		return "^7User settings path contains unicode characters and cannot be loaded."..
+		return "^7User settings path cannot be loaded: ".. errMsg ..
 		"\nCurrent Path: "..invalidPath:gsub("?", "^1?^7").."/Path of Building/"..
-		"\nSpecify a new location for your Settings.xml:"
-	end)
-	controls.explainButton = new("ButtonControl", { "LEFT", controls.label, "RIGHT" }, { 4, 0, 20, 20 }, "?", function()
-		OpenURL("https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/wiki/Why-do-I-have-to-change-my-Settings-path%3F")
+		"\nIf this location is managed by OneDrive, navigate to that folder and manually try" ..
+		"\nto open Settings.xml in a text editor before re-opening Path of Building" ..
+		"\nOtherwise, specify a new location for your Settings.xml:"
 	end)
 	controls.userPath = new("EditControl", { "TOPLEFT", controls.label, "TOPLEFT" }, { 0, 60, 206, 20 }, invalidPath, nil, nil, nil, function(buf)
 		invalidPath = sanitiseText(buf)
@@ -847,6 +885,24 @@ function main:OpenOptionsPopup()
 		controls.proxyType:SelByValue(scheme, "scheme")
 		controls.proxyURL:SetText(url)
 	end
+
+	nextRow()
+	controls.dpiScaleOverride = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 150, 18 }, {
+		{ label = "Use system default", percent = 0 },
+		{ label = "100%", percent = 100 },
+		{ label = "125%", percent = 125 },
+		{ label = "150%", percent = 150 },
+		{ label = "175%", percent = 175 },
+		{ label = "200%", percent = 200 },
+		{ label = "225%", percent = 225 },
+		{ label = "250%", percent = 250 },
+	}, function(index, value)
+		self.dpiScaleOverridePercent = value.percent
+		SetDPIScaleOverridePercent(value.percent)
+	end)
+	controls.dpiScaleOverrideLabel = new("LabelControl", { "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7UI scaling override:")
+	controls.dpiScaleOverride.tooltipText = "Overrides Windows DPI scaling inside Path of Building.\nChoose a percentage between 100% and 250% or revert to the system default."
+	controls.dpiScaleOverride:SelByValue(self.dpiScaleOverridePercent, "percent")
 
 	nextRow()
 	controls.buildPath = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 290, 18 })
@@ -1034,6 +1090,7 @@ function main:OpenOptionsPopup()
 	local initialDisableDevAutoSave = self.disableDevAutoSave
 	--local initialShowPublicBuilds = self.showPublicBuilds
 	local initialShowFlavourText = self.showFlavourText
+	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
 
 	-- last line with buttons has more spacing
 	nextRow(1.5)
@@ -1059,6 +1116,7 @@ function main:OpenOptionsPopup()
 		if not launch.devMode then
 			main:SetManifestBranch(self.betaTest and "beta" or "master")
 		end
+		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 		main:SaveSettings()
 	end)
@@ -1086,6 +1144,8 @@ function main:OpenOptionsPopup()
 		self.disableDevAutoSave = initialDisableDevAutoSave
 		self.showPublicBuilds = initialShowPublicBuilds
 		self.showFlavourText = initialShowFlavourText
+		self.dpiScaleOverridePercent = initialDpiScaleOverridePercent
+		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 	end)
 	nextRow(1.5)
@@ -1502,6 +1562,35 @@ function main:OpenNewFolderPopup(path, onClose)
 		main:ClosePopup()
 	end)
 	main:OpenPopup(370, 100, "New Folder", controls, "create", "edit", "cancel")
+end
+
+-- Show an error popup if a file cannot be read due to cloud provider unavailability.
+-- Help button opens a URL to PoB's GitHub wiki.
+function main:OpenCloudErrorPopup(fileName)
+	local provider, _, status = GetCloudProvider(fileName)
+	ConPrintf('^1Error: file offline "%s" provider: "%s" status: "%s"', fileName or "?", provider, status)
+	fileName = fileName and "\n\n^8'"..fileName.."'" or ""
+	local version = "^8v"..launch.versionNumber..(launch.versionBranch and " "..launch.versionBranch or "")..(launch.devMode and " (dev)" or "")
+	local title = " ^1Error "
+	provider = provider or "your cloud provider"
+	local statusText = tostring(status) or "nil"
+	local msg = "\n^7Cannot read file.\n\nMake sure "..provider.." is running then restart "..APP_NAME.." and try again."..
+		fileName.."\nstatus: "..statusText.."\n\n"..version
+	local url = "https://github.com/PathOfBuildingCommunity/PathOfBuilding/wiki/CloudError"
+	local controls = { }
+	local numMsgLines = 0
+	for line in string.gmatch(msg .. "\n", "([^\n]*)\n") do
+		t_insert(controls, new("LabelControl", nil, {0, 20 + numMsgLines * 16, 0, 16}, line))
+		numMsgLines = numMsgLines + 1
+	end
+	controls.help = new("ButtonControl", nil, {-55, 40 + numMsgLines * 16, 80, 20}, "Help (web)", function()
+		OpenURL(url)
+	end)
+	controls.help.tooltipText = url
+	controls.close = new("ButtonControl", nil, {55, 40 + numMsgLines * 16, 80, 20}, "Ok", function()
+		main:ClosePopup()
+	end)
+	return self:OpenPopup(m_max(DrawStringWidth(16, "VAR", msg) + 30, 190), 70 + numMsgLines * 16, title, controls, "close")
 end
 
 function main:SetWindowTitleSubtext(subtext)

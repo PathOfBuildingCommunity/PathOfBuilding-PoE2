@@ -9,7 +9,7 @@ local skills, mod, flag, skill = ...
 skills["MeleeAtAnimationSpeed"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -42,7 +42,7 @@ skills["MeleeAtAnimationSpeed"] = {
 skills["MinionMelee"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -73,7 +73,7 @@ skills["MinionMelee"] = {
 skills["MinionMeleeStep"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -107,7 +107,7 @@ skills["MinionMeleeStep"] = {
 skills["MinionMeleeBow"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -144,12 +144,12 @@ skills["GasShotSkeletonSniperMinion"] = {
 	name = "Gas Arrow",
 	hidden = true,
 	description = "Rain an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -164,7 +164,6 @@ skills["GasShotSkeletonSniperMinion"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 14 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
-				{ "command_minion_marker_additional_time_ms", 300 },
 			},
 			stats = {
 				"is_commandable_skill",
@@ -193,7 +192,6 @@ skills["GasShotSkeletonSniperMinion"] = {
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 14 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
-				{ "command_minion_marker_additional_time_ms", 300 },
 				{ "base_skill_effect_duration", 8000 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second", 20 },
 				{ "active_skill_ground_effect_area_of_effect_+%_final_per_second_max", 80 },
@@ -222,13 +220,12 @@ skills["GasShotSkeletonSniperMinion"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "sniper_gas_shot_statset_2",
 			baseFlags = {
-				hit = true,
+				attack = true,
 				area = true,
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 14 },
 				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
-				{ "command_minion_marker_additional_time_ms", 300 },
 				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 100 },
 			},
 			stats = {
@@ -252,12 +249,12 @@ skills["BoneshatterBruteMinion"] = {
 	name = "Bonebreaker",
 	hidden = true,
 	description = "A Strike that causes a Heavy Stun on enemies that are Primed for Stun. Upon causing a Heavy Stun it will also create a Shockwave, dealing a large amount of damage in an area.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = 20, storedUses = 1, baseMultiplier = 1.8, cooldown = 4, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 1.8, cooldown = 4, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -302,11 +299,93 @@ skills["BoneshatterBruteMinion"] = {
 		},
 	}
 }
+skills["ShatteringRoarSkeletalBruteMinion"] = {
+	name = "Shattering Roar",
+	hidden = true,
+	description = "Command a Skeletal Brute to use a Warcry, Intimidating nearby enemies and Consuming Freeze on enemies and allies to deal damage in an Area around them.",
+	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, [SkillType.Minion] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillConsumesFreeze] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 8, critChance = 12, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Shattering Roar",
+			baseEffectiveness = 1.5,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.034499999135733,
+			statDescriptionScope = "brute_warcry",
+			baseFlags = {
+				hit = true,
+				duration = true,
+				warcry = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 4000 },
+				{ "active_skill_base_area_of_effect_radius", 40 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 24 },
+			},
+			stats = {
+				"secondary_minimum_base_cold_damage",
+				"secondary_maximum_base_cold_damage",
+				"is_commandable_skill",
+			},
+			notMinionStat = {
+				"secondary_minimum_base_cold_damage",
+				"secondary_maximum_base_cold_damage",
+			},
+			levels = {
+				[1] = { 5, 7, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 8, 12, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 14, 21, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 21, 32, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 31, 47, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 44, 66, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 61, 91, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 83, 124, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 112, 169, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 152, 228, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 204, 306, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 274, 411, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 368, 552, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 495, 743, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 667, 1001, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 902, 1353, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 1223, 1834, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 1664, 2495, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 2273, 3409, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 3119, 4678, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 4300, 6450, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 5958, 8937, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 8298, 12447, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 11619, 17429, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 16360, 24540, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 23165, 34748, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 32993, 49490, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 47269, 70904, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 68133, 102200, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 98810, 148216, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 144195, 216293, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 211757, 317636, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 312967, 469450, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 465542, 698314, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 697026, 1045539, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 1050492, 1575738, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 1593726, 2390589, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 2434072, 3651108, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 3742586, 5613879, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 5793584, 8690377, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
 skills["ArcSkeletonMageMinion"] = {
 	name = "Arc",
 	hidden = true,
 	description = "An arc of Lightning stretches from the caster to a targeted enemy and Chains on to other nearby enemies. Shocked enemies Hit release damaging pulses.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, },
 	castTime = 1.25,
 	qualityStats = {
 	},
@@ -351,12 +430,12 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 	name = "Death Storm",
 	hidden = true,
 	description = "Lightning bolts strike all fallen Skeletons in the area, creating Shocked Ground around them.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 10, storedUses = 1, levelRequirement = 0, cooldown = 5, },
+		[1] = { cooldown = 5, critChance = 10, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -398,7 +477,7 @@ skills["DeathStormSkeletonStormMageMinion"] = {
 skills["FrostBoltSkeletonMageMinion"] = {
 	name = "Ice Shard",
 	hidden = true,
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.Cold] = true, [SkillType.Unleashable] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Multicastable] = true, [SkillType.Cold] = true, [SkillType.Unleashable] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.25,
 	qualityStats = {
 	},
@@ -475,47 +554,79 @@ skills["FrostBoltSkeletonMageMinion"] = {
 		},
 	}
 }
-skills["IceBombSkeletonMageMinion"] = {
-	name = "Ice Bomb",
+skills["IceArmourSkeletonMageMinion"] = {
+	name = "Ice Armour",
 	hidden = true,
-	description = "Crystallises the air into icy shards that explode outwards when they hit the ground.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Minion] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Cascadable] = true, },
-	castTime = 1.25,
+	description = "Command a Skeletal Frost Mage to target a location or Minion and apply Ice Armour to Minions in an area, reducing damage taken from Hits, causing damage to enemies that Hit them, and counting as Frozen for other effects.",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Minion] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
+	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 12, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { cooldown = 12, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Ice Bomb",
-			baseEffectiveness = 5,
+			label = "Ice Armour",
+			baseEffectiveness = 0.85000002384186,
 			incrementalEffectiveness = 0.25,
-			damageIncrementalEffectiveness = 0.041499998420477,
-			statDescriptionScope = "ice_bomb",
+			damageIncrementalEffectiveness = 0.034499999135733,
+			statDescriptionScope = "apply_rimeshield",
 			baseFlags = {
 				spell = true,
 				duration = true,
 			},
 			constantStats = {
-				{ "active_skill_base_area_of_effect_radius", 26 },
-				{ "active_skill_chill_effect_+%_final", 100 },
+				{ "active_skill_base_area_of_effect_radius", 40 },
+				{ "base_skill_effect_duration", 6000 },
+				{ "rime_damage_taken_+%_final", -40 },
 			},
 			stats = {
-				"spell_minimum_base_cold_damage",
-				"spell_maximum_base_cold_damage",
+				"spell_minimum_added_cold_damage",
+				"spell_maximum_added_cold_damage",
 				"is_commandable_skill",
-				"skill_cannot_be_frozen",
-				"skill_cannot_be_electrocuted",
-				"skill_cannot_be_knocked_back",
-				"skill_cannot_be_stunned",
-			},
-			notMinionStat = {
-				"spell_minimum_base_cold_damage",
-				"spell_maximum_base_cold_damage",
 			},
 			levels = {
-				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+				[1] = { 3, 4, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 5, 7, statInterpolation = { 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 8, 12, statInterpolation = { 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 12, 18, statInterpolation = { 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 18, 26, statInterpolation = { 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 25, 37, statInterpolation = { 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 34, 52, statInterpolation = { 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 47, 71, statInterpolation = { 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 64, 96, statInterpolation = { 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 86, 129, statInterpolation = { 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 116, 173, statInterpolation = { 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 155, 233, statInterpolation = { 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 209, 313, statInterpolation = { 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 281, 421, statInterpolation = { 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 378, 567, statInterpolation = { 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 511, 767, statInterpolation = { 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 693, 1039, statInterpolation = { 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 943, 1414, statInterpolation = { 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 1288, 1932, statInterpolation = { 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 1767, 2651, statInterpolation = { 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 2437, 3655, statInterpolation = { 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 3376, 5064, statInterpolation = { 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 4702, 7054, statInterpolation = { 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 6584, 9877, statInterpolation = { 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 9271, 13906, statInterpolation = { 1, 1, }, actorLevel = 136.875, },
+				[26] = { 13127, 19691, statInterpolation = { 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 18696, 28044, statInterpolation = { 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 26786, 40179, statInterpolation = { 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 38609, 57913, statInterpolation = { 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 55993, 83989, statInterpolation = { 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 81711, 122566, statInterpolation = { 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 119996, 179994, statInterpolation = { 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 177348, 266022, statInterpolation = { 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 263807, 395711, statInterpolation = { 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 394981, 592472, statInterpolation = { 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 595279, 892918, statInterpolation = { 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 903112, 1354667, statInterpolation = { 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 1379307, 2068961, statInterpolation = { 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 2120799, 3181198, statInterpolation = { 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 3283031, 4924547, statInterpolation = { 1, 1, }, actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -523,7 +634,7 @@ skills["IceBombSkeletonMageMinion"] = {
 skills["HealSkeletonClericMinion"] = {
 	name = "Heal Buff",
 	hidden = true,
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, },
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -593,7 +704,7 @@ skills["FireBombSkeletonMinion"] = {
 	name = "Fire Bomb",
 	hidden = true,
 	description = "Attacks with a bouncing bomb that explodes on hit.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -660,52 +771,52 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 	baseTypeName = "Explosive Demise",
 	color = 2,
 	description = "Detonate an allied Minion whose current Life is below a threshold, dealing heavy Attack damage to nearby enemies.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Cooldown] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "arsonist_destructive_link_%_of_life_as_fire_damage", 0.2 },
 	},
 	levels = {
-		[1] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[2] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[3] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[4] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[5] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[6] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[7] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[8] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[9] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[10] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[11] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[12] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[13] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[14] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[15] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[16] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[17] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[18] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[19] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[20] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[21] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[22] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[23] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[24] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[25] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[26] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[27] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[28] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[29] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[30] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[31] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[32] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[33] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[34] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[35] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[36] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[37] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[38] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[39] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
-		[40] = { baseMultiplier = 3, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[1] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[2] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[3] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[4] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[5] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[6] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[7] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[8] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[9] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[10] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[11] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[12] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[13] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[14] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[15] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[16] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[17] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[18] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[19] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[20] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[21] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[22] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[23] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[24] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[25] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[26] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[27] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[28] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[29] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[30] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[31] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[32] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[33] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[34] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[35] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[36] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[37] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[38] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[39] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
+		[40] = { baseMultiplier = 3, cooldown = 3, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -779,13 +890,13 @@ skills["DestructiveLinkSkeletonBombadierMinion"] = {
 skills["EnrageSkeletonReaverMinion"] = {
 	name = "Enrage",
 	hidden = true,
-	description = "Enrage all Skeletal Reavers, causing them to lose life over time and gain Rage on hit. Skeletal Reavers do more Attack Damage and gain increased Attack speed based on their Rage.",
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.NoAttackInPlace] = true, },
+	description = "Enrage all Skeletal Reavers, causing them to lose life over time and gain Rage on hit.",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 4, },
+		[1] = { cooldown = 4, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -817,7 +928,7 @@ skills["EnrageSkeletonReaverMinion"] = {
 skills["GAAncestralJadeHulkLeapImpact"] = {
 	name = "Leap Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -846,22 +957,22 @@ skills["TCAncestralLeagueKaruiHulk"] = {
 	name = "Shield Charge",
 	hidden = true,
 	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["None"] = true,
-		["One Handed Sword"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Spear"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
 		["Claw"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["None"] = true,
+		["One Handed Axe"] = true,
+		["One Handed Mace"] = true,
+		["One Handed Sword"] = true,
+		["Spear"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 7, },
+		[1] = { cooldown = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -888,7 +999,7 @@ skills["TCAncestralLeagueKaruiHulk"] = {
 skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 	name = "Projectile Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -964,12 +1075,12 @@ skills["MPSAncestralTotemSpiritSoulCasterProjectile"] = {
 skills["GAAnimateWeaponMaceSlam"] = {
 	name = "Mace Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -50, storedUses = 1, baseMultiplier = 1.8, cooldown = 10, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -50, baseMultiplier = 1.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -993,7 +1104,7 @@ skills["GAAnimateWeaponMaceSlam"] = {
 skills["DTTAnimateWeaponSpearDashStabImpact"] = {
 	name = "Spear Dash",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1023,12 +1134,12 @@ skills["DTTAnimateWeaponSpearDashStabImpact"] = {
 skills["GAAnimateWeaponQuarterstaffSweep"] = {
 	name = "Quarterstaff Sweep",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.9, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+		[1] = { baseMultiplier = 0.9, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1052,7 +1163,7 @@ skills["GAAnimateWeaponQuarterstaffSweep"] = {
 skills["RavenousSwarmAttack"] = {
 	name = "Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Chaos] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Chaos] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1160,31 +1271,1040 @@ skills["LivingLightningZap"] = {
 	name = "Zap",
 	hidden = true,
 	description = "Teleport to a target, dealing Lightning Attack Damage.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Melee] = true, [SkillType.CannotTerrainChain] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.Melee] = true, [SkillType.CannotTerrainChain] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 9, storedUses = 1, levelRequirement = 0, cooldown = 0.25, },
+		[1] = { cooldown = 0.25, critChance = 9, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
 			label = "Zap",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["living_lightning_damage_+%_final_per_additional_hit"] = {
+					mod("Damage", "MORE", nil),
+					div = 3/2, --Average over 3 hits
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
 				chaining = true,
 			},
-			constantStats = {
-				{ "number_of_chains", 3 },
-				{ "living_lightning_damage_+%_final_per_additional_hit", -30 },
+			baseMods = {
+				skill("timeOverride", 0.001, { type = "Multiplier", var = "LivingLightningAttackTime" }),
 			},
 			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["DeathFromAboveDaemonMinion"] = {
+	name = "Death From Above",
+	hidden = true,
+	description = "Fires a flare at a target location, attaching to an enemy if it lands on one. Then fires a series of arrow volleys centred around the flare.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 7.63, cooldown = 10, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Death From Above",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "death_from_above",
+			statMap = {
+				["death_from_above_number_of_volleys"] = {
+					skill("dpsMultiplier", nil),
+				},
+			},
+			baseFlags = {
+				attack = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "death_from_above_volley_delay_ms", 750 },
+				{ "death_from_above_number_of_volleys", 6 },
+				{ "explosion_delay_ms", 250 },
+				{ "active_skill_base_area_of_effect_radius", 140 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 140 },
+			},
+			stats = {
+				"is_commandable_skill",
+				"base_is_projectile",
+				"is_area_damage",
+				"skill_cannot_be_frozen",
+				"skill_cannot_be_electrocuted",
+				"skill_cannot_be_knocked_back",
+				"skill_cannot_be_stunned",
+				"modifiers_to_projectile_count_do_not_apply",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["HyenaCompanionMelee"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Melee",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			constantStats = {
+				{ "maim_on_hit_%", 25 },
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MeleeAtAnimationSpeedWolfCompanion"] = {
+	name = "Basic Attack",
+	hidden = true,
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Basic Attack",
+			baseEffectiveness = 0,
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+			},
+			stats = {
+				"skill_can_fire_arrows",
+				"skill_can_fire_wand_projectiles",
+				"action_attack_or_cast_time_uses_animation_length",
+				"projectile_uses_contact_position",
+				"use_scaled_contact_offset",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["WolfLeapAttackMinion"] = {
+	name = "Leap Slam",
+	hidden = true,
+	description = "Jump into the air, damaging and knocking back enemies with your weapon where you land. Enemies you would land on are pushed out of the way.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	weaponTypes = {
+		["One Handed Axe"] = true,
+		["One Handed Mace"] = true,
+		["One Handed Sword"] = true,
+		["Staff"] = true,
+		["Two Handed Axe"] = true,
+		["Two Handed Mace"] = true,
+		["Two Handed Sword"] = true,
+	},
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { attackSpeedMultiplier = 25, cooldown = 7, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Leap Slam",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "skill_added_attack_time_by_distance_ms", 250 },
+				{ "active_skill_base_area_of_effect_radius", 10 },
+			},
+			stats = {
+				"is_area_damage",
+				"suppress_weapon_surges",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["CorpseBeetleExplode"] = {
+	name = "Sandblast",
+	hidden = true,
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { critChance = 15, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Sandblast",
+			baseEffectiveness = 3,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "corpse_beetle_explode",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 15 },
+				{ "base_critical_strike_multiplier_+", 50 },
+				{ "apply_X_stacks_of_critical_weakness_on_hit", 1 },
+				{ "active_skill_damage_+%_final_vs_unique_enemies", 40 },
+				{ "global_chance_to_blind_on_hit_%", 20 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"is_commandable_skill",
+				"display_statset_hide_usage_stats",
+				"skill_cannot_be_interrupted",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["WaterBubbleWaterDjinn"] = {
+	name = "Navira's Embrace",
+	hidden = true,
+	description = "Command Navira to create a bubble shield which absorbs a portion of the damage dealt by enemies standing outside the shield. The maximum amount of damage that can be absorbed is based on your maximum Mana. If the shield is destroyed by damage, it collapses into a patch of Chilled Ground.",
+	skillTypes = { [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 2,
+	qualityStats = {
+		{ "water_djinn_water_bubble_absorb_damage_%_enemy_outside_bubble", 0.5 },
+	},
+	levels = {
+		[1] = { cooldown = 15, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 15, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Navira's Embrace",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "djinn_bubble",
+			baseFlags = {
+				duration = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 25 },
+				{ "base_skill_effect_duration", 5000 },
+				{ "base_secondary_skill_effect_duration", 6000 },
+				{ "water_djinn_water_bubble_absorb_damage_%_enemy_outside_bubble", 70 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 20 },
+				{ "water_djinn_water_bubble_health_per_100_mana_on_target", 60 },
+			},
+			stats = {
+				"base_skill_effect_duration",
+				"base_deal_no_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
+			levels = {
+				[1] = { 0, statInterpolation = { 1, }, actorLevel = 1, },
+				[2] = { 10000, statInterpolation = { 1, }, actorLevel = 100, },
+			},
+		},
+	}
+}
+skills["ChilledGroundBurstWaterDjinn"] = {
+	name = "Navira's Fracturing",
+	hidden = true,
+	description = "Command Navira to fracture all nearby areas of Chilled Ground that have enemies standing on them, doing high Spell damage with extreme Freeze potential.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1.2,
+	qualityStats = {
+		{ "active_skill_hit_damage_freeze_multiplier_+%_final", 2 },
+		{ "active_skill_chill_as_though_damage_+%_final", 2 },
+	},
+	levels = {
+		[1] = { cooldown = 5, critChance = 12, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Navira's Fracturing",
+			baseEffectiveness = 14.25,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "djinn_ground_burst",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 60 },
+				{ "active_skill_hit_damage_freeze_multiplier_+%_final", 200 },
+				{ "active_skill_chill_as_though_damage_+%_final", 200 },
+			},
+			stats = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+				"is_area_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_cold_damage",
+				"spell_maximum_base_cold_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ESRechargeForceRestartWaterDjinn"] = {
+	name = "Navira's Well",
+	hidden = true,
+	description = "Command Navira to bolster your Energy Shield, causing it to begin Recharging immediately and granting you increased Energy Shield Recharge Rate for a duration.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 2.1,
+	qualityStats = {
+		{ "djinn_granted_energy_shield_recharge_rate_+%", 1 },
+	},
+	levels = {
+		[1] = { cooldown = 12, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 12, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Navira's Well",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "djinn_force_recharge",
+			baseFlags = {
+				duration = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 6000 },
+			},
+			stats = {
+				"djinn_granted_energy_shield_recharge_rate_+%",
+				"base_deal_no_damage",
+				"is_commandable_skill",
+			},
+			levels = {
+				[1] = { 10, statInterpolation = { 1, }, actorLevel = 1, },
+				[2] = { 109, statInterpolation = { 1, }, actorLevel = 100, },
+			},
+		},
+	}
+}
+skills["ChilledGroundOasisConvertWaterDjinn"] = {
+	name = "Navira's Oasis",
+	hidden = true,
+	description = "Command Navira to turn nearby Chilled Ground into Navira's Oasis, a mirage which grants you and Allies standing in it Flask charges and damage Recouped as Life and Mana. Plants in the area become Overgrown.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1.8,
+	qualityStats = {
+		{ "oasis_x_charges_for_life_and_mana_flasks_per_minute", 0.6 },
+	},
+	levels = {
+		[1] = { cooldown = 8, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 8, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Navira's Oasis",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "djinn_oasis",
+			baseFlags = {
+				duration = true,
+			},
+			constantStats = {
+				{ "base_skill_effect_duration", 15000 },
+				{ "active_skill_base_area_of_effect_radius", 80 },
+				{ "oasis_x_charges_for_life_and_mana_flasks_per_minute", 30 },
+			},
+			stats = {
+				"oasis_damage_recouped_as_life_%",
+				"oasis_damage_recouped_as_mana_%",
+				"base_deal_no_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+			},
+			levels = {
+				[1] = { 30, 20, statInterpolation = { 1, 1, }, actorLevel = 1, },
+				[2] = { 80, 50, statInterpolation = { 1, 1, }, actorLevel = 100, },
+			},
+		},
+	}
+}
+skills["PassiveTriggeredManaWaveWaterDjinn"] = {
+	name = "Navira's Calming",
+	hidden = true,
+	description = "When you Command Navira to use a Skill, she also emits a restorative wave that grants you and any other Allies it touches increased Mana Regeneration for a short duration.",
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 0,
+	qualityStats = {
+		{ "water_djinn_mana_wave_mana_regeneration_rate_+%", 1 },
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Navira's Calming",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "djinn_triggered_wave",
+			baseFlags = {
+				duration = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 25 },
+				{ "base_skill_effect_duration", 4000 },
+			},
+			stats = {
+				"base_deal_no_damage",
+				"display_statset_hide_usage_stats",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 100, },
+			},
+		},
+	}
+}
+skills["LivingBombFireDjinn"] = {
+	name = "Ruzhan's Brand",
+	hidden = true,
+	description = "Command Ruzhan to place a fiery brand on an enemy. After a delay or when Detonated, the brand explodes, dealing Spell damage to enemies caught in the blast.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Fire] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Limit] = true, },
+	castTime = 0.6,
+	qualityStats = {
+		{ "active_skill_damage_+%_final_vs_burning_enemies", 1 },
+	},
+	levels = {
+		[1] = { critChance = 7, levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Ruzhan's Brand",
+			baseEffectiveness = 2.6300001144409,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_living_bomb",
+			baseFlags = {
+				spell = true,
+				area = true,
+				hit = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 20 },
+				{ "base_skill_detonation_time", 3000 },
+				{ "living_bomb_base_number_of_bombs_allowed", 3 },
+				{ "active_skill_damage_+%_final_vs_burning_enemies", 50 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_area_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["FireRuneFireDjinn"] = {
+	name = "Ruzhan's Trap",
+	hidden = true,
+	description = "Command Ruzhan to hurl his greatsword, spreading hazardous runes on the ground where it lands. If an enemy steps on a rune, it erupts in a fiery tornado that deals Spell damage.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Hazard] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.SingleMainProjectile] = true, [SkillType.CannotChain] = true, [SkillType.CannotTerrainChain] = true, [SkillType.Limit] = true, },
+	castTime = 1,
+	qualityStats = {
+		{ "base_skill_effect_duration", 100 },
+	},
+	levels = {
+		[1] = { cooldown = 8, critChance = 7, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 8, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Projectile",
+			baseEffectiveness = 1.2200000286102,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_fire_rune_statset_0",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 50 },
+				{ "fire_djinn_number_of_flame_runes_placed", 8 },
+				{ "fire_djinn_maximum_flame_runes_allowed", 21 },
+				{ "djinn_fire_rune_minimum_target_distance", 20 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_commandable_skill",
+				"base_is_projectile",
+				"projectiles_fire_at_ground",
+				"always_pierce",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+		[2] = {
+			label = "Rune",
+			baseEffectiveness = 3.5999999046326,
+			incrementalEffectiveness = 0.054999999701977,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_fire_rune_statset_1",
+			baseFlags = {
+				spell = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "fire_djinn_number_of_flame_runes_placed", 8 },
+				{ "fire_djinn_maximum_flame_runes_allowed", 21 },
+				{ "djinn_fire_rune_minimum_target_distance", 20 },
+				{ "active_skill_base_area_of_effect_radius", 8 },
+				{ "base_skill_effect_duration", 6000 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+				"is_hazard",
+				"base_deal_no_damage",
+				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+		[3] = {
+			label = "Tornado",
+			baseEffectiveness = 1.5199999809265,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_fire_rune_statset_2",
+			baseFlags = {
+				spell = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "fire_djinn_maximum_flame_runes_allowed", 21 },
+				{ "djinn_fire_rune_minimum_target_distance", 20 },
+				{ "active_skill_base_area_of_effect_radius", 12 },
+				{ "base_skill_effect_duration", 4000 },
+				{ "active_skill_ignite_chance_+%_final", 400 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"fire_djinn_flame_rune_tick_rate_ms",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+				"is_area_damage",
+				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, 0.80000001192093, 1.2000000476837, 700, statInterpolation = { 3, 3, 3, 3, 1, }, actorLevel = 1, },
+				[2] = { 0.80000001192093, 1.2000000476837, 0, 0, 510, statInterpolation = { 3, 3, 0, 0, 1, }, actorLevel = 100, },
+			},
+		},
+	}
+}
+skills["MeteorFireDjinn"] = {
+	name = "Ruzhan's Reckoning",
+	hidden = true,
+	description = "Command Ruzhan to teleport to the target location. Upon arrival, the Djinn deals Spell damage to enemies around him then slams his blazing sword into the ground, creating a wave of lava that also deals Spell damage.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Cooldown] = true, [SkillType.Cascadable] = true, [SkillType.Detonator] = true, },
+	castTime = 2.3,
+	qualityStats = {
+		{ "active_skill_base_area_of_effect_radius", 0.2 },
+	},
+	levels = {
+		[1] = { cooldown = 12, critChance = 7, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Emergence",
+			baseEffectiveness = 2.7200000286102,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "djinn_meteor_statset_0",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 15 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_commandable_skill",
+				"is_area_damage",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+		[2] = {
+			label = "Fire Wave",
+			baseEffectiveness = 9.3599996566772,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "djinn_meteor_statset_1",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 40 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 30 },
+				{ "active_skill_ignite_effect_+%_final", 100 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_commandable_skill",
+				"is_area_damage",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["MassFusilladeFireDjinn"] = {
+	name = "Ruzhan's Fury",
+	hidden = true,
+	description = "Command Ruzhan to conjure two volleys of flaming embers and fire them forward. The embers explode on impact, dealing Spell damage.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Spell] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, },
+	castTime = 2.3,
+	qualityStats = {
+		{ "base_number_of_projectiles", 0.2 },
+	},
+	levels = {
+		[1] = { cooldown = 7, critChance = 7, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Projectile",
+			baseEffectiveness = 0.9200000166893,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_mass_fusillade",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "base_number_of_projectiles", 20 },
+				{ "active_skill_damage_+%_final_vs_immobilised_enemies", 60 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_commandable_skill",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+				"quality_display_active_skill_damage_+%_final_vs_immobilised_enemies_is_gem",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+		[2] = {
+			label = "Explosion",
+			baseEffectiveness = 0.9200000166893,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_mass_fusillade",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_damage_+%_final_vs_immobilised_enemies", 60 },
+				{ "active_skill_base_area_of_effect_radius", 9 },
+			},
+			stats = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+				"is_commandable_skill",
+				"base_is_projectile",
+				"projectile_uses_contact_position",
+				"maintain_projectile_direction_when_using_contact_position",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+				"quality_display_active_skill_damage_+%_final_vs_immobilised_enemies_is_gem",
+				"is_area_damage",
+				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_fire_damage",
+				"spell_maximum_base_fire_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["FlameSliceFireDjinn"] = {
+	name = "Ruzhan's Zealotry",
+	hidden = true,
+	description = "When you use a damaging Skill, Ruzhan emerges to Strike enemies near your target with zealous fervour, inflicting Exposure.",
+	skillTypes = { [SkillType.Melee] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Cooldown] = true, [SkillType.MeleeSingleTarget] = true, },
+	castTime = 1,
+	qualityStats = {
+		{ "melee_range_+", 0.2 },
+	},
+	levels = {
+		[1] = { baseMultiplier = 4.5, cooldown = 4, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Ruzhan's Zealotry",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				attack = true,
+				melee = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_physical_damage_%_to_convert_to_fire", 60 },
+				{ "inflict_exposure_on_hit_%_chance", 100 },
+				{ "attack_maximum_action_distance_+", 20 },
+			},
+			stats = {
+				"is_area_damage",
+				"action_attack_or_cast_time_uses_animation_length",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["KnifeThrowSandDjinn"] = {
+	name = "Kelari's Brutality",
+	hidden = true,
+	description = "Command Kelari to throw a volley of knives at the target location. The knives burrow into the ground, then erupt into the air after a short delay, dealing Spell damage.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.Projectile] = true, [SkillType.CannotChain] = true, [SkillType.GroundTargetedProjectile] = true, },
+	castTime = 0.8,
+	qualityStats = {
+		{ "djinn_knife_throw_number_of_knives_created", 0.1 },
+	},
+	levels = {
+		[1] = { cooldown = 5, critChance = 15, levelRequirement = 0, storedUses = 2, },
+	},
+	statSets = {
+		[1] = {
+			label = "Projectile",
+			baseEffectiveness = 1.789999961853,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_knife_throw_statset_0",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+			},
+			constantStats = {
+				{ "djinn_knife_throw_number_of_knives_created", 12 },
+				{ "active_skill_base_area_of_effect_radius", 30 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"is_commandable_skill",
+				"projectiles_fire_at_ground",
+				"always_pierce",
+				"projectiles_cannot_split",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+		[2] = {
+			label = "Eruption",
+			baseEffectiveness = 1.789999961853,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.037999998778105,
+			statDescriptionScope = "djinn_knife_throw_statset_1",
+			baseFlags = {
+				spell = true,
+				projectile = true,
+				area = true,
+			},
+			constantStats = {
+				{ "djinn_knife_throw_number_of_knives_created", 12 },
+				{ "active_skill_base_area_of_effect_radius", 30 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 10 },
+				{ "maim_on_hit_%", 100 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"base_is_projectile",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+				"is_area_damage",
+				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ExplosiveTeleportSandDjinn"] = {
+	name = "Kelari's Deception",
+	hidden = true,
+	description = "Command Kelari to create a blast at the target location that deals Spell damage, and leave behind a clone that persists for a short duration. This skill can store multiple charges, and using it again while a clone from a previous use is still alive causes that clone to explode, dealing even more damage.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, },
+	castTime = 0.8,
+	qualityStats = {
+		{ "djinn_damage_+%_final_per_teleport_in_sequence", 0.5 },
+	},
+	levels = {
+		[1] = { cooldown = 5, critChance = 15, levelRequirement = 0, storedUses = 3, },
+	},
+	statSets = {
+		[1] = {
+			label = "Kelari's Deception",
+			baseEffectiveness = 5.0100002288818,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "djinn_explosive_teleport",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 25 },
+				{ "djinn_damage_+%_final_per_teleport_in_sequence", 50 },
+				{ "base_skill_effect_duration", 4000 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+		[2] = {
+			label = "Hidden",
+			baseEffectiveness = 5.0100002288818,
+			incrementalEffectiveness = 0.054999999701977,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "djinn_explosive_teleport",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 25 },
+				{ "djinn_damage_+%_final_per_teleport_in_sequence", 50 },
+				{ "base_skill_effect_duration", 4000 },
+				{ "explosive_teleport_clone_cast_speed_+%_final", -50 },
+				{ "apply_X_stacks_of_critical_weakness_on_hit", 2 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["HandSlamSandDjinn"] = {
+	name = "Kelari's Judgment",
+	hidden = true,
+	description = "Channel and Command Kelari to Channel alongside you, creating blades that hang over the target location. The longer you Channel, the more blades Kelari will create. Upon release, his blades plunge into the ground and create shockwaves that deal Spell damage.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.Channel] = true, [SkillType.Cooldown] = true, [SkillType.GainsStages] = true, },
+	castTime = 0.5,
+	qualityStats = {
+		{ "apply_X_stacks_of_critical_weakness_on_hit", 0.1 },
+	},
+	levels = {
+		[1] = { cooldown = 12, critChance = 15, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Kelari's Judgment",
+			baseEffectiveness = 4.9000000953674,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "djinn_hand_slam",
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 35 },
+				{ "sand_djinn_hand_slam_maximum_number_of_stages", 4 },
+				{ "channel_start_lock_cancelling_of_cast_time_%", 100 },
+				{ "djinn_hand_slam_minimum_area_of_effect_+%_final", -20 },
+				{ "djinn_hand_slam_maximum_area_of_effect_+%_final", 20 },
+				{ "djinn_hand_slam_area_of_effect_+%_final_per_additional_stage", 25 },
+				{ "djinn_hand_slam_damage_+%_final_per_additional_stage", 125 },
+				{ "apply_X_stacks_of_critical_weakness_on_hit", 4 },
+				{ "active_skill_hit_damage_stun_multiplier_+%_final", 100 },
+			},
+			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+				"is_area_damage",
+				"is_commandable_skill",
+				"skill_does_not_pathfind",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
+			levels = {
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}

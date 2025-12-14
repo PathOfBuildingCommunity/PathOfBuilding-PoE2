@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Golden Obi"] = {
 	type = "Belt",
 	charmLimit = 0,
-	tags = { demigods = true, not_for_sale = true, default = true, belt = true, },
+	tags = { belt = true, default = true, demigods = true, not_for_sale = true, },
 	implicit = "(20-30)% increased Rarity of Items found\nHas (1-3) Charm Slots",
 	implicitModTypes = { { "drop" }, },
 	req = { },

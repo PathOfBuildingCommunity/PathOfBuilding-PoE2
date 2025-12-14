@@ -88,13 +88,17 @@ UniqueLocalArmourBreakOnDamage1
 UniqueFullyArmourBrokenShatterOnKill1
 ]],[[
 Seeing Stars
-Plated Mace
+{variant:1,2}Plated Mace
+{variant:3}Marching Mace
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
-{variant:1}UniqueLocalAddedColdDamage3[9,12][18,22]
-{variant:2}UniqueLocalAddedColdDamage3
-{variant:1}UniqueLocalAddedLightningDamage2[1,1][30,35]
-{variant:2}UniqueLocalAddedLightningDamage2
+{variant:1}UniqueLocalAddedColdDamage7[9,12][18,22]
+{variant:2}UniqueLocalAddedColdDamage7[12,16][22,25]
+{variant:3}UniqueLocalAddedColdDamage7
+{variant:1}UniqueLocalAddedLightningDamage9[1,1][30,35]
+{variant:2}UniqueLocalAddedLightningDamage9[1,1][40,45]
+{variant:3}UniqueLocalAddedLightningDamage9
 UniqueLocalIncreasedAttackSpeed6
 UniqueDoubleEnergyGain1
 ]],[[
@@ -164,13 +168,15 @@ The Hammer of Faith
 Giant Maul
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 {variant:1}UniqueLocalIncreasedPhysicalDamagePercent9[200,250]
-{variant:2}UniqueLocalIncreasedPhysicalDamagePercent9
+{variant:2}UniqueLocalIncreasedPhysicalDamagePercent9[250,300]
+{variant:3}UniqueLocalIncreasedPhysicalDamagePercent9
 UniqueLocalIncreasedAttackSpeed14
 UniqueAllResistances21
 UniqueManaRegeneration29
-{variant:1}Gain a random Shrine buff every 10 seconds
+{variant:1,2,3}UniqueShrineBuffAlternating1
 ]],[[
 Hoghunt
 Felled Greatclub

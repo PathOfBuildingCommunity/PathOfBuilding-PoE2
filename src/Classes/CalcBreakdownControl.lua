@@ -183,6 +183,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 				{ label = "More/less", key = "more" },
 				{ label = "Inc/red", key = "inc" },
 				{ label = "Efficiency", key = "efficiency" },
+				{ label = "Count", key = "count" },
 				{ label = "Reservation", key = "total" },
 			}
 		}
@@ -273,6 +274,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 	-- Build list of modifiers to display
 	local cfg = (sectionData.cfg and actor.mainSkill[sectionData.cfg.."Cfg"] and copyTable(actor.mainSkill[sectionData.cfg.."Cfg"], true)) or { }
 	cfg.source = sectionData.modSource
+	cfg.ignoreSourceinCheckConditions = true
 	cfg.actor = sectionData.actor
 	local rowList
 	local modStore = (sectionData.enemy and actor.enemy.modDB) or (sectionData.cfg and actor.mainSkill.skillModList) or actor.modDB

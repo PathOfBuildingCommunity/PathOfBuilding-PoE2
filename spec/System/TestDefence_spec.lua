@@ -10,8 +10,9 @@ describe("TestDefence", function()
 	local function pob1and2Compat()
 		build.configTab.input.customMods = build.configTab.input.customMods.."\n\z
 		5% reduced maximum life\n\z
+		5% reduced maximum mana\n\z
 		-2 to life\n\z
-		-20% to elemental resistances\n\z
+		-10% to elemental resistances\n\z
 		-60% to chaos resistance\n\z
 		+2 to mana\n\z
 		"

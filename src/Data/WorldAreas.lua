@@ -40,6 +40,18 @@ worldAreas["GuildHideout__"] = {
 	},
 }
 
+worldAreas["CurrentTown"] = {
+	name = "Current Town (Act 1)",
+	baseName = "Current Town",
+	tags = {  },
+	act = 1,
+	level = 0,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
 worldAreas["HideoutCave"] = {
 	name = "Submerged Hideout (Act 1)",
 	baseName = "Submerged Hideout",
@@ -761,8 +773,8 @@ worldAreas["HideoutRacetrack"] = {
 }
 
 worldAreas["HideoutShipwreck"] = {
-	name = "Shipwreck Hideout (Act 1)",
-	baseName = "Shipwreck Hideout",
+	name = "Kraken's Cove Hideout (Act 1)",
+	baseName = "Kraken's Cove Hideout",
 	tags = {  },
 	act = 1,
 	level = 65,
@@ -799,6 +811,114 @@ worldAreas["HideoutPrison"] = {
 worldAreas["HideoutShoreline"] = {
 	name = "Shoreline Hideout (Act 1)",
 	baseName = "Shoreline Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutArenaKulemak"] = {
+	name = "Black Cathedral Hideout (Act 1)",
+	baseName = "Black Cathedral Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutGrinding"] = {
+	name = "Grinding Hideout (Act 1)",
+	baseName = "Grinding Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutArcaneIsle"] = {
+	name = "Arcane Isle Hideout (Act 1)",
+	baseName = "Arcane Isle Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutSacrifice"] = {
+	name = "Sacrifice Hideout (Act 1)",
+	baseName = "Sacrifice Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutVerdant"] = {
+	name = "Verdant Hideout (Act 1)",
+	baseName = "Verdant Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankUrban"] = {
+	name = "Civic Square Hideout (Act 1)",
+	baseName = "Civic Square Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankMountain"] = {
+	name = "Alpine Plateau Hideout (Act 1)",
+	baseName = "Alpine Plateau Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankDesert2"] = {
+	name = "Vastiri Plains Hideout (Act 1)",
+	baseName = "Vastiri Plains Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankCrypt"] = {
+	name = "Mausoleum Hideout (Act 1)",
+	baseName = "Mausoleum Hideout",
 	tags = {  },
 	act = 1,
 	level = 65,
@@ -1329,7 +1449,6 @@ worldAreas["G2_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Boulder Ant",
 		"Faridun Bladedancer",
 		"Faridun Fledgling",
 		"Faridun Heavy Infantry",
@@ -1540,6 +1659,7 @@ worldAreas["G2_8"] = {
 		"Porcupine Goliath",
 		"Rasp Scavenger",
 		"Regurgitating Vulture",
+		"Vile Vulture",
 	},
 }
 
@@ -1637,6 +1757,7 @@ worldAreas["G2_10_2"] = {
 		"Forgotten Satyr",
 		"Forgotten Stalker",
 		"Forsaken Miner",
+		"Mantis Rat",
 		"Plague Nymph",
 	},
 	bossVarieties = {
@@ -1738,7 +1859,6 @@ worldAreas["Sanctum_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Boulder Ant",
 		"Brimstone Crab",
 		"Quake Golem",
 		"Rasp Scavenger",
@@ -1997,7 +2117,6 @@ worldAreas["G3_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bloodthief Queen",
 		"Bloodthief Wasp",
 		"Bogfelled Commoner",
 		"Bogfelled Slave",
@@ -2206,6 +2325,8 @@ worldAreas["G3_8"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Chyme Skitterer",
+		"Drowned Crawler",
+		"Drowned Explorer",
 		"Filthy Crone",
 		"Filthy First-born",
 		"Filthy Lobber",
@@ -2435,7 +2556,13 @@ worldAreas["G4_1_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Boulder Ant",
+		"Feral Kin",
+		"Shaman Kin",
+		"Skulltop Kin",
+		"Spearbearer Kin",
+		"Tallwalker Kin",
+		"Tuskbearer Kin",
+		"Wardrum Kin",
 	},
 	bossVarieties = {
 		"The Blind Beast",
@@ -2452,6 +2579,15 @@ worldAreas["G4_1_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Feral Kin",
+		"Molten Imp",
+		"Shaman Kin",
+		"Skulltop Kin",
+		"Spearbearer Kin",
+		"Tallwalker Kin",
+		"Torchbearer Kin",
+		"Tuskbearer Kin",
+		"Wardrum Kin",
 	},
 	bossVarieties = {
 		"Krutog, Lord of Kin",
@@ -2468,6 +2604,14 @@ worldAreas["G4_2_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Bloated Anchorman",
+		"Drowned Bearer",
+		"Drowned Crawler",
+		"Drowned Explorer",
+		"Gull Shrike",
+		"Searot Harpooner",
+		"Searot Skeleton",
+		"Searot Sniper",
 	},
 }
 
@@ -2481,6 +2625,11 @@ worldAreas["G4_2_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Drowned Explorer",
+		"Man o' War",
+		"Rotting Cannoneer",
+		"Rotting Demolitionist",
+		"Rotting Soulcatcher",
 	},
 	bossVarieties = {
 		"Captain Hartlin",
@@ -2497,7 +2646,13 @@ worldAreas["G4_3_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Caustic Crab",
+		"Coconut Crab",
+		"Elephant Tortoise",
+		"Quill Crab",
 		"Scorpion Monkey",
+		"Spiked Scuttler",
+		"Stoneback Rhoa",
 	},
 	bossVarieties = {
 		"Great White One",
@@ -2514,6 +2669,14 @@ worldAreas["G4_3_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Amphibious Prowler",
+		"Brine Maiden",
+		"Coral-crowned Skeleton",
+		"Ghastly Siren",
+		"Giant Maw",
+		"Luminous Spinefish",
+		"Skittering Jellycrab",
+		"Spiked Ray",
 	},
 	bossVarieties = {
 		"Diamora, Song of Death",
@@ -2530,6 +2693,8 @@ worldAreas["G4_4_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Guardian Lizard",
+		"Guardian Turtle",
 	},
 }
 
@@ -2543,6 +2708,12 @@ worldAreas["G4_4_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Ancestral Archer",
+		"Ancestral Channeler",
+		"Ancestral Guardian",
+		"Ancestral Headtaker",
+		"Ancestral Hornbearer",
+		"Ancestral Warrior",
 	},
 	bossVarieties = {
 		"Yama The White",
@@ -2572,7 +2743,14 @@ worldAreas["G4_5_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Eaten Rat",
+		"Eternal Guard",
+		"Eternal Prisoner",
+		"Eternal Torturer",
+		"Prowling Skeleton",
+		"Rattling Gibbet",
 		"Risen Rattler",
+		"Spined Necromancer",
 	},
 }
 
@@ -2586,6 +2764,16 @@ worldAreas["G4_5_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Angler Maw",
+		"Bulbous Maw",
+		"Coral-crowned Skeleton",
+		"Eternal Guard",
+		"Pale Abductor",
+		"Pale Brinesplitter",
+		"Pale Tidecrasher",
+		"Pale Waterwalker",
+		"Prowling Skeleton",
+		"Spined Necromancer",
 	},
 	bossVarieties = {
 		"The Prisoner",
@@ -2602,6 +2790,14 @@ worldAreas["G4_7"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Carrion Gull",
+		"Goliath Shrike",
+		"Gull Shrike",
+		"Manshrike",
+		"Raven Shrike",
+		"Scavenged Skeleton",
+		"Vile Vulture",
+		"Vilespit Gull",
 	},
 	bossVarieties = {
 		"Scourge of the Skies",
@@ -2631,6 +2827,15 @@ worldAreas["G4_8b"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faithful Archer",
+		"Faithful Warrior",
+		"Gargantuan Wasp",
+		"Righteous Axewielder",
+		"Swarming Wasp",
+		"Twilight Order Oathsworn",
+		"Twilight Order Officer",
+		"Twilight Order Priest",
+		"Twilight Order Soldier",
 	},
 	bossVarieties = {
 		"Torvian, Hand of the Saviour",
@@ -2663,6 +2868,17 @@ worldAreas["G4_10"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Faithful Archer",
+		"Faithful Warrior",
+		"Righteous Axewielder",
+		"Twilight Order Oathsworn",
+		"Twilight Order Officer",
+		"Twilight Order Soldier",
+		"Zealous Courser",
+		"Zealous Excavator",
+		"Zealous Guard",
+		"Zealous Pillarcrusher",
+		"Zealous Shockwarden",
 	},
 	bossVarieties = {
 		"Benedictus, First Herald of Utopia",
@@ -2692,6 +2908,13 @@ worldAreas["G4_11_1b"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Blood-fevered Axeman",
+		"Blood-fevered Brew-breather",
+		"Blood-fevered Hookman",
+		"Blood-fevered Maceman",
+		"Blood-fevered Tuskbeast",
+		"Blood-fevered Warrior",
+		"Blood-fevered Wisewoman",
 	},
 }
 
@@ -2705,6 +2928,14 @@ worldAreas["G4_11_2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Blood-fevered Axeman",
+		"Blood-fevered Brew-breather",
+		"Blood-fevered Hookman",
+		"Blood-fevered Maceman",
+		"Blood-fevered Plaguespreader",
+		"Blood-fevered Spearman",
+		"Blood-fevered Warrior",
+		"Blood-fevered Wisewoman",
 	},
 	bossVarieties = {
 		"Tavakai, the Chieftain",
@@ -2754,7 +2985,7 @@ worldAreas["P1_1"] = {
 	name = "Scorched Farmlands (Act 6)",
 	baseName = "Scorched Farmlands",
 	description = "The fields burn as the night brings new terror",
-	tags = { "EzomyteStrongbox", "ezomyte_shrine" },
+	tags = { "EzomyteStrongbox", "frost_shrine" },
 	act = 6,
 	level = 54,
 	isMap = false,
@@ -2850,6 +3081,7 @@ worldAreas["P1_4"] = {
 		"Ghoul Commander",
 		"Hungering Stalker",
 		"Knight-Gaunt",
+		"Prowling Skeleton",
 		"Risen Rattler",
 		"Skulking Ghoul",
 		"Wheelbound Hag",
@@ -2871,7 +3103,13 @@ worldAreas["P1_5"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Death Knight",
+		"Eaten Rat",
+		"Eternal Prisoner",
+		"Eternal Torturer",
+		"Prowling Skeleton",
+		"Rattling Gibbet",
 		"Risen Rattler",
+		"Spined Necromancer",
 	},
 	bossVarieties = {
 		"Oswin, the Dread Warden",
@@ -2934,14 +3172,18 @@ worldAreas["P2_1"] = {
 		"Dune Lurker",
 		"Goliath",
 		"Living Sand",
+		"Mantis Rat",
+		"Molten Imp",
 		"Porcupine Goliath",
 		"Rasp Scavenger",
 		"Regurgitating Vulture",
 		"Risen Arbalest",
 		"Risen Maraketh",
 		"Sabre Spider",
+		"Stoneback Rhoa",
 		"Tarnished Beetle",
 		"Tarnished Scarab",
+		"Vile Vulture",
 		"Walking Goliath",
 	},
 	bossVarieties = {
@@ -3015,6 +3257,7 @@ worldAreas["P2_5"] = {
 		"Forsaken Hulk",
 		"Forsaken Miner",
 		"Maraketh Undead",
+		"Molten Imp",
 		"Risen Tale-woman",
 		"Tarnished Beetle",
 	},
@@ -3033,7 +3276,6 @@ worldAreas["P2_6"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Bloodthief Queen",
 		"Bloodthief Wasp",
 		"Drudge Osseodon",
 		"Gilded Cobra",
@@ -3117,7 +3359,9 @@ worldAreas["P3_1"] = {
 		"Fungal Rattler",
 		"Fungal Wolf",
 		"Fungal Zombie",
+		"Gargantuan Wasp",
 		"Sabre Spider",
+		"Swarming Wasp",
 		"Vault Lurker",
 	},
 }
@@ -3138,6 +3382,7 @@ worldAreas["P3_2"] = {
 		"Bramble Hulk",
 		"Constricted Shambler",
 		"Constricted Spitter",
+		"Elephant Tortoise",
 		"Entrailhome Shambler",
 		"Entwined Hulk",
 		"Slitherspitter",
@@ -3161,9 +3406,16 @@ worldAreas["P3_3"] = {
 		"Bane Sapling",
 		"Bogfelled Commoner",
 		"Bogfelled Slave",
+		"Bulbous Maw",
 		"Dredge Fiend",
+		"Drowned Explorer",
 		"Filthy First-born",
 		"Ill-fated Explorer",
+		"Pale Abductor",
+		"Pale Brinesplitter",
+		"Pale Tidecrasher",
+		"Pale Waterwalker",
+		"Quill Crab",
 		"River Hag",
 	},
 	bossVarieties = {
@@ -3181,7 +3433,9 @@ worldAreas["P3_4"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Brine Maiden",
 		"Frost Wraith",
+		"Ghastly Siren",
 		"Hungry Wolf",
 		"Plague Nymph",
 		"Quadrilla",
@@ -3289,20 +3543,6 @@ worldAreas["MapVoidReliquary"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-	},
-}
-
-worldAreas["MapSpiderJungle"] = {
-	name = "Spider Jungle (Map)",
-	baseName = "Spider Jungle",
-	tags = { "map", "forest", "VaalStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
 	},
 }
 
@@ -3655,7 +3895,8 @@ worldAreas["MapWoodland"] = {
 		"Ill-fated Explorer",
 	},
 	bossVarieties = {
-		"Tierney, the Hateful",
+		"Murtagh, the Engorged",
+		"Colm, the Rancorous",
 	},
 }
 
@@ -3705,7 +3946,7 @@ worldAreas["MapHive"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-		"Bane Sapling",
+		"Plague Nymph",
 	},
 	bossVarieties = {
 		"The Fungus Behemoth",
@@ -4204,20 +4445,6 @@ worldAreas["MapBastion"] = {
 	},
 }
 
-worldAreas["MapRefuge"] = {
-	name = "Refuge (Map)",
-	baseName = "Refuge",
-	tags = { "map", "undead", "mammal_beast", "forest_biome", "VaalStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-	},
-}
-
 worldAreas["MapAlpineRidge"] = {
 	name = "Alpine Ridge (Map)",
 	baseName = "Alpine Ridge",
@@ -4396,6 +4623,9 @@ worldAreas["MapPlantation"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"Thariel, the Umbral Wraith",
+	},
 }
 
 worldAreas["MapAzmerianRanges"] = {
@@ -4408,6 +4638,8 @@ worldAreas["MapAzmerianRanges"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Elephant Tortoise",
+		"Stoneback Rhoa",
 	},
 	bossVarieties = {
 		"Morwyn, the Kinslayer",
@@ -4433,11 +4665,26 @@ worldAreas["MapEpitaph"] = {
 	},
 }
 
+worldAreas["MapReservoir"] = {
+	name = "Reservoir (Map)",
+	baseName = "Reservoir",
+	tags = { "map", "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Grudgelash, Vile Thorn",
+	},
+}
+
 worldAreas["MapRupture"] = {
 	name = "Rupture (Map)",
 	baseName = "Rupture",
 	description = "In the end, the river will always conquer the dam.",
-	tags = { "map", "area_with_water", "swamp_biome" },
+	tags = { "map", "area_with_water", "swamp_biome", "VaalStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4467,18 +4714,29 @@ worldAreas["MapOvergrown"] = {
 		"Scorpion Monkey",
 		"Snakethroat Shambler",
 	},
+	bossVarieties = {
+		"Tetzcatl, the Blazing Guardian",
+	},
 }
 
 worldAreas["MapCaldera"] = {
 	name = "Caldera (Map)",
 	baseName = "Caldera",
 	description = "An undrinkable lagoon girt in unbreathable air.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Feral Kin",
+		"Shaman Kin",
+		"Skulltop Kin",
+		"Spearbearer Kin",
+		"Tallwalker Kin",
+		"Torchbearer Kin",
+		"Tuskbearer Kin",
+		"Wardrum Kin",
 	},
 	bossVarieties = {
 		"The Ravenous Fang",
@@ -4529,7 +4787,7 @@ worldAreas["MapSevenWaters"] = {
 	isHideout = false,
 	monsterVarieties = {
 		"Rasp Scavenger",
-		"Regurgitating Vulture",
+		"Vile Vulture",
 	},
 	bossVarieties = {
 		"Manassa, the Serpent Queen",
@@ -4572,6 +4830,8 @@ worldAreas["MapTrenches"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Gargantuan Wasp",
+		"Swarming Wasp",
 	},
 	bossVarieties = {
 		"Gorian, the Moving Earth",
@@ -4588,9 +4848,29 @@ worldAreas["MapFrozenFalls"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Bulbous Maw",
+		"Pale Abductor",
+		"Pale Brinesplitter",
+		"Pale Tidecrasher",
+		"Pale Waterwalker",
 	},
 	bossVarieties = {
 		"Thraeven, Wing of Winter",
+	},
+}
+
+worldAreas["MapSwarm"] = {
+	name = "Swarm (Map)",
+	baseName = "Swarm",
+	tags = { "map", "desert_biome" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Volkhar, the Emberborn",
 	},
 }
 
@@ -4598,7 +4878,7 @@ worldAreas["MapWaywardIsle"] = {
 	name = "Wayward Isle (Map)",
 	baseName = "Wayward Isle",
 	description = "The bones of marooned wanderers assemble here.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "MarakethStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
@@ -4611,61 +4891,26 @@ worldAreas["MapWaywardIsle"] = {
 		"Skullslinger",
 		"Spinesnatcher",
 	},
+	bossVarieties = {
+		"Lord of the Pit",
+	},
 }
 
 worldAreas["MapStronghold"] = {
 	name = "Stronghold (Map)",
 	baseName = "Stronghold",
 	description = "Merchants and pirates alike need a safe port to peddle their wares.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "EzomyteStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Rattling Gibbet",
 		"Risen Rattler",
 	},
 	bossVarieties = {
 		"The Shackled Horror",
-	},
-}
-
-worldAreas["MapCrag"] = {
-	name = "Crag (Map)",
-	baseName = "Crag",
-	tags = { "map", "area_with_water", "water_biome" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-		"Yama The White",
-	},
-}
-
-worldAreas["MapQimar"] = {
-	name = "Qimar (Map)",
-	baseName = "Qimar",
-	tags = { "map", "area_with_water", "desert_biome", "MarakethStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
-worldAreas["MapDryPassage"] = {
-	name = "Dry Passage (Map)",
-	baseName = "Dry Passage",
-	tags = { "map", "area_with_water", "desert_biome", "MarakethStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
 	},
 }
 
@@ -4684,31 +4929,23 @@ worldAreas["MapPort"] = {
 	},
 }
 
-worldAreas["MapBoulevard"] = {
-	name = "Boulevard (Map)",
-	baseName = "Boulevard",
-	tags = { "map", "area_with_water" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-		"Torvian, Hand of the Saviour",
-	},
-}
-
 worldAreas["MapCliffside"] = {
 	name = "Cliffside (Map)",
 	baseName = "Cliffside",
 	description = "The grandest sculptures are carved with neither hammer nor chisel.",
-	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "mountain_biome" },
+	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "mountain_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Faithful Archer",
+		"Faithful Warrior",
+		"Righteous Axewielder",
+		"Twilight Order Oathsworn",
+		"Twilight Order Officer",
+		"Twilight Order Priest",
+		"Twilight Order Soldier",
 	},
 	bossVarieties = {
 		"Brakkus, the Juggernaut",
@@ -4719,12 +4956,20 @@ worldAreas["MapSinkhole"] = {
 	name = "Sinkhole (Map)",
 	baseName = "Sinkhole",
 	description = "Spirits gather where the world falls away.",
-	tags = { "map", "area_with_water", "water_biome" },
+	tags = { "map", "area_with_water", "water_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Ancestral Archer",
+		"Ancestral Channeler",
+		"Ancestral Guardian",
+		"Ancestral Headtaker",
+		"Ancestral Hornbearer",
+		"Ancestral Warrior",
+		"Guardian Lizard",
+		"Guardian Turtle",
 	},
 	bossVarieties = {
 		"Yama The White",
@@ -4735,12 +4980,18 @@ worldAreas["MapFlotsam"] = {
 	name = "Flotsam (Map)",
 	baseName = "Flotsam",
 	description = "Violent seas and hungry shores devour vessels, crew and all.",
-	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome" },
+	tags = { "map", "area_with_water", "water_biome", "grass_biome", "forest_biome", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Bloated Anchorman",
+		"Drowned Bearer",
+		"Drowned Explorer",
+		"Rotting Cannoneer",
+		"Rotting Demolitionist",
+		"Rotting Soulcatcher",
 	},
 	bossVarieties = {
 		"Malgor, the Nautilord",
@@ -4761,6 +5012,8 @@ worldAreas["MapUniqueUntaintedParadise"] = {
 		"Bramble Burrower",
 		"Bramble Hulk",
 		"Bramble Rhoa",
+		"Caustic Crab",
+		"Quill Crab",
 	},
 }
 
@@ -4787,6 +5040,18 @@ worldAreas["MapUniqueCastaway"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Bloated Anchorman",
+		"Drowned Bearer",
+		"Drowned Crawler",
+		"Drowned Explorer",
+		"Gull Shrike",
+		"Man o' War",
+		"Rotting Cannoneer",
+		"Rotting Demolitionist",
+		"Rotting Soulcatcher",
+		"Searot Harpooner",
+		"Searot Skeleton",
+		"Searot Sniper",
 	},
 	bossVarieties = {
 		"Torrek of the Drowned Fleet",
@@ -5081,6 +5346,15 @@ worldAreas["MapUberBoss_JadeCitadel"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Blood-fevered Axeman",
+		"Blood-fevered Brew-breather",
+		"Blood-fevered Hookman",
+		"Blood-fevered Maceman",
+		"Blood-fevered Plaguespreader",
+		"Blood-fevered Spearman",
+		"Blood-fevered Tuskbeast",
+		"Blood-fevered Warrior",
+		"Blood-fevered Wisewoman",
 	},
 	bossVarieties = {
 		"Manoki, the Chosen",
@@ -5157,22 +5431,10 @@ worldAreas["MapHideoutCanal_Claimable"] = {
 	},
 }
 
-worldAreas["ExpeditionLogBook_Peninsula"] = {
-	name = "Craggy Peninsula",
-	baseName = "Craggy Peninsula",
-	tags = { "area_with_water", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
 worldAreas["ExpeditionLogBook_Tropical"] = {
 	name = "Lush Isle",
 	baseName = "Lush Isle",
-	tags = { "area_with_water", "EzomyteStrongbox" },
+	tags = { "area_with_water", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5184,7 +5446,7 @@ worldAreas["ExpeditionLogBook_Tropical"] = {
 worldAreas["ExpeditionLogBook_Tundra"] = {
 	name = "Frigid Bluffs",
 	baseName = "Frigid Bluffs",
-	tags = { "area_with_water", "EzomyteStrongbox" },
+	tags = { "area_with_water", "VaalStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5198,19 +5460,7 @@ worldAreas["ExpeditionLogBook_Tundra"] = {
 worldAreas["ExpeditionLogBook_Atoll"] = {
 	name = "Barren Atoll",
 	baseName = "Barren Atoll",
-	tags = { "area_with_water", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
-worldAreas["ExpeditionLogBook_Digsite"] = {
-	name = "Abandoned Excavation",
-	baseName = "Abandoned Excavation",
-	tags = { "area_with_water", "EzomyteStrongbox" },
+	tags = { "area_with_water", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5399,10 +5649,23 @@ worldAreas["Abyss_Intro"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Abyssal Shambler",
+		"Abyssal Strangler",
+		"Abyssal Walker",
+		"Blackblooded Blisterboil",
+		"Blackblooded Cretin",
+		"Blackblooded Elite",
+		"Blackblooded Proboscite",
 		"Flesh Larva",
+		"Fungoid of the Pit",
+		"Gargantuan Larva",
+		"Lightless Moray",
+		"Lightless Serpent",
+		"Lightless Vengewing",
 		"Lost-men Brute",
 		"Lost-men Subjugator",
 		"Lost-men Zealot",
+		"Strider of the Pit",
 	},
 }
 
@@ -5429,7 +5692,15 @@ worldAreas["Abyss_Depths1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Abyssal Shambler",
+		"Abyssal Strangler",
+		"Abyssal Walker",
 		"Flesh Larva",
+		"Gargantuan Larva",
+		"Lightless Abomination",
+		"Lightless Moray",
+		"Lightless Serpent",
+		"Lightless Vengewing",
 	},
 }
 
@@ -5443,7 +5714,16 @@ worldAreas["Abyss_Depths2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Abyssal Shambler",
+		"Abyssal Strangler",
+		"Abyssal Walker",
+		"Blackblooded Blisterboil",
+		"Blackblooded Cretin",
+		"Blackblooded Elite",
+		"Blackblooded Proboscite",
+		"Blackblooded Tarhulk",
 		"Flesh Larva",
+		"Gargantuan Larva",
 	},
 }
 
@@ -5457,7 +5737,15 @@ worldAreas["Abyss_Depths3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Abyssal Shambler",
+		"Abyssal Strangler",
+		"Abyssal Walker",
 		"Flesh Larva",
+		"Fungoid of the Pit",
+		"Gargantuan Larva",
+		"Hound of the Pit",
+		"Primordium of the Pit",
+		"Strider of the Pit",
 	},
 }
 
@@ -5471,7 +5759,15 @@ worldAreas["Abyss_Boss1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Abyssal Shambler",
+		"Abyssal Strangler",
+		"Abyssal Walker",
 		"Flesh Larva",
+		"Gargantuan Larva",
+		"Lightless Abomination",
+		"Lightless Moray",
+		"Lightless Serpent",
+		"Lightless Vengewing",
 	},
 	bossVarieties = {
 		"Tasgul, Swallower of Light",
@@ -5488,7 +5784,16 @@ worldAreas["Abyss_Boss2"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Abyssal Shambler",
+		"Abyssal Strangler",
+		"Abyssal Walker",
+		"Blackblooded Blisterboil",
+		"Blackblooded Cretin",
+		"Blackblooded Elite",
+		"Blackblooded Proboscite",
+		"Blackblooded Tarhulk",
 		"Flesh Larva",
+		"Gargantuan Larva",
 	},
 	bossVarieties = {
 		"Vandroth, Blackblooded Enslaver",
@@ -5597,7 +5902,15 @@ worldAreas["G_Endgame_Town"] = {
 		"Adorned Miscreation",
 		"Adorned Scarab",
 		"Alpha Primate",
+		"Amphibious Prowler",
+		"Ancestral Archer",
+		"Ancestral Channeler",
+		"Ancestral Guardian",
+		"Ancestral Headtaker",
+		"Ancestral Hornbearer",
+		"Ancestral Warrior",
 		"Ancient Ezomyte",
+		"Angler Maw",
 		"Antlion Charger",
 		"Armoured Rhex",
 		"Azak Brute",
@@ -5610,29 +5923,40 @@ worldAreas["G_Endgame_Town"] = {
 		"Azak Throatcutter",
 		"Bearer of Penitence",
 		"Bladelash Transcendent",
+		"Bloated Anchorman",
 		"Blood Carrier",
 		"Blood Collector",
 		"Blood Cretin",
 		"Blood Priest",
 		"Blood Priestess",
 		"Blood Zealot",
+		"Blood-fevered Axeman",
+		"Blood-fevered Brew-breather",
+		"Blood-fevered Hookman",
+		"Blood-fevered Maceman",
+		"Blood-fevered Plaguespreader",
+		"Blood-fevered Spearman",
+		"Blood-fevered Tuskbeast",
+		"Blood-fevered Warrior",
+		"Blood-fevered Wisewoman",
 		"Bloodrite Guard",
 		"Bloodrite Priest",
-		"Bloodthief Queen",
 		"Bloodthief Wasp",
 		"Bloom Serpent",
 		"Bogfelled Commoner",
 		"Bogfelled Slave",
 		"Bone Stalker",
-		"Boulder Ant",
 		"Bramble Ape",
 		"Bramble Burrower",
 		"Bramble Hulk",
 		"Bramble Rhoa",
 		"Brimstone Crab",
+		"Brine Maiden",
 		"Brutal Transcendent",
+		"Bulbous Maw",
 		"Burdened Wretch",
 		"Burning Dead",
+		"Caustic Crab",
 		"Chaotic Zealot",
 		"Chaw Mongrel",
 		"Chyme Skitterer",
@@ -5655,11 +5979,20 @@ worldAreas["G_Endgame_Town"] = {
 		"Dread Servant",
 		"Dredge Fiend",
 		"Drowned",
+		"Drowned Bearer",
+		"Drowned Crawler",
+		"Drowned Explorer",
 		"Drudge Osseodon",
 		"Dune Lurker",
+		"Elephant Tortoise",
 		"Entrailhome Shambler",
 		"Entwined Hulk",
+		"Eternal Guard",
 		"Eternal Knight",
+		"Eternal Prisoner",
+		"Eternal Torturer",
+		"Faithful Archer",
+		"Faithful Warrior",
 		"Faridun Bladedancer",
 		"Faridun Butcher",
 		"Faridun Crawler",
@@ -5672,6 +6005,7 @@ worldAreas["G_Endgame_Town"] = {
 		"Faridun Spearman",
 		"Faridun Swordsman",
 		"Faridun Wind-slicer",
+		"Feral Kin",
 		"Feral Primate",
 		"Fiery Zealot",
 		"Filthy Crone",
@@ -5696,18 +6030,24 @@ worldAreas["G_Endgame_Town"] = {
 		"Fungal Wolf",
 		"Fungal Zombie",
 		"Fused Swordsman",
+		"Gargantuan Wasp",
 		"Gargoyle Demon",
 		"Gelid Zealot",
+		"Ghastly Siren",
+		"Giant Maw",
 		"Gilded Cobra",
 		"Gold-Melted Sentinel",
 		"Gold-Melted Shambler",
 		"Gold-melted Blacksmith",
 		"Goliath",
+		"Goliath Shrike",
 		"Goliath Transcendent",
+		"Guardian Lizard",
+		"Guardian Turtle",
+		"Gull Shrike",
 		"Hunchback Clubber",
 		"Hyena Demon",
 		"Ill-fated Explorer",
-		"Iron Enforcer",
 		"Iron Guard",
 		"Iron Sharpshooter",
 		"Iron Spearman",
@@ -5719,15 +6059,23 @@ worldAreas["G_Endgame_Town"] = {
 		"Lost-men Necromancer",
 		"Lost-men Subjugator",
 		"Lost-men Zealot",
+		"Luminous Spinefish",
+		"Man o' War",
+		"Manshrike",
 		"Mantis Rat",
 		"Mar Acolyte",
 		"Maraketh Undead",
+		"Molten Imp",
 		"Mud Simulacrum",
 		"Orok Fleshstabber",
 		"Orok Hunter",
 		"Orok Shaman",
 		"Orok Throatcutter",
 		"Pack Werewolf",
+		"Pale Abductor",
+		"Pale Brinesplitter",
+		"Pale Tidecrasher",
+		"Pale Waterwalker",
 		"Pale-stitched Stalker",
 		"Plague Harvester",
 		"Plague Nymph",
@@ -5741,11 +6089,13 @@ worldAreas["G_Endgame_Town"] = {
 		"Pyromushroom Cultivator",
 		"Quadrilla",
 		"Quake Golem",
+		"Quill Crab",
 		"Rabid Dog",
 		"Rasp Scavenger",
-		"Regurgitating Vulture",
+		"Rattling Gibbet",
 		"Rhex",
 		"Ribrattle",
+		"Righteous Axewielder",
 		"Risen Arbalest",
 		"Risen Farmhand",
 		"Risen Maraketh",
@@ -5755,8 +6105,11 @@ worldAreas["G_Endgame_Town"] = {
 		"River Hag",
 		"Rotted Rat",
 		"Rotten Wolf",
+		"Rotting Cannoneer",
 		"Rotting Crow",
+		"Rotting Demolitionist",
 		"Rotting Hulk",
+		"Rotting Soulcatcher",
 		"Rusted Dyna Golem",
 		"Sabre Spider",
 		"Sand Spirit",
@@ -5765,24 +6118,44 @@ worldAreas["G_Endgame_Town"] = {
 		"Sandflesh Warrior",
 		"Sandscoured Dead",
 		"Scarecrow Beast",
+		"Scavenged Skeleton",
 		"Scorpion Monkey",
+		"Searot Harpooner",
+		"Searot Skeleton",
+		"Searot Sniper",
 		"Serpent Clan",
 		"Serpent Shaman",
+		"Shaman Kin",
 		"Shielded Transcendent",
 		"Skeleton Spriggan",
 		"Skitter Golem",
+		"Skittering Jellycrab",
 		"Skullslinger",
+		"Skulltop Kin",
 		"Slitherspitter",
 		"Snakethroat Shambler",
+		"Spearbearer Kin",
+		"Spiked Ray",
+		"Spiked Scuttler",
+		"Spined Necromancer",
 		"Spinesnatcher",
+		"Stoneback Rhoa",
 		"Sun Clan Scavenger",
 		"Surgical Experimentalist",
 		"Swamp Golem",
+		"Swarming Wasp",
+		"Tallwalker Kin",
 		"Tarnished Beetle",
 		"Tarnished Scarab",
 		"Tendril Prowler",
 		"Tendril Sentinel",
 		"Tombshrieker",
+		"Torchbearer Kin",
+		"Tuskbearer Kin",
+		"Twilight Order Oathsworn",
+		"Twilight Order Officer",
+		"Twilight Order Priest",
+		"Twilight Order Soldier",
 		"Undead Vaal Bladedancer",
 		"Undead Vaal Guard",
 		"Undertaker",
@@ -5806,13 +6179,21 @@ worldAreas["G_Endgame_Town"] = {
 		"Venomous Crab Matriarch",
 		"Vile Hag",
 		"Vile Imp",
+		"Vile Vulture",
+		"Vilespit Gull",
 		"Viper Legionnaire",
 		"Walking Goliath",
+		"Wardrum Kin",
 		"Warrior Transcendent",
 		"Werewolf Prowler",
 		"Winged Fiend",
 		"Winged Horror",
 		"Wretched Rattler",
+		"Zealous Courser",
+		"Zealous Excavator",
+		"Zealous Guard",
+		"Zealous Pillarcrusher",
+		"Zealous Shockwarden",
 	},
 }
 
@@ -5842,6 +6223,7 @@ worldAreas["MapHideoutPrison_Claimable"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Eternal Torturer",
 	},
 }
 
@@ -5854,6 +6236,12 @@ worldAreas["MapHideoutShoreline_Claimable"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
+		"Caustic Crab",
+		"Coconut Crab",
+		"Elephant Tortoise",
+		"Quill Crab",
+		"Spiked Scuttler",
+		"Stoneback Rhoa",
 	},
 }
 
@@ -5928,8 +6316,8 @@ worldAreas["MapRazedFields"] = {
 		"Azak Throatcutter",
 	},
 	bossVarieties = {
-		"Ignatia, the Flame-Sworn",
-		"Gelida, the Frost-Tongue",
+		"Elvara, the Savage Flame",
+		"Rael, the Frost Hand",
 	},
 }
 
@@ -5943,6 +6331,8 @@ worldAreas["MapRugosa"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Brine Maiden",
+		"Ghastly Siren",
 	},
 	bossVarieties = {
 		"Syvora, Daughter of the Deep",
@@ -5977,6 +6367,11 @@ worldAreas["MapExcavation"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
+		"Zealous Courser",
+		"Zealous Excavator",
+		"Zealous Guard",
+		"Zealous Pillarcrusher",
+		"Zealous Shockwarden",
 	},
 	bossVarieties = {
 		"Aurelian, the Grand Adjudicator",
@@ -6019,6 +6414,57 @@ worldAreas["MapVaalVault"] = {
 	bossVarieties = {
 		"Ytzara, Blood Oracle",
 		"Maztli, Flesh-Shaper",
+	},
+}
+
+worldAreas["IncursionTemplePresent"] = {
+	name = "Lost Temple (Act 1)",
+	baseName = "Lost Temple",
+	description = "Two thousand years of dust and rot await",
+	tags = { "VaalStrongbox", "vaal_shrine" },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["IncursionTemple"] = {
+	name = "Atziri's Temple (Act 3)",
+	baseName = "Atziri's Temple",
+	description = "400 BIC",
+	tags = { "VaalStrongbox", "vaal_shrine" },
+	act = 3,
+	level = 46,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapMezzanine"] = {
+	name = "Mezzanine (Map)",
+	baseName = "Mezzanine",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["IncursionHub"] = {
+	name = "Vaal Ruins (Act 3)",
+	baseName = "Vaal Ruins",
+	description = "Forgotten remnants lie in silence",
+	tags = {  },
+	act = 3,
+	level = 2,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
 	},
 }
 

@@ -161,6 +161,7 @@ function calcs.createActiveSkill(activeEffect, supportList, env, actor, socketGr
 			-- Track how many active skills are supported by this support effect
 			if supportEffect.isSupporting and activeEffect.srcInstance then
 				supportEffect.isSupporting[activeEffect.srcInstance] = true
+				supportEffect.activeSkillLevel = activeEffect.srcInstance.level
 			end
 			if supportEffect.grantedEffect.addFlags and not summonSkill then
 				-- Support skill adds flags to supported skills (eg. Remote Mine adds 'mine')
@@ -528,9 +529,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		if totemBase.grantedEffect and totemBase.gemData then
 			activeSkill.skillData.totemBase = totemBase
 		end
-		local totemLevelRequirement = activeSkill.skillData.totemBase and activeSkill.skillData.totemBase.grantedEffect.levels[totemBase.skillLevel].levelRequirement or activeEffect.grantedEffect.levels[activeEffect.level].levelRequirement
-		-- Note: Some active skills related to totem base skills (e.g. on Shockwave Totem) have level requirement = 0, making the additional ` > 0` check necessary
-		activeSkill.skillData.totemLevel = (totemLevelRequirement and (totemLevelRequirement > 0)) and totemLevelRequirement or 1
+		activeSkill.skillData.totemLevel = data.minionLevelTable[totemBase.skillLevel] or 1
 
 		-- Get skill totem ID for totem skills
 		-- This is used to calculate totem life
@@ -625,6 +624,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					activeSkill.triggeredBy = skillEffect
 				end
 			end
+			skillModList:NewMod("Multiplier:SupportCount", "BASE", 1, "Support Count")
 			if level.PvPDamageMultiplier then
 				skillModList:NewMod("PvpDamageMultiplier", "MORE", level.PvPDamageMultiplier, skillEffect.grantedEffect.modSource)
 			end
@@ -734,7 +734,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Hollow Palm Technique added phys for skills that would use Quarterstaff
-	if activeSkill.actor.modDB.conditions.HollowPalm and activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff then
+	if activeSkill.actor.modDB.conditions.HollowPalm and ((activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff) or skillModList:Flag(activeSkill.skillCfg, "UseHollowPalmDamage")) then
 		local gemLevel = activeEffect.level
 		local physMin = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][1]
 		local physMax = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][2]
@@ -791,6 +791,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			minion.type = minionType
 			minion.minionData = env.data.minions[minionType]
 			minion.level = activeSkill.skillData.minionLevelIsEnemyLevel and env.enemyLevel or 
+								activeSkill.skillData.minionLevelIsTriggeredSkillLevel and activeEffect.srcInstance.supportEffect and activeEffect.srcInstance.supportEffect.activeSkillLevel and data.minionLevelTable[activeEffect.srcInstance.supportEffect.activeSkillLevel] or 
 								activeSkill.skillData.minionLevelIsPlayerLevel and (m_min(env.build and env.build.characterLevel or activeSkill.skillData.minionLevel or activeEffect.grantedEffectLevel.levelRequirement, activeSkill.skillData.minionLevelIsPlayerLevel)) or 
 								activeSkill.skillData.minionLevel or data.minionLevelTable[activeSkill.activeEffect.level] or 1
 			-- fix minion level between 1 and 100
@@ -969,8 +970,10 @@ function calcs.createMinionSkills(env, activeSkill)
 		}
 		local minionSkillIndex = activeSkill.activeEffect.srcInstance.skillMinionSkill
 		local minionSkillIndexCalcs = activeSkill.activeEffect.srcInstance.skillMinionSkillCalcs
-		local minionStatSetIndex = activeSkill.activeEffect.srcInstance.minionStatSet and activeSkill.activeEffect.srcInstance.minionStatSet[activeSkill.activeEffect.grantedEffect.id][minionSkillIndex] or 1
-		local minionStatSetCalcsIndex = activeSkill.activeEffect.srcInstance.minionStatSetCalcs and activeSkill.activeEffect.srcInstance.minionStatSetCalcs[activeSkill.activeEffect.grantedEffect.id][minionSkillIndexCalcs] or 1
+		local minionStatSetIndex = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id] 
+			and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id][minionSkillIndex] or 1
+		local minionStatSetCalcsIndex = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id]
+			and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id][minionSkillIndexCalcs] or 1
 		activeEffect.statSet = {
 			index = minionStatSetIndex,
 		}

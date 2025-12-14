@@ -115,12 +115,17 @@ directiveTable.base = function(state, args, out)
 	out:write('\ttags = { ')
 	local combinedTags = { }
 	for _, tag in ipairs(baseItemTags or {}) do
-		combinedTags[tag] = tag
+		combinedTags[tag] = true
 	end
 	for _, tag in ipairs(baseItemType.Tags) do
-		combinedTags[tag.Id] = tag.Id
+		combinedTags[tag.Id] = true
 	end
-	for _, tag in pairs(combinedTags) do
+	local combinedTagList = { }
+	for tag in pairsSortByKey(combinedTags) do
+		table.insert(combinedTagList, tag)
+	end
+	table.sort(combinedTagList)
+	for _, tag in ipairs(combinedTagList) do
 		out:write(tag, ' = true, ')
 	end
 	out:write('},\n')
@@ -131,6 +136,9 @@ directiveTable.base = function(state, args, out)
 		for _, line in ipairs(modDesc) do
 			table.insert(implicitLines, line)
 			table.insert(implicitModTypes, modDesc.modTags)
+		end
+		if mod.Id == "SpearImplicitDisplaySpearThrow1" then
+			table.insert(implicitLines, "Grants Skill: Spear Throw")
 		end
 	end
 	if state.type == "Belt" then
@@ -163,8 +171,34 @@ directiveTable.base = function(state, args, out)
 			["local_weapon_implicit_hidden_%_base_damage_is_lightning"] = "Lightning",
 			["local_weapon_implicit_hidden_%_base_damage_is_chaos"] = "Chaos",
 		}
+		local modAddedMinMap = {
+			["local_weapon_implicit_hidden_added_minimum_fire_damage"] = "Fire",
+			["local_weapon_implicit_hidden_added_minimum_cold_damage"] = "Cold",
+			["local_weapon_implicit_hidden_added_minimum_lightning_damage"] = "Lightning",
+			["local_weapon_implicit_hidden_added_minimum_chaos_damage"] = "Chaos",
+		}
+		local modAddedMaxMap = {
+			["local_weapon_implicit_hidden_added_maximum_fire_damage"] = "Fire",
+			["local_weapon_implicit_hidden_added_maximum_cold_damage"] = "Cold",
+			["local_weapon_implicit_hidden_added_maximum_lightning_damage"] = "Lightning",
+			["local_weapon_implicit_hidden_added_maximum_chaos_damage"] = "Chaos",
+		}
 		local conversion = {
 			["Physical"] = 100,
+			["Fire"] = 0,
+			["Cold"] = 0,
+			["Lightning"] = 0,
+			["Chaos"] = 0,
+		}
+		local addedMin = {
+			["Physical"] = 0,
+			["Fire"] = 0,
+			["Cold"] = 0,
+			["Lightning"] = 0,
+			["Chaos"] = 0,
+		}
+		local addedMax = {
+			["Physical"] = 0,
 			["Fire"] = 0,
 			["Cold"] = 0,
 			["Lightning"] = 0,
@@ -180,6 +214,16 @@ directiveTable.base = function(state, args, out)
 						conversion[dmgType] = conversion[dmgType] + value
 						total = total + value
 					end
+					local addedMinDamage = modAddedMinMap[mod["Stat"..i].Id]
+					if addedMinDamage then
+						local value = mod["Stat"..i.."Value"][1]
+						addedMin[addedMinDamage] = addedMin[addedMinDamage] + value
+					end
+					local addedMaxDamage = modAddedMaxMap[mod["Stat"..i].Id]
+					if addedMaxDamage then
+						local value = mod["Stat"..i.."Value"][1]
+						addedMax[addedMaxDamage] = addedMax[addedMaxDamage] + value
+					end
 				end
 			end
 		end
@@ -192,6 +236,12 @@ directiveTable.base = function(state, args, out)
 			end
 			if conversion[type] ~= 0 then
 				out:write(type, 'Min = ', math.floor(weaponType.DamageMin * conversion[type]), ', ', type, 'Max = ', math.floor(weaponType.DamageMax * conversion[type]), ', ')
+			end
+			if addedMin[type] ~= 0 then
+				out:write(type, 'Min = ', addedMin[type], ', ')
+			end
+			if addedMax[type] ~= 0 then
+				out:write(type,'Max = ', addedMax[type], ', ')
 			end
 		end
 		out:write('CritChanceBase = ', weaponType.CritChance / 100, ', ')
@@ -259,62 +309,6 @@ directiveTable.base = function(state, args, out)
 			end
 			out:write('},\n')
 		end
-	end
-	-- Special handling of Runes and SoulCores
-	if state.type == "Rune" or state.type == "SoulCore" or state.type == "Talisman" then
-		local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
-		local soulCoresPerClass = dat("SoulCoresPerClass"):GetRow("BaseItemType", baseItemType)
-
-		local stats = { }
-		local outLines = { }
-		if soulCores then
-			if #soulCores.StatsKeysWeapon > 0 then
-				for i, statKey in ipairs(soulCores.StatsKeysWeapon) do
-					local statValue = soulCores["StatsValuesWeapon"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-			if #soulCores.StatsKeysArmour > 0 then
-				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulCores.StatsKeysArmour) do
-					local statValue = soulCores["StatsValuesArmour"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-			if #soulCores.StatsKeysCaster > 0 then
-				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulCores.StatsKeysCaster) do
-					local statValue = soulCores["StatsValuesCaster"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-			-- Attribute runes are special case and can socket in everything
-			-- Sceptres are handled in "soulCoresPerClass"
-			if #soulCores.StatsKeysAttributes > 0 then
-				stats = { }  -- reset stats to empty
-				for i, statKey in ipairs(soulCores.StatsKeysAttributes) do
-					local statValue = soulCores["StatsValuesAttributes"][i]
-					stats[statKey.Id] = { min = statValue, max = statValue }
-				end
-				table.insert(outLines, 'Martial Weapons: ' .. table.concat(describeStats(stats), '\\n'))
-				table.insert(outLines, 'Armour: ' .. table.concat(describeStats(stats), '\\n'))
-				table.insert(outLines, 'Caster: ' .. table.concat(describeStats(stats), '\\n'))
-			end
-		end
-		-- Check for more slot specific Soulcores/Runes/Talismans
-		if soulCoresPerClass then
-			stats = { }
-			for i, statKey in ipairs(soulCoresPerClass.Stats) do
-				local statValue = soulCoresPerClass["StatsValues"][i]
-				stats[statKey.Id] = { min = statValue, max = statValue }
-			end
-			local coreItemClass = soulCoresPerClass.ItemClass.Id
-			table.insert(outLines, coreItemClass..': ' .. table.concat(describeStats(stats), '\\n'))
-		end
-		out:write('\timplicit = "'..table.concat(outLines, '\\n')..'",\n')
 	end
 	out:write('\treq = { ')
 	local reqLevel = 1
@@ -474,7 +468,7 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
-	"soulcore",
+	"talisman",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)

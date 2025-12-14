@@ -3,8 +3,9 @@
 --
 local function normalizeId(id)
 	id = tostring(id)
-	-- remove trailing underscores only. We can't match Hash sadly.
-	return id:gsub("_+$", "")
+	-- Remove underscore and everything after it. We can't match hash sadly.
+	-- Grip of Kulemak is FourUniqueRing33_a in stash layout and FourUniqueRing33 in flavour text.
+	return id:match("^[^_]+")
 end
 
 local function cleanAndSplit(str)
@@ -31,22 +32,6 @@ local forcedNameMap = {
 	["FourUniqueSceptre6a"]  = "Guiding Palm of the Heart",
 	["FourUniqueSceptre6b"]  = "Guiding Palm of the Eye",
 	["FourUniqueSceptre6c"]  = "Guiding Palm of the Mind",
-	["FourUniqueBootsStrDex4"]  = "Shankgonne", -- 0.3.0 Uniques are missing from Unique Stash Layout.
-	["FourUniqueBodyDexInt13"]  = "Cospri's Will",
-	["FourUniqueBelt23"]  = "Darkness Enthroned",
-	["FourUniqueCrossbow5"]  = "Double Vision",
-	["FourUniqueBow9"]  = "Fairgraves' Curse",
-	["FourUniqueBodyStrDex8"]  = "Lightning Coil",
-	["FourUniqueTwoHandMace10"]  = "Marohi Erqi",
-	["FourUniqueGlovesDexInt6"]  = "Thunderfist",
-	["FourUniqueBelt4"]  = "Umbilicus Immortalis",
-	["FourUniqueShieldDex5"]  = "Kaltenhalt",
-	["FourUniqueAmulet21"]  = "Hinekora's Sight",
-	["FourUniqueRing33"]  = "Grip of Kulemak",
-	["FourUniqueJewel12"]  = "Heart of the Well",
-	["FourUniqueLifeFlask1"]  = "Blood of the Warrior",
-	["FourUniqueStaff13"]  = "The Unborn Lich",
-	--["FourUnique"]  = "Undying Hate", Unsure, flavour text per conqueror.
 }
 
 for row in dat("UniqueStashLayout"):Rows() do

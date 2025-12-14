@@ -9,5 +9,3 @@ local itemBases = ...
 #subType Warstaff
 #socketLimit 4
 #baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+
-#baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+Cruel
-#baseMatch Metadata/Items/Weapons/TwoHandWeapons/Staves/FourQuarterstaff%d+Endgame

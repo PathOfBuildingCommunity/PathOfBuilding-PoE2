@@ -513,7 +513,7 @@ function DropDownClass:CheckDroppedWidth(enable)
 				line = line.label or ""
 			end
 			  -- +10 to stop clipping
-			dWidth = m_max(dWidth, DrawStringWidth(lineHeight, "VAR", line) + 10)
+			dWidth = m_max(dWidth, DrawStringWidth(lineHeight, "VAR", line or "") + 10)
 		end
 		  -- no greater than self.maxDroppedWidth
 		self.droppedWidth = m_min(dWidth + scrollWidth, self.maxDroppedWidth)

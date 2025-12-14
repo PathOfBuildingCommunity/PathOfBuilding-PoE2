@@ -136,8 +136,8 @@ local function applySpecial(val, spec)
 		val[spec.v].max = val[spec.v].max / 1000
 		val[spec.v].fmt = "g"
 	elseif spec.k == "per_minute_to_per_second" then
-		val[spec.v].min = val[spec.v].min / 60
-		val[spec.v].max = val[spec.v].max / 60
+		val[spec.v].min = floor(val[spec.v].min / 60, 1)
+		val[spec.v].max = floor(val[spec.v].max / 60, 1)
 		val[spec.v].fmt = "g"
 	elseif spec.k == "per_minute_to_per_second_0dp" then
 		val[spec.v].min = round(val[spec.v].min / 60)
@@ -183,6 +183,10 @@ local function applySpecial(val, spec)
 		val[spec.v].min = ItemClasses[val[spec.v].min].Name
 		val[spec.v].max = ItemClasses[val[spec.v].max].Name
 		val[spec.v].fmt = "s"
+	elseif spec.k == "one_hundred_divide_by_value" then
+		val[spec.v].min = round(100 / val[spec.v].min, 2)
+		val[spec.v].max = round(100 / val[spec.v].max, 2)
+		val[spec.v].fmt = "g"
 	elseif spec.k == "multiplicative_damage_modifier" then
 		val[spec.v].min = 100 + val[spec.v].min
 		val[spec.v].max = 100 + val[spec.v].max

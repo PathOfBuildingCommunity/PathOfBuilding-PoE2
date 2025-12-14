@@ -89,13 +89,13 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="skill_effect_duration"
+			[1]="minion_duration"
 		}
 	},
 	["base_secondary_skill_effect_duration"]=1,
 	["base_skill_effect_duration"]=2,
 	["bone_offering_damage_taken_+%_final"]=3,
 	["bone_offering_hit_threshold_%_of_maximum_life"]=4,
-	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=5
+	["minion_duration"]=5,
+	parent="skill_stat_descriptions"
 }

@@ -536,11 +536,17 @@ holding Shift will put it in the second.]])
 		end
 		drop.tooltipFunc = function(tooltip, mode, index, value)
 			tooltip:Clear()
-			if value.label ~= "None" then
+			if value.lines and value.lines[1] ~= "None" then
 				tooltip:AddLine(14, "^7"..value.name)
-				tooltip:AddLine(14, "^7"..data.itemBases[value.name].implicit)
+				for _, line in ipairs(value.lines) do
+					tooltip:AddLine(14, "^7"..line)
+				end
 				-- Adding Comparison
-				self:AddModComparisonTooltip(tooltip, { value.label, type = "Rune" })
+				local compLines = { type = "Rune" }
+				for _, line in ipairs(value.lines) do
+					t_insert(compLines, line)
+				end
+				self:AddModComparisonTooltip(tooltip, compLines)
 			end
 		end
 		drop.shown = function()
@@ -1576,18 +1582,16 @@ function ItemsTabClass:UpdateAffixControls()
 	self:UpdateCustomControls()
 end
 
-local runeModLines = { { name = "None", label = "None", order = -1, slot = "None", group = -1 } }
+local runeModLines = { { name = "None", label = "None", lines = { "None" }, order = -1, slot = "None", group = -1 } }
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		for i, mod in ipairs(runeMod) do
-			t_insert(runeModLines, { name = name, label = mod, order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
-		end
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
 	end
 end
 table.sort(runeModLines, function(a, b)
 	if a.order == b.order then
-		return a.label < b.label
+		return a.req < b.req
 	elseif a.group == b.group then
 		return a.order < b.order
 	else
@@ -2516,12 +2520,14 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				local modId = essence.mods[self.displayItem.type]
 				if modId then
 					local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
-					t_insert(modList, {
-						label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
-						mod = mod,
-						type = "custom",
-						essence = essence,
-					})
+					if mod then -- passive_hash mods don't get described
+						t_insert(modList, {
+							label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
+							mod = mod,
+							type = "custom",
+							essence = essence,
+						})
+					end
 				end
 			end
 			table.sort(modList, function(a, b)
@@ -2537,7 +2543,9 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
 		t_insert(sourceList, { label = "Suffix", sourceId = "SUFFIX" })
 	end
-	if self.displayItem.type ~= "Jewel" and self.displayItem.type ~= "Flask" then
+	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods, 
+									-- but it makes it so we don't have to maintain a list of applicable essence-able base types
+	if #modList > 0 then
 		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
@@ -2881,24 +2889,26 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 			for _, modLine in ipairs(modList) do
 				if item:CheckModLineVariant(modLine) then
 					if scale ~= 1 then
-						local codyModLine = copyTable(modLine)
+						local copyModLine = copyTable(modLine)
 						local modsList = copyTable(modLine.modList)
 						local scaledList = new("ModList")
-						-- some passive node mods are only Condition/Flag and have no value to scale by default, grab number from line
-						if modsList[1] and modsList[1].type == "FLAG" then
-							modsList[1].value = tonumber(codyModLine.line:match("%d+"))
-						end
 						scaledList:ScaleAddList(modsList, scale)
 						for j, mod in ipairs(scaledList) do
-							local newValue = 0
+							local newValue
 							if type(mod.value) == "number" then
 								newValue = mod.value
 							elseif type(mod.value) == "table" then
-								newValue = mod.value.mod.value
+								if mod.value.mod then
+									newValue = mod.value.mod.value
+								else
+									newValue = mod.value.value
+								end
 							end
-							codyModLine.line = codyModLine.line:gsub("%d*%.?%d+", math.abs(newValue))
+							if type(newValue) == "number" then
+								copyModLine.line = copyModLine.line:gsub("%d*%.?%d+", math.abs(newValue), 1) -- Only scale first number in line
+							end
 						end
-						tooltip:AddLine(16, itemLib.formatModLine(codyModLine, dbMode))
+						tooltip:AddLine(16, itemLib.formatModLine(copyModLine, dbMode))
 					else
 						tooltip:AddLine(16, itemLib.formatModLine(modLine, dbMode))
 					end

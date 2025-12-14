@@ -48,6 +48,9 @@ function RenderInit() end
 function GetScreenSize()
 	return 1920, 1080
 end
+function GetScreenScale()
+	return 1
+end
 function SetClearColor(r, g, b, a) end
 function SetDrawLayer(layer, subLayer) end
 function SetViewport(x, y, width, height) end
@@ -139,7 +142,7 @@ function PCall(func, ...)
 		return nil, unpack(ret)
 	else
 		return ret[2]
-	end	
+	end
 end
 function ConPrintf(fmt, ...)
 	-- Optional
@@ -153,6 +156,13 @@ function OpenURL(url) end
 function SetProfiling(isEnabled) end
 function Restart() end
 function Exit() end
+
+---@return string? provider
+---@return string? version
+---@return number? status
+function GetCloudProvider(fullPath)
+	return nil, nil, nil
+end
 
 local l_require = require
 function require(name)

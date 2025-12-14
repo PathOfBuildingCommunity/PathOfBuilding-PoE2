@@ -98,18 +98,10 @@ return {
 			[1]="skill_curse_all_elements_resistance_%_magnitude_to_apply"
 		}
 	},
-	[6]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_buff_all_elements_resistance_%_to_apply"]=3,
 	["base_skill_effect_duration"]=4,
 	parent="skill_stat_descriptions",
-	["skill_curse_all_elements_resistance_%_magnitude_to_apply"]=5,
-	["skill_effect_duration"]=6
+	["skill_curse_all_elements_resistance_%_magnitude_to_apply"]=5
 }

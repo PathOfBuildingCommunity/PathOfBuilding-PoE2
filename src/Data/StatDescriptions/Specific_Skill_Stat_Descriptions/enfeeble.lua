@@ -155,13 +155,6 @@ return {
 			[1]="skill_curse_damage_+%_final_vs_unique_magnitude_to_apply"
 		}
 	},
-	[8]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_buff_damage_+%_final_to_apply"]=3,
@@ -169,6 +162,5 @@ return {
 	["base_skill_effect_duration"]=5,
 	parent="skill_stat_descriptions",
 	["skill_curse_damage_+%_final_magnitude_to_apply"]=6,
-	["skill_curse_damage_+%_final_vs_unique_magnitude_to_apply"]=7,
-	["skill_effect_duration"]=8
+	["skill_curse_damage_+%_final_vs_unique_magnitude_to_apply"]=7
 }

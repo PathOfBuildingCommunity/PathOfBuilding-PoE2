@@ -133,6 +133,22 @@ return {
 			[1]={
 				limit={
 					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Pustules store expected damage of Poisons inflicted on them"
+			}
+		},
+		stats={
+			[1]="skill_specific_stat_description_mode"
+		}
+	},
+	[7]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
 						[1]=1,
 						[2]="#"
 					},
@@ -145,24 +161,50 @@ return {
 			}
 		},
 		stats={
-			[1]="toxic_domain_+1%_final_more_damage_per_x_stored_poison",
-			[2]="toxic_domain_max_damage_+%_final_from_stored_poison"
+			[1]="toxic_pustule_burst_1%_more_damage_per_x_stored_poison",
+			[2]="toxic_pustule_max_burst_damage_+%_final_from_stored_poison"
 		}
 	},
-	[7]={
+	[8]={
 		[1]={
 			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=2
+				},
 				limit={
 					[1]={
-						[1]="#",
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=10,
+						[2]=10
+					}
+				},
+				text="Stored Poison adds up to {1} metre to base explosion radius"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=2
+				},
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Pustules store expected damage of Poisons inflicted on them and will Detonate early after storing {0} Poison damage"
+				text="Stored Poison adds up to {1} metres to base explosion radius"
 			}
 		},
 		stats={
-			[1]="toxic_domain_pustule_poison_explode_threshold"
+			[1]="toxic_pustule_burst_base_radius_+1_per_x_stored_poison",
+			[2]="toxic_pustule_max_additional_burst_base_radius_+"
 		}
 	},
 	["active_skill_area_of_effect_radius"]=2,
@@ -170,7 +212,9 @@ return {
 	["base_skill_detonation_time"]=4,
 	["local_poison_on_hit"]=5,
 	parent="skill_stat_descriptions",
-	["toxic_domain_+1%_final_more_damage_per_x_stored_poison"]=6,
-	["toxic_domain_max_damage_+%_final_from_stored_poison"]=6,
-	["toxic_domain_pustule_poison_explode_threshold"]=7
+	["skill_specific_stat_description_mode"]=6,
+	["toxic_pustule_burst_1%_more_damage_per_x_stored_poison"]=7,
+	["toxic_pustule_burst_base_radius_+1_per_x_stored_poison"]=8,
+	["toxic_pustule_max_additional_burst_base_radius_+"]=8,
+	["toxic_pustule_max_burst_damage_+%_final_from_stored_poison"]=7
 }

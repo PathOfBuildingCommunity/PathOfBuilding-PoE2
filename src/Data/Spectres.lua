@@ -6,6 +6,638 @@
 --
 local minions, mod, flag = ...
 
+-- Abyssal
+minions["Metadata/Monsters/LeagueAbyss/Lightless/Cocoon3Spectre"] = {
+	name = "Lightless Abomination",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "allows_inc_aoe", "Beast_onhit_audio", "demon", "fire_affinity", "lightless_faction", "medium_movement", "not_dex", "not_int", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 18,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSAbyssCocoon3BallSpit",
+		"GSAbyssCocoon3BallSpitImpact",
+		"GSAbyssCocoon3BallSpitImpactWall",
+		"CGEAbyssCocoon3FlameGeyser",
+		"GTAbyssCocoon3FlameGeyser",
+		"MPSAbyssCocoon3BallSpitSmall",
+		"GSAbyssCocoon3BallSpitSmallImpact",
+		"GSAbyssCocoon3BallSpitSmallImpactWall",
+		"MMSAbyssCocoon3ChargedMortar",
+		"EASAbyssCocoon3ChargedMortar",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Lightless/MorayClanCasterSpectre"] = {
+	name = "Lightless Moray",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "allows_inc_aoe", "demon", "fast_movement", "fire_affinity", "lightless_faction", "not_dex", "ranged", "Unarmed_onhit_audio", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	armour = 0.25,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EDSAbyssMorayClanFlamethrower",
+		"CTS2AbyssMorayClan",
+		"GSAbyssMorayClanShadeFormErupt",
+		"GAAbyssMorayClanTailSwipeDetonation",
+		"MPSAbyssPaleEliteFireball",
+		"GSAbyssPaleEliteFireball",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 4.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4066]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Lightless/CarrionWingAbyssSpectre"] = {
+	name = "Lightless Vengewing",
+	monsterTags = { "abyssal", "demon", "fast_movement", "fire_affinity", "lightless_faction", "Unarmed_onhit_audio", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 39,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"TBAbyssCarrionWingBeam",
+		"GSAbyssCarrionWingBeamImpact",
+		"DTTCarrionWingDodgeLeft",
+		"DTTCarrionWingDodgeRight",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Lightless/SerpentClanCasterAbyssSpectre"] = {
+	name = "Lightless Serpent",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "allows_inc_aoe", "Claw_onhit_audio", "demon", "fast_movement", "fire_affinity", "lightless_faction", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.4,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 40,
+	spectreReservation = 64,
+	companionReservation = 35.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"CGEAbyssSerpentColdDOT",
+		"MAASAbyssSerpentEmerge",
+		"GSAbyssSerpentColdExplode",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 4.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2Spectre"] = {
+	name = "Hound of the Pit",
+	monsterTags = { "abyssal", "demon", "medium_movement", "melee", "not_int", "not_str", "pit_faction", "Snap_onhit_audio", },
+	life = 0.6,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 0.6,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 34,
+	companionReservation = 23.1,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.116, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster2LargeSpectre"] = {
+	name = "Hound of the Pit",
+	monsterTags = { "abyssal", "demon", "melee", "not_int", "not_str", "pit_faction", "Snap_onhit_audio", "very_fast_movement", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 53,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.116, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/PrimordialMonster3AbyssSpectre"] = {
+	name = "Primordium of the Pit",
+	monsterTags = { "abyssal", "demon", "medium_movement", "melee", "not_int", "not_str", "pit_faction", "Unarmed_onhit_audio", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 0.78,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 36,
+	companionReservation = 24.3,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSAbyssPrimordialMonsterScreech",
+		"DTTPrimordialBeast3LeapAttack",
+		"GAPrimordialMonster3Leap",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/CorpseStrider/CorpseStriderAbyssSpectre"] = {
+	name = "Strider of the Pit",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "demon", "lightning_affinity", "not_dex", "not_int", "pit_faction", "ranged", "SpearMetal_onhit_audio", "very_fast_movement", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 58,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAAbyssCorpseStrideSlams",
+		"EAAAbyssCorpseStrideSlams",
+		"GSAbyssCorpseStriderLighting",
+		"GTAbyssCorpseStriderLighting",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
+		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
+		mod("StunDuration", "OVERRIDE", 4.133, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4133]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker2/KulemaksGraspSpectre"] = {
+	name = "Abyssal Shambler",
+	monsterTags = { "abyssal", "demon", "melee", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MPSAbyssPaleWalker2Fireball",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker1/KulemaksGripSpectre"] = {
+	name = "Abyssal Walker",
+	monsterTags = { "abyssal", "demon", "melee", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSAbyssSoulBlast",
+		"EASAbyssSoulRelease",
+		"MPSAbyssSoulRelease",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/PaleWalker3/KulemaksClutchSpectre"] = {
+	name = "Abyssal Strangler",
+	monsterTags = { "abyssal", "demon", "melee", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SOAbyssCrystalMineSpectre",
+		"GSAbyssCrystalMine",
+		"GTAbyssCrystalMineSpectre",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Fodder/HuhuGrubLarvaeLargeAbyssSpectre"] = {
+	name = "Gargantuan Larva",
+	monsterTags = { "abyssal", "demon", "insect", "medium_movement", "melee", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.8,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 33,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+		"Lightless Void",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"HuhuGrubLarvaeMortar",
+		"HuhuGrubRangedStanceChange",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Pit/FungalArtillery/FungalArtilleryAbyssSpectre"] = {
+	name = "Fungoid of the Pit",
+	monsterTags = { "abyssal", "allows_additional_projectiles", "demon", "pit_faction", "ranged", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 6,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MPSAbyssPitArtillery",
+		"GSAbyssPitArtilleryMortarImpact",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/CollectorSpectre"] = {
+	name = "Blackblooded Proboscite",
+	monsterTags = { "abyssal", "allows_inc_aoe", "blackblood_faction", "demon", "medium_movement", "Unarmed_onhit_audio", },
+	life = 1.15,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"CGEAbyssLivingBloodGround",
+		"MASExtraAttackDistance20",
+		"GSAbyssCollectorExplodeOnDeath",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/CretinSpectre"] = {
+	name = "Blackblooded Cretin",
+	monsterTags = { "abyssal", "allows_inc_aoe", "blackblood_faction", "demon", "medium_movement", "Unarmed_onhit_audio", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SOBlackbloodRemnant",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/PaleEliteSpectre_"] = {
+	name = "Blackblooded Elite",
+	monsterTags = { "abyssal", "blackblood_faction", "cold_affinity", "demon", "medium_movement", "not_dex", "not_str", "Unarmed_onhit_audio", },
+	life = 2.25,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.2,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MPSAbyssPaleEliteSnowBall",
+		"GSAbyssPaleEliteBeam",
+		"TeleportHellscapePaleElite",
+		"GSAbyssPaleEliteBeamLong",
+		"EASAbyssPaleEliteBeamLong",
+		"GSAbyssPaleEliteSnowBallImpact",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/RumCarrierSpectre"] = {
+	name = "Blackblooded Blisterboil",
+	monsterTags = { "abyssal", "allows_inc_aoe", "blackblood_faction", "demon", "fast_movement", "Unarmed_onhit_audio", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 40,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+		"Lightless Passage (Act 2)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSPaleCrawlerExplode5",
+		"EASPaleCrawlerExplode",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 2.116, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAbyss/Blackblood/TarHulkSpectre"] = {
+	name = "Blackblooded Tarhulk",
+	monsterTags = { "abyssal", "allows_inc_aoe", "Beast_onhit_audio", "blackblood_faction", "cold_affinity", "demon", "melee", "very_slow_movement", },
+	life = 3.75,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 16,
+	accuracy = 1,
+	baseMovementSpeed = 11,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Abyssal Depths (Act 2)",
+		"Dark Domain",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSAbyssHulkIceShatter",
+		"GSAbyssHulkIceExplode",
+		"GTAbyssHulkIceExplode",
+	},
+	modList = {
+		-- MonsterIgnoreActorScaleFromStats [ignore_actor_scale_from_stats = 1]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
 -- Beetles
 minions["Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured"] = {
 	name = "Adorned Beetle",
@@ -109,7 +741,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredDull"] = {
 		"GAMediumBeetleSunder",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -146,7 +778,7 @@ minions["Metadata/Monsters/EtchedBeetles/MediumEtchedBeetleArmouredTuskWide"] = 
 		"GAMediumBeetleSunder",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -208,7 +840,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder2_"]
 		"MeleeAtAnimationSpeedFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
 	},
 }
 
@@ -237,7 +869,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonFodder3_"]
 		"MeleeAtAnimationSpeedFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -271,7 +903,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite1_"] 
 		"GSHellscapeDemonElite1Screech",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -302,7 +934,7 @@ minions["Metadata/Monsters/LeagueHellscape/DemonFaction/HellscapeDemonElite2_"] 
 		"GSHellscapeDemonEliteBeamNuke",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -337,7 +969,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder1_"]
 		"GAHellscapeFleshLeapImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
 	},
 }
 
@@ -372,7 +1004,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder2_"]
 		"GAHellscapeFleshFodderSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3800]
+		mod("StunDuration", "OVERRIDE", 3.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3800]
 	},
 }
 
@@ -407,7 +1039,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder3_"]
 		"SOHellscapeFleshFodderPustule",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -438,7 +1070,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshFodder4_"]
 		"HellscapeFleshFodderArc",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2588]
+		mod("StunDuration", "OVERRIDE", 2.588, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2588]
 	},
 }
 
@@ -477,7 +1109,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite1_"] 
 		"SSMFleshEliteOrb",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
+		mod("StunDuration", "OVERRIDE", 2.766, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
 	},
 }
 
@@ -511,7 +1143,7 @@ minions["Metadata/Monsters/LeagueHellscape/FleshFaction/HellscapeFleshElite2_"] 
 		"GAHellscapeFleshElite2Combo2Slam3",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
 	},
 }
 
@@ -541,7 +1173,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder1_"] =
 		"MPSHellscapePaleHammerhead",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -575,7 +1207,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder2_"] =
 		"GAHellscapePaleDogmanDashSwipe",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -607,7 +1239,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleFodder3_"] =
 		"DTTHellscapeSpiderDodgeRight",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4150]
+		mod("StunDuration", "OVERRIDE", 4.15, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4150]
 	},
 }
 
@@ -641,7 +1273,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite1_"] = 
 		"TeleportHellscapePaleElite",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -681,7 +1313,7 @@ minions["Metadata/Monsters/LeagueHellscape/PaleFaction/HellscapePaleElite2__"] =
 	modList = {
 		-- HellscapeYellowLightningOverride [shock_art_variation = 10]
 		-- HellscapeYellowLightningOverride [damage_hit_effect_index = 103]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -718,7 +1350,73 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	},
 	modList = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+	},
+}
+
+-- Bloodbilge
+minions["Metadata/Monsters/TumourMonsters/Statue07/QimarMonstrositySpectre"] = {
+	name = "Bloodbilge",
+	monsterTags = { "demon", "medium_movement", "MonsterBlunt_onhit_audio", "mud_blood", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.18,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 28,
+	accuracy = 1,
+	baseMovementSpeed = 34,
+	spectreReservation = 113,
+	companionReservation = 51.9,
+	monsterCategory = "Demon",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+	},
+}
+
+-- Bloodfever
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverButcherSpectre"] = {
+	name = "Harano, the Meat Carver",
+	monsterTags = { "1HAxe_onhit_audio", "fast_movement", "human", "humanoid", "karui", "not_dex", "not_int", "red_blood", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.75,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 15,
+	accuracy = 1,
+	weaponType1 = "One Handed Axe",
+	baseMovementSpeed = 39,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DTTKaruiBloodFeverButcherLeap",
+		"GABloodFeverButcherLeapSlamImpact",
+		"GABloodFeverButcherSlamImpact",
+		"CGEBloodfeverKaruiFast",
+	},
+	modList = {
+		mod("PhysicalDamage", "INC", 0, 0, 0), -- MonsterBleedImplicit [physical_damage_+% = 0]
+		mod("BleedChance", "BASE", 100, 1, 0), -- MonsterBleedImplicit [attacks_inflict_bleeding_on_hit = 1]
+		mod("StunDuration", "OVERRIDE", 4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4000]
 	},
 }
 
@@ -753,7 +1451,121 @@ minions["Metadata/Monsters/QuillCrab/QuillCrab"] = {
 		"QuillCrabSpikeShrapnel",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/QuillCrab/QuillCrabTropical"] = {
+	name = "Quill Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "cold_affinity", "crustacean_beast", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "red_blood", "slow_movement", },
+	extraFlags = {
+		recommendedBeast = true,
+		recommendedSpectre = true,
+	},
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 40,
+	accuracy = 1,
+	baseMovementSpeed = 23,
+	spectreReservation = 38,
+	companionReservation = 25.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Glacial Tarn (Act 6)",
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Untainted Paradise (Map)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstTropical",
+		"QuillCrabSpikeShrapnelTropical",
+		"CGEQuillCrabTropicalChill",
+		"GSQuillCrabColdImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/QuillCrab/QuillCrabBigTropical"] = {
+	name = "Quill Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "cold_affinity", "insect", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "red_blood", "slow_movement", },
+	extraFlags = {
+		recommendedBeast = true,
+		recommendedSpectre = true,
+	},
+	life = 0.85,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.85,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 50,
+	accuracy = 1,
+	baseMovementSpeed = 27,
+	spectreReservation = 44,
+	companionReservation = 27.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Glacial Tarn (Act 6)",
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Untainted Paradise (Map)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"QuillCrabSpikeBurstEmptyAction",
+		"QuillCrabSpikeBurstTropical",
+		"QuillCrabSpikeShrapnelTropical",
+		"CGEQuillCrabTropicalChill",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/CrabMonsters/CrabCoconut"] = {
+	name = "Coconut Crab",
+	monsterTags = { "beast", "crustacean_beast", "extra_extra_small_height", "hard_armour", "is_unarmed", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "puncturing_weapon", "Unarmed_onhit_audio", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.65,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 29,
+	spectreReservation = 36,
+	companionReservation = 24.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shoreline Hideout (Act 4)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -787,7 +1599,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBig"] = {
 		"QuillCrabSpikeShrapnel",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -822,7 +1634,7 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabPoison"] = {
 		"QuillCrabSpikeShrapnelPoison",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -861,13 +1673,13 @@ minions["Metadata/Monsters/QuillCrab/QuillCrabBigPoison_"] = {
 		"QuillCrabSpikeShrapnelPoison",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
 minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	name = "Brimstone Crab",
-	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "crustacean_beast", "fire", "fire_affinity", "melee", "MonsterStab_onhit_audio", "not_dex", "not_int", "ranged", "slow_movement", },
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "crustacean_beast", "fire", "fire_affinity", "melee", "not_dex", "not_int", "ranged", "slow_movement", "Snap_onhit_audio", },
 	life = 1.15,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 1,
@@ -900,7 +1712,44 @@ minions["Metadata/Monsters/ShellMonster/ShellMonster"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+	},
+}
+
+minions["Metadata/Monsters/ShellMonster/ShellMonsterPoison_"] = {
+	name = "Caustic Crab",
+	monsterTags = { "allows_additional_projectiles", "beast", "crustacean_beast", "not_dex", "not_int", "physical_affinity", "ranged", "slow_movement", "Snap_onhit_audio", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = -30,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 22,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Untainted Paradise (Map)",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"ShellMonsterDeathMortarPoison",
+		"EDSShellMonsterPoisonSpray",
+		"ShellMonsterSprayMortarPoison",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -942,7 +1791,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleBow"] = {
 		"GAAzmeriVirulentPod",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -977,7 +1826,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleDaggerDagger"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -1013,14 +1862,14 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictFemaleStaff"] = {
 		"CGEAzmeriPictStaffSwampGround",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
 -- Cleansed Maps
 minions["Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy"] = {
 	name = "Fettered Hook",
-	monsterTags = { "demon", "MonsterStab_onhit_audio", "mud_blood", "not_int", "not_str", "very_slow_movement", },
+	monsterTags = { "Claw_onhit_audio", "demon", "mud_blood", "not_int", "not_str", "very_slow_movement", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.5,
@@ -1044,7 +1893,7 @@ minions["Metadata/Monsters/Sanctified/Floppy/SanctifiedFloppy"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1533]
+		mod("StunDuration", "OVERRIDE", 1.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1533]
 	},
 }
 
@@ -1075,7 +1924,7 @@ minions["Metadata/Monsters/Sanctified/Monstrosity/SanctifiedMonstrosity"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
 	},
 }
 
@@ -1147,7 +1996,7 @@ minions["Metadata/Monsters/Sanctified/Snake/SanctifiedSnake"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
 	},
 }
 
@@ -1181,7 +2030,7 @@ minions["Metadata/Monsters/Sanctified/Spider/SanctifiedSpider"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -1214,7 +2063,7 @@ minions["Metadata/Monsters/Sanctified/Tentacle/SanctifiedTentacle"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -1244,7 +2093,7 @@ minions["Metadata/Monsters/Sanctified/Writhing/SanctifiedWrithing"] = {
 	},
 	modList = {
 		-- CleansedMonsterNoEquipmentDrops [drop_no_equipment = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
+		mod("StunDuration", "OVERRIDE", 2.083, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
 	},
 }
 
@@ -1288,7 +2137,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBanditExecutioner"] = {
 		"GAMutewindBanditExecutionerCascadeSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -1329,7 +2178,7 @@ minions["Metadata/Monsters/Mutewind/MutewindBoy"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
@@ -1368,7 +2217,7 @@ minions["Metadata/Monsters/Mutewind/MutewindGirl"] = {
 		"GAMutewindGirlSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
@@ -1412,7 +2261,7 @@ minions["Metadata/Monsters/Mutewind/MutewindMan2HSpear"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1454,7 +2303,7 @@ minions["Metadata/Monsters/Mutewind/MutewindManDualSword"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1500,11 +2349,11 @@ minions["Metadata/Monsters/Mutewind/MutewindManSpearShield_"] = {
 	modList = {
 		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock40Bypass10_ [monster_base_block_% = 20]
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock40Bypass10_ [base_block_%_damage_taken = 10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
-minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
+minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerCorroded__"] = {
 	name = "Faridun Wind-slicer",
 	monsterTags = { "Claw_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
 	life = 1.05,
@@ -1539,7 +2388,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualDaggerSandCrusted"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1583,7 +2432,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanDualSword"] = {
 		"EmptyActionMutewindWomanDodgeRightIdle",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1625,7 +2474,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanJavelin"] = {
 		"WalkEmergeMutewind",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1635,7 +2484,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_"] = 
 	extraFlags = {
 		recommendedSpectre = true,
 	},
-	life = 2.3,
+	life = 1.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.5,
 	evasion = 0.7,
@@ -1643,15 +2492,15 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_"] = 
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.73,
+	damage = 1.5,
 	damageSpread = 0.2,
 	attackTime = 1.5,
 	attackRange = 21,
 	accuracy = 1,
 	weaponType1 = "Spear",
 	baseMovementSpeed = 54,
-	spectreReservation = 93,
-	companionReservation = 45.6,
+	spectreReservation = 67,
+	companionReservation = 36.6,
 	monsterCategory = "Humanoid",
 	spawnLocation = {
 		"Qimah Reservoir (Act 6)",
@@ -1675,7 +2524,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorrodedEliteSpectre_"] = 
 	},
 }
 
-minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
+minions["Metadata/Monsters/Mutewind/MutewindWomanSpearCorroded__"] = {
 	name = "Faridun Spearwoman",
 	monsterTags = { "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", },
 	life = 1.1,
@@ -1715,7 +2564,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearSandCrusted"] = {
 		"GAMutewindWomanSpearStab2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1758,7 +2607,7 @@ minions["Metadata/Monsters/Mutewind/MutewindWomanSpearShield"] = {
 		"CTSMutewindSpearShieldStance3",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -1800,7 +2649,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
+		mod("StunDuration", "OVERRIDE", 3.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
 	},
 }
 
@@ -1826,7 +2675,6 @@ minions["Metadata/Monsters/TheCountsEliteGuardCorrupted/MeleeVariantB/CorruptedE
 	spawnLocation = {
 		"Holten Estate (Act 6)",
 		"Ogham Manor (Act 1)",
-		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -1985,7 +2833,7 @@ minions["Metadata/Monsters/TheCountsGuardEliteCorruptedMageLessCorrupted/Corrupt
 		"EDSCorruptedMageFlamethrower",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
+		mod("StunDuration", "OVERRIDE", 2.33, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
 	},
 }
 
@@ -2021,14 +2869,14 @@ minions["Metadata/Monsters/TwoheadedTitan/TwoHeadedTitan_"] = {
 		"GATwoHeadedTitanStomp",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
 -- Infested
 minions["Metadata/Monsters/ParasiteMonsters/OctopusParasite"] = {
 	name = "Infested Octopus",
-	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "red_blood", },
+	monsterTags = { "beast", "Beast_onhit_audio", "medium_movement", "red_blood", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
@@ -2062,7 +2910,7 @@ minions["Metadata/Monsters/ParasiteMonsters/OctopusParasite"] = {
 
 minions["Metadata/Monsters/ParasiteMonsters/TurtleParasite__"] = {
 	name = "Infested Turtle",
-	monsterTags = { "beast", "Claw_onhit_audio", "medium_movement", "not_dex", "not_int", "red_blood", },
+	monsterTags = { "beast", "medium_movement", "MonsterStab_onhit_audio", "not_dex", "not_int", "red_blood", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.75,
@@ -2095,7 +2943,7 @@ minions["Metadata/Monsters/ParasiteMonsters/TurtleParasite__"] = {
 
 minions["Metadata/Monsters/ParasiteMonsters/AngerfishParasite"] = {
 	name = "Infested Anglerfish",
-	monsterTags = { "beast", "Beast_onhit_audio", "medium_movement", "not_int", "not_str", "red_blood", },
+	monsterTags = { "beast", "medium_movement", "MonsterStab_onhit_audio", "not_int", "not_str", "red_blood", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.25,
@@ -2128,7 +2976,7 @@ minions["Metadata/Monsters/ParasiteMonsters/AngerfishParasite"] = {
 
 minions["Metadata/Monsters/ParasiteMonsters/MantaRayParasite"] = {
 	name = "Infested Manta",
-	monsterTags = { "beast", "medium_movement", "not_int", "red_blood", "Stab_onhit_audio", },
+	monsterTags = { "beast", "medium_movement", "not_int", "red_blood", "Unarmed_onhit_audio", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.25,
@@ -2232,7 +3080,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot01"
 		"GTBoneZealotLightningStorm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -2269,7 +3117,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultist_Zealots/BoneCultistZealot02"
 		"BoneCultistZealotFirestorm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -2340,7 +3188,7 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Beast/BoneCultistBeast"] = 
 	},
 	modList = {
 		-- set_melee_defer_damage_prediction [set_melee_defer_damage_prediction = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -2413,7 +3261,52 @@ minions["Metadata/Monsters/BoneCultists/BoneCultists_Shield/BoneCultistShield"] 
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
 		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3083]
+		mod("StunDuration", "OVERRIDE", 3.083, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3083]
+	},
+}
+
+-- Quadrilla
+minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
+	name = "Quadrilla",
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.995,
+	attackRange = 21,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Howling Caves (Act 6)",
+		"Jungle Ruins (Act 3)",
+		"Riverside (Map)",
+		"Rupture (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"GAQuadrillaSunder",
+		"EAAQuadrillaThrow",
+		"MeleeAtAnimationSpeed",
+		"GPAQuadrillaRock",
+		"SSMQuadrillaRock",
+		"QuadrillaShieldCharge",
+		"TCQuadrillaCharge",
+		"EASQuadrillaTaunt",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -2448,7 +3341,7 @@ minions["Metadata/Monsters/RatMonster/RatMonster"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
+		mod("StunDuration", "OVERRIDE", 1.7, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
 	},
 }
 
@@ -2581,7 +3474,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSword
 
 minions["Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkeleton"] = {
 	name = "Order Ostiary",
-	monsterTags = { "1HSword_onhit_audio", "bones", "is_unarmed", "melee", "metal_armour", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", "very_slow_movement", "ward_armour", },
+	monsterTags = { "2HSharpMetal_onhit_audio", "bones", "is_unarmed", "melee", "metal_armour", "not_dex", "not_int", "physical_affinity", "skeleton", "slashing_weapon", "undead", "very_slow_movement", "ward_armour", },
 	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.6,
@@ -2607,7 +3500,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkele
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -2642,7 +3535,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleEagle"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -2678,7 +3571,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleJaguar_"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- BoneRabbleMeleeRange [attack_maximum_action_distance_+ = 3]
 		mod("MeleeWeaponRange", "BASE", 7, 0, 0), -- BoneRabbleMeleeRange [melee_range_+ = 7]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -2714,7 +3607,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabblePriest"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -2752,7 +3645,7 @@ minions["Metadata/Monsters/Skeletons/BoneRabble/BoneRabbleSquire"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock30Bypass10 [monster_base_block_% = 20]
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
+		mod("StunDuration", "OVERRIDE", 2.488, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2488]
 	},
 }
 
@@ -2787,7 +3680,7 @@ minions["Metadata/Monsters/Skeletons/FungalSkeletonOneHandSword"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -2819,7 +3712,7 @@ minions["Metadata/Monsters/Skeletons/RetchSkeletonOneHandSword"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -2860,7 +3753,7 @@ minions["Metadata/Monsters/Skeletons/Maraketh/MarakethSkeletonUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -2893,7 +3786,7 @@ minions["Metadata/Monsters/Skeletons/Rusted/RustedSkeletonOneHandSwordShield"] =
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock30Bypass10 [monster_base_block_% = 20]
 		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass10 [base_block_%_damage_taken = 10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -2972,7 +3865,7 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClanCaster"] = {
 		"SSMSerpentClanVulnerability",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
+		mod("StunDuration", "OVERRIDE", 4.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
 	},
 }
 
@@ -3009,11 +3902,11 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/Wraith/ProwlingShade"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
---Terracotta Soldier
+-- Terracotta Soldier
 minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 	name = "Terracotta Soldier",
 	monsterTags = { "1HBluntMetal_onhit_audio", "construct", "melee", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
@@ -3042,7 +3935,7 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptre"] = {
 		"EGTerracottaTransition",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -3075,52 +3968,86 @@ minions["Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
--- Quadrilla
-minions["Metadata/Monsters/Quadrilla/Quadrilla"] = {
-	name = "Quadrilla",
-	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
-	extraFlags = {
-		recommendedBeast = true,
-	},
-	life = 2,
+-- Twilight Order
+minions["Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderSoldier"] = {
+	name = "Twilight Order Soldier",
+	monsterTags = { "1HSword_onhit_audio", "allows_inc_aoe", "cold_affinity", "human", "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.1,
 	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.75,
+	armour = 0.5,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 2,
+	damage = 1.1,
 	damageSpread = 0.2,
-	attackTime = 1.995,
-	attackRange = 21,
+	attackTime = 1.755,
+	attackRange = 12,
 	accuracy = 1,
-	baseMovementSpeed = 46,
-	spectreReservation = 84,
-	companionReservation = 42.3,
-	monsterCategory = "Beast",
+	weaponType1 = "One Handed Sword",
+	baseMovementSpeed = 34,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
 	spawnLocation = {
-		"Howling Caves (Act 6)",
-		"Jungle Ruins (Act 3)",
-		"Riverside (Map)",
-		"Rupture (Map)",
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
 		"Found in Maps",
 	},
 	skillList = {
-		"GAQuadrillaSunder",
-		"EAAQuadrillaThrow",
 		"MeleeAtAnimationSpeed",
-		"GPAQuadrillaRock",
-		"SSMQuadrillaRock",
-		"QuadrillaShieldCharge",
-		"TCQuadrillaCharge",
-		"EASQuadrillaTaunt",
+		"GATwilightSoldierStab",
+		"GATwilightSoldierPierceTrigger",
+		"TCTwilghtOrderSoldierCharge",
+		"GATwilightOrderSoldierChargeImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrderSoldiers/TwilightOrderOfficer_"] = {
+	name = "Twilight Order Officer",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "cold_affinity", "fast_movement", "human", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.6,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.6,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.6,
+	damageSpread = 0.2,
+	attackTime = 1.755,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Two Handed Sword",
+	baseMovementSpeed = 43,
+	spectreReservation = 71,
+	companionReservation = 37.8,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GATwilightOfficerSmite",
+		"GATwilightOfficerSmiteSpectre",
+		"EGTwilightOrderOfficerSmiteAura",
+		"EGTwilightOrderOfficerEnergyShieldWarCry",
+		"EASTwilightOfficerFrozenLegion",
+		"GATwilightOfficerFrozenLegionTriggered",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -3162,7 +4089,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardMortarLiving"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -3204,7 +4131,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestMale"
 		"CGEBloodPriestBoilingBlood",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -3244,28 +4171,28 @@ minions["Metadata/Monsters/VaalMonsters/Living/BloodPriests/VaalBloodPriestFemal
 		"EASBloodPriestSummonElemental",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
-minions["Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_"] = {
+minions["Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireBow_"] = {
 	name = "Viper Legionnaire",
-	monsterTags = { "2HSharpMetal_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "Arrow_onhit_audio", "fast_movement", "human", "humanoid", "not_int", "physical_affinity", "ranged", "red_blood", },
 	life = 1.6,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.33,
-	evasion = 0.5,
+	evasion = 0.66,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.6,
+	damage = 1.4,
 	damageSpread = 0.2,
 	attackTime = 1.5,
-	attackRange = 12,
+	attackRange = 50,
 	accuracy = 1,
-	weaponType1 = "One Handed Sword",
-	baseMovementSpeed = 46,
+	weaponType1 = "Bow",
+	baseMovementSpeed = 39,
 	spectreReservation = 71,
 	companionReservation = 37.8,
 	monsterCategory = "Humanoid",
@@ -3275,10 +4202,21 @@ minions["Metadata/Monsters/VaalMonsters/ViperLegionnaire/ViperLegionnaireSword_"
 		"Vaal City (Map)",
 	},
 	skillList = {
-		"MeleeAtAnimationSpeed",
-		"MeleeAtAnimationSpeedViperLegionnaireCombo",
+		"MeleeAtAnimationSpeedBow",
+		"GTLegionnaireCausticRainOfArrows",
+		"GTLegionnaireSmokeArrow",
+		"LegionnaireDodgeLeft",
+		"LegionnaireDodgeRight",
+		"SOLegionnaireCausticRainOfArrows",
+		"GSLegionnaireCausticRainOfArrows",
+		"CGELegionaireCausticGround",
+		"SOLegionnaireSmokeArrow",
+		"GSLegionnaireSmokeArrow",
+		"CGELegionaireSmokeGround",
 	},
 	modList = {
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		-- set_arrow_projectile_variation [set_arrow_projectile_variation = 1004]
 	},
 }
 
@@ -3311,7 +4249,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfMoonClan1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2615]
+		mod("StunDuration", "OVERRIDE", 2.615, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2615]
 	},
 }
 
@@ -3346,7 +4284,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfPack1"] = {
 		"WerewolfPackHowlEAS",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2566]
+		mod("StunDuration", "OVERRIDE", 2.566, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2566]
 	},
 }
 
@@ -3360,7 +4298,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.4,
+	damage = 1.54,
 	damageSpread = 0.2,
 	attackTime = 2.25,
 	attackRange = 12,
@@ -3383,7 +4321,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwler1"] = {
 		"MeleeAtAnimationSpeed2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -3397,7 +4335,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 	coldResist = 0,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.4,
+	damage = 1.54,
 	damageSpread = 0.2,
 	attackTime = 2.25,
 	attackRange = 12,
@@ -3417,7 +4355,7 @@ minions["Metadata/Monsters/Werewolves/WerewolfProwlerRed1"] = {
 		"MeleeAtAnimationSpeed2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -3441,6 +4379,7 @@ minions["Metadata/Monsters/Wolves/Wolf1"] = {
 	companionReservation = 30,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Design (Lite) (Act 3)",
 		"Howling Caves (Act 6)",
 	},
 	skillList = {
@@ -3448,7 +4387,7 @@ minions["Metadata/Monsters/Wolves/Wolf1"] = {
 	},
 	modList = {
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -3482,7 +4421,7 @@ minions["Metadata/Monsters/Monkeys/MonkeyJungle"] = {
 		"EASJungleMonkeyTaunt",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -3521,7 +4460,7 @@ minions["Metadata/Monsters/BloodChieftain/MonkeyChiefJungle"] = {
 		"EGJungleChieftainSummonMonkey",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -3595,8 +4534,8 @@ minions["Metadata/Monsters/MudBurrower/BrambleBurrower"] = {
 		"GABrambleBurrowerImpact",
 	},
 	modList = {
-		-- ImmuneToKnockback [cannot_be_knocked_back = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- ImmuneToKnockback [cannot_be_knocked_back = 1]
+		mod("StunDuration", "OVERRIDE", 5.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
 	},
 }
 
@@ -3632,14 +4571,14 @@ minions["Metadata/Monsters/StonebackRhoa/BrambleRhoa"] = {
 		"MeleeAtAnimationSpeedStonebackRhoaFeet",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
-minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
+minions["Metadata/Monsters/Wraith/WraithSpookyColdSpectre"] = {
 	name = "Frost Wraith",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "cold_affinity", "medium_movement", "not_str", "ranged", "Unarmed_onhit_audio", "undead", },
-	life = 1.6,
+	life = 1.25,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.35,
 	evasion = 0.35,
@@ -3647,14 +4586,14 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 	coldResist = 75,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.6,
+	damage = 1.25,
 	damageSpread = 0.2,
 	attackTime = 1.5,
 	attackRange = 6,
 	accuracy = 1,
 	baseMovementSpeed = 37,
-	spectreReservation = 71,
-	companionReservation = 37.8,
+	spectreReservation = 59,
+	companionReservation = 33.6,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Cemetery of the Eternals (Act 1)",
@@ -3673,14 +4612,14 @@ minions["Metadata/Monsters/Wraith/WraithSpookyCold"] = {
 		"GraveyardGhostDashToTargetFar",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
-minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
+minions["Metadata/Monsters/Wraith/WraithSpookyLightningSpectre"] = {
 	name = "Lightning Wraith",
 	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "lightning_affinity", "medium_movement", "not_str", "ranged", "Unarmed_onhit_audio", "undead", },
-	life = 2,
+	life = 1.6,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.35,
 	evasion = 0.35,
@@ -3688,14 +4627,14 @@ minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 	coldResist = 0,
 	lightningResist = 75,
 	chaosResist = 0,
-	damage = 2,
+	damage = 1.6,
 	damageSpread = 0.2,
 	attackTime = 1.5,
 	attackRange = 6,
 	accuracy = 1,
 	baseMovementSpeed = 37,
-	spectreReservation = 84,
-	companionReservation = 42.3,
+	spectreReservation = 71,
+	companionReservation = 37.8,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Mausoleum of the Praetor (Act 1)",
@@ -3707,7 +4646,7 @@ minions["Metadata/Monsters/Wraith/WraithSpookyLightning"] = {
 		"SpookyGhostLightningBounce",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -3743,7 +4682,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieMedium"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -3779,7 +4718,7 @@ minions["Metadata/Monsters/FungusZombie/FungusZombieFungalmancer"] = {
 		"FungalCascadeSpawn",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -3811,7 +4750,7 @@ minions["Metadata/Monsters/MudGolem/MudGolem"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -3844,7 +4783,7 @@ minions["Metadata/Monsters/MudGolem/SandGolem"] = {
 		"GASandGolemSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -3875,7 +4814,7 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -3905,7 +4844,7 @@ minions["Metadata/Monsters/Zombies/Lumberjack/LumberingDrownedDryUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -3943,7 +4882,7 @@ minions["Metadata/Monsters/Urchins/SlingUrchin1"] = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- MonsterSpellActionDistanceVariation20 [spell_maximum_action_distance_+% = -20]
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -3981,7 +4920,7 @@ minions["Metadata/Monsters/Hags/UrchinHag1"] = {
 		"HagRaiseDeadAoE",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
+		mod("StunDuration", "OVERRIDE", 5.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
 	},
 }
 
@@ -4017,7 +4956,7 @@ minions["Metadata/Monsters/Hags/TrenchHag"] = {
 		"EGTrenchHagRevive",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -4084,7 +5023,7 @@ minions["Metadata/Monsters/Stalker/Stalker"] = {
 		"TauntStalker",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2617]
+		mod("StunDuration", "OVERRIDE", 2.617, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2617]
 	},
 }
 
@@ -4130,7 +5069,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCourtesan1"] = {
 		"CourtesanBloodSpear3",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3317]
+		mod("StunDuration", "OVERRIDE", 3.317, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3317]
 	},
 }
 
@@ -4166,7 +5105,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCarrier1"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4205,7 +5144,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCretin1"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -4243,7 +5182,7 @@ minions["Metadata/Monsters/BloodMonsters/BloodCollector1__"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -4280,7 +5219,7 @@ minions["Metadata/Monsters/Knight/DeathKnight1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4319,7 +5258,7 @@ minions["Metadata/Monsters/Knight/DeathKnightNecropolisElite"] = {
 		"GADeathKnightOverheadslam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -4355,7 +5294,7 @@ minions["Metadata/Monsters/Gargoyle/GargoyleGolemRed"] = {
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
 		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3183]
+		mod("StunDuration", "OVERRIDE", 3.183, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3183]
 	},
 }
 
@@ -4393,7 +5332,7 @@ minions["Metadata/Monsters/Mercenary/Infected/InfectedMercenaryAxe__"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -4425,7 +5364,7 @@ minions["Metadata/Monsters/Crow/CrowCarrion"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -4462,7 +5401,7 @@ minions["Metadata/Monsters/BrambleHulk/BrambleHulk1"] = {
 		"BrambleHulkSlamTriggered",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
@@ -4496,7 +5435,7 @@ minions["Metadata/Monsters/Ghouls/GhoulCommander"] = {
 		"GhoulCommanderHowl",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
@@ -4527,7 +5466,7 @@ minions["Metadata/Monsters/Ghouls/Ghoul"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -4561,7 +5500,7 @@ minions["Metadata/Monsters/Zombies/Fungal/FungalArtillery1__"] = {
 		"FungalArtilleryFungalGroundFromMortar",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -4596,7 +5535,7 @@ minions["Metadata/Monsters/Wretches/CoffinWretch1"] = {
 		"CoffinWretchBabySoulrend2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
+		mod("StunDuration", "OVERRIDE", 3.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
 	},
 }
 
@@ -4629,7 +5568,7 @@ minions["Metadata/Monsters/Wretches/StatueWretch"] = {
 		"BurdenedWretchSlamCloseRange",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
+		mod("StunDuration", "OVERRIDE", 2.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
 	},
 }
 
@@ -4669,7 +5608,7 @@ minions["Metadata/Monsters/Wretches/StatueWretchElite"] = {
 		"BearerOfPenitenceSlam8",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
+		mod("StunDuration", "OVERRIDE", 2.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
 	},
 }
 
@@ -4700,38 +5639,7 @@ minions["Metadata/Monsters/Frog/PaleFrog1"] = {
 		"PaleFrogShieldCharge",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2066]
-	},
-}
-
-minions["Metadata/Monsters/ReliquaryMonster/PitCrawler1"] = {
-	name = "Pit Crawler",
-	monsterTags = { "demon", "human", "humanoid", "medium_movement", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", },
-	life = 1.5,
-	energyShield = 0.18,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.5,
-	damageSpread = 0.2,
-	attackTime = 1.755,
-	attackRange = 11,
-	accuracy = 1,
-	baseMovementSpeed = 35,
-	spectreReservation = 67,
-	companionReservation = 36.6,
-	monsterCategory = "Demon",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"CryptReliquarianGhoulRevive",
-		"ReliquaryMonsterFireball",
-		"ReviveUrchin",
-	},
-	modList = {
-		-- ReliquaryMonsterActionDistance_ [spell_maximum_action_distance_+% = -50]
+		mod("StunDuration", "OVERRIDE", 2.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2066]
 	},
 }
 
@@ -4764,7 +5672,7 @@ minions["Metadata/Monsters/BoneStalker/TombStalker1"] = {
 		"TombStalkerLeapSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
+		mod("StunDuration", "OVERRIDE", 2.766, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2766]
 	},
 }
 
@@ -4803,7 +5711,7 @@ minions["Metadata/Monsters/Sentinels/TendrilSentinel1__"] = {
 		"OssuaryWitchRemoteHandSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -4836,7 +5744,7 @@ minions["Metadata/Monsters/Wolves/RottenWolf1_"] = {
 	},
 	modList = {
 		mod("Speed", "MORE", -10, 1, 0), -- MonsterAttackSpeedPenalties10 [active_skill_attack_speed_+%_final = -10]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -4868,7 +5776,7 @@ minions["Metadata/Monsters/Wolves/FungalWolf1_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -4912,7 +5820,7 @@ minions["Metadata/Monsters/Skeletons/Basic/GraveSkeletonUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -4947,7 +5855,7 @@ minions["Metadata/Monsters/SnakeFlowerMan/BloomSerpent1"] = {
 		"SnakeFlowerManProjectile",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2700]
+		mod("StunDuration", "OVERRIDE", 2.7, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2700]
 	},
 }
 
@@ -4981,7 +5889,7 @@ minions["Metadata/Monsters/Zombies/Farmer/FarmerZombieMedium"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5014,7 +5922,7 @@ minions["Metadata/Monsters/Zombies/Burned/BurnedLumberjackUnarmed"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5047,7 +5955,7 @@ minions["Metadata/Monsters/Monkeys/Bramble/BrambleMonkey1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -5096,7 +6004,7 @@ minions["Metadata/Monsters/RisenArbalest__"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2415]
+		mod("StunDuration", "OVERRIDE", 2.415, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2415]
 	},
 }
 
@@ -5130,7 +6038,7 @@ minions["Metadata/Monsters/Bugbot/BugbotRockyNoEmerge"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2444]
+		mod("StunDuration", "OVERRIDE", 2.444, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2444]
 	},
 }
 
@@ -5229,7 +6137,7 @@ minions["Metadata/Monsters/Parasites/FishParasite"] = {
 		"GSParasiticFishMortarAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
+		mod("StunDuration", "OVERRIDE", 2.667, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
 	},
 }
 
@@ -5262,7 +6170,7 @@ minions["Metadata/Monsters/Parasites/PirateFishParasite"] = {
 		"GSParasiticFishMortarAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
+		mod("StunDuration", "OVERRIDE", 2.667, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2667]
 	},
 }
 
@@ -5291,7 +6199,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionBasicZombie"] =
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5355,7 +6263,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/MercurialArmour/MercurialArmourCa
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -5422,13 +6330,13 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Urchin/ExpeditionUrchin"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
 minions["Metadata/Monsters/LeagueExpeditionNew/Arbalest/ExpeditionArbalest"] = {
 	name = "Black Scythe Arbalist",
-	monsterTags = { "allows_additional_projectiles", "bone_armour", "bones", "cold_affinity", "fire_affinity", "humanoid", "is_unarmed", "not_dex", "not_int", "puncturing_weapon", "ranged", "skeleton", "Stab_onhit_audio", "undead", "very_slow_movement", },
+	monsterTags = { "allows_additional_projectiles", "bone_armour", "bones", "cold_affinity", "fire_affinity", "humanoid", "is_unarmed", "not_dex", "not_int", "puncturing_weapon", "ranged", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
 	extraFlags = {
 		recommendedSpectre = true,
 	},
@@ -5500,7 +6408,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnight
 
 minions["Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster"] = {
 	name = "Runed Knight",
-	monsterTags = { "caster", "fast_movement", "fire_affinity", "has_staff", "has_two_handed_melee", "humanoid", "lightning_affinity", "metal_armour", "not_dex", "not_int", "puncturing_weapon", "ranged", "Stab_onhit_audio", "undead", "ward_armour", },
+	monsterTags = { "caster", "fast_movement", "fire_affinity", "has_staff", "has_two_handed_melee", "humanoid", "lightning_affinity", "metal_armour", "not_dex", "not_int", "puncturing_weapon", "ranged", "Unarmed_onhit_audio", "undead", "ward_armour", },
 	life = 1.6,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.4,
@@ -5531,13 +6439,13 @@ minions["Metadata/Monsters/LeagueExpeditionNew/VaalArmour/ExpeditionArmourCaster
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
 minions["Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer"] = {
 	name = "Priest of the Chalice",
-	monsterTags = { "1HSword_onhit_audio", "bone_armour", "bones", "caster", "cold_affinity", "is_unarmed", "not_dex", "not_int", "skeleton", "slashing_weapon", "slow_movement", "undead", "ward_armour", },
+	monsterTags = { "Beast_onhit_audio", "bone_armour", "bones", "caster", "cold_affinity", "is_unarmed", "not_dex", "not_int", "skeleton", "slashing_weapon", "slow_movement", "undead", "ward_armour", },
 	extraFlags = {
 		recommendedSpectre = true,
 	},
@@ -5566,7 +6474,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/Golemancer/ExpeditionGolemancer"]
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -5605,7 +6513,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/BoneCultist/ExpeditionBoneCultist
 
 minions["Metadata/Monsters/LeagueExpeditionNew/RatMonster/ExpeditionRat"] = {
 	name = "Druidic Familiar",
-	monsterTags = { "animal_claw_weapon", "beast", "bone_armour", "Claw_onhit_audio", "fast_movement", "is_unarmed", "melee", "physical_affinity", "rodent_beast", "undead", },
+	monsterTags = { "animal_claw_weapon", "beast", "bone_armour", "fast_movement", "is_unarmed", "melee", "physical_affinity", "rodent_beast", "Snap_onhit_audio", "undead", },
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	fireResist = 0,
@@ -5663,7 +6571,7 @@ minions["Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_"
 	modList = {
 		-- MonsterMaimOnHit [global_maim_on_hit = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5701,7 +6609,7 @@ minions["Metadata/Monsters/TwigMonsters/canopy/TwigMonster"] = {
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5736,7 +6644,7 @@ minions["Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis"] = {
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -5771,7 +6679,7 @@ minions["Metadata/Monsters/DemonSpiders/MeleeSpider"] = {
 		"MeleeSpiderViperStrike",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -5809,7 +6717,7 @@ minions["Metadata/Monsters/DemonSpiders/SpiderSabre"] = {
 		"DTTSabreSpiderLeap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
@@ -5843,7 +6751,7 @@ minions["Metadata/Monsters/RamGiant/RamGiant"] = {
 	},
 	modList = {
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -5880,7 +6788,7 @@ minions["Metadata/Monsters/RamGiant/RamGiantQuarry"] = {
 	},
 	modList = {
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -5919,7 +6827,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiant_"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -5953,7 +6861,7 @@ minions["Metadata/Monsters/RamGiant/RottingRamGiantBog"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -5986,7 +6894,7 @@ minions["Metadata/Monsters/MaggotHusks/MaggotHusk"] = {
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6023,7 +6931,7 @@ minions["Metadata/Monsters/SerpentClanMonster/SerpentClan1"] = {
 		"GSSerpentClanAcidSpit",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
+		mod("StunDuration", "OVERRIDE", 4.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4067]
 	},
 }
 
@@ -6061,7 +6969,7 @@ minions["Metadata/Monsters/SaltGolem/SaltGolem_"] = {
 		"GASaltGolemEarthquakeLargeImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3133]
+		mod("StunDuration", "OVERRIDE", 3.133, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3133]
 	},
 }
 
@@ -6101,7 +7009,7 @@ minions["Metadata/Monsters/HyenaMonster/HyenaMonster"] = {
 		"WalkEmergeHyena",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
+		mod("StunDuration", "OVERRIDE", 2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2000]
 	},
 }
 
@@ -6140,7 +7048,7 @@ minions["Metadata/Monsters/HyenaMonster/HyenaCentaurSpear"] = {
 		"EGHyenaDogpileBig",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
+		mod("StunDuration", "OVERRIDE", 3.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3033]
 	},
 }
 
@@ -6166,10 +7074,8 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 	companionReservation = 34.8,
 	monsterCategory = "Beast",
 	spawnLocation = {
-		"Confluence (Map)",
 		"Deshar (Act 2)",
 		"The Khari Crossing (Act 6)",
-		"Found in Maps",
 	},
 	skillList = {
 		"MeleeAtAnimationSpeed",
@@ -6179,9 +7085,48 @@ minions["Metadata/Monsters/VultureRegurgitator/VultureRegurgitator_"] = {
 		"CGEVultureRegurgGasCloud",
 	},
 	modList = {
-		-- has_quadruped_head_control [has_quadruped_head_control = 1]
+		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 200]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+	},
+}
+
+minions["Metadata/Monsters/VultureZombie/VultureDemonSpectre"] = {
+	name = "Vile Vulture",
+	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "fast_movement", "flying", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	extraFlags = {
+		recommendedBeast = true,
+	},
+	life = 2.3,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.73,
+	damageSpread = 0.2,
+	attackTime = 1.86,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 44,
+	spectreReservation = 93,
+	companionReservation = 45.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Confluence (Map)",
+		"Deshar (Act 2)",
+		"Shrike Island (Act 4)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"VultureDemonLeap",
+		"GAVultureZombieLeap",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -6222,7 +7167,7 @@ minions["Metadata/Monsters/SandLeaper02/DesertLeaper1_"] = {
 		"GACragLeaperLeapSulphur",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -6262,7 +7207,7 @@ minions["Metadata/Monsters/SkeletonGolemancer/SkeletonGolemancer"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
@@ -6307,7 +7252,7 @@ minions["Metadata/Monsters/SandGolemancer/SandGolemancer"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
@@ -6345,7 +7290,7 @@ minions["Metadata/Monsters/MarAcolyte/MarAcolyte"] = {
 		"MarAcolyteThrowFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
+		mod("StunDuration", "OVERRIDE", 2.083, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2083]
 	},
 }
 
@@ -6383,42 +7328,6 @@ minions["Metadata/Monsters/WingedFiend/WingedFiend"] = {
 	},
 }
 
-minions["Metadata/Monsters/RockSliderSpectre"] = {
-	name = "Boulder Ant",
-	monsterTags = { "beast", "Beast_onhit_audio", "cannot_be_monolith", "insect", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", },
-	life = 0.75,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.75,
-	fireResist = 30,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 0.75,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 13,
-	accuracy = 1,
-	weaponType2 = "Shield",
-	baseMovementSpeed = 32,
-	spectreReservation = 40,
-	companionReservation = 26.1,
-	monsterCategory = "Beast",
-	spawnLocation = {
-		"Isle of Kin (Act 4)",
-		"The Halani Gates (Act 2)",
-		"Found in Maps",
-		"Trial of the Sekhemas (Floor 1)",
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"RockSliderShieldCharge",
-		"RockSliderEmergeEG",
-	},
-	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
-	},
-}
-
 minions["Metadata/Monsters/SkeletonSnake"] = {
 	name = "Gilded Cobra",
 	monsterTags = { "beast", "melee", "not_int", "not_str", "physical_affinity", "reptile_beast", "skeleton", "SpearWood_onhit_audio", "undead", "very_slow_movement", },
@@ -6451,7 +7360,7 @@ minions["Metadata/Monsters/SkeletonSnake"] = {
 		"MonsterPuncture",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6487,7 +7396,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication01"] = {
 		"MPWAzmeriPitifulFabricationSkullThrow",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -6530,7 +7439,7 @@ minions["Metadata/Monsters/PitifulFabrications/Canopy/PitifulFabrication02"] = {
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
 		-- strafe_distance_+% [strafe_distance_+% = -21]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 		mod("EnemyCurseLimit", "BASE", 3, 0, 0), -- number_of_additional_curses_allowed [number_of_additional_curses_allowed = 3]
 	},
 }
@@ -6567,7 +7476,7 @@ minions["Metadata/Monsters/PitifulFabrications/PitifulFabrication03_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
+		mod("StunDuration", "OVERRIDE", 2.95, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
 	},
 }
 
@@ -6598,7 +7507,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoUnarmed_"] =
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -6630,7 +7539,7 @@ minions["Metadata/Monsters/Skeletons/TitanGrotto/SkeletonTitanGrottoSword_"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
 	},
 }
 
@@ -6702,7 +7611,7 @@ minions["Metadata/Monsters/PorcupineAnt/PorcupineAntSmall"] = {
 		"MMAPorcupineAntSpikeball",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -6738,7 +7647,7 @@ minions["Metadata/Monsters/CaveDweller/CaveDweller"] = {
 		"GSCaveDwellerSuperProjectile",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6773,7 +7682,7 @@ minions["Metadata/Monsters/MineBat/MineBatDesertCaveNoEmerge"] = {
 	},
 	modList = {
 		-- ShockArtVariationDivine [shock_art_variation = 2]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1715]
+		mod("StunDuration", "OVERRIDE", 1.715, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1715]
 	},
 }
 
@@ -6813,7 +7722,7 @@ minions["Metadata/Monsters/SummonedPhantasm/DesertPhantasm"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2106]
+		mod("StunDuration", "OVERRIDE", 2.106, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2106]
 	},
 }
 
@@ -6881,9 +7790,9 @@ minions["Metadata/Monsters/Zombies/Maraketh/MarakethZombie"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- MonsterGetsStunnedLonger30to70__ [stun_duration_on_self_+% = 30]
+		mod("StunDuration", "INC", 30, 0, 0), -- MonsterGetsStunnedLonger30to70__ [stun_duration_on_self_+% = 30]
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6916,7 +7825,7 @@ minions["Metadata/Monsters/PlagueMorphs/PlagueMorph1"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -6951,7 +7860,7 @@ minions["Metadata/Monsters/PlagueSwarm/PlagueSwarm"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -6975,6 +7884,7 @@ minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 	companionReservation = 33.6,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Hive (Map)",
 		"Howling Caves (Act 6)",
 		"Mawdun Mine (Act 2)",
 		"Pools of Khatal (Act 6)",
@@ -6986,6 +7896,7 @@ minions["Metadata/Monsters/PlagueNymph/PlagueNymph_"] = {
 	},
 	modList = {
 		-- MonsterMaimOnHitChance [maim_on_hit_% = 25]
+		mod("StunDuration", "OVERRIDE", 1.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1500]
 	},
 }
 
@@ -7022,7 +7933,7 @@ minions["Metadata/Monsters/PlagueBringer/PlagueBringer"] = {
 	},
 	modList = {
 		mod("PhysicalDamageLifeLeech", "BASE", 125, 1, 0), -- PlagueBringerLifeLeechInherent [base_life_leech_from_physical_attack_damage_permyriad = 12500]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -7062,7 +7973,7 @@ minions["Metadata/Monsters/BrainWorm/DuneLurker_"] = {
 		"GADuneLurkerEmergeAttack",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -7096,7 +8007,7 @@ minions["Metadata/Monsters/WingedCreature/WingedCreature"] = {
 		"GSWingedCreatureBallLightning",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
+		mod("StunDuration", "OVERRIDE", 3.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3333]
 	},
 }
 
@@ -7124,6 +8035,8 @@ minions["Metadata/Monsters/MantisRat/MantisRat"] = {
 	companionReservation = 30,
 	monsterCategory = "Beast",
 	spawnLocation = {
+		"Mawdun Mine (Act 2)",
+		"The Khari Crossing (Act 6)",
 		"Found in Maps",
 	},
 	skillList = {
@@ -7132,6 +8045,7 @@ minions["Metadata/Monsters/MantisRat/MantisRat"] = {
 		"GAMantisRatDualStrike",
 	},
 	modList = {
+		mod("StunDuration", "OVERRIDE", 2.85, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2850]
 	},
 }
 
@@ -7162,7 +8076,7 @@ minions["Metadata/Monsters/MudGolem/MarshBruiser"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
+		mod("StunDuration", "OVERRIDE", 3.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3650]
 	},
 }
 
@@ -7196,7 +8110,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseUnarmed"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7231,7 +8145,7 @@ minions["Metadata/Monsters/BogBodies/BogCorpseOneHandAxe"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7270,39 +8184,7 @@ minions["Metadata/Monsters/TwigMonsters/DredgeFiend"] = {
 		"GSDredgeMortarImpactAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
-	},
-}
-
-minions["Metadata/Monsters/VaalSavage/CannibalTribeStalker"] = {
-	name = "Orok Stalker",
-	monsterTags = { "2HBluntWood_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", },
-	life = 1.37,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.5,
-	evasion = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.43,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 10,
-	accuracy = 1,
-	weaponType1 = "Two Handed Mace",
-	weaponType2 = "Two Handed Mace",
-	baseMovementSpeed = 46,
-	spectreReservation = 60,
-	companionReservation = 34.2,
-	monsterCategory = "Humanoid",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-	},
-	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2550]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -7342,7 +8224,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearThrower"] = {
 		"GAVaalSavageDaggerDashSlash2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -7375,7 +8257,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeSpearMelee"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -7408,7 +8290,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeDagger"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -7446,7 +8328,7 @@ minions["Metadata/Monsters/VaalSavage/CannibalTribeShaman"] = {
 		"GSCannibalShamanProjImpactAir",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2210]
+		mod("StunDuration", "OVERRIDE", 2.21, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2210]
 	},
 }
 
@@ -7491,7 +8373,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageStalker"] = {
 		"GABogSavageStalkerSpinAttack",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -7535,7 +8417,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearThrower_"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -7572,7 +8454,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageSpearMelee"] = {
 		"EASSavageWeaponFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2366]
+		mod("StunDuration", "OVERRIDE", 2.366, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2366]
 	},
 }
 
@@ -7607,7 +8489,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBeastMaster"] = {
 		"DoLiterallyNothing",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -7644,7 +8526,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageDagger_"] = {
 		"EASSavageWeaponFire",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -7686,7 +8568,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageShaman"] = {
 		"GSVaalShamanFireballImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -7726,7 +8608,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageBrute"] = {
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -7830,7 +8712,7 @@ minions["Metadata/Monsters/VaalSavage/VaalSavageGiant"] = {
 		"GABogGiantFireSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
 	},
 }
 
@@ -7864,46 +8746,7 @@ minions["Metadata/Monsters/PlagueSwarm/BloodDrone"] = {
 		"GABloodDroneDashAttach",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
-	},
-}
-
-minions["Metadata/Monsters/SwarmHost/SwarmHost"] = {
-	name = "Bloodthief Queen",
-	monsterTags = { "allows_inc_aoe", "Beast_onhit_audio", "insect", "melee", "monster_applies_poison", "monster_has_on_death_mechanic", "monster_summons_adds", "physical_affinity", "very_slow_movement", },
-	life = 2.5,
-	baseDamageIgnoresAttackSpeed = true,
-	fireResist = -30,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 2,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 20,
-	accuracy = 1,
-	baseMovementSpeed = 11,
-	spectreReservation = 99,
-	companionReservation = 47.4,
-	spawnLocation = {
-		"Qimah (Act 6)",
-		"Sandswept Marsh (Act 3)",
-		"Found in Maps",
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"EASSwarmHostDroneSpawn",
-		"EDSSwarmHostGasSpray",
-		"TranslateRotateSwarmHostRight90",
-		"TranslateRotateSwarmHostLeft90",
-		"TranslateRotateSwarmHostRight180",
-		"TranslateRotateSwarmHostLeft180",
-		"TranslateRotateSwarmHostForward",
-		"EASSwarmHostViolentLeftTurn",
-		"EASSwarmHostViolentRightTurn",
-		"GSSwarmHostDeathExplode",
-	},
-	modList = {
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -7938,7 +8781,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalkerPale"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
 	},
 }
 
@@ -7971,7 +8814,7 @@ minions["Metadata/Monsters/IgguranRaider/BladeStalker"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
+		mod("StunDuration", "OVERRIDE", 2.8, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2800]
 	},
 }
 
@@ -8008,7 +8851,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteSpawn_"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
+		mod("StunDuration", "OVERRIDE", 2.266, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
 	},
 }
 
@@ -8048,7 +8891,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteFlathead"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -8087,7 +8930,7 @@ minions["Metadata/Monsters/Anchorite/AnchoriteMother"] = {
 		"WalkEmergeCenobiteSwarm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -8112,7 +8955,6 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Glacial Tarn (Act 6)",
-		"Hive (Map)",
 		"Infested Barrens (Act 3)",
 		"Jungle Ruins (Act 3)",
 	},
@@ -8124,7 +8966,7 @@ minions["Metadata/Monsters/BaneSapling/BaneSapling"] = {
 		"GSBaneSaplingMortarImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8159,7 +9001,7 @@ minions["Metadata/Monsters/ArmadilloDemon/ArmadilloDemon"] = {
 		"GSDemonArmadilloKnockback",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -8193,7 +9035,7 @@ minions["Metadata/Monsters/ChawMongrel/ChawMongrel"] = {
 	},
 	modList = {
 		-- MonsterMaimOnHit [global_maim_on_hit = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -8231,7 +9073,7 @@ minions["Metadata/Monsters/ZombieTreasureHunters/IllFatedExplorer1"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2788]
+		mod("StunDuration", "OVERRIDE", 2.788, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2788]
 	},
 }
 
@@ -8298,7 +9140,7 @@ minions["Metadata/Monsters/SnakeHulk/SnakeHulk"] = {
 		"SnakeHulkDualStrike",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -8337,7 +9179,7 @@ minions["Metadata/Monsters/SerpentHusk/SerpentHusk__"] = {
 	modList = {
 		mod("PoisonChance", "BASE", 100, 0, 0), -- MaligaroSpiderPoisonOnHit [global_poison_on_hit = 1]
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -8370,35 +9212,7 @@ minions["Metadata/Monsters/GutViper/GutViper"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
-	},
-}
-
-minions["Metadata/Monsters/RiverSnakeHusk/RiverSnakeHusk"] = {
-	name = "Corpse Nest",
-	monsterTags = { "1HSword_onhit_audio", "beast", "not_dex", "not_int", "red_blood", "reptile_beast", "slow_movement", },
-	life = 1,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.3,
-	damageSpread = 0.2,
-	attackTime = 1.245,
-	attackRange = 13,
-	accuracy = 1,
-	baseMovementSpeed = 20,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-	},
-	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -8437,7 +9251,7 @@ minions["Metadata/Monsters/SpittingSnake/SpittingSnake"] = {
 		"CGESpittingSnakeCaustic",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -8473,7 +9287,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpse"] = {
 	modList = {
 		mod("PoisonChance", "BASE", 100, 0, 0), -- MaligaroSpiderPoisonOnHit [global_poison_on_hit = 1]
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -8513,7 +9327,7 @@ minions["Metadata/Monsters/ConstrictorCorpse/ConstrictorCorpseRanged_"] = {
 	modList = {
 		mod("PoisonChance", "BASE", 100, 0, 0), -- MaligaroSpiderPoisonOnHit [global_poison_on_hit = 1]
 		mod("EnemyPoisonDuration", "INC", 0, 0, 0), -- MaligaroSpiderPoisonOnHit [base_poison_duration_+% = 0]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -8554,7 +9368,7 @@ minions["Metadata/Monsters/SpiderMonkey/SpiderMonkey"] = {
 		"EASSpiderMonkeyEmerge5",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2680]
+		mod("StunDuration", "OVERRIDE", 2.68, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2680]
 	},
 }
 
@@ -8590,7 +9404,7 @@ minions["Metadata/Monsters/GoreCharger/GoreCharger"] = {
 	},
 	modList = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -8623,7 +9437,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictMaleAxe"] = {
 		"EASAzmeriPictMaleEffigy",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2360]
+		mod("StunDuration", "OVERRIDE", 2.36, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2360]
 	},
 }
 
@@ -8658,7 +9472,7 @@ minions["Metadata/Monsters/CrazedCannibalPicts/PictBigMale"] = {
 		"GAAzmeriPict2HFabricationSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -8697,28 +9511,28 @@ minions["Metadata/Monsters/WereCat/TigerChimeral"] = {
 		"EASTigerChimeralDodgeRight",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2585]
+		mod("StunDuration", "OVERRIDE", 2.585, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2585]
 	},
 }
 
 minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 	name = "River Drake",
 	monsterTags = { "beast", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "reptile_beast", "slow_movement", "Unarmed_onhit_audio", },
-	life = 1.4,
+	life = 1.25,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.2,
 	fireResist = 0,
 	coldResist = 30,
 	lightningResist = 0,
 	chaosResist = 0,
-	damage = 1.4,
+	damage = 1.25,
 	damageSpread = 0.2,
 	attackTime = 1.5,
 	attackRange = 9,
 	accuracy = 1,
 	baseMovementSpeed = 28,
-	spectreReservation = 64,
-	companionReservation = 35.4,
+	spectreReservation = 59,
+	companionReservation = 33.6,
 	monsterCategory = "Beast",
 	spawnLocation = {
 		"Chimeral Wetlands (Act 3)",
@@ -8734,35 +9548,7 @@ minions["Metadata/Monsters/Taniwha/RiverTaniwhaNoJank"] = {
 		"EASFishJump",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
-	},
-}
-
-minions["Metadata/Monsters/WhipTongueChimeral/WhipTongueChimeral"] = {
-	name = "Whiptongue Croaker",
-	monsterTags = { "2HBluntMetal_onhit_audio", "beast", "medium_movement", "not_int", "not_str", "red_blood", "reptile_beast", },
-	life = 1.4,
-	baseDamageIgnoresAttackSpeed = true,
-	evasion = 0.5,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1,
-	damageSpread = 0.2,
-	attackTime = 1.095,
-	attackRange = 28,
-	accuracy = 1,
-	baseMovementSpeed = 32,
-	spectreReservation = 50,
-	companionReservation = 30,
-	monsterCategory = "Beast",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-	},
-	modList = {
+		mod("StunDuration", "OVERRIDE", 2.2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
 	},
 }
 
@@ -8794,7 +9580,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelNoEmerge
 		"GAVaalConstructSentinelImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -8829,7 +9615,7 @@ minions["Metadata/Monsters/VaalConstructs/Sentinel/VaalConstructSentinelGoldenNo
 		"GAVaalConstructSentinelImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
 	},
 }
 
@@ -8904,7 +9690,7 @@ minions["Metadata/Monsters/VaalConstructs/Pyramid/VaalConstructPyramidSpawned"] 
 		"TBVaalPyramidBeamAttack",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
+		mod("StunDuration", "OVERRIDE", 3.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
 	},
 }
 
@@ -8972,7 +9758,7 @@ minions["Metadata/Monsters/VaalConstructs/Golem/VaalConstructGolemAncient"] = {
 		"GAVaalConstructGolemLightningSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -9042,7 +9828,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardDagger
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9080,7 +9866,7 @@ minions["Metadata/Monsters/VaalMonsters/Machinarium/VaalGuards/UndeadGuardMortar
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9116,7 +9902,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobiteHighborn"] = {
 		"WalkEmergeCenobiteSwarm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9150,7 +9936,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteHighborn/CenobitePawn"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
+		mod("StunDuration", "OVERRIDE", 2.266, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2266]
 	},
 }
 
@@ -9190,7 +9976,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteLeash/CenobiteLeash"] = {
 		"EDSCenobiteLeashImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -9225,7 +10011,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSlam/CenobiteSlam"] = {
 		"WalkEmergeCenobiteSwarm",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
+		mod("StunDuration", "OVERRIDE", 3.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3283]
 	},
 }
 
@@ -9261,7 +10047,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteStoneThrower/CenobiteStoneThrower"] 
 		"MMACenobiteStoneThrow",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
@@ -9300,7 +10086,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteSwarmUgly/CenobiteSwarm"] = {
 		"WalkEmergeQoFMinionsMap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -9338,7 +10124,7 @@ minions["Metadata/Monsters/Cenobite/CenobiteBloater/CenobiteBloater"] = {
 	},
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
+		mod("StunDuration", "OVERRIDE", 3.067, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3067]
 	},
 }
 
@@ -9375,7 +10161,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBlood"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -9410,7 +10196,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersChaos"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -9446,7 +10232,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersCold_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -9479,16 +10265,54 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersFire"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+	},
+}
+
+minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotSpearLightning"] = {
+	name = "Powered Zealot",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "fast_movement", "human", "humanoid", "lightning_affinity", "melee", "not_str", "red_blood", "very_fast_movement", },
+	extraFlags = {
+		recommendedSpectre = true,
+	},
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.2,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.245,
+	attackRange = 20,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	baseMovementSpeed = 52,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Etched Ravine (Act 6)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedLightning",
+		"VaalZealotLightningSpark",
+		"GTVaalZealotSpearLightningBlast",
+		"VaalZealotLightningSparkNova",
+		"GSVaalZealotLightningBlast",
+		"SOVaalZealotLightningBlast",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
 	},
 }
 
 minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 	name = "Powered Zealot",
 	monsterTags = { "1HSword_onhit_audio", "cultist", "fast_movement", "human", "humanoid", "lightning_affinity", "melee", "not_int", "not_str", "red_blood", "very_fast_movement", },
-	extraFlags = {
-		recommendedSpectre = true,
-	},
 	life = 1,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.3,
@@ -9515,7 +10339,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersLightning"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -9547,7 +10371,7 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalZealotDaggersBannerPatrolSpe
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
 	},
 }
 
@@ -9586,7 +10410,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGuardClawsLiving"] = {
 		"GAVaalGuardClawsLeapSwipes",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9622,7 +10446,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalOverseerLiving_"] = {
 		"MAASVaalOverseerCleave",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -9664,7 +10488,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalGoliathLiving_"] = {
 		"CGEVaalGoliathLivingDestabilisedGround",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3500]
+		mod("StunDuration", "OVERRIDE", 3.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3500]
 	},
 }
 
@@ -9703,7 +10527,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalStormcaller"] = {
 		"MPSVaalStormcallerBouncingLightning",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -9745,7 +10569,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalShapeshifter_"] = {
 		"DTTVaalShapeshifterDash",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
 	},
 }
 
@@ -9775,66 +10599,6 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalEagleKnightLiving"] = {
 	},
 	skillList = {
 		"MeleeAtAnimationSpeedComboTEMP",
-	},
-	modList = {
-	},
-}
-
-minions["Metadata/Monsters/VaalMonsters/VaalTimeScientist/VaalTimeScientist_"] = {
-	name = "Vaal Temporal Researcher",
-	monsterTags = { "human", "humanoid", "medium_movement", "not_str", "red_blood", "Unarmed_onhit_audio", },
-	life = 1.5,
-	baseDamageIgnoresAttackSpeed = true,
-	energyShield = 0.18,
-	evasion = 0.25,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.65,
-	damageSpread = 0,
-	attackTime = 1.5,
-	attackRange = 6,
-	accuracy = 1,
-	baseMovementSpeed = 32,
-	spectreReservation = 67,
-	companionReservation = 36.6,
-	monsterCategory = "Humanoid",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-		"MPSVaalTimeScientistProjectile",
-		"ReviveSpecificMonstersTimeScientist",
-	},
-	modList = {
-	},
-}
-
-minions["Metadata/Monsters/VaalEagleKnight/VaalEagleKnightUndead"] = {
-	name = "Undead Vaal Enforcer",
-	monsterTags = { "2HSharpMetal_onhit_audio", "fast_movement", "human", "humanoid", "not_dex", "not_int", "undead", },
-	life = 1.2,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 0.75,
-	fireResist = 0,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 1.2,
-	damageSpread = 0.2,
-	attackTime = 1.38,
-	attackRange = 19,
-	accuracy = 1,
-	weaponType1 = "Two Handed Sword",
-	baseMovementSpeed = 43,
-	spectreReservation = 57,
-	companionReservation = 33,
-	monsterCategory = "Undead",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
 	},
 	modList = {
 	},
@@ -9917,7 +10681,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/Beasts/VaalJaguar"] = {
 		"GAVaalJaguarMinionImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
 	},
 }
 
@@ -9952,7 +10716,7 @@ minions["Metadata/Monsters/Procession/ProcessionAxeShield"] = {
 	modList = {
 		mod("BlockChance", "BASE", 30, 0, 0), -- MonsterAttackBlock30Bypass15 [monster_base_block_% = 30]
 		mod("BlockEffect", "BASE", 15, 0, 0), -- MonsterAttackBlock30Bypass15 [base_block_%_damage_taken = 15]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -9983,7 +10747,7 @@ minions["Metadata/Monsters/Procession/ProcessionSpear_"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -10014,7 +10778,7 @@ minions["Metadata/Monsters/Procession/ProcessionDagger"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -10049,7 +10813,7 @@ minions["Metadata/Monsters/Procession/ProcessionBow"] = {
 		"MPWProcessionBowFireArrow",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
+		mod("StunDuration", "OVERRIDE", 2.888, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
 	},
 }
 
@@ -10082,7 +10846,7 @@ minions["Metadata/Monsters/Procession/ProcessionBannerSpectre"] = {
 		"ABTTProcessionBannerDrain",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
+		mod("StunDuration", "OVERRIDE", 2.888, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2888]
 		-- strafe_distance_+% [strafe_distance_+% = 60]
 	},
 }
@@ -10116,7 +10880,7 @@ minions["Metadata/Monsters/GoldenOnes/GoldenOnesTwoHandSword"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -10190,7 +10954,7 @@ minions["Metadata/Monsters/VaalForgeMan/VaalForgeMan"] = {
 		"GSVaalForgemanSunderSpike4",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -10260,7 +11024,7 @@ minions["Metadata/Monsters/BloodBathers/BloodBatherDualWield/BloodBatherDualWiel
 		"CGEBloodBatherFireGround",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -10298,7 +11062,7 @@ minions["Metadata/Monsters/BloodBathers/VaalApparition/SunVaalApparition"] = {
 	},
 	modList = {
 		-- strafe_distance_+% [strafe_distance_+% = -60]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
@@ -10336,7 +11100,7 @@ minions["Metadata/Monsters/BloodCultistDrones/BloodBatherMage"] = {
 		"BloodMageBloodTendrils",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
+		mod("StunDuration", "OVERRIDE", 2.433, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2433]
 	},
 }
 
@@ -10364,7 +11128,7 @@ minions["Metadata/Monsters/AscendancyBatMonster/AscendancyBat"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
+		mod("StunDuration", "OVERRIDE", 3.05, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
 	},
 }
 
@@ -10396,7 +11160,7 @@ minions["Metadata/Monsters/VaalConstructs/Ball/VaalBowlingBall"] = {
 		"GSVaalConstructCannonImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -10432,7 +11196,7 @@ minions["Metadata/Monsters/VaalMonsters/Living/VaalAxeThrower_"] = {
 		"MPAVaalAxeThrowerAxe",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
 	},
 }
 
@@ -10476,7 +11240,7 @@ minions["Metadata/Monsters/CauldronCrone/CauldronCrone"] = {
 		"MPSCauldronCroneBasic",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
 	},
 }
 
@@ -10511,7 +11275,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidGoliathFist/VaalHumanoidGol
 		"GAVaalHumanoidRocketFistImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -10583,8 +11347,8 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidShieldLegs/VallHumanoidShie
 		"GSShieldLegsGenadeExplosion",
 	},
 	modList = {
-		-- MonsterChaosTakenOnES [base_chaos_damage_does_not_damage_energy_shield_extra_hard = 1]
-		-- ElderNoEnergyShieldRecharge [cannot_recharge_energy_shield = 1]
+		mod("ChaosNotDoubleESDamage", "FLAG", 1, 0, 0), -- MonsterChaosTakenOnES [base_chaos_damage_does_not_damage_energy_shield_extra_hard = 1]
+		mod("NoEnergyShieldRecharge", "FLAG", 1, 0, 0), -- ElderNoEnergyShieldRecharge [cannot_recharge_energy_shield = 1]
 		-- ElderEnergyShieldStartsAtZero [start_at_zero_energy_shield = 1]
 		-- strafe_distance_+% [strafe_distance_+% = -60]
 	},
@@ -10661,7 +11425,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonFi
 		"GSVaalHumanoidCannonImpactWall",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
 	},
 }
 
@@ -10697,35 +11461,6 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidCannon/VaalHumanoidCannonLi
 	},
 }
 
-minions["Metadata/Monsters/VaalConstructs/Colossus/VaalColossusMetal"] = {
-	name = "Steel Colossus",
-	monsterTags = { "2HBluntMetal_onhit_audio", "construct", "not_dex", "not_int", "very_slow_movement", },
-	life = 2.7,
-	baseDamageIgnoresAttackSpeed = true,
-	armour = 1,
-	fireResist = -30,
-	coldResist = 0,
-	lightningResist = 0,
-	chaosResist = 0,
-	damage = 2.7,
-	damageSpread = 0.2,
-	attackTime = 1.5,
-	attackRange = 28,
-	accuracy = 1,
-	weaponType1 = "Two Handed Mace",
-	baseMovementSpeed = 12,
-	spectreReservation = 105,
-	companionReservation = 49.2,
-	monsterCategory = "Construct",
-	spawnLocation = {
-	},
-	skillList = {
-		"MeleeAtAnimationSpeed",
-	},
-	modList = {
-	},
-}
-
 minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBladeHands"] = {
 	name = "Warrior Transcendent",
 	monsterTags = { "2HSharpMetal_onhit_audio", "construct", "fast_movement", "humanoid", "melee", "physical_affinity", "red_blood", "vaal", "very_fast_movement", },
@@ -10756,7 +11491,7 @@ minions["Metadata/Monsters/VaalHumanoids/VaalHumanoidBladeHands/VaalHumanoidBlad
 		"MeleeAtAnimationSpeedComboTEMP",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
 	},
 }
 
@@ -10824,7 +11559,7 @@ minions["Metadata/Monsters/RootedGuys/RootedGuy04/RaisedBranchMonster"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -10857,7 +11592,7 @@ minions["Metadata/Monsters/Baron/BaronWerewolfSummon"] = {
 	modList = {
 		-- MonsterNoDropsOrExperience [monster_no_drops_or_experience = 1]
 		-- BossMinionFlaskChargeIncrease400 [monster_slain_flask_charges_granted_+% = 400]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
+		mod("StunDuration", "OVERRIDE", 2.633, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
 	},
 }
 
@@ -10896,7 +11631,7 @@ minions["Metadata/Monsters/ScarecrowBeast/ScarecrowBeast"] = {
 		"CrowScarecrowCrows",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
 	},
 }
 
@@ -10932,7 +11667,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsStalkerFoundry_"] = {
 		"EASFallenStalkerShadowClone",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -10967,7 +11702,7 @@ minions["Metadata/Monsters/FallenGods/FallenGodsCrawlerFoundry_"] = {
 		"TBFallenGodCrawlerBeam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -11003,11 +11738,11 @@ minions["Metadata/Monsters/FallenGods/FallenHooksFoundry"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
-minions["Metadata/Monsters/FallenGods/FallenStag"] = {
+minions["Metadata/Monsters/LeagueRitual/DryadFaction/DruidicFallenStag"] = {
 	name = "Forgotten Stag",
 	monsterTags = { "beast", "Beast_onhit_audio", "demon", "fast_movement", "not_dex", "not_int", "red_blood", "skeleton", },
 	life = 2.25,
@@ -11034,10 +11769,10 @@ minions["Metadata/Monsters/FallenGods/FallenStag"] = {
 		"MeleeAtAnimationSpeed",
 		"TCFallenStag",
 		"GAFallenGodStagChargeImpact",
-		"GAFallenStagTentacles",
+		"GARitualStagTentacles",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -11068,7 +11803,7 @@ minions["Metadata/Monsters/SpinningWheelHag/SpinningWheelHag"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
+		mod("StunDuration", "OVERRIDE", 2.633, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
 	},
 }
 
@@ -11100,9 +11835,9 @@ minions["Metadata/Monsters/RabidFeralDogMonster/RabidDog"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- has_quadruped_head_control [has_quadruped_head_control = 1]
+		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 100]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
+		mod("StunDuration", "OVERRIDE", 2.2, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2200]
 	},
 }
 
@@ -11209,7 +11944,7 @@ minions["Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlaster"] = {
 		"TriggerIgniteOilGroundDrudge",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3750]
+		mod("StunDuration", "OVERRIDE", 3.75, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3750]
 	},
 }
 
@@ -11245,7 +11980,7 @@ minions["Metadata/Monsters/TitanWalker/TitanWalker"] = {
 		"GATitanWalkerSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
 	},
 }
 
@@ -11286,29 +12021,29 @@ minions["Metadata/Monsters/SkeletalKnight/SkeletalKnight"] = {
 	modList = {
 		mod("BlockChance", "BASE", 100, 0, 0), -- MonsterBlock100 [monster_base_block_% = 100]
 		mod("BlockChanceMax", "BASE", 25, 0, 0), -- MonsterBlock100 [additional_maximum_block_% = 25]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
+		mod("StunDuration", "OVERRIDE", 2.95, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2950]
 	},
 }
 
 minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 	name = "Knight-Gaunt",
 	monsterTags = { "1HSword_onhit_audio", "bones", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
-	life = 2.25,
+	life = 2,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.6,
 	fireResist = 0,
 	coldResist = 0,
 	lightningResist = 30,
 	chaosResist = 0,
-	damage = 2.25,
+	damage = 2,
 	damageSpread = 0.2,
 	attackTime = 1.5,
 	attackRange = 15,
 	accuracy = 1,
 	weaponType1 = "One Handed Axe",
 	baseMovementSpeed = 10,
-	spectreReservation = 91,
-	companionReservation = 45,
+	spectreReservation = 84,
+	companionReservation = 42.3,
 	monsterCategory = "Undead",
 	spawnLocation = {
 		"Crypt (Map)",
@@ -11324,7 +12059,7 @@ minions["Metadata/Monsters/SkeletalReaper/SkeletalReaper"] = {
 		"GASkeletalReaperEmergeReap",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3533]
+		mod("StunDuration", "OVERRIDE", 3.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3533]
 	},
 }
 
@@ -11359,7 +12094,7 @@ minions["Metadata/Monsters/VaseMonster/VaseMonsterSpectre"] = {
 		"MDSummonScarabs",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2923]
+		mod("StunDuration", "OVERRIDE", 2.923, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2923]
 	},
 }
 
@@ -11399,7 +12134,7 @@ minions["Metadata/Monsters/UndeadMarakethPriest/UndeadMarakethPriest"] = {
 		"GSUndeadMarakethPriestMagmaOrbImpact",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
+		mod("StunDuration", "OVERRIDE", 2.233, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2233]
 	},
 }
 
@@ -11429,13 +12164,13 @@ minions["Metadata/Monsters/Zombies/CourtGuardZombieAxe"] = {
 	},
 	modList = {
 		-- MonsterNecromancerRaisable [undead_description = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
 minions["Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_"] = {
 	name = "Petulant Stonemaw",
-	monsterTags = { "beast", "Claw_onhit_audio", "mammal_beast", "melee", "not_int", "physical_affinity", "quest_null_monster_mods", "red_blood", "very_slow_movement", },
+	monsterTags = { "beast", "mammal_beast", "melee", "not_int", "physical_affinity", "quest_null_monster_mods", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
 	life = 1.1,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.11,
@@ -11460,15 +12195,15 @@ minions["Metadata/Monsters/ChaosGodRangedFodder/ChaosGodRangedFodder_"] = {
 		"TCChaosGodRangedFodder",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
-		-- has_quadruped_head_control [has_quadruped_head_control = 1]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+		-- has_quadruped_head_control_while_turning [has_quadruped_head_control_while_turning = 1]
 		-- quadruped_head_turn_duration_ms [quadruped_head_turn_duration_ms = 150]
 	},
 }
 
 minions["Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_"] = {
 	name = "Scute Lizard",
-	monsterTags = { "beast", "Claw_onhit_audio", "feline_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "quest_null_monster_mods", "red_blood", },
+	monsterTags = { "beast", "Beast_onhit_audio", "feline_beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "quest_null_monster_mods", "red_blood", },
 	life = 1.85,
 	baseDamageIgnoresAttackSpeed = true,
 	evasion = 0.33,
@@ -11492,13 +12227,13 @@ minions["Metadata/Monsters/ChaosGodJaguar/ChaosGodJaguar_"] = {
 		"MeleeAtAnimationSpeed2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2216]
+		mod("StunDuration", "OVERRIDE", 2.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2216]
 	},
 }
 
 minions["Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_"] = {
 	name = "Cerberic Bat",
-	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "mammal_beast", "melee", "not_str", "physical_affinity", "quest_null_monster_mods", "ranged", "red_blood", "very_slow_movement", },
+	monsterTags = { "allows_inc_aoe", "beast", "mammal_beast", "melee", "not_str", "physical_affinity", "quest_null_monster_mods", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
 	extraFlags = {
 		recommendedBeast = true,
 	},
@@ -11536,13 +12271,13 @@ minions["Metadata/Monsters/ChaosGodTriHeadBat/ChaosGodTri-headBat_"] = {
 		"GSChaosGodTriheadBatPoisonBlastSingle",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
+		mod("StunDuration", "OVERRIDE", 3.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3100]
 	},
 }
 
 minions["Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_"] = {
 	name = "Stoneclad Gorilla",
-	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "fast_movement", "melee", "not_dex", "not_int", "physical_affinity", "primate_beast", "quest_null_monster_mods", "red_blood", },
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "primate_beast", "quest_null_monster_mods", "red_blood", },
 	life = 2.5,
 	baseDamageIgnoresAttackSpeed = true,
 	armour = 0.66,
@@ -11570,7 +12305,7 @@ minions["Metadata/Monsters/ChaosGodGorilla/ChaosGodGorilla_"] = {
 		"GAChaosGodGorillaSlam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
@@ -11604,7 +12339,7 @@ minions["Metadata/Monsters/ChaosGodTriceratops/ChaosGodTriceratops_"] = {
 		"GSChaosGodTriceratopsGigaBeam",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2916]
+		mod("StunDuration", "OVERRIDE", 2.916, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2916]
 	},
 }
 
@@ -11643,7 +12378,7 @@ minions["Metadata/Monsters/Breach/BreachEliteFallenLunarisMonster__"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2750]
+		mod("StunDuration", "OVERRIDE", 2.75, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2750]
 	},
 }
 
@@ -11677,7 +12412,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteBloater__"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -11745,7 +12480,7 @@ minions["Metadata/Monsters/Breach/BreachFodderCorruptedEliteToothy__"] = {
 		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
 	},
 }
 
@@ -11778,7 +12513,7 @@ minions["Metadata/Monsters/Breach/BreachEliteCorruptedEliteGuard"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
+		mod("StunDuration", "OVERRIDE", 2.33, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2330]
 	},
 }
 
@@ -11819,7 +12554,7 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite1"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
 
@@ -11851,7 +12586,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingerDemon/FingerDemon"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
 	},
 }
 
@@ -11883,7 +12618,7 @@ minions["Metadata/Monsters/Breach/Monsters/HandSpider/HandSpider"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4100]
+		mod("StunDuration", "OVERRIDE", 4.1, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4100]
 	},
 }
 
@@ -11918,7 +12653,7 @@ minions["Metadata/Monsters/Breach/Monsters/FingersBat/FingersBat"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
+		mod("StunDuration", "OVERRIDE", 3.05, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
 	},
 }
 
@@ -11991,13 +12726,13 @@ minions["Metadata/Monsters/Breach/BreachElitePaleElite2"] = {
 	modList = {
 		-- set_is_breach_monster [set_is_breach_monster = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
 minions["Metadata/Monsters/ChaosGodTriHeadLizard/ChaosGodTriHeadLizard_"] = {
 	name = "Saurian Servant",
-	monsterTags = { "Claw_onhit_audio", "demon", "not_dex", "not_str", "quest_null_monster_mods", "red_blood", "very_slow_movement", },
+	monsterTags = { "demon", "not_dex", "not_str", "quest_null_monster_mods", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
 	life = 2.2,
 	baseDamageIgnoresAttackSpeed = true,
 	energyShield = 0.22,
@@ -12022,7 +12757,7 @@ minions["Metadata/Monsters/ChaosGodTriHeadLizard/ChaosGodTriHeadLizard_"] = {
 		"GTChaosTriHeadLizardThing",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3483]
+		mod("StunDuration", "OVERRIDE", 3.483, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3483]
 	},
 }
 
@@ -12056,7 +12791,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/FungalZombie/DruidicFungusZ
 	modList = {
 		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -12125,7 +12860,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/HooksMonster/HooksMonster"]
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
 	},
 }
 
@@ -12162,7 +12897,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth"] 
 	},
 	modList = {
 		-- set_monster_beyond_portal_chance_+%_final [set_monster_beyond_portal_chance_+%_final = -50]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
+		mod("StunDuration", "OVERRIDE", 3.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3400]
 	},
 }
 
@@ -12198,7 +12933,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMele
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -12235,7 +12970,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -12271,7 +13006,7 @@ minions["Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCast
 	},
 	modList = {
 		-- set_additional_life_scaling_index [set_additional_life_scaling_index = 20]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -12306,7 +13041,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/CaveDweller_"] = {
 		"EGRitualCaveDwellerTriggerBlood",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
 	},
 }
 
@@ -12378,7 +13113,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRhoa"] = {
 		"SODemonicRhoaBloodBoil",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
 	},
 }
 
@@ -12411,7 +13146,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonRat"] = {
 		"MeleeAtAnimationSpeedComboTEMP2",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
+		mod("StunDuration", "OVERRIDE", 1.7, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
 	},
 }
 
@@ -12448,8 +13183,8 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonBurrower"] = {
 		"DemonBurrowerEpicBurrow",
 	},
 	modList = {
-		-- ImmuneToKnockback [cannot_be_knocked_back = 1]
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- ImmuneToKnockback [cannot_be_knocked_back = 1]
+		mod("StunDuration", "OVERRIDE", 5.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5333]
 	},
 }
 
@@ -12488,7 +13223,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonHulk_"] = {
 		"DemonHulkSlamTriggered",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
 	},
 }
 
@@ -12517,7 +13252,7 @@ minions["Metadata/Monsters/LeagueRitual/DemonFaction/DemonMonkey"] = {
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
 	},
 }
 
@@ -12548,6 +13283,3530 @@ minions["Metadata/Monsters/VaalMonsters/Zealots/VaalFlayedDaggersBloodUltimatium
 		"MeleeAtAnimationSpeed",
 	},
 	modList = {
-		-- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+	},
+}
+
+minions["Metadata/Monsters/KaruiSpiritTortoise/SpiritTortoise_"] = {
+	name = "Guardian Turtle",
+	monsterTags = { "allows_inc_aoe", "beast", "cold_affinity", "melee", "not_dex", "physical_affinity", "red_blood", "reptile_beast", "Snap_onhit_audio", "very_slow_movement", },
+	life = 3,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.4,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 20,
+	accuracy = 1,
+	baseMovementSpeed = 12,
+	spectreReservation = 113,
+	companionReservation = 51.9,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Eye of Hinekora (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"EDSSpiritTurtleFireSprayLeft",
+		"EDSSpiritTurtleFireSprayRight",
+		"GAKaruiSpiritTurtleSlam",
+		"MeleeAtAnimationSpeedComboTEMP",
+		"CGESpiritTurtleChilledGround",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 5.266, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5266]
+	},
+}
+
+minions["Metadata/Monsters/PlagueBringer/TwilightOrderPlagueBringer"] = {
+	name = "Gargantuan Wasp",
+	monsterTags = { "beast", "Claw_onhit_audio", "fast_movement", "insect", "melee", "physical_affinity", "very_fast_movement", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.755,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 56,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Ashen Forest (Act 6)",
+		"Found in Maps",
+		"Trenches (Map)",
+	},
+	skillList = {
+		"MASExtraAttackDistance6",
+		"MeleeAtAnimationSpeedComboTEMP2",
+		"DTTPlagueBringerDash",
+	},
+	modList = {
+		mod("PhysicalDamageLifeLeech", "BASE", 125, 1, 0), -- PlagueBringerLifeLeechInherent [base_life_leech_from_physical_attack_damage_permyriad = 12500]
+		mod("StunDuration", "OVERRIDE", 2.4, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2400]
+	},
+}
+
+minions["Metadata/Monsters/DrownedCrew/DrownedCrewSword_"] = {
+	name = "Drowned Explorer",
+	monsterTags = { "1HSword_onhit_audio", "humanoid", "melee", "melee_mod", "monster_barely_moves", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.3,
+	attackTime = 1.755,
+	attackRange = 9,
+	accuracy = 1,
+	weaponType1 = "One Handed Sword",
+	baseMovementSpeed = 8,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Glacial Tarn (Act 6)",
+		"Journey's End (Act 4)",
+		"Kedge Bay (Act 4)",
+		"The Drowned City (Act 3)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/DrownedCrew/DrownedCrewFigurehead"] = {
+	name = "Drowned Bearer",
+	monsterTags = { "allows_inc_aoe", "fire_affinity", "melee_mod", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	life = 1.8,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.8,
+	damageSpread = 0.2,
+	attackTime = 4.8,
+	attackRange = 20,
+	accuracy = 1,
+	weaponType1 = "Two Handed Mace",
+	baseMovementSpeed = 7,
+	spectreReservation = 77,
+	companionReservation = 40.2,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Kedge Bay (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MASStatueWretchPush",
+		"GAFigureheadSlamGhostFlame",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
+	},
+}
+
+minions["Metadata/Monsters/DrownedCrawler/DrownedCrawler__"] = {
+	name = "Drowned Crawler",
+	monsterTags = { "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_fast_movement", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.6,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.17,
+	attackRange = 8,
+	accuracy = 1,
+	weaponType1 = "None",
+	baseMovementSpeed = 62,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Kedge Bay (Act 4)",
+		"The Drowned City (Act 3)",
+		"Found in Maps",
+	},
+	skillList = {
+		"GADrownedCrawlerSwipe",
+		"DTTDrownedCrawlerLeap",
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.533, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2533]
+	},
+}
+
+minions["Metadata/Monsters/Pirates/PirateBootyBlaster"] = {
+	name = "Rotting Soulcatcher",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "humanoid", "not_dex", "not_str", "physical_affinity", "ranged", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.25,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 7,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MMSBootyBlasterSoulRelease",
+		"GSSoulBlast",
+		"EASBootyBlasterSoulRelease",
+		"MPSBootyBlasterSoulRelease",
+		"MMSBootyBlasterSoulReleaseFlinch",
+	},
+	modList = {
+		-- strafe_distance_+% [strafe_distance_+% = -60]
+		mod("StunDuration", "OVERRIDE", 4.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 4866]
+	},
+}
+
+minions["Metadata/Monsters/ManOWar/ManoWar"] = {
+	name = "Man o' War",
+	monsterTags = { "caster", "lightning_affinity", "not_dex", "not_str", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", "water", },
+	life = 1.75,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 1.75,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 18,
+	spectreReservation = 76,
+	companionReservation = 39.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GSJellyfishLightningTendrils",
+		"TBJellyfishLightningTendrilsLeft",
+		"GTJellyfishLightningTendrilsLeft",
+		"GTJellyfishLightningTendrilsRight",
+		"TBJellyfishLightningTendrilsRight",
+		"GSJellyfishLightningTendrilsLeft",
+	},
+	modList = {
+		-- how_stunning [how_stunning = 75]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/Pirates/PirateCannon"] = {
+	name = "Rotting Cannoneer",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fire_affinity", "humanoid", "physical_affinity", "ranged", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 8,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPWPirateCannonball",
+		"GAPirateCannonballImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.933, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2933]
+	},
+}
+
+minions["Metadata/Monsters/Pirates/PirateBarrel"] = {
+	name = "Rotting Demolitionist",
+	monsterTags = { "allows_inc_aoe", "fire_affinity", "humanoid", "physical_affinity", "ranged", "skeleton", "slow_movement", "StaffWood_onhit_audio", "undead", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 28,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Journey's End (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPWPirateBarrelToss",
+		"EASPirateBarrelPickup",
+		"EASPirateBarrelBurn",
+		"GAPirateBarrelTossImpact",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3600]
+	},
+}
+
+minions["Metadata/Monsters/GullGoliath/GullGoliath_"] = {
+	name = "Goliath Shrike",
+	monsterTags = { "allows_inc_aoe", "beast", "humanoid", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.8,
+	damageSpread = 0.2,
+	attackTime = 1.83,
+	attackRange = 18,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shrike Island (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DTTGoliathLeapSlam",
+		"GAGullGoliathSlam",
+		"GAGullGoliathLeapImpact",
+		"GTGullGoliathSlamSpikes",
+		"SOGullGoliathSlamSpikes",
+		"EGGullGoliathSpikeExplode",
+		"GAGullGoliathSpikeExplosion",
+		"GAGullGoliathSlamCombo",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3300]
+	},
+}
+
+minions["Metadata/Monsters/GullMen/GullMen"] = {
+	name = "Manshrike",
+	monsterTags = { "beast", "Beast_onhit_audio", "humanoid", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.275,
+	attackRange = 10,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	baseMovementSpeed = 37,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shrike Island (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3833]
+	},
+}
+
+minions["Metadata/Monsters/GullCarrion/GullCarrion"] = {
+	name = "Carrion Gull",
+	monsterTags = { "beast", "flying", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = -30,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 18,
+	spectreReservation = 38,
+	companionReservation = 25.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shrike Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/WingedFiend/CrawGull"] = {
+	name = "Vilespit Gull",
+	monsterTags = { "allows_additional_projectiles", "beast", "flying", "melee", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 0.8,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.8,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 19,
+	spectreReservation = 42,
+	companionReservation = 26.7,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shrike Island (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSCrawGullSpit",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Skeletons/FleshPicked/FleshPickedSkeletonNoEmerge"] = {
+	name = "Scavenged Skeleton",
+	monsterTags = { "melee", "monster_barely_moves", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 11,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Shrike Island (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterNecromancerRaisable [undead_description = 1]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+	},
+}
+
+minions["Metadata/Monsters/HarpyMonster/RavenHarpyShrikeIsland"] = {
+	name = "Raven Shrike",
+	monsterTags = { "allows_inc_aoe", "avian_beast", "beast", "demon", "flying", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.665,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 22,
+	spectreReservation = 59,
+	companionReservation = 33.6,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Shrike Island (Act 4)",
+	},
+	skillList = {
+		"DTTHarpyLedgeLeap",
+		"GSShrikeScreech",
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2033]
+	},
+}
+
+minions["Metadata/Monsters/HarpyMonster/GullHarpy"] = {
+	name = "Gull Shrike",
+	monsterTags = { "avian_beast", "beast", "demon", "flying", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "slow_movement", "Unarmed_onhit_audio", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.665,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 22,
+	spectreReservation = 59,
+	companionReservation = 33.6,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Kedge Bay (Act 4)",
+		"Shrike Island (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2033]
+	},
+}
+
+minions["Metadata/Monsters/CageSkeleton/CageSkeleton_"] = {
+	name = "Rattling Gibbet",
+	monsterTags = { "1HSword_onhit_audio", "allows_inc_aoe", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 2.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 16,
+	accuracy = 1,
+	baseMovementSpeed = 11,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Abandoned Prison (Act 4)",
+		"Stronghold (Map)",
+		"Found in Maps",
+		"Wolvenhold (Act 6)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		-- MonsterNecromancerRaisable [undead_description = 1]
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+	},
+}
+
+minions["Metadata/Monsters/PrisonTorturerZombieMonster/ZombieTorturer"] = {
+	name = "Eternal Torturer",
+	monsterTags = { "2HSharpMetal_onhit_audio", "fast_movement", "humanoid", "melee", "not_int", "physical_affinity", "undead", "zombie", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.15,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.35,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 16,
+	accuracy = 1,
+	weaponType1 = "One Handed Axe",
+	baseMovementSpeed = 41,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Abandoned Prison (Act 4)",
+		"Prison Hideout (Map)",
+		"Found in Maps",
+		"Wolvenhold (Act 6)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MeleeAtAnimationSpeed2",
+	},
+	modList = {
+		mod("BleedChance", "BASE", 100, 1, 0), -- BleedOnHitMonster [bleed_on_hit_with_attacks_% = 100]
+		mod("StunDuration", "OVERRIDE", 2.9, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2900]
+	},
+}
+
+minions["Metadata/Monsters/NecromancerRemakeBook/SpinedNecromancer"] = {
+	name = "Spined Necromancer",
+	monsterTags = { "allows_inc_aoe", "caster", "flying", "not_str", "physical_affinity", "red_blood", "slow_movement", "Unarmed_onhit_audio", "undead", },
+	life = 1.49,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.3,
+	evasion = 0.25,
+	fireResist = 30,
+	coldResist = 30,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.75,
+	damageSpread = 0.2,
+	attackTime = 3.315,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 26,
+	spectreReservation = 76,
+	companionReservation = 39.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Abandoned Prison (Act 4)",
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+		"Wolvenhold (Act 6)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EGSpinyNecromancerRevive",
+		"EDSPrisonNecromancerDelayedBlast",
+		"DTTPrisonNecromancerDodge",
+		"EASNecromancerRevive",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+	},
+}
+
+minions["Metadata/Monsters/SkeletonProwler/SkeletonProwler_"] = {
+	name = "Prowling Skeleton",
+	monsterTags = { "bones", "fast_movement", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.32,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 41,
+	spectreReservation = 59,
+	companionReservation = 33.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Abandoned Prison (Act 4)",
+		"Holten (Act 6)",
+		"Solitary Confinement (Act 4)",
+		"Wolvenhold (Act 6)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterNecromancerRaisable [undead_description = 1]
+		mod("StunDuration", "OVERRIDE", 2.25, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2250]
+	},
+}
+
+minions["Metadata/Monsters/RatMonster/RatMonsterPrison"] = {
+	name = "Eaten Rat",
+	monsterTags = { "beast", "fast_movement", "mammal_beast", "melee", "not_int", "physical_affinity", "red_blood", "Snap_onhit_audio", "undead", },
+	life = 0.9,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.35,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.9,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 15,
+	accuracy = 1,
+	baseMovementSpeed = 38,
+	spectreReservation = 46,
+	companionReservation = 28.5,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Abandoned Prison (Act 4)",
+		"Wolvenhold (Act 6)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MeleeAtAnimationSpeedComboTEMP2",
+	},
+	modList = {
+		-- MonsterNecromancerRaisable [undead_description = 1]
+		mod("StunDuration", "OVERRIDE", 1.7, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1700]
+	},
+}
+
+minions["Metadata/Monsters/Zombies/UpperPrison/PrisonZombieUnarmed_"] = {
+	name = "Eternal Prisoner",
+	monsterTags = { "melee", "not_dex", "not_int", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.35,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 7,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Abandoned Prison (Act 4)",
+		"Found in Maps",
+		"Wolvenhold (Act 6)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"PrisonZombieWalkEmerge",
+	},
+	modList = {
+		-- MonsterNecromancerRaisable [undead_description = 1]
+	},
+}
+
+minions["Metadata/Monsters/PaleWalker/PaleWalkerWave"] = {
+	name = "Pale Tidecrasher",
+	monsterTags = { "allows_inc_aoe", "cold_affinity", "humanoid", "melee", "not_dex", "not_str", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Frozen Falls (Map)",
+		"Glacial Tarn (Act 6)",
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GPSPaleWalkerWave",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/PaleWalker/PaleWalkerMirage"] = {
+	name = "Pale Brinesplitter",
+	monsterTags = { "allows_inc_aoe", "cold_affinity", "humanoid", "melee", "not_dex", "not_str", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Frozen Falls (Map)",
+		"Glacial Tarn (Act 6)",
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASPaleWalkerWaterMirage",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/PaleWalker/PaleWalkerShield_"] = {
+	name = "Pale Waterwalker",
+	monsterTags = { "cold_affinity", "humanoid", "melee", "not_dex", "not_str", "physical_affinity", "Unarmed_onhit_audio", "undead", "very_slow_movement", "zombie", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 16,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Frozen Falls (Map)",
+		"Glacial Tarn (Act 6)",
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASPaleWalkerWaterShield",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.216, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3216]
+	},
+}
+
+minions["Metadata/Monsters/PrisonStalker/UpperPrisonStalker"] = {
+	name = "Eternal Guard",
+	monsterTags = { "Claw_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "undead", "very_fast_movement", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.09,
+	damageSpread = 0.2,
+	attackTime = 0.99,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 52,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Abandoned Prison (Act 4)",
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"EASStalkerTeleportStrike",
+		"GAStalkerTeleportStrike",
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.616, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2616]
+	},
+}
+
+minions["Metadata/Monsters/TarHulk/PaleHulk_"] = {
+	name = "Pale Abductor",
+	monsterTags = { "allows_inc_aoe", "Beast_onhit_audio", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "undead", "very_slow_movement", "zombie", },
+	life = 2.15,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 16,
+	accuracy = 1,
+	baseMovementSpeed = 11,
+	spectreReservation = 88,
+	companionReservation = 44.1,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Frozen Falls (Map)",
+		"Glacial Tarn (Act 6)",
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"PaleHulkTentacleGrab",
+		"EASPaleHulkTentacleTime",
+		"GAPaleHulkTentacleSlam",
+		"MPWPaleHulkGrabbyTentacle",
+		"GAPaleHulkHeadbutt",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Skeletons/DrownedSkeleton/DrownedSkeleton_"] = {
+	name = "Coral-crowned Skeleton",
+	monsterTags = { "bones", "melee", "monster_barely_moves", "physical_affinity", "skeleton", "Unarmed_onhit_audio", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 7,
+	accuracy = 1,
+	baseMovementSpeed = 11,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Solitary Confinement (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		-- MonsterNecromancerRaisable [undead_description = 1]
+		mod("StunDuration", "OVERRIDE", 2.467, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2467]
+	},
+}
+
+minions["Metadata/Monsters/RumCarrier/PaleCrawler_"] = {
+	name = "Bulbous Maw",
+	monsterTags = { "cold_affinity", "fast_movement", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "undead", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.33,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 40,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Frozen Falls (Map)",
+		"Glacial Tarn (Act 6)",
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASPaleCrawlerDrink",
+		"GSPaleCrawlerExplode",
+		"GSPaleCrawlerExplode1",
+		"GSPaleCrawlerExplode2",
+		"GSPaleCrawlerExplode3",
+		"GSPaleCrawlerExplode4",
+		"GSPaleCrawlerExplode5",
+		"EASPaleCrawlerExplode",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.116, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2116]
+	},
+}
+
+minions["Metadata/Monsters/PaleFishman/PaleFisherman"] = {
+	name = "Angler Maw",
+	monsterTags = { "Beast_onhit_audio", "melee", "physical_affinity", "undead", "very_slow_movement", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 12,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Solitary Confinement (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DTTPaleFishman",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/ElephantRhino/ElephantRhino"] = {
+	name = "Elephant Tortoise",
+	monsterTags = { "allows_inc_aoe", "beast", "fast_movement", "mammal_beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 3.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 75,
+	chaosResist = 0,
+	damage = 2.45,
+	damageSpread = 0.2,
+	attackTime = 2.145,
+	attackRange = 30,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 127,
+	companionReservation = 56.1,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Azmerian Ranges (Map)",
+		"Kriar Village (Act 6)",
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASRhinoElephant180RightSlam",
+		"EASRhinoElephant45LeftAttack",
+		"EASRhinoElephant45RightAttack",
+		"EASRhinoElephant90LeftAttack",
+		"EASRhinoElephant90RightAttack",
+		"EASRhinoElephant90LeftSlam",
+		"EASRhinoElephant90RightSlam",
+		"EASRhinoElephantDoubleSwipe",
+		"EASRhinoElephantGroundSlam",
+		"EASRhinoElephant90Left",
+		"EASRhinoElephant90Right",
+		"EASRhinoElephant45Left",
+		"EASRhinoElephant45Right",
+		"GAElephantRhinoStomp",
+		"GAElephantRhinoSwipe",
+		"GAElephantRhinoCascade",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+	},
+}
+
+minions["Metadata/Monsters/DeepDwellerBoss/SpikedDweller"] = {
+	name = "Spiked Scuttler",
+	monsterTags = { "allows_inc_aoe", "beast", "Claw_onhit_audio", "cold_affinity", "crustacean_beast", "melee", "not_dex", "not_int", "physical_affinity", "very_slow_movement", },
+	life = 2.25,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 18,
+	accuracy = 1,
+	baseMovementSpeed = 14,
+	spectreReservation = 91,
+	companionReservation = 45,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Shoreline Hideout (Act 4)",
+		"Found in Maps",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GTHunkerSpikes",
+		"GTHunkerSpikesMedium",
+		"GTHunkerSpikesLarge",
+		"GADwellerHunkerDownSpikes",
+		"EASHunkerSpikes",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/StonebackRhoa/StonebackRhoa"] = {
+	name = "Stoneback Rhoa",
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Azmerian Ranges (Map)",
+		"Shoreline Hideout (Act 4)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+		"Whakapanu Island (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MeleeAtAnimationSpeedStonebackRhoaFeet",
+		"StonebackRhoaTableCharge",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+	},
+}
+
+minions["Metadata/Monsters/StonebackRhoa/GoblinStonebackRhoa"] = {
+	name = "Captive Stoneback Rhoa",
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"StonebackRhoaTableCharge",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinStabber"] = {
+	name = "Skulltop Kin",
+	monsterTags = { "fast_movement", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "Stab_onhit_audio", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.245,
+	attackRange = 7,
+	accuracy = 1,
+	weaponType1 = "Dagger",
+	baseMovementSpeed = 40,
+	spectreReservation = 38,
+	companionReservation = 25.2,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Isle of Kin (Act 4)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"GoblinEmerge1",
+		"EASGoblinDance",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinStabberNoSkull"] = {
+	name = "Feral Kin",
+	monsterTags = { "fast_movement", "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Stab_onhit_audio", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.245,
+	attackRange = 7,
+	accuracy = 1,
+	weaponType1 = "Dagger",
+	baseMovementSpeed = 40,
+	spectreReservation = 38,
+	companionReservation = 25.2,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Isle of Kin (Act 4)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"GoblinEmerge1",
+		"EASGoblinDance",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinSpearman/GoblinSpearman"] = {
+	name = "Spearbearer Kin",
+	monsterTags = { "allows_additional_projectiles", "humanoid", "medium_movement", "melee", "not_int", "physical_affinity", "ranged", "red_blood", "Stab_onhit_audio", },
+	life = 0.75,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.75,
+	damageSpread = 0.2,
+	attackTime = 1.2,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	baseMovementSpeed = 32,
+	spectreReservation = 40,
+	companionReservation = 26.1,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Isle of Kin (Act 4)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"EASGoblinDance",
+		"MPWGoblinSpearThrow",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.566, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2566]
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinStiltsFighter/GoblinStiltsFighter"] = {
+	name = "Tallwalker Kin",
+	monsterTags = { "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "SpearWood_onhit_audio", },
+	life = 0.9,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.9,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 17,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	weaponType2 = "Shield",
+	baseMovementSpeed = 32,
+	spectreReservation = 46,
+	companionReservation = 28.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Isle of Kin (Act 4)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASGoblinDance",
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		mod("BlockChance", "BASE", 30, 0, 0), -- MonsterAttackBlock30Bypass15 [monster_base_block_% = 30]
+		mod("BlockEffect", "BASE", 15, 0, 0), -- MonsterAttackBlock30Bypass15 [base_block_%_damage_taken = 15]
+		-- how_stunning [how_stunning = 75]
+		mod("StunDuration", "OVERRIDE", 2.53, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2530]
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinDrummer/GoblinDrummer"] = {
+	name = "Wardrum Kin",
+	monsterTags = { "allows_inc_aoe", "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "StaffWood_onhit_audio", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.4,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	weaponType2 = "One Handed Mace",
+	baseMovementSpeed = 37,
+	spectreReservation = 64,
+	companionReservation = 35.4,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Isle of Kin (Act 4)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASGoblinDance",
+		"NessaCrabTriggeredEarthquake",
+		"EASGoblinDrummerEarthquake",
+		"GSGoblinDrummerPulse",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinTusker/GoblinTusker"] = {
+	name = "Tuskbearer Kin",
+	monsterTags = { "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "SpearMetal_onhit_audio", },
+	life = 0.9,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.9,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	weaponType2 = "Spear",
+	baseMovementSpeed = 32,
+	spectreReservation = 46,
+	companionReservation = 28.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Isle of Kin (Act 4)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASGoblinDance",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinShaman/GoblinShaman"] = {
+	name = "Shaman Kin",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "Elemental_onhit_audio", "fast_movement", "humanoid", "lightning_affinity", "not_dex", "not_str", "physical_affinity", "red_blood", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Wand",
+	baseMovementSpeed = 40,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Isle of Kin (Act 4)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MPSGoblinShamanBasicProj",
+		"SOGoblinVoltaxicStorm",
+		"GSGoblinVoltaxicStorm",
+		"GTGoblinVoltaxicStorm",
+		"GTGoblinVoltaxicStormLesser",
+		"GTGoblinVoltaxicStormGreater",
+		"EASGoblinDance",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/HarpyMonster/MagmaHarpy/MagmaHarpy"] = {
+	name = "Molten Imp",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "avian_beast", "beast", "caster", "cleaving_weapon", "demon", "fire", "fire_affinity", "flesh_armour", "flying", "humanoid", "is_unarmed", "melee", "not_int", "not_str", "physical_affinity", "ranged", "slow_movement", "Unarmed_onhit_audio", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 22,
+	spectreReservation = 59,
+	companionReservation = 33.6,
+	monsterCategory = "Demon",
+	spawnLocation = {
+		"The Galai Gates (Act 6)",
+		"The Khari Crossing (Act 6)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MPSMagmaHarpyFireToss",
+		"EASMagmaHarpyFireToss",
+		"GSMagmaHarpyFireImpact",
+		"EASMoltenImpTaunt",
+		"MeleeAtAnimationSpeedComboTEMP",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.033, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2033]
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinMiner/GoblinMinerMining"] = {
+	name = "Prospector Kin",
+	monsterTags = { "fast_movement", "humanoid", "not_int", "red_blood", "SpearWood_onhit_audio", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.65,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	baseMovementSpeed = 46,
+	spectreReservation = 36,
+	companionReservation = 24.3,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSGoblinMinerRockThrow",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.566, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2566]
+	},
+}
+
+minions["Metadata/Monsters/Goblins/GoblinMiner/GoblinMinerTorch"] = {
+	name = "Torchbearer Kin",
+	monsterTags = { "fast_movement", "fire_affinity", "humanoid", "melee", "not_int", "physical_affinity", "red_blood", "StaffWood_onhit_audio", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.65,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	baseMovementSpeed = 46,
+	spectreReservation = 36,
+	companionReservation = 24.3,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Caldera (Map)",
+		"Found in Maps",
+		"Volcanic Warrens (Act 4)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedFire",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.566, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2566]
+	},
+}
+
+minions["Metadata/Monsters/ElectricStingray/ElectricStingray_"] = {
+	name = "Spiked Ray",
+	monsterTags = { "allows_additional_projectiles", "beast", "lightning_affinity", "medium_movement", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "ranged", "red_blood", },
+	life = 1.6,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.2,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.6,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 26,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 71,
+	companionReservation = 37.8,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSElectricStingRayProjectile",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/JellfishNettler/JellyfishNettlerSmall"] = {
+	name = "Skittering Jellycrab",
+	monsterTags = { "beast", "caster", "cleaving_weapon", "crustacean_beast", "flesh_armour", "is_unarmed", "lightning_affinity", "medium_movement", "melee", "not_str", "physical_affinity", "Unarmed_onhit_audio", "water", },
+	life = 0.7,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	evasion = 0.2,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.7,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 5,
+	accuracy = 1,
+	baseMovementSpeed = 29,
+	spectreReservation = 38,
+	companionReservation = 25.2,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedLightning",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 1.983, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1983]
+	},
+}
+
+minions["Metadata/Monsters/JellfishNettler/JellyfishNettlerBig"] = {
+	name = "Skittering Jellycrab",
+	monsterTags = { "beast", "caster", "cleaving_weapon", "crustacean_beast", "fast_movement", "flesh_armour", "is_unarmed", "lightning_affinity", "melee", "not_dex", "not_str", "physical_affinity", "Unarmed_onhit_audio", "water", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 42,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedLightning",
+		"JellyfishNettlerArc",
+		"SSMJellyfishNettlerMinions",
+		"GTJellyfishNettlerSpawn",
+		"SSMJellyfishNettlerPassive",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 1.983, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1983]
+	},
+}
+
+minions["Metadata/Monsters/TentacleDemonFemale/TentacleWhipper"] = {
+	name = "Ghastly Siren",
+	monsterTags = { "humanoid", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.02,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 13,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Howling Caves (Act 6)",
+		"Rugosa (Map)",
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MeleeAtAnimationSpeedComboTEMP2",
+		"GSSirenArenaEmergeStalagmiteBreakInwardEG",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.275, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3275]
+	},
+}
+
+minions["Metadata/Monsters/GiantStarfish/GiantStarfish_"] = {
+	name = "Giant Maw",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "very_slow_movement", "water", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.6,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 24,
+	accuracy = 1,
+	baseMovementSpeed = 3,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeGiantStarfishTentacle1",
+		"MeleeGiantStarfishTentacle2",
+		"MeleeGiantStarfishTentacle3",
+		"MeleeGiantStarfishTentacle4",
+		"MeleeGiantStarfishTentacle5",
+		"MeleeGiantStarfishTentacleSlam1",
+		"MeleeGiantStarfishTentacleSlam2",
+		"MeleeGiantStarfishTentacleSlam3",
+		"MeleeGiantStarfishTentacleSlam4",
+		"MeleeGiantStarfishTentacleSlam5",
+		"MeleeGiantStarfishTentacleMortar1",
+		"MeleeGiantStarfishTentacleMortar2",
+		"MeleeGiantStarfishTentacleMortar3",
+		"MeleeGiantStarfishTentacleMortar4",
+		"MeleeGiantStarfishTentacleMortar5",
+		"MPSStarfishVomit",
+		"CGEStarFishSpitCausticGround",
+		"GSStarFishSpitImpact",
+	},
+	modList = {
+		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- ImmuneToKnockback [cannot_be_knocked_back = 1]
+		mod("StunDuration", "OVERRIDE", 2.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2666]
+	},
+}
+
+minions["Metadata/Monsters/CarrionWing/CarrionWing_"] = {
+	name = "Luminous Spinefish",
+	monsterTags = { "beast", "Beast_onhit_audio", "caster", "cleaving_weapon", "fast_movement", "flesh_armour", "is_unarmed", "lightning_affinity", "melee", "not_str", "physical_affinity", "red_blood", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 8,
+	accuracy = 1,
+	baseMovementSpeed = 39,
+	spectreReservation = 59,
+	companionReservation = 33.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GTCarrionWingScreech",
+		"TBCarrionWingScreechBeam",
+		"GSCarrionWingScreechBeamImpact",
+		"DTTCarrionWingDodgeLeft",
+		"DTTCarrionWingDodgeRight",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.833, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2833]
+	},
+}
+
+minions["Metadata/Monsters/BrineMaiden/BrineMaiden"] = {
+	name = "Brine Maiden",
+	monsterTags = { "allows_additional_projectiles", "beast", "caster", "cold_affinity", "humanoid", "medium_movement", "melee", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.25,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 59,
+	companionReservation = 33.6,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Howling Caves (Act 6)",
+		"Rugosa (Map)",
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GTBrineMaidenScreech",
+		"GSBrineMaidenScreech",
+		"BrineMaidenIceBarage",
+		"MPSBrineMaidenIceProjectile",
+		"GSSirenArenaEmergeStalagmiteBreakInwardEG",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/ProwlerLeviathan/ProwlerLeviathan"] = {
+	name = "Amphibious Prowler",
+	monsterTags = { "amphibian_beast", "beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
+	life = 2,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.33,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.8,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 37,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Singing Caverns (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/KaruiTuatara/KaruiTuatara_"] = {
+	name = "Guardian Lizard",
+	monsterTags = { "allows_inc_aoe", "beast", "medium_movement", "melee", "not_int", "not_str", "physical_affinity", "red_blood", "reptile_beast", "Unarmed_onhit_audio", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.26,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 64,
+	companionReservation = 35.4,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Eye of Hinekora (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAKaruiTuataraTailSlam",
+		"MASExtraAttackDistance6",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/KaruiSoulCaster/KaruiSoulCaster_"] = {
+	name = "Ancestral Channeler",
+	monsterTags = { "human", "humanoid", "medium_movement", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", },
+	life = 0.5,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 59,
+	companionReservation = 33.6,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Halls of the Dead (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SSMKaruiSpiritSummon",
+		"GTSummonKaruiSpirits",
+		"EASKaruiSoulCasterMinionProjectile",
+		"GPSKaruiSpiritMinionProjectile",
+		"MPSKaruiCasterProjectile",
+		"MPSKaruiSpiritProjectile",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3500]
+	},
+}
+
+minions["Metadata/Monsters/FallenKarui/FallenKaruiArcher_______"] = {
+	name = "Ancestral Archer",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "Arrow_onhit_audio", "human", "humanoid", "medium_movement", "not_int", "not_str", "physical_affinity", "ranged", "red_blood", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.6,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.58,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 60,
+	accuracy = 1,
+	weaponType1 = "Bow",
+	baseMovementSpeed = 32,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Halls of the Dead (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"SnipeFallenKaruiArcher",
+		"GAFallenKaruiArcherImpact",
+		"GAFallenKaruiArcherJadeRainSingle",
+		"GTFallenKaruiArcherJadeRain",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2283]
+	},
+}
+
+minions["Metadata/Monsters/FallenKarui/FallenKaruiShieldAxe"] = {
+	name = "Ancestral Guardian",
+	monsterTags = { "1HAxe_onhit_audio", "fast_movement", "human", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.65,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	weaponType1 = "One Handed Axe",
+	weaponType2 = "Shield",
+	baseMovementSpeed = 41,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Halls of the Dead (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("BlockChance", "BASE", 20, 0, 0), -- MonsterAttackBlock30Bypass20 [monster_base_block_% = 20]
+		mod("BlockEffect", "BASE", 10, 0, 0), -- MonsterAttackBlock30Bypass20 [base_block_%_damage_taken = 10]
+		mod("StunDuration", "OVERRIDE", 2.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2283]
+	},
+}
+
+minions["Metadata/Monsters/FallenKarui/FallenKaruiTwoHandAxe"] = {
+	name = "Ancestral Warrior",
+	monsterTags = { "2HAxe_onhit_audio", "allows_inc_aoe", "human", "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.6,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.84,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Two Handed Axe",
+	baseMovementSpeed = 32,
+	spectreReservation = 71,
+	companionReservation = 37.8,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Halls of the Dead (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EESFallenKaruiBuffSelf",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2283]
+	},
+}
+
+minions["Metadata/Monsters/FallenKarui/FallenKaruiOneHandMace"] = {
+	name = "Ancestral Headtaker",
+	monsterTags = { "1HBluntStone_onhit_audio", "human", "humanoid", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.65,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	baseMovementSpeed = 32,
+	spectreReservation = 67,
+	companionReservation = 36.6,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Halls of the Dead (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.866, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2866]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneNgamahu/FirebreatherStandalone"] = {
+	name = "Firebreather",
+	monsterTags = { "allows_inc_aoe", "fire_affinity", "human", "humanoid", "karui", "red_blood", "very_slow_movement", },
+	life = 1.35,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.35,
+	damageSpread = 0.2,
+	attackTime = 0,
+	attackRange = 13,
+	accuracy = 1,
+	weaponType1 = "None",
+	baseMovementSpeed = 11,
+	spectreReservation = 62,
+	companionReservation = 34.8,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GAFirebreatherFireSlam",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 5.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5666]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneNgamahu/BlackbarkDemolisherStandalone"] = {
+	name = "Blackbark Demolisher",
+	monsterTags = { "allows_inc_aoe", "fire_affinity", "human", "humanoid", "karui", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.65,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.4,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.99,
+	damageSpread = 0.2,
+	attackTime = 0,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Two Handed Axe",
+	baseMovementSpeed = 32,
+	spectreReservation = 72,
+	companionReservation = 38.4,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"GABlackbarkDemolisherFireSlam",
+		"MeleeAtAnimationSpeedFire",
+		"GSBlackbarkDemolisherBurningNova",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.283, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2283]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneTasalio/SpearfisherStandalone"] = {
+	name = "Spearfisher",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fast_movement", "human", "humanoid", "karui", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.45,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.04,
+	damageSpread = 0.2,
+	attackTime = 0,
+	attackRange = 20,
+	accuracy = 1,
+	weaponType1 = "Spear",
+	baseMovementSpeed = 43,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedColdCombo35",
+		"DTTSpearfisherDisengage",
+		"DTTSpearfisherEngage",
+		"GASpearfisherDisengageStrike",
+		"MPSSpearfisherSpearThrow",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneTasalio/RiptideStandalone"] = {
+	name = "Riptide",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "fast_movement", "human", "humanoid", "karui", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 0,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedCold",
+		"RiptideColdCombo",
+		"MDRiptideSummonWave",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneTasalio/TrawlerStandalone_"] = {
+	name = "Tasalio Trawler",
+	monsterTags = { "fast_movement", "human", "humanoid", "karui", "melee", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 15,
+	accuracy = 1,
+	baseMovementSpeed = 39,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EAATrawlerTeleport",
+		"GSTrawlerTeleportNova",
+		"MPWTrawlerThrowTrap",
+		"SOTrawlerTrap",
+		"GSTrawlerTrapNova",
+		"MeleeAtAnimationSpeedComboTEMP2",
+		"SOTrawlerTrapSpectre",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+	},
+}
+
+minions["Metadata/Monsters/PlagueSwarm/TwilightOrderPlagueSwarm"] = {
+	name = "Swarming Wasp",
+	monsterTags = { "beast", "fast_movement", "insect", "melee", "not_int", "not_str", "physical_affinity", "Unarmed_onhit_audio", "very_fast_movement", },
+	life = 0.5,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.6,
+	fireResist = -30,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.5,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 6,
+	accuracy = 1,
+	baseMovementSpeed = 50,
+	spectreReservation = 29,
+	companionReservation = 21.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Ashen Forest (Act 6)",
+		"Found in Maps",
+		"Trenches (Map)",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
+	},
+}
+
+minions["Metadata/Monsters/PlagueSwarm/LargeParasiticCrab"] = {
+	name = "Clawcrunch",
+	monsterTags = { "beast", "crustacean_beast", "medium_movement", "not_dex", "not_int", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.75,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.81,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 27,
+	accuracy = 1,
+	baseMovementSpeed = 31,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MeleeAtAnimationSpeedComboTEMP2",
+		"WalkEmergeParasiticCrab",
+		"MAASBarnacleParasiteCrabFreezePuncture",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.783, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2783]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Cleaver/ExcavatorCleaver"] = {
+	name = "Zealous Guard",
+	monsterTags = { "1HBluntStone_onhit_audio", "allows_inc_aoe", "fast_movement", "humanoid", "lightning_affinity", "melee", "physical_affinity", "red_blood", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 41,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Digsite (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MASExtraAttackDistance6",
+	},
+	modList = {
+		-- MonsterConvertToLightningDamage2 [non_skill_base_physical_damage_%_to_convert_to_lightning = 50]
+		mod("StunDuration", "OVERRIDE", 2.45, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2450]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Maul/ExcavatorMaulSpectre"] = {
+	name = "Zealous Pillarcrusher",
+	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "humanoid", "lightning_affinity", "melee", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 1.5,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.5,
+	damageSpread = 0.2,
+	attackTime = 7.17,
+	attackRange = 23,
+	accuracy = 1,
+	baseMovementSpeed = 12,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Digsite (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedLightning",
+		"GAExcavatorMaulSlam",
+		"GPSExcavatorMaulRocks",
+		"GTExcavatorMaulRocks",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Orb/ExcavatorOrb"] = {
+	name = "Zealous Excavator",
+	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "cannot_be_monolith", "humanoid", "lightning_affinity", "melee", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 11,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Digsite (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"GSExcavatorOrbExplosion",
+		"TCExcavatorOrbCharge",
+		"GSExcavatorOrbDonutExplosion",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 1.666, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 1666]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Raptor/ExcavatorRaptor"] = {
+	name = "Zealous Courser",
+	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "humanoid", "lightning_affinity", "melee", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 9,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Digsite (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"GSExcavatorRaptorTriangleSlam",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.133, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3133]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrder/TwilightOrderExcavators/Sceptre/ExcavatorSceptre"] = {
+	name = "Zealous Shockwarden",
+	monsterTags = { "1HBluntMetal_onhit_audio", "allows_inc_aoe", "humanoid", "lightning_affinity", "melee", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 1.3,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.3,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 18,
+	spectreReservation = 60,
+	companionReservation = 34.2,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Digsite (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"TBExcavatorSceptreErraticBeam",
+		"GTExcavatorSceptreErraticBeam",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/Anchorman/BloatedAnchorman"] = {
+	name = "Bloated Anchorman",
+	monsterTags = { "2HBluntMetal_onhit_audio", "humanoid", "melee", "not_dex", "not_int", "physical_affinity", "undead", "very_slow_movement", "zombie", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.7,
+	fireResist = 0,
+	coldResist = 75,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.5,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Two Handed Mace",
+	baseMovementSpeed = 17,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Flotsam (Map)",
+		"Kedge Bay (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MASBloatedAnchormanDoubleSwing",
+		"MPWAnchorToss",
+		"EASAnchormanPullAnchor",
+		"EASAnchorRetrieval",
+		"GABloatedAnchormanAnchorSlam",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+		-- set_check_for_targets_between_initiator_and_projectile_source [set_check_for_targets_between_initiator_and_projectile_source = 0]
+		mod("StunDuration", "OVERRIDE", 2.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2600]
+	},
+}
+
+minions["Metadata/Monsters/KelpDreg/KelpDregSword"] = {
+	name = "Searot Skeleton",
+	monsterTags = { "1HSword_onhit_audio", "melee", "not_dex", "not_int", "physical_affinity", "skeleton", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.3,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	weaponType1 = "One Handed Sword",
+	baseMovementSpeed = 11,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Kedge Bay (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.483, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2483]
+	},
+}
+
+minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowSniper"] = {
+	name = "Searot Harpooner",
+	monsterTags = { "allows_additional_projectiles", "Arrow_onhit_audio", "not_dex", "not_int", "physical_affinity", "ranged", "skeleton", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.3,
+	attackTime = 1.5,
+	attackRange = 55,
+	accuracy = 1,
+	weaponType1 = "Bow",
+	baseMovementSpeed = 11,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Kedge Bay (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MASKelpDregCrossbow",
+		"MPWKelpDregPuncture",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+	},
+}
+
+minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowEnsarer"] = {
+	name = "Searot Ensnarer",
+	monsterTags = { "Arrow_onhit_audio", "not_dex", "not_int", "skeleton", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.3,
+	attackTime = 1.5,
+	attackRange = 55,
+	accuracy = 1,
+	weaponType1 = "Bow",
+	baseMovementSpeed = 11,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
+	skillList = {
+		"MASKelpDregCrossbowPhys",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+	},
+}
+
+minions["Metadata/Monsters/KelpDreg/KelpDregCrossbowIceShot"] = {
+	name = "Searot Sniper",
+	monsterTags = { "allows_additional_projectiles", "Arrow_onhit_audio", "cold_affinity", "not_dex", "not_int", "physical_affinity", "ranged", "skeleton", "undead", "very_slow_movement", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.3,
+	attackTime = 1.5,
+	attackRange = 55,
+	accuracy = 1,
+	weaponType1 = "Bow",
+	baseMovementSpeed = 11,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+		"Castaway (Map)",
+		"Kedge Bay (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MASKelpDregCrossbowIce",
+		"MPWKelpDregPunctureIce",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.466, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2466]
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverDrunk"] = {
+	name = "Blood-fevered Brew-breather",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_inc_aoe", "human", "humanoid", "karui", "melee", "monster_has_on_death_mechanic", "not_dex", "not_int", "physical_affinity", "red_blood", "slow_movement", },
+	life = 1.6,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.6,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.6,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 24,
+	spectreReservation = 71,
+	companionReservation = 37.8,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"Ngakanu (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GCEBloodFeverDrunkStuned",
+		"GCEBloodFeverDrunkDeath",
+		"EDSBloodFeverDrunkFlySpray",
+		"EDSBloodFeverDrunkSelfVomit",
+		"GSBloodFeverDrunkVomit",
+	},
+	modList = {
+		-- SpectrePlayDeathAction [is_spectre_with_death_action = 1]
+		-- base_heavy_stun_duration_ms [base_heavy_stun_duration_ms = 730]
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverHook"] = {
+	name = "Blood-fevered Hookman",
+	monsterTags = { "2HBluntStone_onhit_audio", "human", "humanoid", "karui", "medium_movement", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 35,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"Ngakanu (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"MeleeAtAnimationSpeedHookThrow",
+	},
+	modList = {
+		-- base_heavy_stun_duration_ms [base_heavy_stun_duration_ms = 2333]
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverSpear"] = {
+	name = "Blood-fevered Spearman",
+	monsterTags = { "fast_movement", "human", "humanoid", "karui", "melee", "MonsterStab_onhit_audio", "not_int", "not_str", "physical_affinity", "red_blood", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.6,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 39,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"MeleeAtAnimationSpeedComboTEMP2",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.333, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2333]
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverKarui1HAxe_"] = {
+	name = "Blood-fevered Axeman",
+	monsterTags = { "1HAxe_onhit_audio", "fast_movement", "human", "humanoid", "karui", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.05,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.05,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	weaponType1 = "One Handed Axe",
+	baseMovementSpeed = 40,
+	spectreReservation = 51,
+	companionReservation = 30.6,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"Ngakanu (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSBloodfeverBloodPustule",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.275, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2275]
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverKarui2HAxe"] = {
+	name = "Blood-fevered Warrior",
+	monsterTags = { "2HAxe_onhit_audio", "human", "humanoid", "karui", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.6,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	weaponType1 = "Two Handed Axe",
+	baseMovementSpeed = 16,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"Ngakanu (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"DTTKaruiBloodFever2HLeap",
+		"GABloodFeverLeapImpact",
+		"GABloodFeverAxeChop",
+		"CGEBloodfeverKaruiFast",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverKarui1HMace"] = {
+	name = "Blood-fevered Maceman",
+	monsterTags = { "1HAxe_onhit_audio", "fast_movement", "human", "humanoid", "karui", "melee", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	weaponType1 = "One Handed Mace",
+	baseMovementSpeed = 40,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"Ngakanu (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.275, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2275]
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverBoar"] = {
+	name = "Blood-fevered Tuskbeast",
+	monsterTags = { "allows_inc_aoe", "beast", "Beast_onhit_audio", "medium_movement", "melee", "not_int", "physical_affinity", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.25,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 12,
+	accuracy = 1,
+	baseMovementSpeed = 36,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+		"Ngakanu (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"BloodFeverBoarCharge",
+		"GSBloodFeverExplode",
+		"BloodFeverBoarChargeTopple",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverMedicineWoman"] = {
+	name = "Blood-fevered Wisewoman",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "Arrow_onhit_audio", "caster", "fire_affinity", "human", "humanoid", "karui", "not_dex", "not_str", "physical_affinity", "ranged", "red_blood", "slow_movement", },
+	life = 2.2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.2,
+	fireResist = 75,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	baseMovementSpeed = 26,
+	spectreReservation = 84,
+	companionReservation = 42.3,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"Ngakanu (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASMedicineWomanSummon",
+		"MPSMedicineWomanProjectile",
+		"EASMedicineWomanHeal",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3000]
+	},
+}
+
+minions["Metadata/Monsters/KaruiWarriorHorn/KaruiWarriorHorn_"] = {
+	name = "Ancestral Hornbearer",
+	monsterTags = { "2HBluntWood_onhit_audio", "human", "humanoid", "not_dex", "not_int", "red_blood", "very_slow_movement", },
+	life = 1.65,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.65,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 13,
+	spectreReservation = 72,
+	companionReservation = 38.4,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Halls of the Dead (Act 4)",
+		"Sinkhole (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EGKaruiHornBuffSpawn",
+		"EGKaruiHornBuffAllies",
+		"EASKaruiHornSlam",
+		"GAKaruiHornSlamCleave",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/BloodFeverKarui/BloodFeverBloater"] = {
+	name = "Blood-fevered Plaguespreader",
+	monsterTags = { "allows_inc_aoe", "human", "humanoid", "karui", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", "slow_movement", },
+	life = 2.5,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.8,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 2.25,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 20,
+	accuracy = 1,
+	baseMovementSpeed = 22,
+	spectreReservation = 99,
+	companionReservation = 47.4,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Heart of the Tribe (Act 4)",
+		"The Jade Isles (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EASBloodFeverBloaterPustuleSpread",
+		"CGEBloodFeverBloaterPustules",
+		"GSBloodFeverPustuleExplosion",
+		"EASBloodFeverBloaterRightrousFlier",
+		"SOBloodfeverPustules",
+		"SOBloodfeverPustulesSpectre",
+		"EASBloodFeverBloaterPustuleSpreadSpectre",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.633, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2633]
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataAxe_"] = {
+	name = "Righteous Axewielder",
+	monsterTags = { "2HSharpMetal_onhit_audio", "allows_inc_aoe", "fast_movement", "human", "humanoid", "karui", "melee", "physical_affinity", "red_blood", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 10,
+	accuracy = 1,
+	weaponType1 = "Two Handed Axe",
+	baseMovementSpeed = 45,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MASExtraAttackDistance6",
+		"GSTwilightOrderConvertRighteousFireExplosion",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataMace_"] = {
+	name = "Faithful Warrior",
+	monsterTags = { "2HBluntMetal_onhit_audio", "allows_inc_aoe", "fast_movement", "human", "humanoid", "karui", "melee", "not_int", "physical_affinity", "red_blood", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	evasion = 0.15,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	weaponType1 = "Two Handed Mace",
+	baseMovementSpeed = 42,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MASExtraAttackDistance4",
+		"GATwilightKaruiEarthquakeImpact",
+		"GATwilightKaruiEarthquakeAftershock",
+		"SOTwilightKaruiEarthquake",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataArcher_"] = {
+	name = "Faithful Archer",
+	monsterTags = { "allows_additional_projectiles", "human", "humanoid", "karui", "medium_movement", "not_int", "physical_affinity", "ranged", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.15,
+	evasion = 0.4,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.16,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 65,
+	accuracy = 1,
+	weaponType1 = "Bow",
+	baseMovementSpeed = 32,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrderSorceror/TwilightOrderSorcerer"] = {
+	name = "Twilight Order Oathsworn",
+	monsterTags = { "2HBluntWood_onhit_audio", "allows_additional_projectiles", "allows_inc_aoe", "caster", "human", "humanoid", "not_str", "physical_affinity", "red_blood", "very_slow_movement", },
+	life = 1.2,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	evasion = 0.25,
+	fireResist = 30,
+	coldResist = 30,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "Warstaff",
+	baseMovementSpeed = 13,
+	spectreReservation = 57,
+	companionReservation = 33,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"The Excavation (Act 4)",
+		"Found in Maps",
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSTwilightSorcerorFireball",
+		"EGTwilightSorcerorCleanse",
+		"TwilightSorcerorFireLaser",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/TwilightOrderCleric/TwilightOrderCleric"] = {
+	name = "Twilight Order Priest",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "caster", "cultist", "human", "humanoid", "not_dex", "not_str", "physical_affinity", "red_blood", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.3,
+	fireResist = 30,
+	coldResist = 30,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 17,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+		"Arastas (Act 4)",
+		"Cliffside (Map)",
+		"Found in Maps",
+	},
+	skillList = {
+		"EDSTwilightClericDelayedBlast",
+		"EDSTwilightClericDelayedBlastChaos",
+		"SSMTwilightClericProximityShield",
+		"MPSTwilightClericProjectile",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.05, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3050]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/Boar/TawhoaBoarStandalone"] = {
+	name = "Tawhoa's Boar",
+	monsterTags = { "beast", "karui", "mammal_beast", "medium_movement", "melee", "physical_affinity", "red_blood", "Unarmed_onhit_audio", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.2,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"TCTawhoaBoarCharge",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 3.066, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 3066]
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/Tuatata/TawhoaTuataraStandalone"] = {
+	name = "Tawhoa's Tuatara",
+	monsterTags = { "beast", "karui", "medium_movement", "melee", "physical_affinity", "red_blood", "reptile_beast", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 11,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GATawhoaTuataraTailSlam",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueAncestral/StandaloneTawhoa/MedicineWoman/TawhoaMedicineWomanStandalone__"] = {
+	name = "Tawhoa Mystic",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "human", "humanoid", "karui", "medium_movement", "melee", "physical_affinity", "red_blood", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.395,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Humanoid",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"MPSTawhoaMedicineWomanProjectile",
+		"GSTawhoaMedicineWomanProjectileImpactWall",
+		"GSTawhoaMedicineWomanProjectileImpactFloor",
+		"EASTawhoaMedicineWomanHealingAura",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.65, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2650]
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionAxeThrowerIncursion"] = {
+	name = "Vaal Embalmed Berserker",
+	monsterTags = { "2HSharpMetal_onhit_audio", "fast_movement", "humanoid", "red_blood", "undead", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.2,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	weaponType1 = "One Handed Axe",
+	weaponType2 = "One Handed Axe",
+	baseMovementSpeed = 41,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionSwordShieldIncursion"] = {
+	name = "Vaal Embalmed Warrior",
+	monsterTags = { "1HSword_onhit_audio", "humanoid", "medium_movement", "melee", "monster_blocks_damage", "not_dex", "not_int", "physical_affinity", "red_blood", "undead", },
+	life = 1.21,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.5,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 11,
+	accuracy = 1,
+	weaponType1 = "One Handed Sword",
+	weaponType2 = "Shield",
+	baseMovementSpeed = 32,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+		mod("BlockChance", "BASE", 30, 0, 0), -- MonsterAttackBlock30Bypass15 [monster_base_block_% = 30]
+		mod("BlockEffect", "BASE", 15, 0, 0), -- MonsterAttackBlock30Bypass15 [base_block_%_damage_taken = 15]
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Smithy/ProcessionCasterIncursion"] = {
+	name = "Vaal Embalmed Mage",
+	monsterTags = { "fast_movement", "humanoid", "not_dex", "not_str", "red_blood", "Unarmed_onhit_audio", "undead", },
+	life = 1,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.15,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 41,
+	spectreReservation = 50,
+	companionReservation = 30,
+	monsterCategory = "Undead",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidCannonFireIncursion"] = {
+	name = "Cannon Transcendent",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "construct", "fast_movement", "fire_affinity", "humanoid", "not_int", "ranged", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.33,
+	evasion = 0.33,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.4,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 45,
+	spectreReservation = 64,
+	companionReservation = 35.4,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"MPAVaalHumanoidCannon",
+		"MPSVaalHumanoidCannonNapalm",
+		"MPSVaalHumanoidCannonNapalmMiniBlob",
+		"CGEVaalHumanoidCannonNapalm",
+		"CGEVaalHumanoidCannonNapalmSmall",
+		"VaalHumanoidNapalmImpact",
+		"GSVaalHumanoidCannonImpact",
+		"GSVaalHumanoidCannonImpactWall",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Transcended/VaalHumanoidCannonLightningIncursion"] = {
+	name = "Blasting Transcendent",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "construct", "fast_movement", "humanoid", "lightning_affinity", "not_int", "ranged", "red_blood", "Unarmed_onhit_audio", },
+	life = 1.4,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.33,
+	evasion = 0.33,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 30,
+	chaosResist = 0,
+	damage = 1.4,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 45,
+	spectreReservation = 64,
+	companionReservation = 35.4,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"EASVaalHumanoidSkitterMine",
+		"VaalHumanoidShockRifle",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Constructs/VaalBowlingPinIncursion"] = {
+	name = "Vaal Construct",
+	monsterTags = { "2HBluntMetal_onhit_audio", "construct", "medium_movement", "mud_blood", "not_dex", },
+	life = 1.15,
+	baseDamageIgnoresAttackSpeed = true,
+	energyShield = 0.1,
+	armour = 1,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.15,
+	damageSpread = 0.2,
+	attackTime = 1.5,
+	attackRange = 14,
+	accuracy = 1,
+	baseMovementSpeed = 32,
+	spectreReservation = 55,
+	companionReservation = 32.1,
+	monsterCategory = "Construct",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+	},
+	modList = {
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Thaumaturge/MonkeyExperiment"] = {
+	name = "Experimental Primate",
+	monsterTags = { "animal_claw_weapon", "beast", "cannot_be_map_archnemesis", "fast_movement", "flesh_armour", "is_unarmed", "mammal_beast", "melee", "not_int", "not_str", "physical_affinity", "primate_beast", "ranged", "red_blood", "small_height", "Unarmed_onhit_audio", },
+	life = 0.65,
+	baseDamageIgnoresAttackSpeed = true,
+	evasion = 0.3,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 0.65,
+	damageSpread = 0.2,
+	attackTime = 1.005,
+	attackRange = 9,
+	accuracy = 1,
+	baseMovementSpeed = 46,
+	spectreReservation = 36,
+	companionReservation = 24.3,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeedComboTEMP",
+		"ScavengerThrow",
+		"EASJungleMonkeyTaunt",
+		"GSIncursionExperimentMonkeyFlameBreath",
+		"EASIncursionExperimentMonkeyFlameBreath",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.733, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2733]
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Thaumaturge/GoreChargerExperiment"] = {
+	name = "Experimental Boar",
+	monsterTags = { "beast", "mammal_beast", "medium_movement", "melee", "MonsterBlunt_onhit_audio", "not_dex", "not_int", "physical_affinity", "red_blood", },
+	life = 1.7,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.3,
+	fireResist = 0,
+	coldResist = 30,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.7,
+	damageSpread = 0.2,
+	attackTime = 1.065,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 36,
+	spectreReservation = 74,
+	companionReservation = 39,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"GoreChargerChargeIncursion",
+		"CGESpiritTurtleChilledGround",
+	},
+	modList = {
+		mod("BleedChance", "BASE", 25, 1, 0), -- MonsterBleedOnHitChance [bleed_on_hit_with_attacks_% = 25]
+		mod("StunDuration", "OVERRIDE", 2.3, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2300]
+	},
+}
+
+minions["Metadata/Monsters/LeagueIncursionNew/Thaumaturge/SpittingSnakeExperiment"] = {
+	name = "Experimental Cobra",
+	monsterTags = { "allows_additional_projectiles", "allows_inc_aoe", "beast", "melee", "monster_applies_poison", "not_int", "physical_affinity", "ranged", "reptile_beast", "Unarmed_onhit_audio", "very_slow_movement", },
+	life = 1.1,
+	baseDamageIgnoresAttackSpeed = true,
+	armour = 0.25,
+	evasion = 0.2,
+	fireResist = 0,
+	coldResist = 0,
+	lightningResist = 0,
+	chaosResist = 0,
+	damage = 1.1,
+	damageSpread = 0.2,
+	attackTime = 1.245,
+	attackRange = 13,
+	accuracy = 1,
+	baseMovementSpeed = 17,
+	spectreReservation = 53,
+	companionReservation = 31.5,
+	monsterCategory = "Beast",
+	spawnLocation = {
+	},
+	skillList = {
+		"MeleeAtAnimationSpeed",
+		"EDSSpittingSnakeSprayIncursion",
+		"MMASpittingSnakeMortarIncursion",
+		"MMASpittingSnakeVomitMortar",
+		"CGESpittingSnakeCaustic",
+	},
+	modList = {
+		mod("StunDuration", "OVERRIDE", 2.5, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 2500]
 	},
 }
