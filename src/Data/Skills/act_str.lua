@@ -13481,6 +13481,7 @@ skills["MoltenBlastPlayer"] = {
 skills["MoltenCrashPlayer"] = {
 	name = "Molten Crash",
 	baseTypeName = "Molten Crash",
+	fromItem = true,
 	color = 1,
 	description = "Shapeshift into a burning monstrosity and leap through the air to crash down upon the earth, Slamming twice and creating Molten Fissures. Consumes Rage to create additional Molten Fissures.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.Travel] = true, [SkillType.Movement] = true, [SkillType.Jumping] = true, [SkillType.Shapeshift] = true, [SkillType.Bear] = true, [SkillType.CreatesFissure] = true, [SkillType.ConsumesRage] = true, },

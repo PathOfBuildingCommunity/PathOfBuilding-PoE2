@@ -774,6 +774,7 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
 #skill MoltenCrashPlayer
 #set MoltenCrashPlayer
 #flags attack melee area duration
