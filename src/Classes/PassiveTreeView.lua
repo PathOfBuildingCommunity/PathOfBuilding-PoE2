@@ -168,11 +168,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	local offsetY = self.zoomY + viewPort.y + viewPort.height/2
 	local function treeToScreen(x, y)
 		return x * scale + offsetX,
-		       y * scale + offsetY
+			   y * scale + offsetY
 	end
 	local function screenToTree(x, y)
 		return (x - offsetX) / scale,
-		       (y - offsetY) / scale
+			   (y - offsetY) / scale
 	end
 
 	if IsKeyDown("SHIFT") then
@@ -850,6 +850,23 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawColor(1, 1, 1)
 			end
 		end
+		if IsKeyDown("ALT") and hoverNode and node ~= hoverNode then
+			local dx = node.x - hoverNode.x
+			local dy = node.y - hoverNode.y
+			local distSq = dx*dx + dy*dy
+			for _, radData in ipairs(build.data.jewelRadius) do
+				if radData.inner == 0 then
+					local r = radData.outer * build.data.gameConstants["PassiveTreeJewelDistanceMultiplier"]
+					if distSq <= r * r then
+						SetDrawLayer(nil, 30)
+						SetDrawColor(radData.col)
+						local size = 140 * scale / self.zoom ^ 0.2
+						DrawImage(self.highlightRing, scrX - size, scrY - size, size * 2, size * 2)
+						break
+					end
+				end
+			end
+		end
 		if self.searchStrResults[nodeId] then
 			-- Node matches the search string, show the highlight circle
 			SetDrawLayer(nil, 30)
@@ -891,6 +908,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	
 	-- Draw ring overlays for jewel sockets
 	SetDrawLayer(nil, 25)
+	if IsKeyDown("ALT") and hoverNode then
+		local scrX, scrY = treeToScreen(hoverNode.x, hoverNode.y)
+		for _, radData in ipairs(build.data.jewelRadius) do
+			if radData.inner == 0 then
+				local outerSize = radData.outer * build.data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+				SetDrawColor(radData.col)
+				DrawImage(self.ring, scrX - outerSize, scrY - outerSize, outerSize * 2, outerSize * 2)
+			end
+		end
+	end
 	for nodeId in pairs(tree.sockets) do
 		local node = spec.nodes[nodeId]
 		if node and node.name ~= "Charm Socket" and node.containJewelSocket ~= true and (not node.expansionJewel or node.expansionJewel.size == 2) then
