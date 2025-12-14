@@ -75,6 +75,7 @@ local displayStats = {
 	{ stat = "SealMax", label = "Max Number of Seals", fmt = "d" },
 	{ stat = "TimeMaxSeals", label = "Time to Gain Max Seals", fmt = ".2fs", lowerIsBetter = true },
 	{ stat = "AreaOfEffectRadiusMetres", label = "AoE Radius", fmt = ".1fm" },
+	{ stat = "GloryCost", label = "Glory Cost", fmt = ".0f", colorCodes.RARE },
 	{ stat = "BrandAttachmentRangeMetre", label = "Attachment Range", fmt = ".1fm", flag = "brand" },
 	{ stat = "BrandTicks", label = "Activations per Brand", fmt = "d", flag = "brand" },
 	{ stat = "ManaCost", label = "Mana Cost", fmt = "d", color = colorCodes.MANA, pool = "ManaUnreserved", compPercent = true, lowerIsBetter = true, condFunc = function(v,o) return o.ManaHasCost end },
