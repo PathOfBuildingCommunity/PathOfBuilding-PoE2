@@ -378,10 +378,12 @@ function calcs.applyDmgTakenConversion(activeSkill, output, breakdown, sourceTyp
 
 			local percentOfArmourApplies = (not activeSkill.skillModList:Flag(nil, "ArmourDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "ArmourAppliesTo"..damageType.."DamageTaken") or 0)
 			local percentOfEvasionApplies = (not activeSkill.skillModList:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0)
-			if (percentOfArmourApplies > 0) or (percentOfEvasionApplies > 0) then
+			local percentOfEnergyShieldApplies = (not activeSkill.skillModList:Flag(nil, "EnergyShieldDoesNotApplyTo"..damageType.."DamageTaken") and activeSkill.skillModList:Sum("BASE", nil, "EnergyShieldAppliesTo"..damageType.."DamageTaken") or 0)
+			if (percentOfArmourApplies > 0) or (percentOfEvasionApplies > 0) or (percentOfEnergyShieldApplies > 0) then
 				local effArmourFromArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 				local effArmourFromEvasion = (output.Evasion * percentOfEvasionApplies / 100)
-				local effArmour = effArmourFromArmour + effArmourFromEvasion
+				local effArmourFromEnergyShield = (output.EnergyShield * percentOfEnergyShieldApplies / 100)
+				local effArmour = effArmourFromArmour + effArmourFromEvasion + effArmourFromEnergyShield
 				
 				armourReduct = round(effArmour ~= 0 and damage ~= 0 and calcs.armourReductionF(effArmour, damage) or 0)
 				armourReduct = m_min(output[damageType.."DamageReductionMax"], armourReduct)
@@ -1727,7 +1729,7 @@ function calcs.defence(env, actor)
 				})
 			end
 		end
-		local rechargeBase = modDB:Override(nil, "EnergyShieldRechargeBase") or data.misc.EnergyShieldRechargeDelay
+		local rechargeBase = modDB:Override(nil, "EnergyShieldRechargeBase") or (data.misc.EnergyShieldRechargeDelay + modDB:Sum("BASE", nil, "EnergyShieldRechargeFaster"))
 		output.EnergyShieldRechargeDelay = rechargeBase / (1 + modDB:Sum("INC", nil, "EnergyShieldRechargeFaster") / 100)
 		if breakdown then
 			if output.EnergyShieldRechargeDelay ~= rechargeBase then
@@ -2315,9 +2317,17 @@ function calcs.buildDefenceEstimations(env, actor)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
 		local effectiveArmourFromOther = { }
 		local percentOfEvasionApplies = (not modDB:Flag(nil, "EvasionDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "EvasionAppliesTo"..damageType.."DamageTaken") or 0)
+		local percentOfEnergyShieldApplies = (not modDB:Flag(nil, "EnergyShieldDoesNotApplyTo"..damageType.."DamageTaken") and modDB:Sum("BASE", nil, "EnergyShieldAppliesTo"..damageType.."DamageTaken") or 0)
 		if percentOfEvasionApplies > 0 then
 			effectiveArmourFromOther["Evasion"] = m_max((output.Evasion * percentOfEvasionApplies / 100), 0)
 		end
+		if percentOfEnergyShieldApplies > 0 then
+			effectiveArmourFromOther["EnergyShield"] = m_max((output.EnergyShield * percentOfEnergyShieldApplies / 100), 0)
+		end
+		local mapArmourFromOther = {
+		  EnergyShield = percentOfEnergyShieldApplies,
+		  Evasion = percentOfEvasionApplies,
+		}
 		for source, amount in pairs(effectiveArmourFromOther) do
 			-- should this be done BEFORE percentOfArmourApplies and ArmourDefense is used? Probably needs GGG confirmation
 			effectiveAppliedArmour = effectiveAppliedArmour + amount
@@ -2359,8 +2369,9 @@ function calcs.buildDefenceEstimations(env, actor)
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from Armour: %d%%", armourReduct))
 				else	
 					for source, amount in pairs(effectiveArmourFromOther) do
-						t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of %s applies", percentOfEvasionApplies, source))
-						t_insert(breakdown[damageType.."DamageReduction"], s_format("%s contributing to reduction: %d",source, amount))
+						local label = source:gsub("(%l)(%u)", "%1 %2")
+						t_insert(breakdown[damageType.."DamageReduction"], s_format("%d%% percent of %s applies", mapArmourFromOther[source], label))
+						t_insert(breakdown[damageType.."DamageReduction"], s_format("%s contributing to reduction: %d",label, amount))
 					end
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("Combined Defence used for reduction: %d", effectiveAppliedArmour))
 					t_insert(breakdown[damageType.."DamageReduction"], s_format("Reduction from combined Defence: %d%%", armourReduct))
@@ -2423,8 +2434,9 @@ function calcs.buildDefenceEstimations(env, actor)
 						t_insert(breakdown[damageType.."TakenHitMult"], s_format("Armour contributing to reduction: %d", effectiveArmourFromArmour))
 					end
 					for source, amount in pairs(effectiveArmourFromOther) do
-						t_insert(breakdown[damageType.."TakenHitMult"], s_format("%d%% percent of %s applies", percentOfEvasionApplies, source))
-						t_insert(breakdown[damageType.."TakenHitMult"], s_format("%s contributing to reduction: %d",source, amount))
+						local label = source:gsub("(%l)(%u)", "%1 %2")
+						t_insert(breakdown[damageType.."TakenHitMult"], s_format("%d%% percent of %s applies", mapArmourFromOther[source], label))
+						t_insert(breakdown[damageType.."TakenHitMult"], s_format("%s contributing to reduction: %d",label, amount))
 					end
 					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Combined Defence used for reduction: %d", effectiveAppliedArmour))
 					t_insert(breakdown[damageType.."TakenHitMult"], s_format("Reduction from combined Defence: %.2f", 1 - armourReduct / 100))
