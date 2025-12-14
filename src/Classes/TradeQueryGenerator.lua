@@ -864,7 +864,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 	table.sort(self.modWeights, function(a, b) return math.abs(a.weight) > math.abs(b.weight) end)
 
 	local prioritizedMods = {}
-	for i, entry in ipairs(self.modWeights) do
+	for _, entry in ipairs(self.modWeights) do
 		if #prioritizedMods < effective_max then
 			table.insert(prioritizedMods, entry)
 		else
@@ -878,7 +878,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 		queryTable.query[k] = v
 	end
 
-	for _, entry in pairs(self.modWeights) do
+	for _, entry in ipairs(self.modWeights) do
 		t_insert(queryTable.query.stats[1].filters, { id = entry.tradeModId, value = { weight = (entry.invert == true and entry.weight * -1 or entry.weight) } })
 		filters = filters + 1
 		if filters == effective_max then
