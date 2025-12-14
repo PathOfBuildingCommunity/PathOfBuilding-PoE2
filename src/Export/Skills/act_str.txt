@@ -975,3 +975,57 @@ statMap = {
 #flags 
 #mods
 #skillEnd
+
+#skill BearRampagePlayer
+#set BearRampagePlayer
+#flags 
+#mods
+#skillEnd
+
+#skill MoltenCrashPlayer
+#set MoltenCrashPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill FerociousRoarMetaPlayer
+#set FerociousRoarMetaPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill SupportFerociousRoarPlayer
+#set SupportFerociousRoarPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill BearMaulPlayer
+#set BearMaulPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill FuriousSlamPlayer
+#set FuriousSlamPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill BearFuryOfTheMountainPlayer
+#set BearFuryOfTheMountainPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WalkingCalamityPlayer
+#set WalkingCalamityPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WalkingCalamityMeteorPlayer
+#set WalkingCalamityMeteorPlayer
+#flags 
+#mods
+#skillEnd
