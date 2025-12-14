@@ -33,7 +33,7 @@ local skills, mod, flag, skill = ...
 skills["ABTTProcessionBannerDrain"] = {
 	name = "Banner",
 	hidden = true,
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -74,7 +74,7 @@ skills["AzmeriFabricationDespair"] = {
 	name = "Despair",
 	hidden = true,
 	description = "Curse all targets in an area after a short delay, lowering their Chaos Resistance.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Chaos] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Chaos] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -115,7 +115,7 @@ skills["AzmeriFabricationEnfeeble"] = {
 	name = "Enfeeble",
 	hidden = true,
 	description = "Curse all targets in an area after a short delay, making them deal less damage.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Necrotic] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -160,7 +160,7 @@ skills["AzmeriFabricationTemporalChains"] = {
 	name = "Temporal Chains",
 	hidden = true,
 	description = "Curse all enemies in an area, Slowing them and making other effects on them expire more slowly.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -197,7 +197,7 @@ skills["AzmeriPictBowRainOfSpores"] = {
 	name = "Toxic Rain",
 	hidden = true,
 	description = "Fire arrows into the air that rain down around the targeted area, dealing damage to enemies they hit and creating spore pods where they land. Each spore pod deals chaos damage over time to nearby enemies and slows their movement speed. The pods last for a duration before bursting, dealing area damage.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Damage] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, [SkillType.DamageOverTime] = true, [SkillType.ProjectileNumber] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Damage] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, [SkillType.DamageOverTime] = true, [SkillType.ProjectileNumber] = true, [SkillType.Chaos] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
 		["Bow"] = true,
 	},
@@ -205,7 +205,7 @@ skills["AzmeriPictBowRainOfSpores"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.25, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { baseMultiplier = 0.25, cooldown = 7.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -247,12 +247,12 @@ skills["BloodMageBloodTendrils"] = {
 	name = "Exsanguinate",
 	hidden = true,
 	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies Hit by the tendrils take Physical damage and are inflicted with Bleeding.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1.67,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 0.5, },
+		[1] = { cooldown = 0.5, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -294,12 +294,12 @@ skills["BloodMageBloodTendrils"] = {
 skills["BoneCultistZealotFirestorm"] = {
 	name = "Firestorm",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+		[1] = { cooldown = 10, critChance = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -335,7 +335,7 @@ skills["BoneCultistZealotFirestorm"] = {
 skills["BoneCultistZealotLightningstorm"] = {
 	name = "Lightning Storm",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -372,7 +372,7 @@ skills["BoneCultistZealotLightningstorm"] = {
 skills["BurdenedWretchSlam"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 4.8,
 	qualityStats = {
 	},
@@ -406,7 +406,7 @@ skills["BurdenedWretchSlam"] = {
 skills["BurdenedWretchSlamUnique"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 4.8,
 	qualityStats = {
 	},
@@ -439,7 +439,7 @@ skills["BurdenedWretchSlamUnique"] = {
 skills["CGEBloodPriestBoilingBlood"] = {
 	name = "Boiling Blood",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -476,7 +476,7 @@ skills["CGEBloodPriestBoilingBlood"] = {
 skills["CGESanctifiedMonstrosityPusGround"] = {
 	name = "Pus Ground",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -514,7 +514,7 @@ skills["CGESanctifiedMonstrosityPusGround"] = {
 skills["CoffinWretchBabySoulrend1"] = {
 	name = "Soulrend",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.3,
 	qualityStats = {
 	},
@@ -558,7 +558,7 @@ skills["CoffinWretchBabySoulrend1"] = {
 skills["CultistBeastSunder"] = {
 	name = "Sunder",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -586,12 +586,12 @@ skills["CultistBeastSunder"] = {
 skills["DeathKnightSlamEAA"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 2, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { baseMultiplier = 2, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -620,12 +620,12 @@ skills["DeathKnightSlamEAA"] = {
 skills["DTTKaruiBloodFeverButcherLeap"] = {
 	name = "Dash",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Movement] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Movement] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6.75, },
+		[1] = { cooldown = 6.75, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -652,12 +652,12 @@ skills["DTTKaruiBloodFeverButcherLeap"] = {
 skills["DTTHellscapeStabbySkyStab"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.5, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { baseMultiplier = 1.5, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -689,12 +689,12 @@ skills["DTTHellscapeStabbySkyStab"] = {
 skills["DTTMantisRatLeap"] = {
 	name = "Leap",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Movement] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Movement] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 7, },
+		[1] = { cooldown = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -722,12 +722,12 @@ skills["DTTMantisRatLeap"] = {
 skills["EDSAbyssMorayClanFlamethrower"] = {
 	name = "Flamethrower",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 3, },
+		[1] = { cooldown = 3, critChance = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -763,7 +763,7 @@ skills["EDSAbyssMorayClanFlamethrower"] = {
 skills["EDSGolemancerReapLeft"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -797,7 +797,7 @@ skills["EDSGolemancerReapLeft"] = {
 skills["EDSPyramidHandLightningLance"] = {
 	name = "",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -840,12 +840,12 @@ skills["EDSPyramidHandLightningLance"] = {
 skills["EDSShellMonsterFlamethrower"] = {
 	name = "Flamethrower",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 11, },
+		[1] = { cooldown = 4.75, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -883,12 +883,12 @@ skills["EDSShellMonsterFlamethrower"] = {
 skills["EDSShellMonsterPoisonSpray"] = {
 	name = "Poison Spray",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 11, },
+		[1] = { cooldown = 11, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -922,13 +922,13 @@ skills["EDSShellMonsterPoisonSpray"] = {
 skills["ExpeditionGroundLaser"] = {
 	name = "Ground Laser",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 2, },
-		[2] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 2, },
+		[1] = { cooldown = 2, critChance = 5, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 2, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -968,7 +968,7 @@ skills["ExpeditionGroundLaser"] = {
 skills["FarudinWarlockBugRend"] = {
 	name = "Rend",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1009,7 +1009,7 @@ skills["FarudinWarlockBugRend"] = {
 skills["FungalArtilleryMortar"] = {
 	name = "Mortar",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
 	},
@@ -1056,7 +1056,7 @@ skills["FungalArtilleryMortar"] = {
 skills["GADeathKnightOverheadslamforward"] = {
 	name = "Overhead Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1090,7 +1090,7 @@ skills["GADeathKnightOverheadslamforward"] = {
 skills["GSArmourCasterVolatileExplode"] = {
 	name = "Volatile Mote",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1133,7 +1133,7 @@ skills["GSArmourCasterVolatileExplode"] = {
 skills["GSCenobiteBloaterOnDeath"] = {
 	name = "Death Explosion",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1172,14 +1172,14 @@ skills["GSCenobiteBloaterOnDeath"] = {
 skills["GSMercurialCasterBlast"] = {
 	name = "Rune Blast",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
-		[2] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
-		[3] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, critChance = 5, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 6, critChance = 5, levelRequirement = 0, storedUses = 1, },
+		[3] = { cooldown = 6, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1217,12 +1217,12 @@ skills["GSMercurialCasterBlast"] = {
 skills["GACenobiteBloaterSlam"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 2, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { baseMultiplier = 2, cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1252,7 +1252,7 @@ skills["GACenobiteBloaterSlam"] = {
 skills["GADrownedCrawlerSwipe"] = {
 	name = "Swipe",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1281,7 +1281,7 @@ skills["GADrownedCrawlerSwipe"] = {
 skills["GAFigureheadSlamGhostFlame"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 4.8,
 	qualityStats = {
 	},
@@ -1315,7 +1315,7 @@ skills["GAFigureheadSlamGhostFlame"] = {
 skills["GAFirebreatherFireSlam"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1358,12 +1358,12 @@ skills["GAFirebreatherFireSlam"] = {
 skills["GAGullGoliathSlam"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.45, storedUses = 1, levelRequirement = 0, cooldown = 6.5, },
+		[1] = { baseMultiplier = 1.45, cooldown = 6.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1391,12 +1391,12 @@ skills["GAGullGoliathSlam"] = {
 skills["GAKaruiSpiritTurtleSlam"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 2, storedUses = 1, levelRequirement = 0, cooldown = 7, },
+		[1] = { baseMultiplier = 2, cooldown = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1425,7 +1425,7 @@ skills["GAKaruiSpiritTurtleSlam"] = {
 skills["GASaltGolemMelee"] = {
 	name = "",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1453,12 +1453,12 @@ skills["GASaltGolemMelee"] = {
 skills["GATwilightSoldierStab"] = {
 	name = "Stab",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.2, storedUses = 1, levelRequirement = 0, cooldown = 4.5, },
+		[1] = { baseMultiplier = 1.2, cooldown = 4.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1484,12 +1484,12 @@ skills["GATwilightSoldierStab"] = {
 skills["GATwilightOfficerSmite"] = {
 	name = "Smite",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.15, storedUses = 1, levelRequirement = 0, cooldown = 5.5, },
+		[1] = { baseMultiplier = 1.15, cooldown = 5.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -1505,6 +1505,7 @@ skills["GATwilightOfficerSmite"] = {
 			},
 			constantStats = {
 				{ "active_skill_base_physical_damage_%_to_convert_to_lightning", 80 },
+				{ "damage_vs_tiki_totems_+%", 4000 },
 			},
 			stats = {
 				"is_area_damage",
@@ -1518,7 +1519,7 @@ skills["GATwilightOfficerSmite"] = {
 skills["GATwilightOrderSoldierChargeImpact"] = {
 	name = "Charge Impact",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1551,16 +1552,16 @@ skills["TCTwilghtOrderSoldierCharge"] = {
 	name = "Charge",
 	hidden = true,
 	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["None"] = true,
-		["One Handed Sword"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Spear"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
 		["Claw"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["None"] = true,
+		["One Handed Axe"] = true,
+		["One Handed Mace"] = true,
+		["One Handed Sword"] = true,
+		["Spear"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -1600,16 +1601,16 @@ skills["TCExcavatorOrbCharge"] = {
 	name = "Orb Charge",
 	hidden = true,
 	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["None"] = true,
-		["One Handed Sword"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Spear"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
 		["Claw"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["None"] = true,
+		["One Handed Axe"] = true,
+		["One Handed Mace"] = true,
+		["One Handed Sword"] = true,
+		["Spear"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -1619,7 +1620,7 @@ skills["TCExcavatorOrbCharge"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Orb Charge",
+			label = "Charge",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -1648,7 +1649,7 @@ skills["TCExcavatorOrbCharge"] = {
 skills["GSExcavatorOrbExplosion"] = {
 	name = "Orb Explosion",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1690,7 +1691,7 @@ skills["GSExcavatorOrbExplosion"] = {
 skills["GSExcavatorOrbDonutExplosion"] = {
 	name = "Orb Donut Explosion",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1732,7 +1733,7 @@ skills["GSExcavatorOrbDonutExplosion"] = {
 skills["GAHellscapeFleshLeapImpact"] = {
 	name = "Leap Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1766,7 +1767,7 @@ skills["GAHellscapeFleshLeapImpact"] = {
 skills["GAHellscapePaleEliteSkyStab"] = {
 	name = "Stab Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1797,7 +1798,7 @@ skills["GAHellscapePaleEliteSkyStab"] = {
 skills["GAMantisRatDualStrike"] = {
 	name = "Dual Strike",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1828,16 +1829,16 @@ skills["GAMantisRatDualStrike"] = {
 skills["GAMediumBeetleChargedSunder"] = {
 	name = "Charged Sunder",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -25, storedUses = 1, baseMultiplier = 2, cooldown = 5.5, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 2, cooldown = 5.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Charged Sunder",
+			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -1863,16 +1864,16 @@ skills["GAMediumBeetleChargedSunder"] = {
 skills["GAMediumBeetleSunder"] = {
 	name = "Sunder",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -25, storedUses = 1, baseMultiplier = 1.35, cooldown = 5.5, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 1.35, cooldown = 5.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Sunder",
+			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -1894,7 +1895,7 @@ skills["GAMediumBeetleSunder"] = {
 skills["GAMutewindWomanSpearStab1"] = {
 	name = "Spear Stab",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1922,7 +1923,7 @@ skills["GAMutewindWomanSpearStab1"] = {
 skills["GATwoHeadedTitanSlam"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1954,7 +1955,7 @@ skills["GATwoHeadedTitanSlam"] = {
 skills["GATwoHeadedTitanStomp"] = {
 	name = "Stomp",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1963,7 +1964,7 @@ skills["GATwoHeadedTitanStomp"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Stomp",
+			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -1987,22 +1988,22 @@ skills["GoreChargerCharge"] = {
 	name = "Charge",
 	hidden = true,
 	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["None"] = true,
-		["One Handed Sword"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Spear"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
 		["Claw"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["None"] = true,
+		["One Handed Axe"] = true,
+		["One Handed Mace"] = true,
+		["One Handed Sword"] = true,
+		["Spear"] = true,
 	},
 	castTime = 0.8,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.43, storedUses = 1, levelRequirement = 0, cooldown = 4.5, },
+		[1] = { baseMultiplier = 1.43, cooldown = 4.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2029,12 +2030,12 @@ skills["GoreChargerCharge"] = {
 skills["GraveyardGhostDashToTarget"] = {
 	name = "Dash",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Movement] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Movement] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0.93,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 4, },
+		[1] = { cooldown = 3, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2056,12 +2057,12 @@ skills["GraveyardGhostDashToTarget"] = {
 skills["GraveyardSpookyGhostExplode"] = {
 	name = "Sword Barrage",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 7, storedUses = 1, levelRequirement = 0, cooldown = 7, },
+		[1] = { cooldown = 5, critChance = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2096,12 +2097,12 @@ skills["GraveyardSpookyGhostExplode"] = {
 skills["GSAbyssPaleEliteBeam"] = {
 	name = "Beam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.333,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 7, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, critChance = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2137,7 +2138,7 @@ skills["GSAbyssPaleEliteBeam"] = {
 skills["MPSAbyssPaleEliteSnowBall"] = {
 	name = "Snowball",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2146,7 +2147,7 @@ skills["MPSAbyssPaleEliteSnowBall"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Snowball",
+			label = "Projectile",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -2179,7 +2180,7 @@ skills["MPSAbyssPaleEliteSnowBall"] = {
 skills["MPSCrawGullSpit"] = {
 	name = "Spit",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.75,
 	qualityStats = {
 	},
@@ -2188,7 +2189,7 @@ skills["MPSCrawGullSpit"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Spit",
+			label = "Projectile",
 			baseEffectiveness = 2.6500000953674,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -2227,7 +2228,7 @@ skills["MPSCrawGullSpit"] = {
 skills["MPSKaruiCasterProjectile"] = {
 	name = "Basic Spell (Cold)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2236,7 +2237,7 @@ skills["MPSKaruiCasterProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Cold)",
+			label = "Hidden",
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -2274,7 +2275,7 @@ skills["MPSKaruiCasterProjectile"] = {
 skills["MPSGoblinMinerRockThrow"] = {
 	name = "Rock Throw",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2283,7 +2284,7 @@ skills["MPSGoblinMinerRockThrow"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Rock Throw",
+			label = "Projectile",
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -2317,16 +2318,16 @@ skills["MPSGoblinMinerRockThrow"] = {
 skills["MPSSpearfisherSpearThrow"] = {
 	name = "Spear Throw",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 7, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, critChance = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Spear Throw",
+			label = "Projectile",
 			baseEffectiveness = 3.2999999523163,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -2373,12 +2374,12 @@ skills["MPSSpearfisherSpearThrow"] = {
 skills["GPSPaleWalkerWave"] = {
 	name = "Wave",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { cooldown = 8, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2416,7 +2417,7 @@ skills["GPSPaleWalkerWave"] = {
 skills["GSAbyssPaleEliteSnowBallImpact"] = {
 	name = "Snowball Impact",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2455,7 +2456,7 @@ skills["GSAbyssPaleEliteSnowBallImpact"] = {
 skills["GSAbyssPrimordialMonsterScreech"] = {
 	name = "Screech",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2496,7 +2497,7 @@ skills["GSAbyssPrimordialMonsterScreech"] = {
 skills["GSDesertBatZap"] = {
 	name = "Zap",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2540,7 +2541,7 @@ skills["GSDesertBatZap"] = {
 skills["GSExpeditionBoneCultistEggExplosion"] = {
 	name = "Pustule",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2586,12 +2587,12 @@ skills["GSExpeditionBoneCultistEggExplosion"] = {
 skills["GSHellscapeDemonEliteBeamNuke"] = {
 	name = "Beam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 7, },
+		[1] = { cooldown = 7, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2626,7 +2627,7 @@ skills["GSHellscapeDemonEliteBeamNuke"] = {
 skills["GSHellscapePaleEliteBoltImpact"] = {
 	name = "Bolt Impact",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2667,12 +2668,12 @@ skills["GSHellscapePaleEliteBoltImpact"] = {
 skills["GSHellscapePaleEliteOmegaBeam"] = {
 	name = "Omega Beam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.333,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+		[1] = { cooldown = 10, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2708,12 +2709,12 @@ skills["GSHellscapePaleEliteOmegaBeam"] = {
 skills["GSProwlingShadeIceBeam"] = {
 	name = "Ice Beam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3.2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 8, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { cooldown = 8, critChance = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2749,7 +2750,7 @@ skills["GSProwlingShadeIceBeam"] = {
 skills["GSRagingFireSpiritsVolatileSanctum"] = {
 	name = "Self-Destruct",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2790,7 +2791,7 @@ skills["GSRagingFireSpiritsVolatileSanctum"] = {
 skills["GSRagingTimeSpiritsVolatileSanctum"] = {
 	name = "Self-Destruct",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2831,12 +2832,12 @@ skills["GSRagingTimeSpiritsVolatileSanctum"] = {
 skills["GSShrikeScreech"] = {
 	name = "Screech",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2873,7 +2874,7 @@ skills["GSShrikeScreech"] = {
 skills["GSVaalConstructSkitterbotGrenadeExplode"] = {
 	name = "Grenade Explosion",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2912,12 +2913,12 @@ skills["GSVaalConstructSkitterbotGrenadeExplode"] = {
 skills["GSWarlockRaiseBugs"] = {
 	name = "Raise Bugs",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 18, },
+		[1] = { cooldown = 18, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2941,12 +2942,12 @@ skills["HuhuGrubLarvaeMortar"] = {
 	name = "Mortar",
 	hidden = true,
 	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.3,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 2.5, },
+		[1] = { cooldown = 2.5, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -2983,12 +2984,12 @@ skills["HuhuGrubLarvaeMortar"] = {
 skills["HellscapeDemonFodderFaceLaser"] = {
 	name = "Laser",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -3027,7 +3028,7 @@ skills["HellscapeDemonFodderFaceLaser"] = {
 skills["HyenaCentaurMeleeStab"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3059,7 +3060,7 @@ skills["HyenaCentaurMeleeStab"] = {
 skills["HyenaCentaurMeleeSwipe"] = {
 	name = "Swipe",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3087,16 +3088,16 @@ skills["HyenaCentaurMeleeSwipe"] = {
 skills["HyenaCentaurSpearThrow"] = {
 	name = "Spear Throw",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.5, storedUses = 1, levelRequirement = 0, cooldown = 4.5, },
+		[1] = { baseMultiplier = 1.5, cooldown = 4.5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Spear Throw",
+			label = "Projectile",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
@@ -3126,7 +3127,7 @@ skills["HyenaCentaurSpearThrow"] = {
 skills["MASExtraAttackDistance6"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3161,7 +3162,7 @@ skills["MASExtraAttackDistance6"] = {
 skills["MASExtraAttackDistance20"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3196,7 +3197,7 @@ skills["MASExtraAttackDistance20"] = {
 skills["MASFireConvertAltArtFireArrow"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3234,7 +3235,7 @@ skills["MASFireConvertAltArtFireArrow"] = {
 skills["MASStatueWretchPush"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3266,7 +3267,7 @@ skills["MASStatueWretchPush"] = {
 skills["MASKelpDregCrossbow"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3306,7 +3307,7 @@ skills["MASKelpDregCrossbow"] = {
 skills["MeleeAtAnimationSpeedBow"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3342,7 +3343,7 @@ skills["MeleeAtAnimationSpeedBow"] = {
 skills["MeleeAtAnimationSpeedComboTEMP"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3374,7 +3375,7 @@ skills["MeleeAtAnimationSpeedComboTEMP"] = {
 skills["MeleeAtAnimationSpeedFire"] = {
 	name = "Basic Attack (Fire)",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3409,7 +3410,7 @@ skills["MeleeAtAnimationSpeedFire"] = {
 skills["MeleeAtAnimationSpeedFireCombo35"] = {
 	name = "Basic Attack (Fire)",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3444,7 +3445,7 @@ skills["MeleeAtAnimationSpeedFireCombo35"] = {
 skills["MeleeAtAnimationSpeedLightning"] = {
 	name = "Basic Attack (Lightning)",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3479,16 +3480,16 @@ skills["MeleeAtAnimationSpeedLightning"] = {
 skills["MMSBaneSapling"] = {
 	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.77,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 2, },
+		[1] = { cooldown = 2, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell",
+			label = "Projectile",
 			baseEffectiveness = 1.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -3529,7 +3530,7 @@ skills["MMSBoneRabbleMortar"] = {
 	name = "Mortar",
 	hidden = true,
 	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3579,7 +3580,7 @@ skills["MMSHellscapeDemonEliteTripleMortar"] = {
 	name = "Triple Mortar",
 	hidden = true,
 	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -3588,7 +3589,7 @@ skills["MMSHellscapeDemonEliteTripleMortar"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Triple Mortar",
+			label = "Mortar",
 			baseEffectiveness = 2.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -3629,7 +3630,7 @@ skills["MMSVaalGuardGrenade"] = {
 	name = "Explosive Grenade",
 	hidden = true,
 	description = "Fire a bouncing Grenade that unleashes a devastating fiery blast when its fuse expires.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.NoAttackInPlace] = true, [SkillType.Detonator] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.Detonator] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
@@ -3637,7 +3638,7 @@ skills["MMSVaalGuardGrenade"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 4.4, storedUses = 1, levelRequirement = 0, cooldown = 2, },
+		[1] = { baseMultiplier = 4.4, cooldown = 2, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -3675,7 +3676,7 @@ skills["MMSVaalGuardOilTrap"] = {
 	name = "Oil Grenade",
 	hidden = true,
 	description = "Fire a bouncing Grenade that bursts in a spray of Oil when the fuse expires or when it impacts an Enemy, dealing minimal damage but covering the ground and nearby enemies in Oil. Oil created this way can be Ignited by Detonator Skills or Ignited Ground.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
 	},
@@ -3683,7 +3684,7 @@ skills["MMSVaalGuardOilTrap"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 2, },
+		[1] = { cooldown = 11, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -3691,7 +3692,7 @@ skills["MMSVaalGuardOilTrap"] = {
 			baseEffectiveness = 2.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
-			statDescriptionScope = "oil_grenade",
+			statDescriptionScope = "oil_grenade_statset_0",
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -3706,10 +3707,8 @@ skills["MMSVaalGuardOilTrap"] = {
 			},
 			stats = {
 				"active_skill_base_area_of_effect_radius",
-				"skill_base_covered_in_oil_movement_speed_+%_final_to_apply",
-				"skill_base_ground_oil_movement_speed_+%_final_to_apply",
-				"skill_base_ground_oil_exposure_-_to_total_elemental_resistance",
-				"skill_base_covered_in_oil_exposure_-_to_total_elemental_resistance",
+				"skill_base_oil_movement_speed_+%_final_to_apply",
+				"skill_base_oil_exposure_-_to_total_elemental_resistance",
 				"base_is_projectile",
 				"projectile_ballistic_angle_from_reference_event",
 				"projectile_uses_contact_position",
@@ -3717,7 +3716,7 @@ skills["MMSVaalGuardOilTrap"] = {
 				"ballistic_projectiles_always_bounce",
 			},
 			levels = {
-				[1] = { 20, -25, -25, 10, 10, statInterpolation = { 1, 1, 1, 1, 1, }, actorLevel = 1, },
+				[1] = { 20, -25, 10, statInterpolation = { 1, 1, 1, }, actorLevel = 1, },
 			},
 		},
 	}
@@ -3725,7 +3724,7 @@ skills["MMSVaalGuardOilTrap"] = {
 skills["MPSAbyssPaleEliteFireball"] = {
 	name = "Fireball",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3734,7 +3733,7 @@ skills["MPSAbyssPaleEliteFireball"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Fireball",
+			label = "Projectile",
 			baseEffectiveness = 2.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -3773,7 +3772,7 @@ skills["MPSAbyssPaleEliteFireball"] = {
 skills["MPSAbyssPitArtillery"] = {
 	name = "Artillery",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3782,7 +3781,7 @@ skills["MPSAbyssPitArtillery"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Artillery",
+			label = "Projectile",
 			baseEffectiveness = 1.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -3823,7 +3822,7 @@ skills["MPSAbyssPitArtillery"] = {
 skills["GSAbyssPitArtilleryMortarImpact"] = {
 	name = "Artillery Impact",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3864,7 +3863,7 @@ skills["GSAbyssPitArtilleryMortarImpact"] = {
 skills["MPSAbyssPaleWalker2Fireball"] = {
 	name = "Fireball",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -3873,7 +3872,7 @@ skills["MPSAbyssPaleWalker2Fireball"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Fireball",
+			label = "Projectile",
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -3909,16 +3908,16 @@ skills["MPSAbyssPaleWalker2Fireball"] = {
 skills["MPSAbyssCocoon3BallSpit"] = {
 	name = "Large Ball Spit",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+		[1] = { cooldown = 10, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Large Ball Spit",
+			label = "Projectile",
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -3962,7 +3961,7 @@ skills["MPSAbyssCocoon3BallSpit"] = {
 skills["GSAbyssCocoon3BallSpitImpact"] = {
 	name = "Large Ball Impact",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4008,7 +4007,7 @@ skills["GSAbyssCocoon3BallSpitImpact"] = {
 skills["CGEAbyssCocoon3FlameGeyser"] = {
 	name = "Large Ball Flame Geyser",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3.532,
 	qualityStats = {
 	},
@@ -4018,7 +4017,7 @@ skills["CGEAbyssCocoon3FlameGeyser"] = {
 	statSets = {
 		[1] = {
 			label = "Large Ball Flame Geyser",
-			baseEffectiveness = 15,
+			baseEffectiveness = 11.220000267029,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
@@ -4049,7 +4048,7 @@ skills["CGEAbyssCocoon3FlameGeyser"] = {
 skills["MPSAbyssCocoon3BallSpitSmall"] = {
 	name = "Small Ball Spit",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4058,7 +4057,7 @@ skills["MPSAbyssCocoon3BallSpitSmall"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Small Ball Spit",
+			label = "Projectile",
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "skill_stat_descriptions",
@@ -4095,7 +4094,7 @@ skills["MPSAbyssCocoon3BallSpitSmall"] = {
 skills["GSAbyssCocoon3BallSpitSmallImpact"] = {
 	name = "Small Ball Impact ",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4136,7 +4135,7 @@ skills["GSAbyssCocoon3BallSpitSmallImpact"] = {
 skills["MPSArmourCasterBasic"] = {
 	name = "Fireball",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.17,
 	qualityStats = {
 	},
@@ -4145,7 +4144,7 @@ skills["MPSArmourCasterBasic"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Fireball",
+			label = "Projectile",
 			baseEffectiveness = 2.7709999084473,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4184,7 +4183,7 @@ skills["MPSArmourCasterBasic"] = {
 skills["MPSAzmeriPictStaffProj"] = {
 	name = "Chaos Bolt",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4193,7 +4192,7 @@ skills["MPSAzmeriPictStaffProj"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Chaos Bolt",
+			label = "Projectile",
 			baseEffectiveness = 4,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4231,16 +4230,16 @@ skills["MPSAzmeriPictStaffProj"] = {
 skills["MPSAzmeriPictStaffProj2"] = {
 	name = "Chaos Bolt",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 5, },
+		[1] = { cooldown = 5, critChance = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Chaos Bolt",
+			label = "Projectile",
 			baseEffectiveness = 4,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4281,16 +4280,16 @@ skills["MPSAzmeriPictStaffProj2"] = {
 skills["MPSBloodMageBloodProjectile"] = {
 	name = "Blood Projectile",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.57,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Blood Projectile",
+			label = "Projectile",
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4327,16 +4326,16 @@ skills["MPSBloodMageBloodProjectile"] = {
 skills["MPSBoneRabbleBurningArrow"] = {
 	name = "Burning Arrow",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Burning Arrow",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -4366,7 +4365,7 @@ skills["MPSBoneRabbleBurningArrow"] = {
 skills["MPSBoneCultistNecromancerLightning"] = {
 	name = "Basic Spell (Lightning)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
 	},
@@ -4375,7 +4374,7 @@ skills["MPSBoneCultistNecromancerLightning"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Lightning)",
+			label = "Projectile",
 			baseEffectiveness = 3.6749999523163,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4413,7 +4412,7 @@ skills["MPSBoneCultistNecromancerLightning"] = {
 skills["MPSBoneCultistZealotFire"] = {
 	name = "Basic Spell (Fire)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
 	},
@@ -4422,7 +4421,7 @@ skills["MPSBoneCultistZealotFire"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Fire)",
+			label = "Projectile",
 			baseEffectiveness = 3.2000000476837,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4458,7 +4457,7 @@ skills["MPSBoneCultistZealotFire"] = {
 skills["MPSBoneCultistZealotLightning"] = {
 	name = "Basic Spell (Lightning)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
 	},
@@ -4467,7 +4466,7 @@ skills["MPSBoneCultistZealotLightning"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Lightning)",
+			label = "Projectile",
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4503,7 +4502,7 @@ skills["MPSBoneCultistZealotLightning"] = {
 skills["MPSBreachEliteBoneProjectile"] = {
 	name = "Basic Spell (Cold)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4512,7 +4511,7 @@ skills["MPSBreachEliteBoneProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Cold)",
+			label = "Projectile",
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4548,16 +4547,16 @@ skills["MPSBreachEliteBoneProjectile"] = {
 skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 	name = "Chaos Spark",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, storedUses = 1, levelRequirement = 0, cooldown = 10, },
+		[1] = { cooldown = 10, critChance = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Chaos Spark",
+			label = "Projectile",
 			baseEffectiveness = 3.25,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4598,7 +4597,7 @@ skills["MPSBreachEliteFallenLunarisMonsterChaosSpark"] = {
 skills["MPSChaosGodTriHeadLizardBasicProjectile"] = {
 	name = "Basic Spell (Chaos)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4607,7 +4606,7 @@ skills["MPSChaosGodTriHeadLizardBasicProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Chaos)",
+			label = "Projectile",
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4648,7 +4647,7 @@ skills["MPSChaosGodTriHeadLizardBasicProjectile"] = {
 skills["MPSElectricStingRayProjectile"] = {
 	name = "Basic Spell (Lightning)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.47,
 	qualityStats = {
 	},
@@ -4657,7 +4656,7 @@ skills["MPSElectricStingRayProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Lightning)",
+			label = "Projectile",
 			baseEffectiveness = 4,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4696,7 +4695,7 @@ skills["MPSElectricStingRayProjectile"] = {
 skills["MPSExpeditionBoneCultistProjectiles"] = {
 	name = "Basic Spell (Cold)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
 	},
@@ -4707,7 +4706,7 @@ skills["MPSExpeditionBoneCultistProjectiles"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Cold)",
+			label = "Projectile",
 			baseEffectiveness = 3.75,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4744,7 +4743,7 @@ skills["MPSExpeditionBoneCultistProjectiles"] = {
 skills["MPSHellscapeDemonFodderProj"] = {
 	name = "Fireball",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.25,
 	qualityStats = {
 	},
@@ -4753,7 +4752,7 @@ skills["MPSHellscapeDemonFodderProj"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Fireball",
+			label = "Projectile",
 			baseEffectiveness = 2.25,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4792,7 +4791,7 @@ skills["MPSHellscapeDemonFodderProj"] = {
 skills["MPSHellscapeFleshEliteBasicProj"] = {
 	name = "Basic Spell (Physical)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.166,
 	qualityStats = {
 	},
@@ -4801,7 +4800,7 @@ skills["MPSHellscapeFleshEliteBasicProj"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Physical)",
+			label = "Projectile",
 			baseEffectiveness = 2.8499999046326,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4837,7 +4836,7 @@ skills["MPSHellscapeFleshEliteBasicProj"] = {
 skills["MPSHellscapePaleHammerhead"] = {
 	name = "Basic Spell (Physical)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.166,
 	qualityStats = {
 	},
@@ -4846,7 +4845,7 @@ skills["MPSHellscapePaleHammerhead"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Physical)",
+			label = "Projectile",
 			baseEffectiveness = 2.4500000476837,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4882,7 +4881,7 @@ skills["MPSHellscapePaleHammerhead"] = {
 skills["MPSMercurialCasterEnrage"] = {
 	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.33,
 	qualityStats = {
 	},
@@ -4891,7 +4890,7 @@ skills["MPSMercurialCasterEnrage"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell",
+			label = "Projectile",
 			baseEffectiveness = 2.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4931,7 +4930,7 @@ skills["MPSMercurialCasterEnrage"] = {
 skills["MPSRedSkeletonCaster"] = {
 	name = "Basic Spell (Cold)",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -4940,7 +4939,7 @@ skills["MPSRedSkeletonCaster"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell (Cold)",
+			label = "Projectile",
 			baseEffectiveness = 3.2999999523163,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -4975,7 +4974,7 @@ skills["MPSRedSkeletonCaster"] = {
 skills["MPSSkeletonMancerBasicProj"] = {
 	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -4984,7 +4983,7 @@ skills["MPSSkeletonMancerBasicProj"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5023,7 +5022,7 @@ skills["MPSSkeletonMancerBasicProj"] = {
 skills["MPSVaalBloodPriestProj"] = {
 	name = "Blood Projectile",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5032,7 +5031,7 @@ skills["MPSVaalBloodPriestProj"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Blood Projectile",
+			label = "Projectile",
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -5069,7 +5068,7 @@ skills["MPSVaalBloodPriestProj"] = {
 skills["MPSVaalConstructCannon"] = {
 	name = "Cannon",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5078,7 +5077,7 @@ skills["MPSVaalConstructCannon"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Cannon",
+			label = "Projectile",
 			baseEffectiveness = 2,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -5117,7 +5116,7 @@ skills["MPSVaalConstructCannon"] = {
 skills["MPAVaalHumanoidCannon"] = {
 	name = "Cannon",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5126,7 +5125,7 @@ skills["MPAVaalHumanoidCannon"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Cannon",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5157,7 +5156,7 @@ skills["MPAVaalHumanoidCannon"] = {
 skills["MPSVaalHumanoidCannonNapalmMiniBlob"] = {
 	name = "Napalm Cannon",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5166,7 +5165,7 @@ skills["MPSVaalHumanoidCannonNapalmMiniBlob"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Napalm Cannon",
+			label = "Projectile",
 			baseEffectiveness = 1.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -5203,7 +5202,7 @@ skills["MPSVaalHumanoidCannonNapalmMiniBlob"] = {
 skills["MPSVaalSunApparitionBasicProj"] = {
 	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5212,7 +5211,7 @@ skills["MPSVaalSunApparitionBasicProj"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell",
+			label = "Projectile",
 			baseEffectiveness = 2.8499999046326,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -5252,7 +5251,7 @@ skills["MPSVaalSunApparitionBasicProj"] = {
 skills["MPWAzmeriPitifulFabricationSkullThrow"] = {
 	name = "Skull Throw",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5261,7 +5260,7 @@ skills["MPWAzmeriPitifulFabricationSkullThrow"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Skull Throw",
+			label = "Projectile",
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				attack = true,
@@ -5290,16 +5289,16 @@ skills["MPWAzmeriPitifulFabricationSkullThrow"] = {
 skills["MPWCleansedMonstrosityRailgun"] = {
 	name = "Railgun",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 2.15, storedUses = 1, levelRequirement = 0, cooldown = 15, },
+		[1] = { baseMultiplier = 2.15, cooldown = 15, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Railgun",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5329,7 +5328,7 @@ skills["MPWCleansedMonstrosityRailgun"] = {
 skills["MPWDrudgeExplosiveGrenade"] = {
 	name = "Explosive Grenade",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5338,7 +5337,7 @@ skills["MPWDrudgeExplosiveGrenade"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Explosive Grenade",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5372,7 +5371,7 @@ skills["MPWDrudgeExplosiveGrenade"] = {
 skills["MPWExpeditionArbalestProjectile"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -5381,7 +5380,7 @@ skills["MPWExpeditionArbalestProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Attack",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5407,16 +5406,16 @@ skills["MPWExpeditionArbalestProjectile"] = {
 skills["MPWExpeditionArbalestSnipe"] = {
 	name = "Snipe",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -25, storedUses = 1, baseMultiplier = 2.65, cooldown = 8, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 2.65, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Snipe",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5444,7 +5443,7 @@ skills["MPWExpeditionArbalestSnipe"] = {
 skills["MPWFarudinSpearThrow"] = {
 	name = "Spear Throw",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3,
 	qualityStats = {
 	},
@@ -5485,7 +5484,7 @@ skills["MPWFarudinSpearThrow"] = {
 skills["MPWGoblinSpearThrow"] = {
 	name = "Spear Throw",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5494,7 +5493,7 @@ skills["MPWGoblinSpearThrow"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Spear Throw",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5524,7 +5523,7 @@ skills["MPWGoblinSpearThrow"] = {
 skills["MPWKelpDregPuncture"] = {
 	name = "Puncture",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5533,7 +5532,7 @@ skills["MPWKelpDregPuncture"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Puncture",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5561,7 +5560,7 @@ skills["MPWKelpDregPuncture"] = {
 skills["MPWVaalSavageBlowDart"] = {
 	name = "Blow Dart",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
@@ -5570,7 +5569,7 @@ skills["MPWVaalSavageBlowDart"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Blow Dart",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5601,7 +5600,7 @@ skills["MPWVaalSavageBlowDart"] = {
 skills["MutewindBanditWomanLeap"] = {
 	name = "Leap Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5632,7 +5631,7 @@ skills["MutewindBanditWomanLeap"] = {
 skills["QuillCrabSpikeBurst"] = {
 	name = "Spike Burst",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5672,7 +5671,7 @@ skills["QuillCrabSpikeBurst"] = {
 skills["QuillCrabSpikeBurstPoison"] = {
 	name = "Spike Burst",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5712,7 +5711,7 @@ skills["QuillCrabSpikeBurstPoison"] = {
 skills["QuillCrabSpikeBurstTropical"] = {
 	name = "Spike Burst",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5752,7 +5751,7 @@ skills["QuillCrabSpikeBurstTropical"] = {
 skills["RisenArbalestBasicProjectile"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5761,7 +5760,7 @@ skills["RisenArbalestBasicProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Attack",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5783,19 +5782,19 @@ skills["RisenArbalestBasicProjectile"] = {
 skills["RisenArbalestSnipe"] = {
 	name = "Snipe",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -25, storedUses = 1, baseMultiplier = 2.65, cooldown = 8, levelRequirement = 0, },
-		[2] = { attackSpeedMultiplier = -25, storedUses = 1, cooldown = 8, levelRequirement = 0, },
-		[3] = { attackSpeedMultiplier = -25, storedUses = 1, cooldown = 8, levelRequirement = 0, },
-		[4] = { attackSpeedMultiplier = -25, storedUses = 1, cooldown = 8, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -25, baseMultiplier = 2.65, cooldown = 8, levelRequirement = 0, storedUses = 1, },
+		[2] = { attackSpeedMultiplier = -25, cooldown = 8, levelRequirement = 0, storedUses = 1, },
+		[3] = { attackSpeedMultiplier = -25, cooldown = 8, levelRequirement = 0, storedUses = 1, },
+		[4] = { attackSpeedMultiplier = -25, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Snipe",
+			label = "Hidden",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -5819,8 +5818,8 @@ skills["RisenArbalestSnipe"] = {
 skills["RisenArbalestRainOfArrows"] = {
 	name = "Rain of Arrows",
 	hidden = true,
-	description = "Fires a large number of arrows into the air, to land in an area around the target after a short delay. Consumes your Frenzy Charges on use to fire additional arrows.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Barrageable] = true, [SkillType.Sustained] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackInPlace] = true, },
+	description = "Fires a large number of arrows into the air, to land in an area around the target after a short delay. Consumes a Frenzy Charge on use to fire additional arrows.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Barrageable] = true, [SkillType.Sustained] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, },
 	weaponTypes = {
 		["Bow"] = true,
 	},
@@ -5828,7 +5827,7 @@ skills["RisenArbalestRainOfArrows"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { attackSpeedMultiplier = -25, storedUses = 1, cooldown = 8, levelRequirement = 0, },
+		[1] = { attackSpeedMultiplier = -25, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -5854,12 +5853,12 @@ skills["SerpentClanCurse"] = {
 	name = "Vulnerability",
 	hidden = true,
 	description = "Curse all targets in an area after a short delay. making Hits against them ignore a portion of their Armour.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.AppliesCurse] = true, [SkillType.Unleashable] = true, [SkillType.AreaSpell] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 6, },
+		[1] = { cooldown = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -5898,13 +5897,13 @@ skills["SerpentClanCurse"] = {
 skills["SerpentClanTailWhip"] = {
 	name = "Tail Whip",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
-		[2] = { baseMultiplier = 1.7, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { baseMultiplier = 1.7, cooldown = 8, levelRequirement = 0, storedUses = 1, },
+		[2] = { baseMultiplier = 1.7, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -5937,7 +5936,7 @@ skills["ShellMonsterDeathMortar"] = {
 	name = "Death Mortar",
 	hidden = true,
 	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -5985,7 +5984,7 @@ skills["ShellMonsterDeathMortarPoison"] = {
 	name = "Death Mortar",
 	hidden = true,
 	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -6033,12 +6032,12 @@ skills["ShellMonsterDeathMortarPoison"] = {
 skills["ShellMonsterFirehose"] = {
 	name = "Firehose",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -6076,7 +6075,7 @@ skills["ShellMonsterSprayMortar"] = {
 	name = "Mortar",
 	hidden = true,
 	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -6126,7 +6125,7 @@ skills["ShellMonsterSprayMortarPoison"] = {
 	name = "Mortar",
 	hidden = true,
 	description = "Generic monster mortar skill. Like Monster Projectile but has an impact effect.",
-	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -6176,7 +6175,7 @@ skills["SkelemancerSkelenado"] = {
 	name = "Spark",
 	hidden = true,
 	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6227,7 +6226,7 @@ skills["SkelemancerSkelenado"] = {
 skills["SpookyGhostLightningBounce"] = {
 	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.5,
 	qualityStats = {
 	},
@@ -6236,7 +6235,7 @@ skills["SpookyGhostLightningBounce"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell",
+			label = "Projectile",
 			baseEffectiveness = 5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -6273,7 +6272,7 @@ skills["SpookyGhostLightningBounce"] = {
 skills["SpookyWraithProjectileExplosionCold"] = {
 	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Projectile] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, [SkillType.Projectile] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6282,7 +6281,7 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell",
+			label = "Explosion",
 			baseEffectiveness = 2.7999999523163,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -6313,7 +6312,7 @@ skills["SpookyWraithProjectileExplosionCold"] = {
 skills["TBAbyssCarrionWingBeam"] = {
 	name = "Beam",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6354,7 +6353,7 @@ skills["TBAbyssCarrionWingBeam"] = {
 skills["GSAbyssCarrionWingBeamImpact"] = {
 	name = "Beam Impact",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6393,7 +6392,7 @@ skills["GSAbyssCarrionWingBeamImpact"] = {
 skills["TBBreachElitePaleLightningBoltSpammableLeft"] = {
 	name = "Lightning Bolt",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
 	},
@@ -6424,7 +6423,7 @@ skills["TBBreachElitePaleLightningBoltSpammableLeft"] = {
 skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 	name = "Lightning Bolt",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.333,
 	qualityStats = {
 	},
@@ -6466,7 +6465,7 @@ skills["TBHellscapePaleLightningBoltSpammableLeft"] = {
 skills["TBVaalPyramidBeam"] = {
 	name = "Pyramid Beam",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6507,22 +6506,22 @@ skills["TCHellscapePaleElite2Charge"] = {
 	name = "Charge",
 	hidden = true,
 	description = "Charges at an enemy, bashing it with the character's shield and striking it. This knocks it back and stuns it. Enemies in the way are pushed to the side. Damage and stun are proportional to distance travelled. Cannot be supported by Multistrike.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["None"] = true,
-		["One Handed Sword"] = true,
-		["One Handed Mace"] = true,
-		["Flail"] = true,
-		["Spear"] = true,
-		["One Handed Axe"] = true,
-		["Dagger"] = true,
 		["Claw"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["None"] = true,
+		["One Handed Axe"] = true,
+		["One Handed Mace"] = true,
+		["One Handed Sword"] = true,
+		["Spear"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.3, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { baseMultiplier = 0.3, cooldown = 8, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -6546,7 +6545,7 @@ skills["TCHellscapePaleElite2Charge"] = {
 skills["UrchinSlingProjectile"] = {
 	name = "Sling Rock",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6555,7 +6554,7 @@ skills["UrchinSlingProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Sling Rock",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -6582,7 +6581,7 @@ skills["UrchinSlingProjectile"] = {
 skills["VaalBloodPriestDetonateDead"] = {
 	name = "Detonate Dead",
 	hidden = true,
-	skillTypes = { [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.25,
 	qualityStats = {
 	},
@@ -6624,7 +6623,7 @@ skills["VaalBloodPriestExsanguinate"] = {
 	name = "Exsanguinate",
 	hidden = true,
 	description = "Expel your own blood as Chaining blood tendrils in a cone in front of you. Enemies Hit by the tendrils take Physical damage and are inflicted with Bleeding.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 2.2,
 	qualityStats = {
 	},
@@ -6671,7 +6670,7 @@ skills["VaalBloodPriestExsanguinate"] = {
 skills["VaalBloodPriestSoulrend"] = {
 	name = "Soulrend",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.DamageOverTime] = true, [SkillType.Chaos] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Totemable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 3.7,
 	qualityStats = {
 	},
@@ -6711,12 +6710,12 @@ skills["VaalBloodPriestSoulrend"] = {
 skills["VaalHumanoidShockRifle"] = {
 	name = "Shock Rifle",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 4,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 9, },
+		[1] = { cooldown = 9, critChance = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -6756,12 +6755,12 @@ skills["VaalZealotLightningSpark"] = {
 	name = "Spark",
 	hidden = true,
 	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1.2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 7, storedUses = 1, levelRequirement = 0, cooldown = 0.2, },
+		[1] = { cooldown = 0.2, critChance = 7, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -6806,7 +6805,7 @@ skills["VaalZealotLightningSparkNova"] = {
 	name = "Spark Nova",
 	hidden = true,
 	description = "Launch a spray of sparking Projectiles that travel erratically along the ground until they hit an enemy or expire. Consumes a Cold Infusion if possible to fire many sparks in a circle.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.NoAttackInPlace] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.Invokable] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -6815,7 +6814,7 @@ skills["VaalZealotLightningSparkNova"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Spark Nova",
+			label = "Hidden",
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -6854,7 +6853,7 @@ skills["VaalZealotLightningSparkNova"] = {
 skills["GSVaalZealotLightningBlast"] = {
 	name = "Lightning Blast",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1.2,
 	qualityStats = {
 	},
@@ -6899,12 +6898,12 @@ skills["GSVaalZealotLightningBlast"] = {
 skills["JellyfishNettlerArc"] = {
 	name = "Arc",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Chains] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.Unleashable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 6, storedUses = 1, levelRequirement = 0, cooldown = 8, },
+		[1] = { cooldown = 8, critChance = 6, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -6944,12 +6943,12 @@ skills["JellyfishNettlerArc"] = {
 skills["SSMJellyfishNettlerMinions"] = {
 	name = "Summon Minions",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 12, },
+		[1] = { cooldown = 12, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -6979,7 +6978,7 @@ skills["SSMJellyfishNettlerMinions"] = {
 skills["MeleeGiantStarfishTentacle1"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7011,7 +7010,7 @@ skills["MeleeGiantStarfishTentacle1"] = {
 skills["MPSStarfishVomit"] = {
 	name = "Vomit",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7060,7 +7059,7 @@ skills["MPSStarfishVomit"] = {
 skills["GSStarFishSpitImpact"] = {
 	name = "Vomit Impact",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7097,7 +7096,7 @@ skills["GSStarFishSpitImpact"] = {
 skills["CGEStarFishSpitCausticGround"] = {
 	name = "Vomit Ground",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7135,7 +7134,7 @@ skills["CGEStarFishSpitCausticGround"] = {
 skills["MPSBrineMaidenIceProjectile"] = {
 	name = "Ice Projectile",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7144,7 +7143,7 @@ skills["MPSBrineMaidenIceProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Ice Projectile",
+			label = "Projectile",
 			baseEffectiveness = 3,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -7183,16 +7182,16 @@ skills["MPSBrineMaidenIceProjectile"] = {
 skills["GAKaruiTuataraTailSlam"] = {
 	name = "Tail Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 2.4,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 1.5, storedUses = 1, levelRequirement = 0, cooldown = 5, },
+		[1] = { baseMultiplier = 1.5, cooldown = 5, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
-			label = "Tail Slam",
+			label = "Slam",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -7214,7 +7213,7 @@ skills["GAKaruiTuataraTailSlam"] = {
 skills["GSExcavatorRaptorTriangleSlam"] = {
 	name = "Slam",
 	hidden = true,
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7250,7 +7249,7 @@ skills["GSExcavatorRaptorTriangleSlam"] = {
 skills["TBExcavatorSceptreErraticBeam"] = {
 	name = "Beam",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Triggerable] = true, [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7287,7 +7286,7 @@ skills["TBExcavatorSceptreErraticBeam"] = {
 skills["MASKelpDregCrossbow"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7329,7 +7328,7 @@ skills["MASKelpDregCrossbow"] = {
 skills["MASKelpDregCrossbowPhys"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7370,7 +7369,7 @@ skills["MASKelpDregCrossbowPhys"] = {
 skills["MASKelpDregCrossbowIce"] = {
 	name = "Basic Attack",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7411,7 +7410,7 @@ skills["MASKelpDregCrossbowIce"] = {
 skills["MPWKelpDregPunctureIce"] = {
 	name = "Puncture",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7420,7 +7419,7 @@ skills["MPWKelpDregPunctureIce"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Puncture",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -7449,7 +7448,7 @@ skills["MPWKelpDregPunctureIce"] = {
 skills["MPWKelpDregPuncture"] = {
 	name = "Puncture",
 	hidden = true,
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7458,7 +7457,7 @@ skills["MPWKelpDregPuncture"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Puncture",
+			label = "Projectile",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
@@ -7487,7 +7486,7 @@ skills["MPWKelpDregPuncture"] = {
 skills["MPSTwilightSorcerorFireball"] = {
 	name = "Fireball",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7496,7 +7495,7 @@ skills["MPSTwilightSorcerorFireball"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Fireball",
+			label = "Projectile",
 			baseEffectiveness = 2.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -7533,7 +7532,7 @@ skills["MPSTwilightSorcerorFireball"] = {
 skills["MPSTwilightClericProjectile"] = {
 	name = "Basic Spell",
 	hidden = true,
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -7542,7 +7541,7 @@ skills["MPSTwilightClericProjectile"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Basic Spell",
+			label = "Projectile",
 			baseEffectiveness = 2.5999999046326,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
@@ -7558,13 +7557,19 @@ skills["MPSTwilightClericProjectile"] = {
 				{ "spell_maximum_action_distance_+%", -37 },
 			},
 			stats = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
 				"base_is_projectile",
 				"projectile_uses_contact_position",
 				"maintain_projectile_direction_when_using_contact_position",
 				"action_attack_or_cast_time_uses_animation_length",
 			},
+			notMinionStat = {
+				"spell_minimum_base_physical_damage",
+				"spell_maximum_base_physical_damage",
+			},
 			levels = {
-				[1] = { actorLevel = 1, },
+				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
 			},
 		},
 	}

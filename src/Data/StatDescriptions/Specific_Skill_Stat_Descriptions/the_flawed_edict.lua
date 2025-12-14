@@ -11,7 +11,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Cannot generate Edict Declaration"
+				text="DNT-UNUSED Cannot generate Edict Declaration"
 			}
 		},
 		stats={
@@ -27,7 +27,7 @@ return {
 						[2]=99
 					}
 				},
-				text="DNT {0}% chance when hitting a Rare Monster with this attack to disable one of its Modifiers"
+				text="DNT-UNUSED {0}% chance when hitting a Rare Monster with this attack to disable one of its Modifiers"
 			},
 			[2]={
 				limit={
@@ -36,7 +36,7 @@ return {
 						[2]=100
 					}
 				},
-				text="DNT Hitting a Rare Monster with this attack disable one of its Modifiers"
+				text="DNT-UNUSED Hitting a Rare Monster with this attack disable one of its Modifiers"
 			}
 		},
 		stats={
@@ -52,7 +52,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT {0}% less Damage for each Second spent channelling"
+				text="DNT-UNUSED {0}% less Damage for each Second spent channelling"
 			},
 			[2]={
 				limit={
@@ -61,7 +61,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% more Damage for each Second spent channelling"
+				text="DNT-UNUSED {0}% more Damage for each Second spent channelling"
 			}
 		},
 		stats={
@@ -77,7 +77,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0}% of Life Spent while channelling is\nadded to this Skill's Life Cost per Second"
+				text="DNT-UNUSED {0}% of Life Spent while channelling is\nadded to this Skill's Life Cost per Second"
 			}
 		},
 		stats={
@@ -93,7 +93,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Requires Edict Declaration to be charged at 100% to use"
+				text="DNT-UNUSED Requires Edict Declaration to be charged at 100% to use"
 			}
 		},
 		stats={

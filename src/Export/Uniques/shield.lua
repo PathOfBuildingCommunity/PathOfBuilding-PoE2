@@ -71,7 +71,10 @@ UniqueStunThreshold18
 UniqueEnemiesInPresenceMonsterPower1
 ]],[[
 The Surrender
-Stone Tower Shield
+{variant:1}Stone Tower Shield
+{variant:2}Vaal Tower Shield
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalBlockChance7
@@ -82,15 +85,18 @@ UniqueRecoverLifePercentOnBlock1
 Svalinn
 Crucible Tower Shield
 Variant: Pre 0.3.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Olroth, Origin of the Fall}
 Implicits: 2
 Grants Skill: Raise Shield
 Grants Skill: Cast on Block
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[100,150]
-{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24[150,200]
+{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent24
 {variant:1}UniqueMaximumBlockChance2
-{variant:2}UniqueBaseBlockDamageTaken3
+{variant:2}UniqueBaseBlockDamageTaken3[15,20]
+{variant:3}UniqueBaseBlockDamageTaken3
 UniqueLuckyBlockChance1
 ]],[[
 The Wailing Wall
@@ -313,14 +319,16 @@ UniqueGlobalCooldownRecovery1
 Mahuxotl's Machination
 Omen Crest Shield
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield16
 {variant:1}UniqueLocalSoulCoreEffect1[333,666]
-{variant:2}UniqueLocalSoulCoreEffect1
-{variant:2}UniqueEverlastingSacrifice1
+{variant:2}UniqueLocalSoulCoreEffect1[100,100]
+{variant:3}UniqueLocalSoulCoreEffect1
+{variant:2,3}UniqueEverlastingSacrifice1
 ]],[[
 Oaksworn
 Variant: Pre 0.2.0
@@ -341,14 +349,17 @@ Sectarian Crest Shield
 Requires Level 65
 League: Dawn of the Hunt
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
 Grants Skill: Raise Shield
 UniqueLocalIncreasedArmourAndEnergyShield22
+{variant:3}UniqueIncreasedSpirit14
 UniqueDexterity37
 UniqueAllResistances26
 {variant:1}UniqueSpiritPerMaximumLife1[50,50]
-{variant:2}UniqueSpiritPerMaximumLife1
+{variant:2}UniqueSpiritPerMaximumLife1[25,25]
+{variant:3}UniqueBuffSkillSpiritEfficiencyPerMaximumLife1
 ]],[[
 Rise of the Phoenix
 Omen Crest Shield

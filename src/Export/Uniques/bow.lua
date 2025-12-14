@@ -20,10 +20,13 @@ UniqueManaGainedFromEnemyDeath6
 Doomfletch
 Composite Bow
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 UniqueLocalAddedPhysicalDamage7
 UniqueDexterity4
 UniqueManaRegeneration3
-UniqueLocalPhysicalDamageAddedAsEachElement1
+{variant:1}UniqueLocalPhysicalDamageAddedAsEachElement1[50,50]
+{variant:2}UniqueLocalPhysicalDamageAddedAsEachElement1
 ]],[[
 Fairgraves' Curse
 Artillery Bow
@@ -41,12 +44,15 @@ GhostflameOnHitUnique__1
 Lioneye's Glare
 Heavy Bow
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 UniqueLocalIncreasedPhysicalDamagePercent14
 UniqueLocalIncreasedAccuracy8
 UniqueLocalIncreasedAttackSpeed22
 UniqueDexterity44
 UniqueLioneyeDodgeRoll1
-UniqueRepeatNoEnemyInPresence
+{variant:1}UniqueRepeatNoEnemyInPresence[1,1]
+{variant:2}UniqueRepeatNoEnemyInPresence
 ]],[[
 Quill Rain
 Shortbow
@@ -78,7 +84,10 @@ UniqueProjectilesSplitCount1
 Voltaxic Rift
 Fanatic Bow
 League: Dawn of the Hunt
-UniqueLocalAddedLightningDamage6
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalAddedLightningDamage6[1,1][200,300]
+{variant:2}UniqueLocalAddedLightningDamage6
 UniqueLocalIncreasedAttackSpeed17
 UniqueLightningDamageConvertToChaos1
 UniqueChaosDamageCanShock1

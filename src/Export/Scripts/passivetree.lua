@@ -251,7 +251,7 @@ local use4kIfPossible = false
 local idPassiveTree = 'Default'
 -- Find a way to get version
 local basePath = GetWorkDir() .. "/../TreeData/"
-local version = "0_3"
+local version = "0_4"
 local path = basePath .. version .. "/"
 local fileTree = path .. "tree.lua"
 
@@ -388,6 +388,10 @@ local sheetLocations = {
 	["legion"] = 10,
 	["monster-categories"] = 11,
 }
+local connectionArtToDecompose = {
+	CharacterPlanned = true,
+}
+
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
 end
@@ -457,34 +461,19 @@ local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
 addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonMetadata("PSGroupBackgroundLargeBlank"))
 
 printf("Getting JewelSocketFrame")
-local jFrameNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketCanAllocate")].path
+local jFrameNormal = uiImages[string.lower(uIArt.JewelFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), jFrameNormal, "frame", commonMetadata("JewelFrameCanAllocate"))
 
-local jFrameActive = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketActive")].path
+local jFrameActive = uiImages[string.lower(uIArt.JewelFrame.Active)].path
 addToSheet(getSheet("group-background"), jFrameActive, "frame", commonMetadata("JewelFrameAllocated"))
 
-local jFrameCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/SanctumPassiveSkillScreenJewelSocketNormal")].path
+local jFrameCanAllocate = uiImages[string.lower(uIArt.JewelFrame.Normal)].path
 addToSheet(getSheet("group-background"), jFrameCanAllocate, "frame", commonMetadata("JewelFrameUnallocated"))
 
+print("Getting Orbits art")
+connectionArtToDecompose[uIArt.ConnectionsArt.Id] = true
+
 printf("Getting Ascendancy frames")
-local ascFrameNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallCanAllocate")].path
-addToSheet(getSheet("group-background"), ascFrameNormal, "frame", commonMetadata("AscendancyFrameSmallCanAllocate"))
-
-local ascFrameActive = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallNormal")].path
-addToSheet(getSheet("group-background"), ascFrameActive, "frame", commonMetadata("AscendancyFrameSmallNormal"))
-
-local ascFrameCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameSmallAllocated")].path
-addToSheet(getSheet("group-background"), ascFrameCanAllocate, "frame", commonMetadata("AscendancyFrameSmallAllocated"))
-
-local ascFrameLargeNormal = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeNormal")].path
-addToSheet(getSheet("group-background"), ascFrameLargeNormal, "frame", commonMetadata("AscendancyFrameLargeNormal"))
-
-local ascFrameLargeCanAllocate = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeCanAllocate")].path
-addToSheet(getSheet("group-background"), ascFrameLargeCanAllocate, "frame", commonMetadata("AscendancyFrameLargeCanAllocate"))
-
-local ascFrameLargeAllocated = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyFrameLargeAllocated")].path
-addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonMetadata("AscendancyFrameLargeAllocated"))
-
 local ascMiddle = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyMiddle")].path
 addToSheet(getSheet("group-background"), ascMiddle, "frame", commonMetadata("AscendancyMiddle"))
 
@@ -495,11 +484,6 @@ addToSheet(getSheet("group-background"), ascStart, "startNode", commonMetadata("
 addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircle.dds", "AscendancyBackground", commonMetadata("BGTree"))
 addToSheet(getSheet("ascendancy-background"), "art/textures/interface/2d/2dart/uiimages/ingame/passivetree/passivetreemaincircleactive2.dds", "AscendancyBackground", commonMetadata("BGTreeActive"))
 
--- adding lines to sprite
-addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds", "line", commonMetadata( "CurvesActive"))
-addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds", "line", commonMetadata( "CurvesIntermediate"))
-addToSheet(getSheet("lines"), "art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds", "line", commonMetadata( "CurvesNormal"))
-
 -- adding jewel sockets
 local jewelArt = dat("PassiveJewelArt")
 for jewel in jewelArt:Rows() do
@@ -508,10 +492,24 @@ for jewel in jewelArt:Rows() do
 		goto nexttogo
 	end
 	local asset = uiImages[string.lower(jewel.JewelArt)]
-	printf("Adding jewel socket " .. jewel.Item.Name .. " " .. asset.path .. " to sprite")
 	local name = jewel.Item.Name
+	printf("Adding jewel socket " .. name .. " " .. asset.path .. " to sprite")
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
 	:: nexttogo	::
+end
+
+-- adding unique jewel sockets
+local uniqueJewelArt = dat("PassiveJewelUniqueArt")
+for jewel in uniqueJewelArt:Rows() do
+	if jewel.WordsKey.Text:find(ignoreFilter) ~= nil then
+		printf("Ignoring unique jewel socket " .. jewel.Item.Name)
+		goto nexttogo
+	end
+	local asset = uiImages[string.lower(jewel.JewelArt)]
+	local name = jewel.WordsKey.Text
+	printf("Adding unique jewel socket " .. name .. " " .. asset.path .. " to sprite")
+	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
+	:: nexttogo ::
 end
 
 -- adding monster types
@@ -588,6 +586,32 @@ local tree = {
 		["orbitRadii"]= {
 			0, 82, 162, 335, 493, 662, 846, 251, 1080, 1322
 		},
+	},
+	["nodeOverlay"] = {
+		Normal = {
+			alloc = "PSSkillFrameActive",
+			path = "PSSkillFrameHighlighted",
+			unalloc = "PSSkillFrame",
+		},
+		Notable = {
+			alloc = "NotableFrameAllocated",
+			path = "NotableFrameCanAllocate",
+			unalloc = "NotableFrameUnallocated",
+		},
+		Keystone = {
+			alloc = "KeystoneFrameAllocated",
+			path = "KeystoneFrameCanAllocate",
+			unalloc = "KeystoneFrameUnallocated",
+		},
+		Socket = {
+			alloc = "JewelFrameAllocated",
+			path = "JewelFrameCanAllocate",
+			unalloc = "JewelFrameUnallocated",
+		},
+	},
+	["connectionArt"] = {
+		default = "Character",
+		ascendancy = "CharacterAscendancy",
 	},
 }
 
@@ -668,6 +692,27 @@ for i, classId in ipairs(psg.passives) do
 			-- add assets
 			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "AscendancyBackground", commonMetadata( "Classes" .. ascendency.Name))
 
+			printf("Getting Ascendancy frames " .. ascendency.Name)
+			local ascFrameNormal = uiImages[string.lower(ascendency.UIArt.PassiveFrame.CanAllocate)].path
+			addToSheet(getSheet("group-background"), ascFrameNormal, "frame", commonMetadata(ascendency.Name .. "FrameSmallCanAllocate"))
+
+			local ascFrameActive = uiImages[string.lower(ascendency.UIArt.PassiveFrame.Normal)].path
+			addToSheet(getSheet("group-background"), ascFrameActive, "frame", commonMetadata(ascendency.Name .. "FrameSmallNormal"))
+
+			local ascFrameCanAllocate = uiImages[string.lower(ascendency.UIArt.PassiveFrame.Active)].path
+			addToSheet(getSheet("group-background"), ascFrameCanAllocate, "frame", commonMetadata(ascendency.Name .. "FrameSmallAllocated"))
+
+			local ascFrameLargeNormal = uiImages[string.lower(ascendency.UIArt.NotableFrame.Normal)].path
+			addToSheet(getSheet("group-background"), ascFrameLargeNormal, "frame", commonMetadata(ascendency.Name .. "FrameLargeNormal"))
+
+			local ascFrameLargeCanAllocate = uiImages[string.lower(ascendency.UIArt.NotableFrame.CanAllocate)].path
+			addToSheet(getSheet("group-background"), ascFrameLargeCanAllocate, "frame", commonMetadata(ascendency.Name .. "FrameLargeCanAllocate"))
+
+			local ascFrameLargeAllocated = uiImages[string.lower(ascendency.UIArt.NotableFrame.Active)].path
+			addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonMetadata(ascendency.Name .. "FrameLargeAllocated"))
+
+			-- include the connection art in case doesn't exist
+			connectionArtToDecompose[ascendency.UIArt.ConnectionsArt.Id] = true
 			:: continue3 ::
 		end
 
@@ -764,6 +809,9 @@ for i, group in ipairs(psg.groups) do
 			printf("Passive skill " .. passiveRow.Name .. "(id: " .. passiveRow.Id .. ") found")
 			node["name"] = escapeGGGString(passiveRow.Name)
 			node["icon"] = passiveRow.Icon
+			if passiveRow.FlavourText ~= "" then
+				node["flavourText"] = passiveRow.FlavourText:gsub('\r',''):gsub('\n','\\n')
+			end
 			if passiveRow.Keystone then
 				node["isKeystone"] = true
 				addToSheet(getSheet("skills"), passiveRow.Icon, "keystoneActive", commonMetadata(nil))
@@ -808,7 +856,7 @@ for i, group in ipairs(psg.groups) do
 						local uiSocketCanAllocate = uiImages[string.lower(uioverride.CanAllocate)]
 						addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
 
-						node.jewelOverlay = {
+						node.nodeOverlay = {
 							alloc = uiSocketActive.path,
 							path = uiSocketCanAllocate.path,
 							unalloc = uiSocketNormal.path,
@@ -817,12 +865,56 @@ for i, group in ipairs(psg.groups) do
 					else
 						printf("Jewel socket not found for ascendancy " .. passiveRow.Ascendancy.Name)
 					end
+				elseif node["isOnlyImage"] == nil then
+					local typeFrame = node["isNotable"] and "Large" or "Small"
+					node.nodeOverlay = {
+						alloc = passiveRow.Ascendancy.Name .. "Frame" .. typeFrame .. "Allocated",
+						path = passiveRow.Ascendancy.Name .. "Frame" .. typeFrame .. "CanAllocate",
+						unalloc = passiveRow.Ascendancy.Name .. "Frame" .. typeFrame .. "Normal",
+					}
 				end
 
 				ascendancyGroups = ascendancyGroups or {}
 				ascendancyGroups[passiveRow.Ascendancy.Name] = ascendancyGroups[passiveRow.Ascendancy.Name] or { }
 				ascendancyGroups[passiveRow.Ascendancy.Name].startId = passiveRow.AscendancyStart and passive.id or ascendancyGroups[passiveRow.Ascendancy.Name].startId
 				ascendancyGroups[passiveRow.Ascendancy.Name][i] = true
+			end
+
+			-- enable custom frameArt by node
+			if passiveRow.FrameArt ~= nil and node["isOnlyImage"] == nil then
+				local frameArt = passiveRow.FrameArt
+				if frameArt ~= nil then
+					local uiNormal = uiImages[string.lower(frameArt.Normal)]
+					addToSheet(getSheet("group-background"), uiNormal.path, "frame", commonMetadata(nil))
+
+					local uiActive = uiImages[string.lower(frameArt.Active)]
+					addToSheet(getSheet("group-background"), uiActive.path, "frame", commonMetadata(nil))
+
+					local uiCanAllocate = uiImages[string.lower(frameArt.CanAllocate)]
+					addToSheet(getSheet("group-background"), uiCanAllocate.path, "frame", commonMetadata(nil))
+
+					node.nodeOverlay = {
+						alloc = uiActive.path,
+						path = uiCanAllocate.path,
+						unalloc = uiNormal.path,
+					}
+				end
+			end
+
+			-- Enable Ascendancy Unlock
+			if passiveRow.AscendancyUnlock ~= nil then
+				node.unlockConstraint = {
+					ascendancy = passiveRow.AscendancyUnlock.Name,
+					nodes = {}
+				}
+
+				for id, refNode in ipairs(passiveRow.ConstraintNode) do
+					printf(" - adding node " .. refNode.Name .. " to unlock constraint")
+					node.unlockConstraint.nodes[id] = refNode.PassiveSkillNodeId
+				end
+
+				-- enable the alternative connectionArt for this node
+				node.connectionArt = "CharacterPlanned"
 			end
 
 			-- Stats
@@ -890,13 +982,13 @@ for i, group in ipairs(psg.groups) do
 					table.insert(node["stats"], "Grants Skill: " .. skillName)
 
 					-- -- include the stat description
-					local statDescription =string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -2)
+					local statDescription =string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -5)
 					local handle = NewFileSearch("ggpk/" .. statDescription ..".csd")
 					local almostOnce = false
 					while handle do
 						almostOnce = true
-						print(statDescription:gsub("metadata/statdescriptions", "") .. ".csd")
-						-- loadStatFile(statDescription:gsub("metadata/statdescriptions/", "") .. ".csd")
+						print(statDescription:gsub("Data/StatDescriptions", "") .. ".csd")
+						-- loadStatFile(statDescription:gsub("Data/StatDescriptions/", "") .. ".csd")
 						if not handle:NextFile() then
 							break
 						end
@@ -1012,12 +1104,21 @@ for i, group in ipairs(psg.groups) do
 					local uiSocketCanAllocate = uiImages[string.lower(uioverride.CanAllocate)]
 					addToSheet(getSheet("group-background"), uiSocketCanAllocate.path, "frame", commonMetadata(nil))
 
-					nodeInfo.jewelOverlay = {
+					nodeInfo.nodeOverlay = {
 						alloc = uiSocketActive.path,
 						path = uiSocketCanAllocate.path,
 						unalloc = uiSocketNormal.path,
 					}
+				elseif node["isOnlyImage"] == nil then
+					local typeFrame = nodeInfo["isNotable"] and "Large" or "Small"
+					nodeInfo.nodeOverlay = {
+						alloc = ascendancyRow.Name .. "Frame" .. typeFrame .. "Allocated",
+						path = ascendancyRow.Name .. "Frame" .. typeFrame .. "CanAllocate",
+						unalloc = ascendancyRow.Name .. "Frame" .. typeFrame .. "Normal",
+					}
 				end
+
+
 
 				node["options"] = {
 					[ascedancyReplacements[passiveRow.Ascendancy.Name]] = nodeInfo
@@ -1118,9 +1219,8 @@ end
 -- get the orbit radius + hard-coded value, calculate the angle of the class start
 -- translate the ascendancy to the new position in arc position
 local widthTree, heightTree = tree.max_x - tree.min_x, tree.max_y - tree.min_y
-local radiusTree = math.max(widthTree, heightTree) / 2
-local arcAngle = { [0] = 0, [1] = 0, [2] = 12, [3] = 24, [4] = 36, [5] = 48, [6] = 60}
-
+local radiusTree = (math.max(widthTree, heightTree) + 700) / 2
+local arcAngle = { [0] = 0, [1] = 0, [2] = 12, [3] = 24, [4] = 36, [5] = 48, [6] = 60, [7] = 72, [8] = 84, [9] = 96 }
 for i, classId in ipairs(psg.passives) do
 	local nodeStart = tree.nodes[classId]
 	local group = tree.groups[nodeStart.group]
@@ -1246,39 +1346,36 @@ for i, sheet in ipairs(sheets) do
 end
 
 printf("Generating decompose lines images...")
-local linesFiles = {
-	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesactivetogether.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
-		extension = ".png",
-		basename = "orbit_active",
-		first = "LineConnector",
-		prefix = "Orbit",
-		postfix = "Active",
-		meta = 0.3835,
-		total = 10
-	},
-	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesintermediatetogether.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
-		extension = ".png",
-		basename = "orbit_intermediate",
-		first = "LineConnector",
-		prefix = "Orbit",
-		postfix = "Intermediate",
-		total = 10
-	},
-	{
-		file = "art/2dart/passivetree/passiveskillscreencurvesnormaltogether.dds",
-		mask = "art/2dart/uieffects/passiveskillscreen/linestogethermask.dds",
-		extension = ".png",
-		basename = "orbit_normal",
-		first = "LineConnector",
-		prefix = "Orbit",
-		postfix = "Normal",
-		total = 10
-	}
+local linesFiles = {}
+
+local typeOfConnections = {
+	"Normal", "Intermediate", "IntermediateActive"
 }
+
+for connectionArtId, _ in pairs(connectionArtToDecompose) do
+	local connectionArt = dat("PassiveSkillTreeConnectionArt"):GetRow("Id", connectionArtId)
+	if connectionArt == nil then
+		printf("Connection art " .. connectionArtId .. " not found")
+		goto continueConnectionArtId
+	end
+
+	for _, typeName in ipairs(typeOfConnections) do
+		local linesFile = {
+			file = connectionArt[typeName],
+			mask = connectionArt.Mask,
+			extension = ".png",
+			basename = connectionArtId .."_orbit_" .. string.lower(typeName),
+			first = connectionArtId .. "LineConnector",
+			prefix = connectionArtId .. "Orbit",
+			postfix = typeName == "IntermediateActive" and "Active" or typeName,
+			total = 10
+		}
+
+		table.insert(linesFiles, linesFile)
+	end
+
+	:: continueConnectionArtId ::
+end
 
 local linesDds = {}
 for _, lines in ipairs(linesFiles) do

@@ -14,6 +14,8 @@ ConExecute("set vid_resizable 3")
 
 launch = { }
 SetMainObject(launch)
+jit.opt.start('maxtrace=4000','maxmcode=8192')
+collectgarbage("setpause", 400)
 
 function launch:OnInit()
 	self.devMode = false
@@ -63,7 +65,7 @@ function launch:OnInit()
 		self.installedMode = true
 		installedFile:close()
 	end
-	RenderInit()
+	RenderInit("DPI_AWARE")
 	ConPrintf("Loading main script...")
 	local errMsg
 	errMsg, self.main = PLoadModule("Modules/Main")
@@ -252,7 +254,7 @@ end
 function launch:DownloadPage(url, callback, params)
 	params = params or {}
 	local script = [[
-		local url, requestHeader, requestBody, connectionProtocol, proxyURL = ...
+		local url, requestHeader, requestBody, connectionProtocol, proxyURL, noSSL = ...
 		local responseHeader = ""
 		local responseBody = ""
 		ConPrintf("Downloading page at: %s", url)
@@ -279,6 +281,10 @@ function launch:DownloadPage(url, callback, params)
 		if proxyURL then
 			easy:setopt(curl.OPT_PROXY, proxyURL)
 		end
+		if noSSL then
+			easy:setopt(curl.OPT_SSL_VERIFYPEER, 0)
+			easy:setopt(curl.OPT_SSL_VERIFYHOST, 0)
+		end
 		easy:setopt_headerfunction(function(data)
 			responseHeader = responseHeader .. data
 			return true
@@ -301,7 +307,7 @@ function launch:DownloadPage(url, callback, params)
 		ConPrintf("Download complete. Status: %s", errMsg or "OK")
 		return responseBody, errMsg, responseHeader
 	]]
-	local id = LaunchSubScript(script, "", "ConPrintf", url, params.header, params.body, self.connectionProtocol, self.proxyURL)
+	local id = LaunchSubScript(script, "", "ConPrintf", url, params.header, params.body, self.connectionProtocol, self.proxyURL, self.noSSL or false)
 	if id then
 		self.subScripts[id] = {
 			type = "DOWNLOAD",
@@ -335,7 +341,7 @@ function launch:CheckForUpdate(inBackground)
 	self.updateProgress = "Checking..."
 	self.lastUpdateCheck = GetTime()
 	local update = io.open("UpdateCheck.lua", "r")
-	local id = LaunchSubScript(update:read("*a"), "GetScriptPath,GetRuntimePath,GetWorkDir,MakeDir", "ConPrintf,UpdateProgress", self.connectionProtocol, self.proxyURL)
+	local id = LaunchSubScript(update:read("*a"), "GetScriptPath,GetRuntimePath,GetWorkDir,MakeDir", "ConPrintf,UpdateProgress", self.connectionProtocol, self.proxyURL, self.noSSL or false)
 	if id then
 		self.subScripts[id] = {
 			type = "UPDATE"

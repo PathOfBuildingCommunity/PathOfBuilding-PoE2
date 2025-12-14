@@ -22,7 +22,7 @@ return {
 						[2]=10
 					}
 				},
-				text="DNT Shockwave radius is {0} metre"
+				text="DNT-UNUSED Shockwave radius is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -35,7 +35,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Shockwave radius is {0} metres"
+				text="DNT-UNUSED Shockwave radius is {0} metres"
 			}
 		},
 		stats={
@@ -55,7 +55,7 @@ return {
 						[2]=10
 					}
 				},
-				text="DNT Spectral Bells can appear within {0} metre of you"
+				text="DNT-UNUSED Spectral Bells can appear within {0} metre of you"
 			},
 			[2]={
 				[1]={
@@ -68,7 +68,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Spectral Bells can appear within {0} metres of you"
+				text="DNT-UNUSED Spectral Bells can appear within {0} metres of you"
 			}
 		},
 		stats={
@@ -88,7 +88,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="DNT Spectral Bells linger for {0} second"
+				text="DNT-UNUSED Spectral Bells linger for {0} second"
 			},
 			[2]={
 				[1]={
@@ -101,7 +101,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Spectral Bells linger for {0} seconds"
+				text="DNT-UNUSED Spectral Bells linger for {0} seconds"
 			}
 		},
 		stats={
@@ -121,7 +121,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0} second duration between Spectral Bells appearing"
+				text="DNT-UNUSED {0} second duration between Spectral Bells appearing"
 			}
 		},
 		stats={
@@ -137,7 +137,7 @@ return {
 						[2]=1
 					}
 				},
-				text="DNT Maximum {0} active Spectral Bell"
+				text="DNT-UNUSED Maximum {0} active Spectral Bell"
 			},
 			[2]={
 				limit={
@@ -146,7 +146,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Maximum {0} active Spectral Bells"
+				text="DNT-UNUSED Maximum {0} active Spectral Bells"
 			}
 		},
 		stats={

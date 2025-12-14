@@ -137,47 +137,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		end
 	end
 
-	self.nodeOverlay = {
-		Normal = {
-			artWidth = 70,
-			alloc = "PSSkillFrameActive",
-			path = "PSSkillFrameHighlighted",
-			unalloc = "PSSkillFrame",
-			allocAscend = "AscendancyFrameSmallAllocated",
-			pathAscend = "AscendancyFrameSmallCanAllocate",
-			unallocAscend = "AscendancyFrameSmallNormal"
-		},
-		Notable = {
-			artWidth = 100,
-			alloc = "NotableFrameAllocated",
-			path = "NotableFrameCanAllocate",
-			unalloc = "NotableFrameUnallocated",
-			allocAscend = "AscendancyFrameLargeAllocated",
-			pathAscend = "AscendancyFrameLargeCanAllocate",
-			unallocAscend = "AscendancyFrameLargeNormal",
-			allocBlighted = "BlightedNotableFrameAllocated",
-			pathBlighted = "BlightedNotableFrameCanAllocate",
-			unallocBlighted = "BlightedNotableFrameUnallocated",
-		},
-		Keystone = {
-			artWidth = 138,
-			alloc = "KeystoneFrameAllocated",
-			path = "KeystoneFrameCanAllocate",
-			unalloc = "KeystoneFrameUnallocated",
-			allocBlighted = "KeystoneFrameAllocated",
-			pathBlighted = "KeystoneFrameCanAllocate",
-			unallocBlighted = "KeystoneFrameUnallocated",
-		},
-		Socket = {
-			artWidth = 100,
-			alloc = "JewelFrameAllocated",
-			path = "JewelFrameCanAllocate",
-			unalloc = "JewelFrameUnallocated",
-			allocAlt = "JewelSocketAltActive",
-			pathAlt = "JewelSocketAltCanAllocate",
-			unallocAlt = "JewelSocketAltNormal",
-		},
-	}
 	for type, data in pairs(self.nodeOverlay) do
 		local asset = self:GetAssetByName(data.alloc)
 		local artWidth = asset.width * self.scaleImage
@@ -518,7 +477,21 @@ end
 -- Common processing code for nodes (used for both real tree nodes and subgraph nodes)
 function PassiveTreeClass:ProcessNode(node)
 	node.targetSize = self:GetNodeTargetSize(node)
-	node.overlay = node.containJewelSocket and node.jewelOverlay or self.nodeOverlay[node.type]
+	local overlayData
+	if node.nodeOverlay then
+		overlayData = { }
+		for type, data in pairs(node.nodeOverlay) do
+			overlayData[type] = data
+		end
+		local asset = self:GetAssetByName(overlayData.alloc)
+		local artWidth = asset.width * self.scaleImage
+		overlayData.artWidth = artWidth
+		overlayData.size = artWidth
+		overlayData.rsq = overlayData.size * overlayData.size
+	else
+		overlayData = self.nodeOverlay[node.type]
+	end
+	node.overlay = overlayData
 	if node.overlay then
 		local size = node.targetSize["overlay"] and node.targetSize["overlay"].width or node.targetSize.width
 		node.rsq = size * size
@@ -588,6 +561,7 @@ end
 function PassiveTreeClass:BuildConnector(node1, node2, connection)
 	local connector = {
 		ascendancyName = node1.ascendancyName,
+		connectionArt = node1.connectionArt or node2.connectionArt or self.connectionArt[node1.ascendancyName and "ascendancy" or "default"],
 		nodeId1 = node1.id,
 		nodeId2 = node2.id,
 		c = { } -- This array will contain the quad's data: 1-8 are the vertex coordinates, 9-16 are the texture coordinates
@@ -682,7 +656,7 @@ function PassiveTreeClass:BuildConnector(node1, node2, connection)
 
 	-- Generate a straight line
 	connector.type = "LineConnector"
-	local art = self:GetAssetByName("LineConnectorNormal")
+	local art = self:GetAssetByName(connector.connectionArt .. "LineConnectorNormal")
 	local vX, vY = node2.x - node1.x, node2.y - node1.y
 	local dist = m_sqrt(vX * vX + vY * vY)
 	local scale = art.height * 0.5 * self.scaleImage / dist
@@ -718,7 +692,7 @@ function PassiveTreeClass:BuildArc(arcAngle, orbit, xScale, yScale, angle, conne
 	connector.vert = { }
 	for _, state in pairs({ "Normal", "Intermediate", "Active" }) do
 		-- The different line states have differently-sized artwork, so the vertex coords must be calculated separately for each one
-		local art  = self:GetAssetByName(connector.type .. state)
+		local art  = self:GetAssetByName( connector.connectionArt .. connector.type .. state)
 		local size =  art.width * self.scaleImage --self.orbitRadii[orbit + 1]  * self.scaleImage
 		local oX, oY = size * m_sqrt(2) * m_sin(angle + m_pi / 4), size * m_sqrt(2) * -m_cos(angle + m_pi / 4)
 		local cX, cY = xScale + oX, yScale + oY

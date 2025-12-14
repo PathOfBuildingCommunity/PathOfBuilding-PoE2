@@ -46,12 +46,15 @@ Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blun
 The Lethal Draw
 Sacral Quiver
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Gain (2-3) Life per Enemy Hit with Attacks
 (5-10)% increased Attack Speed
 Gain 5 Life per Enemy Hit with Attacks
 (15-25)% chance to Pierce an Enemy
-Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount
+{variant:1}Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount
+{variant:2}Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to (5-10)% of Flask's Life Recovery amount
 ]],[[
 Murkshaft
 Toxic Quiver
@@ -60,7 +63,7 @@ Implicits: 2
 Grants Skill: Level (1-20) Bursting Fen Toad
 (20-30)% chance to Poison on Hit with Attacks
 Adds (6-10) to (13-17) Physical Damage to Attacks
-Gain (10-15) Mana per Enemy Killed
+Gain (10-15) Mana per enemy killed
 (10-20)% increased Poison Duration
 (20-30)% chance to Poison on Hit with Attacks
 Blind Targets when you Poison them

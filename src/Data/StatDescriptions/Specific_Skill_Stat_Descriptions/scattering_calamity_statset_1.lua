@@ -68,6 +68,6 @@ return {
 	["active_skill_area_of_effect_radius"]=3,
 	["active_skill_base_area_of_effect_radius"]=4,
 	["blazing_cluster_maximum_number_of_projectiles_allowed"]=2,
-	parent="specific_skill_stat_descriptions/blazing_cluster_statset_0",
+	parent="specific_skill_stat_descriptions/ember_fusillade_statset_0",
 	["total_number_of_projectiles_to_fire"]=1
 }

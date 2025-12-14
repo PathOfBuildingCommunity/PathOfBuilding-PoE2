@@ -48,10 +48,14 @@ function RenderInit() end
 function GetScreenSize()
 	return 1920, 1080
 end
+function GetScreenScale()
+	return 1
+end
 function SetClearColor(r, g, b, a) end
 function SetDrawLayer(layer, subLayer) end
 function SetViewport(x, y, width, height) end
 function SetDrawColor(r, g, b, a) end
+function GetDrawColor(r, g, b, a) end
 function DrawImage(imgHandle, left, top, width, height, tcLeft, tcTop, tcRight, tcBottom) end
 function DrawImageQuad(imageHandle, x1, y1, x2, y2, x3, y3, x4, y4, s1, t1, s2, t2, s3, t3, s4, t4) end
 function DrawString(left, top, align, height, font, text) end
@@ -139,7 +143,7 @@ function PCall(func, ...)
 		return nil, unpack(ret)
 	else
 		return ret[2]
-	end	
+	end
 end
 function ConPrintf(fmt, ...)
 	-- Optional
@@ -153,6 +157,13 @@ function OpenURL(url) end
 function SetProfiling(isEnabled) end
 function Restart() end
 function Exit() end
+
+---@return string? provider
+---@return string? version
+---@return number? status
+function GetCloudProvider(fullPath)
+	return nil, nil, nil
+end
 
 local l_require = require
 function require(name)

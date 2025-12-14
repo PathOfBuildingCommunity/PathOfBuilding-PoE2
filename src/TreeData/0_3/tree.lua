@@ -497,6 +497,10 @@ return {
 			name="Monk"
 		}
 	},
+	connectionArt={
+		ascendancy="",
+		default=""
+	},
 	constants={
 		PSSCentreInnerRadius=130,
 		characterAttributes={
@@ -1180,15 +1184,24 @@ return {
 			AscendancyMiddle=1
 		},
 		["jewel-sockets_152_156_BC7.dds.zst"]={
-			Diamond=6,
-			Emerald=4,
-			Ruby=1,
-			Sapphire=7,
-			["Time-Lost Diamond"]=6,
-			["Time-Lost Emerald"]=2,
-			["Time-Lost Ruby"]=3,
+			["Against the Darkness"]=14,
+			["Controlled Metamorphosis"]=7,
+			Diamond=14,
+			Emerald=12,
+			["From Nothing"]=10,
+			["Heart of the Well"]=2,
+			["Heroic Tragedy"]=8,
+			Megalomaniac=15,
+			["Prism of Belief"]=6,
+			Ruby=13,
+			Sapphire=1,
+			["The Adorned"]=4,
+			["Time-Lost Diamond"]=14,
+			["Time-Lost Emerald"]=9,
+			["Time-Lost Ruby"]=11,
 			["Time-Lost Sapphire"]=5,
-			["Timeless Jewel"]=6
+			["Timeless Jewel"]=14,
+			["Undying Hate"]=3
 		},
 		["legion_1024_1024_BC7.dds.zst"]={
 			["art/textures/interface/2d/2dart/uiimages/ingame/abyss/abysspassiveskillscreenjewelcircle1.dds"]=1
@@ -19534,6 +19547,28 @@ return {
 	["max_y"]=23749.535199651,
 	["min_x"]=-23185.06380285,
 	["min_y"]=-23534.129135817,
+	nodeOverlay={
+		Keystone={
+			alloc="KeystoneFrameAllocated",
+			path="KeystoneFrameCanAllocate",
+			unalloc="KeystoneFrameUnallocated"
+		},
+		Normal={
+			alloc="PSSkillFrameActive",
+			path="PSSkillFrameHighlighted",
+			unalloc="PSSkillFrame"
+		},
+		Notable={
+			alloc="NotableFrameAllocated",
+			path="NotableFrameCanAllocate",
+			unalloc="NotableFrameUnallocated"
+		},
+		Socket={
+			alloc="JewelFrameAllocated",
+			path="JewelFrameCanAllocate",
+			unalloc="JewelFrameUnallocated"
+		}
+	},
 	nodes={
 		[4]={
 			connections={
@@ -36597,7 +36632,7 @@ return {
 			orbitIndex=8,
 			skill=12488,
 			stats={
-				[1]="Remnants can be collected from 30% further away"
+				[1]="Remnants can be collected from 20% further away"
 			}
 		},
 		[12498]={
@@ -38466,7 +38501,7 @@ return {
 			orbitIndex=18,
 			skill=13909,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[13937]={
@@ -69603,7 +69638,7 @@ return {
 			orbitIndex=0,
 			skill=37593,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[37594]={
@@ -79098,7 +79133,7 @@ return {
 			orbitIndex=136,
 			skill=44484,
 			stats={
-				[1]="Remnants can be collected from 30% further away"
+				[1]="Remnants can be collected from 20% further away"
 			}
 		},
 		[44490]={
@@ -104702,7 +104737,7 @@ return {
 			orbitIndex=12,
 			skill=62679,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[62732]={
@@ -105075,7 +105110,7 @@ return {
 			orbitIndex=3,
 			skill=63009,
 			stats={
-				[1]="Remnants can be collected from 10% further away"
+				[1]="Remnants can be collected from 15% further away"
 			}
 		},
 		[63021]={
@@ -106387,7 +106422,7 @@ return {
 			skill=64046,
 			stats={
 				[1]="20% increased Elemental Infusion duration",
-				[2]="Remnants can be collected from 15% further away"
+				[2]="Remnants can be collected from 20% further away"
 			}
 		},
 		[64050]={

@@ -1383,6 +1383,8 @@ local preFlagList = {
 	["^enemies in your presence "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^enemies in your presence [hgd][ae][via][enl] "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^body armour grants "] = { tag = { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" } },
+	-- Bonded
+	["^bonded: "] = { tag = { type = "Condition", var = "CanUseBondedModifiers" } },
 }
 
 -- List of modifier tags
@@ -2085,8 +2087,14 @@ local function flag(name, ...)
 	return mod(name, "FLAG", true, ...)
 end
 
+local gems = {}
+for id in pairs(data.gems) do
+    table.insert(gems, id)
+end
+table.sort(gems)
 local gemIdLookup = { }
-for gemId, gemData in pairs(data.gems) do
+for _, gem in ipairs(gems) do
+	local gemData = data.gems[gem]
 	local grantedEffect = gemData.grantedEffect
 	local gemName = (grantedEffect.fromItem or grantedEffect.fromTree) and grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or gemData.name:lower()
 	gemIdLookup[gemName] = grantedEffect.id
@@ -3244,6 +3252,11 @@ local specialModList = {
 	} end,
 	-- Witch -- Infernalist
 	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
+	-- Druid -- Oracle
+	["walk the paths not taken"] = {},
+	["gain the benefits of bonded modifiers on runes and idols"] = {
+		flag("Condition:CanUseBondedModifiers"),
+	},
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
@@ -3971,7 +3984,7 @@ local specialModList = {
 		mod("Damage", "INC", num, nil, 0, KeywordFlag.Poison, { type = "Condition", var = "SinglePoison" }, { type = "SkillName", skillNameList = { "Sunder", "Ground Slam" }, includeTransfigured = true })
 	} end,
 	["poisons on you expire (%d+)%% slower"] = function(num) return { mod("SelfPoisonDebuffExpirationRate", "BASE", -num) } end,
-	["any number of poisons from this weapon can affect a target at the same time"] = { -- Splinter of Loratta
+	["any number of poisons from this weapon can affect a target at the same time"] = { -- Splinter of Lorrata
 		flag("PoisonCanStack"),
 		mod("PoisonStacks", "OVERRIDE", math.huge , { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true })
 	},
@@ -5285,6 +5298,7 @@ local specialModList = {
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted magic jewels, if not from cluster jewels"] = function(num) return { mod("JewelData", "LIST", { key = "corruptedMagicJewelIncEffect", value = num }) } end,
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted magic jewels"] = function(num) return { mod("JewelData", "LIST", { key = "corruptedMagicJewelIncEffect", value = num }) } end,
 	-- Misc
+	["fully broken armour effects also apply to fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
 	["can't use chest armour"] = { mod("CanNotUseBody", "Flag", 1, { type = "DisablesItem", slotName = "Body Armour" }) },
 	--["can't use helmets"] = { mod("CanNotUseHelmet", "Flag", 1, { type = "DisablesItem", slotName = "Helmet" }) }, -- this one does not work due to being on a passive?
 	["can't use helmet"] = { mod("CanNotUseHelmet", "Flag", 1, { type = "DisablesItem", slotName = "Helmet" }) }, -- this is to allow for custom mod without saying the other is parsed
@@ -6555,25 +6569,31 @@ local jewelOtherFuncs = {
 			end
 		end
 	end,
-	["^(%w+) Passive Skills in Radius also grant (.*)$"] = function(type, mod)
+	["^(%w+) Passive Skills in Radius also grant (.*)$"] = function(passiveType, mod)
 		return function(node, out, data)
-			if node and (node.type == firstToUpper(type) or (node.type == "Normal" and not node.isAttribute and firstToUpper(type) == "Small")) then
+			if node and (node.type == firstToUpper(passiveType) or (node.type == "Normal" and not node.isAttribute and firstToUpper(passiveType) == "Small")) then
 				local modList, line = parseMod(mod)
 				if not line and modList[1] then -- something failed to parse, do not add to list
 					modList[1].parsedLine = capitalizeWordsInString(mod)
 					modList[1].source = data.modSource
+					if type(modList[1].value) == "table" and modList[1].value.mod then
+						modList[1].value.mod.source = data.modSource
+					end
 					out:AddMod(modList[1])
 				end
 			end
 		end
 	end,
-	["conquered (%w+) Passive Skills also grant (.*)$"] = function(type, mod)
+	["conquered (%w+) Passive Skills also grant (.*)$"] = function(passiveType, mod)
 		return function(node, out, data)
-			if node and (node.type == firstToUpper(type) or (node.type == "Normal" and not node.isAttribute and firstToUpper(type) == "Small") or (node.type == "Normal" and node.isAttribute and firstToUpper(type) == "Attribute")) then
+			if node and (node.type == firstToUpper(passiveType) or (node.type == "Normal" and not node.isAttribute and firstToUpper(passiveType) == "Small") or (node.type == "Normal" and node.isAttribute and firstToUpper(passiveType) == "Attribute")) then
 				local modList, line = parseMod(mod)
 				if not line and modList[1] then -- something failed to parse, do not add to list
 					modList[1].parsedLine = capitalizeWordsInString(mod)
 					modList[1].source = data.modSource
+					if type(modList[1].value) == "table" and modList[1].value.mod then
+						modList[1].value.mod.source = data.modSource
+					end
 					out:AddMod(modList[1])
 				end
 			end

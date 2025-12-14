@@ -19,7 +19,7 @@ function len(t)
 end
 
 local function writeEnum(filename, enumTable)
-	local filenameAbs = "./ggpk/data/" .. filename
+	local filenameAbs = "./ggpk/data/balance/" .. filename
 	local out = io.open(filenameAbs, "wb")
 	local size = len(enumTable)
 

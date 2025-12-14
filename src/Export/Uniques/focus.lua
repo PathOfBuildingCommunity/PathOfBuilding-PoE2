@@ -32,10 +32,12 @@ UniqueEnergyShieldRechargeOnKill1
 Effigy of Cruelty
 Antler Focus
 Variant: Pre 0.3.0
+Variant: Pre 0.4.0
 Variant: Current
 League: Dawn of the Hunt
 UniqueLocalIncreasedEnergyShield14
-UniqueSpellDamageOnWeapon5
+{variant:1,2}UniqueSpellDamageOnWeapon5[60,80]
+{variant:3}UniqueSpellDamageOnWeapon5
 UniqueIntelligence41
 UniqueChaosResist16
 {variant:1}UniqueCriticalWeaknessOnSpellCrit1[3,5]
@@ -55,11 +57,15 @@ RingImplicitLightningResistance1
 Rathpith Globe
 Sacred Focus
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent21
 UniqueIncreasedLife50
 UniqueNonChannellingSpellLifeCost1
-UniqueNonChannellingSpellCriticalChance1
-UniqueNonChannellingSpellDamage1
+{variant:1}UniqueNonChannellingSpellCriticalChance1[5,5]
+{variant:2}UniqueNonChannellingSpellCriticalChance1
+{variant:1}UniqueNonChannellingSpellDamage1[10,10]
+{variant:2}UniqueNonChannellingSpellDamage1
 ]],[[
 Serpent's Lesson
 Tonal Focus

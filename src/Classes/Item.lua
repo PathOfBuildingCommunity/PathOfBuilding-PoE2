@@ -628,6 +628,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					return ""
 				end)
+
+				-- Used to flag Bonded soul core mods
+				if line:find("Bonded:") then
+					modLine.bonded = true
+				end
+
 				if modLine.rune then
 					modLine.enchant = true
 				end
@@ -1532,7 +1538,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			weaponData.ReloadTime = round(self.base.weapon.ReloadTimeBase / (1 + weaponData.ReloadSpeedInc / 100), 2)
 		end
 		local LocalIncEle = calcLocal(modList, "LocalElementalDamage", "INC", 0)
-		for _, dmgType in pairs(dmgTypeList) do
+		for _, dmgType in ipairs(dmgTypeList) do
 			local min = (self.base.weapon[dmgType.."Min"] or 0) + calcLocal(modList, dmgType.."Min", "BASE", 0)
 			local max = (self.base.weapon[dmgType.."Max"] or 0) + calcLocal(modList, dmgType.."Max", "BASE", 0)
 			if dmgType == "Physical" then
@@ -1575,7 +1581,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			end
 		end
 		weaponData.TotalDPS = 0
-		for _, dmgType in pairs(dmgTypeList) do
+		for _, dmgType in ipairs(dmgTypeList) do
 			weaponData.TotalDPS = weaponData.TotalDPS + (weaponData[dmgType.."DPS"] or 0)
 		end
 	elseif self.base.armour then
@@ -1812,7 +1818,7 @@ function ItemClass:BuildModList()
 
 	for _, entry in ipairs(minimumReqLevel) do
 		if entry.name == self.title then
-			minReqLevel = entry.level
+			minReqLevel = tonumber(entry.level)
 			break
 		end
 	end

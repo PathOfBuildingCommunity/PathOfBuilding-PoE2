@@ -87,6 +87,12 @@ return {
 		Divisor = 1,
 	},
 	[15] = {
+		Resource = "RagePerMinute",
+		Stat = "base_rage_cost_per_minute",
+		ResourceString = "{0} Rage per second",
+		Divisor = 60,
+	},
+	[16] = {
 		Resource = "Soul",
 		Stat = " ",
 		ResourceString = "{0} Souls Per Use",

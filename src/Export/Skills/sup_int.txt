@@ -10,21 +10,55 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
+#skill SupportExplosiveGrowthPlayerTwo
+#set SupportExplosiveGrowthPlayerTwo
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveGrowthPlayerTwo
+#set TriggeredExplosiveGrowthPlayerTwo
+#flags
+#mods
+#skillEnd
+
+#skill SupportExplosiveGrowthPlayer
+#set SupportExplosiveGrowthPlayer
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveGrowthPlayer
+#set TriggeredExplosiveGrowthPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportAcrimonyPlayer
 #set SupportAcrimonyPlayer
 #mods
 #skillEnd
 
+#skill SupportAdvancingStormPlayer
+#set SupportAdvancingStormPlayer
+#mods
+#skillEnd
+
 #skill SupportAhnsCitadelPlayer
 #set SupportAhnsCitadelPlayer
+#mods
+#skillEnd
+
+#skill SupportAmbrosiaPlayerTwo
+#set SupportAmbrosiaPlayerTwo
 statMap = {
-	["support_wall_fortress_hit_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
+	["consume_%_of_maximum_mana_flask_charges_on_skill_use"] = {
+		mod("Multiplier:ManaFlaskMaxChargesPercent", "BASE", nil),
 	},
-	["support_wall_fortress_area_of_effect_+%_final"] = {
-		mod("AreaOfEffect", "MORE", nil),
+	["gain_%_damage_as_lighting_per_mana_flask_charge_consumed"] = {
+		mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "Multiplier", var = "ManaFlaskChargeConsumed"}),
 	},
 },
+#baseMod mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask1MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true })
+#baseMod mod("Multiplier:ManaFlaskChargeConsumed", "BASE", 1, 0, 0, { type = "PercentStat", stat = "ManaFlask2MaxCharges", percentVar = "ManaFlaskMaxChargesPercent", floor = true })
 #mods
 #skillEnd
 
@@ -83,6 +117,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBhatairsVengeancePlayer
+#set SupportBhatairsVengeancePlayer
+#mods
+#skillEnd
+
 #skill SupportBiddingPlayer
 #set SupportBiddingPlayer
 #mods
@@ -108,6 +147,26 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBitingFrostPlayerTwo
+#set SupportBitingFrostPlayerTwo
+statMap = {
+	["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportBlazingCriticalPlayer
+#set SupportBlazingCriticalPlayer
+statMap = {
+	["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
+		mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+	},
+},
+#mods
+#skillEnd
+
 #skill SupportBoneShrapnelPlayer
 #set SupportBoneShrapnelPlayer
 #mods
@@ -125,6 +184,11 @@ statMap = {
 
 #skill SupportBoundlessEnergyPlayerTwo
 #set SupportBoundlessEnergyPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportBrittleArmourPlayer
+#set SupportBrittleArmourPlayer
 #mods
 #skillEnd
 
@@ -170,6 +234,26 @@ statMap = {
 #baseMod mod("EnemyIgniteChance", "BASE", 100)
 #baseMod mod("IgniteStacks", "OVERRIDE", 1)
 #baseMod flag("NeverCrit")
+#mods
+#skillEnd
+
+#skill SupportCatalysingElementsPlayer
+#set SupportCatalysingElementsPlayer
+#mods
+#skillEnd
+
+#skill TriggeredCatalysingDischargePlayer
+#set TriggeredCatalysingDischargePlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeFirePlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeLightningPlayer
+#flags
+#mods
+#set TriggeredCatalysingDischargeColdPlayer
+#flags
 #mods
 #skillEnd
 
@@ -280,6 +364,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportConcussiveSpellsPlayer
+#set SupportConcussiveSpellsPlayer
+#mods
+#skillEnd
+
 #skill SupportConsideredCastingPlayer
 #set SupportConsideredCastingPlayer
 statMap = {
@@ -308,6 +397,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportDeadlyCurrentPlayer
+#set SupportDeadlyCurrentPlayer
+#mods
+#skillEnd
+
+#skill TriggeredDeadlyCurrentPlayer
+#set TriggeredDeadlyCurrentPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportCracklingBarrierPlayer
 #set SupportCracklingBarrierPlayer
 #mods
@@ -315,6 +415,32 @@ statMap = {
 
 #skill SupportCrazedMinionsPlayer
 #set SupportCrazedMinionsPlayer
+#mods
+#skillEnd
+
+#skill SupportCreepingChillPlayer
+#set SupportCreepingChillPlayer
+#mods
+#skillEnd
+
+#skill TriggeredCreepingChillPlayer
+#set TriggeredCreepingChillPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportCrescendoPlayer
+#set SupportCrescendoPlayer
+#mods
+#skillEnd
+
+#skill SupportCrescendoPlayerTwo
+#set SupportCrescendoPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportCrescendoPlayerThree
+#set SupportCrescendoPlayerThree
 #mods
 #skillEnd
 
@@ -399,6 +525,20 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportShockingRiftPlayer
+#set SupportShockingRiftPlayer
+#mods
+#skillEnd
+
+#skill TriggeredShockingRiftPlayer
+#set TriggeredShockingRiftPlayer
+#flags
+#mods
+#set TriggeredShockingRiftFinalPulsePlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportElementalArmyPlayer
 #set SupportElementalArmyPlayer
 #mods
@@ -430,6 +570,10 @@ statMap = {
 	},
 	["spell_maximum_base_lightning_damage_as_%_of_intelligence"] = {
 		mod("LightningMax", "BASE", nil, 0, KeywordFlag.Spell, { type = "PercentStat", stat = "Int", percent = 1 }, { type = "Condition", var = "ShockConsumed" }),
+	},
+	["elemental_discharge_no_physical_chaos_damage"] = {
+		flag("DealNoPhysical"),
+		flag("DealNoChaos"),
 	},
 },
 #mods
@@ -660,6 +804,27 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportGambleshotPlayer
+#set SupportGambleshotPlayer
+statMap = {
+	[ "support_gambleshot_projectile_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportHayoxisBindingPlayer
+#set SupportHayoxisBindingPlayer
+#mods
+#skillEnd
+
+#skill SupportTriggeredAnnihilationPlayer
+#set SupportTriggeredAnnihilationPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportCurseEffectPlayer
 #set SupportCurseEffectPlayer
 #mods
@@ -704,6 +869,20 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportIceBitePlayerTwo
+#set SupportIceBitePlayerTwo
+statMap = {
+	["support_ice_bite_buff_grant_%_added_cold_attack_damage"] = {
+		mod("DamageGainAsCold", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Ice Bite" }),
+	},
+	["support_ice_bite_base_buff_duration"] = {
+		mod("Duration", "BASE", nil, 0, 0, { type = "Condition", var = "FrozenEnemyRecently" }, { type = "GlobalEffect", effectType = "Buff" }),
+		div = 1000,
+	},
+},
+#mods
+#skillEnd
+
 #skill SupportIciclePlayer
 #set SupportIciclePlayer
 statMap = {
@@ -722,14 +901,6 @@ statMap = {
 #skill DoomBlastPlayer
 #set DoomBlastPlayer
 #flags spell area
-#baseMod skill("currentManaPercentage", true)
-statMap = {
-	["impending_doom_base_added_chaos_damage_%_of_current_mana"] = {
-		mod("ChaosMin", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
-		mod("ChaosMax", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Mana", percentVar = "CurrentManaPercentage" }),
-		div = 100,
-	},
-},
 #mods
 #skillEnd
 
@@ -741,6 +912,25 @@ statMap = {
 	},
 	["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
 		mod("Multiplier:InevitableCritCap", "BASE", nil),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportInevitableCriticalsPlayerTwo
+#set SupportInevitableCriticalsPlayerTwo
+statMap = {
+	["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+		mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritCap", limitTotal = true }),
+	},
+	["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+		mod("Multiplier:InevitableCritCap", "BASE", nil),
+	},
+	["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
+		mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+	},
+	["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+		mod("Multiplier:InevitableCritMultCap", "BASE", nil),
 	},
 },
 #mods
@@ -766,6 +956,11 @@ statMap = {
 
 #skill SupportKalisasCrescendoPlayer
 #set SupportKalisasCrescendoPlayer
+#mods
+#skillEnd
+
+#skill SupportKhatalsRejuvenationPlayer
+#set SupportKhatalsRejuvenationPlayer
 #mods
 #skillEnd
 
@@ -891,6 +1086,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportMarkOfSiphoningPlayerTwo
+#set SupportMarkOfSiphoningPlayerTwo
+#mods
+#skillEnd
+
+#skill SupportMarkOfSiphoningPlayer
+#set SupportMarkOfSiphoningPlayer
+#mods
+#skillEnd
+
 #skill SupportMinionInstabilityPlayer
 #set SupportMinionInstabilityPlayer
 statMap = {
@@ -924,6 +1129,11 @@ statMap = {
 		mod("Damage", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportMorganasTempestPlayer
+#set SupportMorganasTempestPlayer
 #mods
 #skillEnd
 
@@ -962,6 +1172,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportOisinsOathPlayer
+#set SupportOisinsOathPlayer
+#mods
+#skillEnd
+
+#skill SupportPerpetualChargePlayer
+#set SupportPerpetualChargePlayer
+#mods
+#skillEnd
+
 #skill SupportPhysicalMasteryPlayer
 #set SupportPhysicalMasteryPlayer
 #mods
@@ -992,6 +1212,16 @@ statMap = {
 		mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", limit = 1 }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportPracticalMagicPlayer
+#set SupportPracticalMagicPlayer
+#mods
+#skillEnd
+
+#skill SupportPracticalMagicPlayerTwo
+#set SupportPracticalMagicPlayerTwo
 #mods
 #skillEnd
 
@@ -1073,6 +1303,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportShockConductionPlayerTwo
+#set SupportShockConductionPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportEnergyShieldOnShockKillPlayer
 #set SupportEnergyShieldOnShockKillPlayer
 statMap = {
@@ -1114,6 +1349,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportStaticShocksPlayer
+#set SupportStaticShocksPlayer
+#mods
+#skillEnd
+
+#skill TriggeredStaticShocksPlayer
+#set TriggeredStaticShocksPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportStormfirePlayer
 #set SupportStormfirePlayer
 #mods
@@ -1141,6 +1387,16 @@ statMap = {
 
 #skill SupportTecrodsRevengePlayer
 #set SupportTecrodsRevengePlayer
+#mods
+#skillEnd
+
+#skill SupportThrillOfTheKillPlayer
+#set SupportThrillOfTheKillPlayer
+#mods
+#skillEnd
+
+#skill SupportThrillOfTheKillPlayerTwo
+#set SupportThrillOfTheKillPlayerTwo
 #mods
 #skillEnd
 
@@ -1226,10 +1482,27 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportXibaquasRendingPlayer
+#set SupportXibaquasRendingPlayer
+#mods
+#skillEnd
+
+#skill TriggeredXibaquasRendingPlayer
+#set TriggeredXibaquasRendingPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportZarokhsRefrainPlayer
 #set SupportZarokhsRefrainPlayer
 #mods
 #skillEnd
+
+#skill SupportZarokhsRevoltPlayer
+#set SupportZarokhsRevoltPlayer
+#mods
+#skillEnd
+
 
 #skill SupportZenithPlayer
 #set SupportZenithPlayer

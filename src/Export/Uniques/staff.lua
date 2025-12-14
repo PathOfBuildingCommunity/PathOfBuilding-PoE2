@@ -14,32 +14,43 @@ UniqueDamageGainedAsChaosPerCost1
 ]],[[
 Dusk Vigil
 Ashen Staff
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 2
 Grants Skill: Level (1-20) Firebolt
 Grants Skill: Level (1-20) Ember Fusillade
-UniqueSpellDamageOnWeapon3
+{variant:2}UniqueDamageGainedAsFire3
+{variant:1}UniqueSpellDamageOnWeapon3[60,80]
+{variant:2}UniqueSpellDamageOnWeapon3
 UniqueLifeGainedFromEnemyDeath9
 UniqueManaRegeneration20
 UniqueTriggerEmberFusilladeOnSpellCast1
 ]],[[
 Earthbound
 Voltaic Staff
-Implicits: 1
+Variant: Pre 0.4.0
+Variant: Current
+Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
-UniqueLightningDamageOnWeapon1
+{variant:1}UniqueLightningDamageOnWeapon1
+{variant:2}UniqueSpellDamageOnWeapon11
 UniqueIncreasedCastSpeed4
 UniqueManaRegeneration6
+{variant:2}UniqueShockChanceIncrease4
 UniqueTriggerSparkOnKillingShockedEnemy1
 ]],[[
 The Searing Touch
 Pyrophyte Staff
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Living Bomb
 UniqueFireDamageOnWeapon1
 UniqueIncreasedCastSpeed4
 UniqueIgniteChanceIncrease1
 UniqueIgniteEffect2
+{variant:2}UniqueStaffIgniteProliferation1
 ]],[[
 Sire of Shards
 Chiming Staff
@@ -54,24 +65,35 @@ UniqueSpellAdditionalProjectilesInCircle1
 ]],[[
 Taryn's Shiver
 Gelid Staff
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Freezing Shards
-UniqueColdDamageOnWeapon1
+{variant:1}UniqueColdDamageOnWeapon1
+{variant:2}UniqueSpellDamageOnWeapon10
 UniqueIncreasedCastSpeed4
-UniqueFreezeDamageIncrease1
-UniqueFrozenMonstersTakeIncreasedDamage1
+{variant:1}UniqueFreezeDamageIncrease1[100,100]
+{variant:2}UniqueFreezeDamageIncrease1
+{variant:1}UniqueFrozenMonstersTakeIncreasedDamage1[50,50]
+{variant:2}UniqueFrozenMonstersTakeIncreasedDamage1
 ]],[[
 The Whispering Ice
 Permafrost Staff
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 2
 Grants Skill: Level (1-20) Heart of Ice
 Grants Skill: Level (1-20) Icestorm
-UniqueGlobalColdSpellGemsLevel1
+{variant:1}UniqueGlobalColdSpellGemsLevel1[2,4]
+{variant:2}UniqueGlobalColdSpellGemsLevel1
 UniqueIncreasedCastSpeed16
-UniquePercentageIntelligence3
-SpellDamagePerIntelligenceUniqueStaff12
-UniqueColdExposureOnHitWithMagnitude1
+{variant:1}UniquePercentageIntelligence3[5,15]
+{variant:2}UniquePercentageIntelligence3
+{variant:1}SpellDamagePerIntelligenceUniqueStaff12[4,4]
+{variant:2}SpellDamagePerIntelligenceUniqueStaff12
+{variant:1}UniqueColdExposureOnHitWithMagnitude1[20,30]
+{variant:2}UniqueColdExposureOnHitWithMagnitude1
 ]],
 -- Weapon: Warstaff
 [[

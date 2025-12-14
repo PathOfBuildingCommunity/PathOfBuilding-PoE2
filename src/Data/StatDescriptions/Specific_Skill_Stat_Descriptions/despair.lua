@@ -98,18 +98,10 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[6]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=3,
 	["active_skill_base_area_of_effect_radius"]=4,
 	["base_skill_buff_chaos_damage_resistance_%_to_apply"]=1,
 	["base_skill_effect_duration"]=5,
 	parent="skill_stat_descriptions",
-	["skill_curse_chaos_damage_resistance_%_magnitude_to_apply"]=2,
-	["skill_effect_duration"]=6
+	["skill_curse_chaos_damage_resistance_%_magnitude_to_apply"]=2
 }

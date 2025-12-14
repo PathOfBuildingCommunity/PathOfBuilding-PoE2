@@ -22,7 +22,7 @@ return {
 						[2]=10
 					}
 				},
-				text="DNT Grounding Shocks targets enemies within {0} metre of attached target"
+				text="Static Shocks target enemies within {0} metre of affected target"
 			},
 			[2]={
 				[1]={
@@ -35,7 +35,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Grounding Shocks targets enemies within {0} metres of attached target"
+				text="Static Shocks target enemies within {0} metres of affected target"
 			}
 		},
 		stats={
@@ -55,7 +55,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="DNT Grounding Shocks attached duration is {0} second"
+				text="Static Shocks duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -68,7 +68,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Grounding Shocks attached duration is {0} seconds"
+				text="Static Shocks duration is {0} seconds"
 			}
 		},
 		stats={
@@ -84,7 +84,7 @@ return {
 						[2]=1
 					}
 				},
-				text="DNT Maximum {0} attached Grounding Shock"
+				text="Static Shocks pulses towards up to {0} enemy"
 			},
 			[2]={
 				limit={
@@ -93,14 +93,72 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Maximum {0} attached Grounding Shocks"
+				text="Static Shocks pulses towards up to {0} enemies"
+			}
+		},
+		stats={
+			[1]="grounding_shocks_maximum_targets_per_aoe"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Static Shocks pulse every second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Static Shocks pulse every {0} seconds"
+			}
+		},
+		stats={
+			[1]="grounding_shocks_pulse_delay_ms"
+		}
+	},
+	[6]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Maximum {0} attached Static Shocks"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Maximum {0} attached Static Shocks"
 			}
 		},
 		stats={
 			[1]="maximum_grounding_shocks_allowed"
 		}
 	},
-	[5]={
+	[7]={
 		[1]={
 		},
 		stats={
@@ -110,7 +168,9 @@ return {
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_effect_duration"]=3,
-	["maximum_grounding_shocks_allowed"]=4,
+	["grounding_shocks_maximum_targets_per_aoe"]=4,
+	["grounding_shocks_pulse_delay_ms"]=5,
+	["maximum_grounding_shocks_allowed"]=6,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=5
+	["skill_effect_duration"]=7
 }
