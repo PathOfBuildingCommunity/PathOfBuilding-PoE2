@@ -905,7 +905,7 @@ for i, group in ipairs(psg.groups) do
 					nodes = {}
 				}
 
-				for id, refNode in ipairs(passiveRow.RefNodes) do
+				for id, refNode in ipairs(passiveRow.ConstraintNode) do
 					printf(" - adding node " .. refNode.Name .. " to unlock constraint")
 					node.unlockConstraint.nodes[id] = refNode.PassiveSkillNodeId
 				end
@@ -979,7 +979,7 @@ for i, group in ipairs(psg.groups) do
 					table.insert(node["stats"], "Grants Skill: " .. skillName)
 
 					-- -- include the stat description
-					local statDescription =string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -2)
+					local statDescription =string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -5)
 					local handle = NewFileSearch("ggpk/" .. statDescription ..".csd")
 					local almostOnce = false
 					while handle do
