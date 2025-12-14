@@ -366,6 +366,7 @@ statMap = {
 #mods
 #skillEnd
 
+
 #skill PoisonBurstArrowPlayer
 #set PoisonBurstArrowPlayer
 #flags attack projectile

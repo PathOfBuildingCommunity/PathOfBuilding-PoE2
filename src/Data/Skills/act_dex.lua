@@ -5555,6 +5555,7 @@ skills["PlagueBearerNovaPlayer"] = {
 		},
 	}
 }
+
 skills["PoisonBurstArrowPlayer"] = {
 	name = "Poisonburst Arrow",
 	baseTypeName = "Poisonburst Arrow",

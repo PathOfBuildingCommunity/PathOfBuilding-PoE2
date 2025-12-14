@@ -927,3 +927,51 @@ statMap = {
 },
 #mods
 #skillEnd
+
+#skill LunarAssaultPlayer
+#set LunarAssaultPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WolfLunarBlessingPlayer
+#set WolfLunarBlessingPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WolfLunarBlessingBeamAttackPlayer
+#set WolfLunarBlessingBeamAttackPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WolfPouncePlayer
+#set WolfPouncePlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WolfCrossSlashPlayer
+#set WolfCrossSlashPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WolfArcticHowlPlayer
+#set WolfArcticHowlPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill WolfShredPlayer
+#set WolfShredPlayer
+#flags 
+#mods
+#skillEnd
+
+#skill IceFragmentsPlayer
+#set IceFragmentsPlayer
+#flags 
+#mods
+#skillEnd
