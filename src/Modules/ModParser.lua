@@ -89,7 +89,6 @@ local formList = {
 	["^removes? ([%d%.]+) ?o?f? ?y?o?u?r?"] = "REMOVES", -- local
 	["^(%d+)"] = "BASE",
 	["^([%+%-]?%d+)%% chance"] = "CHANCE",
-	["^([%+%-]?%d+)%% chance to gain "] = "FLAG",
 	["^([%+%-]?%d+)%% additional chance"] = "CHANCE",
 	["costs? ([%+%-]?%d+)"] = "TOTALCOST",
 	["skills cost ([%+%-]?%d+)"] = "BASECOST",
@@ -498,16 +497,19 @@ local modNameList = {
 	["fortification"] = "MinimumFortification",
 	["maximum valour"] = "MaximumValour",
 	-- Charges
+	["to gain a power charge"] = "PowerChargeChance",
 	["maximum power charge"] = "PowerChargesMax",
 	["maximum power charges"] = "PowerChargesMax",
 	["minimum power charge"] = "PowerChargesMin",
 	["minimum power charges"] = "PowerChargesMin",
 	["power charge duration"] = "PowerChargesDuration",
+	["to gain a frenzy charge"] = "FrenzyChargeChance",
 	["maximum frenzy charge"] = "FrenzyChargesMax",
 	["maximum frenzy charges"] = "FrenzyChargesMax",
 	["minimum frenzy charge"] = "FrenzyChargesMin",
 	["minimum frenzy charges"] = "FrenzyChargesMin",
 	["frenzy charge duration"] = "FrenzyChargesDuration",
+	["to gain an endurance charge"] = "EnduranceChargeChance",
 	["maximum endurance charge"] = "EnduranceChargesMax",
 	["maximum endurance charges"] = "EnduranceChargesMax",
 	["minimum endurance charge"] = "EnduranceChargesMin",
@@ -526,6 +528,7 @@ local modNameList = {
 	["maximum blood charges"] = "BloodChargesMax",
 	["maximum spirit charges"] = "SpiritChargesMax",
 	["charge duration"] = "ChargeDuration",
+	["to gain volatility"] = "VolatilityChance",
 	-- On hit/kill/leech effects
 	["life gained on kill"] = "LifeOnKill",
 	["life per enemy killed"] = "LifeOnKill",
@@ -916,12 +919,12 @@ local modNameList = {
 	-- Buffs
 	["adrenaline"] = "Condition:Adrenaline",
 	["elusive"] = "Condition:CanBeElusive",
-	["onslaught"] = "Condition:Onslaught",
+	["to gain onslaught"] = { name = "Condition:Onslaught", modType = "FLAG" },
 	["rampage"] = "Condition:Rampage",
 	["soul eater"] = "Condition:CanHaveSoulEater",
 	["tailwind"] = "Condition:CanHaveTailwind",
 	["phasing"] = "Condition:Phasing",
-	["arcane surge"] = "Condition:ArcaneSurge",
+	["to gain arcane surge"] = { name = "Condition:ArcaneSurge", modType = "FLAG" },
 	["unholy might"] = "Condition:UnholyMight",
 	["chaotic might"] = "Condition:ChaoticMight",
 	["lesser brutal shrine buff"] = "Condition:LesserBrutalShrine",
@@ -6249,6 +6252,11 @@ local function parseMod(line, order)
 		modExtraTags = { tag = { type = "Condition", var = "{Hand}Attack" } }
 		modSuffix, line = scan(line, suffixTypes, true)
 	elseif modForm == "CHANCE" then
+		if type(modName) == "table" and modName.modType then
+			modType = modName.modType
+			modName = modName.name
+			modValue = modType == "FLAG" and true or modValue
+		end
 	elseif modForm == "REGENPERCENT" then
 		modName = regenTypes[formCap[2]]
 		modSuffix = "Percent"
