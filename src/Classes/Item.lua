@@ -628,6 +628,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					return ""
 				end)
+
+				-- Used to flag Bonded soul core mods
+				if line:find("Bonded:") then
+					modLine.bonded = true
+				end
+
 				if modLine.rune then
 					modLine.enchant = true
 				end

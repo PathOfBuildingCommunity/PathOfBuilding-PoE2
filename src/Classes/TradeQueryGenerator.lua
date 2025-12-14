@@ -333,7 +333,7 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 end
 
 function TradeQueryGeneratorClass:GenerateModData(mods, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
-	for _, mod in pairs(mods) do
+	for _, mod in pairsSortByKey(mods) do
 		self:ProcessMod( mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
 	end
 end
@@ -388,7 +388,7 @@ function TradeQueryGeneratorClass:InitMods()
 	end
 
 	-- implicit mods
-	for baseName, entry in pairs(data.itemBases) do
+	for baseName, entry in pairsSortByKey(data.itemBases) do
 		if entry.implicit ~= nil then
 			local mod = { type = "Implicit" }
 			for modLine in string.gmatch(entry.implicit, "([^".."\n".."]+)") do
@@ -418,7 +418,7 @@ function TradeQueryGeneratorClass:InitMods()
 	end
 
 	-- rune mods
-	for name, runeMods in pairs(data.itemMods.Runes) do
+	for name, runeMods in pairsSortByKey(data.itemMods.Runes) do
 		for slotType, mods in pairs(runeMods) do
 			if slotType == "weapon" then
 				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })

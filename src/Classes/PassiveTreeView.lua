@@ -528,7 +528,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			setConnectorColor(0.75, 0.75, 0.75)
 		end
 		SetDrawColor(unpack(connectorColor))
-		handle = tree:GetAssetByName(connector.type..state).handle
+		handle = tree:GetAssetByName(connector.connectionArt .. connector.type..state).handle
 		DrawImageQuad(handle, unpack(connector.c))
 	end
 
@@ -671,11 +671,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 				base = tree:GetAssetByName(node.icon)
 
-				overlay = node.overlay[state .. (node.ascendancyName and "Ascend" or "") .. (node.isBlighted and "Blighted" or "")]
-				
-				if node.ascendancyName and tree.secondaryAscendNameMap and tree.secondaryAscendNameMap[node.ascendancyName] then
-					overlay = "Azmeri"..overlay
-				end
+				overlay = node.overlay[state]
 			end
 		end
 
@@ -1118,6 +1114,15 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
 	if err then return false end
 	if #needMatches == 0 then
 		return true
+	end
+
+	-- Check unlock ascendancy
+	if node.unlockConstraint then
+		err, needMatches = PCall(search, node.unlockConstraint.ascendancy:lower(), needMatches)
+		if err then return false end
+		if #needMatches == 0 then
+			return true
+		end
 	end
 	
 	-- Check node id for devs
