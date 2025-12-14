@@ -250,7 +250,7 @@ ModFlag.WeaponMelee =0x0000000100000000
 ModFlag.WeaponRanged=0x0000000200000000
 ModFlag.Weapon1H =	 0x0000000400000000
 ModFlag.Weapon2H =	 0x0000000800000000
-ModFlag.WeaponMask = 0x0000000F1FFF0000
+ModFlag.WeaponMask = 0x0000000F5FFF0000
 
 KeywordFlag = { }
 -- Skill keywords
