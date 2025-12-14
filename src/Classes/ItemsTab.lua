@@ -1579,9 +1579,7 @@ local runeModLines = { { name = "None", label = "None", order = -1, slot = "None
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		for i, mod in ipairs(runeMod) do
-			t_insert(runeModLines, { name = name, label = mod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
-		end
+		t_insert(runeModLines, { name = name, label = runeMod[1], req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
 	end
 end
 table.sort(runeModLines, function(a, b)

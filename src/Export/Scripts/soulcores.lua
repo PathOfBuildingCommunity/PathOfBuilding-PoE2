@@ -19,8 +19,6 @@ function table.containsId(table, element)
   return false
 end
 
-local s_format = string.format
-
 local directiveTable = { }
 
 directiveTable.type = function(state, args, out)
@@ -42,21 +40,6 @@ directiveTable.base = function(state, args, out)
 	end
 	displayName = displayName:gsub("\195\182","o")
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
-	
-	-- Special handling of Runes and SoulCores
-	local function addRuneStats(stats, slotType, modLines, rank)
-		local stats, orders = describeStats(stats)
-		if #orders > 0 then
-			local out = {
-				type = "Rune",
-				slotType = slotType,
-				label = stats,
-				statOrder = orders,
-				rank = rank,
-			}
-			table.insert(modLines, out)
-		end
-	end
 
 	local function writeModLines(modLines, out)
 		for _, modLine in ipairs(modLines) do
@@ -87,9 +70,34 @@ directiveTable.base = function(state, args, out)
 			local statValue = soulCoreStat["StatValue"][i]
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
+		local bondedStats = { }
+		for i, statKey in ipairs(soulCoreStat.BondedStats) do
+			local statValue = soulCoreStat["BondedValues"][i]
+			bondedStats[statKey.Id] = { min = statValue, max = statValue, bonded = true }
+		end
 		if next(stats) then
 			for _, class in ipairs(classMap[soulCoreStat.Category.Id] or { string.lower(soulCoreStat.Category.Id) }) do
-				addRuneStats(stats, class, modLines, rank)
+				local stats, orders = describeStats(stats)
+				local bondedStats, bondedOrders = describeStats(bondedStats)
+				for i, stat in ipairs(bondedStats) do
+					bondedStats[i] = "Bonded: " .. stat
+				end
+				for _, stat in ipairs(bondedStats) do
+					table.insert(stats, stat)
+				end
+				for _, order in ipairs(bondedOrders) do
+					table.insert(orders, order)
+				end
+				if #orders > 0 then
+					local out = {
+						type = "Rune",
+						slotType = class,
+						label = stats,
+						statOrder = orders,
+						rank = rank,
+					}
+					table.insert(modLines, out)
+				end
 			end
 		end
 	end
