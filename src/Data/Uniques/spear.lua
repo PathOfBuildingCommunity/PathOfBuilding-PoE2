@@ -100,7 +100,7 @@ Grants Skill: Spear Throw
 (150-200)% increased Physical Damage
 (10-15)% reduced Attack Speed
 +(15-30) to Strength
-Strikes deal Splash damage to targets within 1.5 metres
+Strikes deal Splash Damage
 Knocks Back Enemies on Hit
 Cannot use Projectile Attacks
 ]],

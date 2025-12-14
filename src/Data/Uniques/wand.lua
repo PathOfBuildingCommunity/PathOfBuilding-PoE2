@@ -29,7 +29,7 @@ Implicits: 1
 Grants Skill: Level (1-20) Decompose
 (80-100)% increased Spell Damage
 (10-20)% increased Cast Speed
-Lose 10 Life per Enemy Killed
+Lose 10 Life per enemy killed
 (30-50)% increased Mana Regeneration Rate
 {variant:3}+4 to Level of Despair Skills
 {variant:1}+4 to Level of Elemental Weakness Skills
@@ -43,7 +43,7 @@ Implicits: 1
 Grants Skill: Level (1-20) Volatile Dead
 (80-100)% increased Spell Damage
 (30-50)% increased Critical Hit Chance for Spells
-Gain (10-15) Mana per Enemy Killed
+Gain (10-15) Mana per enemy killed
 25% chance to not destroy Corpses when Consuming Corpses
 ]],[[
 Lifesprig
@@ -60,7 +60,7 @@ Bone Wand
 Implicits: 1
 Grants Skill: Level (1-20) Bone Blast
 (80-100)% increased Spell Damage
-Gain (10-15) Life per Enemy Killed
+Gain (10-15) Life per enemy killed
 25% chance to inflict Bleeding on Hit
 25% of Spell Mana Cost Converted to Life Cost
 ]],[[

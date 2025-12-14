@@ -6,6 +6,7 @@ return {
 The Anvil
 Bloodstone Amulet
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
 AmuletImplicitIncreasedLife1
@@ -13,8 +14,9 @@ UniqueMovementVelocity6
 UniqueIncreasedSkillSpeed2
 UniqueIncreasedPhysicalDamageReductionRatingPercent1
 {variant:1}UniqueBlockChanceIncrease1[20,20]
-{variant:2}UniqueBlockChanceIncrease1
-UniqueMaximumBlockChance1
+{variant:2,3}UniqueBlockChanceIncrease1
+{variant:1,2}UniqueMaximumBlockChance1[3,5]
+{variant:3}UniqueMaximumBlockChance1
 ]],[[
 Astramentis
 Stellar Amulet
@@ -37,20 +39,26 @@ UniqueCriticalStrikesIgnoreResistances1
 ]],[[
 Carnage Heart
 Amber Amulet
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease3
 UniqueAllAttributes1
 UniqueAllResistances6
-UniqueLifeLeechAmount1
+{variant:1}UniqueLifeLeechAmount1[100,100]
+{variant:2}UniqueLifeLeechAmount1
 ]],[[
 Choir of the Storm
 Jade Amulet
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 2
 AmuletImplicitDexterity1
 Grants Skill: Level (1-20) Lightning Bolt
-UniqueLightningResist4
+{variant:1}UniqueLightningResist19[20,30]
+{variant:2}UniqueLightningResist19
 UniqueCriticalStrikesIgnoreLightningResistance1
 UniqueTriggerLightningBoltOnCriticalStrike1
 ]],[[
@@ -58,6 +66,7 @@ Defiance of Destiny
 Jade Amulet
 Variant: Pre 0.1.1
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 Requires Level 56
 Implicits: 1
@@ -67,7 +76,8 @@ UniqueStrength2
 UniqueManaRegeneration13
 {variant:1}UniqueGainMissingLifeBeforeHit1[5,5]
 {variant:2}UniqueGainMissingLifeBeforeHit1[10,10]
-{variant:3}UniqueGainMissingLifeBeforeHit1
+{variant:3}UniqueGainMissingLifeBeforeHit1[10,20]
+{variant:4}UniqueGainMissingLifeBeforeHit1
 ]],[[
 The Everlasting Gaze
 Azure Amulet
@@ -77,7 +87,7 @@ Implicits: 1
 AmuletImplicitManaRegeneration1
 {variant:1}UniqueIncreasedMana32[50,50]
 {variant:2}UniqueIncreasedMana32
-UniqueManaRegeneration8
+UniqueManaRegeneration29
 {variant:1}UniqueGainManaAsExtraEnergyShield1[20,30]
 {variant:2}UniqueGainManaAsExtraEnergyShield1
 ]],[[
@@ -159,10 +169,13 @@ UniqueEnergyShieldRegenerationFromLife1
 The Pandemonius
 Lapis Amulet
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Variant: Pre 0.4.0
+Variant: Current
 Requires Level 52
 Implicits: 1
 AmuletImplicitIntelligence1
-UniqueColdResist10
+{variant:1}UniqueColdResist21[20,30]
+{variant:2}UniqueColdResist21
 UniqueColdResistancePenetration1
 UniqueOnHitBlindChilledEnemies1
 ]],[[
@@ -210,6 +223,15 @@ UniqueDexterity28
 UniqueDodgeRollDistance1
 UniqueEvasionRatingDodgeRoll1
 ]],[[
+Strugglescream
+Stellar Amulet
+Variant: Pre 0.4.0
+Variant: Current
+Implicits: 1
+AmuletImplicitAllAttributes1
+{variant:1}UniqueMultipleAnointments1[2,2]
+{variant:2}UniqueMultipleAnointments1
+]],[[
 Ungil's Harmony
 Azure Amulet
 Variant: Pre 0.1.1
@@ -227,14 +249,17 @@ UniqueNoCriticalStrikeMultiplier1
 Xoph's Blood
 Amber Amulet
 Variant: Pre 0.3.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 AmuletImplicitStrength1
 UniqueMaximumLifeIncrease7
-UniqueFireResist12
+{variant:1,2}UniqueFireResist12[30,40]
+{variant:3}UniqueFireResist12
 {variant:1}UniqueEnemiesInPresenceFireExposure1[1,1]
-{variant:2}UniqueEnemiesInPresenceFireExposure1
+{variant:2}UniqueEnemiesInPresenceFireExposure1[-10,-10]
+{variant:3}UniqueEnemiesInPresenceFireExposure1
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet

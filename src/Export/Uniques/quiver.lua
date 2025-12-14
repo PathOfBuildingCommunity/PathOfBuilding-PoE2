@@ -46,12 +46,15 @@ UniquePerandusArrows1
 The Lethal Draw
 Sacral Quiver
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 QuiverImplicitLifeGainPerTarget1
 UniqueIncreasedAttackSpeed5
 UniqueLifeGainPerTarget2
 UniqueArrowPierceChance1
-UniqueBowDamageFromLifeFlaskCharges1
+{variant:1}UniqueBowDamageFromLifeFlaskCharges1[10,10][5,5]
+{variant:2}UniqueBowDamageFromLifeFlaskCharges1
 ]],[[
 Murkshaft
 Toxic Quiver
