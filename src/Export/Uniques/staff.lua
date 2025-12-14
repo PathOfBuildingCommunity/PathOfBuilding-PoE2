@@ -30,7 +30,7 @@ Earthbound
 Voltaic Staff
 Variant: Pre 0.4.0
 Variant: Current
-Implicits: 1
+Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 Grants Skill: Level (1-20) Spark
 {variant:1}UniqueLightningDamageOnWeapon1
