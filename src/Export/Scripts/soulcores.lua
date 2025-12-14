@@ -3,6 +3,13 @@ if not loadStatFile then
 end
 loadStatFile("stat_descriptions.csd")
 
+classMap = {
+	["Martial Weapons"] = { "weapon" },
+	["Armour"] = { "armour" },
+	["Caster Weapons"] = { "caster" },
+	["All"] = { "weapon", "armour", "caster" },
+}
+
 function table.containsId(table, element)
   for _, value in pairs(table) do
     if value.Id == element then
@@ -11,8 +18,6 @@ function table.containsId(table, element)
   end
   return false
 end
-
-local s_format = string.format
 
 local directiveTable = { }
 
@@ -35,21 +40,6 @@ directiveTable.base = function(state, args, out)
 	end
 	displayName = displayName:gsub("\195\182","o")
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
-	
-	-- Special handling of Runes and SoulCores
-	local function addRuneStats(stats, slotType, modLines, rank)
-		local stats, orders = describeStats(stats)
-		if #orders > 0 then
-			local out = {
-				type = "Rune",
-				slotType = slotType,
-				label = stats,
-				statOrder = orders,
-				rank = rank,
-			}
-			table.insert(modLines, out)
-		end
-	end
 
 	local function writeModLines(modLines, out)
 		for _, modLine in ipairs(modLines) do
@@ -68,85 +58,48 @@ directiveTable.base = function(state, args, out)
 
 	-- Check for Standard Weapon, Armour, Caster Runes
 	local soulCores = dat("SoulCores"):GetRow("BaseItemTypes", baseItemType)
+	local soulCoreStats = dat("SoulCoreStats"):GetRowList("Id", soulCores)
 	out:write('\t["', displayName, '"] = {\n')
 	local modLines = { }
 	local rank = 0
-	if soulCores then
-		rank = soulCores.Rank or 0
+	for _, soulCoreStat in ipairs(soulCoreStats) do
+		rank = soulCores.LevelReq or 0
 
-		-- weapons
 		local stats = { }
-		for i, statKey in ipairs(soulCores.StatsKeysWeapon) do
-			local statValue = soulCores["StatsValuesWeapon"][i]
+		for i, statKey in ipairs(soulCoreStat.Stats) do
+			local statValue = soulCoreStat["StatValue"][i]
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
-		if next(stats) then
-			addRuneStats(stats, "weapon", modLines, rank)
-		end
-
-		-- armour
-		stats = { }  -- reset stats to empty
-		for i, statKey in ipairs(soulCores.StatsKeysArmour) do
-			local statValue = soulCores["StatsValuesArmour"][i]
-			stats[statKey.Id] = { min = statValue, max = statValue }
+		local bondedStats = { }
+		for i, statKey in ipairs(soulCoreStat.BondedStats) do
+			local statValue = soulCoreStat["BondedValues"][i]
+			bondedStats[statKey.Id] = { min = statValue, max = statValue, bonded = true }
 		end
 		if next(stats) then
-			addRuneStats(stats, "armour", modLines, rank)
-		end
-
-		-- caster check (wand & staff)
-		stats = { }  -- reset stats to empty
-		for i, statKey in ipairs(soulCores.StatsKeysCaster) do
-			local statValue = soulCores["StatsValuesCaster"][i]
-			stats[statKey.Id] = { min = statValue, max = statValue }
-		end
-		if next(stats) then
-			addRuneStats(stats, "caster", modLines, rank)
-		end
-
-		-- Check if the row is an Attribute rune which can go in all slots
-		if soulCores.StatsKeysAttributes then
-			stats = { }  -- reset stats to empty
-			for i, statKey in ipairs(soulCores.StatsKeysAttributes) do
-				local statValue = soulCores["StatsValuesAttributes"][i]
-				stats[statKey.Id] = { min = statValue, max = statValue }
-			end
-			if next(stats) then
-				addRuneStats(stats, "weapon", modLines, rank)
-				addRuneStats(stats, "armour", modLines, rank)
-				addRuneStats(stats, "caster", modLines, rank)
+			for _, class in ipairs(classMap[soulCoreStat.Category.Id] or { string.lower(soulCoreStat.Category.Id) }) do
+				local stats, orders = describeStats(stats)
+				local bondedStats, bondedOrders = describeStats(bondedStats)
+				for i, stat in ipairs(bondedStats) do
+					bondedStats[i] = "Bonded: " .. stat
+				end
+				for _, stat in ipairs(bondedStats) do
+					table.insert(stats, stat)
+				end
+				for _, order in ipairs(bondedOrders) do
+					table.insert(orders, order)
+				end
+				if #orders > 0 then
+					local out = {
+						type = "Rune",
+						slotType = class,
+						label = stats,
+						statOrder = orders,
+						rank = rank,
+					}
+					table.insert(modLines, out)
+				end
 			end
 		end
-	end
-
-	-- Handle special case of new runes on specific item types
-	local soulCoresPerClassList = dat("SoulCoresPerClass"):GetRowList("BaseItemType", baseItemType) or {}
-	local mergedSlotStats = {}
-
-	for _, row in ipairs(soulCoresPerClassList) do
-		local stats = {} -- reset stats to empty
-		for i, statKey in ipairs(row.Stats or {}) do
-			local statValue = row.StatsValues[i]
-			stats[statKey.Id] = { min = statValue, max = statValue }
-		end
-		local slotType = (row.ItemClass and row.ItemClass.Id or "unknown"):lower()
-		if next(stats) then
-			mergedSlotStats[slotType] = mergedSlotStats[slotType] or {}
-			for k,v in pairs(stats) do
-				mergedSlotStats[slotType][k] = v
-			end
-		end
-	end
-
-	for slotType, stats in pairs(mergedSlotStats) do
-		-- use the soulCores.Rank (if present) for per-class slots too
-		addRuneStats(stats, slotType, modLines, rank)
-	end
-
-	-- If nothing produced stats but the soulCores row carries a Rank, export a rank-only entry
-	if #modLines == 0 and rank then
-		-- produce a rank-only entry (no labels/statOrder) so other code can read Rank
-		table.insert(modLines, { slotType = "weapon", label = {}, statOrder = {}, rank = rank })
 	end
 
 	writeModLines(modLines, out)

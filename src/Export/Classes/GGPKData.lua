@@ -402,6 +402,7 @@ function GGPKClass:GetNeededFiles()
 		"Metadata/Items/Weapons/TwoHandWeapons/Staves/AbstractWarstaff.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/FishingRods/AbstractFishingRod.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/Crossbows/AbstractCrossbow.it",
+		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandTalismans/AbstractTalisman.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/Bows/AbstractBow.it",
 		"Metadata/Items/Weapons/OneHandWeapons/AbstractOneHandWeapon.it",
 		"Metadata/Items/Weapons/OneHandWeapons/Spears/AbstractSpear.it",

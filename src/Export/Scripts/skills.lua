@@ -47,6 +47,7 @@ local weaponClassMap = {
 	["Unarmed"] = "None",
 	["Flail"] = "Flail",
 	["Spear"] = "Spear",
+	["Talisman"] = "Talisman",
 }
 
 local gems = { }

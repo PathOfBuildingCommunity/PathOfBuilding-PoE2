@@ -310,7 +310,6 @@ directiveTable.base = function(state, args, out)
 			out:write('},\n')
 		end
 	end
-	-- Special handling of Runes and SoulCores
 	out:write('\treq = { ')
 	local reqLevel = 1
 	if weaponType or armourType then
@@ -469,6 +468,7 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
+	"talisman",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)
