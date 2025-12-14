@@ -38,6 +38,11 @@ if arg and isValueInTable(arg, "--no-jit") then
 	ConPrintf("JIT Disabled")
 end
 
+if arg and isValueInTable(arg, "--no-ssl") then
+	launch.noSSL = true
+	ConPrintf("SSL verification disabled")
+end
+
 local tempTable1 = { }
 local tempTable2 = { }
 
