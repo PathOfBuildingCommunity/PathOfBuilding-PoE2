@@ -1472,16 +1472,43 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		goldCost = goldCost * 5
 	end
 	if node.depends and #node.depends > 1 then
-		tooltip:AddSeparator(14)
-		tooltip:AddLine(14, "^7"..#node.depends .. " points gained from unallocating these nodes")
-		tooltip:AddLine(14, "^xFFD700"..formatNumSep(#node.depends * goldCost) .. " Gold ^7required to unallocate these nodes")
-		tooltip:AddLine(14, colorCodes.TIP)
+		-- remove node that have unlockConstraint from the count as they are not unallocated together with this node
+		local dependCount = #node.depends
+		for _, depNode in ipairs(node.depends) do
+			if depNode.unlockConstraint then
+				dependCount = dependCount - 1
+			end
+		end
+		if dependCount > 1 then
+			tooltip:AddSeparator(14)
+			tooltip:AddLine(14, "^7"..dependCount .. " points gained from unallocating these nodes")
+			tooltip:AddLine(14, "^xFFD700"..formatNumSep(dependCount * goldCost) .. " Gold ^7required to unallocate these nodes")
+			tooltip:AddLine(14, colorCodes.TIP)
+		end
 	elseif node.alloc then
 		tooltip:AddLine(14, "^xFFD700"..formatNumSep(#node.depends * goldCost) .. " Gold ^7required to unallocate this node")
 		tooltip:AddLine(14, colorCodes.TIP)
 	end
 
 	self:AddGlobalNodeWarningsToTooltip(tooltip, node, build)
+
+	if node.unlockConstraint then
+		local addedSeparator = false
+		for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+			local reqNode = build.spec.nodes[nodeId]
+			if reqNode and not reqNode.alloc then
+				if not addedSeparator then
+					addedSeparator = true
+					tooltip:AddSeparator(14)
+				end
+				tooltip:AddLine(14, colorCodes.WARNING.."Requires allocation of node: "..reqNode.dn)
+			end
+		end
+
+		if addedSeparator then
+			tooltip:AddSeparator(14)
+		end
+	end
 
 	if node.type == "Socket" then
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Shift or Ctrl to hide this tooltip.")
