@@ -1072,6 +1072,10 @@ return {
 			[10]=144
 		}
 	},
+	connectionArt={
+		ascendancy="",
+		default=""
+	},
 	ddsCoords={
 		["ascendancy-background_1500_1500_BC7.dds.zst"]={
 			["ClassesAcolyte of Chayula"]=29,
@@ -16969,6 +16973,28 @@ return {
 	["max_y"]=23653.407362728,
 	["min_x"]=-23209.233331872,
 	["min_y"]=-23641.571796875,
+	nodeOverlay={
+		Keystone={
+			alloc="KeystoneFrameAllocated",
+			path="KeystoneFrameCanAllocate",
+			unalloc="KeystoneFrameUnallocated"
+		},
+		Normal={
+			alloc="PSSkillFrameActive",
+			path="PSSkillFrameHighlighted",
+			unalloc="PSSkillFrame"
+		},
+		Notable={
+			alloc="NotableFrameAllocated",
+			path="NotableFrameCanAllocate",
+			unalloc="NotableFrameUnallocated"
+		},
+		Socket={
+			alloc="JewelFrameAllocated",
+			path="JewelFrameCanAllocate",
+			unalloc="JewelFrameUnallocated"
+		}
+	},
 	nodes={
 		[4]={
 			connections={

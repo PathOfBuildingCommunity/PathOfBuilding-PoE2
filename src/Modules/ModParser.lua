@@ -1374,6 +1374,8 @@ local preFlagList = {
 	["^enemies in your presence "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^enemies in your presence [hgd][ae][via][enl] "] = { applyToEnemy = true, tag = { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" } },
 	["^body armour grants "] = { tag = { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" } },
+	-- Bonded
+	["^bonded: "] = { tag = { type = "Condition", var = "CanUseBondedModifiers" } },
 }
 
 -- List of modifier tags
@@ -3238,6 +3240,11 @@ local specialModList = {
 	} end,
 	-- Witch -- Infernalist
 	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
+	-- Druid -- Oracle
+	["walk the paths not taken"] = {},
+	["gain the benefits of bonded modifiers on runes and idols"] = {
+		flag("Condition:CanUseBondedModifiers"),
+	},
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {
