@@ -49,7 +49,6 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
-	"soulcore",
 	"talisman",
 }
 
