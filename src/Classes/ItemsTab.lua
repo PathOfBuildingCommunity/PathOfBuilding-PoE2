@@ -536,11 +536,17 @@ holding Shift will put it in the second.]])
 		end
 		drop.tooltipFunc = function(tooltip, mode, index, value)
 			tooltip:Clear()
-			if value.label ~= "None" then
+			if value.lines and value.lines[1] ~= "None" then
 				tooltip:AddLine(14, "^7"..value.name)
-				tooltip:AddLine(14, "^7"..data.itemBases[value.name].implicit)
+				for _, line in ipairs(value.lines) do
+					tooltip:AddLine(14, "^7"..line)
+				end
 				-- Adding Comparison
-				self:AddModComparisonTooltip(tooltip, { value.label, type = "Rune" })
+				local compLines = { type = "Rune" }
+				for _, line in ipairs(value.lines) do
+					t_insert(compLines, line)
+				end
+				self:AddModComparisonTooltip(tooltip, compLines)
 			end
 		end
 		drop.shown = function()
@@ -1576,18 +1582,16 @@ function ItemsTabClass:UpdateAffixControls()
 	self:UpdateCustomControls()
 end
 
-local runeModLines = { { name = "None", label = "None", order = -1, slot = "None", group = -1 } }
+local runeModLines = { { name = "None", label = "None", lines = { "None" }, order = -1, slot = "None", group = -1 } }
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		for i, mod in ipairs(runeMod) do
-			t_insert(runeModLines, { name = name, label = mod, order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
-		end
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
 	end
 end
 table.sort(runeModLines, function(a, b)
 	if a.order == b.order then
-		return a.label < b.label
+		return a.req < b.req
 	elseif a.group == b.group then
 		return a.order < b.order
 	else

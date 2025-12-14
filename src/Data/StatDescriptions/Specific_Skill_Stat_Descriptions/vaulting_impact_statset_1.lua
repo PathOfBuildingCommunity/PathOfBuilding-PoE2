@@ -60,6 +60,32 @@ return {
 	},
 	[7]={
 		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Broken Stance is removed after the affected enemy takes {0:+d} Hits"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Broken Stance is removed after the affected enemy takes {0} Hits"
+			}
+		},
+		stats={
+			[1]="broken_stance_hit_limit"
+		}
+	},
+	[8]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -67,10 +93,11 @@ return {
 	},
 	["attack_maximum_action_distance_+"]=2,
 	["base_skill_effect_duration"]=6,
+	["broken_stance_hit_limit"]=7,
 	["cannot_daze"]=4,
 	["exploit_debuff_attack_damage_to_convert_to_magnitude_%"]=5,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=7,
+	["skill_effect_duration"]=8,
 	["total_attack_time_+_ms"]=1,
 	["vaulting_impact_short_animation_maximum_range"]=3
 }

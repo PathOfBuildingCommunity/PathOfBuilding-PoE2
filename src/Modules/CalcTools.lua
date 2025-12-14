@@ -142,7 +142,7 @@ function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
 		end
 	end
 	local grantedEffectLevel = grantedEffect.levels[skillInstance.level] or { }
-	local statSetLevel = statSet.levels[skillInstance.level] or { }
+	local statSetLevel = statSet.levels[skillInstance.level] or statSet.levels[1] or { }
 	local availableEffectiveness
 	local actorLevel = skillInstance.actorLevel or grantedEffectLevel.levelRequirement or 1
 	for index, stat in ipairs(statSet.stats) do

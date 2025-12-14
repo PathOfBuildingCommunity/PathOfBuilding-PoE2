@@ -240,7 +240,7 @@ VERSION[0.9.0][2025/08/23]
 * Add support for "Cannot Use - Skills" modifiers (Blitz54)
 * Add support for Essentia Sanguis leech mod (Blitz54)
 * Add support for Leopold's Applause (LocalIdentity)
-* Add support for Splinter of Loratta (Unique Spear) (majochem)
+* Add support for Splinter of Lorrata (Unique Spear) (majochem)
 
 --- Fixed Crashes ---
 * Fix crash due to outdated state of sub skill dropdown (Paliak)

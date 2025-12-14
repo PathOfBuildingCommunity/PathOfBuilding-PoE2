@@ -47,6 +47,7 @@ local weaponClassMap = {
 	["Unarmed"] = "None",
 	["Flail"] = "Flail",
 	["Spear"] = "Spear",
+	["Talisman"] = "Talisman",
 }
 
 local gems = { }
@@ -63,7 +64,7 @@ function checkModInStatDescription(statDescription, line)
 		return true
 	end
 
-	local searchIn = statDescription
+	local searchIn = statDescription:gsub(".csd","")
 	local stat
 
 	repeat
@@ -364,7 +365,7 @@ directiveTable.skill = function(state, args, out)
 		end
 		if next(weaponTypes) then
 			out:write('\tweaponTypes = {\n')
-			for type in pairs(weaponTypes) do
+			for type in pairsSortByKey(weaponTypes) do
 				out:write('\t\t["', type, '"] = true,\n')
 			end
 			out:write('\t},\n')
@@ -400,7 +401,7 @@ directiveTable.skill = function(state, args, out)
 		end
 		if next(weaponTypes) then
 			out:write('\tweaponTypes = {\n')
-			for type in pairs(weaponTypes) do
+			for type in pairsSortByKey(weaponTypes) do
 				out:write('\t\t["', type, '"] = true,\n')
 			end
 			out:write('\t},\n')
@@ -426,7 +427,7 @@ directiveTable.skill = function(state, args, out)
 		for _, statVal in ipairs(level) do
 			out:write(tostring(statVal), ', ')
 		end
-		for k, v in pairs(level.extra) do
+		for k, v in pairsSortByKey(level.extra) do
 			out:write(k, ' = ', tostring(v), ', ')
 		end
 		if level.actorLevel ~= nil then
@@ -434,7 +435,7 @@ directiveTable.skill = function(state, args, out)
 		end
 		if next(level.cost) ~= nil then
 			out:write('cost = { ')
-			for k, v in pairs(level.cost) do
+			for k, v in pairsSortByKey(level.cost) do
 				out:write(k, ' = ', tostring(v), ', ')
 			end
 			out:write('}, ')
@@ -490,6 +491,16 @@ directiveTable.set = function(state, args, out)
 		grantedEffectStatSet.ImplicitStats = tableConcat(skill.baseGrantedEffectStatSet.ImplicitStats, grantedEffectStatSet.ImplicitStats)
 		grantedEffectStatSet.ConstantStats = tableConcat(skill.baseGrantedEffectStatSet.ConstantStats, grantedEffectStatSet.ConstantStats)
 		grantedEffectStatSet.ConstantStatsValues = tableConcat(skill.baseGrantedEffectStatSet.ConstantStatsValues, grantedEffectStatSet.ConstantStatsValues)
+		
+		if grantedEffectStatSet.BaseEffectiveness == 1 then
+			grantedEffectStatSet.BaseEffectiveness = skill.baseGrantedEffectStatSet.BaseEffectiveness 
+		end
+		if grantedEffectStatSet.IncrementalEffectiveness == 0 then
+			grantedEffectStatSet.IncrementalEffectiveness = skill.baseGrantedEffectStatSet.IncrementalEffectiveness 
+		end
+		if grantedEffectStatSet.DamageIncrementalEffectiveness == 0 then
+			grantedEffectStatSet.DamageIncrementalEffectiveness = skill.baseGrantedEffectStatSet.DamageIncrementalEffectiveness 
+		end
 	end
 	
 	local statMap = { }
@@ -732,9 +743,9 @@ directiveTable.set = function(state, args, out)
 			state.statDescriptionScope = "gem_stat_descriptions"
 		end
 	else
-		state.statDescriptionScope = state.granted.ActiveSkill.StatDescription:gsub("^Metadata/StatDescriptions/", ""):
+		state.statDescriptionScope = state.granted.ActiveSkill.StatDescription:gsub("^Data/StatDescriptions/", ""):
 		-- Need to subtract 1 from setIndex because GGG indexes from 0
-		gsub("specific_skill_stat_descriptions/", ""):gsub("statset_0", "statset_"..(skill.setIndex - 1)):gsub("/$", ""):gsub("/", "_"), '",\n'
+		gsub("specific_skill_stat_descriptions/", ""):gsub("statset_0", "statset_"..(skill.setIndex - 1)):gsub("/$", ""):gsub("/", "_"):gsub(".csd", ""), '",\n'
 	end
 	out:write('\t\t\tstatDescriptionScope = "' .. state.statDescriptionScope .. '",\n')
 	skill.setIndex = skill.setIndex + 1
@@ -826,7 +837,7 @@ directiveTable.mods = function(state, args, out)
 			for _, statVal in ipairs(level) do
 				out:write(tostring(statVal), ', ')
 			end
-			for k, v in pairs(level.extra) do
+			for k, v in pairsSortByKey(level.extra) do
 				out:write(k, ' = ', tostring(v), ', ')
 			end
 			if next(level.statInterpolation) ~= nil then

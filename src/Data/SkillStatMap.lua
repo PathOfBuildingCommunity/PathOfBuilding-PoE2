@@ -401,6 +401,9 @@ return {
 	mod("ManaCost", "MORE", nil),
 	value = -100,
 },
+["base_mana_cost_efficiency_"] = {
+	mod("ManaCostEfficiency", "INC", nil),
+},
 ["base_life_cost_+%"] = {
 	mod("LifeCost", "INC", nil),
 },
@@ -1569,6 +1572,12 @@ return {
 ["base_inflict_fire_exposure_on_hit_%_chance"] = {
 	mod("FireExposureChance", "BASE", nil),
 },
+["all_exposure_on_hit_magnitude"] = {
+	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mult = -1,
+},
 ["offering_spells_effect_+%"] = {
 	mod("BuffEffect", "INC", nil),
 },
@@ -2345,6 +2354,12 @@ return {
 ["number_of_spider_minions_allowed"] = {
 	mod("ActiveSpiderLimit", "BASE", nil),
 },
+["skill_hyena_cackle_size"] = {
+	mod("HyenaLimit", "BASE", nil),
+},
+["maximum_corpse_beetles_allowed"] = {
+	mod("BeetleLimit", "BASE", nil),
+},
 ["active_skill_minion_damage_+%_final"] = {
 	mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 },
@@ -2522,6 +2537,9 @@ return {
 	mod("CrossbowBoltCount", "BASE", nil)
 },
 ["projectiles_crossbow_barrage"] = {
+	flag("SequentialProjectiles"),
+},
+["projectiles_barrage"] = {
 	flag("SequentialProjectiles"),
 },
 ["crossbow_barrage_attack_time_ratio_%"] = {

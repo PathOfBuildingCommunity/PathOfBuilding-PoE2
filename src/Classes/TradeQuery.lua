@@ -65,7 +65,7 @@ function TradeQueryClass:FetchCurrencyConversionTable(callback)
 		"https://www.pathofexile.com/api/trade2/data/static",
 		function(response, errMsg)
 			if errMsg then
-				callback(response, errMsg)
+				-- SKIP CALLBACK ON ERROR TO PREVENT PARTIAL DATA
 				return
 			end
 			local obj = dkjson.decode(response.body)
@@ -78,7 +78,7 @@ function TradeQueryClass:FetchCurrencyConversionTable(callback)
 				end
 			end
 			for _, value in pairs(currencyTable) do
-				currencyConversionTradeMap[value.text] = value.id
+				currencyConversionTradeMap[value.text:lower()] = value.id
 			end
 			self.currencyConversionTradeMap = currencyConversionTradeMap
 			if callback then
@@ -105,7 +105,7 @@ function TradeQueryClass:PullLeagueList()
 				table.sort(json_data, function(a, b)
 					if a.endAt == nil then return false end
 					if b.endAt == nil then return true end
-					return #a.id < #b.id
+					return a.id < b.id
 				end)
 				self.itemsTab.leagueDropList = {}
 				for _, league_data in pairs(json_data) do
@@ -378,7 +378,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		else
 			self.tradeQueryRequests:FetchLeagues(self.pbRealm, function(leagues, errMsg)
 				if errMsg then
-					self:SetNotice("Error while fetching league list: "..errMsg)
+					self:SetNotice(self.controls.pbNotice, "Error while fetching league list: "..errMsg)
 					return
 				end
 				local sorted_leagues = { }
@@ -659,7 +659,7 @@ end
 function TradeQueryClass:SetNotice(notice_control, msg)
 	if msg:find("No Matching Results") then
 		msg = colorCodes.WARNING .. msg
-	elseif msg:find("Error:") then
+	elseif msg:find("Error") then
 		msg = colorCodes.NEGATIVE .. msg
 	end
 	notice_control.label = msg
@@ -881,6 +881,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		end)
 	end)
 	controls["bestButton"..row_idx].shown = function() return not self.resultTbl[row_idx] end
+	controls["bestButton"..row_idx].enabled = function() return self.pbLeague end
 	controls["bestButton"..row_idx].tooltipText = "Creates a weighted search to find the highest Stat Value items for this slot."
 	local pbURL
 	controls["uri"..row_idx] = new("EditControl", { "TOPLEFT", controls["bestButton"..row_idx], "TOPRIGHT"}, {8, 0, 514, row_height}, nil, nil, "^%C\t\n", nil, function(buf)

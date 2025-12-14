@@ -38,12 +38,15 @@ UniqueLocalChanceToBleed2
 UniqueAggravateIgnites1
 UniqueLocalChanceToAggravateBleed1
 ]],[[
-Splinter of Loratta
+Splinter of Lorrata
 Hardwood Spear
 League: Dawn of the Hunt
+Variant: Pre 0.3.0
+Variant: Current
 Implicits: 1
 Grants Skill: Spear Throw
 UniqueLocalAddedPhysicalDamage3
+{variant:2}DealNoElementalDamageUnique__3
 UniqueLocalWeaponRangeIncrease1
 UniqueLocalInfinitePoisonStackCount1
 UniqueLocalPoisonOnHit1

@@ -25,8 +25,12 @@ Critical Hits cannot Extract Impale
 Hateforge
 Moulded Mitts
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
-(50-80)% increased Armour
-Gain (1-3) random Charge on reaching Maximum Rage
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}(50-80)% increased Armour
+{variant:2}(300-400)% increased Armour
+{variant:2}Gain (3-6) Rage on Hit
+Gain a random Charge on reaching Maximum Rage, no more than once every (3-6) seconds
 Lose all Rage on reaching Maximum Rage
 ]],[[
 Lochtonial Caress
@@ -44,19 +48,21 @@ Titan Mitts
 League: Dawn of the Hunt
 (150-200)% increased Armour
 +(20-30) to Strength
-Gain (30-50) Life per Enemy Killed
+Gain (30-50) Life per enemy killed
 (10-20)% increased Global Physical Damage
 Knockback direction is reversed
 ]],[[
 Treefingers
 Riveted Mitts
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
 (30-60)% increased Armour
 {variant:1}Adds (3-5) to (6-8) Physical Damage to Attacks
-{variant:2}Adds (6-10) to (12-16) Physical Damage to Attacks
-{variant:2}5% reduced Attack Speed
-{variant:2}(20-30)% increased Stun Buildup
+{variant:2,3}Adds (6-10) to (12-16) Physical Damage to Attacks
+{variant:2,3}5% reduced Attack Speed
+{variant:3}+(15-20) to Strength
+{variant:2,3}(20-30)% increased Stun Buildup
 Giant's Blood
 ]],
 -- Gloves: Evasion
@@ -81,11 +87,14 @@ You count as on Full Mana while at 90% of maximum Mana or above
 ]],[[
 Maligaro's Virtuosity
 Fine Bracers
+Variant: Pre 0.4.0
+Variant: Current
 (60-80)% increased Evasion Rating
 (20-30)% increased Critical Hit Chance
 5% increased Attack Speed
 +(10-20) to Dexterity
-Your Critical Damage Bonus is 250%
+{variant:2}Your Critical Hit Chance cannot be Rerolled
+{variant:1}Your Critical Damage Bonus is 250%
 ]],[[
 Northpaw
 Suede Bracers
@@ -222,8 +231,8 @@ Variant: Pre 0.1.1
 Variant: Current
 (100-150)% increased Armour and Evasion
 {variant:2}(5-10)% increased Attack Speed
-Gain (20-30) Life per Enemy Killed
-Gain (20-30) Mana per Enemy Killed
+Gain (20-30) Life per enemy killed
+Gain (20-30) Mana per enemy killed
 Culling Strike
 ]],[[
 Jarngreipr
@@ -264,8 +273,8 @@ Variant: Pre 0.1.1
 Variant: Current
 (40-60)% increased Armour and Energy Shield
 {variant:2}+(10-15)% to Cold Resistance
-Gain (7-10) Life per Enemy Killed
-Gain (4-6) Mana per Enemy Killed
+Gain (7-10) Life per enemy killed
+Gain (4-6) Mana per enemy killed
 Enemies in your Presence killed by anyone count as being killed by you instead
 ]],[[
 The Prisoner's Manacles
@@ -295,7 +304,7 @@ Linen Wraps
 Source: Drops from unique{Zarokh, the Temporal}
 +(60-100) to Evasion Rating
 +(30-50) to maximum Energy Shield
-Gain (25-35) Mana per Enemy Killed
+Gain (25-35) Mana per enemy killed
 Inflict Cold Exposure on Igniting an Enemy
 Inflict Fire Exposure on Shocking an Enemy
 Inflict Lightning Exposure on Critical Hit
@@ -348,9 +357,13 @@ Adds 1 to (77-111) Lightning Damage to Unarmed Melee Hits
 Sine Aequo
 Grand Manchettes
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
+Variant: Pre 0.4.0
+Variant: Current
 (10-15)% increased Skill Speed
-(40-60)% increased Armour, Evasion and Energy Shield
+{variant:1}(40-60)% increased Armour, Evasion and Energy Shield
+{variant:2}(100-150)% increased Armour, Evasion and Energy Shield
 Immobilise enemies at 50% buildup instead of 100%
-Enemies Immobilised by you take 25% less Damage
+{variant:1}Enemies Immobilised by you take 25% less Damage
+{variant:2}Enemies Immobilised by you take 20% more Damage
 ]],
 }

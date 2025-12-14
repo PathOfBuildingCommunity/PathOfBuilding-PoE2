@@ -583,6 +583,82 @@ function ImportTabClass:DownloadItems()
 	end)
 end
 
+function ImportTabClass:ImportQuestRewardConfig(questStats)
+	local configTab = self.build.configTab
+	local statLines = {}
+	for _, stat in ipairs(questStats) do
+		t_insert(statLines, escapeGGGString(stat):lower())
+	end
+
+	local function splitLine(text)
+		local out = {}
+		for line in text:gmatch("[^\r\n]+") do
+			line = line:gsub("^%s+", ""):lower()
+			t_insert(out, line)
+		end
+		return out
+	end
+
+	-- Ensure all required lines exist, then remove them so they can't match again
+	local function matchQuest(requiredLines)
+		local indices = {}
+		for _, needed in ipairs(requiredLines) do
+			local found
+			for idx, line in ipairs(statLines) do
+				if line == needed then
+					found = idx
+					break
+				end
+			end
+			if not found then
+				return false
+			end
+			t_insert(indices, found)
+		end
+		table.sort(indices, function(a, b) return a > b end)
+		for _, idx in ipairs(indices) do
+			t_remove(statLines, idx)
+		end
+		return true
+	end
+
+	local updated = false
+	for _, quest in ipairs(data.questRewards) do
+		if #statLines == 0 then
+			break
+		end
+		if quest.useConfig == true then
+			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
+			if quest.Stat then
+				local matches = matchQuest(splitLine(quest.Stat))
+				if configTab.input[var] ~= matches then
+					configTab.input[var] = matches
+					updated = true
+				end
+			elseif quest.Options then
+				local selected = configTab.defaultState[var] or "None"
+				for _, option in ipairs(quest.Options) do
+					if matchQuest(splitLine(option)) then
+						selected = option
+						break
+					end
+				end
+				if configTab.input[var] ~= selected then
+					configTab.input[var] = selected
+					updated = true
+				end
+			end
+		end
+	end
+
+	if updated then
+		configTab:BuildModList()
+		configTab:UpdateControls()
+		configTab.modFlag = true
+		self.build.buildFlag = true
+	end
+end
+
 function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	local charPassiveData = charData.passives
 	self.charImportStatus = colorCodes.POSITIVE.."Passive tree and jewels successfully imported."
@@ -639,6 +715,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	end
 
 	self.build.spec:AddUndoState()
+	self:ImportQuestRewardConfig(charPassiveData.quest_stats)
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
 	self.build.configTab:UpdateLevel()

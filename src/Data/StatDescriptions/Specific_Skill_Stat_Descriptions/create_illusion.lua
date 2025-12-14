@@ -15,6 +15,65 @@ return {
 	[3]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Illusion duration is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Illusion duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_skill_effect_duration"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0:+d}% chance to create an additional Remnant"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% chance to create an additional Remnant"
+			}
+		},
+		stats={
+			[1]="chance_%_to_create_additional_remnant"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1,
@@ -59,8 +118,18 @@ return {
 			[2]="quality_display_lingering_illusion_is_gem"
 		}
 	},
-	["chance_to_gain_1_more_charge_%"]=3,
+	[6]={
+		[1]={
+		},
+		stats={
+			[1]="skill_effect_duration"
+		}
+	},
+	["base_skill_effect_duration"]=3,
+	["chance_%_to_create_additional_remnant"]=4,
+	["chance_to_gain_1_more_charge_%"]=5,
 	parent="skill_stat_descriptions",
-	["quality_display_lingering_illusion_is_gem"]=3,
+	["quality_display_lingering_illusion_is_gem"]=5,
+	["skill_effect_duration"]=6,
 	["spells_have_culling_strike"]=1
 }

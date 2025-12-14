@@ -155,6 +155,39 @@ return {
 	},
 	[11]={
 		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=10,
+						[2]=10
+					}
+				},
+				text="Trigger Volcanic Steps every {0} metre travelled"
+			},
+			[2]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Trigger Volcanic Steps every {0} metres travelled"
+			}
+		},
+		stats={
+			[1]="ancestral_cry_triggers_shockwave_every_X_units_travelled"
+		}
+	},
+	[12]={
+		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
@@ -165,11 +198,12 @@ return {
 	["ancestral_cry_duration_+%_final_per_removable_endurance_charge"]=9,
 	["ancestral_cry_empowered_attacks_strike_X_additional_enemies"]=2,
 	["ancestral_cry_non_skill_physical_to_fire_convert_%"]=10,
+	["ancestral_cry_triggers_shockwave_every_X_units_travelled"]=11,
 	["attack_duration_ms"]=3,
 	["base_skill_effect_duration"]=8,
 	["hundred_times_attacks_per_second"]=4,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=11,
+	["skill_effect_duration"]=12,
 	["skill_empower_limitation_specifier_for_stat_description"]=1,
 	["warcries_knock_back_enemies"]=7
 }

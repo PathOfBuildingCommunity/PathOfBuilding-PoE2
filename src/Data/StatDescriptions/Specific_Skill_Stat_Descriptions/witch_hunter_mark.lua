@@ -16,7 +16,7 @@ return {
 						[2]=99
 					}
 				},
-				text="DNT {0}% chance for Marked Enemies to generate a Hunters' Remnant when Critically Hit"
+				text="DNT-UNUSED {0}% chance for Marked Enemies to generate a Hunters' Remnant when Critically Hit"
 			},
 			[2]={
 				limit={
@@ -25,7 +25,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Marked Enemies generate a Hunters' Remnant when Critically Hit"
+				text="DNT-UNUSED Marked Enemies generate a Hunters' Remnant when Critically Hit"
 			}
 		},
 		stats={
@@ -45,7 +45,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Buff granted by Remnants from Humanoid Enemies grants {0}% increased Movement Speed and {1}% increased Attack and Cast Speed"
+				text="DNT-UNUSED Buff granted by Remnants from Humanoid Enemies grants {0}% increased Movement Speed and {1}% increased Attack and Cast Speed"
 			}
 		},
 		stats={
@@ -62,7 +62,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Buff granted by Remnants from Constructed Enemies grants {0}% of Evasion gained as Armour"
+				text="DNT-UNUSED Buff granted by Remnants from Constructed Enemies grants {0}% of Evasion gained as Armour"
 			}
 		},
 		stats={
@@ -78,7 +78,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Remnants from Beastial Enemies restore {0} Flask and Charm charges when collected"
+				text="DNT-UNUSED Remnants from Beastial Enemies restore {0} Flask and Charm charges when collected"
 			}
 		},
 		stats={
@@ -98,7 +98,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Buff granted by Remnants from Demonic Enemies grants {0}% of Life regenerated per second"
+				text="DNT-UNUSED Buff granted by Remnants from Demonic Enemies grants {0}% of Life regenerated per second"
 			}
 		},
 		stats={
@@ -114,7 +114,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Buff granted by Remnants from Undead Enemies prevents your Life from being reduced to 0"
+				text="DNT-UNUSED Buff granted by Remnants from Undead Enemies prevents your Life from being reduced to 0"
 			}
 		},
 		stats={

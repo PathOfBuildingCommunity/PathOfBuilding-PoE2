@@ -190,6 +190,7 @@ function CalcSectionClass:FormatStr(str, actor, colData)
 			local modCfg = (sectionData.cfg and actor.mainSkill[sectionData.cfg.."Cfg"]) or { }
 			if sectionData.modSource then
 				modCfg.source = sectionData.modSource
+				modCfg.ignoreSourceinCheckConditions = true
 			end
 			if sectionData.actor then
 				modCfg.actor = sectionData.actor
@@ -278,7 +279,7 @@ function CalcSectionClass:Draw(viewPort, noTooltip)
 						if self.calcsTab:SearchMatch(rowData.label) then
 							textColor = colorCodes.HIGHLIGHT
 						end
-						DrawString(x + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label.."^7:")
+						DrawString(x + 132, lineY + 2, "RIGHT_X", 16, "VAR", textColor..rowData.label..":")
 					end
 					for colour, colData in ipairs(rowData) do
 						-- Draw column separator at the left end of the cell

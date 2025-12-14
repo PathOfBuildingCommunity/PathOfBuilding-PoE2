@@ -11,5 +11,5 @@ local itemBases = ...
 #type Rune
 #baseMatch Metadata/Items/SoulCores/Rune
 
-#type Talisman
+#type Idol
 #baseMatch Metadata/Items/SoulCores/Talisman

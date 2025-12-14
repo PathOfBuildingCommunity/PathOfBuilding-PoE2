@@ -47,8 +47,42 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
+	[4]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Debuff duration {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Debuff duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_skill_effect_duration"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
+	["base_skill_effect_duration"]=4,
 	parent="skill_stat_descriptions",
 	["spells_impale_on_hit_%_chance"]=1
 }

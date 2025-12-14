@@ -9,79 +9,6 @@ return {
 	},
 	[2]={
 		[1]={
-		},
-		stats={
-			[1]="active_skill_area_of_effect_radius"
-		}
-	},
-	[3]={
-		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=10,
-						[2]=10
-					}
-				},
-				text="Explosion radius is {0} metre"
-			},
-			[2]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Explosion radius is {0} metres"
-			}
-		},
-		stats={
-			[1]="active_skill_base_area_of_effect_radius"
-		}
-	},
-	[4]={
-		[1]={
-			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Mark duration is {0} second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Mark duration is {0} seconds"
-			}
-		},
-		stats={
-			[1]="base_skill_effect_duration"
-		}
-	},
-	[5]={
-		[1]={
 			[1]={
 				limit={
 					[1]={
@@ -131,19 +58,125 @@ return {
 			[2]="quality_display_freezing_mark_is_gem"
 		}
 	},
+	[3]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Marked enemy becomes Frozen when\nHit while Primed for Freeze"
+			}
+		},
+		stats={
+			[1]="active_skill_show_freeze_range_from_freezing_mark"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Mark duration is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Mark duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_skill_effect_duration"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Buff grants {0}% of damage Gained as Cold damage"
+			}
+		},
+		stats={
+			[1]="freezing_mark_damage_buff_damage_%_to_gain_as_cold"
+		}
+	},
 	[6]={
+		[1]={
+		},
+		stats={
+			[1]="secondary_skill_effect_duration"
+		}
+	},
+	[7]={
 		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=2,
-	["active_skill_base_area_of_effect_radius"]=3,
-	["base_secondary_skill_effect_duration"]=1,
+	[8]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Buff duration is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Buff duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_secondary_skill_effect_duration"
+		}
+	},
+	["active_skill_show_freeze_range_from_freezing_mark"]=3,
+	["base_secondary_skill_effect_duration"]=8,
 	["base_skill_effect_duration"]=4,
-	["freezing_mark_hit_damage_freeze_multiplier_+%_final"]=5,
+	["freezing_mark_damage_buff_damage_%_to_gain_as_cold"]=5,
+	["freezing_mark_hit_damage_freeze_multiplier_+%_final"]=2,
 	parent="skill_stat_descriptions",
-	["quality_display_freezing_mark_is_gem"]=5,
-	["skill_effect_duration"]=6
+	["quality_display_freezing_mark_is_gem"]=2,
+	["secondary_skill_effect_duration"]=6,
+	["skill_effect_duration"]=7
 }

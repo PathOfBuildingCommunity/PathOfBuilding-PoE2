@@ -52,6 +52,39 @@ return {
 	[4]={
 		[1]={
 			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Vines remain attached for up to {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Vines remain attached for up to {0} seconds"
+			}
+		},
+		stats={
+			[1]="entangle_vine_duration_ms"
+		}
+	},
+	[5]={
+		[1]={
+			[1]={
 				limit={
 					[1]={
 						[1]=1,
@@ -74,9 +107,36 @@ return {
 			[1]="entangle_vines_maximum_number_of_vines_allowed"
 		}
 	},
+	[6]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Overgrown fissures can attach up to {0} additional Vine"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Overgrown fissures can attach up to {0} additional Vines"
+			}
+		},
+		stats={
+			[1]="entangle_vines_additional_number_of_vines_allowed_when_wet"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["entangle_base_movement_speed_+%_final_per_applied_stack"]=3,
-	["entangle_vines_maximum_number_of_vines_allowed"]=4,
-	parent="specific_skill_stat_descriptions/blazing_cluster_statset_0"
+	["entangle_vine_duration_ms"]=4,
+	["entangle_vines_additional_number_of_vines_allowed_when_wet"]=6,
+	["entangle_vines_maximum_number_of_vines_allowed"]=5,
+	parent="skill_stat_descriptions"
 }
