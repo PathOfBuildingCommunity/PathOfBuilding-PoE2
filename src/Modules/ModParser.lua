@@ -3274,6 +3274,9 @@ local specialModList = {
 	["gain the benefits of bonded modifiers on runes and idols"] = {
 		flag("Condition:CanUseBondedModifiers"),
 	},
+	-- Druid -- Shaman
+	["adapt to the highest elemental damage type of each hit you take"] = { flag("ElementalAdaptation") } ,
+	["each adaptation grants (%d+)%% less damage taken of that adaptation's type"] = { },
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {

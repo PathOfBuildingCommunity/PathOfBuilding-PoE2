@@ -3316,8 +3316,7 @@ c["Abyssal Wasting also applies % to Lightning Resistance Projectiles have 50% c
 c["Abyssal Wasting you inflict has Infinite Duration"]={nil,"Abyssal Wasting you inflict has Infinite Duration "}
 c["Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance"]={nil,"Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance "}
 c["Accuracy Rating is Doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="AccuracyDoubledLimit",type="Multiplier",var="AccuracyDoubled"},flags=0,keywordFlags=0,name="Accuracy",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:AccuracyDoubled",type="OVERRIDE",value=1}},nil}
-c["Adapt to the highest Elemental Damage Type of each Hit you take"]={nil,"Adapt to the highest Elemental Damage Type of each Hit you take "}
-c["Adapt to the highest Elemental Damage Type of each Hit you take Each Adaptation grants 10% less Damage taken of that Adaptation's type"]={nil,"Adapt to the highest Elemental Damage Type of each Hit you take Each Adaptation grants 10% less Damage taken of that Adaptation's type "}
+c["Adapt to the highest Elemental Damage Type of each Hit you take"]={{[1]={flags=0,keywordFlags=0,name="ElementalAdaptation",type="FLAG",value=true}},nil}
 c["Adaptations have a duration of 5 seconds"]={nil,"Adaptations have a duration of 5 seconds "}
 c["Adaptations have a duration of 5 seconds Double Adaptation Effect"]={{[1]={[1]={globalLimit=100,globalLimitKey="DurationDoubledLimit",type="Multiplier",var="DurationDoubled"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:DurationDoubled",type="OVERRIDE",value=1}},"Adaptations have a  of 5 seconds  Adaptation Effect "}
 c["Adds 1 to 10 Lightning Damage to Attacks per 20 Intelligence"]={{[1]={[1]={div=20,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={[1]={div=20,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=10}},nil}
@@ -4754,7 +4753,7 @@ c["Double the number of your Poisons that targets can be affected by at the same
 c["Doubles Mana Costs"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=100}},nil}
 c["Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life"]={nil,"Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life "}
 c["Drop Shocked Ground while moving, lasting 8 seconds"]={nil,"Drop Shocked Ground while moving, lasting 8 seconds "}
-c["Each Adaptation grants 10% less Damage taken of that Adaptation's type"]={nil,"Each Adaptation grants 10% less Damage taken of that Adaptation's type "}
+c["Each Adaptation grants 10% less Damage taken of that Adaptation's type"]={{},nil}
 c["Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow"]={nil,"Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow "}
 c["Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Multiplier",var="TotemsSummoned"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=2}}}},nil}
 c["Effect is not removed when Unreserved Life is Filled"]={nil,"Effect is not removed when Unreserved Life is Filled "}
