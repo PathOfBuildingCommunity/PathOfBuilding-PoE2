@@ -157,6 +157,7 @@ function OpenURL(url) end
 function SetProfiling(isEnabled) end
 function Restart() end
 function Exit() end
+function TakeScreenshot() end
 
 ---@return string? provider
 ---@return string? version

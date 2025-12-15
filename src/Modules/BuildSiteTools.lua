@@ -103,7 +103,7 @@ function buildSites.DownloadBuild(link, websiteInfo, callback)
 end
 
 -- Parses and converts URI's to import links. Currently only supports protocol handler URI's, extend as needed.
--- @param uri String Example: pob2://pobbin/<id> or pob2://poeninja/<id>
+--- @param uri string Example: pob2://pobbin/<id> or pob2://poeninja/<id>
 function buildSites.ParseImportLinkFromURI(uri)
 	local importLink = nil
 	
