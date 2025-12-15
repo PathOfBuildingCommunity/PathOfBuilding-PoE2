@@ -713,7 +713,10 @@ for i, classId in ipairs(psg.passives) do
 			addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonMetadata(ascendency.Name .. "FrameLargeAllocated"))
 
 			-- include the connection art in case doesn't exist
-			connectionArtToDecompose[ascendency.UIArt.ConnectionsArt.Id] = true
+			-- ignore if containt "lich"
+			if ascendency.UIArt.ConnectionsArt.Id:find("Lich") == nil then
+				connectionArtToDecompose[ascendency.UIArt.ConnectionsArt.Id] = true
+			end
 			:: continue3 ::
 		end
 
