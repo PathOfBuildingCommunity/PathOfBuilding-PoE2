@@ -44,7 +44,7 @@ function imageHandleClass:ImageSize()
 end
 
 -- Rendering
-function RenderInit() end
+function RenderInit(flag, ...) end
 function GetScreenSize()
 	return 1920, 1080
 end

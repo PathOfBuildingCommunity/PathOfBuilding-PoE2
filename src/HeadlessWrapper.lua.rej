@@ -1,0 +1,9 @@
+diff a/src/HeadlessWrapper.lua b/src/HeadlessWrapper.lua	(rejected hunks)
+@@ -160,6 +160,7 @@ function OpenURL(url) end
+ function SetProfiling(isEnabled) end
+ function Restart() end
+ function Exit() end
++function TakeScreenshot() end
+ 
+ local l_require = require
+ function require(name)

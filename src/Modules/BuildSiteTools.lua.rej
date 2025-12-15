@@ -1,0 +1,14 @@
+diff a/src/Modules/BuildSiteTools.lua b/src/Modules/BuildSiteTools.lua	(rejected hunks)
+@@ -100,10 +100,10 @@ function buildSites.DownloadBuild(link, websiteInfo, callback)
+ end
+ 
+ -- Parses and converts URI's to import links. Currently only supports protocol handler URI's, extend as needed.
+--- @param uri String Example: pob://pobbin/<id> or pob://poeninja/<id>
++-- @param uri string Example: pob://pobbin/<id> or pob://poeninja/<id>
+ function buildSites.ParseImportLinkFromURI(uri)
+ 	local importLink = nil
+-	
++
+ 	-- Check if it's an URI from protocol handler
+ 	for _, siteInfo in ipairs(buildSites.websiteList) do
+ 		if uri:match("^pob:[/\\]*" .. siteInfo.id:lower() .. "[/\\]+(.+)") then
