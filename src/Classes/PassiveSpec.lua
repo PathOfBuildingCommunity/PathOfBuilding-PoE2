@@ -134,15 +134,42 @@ function PassiveSpecClass:Load(xml, dbFileName)
 		end
 	end
 	if xml.attrib.nodes then
+		local classId = -1
+		local ascendClassId = -1
+		-- Legacy format contain classId and ascendClassId as xml attributes
+		if xml.attrib.classId then
+			classId = tonumber(xml.attrib.classId)
+		end
+		if xml.attrib.ascendClassId then
+			ascendClassId = tonumber(xml.attrib.ascendClassId)
+		end
+
 		-- New format
-		if not xml.attrib.classId then
-			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'classId' attribute", dbFileName)
+		if xml.attrib.classInternalId then
+			local classInternalId = tonumber(xml.attrib.classInternalId)
+			if self.tree.classIntegerIdMap[classInternalId] then
+				classId = self.tree.classIntegerIdMap[classInternalId]
+			end
+		end
+		if xml.attrib.ascendancyInternalId then
+			local ascendancyInternalId = tostring(xml.attrib.ascendancyInternalId)
+			if ascendancyInternalId == "" then
+				ascendClassId = 0
+			elseif self.tree.internalAscendNameMap[ascendancyInternalId] then
+				ascendClassId = self.tree.internalAscendNameMap[ascendancyInternalId].ascendClassId
+			end
+		end
+
+		if classId == -1 then
+			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'classId' / 'classInternalId' attribute", dbFileName)
 			return true
 		end
-		if not xml.attrib.ascendClassId then
-			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'ascendClassId' attribute", dbFileName)
+
+		if ascendClassId == -1 then
+			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'ascendClassId' / 'ascendancyInternalId' attribute", dbFileName)
 			return true
 		end
+
 		local hashList = { }
 		for hash in xml.attrib.nodes:gmatch("%d+") do
 			t_insert(hashList, tonumber(hash))
@@ -174,7 +201,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			end
 		end
-		self:ImportFromNodeList(nil, tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
+		self:ImportFromNodeList(nil, classId, ascendClassId, tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
 	elseif url then
 		self:DecodeURL(url)
 	end
@@ -198,12 +225,20 @@ function PassiveSpecClass:Save(xml)
 	for mastery, effect in pairs(self.masterySelections) do
 		t_insert(masterySelections, "{"..mastery..","..effect.."}")
 	end
+
+	local classInternalId = self.tree.classes[self.curClassId].integerId
+	local ascendancyInternalId = ""
+	if self.curAscendClassId and self.tree.classes[self.curClassId].classes[self.curAscendClassId] then
+		-- None ascendancy case will have no internalId
+		ascendancyInternalId = self.tree.classes[self.curClassId].classes[self.curAscendClassId].internalId or ""
+	end
+
 	xml.attrib = {
 		title = self.title,
 		treeVersion = self.treeVersion,
 		-- New format
-		classId = tostring(self.curClassId),
-		ascendClassId = tostring(self.curAscendClassId),
+		classInternalId = tostring(classInternalId),
+		ascendancyInternalId = tostring(ascendancyInternalId),
 		secondaryAscendClassId = tostring(self.curSecondaryAscendClassId),
 		nodes = table.concat(allocNodeIdList, ","),
 		masteryEffects = table.concat(masterySelections, ",")
@@ -1990,7 +2025,16 @@ function PassiveSpecClass:CreateUndoState()
 	for mastery, effect in pairs(self.masterySelections) do
 		selections[mastery] = effect
 	end
+	local classInternalId = self.tree.classes[self.curClassId].integerId
+	local ascendancyInternalId = ""
+	if self.curAscendClassId and self.tree.classes[self.curClassId].classes[self.curAscendClassId] then
+		-- None ascendancy doesn't have an internalId
+		ascendancyInternalId = self.tree.classes[self.curClassId].classes[self.curAscendClassId].internalId or ""
+	end
+
 	return {
+		classInternalId = classInternalId,
+		ascendancyInternalId = ascendancyInternalId,
 		classId = self.curClassId,
 		ascendClassId = self.curAscendClassId,
 		secondaryAscendClassId = self.secondaryAscendClassId,
@@ -2003,7 +2047,17 @@ function PassiveSpecClass:CreateUndoState()
 end
 
 function PassiveSpecClass:RestoreUndoState(state, treeVersion)
-	self:ImportFromNodeList(nil, state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
+	local classId = state.classId
+	local ascendClassId = state.ascendClassId
+	if treeVersion ~= nil and treeVersion ~= state.treeVersion then
+		-- we are upgrading the tree view so in this case we use the classInternalId to find the correct classId
+		classId = self.tree.classIntegerIdMap[state.classInternalId]
+		ascendClassId = 0
+		if state.ascendancyInternalId and state.ascendancyInternalId ~= "" and self.tree.internalAscendNameMap[state.ascendancyInternalId] then
+			ascendClassId = self.tree.internalAscendNameMap[state.ascendancyInternalId].ascendClassId
+		end
+	end
+	self:ImportFromNodeList(nil, classId, ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
 	self:SetWindowTitleWithBuildClass()
 end
 
