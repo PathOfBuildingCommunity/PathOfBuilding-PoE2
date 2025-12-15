@@ -3275,7 +3275,7 @@ local specialModList = {
 		flag("Condition:CanUseBondedModifiers"),
 	},
 	-- Druid -- Shaman
-	["adapt to the highest elemental damage type of each hit you take"] = { flag("ElementalAdaptation") } ,
+	["adapt to the highest elemental damage type of each hit you take"] = { flag("Condition:ElementalAdaptation") } ,
 	["each adaptation grants (%d+)%% less damage taken of that adaptation's type"] = { },
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
