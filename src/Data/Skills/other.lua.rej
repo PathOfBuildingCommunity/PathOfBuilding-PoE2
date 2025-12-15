@@ -1,0 +1,9 @@
+diff a/src/Data/Skills/other.lua b/src/Data/Skills/other.lua	(rejected hunks)
+@@ -2405,6 +2405,7 @@ skills["PenanceMark"] = {
+ 	},
+ 	baseMods = {
+ 		skill("debuff", true),
++		skill("minionLevelIsEnemyLevel", true),
+ 	},
+ 	constantStats = {
+ 		{ "base_skill_effect_duration", 3000 },
