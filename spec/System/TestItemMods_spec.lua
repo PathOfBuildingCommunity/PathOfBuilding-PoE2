@@ -221,7 +221,7 @@ describe("TetsItemMods", function()
 		runCallback("OnFrame")
 	end)
 	
-	t("Heralds apply exposure with Heraldry", function()
+	it("Heralds apply exposure with Heraldry", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
 			Razor Quarterstaff
