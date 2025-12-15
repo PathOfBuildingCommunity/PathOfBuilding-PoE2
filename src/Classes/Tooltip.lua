@@ -95,14 +95,16 @@ function TooltipClass:AddSeparator(size)
 
 	if self.tooltipHeader then
 		local rarity = tostring(self.tooltipHeader):upper()
+		-- spell-checker: disable
 		local separatorConfigs = {
-			RELIC = "Assets/ItemsSeparatorFoil.png",
-			UNIQUE = "Assets/ItemsSeparatorUnique.png",
-			RARE = "Assets/ItemsSeparatorRare.png",
-			MAGIC = "Assets/ItemsSeparatorMagic.png",
-			NORMAL = "Assets/ItemsSeparatorWhite.png",
-			GEM = "Assets/ItemsSeparatorGem.png",
+			RELIC = "Assets/itemsseparatorfoil.png",
+			UNIQUE = "Assets/itemsseparatorunique.png",
+			RARE = "Assets/itemsseparatorrare.png",
+			MAGIC = "Assets/itemsseparatormagic.png",
+			NORMAL = "Assets/itemsseparatorwhite.png",
+			GEM = "Assets/itemsseparatorgem.png",
 		}
+		-- spell-checker: enable
 		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
 
 		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
