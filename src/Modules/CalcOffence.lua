@@ -3156,7 +3156,7 @@ function calcs.offence(env, actor, activeSkill)
 						if globalBreakdown then
 							globalBreakdown.SeismicUpTimeRatio = { }
 							t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("(%d ^8(number of exerts)", globalOutput.SeismicExertsCount))
-							t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("/ %.2f) ^8(attacks per second)", output.Speed))
+							t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("/ %.2f) ^8(attacks per second)", globalOutput.Speed))
 							if 	globalOutput.SeismicCryCastTime > 0 then
 								t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("/ (%.2f ^8(warcry cooldown)", globalOutput.SeismicCryCooldown))
 								t_insert(globalBreakdown.SeismicUpTimeRatio, s_format("+ %.2f) ^8(warcry casttime)", globalOutput.SeismicCryCastTime))
@@ -3277,10 +3277,10 @@ function calcs.offence(env, actor, activeSkill)
 			-- If Fist of War & Active Skill is a Slam Skill & NOT a Vaal Skill & NOT used by mirage or other
 			if globalOutput.FistOfWarCooldown ~= 0 and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] then
 				globalOutput.FistOfWarDamageMultiplier = skillModList:Sum("BASE", nil, "FistOfWarDamageMultiplier") / 100
-				globalOutput.FistOfWarUptimeRatio = m_min( (1 / output.Speed) / globalOutput.FistOfWarCooldown, 1) * 100
+				globalOutput.FistOfWarUptimeRatio = m_min( (1 / globalOutput.Speed) / globalOutput.FistOfWarCooldown, 1) * 100
 				if globalBreakdown then
 					globalBreakdown.FistOfWarUptimeRatio = {
-						s_format("min( (1 / %.2f) ^8(second per attack)", output.Speed),
+						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
 						s_format("/ %.2f, 1) ^8(fist of war cooldown)", globalOutput.FistOfWarCooldown),
 						s_format("= %d%%", globalOutput.FistOfWarUptimeRatio),
 					}
