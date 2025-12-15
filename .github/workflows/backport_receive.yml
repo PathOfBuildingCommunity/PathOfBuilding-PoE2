@@ -17,9 +17,12 @@ jobs:
               run: |
                 # Allow rejected hunks so the workflow continues even on conflicts
                 curl -L ${{ github.event.client_payload.patch_url }} | git apply -v --3way --reject --index || true
+            - name: Show status
+              run: git status --short
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v5
               with:
+                branch-suffix: timestamp
                 title: "[pob1-port] ${{ github.event.client_payload.title }}"
                 branch: pob1-pr-${{ github.event.client_payload.id }}
                 body: |
