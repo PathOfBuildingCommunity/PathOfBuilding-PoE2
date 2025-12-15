@@ -95,17 +95,15 @@ function TooltipClass:AddSeparator(size)
 
 	if self.tooltipHeader then
 		local rarity = tostring(self.tooltipHeader):upper()
-		-- spell-checker: disable
 		local separatorConfigs = {
-			RELIC = "Assets/itemsseparatorfoil.png",
-			UNIQUE = "Assets/itemsseparatorunique.png",
-			RARE = "Assets/itemsseparatorrare.png",
-			MAGIC = "Assets/itemsseparatormagic.png",
-			NORMAL = "Assets/itemsseparatorwhite.png",
-			GEM = "Assets/itemsseparatorgem.png",
+			RELIC = "Assets/ItemsSeparatorFoil.png",
+			UNIQUE = "Assets/ItemsSeparatorUnique.png",
+			RARE = "Assets/ItemsSeparatorRare.png",
+			MAGIC = "Assets/ItemsSeparatorMagic.png",
+			NORMAL = "Assets/ItemsSeparatorWhite.png",
+			GEM = "Assets/ItemsSeparatorGem.png",
 		}
-		-- spell-checker: enable
-		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
+		local separatorPath = separatorConfigs[rarity]:lower() or separatorConfigs.NORMAL:lower()
 
 		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
 			self.separatorImage = NewImageHandle()
@@ -365,14 +363,14 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		if not self.headerLeft or self.headerLeftPath ~= config.left then
 			self.headerLeft = NewImageHandle()
-			self.headerLeft:Load(config.left)
-			self.headerLeftPath = config.left
+			self.headerLeft:Load(config.left:lower())
+			self.headerLeftPath = config.left:lower()
 			self.headerMiddle = NewImageHandle()
-			self.headerMiddle:Load(config.middle)
-			self.headerMiddlePath = config.middle
+			self.headerMiddle:Load(config.middle:lower())
+			self.headerMiddlePath = config.middle:lower()
 			self.headerRight = NewImageHandle()
-			self.headerRight:Load(config.right)
-			self.headerRightPath = config.right
+			self.headerRight:Load(config.right:lower())
+			self.headerRightPath = config.right:lower()
 		end
 
 		local headerHeight = config.height
@@ -385,9 +383,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		local headerMiddleAreaWidth = m_max(0, headerTotalWidth - 2 * headerSideWidth)
 		if self.influenceHeader1 then
 			self.influenceIcon1 = NewImageHandle()
-			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1])
+			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1]:lower())
 			self.influenceIcon2 = NewImageHandle()
-			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
+			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2]:lower())
 		end
 
 		if main.showFlavourText then
