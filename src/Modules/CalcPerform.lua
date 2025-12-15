@@ -434,17 +434,28 @@ local function determineCursePriority(curseName, activeSkill)
 	return basePriority + socketPriority + slotPriority + sourcePriority
 end
 
+local function applyEnemyModifiers(actor, clearCache)
+	if clearCache or not actor.appliedEnemyModifiers then
+		actor.appliedEnemyModifiers = { }
+	end
+	local cache = actor.appliedEnemyModifiers
+	local enemyDB = actor.enemy.modDB
+	for _, value in ipairs(actor.modDB:Tabulate(nil, nil, "EnemyModifier")) do
+		local mod = value.value and value.value.mod
+		if mod and not cache[mod] then
+			local source = mod.source or value.mod.source
+			enemyDB:AddMod(modLib.setSource(mod, source))
+			cache[mod] = true
+		end
+	end
+end
+
 -- Process enemy modifiers and other buffs
 local function doActorMisc(env, actor)
 	local modDB = actor.modDB
 	local enemyDB = actor.enemy.modDB
 	local output = actor.output
 	local condList = modDB.conditions
-
-	-- Process enemy modifiers
-	for _, value in ipairs(modDB:Tabulate(nil, nil, "EnemyModifier")) do
-		enemyDB:AddMod(modLib.setSource(value.value.mod, value.value.mod.source or value.mod.source))
-	end
 
 	-- Add misc buffs/debuffs
 	if env.mode_combat then
@@ -682,6 +693,9 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("Multiplier:SoulEater", "BASE", 1, "Base", { type = "Multiplier", var = "SoulEaterStack", limit = max })
 		end
 	end
+	
+	-- Process enemy modifiers
+	applyEnemyModifiers(actor)
 end
 
 -- Process charges
@@ -1022,6 +1036,12 @@ function calcs.perform(env, skipEHP)
 	end
 	output.WarcryPower = modDB:Override(nil, "WarcryPower") or modDB:Sum("BASE", nil, "WarcryPower") or 0
 	modDB.multipliers["WarcryPower"] = output.WarcryPower
+	
+	applyEnemyModifiers(env.player, true)
+	if env.minion then
+		applyEnemyModifiers(env.minion, true)
+	end
+	applyEnemyModifiers(env.enemy, true)
 	
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionType, ammoType, grenadeType = { }, { }, { }
