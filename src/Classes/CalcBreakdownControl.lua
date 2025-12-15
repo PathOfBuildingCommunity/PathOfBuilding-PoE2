@@ -202,6 +202,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 				{ label = "Converted Damage", key = "convSrc" },
 				{ label = "Total", key = "total" },
 				{ label = "Conversion", key = "convDst" },
+				{ label = "Gain", key = "gainDst" },
 			}
 		}
 		t_insert(self.sectionList, section)
