@@ -220,4 +220,40 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
 	end)
+	
+	t("Heralds apply exposure with Heraldry", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Arc 20/0 Default  1\nHerald of Thunder 20/0 Default  1\n")
+		runCallback("OnFrame")
+
+		assert.are.equals(0.5, build.calcsTab.calcsOutput.LightningEffMult)
+
+		build.configTab.input.customMods = [[
+		Nearby Enemies have Lightning Exposure while you are affected by Herald of Thunder
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(0.6, build.calcsTab.calcsOutput.LightningEffMult)
+	end)
+
+	it("Enemy self curse effect", function()
+		build.skillsTab:PasteSocketGroup("Arc 20/0 Default  1\nConductivity 22/0 Default  1\n")
+		runCallback("OnFrame")
+
+		assert.are.equals(0.8, build.calcsTab.calcsOutput.LightningEffMult)
+
+		build.configTab.input.customMods = [[
+		Nearby Enemies have 20% increased Effect of Curses on them
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(0.68, build.calcsTab.calcsOutput.LightningEffMult)
+	end)
 end)
