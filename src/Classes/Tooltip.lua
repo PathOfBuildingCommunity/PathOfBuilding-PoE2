@@ -110,7 +110,7 @@ function TooltipClass:AddSeparator(size)
 
 		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
 			self.separatorImage = NewImageHandle()
-			self.separatorImage:Load(separatorPath)
+			self.separatorImage:Load(separatorPath:lower())
 			self.separatorImagePath = separatorPath
 		end
 
@@ -366,13 +366,13 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		if not self.headerLeft or self.headerLeftPath ~= config.left then
 			self.headerLeft = NewImageHandle()
-			self.headerLeft:Load(config.left)
+			self.headerLeft:Load(config.left:lower())
 			self.headerLeftPath = config.left
 			self.headerMiddle = NewImageHandle()
-			self.headerMiddle:Load(config.middle)
+			self.headerMiddle:Load(config.middle:lower())
 			self.headerMiddlePath = config.middle
 			self.headerRight = NewImageHandle()
-			self.headerRight:Load(config.right)
+			self.headerRight:Load(config.right:lower())
 			self.headerRightPath = config.right
 		end
 
@@ -386,9 +386,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		local headerMiddleAreaWidth = m_max(0, headerTotalWidth - 2 * headerSideWidth)
 		if self.influenceHeader1 then
 			self.influenceIcon1 = NewImageHandle()
-			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1])
+			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1]:lower())
 			self.influenceIcon2 = NewImageHandle()
-			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
+			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2]:lower())
 		end
 
 		if main.showFlavourText then
