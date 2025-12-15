@@ -1428,18 +1428,6 @@
 	<File name="TreeData/0_4/mastery-active-effect_776_768_BC7.dds.zst" part="tree" sha1="cca1c8552ef169b48b6628a36b3a371e00737901" />
 	<File name="TreeData/0_4/monster-categories_36_36_BC7.dds.zst" part="tree" sha1="417862abcd4de92d6ae1608def491cbd715f5e85" />
 	<File name="TreeData/0_4/oils_108_108_RGBA.dds.zst" part="tree" sha1="d2abe6c4a01d28b531dba9f054c4f336b7c65687" />
-	<File name="TreeData/0_4/script_lines_extract_AbyssLichAscendancy_orbit_intermediate.scm" part="tree" sha1="45cb8c553838f6f40dcbd4e13685209e308c640d" />
-	<File name="TreeData/0_4/script_lines_extract_AbyssLichAscendancy_orbit_intermediateactive.scm" part="tree" sha1="57bc46f3faf4305f827d3edeae38a8fa4ed62330" />
-	<File name="TreeData/0_4/script_lines_extract_AbyssLichAscendancy_orbit_normal.scm" part="tree" sha1="746c22f54f5a25cb48567cfbad4079d3032d2de6" />
-	<File name="TreeData/0_4/script_lines_extract_Character_orbit_intermediate.scm" part="tree" sha1="7e43f38355ced34666da86a8a43bf99ab1f2084b" />
-	<File name="TreeData/0_4/script_lines_extract_Character_orbit_intermediateactive.scm" part="tree" sha1="885c4760d7ca148e54e20b41df90ac2d43d43267" />
-	<File name="TreeData/0_4/script_lines_extract_Character_orbit_normal.scm" part="tree" sha1="726894205421ddcfbc687d8557b8ac6a21fd7162" />
-	<File name="TreeData/0_4/script_lines_extract_CharacterAscendancy_orbit_intermediate.scm" part="tree" sha1="c647891cadaa7d7c2e9ab6ce6ea2d761bf382281" />
-	<File name="TreeData/0_4/script_lines_extract_CharacterAscendancy_orbit_intermediateactive.scm" part="tree" sha1="d9621b6cf1a7a77a5566f6b30a0197e8a0f4c478" />
-	<File name="TreeData/0_4/script_lines_extract_CharacterAscendancy_orbit_normal.scm" part="tree" sha1="254bcddcdc82a0e0e60b1f0408959c9bb821f147" />
-	<File name="TreeData/0_4/script_lines_extract_CharacterPlanned_orbit_intermediate.scm" part="tree" sha1="7b0125f418a7bb824964005e9ad36db4bfffaad7" />
-	<File name="TreeData/0_4/script_lines_extract_CharacterPlanned_orbit_intermediateactive.scm" part="tree" sha1="a0c7edc181750783decf0439c80968b66db1dc28" />
-	<File name="TreeData/0_4/script_lines_extract_CharacterPlanned_orbit_normal.scm" part="tree" sha1="05e303fbfe1e0ca1623e40794692ffb838109be7" />
 	<File name="TreeData/0_4/skills-disabled_64_64_BC1.dds.zst" part="tree" sha1="9ecffd3ba89b9a42adb3a7701afbc7275c6415ce" />
 	<File name="TreeData/0_4/skills-disabled_128_128_BC1.dds.zst" part="tree" sha1="74b43a72148aad25cb0acb36386483d424f449b4" />
 	<File name="TreeData/0_4/skills-disabled_172_172_BC1.dds.zst" part="tree" sha1="5251feaaaae895998f21b69e16c4772037485763" />
