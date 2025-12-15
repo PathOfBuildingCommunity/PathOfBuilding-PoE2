@@ -1,0 +1,10 @@
+diff a/src/Modules/ModParser.lua b/src/Modules/ModParser.lua	(rejected hunks)
+@@ -454,7 +454,7 @@ local modNameList = {
+ 	["rage effect"] = "RageEffect",
+ 	["maximum fortification"] = "MaximumFortification",
+ 	["fortification"] = "MinimumFortification",
+-	["fortification duration"] = "FortificationDuration",
++	["fortification duration"] = "FortifyDuration",
+ 	["maximum valour"] = "MaximumValour",
+ 	-- Charges
+ 	["maximum power charge"] = "PowerChargesMax",
