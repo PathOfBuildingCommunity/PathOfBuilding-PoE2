@@ -1021,6 +1021,12 @@ function calcs.perform(env, skipEHP)
 	output.WarcryPower = modDB:Override(nil, "WarcryPower") or modDB:Sum("BASE", nil, "WarcryPower") or 0
 	modDB.multipliers["WarcryPower"] = output.WarcryPower
 	
+	applyEnemyModifiers(env.player)
+	if env.minion then
+		applyEnemyModifiers(env.minion)
+	end
+	applyEnemyModifiers(env.enemy)
+	
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionType, ammoType, grenadeType = { }, { }, { }
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
