@@ -2986,7 +2986,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Exerted Attack members
 		local exertedDoubleDamage = env.modDB:Sum("BASE", cfg, "ExertDoubleDamageChance")
-		local exertingWarcryCount = env.modDB:Sum("BASE", nil, "ExertingWarcryCount")
+		local exertingWarcryCount = env.modDB:Sum("BASE", nil, "Multiplier:ExertingWarcryCount")
 		globalOutput.OffensiveWarcryEffect = 1
 		globalOutput.MaxOffensiveWarcryEffect = 1
 		globalOutput.TheoreticalOffensiveWarcryEffect = 1
