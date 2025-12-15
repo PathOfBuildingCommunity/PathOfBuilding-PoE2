@@ -139,6 +139,10 @@ function main:Init()
 	self.tree = { }
 	self:LoadTree(latestTreeVersion)
 
+	if self.userPath then
+		self:ChangeUserPath(self.userPath, ignoreBuild)
+	end
+
 	self.uniqueDB = { list = { }, loading = true }
 	self.rareDB = { list = { }, loading = true }
 
