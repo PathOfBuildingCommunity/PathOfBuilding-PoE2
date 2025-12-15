@@ -1200,6 +1200,20 @@ Huge sets the radius to 11.
 	{ var = "multiplierStunnedRecently", type = "count", label = "# of times Stunned Recently:", ifOption = "conditionStunnedRecently", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:StunnedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "StunnedRecently" } )
 	end },
+
+	{ var = "FireAdaptationCount", type = "countAllowZero", label = "# of fire adaptation:", ifFlag = "ElementalAdaptation", tooltip = "You can only have 3 Adaptations in total", apply = function(val, modList, enemyModList)
+		modList:NewMod("FireDamageTaken", "MORE", -val*10, "Config", { type = "Condition", var = "ElementalAdaptation"})
+		modList:NewMod("FireDamageTaken", "MORE", -val*10, "Config", { type = "Condition", var = "DoubleElementalAdaptation"})
+	end },
+	{ var = "ColdAdaptationCount", type = "countAllowZero", label = "# of cold adaptation:", ifFlag = "ElementalAdaptation", tooltip = "You can only have 3 Adaptations in total", apply = function(val, modList, enemyModList)
+		modList:NewMod("ColdDamageTaken", "MORE", -val*10, "Config", { type = "Condition", var = "ElementalAdaptation"})
+		modList:NewMod("ColdDamageTaken", "MORE", -val*10, "Config", { type = "Condition", var = "DoubleElementalAdaptation"})
+	end },
+	{ var = "LightningAdaptationCount", type = "countAllowZero", label = "# of lightning adaptation:", ifFlag = "ElementalAdaptation", tooltip = "You can only have 3 Adaptations in total", apply = function(val, modList, enemyModList)
+		modList:NewMod("LightningDamageTaken", "MORE", -val*10, "Config",  { type = "Condition", var = "ElementalAdaptation"})
+		modList:NewMod("LightningDamageTaken", "MORE", -val*10, "Config", { type = "Condition", var = "DoubleElementalAdaptation"})
+	end },
+
 	{ var = "conditionBeenHitRecently", type = "check", label = "Have you been Hit Recently?", ifCond = "BeenHitRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BeenHitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
