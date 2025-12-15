@@ -12,6 +12,22 @@ if not loadStatFile then
 end
 loadStatFile("passive_skill_stat_descriptions.csd")
 
+local function sorted_pairs(t)
+	local keys = {}
+	for k in pairs(t) do
+		keys[#keys + 1] = k
+	end
+	table.sort(keys) -- filenames → string sort is correct
+	local i = 0
+	return function()
+		i = i + 1
+		local k = keys[i]
+		if k then
+			return k, t[k]
+		end
+	end
+end
+
 local function CalcOrbitAngles(nodesInOrbit)
 	local orbitAngles = {}
 
@@ -170,12 +186,12 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	end
 
 
-	for iden, stackInfo in pairs(stackTextures) do
+	for iden, stackInfo in sorted_pairs(stackTextures) do
 		local stacks = {}
 		local file = sheet.name .. "_" .. iden .. ".dds.zst"
 		ddsCoords[file] = {}
 		for position, stack in ipairs(stackInfo) do
-			for _, metadata in pairs(stack.sections) do
+			for _, metadata in sorted_pairs(stack.sections) do
 				for _, meta in ipairs(metadata) do
 					local icon = meta.alias or stack.icon
 					ddsCoords[file][icon] = position
@@ -1344,7 +1360,7 @@ for i, sheet in ipairs(sheets) do
 	printf("Calculating sprite dimensions for " .. sheet.name)
 	calculateDDSPack(sheet, main.ggpk.oozPath, basePath .. version .. "/", use4kIfPossible)
 
-	for file, fileInfo in pairs(sheet.ddsCoords) do
+	for file, fileInfo in sorted_pairs(sheet.ddsCoords) do
 		tree.ddsCoords[file] = fileInfo
 	end
 end
@@ -1356,7 +1372,7 @@ local typeOfConnections = {
 	"Normal", "Intermediate", "IntermediateActive"
 }
 
-for connectionArtId, _ in pairs(connectionArtToDecompose) do
+for connectionArtId, _ in sorted_pairs(connectionArtToDecompose) do
 	local connectionArt = dat("PassiveSkillTreeConnectionArt"):GetRow("Id", connectionArtId)
 	if connectionArt == nil then
 		printf("Connection art " .. connectionArtId .. " not found")
