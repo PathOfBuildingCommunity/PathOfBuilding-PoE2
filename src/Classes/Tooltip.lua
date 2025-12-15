@@ -103,11 +103,11 @@ function TooltipClass:AddSeparator(size)
 			NORMAL = "Assets/ItemsSeparatorWhite.png",
 			GEM = "Assets/ItemsSeparatorGem.png",
 		}
-		local separatorPath = separatorConfigs[rarity]:lower() or separatorConfigs.NORMAL:lower()
+		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
 
 		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
 			self.separatorImage = NewImageHandle()
-			self.separatorImage:Load(separatorPath)
+			self.separatorImage:Load(separatorPath:lower())
 			self.separatorImagePath = separatorPath
 		end
 
@@ -364,13 +364,13 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		if not self.headerLeft or self.headerLeftPath ~= config.left then
 			self.headerLeft = NewImageHandle()
 			self.headerLeft:Load(config.left:lower())
-			self.headerLeftPath = config.left:lower()
+			self.headerLeftPath = config.left
 			self.headerMiddle = NewImageHandle()
 			self.headerMiddle:Load(config.middle:lower())
-			self.headerMiddlePath = config.middle:lower()
+			self.headerMiddlePath = config.middle
 			self.headerRight = NewImageHandle()
 			self.headerRight:Load(config.right:lower())
-			self.headerRightPath = config.right:lower()
+			self.headerRightPath = config.right
 		end
 
 		local headerHeight = config.height
