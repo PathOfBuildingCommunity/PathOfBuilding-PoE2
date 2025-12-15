@@ -906,7 +906,11 @@ function calcs.perform(env, skipEHP)
 		env.minion.output = output.Minion
 		env.minion.modDB.multipliers["Level"] = env.minion.level
 		calcs.initModDB(env, env.minion.modDB)
-		env.minion.modDB:NewMod("Life", "BASE", m_floor(env.minion.lifeTable[env.minion.level] * env.minion.minionData.life), "Base")
+		local baseLife = env.minion.lifeTable[env.minion.level] * env.minion.minionData.life
+		if env.minion.hostile then
+			baseLife = baseLife * (env.data.mapLevelLifeMult[env.enemyLevel] or 1)
+		end
+		env.minion.modDB:NewMod("Life", "BASE", m_floor(baseLife), "Base")
 		if env.minion.minionData.energyShield then
 			env.minion.modDB:NewMod("LifeConvertToEnergyShield", "BASE", env.minion.minionData.energyShield * 100, "Base")
 		end
@@ -1491,14 +1495,24 @@ function calcs.perform(env, skipEHP)
 	-- Calculate attributes
 	doActorAttribsConditions(env, env.player)
 	if env.minion then
-		for _, value in ipairs(env.player.mainSkill.skillModList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
-			if not value.type or env.minion.type == value.type then
-				env.minion.modDB:AddMod(value.mod)
+		if env.minion.hostile then
+			for _, value in ipairs(env.modDB:Tabulate(nil, nil, "EnemyModifier")) do
+				local mod = value.value and value.value.mod
+				if mod then
+					local copy = copyTable(mod, true)
+					env.minion.modDB:AddMod(modLib.setSource(copy, mod.source or value.mod.source))
+				end
 			end
-		end
-		for _, name in ipairs(env.minion.modDB:List(nil, "Keystone")) do
-			if env.spec.tree.keystoneMap[name] then
-				env.minion.modDB:AddList(env.spec.tree.keystoneMap[name].modList)
+		else
+			for _, value in ipairs(env.player.mainSkill.skillModList:List(env.player.mainSkill.skillCfg, "MinionModifier")) do
+				if not value.type or env.minion.type == value.type then
+					env.minion.modDB:AddMod(value.mod)
+				end
+			end
+			for _, name in ipairs(env.minion.modDB:List(nil, "Keystone")) do
+				if env.spec.tree.keystoneMap[name] then
+					env.minion.modDB:AddList(env.spec.tree.keystoneMap[name].modList)
+				end
 			end
 		end
 		doActorAttribsConditions(env, env.minion)
@@ -1755,7 +1769,7 @@ function calcs.perform(env, skipEHP)
 							buffs[buff.name].notBuff = true
 						end
 					end
-					if env.minion and (buff.applyMinions or buff.applyAllies or skillModList:Flag(nil, "BuffAppliesToAllies") and not env.minion.modDB:Flag(nil, "HiddenMonster")) then
+					if env.minion and not env.minion.hostile and (buff.applyMinions or buff.applyAllies or skillModList:Flag(nil, "BuffAppliesToAllies") and not env.minion.modDB:Flag(nil, "HiddenMonster")) then
 						activeSkill.minionBuffSkill = true
 						env.minion.modDB.conditions["AffectedBy"..buff.name:gsub(" ","")] = true
 						local srcList = new("ModList")
@@ -1900,7 +1914,7 @@ function calcs.perform(env, skipEHP)
 						end
 					end
 					if not (modDB:Flag(nil, "SelfAurasCannotAffectAllies") or modDB:Flag(nil, "SelfAurasOnlyAffectYou") or modDB:Flag(nil, "SelfAuraSkillsCannotAffectAllies")) then
-						if env.minion and not env.minion.modDB:Flag(nil, "HiddenMonster") then
+						if env.minion and (not env.minion.hostile or modDB:Flag(nil, "AurasAffectEnemies")) and not env.minion.modDB:Flag(nil, "HiddenMonster") then
 							local inc = skillModList:Sum("INC", skillCfg, "AuraEffect", "BuffEffect") + env.minion.modDB:Sum("INC", skillCfg, "BuffEffectOnSelf", "AuraEffectOnSelf")
 							local more = skillModList:More(skillCfg, "AuraEffect", "BuffEffect") * env.minion.modDB:More(skillCfg, "BuffEffectOnSelf", "AuraEffectOnSelf") * calcLib.mod(skillModList, skillCfg, "Magnitude")
 							local mult = (1 + inc / 100) * more
