@@ -6525,22 +6525,36 @@ local jewelOtherFuncs = {
 	["Dexterity from Passives in Radius is Transformed to Intelligence"] = getSimpleConv({ "Dex" }, "Int", "BASE", true),
 	["Intelligence from Passives in Radius is Transformed to Dexterity"] = getSimpleConv({ "Int" }, "Dex", "BASE", true),
 	["Increases and Reductions to Life in Radius are Transformed to apply to Energy Shield"] = getSimpleConv({ "Life" }, "EnergyShield", "INC", true),
-	["Increases and Reductions to Energy Shield in Radius are Transformed to apply to Armour at 200% of their value"] = getSimpleConv({ "EnergyShield" }, "Armour", "INC", true, 2),
-	["Increases and Reductions to Life in Radius are Transformed to apply to Mana at 200% of their value"] = getSimpleConv({ "Life" }, "Mana", "INC", true, 2),
+	["Increases and Reductions to Energy Shield in Radius are Transformed to apply to Armour at (%d+)%% of their value"] = function(num)
+		return getSimpleConv({ "EnergyShield" }, "Armour", "INC", true, num / 100)
+	end,
+	["Increases and Reductions to Life in Radius are Transformed to apply to Mana at (%d+)%% of their value"] = function(num)
+		return getSimpleConv({ "Life" }, "Mana", "INC", true, num / 100)
+	end,
 	["Increases and Reductions to Physical Damage in Radius are Transformed to apply to Cold Damage"] = getSimpleConv({ "PhysicalDamage" }, "ColdDamage", "INC", true),
 	["Increases and Reductions to Cold Damage in Radius are Transformed to apply to Physical Damage"] = getSimpleConv({ "ColdDamage" }, "PhysicalDamage", "INC", true),
 	["Increases and Reductions to other Damage Types in Radius are Transformed to apply to Fire Damage"] = getSimpleConv({ "PhysicalDamage","ColdDamage","LightningDamage","ChaosDamage","ElementalDamage" }, "FireDamage", "INC", true),
-	["Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spells at 35% of its value"] = getSimpleConv({ "LightningResist","ElementalResist" }, "SpellBlockChance", "BASE", false, 0.35),
-	["Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spell Damage at 35% of its value"] = getSimpleConv({ "LightningResist","ElementalResist" }, "SpellBlockChance", "BASE", false, 0.35),
-	["Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spell Damage at 50% of its value"] = getSimpleConv({ "LightningResist","ElementalResist" }, "SpellBlockChance", "BASE", false, 0.5),
-	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Dodge Attacks at 35% of its value"] = getSimpleConv({ "ColdResist","ElementalResist" }, "AttackDodgeChance", "BASE", false, 0.35),
-	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Dodge Attack Hits at 35% of its value"] = getSimpleConv({ "ColdResist","ElementalResist" }, "AttackDodgeChance", "BASE", false, 0.35),
-	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Suppress Spell Damage at 35% of its value"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.35),
-	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Suppress Spell Damage at 50% of its value"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.5),
-	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Suppress Spell Damage at 70% of its value"] = getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, 0.7),
-	["Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block Attack Damage at 35% of its value"] = getSimpleConv({ "FireResist","ElementalResist" }, "BlockChance", "BASE", false, 0.35),
-	["Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block Attack Damage at 50% of its value"] = getSimpleConv({ "FireResist","ElementalResist" }, "BlockChance", "BASE", false, 0.5),
-	["Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block at 35% of its value"] = getSimpleConv({ "FireResist","ElementalResist" }, "BlockChance", "BASE", false, 0.35),
+	["Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spells at (%d+)%% of its value"] = function(num)
+		return getSimpleConv({ "LightningResist","ElementalResist" }, "SpellBlockChance", "BASE", false, num / 100)
+	end,
+	["Passives granting Lightning Resistance or all Elemental Resistances in Radius also grant Chance to Block Spell Damage at (%d+)%% of its value"] = function(num)
+		return getSimpleConv({ "LightningResist","ElementalResist" }, "SpellBlockChance", "BASE", false, num / 100)
+	end,
+	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Dodge Attacks at (%d+)%% of its value"] = function(num)
+		return getSimpleConv({ "ColdResist","ElementalResist" }, "AttackDodgeChance", "BASE", false, num / 100)
+	end,
+	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Dodge Attack Hits at (%d+)%% of its value"] = function(num)
+		return getSimpleConv({ "ColdResist","ElementalResist" }, "AttackDodgeChance", "BASE", false, num / 100)
+	end,
+	["Passives granting Cold Resistance or all Elemental Resistances in Radius also grant Chance to Suppress Spell Damage at (%d+)%% of its value"] = function(num)
+		return getSimpleConv({ "ColdResist","ElementalResist" }, "SpellSuppressionChance", "BASE", false, num / 100)
+	end,
+	["Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block Attack Damage at (%d+)%% of its value"] = function(num)
+		return getSimpleConv({ "FireResist","ElementalResist" }, "BlockChance", "BASE", false, num / 100)
+	end,
+	["Passives granting Fire Resistance or all Elemental Resistances in Radius also grant Chance to Block at (%d+)%% of its value"] = function(num)
+		return getSimpleConv({ "FireResist","ElementalResist" }, "BlockChance", "BASE", false, num / 100)
+	end,
 	["Melee and Melee Weapon Type modifiers in Radius are Transformed to Bow Modifiers"] = function(node, out, data)
 		if node then
 			local mask1 = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Staff, ModFlag.Sword, ModFlag.Melee)
@@ -6618,19 +6632,11 @@ local jewelOtherFuncs = {
 		end
 	end,
 	--------
-	["50% increased Effect of non-Keystone Passive Skills in Radius"] = function(node, out, data)
-		if node and node.type ~= "Keystone" then
-			out:NewMod("PassiveSkillEffect", "INC", 50, data.modSource)
-		end
-	end,
-	["75% increased Effect of non-Keystone Passive Skills in Radius"] = function(node, out, data)
-		if node and node.type ~= "Keystone" and node.type ~= "ClassStart" then
-			out:NewMod("PassiveSkillEffect", "INC", 75, data.modSource)
-		end
-	end,
-	["100% increased Effect of non-Keystone Passive Skills in Radius"] = function(node, out, data)
-		if node and node.type ~= "Keystone" and node.type ~= "ClassStart" then
-			out:NewMod("PassiveSkillEffect", "INC", 100, data.modSource)
+	["(%d+)%% increased Effect of non%-Keystone Passive Skills in Radius"] = function(num)
+		return function(node, out, data)
+			if node and node.type ~= "Keystone" and node.type ~= "ClassStart" then
+				out:NewMod("PassiveSkillEffect", "INC", tonumber(num), data.modSource)
+			end
 		end
 	end,
 	["Notable Passive Skills in Radius grant nothing"] = function(node, out, data)
@@ -6643,23 +6649,29 @@ local jewelOtherFuncs = {
 			out:NewMod("AllocatedPassiveSkillHasNoEffect", "FLAG", true, data.modSource)
 		end
 	end,
-	["Notable Passive Skills in Radius are Transformed to instead grant: 10% increased Mana Cost of Skills and 20% increased Spell Damage"] = function(node, out, data)
-		if node and node.type == "Notable" then
-			out:NewMod("PassiveSkillHasOtherEffect", "FLAG", true, data.modSource)
-			out:NewMod("NodeModifier", "LIST", { mod = mod("ManaCost", "INC", 10, data.modSource) }, data.modSource)
-			out:NewMod("NodeModifier", "LIST", { mod = mod("Damage", "INC", 20, data.modSource, ModFlag.Spell) }, data.modSource)
+	["Notable Passive Skills in Radius are Transformed to instead grant: (%d+)%% increased Mana Cost of Skills and (%d+)%% increased Spell Damage"] = function(num1, num2)
+		return function(node, out, data)
+			if node and node.type == "Notable" then
+				out:NewMod("PassiveSkillHasOtherEffect", "FLAG", true, data.modSource)
+				out:NewMod("NodeModifier", "LIST", { mod = mod("ManaCost", "INC", tonumber(num1), data.modSource) }, data.modSource)
+				out:NewMod("NodeModifier", "LIST", { mod = mod("Damage", "INC", tonumber(num2), data.modSource, ModFlag.Spell) }, data.modSource)
+			end
 		end
 	end,
-	["Notable Passive Skills in Radius are Transformed to instead grant: Minions take 20% increased Damage"] = function(node, out, data)
-		if node and node.type == "Notable" then
-			out:NewMod("PassiveSkillHasOtherEffect", "FLAG", true, data.modSource)
-			out:NewMod("NodeModifier", "LIST", { mod = mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "INC", 20, data.modSource) }) }, data.modSource)
+	["Notable Passive Skills in Radius are Transformed to instead grant: Minions take (%d+)%% increased Damage"] = function(num)
+		return function(node, out, data)
+			if node and node.type == "Notable" then
+				out:NewMod("PassiveSkillHasOtherEffect", "FLAG", true, data.modSource)
+				out:NewMod("NodeModifier", "LIST", { mod = mod("MinionModifier", "LIST", { mod = mod("DamageTaken", "INC", tonumber(num), data.modSource) }) }, data.modSource)
+			end
 		end
 	end,
-	["Notable Passive Skills in Radius are Transformed to instead grant: Minions have 25% reduced Movement Speed"] = function(node, out, data)
-		if node and node.type == "Notable" then
-			out:NewMod("PassiveSkillHasOtherEffect", "FLAG", true, data.modSource)
-			out:NewMod("NodeModifier", "LIST", { mod = mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", -25, data.modSource) }) }, data.modSource)
+	["Notable Passive Skills in Radius are Transformed to instead grant: Minions have (%d+)%% reduced Movement Speed"] = function(num)
+		return function(node, out, data)
+			if node and node.type == "Notable" then
+				out:NewMod("PassiveSkillHasOtherEffect", "FLAG", true, data.modSource)
+				out:NewMod("NodeModifier", "LIST", { mod = mod("MinionModifier", "LIST", { mod = mod("MovementSpeed", "INC", -tonumber(num), data.modSource) }) }, data.modSource)
+			end
 		end
 	end,
 }
