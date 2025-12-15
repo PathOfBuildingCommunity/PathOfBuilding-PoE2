@@ -113,6 +113,8 @@ function main:Init()
 	self.showFlavourText = true
 	self.showAnimations = true
 	self.errorReadingSettings = false
+	
+	if not SetDPIScaleOverridePercent then SetDPIScaleOverridePercent = function(scale) end end
 
 	if self.userPath then
 		self:ChangeUserPath(self.userPath, ignoreBuild)
