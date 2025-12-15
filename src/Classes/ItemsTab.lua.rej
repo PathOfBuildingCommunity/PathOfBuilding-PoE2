@@ -1,0 +1,14 @@
+diff a/src/Classes/ItemsTab.lua b/src/Classes/ItemsTab.lua	(rejected hunks)
+@@ -1871,8 +1907,11 @@ end
+ function ItemsTabClass:UpdateDisplayItemRangeLines()
+ 	if self.displayItem and self.displayItem.rangeLineList[1] then
+ 		wipeTable(self.controls.displayItemRangeLine.list)
+-		for _, modLine in ipairs(self.displayItem.rangeLineList) do
++		for i, modLine in ipairs(self.displayItem.rangeLineList) do
+ 			t_insert(self.controls.displayItemRangeLine.list, modLine.line)
++			if self.controls["displayItemStackedRangeSlider"..i] then
++				self.controls["displayItemStackedRangeSlider"..i].val = modLine.range
++			end
+ 		end
+ 		self.controls.displayItemRangeLine.selIndex = 1
+ 		self.controls.displayItemRangeSlider.val = self.displayItem.rangeLineList[1].range
