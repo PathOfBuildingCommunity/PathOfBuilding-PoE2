@@ -224,8 +224,7 @@ describe("TetsItemMods", function()
 	it("Heralds apply exposure with Heraldry", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
-			Razor Quarterstaff
-			Quality: 0
+			Heavy Bow
 		]])
 		build.itemsTab:AddDisplayItem()
 		build.skillsTab:PasteSocketGroup("Arc 20/0 Default  1\nHerald of Thunder 20/0 Default  1\n")
