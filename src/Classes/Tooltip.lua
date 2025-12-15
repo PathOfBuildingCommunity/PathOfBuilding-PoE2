@@ -99,18 +99,18 @@ function TooltipClass:AddSeparator(size)
 	if self.tooltipHeader then
 		local rarity = tostring(self.tooltipHeader):upper()
 		local separatorConfigs = {
-			RELIC = "Assets/ItemsSeparatorFoil.png",
-			UNIQUE = "Assets/ItemsSeparatorUnique.png",
-			RARE = "Assets/ItemsSeparatorRare.png",
-			MAGIC = "Assets/ItemsSeparatorMagic.png",
-			NORMAL = "Assets/ItemsSeparatorWhite.png",
-			GEM = "Assets/ItemsSeparatorGem.png",
+			RELIC = "Assets/itemsseparatorfoil.png",
+			UNIQUE = "Assets/itemsseparatorunique.png",
+			RARE = "Assets/itemsseparatorrare.png",
+			MAGIC = "Assets/itemsseparatormagic.png",
+			NORMAL = "Assets/itemsseparatorwhite.png",
+			GEM = "Assets/itemsseparatorgem.png",
 		}
 		local separatorPath = separatorConfigs[rarity] or separatorConfigs.NORMAL
 
 		if not self.separatorImage or self.separatorImagePath ~= separatorPath then
 			self.separatorImage = NewImageHandle()
-			self.separatorImage:Load(separatorPath:lower())
+			self.separatorImage:Load(separatorPath)
 			self.separatorImagePath = separatorPath
 		end
 
@@ -289,24 +289,24 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		end
 	end
 	local headerInfluence = {
-		Fractured = "Assets/FracturedItemSymbol.png",
-		Desecrated = "Assets/VeiledItemSymbol.png",
+		Fractured = "Assets/fractureditemsymbol.png",
+		Desecrated = "Assets/veileditemsymbol.png",
 	}
 	local headerConfigs = {
-		RELIC = {left="Assets/ItemsHeaderFoilLeft.png", middle="Assets/ItemsHeaderFoilMiddle.png", right="Assets/ItemsHeaderFoilRight.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
-		UNIQUE = {left="Assets/ItemsHeaderUniqueLeft.png", middle="Assets/ItemsHeaderUniqueMiddle.png", right="Assets/ItemsHeaderUniqueRight.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
-		RARE = {left="Assets/ItemsHeaderRareLeft.png", middle="Assets/ItemsHeaderRareMiddle.png", right="Assets/ItemsHeaderRareRight.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
-		MAGIC = {left="Assets/ItemsHeaderMagicLeft.png", middle="Assets/ItemsHeaderMagicMiddle.png", right="Assets/ItemsHeaderMagicRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-		NORMAL = {left="Assets/ItemsHeaderWhiteLeft.png", middle="Assets/ItemsHeaderWhiteMiddle.png", right="Assets/ItemsHeaderWhiteRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-		GEM = {left="Assets/ItemsHeaderGemLeft.png", middle="Assets/ItemsHeaderGemMiddle.png", right="Assets/ItemsHeaderGemRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		JEWEL = {left="Assets/JewelPassiveHeaderLeft.png", middle="Assets/JewelPassiveHeaderMiddle.png", right="Assets/JewelPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		NOTABLE = {left="Assets/NotablePassiveHeaderLeft.png", middle="Assets/NotablePassiveHeaderMiddle.png", right="Assets/NotablePassiveHeaderRight.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-		PASSIVE = {left="Assets/NormalPassiveHeaderLeft.png", middle="Assets/NormalPassiveHeaderMiddle.png", right="Assets/NormalPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		KEYSTONE = {left="Assets/KeystonePassiveHeaderLeft.png", middle="Assets/KeystonePassiveHeaderMiddle.png", right="Assets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		ASCENDANCY = {left="Assets/AscendancyPassiveHeaderLeft.png", middle="Assets/AscendancyPassiveHeaderMiddle.png", right="Assets/AscendancyPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		ORACLE_PASSIVE = {left="Assets/OracleNormalPassiveHeaderLeft.png", middle="Assets/OracleNormalPassiveHeaderMiddle.png", right="Assets/OracleNormalPassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		ORACLE_NOTABLE = {left="Assets/OracleNotablePassiveHeaderLeft.png", middle="Assets/OracleNotablePassiveHeaderMiddle.png", right="Assets/OracleNotablePassiveHeaderRight.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-		ORACLE_KEYSTONE = {left="Assets/OracleKeystonePassiveHeaderLeft.png", middle="Assets/OracleKeystonePassiveHeaderMiddle.png", right="OracleAssets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		MAGIC = {left="Assets/itemsheadermagicleft.png", middle="Assets/itemsheadermagicmiddle.png", right="Assets/itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+		NORMAL = {left="Assets/itemsheaderwhiteleft.png", middle="Assets/itemsheaderwhitemiddle.png", right="Assets/itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+		GEM = {left="Assets/itemsheadergemleft.png", middle="Assets/itemsheadergemmiddle.png", right="Assets/itemsheadergemright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		JEWEL = {left="Assets/jewelpassiveheaderleft.png", middle="Assets/jewelpassiveheadermiddle.png", right="Assets/jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		NOTABLE = {left="Assets/notablepassiveheaderleft.png", middle="Assets/notablepassiveheadermiddle.png", right="Assets/notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+		PASSIVE = {left="Assets/normalpassiveheaderleft.png", middle="Assets/normalpassiveheadermiddle.png", right="Assets/normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		KEYSTONE = {left="Assets/keystonepassiveheaderleft.png", middle="Assets/keystonepassiveheadermiddle.png", right="Assets/keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		ASCENDANCY = {left="Assets/ascendancypassiveheaderleft.png", middle="Assets/ascendancypassiveheadermiddle.png", right="Assets/ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		ORACLE_PASSIVE = {left="Assets/oraclenormalpassiveheaderleft.png", middle="Assets/oraclenormalpassiveheadermiddle.png", right="Assets/oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		ORACLE_NOTABLE = {left="Assets/oraclenotablepassiveheaderleft.png", middle="Assets/oraclenotablepassiveheadermiddle.png", right="Assets/oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+		ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="OracleAssets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 	}
 	local config
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
@@ -366,13 +366,13 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 
 		if not self.headerLeft or self.headerLeftPath ~= config.left then
 			self.headerLeft = NewImageHandle()
-			self.headerLeft:Load(config.left:lower())
+			self.headerLeft:Load(config.left)
 			self.headerLeftPath = config.left
 			self.headerMiddle = NewImageHandle()
-			self.headerMiddle:Load(config.middle:lower())
+			self.headerMiddle:Load(config.middle)
 			self.headerMiddlePath = config.middle
 			self.headerRight = NewImageHandle()
-			self.headerRight:Load(config.right:lower())
+			self.headerRight:Load(config.right)
 			self.headerRightPath = config.right
 		end
 
@@ -386,9 +386,9 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		local headerMiddleAreaWidth = m_max(0, headerTotalWidth - 2 * headerSideWidth)
 		if self.influenceHeader1 then
 			self.influenceIcon1 = NewImageHandle()
-			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1]:lower())
+			self.influenceIcon1:Load(headerInfluence[self.influenceHeader1])
 			self.influenceIcon2 = NewImageHandle()
-			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2]:lower())
+			self.influenceIcon2:Load(headerInfluence[self.influenceHeader2])
 		end
 
 		if main.showFlavourText then
