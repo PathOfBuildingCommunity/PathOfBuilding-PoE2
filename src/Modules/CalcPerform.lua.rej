@@ -1,0 +1,14 @@
+diff a/src/Modules/CalcPerform.lua b/src/Modules/CalcPerform.lua	(rejected hunks)
+@@ -1168,6 +1170,12 @@ function calcs.perform(env, skipEHP)
+ 	output.WarcryPower = modDB:Override(nil, "WarcryPower") or modDB:Sum("BASE", nil, "WarcryPower") or 0
+ 	modDB.multipliers["WarcryPower"] = output.WarcryPower
+ 
++	applyEnemyModifiers(env.player)
++	if env.minion then
++		applyEnemyModifiers(env.minion)
++	end
++	applyEnemyModifiers(env.enemy)
++
+ 	for _, activeSkill in ipairs(env.player.activeSkillList) do
+ 		if activeSkill.skillTypes[SkillType.Brand] then
+ 			local attachLimit = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "BrandsAttachedLimit")
