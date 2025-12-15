@@ -1203,6 +1203,9 @@ Huge sets the radius to 11.
 	{ var = "conditionShapeshiftToAnimal", type = "check", label = "Shapeshifted to animal recently?", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ShapeshiftToAnimal", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionShapeshiftToHuman", type = "check", label = "Shapeshifted to human recently?", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ShapeshiftToHuman", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionBeenHitRecently", type = "check", label = "Have you been Hit Recently?", ifCond = "BeenHitRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BeenHitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

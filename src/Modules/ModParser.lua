@@ -1720,6 +1720,7 @@ local modTagList = {
 		{ type = "StatThreshold", stat = "EvasionOnBoots", threshold = 1} } },
 	-- Player status conditions
 	["if you have shapeshifted to an animal form recently"] = { tag = { type = "Condition", var = "ShapeshiftToAnimal"} },
+	["if you have shapeshifted to human form recently"] = { tag = { type = "Condition", var = "ShapeshiftToHuman"} },
 	["if used while y?o?u?%s?a?r?e?%s?on low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["wh[ie][ln]e? y?o?u?%s?a?r?e?%s?on low life"] = { tag = { type = "Condition", var = "LowLife" } },
 	["on reaching low life"] = { tag = { type = "Condition", var = "LowLife" } },

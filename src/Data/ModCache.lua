@@ -1337,7 +1337,7 @@ c["12% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Dama
 c["12% increased Reservation Efficiency of Minion Skills"]={{[1]={[1]={skillType=6,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=12}},nil}
 c["12% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage for each different Non-Instant Attack you've used in the past 8 seconds"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},"   for each different Non-Instant Attack you've used in the past 8 seconds "}
-c["12% increased Spell Damage if you have Shapeshifted to Human form Recently"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},"   if you have Shapeshifted to Human form Recently "}
+c["12% increased Spell Damage if you have Shapeshifted to Human form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToHuman"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage if you have consumed an Elemental Infusion Recently"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},"   if you have consumed an Elemental Infusion Recently "}
 c["12% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
