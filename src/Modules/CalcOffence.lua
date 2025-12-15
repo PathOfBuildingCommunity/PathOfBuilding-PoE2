@@ -4632,6 +4632,7 @@ function calcs.offence(env, actor, activeSkill)
 				skillName = skillCfg.skillName,
 				skillPart = skillCfg.skillPart,
 				skillTypes = skillCfg.skillTypes,
+				summonSkillName = skillCfg.summonSkillName,
 				slotName = skillCfg.slotName,
 				flags = bor(ModFlag.Dot, ModFlag.Ailment, band(cfg.flags, ModFlag.WeaponMask), band(cfg.flags, ModFlag.Melee) ~= 0 and ModFlag.MeleeHit or 0),
 				keywordFlags = bor(band(cfg.keywordFlags, bnot(KeywordFlag.Hit)), KeywordFlag[ailment], KeywordFlag.Ailment, KeywordFlag[ailmentDamageType .. "Dot"]),
