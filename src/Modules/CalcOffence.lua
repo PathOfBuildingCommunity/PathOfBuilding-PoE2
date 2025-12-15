@@ -2451,6 +2451,7 @@ function calcs.offence(env, actor, activeSkill)
 			local exceedsHitChance = skillModList:Flag(nil,"Condition:HitChanceCanExceed100") and calcs.hitChance(enemyEvasion, (m_floor(accuracyVsEnemyBase * accuracyPenalties["accuracyPenalty" .. distances[1] .. "m"])) * hitChanceMod) -- Check for flag and at least 100% hit chance at minimum distance
 			output.AccuracyHitChanceUncapped = exceedsHitChance and m_max(calcs.hitChance(enemyEvasion, accuracyVsEnemy, true) * calcLib.mod(skillModList, cfg, "HitChance"), output.AccuracyHitChance) -- keep higher chance in case of "CannotBeEvaded"
 			local handCondition = (pass.label == "Off Hand") and "OffHandAttack" or "MainHandAttack"
+			output.AccuracyNeeded = m_floor(enemyEvasion * 1.2 / accuracyPenalty - output.Accuracy)
 			if exceedsHitChance and output.AccuracyHitChanceUncapped - 100 > 0 then
 				skillModList:NewMod("Multiplier:ExcessHitChance", "BASE", round(output.AccuracyHitChanceUncapped - 100, 2), "HitChanceCanExceed100", { type = "Condition", var = handCondition})
 			end
@@ -2494,6 +2495,7 @@ function calcs.offence(env, actor, activeSkill)
 				end
 			end
 		end
+
 		--enemy block chance
 		output.enemyBlockChance = m_max(m_min((enemyDB:Sum("BASE", cfg, "BlockChance") or 0), 100) - skillModList:Sum("BASE", cfg, "reduceEnemyBlock"), 0)
 		if enemyDB:Flag(nil, "CannotBlockAttacks") and isAttack then
