@@ -241,6 +241,14 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 					self.spec:SetWindowTitleWithBuildClass()
 					self.buildFlag = true
 					self.treeTab.viewer.searchNeedsForceUpdate = true
+				end, "Connect Path", function()
+					if self.spec:ConnectToClass(value.classId) then
+						self.spec:SelectClass(value.classId)
+						self.spec:AddUndoState()
+						self.spec:SetWindowTitleWithBuildClass()
+						self.buildFlag = true
+						self.treeTab.viewer.searchNeedsForceUpdate = true
+					end
 				end)
 			end
 		end
