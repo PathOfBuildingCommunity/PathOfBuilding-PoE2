@@ -140,6 +140,7 @@ return {
 			["base_dex"]=15,
 			["base_int"]=7,
 			["base_str"]=7,
+			integerId=2,
 			name="Ranger"
 		},
 		[2]={
@@ -190,6 +191,7 @@ return {
 			["base_dex"]=7,
 			["base_int"]=7,
 			["base_str"]=15,
+			integerId=6,
 			name="Warrior"
 		},
 		[3]={
@@ -240,6 +242,7 @@ return {
 			["base_dex"]=11,
 			["base_int"]=7,
 			["base_str"]=11,
+			integerId=9,
 			name="Mercenary"
 		},
 		[4]={
@@ -290,6 +293,7 @@ return {
 			["base_dex"]=7,
 			["base_int"]=15,
 			["base_str"]=7,
+			integerId=1,
 			name="Witch"
 		},
 		[5]={
@@ -340,6 +344,7 @@ return {
 			["base_dex"]=7,
 			["base_int"]=15,
 			["base_str"]=7,
+			integerId=7,
 			name="Sorceress"
 		},
 		[6]={
@@ -390,6 +395,7 @@ return {
 			["base_dex"]=11,
 			["base_int"]=11,
 			["base_str"]=7,
+			integerId=10,
 			name="Monk"
 		}
 	},
