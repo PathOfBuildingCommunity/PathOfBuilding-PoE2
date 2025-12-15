@@ -1,4 +1,5 @@
 name: Port changes to PoB1
+run-name: "Port PR #${{ github.event.pull_request.number || inputs.pr_number }} - ${{ github.event.pull_request.title || 'Manual dispatch' }}"
 
 on:
   pull_request_target:

@@ -1,5 +1,5 @@
 name: Update code with code from PoB1
-run-name: "PR #${{ github.event.client_payload.id }} — ${{ github.event.client_payload.title }}"
+run-name: "PR #${{ github.event.client_payload.id }} - ${{ github.event.client_payload.title }}"
 
 on:
     repository_dispatch:
