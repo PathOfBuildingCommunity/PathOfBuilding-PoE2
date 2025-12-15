@@ -351,6 +351,7 @@ return {
 	["# to Maximum Rage per 50 Tribute"] = { { isScalable = true } },
 	["# to Maximum Rage while wielding a Sword"] = { { isScalable = true } },
 	["# to Maximum Rage while wielding an Axe"] = { { isScalable = true } },
+	["Gain # Rage on Melee Hit"] = { { isScalable = true } },
 	["# to Maximum Spirit Charges per Abyss Jewel affecting you"] = { { isScalable = true } },
 	["# to Maximum Virulence"] = { { isScalable = true } },
 	["# to Maximum number of Crab Barriers"] = { { isScalable = true } },

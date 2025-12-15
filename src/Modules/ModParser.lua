@@ -2707,11 +2707,16 @@ local specialModList = {
 	["gain %d+ rage on hit with axes or swords"] = {
 		flag("Condition:CanGainRage"),
 	},
-	["gain %d+ rage on melee hit"] = {
-		flag("Condition:CanGainRage"),
-	},
+	["gain (%d+) rage on melee hit"] = function(num) return {
+			mod("RageOnMeleeHit", "BASE", num),
+			flag("Condition:CanGainRage")
+	}end,
+	["gain (%d+) rage when hit by an enemy"] = function(num) return {
+			mod("RageWhenHit", "BASE", num),
+			flag("Condition:CanGainRage")
+	}end,
 	["gain %d+ rage on melee weapon hit"] = {
-		flag("Condition:CanGainRage"),
+		flag("Condition:CanGainRage")
 	},
 	["gain %d+ rage on ([%D]+)"] = {
 		flag("Condition:CanGainRage"),

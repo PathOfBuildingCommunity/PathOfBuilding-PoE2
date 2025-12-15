@@ -1803,6 +1803,8 @@ return {
 	{ label = "Total", { format = "{0:output:Rage}", }, },
 	{ label = "Rage Effect", { format = "{1:output:RageEffect}", { modName = "RageEffect" }, }, },
 	{ label = "Maximum Rage", { format = "{0:output:MaximumRage}", { modName = "MaximumRage" }, }, },
+	{ label = "Gain on Melee hit", { format = "{0:output:RageOnMeleeHit}", { modName = "RageOnMeleeHit" }, }, },
+	{ label = "Gain when hit", { format = "{0:output:RageWhenHit}", { modName = "RageWhenHit" }, }, },
 	{ label = "Recovery", { format = "{1:output:RageRegenRecovery} ({1:output:RageRegenPercent}%)",
 		{ breakdown = "RageRegenRecovery" },
 		{ label = "Sources", modName = { "RageRegen", "RageRegenPercent", "RageDegen", "RageDegenPercent", "RageRecovery" }, modType = "BASE" },
