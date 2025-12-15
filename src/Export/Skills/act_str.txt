@@ -1154,6 +1154,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill WalkingCalamityPlayer
+#set WalkingCalamityPlayer
+#flags duration
+#mods
+#skillEnd
+
+#skill WalkingCalamityMeteorPlayer
+#set WalkingCalamityMeteorPlayer
+#flags attack area
+#mods
+#set WalkingCalamityMeteorLargePlayer
+#flags attack area duration
+#mods
+#skillEnd
+
 #skill WarBannerPlayer
 #set WarBannerPlayer
 #flags duration

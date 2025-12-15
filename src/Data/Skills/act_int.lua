@@ -11323,6 +11323,7 @@ skills["HeraldOfIcePlayer"] = {
 		["One Handed Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
+		["Talisman"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["Two Handed Sword"] = true,

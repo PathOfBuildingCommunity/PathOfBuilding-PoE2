@@ -102,6 +102,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["10727"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|10727", 
+				["text"] = "Allocates Emboldening Casts", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["10772"] = {
 			["specialCaseData"] = {
 			}, 
@@ -507,6 +516,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["14602"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|14602", 
+				["text"] = "Allocates Specialised Shots", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["14761"] = {
 			["specialCaseData"] = {
 			}, 
@@ -543,6 +561,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["1502"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1502", 
+				["text"] = "Allocates Draiocht Cleansing", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["15030"] = {
 			["specialCaseData"] = {
 			}, 
@@ -558,6 +585,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|15083", 
 				["text"] = "Allocates Power Conduction", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["15114"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|15114", 
+				["text"] = "Allocates Boundless Growth", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -648,6 +684,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|1603", 
 				["text"] = "Allocates Storm Driven", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["16142"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|16142", 
+				["text"] = "Allocates Deep Freeze", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -837,6 +882,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|17664", 
 				["text"] = "Allocates Decisive Retreat", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["17725"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|17725", 
+				["text"] = "Allocates Bonded Precision", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -1407,6 +1461,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["2344"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2344", 
+				["text"] = "Allocates Dimensional Weakspot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["23630"] = {
 			["specialCaseData"] = {
 			}, 
@@ -1677,6 +1740,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["25753"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|25753", 
+				["text"] = "Allocates Blazing Arms", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["25971"] = {
 			["specialCaseData"] = {
 			}, 
@@ -1692,6 +1764,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|26070", 
 				["text"] = "Allocates Bolstering Yell", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["26104"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|26104", 
+				["text"] = "Allocates Spirit of the Wyvern", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -1938,6 +2019,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["28408"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|28408", 
+				["text"] = "Allocates Invigorating Hate", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["2843"] = {
 			["specialCaseData"] = {
 			}, 
@@ -2127,6 +2217,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["30395"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30395", 
+				["text"] = "Allocates Howling Beast", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["30408"] = {
 			["specialCaseData"] = {
 			}, 
@@ -2151,6 +2250,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|30523", 
 				["text"] = "Allocates Dead can Dance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["30546"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|30546", 
+				["text"] = "Allocates Electrified Claw", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -2250,6 +2358,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|31433", 
 				["text"] = "Allocates Catalysis", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["31724"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|31724", 
+				["text"] = "Allocates Iron Slippers", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -2415,6 +2532,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["32858"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|32858", 
+				["text"] = "Allocates Dread Engineer's Concoction", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["32932"] = {
 			["specialCaseData"] = {
 			}, 
@@ -2502,6 +2628,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|3348", 
 				["text"] = "Allocates Spirit of the Wolf", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["33542"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|33542", 
+				["text"] = "Allocates Quick Fingers", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -2847,6 +2982,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["36100"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|36100", 
+				["text"] = "Allocates Molten Claw", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["36333"] = {
 			["specialCaseData"] = {
 			}, 
@@ -3072,6 +3216,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["38329"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|38329", 
+				["text"] = "Allocates Biting Frost", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["38342"] = {
 			["specialCaseData"] = {
 			}, 
@@ -3285,6 +3438,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|39881", 
 				["text"] = "Allocates Staggering Palm", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["39884"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|39884", 
+				["text"] = "Allocates Searing Heat", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -3549,6 +3711,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["42070"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42070", 
+				["text"] = "Allocates Saqawal's Guidance", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["42077"] = {
 			["specialCaseData"] = {
 			}, 
@@ -3627,6 +3798,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|42390", 
 				["text"] = "Allocates Overheating Blow", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["42660"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|42660", 
+				["text"] = "Allocates Commanding Rage", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -3717,6 +3897,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|43139", 
 				["text"] = "Allocates Stormbreaker", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["43250"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|43250", 
+				["text"] = "Allocates Adaptive Skin", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -3936,6 +4125,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["44974"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|44974", 
+				["text"] = "Allocates Hail", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["45013"] = {
 			["specialCaseData"] = {
 			}, 
@@ -4095,6 +4293,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|46124", 
 				["text"] = "Allocates Arcane Remnants", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["46182"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|46182", 
+				["text"] = "Allocates Intense Dose", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -4314,6 +4521,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["47560"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|47560", 
+				["text"] = "Allocates Multi Shot", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["47635"] = {
 			["specialCaseData"] = {
 			}, 
@@ -4431,6 +4647,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["48649"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48649", 
+				["text"] = "Allocates Insulating Hide", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["48658"] = {
 			["specialCaseData"] = {
 			}, 
@@ -4467,6 +4692,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["48925"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|48925", 
+				["text"] = "Allocates Blessing of the Moon", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["48974"] = {
 			["specialCaseData"] = {
 			}, 
@@ -4491,6 +4725,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|49150", 
 				["text"] = "Allocates Precise Invocations", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["49214"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|49214", 
+				["text"] = "Allocates Blood of the Wolf", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -5178,6 +5421,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["54640"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|54640", 
+				["text"] = "Allocates Constricting", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["54805"] = {
 			["specialCaseData"] = {
 			}, 
@@ -5286,12 +5538,30 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["55308"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55308", 
+				["text"] = "Allocates Sling Shots", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["55375"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|55375", 
 				["text"] = "Allocates Licking Wounds", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["55450"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|55450", 
+				["text"] = "Allocates Rallying Form", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -5637,6 +5907,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["57617"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|57617", 
+				["text"] = "Allocates Shifted Strikes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["57785"] = {
 			["specialCaseData"] = {
 			}, 
@@ -5697,6 +5976,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|58183", 
 				["text"] = "Allocates Blood Tearing", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["58198"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|58198", 
+				["text"] = "Allocates Well of Power", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -5796,6 +6084,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|59387", 
 				["text"] = "Allocates Infusion of Power", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["59433"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|59433", 
+				["text"] = "Allocates Thirst for Endurance", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -6492,6 +6789,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["7128"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7128", 
+				["text"] = "Allocates Dangerous Blossom", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["7163"] = {
 			["specialCaseData"] = {
 			}, 
@@ -6561,6 +6867,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|750", 
 				["text"] = "Allocates Tribal Fury", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7542"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|7542", 
+				["text"] = "Allocates Encompassing Domain", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -6831,6 +7146,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|9290", 
 				["text"] = "Allocates Rusted Pins", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9323"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|9323", 
+				["text"] = "Allocates Craving Slaughter", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -20965,7 +21289,7 @@ return {
 			}, 
 		}, 
 		["5979"] = {
-			["Helmet"] = {
+			["Shield"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -23471,7 +23795,7 @@ return {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
-			["Helmet"] = {
+			["Shield"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 

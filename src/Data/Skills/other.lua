@@ -5234,6 +5234,7 @@ skills["ManifestWeaponPlayer"] = {
 		["One Handed Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
+		["Talisman"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["Two Handed Sword"] = true,
@@ -5367,6 +5368,9 @@ skills["BearMaulPlayer"] = {
 	color = 4,
 	description = "Shapeshift into a Bear and rake enemies with your claws, generating Rage on Hit.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Shapeshift] = true, [SkillType.Bear] = true, [SkillType.AttackInPlace] = true, [SkillType.Area] = true, },
+	weaponTypes = {
+		["Talisman"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "gain_x_rage_on_attack_hit", 0.1 },
@@ -6346,6 +6350,9 @@ skills["WyvernRendPlayer"] = {
 	color = 4,
 	description = "Shapeshift into a Wyvern and perform a wide slash with your wingtip claws. Consumes a Power Charge if possible to grant you a Buff that gives you extra Lightning damage. While you have the Buff, Rend covers a much larger area but is slower.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Shapeshift] = true, [SkillType.Wyvern] = true, [SkillType.ConsumesCharges] = true, [SkillType.Duration] = true, },
+	weaponTypes = {
+		["Talisman"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "wyvern_devour_base_all_damage_%_to_gain_as_lightning", 0.5 },
@@ -7022,6 +7029,9 @@ skills["WolfShredPlayer"] = {
 	color = 4,
 	description = "Shapeshift into a Werewolf and lash out with a flurry of claw swipes. The first Attack can dash to faraway enemies and the final Attack Strikes twice. Attacking a Frozen enemy will create Ice Fragments, which are Projectiles that land and explode after a short delay.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.PerformsFinalStrike] = true, },
+	weaponTypes = {
+		["Talisman"] = true,
+	},
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_attack_speed_+%_final", 0.5 },
@@ -8209,6 +8219,7 @@ skills["TemperWeaponPlayer"] = {
 		["One Handed Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
+		["Talisman"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["Two Handed Sword"] = true,
@@ -8345,6 +8356,7 @@ skills["TemperWeaponCombustionPlayer"] = {
 		["One Handed Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
+		["Talisman"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["Two Handed Sword"] = true,
@@ -8932,6 +8944,7 @@ skills["VoidIllusionPlayer"] = {
 		["One Handed Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
+		["Talisman"] = true,
 		["Two Handed Axe"] = true,
 		["Two Handed Mace"] = true,
 		["Two Handed Sword"] = true,

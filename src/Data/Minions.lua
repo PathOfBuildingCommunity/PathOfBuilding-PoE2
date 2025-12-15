@@ -138,7 +138,7 @@ minions["RaisedSkeletonBrute"] = {
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 		-- is_skeleton_minion [is_skeleton_minion = 1]
 		-- melee_conditional_step_distance [melee_conditional_step_distance = 14]
-		-- active_skill_hit_damage_stun_multiplier_+%_final [active_skill_hit_damage_stun_multiplier_+%_final = 50]
+		mod("EnemyHeavyStunBuildup", "MORE", 50, 0, 0), -- active_skill_hit_damage_stun_multiplier_+%_final [active_skill_hit_damage_stun_multiplier_+%_final = 50]
 	},
 }
 
