@@ -624,6 +624,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					activeSkill.triggeredBy = skillEffect
 				end
 			end
+			skillModList:NewMod("Multiplier:SupportCount", "BASE", 1, "Support Count")
 			if level.PvPDamageMultiplier then
 				skillModList:NewMod("PvpDamageMultiplier", "MORE", level.PvPDamageMultiplier, skillEffect.grantedEffect.modSource)
 			end
@@ -733,7 +734,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Hollow Palm Technique added phys for skills that would use Quarterstaff
-	if activeSkill.actor.modDB.conditions.HollowPalm and activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff then
+	if activeSkill.actor.modDB.conditions.HollowPalm and ((activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.Staff) or skillModList:Flag(activeSkill.skillCfg, "UseHollowPalmDamage")) then
 		local gemLevel = activeEffect.level
 		local physMin = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][1]
 		local physMax = data.hollowPalmAddedPhys[gemLevel and gemLevel or 1][2]
@@ -785,10 +786,16 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			local minion = { }
 			activeSkill.minion = minion
 			skillFlags.haveMinion = true
-			minion.parent = env.player
-			minion.enemy = env.enemy
 			minion.type = minionType
 			minion.minionData = env.data.minions[minionType]
+			minion.hostile = minion.minionData and minion.minionData.hostile or false
+			if minion.hostile then
+				minion.parent = env.enemy
+				minion.enemy = env.player
+			else
+				minion.parent = env.player
+				minion.enemy = env.enemy
+			end
 			minion.level = activeSkill.skillData.minionLevelIsEnemyLevel and env.enemyLevel or 
 								activeSkill.skillData.minionLevelIsTriggeredSkillLevel and activeEffect.srcInstance.supportEffect and activeEffect.srcInstance.supportEffect.activeSkillLevel and data.minionLevelTable[activeEffect.srcInstance.supportEffect.activeSkillLevel] or 
 								activeSkill.skillData.minionLevelIsPlayerLevel and (m_min(env.build and env.build.characterLevel or activeSkill.skillData.minionLevel or activeEffect.grantedEffectLevel.levelRequirement, activeSkill.skillData.minionLevelIsPlayerLevel)) or 
@@ -798,8 +805,14 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			minion.itemList = { }
 			minion.uses = activeGrantedEffect.minionUses
 			minion.lifeTable = env.data.monsterAllyLifeTable
+			if minion.minionData.hostile then
+				minion.lifeTable = env.data.monsterLifeTable
+			else
+				minion.lifeTable = env.data.monsterAllyLifeTable
+			end
 			local attackTime = minion.minionData.attackTime
-			local damage = (isSpectre and env.data.monsterDamageTable[minion.level] or env.data.monsterAllyDamageTable[minion.level]) * minion.minionData.damage
+			local damageTable = (isSpectre or minion.minionData.hostile) and env.data.monsterDamageTable or env.data.monsterAllyDamageTable
+			local damage = damageTable[minion.level] * minion.minionData.damage
 			if not minion.minionData.baseDamageIgnoresAttackSpeed then -- minions with this flag do not factor attack time into their base damage
 				 damage = damage * attackTime
 			end

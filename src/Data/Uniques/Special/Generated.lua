@@ -75,10 +75,13 @@ end
 
 do
 	local excludedGems = {
+		"Detonate Minion",
+		"Rhoa Mount",
 	}
 	local gems = { }
 	for _, gemData in pairs(data.gems) do
-		if not gemData.tags.support and not isValueInArray(excludedGems, gemData.name) then
+		if not gemData.tags.support and not isValueInArray(excludedGems, gemData.name) and not gemData.grantedEffect.hidden and not gemData.grantedEffect.fromItem and not gemData.grantedEffect.fromTree then
+			gemData.name = gemData.name:gsub("Spectre: {0}", "Summon Spectre"):gsub("Companion: {0}", "Tamed Companion")
 			table.insert(gems, gemData.name)
 		end
 	end
@@ -209,7 +212,7 @@ do
 	table.insert(heart, "Selected Alt Variant Two: 40")
 	table.insert(heart, "Selected Alt Variant Three: 41")
 	for index, mod in ipairs(heartMods) do
-		table.insert(heart, "{variant:" .. index .. "}" .. mod.mod[1])
+		table.insert(heart, "{variant:" .. index .. "}{desecrated}" .. mod.mod[1])
 	end
 	table.insert(data.uniques.generated, table.concat(heart, "\n"))
 end

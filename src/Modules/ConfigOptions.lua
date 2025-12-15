@@ -84,7 +84,7 @@ local function addQuestModsRewardsConfigOptions(configSettings)
 				end
 			})
 		elseif quest.Options then
-			local listOptions = { { label = "Nothing", val = "None" } }
+			local listOptions = { { label = "^1Nothing^7", val = "None" } }
 			for _, option in ipairs(quest.Options) do
 				table.insert(listOptions, { label = option, val = option })
 			end
@@ -1200,6 +1200,15 @@ Huge sets the radius to 11.
 	{ var = "multiplierStunnedRecently", type = "count", label = "# of times Stunned Recently:", ifOption = "conditionStunnedRecently", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:StunnedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "StunnedRecently" } )
 	end },
+	{ var = "conditionShapeshiftToAnimal", type = "check", label = "Shapeshifted to animal recently?", ifSkillType = { SkillType.Bear, SkillType.Wolf, SkillType.Wyvern }, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ShapeshiftToAnimal", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionShapeshiftToHuman", type = "check", label = "Shapeshifted to human recently?", ifSkillType = SkillType.Shapeshift, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ShapeshiftToHuman", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "conditionInfusionConsumedRecently", type = "check", label = "Infusion consumed recently?", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:InfusionConsumedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionBeenHitRecently", type = "check", label = "Have you been Hit Recently?", ifCond = "BeenHitRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BeenHitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -1871,7 +1880,7 @@ Huge sets the radius to 11.
 	end },
 	-- Section: Enemy Stats
 	{ section = "Enemy Stats", col = 2 },
-	{ var = "enemyLevel", type = "count", label = "Enemy Level:", tooltip = "This overrides the default enemy level used to estimate your hit and ^x33FF77evade ^7chance.\n\nThe default level for normal enemies and standard bosses is 83.\nTheir default level is capped by your character level.\n\nThe default level for pinnacle bosses is 84, and the default level for uber pinnacle bosses is 85.\nTheir default level is not capped by your character level." },
+	{ var = "enemyLevel", type = "count", label = "Enemy Level:", tooltip = "This overrides the default enemy level used to estimate your hit, ^x33FF77evade ^7chance, and damage reduction.\n\nThe maximum level for normal enemies and all bosses is 85.\n\nThe default level of normal enemies and bosses scales with player level unless manually set.\n\nThe default and minimum level for pinnacle bosses and uber pinnacle bosses is 82." },
 	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare or Unique?", ifEnemyCond = "EnemyRareOrUnique", tooltip = "The enemy will automatically be considered to be Unique if they are a Boss,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
@@ -1887,19 +1896,19 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyFireResist']:SetPlaceholder(defaultResist, true)
 			build.configTab.varControls['enemyChaosResist']:SetPlaceholder(defaultResist, true)
 
-			local defaultLevel = 83
-			build.configTab.varControls['enemyLevel']:SetPlaceholder("", true)
+			local defaultLevel = 82
+			build.configTab.varControls['enemyLevel']:SetPlaceholder(build.characterLevel, true)
 			build.configTab:UpdateLevel()
 			if build.configTab.enemyLevel then
 				defaultLevel = build.configTab.enemyLevel
 			end
 
-			local defaultDamage = round(data.monsterDamageTable[defaultLevel] * 1.5)
+			local defaultDamage = round(data.monsterDamageTable[defaultLevel] * 1.5 * data.misc.normalEnemyDPSMult)
 			build.configTab.varControls['enemyPhysicalDamage']:SetPlaceholder(defaultDamage, true)
-			build.configTab.varControls['enemyLightningDamage']:SetPlaceholder("", true)
-			build.configTab.varControls['enemyColdDamage']:SetPlaceholder("", true)
-			build.configTab.varControls['enemyFireDamage']:SetPlaceholder("", true)
-			build.configTab.varControls['enemyChaosDamage']:SetPlaceholder("", true)
+			build.configTab.varControls['enemyLightningDamage']:SetPlaceholder(defaultDamage, true)
+			build.configTab.varControls['enemyColdDamage']:SetPlaceholder(defaultDamage, true)
+			build.configTab.varControls['enemyFireDamage']:SetPlaceholder(defaultDamage, true)
+			build.configTab.varControls['enemyChaosDamage']:SetPlaceholder(round(defaultDamage / 2.5), true)
 
 			local defaultPen = ""
 			build.configTab.varControls['enemyPhysicalOverwhelm']:SetPlaceholder(defaultPen, true)
@@ -1912,7 +1921,13 @@ Huge sets the radius to 11.
 		elseif val == "Boss" then
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique13
+			enemyModList:NewMod("ExposureEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique14
+			enemyModList:NewMod("KnockbackDistanceOnSelf", "MORE", -75, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique12
+			enemyModList:NewMod("SlowEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique11
+			enemyModList:NewMod("MinimumMovementSpeed", "BASE", 20, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique9
+			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique2
+			enemyModList:NewMod("PoiseThreshold", "MORE", 213, "Map Boss", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1922,8 +1937,8 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyFireResist']:SetPlaceholder(defaultEleResist, true)
 			build.configTab.varControls['enemyChaosResist']:SetPlaceholder(0, true)
 
-			local defaultLevel = 83
-			build.configTab.varControls['enemyLevel']:SetPlaceholder("", true)
+			local defaultLevel = 82
+			build.configTab.varControls['enemyLevel']:SetPlaceholder(build.characterLevel, true)
 			build.configTab:UpdateLevel()
 			if build.configTab.enemyLevel then
 				defaultLevel = build.configTab.enemyLevel
@@ -1948,7 +1963,13 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique13
+			enemyModList:NewMod("ExposureEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique14
+			enemyModList:NewMod("KnockbackDistanceOnSelf", "MORE", -75, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique12
+			enemyModList:NewMod("SlowEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique11
+			enemyModList:NewMod("MinimumMovementSpeed", "BASE", 20, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique9
+			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique2
+			enemyModList:NewMod("PoiseThreshold", "MORE", 838, "Xesht", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1982,8 +2003,14 @@ Huge sets the radius to 11.
 			enemyModList:NewMod("Condition:Unique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 			enemyModList:NewMod("Condition:PinnacleBoss", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
-			enemyModList:NewMod("CurseEffectOnSelf", "INC", -50, "Unique", { type = "Condition", var = "Effective" })
+			enemyModList:NewMod("CurseEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique13
+			enemyModList:NewMod("ExposureEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique14
+			enemyModList:NewMod("KnockbackDistanceOnSelf", "MORE", -75, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique12
+			enemyModList:NewMod("SlowEffectOnSelf", "MORE", -50, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique11
+			enemyModList:NewMod("MinimumMovementSpeed", "BASE", 20, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique9
 			enemyModList:NewMod("DamageTaken", "MORE", -70, "Boss")
+			enemyModList:NewMod("PoiseThreshold", "MORE", 500, "Unique", { type = "Condition", var = "Effective" }) -- MonsterUnique2
+			enemyModList:NewMod("PoiseThreshold", "MORE", 838, "Xesht", { type = "Condition", var = "Effective" })
 			modList:NewMod("WarcryPower", "BASE", 20, "Boss")
 			modList:NewMod("Multiplier:EnemyPower", "BASE", 20, "Boss")
 
@@ -1993,7 +2020,7 @@ Huge sets the radius to 11.
 			build.configTab.varControls['enemyFireResist']:SetPlaceholder(defaultEleResist, true)
 			build.configTab.varControls['enemyChaosResist']:SetPlaceholder(0, true)
 
-			local defaultLevel = 85
+			local defaultLevel = 82
 			build.configTab.varControls['enemyLevel']:SetPlaceholder(defaultLevel, true)
 			build.configTab:UpdateLevel()
 			if build.configTab.enemyLevel then

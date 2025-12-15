@@ -25,7 +25,11 @@ UniqueAttackerTakesDamage8
 Hateforge
 Moulded Mitts
 Source: Drops from unique{Trialmaster} in normal{The Trial of Chaos}
-UniqueLocalIncreasedPhysicalDamageReductionRatingPercent4
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent23[50,80]
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent23
+{variant:2}UniqueRageOnAnyHit1
 UniqueGainChargesOnMaximumRage1
 UniqueLoseRageOnMaximumRage1
 ]],[[
@@ -51,12 +55,14 @@ UniqueEnemyKnockbackDirectionReversed1
 Treefingers
 Riveted Mitts
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalIncreasedPhysicalDamageReductionRatingPercent5
 {variant:1}UniqueAddedPhysicalDamage4[3,5][6,8]
-{variant:2}UniqueAddedPhysicalDamage4
-{variant:2}UniqueIncreasedAttackSpeed7
-{variant:2}UniqueStunDamageIncrease2
+{variant:2,3}UniqueAddedPhysicalDamage4
+{variant:2,3}UniqueIncreasedAttackSpeed7
+{variant:3}UniqueStrength47
+{variant:2,3}UniqueStunDamageIncrease2
 UniqueGiantsBlood1
 ]],
 -- Gloves: Evasion
@@ -81,11 +87,14 @@ UniqueFullManaThreshold1
 ]],[[
 Maligaro's Virtuosity
 Fine Bracers
+Variant: Pre 0.4.0
+Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent12
 UniqueCriticalStrikeChance1
 UniqueIncreasedAttackSpeed3
 UniqueDexterity2
-UniqueCriticalStrikeMultiplierOverride1
+{variant:1}UniqueCriticalStrikeMultiplierOverride1
+{variant:2}UniqueCriticalStrikesCannotBeRerolled1
 ]],[[
 Northpaw
 Suede Bracers
@@ -170,7 +179,7 @@ UniqueElementalPenetrationBelowZero1
 Nightscale
 Pauascale Gloves
 League: Dawn of the Hunt
-UniqueLocalIncreasedEnergyShieldPercent26
+UniqueLocalIncreasedEnergyShieldPercent25
 UniqueCriticalStrikeChance14
 UniqueIntelligence29
 UniqueColdResist34
@@ -239,7 +248,7 @@ UniqueStrengthSatisfiesAllWeaponRequirements1
 Valako's Vice
 Plate Gauntlets
 League: Dawn of the Hunt
-UniqueLocalIncreasedArmourAndEvasion23
+UniqueLocalIncreasedArmourAndEvasion6
 UniqueIncreasedAttackSpeed9
 UniqueStrength41
 UniqueDexterity37
@@ -347,9 +356,13 @@ BaseUnarmedCriticalStrikeChanceUnique__2
 Sine Aequo
 Grand Manchettes
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
+Variant: Pre 0.4.0
+Variant: Current
 UniqueIncreasedSkillSpeed1
-UniqueLocalArmourAndEvasionAndEnergyShield3
+{variant:1}UniqueLocalArmourAndEvasionAndEnergyShield3[40,60]
+{variant:2}UniqueLocalArmourAndEvasionAndEnergyShield3
 UniqueImmobiliseThreshold1
-UniqueImmobiliseDamageTaken1
+{variant:1}UniqueImmobiliseDamageTaken1[25,25]
+{variant:2}UniqueImmobiliseDamageTaken1
 ]],
 }

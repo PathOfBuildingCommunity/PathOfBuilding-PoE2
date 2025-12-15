@@ -24,8 +24,8 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("TotemColdResistMax", "BASE", 75, "Base")
 	modDB:NewMod("TotemLightningResistMax", "BASE", 75, "Base")
 	modDB:NewMod("TotemChaosResistMax", "BASE", 75, "Base")
-	modDB:NewMod("BaseBlockChanceMax", "OVERRIDE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
-	modDB:NewMod("BaseSpellBlockChanceMax", "OVERRIDE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
+	modDB:NewMod("BaseBlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
+	modDB:NewMod("BaseSpellBlockChanceMax", "BASE", data.characterConstants["object_inherent_base_maximum_block_%_from_ot"], "Base")
 	modDB:NewMod("SpellDodgeChanceMax", "BASE", 75, "Base")
 	modDB:NewMod("ChargeDuration", "BASE", 15, "Base")
 	modDB:NewMod("PowerChargesMax", "BASE", data.characterConstants["max_power_charges"], "Base")
@@ -61,6 +61,7 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("MovementSpeed", "INC", -30, "Base", { type = "Condition", var = "Maimed" })
 	modDB:NewMod("Evasion", "INC", -15, "Base", { type = "Condition", var = "Maimed" })
 	modDB:NewMod("AilmentThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
+	modDB:NewMod("PoiseThreshold", "BASE", 50, "Base", { type = "PercentStat", stat = "Life", percent = 1 })
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", { type = "Condition", var = "Intimidated"})
 	modDB:NewMod("DamageTaken", "INC", 10, "Base", { type = "Condition", var = "Intimidated", neg = true}, { type = "Condition", var = "Party:Intimidated"})
 	modDB:NewMod("Damage", "INC", -10, "Base", { type = "Condition", var = "Intimidated"})
@@ -70,7 +71,8 @@ function calcs.initModDB(env, modDB)
 	modDB:NewMod("Damage", "MORE", -10, "Base", { type = "Condition", var = "Debilitated"})
 	modDB:NewMod("Condition:Burning", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "Condition", var = "Ignited" })
 	modDB:NewMod("Condition:Poisoned", "FLAG", true, "Base", { type = "IgnoreCond" }, { type = "MultiplierThreshold", var = "PoisonStack", threshold = 1 })
-	modDB:NewMod("ShockBase", "BASE", 20, "Base", { type = "ActorCondition", actor = "enemy", var = "Shocked" })
+	modDB:NewMod("ShockBase", "BASE", data.gameConstants["BaseShockMagnitude"], "Base", { type = "ActorCondition", actor = "enemy", var = "Shocked" })
+	modDB:NewMod("ChillBase", "BASE", 30, "Base", { type = "ActorCondition", actor = "enemy", var = "Chilled" })
 	modDB:NewMod("Blind", "FLAG", true, "Base", { type = "Condition", var = "Blinded" })
 	modDB:NewMod("Chill", "FLAG", true, "Base", { type = "Condition", var = "Chilled" })
 	modDB:NewMod("Freeze", "FLAG", true, "Base", { type = "Condition", var = "Frozen" })
@@ -480,6 +482,7 @@ end
 -- 5. Builds a list of active skills and their supports (calcs.createActiveSkill)
 -- 6. Builds modifier lists for all active skills (calcs.buildActiveSkillModList)
 function calcs.initEnv(build, mode, override, specEnv)
+	ClearMatchKeywordFlagsCache()
 	-- accelerator variables
 	local cachedPlayerDB = specEnv and specEnv.cachedPlayerDB or nil
 	local cachedEnemyDB = specEnv and specEnv.cachedEnemyDB or nil
@@ -602,7 +605,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Spirit", "BASE", 0, "Base")
 		modDB:NewMod("Devotion", "BASE", 0, "Base")
 		modDB:NewMod("Tribute", "BASE", 0, "Base")
-		modDB:NewMod("Evasion", "BASE", data.characterConstants["evasion_rating_per_level"] / 100, "Base", { type = "Multiplier", var = "Level", base = data.characterConstants["base_evasion_rating"] })
+		modDB:NewMod("Evasion", "BASE", data.characterConstants["base_evasion_rating"], "Base")
 		modDB:NewMod("Accuracy", "BASE", data.characterConstants["accuracy_rating_per_level"], "Base", { type = "Multiplier", var = "Level", base = -data.characterConstants["accuracy_rating_per_level"] })
 		modDB:NewMod("CritMultiplier", "BASE", data.characterConstants["base_critical_hit_damage_bonus"], "Base")
 		modDB:NewMod("DotMultiplier", "BASE", 50, "Base", { type = "Condition", var = "CriticalStrike" })
@@ -633,6 +636,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("EnemyMarkLimit", "BASE", 1, "Base")
 		modDB:NewMod("SocketedCursesHexLimitValue", "BASE", 1, "Base")
 		modDB:NewMod("ProjectileCount", "BASE", 1, "Base")
+		modDB:NewMod("PhysicalHeavyStunBuildup", "MORE", data.characterConstants["physical_hit_damage_stun_multiplier_+%_final_from_ot"], "Physical Damage")
+		modDB:NewMod("EnemyHeavyStunBuildup", "MORE", data.characterConstants["melee_hit_damage_stun_multiplier_+%_final_from_ot"], "Melee Damage", ModFlag.Melee)
 		modDB:NewMod("AilmentMagnitude", "MORE", data.monsterConstants["bleeding_moving_damage_%_of_base_override"] - 100, "Base", 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", varList = { "Moving", "BleedAggravated" } }, { type = "Condition", var = "NoExtraBleedDamageToMovingEnemy", neg = true })
 		modDB:NewMod("Condition:BloodStance", "FLAG", true, "Base", { type = "Condition", var = "SandStance", neg = true })
 		modDB:NewMod("Condition:PrideMinEffect", "FLAG", true, "Base", { type = "Condition", var = "PrideMaxEffect", neg = true })
@@ -1139,7 +1144,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					else
 						env.itemModDB.multipliers["NonCorruptedItem"] = (env.itemModDB.multipliers["NonCorruptedItem"] or 0) + 1
 					end
-					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1") or (slotName == "Ring 3" and "Ring 2")]
+					local otherRing = items[(slotName == "Ring 1" and "Ring 2") or (slotName == "Ring 2" and "Ring 1")]
 					if otherRing and not otherRing.name:match("Kalandra's Touch") then
 						for _, mod in ipairs(otherRing.modList or otherRing.slotModList[slot.slotNum] or {}) do
 							-- Filter out SocketedIn type mods
@@ -1738,11 +1743,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 					group.displayLabel = nil
 					for _, gemInstance in ipairs(group.gemList) do
 						local grantedEffect = gemInstance.gemData and gemInstance.gemData.grantedEffect or gemInstance.grantedEffect
+						local gemName = gemInstance.gemData and gemInstance.gemData.name
 						if grantedEffect and not grantedEffect.support and gemInstance.enabled then
 							if grantedEffect.name:match("^Companion:") or grantedEffect.name:match("^Spectre:") then
 								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemInstance.nameSpec
 							else
-								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. grantedEffect.name
+								group.displayLabel = (group.displayLabel and group.displayLabel..", " or "") .. gemName or grantedEffect.name
 							end
 						end
 					end
@@ -1812,10 +1818,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		end
 	end
 
-
-	-- Merge Requirements Tables
-	env.requirementsTable = tableConcat(env.requirementsTableItems, env.requirementsTableGems)
-
 	-- This needs to be done here at the end as otherwise we will only consider gems in the
 	-- selected active skill group
 	-- Calculate skill gem and support gem counts
@@ -1850,7 +1852,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 	env.modDB.multipliers.RedSupportGems = (env.modDB.multipliers.RedSupportGems or 0) + slotSupportGemSocketsCount.R
 	env.modDB.multipliers.GreenSupportGems = (env.modDB.multipliers.GreenSupportGems or 0) + slotSupportGemSocketsCount.G
 	env.modDB.multipliers.BlueSupportGems = (env.modDB.multipliers.BlueSupportGems or 0) + slotSupportGemSocketsCount.B
-	
+	t_insert(env.requirementsTableGems, {
+		source = "Support Gems",
+		--sourceName = slotSupportGemSocketsCount.G .. " Green Support Gems",
+		Str = tonumber(slotSupportGemSocketsCount.R * 5),
+		Dex = tonumber(slotSupportGemSocketsCount.G * 5),
+		Int = tonumber(slotSupportGemSocketsCount.B * 5),
+	})
+
+	-- Merge Requirements Tables
+	env.requirementsTable = tableConcat(env.requirementsTableItems, env.requirementsTableGems)
+
 	-- Crystallised Immunity notable support
 	if (slotSupportGemSocketsCount.R > slotSupportGemSocketsCount.G) and (slotSupportGemSocketsCount.R > slotSupportGemSocketsCount.B) then
 		env.modDB.conditions["MajorityRedSocketedSupports"] = true;

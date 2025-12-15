@@ -134,15 +134,42 @@ function PassiveSpecClass:Load(xml, dbFileName)
 		end
 	end
 	if xml.attrib.nodes then
+		local classId = -1
+		local ascendClassId = -1
+		-- Legacy format contain classId and ascendClassId as xml attributes
+		if xml.attrib.classId then
+			classId = tonumber(xml.attrib.classId)
+		end
+		if xml.attrib.ascendClassId then
+			ascendClassId = tonumber(xml.attrib.ascendClassId)
+		end
+
 		-- New format
-		if not xml.attrib.classId then
-			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'classId' attribute", dbFileName)
+		if xml.attrib.classInternalId then
+			local classInternalId = tonumber(xml.attrib.classInternalId)
+			if self.tree.classIntegerIdMap[classInternalId] then
+				classId = self.tree.classIntegerIdMap[classInternalId]
+			end
+		end
+		if xml.attrib.ascendancyInternalId then
+			local ascendancyInternalId = tostring(xml.attrib.ascendancyInternalId)
+			if ascendancyInternalId == "" then
+				ascendClassId = 0
+			elseif self.tree.internalAscendNameMap[ascendancyInternalId] then
+				ascendClassId = self.tree.internalAscendNameMap[ascendancyInternalId].ascendClassId
+			end
+		end
+
+		if classId == -1 then
+			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'classId' / 'classInternalId' attribute", dbFileName)
 			return true
 		end
-		if not xml.attrib.ascendClassId then
-			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'ascendClassId' attribute", dbFileName)
+
+		if ascendClassId == -1 then
+			launch:ShowErrMsg("^1Error parsing '%s': 'Spec' element missing 'ascendClassId' / 'ascendancyInternalId' attribute", dbFileName)
 			return true
 		end
+
 		local hashList = { }
 		for hash in xml.attrib.nodes:gmatch("%d+") do
 			t_insert(hashList, tonumber(hash))
@@ -174,7 +201,7 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 			end
 		end
-		self:ImportFromNodeList(nil, tonumber(xml.attrib.classId), tonumber(xml.attrib.ascendClassId), tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
+		self:ImportFromNodeList(nil, classId, ascendClassId, tonumber(xml.attrib.secondaryAscendClassId or 0), hashList, weaponSets, copyTable(self.hashOverrides, true), masteryEffects)
 	elseif url then
 		self:DecodeURL(url)
 	end
@@ -198,12 +225,23 @@ function PassiveSpecClass:Save(xml)
 	for mastery, effect in pairs(self.masterySelections) do
 		t_insert(masterySelections, "{"..mastery..","..effect.."}")
 	end
+
+	local classInternalId = self.tree.classes[self.curClassId].integerId
+	local ascendancyInternalId = ""
+	if self.curAscendClassId and self.tree.classes[self.curClassId].classes[self.curAscendClassId] then
+		-- None ascendancy case will have no internalId
+		ascendancyInternalId = self.tree.classes[self.curClassId].classes[self.curAscendClassId].internalId or ""
+	end
+
 	xml.attrib = {
 		title = self.title,
 		treeVersion = self.treeVersion,
-		-- New format
+		-- TODO remove old class format
 		classId = tostring(self.curClassId),
 		ascendClassId = tostring(self.curAscendClassId),
+		-- New format
+		classInternalId = tostring(classInternalId),
+		ascendancyInternalId = tostring(ascendancyInternalId),
 		secondaryAscendClassId = tostring(self.curSecondaryAscendClassId),
 		nodes = table.concat(allocNodeIdList, ","),
 		masteryEffects = table.concat(masterySelections, ",")
@@ -680,6 +718,80 @@ function PassiveSpecClass:IsClassConnected(classId)
 	return false
 end
 
+-- Find and allocate the shortest path to connect to a target class's starting node
+function PassiveSpecClass:ConnectToClass(classId)
+	local classData = self.tree.classes[classId]
+	if not classData then
+		return false
+	end
+	local targetStartNode = self.nodes[classData.startNodeId]
+	if not targetStartNode then
+		return false
+	end
+
+	local function isMainTreeNode(node)
+		return node
+			and not node.isProxy
+			and not node.ascendancyName
+			and node.type ~= "ClassStart"
+			and node.type ~= "AscendClassStart"
+	end
+
+	local visited = {}
+	local prev = {}
+	local queue = { targetStartNode }
+	visited[targetStartNode] = true
+	local head = 1
+	local foundNode = nil
+
+	while queue[head] and not foundNode do
+		local node = queue[head]
+		head = head + 1
+
+		if node ~= targetStartNode and node.alloc and node.connectedToStart and node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
+			foundNode = node
+			break
+		end
+
+		for _, linked in ipairs(node.linked) do
+			if isMainTreeNode(linked) and not visited[linked] then
+				visited[linked] = true
+				prev[linked] = node
+				queue[#queue + 1] = linked
+			end
+		end
+	end
+
+	if not foundNode then
+		return false
+	end
+
+	local pathBack = {}
+	local current = foundNode
+	while current do
+		t_insert(pathBack, current)
+		if current == targetStartNode then
+			break
+		end
+		current = prev[current]
+	end
+
+	if pathBack[#pathBack] ~= targetStartNode then
+		return false
+	end
+
+	local altPath = { pathBack[1] }
+	for idx = 2, #pathBack - 1 do
+		altPath[idx] = pathBack[idx]
+		local node = pathBack[idx]
+		if not node.alloc then
+			self:AllocNode(node, altPath)
+		end
+	end
+
+	return true
+end
+
 -- Clear the allocated status of all non-class-start nodes
 function PassiveSpecClass:ResetNodes()
 	for id, node in pairs(self.nodes) do
@@ -836,6 +948,14 @@ function PassiveSpecClass:BuildPathFromNode(root)
 		-- All nodes that are 1 node away from the root will be processed first, then all nodes that are 2 nodes away, etc
 		local node = queue[o]
 		o = o + 1
+
+		if node.unlockConstraint then
+			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+				if not self.nodes[nodeId].alloc then
+					goto continue
+				end
+			end
+		end
 		local curDist = node.pathDist
 		-- Iterate through all nodes that are connected to this one
 		for _, other in ipairs(node.linked) do
@@ -845,10 +965,23 @@ function PassiveSpecClass:BuildPathFromNode(root)
 			--    The one exception to that rule is that a path may start from an ascendancy node and pass into the main tree
 			--    This permits pathing from the Ascendant 'Path of the X' nodes into the respective class start areas
 			-- 3. They must not pass away from mastery nodes
+			-- 4. Unlock constraints must be satisfied
+
+			-- validate if the other node have unlockConstraints met
+			local canPath = true
+			if other.unlockConstraint then
+				for _, nodeId in ipairs(other.unlockConstraint.nodes) do
+					if not self.nodes[nodeId].alloc then
+						canPath = false
+						break
+					end
+				end
+			end
+
 			if not other.pathDist then
 				ConPrintTable(other, true)
 			end
-			if node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) then
+			if node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) and canPath then
 				-- The shortest path to the other node is through the current node
 				other.pathDist = curDist
 				if not other.alloc then
@@ -864,6 +997,7 @@ function PassiveSpecClass:BuildPathFromNode(root)
 				i = i + 1
 			end
 		end
+		::continue::
 	end
 end
 
@@ -1021,6 +1155,16 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	end
 
 	for _, node in pairs(self.nodes) do
+		-- if the node have unlockConstraints, add this node as dependent to the constraint nodes
+		-- we are running here after wiping all depends above
+		if node.unlockConstraint then
+			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+				if self.nodes[nodeId] then
+					t_insert(self.nodes[nodeId].depends, node)
+				end
+			end
+		end
+
 		-- set attribute nodes
 		if self.hashOverrides[node.id] then
 			self:ReplaceNode(node, self.hashOverrides[node.id])
@@ -1958,7 +2102,16 @@ function PassiveSpecClass:CreateUndoState()
 	for mastery, effect in pairs(self.masterySelections) do
 		selections[mastery] = effect
 	end
+	local classInternalId = self.tree.classes[self.curClassId].integerId
+	local ascendancyInternalId = ""
+	if self.curAscendClassId and self.tree.classes[self.curClassId].classes[self.curAscendClassId] then
+		-- None ascendancy doesn't have an internalId
+		ascendancyInternalId = self.tree.classes[self.curClassId].classes[self.curAscendClassId].internalId or ""
+	end
+
 	return {
+		classInternalId = classInternalId,
+		ascendancyInternalId = ascendancyInternalId,
 		classId = self.curClassId,
 		ascendClassId = self.curAscendClassId,
 		secondaryAscendClassId = self.secondaryAscendClassId,
@@ -1971,7 +2124,17 @@ function PassiveSpecClass:CreateUndoState()
 end
 
 function PassiveSpecClass:RestoreUndoState(state, treeVersion)
-	self:ImportFromNodeList(nil, state.classId, state.ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
+	local classId = state.classId
+	local ascendClassId = state.ascendClassId
+	if treeVersion ~= nil and treeVersion ~= state.treeVersion then
+		-- we are upgrading the tree view so in this case we use the classInternalId to find the correct classId
+		classId = self.tree.classIntegerIdMap[state.classInternalId]
+		ascendClassId = 0
+		if state.ascendancyInternalId and state.ascendancyInternalId ~= "" and self.tree.internalAscendNameMap[state.ascendancyInternalId] then
+			ascendClassId = self.tree.internalAscendNameMap[state.ascendancyInternalId].ascendClassId
+		end
+	end
+	self:ImportFromNodeList(nil, classId, ascendClassId, state.secondaryAscendClassId, state.hashList, state.weaponSets, state.hashOverrides, state.masteryEffects, treeVersion or state.treeVersion)
 	self:SetWindowTitleWithBuildClass()
 end
 
@@ -2085,6 +2248,7 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 		
 		local option = newNode.options[attributeIndex]
 		self:ReplaceNode(newNode, option)
+		self.tree:ProcessStats(newNode)
 		
 		self.hashOverrides[nodeId] = newNode
 	end

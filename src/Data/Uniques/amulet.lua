@@ -6,6 +6,7 @@ return {
 The Anvil
 Bloodstone Amulet
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 Implicits: 1
 {tags:life}+(30-40) to maximum Life
@@ -13,8 +14,9 @@ Implicits: 1
 {tags:speed}10% reduced Skill Speed
 {tags:defences}(25-50)% increased Armour
 {variant:1}20% increased Block chance
-{variant:2}25% increased Block chance
-+(3-5)% to maximum Block chance
+{variant:2,3}25% increased Block chance
+{variant:1,2}+(3-5)% to maximum Block chance
+{variant:3}+(5-10)% to maximum Block chance
 ]],[[
 Astramentis
 Stellar Amulet
@@ -37,20 +39,26 @@ Critical Hits ignore Enemy Monster Elemental Resistances
 ]],[[
 Carnage Heart
 Amber Amulet
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 {tags:attribute}+(10-15) to Strength
 {tags:life}20% reduced maximum Life
 {tags:attribute}+(10-20) to all Attributes
 {tags:fire,cold,lightning}+(10-20)% to all Elemental Resistances
-100% increased amount of Life Leeched
+{variant:1}100% increased amount of Life Leeched
+{variant:2}(100-200)% increased amount of Life Leeched
 ]],[[
 Choir of the Storm
 Jade Amulet
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 2
 Grants Skill: Level (1-20) Lightning Bolt
 {tags:attribute}+(10-15) to Dexterity
-{tags:lightning}+(20-30)% to Lightning Resistance
+{variant:1}{tags:lightning}+(20-30)% to Lightning Resistance
+{variant:2}{tags:lightning}+(50-100)% to Lightning Resistance
 {tags:lightning}Critical Hits Ignore Enemy Monster Lightning Resistance
 Trigger Lightning Bolt Skill on Critical Hit
 ]],[[
@@ -58,6 +66,7 @@ Defiance of Destiny
 Jade Amulet
 Variant: Pre 0.1.1
 Variant: Pre 0.2.1
+Variant: Pre 0.4.0
 Variant: Current
 Requires Level 56
 Implicits: 1
@@ -68,6 +77,7 @@ Implicits: 1
 {variant:1}{tags:life}Recover 5% of Missing Life before being Hit by an Enemy
 {variant:2}{tags:life}Recover 10% of Missing Life before being Hit by an Enemy
 {variant:3}{tags:life}Recover (10-20)% of Missing Life before being Hit by an Enemy
+{variant:4}{tags:life}Recover (20-30)% of Missing Life before being Hit by an Enemy
 ]],[[
 The Everlasting Gaze
 Azure Amulet
@@ -159,10 +169,13 @@ Life Regeneration is applied to Energy Shield instead
 The Pandemonius
 Lapis Amulet
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
+Variant: Pre 0.4.0
+Variant: Current
 Requires Level 52
 Implicits: 1
 {tags:attribute}+(10-15) to Intelligence
-{tags:cold}+(20-30)% to Cold Resistance
+{variant:1}{tags:cold}+(20-30)% to Cold Resistance
+{variant:2}{tags:cold}+(50-100)% to Cold Resistance
 {tags:cold}Damage Penetrates 75% Cold Resistance
 Blind Chilled enemies on Hit
 ]],[[
@@ -210,6 +223,15 @@ Implicits: 1
 +1 metre to Dodge Roll distance
 50% increased Evasion Rating if you've Dodge Rolled Recently
 ]],[[
+Strugglescream
+Stellar Amulet
+Variant: Pre 0.4.0
+Variant: Current
+Implicits: 1
+{tags:attribute}+(5-7) to all Attributes
+{variant:1}Can have 2 additional Instilled Modifiers
+{variant:2}Can have 3 additional Instilled Modifiers
+]],[[
 Ungil's Harmony
 Azure Amulet
 Variant: Pre 0.1.1
@@ -227,14 +249,17 @@ Your Critical Hits do not deal extra Damage
 Xoph's Blood
 Amber Amulet
 Variant: Pre 0.3.0
+Variant: Pre 0.4.0
 Variant: Current
 Source: Drops from unique{Xesht, We That Are One} in normal{Twisted Domain}
 Implicits: 1
 {tags:attribute}+(10-15) to Strength
 {tags:life}(10-20)% increased maximum Life
-{tags:fire}+(20-30)% to Fire Resistance
+{variant:1,2}{tags:fire}+(30-40)% to Fire Resistance
+{variant:3}{tags:fire}+(20-30)% to Fire Resistance
 {variant:1}Enemies in your Presence have +1% to Fire Resistance
 {variant:2}Enemies in your Presence have -10% to Fire Resistance
+{variant:3}Enemies in your Presence have -25% to Fire Resistance
 ]],[[
 Yoke of Suffering
 Bloodstone Amulet

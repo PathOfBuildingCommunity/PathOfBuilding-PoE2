@@ -49,6 +49,7 @@ Implicits: 3
 ]],[[
 Guiding Palm of the Eye
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Ice
@@ -61,6 +62,7 @@ Grants effect of Guided Freezing Shrine
 ]],[[
 Guiding Palm of the Heart
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Fire
@@ -73,6 +75,7 @@ Grants effect of Guided Meteoric Shrine
 ]],[[
 Guiding Palm of the Mind
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Purity of Lightning
@@ -85,6 +88,7 @@ Grants effect of Guided Tempest Shrine
 ]],[[
 Palm of the Dreamer
 Shrine Sceptre
+Requires Level 65
 League: Dawn of the Hunt
 Implicits: 1
 Grants Skill: Level (1-20) Impurity

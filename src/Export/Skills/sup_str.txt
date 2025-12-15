@@ -103,8 +103,8 @@ statMap = {
 #skill SupportAtaluiBloodlettingPlayer
 #set SupportAtaluiBloodlettingPlayer
 statMap = {
-	["gain_%_of_damage_as_physical_per_10_life_cost"] = {
-		mod("DamageGainAsPhysical", "BASE", nil, 0, 0, { type = "PerStat", stat = "LifeCost", div = 10 }),
+	["gain_%_of_damage_as_physical_per_20_life_cost_up_to_40_%"] = {
+		mod("DamageGainAsPhysical", "BASE", nil, 0, 0, { type = "PerStat", stat = "LifeCost", div = 20, limitTotal = true, limit = 40 }),
 	},
 },
 #mods
@@ -167,6 +167,11 @@ statMap = {
 
 #skill SupportBleedPlayerFour
 #set SupportBleedPlayerFour
+statMap = {
+	["support_bloodlust_melee_physical_damage_+%_final_vs_bleeding_enemies"] = {
+		mod("PhysicalDamage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -177,6 +182,17 @@ statMap = {
 		mod("PhysicalDamage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportBrambleslamPlayer
+#set SupportBrambleslamPlayer
+#mods
+#skillEnd
+
+#skill TriggeredBrambleslamPlayer
+#set TriggeredBrambleslamPlayer
+#flags attack
 #mods
 #skillEnd
 
@@ -258,6 +274,11 @@ statMap = {
 	},
 },
 #flags
+#mods
+#skillEnd
+
+#skill SupportCirelsCultivationPlayer
+#set SupportCirelsCultivationPlayer
 #mods
 #skillEnd
 
@@ -534,6 +555,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEchoingCryPlayer
+#set SupportEchoingCryPlayer
+#mods
+#skillEnd
+
 #skill SupportEfficiencyPlayer
 #set SupportEfficiencyPlayer
 statMap = {
@@ -667,6 +693,33 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportExposingCryPlayer
+#set SupportExposingCryPlayer
+#mods
+#skillEnd
+
+#skill SupportFanTheFlamesPlayer
+#set SupportFanTheFlamesPlayer
+#mods
+#skillEnd
+
+#skill TriggeredFanTheFlamesPlayer
+#set TriggeredFanTheFlamesPlayer
+#flags attack area
+#mods
+#skillEnd
+
+#skill SupportFanTheFlamesPlayerTwo
+#set SupportFanTheFlamesPlayerTwo
+#mods
+#skillEnd
+
+#skill TriggeredFanTheFlamesPlayerTwo
+#set TriggeredFanTheFlamesPlayerTwo
+#flags attack area
+#mods
+#skillEnd
+
 #skill SupportAddedFireDamagePlayer
 #set SupportAddedFireDamagePlayer
 statMap = {
@@ -771,17 +824,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportRageFountainPlayer
-#set SupportRageFountainPlayer
-statMap = {
-	["support_rage_fountain_rage_regeneration_per_minute"] = {
-		mod("RageRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Aura" }),
-		div = 60,
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportFreshClipPlayer
 #set SupportFreshClipPlayer
 statMap = {
@@ -799,16 +841,6 @@ statMap = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "BoltsReloadedPastEightSeconds" } ),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportGreatwoodPlayer
-#set SupportGreatwoodPlayer
-#mods
-#skillEnd
-
-#skill SupportGreatwoodPlayerTwo
-#set SupportGreatwoodPlayerTwo
 #mods
 #skillEnd
 
@@ -1012,6 +1044,17 @@ statMap = {
 
 #skill SupportKaomsMadnessPlayer
 #set SupportKaomsMadnessPlayer
+statMap = {
+	["support_additional_fissures_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit),
+	},
+	["support_additional_fissures_skill_speed_+%_final"] = {
+		mod("Speed", "MORE", nil),
+	},
+	["support_upheaval_area_of_effect_+%_final"] = {
+		mod("AreaOfEffect", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -1060,6 +1103,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportMarkForDeathPlayer
+#set SupportMarkForDeathPlayer
+#mods
+#skillEnd
+
+#skill SupportMarkForDeathPlayerTwo
+#set SupportMarkForDeathPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportMeatShieldPlayer
 #set SupportMeatShieldPlayer
 statMap = {
@@ -1083,6 +1136,11 @@ statMap = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", nil) }),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportOpeningMovePlayer
+#set SupportOpeningMovePlayer
 #mods
 #skillEnd
 
@@ -1188,6 +1246,11 @@ statMap = {
 
 #skill SupportRagePlayerThree
 #set SupportRagePlayerThree
+statMap = {
+	["support_rage_attack_speed_+%_while_not_at_maximum_rage"] = {
+		mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Condition", var = "HaveMaximumRage", neg = true }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1270,6 +1333,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportRendingApexPlayer
+#set SupportRendingApexPlayer
+#mods
+#skillEnd
+
 #skill SupportRetaliatePlayer
 #set SupportRetaliatePlayer
 #mods
@@ -1302,6 +1370,14 @@ statMap = {
 
 #skill RuthlessSupportPlayer
 #set RuthlessSupportPlayer
+statMap = {
+	["support_ruthless_big_hit_max_count"] = {
+		mod("RuthlessBlowMaxCount", "BASE", nil),
+	},
+	["support_ruthless_big_hit_stun_damage_+%_final"] = {
+		mod("RuthlessBlowStunMultiplier", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -1401,6 +1477,16 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportSplinteringTotemPlayer
+#set SupportSplinteringTotemPlayer
+#mods
+#skillEnd
+
+#skill SupportSplinteringTotemPlayerTwo
+#set SupportSplinteringTotemPlayerTwo
+#mods
+#skillEnd
+
 #skill SupportSteadfastPlayer
 #set SupportSteadfastPlayer
 #mods
@@ -1445,7 +1531,7 @@ statMap = {
 #set SupportStunPlayer
 statMap = {
 	["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-		mod("StunBuildup", "MORE", nil),
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
 	},
 },
 #mods
@@ -1455,7 +1541,7 @@ statMap = {
 #set SupportStunPlayerTwo
 statMap = {
 	["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-		mod("StunBuildup", "MORE", nil),
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
 	},
 },
 #mods
@@ -1465,7 +1551,7 @@ statMap = {
 #set SupportStunPlayerThree
 statMap = {
 	["support_overpower_hit_damage_stun_multiplier_+%_final"] = {
-		mod("StunBuildup", "MORE", nil),
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
 	},
 	["support_overpower_damage_+%_final"] = {
 		mod("Damage", "MORE", nil),
@@ -1497,6 +1583,11 @@ statMap = {
 
 #skill SupportTearPlayer
 #set SupportTearPlayer
+#mods
+#skillEnd
+
+#skill SupportSlamAftershocksPlayer
+#set SupportSlamAftershocksPlayer
 #mods
 #skillEnd
 
@@ -1537,16 +1628,31 @@ statMap = {
 
 #skill SupportUhtredAuguryPlayer
 #set SupportUhtredAuguryPlayer
+statMap = {
+	["supported_active_skill_gem_level_+_if_two_other_supports"] = {
+		mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "MultiplierThreshold", var = "SupportCount", threshold = 3, equals = true }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportUhtredExodusPlayer
 #set SupportUhtredExodusPlayer
+statMap = {
+	["supported_active_skill_gem_level_+_if_no_other_supports"] = {
+		mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "MultiplierThreshold", var = "SupportCount", threshold = 1, equals = true }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportUhtredOmenPlayer
 #set SupportUhtredOmenPlayer
+statMap = {
+	["supported_active_skill_gem_level_+_if_one_other_support"] = {
+		mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "MultiplierThreshold", var = "SupportCount", threshold = 2, equals = true }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1586,8 +1692,8 @@ statMap = {
 	["support_additional_fissures_damage_+%_final"] = {
 		mod("Damage", "MORE", nil, ModFlag.Hit),
 	},
-	["support_additional_fissures_attack_speed_+%_final"] = {
-		mod("Speed", "MORE", nil, ModFlag.Attack),
+	["support_additional_fissures_skill_speed_+%_final"] = {
+		mod("Speed", "MORE", nil),
 	},
 },
 #mods
@@ -1599,8 +1705,8 @@ statMap = {
 	["support_additional_fissures_damage_+%_final"] = {
 		mod("Damage", "MORE", nil, ModFlag.Hit),
 	},
-	["support_additional_fissures_attack_speed_+%_final"] = {
-		mod("Speed", "MORE", nil, ModFlag.Attack),
+	["support_additional_fissures_skill_speed_+%_final"] = {
+		mod("Speed", "MORE", nil),
 	},
 },
 #mods
@@ -1676,5 +1782,10 @@ statMap = {
 
 #skill SupportXophsPyrePlayer
 #set SupportXophsPyrePlayer
+#mods
+#skillEnd
+
+#skill SupportZerphisLegacyPlayer
+#set SupportZerphisLegacyPlayer
 #mods
 #skillEnd

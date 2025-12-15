@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT {0} second duration between Corpse consumptions"
+				text="{0} second duration between Corpse consumptions"
 			}
 		},
 		stats={
@@ -25,13 +25,65 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
 				limit={
 					[1]={
 						[1]=1,
 						[2]=1
 					}
 				},
-				text="DNT Maximum {0} Corpse Beetle"
+				text="{0:+d} maximum Corpse Beetle"
+			},
+			[2]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="{0:+d} maximum Corpse Beetles"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Maximum {0} Corpse Beetle"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Maximum {0} Corpse Beetles"
+			}
+		},
+		stats={
+			[1]="maximum_corpse_beetles_allowed"
+		}
+	},
+	[3]={
+		[1]={
+		},
+		stats={
+			[1]="secondary_skill_effect_duration"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Summons {0} Beetle per Corpse consumed"
 			},
 			[2]={
 				limit={
@@ -40,14 +92,16 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Maximum {0} Corpse Beetles"
+				text="Summons {0} Beetles per Corpse consumed"
 			}
 		},
 		stats={
-			[1]="maximum_corpse_beetles_allowed"
+			[1]="skill_specific_stat_description_mode"
 		}
 	},
 	["base_secondary_skill_effect_duration"]=1,
 	["maximum_corpse_beetles_allowed"]=2,
-	parent="skill_stat_descriptions"
+	parent="skill_stat_descriptions",
+	["secondary_skill_effect_duration"]=3,
+	["skill_specific_stat_description_mode"]=4
 }

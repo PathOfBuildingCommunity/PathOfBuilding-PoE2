@@ -121,7 +121,7 @@ skills["SupportAdmixturePlayer"] = {
 	excludeSkillTypes = { SkillType.DegenOnlySpellDamage, },
 	gemFamily = { "Admixture",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -173,7 +173,7 @@ skills["SupportAilithLineagePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "chance_%_to_gain_power_charges_per_combo_spent", 10 },
+				{ "chance_%_to_gain_power_charges_per_combo_spent", 25 },
 			},
 			stats = {
 			},
@@ -193,7 +193,7 @@ skills["SupportAlignmentPlayer"] = {
 	excludeSkillTypes = { SkillType.Channel, },
 	gemFamily = { "Alignment",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -226,7 +226,7 @@ skills["SupportAlignmentPlayerTwo"] = {
 	excludeSkillTypes = { SkillType.Channel, },
 	gemFamily = { "Alignment",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -259,7 +259,7 @@ skills["SupportAlignmentPlayerThree"] = {
 	excludeSkillTypes = { SkillType.Channel, },
 	gemFamily = { "Alignment","AdditionalProjectiles",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -413,8 +413,8 @@ skills["SupportArakaalisLustPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_debilitate_hit_damage_+%_final_per_poison_stack", 6 },
-				{ "support_debilitate_hit_damage_max_poison_stacks", 30 },
+				{ "support_debilitate_hit_damage_+%_final_per_poison_stack", 8 },
+				{ "support_debilitate_hit_damage_max_poison_stacks", 40 },
 			},
 			stats = {
 			},
@@ -426,7 +426,7 @@ skills["SupportArakaalisLustPlayer"] = {
 }
 skills["SupportAmmoConservationPlayerFour"] = {
 	name = "Arjun's Medal",
-	description = "Supports Crossbow Skills, granting a chance to load a bolt into all Crossbow Ammunition on kill with Supported Skill.",
+	description = "Supports Crossbow Skills, causing them to load a bolt into all Crossbow Ammunition on kill.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.CrossbowAmmoSkill, SkillType.CrossbowSkill, },
@@ -446,7 +446,41 @@ skills["SupportAmmoConservationPlayerFour"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "chance_to_load_a_bolt_on_killing_an_enemy_%", 35 },
+				{ "chance_to_load_a_bolt_on_killing_an_enemy_%", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportAtzirisImpatiencePlayer"] = {
+	name = "Atziri's Impatience",
+	description = "Supports Skills with Cooldowns, dramatically increasing the rate at which those Cooldowns Recover, but causing you to lose Life, Mana, and Energy Shield when they are used. Cannot Support Meta Skills or modify the Skills of Minions.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Cooldown, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Triggered, },
+	gemFamily = { "CooldownRecovery",},
+	isLineage = true,
+	flavourText = {"\"Those who bored the Queen suffered an excessive punishment:", "everyone they had ever known would be killed, effectively", "erasing their life. So, no matter the cost... none kept her waiting.\"", },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Atziri's Impatience",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_cooldown_reduction_cooldown_recovery_+%", 100 },
+				{ "lose_%_of_life_es_and_mana_when_skill_is_used", 25 },
 			},
 			stats = {
 			},
@@ -466,7 +500,7 @@ skills["SupportBlindPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Blind",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -496,7 +530,7 @@ skills["SupportBlindPlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Blind",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -527,7 +561,7 @@ skills["SupportBlindsidePlayer"] = {
 	excludeSkillTypes = { SkillType.DegenOnlySpellDamage, },
 	gemFamily = { "Blindside",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -621,75 +655,6 @@ skills["SupportBountyPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportBrambleslamPlayer"] = {
-	name = "Brambleslam",
-	description = "Supports Slam Skills. Supported Skills create Hazardous Brambles on the ground that activate after a duration. Enemies which come in contact with these thorns take damage and are Maimed. A maximum of 20 Brambles are allowed at one time. Does not modify Skills used by Minions or Totems.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Slam, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByTotem, },
-	gemFamily = { "Brambleslam",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Brambleslam",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "create_X_briar_thorns_on_slam", 3 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["TriggeredBrambleslamPlayer"] = {
-	name = "Brambles",
-	hidden = true,
-	description = "Hazardous thorns damage and Maim enemies with which they come in contact.",
-	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, },
-	castTime = 1,
-	qualityStats = {
-	},
-	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 0.15, },
-	},
-	statSets = {
-		[1] = {
-			label = "Brambles",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "triggered_briar_patch",
-			baseFlags = {
-				attack = true,
-			},
-			constantStats = {
-				{ "active_skill_base_area_of_effect_radius", 10 },
-				{ "triggered_by_briarpatch_support_on_slam_%", 100 },
-				{ "base_skill_effect_duration", 8000 },
-				{ "briarpatches_arming_time_ms", 400 },
-				{ "active_skill_has_%_standard_scaling_attack_damage", 35 },
-				{ "ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self", -80 },
-			},
-			stats = {
-				"is_hazard",
-				"global_maim_on_hit",
-				"additive_thorns_damage_modifiers_apply_to_attack_damage",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportDazedBreakPlayer"] = {
 	name = "Break Posture",
 	description = "Supports Attacks, causing them to Daze Enemies when they fully Break Armour.",
@@ -732,7 +697,7 @@ skills["SupportBurstingPlaguePlayer"] = {
 	gemFamily = { "BurstingPlague",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -757,12 +722,12 @@ skills["PlagueBurstPlayer"] = {
 	name = "Plague Burst",
 	hidden = true,
 	description = "Triggered when an enemy Poisoned by a supported skill dies, dealing Physical damage around them based on the built-up Plague.",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { storedUses = 1, levelRequirement = 0, cooldown = 0.1, },
+		[1] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
 	},
 	statSets = {
 		[1] = {
@@ -790,7 +755,7 @@ skills["PlagueBurstPlayer"] = {
 }
 skills["SupportCadencePlayer"] = {
 	name = "Cadence",
-	description = "Supports Attacks you use yourself. Supported Skills gain more Attack speed each time you use them, but will become unusable if used too frequently in a short time frame.",
+	description = "Supports Attacks you use yourself. Supported Skills gain more Attack speed each time you use them, but will become unusable if used too frequently in a short time frame. Sustained Skills will instead gain Attack speed periodically while being used.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
@@ -853,7 +818,7 @@ skills["TriggeredCaltropsPlayer"] = {
 	name = "Caltrops",
 	hidden = true,
 	description = "Maims and deals Attack area damage when triggered by an Enemy. Caltrops are destroyed when triggered, and a maximum of 20 Caltrops can be active at once.",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.CannotChain] = true, [SkillType.Attack] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackOrCastTime] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.CannotChain] = true, [SkillType.Attack] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -920,8 +885,7 @@ skills["SupportChainPlayer"] = {
 			},
 			constantStats = {
 				{ "number_of_chains", 1 },
-				{ "chains_hit_X_more_times", 1 },
-				{ "support_chain_hit_damage_+%_final", -50 },
+				{ "support_chain_hit_damage_+%_final", -30 },
 			},
 			stats = {
 			},
@@ -956,9 +920,8 @@ skills["SupportChainPlayerTwo"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "number_of_chains", 1 },
-				{ "chains_hit_X_more_times", 1 },
-				{ "support_chain_hit_damage_+%_final", -40 },
+				{ "number_of_chains", 2 },
+				{ "support_chain_hit_damage_+%_final", -50 },
 			},
 			stats = {
 			},
@@ -993,7 +956,7 @@ skills["SupportChainPlayerThree"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "chains_hit_X_more_times", 2 },
+				{ "number_of_chains", 2 },
 				{ "support_chain_hit_damage_+%_final", -40 },
 			},
 			stats = {
@@ -1014,7 +977,7 @@ skills["SupportChargeProfusionPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "ChargeProfusion",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1044,7 +1007,7 @@ skills["SupportChargeProfusionPlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "ChargeProfusion",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1065,9 +1028,147 @@ skills["SupportChargeProfusionPlayerTwo"] = {
 		},
 	}
 }
+skills["SupportChargedMarkPlayer"] = {
+	name = "Charged Mark",
+	description = "Supports Mark Skills, causing them to Trigger Charged Mark when they are Activated. Charged Mark creates Shocked Ground at the target's location.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ChargedMark",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charged Mark",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_trigger_shocked_ground_on_mark_activate",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredChargedMarkPlayer"] = {
+	name = "",
+	hidden = true,
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, },
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Charged Mark",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "triggered_charged_mark",
+			baseFlags = {
+				duration = true,
+			},
+			constantStats = {
+				{ "chance_to_trigger_shocked_ground_on_mark_activated_%", 100 },
+				{ "base_skill_effect_duration", 6000 },
+			},
+			stats = {
+				"active_skill_base_area_of_effect_radius",
+				"triggerable_in_any_set",
+			},
+			levels = {
+				[1] = { 14, statInterpolation = { 1, }, actorLevel = 1, },
+				[2] = { 14, statInterpolation = { 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 15, statInterpolation = { 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 15, statInterpolation = { 1, }, actorLevel = 10.307999610901, },
+				[5] = { 16, statInterpolation = { 1, }, actorLevel = 14.074999809265, },
+				[6] = { 16, statInterpolation = { 1, }, actorLevel = 18.068000793457, },
+				[7] = { 17, statInterpolation = { 1, }, actorLevel = 22.287000656128, },
+				[8] = { 17, statInterpolation = { 1, }, actorLevel = 26.732000350952, },
+				[9] = { 18, statInterpolation = { 1, }, actorLevel = 31.40299987793, },
+				[10] = { 18, statInterpolation = { 1, }, actorLevel = 36.299999237061, },
+				[11] = { 19, statInterpolation = { 1, }, actorLevel = 41.423000335693, },
+				[12] = { 19, statInterpolation = { 1, }, actorLevel = 46.771999359131, },
+				[13] = { 20, statInterpolation = { 1, }, actorLevel = 52.34700012207, },
+				[14] = { 20, statInterpolation = { 1, }, actorLevel = 58.147998809814, },
+				[15] = { 21, statInterpolation = { 1, }, actorLevel = 64.175003051758, },
+				[16] = { 21, statInterpolation = { 1, }, actorLevel = 70.428001403809, },
+				[17] = { 22, statInterpolation = { 1, }, actorLevel = 76.906997680664, },
+				[18] = { 22, statInterpolation = { 1, }, actorLevel = 83.611999511719, },
+				[19] = { 23, statInterpolation = { 1, }, actorLevel = 90.542999267578, },
+				[20] = { 23, statInterpolation = { 1, }, actorLevel = 97.699996948242, },
+				[21] = { 24, statInterpolation = { 1, }, actorLevel = 105.08300018311, },
+				[22] = { 24, statInterpolation = { 1, }, actorLevel = 112.69200134277, },
+				[23] = { 24, statInterpolation = { 1, }, actorLevel = 120.52700042725, },
+				[24] = { 25, statInterpolation = { 1, }, actorLevel = 128.58799743652, },
+				[25] = { 25, statInterpolation = { 1, }, actorLevel = 136.875, },
+				[26] = { 25, statInterpolation = { 1, }, actorLevel = 145.38800048828, },
+				[27] = { 26, statInterpolation = { 1, }, actorLevel = 154.12699890137, },
+				[28] = { 26, statInterpolation = { 1, }, actorLevel = 163.09199523926, },
+				[29] = { 26, statInterpolation = { 1, }, actorLevel = 172.28300476074, },
+				[30] = { 27, statInterpolation = { 1, }, actorLevel = 181.69999694824, },
+				[31] = { 27, statInterpolation = { 1, }, actorLevel = 191.34300231934, },
+				[32] = { 27, statInterpolation = { 1, }, actorLevel = 201.21200561523, },
+				[33] = { 28, statInterpolation = { 1, }, actorLevel = 211.30700683594, },
+				[34] = { 28, statInterpolation = { 1, }, actorLevel = 221.62800598145, },
+				[35] = { 28, statInterpolation = { 1, }, actorLevel = 232.17500305176, },
+				[36] = { 29, statInterpolation = { 1, }, actorLevel = 242.94799804688, },
+				[37] = { 29, statInterpolation = { 1, }, actorLevel = 253.94700622559, },
+				[38] = { 29, statInterpolation = { 1, }, actorLevel = 265.17199707031, },
+				[39] = { 30, statInterpolation = { 1, }, actorLevel = 276.62298583984, },
+				[40] = { 30, statInterpolation = { 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
 skills["SupportChargedShotsPlayer"] = {
 	name = "Charged Shots I",
-	description = "Supports Bow Attacks. Every third shot with Supported Skills restores a portion of it's Mana cost and Gains Damage as extra Lightning Damage.",
+	description = "Supports Bow Attacks. Every third shot with Supported Skills restores a portion of its Mana cost and Gains Damage as extra Lightning Damage.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Bow, SkillType.AND, },
@@ -1076,7 +1177,7 @@ skills["SupportChargedShotsPlayer"] = {
 	gemFamily = { "ChargedShots",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -1115,7 +1216,7 @@ skills["SupportChargedShotsPlayerTwo"] = {
 	gemFamily = { "ChargedShots",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1183,7 +1284,7 @@ skills["SupportCloseCombatPlayer"] = {
 	gemFamily = { "CloseCombat",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1219,7 +1320,7 @@ skills["SupportCloseCombatPlayerTwo"] = {
 	gemFamily = { "CloseCombat",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1334,8 +1435,8 @@ skills["SupportCommiseratePlayer"] = {
 					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "Condition", var = "Poisoned" }),
 					mod("EnemyShockMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Shocked" }),
 					mod("EnemyChillMagnitude", "MORE", nil, 0, 0, { type = "Condition", var = "Chilled" }),
-					mod("EnemyFreezeEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Frozen" }),
-					mod("EnemyElectrocuteEffect", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
+					mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "Condition", var = "Frozen" }),
+					mod("EnemyElectrocuteBuildup", "MORE", nil, 0, 0, { type = "Condition", var = "Electrocuted" }),
 				},
 			},
 			baseFlags = {
@@ -1345,6 +1446,36 @@ skills["SupportCommiseratePlayer"] = {
 			},
 			stats = {
 				"remove_ailment_when_applying_relevant_ailment",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportControlledHazardPlayer"] = {
+	name = "Controlled Hazard",
+	description = "Supports Skills which create Hazards, causing those Hazards to be unable to be triggered for 3 seconds after being created.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Hazard, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "DelayedReaction",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Controlled Hazard",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "hazards_cant_trigger_x_seconds_after_creation", 3 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1363,7 +1494,7 @@ skills["SupportCooldownRecoveryPlayer"] = {
 	gemFamily = { "CooldownRecovery",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 30, },
 	},
 	statSets = {
 		[1] = {
@@ -1399,7 +1530,7 @@ skills["SupportCooldownRecoveryPlayerTwo"] = {
 	gemFamily = { "CooldownRecovery",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 30, },
 	},
 	statSets = {
 		[1] = {
@@ -1434,7 +1565,7 @@ skills["SupportCorrosionPlayer"] = {
 	excludeSkillTypes = { SkillType.ConsumesFullyBrokenArmour, },
 	gemFamily = { "Corrosion",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -1447,93 +1578,6 @@ skills["SupportCorrosionPlayer"] = {
 				{ "armour_break_for_%_of_poison_damage_over_poison_duration", 80 },
 			},
 			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportCrescendoPlayer"] = {
-	name = "Crescendo I",
-	description = "Supports Strikes that perform a Final Strike at the end of a combination of attacks, allowing you to use the Final Strike twice in succession.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.PerformsFinalStrike, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Crescendo",},
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Crescendo I",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-				"repeat_last_step_of_combo_attack",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportCrescendoPlayerTwo"] = {
-	name = "Crescendo II",
-	description = "Supports Strikes that perform a Final Strike at the end of a combination of attacks, allowing you to use the Final Strike twice in succession, and causing Non-Final Strike Attacks to be faster.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.PerformsFinalStrike, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Crescendo",},
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Crescendo II",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_crescendo_non_final_strike_attack_speed_+%_final", 15 },
-			},
-			stats = {
-				"repeat_last_step_of_combo_attack",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportCrescendoPlayerThree"] = {
-	name = "Crescendo III",
-	description = "Supports Strikes that perform a Final Strike at the end of a combination of attacks, causing the Final Strike to be Ancestrally Boosted.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.PerformsFinalStrike, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Crescendo",},
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Crescendo III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-				"final_strike_is_ancestrally_boosted",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1634,9 +1678,9 @@ skills["SupportCulminationPlayer"] = {
 			constantStats = {
 				{ "support_damage_+%_final_per_combo_stack", 3 },
 				{ "base_combo_stacks_decay_delay_ms", 4000 },
+				{ "skill_maximum_number_of_combo_stacks", 10 },
 			},
 			stats = {
-				"skill_uncapped_combo_counter",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1664,12 +1708,12 @@ skills["SupportCulminationPlayerTwo"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_damage_+%_final_per_combo_stack", 3 },
+				{ "support_damage_+%_final_per_combo_stack", 2 },
 				{ "base_combo_stacks_decay_delay_ms", 4000 },
 				{ "combo_falloff_speed_+%", -50 },
+				{ "skill_maximum_number_of_combo_stacks", 20 },
 			},
 			stats = {
-				"skill_uncapped_combo_counter",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1743,7 +1787,7 @@ skills["SupportDeadlyHeraldsPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "DeadlyHeralds",},
 	levels = {
-		[1] = { spiritReservationFlat = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1954,6 +1998,38 @@ skills["SupportDeliberationPlayer"] = {
 		},
 	}
 }
+skills["SupportPietysMercyPlayer"] = {
+	name = "Dominus' Grasp",
+	description = "Supports Projectile skills and any other skills that Chain, causing them to Chain more times.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Chains, SkillType.Projectile, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.CannotChain, SkillType.ProjectileNoCollision, },
+	gemFamily = { "Mercy",},
+	isLineage = true,
+	flavourText = {"The High Templar needed thousands of prisoners if his and", "Piety's experiments were to succeed. Conspiring on the", "matter, they decided to revive an age old tradition... exile.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Dominus' Grasp",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "chains_hit_X_more_times", 1 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportDurabilityPlayer"] = {
 	name = "Durability",
 	description = "Supports Skills which create objects that are destroyed after being Hit a number of times, allowing for them to last for additional Hits. Does not modify Skills used by Minions.",
@@ -1965,7 +2041,7 @@ skills["SupportDurabilityPlayer"] = {
 	gemFamily = { "Durability",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { reservationMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, reservationMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -2064,7 +2140,7 @@ skills["SupportExcoriatePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Excoriate",},
 	levels = {
-		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
 	statSets = {
 		[1] = {
@@ -2114,6 +2190,8 @@ skills["SupportFerocityPlayer"] = {
 			statMap = {
 				["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
 					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -2170,7 +2248,7 @@ skills["SupportForkPlayer"] = {
 	excludeSkillTypes = { SkillType.ProjectileNoCollision, },
 	gemFamily = { "Fork",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -2261,7 +2339,7 @@ skills["TriggeredSupportFrozenSpiteIceFragmentPlayer"] = {
 	name = "Ice Fragments",
 	hidden = true,
 	description = "Explodes to deal Cold Damage in an area after a short delay, based on the life of the slain frozen Enemy.",
-	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Projectile] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.FrozenSpite] = true, },
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Projectile] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.FrozenSpite] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -2285,6 +2363,9 @@ skills["TriggeredSupportFrozenSpiteIceFragmentPlayer"] = {
 				{ "ballistic_ice_chunk_cone_angle", 360 },
 				{ "base_skill_detonation_time", 1500 },
 				{ "base_number_of_projectiles", 3 },
+				{ "ice_fragment_min_chunk_distance", 1 },
+				{ "ice_fragment_max_chunk_distance", 35 },
+				{ "ice_fragment_auto_aim_roll_fudge", 2 },
 			},
 			stats = {
 				"base_is_projectile",
@@ -2300,51 +2381,15 @@ skills["TriggeredSupportFrozenSpiteIceFragmentPlayer"] = {
 		},
 	}
 }
-skills["SupportGambleshotPlayer"] = {
-	name = "Gambleshot",
-	description = "Supports Skills which fire Projectiles that are not ground targeted. Projectiles from Supported Skills randomly Fork, Chain or Pierce.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Projectile, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.GroundTargetedProjectile, },
-	gemFamily = { "Gambleshot",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Gambleshot",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				[ "support_gambleshot_projectile_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_gambleshot_projectile_damage_+%_final", -15 },
-			},
-			stats = {
-				"projectile_randomly_fork_chain_or_pierce",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportGarukhansResolvePlayer"] = {
 	name = "Garukhan's Resolve",
-	description = "Supports Attack Skills you use yourself which do not already have some Condition for use. Supported Skills can only be used after you have moved a certain distance, but will Bifurcate Critical Hit Chance. Cannot support Skills which have a Cooldown or that are Triggered, and does not modify skills used by Minions.",
+	description = "Supports Attack Skills you use yourself which do not already have some Condition for use. Supported Skills have a maximum Critical Hit chance, but will Bifurcate Critical Hit Chance. Cannot support Skills which have a Cooldown or that are Triggered, and does not modify skills used by Minions.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
-	addSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByGarukhan, },
+	addSkillTypes = { SkillType.SupportedByGarukhan, },
 	excludeSkillTypes = { SkillType.Persistent, SkillType.HasUsageCondition, SkillType.SupportedByGarukhan, SkillType.NOT, SkillType.AND, SkillType.Instant, SkillType.Cooldown, SkillType.Triggered, SkillType.UsedByTotem, },
-	gemFamily = { "HitAndRun",},
+	gemFamily = { "GarukhansResolve",},
 	isLineage = true,
 	flavourText = {"At the last, her hope gone - but not her resolve - she threw her", "beloved Tangletongue. That was the day a god bled. For this, the", "Great Roc graced a Maraketh warrior with a feather for the first time.", },
 	ignoreMinionTypes = true,
@@ -2359,7 +2404,7 @@ skills["SupportGarukhansResolvePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "skill_unusable_until_moved_X_distance", 200 },
+				{ "maximum_critical_strike_chance_is_%_from_support_garukhans_resolve", 50 },
 			},
 			stats = {
 				"attacks_roll_crits_twice",
@@ -2380,7 +2425,7 @@ skills["SupportHeightenedAccuracyPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "HeightenedAccuracy",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -2416,7 +2461,7 @@ skills["SupportHeightenedAccuracyPlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "HeightenedAccuracy",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -2454,7 +2499,7 @@ skills["SupportHeightenedChargesPlayer"] = {
 	gemFamily = { "Twofold",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
 	statSets = {
 		[1] = {
@@ -2525,9 +2570,6 @@ skills["SupportHobblePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
-			constantStats = {
-				{ "physical_damage_%_dealt_as_evasion_break_vs_bleeding", 15 },
-			},
 			stats = {
 			},
 			levels = {
@@ -2546,7 +2588,7 @@ skills["SupportImpalePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Impale",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -2569,7 +2611,7 @@ skills["SupportImpalePlayer"] = {
 }
 skills["SupportChargeInhibitionPlayer"] = {
 	name = "Inhibitor",
-	description = "Supports any Skill you use yourself or that you Trigger. Supported Skills cannot consume Charges  or Infusion by any means. Cannot Support Skills which require Charges or Infusion to be used.",
+	description = "Supports any Skill you use yourself or that you Trigger. Supported Skills cannot consume Charges or Infusion by any means. Cannot Support Skills which require Charges or Infusion to be used.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, SkillType.Spell, SkillType.DegenOnlySpellDamage, },
@@ -2585,7 +2627,7 @@ skills["SupportChargeInhibitionPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
-				["support_inhibitor_damage_+%_final_per_charge_type"] = {
+				["support_inhibitor_damage_+%_final_per_charge_type_or_infusion_type"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "FrenzyCharge", threshold = 1 }),
 					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "PowerCharge", threshold = 1 }),
 					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "EnduranceCharge", threshold = 1 }),
@@ -2594,8 +2636,7 @@ skills["SupportChargeInhibitionPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_inhibitor_damage_+%_final_per_charge_type", 4 },
-				{ "support_inhibitor_damage_+%_final_per_infusion_type", 4 },
+				{ "support_inhibitor_damage_+%_final_per_charge_type_or_infusion_type", 4 },
 			},
 			stats = {
 				"cannot_consume_power_frenzy_endurance_charges",
@@ -2609,7 +2650,7 @@ skills["SupportChargeInhibitionPlayer"] = {
 }
 skills["SupportInnervatePlayer"] = {
 	name = "Innervate",
-	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills infuses all of your Attacks with Lightning damage for a short time.",
+	description = "Supports Attacks you use yourself. Killing a Shocked enemy with supported skills imbues all of your Attacks with Lightning damage for a short time.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
@@ -2822,7 +2863,7 @@ skills["SupportLightningExposurePlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "LightningExposure",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -2852,7 +2893,7 @@ skills["SupportLightningPenetrationPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "LightningPenetration",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -2913,7 +2954,7 @@ skills["SupportFarCombatPlayer"] = {
 	gemFamily = { "Longshot",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -2949,7 +2990,7 @@ skills["SupportFarCombatPlayerTwo"] = {
 	gemFamily = { "Longshot",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -3065,36 +3106,6 @@ skills["SupportManaFlaskPlayer"] = {
 		},
 	}
 }
-skills["SupportMarkForDeathPlayer"] = {
-	name = "Mark for Death",
-	description = "Supports Mark Skills. Enemies affected by Supported Marks will have their Armour Broken by Physical Damage they take.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Mark, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "SingleOut",},
-	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Mark for Death",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "marked_target_%_physical_damage_taken_as_armour_break", 10 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportMobilityPlayer"] = {
 	name = "Mobility",
 	description = "Supports skills that can be used while moving, allowing you to move faster while using them.",
@@ -3137,7 +3148,7 @@ skills["SupportMomentumPlayer"] = {
 	gemFamily = { "Momentum",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -3187,6 +3198,8 @@ skills["SupportMultishotPlayer"] = {
 				},
 				["support_scattershot_skill_speed_+%_final"] = {
 					mod("Speed", "MORE", nil),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry),
+					mod("TotemPlacementSpeed", "MORE", nil),
 				},
 			},
 			baseFlags = {
@@ -3228,6 +3241,8 @@ skills["SupportMultishotPlayerTwo"] = {
 				},
 				["support_scattershot_skill_speed_+%_final"] = {
 					mod("Speed", "MORE", nil),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry),
+					mod("TotemPlacementSpeed", "MORE", nil),
 				},
 			},
 			baseFlags = {
@@ -3256,7 +3271,7 @@ skills["SupportEmpoweredCullPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "MurderousIntent",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -3340,20 +3355,48 @@ skills["SupportNimbleReloadPlayer"] = {
 	}
 }
 skills["SupportNovaProjectilesPlayer"] = {
-	name = "Nova Projectiles",
-	description = "Supports Projectile Skills, making them fire extra Projectiles in a circle, at the cost of Damage. Does not support Skills which rain down  Projectiles from above.",
+	name = "Nova Projectiles I",
+	description = "Supports Projectile Skills, making them fire Projectiles in a circle. Does not Support Skills which rain down Projectiles from above.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Projectile, SkillType.ProjectileNumber, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.ProjectilesNumberModifiersNotApplied, SkillType.Rain, },
-	gemFamily = { "AdditionalProjectiles",},
+	addSkillTypes = { SkillType.SupportedByNovaProjectiles, },
+	excludeSkillTypes = { SkillType.Rain, SkillType.ProjectilesNumberModifiersNotApplied, },
+	gemFamily = { "NovaProjectiles",},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
-			label = "Nova Projectiles",
+			label = "Nova Projectiles I",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"projectiles_nova",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportNovaProjectilesTwoPlayer"] = {
+	name = "Nova Projectiles II",
+	description = "Supports Projectile Skills, making them fire extra Projectiles in a circle, at the cost of Damage and gaining a cooldown. Does not Support Skills which rain down Projectiles from above. Cannot Support Skills which already have a cooldown.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Projectile, SkillType.ProjectileNumber, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { SkillType.Cooldown, SkillType.SupportedByNovaProjectiles, },
+	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByNovaProjectiles, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, SkillType.Rain, SkillType.ProjectilesNumberModifiersNotApplied, },
+	gemFamily = { "AdditionalProjectiles","NovaProjectiles",},
+	levels = {
+		[1] = { cooldown = 8, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Nova Projectiles II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
@@ -3364,8 +3407,8 @@ skills["SupportNovaProjectilesPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "number_of_additional_projectiles", 4 },
-				{ "support_nova_projectiles_damage_+%_final", -40 },
+				{ "number_of_additional_projectiles", 6 },
+				{ "support_nova_projectiles_damage_+%_final", -50 },
 			},
 			stats = {
 				"projectiles_nova",
@@ -3387,7 +3430,7 @@ skills["SupportOutmaneuverPlayer"] = {
 	gemFamily = { "Outmaneuver",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
 	statSets = {
 		[1] = {
@@ -3554,7 +3597,7 @@ skills["SupportOverextendPlayer"] = {
 	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Triggered, },
 	gemFamily = { "Overextend",},
 	levels = {
-		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
 	statSets = {
 		[1] = {
@@ -3707,38 +3750,6 @@ skills["SupportPerfectionPlayer"] = {
 		},
 	}
 }
-skills["SupportPerpetualChargePlayer"] = {
-	name = "Perpetual Charge",
-	description = "Supports skills that consume Power, Frenzy or Endurance Charges on use, giving them a chance not to remove each Charge while still gaining the benefits of consuming them.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.ConsumesCharges, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "PerpetualCharge",},
-	levels = {
-		[1] = { manaMultiplier = 30, levelRequirement = 0, },
-		[2] = { levelRequirement = 0, },
-		[3] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Perpetual Charge",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "charge_skip_consume_chance_%", 25 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportPiercePlayer"] = {
 	name = "Pierce I",
 	description = "Supports Projectile skills, making their Projectiles Pierce an enemy but deal less damage after doing so.",
@@ -3832,36 +3843,6 @@ skills["SupportPiercePlayerThree"] = {
 			},
 			stats = {
 				"always_pierce",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportPietysMercyPlayer"] = {
-	name = "Piety's Mercy",
-	description = "Supports Skills that cause Damaging Hits. Hits from Supported Skills cannot kill Enemies.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Mercy",},
-	isLineage = true,
-	flavourText = {"The prisoners cowered in their cages when Piety stalked by.", "She gave them bread and said flatly, \"You needn't be so", "frightened. I don't want to kill you... I'm going to use you.\"", },
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Piety's Mercy",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-				"cannot_kill_enemies_with_hits",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -3978,7 +3959,7 @@ skills["SupportPoisonPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Poison",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4008,7 +3989,7 @@ skills["SupportPoisonPlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Poison",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4038,7 +4019,7 @@ skills["SupportPoisonPlayerThree"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Poison",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4060,6 +4041,214 @@ skills["SupportPoisonPlayerThree"] = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportPoisonSpores"] = {
+	name = "Poison Spores",
+	description = "Supports Plant Skills which Hit enemies. Supported Skills Trigger Toxic Pustule on Hitting an enemy.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.OR, SkillType.Plant, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "PoisonSpores",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Poison Spores",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"trigger_poison_spore_pustule",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredPoisonSporesPustule"] = {
+	name = "Poison Spores",
+	hidden = true,
+	description = "Attach a Toxic Pustule to the enemy, which Detonates after a delay, dealing Attack damage. They can also be Poisoned, causing them to Detonate faster and more violently.",
+	skillTypes = { [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Chaos] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Physical] = true, [SkillType.Plant] = true, [SkillType.SkillGrantedBySupport] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[3] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[4] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[5] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[6] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[7] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[8] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[9] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[10] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[11] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[12] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[13] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[14] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[15] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[16] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[17] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[18] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[19] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[20] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[21] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[22] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[23] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[24] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[25] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[26] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[27] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[28] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[29] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[30] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[31] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[32] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[33] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[34] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[35] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[36] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[37] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[38] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[39] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+		[40] = { cooldown = 0.1, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Toxic Pustule",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "poison_spore_support_statset_0",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "triggered_pustule_from_poison_spores_on_hit_chance_%", 100 },
+				{ "skill_specific_stat_description_mode", 1 },
+			},
+			stats = {
+				"pustules_grow_as_though_dealing_X_poison_damage_per_minute_when_wet",
+				"display_statset_hide_usage_stats",
+				"base_deal_no_damage",
+			},
+			levels = {
+				[1] = { 25, statInterpolation = { 1, }, actorLevel = 1, },
+				[2] = { 25, statInterpolation = { 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 50, statInterpolation = { 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 100, statInterpolation = { 1, }, actorLevel = 10.307999610901, },
+				[5] = { 150, statInterpolation = { 1, }, actorLevel = 14.074999809265, },
+				[6] = { 200, statInterpolation = { 1, }, actorLevel = 18.068000793457, },
+				[7] = { 300, statInterpolation = { 1, }, actorLevel = 22.287000656128, },
+				[8] = { 425, statInterpolation = { 1, }, actorLevel = 26.732000350952, },
+				[9] = { 600, statInterpolation = { 1, }, actorLevel = 31.40299987793, },
+				[10] = { 825, statInterpolation = { 1, }, actorLevel = 36.299999237061, },
+				[11] = { 1075, statInterpolation = { 1, }, actorLevel = 41.423000335693, },
+				[12] = { 1425, statInterpolation = { 1, }, actorLevel = 46.771999359131, },
+				[13] = { 1900, statInterpolation = { 1, }, actorLevel = 52.34700012207, },
+				[14] = { 2475, statInterpolation = { 1, }, actorLevel = 58.147998809814, },
+				[15] = { 3225, statInterpolation = { 1, }, actorLevel = 64.175003051758, },
+				[16] = { 4200, statInterpolation = { 1, }, actorLevel = 70.428001403809, },
+				[17] = { 5450, statInterpolation = { 1, }, actorLevel = 76.906997680664, },
+				[18] = { 7050, statInterpolation = { 1, }, actorLevel = 83.611999511719, },
+				[19] = { 9075, statInterpolation = { 1, }, actorLevel = 90.542999267578, },
+				[20] = { 11650, statInterpolation = { 1, }, actorLevel = 97.699996948242, },
+				[21] = { 12375, statInterpolation = { 1, }, actorLevel = 105.08300018311, },
+				[22] = { 13675, statInterpolation = { 1, }, actorLevel = 112.69200134277, },
+				[23] = { 15900, statInterpolation = { 1, }, actorLevel = 120.52700042725, },
+				[24] = { 18650, statInterpolation = { 1, }, actorLevel = 128.58799743652, },
+				[25] = { 22100, statInterpolation = { 1, }, actorLevel = 136.875, },
+				[26] = { 23650, statInterpolation = { 1, }, actorLevel = 145.38800048828, },
+				[27] = { 25300, statInterpolation = { 1, }, actorLevel = 154.12699890137, },
+				[28] = { 27025, statInterpolation = { 1, }, actorLevel = 163.09199523926, },
+				[29] = { 28850, statInterpolation = { 1, }, actorLevel = 172.28300476074, },
+				[30] = { 30825, statInterpolation = { 1, }, actorLevel = 181.69999694824, },
+				[31] = { 32625, statInterpolation = { 1, }, actorLevel = 191.34300231934, },
+				[32] = { 34550, statInterpolation = { 1, }, actorLevel = 201.21200561523, },
+				[33] = { 36600, statInterpolation = { 1, }, actorLevel = 211.30700683594, },
+				[34] = { 38725, statInterpolation = { 1, }, actorLevel = 221.62800598145, },
+				[35] = { 41000, statInterpolation = { 1, }, actorLevel = 232.17500305176, },
+				[36] = { 43400, statInterpolation = { 1, }, actorLevel = 242.94799804688, },
+				[37] = { 45950, statInterpolation = { 1, }, actorLevel = 253.94700622559, },
+				[38] = { 48625, statInterpolation = { 1, }, actorLevel = 265.17199707031, },
+				[39] = { 51500, statInterpolation = { 1, }, actorLevel = 276.62298583984, },
+				[40] = { 54450, statInterpolation = { 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+		[2] = {
+			label = "Pustule Explosion",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "poison_spore_support_statset_1",
+			baseFlags = {
+				attack = true,
+				area = true,
+			},
+			constantStats = {
+				{ "triggered_pustule_from_poison_spores_on_hit_chance_%", 100 },
+				{ "skill_specific_stat_description_mode", 1 },
+				{ "base_chance_to_poison_on_hit_%", 100 },
+				{ "base_skill_detonation_time", 15000 },
+				{ "active_skill_base_area_of_effect_radius", 10 },
+				{ "toxic_pustule_max_burst_damage_+%_final_from_stored_poison", 300 },
+				{ "toxic_pustule_max_additional_burst_base_radius_+", 15 },
+			},
+			stats = {
+				"pustules_grow_as_though_dealing_X_poison_damage_per_minute_when_wet",
+				"toxic_pustule_burst_1%_more_damage_per_x_stored_poison",
+				"toxic_pustule_duration_expires_1%_faster_per_x_stored_poison_damage_multiplied_by_sixty",
+				"toxic_pustule_burst_base_radius_+1_per_x_stored_poison",
+				"display_statset_hide_usage_stats",
+				"skill_no_cost_or_reservation",
+				"is_area_damage",
+			},
+			levels = {
+				[1] = { 25, 2, 1, 17, baseMultiplier = 0.38, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 1, },
+				[2] = { 25, 3, 1, 31, baseMultiplier = 0.42, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 50, 5, 2, 53, baseMultiplier = 0.46, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 100, 9, 4, 85, baseMultiplier = 0.5, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 10.307999610901, },
+				[5] = { 150, 12, 6, 127, baseMultiplier = 0.54, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 14.074999809265, },
+				[6] = { 200, 19, 8, 182, baseMultiplier = 0.58, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 18.068000793457, },
+				[7] = { 300, 26, 12, 258, baseMultiplier = 0.62, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 22.287000656128, },
+				[8] = { 425, 36, 17, 359, baseMultiplier = 0.66, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 26.732000350952, },
+				[9] = { 600, 49, 24, 491, baseMultiplier = 0.69, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 31.40299987793, },
+				[10] = { 825, 66, 33, 667, baseMultiplier = 0.73, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 36.299999237061, },
+				[11] = { 1075, 89, 43, 895, baseMultiplier = 0.76, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 41.423000335693, },
+				[12] = { 1425, 119, 57, 1190, baseMultiplier = 0.8, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 46.771999359131, },
+				[13] = { 1900, 157, 76, 1574, baseMultiplier = 0.84, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 52.34700012207, },
+				[14] = { 2475, 206, 99, 2064, baseMultiplier = 0.88, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 58.147998809814, },
+				[15] = { 3225, 270, 129, 2697, baseMultiplier = 0.93, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 64.175003051758, },
+				[16] = { 4200, 351, 168, 3512, baseMultiplier = 0.98, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 70.428001403809, },
+				[17] = { 5450, 455, 218, 4552, baseMultiplier = 1.02, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 76.906997680664, },
+				[18] = { 7050, 588, 282, 5872, baseMultiplier = 1.08, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 83.611999511719, },
+				[19] = { 9075, 755, 363, 7555, baseMultiplier = 1.13, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 90.542999267578, },
+				[20] = { 11650, 969, 466, 9691, baseMultiplier = 1.19, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 97.699996948242, },
+				[21] = { 12375, 1032, 495, 10308, baseMultiplier = 1.24, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 105.08300018311, },
+				[22] = { 13675, 1141, 547, 11402, baseMultiplier = 1.31, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 112.69200134277, },
+				[23] = { 15900, 1324, 636, 13248, baseMultiplier = 1.37, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 120.52700042725, },
+				[24] = { 18650, 1555, 746, 15550, baseMultiplier = 1.44, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 128.58799743652, },
+				[25] = { 22100, 1843, 884, 18423, baseMultiplier = 1.51, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 136.875, },
+				[26] = { 23650, 1971, 946, 19703, baseMultiplier = 1.59, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 145.38800048828, },
+				[27] = { 25300, 2107, 1012, 21065, baseMultiplier = 1.67, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 154.12699890137, },
+				[28] = { 27025, 2252, 1081, 22513, baseMultiplier = 1.75, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 163.09199523926, },
+				[29] = { 28850, 2405, 1154, 24053, baseMultiplier = 1.84, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 172.28300476074, },
+				[30] = { 30825, 2568, 1233, 25691, baseMultiplier = 1.93, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 181.69999694824, },
+				[31] = { 32625, 2721, 1305, 27203, baseMultiplier = 2.03, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 191.34300231934, },
+				[32] = { 34550, 2880, 1382, 28804, baseMultiplier = 2.13, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 201.21200561523, },
+				[33] = { 36600, 3049, 1464, 30496, baseMultiplier = 2.23, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 211.30700683594, },
+				[34] = { 38725, 3229, 1549, 32285, baseMultiplier = 2.35, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 221.62800598145, },
+				[35] = { 41000, 3417, 1640, 34180, baseMultiplier = 2.46, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 232.17500305176, },
+				[36] = { 43400, 3619, 1736, 36179, baseMultiplier = 2.59, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 242.94799804688, },
+				[37] = { 45950, 3829, 1838, 38296, baseMultiplier = 2.72, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 253.94700622559, },
+				[38] = { 48625, 4053, 1945, 40530, baseMultiplier = 2.85, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 265.17199707031, },
+				[39] = { 51500, 4290, 2060, 42896, baseMultiplier = 2.99, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 276.62298583984, },
+				[40] = { 54450, 4540, 2178, 45395, baseMultiplier = 3.14, statInterpolation = { 1, 1, 1, 1, }, actorLevel = 288.29998779297, },
 			},
 		},
 	}
@@ -4105,7 +4294,7 @@ skills["SupportPrecisionPlayer"] = {
 	gemFamily = { "Precision",},
 	isLineage = true,
 	levels = {
-		[1] = { spiritReservationFlat = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, spiritReservationFlat = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -4141,7 +4330,7 @@ skills["SupportPrecisionPlayerTwo"] = {
 	gemFamily = { "Precision",},
 	isLineage = true,
 	levels = {
-		[1] = { spiritReservationFlat = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4176,7 +4365,7 @@ skills["SupportProjectileAccelerationPlayer"] = {
 	excludeSkillTypes = { SkillType.FixedSpeedProjectile, },
 	gemFamily = { "ProjectileSpeed",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4212,7 +4401,7 @@ skills["SupportProjectileAccelerationPlayerTwo"] = {
 	excludeSkillTypes = { SkillType.FixedSpeedProjectile, },
 	gemFamily = { "ProjectileSpeed",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4249,7 +4438,7 @@ skills["SupportProjectileAccelerationPlayerThree"] = {
 	excludeSkillTypes = { SkillType.FixedSpeedProjectile, },
 	gemFamily = { "ProjectileSpeed",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4356,7 +4545,7 @@ skills["SupportPunchThroughPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "PunchThrough",},
 	levels = {
-		[1] = { manaMultiplier = 15, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
 	statSets = {
 		[1] = {
@@ -4386,7 +4575,7 @@ skills["SupportPursuitPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Pursuit",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4425,7 +4614,7 @@ skills["SupportPursuitPlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Pursuit",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4464,7 +4653,7 @@ skills["SupportPursuitPlayerThree"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Pursuit",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4505,7 +4694,7 @@ skills["SupportRakiatasFlowPlayer"] = {
 	isLineage = true,
 	flavourText = {"The Tasalio Tribe developed their own Way, seeing", "the world not as it is, but as it should be, given its", "roiling and endless grace of constant motion.", },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4624,17 +4813,17 @@ skills["SupportRapidAttacksPlayerThree"] = {
 }
 skills["SupportCombatReloadPlayer"] = {
 	name = "Ratha's Assault",
-	description = "Supports Crossbow Ammunition Skills, causing them to load multiple extra bolts. Supported Skills cannot reload normally, instead loading bolts when you Dodge.",
+	description = "Supports Crossbow Ammunition Skills, causing them to load multiple extra bolts and attack faster. Supported Skills cannot reload normally, instead loading bolts when you Dodge.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.CrossbowAmmoSkill, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
-	gemFamily = { "DoubleBarrel",},
+	gemFamily = { "DoubleBarrel","RapidAttacks",},
 	isLineage = true,
 	flavourText = {"\"No plan. No stealth. I want shock. Awe. I want them to", "know who did it, and I want them telling tales. That's the", "only way for us to earn their respect... and their fear.\"", },
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -4644,8 +4833,9 @@ skills["SupportCombatReloadPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "crossbow_load_x_bolts_on_dodge", 3 },
-				{ "support_double_barrel_number_of_crossbow_bolts_+", 3 },
+				{ "crossbow_load_x_bolts_on_dodge", 5 },
+				{ "support_double_barrel_number_of_crossbow_bolts_+", 4 },
+				{ "attack_speed_+%", 20 },
 			},
 			stats = {
 				"active_skill_cannot_manually_reload",
@@ -4666,7 +4856,7 @@ skills["SupportRearmPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Rearm",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -4696,7 +4886,7 @@ skills["SupportRearmPlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Rearm",},
 	levels = {
-		[1] = { manaMultiplier = 10, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -4726,7 +4916,7 @@ skills["SupportRetreatPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Retreat",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4765,7 +4955,7 @@ skills["SupportRetreatPlayerTwo"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Retreat",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4804,7 +4994,7 @@ skills["SupportRetreatPlayerThree"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Retreat",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -4893,35 +5083,6 @@ skills["SupportRicochetPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportRicochetPlayerThree"] = {
-	name = "Ricochet III",
-	description = "Supports any Skill which creates Projectiles, causing those Projectiles to Chain when impacting terrain, at the cost of any additional Projectiles, as well as causing them to always Pierce.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Projectile, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.CannotChain, SkillType.CannotTerrainChain, },
-	gemFamily = { "Ricochet",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Ricochet III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-				"additional_projectiles_instead_applies_to_number_of_terrain_chains",
-				"always_pierce",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportRigwaldsFerocityPlayer"] = {
 	name = "Rigwald's Ferocity",
 	description = "Supports Attack skills, granting them Attack Speed at the cost of Damage or Damage at the cost of Attack Speed depending on Weapon Set they are used in. Does not modify skills used by Minions.",
@@ -4942,12 +5103,26 @@ skills["SupportRigwaldsFerocityPlayer"] = {
 			label = "Rigwald's Ferocity",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rigwald_attack_speed_+%_in_weapon_set_one"] = {
+					mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet1" }),
+				},
+				["support_rigwald_damage_+%_final_in_weapon_set_one"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet1" }),
+				},
+				["support_rigwald_attack_speed_+%_in_weapon_set_two"] = {
+					mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "Condition", var = "WeaponSet2" }),
+				},
+				["support_rigwald_damage_+%_final_in_weapon_set_two"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "WeaponSet2" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
-				{ "support_rigwald_attack_speed_+%_final_in_weapon_set_one", 20 },
+				{ "support_rigwald_attack_speed_+%_in_weapon_set_one", 30 },
 				{ "support_rigwald_damage_+%_final_in_weapon_set_one", -15 },
-				{ "support_rigwald_attack_speed_+%_final_in_weapon_set_two", -10 },
+				{ "support_rigwald_attack_speed_+%_in_weapon_set_two", -10 },
 				{ "support_rigwald_damage_+%_final_in_weapon_set_two", 30 },
 			},
 			stats = {
@@ -4993,16 +5168,16 @@ skills["SupportSalvoPlayer"] = {
 }
 skills["SupportSecondWindPlayer"] = {
 	name = "Second Wind I",
-	description = "Supports skills with cooldowns, giving them extra uses of that cooldown.\nCannot support instant or triggered skills, or modify the skills of minions.",
+	description = "Supports Skills which have a cooldown, giving them extra uses of that cooldown. Cannot support Meta, instant, or Triggered Skills, and cannot modify the Skills of Minions.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, },
 	gemFamily = { "SecondWind",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 50, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 50, },
 	},
 	statSets = {
 		[1] = {
@@ -5025,16 +5200,16 @@ skills["SupportSecondWindPlayer"] = {
 }
 skills["SupportSecondWindPlayerTwo"] = {
 	name = "Second Wind II",
-	description = "Supports skills with cooldowns, giving them extra uses of that cooldown.\nCannot support instant or triggered skills, or modify the skills of minions.",
+	description = "Supports Skills which have a cooldown, giving them extra uses of that cooldown. Cannot support Meta, instant, or Triggered Skills, and cannot modify the Skills of Minions.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, },
 	gemFamily = { "SecondWind",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 50, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 50, },
 	},
 	statSets = {
 		[1] = {
@@ -5057,16 +5232,16 @@ skills["SupportSecondWindPlayerTwo"] = {
 }
 skills["SupportSecondWindPlayerThree"] = {
 	name = "Second Wind III",
-	description = "Supports skills with cooldowns, giving them extra uses of that cooldown and causing them to restore Life on use.\nCannot support instant or triggered skills, or modify the skills of minions.",
+	description = "Supports Skills which have a cooldown, giving them extra uses of that cooldown and causing them to recover your Life when a Skill is used and goes on cooldown. Cannot support Meta, instant, or Triggered Skills, and cannot modify the Skills of Minions.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Instant, SkillType.Meta, },
 	gemFamily = { "SecondWind",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 50, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 50, },
 	},
 	statSets = {
 		[1] = {
@@ -5077,7 +5252,7 @@ skills["SupportSecondWindPlayerThree"] = {
 			},
 			constantStats = {
 				{ "base_cooldown_speed_+%_final", -40 },
-				{ "restore_%_life_on_skill_use_per_1000_ms_cooldown", 2 },
+				{ "restore_%_life_on_skill_use_per_1000_ms_cooldown", 1 },
 			},
 			stats = {
 				"support_double_number_of_cooldown_uses",
@@ -5098,7 +5273,7 @@ skills["SupportShockPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "Shock",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5225,7 +5400,7 @@ skills["SupportSpectralVolleyPlayer"] = {
 	excludeSkillTypes = { SkillType.Persistent, SkillType.Rain, SkillType.Channel, SkillType.Jumping, SkillType.Triggered, },
 	gemFamily = { "SpectralVolley",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5291,7 +5466,7 @@ skills["SupportStreamlinedRoundsPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "StreamlinedRounds",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5464,7 +5639,40 @@ skills["SupportTacatisIrePlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "faster_poison_%_per_current_rage", 1 },
+				{ "faster_poison_%_per_current_rage", 2 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportTasaliosRhythmPlayer"] = {
+	name = "Tasalio's Rhythm",
+	description = "Supports Skills which have a benefit for Perfectly Timing their use. On successfully executing Perfect Timing with Supported Skills, gain Tasalio's Rhythm. Tasalio's Rhythm causes Supported Skills to deal more damage and have shorter Perfect Timing windows for each stack. Failing to execute any Perfect Timing (even with skills not supported by Tasalio's Rhythm) will remove all Tasalio's Rhythm on you.",
+	color = 2,
+	support = true,
+	requireSkillTypes = { SkillType.PerfectTiming, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Perfection",},
+	isLineage = true,
+	flavourText = {"The Chieftain built a grand waikoama, and boasted that", "it could never be sunk. Tasalio grinned, and the waves", "rolled in, tilting the ship, cresting higher and higher...", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Tasalio's Rhythm",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "gain_X_tasalios_perfection_on_perfect_timing", 1 },
+				{ "perfect_timing_window_ms_+%", 100 },
 			},
 			stats = {
 			},
@@ -5486,7 +5694,7 @@ skills["SupportTulsStillnessPlayer"] = {
 	isLineage = true,
 	flavourText = {"\"Countless graves glow silently in endless rows that stretch", "on unseen. The living lie within, but do not decay, do not", "die. Their eyes remain open, their essence stilled, waiting.\"", },
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5496,7 +5704,7 @@ skills["SupportTulsStillnessPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "non_skill_base_cold_damage_%_to_gain_as_chaos", 20 },
+				{ "non_skill_base_cold_damage_%_to_gain_as_chaos", 40 },
 			},
 			stats = {
 				"chaos_damage_can_freeze",
@@ -5589,7 +5797,7 @@ skills["SupportUntouchablePlayer"] = {
 	gemFamily = { "Untouchable",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5619,7 +5827,7 @@ skills["SupportVoltPlayer"] = {
 	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.Triggered, },
 	gemFamily = { "Volt",},
 	levels = {
-		[1] = { manaMultiplier = 20, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5652,7 +5860,7 @@ skills["SupportWarmbloodedPlayer"] = {
 	gemFamily = { "WarmBlooded",},
 	isLineage = true,
 	levels = {
-		[1] = { spiritReservationFlat = 15, levelRequirement = 0, },
+		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
 	statSets = {
 		[1] = {
@@ -5708,7 +5916,7 @@ skills["SupportKnockbackWavePlayer"] = {
 skills["KnockbackWavePlayer"] = {
 	name = "Wind Wave",
 	hidden = true,
-	skillTypes = { [SkillType.Area] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
+	skillTypes = { [SkillType.Area] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},

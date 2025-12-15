@@ -15,7 +15,7 @@ return {
 						[2]=1000
 					}
 				},
-				text="DNT Buff duration is {0} second"
+				text="Buff duration is {0} second"
 			},
 			[2]={
 				[1]={
@@ -28,7 +28,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Buff duration is {0} seconds"
+				text="Buff duration is {0} seconds"
 			}
 		},
 		stats={
@@ -37,12 +37,29 @@ return {
 	},
 	[2]={
 		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Buff grants {0}% Increased Energy Shield Recharge Rate"
+			}
 		},
 		stats={
-			[1]="curse_effect_duration"
+			[1]="djinn_granted_energy_shield_recharge_rate_+%"
+		}
+	},
+	[3]={
+		[1]={
+		},
+		stats={
+			[1]="skill_effect_duration"
 		}
 	},
 	["base_skill_effect_duration"]=1,
-	["curse_effect_duration"]=2,
-	parent="skill_stat_descriptions"
+	["djinn_granted_energy_shield_recharge_rate_+%"]=2,
+	parent="skill_stat_descriptions",
+	["skill_effect_duration"]=3
 }

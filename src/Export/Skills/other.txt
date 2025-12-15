@@ -24,6 +24,13 @@ statMap = {
 #skillEnd
 
 #from tree
+#skill AlignFatePlayer
+#set AlignFatePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
 #minionList AncestralSpiritTurtle AncestralSpiritHulk AncestralSpiritCaster AncestralSpiritWarhorn
 #skill AncestralSpiritsPlayer
 #set AncestralSpiritsPlayer
@@ -44,6 +51,37 @@ statMap = {
 #skill BleedingConcoctionPlayer
 #set BleedingConcoctionPlayer
 #flags attack projectile unarmed area
+#mods
+#skillEnd
+
+#from tree
+#skill ApocalypsePlayer
+#set ApocalypsePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill ApocalypseColdPlayer
+#set ApocalypseColdPlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#from tree
+#skill ApocalypseFirePlayer
+#set ApocalypseFirePlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#from tree
+#skill ApocalypseLightningPlayer
+#set ApocalypseLightningPlayer
+#flags spell area
+#mods
+#set ApocalypseLightningFinalStrikePlayer
+#flags spell area
 #mods
 #skillEnd
 
@@ -265,6 +303,36 @@ statMap = {
 #skillEnd
 
 #from tree
+#minionList BeetleMinion
+#skill CorpseBeetlesPlayer
+#set CorpseBeetlesPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill CommandCorpseBeetleExplodePlayer
+#set CommandCorpseBeetleExplodePlayer
+#flags minion
+#mods
+#skillEnd
+
+#from tree
+#minionList SandDjinn
+#skill SummonSandDjinnPlayer
+#set SummonSandDjinnPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill CommandSandDjinnKnifeThrowPlayer
+#set CommandSandDjinnKnifeThrowPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
 #skill LifeRemnantsPlayer
 #set LifeRemnantsPlayer
 #flags
@@ -313,9 +381,38 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill BearMaulPlayer
+#set BearMaulPlayer
+#flags attack area melee
+#mods
+#skillEnd
+
 #from tree
 #skill MeditatePlayer
 #set MeditatePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill MomentOfVulnerabilityPlayer
+#set MomentOfVulnerabilityPlayer
+#flags spell
+#mods
+#skillEnd
+
+#from tree
+#minionList WaterDjinn
+#skill SummonWaterDjinnPlayer
+#set SummonWaterDjinnPlayer
+#flags minion
+#mods
+#skillEnd
+
+#from tree
+#skill CommandWaterDjinnBubblePlayer
+#set CommandWaterDjinnBubblePlayer
 #flags
 #mods
 #skillEnd
@@ -360,10 +457,34 @@ statMap = {
 #mods
 #skillEnd
 
+#skill WyvernRendPlayer
+#set WyvernRendPlayer
+#flags attack area melee
+#mods
+#set WyvernRendEmpoweredPlayer
+#flags attack area melee
+#mods
+#skillEnd
+
 #from tree
 #skill RitualSacrificePlayer
 #set RitualSacrificePlayer
 #flags attack area
+#mods
+#skillEnd
+
+#from tree
+#minionList FireDjinn
+#skill SummonFireDjinnPlayer
+#set SummonFireDjinnPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill CommandFireDjinnLivingBombPlayer
+#set CommandFireDjinnLivingBombPlayer
+#flags
 #mods
 #skillEnd
 
@@ -377,6 +498,26 @@ statMap = {
 		value = 100,
 	},
 },
+#mods
+#skillEnd
+
+#from item
+#skill WolfShredPlayer
+#set WolfShredPlayer
+#flags attack melee area
+#mods
+#set WolfShredThirdPlayer
+#flags attack melee area
+#mods
+#set WolfShredFinalPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#from item
+#skill IceFragmentsPlayer
+#set IceFragmentsPlayer
+#flags attack projectile area
 #mods
 #skillEnd
 
@@ -526,7 +667,7 @@ skills["EnemyExplode"] = {
 					else
 						activeSkill.skillData[explodeMod.type.."EffectiveExplodePercentage"] = explodeMod.amount
 					end
-					output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.chance
+					output.ExplodeChance = statSet.index == 2 and 1 or explodeMod.value / 100
 				end
 			end
 		else
@@ -534,7 +675,7 @@ skills["EnemyExplode"] = {
 			local explodeModList = activeSkill.skillModList:List(activeSkill.skillCfg, "ExplodeMod")
 			for _, explodeMod in ipairs(explodeModList) do
 				local amountChance = typeAmountChances[explodeMod.type] or { }
-				amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.chance
+				amountChance[explodeMod.amount] = (amountChance[explodeMod.amount] or 0) + explodeMod.value / 100
 				typeAmountChances[explodeMod.type] = amountChance
 			end
 			for type, amountChance in pairs(typeAmountChances) do

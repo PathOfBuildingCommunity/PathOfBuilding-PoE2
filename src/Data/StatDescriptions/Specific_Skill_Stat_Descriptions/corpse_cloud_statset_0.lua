@@ -137,7 +137,7 @@ return {
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["base_skill_effect_duration"]=3,
-	parent="specific_skill_stat_descriptions/gas_cloud_arrow_statset_0",
+	parent="specific_skill_stat_descriptions/gas_arrow_statset_0",
 	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=2,
 	["quality_display_base_skill_effect_duration_is_gem"]=3,
 	["skill_effect_duration"]=4

@@ -140,6 +140,7 @@ return {
 			["base_dex"]=15,
 			["base_int"]=7,
 			["base_str"]=7,
+			integerId=2,
 			name="Ranger"
 		},
 		[2]={
@@ -190,6 +191,7 @@ return {
 			["base_dex"]=15,
 			["base_int"]=7,
 			["base_str"]=7,
+			integerId=8,
 			name="Huntress"
 		},
 		[3]={
@@ -253,6 +255,7 @@ return {
 			["base_dex"]=7,
 			["base_int"]=7,
 			["base_str"]=15,
+			integerId=6,
 			name="Warrior"
 		},
 		[4]={
@@ -316,6 +319,7 @@ return {
 			["base_dex"]=11,
 			["base_int"]=7,
 			["base_str"]=11,
+			integerId=9,
 			name="Mercenary"
 		},
 		[5]={
@@ -379,6 +383,7 @@ return {
 			["base_dex"]=7,
 			["base_int"]=15,
 			["base_str"]=7,
+			integerId=1,
 			name="Witch"
 		},
 		[6]={
@@ -429,6 +434,7 @@ return {
 			["base_dex"]=7,
 			["base_int"]=15,
 			["base_str"]=7,
+			integerId=7,
 			name="Sorceress"
 		},
 		[7]={
@@ -479,6 +485,7 @@ return {
 			["base_dex"]=11,
 			["base_int"]=11,
 			["base_str"]=7,
+			integerId=10,
 			name="Monk"
 		}
 	},
@@ -1071,6 +1078,10 @@ return {
 			[9]=72,
 			[10]=144
 		}
+	},
+	connectionArt={
+		ascendancy="",
+		default=""
 	},
 	ddsCoords={
 		["ascendancy-background_1500_1500_BC7.dds.zst"]={
@@ -16969,6 +16980,28 @@ return {
 	["max_y"]=23653.407362728,
 	["min_x"]=-23209.233331872,
 	["min_y"]=-23641.571796875,
+	nodeOverlay={
+		Keystone={
+			alloc="KeystoneFrameAllocated",
+			path="KeystoneFrameCanAllocate",
+			unalloc="KeystoneFrameUnallocated"
+		},
+		Normal={
+			alloc="PSSkillFrameActive",
+			path="PSSkillFrameHighlighted",
+			unalloc="PSSkillFrame"
+		},
+		Notable={
+			alloc="NotableFrameAllocated",
+			path="NotableFrameCanAllocate",
+			unalloc="NotableFrameUnallocated"
+		},
+		Socket={
+			alloc="JewelFrameAllocated",
+			path="JewelFrameCanAllocate",
+			unalloc="JewelFrameUnallocated"
+		}
+	},
 	nodes={
 		[4]={
 			connections={

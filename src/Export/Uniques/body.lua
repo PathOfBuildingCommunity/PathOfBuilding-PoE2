@@ -30,11 +30,13 @@ UniquePhysicalDamageTakenPercentToReflect1
 The Brass Dome
 Champion Cuirass
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
 {variant:1}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[300,400]
-{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3
+{variant:2}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3[400,500]
+{variant:3}UniqueLocalIncreasedPhysicalDamageReductionRatingPercent3
 {variant:1}UniqueMaximumElementalResistance1[5,5]
-{variant:2}UniqueMaximumElementalResistance1
+{variant:2,3}UniqueMaximumElementalResistance1
 UniqueStunThreshold3
 UniqueTakeNoExtraDamageFromCriticalStrikes1
 ]],[[
@@ -161,13 +163,18 @@ UniqueGlobalEvasionOnFullLife1
 ]],[[
 Hyrri's Ire
 Armoured Vest
+Variant: Pre 0.4.0
+Variant: Current
 League: Dawn of the Hunt
 Implicits: 1
 BodyArmourImplicitIncreasedAilmentThreshold1
-UniqueLocalIncreasedEvasionRatingPercent33
-UniqueAddedColdDamage3
+{variant:1}UniqueLocalIncreasedEvasionRatingPercent33[100,130]
+{variant:2}UniqueLocalIncreasedEvasionRatingPercent33
+{variant:2}UniqueDamageGainedAsCold2
+{variant:1}UniqueAddedColdDamage3
 UniqueDexterity38
-UniqueChillDuration2
+{variant:1}UniqueChillDuration2
+{variant:2}FreezeDurationUnique__1
 UniqueCanEvadeAllDamageNotHitRecently1
 ]],[[
 Quatl's Molt
@@ -186,13 +193,15 @@ UniqueCannotBePoisoned1
 Queen of the Forest
 Smuggler Coat
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalIncreasedEvasionRatingPercent4
 UniqueFireResist17
 UniqueColdResist17
 UniqueLightningResist14
 {variant:1}UniqueSetMovementVelocityPerEvasion1[500,500]
-{variant:2}UniqueSetMovementVelocityPerEvasion1
+{variant:2}UniqueSetMovementVelocityPerEvasion1[800,800]
+{variant:3}UniqueSetMovementVelocityPerEvasion1
 ]],[[
 The Rat Cage
 Scout's Vest
@@ -204,6 +213,8 @@ UniqueFireDamageTakenAsPhysical1
 Sands of Silk
 Shrouded Vest
 League: Dawn of the Hunt
+Implicits: 1
+Grants Skill: Level (1-20) Blink
 UniqueLocalIncreasedEvasionRatingPercent20
 UniqueIncreasedMana38
 UniqueDexterity2
@@ -243,33 +254,48 @@ UniqueDrainManaHealLife1
 Cloak of Defiance
 Havoc Raiment
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 UniqueLocalIncreasedEnergyShieldPercent14
 UniqueIncreasedMana20
-UniqueManaRegeneration29
-UniqueDamageRemovedFromManaBeforeLife1
+{variant:1}UniqueManaRegeneration8[50,50]
+{variant:2}UniqueManaRegeneration8
+{variant:1}UniqueDamageRemovedFromManaBeforeLife1[30,30]
+{variant:2}UniqueDamageRemovedFromManaBeforeLife1
 ]],[[
 Cloak of Flame
 Silk Robe
+Variant: Pre 0.4.0
+Variant: Current
+{variant:2}UniqueLocalIncreasedEnergyShield18
 UniqueFireResist1
 UniqueReducedBurnDuration1
-UniquePhysicalDamageTakenAsFire1
+{variant:1}UniquePhysicalDamageTakenAsFire1[40,40]
+{variant:2}UniquePhysicalDamageTakenAsFire1
 UniqueAttackerTakesFireDamage1
 ]],[[
 The Covenant
 Altar Robe
+Variant: Pre 0.4.0
+Variant: Current
+{variant:2}Grants Skill: Level 14 Life Remnants
 UniqueLocalIncreasedEnergyShieldPercent11
 UniqueIncreasedLife25
-UniqueSpellDamageLifeLeech1
-UniqueLifeCostAsManaCost1
+{variant:1}UniqueSpellDamageLifeLeech1[500,500]
+{variant:2}UniqueSpellDamageLifeLeech1
+{variant:1}UniqueLifeCostAsManaCost1[50,50]
+{variant:2}UniqueLifeCostAsManaCost1
 ]],[[
 Ghostwrithe
 Tattered Robe
 Variant: Pre 0.2.0
+Variant: Pre 0.4.0
 Variant: Current
 UniqueLocalIncreasedEnergyShield3
 UniqueChaosResist4
 {variant:1}UniqueLifeConvertedToEnergyShield1[50,50]
-{variant:2}UniqueLifeConvertedToEnergyShield1
+{variant:2}UniqueLifeConvertedToEnergyShield1[25,25]
+{variant:3}UniqueLifeConvertedToEnergyShield1
 ]],[[
 Gloamgown
 Elementalist Robe
@@ -303,11 +329,14 @@ UniqueRechargeNotInterruptedRecently1
 Silks of Veneration
 Enlightened Robe
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 BodyArmourImplicitManaRegeneration1
+{variant:2}UniqueLocalIncreasedEnergyShieldPercent27
 UniqueIncreasedSpirit11
 UniqueIntelligence39
-UniqueAllResistances6
+{variant:1}UniqueAllResistances6
 UniqueEnergyShieldRechargeRate4
 UniqueEnergyShieldAppliesElementalReduction1
 ]],[[
@@ -358,7 +387,7 @@ Explorer Armour
 Variant: Pre 0.1.1
 Variant: Current
 UniqueLocalIncreasedArmourAndEvasion7
-UniqueIncreasedLife25
+UniqueIncreasedLife31
 UniqueStunThreshold9
 UniqueInstantLifeFlaskRecovery1
 {variant:2}UniqueAttackerTakesDamage6
@@ -373,6 +402,8 @@ UniqueReceiveBleedingWhenHit1
 The Coming Calamity
 Heroic Armour
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 4
 Grants Skill: Level (1-20) Herald of Ash
 Grants Skill: Level (1-20) Herald of Ice
@@ -380,6 +411,7 @@ Grants Skill: Level (1-20) Herald of Thunder
 BodyArmourImplicitIncreasedLife1
 UniqueAllResistances20
 UniqueEnemiesInPresenceNoElementalResist1
+{variant:2}UniqueHeraldDamage1
 ]],[[
 Doryani's Prototype
 Scale Mail
@@ -413,13 +445,16 @@ UniqueIronWill1
 Lightning Coil
 Ancestral Mail
 League: Rise of the Abyssal
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 Grants Skill: Level (1-20) Valako's Charge
 UniqueLocalIncreasedArmourAndEvasion14
 UniqueIncreasedLife30
 UniqueDexterity44
 UniqueLightningResist13
-UniquePhysicalDamageTakenAsLightningPercent1
+{variant:1}UniquePhysicalDamageTakenAsLightningPercent1[20,40]
+{variant:2}UniquePhysicalDamageTakenAsLightningPercent1
 ]],[[
 Pariah's Embrace
 Cloaked Mail
@@ -436,9 +471,17 @@ UniqueLifeRegeneration3
 Perfidy
 Knight Armour
 Source: Drops from unique{Kosis, The Revelation}
-UniqueLocalIncreasedArmourAndEvasion7
-UniquePhysicalDamageAvoidance1
-UniqueChaosDamageAvoidance1
+Variant: Pre 0.4.0
+Variant: Current
+{variant:1}UniqueLocalIncreasedArmourAndEvasion24[100,150]
+{variant:2}UniqueLocalIncreasedArmourAndEvasion24
+{variant:1}UniquePhysicalDamageAvoidance1[10,40]
+{variant:2}UniquePhysicalDamageAvoidance1
+{variant:1}UniqueChaosDamageAvoidance1[10,40]
+{variant:2}UniqueChaosDamageAvoidance1
+{variant:2}UniqueFireDamageAvoidance1
+{variant:2}UniqueColdDamageAvoidance1
+{variant:2}UniqueLightningDamageAvoidance1
 UniqueEnemiesInPresenceIntimidate1
 ]],[[
 Pragmatism
@@ -452,19 +495,24 @@ UniqueCharmsNoCharges1
 Widow's Reign
 Knight Armour
 League: Dawn of the Hunt
-(100-150)% increased Armour and Evasion
-+(100-150) to maximum Life
-+(17-23)% to Chaos Resistance
-+(200-300) to Ailment Threshold
-Life that would be lost by taking Damage is instead Reserved
-until you take no Damage to Life for 5 seconds
+Variant: Pre 0.4.0
+Variant: Current
+UniqueLocalIncreasedArmourAndEvasion30
+UniqueIncreasedLife48
+UniqueChaosResist35
+UniqueAilmentThreshold2
+{variant:1}UniqueLifeLossReservesLife1[5000,5000]
+{variant:2}UniqueLifeLossReservesLife1
 ]],
 -- Body: Armour/Energy Shield
 [[
 Couture of Crimson
 Gilded Vestments
+Variant: Pre 0.4.0
+Variant: Current
 UniqueLocalIncreasedArmourAndEnergyShield5
-UniqueMaximumLifeIncrease4
+{variant:1}UniqueMaximumLifeIncrease4[-25,-25]
+{variant:2}UniqueMaximumLifeIncrease4
 UniqueReducedBleedDuration1
 UniqueLifeLeechOvercapLife1
 ]],[[
@@ -507,13 +555,16 @@ UniqueDefendWithArmourPerEnergyShield1
 Sacrosanctum
 Corvus Mantle
 League: Dawn of the Hunt
+Variant: Pre 0.4.0
+Variant: Current
 Implicits: 1
 BodyArmourImplicitIncreasedSpirit1
 UniqueLocalIncreasedArmourAndEnergyShield23
 UniqueStrength33
 UniqueIntelligence33
 UniqueChaosResist33
-UniqueDamageTakenGainedAsLife2
+{variant:1}UniqueDamageTakenGainedAsLife2[5,10]
+{variant:2}UniqueDamageTakenGainedAsLife2
 UniqueLifeRecoupAppliesToEnergyShield1
 ]],[[
 Soul Mantle
@@ -527,12 +578,15 @@ UniqueAdditionalTotems1
 UniqueRandomlyCursedWhenTotemsDie1
 ]],[[
 Voll's Protector
-Ironclad Vestments
+{variant:1}Ironclad Vestments
+{variant:2}Plated Vestments
 Variant: Pre 0.1.1
+Variant: Pre 0.4.0
 Variant: Current
-UniqueLocalIncreasedArmourAndEnergyShield7
+{variant:1}UniqueLocalIncreasedArmourAndEnergyShield9[100,150]
+{variant:2}UniqueLocalIncreasedArmourAndEnergyShield9
 UniqueMaximumManaIncrease2
-{variant:2}UniqueChaosResist24
+{variant:2,3}UniqueChaosResist24
 UniquePowerChargeOnCritChance1
 ]],[[
 Waveshaper
@@ -600,9 +654,12 @@ UniqueShockOnMaxPowerCharges1
 ]],[[
 Sierran Inheritance
 Marabout Garb
+Variant: Pre 0.4.0
+Variant: Current
 UniqueLocalIncreasedEvasionAndEnergyShield5
 UniqueLightningResist2
 UniqueEnergyShieldDelay1
+{variant:2}AllDamageTakenCanChillUnique__1
 UniqueReverseChill1
 ]],[[
 Zerphi's Serape
@@ -621,46 +678,71 @@ Morior Invictus
 Grand Regalia
 Has Alt Variant: true
 Has Alt Variant Two: true
+Has Alt Variant Three: true
 Source: Drops from unique{Arbiter of Ash} in normal{The Burning Monolith}
-Selected Variant: 2
-Selected Alt Variant: 4
+Selected Variant: 29
+Selected Alt Variant: 3
 Selected Alt Variant Two: 6
+Selected Alt Variant Three: 9
 Variant: Spirit (Pre 0.2.0)
+Variant: Spirit (Pre 0.4.0)
 Variant: Spirit
 Variant: Life (Pre 0.2.0)
+Variant: Life (Pre 0.4.0)
 Variant: Life
 Variant: Mana (Pre 0.2.0)
+Variant: Mana (Pre 0.4.0)
 Variant: Mana
 Variant: Global Defences (Pre 0.2.0)
+Variant: Global Defences (Pre 0.4.0)
 Variant: Global Defences
 Variant: Item Rarity (Pre 0.2.0)
 Variant: All Resistances (Pre 0.2.0)
+Variant: All Resistances (Pre 0.4.0)
 Variant: All Resistances
 Variant: Attributes (Pre 0.2.0)
+Variant: Attributes (Pre 0.4.0)
 Variant: Attributes
+Variant: Chaos Resistance (Pre 0.4.0)
 Variant: Chaos Resistance
+Variant: Stun Threshold (Pre 0.4.0)
 Variant: Stun Threshold
+Variant: Life Regeneration (Pre 0.4.0)
 Variant: Life Regeneration
+Variant: Reduced Crit Damage (Pre 0.4.0)
 Variant: Reduced Crit Damage
+Variant: Pre 0.4.0
+Variant: Current
 Sockets: S S S S
-UniqueLocalArmourAndEvasionAndEnergyShield1
+{variant:28}UniqueLocalArmourAndEvasionAndEnergyShield1[200,300]
+{variant:29}UniqueLocalArmourAndEvasionAndEnergyShield1
 {variant:1}UniqueSpiritPerSocketable1[10,10]
-{variant:2}UniqueSpiritPerSocketable1
-{variant:3}UniqueMaximumLifePerSocketable1
-{variant:4}UniqueBaseLifePerSocketable1
-{variant:5}UniqueMaximumManaPerSocketable1
-{variant:6}UniqueBaseManaPerSocketable1
-{variant:7}UniqueGlobalDefencesPerSocketable1[10,10]
-{variant:8}UniqueGlobalDefencesPerSocketable1
-{variant:9}UniqueItemRarityPerSocketable1
-{variant:10}UniqueAllResistancesPerSocketable1[10,10]
-{variant:11}UniqueAllResistancesPerSocketable1
-{variant:12}UniquePercentAllAttributesPerSocketable1
-{variant:13}UniqueAllAttributesPerSocketable1
-{variant:14}UniqueChaosResistancePerSocketable1
-{variant:15}UniqueStunThresholdPerSocketable1
-{variant:16}UniqueLifeRegenerationPerSocketable1
-{variant:17}UniqueReducedExtraDamageFromCritsPerSocketable1
+{variant:2}UniqueSpiritPerSocketable1[6,10]
+{variant:3}UniqueSpiritPerSocketable1
+{variant:4}UniqueMaximumLifePerSocketable1
+{variant:5}UniqueBaseLifePerSocketable1[25,40]
+{variant:6}UniqueBaseLifePerSocketable1
+{variant:7}UniqueMaximumManaPerSocketable1
+{variant:8}UniqueBaseManaPerSocketable1[20,30]
+{variant:9}UniqueBaseManaPerSocketable1
+{variant:10}UniqueGlobalDefencesPerSocketable1[10,10]
+{variant:11}UniqueGlobalDefencesPerSocketable1[6,10]
+{variant:12}UniqueGlobalDefencesPerSocketable1
+{variant:13}UniqueItemRarityPerSocketable1
+{variant:14}UniqueAllResistancesPerSocketable1[10,10]
+{variant:15}UniqueAllResistancesPerSocketable1[5,7]
+{variant:16}UniqueAllResistancesPerSocketable1
+{variant:17}UniquePercentAllAttributesPerSocketable1
+{variant:18}UniqueAllAttributesPerSocketable1[4,6]
+{variant:19}UniqueAllAttributesPerSocketable1
+{variant:20}UniqueChaosResistancePerSocketable1[7,10]
+{variant:21}UniqueChaosResistancePerSocketable1
+{variant:22}UniqueStunThresholdPerSocketable1[40,60]
+{variant:23}UniqueStunThresholdPerSocketable1
+{variant:24}UniqueLifeRegenerationPerSocketable1[240,360]
+{variant:25}UniqueLifeRegenerationPerSocketable1
+{variant:26}UniqueReducedExtraDamageFromCritsPerSocketable1[10,15]
+{variant:27}UniqueReducedExtraDamageFromCritsPerSocketable1
 ]],[[
 Skin of the Loyal
 Garment

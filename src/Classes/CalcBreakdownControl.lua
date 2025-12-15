@@ -183,6 +183,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 				{ label = "More/less", key = "more" },
 				{ label = "Inc/red", key = "inc" },
 				{ label = "Efficiency", key = "efficiency" },
+				{ label = "Count", key = "count" },
 				{ label = "Reservation", key = "total" },
 			}
 		}
@@ -273,6 +274,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 	-- Build list of modifiers to display
 	local cfg = (sectionData.cfg and actor.mainSkill[sectionData.cfg.."Cfg"] and copyTable(actor.mainSkill[sectionData.cfg.."Cfg"], true)) or { }
 	cfg.source = sectionData.modSource
+	cfg.ignoreSourceinCheckConditions = true
 	cfg.actor = sectionData.actor
 	local rowList
 	local modStore = (sectionData.enemy and actor.enemy.modDB) or (sectionData.cfg and actor.mainSkill.skillModList) or actor.modDB
@@ -379,10 +381,10 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 			-- Multiple stat names specified, add this modifier's stat to the table
 			row.name = self:FormatModName(row.mod.name)
 		end
-		local sourceType = row.mod.source:match("[^:]+")
+		local sourceType = row.mod.source:match("[^:]+") or ""
+		row.source = sourceType
 		if not modList and not sectionData.modSource then
 			-- No modifier source specified, add the source type to the table
-			row.source = sourceType
 			row.sourceTooltip = function(tooltip)
 				tooltip:AddLine(16, "Total from "..sourceType..":")
 				for _, line in ipairs(sourceTotals[sourceType]) do
@@ -464,7 +466,7 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				elseif tag.type == "MultiplierThreshold" or tag.type == "StatThreshold" then
 					desc = "If "..self:FormatVarNameOrList(tag.var or tag.stat, tag.varList or tag.statList)..(tag.upper and " <= " or " >= ")..(tag.thresholdPercent and tag.thresholdPercent.."% " or "")..(tag.threshold or self:FormatModName(tag.thresholdVar or tag.thresholdStat))
 				elseif tag.type == "SkillName" then
-					desc = "Skill: "..(tag.skillNameList and table.concat(tag.skillNameList, "/") or tag.skillName)
+					desc = "Skill: "..(tag.skillNameList and table.concat(tag.skillNameList, " / ") or tag.skillName)
 				elseif tag.type == "SkillId" then
 					desc = "Skill: "..build.data.skills[tag.skillId].name
 				elseif tag.type == "SkillType" then
@@ -501,7 +503,7 @@ function CalcBreakdownClass:FormatModName(modName)
 end
 
 function CalcBreakdownClass:FormatVarNameOrList(var, varList)
-	return var and self:FormatModName(var) or table.concat(varList, "/")
+	return var and self:FormatModName(var) or self:FormatModName(table.concat(varList, " / "))
 end
 
 function CalcBreakdownClass:FormatModBase(mod, base)

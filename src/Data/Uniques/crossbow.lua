@@ -33,7 +33,7 @@ Variant: Pre 0.1.1
 Variant: Current
 {variant:1}Adds (4-6) to (9-12) Cold Damage
 {variant:2}Adds (8-10) to (13-15) Cold Damage
-Gain 5 Mana per Enemy Killed
+Gain 5 Mana per enemy killed
 (30-50)% increased Freeze Buildup
 {variant:2}30% increased Chill Duration on Enemies
 {variant:1}Attacks Chain an additional time
