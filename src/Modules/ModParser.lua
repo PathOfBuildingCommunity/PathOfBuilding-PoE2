@@ -1579,12 +1579,11 @@ local modTagList = {
 	["per (%d+) maximum energy shield on shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped focus"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingFocus" } } } end,
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "EnergyShieldOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
+	["per (%d+) (i?t?e?m? ?)energy shield on equipped boots"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnBoots", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion on equipped boots"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBoots", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion on boots"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBoots", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on equipped gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
-
 	["per (%d+) (i?t?e?m? ?)armour on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnHelmet", div = num } } end,
-
 	["per (%d+) (i?t?e?m? ?)armour on gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnHelmet", div = num } } end,
 	["per (%d+)%% (%a+) resistance"] = function(num, _, name) return { tag = { type = "PerStat", stat = firstToUpper(name).."Resist", div = num } } end,
 	["per (%d+)%% (%a+) resistance above 75%%"] = function(num, _, name) return { tag  = { type = "PerStat", stat = firstToUpper(name).."ResistOver75", div = num } } end,

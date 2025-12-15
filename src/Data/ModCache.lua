@@ -375,8 +375,7 @@ c["+28% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",typ
 c["+28% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=28}},nil}
 c["+29 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=29}},nil}
 c["+29% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=29}},nil}
-c["+3 to Armour per 1 Item Energy Shield on Equipped Boots"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=3}},"  per 1 Item Energy Shield on Equipped Boots "}
-c["+3 to Armour per 1 Item Energy Shield on Equipped Boots 10% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=3}},"  per 1 Item Energy Shield on Equipped Boots 10% reduced Slowing Potency of Debuffs on You "}
+c["+3 to Armour per 1 Item Energy Shield on Equipped Boots"]={{[1]={[1]={div=1,stat="EnergyShieldOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=3}},nil}
 c["+3 to Level of all Alchemist's Boon Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="alchemist's boon",value=3}}},nil}
 c["+3 to Level of all Ancestral Cry Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral cry",value=3}}},nil}
 c["+3 to Level of all Ancestral Warrior Totem Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral warrior totem",value=3}}},nil}
