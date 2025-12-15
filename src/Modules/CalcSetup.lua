@@ -308,7 +308,7 @@ function calcs.buildModListForNodeList(env, nodeList, finishJewels)
 		end
 	end
 
-	return modList
+	return modList, explodeSources
 end
 
 function wipeEnv(env, accelerate)
