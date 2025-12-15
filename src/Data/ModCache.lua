@@ -101,7 +101,7 @@ c["+1 to Level of all Lightning Skills"]={{[1]={flags=0,keywordFlags=0,name="Gem
 c["+1 to Level of all Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="all",value=1}}},nil}
 c["+1 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=1}},nil}
 c["+1 to Maximum Energy Shield per 12 Item Evasion Rating on Equipped Body Armour"]={{[1]={[1]={div=12,stat="EvasionOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
-c["+1 to Maximum Energy Shield per 8 Item Armour on Equipped Helmet"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},"  per 8 Item Armour on Equipped Helmet "}
+c["+1 to Maximum Energy Shield per 8 Item Armour on Equipped Helmet"]={{[1]={[1]={div=8,stat="ArmourOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Energy Shield per 8 Maximum Life"]={{[1]={[1]={div=8,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=1}},nil}
 c["+1 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=1}},nil}
 c["+1 to Maximum Mana per 6 Maximum Life"]={{[1]={[1]={div=6,stat="Life",type="PerStat"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=1}},nil}
@@ -375,8 +375,7 @@ c["+28% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",typ
 c["+28% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=28}},nil}
 c["+29 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=29}},nil}
 c["+29% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=29}},nil}
-c["+3 to Armour per 1 Item Energy Shield on Equipped Boots"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=3}},"  per 1 Item Energy Shield on Equipped Boots "}
-c["+3 to Armour per 1 Item Energy Shield on Equipped Boots 10% reduced Slowing Potency of Debuffs on You"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=3}},"  per 1 Item Energy Shield on Equipped Boots 10% reduced Slowing Potency of Debuffs on You "}
+c["+3 to Armour per 1 Item Energy Shield on Equipped Boots"]={{[1]={[1]={div=1,stat="EnergyShieldOnBoots",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=3}},nil}
 c["+3 to Level of all Alchemist's Boon Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="alchemist's boon",value=3}}},nil}
 c["+3 to Level of all Ancestral Cry Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral cry",value=3}}},nil}
 c["+3 to Level of all Ancestral Warrior Totem Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral warrior totem",value=3}}},nil}
@@ -1308,7 +1307,7 @@ c["12% increased Damage with Axes"]={{[1]={flags=65540,keywordFlags=0,name="Dama
 c["12% increased Damage with Bows"]={{[1]={flags=131076,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Damage with Crossbows"]={{[1]={flags=67108868,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Damage with Hits against Enemies affected by Elemental Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Ignited",[5]="Scorched",[6]="Brittle",[7]="Sapped"}},flags=0,keywordFlags=262144,name="Damage",type="INC",value=12}},nil}
-c["12% increased Damage with Plant Skills"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},"  with Plant Skills "}
+c["12% increased Damage with Plant Skills"]={{[1]={[1]={skillType=252,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=99,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=12}},nil}
 c["12% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=12}},nil}
 c["12% increased Elemental Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamage",type="INC",value=12}},nil}
@@ -1338,8 +1337,8 @@ c["12% increased Projectile Damage"]={{[1]={flags=1024,keywordFlags=0,name="Dama
 c["12% increased Reservation Efficiency of Minion Skills"]={{[1]={[1]={skillType=6,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=12}},nil}
 c["12% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage for each different Non-Instant Attack you've used in the past 8 seconds"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},"   for each different Non-Instant Attack you've used in the past 8 seconds "}
-c["12% increased Spell Damage if you have Shapeshifted to Human form Recently"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},"   if you have Shapeshifted to Human form Recently "}
-c["12% increased Spell Damage if you have consumed an Elemental Infusion Recently"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},"   if you have consumed an Elemental Infusion Recently "}
+c["12% increased Spell Damage if you have Shapeshifted to Human form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToHuman"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
+c["12% increased Spell Damage if you have consumed an Elemental Infusion Recently"]={{[1]={[1]={type="Condition",var="InfusionConsumedRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage per 10 Spirit"]={{[1]={[1]={div=10,stat="Spirit",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while on Full Energy Shield"]={{[1]={[1]={type="Condition",var="FullEnergyShield"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["12% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
@@ -1441,7 +1440,7 @@ c["15% increased Armour while stationary"]={{[1]={[1]={type="Condition",var="Sta
 c["15% increased Attack Area Damage"]={{[1]={flags=513,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Attack Critical Hit Chance while Dual Wielding"]={{[1]={[1]={type="Condition",var="DualWielding"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
-c["15% increased Attack Damage if you have Shapeshifted to an Animal form Recently"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=15}},"  if you have Shapeshifted to an Animal form Recently "}
+c["15% increased Attack Damage if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=1,keywordFlags=0,name="Damage",type="INC",value=15}},nil}
 c["15% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["15% increased Attack Speed if you've been Hit Recently"]={{[1]={[1]={type="Condition",var="BeenHitRecently"},flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
 c["15% increased Attack Speed while not on Low Mana"]={{[1]={[1]={neg=true,type="Condition",var="LowMana"},flags=1,keywordFlags=0,name="Speed",type="INC",value=15}},nil}
@@ -1462,7 +1461,7 @@ c["15% increased Critical Hit Chance against Shocked Enemies"]={{[1]={[1]={actor
 c["15% increased Critical Hit Chance against enemies with Exposure"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HasExposure"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
-c["15% increased Critical Hit Chance if you have Shapeshifted to an Animal form Recently"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},"  if you have Shapeshifted to an Animal form Recently "}
+c["15% increased Critical Hit Chance if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance with Daggers"]={{[1]={flags=524292,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Hit Chance with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="CritChance",type="INC",value=15}},nil}
 c["15% increased Critical Spell Damage Bonus"]={{[1]={flags=2,keywordFlags=0,name="CritMultiplier",type="INC",value=15}},nil}
@@ -1930,7 +1929,7 @@ c["20% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThresh
 c["20% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=20}},nil}
 c["20% increased Stun Threshold while Parrying"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=20}},"  while Parrying "}
 c["20% increased Stun Threshold while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=20}},nil}
-c["20% increased Stun buildup if you have Shapeshifted to an Animal form Recently"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=20}},"  if you have Shapeshifted to an Animal form Recently "}
+c["20% increased Stun buildup if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=20}},nil}
 c["20% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=20}},nil}
 c["20% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=20}},nil}
 c["20% increased Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=20}},nil}
@@ -1946,7 +1945,7 @@ c["20% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name
 c["20% increased chance to inflict Ailments against Enemies with Exposure"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HasExposure"},flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
 c["20% increased chance to inflict Ailments against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
 c["20% increased chance to inflict Ailments with Projectiles"]={{[1]={flags=1024,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
-c["20% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{}," chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently "}
+c["20% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{}," chance to inflict Elemental Ailments  "}
 c["20% increased duration of Ailments you inflict against Cursed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="EnemyAilmentDuration",type="INC",value=20}},nil}
 c["20% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
 c["20% increased maximum Energy Shield if you've consumed a Power Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovablePowerCharge"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
@@ -2335,7 +2334,7 @@ c["30% increased Armour while Bleeding"]={{[1]={[1]={type="Condition",var="Bleed
 c["30% increased Armour while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="Armour",type="INC",value=30}},nil}
 c["30% increased Armour while stationary"]={{[1]={[1]={type="Condition",var="Stationary"},flags=0,keywordFlags=0,name="Armour",type="INC",value=30}},nil}
 c["30% increased Attack Damage against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
-c["30% increased Attack Damage if you have Shapeshifted to an Animal form Recently"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},"  if you have Shapeshifted to an Animal form Recently "}
+c["30% increased Attack Damage if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Attack Damage if you've Cast a Spell Recently"]={{[1]={[1]={type="Condition",var="CastSpellRecently"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=30}},nil}
 c["30% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=30}},nil}
@@ -2353,7 +2352,7 @@ c["30% increased Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritC
 c["30% increased Critical Hit Chance against Blinded Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
 c["30% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
 c["30% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
-c["30% increased Critical Hit Chance if you have Shapeshifted to an Animal form Recently"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="INC",value=30}},"  if you have Shapeshifted to an Animal form Recently "}
+c["30% increased Critical Hit Chance if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
 c["30% increased Critical Hit Chance with Flails"]={{[1]={flags=134217732,keywordFlags=0,name="CritChance",type="INC",value=30}},nil}
 c["30% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=30}},nil}
 c["30% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
@@ -2434,7 +2433,7 @@ c["30% increased Shock Chance against Electrocuted Enemies"]={{[1]={[1]={actor="
 c["30% increased Skill Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
 c["30% increased Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=30},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=30},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=30}},nil}
 c["30% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
-c["30% increased Spell Damage if you have consumed an Elemental Infusion Recently"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=30}},"   if you have consumed an Elemental Infusion Recently "}
+c["30% increased Spell Damage if you have consumed an Elemental Infusion Recently"]={{[1]={[1]={type="Condition",var="InfusionConsumedRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Spell Damage while you have Arcane Surge"]={{[1]={[1]={type="Condition",var="AffectedByArcaneSurge"},flags=2,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
 c["30% increased Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=30}},nil}
 c["30% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=30}},nil}
@@ -2711,13 +2710,13 @@ c["40% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavySt
 c["40% increased Stun Buildup against enemies within 2 metres"]={{[1]={[1]={threshold=20,type="MultiplierThreshold",upper=true,var="enemyDistance"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},nil}
 c["40% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecovery",type="INC",value=40}},nil}
 c["40% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=40}},nil}
-c["40% increased Stun buildup if you have Shapeshifted to an Animal form Recently"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},"  if you have Shapeshifted to an Animal form Recently "}
+c["40% increased Stun buildup if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=40}},nil}
 c["40% increased Totem Damage"]={{[1]={flags=0,keywordFlags=16384,name="Damage",type="INC",value=40}},nil}
 c["40% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=40}},nil}
 c["40% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}},nil}
 c["40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting "}
 c["40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant "}
-c["40% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{}," chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently "}
+c["40% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{}," chance to inflict Elemental Ailments  "}
 c["40% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=40}},nil}
 c["40% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},nil}
 c["40% less Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="MORE",value=-40}},nil}
