@@ -1,4 +1,5 @@
 name: Update code with code from PoB1
+run-name: ${{ github.event.client_payload.title }}
 
 on:
     repository_dispatch:
@@ -15,18 +16,21 @@ jobs:
                 ref: 'dev'
             - name: Apply patch
               run: |
-                # Allow rejected hunks so the workflow continues even on conflicts
-                curl -L ${{ github.event.client_payload.patch_url }} | git apply -v --3way --reject --index || true
-            - name: Show status
-              run: git status --short
+                # Download patch first to avoid broken pipes if apply exits early
+                PATCH_FILE=$(mktemp)
+                curl -L ${{ github.event.client_payload.patch_url }} -o "$PATCH_FILE"
+                if ! git apply -v --3way --ignore-whitespace --index "$PATCH_FILE"; then
+                  echo "3-way apply failed, retrying with --reject"
+                  git apply -v --reject --ignore-whitespace --index "$PATCH_FILE" || true
+                fi
             - name: Create Pull Request
               uses: peter-evans/create-pull-request@v5
               with:
-                branch-suffix: timestamp
                 title: "[pob1-port] ${{ github.event.client_payload.title }}"
                 branch: pob1-pr-${{ github.event.client_payload.id }}
                 body: |
                   ${{ github.event.client_payload.msg }}
                 author: ${{ github.event.client_payload.name || github.event.client_payload.user }} <${{ github.event.client_payload.user }}@users.noreply.github.com>
+                committer: ${{ github.event.client_payload.name || github.event.client_payload.user }} <${{ github.event.client_payload.user }}@users.noreply.github.com>
                 commit-message: ${{ github.event.client_payload.msg }}
                 labels: ${{ github.event.client_payload.labels }}
