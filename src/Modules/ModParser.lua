@@ -1118,6 +1118,7 @@ local modFlagList = {
 	["with command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["for command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["while shapeshifted"] = { tag = { type = "SkillType", skillType = SkillType.Shapeshift } },
+	["with plant skills"] = { tag = { type = "SkillType", skillType = SkillType.Plant } },
 	["minion"] = { addToMinion = true },
 	["zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
 	["raised zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
