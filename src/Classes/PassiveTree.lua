@@ -86,6 +86,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	-- Build maps of class name -> class table
 	self.classNameMap = { }
 	self.ascendNameMap = { }
+	self.classIntegerIdMap = { }
 	self.internalAscendNameMap = { }
 	self.classNotables = { }
 
@@ -93,6 +94,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		class.classes = class.ascendancies
 		class.classes[0] = { name = "None" }
 		self.classNameMap[class.name] = classId
+		self.classIntegerIdMap[class.integerId] = classId
 		for ascendClassId, ascendClass in pairs(class.classes) do
 			self.ascendNameMap[ascendClass.id or ascendClass.name] = {
 				classId = classId,

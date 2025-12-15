@@ -643,6 +643,7 @@ for i, classId in ipairs(psg.passives) do
 		end
 		local classDef = {
 			["name"] = character.Name,
+			["integerId"] = character.IntegerId,
 			["base_str"] = character.BaseStrength,
 			["base_dex"] = character.BaseDexterity,
 			["base_int"] = character.BaseIntelligence,
