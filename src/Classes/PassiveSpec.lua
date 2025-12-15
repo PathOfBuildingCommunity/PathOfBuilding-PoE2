@@ -236,6 +236,9 @@ function PassiveSpecClass:Save(xml)
 	xml.attrib = {
 		title = self.title,
 		treeVersion = self.treeVersion,
+		-- TODO remove old class format
+		classId = tostring(self.curClassId),
+		ascendClassId = tostring(self.curAscendClassId),
 		-- New format
 		classInternalId = tostring(classInternalId),
 		ascendancyInternalId = tostring(ascendancyInternalId),
