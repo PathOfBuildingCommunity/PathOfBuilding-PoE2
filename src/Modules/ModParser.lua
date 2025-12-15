@@ -3275,8 +3275,13 @@ local specialModList = {
 		flag("Condition:CanUseBondedModifiers"),
 	},
 	-- Druid -- Shaman
-	["adapt to the highest elemental damage type of each hit you take"] = { flag("Condition:ElementalAdaptation") } ,
+	["adapt to the highest elemental damage type of each hit you take"] = {
+		flag("ElementalAdaptation"),
+		flag("Condition:ElementalAdaptation"),
+	
+	},
 	["each adaptation grants (%d+)%% less damage taken of that adaptation's type"] = { },
+	["double adaptation effect"] = { flag("Condition:DoubleElementalAdaptation") },
 	-- Item local modifiers
 	["has no sockets"] = { flag("NoSockets") },
 	["reflects your other ring"] = {

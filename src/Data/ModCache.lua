@@ -3316,7 +3316,7 @@ c["Abyssal Wasting also applies % to Lightning Resistance Projectiles have 50% c
 c["Abyssal Wasting you inflict has Infinite Duration"]={nil,"Abyssal Wasting you inflict has Infinite Duration "}
 c["Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance"]={nil,"Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance "}
 c["Accuracy Rating is Doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="AccuracyDoubledLimit",type="Multiplier",var="AccuracyDoubled"},flags=0,keywordFlags=0,name="Accuracy",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:AccuracyDoubled",type="OVERRIDE",value=1}},nil}
-c["Adapt to the highest Elemental Damage Type of each Hit you take"]={{[1]={flags=0,keywordFlags=0,name="Condition:ElementalAdaptation",type="FLAG",value=true}},nil}
+c["Adapt to the highest Elemental Damage Type of each Hit you take"]={{[1]={flags=0,keywordFlags=0,name="ElementalAdaptation",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Condition:ElementalAdaptation",type="FLAG",value=true}},nil}
 c["Adaptations have a duration of 5 seconds"]={nil,"Adaptations have a duration of 5 seconds "}
 c["Adaptations have a duration of 5 seconds Double Adaptation Effect"]={{[1]={[1]={globalLimit=100,globalLimitKey="DurationDoubledLimit",type="Multiplier",var="DurationDoubled"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:DurationDoubled",type="OVERRIDE",value=1}},"Adaptations have a  of 5 seconds  Adaptation Effect "}
 c["Adds 1 to 10 Lightning Damage to Attacks per 20 Intelligence"]={{[1]={[1]={div=20,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={[1]={div=20,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=10}},nil}
@@ -4747,7 +4747,7 @@ c["Dodge Roll cannot Avoid Damage"]={nil,"Dodge Roll cannot Avoid Damage "}
 c["Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling"]={nil,"Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling "}
 c["Dodge Roll passes through Enemies"]={nil,"Dodge Roll passes through Enemies "}
 c["Double Activation Delay of Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseDelay",type="MORE",value=100}},nil}
-c["Double Adaptation Effect"]={{[1]={[1]={globalLimit=100,globalLimitKey="LocalEffectDoubledLimit",type="Multiplier",var="LocalEffectDoubled"},flags=0,keywordFlags=0,name="LocalEffect",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:LocalEffectDoubled",type="OVERRIDE",value=1}}," Adaptation  "}
+c["Double Adaptation Effect"]={{[1]={flags=0,keywordFlags=0,name="Condition:DoubleElementalAdaptation",type="FLAG",value=true}},nil}
 c["Double Stun Threshold while Shield is Raised"]={{[1]={[1]={globalLimit=100,globalLimitKey="StunThresholdDoubledLimit",type="Multiplier",var="StunThresholdDoubled"},flags=0,keywordFlags=0,name="StunThreshold",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:StunThresholdDoubled",type="OVERRIDE",value=1}},"  while Shield is Raised "}
 c["Double the number of your Poisons that targets can be affected by at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PoisonStacks",type="MORE",value=100}},nil}
 c["Doubles Mana Costs"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=100}},nil}
