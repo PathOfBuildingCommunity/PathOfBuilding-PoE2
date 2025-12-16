@@ -144,7 +144,7 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	end
 	main.ggpk:ExtractList(filesToExtract, cacheExtract)
 
-	for icon, sections in pairs(sheet.files) do
+	for icon, sections in pairsSortByKey(sheet.files) do
 		local tex = Texture.new()
 		local rc
 		if is4kEnabled then
@@ -170,7 +170,7 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	end
 
 
-	for iden, stackInfo in pairs(stackTextures) do
+	for iden, stackInfo in pairsSortByKey(stackTextures) do
 		local stacks = {}
 		local file = sheet.name .. "_" .. iden .. ".dds.zst"
 		ddsCoords[file] = {}
@@ -713,7 +713,10 @@ for i, classId in ipairs(psg.passives) do
 			addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonMetadata(ascendency.Name .. "FrameLargeAllocated"))
 
 			-- include the connection art in case doesn't exist
-			connectionArtToDecompose[ascendency.UIArt.ConnectionsArt.Id] = true
+			-- ignore Lich art as it currently breaks the GIMP script to extract lines
+			if ascendency.UIArt.ConnectionsArt.Id:find("Lich") == nil then
+				connectionArtToDecompose[ascendency.UIArt.ConnectionsArt.Id] = true
+			end
 			:: continue3 ::
 		end
 
@@ -979,7 +982,7 @@ for i, group in ipairs(psg.groups) do
 				node["stats"] = node["stats"] or {}
 
 				for _, gemEffect in pairs(passiveRow.GrantedSkill.GemEffects) do
-					local skillName = gemEffect.GrantedEffect.ActiveSkill.DisplayName
+					local skillName = passiveRow.GrantedSkill.BaseItemType.Name
 					table.insert(node["stats"], "Grants Skill: " .. skillName)
 
 					-- -- include the stat description
@@ -1353,7 +1356,7 @@ local typeOfConnections = {
 	"Normal", "Intermediate", "IntermediateActive"
 }
 
-for connectionArtId, _ in pairs(connectionArtToDecompose) do
+for connectionArtId, _ in pairsSortByKey(connectionArtToDecompose) do
 	local connectionArt = dat("PassiveSkillTreeConnectionArt"):GetRow("Id", connectionArtId)
 	if connectionArt == nil then
 		printf("Connection art " .. connectionArtId .. " not found")
