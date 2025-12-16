@@ -272,16 +272,16 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				goto endConnection
 			end
 
-			if node.ascendancyName ~= other.ascendancyName then
-				goto endConnection
-			end
-
 			if node.id == otherId then
 				goto endConnection
 			end
 
 			t_insert(other.linkedId, node.id)
 			t_insert(node.linkedId, otherId)
+			
+			if node.ascendancyName ~= other.ascendancyName then
+				goto endConnection
+			end
 
 			if node.classesStart ~= nil or other.classesStart ~= nil then
 				goto endConnection

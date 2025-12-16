@@ -831,7 +831,14 @@ function PassiveSpecClass:AllocNode(node, altPath)
 
 	if node.isMultipleChoiceOption then
 		-- For multiple choice passives, make sure no other choices are allocated
-		local parent = node.linked[1]
+		local parent = nil
+		for _, possibleParent in ipairs(node.linked) do
+			if possibleParent.isMultipleChoice and possibleParent.alloc and possibleParent ~= node then
+				parent = possibleParent
+				break
+			end
+		end
+		assert(parent) -- If we're allocating a multiple choice option without an allocated parent, something has gone wrong
 		for _, optNode in ipairs(parent.linked) do
 			if optNode.isMultipleChoiceOption and optNode.alloc and optNode ~= node then
 				self:DeallocSingleNode(optNode)
