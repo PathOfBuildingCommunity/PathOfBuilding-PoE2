@@ -1902,7 +1902,8 @@ return {
 		["sceptre"] = {
 				type = "Rune",
 				"30% increased Presence Area of Effect",
-				statOrder = { 1002 },
+				"Bonded: Minions have 20% increased Area of Effect",
+				statOrder = { 1002, 2649 },
 				rank = { 0 },
 		},
 	},

@@ -140028,7 +140028,7 @@ return {
 		[1]={
 			[1]={
 				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
+					k="divide_by_one_hundred_2dp_if_required",
 					v=1
 				},
 				limit={
@@ -140041,7 +140041,7 @@ return {
 			},
 			[2]={
 				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
+					k="divide_by_one_hundred_2dp_if_required",
 					v=1
 				},
 				limit={
@@ -169963,7 +169963,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="Construct Monsters have {0}% increased Effectiveness"
+				text="Construct Monsters have {0}% reduced Effectiveness"
 			}
 		},
 		stats={

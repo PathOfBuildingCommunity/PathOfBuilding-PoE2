@@ -137,7 +137,7 @@ statMap = {
 
 #skill BriarpatchPlayer
 #set BriarpatchPlayer
-#flags spell duration
+#flags spell area duration
 #mods
 #skillEnd
 

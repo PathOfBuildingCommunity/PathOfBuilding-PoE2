@@ -3126,7 +3126,7 @@ skills["SupportDrainedAilmentPlayer"] = {
 }
 skills["SupportShockingRiftPlayer"] = {
 	name = "Electromagnetism",
-	description = "Supports Skills that which Hit enemies. When Supported Skills Shock an enemy that is nearby other Shocked enemies, trigger Electromagnetism, sucking in nearby enemies, Hindering them, and dealing Lightning damage at an interval.",
+	description = "Supports Skills that Hit enemies. When Supported Skills Shock an enemy that is nearby other Shocked enemies, trigger Electromagnetism, sucking in nearby enemies, Hindering them, and dealing Lightning damage at an interval.",
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
@@ -7034,7 +7034,7 @@ skills["SupportSpellCascadePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cascadable, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, },
+	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, },
 	gemFamily = { "SpellCascade",},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7075,7 +7075,7 @@ skills["SupportSpellEchoPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cascadable, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, },
 	gemFamily = { "SpellEcho",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 50, },
@@ -8103,7 +8103,7 @@ skills["SupportZenithPlayerTwo"] = {
 	gemFamily = { "Zenith",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {

@@ -226,6 +226,39 @@ return {
 			[1]="skill_effect_duration"
 		}
 	},
+	[12]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Vines grow facing nearby targets, no more than once per\nsecond for each target"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Vines grow facing nearby targets, no more than once per\n{0} seconds for each target"
+			}
+		},
+		stats={
+			[1]="thrashing_vines_retarget_cooldown_ms"
+		}
+	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
 	["active_skill_base_tertiary_area_of_effect_radius"]=3,
@@ -237,5 +270,6 @@ return {
 	["number_of_awakened_forests_allowed"]=9,
 	parent="skill_stat_descriptions",
 	["plant_skill_damage_+%_final_when_wet"]=10,
-	["skill_effect_duration"]=11
+	["skill_effect_duration"]=11,
+	["thrashing_vines_retarget_cooldown_ms"]=12
 }

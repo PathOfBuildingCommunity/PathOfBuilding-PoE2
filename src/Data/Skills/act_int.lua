@@ -8076,7 +8076,7 @@ skills["FlameblastPlayer"] = {
 	baseTypeName = "Flameblast",
 	color = 3,
 	description = "Channel to build destructive energy around you. Releasing the energy causes a devastating explosion that is larger and more intense the longer you Channelled for.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cascadable] = true, [SkillType.GainsStages] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.GainsStages] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.25,
 	qualityStats = {
 		{ "active_skill_cast_speed_+%_final", 1 },
@@ -8470,7 +8470,7 @@ skills["FreezingMarkPlayer"] = {
 	name = "Freezing Mark",
 	baseTypeName = "Freezing Mark",
 	color = 3,
-	description = "Mark a target, making them more susceptible to being Frozen. When the Marked target is Frozen, the Mark Activates, granting you a Buff which gives extra Cold damage and Consming the Mark. Marking another target while you have the Buff will remove the Buff.",
+	description = "Mark a target, making them more susceptible to being Frozen. When the Marked target is Frozen, the Mark Activates, granting you a Buff which gives extra Cold damage and Consuming the Mark. Marking another target while you have the Buff will remove the Buff.",
 	skillTypes = { [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Mark] = true, [SkillType.Cold] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, },
 	castTime = 0.5,
 	qualityStats = {
