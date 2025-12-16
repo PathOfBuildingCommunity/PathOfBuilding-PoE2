@@ -2188,7 +2188,7 @@ local explodeFunc = function(chance, amount, type, ...)
 	local amounts = {}
 	amounts[type] = amountNumber
 	return {
-		mod("ExplodeMod", "LIST", { type = firstToUpper(type), value = chance, amount = amountNumber, keyOfScaledMod = "chance" }, ...),
+		mod("ExplodeMod", "LIST", { type = firstToUpper(type), value = chance, amount = amountNumber, keyOfScaledMod = "value" }, ...),
 		flag("CanExplode")
 	}
 end
