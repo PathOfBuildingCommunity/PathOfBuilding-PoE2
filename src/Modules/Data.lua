@@ -37,6 +37,7 @@ local itemTypes = {
 	"staff",
 	"sceptre",
 	"sword",
+	"talisman",
 	"wand",
 	"body",
 	"gloves",
@@ -49,7 +50,6 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
-	"talisman",
 }
 
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)

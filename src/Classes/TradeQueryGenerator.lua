@@ -23,7 +23,7 @@ local tradeCategoryNames = {
 	["Shield"] = { "Shield", "Shield: Armour", "Shield: Armour/Energy Shield", "Shield: Armour/Evasion", "Shield: Evasion" },
 	["Focus"] = { "Focus" },
 	["1HWeapon"] = { "One Handed Mace", "Wand", "Sceptre", "Flail", "Spear" },
-	["2HWeapon"] = { "Staff", "Staff: Warstaff", "Two Handed Mace", "Crossbow", "Bow" },
+	["2HWeapon"] = { "Staff", "Staff: Warstaff", "Two Handed Mace", "Crossbow", "Bow", "Talisman" },
 	-- ["1HAxe"] = { "One Handed Axe" },
 	-- ["1HSword"] = { "One Handed Sword", "Thrusting One Handed Sword" },
 	["1HMace"] = { "One Handed Mace" },
@@ -31,6 +31,7 @@ local tradeCategoryNames = {
 	-- ["Dagger"] = { "Dagger" },
 	["Wand"] = { "Wand" },
 	-- ["Claw"] = { "Claw" },
+	["Talisman"] = { "Talisman" },
 	["Staff"] = { "Staff" },
 	["Quarterstaff"] = { "Staff: Warstaff" },
 	["Bow"] = { "Bow" },
@@ -421,7 +422,7 @@ function TradeQueryGeneratorClass:InitMods()
 	for name, runeMods in pairsSortByKey(data.itemMods.Runes) do
 		for slotType, mods in pairs(runeMods) do
 			if slotType == "weapon" then
-				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true  })
+				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true, ["Talisman"] = true  })
 			elseif slotType == "armour" then
 				self:ProcessMod(mods, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
 			elseif slotType == "caster" then
@@ -632,6 +633,9 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "Crossbow" then
 				itemCategoryQueryStr = "weapon.crossbow"
 				itemCategory = "Crossbow"
+			elseif existingItem.type == "Talisman" then
+				itemCategoryQueryStr = "weapon.talisman"
+				itemCategory = "Talisman"	
 			elseif existingItem.type == "Staff" and existingItem.base.subType == "Warstaff" then
 				itemCategoryQueryStr = "weapon.warstaff"
 				itemCategory = "Quarterstaff"

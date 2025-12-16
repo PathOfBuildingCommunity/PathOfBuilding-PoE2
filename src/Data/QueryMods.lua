@@ -579,6 +579,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["1506"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|1506", 
+				["text"] = "Allocates Remnant Attraction", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["15083"] = {
 			["specialCaseData"] = {
 			}, 
@@ -1227,6 +1236,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["20558"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|20558", 
+				["text"] = "Allocates Among the Hordes", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["20677"] = {
 			["specialCaseData"] = {
 			}, 
@@ -1332,6 +1350,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|21748", 
 				["text"] = "Allocates Impending Doom", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["21784"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|21784", 
+				["text"] = "Allocates Pack Encouragement", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -1767,6 +1794,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["261"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|261", 
+				["text"] = "Allocates Toxic Sludge", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["26104"] = {
 			["specialCaseData"] = {
 			}, 
@@ -2001,6 +2037,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["2814"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|2814", 
+				["text"] = "Allocates Engineered Blaze", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["28267"] = {
 			["specialCaseData"] = {
 			}, 
@@ -2169,6 +2214,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|29800", 
 				["text"] = "Allocates Shocking Limit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["29881"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|29881", 
+				["text"] = "Allocates Surging Beast", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -2856,6 +2910,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["35417"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35417", 
+				["text"] = "Allocates Wyvern's Breath", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["35477"] = {
 			["specialCaseData"] = {
 			}, 
@@ -2889,6 +2952,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|35581", 
 				["text"] = "Allocates Near at Hand", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["35618"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|35618", 
+				["text"] = "Allocates Cold Coat", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -3666,6 +3738,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["41935"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|41935", 
+				["text"] = "Allocates Hide of the Bear", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["41972"] = {
 			["specialCaseData"] = {
 			}, 
@@ -4257,6 +4338,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|45751", 
 				["text"] = "Allocates Frightening Shield", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["45777"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|45777", 
+				["text"] = "Allocates Hidden Barb", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -5736,6 +5826,15 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["56714"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|56714", 
+				["text"] = "Allocates Swift Flight", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["56767"] = {
 			["specialCaseData"] = {
 			}, 
@@ -6201,6 +6300,15 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_2954116742|60464", 
 				["text"] = "Allocates Fan the Flames", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["60619"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2954116742|60619", 
+				["text"] = "Allocates Scales of the Wyvern", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -7536,6 +7644,10 @@ return {
 				["max"] = 25, 
 				["min"] = 15, 
 			}, 
+			["Talisman"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7580,6 +7692,10 @@ return {
 			["Spear"] = {
 				["max"] = 18, 
 				["min"] = 12, 
+			}, 
+			["Talisman"] = {
+				["max"] = 25.5, 
+				["min"] = 17, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -7626,6 +7742,10 @@ return {
 				["max"] = 15.5, 
 				["min"] = 10.5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 21.5, 
+				["min"] = 14.5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7670,6 +7790,10 @@ return {
 			["Spear"] = {
 				["max"] = 22.5, 
 				["min"] = 15, 
+			}, 
+			["Talisman"] = {
+				["max"] = 32, 
+				["min"] = 21, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -7958,6 +8082,10 @@ return {
 				["max"] = 30, 
 				["min"] = 20, 
 			}, 
+			["Talisman"] = {
+				["max"] = 50, 
+				["min"] = 40, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8212,6 +8340,10 @@ return {
 				["max"] = 10, 
 				["min"] = 5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8255,6 +8387,10 @@ return {
 				["min"] = 6, 
 			}, 
 			["Spear"] = {
+				["max"] = 8, 
+				["min"] = 6, 
+			}, 
+			["Talisman"] = {
 				["max"] = 8, 
 				["min"] = 6, 
 			}, 
@@ -8332,6 +8468,10 @@ return {
 				["min"] = -20, 
 			}, 
 			["Staff"] = {
+				["max"] = -10, 
+				["min"] = -20, 
+			}, 
+			["Talisman"] = {
 				["max"] = -10, 
 				["min"] = -20, 
 			}, 
@@ -9416,6 +9556,10 @@ return {
 				["min"] = 5, 
 			}, 
 			["Spear"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Talisman"] = {
 				["max"] = 15, 
 				["min"] = 5, 
 			}, 
@@ -11876,6 +12020,10 @@ return {
 				["max"] = 79, 
 				["min"] = 15, 
 			}, 
+			["Talisman"] = {
+				["max"] = 79, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11918,6 +12066,10 @@ return {
 				["min"] = 40, 
 			}, 
 			["Spear"] = {
+				["max"] = 179, 
+				["min"] = 40, 
+			}, 
+			["Talisman"] = {
 				["max"] = 179, 
 				["min"] = 40, 
 			}, 
@@ -11966,6 +12118,10 @@ return {
 				["max"] = 52.5, 
 				["min"] = 2.5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 74.5, 
+				["min"] = 3.5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12010,6 +12166,10 @@ return {
 			["Spear"] = {
 				["max"] = 127.5, 
 				["min"] = 2, 
+			}, 
+			["Talisman"] = {
+				["max"] = 196, 
+				["min"] = 3.5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -12056,6 +12216,10 @@ return {
 				["max"] = 102, 
 				["min"] = 2, 
 			}, 
+			["Talisman"] = {
+				["max"] = 156.5, 
+				["min"] = 3, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12100,6 +12264,10 @@ return {
 			["Spear"] = {
 				["max"] = 123, 
 				["min"] = 2.5, 
+			}, 
+			["Talisman"] = {
+				["max"] = 188.5, 
+				["min"] = 4, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -12167,6 +12335,10 @@ return {
 				["max"] = 550, 
 				["min"] = 11, 
 			}, 
+			["Talisman"] = {
+				["max"] = 550, 
+				["min"] = 11, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12213,6 +12385,10 @@ return {
 				["max"] = 200, 
 				["min"] = 16, 
 			}, 
+			["Talisman"] = {
+				["max"] = 200, 
+				["min"] = 16, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12256,6 +12432,10 @@ return {
 				["min"] = 10, 
 			}, 
 			["Spear"] = {
+				["max"] = 60, 
+				["min"] = 10, 
+			}, 
+			["Talisman"] = {
 				["max"] = 60, 
 				["min"] = 10, 
 			}, 
@@ -13940,6 +14120,10 @@ return {
 				["max"] = 100, 
 				["min"] = 19, 
 			}, 
+			["Talisman"] = {
+				["max"] = 139, 
+				["min"] = 34, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15446,6 +15630,10 @@ return {
 				["max"] = 5, 
 				["min"] = 1.01, 
 			}, 
+			["Talisman"] = {
+				["max"] = 5, 
+				["min"] = 1.01, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15489,6 +15677,10 @@ return {
 				["min"] = 10, 
 			}, 
 			["Spear"] = {
+				["max"] = 25, 
+				["min"] = 10, 
+			}, 
+			["Talisman"] = {
 				["max"] = 25, 
 				["min"] = 10, 
 			}, 
@@ -15549,6 +15741,10 @@ return {
 				["min"] = 5, 
 			}, 
 			["Spear"] = {
+				["max"] = 28, 
+				["min"] = 5, 
+			}, 
+			["Talisman"] = {
 				["max"] = 28, 
 				["min"] = 5, 
 			}, 
@@ -15626,6 +15822,10 @@ return {
 				["min"] = -35, 
 			}, 
 			["Staff"] = {
+				["max"] = -15, 
+				["min"] = -35, 
+			}, 
+			["Talisman"] = {
 				["max"] = -15, 
 				["min"] = -35, 
 			}, 
@@ -15918,6 +16118,10 @@ return {
 				["min"] = 2, 
 			}, 
 			["Quarterstaff"] = {
+				["max"] = 7, 
+				["min"] = 2, 
+			}, 
+			["Talisman"] = {
 				["max"] = 7, 
 				["min"] = 2, 
 			}, 
@@ -16435,6 +16639,10 @@ return {
 				["max"] = 33, 
 				["min"] = 5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 33, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16564,6 +16772,10 @@ return {
 				["min"] = 5, 
 			}, 
 			["Staff"] = {
+				["max"] = 33, 
+				["min"] = 5, 
+			}, 
+			["Talisman"] = {
 				["max"] = 33, 
 				["min"] = 5, 
 			}, 
@@ -17304,6 +17516,10 @@ return {
 				["max"] = 9.9, 
 				["min"] = 5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 9.9, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17359,6 +17575,10 @@ return {
 				["min"] = 2, 
 			}, 
 			["Spear"] = {
+				["max"] = 5, 
+				["min"] = 2, 
+			}, 
+			["Talisman"] = {
 				["max"] = 5, 
 				["min"] = 2, 
 			}, 
@@ -17420,6 +17640,10 @@ return {
 				["min"] = 4, 
 			}, 
 			["Staff"] = {
+				["max"] = 84, 
+				["min"] = 4, 
+			}, 
+			["Talisman"] = {
 				["max"] = 84, 
 				["min"] = 4, 
 			}, 
@@ -17571,6 +17795,10 @@ return {
 				["max"] = 8.9, 
 				["min"] = 4, 
 			}, 
+			["Talisman"] = {
+				["max"] = 8.9, 
+				["min"] = 4, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17646,6 +17874,10 @@ return {
 				["min"] = 2, 
 			}, 
 			["Staff"] = {
+				["max"] = 45, 
+				["min"] = 2, 
+			}, 
+			["Talisman"] = {
 				["max"] = 45, 
 				["min"] = 2, 
 			}, 
@@ -17729,6 +17961,10 @@ return {
 				["max"] = 80, 
 				["min"] = 21, 
 			}, 
+			["Talisman"] = {
+				["max"] = 80, 
+				["min"] = 21, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17789,6 +18025,10 @@ return {
 				["min"] = 11, 
 			}, 
 			["Spear"] = {
+				["max"] = 30, 
+				["min"] = 11, 
+			}, 
+			["Talisman"] = {
 				["max"] = 30, 
 				["min"] = 11, 
 			}, 
@@ -18165,6 +18405,24 @@ return {
 				["type"] = "implicit", 
 			}, 
 		}, 
+		["implicit.stat_1181501418"] = {
+			["2HWeapon"] = {
+				["max"] = 12, 
+				["min"] = 8, 
+			}, 
+			["Talisman"] = {
+				["max"] = 12, 
+				["min"] = 8, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1181501418", 
+				["text"] = "# to Maximum Rage", 
+				["type"] = "implicit", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["implicit.stat_1207554355"] = {
 			["Quiver"] = {
 				["max"] = 30, 
@@ -18347,6 +18605,23 @@ return {
 				["type"] = "implicit", 
 			}, 
 		}, 
+		["implicit.stat_1589917703"] = {
+			["2HWeapon"] = {
+				["max"] = 50, 
+				["min"] = 30, 
+			}, 
+			["Talisman"] = {
+				["max"] = 50, 
+				["min"] = 30, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1589917703", 
+				["text"] = "Minions deal #% increased Damage", 
+				["type"] = "implicit", 
+			}, 
+		}, 
 		["implicit.stat_1671376347"] = {
 			["Chest"] = {
 				["max"] = 25, 
@@ -18381,11 +18656,15 @@ return {
 		["implicit.stat_1702195217"] = {
 			["2HWeapon"] = {
 				["max"] = 18, 
-				["min"] = 12, 
+				["min"] = 10, 
 			}, 
 			["Quarterstaff"] = {
 				["max"] = 18, 
 				["min"] = 12, 
+			}, 
+			["Talisman"] = {
+				["max"] = 15, 
+				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -18644,6 +18923,23 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
+		["implicit.stat_2527686725"] = {
+			["2HWeapon"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2527686725", 
+				["text"] = "#% increased Magnitude of Shock you inflict", 
+				["type"] = "implicit", 
+			}, 
+		}, 
 		["implicit.stat_2646093132"] = {
 			["Ring"] = {
 				["max"] = 1, 
@@ -18795,6 +19091,23 @@ return {
 				["type"] = "implicit", 
 			}, 
 			["usePositiveSign"] = true, 
+		}, 
+		["implicit.stat_2968503605"] = {
+			["2HWeapon"] = {
+				["max"] = 80, 
+				["min"] = 50, 
+			}, 
+			["Talisman"] = {
+				["max"] = 80, 
+				["min"] = 50, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2968503605", 
+				["text"] = "#% increased Flammability Magnitude", 
+				["type"] = "implicit", 
+			}, 
 		}, 
 		["implicit.stat_2994271459"] = {
 			["Charm"] = {
@@ -19559,6 +19872,10 @@ return {
 				["max"] = 25, 
 				["min"] = 25, 
 			}, 
+			["Talisman"] = {
+				["max"] = 25, 
+				["min"] = 25, 
+			}, 
 			["Wand"] = {
 				["max"] = 25, 
 				["min"] = 25, 
@@ -19609,6 +19926,10 @@ return {
 				["min"] = 24, 
 			}, 
 			["Spear"] = {
+				["max"] = 24, 
+				["min"] = 24, 
+			}, 
+			["Talisman"] = {
 				["max"] = 24, 
 				["min"] = 24, 
 			}, 
@@ -19687,6 +20008,10 @@ return {
 				["max"] = 2, 
 				["min"] = 2, 
 			}, 
+			["Talisman"] = {
+				["max"] = 2, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19733,6 +20058,10 @@ return {
 				["min"] = 2, 
 			}, 
 			["Spear"] = {
+				["max"] = 2, 
+				["min"] = 2, 
+			}, 
+			["Talisman"] = {
 				["max"] = 2, 
 				["min"] = 2, 
 			}, 
@@ -19854,6 +20183,10 @@ return {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
+			["Talisman"] = {
+				["max"] = 8, 
+				["min"] = 8, 
+			}, 
 			["Wand"] = {
 				["max"] = 8, 
 				["min"] = 8, 
@@ -19911,6 +20244,10 @@ return {
 				["max"] = 13, 
 				["min"] = 13, 
 			}, 
+			["Talisman"] = {
+				["max"] = 13, 
+				["min"] = 13, 
+			}, 
 			["Wand"] = {
 				["max"] = 13, 
 				["min"] = 13, 
@@ -19964,6 +20301,10 @@ return {
 				["max"] = 13, 
 				["min"] = 13, 
 			}, 
+			["Talisman"] = {
+				["max"] = 13, 
+				["min"] = 13, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19989,17 +20330,9 @@ return {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
 			}, 
-			["Boots"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
-			}, 
 			["Bow"] = {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
-			}, 
-			["Chest"] = {
-				["max"] = 1.5, 
-				["min"] = 0.25, 
 			}, 
 			["Claw"] = {
 				["max"] = 0.4, 
@@ -20013,35 +20346,23 @@ return {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
 			}, 
-			["Focus"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
-			}, 
-			["Gloves"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
-			}, 
-			["Helmet"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
-			}, 
 			["Quarterstaff"] = {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
 			}, 
-			["Shield"] = {
-				["max"] = 0.35, 
-				["min"] = 0.25, 
-			}, 
 			["Spear"] = {
+				["max"] = 0.4, 
+				["min"] = 0.4, 
+			}, 
+			["Talisman"] = {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_836936635", 
-				["text"] = "Regenerate #% of maximum Life per second", 
+				["id"] = "rune.stat_1981392722", 
+				["text"] = "Bonded: Regenerate #% of maximum Life per second", 
 				["type"] = "augment", 
 			}, 
 		}, 
@@ -20083,6 +20404,10 @@ return {
 				["min"] = 20, 
 			}, 
 			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
+			["Talisman"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -20158,6 +20483,10 @@ return {
 				["min"] = 15, 
 			}, 
 			["Spear"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
@@ -20274,6 +20603,10 @@ return {
 				["max"] = -25, 
 				["min"] = -25, 
 			}, 
+			["Talisman"] = {
+				["max"] = -25, 
+				["min"] = -25, 
+			}, 
 			["invertOnNegative"] = true, 
 			["specialCaseData"] = {
 			}, 
@@ -20360,6 +20693,10 @@ return {
 				["min"] = 15, 
 			}, 
 			["Spear"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
@@ -20560,6 +20897,10 @@ return {
 				["max"] = 1, 
 				["min"] = 1, 
 			}, 
+			["Talisman"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -20607,6 +20948,10 @@ return {
 				["min"] = 50, 
 			}, 
 			["Spear"] = {
+				["max"] = 50, 
+				["min"] = 50, 
+			}, 
+			["Talisman"] = {
 				["max"] = 50, 
 				["min"] = 50, 
 			}, 
@@ -20811,6 +21156,10 @@ return {
 				["max"] = 12, 
 				["min"] = 12, 
 			}, 
+			["Talisman"] = {
+				["max"] = 12, 
+				["min"] = 12, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -20887,6 +21236,10 @@ return {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
+			["Talisman"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -20937,6 +21290,10 @@ return {
 				["min"] = 50, 
 			}, 
 			["Staff"] = {
+				["max"] = 50, 
+				["min"] = 50, 
+			}, 
+			["Talisman"] = {
 				["max"] = 50, 
 				["min"] = 50, 
 			}, 
@@ -20997,6 +21354,10 @@ return {
 				["max"] = 50, 
 				["min"] = 50, 
 			}, 
+			["Talisman"] = {
+				["max"] = 50, 
+				["min"] = 50, 
+			}, 
 			["Wand"] = {
 				["max"] = 50, 
 				["min"] = 50, 
@@ -21054,6 +21415,10 @@ return {
 				["max"] = 50, 
 				["min"] = 50, 
 			}, 
+			["Talisman"] = {
+				["max"] = 50, 
+				["min"] = 50, 
+			}, 
 			["Wand"] = {
 				["max"] = 50, 
 				["min"] = 50, 
@@ -21104,6 +21469,10 @@ return {
 				["min"] = 8, 
 			}, 
 			["Spear"] = {
+				["max"] = 8, 
+				["min"] = 8, 
+			}, 
+			["Talisman"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -21192,6 +21561,10 @@ return {
 				["min"] = 40, 
 			}, 
 			["Spear"] = {
+				["max"] = 40, 
+				["min"] = 40, 
+			}, 
+			["Talisman"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
@@ -21342,6 +21715,10 @@ return {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
+			["Talisman"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21388,6 +21765,10 @@ return {
 				["min"] = 20, 
 			}, 
 			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
+			["Talisman"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -21543,6 +21924,10 @@ return {
 				["max"] = 25, 
 				["min"] = 25, 
 			}, 
+			["Talisman"] = {
+				["max"] = 25, 
+				["min"] = 25, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21605,6 +21990,10 @@ return {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
+			["Talisman"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21651,6 +22040,10 @@ return {
 				["min"] = 15, 
 			}, 
 			["Spear"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
@@ -21727,6 +22120,10 @@ return {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
+			["Talisman"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21797,6 +22194,10 @@ return {
 				["min"] = 20, 
 			}, 
 			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
+			["Talisman"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -21873,6 +22274,10 @@ return {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
+			["Talisman"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21935,6 +22340,10 @@ return {
 				["max"] = 18, 
 				["min"] = 14, 
 			}, 
+			["Talisman"] = {
+				["max"] = 18, 
+				["min"] = 14, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21981,6 +22390,10 @@ return {
 				["min"] = 5, 
 			}, 
 			["Spear"] = {
+				["max"] = 28.5, 
+				["min"] = 5, 
+			}, 
+			["Talisman"] = {
 				["max"] = 28.5, 
 				["min"] = 5, 
 			}, 
@@ -22033,6 +22446,10 @@ return {
 				["max"] = 23.5, 
 				["min"] = 4, 
 			}, 
+			["Talisman"] = {
+				["max"] = 23.5, 
+				["min"] = 4, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -22079,6 +22496,10 @@ return {
 				["min"] = 5.5, 
 			}, 
 			["Spear"] = {
+				["max"] = 30.5, 
+				["min"] = 5.5, 
+			}, 
+			["Talisman"] = {
 				["max"] = 30.5, 
 				["min"] = 5.5, 
 			}, 
@@ -22141,6 +22562,10 @@ return {
 				["min"] = 8, 
 			}, 
 			["Spear"] = {
+				["max"] = 8, 
+				["min"] = 8, 
+			}, 
+			["Talisman"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -22333,6 +22758,10 @@ return {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
+			["Talisman"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -22475,6 +22904,10 @@ return {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
+			["Talisman"] = {
+				["max"] = 30, 
+				["min"] = 30, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -22556,6 +22989,10 @@ return {
 				["min"] = 5, 
 			}, 
 			["Staff"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["Talisman"] = {
 				["max"] = 5, 
 				["min"] = 5, 
 			}, 
@@ -22650,6 +23087,10 @@ return {
 				["max"] = 5, 
 				["min"] = 5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
 			["Wand"] = {
 				["max"] = 5, 
 				["min"] = 5, 
@@ -22741,6 +23182,10 @@ return {
 				["max"] = 5, 
 				["min"] = 5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
 			["Wand"] = {
 				["max"] = 5, 
 				["min"] = 5, 
@@ -22794,6 +23239,10 @@ return {
 				["max"] = 1, 
 				["min"] = 1, 
 			}, 
+			["Talisman"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -22841,6 +23290,10 @@ return {
 				["min"] = 15, 
 			}, 
 			["Spear"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
@@ -23117,6 +23570,10 @@ return {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
+			["Talisman"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -23179,6 +23636,10 @@ return {
 				["max"] = 5, 
 				["min"] = 5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -23226,6 +23687,10 @@ return {
 				["min"] = 5, 
 			}, 
 			["Spear"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["Talisman"] = {
 				["max"] = 5, 
 				["min"] = 5, 
 			}, 
@@ -23297,6 +23762,10 @@ return {
 				["min"] = 30, 
 			}, 
 			["Staff"] = {
+				["max"] = 30, 
+				["min"] = 30, 
+			}, 
+			["Talisman"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -23383,6 +23852,10 @@ return {
 				["min"] = 1, 
 			}, 
 			["Spear"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Talisman"] = {
 				["max"] = 1, 
 				["min"] = 1, 
 			}, 
@@ -23599,6 +24072,10 @@ return {
 				["max"] = 10, 
 				["min"] = 6, 
 			}, 
+			["Talisman"] = {
+				["max"] = 10, 
+				["min"] = 6, 
+			}, 
 			["Wand"] = {
 				["max"] = 10, 
 				["min"] = 6, 
@@ -23681,6 +24158,10 @@ return {
 				["max"] = 10, 
 				["min"] = 6, 
 			}, 
+			["Talisman"] = {
+				["max"] = 10, 
+				["min"] = 6, 
+			}, 
 			["Wand"] = {
 				["max"] = 10, 
 				["min"] = 6, 
@@ -23760,6 +24241,10 @@ return {
 				["min"] = 6, 
 			}, 
 			["Staff"] = {
+				["max"] = 10, 
+				["min"] = 6, 
+			}, 
+			["Talisman"] = {
 				["max"] = 10, 
 				["min"] = 6, 
 			}, 
@@ -23869,6 +24354,10 @@ return {
 				["max"] = 2, 
 				["min"] = 2, 
 			}, 
+			["Talisman"] = {
+				["max"] = 2, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -23916,6 +24405,10 @@ return {
 				["min"] = 2, 
 			}, 
 			["Spear"] = {
+				["max"] = 2, 
+				["min"] = 2, 
+			}, 
+			["Talisman"] = {
 				["max"] = 2, 
 				["min"] = 2, 
 			}, 
@@ -23970,6 +24463,10 @@ return {
 				["min"] = 2, 
 			}, 
 			["Spear"] = {
+				["max"] = 2, 
+				["min"] = 2, 
+			}, 
+			["Talisman"] = {
 				["max"] = 2, 
 				["min"] = 2, 
 			}, 
@@ -24317,6 +24814,10 @@ return {
 				["max"] = 3, 
 				["min"] = 2, 
 			}, 
+			["Talisman"] = {
+				["max"] = 3, 
+				["min"] = 2, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -24363,6 +24864,10 @@ return {
 				["min"] = 10, 
 			}, 
 			["Spear"] = {
+				["max"] = 30, 
+				["min"] = 10, 
+			}, 
+			["Talisman"] = {
 				["max"] = 30, 
 				["min"] = 10, 
 			}, 
@@ -24456,6 +24961,10 @@ return {
 				["max"] = 2.5, 
 				["min"] = 1.5, 
 			}, 
+			["Talisman"] = {
+				["max"] = 2.5, 
+				["min"] = 1.5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -24505,6 +25014,10 @@ return {
 				["max"] = 24, 
 				["min"] = 8, 
 			}, 
+			["Talisman"] = {
+				["max"] = 24, 
+				["min"] = 8, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -24551,6 +25064,10 @@ return {
 				["min"] = 20, 
 			}, 
 			["Spear"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
+			["Talisman"] = {
 				["max"] = 30, 
 				["min"] = 20, 
 			}, 
@@ -24616,6 +25133,10 @@ return {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
+			["Talisman"] = {
+				["max"] = 30, 
+				["min"] = 30, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -24666,6 +25187,10 @@ return {
 				["min"] = 30, 
 			}, 
 			["Staff"] = {
+				["max"] = 30, 
+				["min"] = 30, 
+			}, 
+			["Talisman"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -24746,6 +25271,10 @@ return {
 				["min"] = 30, 
 			}, 
 			["Spear"] = {
+				["max"] = 30, 
+				["min"] = 30, 
+			}, 
+			["Talisman"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
