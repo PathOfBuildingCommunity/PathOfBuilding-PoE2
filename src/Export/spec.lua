@@ -9805,6 +9805,34 @@ return {
 	minimapicons={
 	},
 	minioncommands={
+		[1]={
+			list=false,
+			name="GrantedEfffect",
+			refTo="GrantedEffects",
+			type="Key",
+			width=210
+		},
+		[2]={
+			list=false,
+			name="Buff",
+			refTo="BuffDefinitions",
+			type="Key",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="Effect",
+			refTo="misceffectpacks",
+			type="Key",
+			width=280
+		}
 	},
 	miniongemlevelscaling={
 		[1]={
