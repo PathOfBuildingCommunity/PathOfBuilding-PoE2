@@ -12,22 +12,6 @@ if not loadStatFile then
 end
 loadStatFile("passive_skill_stat_descriptions.csd")
 
-local function sorted_pairs(t)
-	local keys = {}
-	for k in pairs(t) do
-		keys[#keys + 1] = k
-	end
-	table.sort(keys) -- filenames → string sort is correct
-	local i = 0
-	return function()
-		i = i + 1
-		local k = keys[i]
-		if k then
-			return k, t[k]
-		end
-	end
-end
-
 local function CalcOrbitAngles(nodesInOrbit)
 	local orbitAngles = {}
 
@@ -160,7 +144,7 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	end
 	main.ggpk:ExtractList(filesToExtract, cacheExtract)
 
-	for icon, sections in pairs(sheet.files) do
+	for icon, sections in pairsSortByKey(sheet.files) do
 		local tex = Texture.new()
 		local rc
 		if is4kEnabled then
@@ -186,12 +170,12 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	end
 
 
-	for iden, stackInfo in sorted_pairs(stackTextures) do
+	for iden, stackInfo in pairsSortByKey(stackTextures) do
 		local stacks = {}
 		local file = sheet.name .. "_" .. iden .. ".dds.zst"
 		ddsCoords[file] = {}
 		for position, stack in ipairs(stackInfo) do
-			for _, metadata in sorted_pairs(stack.sections) do
+			for _, metadata in pairs(stack.sections) do
 				for _, meta in ipairs(metadata) do
 					local icon = meta.alias or stack.icon
 					ddsCoords[file][icon] = position
@@ -729,7 +713,7 @@ for i, classId in ipairs(psg.passives) do
 			addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonMetadata(ascendency.Name .. "FrameLargeAllocated"))
 
 			-- include the connection art in case doesn't exist
-			-- ignore if containt "lich"
+			-- ignore Lich art as it currently breaks the GIMP script to extract lines
 			if ascendency.UIArt.ConnectionsArt.Id:find("Lich") == nil then
 				connectionArtToDecompose[ascendency.UIArt.ConnectionsArt.Id] = true
 			end
@@ -998,7 +982,7 @@ for i, group in ipairs(psg.groups) do
 				node["stats"] = node["stats"] or {}
 
 				for _, gemEffect in pairs(passiveRow.GrantedSkill.GemEffects) do
-					local skillName = gemEffect.GrantedEffect.ActiveSkill.DisplayName
+					local skillName = passiveRow.GrantedSkill.BaseItemType.Name
 					table.insert(node["stats"], "Grants Skill: " .. skillName)
 
 					-- -- include the stat description
@@ -1360,7 +1344,7 @@ for i, sheet in ipairs(sheets) do
 	printf("Calculating sprite dimensions for " .. sheet.name)
 	calculateDDSPack(sheet, main.ggpk.oozPath, basePath .. version .. "/", use4kIfPossible)
 
-	for file, fileInfo in sorted_pairs(sheet.ddsCoords) do
+	for file, fileInfo in pairs(sheet.ddsCoords) do
 		tree.ddsCoords[file] = fileInfo
 	end
 end
@@ -1372,7 +1356,7 @@ local typeOfConnections = {
 	"Normal", "Intermediate", "IntermediateActive"
 }
 
-for connectionArtId, _ in sorted_pairs(connectionArtToDecompose) do
+for connectionArtId, _ in pairsSortByKey(connectionArtToDecompose) do
 	local connectionArt = dat("PassiveSkillTreeConnectionArt"):GetRow("Id", connectionArtId)
 	if connectionArt == nil then
 		printf("Connection art " .. connectionArtId .. " not found")
