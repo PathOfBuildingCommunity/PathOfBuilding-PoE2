@@ -2870,7 +2870,7 @@ return {
 		},
 		[49]={
 			list=true,
-			name="Stats",
+			name="Stats3",
 			refTo="Stats",
 			type="Key",
 			width=150
@@ -2976,7 +2976,7 @@ return {
 		},
 		[8]={
 			list=false,
-			name="",
+			name="Duration",
 			refTo="",
 			type="Float",
 			width=50
@@ -8363,6 +8363,43 @@ return {
 	},
 	influencetypes={
 	},
+	interpolatebuffeffect={
+		[1]={
+			list=false,
+			name="BuffDefinition",
+			refTo="BuffDefinitions",
+			type="Key",
+			width=200
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=70
+		},
+		[3]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=70
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=50
+		},
+		[5]={
+			list=false,
+			name="Divisor",
+			refTo="",
+			type="Int",
+			width=80
+		}
+	},
 	invasionmonstergroups={
 	},
 	invasionmonsterrestrictions={
@@ -13534,6 +13571,55 @@ return {
 	oldmapstashtablayout={
 	},
 	ongoingbuffvariations={
+		[1]={
+			list=false,
+			name="ActiveSkill",
+			refTo="ActiveSkills",
+			type="Key",
+			width=250
+		},
+		[2]={
+			list=false,
+			name="BuffDefinition",
+			refTo="BuffDefinitions",
+			type="Key",
+			width=210
+		},
+		[3]={
+			list=true,
+			name="Stats1",
+			refTo="Stats",
+			type="Key",
+			width=630
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[5]={
+			list=true,
+			name="Stats2",
+			refTo="stats",
+			type="Key",
+			width=880
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="BuffDefinitions",
+			type="Key",
+			width=150
+		},
+		[7]={
+			list=true,
+			name="Stats3",
+			refTo="stats",
+			type="Key",
+			width=360
+		}
 	},
 	ongoingtriggervariations={
 	},
@@ -17139,13 +17225,6 @@ return {
 			refTo="Stats",
 			type="Key",
 			width=150
-		},
-		[20]={
-			list=true,
-			name="",
-			refTo="",
-			type="Key",
-			width=150
 		}
 	},
 	skillcraftingdata={
@@ -18658,6 +18737,22 @@ return {
 		}
 	},
 	tablemonsterspawners={
+	},
+	tacticiantotembuffs={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="ActiveSkills",
+			type="Key",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="BuffTemplate",
+			refTo="BuffTemplates",
+			type="Key",
+			width=300
+		}
 	},
 	tags={
 		[1]={
