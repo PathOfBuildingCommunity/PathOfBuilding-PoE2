@@ -851,6 +851,7 @@ Huge sets the radius to 11.
 	end },
 	{ var = "buffElementalArchon", type = "check", label = "Do you have Elemental Archon?", ifFlag = "Condition:CanHaveElementalArchon", tooltip = "", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ElementalArchon", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Condition:ArchonBuff", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "buffQuicksandHourglass", type = "check", label = "Do you have Quicksand Hourglass?", ifFlag = "Condition:CanGainQuicksandHourglass", tooltip = "this will enable the Quicksand Hourglass buff itself.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:QuicksandHourglass", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
