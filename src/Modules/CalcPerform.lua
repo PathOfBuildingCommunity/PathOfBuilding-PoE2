@@ -265,6 +265,26 @@ local function doActorAttribsConditions(env, actor)
 				condList["Channelling"] = true
 			end
 		end
+		if actor.mainSkill.skillTypes[SkillType.Bear] then
+			condList["Shapeshifted"] = true
+			condList["BearForm"] = true
+			modDB:NewMod("ArmourAppliesToFireDamageTaken", "BASE", 30, "Bear Form")
+			modDB:NewMod("ArmourAppliesToColdDamageTaken", "BASE", 30, "Bear Form")
+			modDB:NewMod("ArmourAppliesToLightningDamageTaken", "BASE", 30, "Bear Form")
+			modDB:NewMod("Armour", "BASE", 10, "Bear Form", { type = "Multiplier", var = "Level", base = 10 })
+		end
+		if actor.mainSkill.skillTypes[SkillType.Wolf] then
+			condList["Shapeshifted"] = true
+			condList["WolfForm"] = true
+			modDB:NewMod("MovementSpeed", "INC", 30, "Wolf Form")
+		end
+		if actor.mainSkill.skillTypes[SkillType.Wyvern] then
+			condList["Shapeshifted"] = true
+			condList["WyvernForm"] = true
+			modDB:NewMod("EnergyShieldRechargeFaster", "INC", 50, "Wyvern Form")
+			modDB:NewMod("StunThreshold", "INC", 50, "Wyvern Form")
+			modDB:NewMod("AilmentThreshold", "INC", 50, "Wyvern Form")
+		end
 		if skillFlags.hit and not skillFlags.trap and not skillFlags.mine and not skillFlags.totem then
 			condList["HitRecently"] = true
 			if skillFlags.spell then
