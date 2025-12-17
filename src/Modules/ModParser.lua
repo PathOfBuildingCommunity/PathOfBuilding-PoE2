@@ -2590,6 +2590,7 @@ local specialModList = {
 	} end,
 	["brands have (%d+)%% increased area of effect if (%d+)%% of attached duration expired"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", var = "BrandLastHalf" }, { type = "SkillType", skillType = SkillType.Brand }) } end,
 	["corrupted blood cannot be inflicted on you"] = { flag("CorruptedBloodImmune") },
+	["cannot be light stunned"] = {flag("StunImmune")},
 	["you cannot be hindered"] = { flag("HinderImmune") },
 	["you cannot be maimed"] = { flag("MaimImmune") },
 	["you cannot be impaled"] = { flag("ImpaleImmune") },
