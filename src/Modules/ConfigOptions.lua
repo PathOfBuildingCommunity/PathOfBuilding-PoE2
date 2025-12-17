@@ -849,6 +849,9 @@ Huge sets the radius to 11.
 	{ var = "buffArcaneSurge", type = "check", label = "Do you have Arcane Surge?", tooltip = "In addition to allowing any 'while you have Arcane Surge' modifiers to apply,\nthis will enable the Arcane Surge buff itself. (Grants 15% increased Cast Speed and 20% more Mana Regeneration rate)", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneSurge", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "buffElementalArchon", type = "check", label = "Do you have Elemental Archon?", ifFlag = "Condition:CanHaveElementalArchon", tooltip = "", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:ElementalArchon", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "buffQuicksandHourglass", type = "check", label = "Do you have Quicksand Hourglass?", ifFlag = "Condition:CanGainQuicksandHourglass", tooltip = "this will enable the Quicksand Hourglass buff itself.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:QuicksandHourglass", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

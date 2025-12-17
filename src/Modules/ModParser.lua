@@ -2195,6 +2195,9 @@ end
 
 -- List of special modifiers
 local specialModList = {
+	["gain elemental archon when your energy shield recharge begins"] = {
+		flag("Condition:CanHaveElementalArchon"),
+	},
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
 		return explodeFunc(chance, amount, type)

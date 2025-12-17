@@ -1,0 +1,10 @@
+-- Path of Building
+--
+-- Buff data (c) Grinding Gear Games
+--
+local buffs, mod, flag = ...
+
+#buff archon_elemental
+#condition ElementalArchon
+#stats
+#buffEnd

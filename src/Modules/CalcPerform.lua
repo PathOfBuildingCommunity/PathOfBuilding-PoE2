@@ -17,6 +17,38 @@ local m_modf = math.modf
 local s_format = string.format
 local m_huge = math.huge
 
+-- Merge level modifier with given mod list
+local mergeLevelCache = { }
+local function mergeLevelMod(modList, mod, value)
+	if not value then
+		modList:AddMod(mod)
+		return
+	end
+	if not mergeLevelCache[mod] then
+		mergeLevelCache[mod] = { }
+	end
+	if mergeLevelCache[mod][value] then
+		modList:AddMod(mergeLevelCache[mod][value])
+	elseif value then
+		local newMod = copyTable(mod, true)
+		if type(newMod.value) == "table" then
+			newMod.value = copyTable(newMod.value, true)
+			if newMod.value.mod then
+				newMod.value.mod = copyTable(newMod.value.mod, true)
+				newMod.value.mod.value = value
+			else
+				newMod.value.value = value
+			end
+		else
+			newMod.value = value
+		end
+		mergeLevelCache[mod][value] = newMod
+		modList:AddMod(newMod)
+	else
+		modList:AddMod(mod)
+	end
+end
+
 --- getCachedOutputValue
 ---  retrieves a value specified by key from a cached version of skill
 ---  specified by @uuid or if not found in cache computes teh cache.
@@ -695,6 +727,38 @@ local function doActorMisc(env, actor)
 		if modDB:Flag(nil, "Condition:CanHaveSoulEater") then
 			local max = modDB:Override(nil, "SoulEaterMax") or modDB:Sum("BASE", nil, "SoulEaterMax")
 			modDB:NewMod("Multiplier:SoulEater", "BASE", 1, "Base", { type = "Multiplier", var = "SoulEaterStack", limit = max })
+		end
+
+		-- Build the list of buff base on conditions "Condition:CanHave<Buff>"
+		for buffId, buffInfo in pairs(env.data.buffs) do
+			if modDB:Flag(nil, buffInfo.check) then
+				-- add buff stats
+				local modBuffList = new("ModList")
+				for k, stat in ipairs(buffInfo.stats) do
+					local statValue = buffInfo.values and buffInfo.values[k] and buffInfo.values[k][2] or 0
+					local map = buffInfo.statMap[stat]
+					if map then
+						-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
+						for _, mod in ipairs(map) do
+							-- Found a mod, since all mods have names
+							local modOrGroup = copyTable(mod)
+							-- we should add the conditional flag for each mod coming from a buff
+							table.insert(modOrGroup, { type = "Condition", var = buffInfo.condition })
+							if modOrGroup.name then
+								modOrGroup.source = string.format("Buff:%s", buffId)
+								mergeLevelMod(modBuffList, modOrGroup, map.value or statValue * (map.mult or 1) / (map.div or 1) + (map.base or 0))
+							else
+								for _, mod in ipairs(modOrGroup) do
+									mod.source = string.format("Buff:%s", buffId)
+									mergeLevelMod(modBuffList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+								end
+							end
+						end
+					end
+				end
+
+				modDB:AddList(modBuffList)
+			end
 		end
 	end
 	
