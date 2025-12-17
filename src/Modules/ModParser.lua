@@ -2195,9 +2195,6 @@ end
 
 -- List of special modifiers
 local specialModList = {
-	["gain elemental archon when your energy shield recharge begins"] = {
-		flag("Condition:CanHaveElementalArchon"),
-	},
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
 		return explodeFunc(chance, amount, type)
@@ -5926,6 +5923,19 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
+	["gain elemental archon when your energy shield recharge begins"] = {
+		flag("Condition:CanHaveElementalArchon"),
+	},
+	["gain elemental archon after spending 100%% of your maximum mana"] = {
+		flag("Condition:CanHaveElementalArchon"),
+	},
+	["immune to freeze and chill while affected by an archon buff"] = {
+		flag("FreezeImmune", { type = "Condition", var = "ArchonBuff" }),
+		flag("ChillImmune", { type = "Condition", var = "ArchonBuff" }),
+	},
+	["immune to shock while affected by an archon buff"]	 = {
+		flag("ShockImmune", { type = "Condition", var = "ArchonBuff" }),
+	},
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
