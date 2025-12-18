@@ -404,6 +404,10 @@ return {
 	mod("ManaCost", "MORE", nil),
 	value = -100,
 },
+["no_cost"] = {
+	mod("Cost", "MORE", nil),
+	value = -100,
+},
 ["base_mana_cost_efficiency_"] = {
 	mod("ManaCostEfficiency", "INC", nil),
 },
