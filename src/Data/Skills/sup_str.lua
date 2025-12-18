@@ -277,6 +277,10 @@ skills["SupportArmourBreakPlayer"] = {
 			label = "Armour Break I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+					["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+						mod("PhysArmourBreakMulti", "MULTIPLIER", nil),
+			}},
 			baseFlags = {
 			},
 			constantStats = {
