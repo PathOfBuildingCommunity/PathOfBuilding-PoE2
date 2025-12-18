@@ -820,6 +820,7 @@ local modNameList = {
 	["duration of ignite, shock and chill"] = {"EnemyShockDuration", "EnemyChillDuration", "EnemyIgniteDuration"},
 	-- Other ailments
 	["chance to inflict ailments"] = "AilmentChance",
+	["chance to inflict elemental ailments"] = { "EnemyIgniteChance", "EnemyShockChance" },
 	["to poison"] = "PoisonChance",
 	["to cause poison"] = "PoisonChance",
 	["to poison on hit"] = "PoisonChance",
@@ -1119,6 +1120,7 @@ local modFlagList = {
 	["for command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["while shapeshifted"] = { tag = { type = "SkillType", skillType = SkillType.Shapeshift } },
 	["with plant skills"] = { tag = { type = "SkillType", skillType = SkillType.Plant } },
+	["with storm skills"] = { tag = { type = "SkillType", skillType = SkillType.Storm } },
 	["minion"] = { addToMinion = true },
 	["zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
 	["raised zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
@@ -1558,6 +1560,7 @@ local modTagList = {
 	["per (%d+) spirit"] = function(num) return { tag = { type = "PerStat", stat = "Spirit", div = num } } end,
 	["per (%d+) unreserved darkness"] = function(num) return { tag = { type = "PerStat", stat = "UnreservedDarkness", div = num } } end,
 	["per (%d+) accuracy rating"] = function(num) return { tag = { type = "PerStat", stat = "Accuracy", div = num } } end,
+	["per (%d+) accuracy rating, up to (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Accuracy", div = num, limit = tonumber(limit), limitTotal = true } } end,
 	["per (%d+)%% block chance"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
 	["per (%d+)%% chance to block"] = function(num) return { tag = { type = "PerStat", stat = "BlockChance", div = num } } end,
 	["per (%d+)%% chance to block on equipped shield"] = function(num) return { tag = { type = "PerStat", stat = "ShieldBlockChance", div = num } } end,
@@ -2118,7 +2121,7 @@ local gemIdLookup = { }
 for _, gem in ipairs(gems) do
 	local gemData = data.gems[gem]
 	local grantedEffect = gemData.grantedEffect
-	local gemName = (grantedEffect.fromItem or grantedEffect.fromTree) and grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or gemData.name:lower()
+	local gemName = grantedEffect.fromItem and grantedEffect.baseTypeName and grantedEffect.baseTypeName:lower() or gemData.name:lower()
 	gemIdLookup[gemName] = grantedEffect.id
 end
 local function grantedExtraSkill(name, level, noSupports)
@@ -2717,6 +2720,9 @@ local specialModList = {
 		flag("Condition:CanGainRage"),
 	},
 	["gain %d+ rage on ([%D]+)"] = {
+		flag("Condition:CanGainRage"),
+	},
+	["grants %d+ rage on ([%D]+)"] = {
 		flag("Condition:CanGainRage"),
 	},
 	["gain %d+ rage on hit with axes"] = {
@@ -5655,6 +5661,7 @@ local specialModList = {
 	["you are crushed"] = { flag("Condition:Crushed") },
 	["nearby enemies are crushed"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }) },
 	["crush enemies on hit with maces and sceptres"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" }) },
+	["crushes enemies on hit"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }) },
 	["you have fungal ground around you while stationary"] = {
 		mod("ExtraAura", "LIST", { mod = mod("ChaosResist", "BASE", 25) }, { type = "Condition", varList = { "OnFungalGround", "Stationary" } }),
 		mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "BASE", -10) }, { type = "ActorCondition", actor = "enemy", varList = { "OnFungalGround", "Stationary" } }),
@@ -5680,6 +5687,11 @@ local specialModList = {
 	{	-- New Hollow Palm Technique
 		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
 		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = (esNum) }),
+	} end,
+	["storm and plant spells: deal (%d+)%% more damage cost (%d+)%% less have (%d+)%% less duration"] = function(damageNum, _, costNum, durationNum) return { -- Wildsurge Incantation
+		mod("Damage", "MORE", damageNum, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
+		mod("Cost", "MORE", -tonumber(costNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
+		mod("Duration", "MORE", -tonumber(durationNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
 	} end,
 	["dual wielding does not inherently grant chance to block attack damage"] = { flag("Condition:NoInherentBlock") },
 	["inherent attack speed bonus from dual wielding is doubled while wielding two claws"] = {
@@ -5968,6 +5980,7 @@ local suffixTypes = {
 	["as extra chaos damage"] = "GainAsChaos",
 	["added as chaos damage"] = "GainAsChaos",
 	["gained as extra chaos damage"] = "GainAsChaos",
+	["as extra damage of a random element"] = "GainAsRandom",
 	["converted to lightning"] = "ConvertToLightning",
 	["converted to lightning damage"] = "ConvertToLightning",
 	["converted to cold damage"] = "ConvertToCold",

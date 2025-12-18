@@ -918,7 +918,7 @@ c["1% increased Attack Speed per 10 Dexterity"]={{[1]={[1]={div=10,stat="Dex",ty
 c["1% increased Attack Speed per 20 Dexterity"]={{[1]={[1]={div=20,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 20 Spirit"]={{[1]={[1]={div=20,stat="Spirit",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Attack Speed per 25 Dexterity"]={{[1]={[1]={div=25,stat="Dex",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
-c["1% increased Attack Speed per 400 Accuracy Rating, up to 20%"]={{[1]={[1]={div=400,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},"  , up to 20% "}
+c["1% increased Attack Speed per 400 Accuracy Rating, up to 20%"]={{[1]={[1]={div=400,limit=20,limitTotal=true,stat="Accuracy",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}},nil}
 c["1% increased Cooldown Recovery Rate per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=1}},nil}
 c["1% increased Critical Damage Bonus per 50 current Life"]={{[1]={[1]={div=50,stat="LifeUnreserved",type="PerStat"},flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=1}},nil}
 c["1% increased Damage per 1% Chance to Block"]={{[1]={[1]={div=1,stat="BlockChance",type="PerStat"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}},nil}
@@ -1947,7 +1947,7 @@ c["20% increased chance to inflict Ailments"]={{[1]={flags=0,keywordFlags=0,name
 c["20% increased chance to inflict Ailments against Enemies with Exposure"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="HasExposure"},flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
 c["20% increased chance to inflict Ailments against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
 c["20% increased chance to inflict Ailments with Projectiles"]={{[1]={flags=1024,keywordFlags=0,name="AilmentChance",type="INC",value=20}},nil}
-c["20% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{}," chance to inflict Elemental Ailments  "}
+c["20% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=20},[2]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=20}},nil}
 c["20% increased duration of Ailments you inflict against Cursed Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Cursed"},flags=0,keywordFlags=0,name="EnemyAilmentDuration",type="INC",value=20}},nil}
 c["20% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
 c["20% increased maximum Energy Shield if you've consumed a Power Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovablePowerCharge"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=20}},nil}
@@ -2719,7 +2719,7 @@ c["40% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="Tot
 c["40% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}},nil}
 c["40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting "}
 c["40% increased chance to inflict Ailments against Enemies affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant"]={{[1]={flags=0,keywordFlags=0,name="AilmentChance",type="INC",value=40}},"  against Enemies affected by Abyssal Wasting 30% of Life Leeched from targets affected by Abyssal Wasting is Instant "}
-c["40% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{}," chance to inflict Elemental Ailments  "}
+c["40% increased chance to inflict Elemental Ailments if you have Shapeshifted to an Animal form Recently"]={{[1]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="EnemyIgniteChance",type="INC",value=40},[2]={[1]={type="Condition",var="ShapeshiftToAnimal"},flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=40}},nil}
 c["40% increased effect of Arcane Surge on you"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeEffect",type="INC",value=40}},nil}
 c["40% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=40}},nil}
 c["40% less Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="MORE",value=-40}},nil}
@@ -4630,8 +4630,7 @@ c["Critical Hits with Daggers have a 25% chance to Poison the Enemy"]={{[1]={[1]
 c["Critical Hits with Spells apply 3 Stack of Critical Weakness"]={nil,"Critical Hits with Spells apply 3 Stack of Critical Weakness "}
 c["Critical Hits with Spells apply 5 Stacks of Critical Weakness"]={nil,"Critical Hits with Spells apply 5 Stacks of Critical Weakness "}
 c["Critical Hits with Spells apply 5 Stacks of Critical Weakness Critical Hits with Spells apply 3 Stack of Critical Weakness"]={nil,"Critical Hits with Spells apply 5 Stacks of Critical Weakness Critical Hits with Spells apply 3 Stack of Critical Weakness "}
-c["Crushes Enemies on Hit"]={nil,"Crushes Enemies on Hit "}
-c["Crushes Enemies on Hit +150 Strength Requirement"]={nil,"Crushes Enemies on Hit +150 Strength Requirement "}
+c["Crushes Enemies on Hit"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Crushed",type="FLAG",value=true}}}},nil}
 c["Culling Strike"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["Culling Strike against Beasts while your Companion is in your Presence"]={nil,"Culling Strike against Beasts while your Companion is in your Presence "}
 c["Culling Strike against Enemies you Mark"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
@@ -4935,7 +4934,7 @@ c["Gain 10 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKil
 c["Gain 10 Mana per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=10}},nil}
 c["Gain 10 Rage when Critically Hit by an Enemy"]={{}," Rage when Critically Hit by an Enemy "}
 c["Gain 10% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=10}},nil}
-c["Gain 10% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=10}},"  as Extra Damage of a random Element "}
+c["Gain 10% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsRandom",type="BASE",value=10}},nil}
 c["Gain 10% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=10}},nil}
 c["Gain 10% of Damage as Extra Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsPhysical",type="BASE",value=10}},nil}
 c["Gain 10% of Elemental Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsCold",type="BASE",value=10}},nil}
@@ -5019,8 +5018,7 @@ c["Gain 5 Rage when Hit by an Enemy during effect No Inherent loss of Rage durin
 c["Gain 5% of Damage as Chaos Damage per Undead Minion"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=5}}}},"   per Undead  "}
 c["Gain 5% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=5}},nil}
 c["Gain 5% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=5}},nil}
-c["Gain 5% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}},"  as Extra Damage of a random Element "}
-c["Gain 5% of Damage as Extra Damage of a random Element +5 to Strength and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}},"  as Extra Damage of a random Element +5 to Strength and Intelligence "}
+c["Gain 5% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsRandom",type="BASE",value=5}},nil}
 c["Gain 5% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=5}},nil}
 c["Gain 5% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=5}},nil}
 c["Gain 5% of Lightning Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageGainAsCold",type="BASE",value=5}},nil}
@@ -5040,7 +5038,7 @@ c["Gain 60% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name=
 c["Gain 8 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=8}},nil}
 c["Gain 8 Rage when you use a Life Flask"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=8}}," Rage when you use a  Flask "}
 c["Gain 8% of Damage as Extra Cold Damage while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=8}},nil}
-c["Gain 8% of Damage as Extra Damage of a random Element while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=8}},"  as Extra Damage of a random Element  "}
+c["Gain 8% of Damage as Extra Damage of a random Element while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsRandom",type="BASE",value=8}},nil}
 c["Gain 8% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=8}},nil}
 c["Gain 8% of Damage as Extra Fire Damage while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=8}},nil}
 c["Gain 8% of Damage as Extra Lightning Damage while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=8}},nil}
@@ -5157,7 +5155,7 @@ c["Grants Skill: Elemental Storm"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkil
 c["Grants Skill: Elemental Surge"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="AmazonTriggerElementalSurgePlayer"}}},nil}
 c["Grants Skill: Encase in Jade"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="EncaseInJadePlayer"}}},nil}
 c["Grants Skill: Explosive Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ExplosiveConcoctionPlayer"}}},nil}
-c["Grants Skill: Fire Spell on Hit"]={nil,nil}
+c["Grants Skill: Fire Spell on Hit"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MetaCastFireSpellOnHitPlayer"}}},nil}
 c["Grants Skill: Fulminating Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="FulminatingConcoctionPlayer"}}},nil}
 c["Grants Skill: Inevitable Agony"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="InevitableAgonyPlayer"}}},nil}
 c["Grants Skill: Into the Breach"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="IntoTheBreachPlayer"}}},nil}
@@ -5732,18 +5730,22 @@ c["Passives in radius of Glancing Blows can be Allocated without being connected
 c["Passives in radius of Heartstopper can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="heartstopper"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="heartstopper",value=true}}},nil}
 c["Passives in radius of Hollow Palm Technique can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="hollow palm technique"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="hollow palm technique",value=true}}},nil}
 c["Passives in radius of Iron Reflexes can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="iron reflexes"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="iron reflexes",value=true}}},nil}
+c["Passives in radius of Lord of the Wilds can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="lord of the wilds"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="lord of the wilds",value=true}}},nil}
 c["Passives in radius of Mind Over Matter can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="mind over matter"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="mind over matter",value=true}}},nil}
 c["Passives in radius of Necromantic Talisman can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="necromantic talisman"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="necromantic talisman",value=true}}},nil}
 c["Passives in radius of Oasis can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="oasis"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="oasis",value=true}}},nil}
 c["Passives in radius of Pain Attunement can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="pain attunement"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="pain attunement",value=true}}},nil}
+c["Passives in radius of Primal Hunger can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="primal hunger"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="primal hunger",value=true}}},nil}
 c["Passives in radius of Resolute Technique can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="resolute technique"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="resolute technique",value=true}}},nil}
 c["Passives in radius of Resonance can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="resonance"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="resonance",value=true}}},nil}
 c["Passives in radius of Ritual Cadence can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="ritual cadence"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="ritual cadence",value=true}}},nil}
+c["Passives in radius of Scarred Faith can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="scarred faith"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="scarred faith",value=true}}},nil}
 c["Passives in radius of Trusted Kinship can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="trusted kinship"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="trusted kinship",value=true}}},nil}
 c["Passives in radius of Unwavering Stance can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="unwavering stance"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="unwavering stance",value=true}}},nil}
 c["Passives in radius of Vaal Pact can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="vaal pact"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="vaal pact",value=true}}},nil}
 c["Passives in radius of Walker of the Wilds can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="walker of the wilds"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="walker of the wilds",value=true}}},nil}
 c["Passives in radius of Whispers of Doom can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="whispers of doom"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="whispers of doom",value=true}}},nil}
+c["Passives in radius of Wildsurge Incantation can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="wildsurge incantation"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="wildsurge incantation",value=true}}},nil}
 c["Passives in radius of Zealot's Oath can be Allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="fromNothingKeystone",value="zealot's oath"}},[2]={flags=0,keywordFlags=0,name="FromNothingKeystones",type="LIST",value={key="zealot's oath",value=true}}},nil}
 c["Permanently Intimidate enemies on Block"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Intimidated",type="FLAG",value=true}}}},nil}
 c["Persistent Buffs have 50% less Reservation"]={{[1]={[1]={skillType=139,type="SkillType"},[2]={skillType=5,type="SkillType"},flags=0,keywordFlags=0,name="Reserved",type="MORE",value=-50}},nil}
@@ -5999,7 +6001,7 @@ c["Spells have a 25% chance to inflict Withered for 4 seconds on Hit"]={{}," to 
 c["Storm and Plant Spells:"]={nil,"Storm and Plant Spells: "}
 c["Storm and Plant Spells: deal 50% more damage"]={nil,"Storm and Plant Spells: deal 50% more damage "}
 c["Storm and Plant Spells: deal 50% more damage cost 50% less"]={{},"Storm and Plant Spells: deal 50% more damage % less "}
-c["Storm and Plant Spells: deal 50% more damage cost 50% less have 75% less duration"]={{},"Storm and Plant Spells: deal 50% more damage % less have 75% less duration "}
+c["Storm and Plant Spells: deal 50% more damage cost 50% less have 75% less duration"]={{[1]={[1]={skillTypeList={[1]=255,[2]=252},type="SkillType"},flags=0,keywordFlags=131072,name="Damage",type="MORE",value=50},[2]={[1]={skillTypeList={[1]=255,[2]=252},type="SkillType"},flags=0,keywordFlags=131072,name="Cost",type="MORE",value=-50},[3]={[1]={skillTypeList={[1]=255,[2]=252},type="SkillType"},flags=0,keywordFlags=131072,name="Duration",type="MORE",value=-75}},nil}
 c["Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills"]={nil,"Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills "}
 c["Strike Skills you use yourself with Maces have 10% chance to deal Splash Damage"]={nil,"Strike Skills you use yourself with Maces have 10% chance to deal Splash Damage "}
 c["Strikes deal Splash Damage"]={nil,"Strikes deal Splash Damage "}
@@ -6245,12 +6247,8 @@ c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="Unaff
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
 c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at least 8 seconds "}
 c["containing Corrupted Magic Jewels"]={nil,"containing Corrupted Magic Jewels "}
-c["cost 50% less"]={{},"% less "}
-c["cost 50% less have 75% less duration"]={{},"% less have 75% less duration "}
-c["deal 50% more damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}},nil}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
-c["have 75% less duration"]={nil,"75% less duration "}
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
