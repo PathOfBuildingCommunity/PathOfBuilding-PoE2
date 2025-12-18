@@ -1137,6 +1137,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
+				elseif item.type == "Focus" and calcLib.mod(nodesModsList, nil, "EffectOfBonusesFromFocus") ~=1 then
+					scale = calcLib.mod(nodesModsList, nil, "EffectOfBonusesFromFocus") - 1
+					local combinedList = new("ModList")
+					for _, mod in ipairs(srcList) do
+						combinedList:MergeMod(mod)
+					end
+					local scaledList = new("ModList")
+					scaledList:ScaleAddList(combinedList, scale)
+					for _, mod in ipairs(scaledList) do
+						combinedList:MergeMod(mod, true)
+					end
+					env.itemModDB:AddList(combinedList)
 				elseif item.name:match("Kalandra's Touch") then
 					-- Reset mult counters since they don't work for kalandra
 					if item["corrupted"] then
