@@ -1118,7 +1118,7 @@ local modFlagList = {
 	["of your mark skills"] = { tag = { type = "SkillType", skillType = SkillType.Mark } },
 	["with command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["for command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
-	["while shapeshifted"] = { tag = { type = "SkillType", skillType = SkillType.Shapeshift } },
+	["while shapeshifted"] = { tag = { type = "Condition", var = "Shapeshifted" } },
 	["with plant skills"] = { tag = { type = "SkillType", skillType = SkillType.Plant } },
 	["with storm skills"] = { tag = { type = "SkillType", skillType = SkillType.Storm } },
 	["minion"] = { addToMinion = true },
