@@ -5928,6 +5928,9 @@ local specialModList = {
 	["gain elemental archon when your energy shield recharge begins"] = {
 		flag("Condition:CanHaveElementalArchon"),
 	},
+	["gain elemental archon when you cast a spell while on high infernal flame"] = {
+		flag("Condition:CanHaveElementalArchon"),
+	},
 	["gain elemental archon after spending 100%% of your maximum mana"] = {
 		flag("Condition:CanHaveElementalArchon"),
 	},
@@ -5943,6 +5946,18 @@ local specialModList = {
 	} end,
 	["(%d+)%% increased archon buff duration"] = function(num) return {
 		mod("ArchonDuration", "INC", num),
+	} end,
+	["archon buffs also grant %+(%d+)%% to all elemental resistances"] = function(num) return {
+		mod("ElementalResist", "BASE", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+	} end,
+	["archon buffs also grant (%d+)%% increased movement speed"] = function(num) return {
+		mod("MovementSpeed", "INC", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+	} end,
+	["archon buffs also grant %+(%d+)%% critical damage bonus"] = function(num) return {
+		mod("CritMultiplier", "BASE", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+	} end,
+	["archon buffs also grant %+(%d+)%% critical hit chance"] = function(num) return {
+		mod("CritChance", "BASE", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
 	} end,
 }
 for _, name in pairs(data.keystones) do
