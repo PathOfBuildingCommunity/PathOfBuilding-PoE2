@@ -5955,6 +5955,7 @@ local suffixTypes = {
 	["as extra chaos damage"] = "GainAsChaos",
 	["added as chaos damage"] = "GainAsChaos",
 	["gained as extra chaos damage"] = "GainAsChaos",
+	["as extra damage of a random element"] = "GainAsRandom",
 	["converted to lightning"] = "ConvertToLightning",
 	["converted to lightning damage"] = "ConvertToLightning",
 	["converted to cold damage"] = "ConvertToCold",

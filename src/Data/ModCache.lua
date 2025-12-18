@@ -4938,7 +4938,7 @@ c["Gain 10 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKil
 c["Gain 10 Mana per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="ManaOnKill",type="BASE",value=10}},nil}
 c["Gain 10 Rage when Critically Hit by an Enemy"]={{}," Rage when Critically Hit by an Enemy "}
 c["Gain 10% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=10}},nil}
-c["Gain 10% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=10}},"  as Extra Damage of a random Element "}
+c["Gain 10% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsRandom",type="BASE",value=10}},nil}
 c["Gain 10% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=10}},nil}
 c["Gain 10% of Damage as Extra Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsPhysical",type="BASE",value=10}},nil}
 c["Gain 10% of Elemental Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageGainAsCold",type="BASE",value=10}},nil}
@@ -5022,8 +5022,7 @@ c["Gain 5 Rage when Hit by an Enemy during effect No Inherent loss of Rage durin
 c["Gain 5% of Damage as Chaos Damage per Undead Minion"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageAsChaos",type="BASE",value=5}}}},"   per Undead  "}
 c["Gain 5% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=5}},nil}
 c["Gain 5% of Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=5}},nil}
-c["Gain 5% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}},"  as Extra Damage of a random Element "}
-c["Gain 5% of Damage as Extra Damage of a random Element +5 to Strength and Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}},"  as Extra Damage of a random Element +5 to Strength and Intelligence "}
+c["Gain 5% of Damage as Extra Damage of a random Element"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsRandom",type="BASE",value=5}},nil}
 c["Gain 5% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=5}},nil}
 c["Gain 5% of Damage as Extra Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=5}},nil}
 c["Gain 5% of Lightning Damage as Extra Cold Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamageGainAsCold",type="BASE",value=5}},nil}
@@ -5043,7 +5042,7 @@ c["Gain 60% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name=
 c["Gain 8 Life per enemy killed"]={{[1]={flags=0,keywordFlags=0,name="LifeOnKill",type="BASE",value=8}},nil}
 c["Gain 8 Rage when you use a Life Flask"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=8}}," Rage when you use a  Flask "}
 c["Gain 8% of Damage as Extra Cold Damage while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=8}},nil}
-c["Gain 8% of Damage as Extra Damage of a random Element while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=8}},"  as Extra Damage of a random Element  "}
+c["Gain 8% of Damage as Extra Damage of a random Element while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsRandom",type="BASE",value=8}},nil}
 c["Gain 8% of Damage as Extra Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=8}},nil}
 c["Gain 8% of Damage as Extra Fire Damage while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsFire",type="BASE",value=8}},nil}
 c["Gain 8% of Damage as Extra Lightning Damage while Shapeshifted"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="DamageGainAsLightning",type="BASE",value=8}},nil}

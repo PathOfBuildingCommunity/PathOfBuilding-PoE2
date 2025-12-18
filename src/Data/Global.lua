@@ -597,6 +597,12 @@ SkillType = {
 	SupportedByNovaProjectiles = 258,
 }
 
+-- build reverse lookup
+SkillTypeName = {}
+for k, v in pairs(SkillType) do
+  SkillTypeName[v] = k
+end
+
 GlobalCache = { 
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
 }
