@@ -1526,6 +1526,7 @@ local modTagList = {
 	["per bark below maximum"] = { tag =  { type = "Multiplier", var = "MissingBarkskinStacks" } },
 	["per allocated mastery passive skill"] = { tag = { type = "Multiplier", var = "AllocatedMastery" } },
 	["per allocated notable passive skill"] = { tag = { type = "Multiplier", var = "AllocatedNotable" } },
+	["for each connected notable passive skill allocated"] = { tag = { type = "Multiplier", var = "AllocatedConnectedNotable" } },
 	["for each different type of mastery you have allocated"] = { tag = { type = "Multiplier", var = "AllocatedMasteryType" } },
 	["per socketed grand spectrum"] = { tag = { type = "Multiplier", var = "GrandSpectrum" } },
 	["per second you've been stationary, up to a maximum of (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "StationarySeconds", limit = tonumber(num), limitTotal = true } } end,
@@ -3188,10 +3189,18 @@ local specialModList = {
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })
 	} end,
+	["body armour grants %+(%d+)%% of armour also applies to (%a+) damage"] = function(num, _, dmgType) return {
+		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", num, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })
+	} end,
 	["body armour grants hits against you have (%d+)%% reduced critical damage bonus"] = function(num) return {
 		mod("ReduceCritExtraDamage", "BASE", num, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })
 	} end,
 	["body armour grants unaffected by ignite"] = { mod("SelfIgniteEffect", "MORE", -100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL"}) },
+	["body armour grants unaffected by damaging ailments"] = {
+		mod("SelfBleedEffect", "MORE", -100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL"}),
+		mod("SelfIgniteEffect", "MORE", -100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL"}),
+		mod("SelfPoisonEffect", "MORE", -100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL"}),
+	},
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
 	["carry a chest which adds (%d+) inventory slots"] = { },

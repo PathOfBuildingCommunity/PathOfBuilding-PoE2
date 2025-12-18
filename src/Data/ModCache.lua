@@ -324,7 +324,7 @@ c["+20% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="Eleme
 c["+200 Intelligence Requirement"]={{[1]={flags=0,keywordFlags=0,name="IntRequirement",type="BASE",value=200}},nil}
 c["+200 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=200}},nil}
 c["+200 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=200}},nil}
-c["+200 to Armour for each Connected Notable Passive Skill Allocated"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=200}},"  for each Connected Notable Passive Skill Allocated "}
+c["+200 to Armour for each Connected Notable Passive Skill Allocated"]={{[1]={[1]={type="Multiplier",var="AllocatedConnectedNotable"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=200}},nil}
 c["+200 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=200}},nil}
 c["+200 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=200}},nil}
 c["+202 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=202}},nil}
@@ -4463,8 +4463,8 @@ c["Blocking Damage Poisons the Enemy as though dealing 100 Base Chaos Damage Blo
 c["Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage"]={nil,"Blocking Damage Poisons the Enemy as though dealing 200 Base Chaos Damage "}
 c["Blood Magic"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Blood Magic"}},nil}
 c["Blue: Skills have 30% less cost"]={{[1]={[1]={type="Condition",var="MostNumerousBlueSocketedSupports"},flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=-30}},nil}
-c["Body Armour grants +100% of Armour also applies to Chaos Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=100}},"  also applies to Chaos Damage "}
-c["Body Armour grants +50% of Armour also applies to Elemental Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ArmourAppliesToFireDamageTaken",type="BASE",value=50},[2]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ArmourAppliesToColdDamageTaken",type="BASE",value=50},[3]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ArmourAppliesToLightningDamageTaken",type="BASE",value=50}},nil}
+c["Body Armour grants +100% of Armour also applies to Chaos Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ArmourAppliesToChaosDamageTaken",type="BASE",value=100}},nil}
+c["Body Armour grants +50% of Armour also applies to Elemental Damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ArmourAppliesToElementalDamageTaken",type="BASE",value=50}},nil}
 c["Body Armour grants +75% to Fire Resistance"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=75}},nil}
 c["Body Armour grants 100% increased Thorns damage"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=100}},nil}
 c["Body Armour grants 15% increased maximum Life"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Life",type="INC",value=15}},nil}
@@ -4473,7 +4473,7 @@ c["Body Armour grants 25% of Physical Damage from Hits taken as Fire Damage"]={{
 c["Body Armour grants 30% increased Spirit"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="Spirit",type="INC",value=30}},nil}
 c["Body Armour grants 60% increased Glory generation"]={{}," Glory generation "}
 c["Body Armour grants Hits against you have 100% reduced Critical Damage Bonus"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="ReduceCritExtraDamage",type="BASE",value=100}},nil}
-c["Body Armour grants Unaffected by Damaging Ailments"]={nil,"Unaffected by Damaging Ailments "}
+c["Body Armour grants Unaffected by Damaging Ailments"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="SelfBleedEffect",type="MORE",value=-100},[2]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="SelfIgniteEffect",type="MORE",value=-100},[3]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="SelfPoisonEffect",type="MORE",value=-100}},nil}
 c["Body Armour grants regenerate 3% of maximum Life per second"]={{[1]={[1]={itemSlot="Body Armour",rarityCond="NORMAL",type="ItemCondition"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
 c["Bolts fired by Crossbow Attacks have 100% chance to not"]={{}," to not "}
 c["Bolts fired by Crossbow Attacks have 100% chance to not expend Ammunition if you've Reloaded Recently"]={{[1]={[1]={skillType=116,type="SkillType"},[2]={type="Condition",var="ReloadedRecently"},flags=67108864,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=100}},nil}
