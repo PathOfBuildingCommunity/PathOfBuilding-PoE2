@@ -4717,6 +4717,7 @@ local specialModList = {
 	["projectiles deal (%d+)%% increased damage with hits and ailments for each time they have chained"] = function(num) return { mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "PerStat", stat = "Chain" }, { type = "SkillType", skillType = SkillType.Projectile }) } end,
 	["projectiles deal (%d+)%% increased damage with hits and ailments for each enemy pierced"] = function(num) return { mod("Damage", "INC", num, nil, 0, bor(KeywordFlag.Hit, KeywordFlag.Ailment), { type = "PerStat", stat = "PiercedCount" }, { type = "SkillType", skillType = SkillType.Projectile }) } end,
 	["(%d+)%% increased bonuses gained from equipped quiver"] = function(num) return {mod("EffectOfBonusesFromQuiver", "INC", num)} end,
+	["(%d+)%% reduced bonuses gained from equipped focus"] = function(num) return {mod("EffectOfBonusesFromFocus", "INC", -num)} end,
 	["(%d+)%% increased bonuses gained from equipped rings"] = function(num) return {
 		mod("EffectOfBonusesFromRing 1", "INC", num),
 		mod("EffectOfBonusesFromRing 2", "INC", num),
