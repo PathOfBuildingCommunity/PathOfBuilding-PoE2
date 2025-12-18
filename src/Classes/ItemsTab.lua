@@ -1935,11 +1935,15 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		local weapon1Base = self.items[weapon1Sel] and self.items[weapon1Sel].base or "Unarmed"
 		-- Calcs tab isn't loaded yet when the items tab gets loaded, so assume we have Giant's Blood until proven wrong
 		local giantsBlood = true
+		local lordOfTheWilds = true
 		if self.build.calcsTab and self.build.calcsTab.mainEnv then
 			giantsBlood = self.build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood")
+			lordOfTheWilds = self.build.calcsTab.mainEnv.modDB:Flag(nil, "LordOfTheWilds")
 		end
 		if weapon1Base.type == "Bow" then
 			return item.type == "Quiver"
+		elseif weapon1Base.type == "Talisman" and lordOfTheWilds then
+			return item.type == "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
 		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand or (giantsBlood and (weapon1Base.tags.axe or weapon1Base.tags.mace or weapon1Base.tags.sword)) then
 			return item.type == "Shield" or item.type == "Focus" or item.type == "Sceptre"
 					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre")
