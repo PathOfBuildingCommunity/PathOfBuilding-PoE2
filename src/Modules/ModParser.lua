@@ -1118,7 +1118,6 @@ local modFlagList = {
 	["with command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["for command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["while shapeshifted"] = { tag = { type = "SkillType", skillType = SkillType.Shapeshift } },
-	["from hits while dodge rolling"] = { tag = { type = "Condition", var = "InDodgeRoll" } },
 	["with plant skills"] = { tag = { type = "SkillType", skillType = SkillType.Plant } },
 	["minion"] = { addToMinion = true },
 	["zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
@@ -2269,6 +2268,7 @@ local specialModList = {
 		return explodeFunc(chance, amount, type)
 	end,
 	-- Keystones
+	["take (%d+)%% less damage from hits while dodge rolling"] = function(num) return {mod("DamageTakenWhenHit", "MORE", -num, {type = "Coniditon", var ="InDodgeRoll"}, {type = "Condition", var="CannotDodgeRoll", neg=true})} end,
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
 		mod("Speed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}), 
 		mod("WarcrySpeed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}),

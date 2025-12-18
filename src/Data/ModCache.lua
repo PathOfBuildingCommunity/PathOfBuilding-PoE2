@@ -6016,7 +6016,7 @@ c["Successfully Parrying a Projectile Hit grants 40% increased Damage to your ne
 c["Take 100 Chaos damage per second per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="ChaosDegen",type="BASE",value=100}},nil}
 c["Take 100 Fire Damage when you Ignite an Enemy"]={{[1]={flags=0,keywordFlags=0,name="EyeOfInnocenceSelfDamage",type="LIST",value={baseDamage=100,damageType="fire"}}},nil}
 c["Take 100% of Mana Costs you pay for Skills as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsPhysical",type="BASE",value=100}}," s you pay for Skills  "}
-c["Take 30% less Damage from Hits while Dodge Rolling"]={{[1]={[1]={type="Condition",var="InDodgeRoll"},flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-30}},nil}
+c["Take 30% less Damage from Hits while Dodge Rolling"]={{[1]={[1]={type="Coniditon",var="InDodgeRoll"},[2]={neg=true,type="Condition",var="CannotDodgeRoll"},flags=0,keywordFlags=0,name="DamageTakenWhenHit",type="MORE",value=-30}},nil}
 c["Take 30% more Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},"  from Hits "}
 c["Take 30% more Damage from Hits Take 40% less Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},"  from Hits Take 40% less Damage from Hits "}
 c["Take 30% more Damage over time"]={{[1]={flags=8,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},nil}
