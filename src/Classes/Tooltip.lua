@@ -291,11 +291,12 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	local headerInfluence = {
 		Fractured = "Assets/fractureditemsymbol.png",
 		Desecrated = "Assets/veileditemsymbol.png",
+		Mutated = "Assets/vaalitemicon.png",
 	}
 	local headerConfigs = {
-		RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
-		UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
-		RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=43, middleWidth=43, textYOffset=2, allowInfluenceIcon=true},
+		RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+		UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+		RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
 		MAGIC = {left="Assets/itemsheadermagicleft.png", middle="Assets/itemsheadermagicmiddle.png", right="Assets/itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
 		NORMAL = {left="Assets/itemsheaderwhiteleft.png", middle="Assets/itemsheaderwhitemiddle.png", right="Assets/itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
 		GEM = {left="Assets/itemsheadergemleft.png", middle="Assets/itemsheadergemmiddle.png", right="Assets/itemsheadergemright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
@@ -395,7 +396,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			-- Draw left cap first, then influence icon on top
 			DrawImage(self.headerLeft, headerX, headerY, headerSideWidth, headerHeight)
 			if self.influenceHeader1 and config.allowInfluenceIcon then
-				DrawImage(self.influenceIcon1, headerX+5, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
+				DrawImage(self.influenceIcon1, headerX + 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
 
 			-- Draw middle fill
@@ -415,7 +416,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			-- Draw right cap
 			DrawImage(self.headerRight, headerX + headerTotalWidth - headerSideWidth, headerY, headerSideWidth, headerHeight)
 			if self.influenceHeader2 and config.allowInfluenceIcon then
-				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - headerSideWidth+10, headerY+(headerHeight/4), headerSideWidth/2+6, headerHeight/2)
+				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
 		end
 	end

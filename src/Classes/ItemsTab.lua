@@ -2710,7 +2710,13 @@ function ItemsTabClass:SetTooltipHeaderInfluence(tooltip, item)
 			tooltip.influenceHeader2 = "Desecrated"
 		end
 	end
-
+	if item.mutated then
+		if not tooltip.influenceHeader1 then
+			tooltip.influenceHeader1 = "Mutated"
+		else
+			tooltip.influenceHeader2 = "Mutated"
+		end
+	end
 	-- If only one influence, we copy to second header. Preparing for dual influence mods like in first game.
 	if tooltip.influenceHeader1 and not tooltip.influenceHeader2 then
 		tooltip.influenceHeader2 = tooltip.influenceHeader1
