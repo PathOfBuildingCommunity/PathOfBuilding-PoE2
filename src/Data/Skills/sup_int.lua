@@ -6288,6 +6288,12 @@ skills["SupportOisinsOathPlayer"] = {
 			label = "Oisín's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["mana_leech_from_elemental_instead"] = {
+					flag("ManaLeechBasedOnElementalDamage"),
+					flag("Condition:NoManaLeechFromPhysicalDamage"),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {

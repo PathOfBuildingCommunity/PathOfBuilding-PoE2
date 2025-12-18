@@ -1174,6 +1174,12 @@ statMap = {
 
 #skill SupportOisinsOathPlayer
 #set SupportOisinsOathPlayer
+statMap = {
+	["mana_leech_from_elemental_instead"] = {
+		flag("ManaLeechBasedOnElementalDamage"),
+		flag("Condition:NoManaLeechFromPhysicalDamage"),
+	},
+},
 #mods
 #skillEnd
 
