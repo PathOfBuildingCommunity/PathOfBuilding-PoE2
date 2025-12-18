@@ -23,6 +23,14 @@ buffs["archon_elemental"] = {
 			        mod("EnemyShockChance", "MORE", nil, ModFlag.Spell),
 			    }
 			},
+			incEffectMods={
+			    "ArchonEffect"
+			},
+			durationIncMods={
+			    "ArchonDuration"
+			},
+			ignoreIncEffectMods={
+			},
 	stats={
 		"elemental_damage_with_spell_skills_+%_final_from_archon_buff",
 		"base_movement_velocity_+%",

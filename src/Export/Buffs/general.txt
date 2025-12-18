@@ -20,5 +20,13 @@ statMap={
         mod("EnemyShockChance", "MORE", nil, ModFlag.Spell),
     }
 },
+incEffectMods={
+    "ArchonEffect"
+},
+durationIncMods={
+    "ArchonDuration"
+},
+ignoreIncEffectMods={
+},
 #stats
 #buffEnd
