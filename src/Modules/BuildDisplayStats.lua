@@ -191,6 +191,7 @@ local displayStats = {
 	{ stat = "MovementSpeedWhileUsingSkill", label = "Skill Movement Speed", fmt = "+.1f%%", mod = true, condFunc = function() return true end },
 	{ },
 	{ stat = "PresenceRadiusMetres", label = "Presence Radius", fmt = ".1fm", compPercent = true },
+	{ stat = "EffectiveLootRarityMod", label = "Increased Rarity of Items found", fmt = ".0f%%", mod = true },
 	--[[ potentially useful mods
 	{ stat = "QuantityMultiplier", label = "Quantity Multiplier", fmt = "+d%%" },
 	{ stat = "StoredUses", label = "Stored Uses", fmt = "d" },
