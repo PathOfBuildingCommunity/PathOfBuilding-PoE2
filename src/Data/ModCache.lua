@@ -6163,11 +6163,8 @@ c["You can Socket 2 additional copies of each Lineage Support Gem, in different 
 c["You can Socket an additional copy of each Lineage Support Gem, in different Skills"]={nil,"You can Socket an additional copy of each Lineage Support Gem, in different Skills "}
 c["You can Socket an additional copy of each Lineage Support Gem, in different Skills You can Socket 2 additional copies of each Lineage Support Gem, in different Skills"]={nil,"You can Socket an additional copy of each Lineage Support Gem, in different Skills You can Socket 2 additional copies of each Lineage Support Gem, in different Skills "}
 c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
-c["You can equip a Focus while wielding a Staff"]={nil,"You can equip a Focus while wielding a Staff "}
-c["You can equip a Focus while wielding a Staff 50% reduced bonuses gained from Equipped Focus"]={nil,"You can equip a Focus while wielding a Staff 50% reduced bonuses gained from Equipped Focus "}
-c["You can equip a non-Unique Sceptre while wielding a Talisman"]={nil,"You can equip a non-Unique Sceptre while wielding a Talisman "}
-c["You can equip a non-Unique Sceptre while wielding a Talisman 50% less Spirit"]={nil,"You can equip a non-Unique Sceptre while wielding a Talisman 50% less Spirit "}
-c["You can equip a non-Unique Sceptre while wielding a Talisman 50% less Spirit Non-Minion Skills have 50% less Reservation Efficiency"]={nil,"You can equip a non-Unique Sceptre while wielding a Talisman 50% less Spirit Non-Minion Skills have 50% less Reservation Efficiency "}
+c["You can equip a Focus while wielding a Staff"]={{[1]={flags=0,keywordFlags=0,name="InstrumentsOfPower",type="FLAG",value=true}},nil}
+c["You can equip a non-Unique Sceptre while wielding a Talisman"]={{[1]={flags=0,keywordFlags=0,name="LordOfTheWilds",type="FLAG",value=true}},nil}
 c["You can have two Companions of different types"]={nil,"You can have two Companions of different types "}
 c["You can have two Companions of different types 60% reduced Duration of Bleeding on You"]={nil,"You can have two Companions of different types 60% reduced Duration of Bleeding on You "}
 c["You can have two Companions of different types You have 30% less Defences"]={nil,"You can have two Companions of different types You have 30% less Defences "}
