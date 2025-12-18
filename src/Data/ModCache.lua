@@ -6001,7 +6001,7 @@ c["Spells have a 25% chance to inflict Withered for 4 seconds on Hit"]={{}," to 
 c["Storm and Plant Spells:"]={nil,"Storm and Plant Spells: "}
 c["Storm and Plant Spells: deal 50% more damage"]={nil,"Storm and Plant Spells: deal 50% more damage "}
 c["Storm and Plant Spells: deal 50% more damage cost 50% less"]={{},"Storm and Plant Spells: deal 50% more damage % less "}
-c["Storm and Plant Spells: deal 50% more damage cost 50% less have 75% less duration"]={{},"Storm and Plant Spells: deal 50% more damage % less have 75% less duration "}
+c["Storm and Plant Spells: deal 50% more damage cost 50% less have 75% less duration"]={{[1]={[1]={skillTypeList={[1]=255,[2]=252},type="SkillType"},flags=0,keywordFlags=131072,name="Damage",type="MORE",value=50},[2]={[1]={skillTypeList={[1]=255,[2]=252},type="SkillType"},flags=0,keywordFlags=131072,name="Cost",type="MORE",value=-50},[3]={[1]={skillTypeList={[1]=255,[2]=252},type="SkillType"},flags=0,keywordFlags=131072,name="Duration",type="MORE",value=-75}},nil}
 c["Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills"]={nil,"Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills "}
 c["Strike Skills you use yourself with Maces have 10% chance to deal Splash Damage"]={nil,"Strike Skills you use yourself with Maces have 10% chance to deal Splash Damage "}
 c["Strikes deal Splash Damage"]={nil,"Strikes deal Splash Damage "}
@@ -6249,12 +6249,8 @@ c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="Unaff
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
 c["being Shapeshifted for at least 8 seconds"]={nil,"being Shapeshifted for at least 8 seconds "}
 c["containing Corrupted Magic Jewels"]={nil,"containing Corrupted Magic Jewels "}
-c["cost 50% less"]={{},"% less "}
-c["cost 50% less have 75% less duration"]={{},"% less have 75% less duration "}
-c["deal 50% more damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=50}},nil}
 c["for 4 seconds, every 0.25 seconds while raised"]={nil,"for 4 seconds, every 0.25 seconds while raised "}
 c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
-c["have 75% less duration"]={nil,"75% less duration "}
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}

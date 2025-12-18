@@ -1119,6 +1119,7 @@ local modFlagList = {
 	["for command skills"] = { tag = { type = "Condition", var = "CommandableSkill" } },
 	["while shapeshifted"] = { tag = { type = "SkillType", skillType = SkillType.Shapeshift } },
 	["with plant skills"] = { tag = { type = "SkillType", skillType = SkillType.Plant } },
+	["with storm skills"] = { tag = { type = "SkillType", skillType = SkillType.Storm } },
 	["minion"] = { addToMinion = true },
 	["zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
 	["raised zombie"] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillName = "Raise Zombie", includeTransfigured = true } },
@@ -5667,6 +5668,11 @@ local specialModList = {
 	{	-- New Hollow Palm Technique
 		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
 		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = (esNum) }),
+	} end,
+	["storm and plant spells: deal (%d+)%% more damage cost (%d+)%% less have (%d+)%% less duration"] = function(damageNum, _, costNum, durationNum) return { -- Wildsurge Incantation
+		mod("Damage", "MORE", damageNum, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
+		mod("Cost", "MORE", -tonumber(costNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
+		mod("Duration", "MORE", -tonumber(durationNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
 	} end,
 	["dual wielding does not inherently grant chance to block attack damage"] = { flag("Condition:NoInherentBlock") },
 	["inherent attack speed bonus from dual wielding is doubled while wielding two claws"] = {

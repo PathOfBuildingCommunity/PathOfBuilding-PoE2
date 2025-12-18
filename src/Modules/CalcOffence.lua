@@ -1089,9 +1089,24 @@ function calcs.offence(env, actor, activeSkill)
 			})
 		end
 	end
-	if skillModList:Sum("BASE", skillCfg, "PhysicalDamageGainAsRandom", "PhysicalDamageConvertToRandom", "PhysicalDamageGainAsColdOrLightning") > 0 then
+	if skillModList:Sum("BASE", skillCfg, "PhysicalDamageGainAsRandom", "PhysicalDamageConvertToRandom", "PhysicalDamageGainAsColdOrLightning", "DamageGainAsRandom") > 0 then
 		skillFlags.randomPhys = true
 		local physMode = env.configInput.physMode or "AVERAGE"
+		for i, value in ipairs(skillModList:Tabulate("BASE", skillCfg, "DamageGainAsRandom")) do
+			local mod = value.mod
+			local effVal = mod.value / 3
+			if physMode == "AVERAGE" then
+				skillModList:NewMod("DamageGainAsFire", "BASE", effVal, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				skillModList:NewMod("DamageGainAsCold", "BASE", effVal, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				skillModList:NewMod("DamageGainAsLightning", "BASE", effVal, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			elseif physMode == "FIRE" then
+				skillModList:NewMod("DamageGainAsFire", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			elseif physMode == "COLD" then
+				skillModList:NewMod("DamageGainAsCold", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			elseif physMode == "LIGHTNING" then
+				skillModList:NewMod("DamageGainAsLightning", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			end
+		end
 		for i, value in ipairs(skillModList:Tabulate("BASE", skillCfg, "PhysicalDamageGainAsRandom")) do
 			local mod = value.mod
 			local effVal = mod.value / 3
