@@ -2268,6 +2268,7 @@ local specialModList = {
 		return explodeFunc(chance, amount, type)
 	end,
 	-- Keystones
+	["dodge roll cannot avoid damage"] = {},
 	["take (%d+)%% less damage from hits while dodge rolling"] = function(num) return{mod("DamageTakenWhenHit", "MORE", -num, {type = "Condition", var = "InDodgeRoll"})} end,
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
 		mod("Speed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}), 

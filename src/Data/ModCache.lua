@@ -4744,8 +4744,7 @@ c["Detonator skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=241
 c["Detonator skills have 80% reduced damage"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["Dodge Roll avoids all Hits"]={nil,"Dodge Roll avoids all Hits "}
 c["Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
-c["Dodge Roll cannot Avoid Damage"]={nil,"Dodge Roll cannot Avoid Damage "}
-c["Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling"]={nil,"Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling "}
+c["Dodge Roll cannot Avoid Damage"]={{},nil}
 c["Dodge Roll passes through Enemies"]={nil,"Dodge Roll passes through Enemies "}
 c["Double Activation Delay of Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseDelay",type="MORE",value=100}},nil}
 c["Double Adaptation Effect"]={{[1]={[1]={globalLimit=100,globalLimitKey="LocalEffectDoubledLimit",type="Multiplier",var="LocalEffectDoubled"},flags=0,keywordFlags=0,name="LocalEffect",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:LocalEffectDoubled",type="OVERRIDE",value=1}}," Adaptation  "}
