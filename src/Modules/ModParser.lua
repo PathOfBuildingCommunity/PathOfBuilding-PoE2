@@ -1588,6 +1588,7 @@ local modTagList = {
 	["per (%d+) (i?t?e?m? ?)armour on equipped gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnHelmet", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnHelmet", div = num } } end,
+	["for each of your empty charm slots"] = { tag = { type = "PerStat", stat = "EmptyCharms"} },
 	["per (%d+)%% (%a+) resistance"] = function(num, _, name) return { tag = { type = "PerStat", stat = firstToUpper(name).."Resist", div = num } } end,
 	["per (%d+)%% (%a+) resistance above 75%%"] = function(num, _, name) return { tag  = { type = "PerStat", stat = firstToUpper(name).."ResistOver75", div = num } } end,
 	["per (%d+) devotion"] = function(num) return { tag = { type = "PerStat", stat = "Devotion", actor = "parent", div = num } } end,
@@ -3280,6 +3281,12 @@ local specialModList = {
 	} end,
 	-- Witch -- Infernalist
 	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
+	-- Druid -- Shaman
+	["enemies in your presence have exposure"] = {
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+	},
 	-- Druid -- Oracle
 	["walk the paths not taken"] = {},
 	["gain the benefits of bonded modifiers on runes and idols"] = {
