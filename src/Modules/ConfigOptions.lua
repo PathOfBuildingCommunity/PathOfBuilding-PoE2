@@ -877,11 +877,11 @@ Huge sets the radius to 11.
 		modList:NewMod("FortificationStacks", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "debuffMaim", type = "check", label = "Are you Maimed?", apply = function(val, modList, enemyModList)
-		modList:NewMod("MovementSpeed", "INC", -30, "Config", { type = "Condition", var = "Combat" })
-		modList:NewMod("Evasion", "INC", -15, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("MovementSpeed", "INC", -30, "Config", { type = "Condition", var = "Combat" }, {type = "Condition", var = "MaimImmune", neg = true})
+		modList:NewMod("Evasion", "INC", -15, "Config", { type = "Condition", var = "Combat" }, {type = "Condition", var = "MaimImmune", neg = true})
 	end },
 	{ var = "debuffHinder", type = "check", label = "Are you Hindered?", apply = function(val, modList, enemyModList)
-		modList:NewMod("MovementSpeed", "INC", -30, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("MovementSpeed", "INC", -30, "Config", { type = "Condition", var = "Combat" }, {type = "Condition", var = "MaimImmune", neg = true})
 	end },
 	{ var = "multiplierTailwind", type = "count", label = "# of Tailwind Stacks:", ifFlag = "Condition:CanHaveTailwind", tooltip = "Tailwind grants the following, up to a base of 10 stacks:\n\t1% increased movement speed\n\t3% increased Skill Speed\n\t15% increased Evasion Rating", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Tailwind", "BASE", val, "Config", { type = "Condition", var = "Combat" })

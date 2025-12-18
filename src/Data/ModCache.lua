@@ -5355,11 +5355,10 @@ c["Immune to Corrupted Blood 40% reduced Duration of Bleeding on You"]={nil,"Imm
 c["Immune to Elemental Ailments while on Consecrated Ground if you have at least 150 Devotion"]={{[1]={[1]={type="Condition",var="OnConsecratedGround"},[2]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="ElementalAilmentImmune",type="FLAG",value=true}},nil}
 c["Immune to Freeze"]={{[1]={flags=0,keywordFlags=0,name="FreezeImmune",type="FLAG",value=true}},nil}
 c["Immune to Freeze and Chill while affected by an Archon Buff"]={nil,"Immune to Freeze and Chill while affected by an Archon Buff "}
-c["Immune to Hinder"]={nil,"Immune to Hinder "}
-c["Immune to Hinder Immune to Maim"]={nil,"Immune to Hinder Immune to Maim "}
+c["Immune to Hinder"]={{[1]={flags=0,keywordFlags=0,name="Condition:HinderImmune",type="FLAG",value=true}},nil}
 c["Immune to Ignite"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Immune to Ignite if a majority of your Socketed Support Gems are Red"]={{[1]={[1]={type="Condition",var="MajorityRedSocketedSupports"},flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
-c["Immune to Maim"]={nil,"Immune to Maim "}
+c["Immune to Maim"]={{[1]={flags=0,keywordFlags=0,name="Condition:MaimImmune",type="FLAG",value=true}},nil}
 c["Immune to Poison"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Immune to Poison if Equipped Helmet has higher Evasion Rating than Armour"]={{[1]={[1]={type="Condition",var="HelmetEvasionHigherThanArmour"},flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Immune to Shock"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
