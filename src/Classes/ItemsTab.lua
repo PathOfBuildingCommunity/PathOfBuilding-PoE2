@@ -1886,7 +1886,7 @@ end
 
 -- Check if the given item could be equipped in the given slot, taking into account possible conflicts with currently equipped items
 -- For example, a shield is not valid for Weapon 2 if Weapon 1 is a staff, and a wand is not valid for Weapon 2 if Weapon 1 is a dagger
-function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
+function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 	itemSet = itemSet or self.activeItemSet
 	local slotType, slotId = slotName:match("^([%a ]+) (%d+)$")
 	if not slotType then
@@ -1934,18 +1934,50 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet)
 		local weapon1Sel = itemSet[slotName == "Weapon 2" and "Weapon 1" or "Weapon 1 Swap"].selItemId or 0
 		local weapon1Base = self.items[weapon1Sel] and self.items[weapon1Sel].base or "Unarmed"
 		-- Calcs tab isn't loaded yet when the items tab gets loaded, so assume we have Giant's Blood until proven wrong
-		local giantsBlood = true
-		if self.build.calcsTab and self.build.calcsTab.mainEnv then
+		local giantsBlood, instrumentsOfPower, lordOfTheWilds = true, true, true
+		if flagState then
+			giantsBlood = flagState.giantsBlood
+			instrumentsOfPower = flagState.instrumentsOfPower
+			lordOfTheWilds = flagState.lordOfTheWilds
+		elseif self.build.calcsTab and self.build.calcsTab.mainEnv then
 			giantsBlood = self.build.calcsTab.mainEnv.modDB:Flag(nil, "GiantsBlood")
+			instrumentsOfPower = self.build.calcsTab.mainEnv.modDB:Flag(nil, "InstrumentsOfPower")
+			lordOfTheWilds = self.build.calcsTab.mainEnv.modDB:Flag(nil, "LordOfTheWilds")
 		end
 		if weapon1Base.type == "Bow" then
 			return item.type == "Quiver"
+		elseif weapon1Base.type == "Talisman" and lordOfTheWilds then
+			return item.type == "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC"
+		elseif weapon1Base.type == "Staff" and instrumentsOfPower then
+			return item.type == "Focus"
 		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand or (giantsBlood and (weapon1Base.tags.axe or weapon1Base.tags.mace or weapon1Base.tags.sword)) then
 			return item.type == "Shield" or item.type == "Focus" or item.type == "Sceptre"
 					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre")
 					or (giantsBlood and (item.base.tags.axe or item.base.tags.mace or item.base.tags.sword))
 		end
 	end
+end
+
+-- Ensure weapon 2 slots remain valid if keystone-dependent restrictions change
+function ItemsTabClass:ValidateWeaponSlots(flagState)
+	local activeSetChanged = false
+	local itemSet = self.activeItemSet
+	if itemSet then
+		local slotName = itemSet.useSecondWeaponSet and "Weapon 2 Swap" or "Weapon 2"
+		local slotData = itemSet[slotName]
+		if slotData and slotData.selItemId and slotData.selItemId ~= 0 then
+			local item = self.items[slotData.selItemId]
+			if not item or not self:IsItemValidForSlot(item, slotName, itemSet, flagState) then
+				if self.slots[slotName] then
+					self.slots[slotName]:SetSelItemId(0)
+				else
+					slotData.selItemId = 0
+				end
+				activeSetChanged = true
+			end
+		end
+	end
+	return activeSetChanged
 end
 
 -- Opens the item set manager
