@@ -286,7 +286,6 @@ local modNameList = {
 	-- Damage taken
 	["damage taken"] = "DamageTaken",
 	["damage taken when hit"] = "DamageTakenWhenHit",
-	["damage taken from hits"] = "DamageTakenWhenHit",
 	["damage over time taken"] = "DamageTakenOverTime",
 	["damage taken from damage over time"] = "DamageTakenOverTime",
 	["attack damage taken"] = "AttackDamageTaken",
@@ -687,6 +686,7 @@ local modNameList = {
 	["exposure effect"] = { "FireExposureEffect", "ColdExposureEffect", "LightningExposureEffect" },
 	-- Basic damage types
 	["damage"] = "Damage",
+	["damage from hits"] = "DamageTakenWhenHit",
 	["physical damage"] = "PhysicalDamage",
 	["lightning damage"] = "LightningDamage",
 	["cold damage"] = "ColdDamage",
@@ -2268,7 +2268,7 @@ local specialModList = {
 		return explodeFunc(chance, amount, type)
 	end,
 	-- Keystones
-	["take (%d+)%% less damage from hits while dodge rolling"] = function(num) return {mod("DamageTakenWhenHit", "MORE", -num, {type = "Coniditon", var ="InDodgeRoll"}, {type = "Condition", var="CannotDodgeRoll", neg=true})} end,
+	["take (%d+)%% less damage from hits while dodge rolling"] = function(num) return{mod("DamageTakenWhenHit", "MORE", -num, {type = "Condition", var = "InDodgeRoll"})} end,
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
 		mod("Speed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}), 
 		mod("WarcrySpeed", "MORE", num, {type = "Condition", var = "UsingOneHandedWeapon"}, {type = "Condition", var = "OffHandIsEmpty"}),

@@ -1209,8 +1209,8 @@ Huge sets the radius to 11.
 	{ var = "conditionInfusionConsumedRecently", type = "check", label = "Infusion consumed recently?", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:InfusionConsumedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "conditionDodeRolling", type = "check", label = "Are you in dodge roll?", ifCond="InDodgeRoll", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:InDodgeRoll", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	{ var = "conditionInDodgeRoll", type = "check", label = "Are you in dodge roll?", ifCond="InDodgeRoll", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:InDodgeRoll", "FLAG", true, "Config", { type = "Condition", var = "Combat"}, {type = "Condition", var ="CannotDodgeRoll", neg = true})
 	end },
 
 	{ var = "conditionBeenHitRecently", type = "check", label = "Have you been Hit Recently?", ifCond = "BeenHitRecently", apply = function(val, modList, enemyModList)
