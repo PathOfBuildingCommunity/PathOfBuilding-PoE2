@@ -59,7 +59,7 @@ function calcs.armourReductionF(armour, raw)
 		armour = -armour -- revert value to positive for calculation
 		return -((armour / (armour + raw * data.misc.ArmourRatio) * 100))
 	end
-	return (armour / (armour + raw * data.misc.ArmourRatio) * 100)
+	return m_max((armour / (armour + raw * data.misc.ArmourRatio) * 100), 1)
 end
 
 -- Calculate damage reduction from armour, int
