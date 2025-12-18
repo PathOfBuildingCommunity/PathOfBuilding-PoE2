@@ -281,6 +281,9 @@ return {
 ["support_spell_echo_number_of_echo_cascades"] = {
 	mod("RepeatCount", "BASE", nil, 0, 0, {type = "SkillType", skillType = SkillType.Cascadable }),
 },
+["support_spell_echo_area_of_effect_+%"] = {
+	mod("RepeatAreaOfEffect", "INC", nil),
+},
 ["base_melee_attack_repeat_count"] = {
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.WeaponMelee, ModFlag.Unarmed) }),
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.RequiresShield }),

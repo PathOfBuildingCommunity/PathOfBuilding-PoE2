@@ -7089,9 +7089,6 @@ skills["SupportSpellEchoPlayer"] = {
 				["support_multicast_cast_speed_+%_final"] = {
 					mod("Speed", "MORE", nil, ModFlag.Cast),
 				},
-				["support_spell_echo_area_of_effect_+%"] = {
-					mod("AreaOfEffect", "INC", nil),
-				},
 			},
 			baseFlags = {
 			},
