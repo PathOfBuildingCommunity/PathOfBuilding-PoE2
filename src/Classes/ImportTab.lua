@@ -624,9 +624,6 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 
 	local updated = false
 	for _, quest in ipairs(data.questRewards) do
-		if #statLines == 0 then
-			break
-		end
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
 			if quest.Stat then
