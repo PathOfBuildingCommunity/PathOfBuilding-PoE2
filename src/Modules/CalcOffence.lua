@@ -389,13 +389,6 @@ function calcs.offence(env, actor, activeSkill)
 		return
 	end
 
-	function calcArmourBreak(PhysHit)
-		local ArmourFromPhysMulti = skillModList:Sum("MULTIPLIER", skillCfg, "PhysArmourBreakMulti") / 100
-		local ArmourBreakFromPhys = PhysHit * ArmourFromPhysMulti
-		skillModList:NewMod("ArmourBreakPerHit", "BASE", ArmourBreakFromPhys)
-		output.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
-	end
-
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
 		output.AreaOfEffectMod = round(round(incArea * moreArea, 10), 2)
@@ -4086,7 +4079,10 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		--Calculate armour break based on Average Phys hit
-		calcArmourBreak((output.PhysicalHitAverage * (1 - output.CritChance / 100) + output.PhysicalCritAverage * output.CritChance / 100))
+		local ArmourFromPhysMulti = skillModList:Sum("MULTIPLIER", skillCfg, "PhysArmourBreakMulti") / 100
+		local ArmourBreakFromPhys = (output.PhysicalHitAverage * (1 - output.CritChance / 100) + output.PhysicalCritAverage * output.CritChance / 100) * ArmourFromPhysMulti
+		skillModList:NewMod("ArmourBreakPerHit", "BASE", ArmourBreakFromPhys)
+		globalOutput.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
 		
 		--setup flags
 		skillFlags.isPvP = false
