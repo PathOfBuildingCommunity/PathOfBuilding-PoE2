@@ -959,12 +959,19 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		self.itemIndexTbl[row_idx] = self.sortedResultTbl[row_idx][index].index
 		self:SetFetchResultReturn(row_idx, self.itemIndexTbl[row_idx])
 	end)
+	local function getResultWeightedScore(result_index)
+		local sum = 0
+		for _, eval in ipairs(self:GetResultEvaluation(row_idx, result_index) or {}) do
+			sum = sum + (eval.weight or 0)
+		end
+		return sum
+	end
 	local function addCompareTooltip(tooltip, result_index, dbMode)
 		local result = self.resultTbl[row_idx][result_index]
 		local item = new("Item", result.item_string)
 		self.itemsTab:AddItemTooltip(tooltip, item, slotTbl, dbMode)
 		if main.slotOnlyTooltips and slotTbl.slotName == "Megalomaniac" then
-			local evaluation = self.resultTbl[row_idx][result_index].evaluation
+			local evaluation = self:GetResultEvaluation(row_idx, result_index)
 			self.itemsTab.build:AddStatComparesToTooltip(tooltip, self.onlyWeightedBaseOutput[row_idx][result_index], evaluation[1].output, "^7Equipping this item will give you:")
 		end
 	end
@@ -974,6 +981,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		local result = self.resultTbl[row_idx][result_index]
 		addCompareTooltip(tooltip, result_index)
 		tooltip:AddSeparator(10)
+		tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(result_index) * 1000))
 		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
 	end
 	controls["importButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["resultDropdown"..row_idx], "TOPRIGHT"}, {8, 0, 100, row_height}, "Import Item", function()
@@ -995,6 +1003,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		local selected_result_index = self.itemIndexTbl[row_idx]
 		if selected_result_index then
 			addCompareTooltip(tooltip, selected_result_index, true)
+			tooltip:AddSeparator(10)
+			tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(selected_result_index) * 1000))
 		end
 	end
 	controls["importButton"..row_idx].enabled = function()
