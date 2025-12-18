@@ -1397,6 +1397,9 @@ return {
 ["base_poison_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, KeywordFlag.Poison),
 },
+["active_skill_poison_effect_+%_final"] = {
+	mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
+},
 ["critical_poison_dot_multiplier_+"] = {
 	mod("DotMultiplier", "BASE", nil, 0, KeywordFlag.Poison, { type = "Condition", var = "CriticalStrike" }),
 },
