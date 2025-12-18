@@ -2719,6 +2719,9 @@ local specialModList = {
 	["gain %d+ rage on ([%D]+)"] = {
 		flag("Condition:CanGainRage"),
 	},
+	["grants %d+ rage on ([%D]+)"] = {
+		flag("Condition:CanGainRage"),
+	},
 	["gain %d+ rage on hit with axes"] = {
 		flag("Condition:CanGainRage"),
 	},
@@ -5645,6 +5648,7 @@ local specialModList = {
 	["you are crushed"] = { flag("Condition:Crushed") },
 	["nearby enemies are crushed"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }) },
 	["crush enemies on hit with maces and sceptres"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }, { type = "Condition", var = "UsingMace" }) },
+	["crushes enemies on hit"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Crushed") }) },
 	["you have fungal ground around you while stationary"] = {
 		mod("ExtraAura", "LIST", { mod = mod("ChaosResist", "BASE", 25) }, { type = "Condition", varList = { "OnFungalGround", "Stationary" } }),
 		mod("EnemyModifier", "LIST", { mod = mod("ChaosResist", "BASE", -10) }, { type = "ActorCondition", actor = "enemy", varList = { "OnFungalGround", "Stationary" } }),
