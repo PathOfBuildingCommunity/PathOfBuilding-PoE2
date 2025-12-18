@@ -2401,6 +2401,11 @@ skills["SupportGarukhansResolvePlayer"] = {
 			label = "Garukhan's Resolve",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["maximum_critical_strike_chance_is_%_from_support_garukhans_resolve"] = {
+					mod("CritChanceCap", "OVERRIDE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
