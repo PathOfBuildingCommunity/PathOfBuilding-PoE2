@@ -5924,6 +5924,7 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
+	-- archon modifiers
 	["gain elemental archon when your energy shield recharge begins"] = {
 		flag("Condition:CanHaveElementalArchon"),
 	},
@@ -5937,6 +5938,12 @@ local specialModList = {
 	["immune to shock while affected by an archon buff"]	 = {
 		flag("ShockImmune", { type = "Condition", var = "ArchonBuff" }),
 	},
+	["(%d+)%% increased effect of archon buffs on you"] = function(num) return {
+		mod("ArchonEffect", "INC", num),
+	} end,
+	["(%d+)%% increased archon buff duration"] = function(num) return {
+		mod("ArchonDuration", "INC", num),
+	} end,
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
