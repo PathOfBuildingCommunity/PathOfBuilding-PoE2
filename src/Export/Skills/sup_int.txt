@@ -89,6 +89,11 @@ statMap = {
 
 #skill SupportArbitersIgnitionPlayer
 #set SupportArbitersIgnitionPlayer
+statMap = {
+	["gain_archon_elemental_when_you_ignite_enemy_chance_%"] = {
+		flag("Condition:CanHaveElementalArchon", { type = "GlobalEffect", effectType = "Buff" }),
+	},
+},
 #mods
 #skillEnd
 
