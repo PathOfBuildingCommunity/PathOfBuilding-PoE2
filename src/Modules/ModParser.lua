@@ -3606,6 +3606,7 @@ local specialModList = {
 	["your damage with critical hits is lucky"] = { flag("CritLucky") },
 	["forks critical hits"] = { flag("BifurcateCrit") },
 	["bifurcates critical hits"] = { flag("BifurcateCrit") },
+	["enemy critical hit chance against you is unlucky"] = { flag("EnemyUnluckyCrit") },
 	["critical hits deal no damage"] = { mod("Damage", "MORE", -100, { type = "Condition", var = "CriticalStrike" }) },
 	["critical hit chance is increased by uncapped lightning resistance"] = { flag("CritChanceIncreasedByUncappedLightningRes") },
 	["critical hit chance is increased by lightning resistance"] = { flag("CritChanceIncreasedByLightningRes") },

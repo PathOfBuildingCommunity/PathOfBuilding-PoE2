@@ -4847,8 +4847,7 @@ c["Enemies you inflict Bleeding on cannot Regenerate Life"]={nil,"Enemies you in
 c["Enemies you kill have a 10% chance to explode, dealing a quarter of their maximum Life as Chaos damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=25,keyOfScaledMod="value",type="Chaos",value=10}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Enemies you kill with Empowered Attacks have a 10% chance to Explode, dealing a tenth of their maximum Life as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=10,keyOfScaledMod="value",type="Fire",value=10}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Enemies' Damage with Critical Hits against you is Lucky"]={nil,"Enemies' Damage with Critical Hits  is Lucky "}
-c["Enemy Critical Hit Chance against you is Unlucky"]={nil,"Enemy Critical Hit Chance  is Unlucky "}
-c["Enemy Critical Hit Chance against you is Unlucky Damage of Enemies Hitting you is Unlucky"]={nil,"Enemy Critical Hit Chance  is Unlucky Damage of Enemies Hitting you is Unlucky "}
+c["Enemy Critical Hit Chance against you is Unlucky"]={{[1]={flags=0,keywordFlags=0,name="EnemyUnluckyCrit",type="FLAG",value=true}},nil}
 c["Energy Generation is doubled"]={{},"Energy Generation  "}
 c["Energy Shield Recharge is not interrupted by Damage if Recharge began Recently"]={nil,"Energy Shield Recharge is not interrupted by Damage if Recharge began Recently "}
 c["Energy Shield Recharge starts on use"]={nil,"Energy Shield Recharge starts on use "}
