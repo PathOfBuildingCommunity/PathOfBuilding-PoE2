@@ -5954,10 +5954,10 @@ local specialModList = {
 		mod("MovementSpeed", "INC", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
 	} end,
 	["archon buffs also grant %+(%d+)%% critical damage bonus"] = function(num) return {
-		mod("CritMultiplier", "BASE", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+		mod("CritMultiplier", "INC", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
 	} end,
 	["archon buffs also grant %+(%d+)%% critical hit chance"] = function(num) return {
-		mod("CritChance", "BASE", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+		mod("CritChance", "INC", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
 	} end,
 }
 for _, name in pairs(data.keystones) do
