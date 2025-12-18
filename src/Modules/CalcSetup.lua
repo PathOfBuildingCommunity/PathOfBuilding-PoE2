@@ -771,10 +771,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 		lordOfTheWilds = nodesModsList:Flag(nil, "LordOfTheWilds") or false,
 	}
 	local cache = build.itemsTab.lastWeaponFlagState
-	if not cache or cache.giantsBlood ~= weaponFlagState.giantsBlood or cache.instrumentsOfPower ~= weaponFlagState.instrumentsOfPower or cache.lordOfTheWilds ~= weaponFlagState.lordOfTheWilds then
-		build.itemsTab.lastWeaponFlagState = { giantsBlood = weaponFlagState.giantsBlood, instrumentsOfPower = weaponFlagState.instrumentsOfPower, lordOfTheWilds = weaponFlagState.lordOfTheWilds }
+	local losingGiantsBlood = cache and cache.giantsBlood and not weaponFlagState.giantsBlood
+	local losingInstrumentsOfPower = cache and cache.instrumentsOfPower and not weaponFlagState.instrumentsOfPower
+	local losingLordOfTheWilds = cache and cache.lordOfTheWilds and not weaponFlagState.lordOfTheWilds
+	if losingGiantsBlood or losingInstrumentsOfPower or losingLordOfTheWilds then -- Only validate socket when losing Keystone / Ascendancy
 		build.itemsTab:ValidateWeaponSlots(weaponFlagState)
 	end
+	build.itemsTab.lastWeaponFlagState = { giantsBlood = weaponFlagState.giantsBlood, instrumentsOfPower = weaponFlagState.instrumentsOfPower, lordOfTheWilds = weaponFlagState.lordOfTheWilds }
 
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
