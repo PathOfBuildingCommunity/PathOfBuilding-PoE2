@@ -1284,6 +1284,7 @@ local preFlagList = {
 	["^aura skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Aura } },
 	["^prismatic skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RandomElement } },
 	["^retaliation skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Retaliation } },
+	["^meta skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Meta } },
 	["^invocated skills [hd][ae][va][el] "] = { tag = { type = "Condition", var = "InvocationSkill" } },
 	["^invocated spells [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "Condition", var = "InvocationSkill" } },
 	["^slam skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Slam } },

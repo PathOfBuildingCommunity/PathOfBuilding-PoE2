@@ -5543,8 +5543,8 @@ c["Meta Skills gain 35% more Energy Meta Skills have 50% increased Reservation E
 c["Meta Skills gain 4% increased Energy"]={nil,"Meta Skills gain 4% increased Energy "}
 c["Meta Skills gain 4% increased Energy 5% increased Critical Hit Chance"]={nil,"Meta Skills gain 4% increased Energy 5% increased Critical Hit Chance "}
 c["Meta Skills gain 8% increased Energy"]={nil,"Meta Skills gain 8% increased Energy "}
-c["Meta Skills have 20% increased Reservation Efficiency"]={nil,"Meta Skills have 20% increased Reservation Efficiency "}
-c["Meta Skills have 50% increased Reservation Efficiency"]={nil,"Meta Skills have 50% increased Reservation Efficiency "}
+c["Meta Skills have 20% increased Reservation Efficiency"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=20}},nil}
+c["Meta Skills have 50% increased Reservation Efficiency"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=50}},nil}
 c["Minions Break Armour equal to 3% of Physical damage dealt"]={nil,"Break Armour equal to 3% of Physical damage dealt "}
 c["Minions Gain 20% of Elemental Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=20}}}},nil}
 c["Minions Recoup 15% of Damage taken as Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=15}}}},nil}
