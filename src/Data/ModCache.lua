@@ -4534,8 +4534,7 @@ c["Cannot Regenerate Mana if you haven't dealt a Critical Hit Recently"]={{[1]={
 c["Cannot be Blinded"]={{[1]={flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="BlindImmune",type="FLAG",value=true}},nil}
 c["Cannot be Blinded while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true}},nil}
 c["Cannot be Critically Hit while Parrying"]={nil,"Cannot be Critically Hit while Parrying "}
-c["Cannot be Heavy Stunned while Sprinting"]={nil,"Cannot be Heavy Stunned while Sprinting "}
-c["Cannot be Heavy Stunned while Sprinting 50% less Movement Speed Penalty from using Skills while moving"]={nil,"Cannot be Heavy Stunned while Sprinting 50% less Movement Speed Penalty from using Skills while moving "}
+c["Cannot be Heavy Stunned while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Cannot be Light Stunned"]={nil,"Cannot be Light Stunned "}
 c["Cannot be Light Stunned Cannot Dodge Roll or Sprint"]={nil,"Cannot be Light Stunned Cannot Dodge Roll or Sprint "}
