@@ -389,9 +389,12 @@ function calcs.offence(env, actor, activeSkill)
 		return
 	end
 
-	-- Calculate armour break
-	output.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
-	print("ARB_AVGHIT", output.AverageHit)
+	function calcArmourBreak(PhysHit)
+		local ArmourFromPhysMulti = skillModList:Sum("MULTIPLIER", skillCfg, "PhysArmourBreakMulti") / 100
+		local ArmourBreakFromPhys = PhysHit * ArmourFromPhysMulti
+		skillModList:NewMod("ArmourBreakPerHit", "BASE", ArmourBreakFromPhys)
+		output.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
+	end
 
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
@@ -3909,7 +3912,6 @@ function calcs.offence(env, actor, activeSkill)
 					end
 					output[damageType.."HitAverage"] = damageTypeHitAvg
 					totalHitAvg = totalHitAvg + damageTypeHitAvg
-					print("TotalHitAvg:", totalHitAvg)
 					totalHitMin = totalHitMin + damageTypeHitMin
 					totalHitMax = totalHitMax + damageTypeHitMax
 				end
@@ -4028,7 +4030,6 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate average damage and final DPS
 		output.AverageHit = totalHitAvg * (1 - output.CritChance / 100) + totalCritAvg * output.CritChance / 100
-		print("REALAVGHIT", output.AverageHit)
 		if skillFlags.monsterExplode then
 			output.AverageHitToMonsterLifePercentage = output.AverageHit / monsterLife * 100
 			if skillData.hitChanceIsExplodeChance then
@@ -4084,11 +4085,9 @@ function calcs.offence(env, actor, activeSkill)
 			t_insert(globalBreakdown.AverageBurstDamage, s_format("= %.1f ^8(total burst damage)", globalOutput.AverageBurstDamage))
 		end
 
-		modDB:NewMod("Test", "MULTIPLIER", 5)
-		print("DBSUM: ", skillModList:Sum("MULTIPLIER", skillCfg, "PhysArmourBreakMulti"))
-		print("ARB_PSEUDO_AVGHIT", output.PhysicalHitAverage * (1 - output.CritChance / 100) + output.PhysicalCritAverage * output.CritChance / 100)
-		-- Calculate PvP values
-
+		--Calculate armour break based on Average Phys hit
+		calcArmourBreak((output.PhysicalHitAverage * (1 - output.CritChance / 100) + output.PhysicalCritAverage * output.CritChance / 100))
+		
 		--setup flags
 		skillFlags.isPvP = false
 		skillFlags.notAttackPvP = false

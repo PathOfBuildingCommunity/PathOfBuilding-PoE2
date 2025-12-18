@@ -4399,7 +4399,7 @@ skills["CommandCorpseBeetleExplodePlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
 	fromTree = true,
-	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
+	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.4,
 	qualityStats = {
 	},
@@ -4634,7 +4634,7 @@ skills["CommandSandDjinnKnifeThrowPlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
 	fromTree = true,
-	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
+	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.4,
 	qualityStats = {
 	},
@@ -5847,7 +5847,7 @@ skills["CommandWaterDjinnBubblePlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
 	fromTree = true,
-	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
+	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.4,
 	qualityStats = {
 	},
@@ -6770,7 +6770,7 @@ skills["CommandFireDjinnLivingBombPlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
 	fromTree = true,
-	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
+	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, },
 	castTime = 0.4,
 	qualityStats = {
 	},

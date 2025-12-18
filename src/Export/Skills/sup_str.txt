@@ -46,16 +46,31 @@ local skills, mod, flag, skill = ...
 
 #skill SupportArmourBreakPlayer
 #set SupportArmourBreakPlayer
+statMap = {
+	["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	mod("PhysArmourBreakMulti", "MULTIPLIER", nil), 
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportArmourBreakPlayerTwo
 #set SupportArmourBreakPlayerTwo
+statMap = {
+	["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	mod("PhysArmourBreakMulti", "MULTIPLIER", nil), 
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportArmourBreakPlayerThree
 #set SupportArmourBreakPlayerThree
+statMap = {
+	["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	mod("PhysArmourBreakMulti", "MULTIPLIER", nil), 
+	},
+},
 #mods
 #skillEnd
 

@@ -2688,8 +2688,7 @@ return {
 	flag("Condition:CanInflictIncision", { type = "GlobalEffect", effectType = "Buff", effectName = "Incision" }),
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
-	--flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
-	mod("PhysArmourBreakMulti", "MULTIPLIER", nil),
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
 --
 -- Spectre or Minion-specific stats
