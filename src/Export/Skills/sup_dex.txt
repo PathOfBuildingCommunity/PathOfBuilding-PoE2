@@ -528,6 +528,11 @@ statMap = {
 
 #skill SupportGarukhansResolvePlayer
 #set SupportGarukhansResolvePlayer
+statMap = {
+	["maximum_critical_strike_chance_is_%_from_support_garukhans_resolve"] = {
+		mod("CritChanceCap", "OVERRIDE", nil),
+	},
+},
 #mods
 #skillEnd
 

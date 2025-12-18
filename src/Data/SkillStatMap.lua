@@ -958,6 +958,9 @@ return {
 ["attack_damage_is_lucky_if_surrounded"] = {
 	flag("LuckyHits", { type = "Condition", var = "Surrounded" })
 },
+["attacks_roll_crits_twice"] = {
+	flag("BifurcateCrit", { type = "SkillType", skillType = SkillType.Attack } )
+},
 ["damage_vs_enemies_on_low_life_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
 },
