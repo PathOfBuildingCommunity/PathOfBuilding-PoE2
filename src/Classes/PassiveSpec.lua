@@ -64,6 +64,10 @@ function PassiveSpecClass:Init(treeVersion, convert)
 		end
 	end
 
+	-- Table of intuitive leap-like jewel node modifiers from one type of node to others with the given radius
+	-- { from = nodeType, radiusIndex = index, to = { nodeType, [...] } }
+	self.intuitiveLeapLikeNodes = { }
+
 	-- List of currently allocated nodes
 	-- Keys are node IDs, values are nodes
 	self.allocNodes = { }
@@ -1106,7 +1110,8 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 
 	-- First check for mods that affect intuitive leap-like properties of other nodes
 	local processed = { }
-	local intuitiveLeapLikeNodes = { }
+	local intuitiveLeapLikeNodes = self.intuitiveLeapLikeNodes
+	wipeTable(intuitiveLeapLikeNodes)
 	for id, node in pairs(self.allocNodes) do
 		if node.ascendancyName then -- avoid processing potentially replaceable nodes
 			self.tree:ProcessStats(node)
