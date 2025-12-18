@@ -2692,7 +2692,8 @@ function ItemsTabClass:FormatItemSource(text)
 			   :gsub("prophecy{([^}]+)}",colorCodes.PROPHECY.."%1"..colorCodes.SOURCE)
 end
 
-function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
+function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, forceSlotOnlyTooltips, compareSlotName)
+	local slotOnlyTooltips = forceSlotOnlyTooltips ~= nil and forceSlotOnlyTooltips or main.slotOnlyTooltips
 	local fontSizeSmall = main.showFlavourText and 16 or 14
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	local fontSizeTitle = main.showFlavourText and 22 or 20
@@ -3348,7 +3349,13 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 
 		-- Add comparisons for each slot
 		for _, compareSlot in pairs(compareSlots) do
-			if not main.slotOnlyTooltips or (slot and (slot.nodeId == compareSlot.nodeId or slot.slotName == compareSlot.slotName)) or not slot or slot == compareSlot then
+			local slotMatches = false
+			if compareSlotName then
+				slotMatches = compareSlot.slotName == compareSlotName
+			elseif slot then
+				slotMatches = (slot.nodeId and slot.nodeId == compareSlot.nodeId) or (slot.slotName and slot.slotName == compareSlot.slotName) or slot == compareSlot
+			end
+			if not slotOnlyTooltips or slotMatches or not slot then
 				local selItem = self.items[compareSlot.selItemId]
 				local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil})
 				local header

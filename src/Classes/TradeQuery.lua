@@ -980,7 +980,8 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	local function addCompareTooltip(tooltip, result_index, dbMode)
 		local result = self.resultTbl[row_idx][result_index]
 		local item = new("Item", result.item_string)
-		self.itemsTab:AddItemTooltip(tooltip, item, slotTbl, dbMode)
+		local targetSlot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId] or self.itemsTab.slots[slotTbl.slotName]
+		self.itemsTab:AddItemTooltip(tooltip, item, targetSlot, dbMode, true, slotTbl.slotName)
 		if main.slotOnlyTooltips and slotTbl.slotName == "Megalomaniac" then
 			local evaluation = self:GetResultEvaluation(row_idx, result_index)
 			self.itemsTab.build:AddStatComparesToTooltip(tooltip, self.onlyWeightedBaseOutput[row_idx][result_index], evaluation[1].output, "^7Equipping this item will give you:")
