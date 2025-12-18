@@ -706,7 +706,7 @@ c["+40 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value
 c["+40 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=40}},nil}
 c["+40 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=40}},nil}
 c["+40 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=40}},nil}
-c["+40 to Spirit for each of your empty Charm slots"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=40}},"  for each of your empty Charm slots "}
+c["+40 to Spirit for each of your empty Charm slots"]={{[1]={[1]={stat="EmptyCharms",type="PerStat"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=40}},nil}
 c["+40 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=40}},nil}
 c["+40 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=40}},nil}
 c["+40 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=40}},nil}
@@ -4351,7 +4351,7 @@ c["Ancestrally Boosted Attacks deal 30% increased Damage"]={nil,"Ancestrally Boo
 c["Ancestrally Boosted Attacks deal 30% increased Damage On Heavy Stunning a Rare or Unique Enemy, your next Attack within 4 seconds will be Ancestrally Boosted"]={nil,"Ancestrally Boosted Attacks deal 30% increased Damage On Heavy Stunning a Rare or Unique Enemy, your next Attack within 4 seconds will be Ancestrally Boosted "}
 c["Ancestrally Boosted Attacks deal 8% increased Damage"]={nil,"Ancestrally Boosted Attacks deal 8% increased Damage "}
 c["Any number of Poisons from this Weapon can affect a target at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={[1]={type="Condition",var="{Hand}Attack"},[2]={neg=true,skillType=167,type="SkillType"},flags=0,keywordFlags=0,name="PoisonStacks",type="OVERRIDE",value=math.huge}},nil}
-c["Apply 10 Critical Weakness to Enemies when Consuming a Mark on them"]={nil,"Apply 10 Critical Weakness to Enemies when Consuming a Mark on them "}
+c["Apply 10 Critical Weakness to Enemies when Consuming a Mark on them"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}
 c["Apply Debilitate to Enemies 3 Metres in front of you while your Shield is raised"]={nil,"Apply Debilitate to Enemies 3 Metres in front of you while your Shield is raised "}
 c["Arcane Surge grants more Life Regeneration Rate instead of Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ArcaneSurgeLifeRegen",type="FLAG",value=true}},nil}
 c["Archon Buffs also grant +20% to all Elemental Resistances"]={nil,"Archon Buffs also grant +20% to all Elemental Resistances "}
@@ -4534,8 +4534,7 @@ c["Cannot Regenerate Mana if you haven't dealt a Critical Hit Recently"]={{[1]={
 c["Cannot be Blinded"]={{[1]={flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="BlindImmune",type="FLAG",value=true}},nil}
 c["Cannot be Blinded while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="Condition:CannotBeBlinded",type="FLAG",value=true}},nil}
 c["Cannot be Critically Hit while Parrying"]={nil,"Cannot be Critically Hit while Parrying "}
-c["Cannot be Heavy Stunned while Sprinting"]={nil,"Cannot be Heavy Stunned while Sprinting "}
-c["Cannot be Heavy Stunned while Sprinting 50% less Movement Speed Penalty from using Skills while moving"]={nil,"Cannot be Heavy Stunned while Sprinting 50% less Movement Speed Penalty from using Skills while moving "}
+c["Cannot be Heavy Stunned while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
 c["Cannot be Light Stunned"]={nil,"Cannot be Light Stunned "}
 c["Cannot be Light Stunned Cannot Dodge Roll or Sprint"]={nil,"Cannot be Light Stunned Cannot Dodge Roll or Sprint "}
@@ -4816,8 +4815,7 @@ c["Enemies in your Presence have -10% to Fire Resistance"]={{[1]={flags=0,keywor
 c["Enemies in your Presence have -25% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=-25}}}},nil}
 c["Enemies in your Presence have 10% reduced Cooldown Recovery Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="CooldownRecovery",type="INC",value=-10}}}},nil}
 c["Enemies in your Presence have 75% reduced Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=-75}}}},nil}
-c["Enemies in your Presence have Exposure"]={nil,"Exposure "}
-c["Enemies in your Presence have Exposure Gain 10% of Damage as Extra Damage of a random Element"]={nil,"Exposure Gain 10% of Damage as Extra Damage of a random Element "}
+c["Enemies in your Presence have Exposure"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="FireExposure",type="BASE",value=-20}}},[2]={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ColdExposure",type="BASE",value=-20}}},[3]={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LightningExposure",type="BASE",value=-20}}}},nil}
 c["Enemies in your Presence have Lightning Resistance equal to yours"]={{[1]={[1]={type="Condition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="EnemyLightningResistEqualToYours",type="FLAG",value=true}},nil}
 c["Enemies in your Presence have at least 10% of Life Reserved"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="LifeReservationPercent",type="BASE",value=10}}}},nil}
 c["Enemies in your Presence have no Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="FireResist",type="OVERRIDE",value=0}}},[2]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="ColdResist",type="OVERRIDE",value=0}}},[3]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="EnemyInPresence"},flags=0,keywordFlags=0,name="LightningResist",type="OVERRIDE",value=0}}}},nil}
@@ -4848,8 +4846,7 @@ c["Enemies you inflict Bleeding on cannot Regenerate Life"]={nil,"Enemies you in
 c["Enemies you kill have a 10% chance to explode, dealing a quarter of their maximum Life as Chaos damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=25,keyOfScaledMod="value",type="Chaos",value=10}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Enemies you kill with Empowered Attacks have a 10% chance to Explode, dealing a tenth of their maximum Life as Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="ExplodeMod",type="LIST",value={amount=10,keyOfScaledMod="value",type="Fire",value=10}},[2]={flags=0,keywordFlags=0,name="CanExplode",type="FLAG",value=true}},nil}
 c["Enemies' Damage with Critical Hits against you is Lucky"]={nil,"Enemies' Damage with Critical Hits  is Lucky "}
-c["Enemy Critical Hit Chance against you is Unlucky"]={nil,"Enemy Critical Hit Chance  is Unlucky "}
-c["Enemy Critical Hit Chance against you is Unlucky Damage of Enemies Hitting you is Unlucky"]={nil,"Enemy Critical Hit Chance  is Unlucky Damage of Enemies Hitting you is Unlucky "}
+c["Enemy Critical Hit Chance against you is Unlucky"]={{[1]={flags=0,keywordFlags=0,name="EnemyUnluckyCrit",type="FLAG",value=true}},nil}
 c["Energy Generation is doubled"]={{},"Energy Generation  "}
 c["Energy Shield Recharge is not interrupted by Damage if Recharge began Recently"]={nil,"Energy Shield Recharge is not interrupted by Damage if Recharge began Recently "}
 c["Energy Shield Recharge starts on use"]={nil,"Energy Shield Recharge starts on use "}
@@ -5543,8 +5540,8 @@ c["Meta Skills gain 35% more Energy Meta Skills have 50% increased Reservation E
 c["Meta Skills gain 4% increased Energy"]={nil,"Meta Skills gain 4% increased Energy "}
 c["Meta Skills gain 4% increased Energy 5% increased Critical Hit Chance"]={nil,"Meta Skills gain 4% increased Energy 5% increased Critical Hit Chance "}
 c["Meta Skills gain 8% increased Energy"]={nil,"Meta Skills gain 8% increased Energy "}
-c["Meta Skills have 20% increased Reservation Efficiency"]={nil,"Meta Skills have 20% increased Reservation Efficiency "}
-c["Meta Skills have 50% increased Reservation Efficiency"]={nil,"Meta Skills have 50% increased Reservation Efficiency "}
+c["Meta Skills have 20% increased Reservation Efficiency"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=20}},nil}
+c["Meta Skills have 50% increased Reservation Efficiency"]={{[1]={[1]={skillType=122,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="INC",value=50}},nil}
 c["Minions Break Armour equal to 3% of Physical damage dealt"]={nil,"Break Armour equal to 3% of Physical damage dealt "}
 c["Minions Gain 20% of Elemental Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalDamageGainAsChaos",type="BASE",value=20}}}},nil}
 c["Minions Recoup 15% of Damage taken as Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=15}}}},nil}
@@ -6032,11 +6029,9 @@ c["Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reache
 c["Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
 c["Take no Damage from Volatility"]={nil,"no Damage from Volatility "}
 c["Take no Extra Damage from Critical Hits"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="ReduceCritExtraDamage",type="BASE",value=100}},nil}
-c["Targets Cursed by you have 100% reduced Life Regeneration Rate"]={nil,"Targets Cursed by you have 100% reduced Life Regeneration Rate "}
-c["Targets Cursed by you have 100% reduced Life Regeneration Rate Targets Cursed by you have at least 15% of Life Reserved"]={nil,"Targets Cursed by you have 100% reduced Life Regeneration Rate Targets Cursed by you have at least 15% of Life Reserved "}
-c["Targets Cursed by you have 50% reduced Life Regeneration Rate"]={nil,"Targets Cursed by you have 50% reduced Life Regeneration Rate "}
-c["Targets Cursed by you have 50% reduced Life Regeneration Rate Enemies you Curse cannot Recharge Energy Shield"]={nil,"Targets Cursed by you have 50% reduced Life Regeneration Rate Enemies you Curse cannot Recharge Energy Shield "}
-c["Targets Cursed by you have at least 15% of Life Reserved"]={nil,"Targets Cursed by you have at least 15% of Life Reserved "}
+c["Targets Cursed by you have 100% reduced Life Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=-100}}}},nil}
+c["Targets Cursed by you have 50% reduced Life Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=-50}}}},nil}
+c["Targets Cursed by you have at least 15% of Life Reserved"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Cursed"},flags=0,keywordFlags=0,name="LifeReservationPercent",type="BASE",value=15}}}},nil}
 c["Targets can be affected by +1 of your Poisons at the same time"]={{[1]={flags=0,keywordFlags=0,name="PoisonCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PoisonStacks",type="BASE",value=1}},nil}
 c["Targets can be affected by two of your Chills at the same time"]={{[1]={flags=0,keywordFlags=0,name="ChillCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ChillStacksMax",type="OVERRIDE",value=2}},nil}
 c["Targets can be affected by two of your Shocks at the same time"]={{[1]={flags=0,keywordFlags=0,name="ShockCanStack",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ShockStacksMax",type="OVERRIDE",value=2}},nil}

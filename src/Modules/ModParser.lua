@@ -1284,6 +1284,7 @@ local preFlagList = {
 	["^aura skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Aura } },
 	["^prismatic skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RandomElement } },
 	["^retaliation skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Retaliation } },
+	["^meta skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Meta } },
 	["^invocated skills [hd][ae][va][el] "] = { tag = { type = "Condition", var = "InvocationSkill" } },
 	["^invocated spells [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "Condition", var = "InvocationSkill" } },
 	["^slam skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Slam } },
@@ -1344,6 +1345,7 @@ local preFlagList = {
 	["^enemies affected by your spider's webs [thd][ae][avk][el] "] = { tag = { type = "MultiplierThreshold", var = "Spider's WebStack", threshold = 1 }, applyToEnemy = true },
 	["^enemies you curse take "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true, modSuffix = "Taken" },
 	["^enemies you curse "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true },
+	["^targets cursed by you [hgd][ae][via][enl] "] = { tag = { type = "Condition", var = "Cursed" }, applyToEnemy = true },
 	["^enemies you electrocute have "] = { tag = { type = "Condition", var = "Electrocuted" }, applyToEnemy = true },
 	["^nearby enemies take "] = { modSuffix = "Taken", applyToEnemy = true },
 	["^nearby enemies have "] = { applyToEnemy = true },
@@ -1586,6 +1588,7 @@ local modTagList = {
 	["per (%d+) (i?t?e?m? ?)armour on equipped gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnGloves", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on equipped helmet"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnHelmet", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on gloves"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnHelmet", div = num } } end,
+	["for each of your empty charm slots"] = { tag = { type = "PerStat", stat = "EmptyCharms"} },
 	["per (%d+)%% (%a+) resistance"] = function(num, _, name) return { tag = { type = "PerStat", stat = firstToUpper(name).."Resist", div = num } } end,
 	["per (%d+)%% (%a+) resistance above 75%%"] = function(num, _, name) return { tag  = { type = "PerStat", stat = firstToUpper(name).."ResistOver75", div = num } } end,
 	["per (%d+) devotion"] = function(num) return { tag = { type = "PerStat", stat = "Devotion", actor = "parent", div = num } } end,
@@ -3131,6 +3134,7 @@ local specialModList = {
 		mod("EvasionAppliesToColdDamageTaken", "BASE", num),
 		mod("EvasionAppliesToLightningDamageTaken", "BASE", num),
 	 } end,
+	["cannot be heavy stunned while sprinting"] = { flag("StunImmune", { type = "Condition", var = "Sprinting" }) },
 	-- Raider
 	["nearby enemies have (%d+)%% less accuracy rating while you have phasing"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Accuracy", "MORE", -num) }, { type = "Condition", var = "Phasing" }) } end,
 	["immun[ei]t?y? to elemental ailments while phasing"] = { flag("ElementalAilmentImmune", { type = "Condition", var = "Phasing" }), },
@@ -3277,6 +3281,12 @@ local specialModList = {
 	} end,
 	-- Witch -- Infernalist
 	["demonflame has no maximum"] = { mod("Multiplier:DemonFlameMaximum", "BASE", 999) },
+	-- Druid -- Shaman
+	["enemies in your presence have exposure"] = {
+		mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+		mod("EnemyModifier", "LIST", { mod = mod("ColdExposure", "BASE", -20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
+	},
 	-- Druid -- Oracle
 	["walk the paths not taken"] = {},
 	["gain the benefits of bonded modifiers on runes and idols"] = {
@@ -3603,6 +3613,7 @@ local specialModList = {
 	["your damage with critical hits is lucky"] = { flag("CritLucky") },
 	["forks critical hits"] = { flag("BifurcateCrit") },
 	["bifurcates critical hits"] = { flag("BifurcateCrit") },
+	["enemy critical hit chance against you is unlucky"] = { flag("EnemyUnluckyCrit") },
 	["critical hits deal no damage"] = { mod("Damage", "MORE", -100, { type = "Condition", var = "CriticalStrike" }) },
 	["critical hit chance is increased by uncapped lightning resistance"] = { flag("CritChanceIncreasedByUncappedLightningRes") },
 	["critical hit chance is increased by lightning resistance"] = { flag("CritChanceIncreasedByLightningRes") },
@@ -4148,6 +4159,7 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("ElementalResist", "BASE", num )}, { type = "ActorCondition", actor = "enemy", varList = { "Ignited", "Chilled" } })
 	} end,
 	["enemies in your presence have at least (%d+)%% of life reserved"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("LifeReservationPercent", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }) } end,
+	["targets cursed by you have at least (%d+)%% of life reserved"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("LifeReservationPercent", "BASE", num, { type = "Condition", var = "Cursed" }) }) } end,
 	["enemies in your presence count as being on low life"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:LowLife") }, { type = "Condition", var = "EnemyInPresence" }) },
 	["enemies in your presence have fire exposure"] = { mod("EnemyModifier", "LIST", { mod = mod("FireExposure", "BASE", -20, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }) }) },
 	["your hits inflict decay, dealing (%d+) chaos damage per second for %d+ seconds"] = function(num) return { mod("SkillData", "LIST", { key = "decay", value = num, merge = "MAX" }) } end,
@@ -4358,6 +4370,7 @@ local specialModList = {
 	["every second, inflicts critical weakness on enemies in your presence for %d+ seconds?"] = { flag("ApplyCriticalWeakness") },
 	["applies critical weakness to enemies every ([%d%.]+) seconds?"] = { flag("ApplyCriticalWeakness") },
 	["inflicts critical weakness on hit"] = { flag("ApplyCriticalWeakness") },
+	["apply (%d+) critical weakness to enemies when consuming a mark on them"] = { flag("ApplyCriticalWeakness") },
 	["modifiers to minimum endurance charges instead apply to minimum brutal charges"] = { flag("MinimumEnduranceChargesEqualsMinimumBrutalCharges") },
 	["modifiers to minimum frenzy charges instead apply to minimum affliction charges"] = { flag("MinimumFrenzyChargesEqualsMinimumAfflictionCharges") },
 	["modifiers to minimum power charges instead apply to minimum absorption charges"] = { flag("MinimumPowerChargesEqualsMinimumAbsorptionCharges") },
