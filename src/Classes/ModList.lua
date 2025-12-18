@@ -215,6 +215,32 @@ function ModListClass:TabulateInternal(context, result, modType, cfg, flags, key
 	end
 end
 
+---HasModInternal
+---  Checks if a mod exists with the given properties
+---@param modType string @The type of the mod, e.g. "BASE"
+---@param flags number @The mod flags to match
+---@param keywordFlags number @The mod keyword flags to match
+---@param source string @The mod source to match
+---@return boolean @true if the mod is found, false otherwise.
+function ModListClass:HasModInternal(modType, flags, keywordFlags, source, ...)
+	for i = 1, select('#', ...) do
+		local modName = select(i, ...)
+		for i = 1, #self do
+			local mod = self[i]
+			if mod.type == modType and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not source or mod.source:match("[^:]+") == source) then
+				return true
+			end
+		end
+	end
+	if self.parent then
+		local parentResult = self.parent:HasModInternal(modType, flags, keywordFlags, source, ...)
+		if parentResult == true then
+			return true
+		end
+	end
+	return false
+end
+
 function ModListClass:Print()
 	for _, mod in ipairs(self) do
 		ConPrintf("%s|%s", modLib.formatMod(mod), mod.source or "?")

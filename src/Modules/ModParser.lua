@@ -5284,6 +5284,9 @@ local specialModList = {
 	} end,
 	["charms applied to you have (%d+)%% increased effect"] = function(num) return { mod("CharmEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
 	-- Jewels
+	["non%-keystone passive skills in medium radius of allocated keystone passive skills can be allocated without being connected to your tree"] = function(_, radius) return {
+		mod("AllocateFromNodeRadius", "LIST", { from = "Keystone", radiusIndex = 2, to = { "Notable", "Normal" } }),
+	} end,
 	["passives in radius of ([%a%s']+) can be allocated without being connected to your tree"] = function(_, name) return {
 		mod("JewelData", "LIST", { key = "fromNothingKeystone", value = name }),
 		mod("FromNothingKeystones", "LIST", { key = name, value = true }),

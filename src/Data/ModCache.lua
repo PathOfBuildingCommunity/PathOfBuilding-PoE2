@@ -1147,6 +1147,7 @@ c["10% increased maximum Energy Shield if you've consumed a Power Charge Recentl
 c["10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=10}},nil}
 c["10% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=10}},nil}
 c["10% increased total Power counted by Warcries"]={{[1]={flags=0,keywordFlags=0,name="WarcryPower",type="INC",value=10}},nil}
+c["10% less Damage taken of each Elemental Damage Type per matching Adaptation"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-10}},"  of each Elemental Damage Type per matching Adaptation "}
 c["10% less Elemental Damage taken"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageTaken",type="MORE",value=-10}},nil}
 c["10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="MORE",value=-10},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="MORE",value=-10},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="MORE",value=-10}}," Movement and  per Dodge Roll in the past 20 seconds "}
 c["10% more Maximum Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="MaxLightningDamage",type="MORE",value=10}},nil}
@@ -3317,7 +3318,7 @@ c["Abyssal Wasting you inflict has Infinite Duration"]={nil,"Abyssal Wasting you
 c["Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance"]={nil,"Abyssal Wasting you inflict has Infinite Duration Abyssal Wasting also applies % to Fire Resistance "}
 c["Accuracy Rating is Doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="AccuracyDoubledLimit",type="Multiplier",var="AccuracyDoubled"},flags=0,keywordFlags=0,name="Accuracy",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:AccuracyDoubled",type="OVERRIDE",value=1}},nil}
 c["Adapt to the highest Elemental Damage Type of each Hit you take"]={nil,"Adapt to the highest Elemental Damage Type of each Hit you take "}
-c["Adapt to the highest Elemental Damage Type of each Hit you take Each Adaptation grants 10% less Damage taken of that Adaptation's type"]={nil,"Adapt to the highest Elemental Damage Type of each Hit you take Each Adaptation grants 10% less Damage taken of that Adaptation's type "}
+c["Adapt to the highest Elemental Damage Type of each Hit you take 10% less Damage taken of each Elemental Damage Type per matching Adaptation"]={nil,"Adapt to the highest Elemental Damage Type of each Hit you take 10% less Damage taken of each Elemental Damage Type per matching Adaptation "}
 c["Adaptations have a duration of 5 seconds"]={nil,"Adaptations have a duration of 5 seconds "}
 c["Adaptations have a duration of 5 seconds Double Adaptation Effect"]={{[1]={[1]={globalLimit=100,globalLimitKey="DurationDoubledLimit",type="Multiplier",var="DurationDoubled"},flags=0,keywordFlags=0,name="Duration",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:DurationDoubled",type="OVERRIDE",value=1}},"Adaptations have a  of 5 seconds  Adaptation Effect "}
 c["Adds 1 to 10 Lightning Damage to Attacks per 20 Intelligence"]={{[1]={[1]={div=20,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMin",type="BASE",value=1},[2]={[1]={div=20,stat="Int",type="PerStat"},flags=0,keywordFlags=65536,name="LightningMax",type="BASE",value=10}},nil}
@@ -4609,12 +4610,12 @@ c["Consuming Glory grants you 3% increased Attack damage per Glory consumed for 
 c["Converts all Energy Shield to Mana"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldConvertToMana",type="BASE",value=100}},nil}
 c["Converts all Evasion Rating to Armour"]={{[1]={flags=0,keywordFlags=0,name="IronReflexes",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="EvasionConvertToArmour",type="BASE",value=100}},nil}
 c["Corrupted Blood cannot be inflicted on you"]={{[1]={flags=0,keywordFlags=0,name="CorruptedBloodImmune",type="FLAG",value=true}},nil}
-c["Create Cold Infusion Remnants instead of Fire Infusion Remnants"]={nil,"Create Cold Infusion Remnants instead of Fire Infusion Remnants "}
-c["Create Cold Infusion Remnants instead of Fire Infusion Remnants Create Fire Infusion Remnants instead of Lightning Infusion Remnants"]={nil,"Create Cold Infusion Remnants instead of Fire Infusion Remnants Create Fire Infusion Remnants instead of Lightning Infusion Remnants "}
-c["Create Cold Infusion Remnants instead of Fire Infusion Remnants Create Fire Infusion Remnants instead of Lightning Infusion Remnants Create Lightning Infusion Remnants instead of Cold Infusion Remnants"]={nil,"Create Cold Infusion Remnants instead of Fire Infusion Remnants Create Fire Infusion Remnants instead of Lightning Infusion Remnants Create Lightning Infusion Remnants instead of Cold Infusion Remnants "}
-c["Create Fire Infusion Remnants instead of Lightning Infusion Remnants"]={nil,"Create Fire Infusion Remnants instead of Lightning Infusion Remnants "}
-c["Create Fire Infusion Remnants instead of Lightning Infusion Remnants Create Lightning Infusion Remnants instead of Cold Infusion Remnants"]={nil,"Create Fire Infusion Remnants instead of Lightning Infusion Remnants Create Lightning Infusion Remnants instead of Cold Infusion Remnants "}
-c["Create Lightning Infusion Remnants instead of Cold Infusion Remnants"]={nil,"Create Lightning Infusion Remnants instead of Cold Infusion Remnants "}
+c["Create Cold Infusion Remnants instead of Lightning"]={nil,"Create Cold Infusion Remnants instead of Lightning "}
+c["Create Cold Infusion Remnants instead of Lightning Create Fire Infusion Remnants instead of Cold"]={nil,"Create Cold Infusion Remnants instead of Lightning Create Fire Infusion Remnants instead of Cold "}
+c["Create Fire Infusion Remnants instead of Cold"]={nil,"Create Fire Infusion Remnants instead of Cold "}
+c["Create Lightning Infusion Remnants instead of Fire"]={nil,"Create Lightning Infusion Remnants instead of Fire "}
+c["Create Lightning Infusion Remnants instead of Fire Create Cold Infusion Remnants instead of Lightning"]={nil,"Create Lightning Infusion Remnants instead of Fire Create Cold Infusion Remnants instead of Lightning "}
+c["Create Lightning Infusion Remnants instead of Fire Create Cold Infusion Remnants instead of Lightning Create Fire Infusion Remnants instead of Cold"]={nil,"Create Lightning Infusion Remnants instead of Fire Create Cold Infusion Remnants instead of Lightning Create Fire Infusion Remnants instead of Cold "}
 c["Creates Consecrated Ground on use"]={{},nil}
 c["Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"]={nil,"Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life "}
 c["Critical Hits Ignore Enemy Monster Lightning Resistance"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreLightningResistance",type="FLAG",value=true}},nil}
@@ -4754,7 +4755,6 @@ c["Double the number of your Poisons that targets can be affected by at the same
 c["Doubles Mana Costs"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=100}},nil}
 c["Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life"]={nil,"Drop Ignited Ground while moving, which lasts 8 seconds and Ignites as though dealing Fire Damage equal to 10% of your maximum Life "}
 c["Drop Shocked Ground while moving, lasting 8 seconds"]={nil,"Drop Shocked Ground while moving, lasting 8 seconds "}
-c["Each Adaptation grants 10% less Damage taken of that Adaptation's type"]={nil,"Each Adaptation grants 10% less Damage taken of that Adaptation's type "}
 c["Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow"]={nil,"Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow "}
 c["Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Multiplier",var="TotemsSummoned"},flags=0,keywordFlags=0,name="DamageTaken",type="INC",value=2}}}},nil}
 c["Effect is not removed when Unreserved Life is Filled"]={nil,"Effect is not removed when Unreserved Life is Filled "}
@@ -5154,17 +5154,18 @@ c["Grants Skill: Bleeding Concoction"]={{[1]={flags=0,keywordFlags=0,name="Extra
 c["Grants Skill: Blood Boil"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="BloodBoilPlayer"}}},nil}
 c["Grants Skill: Called Shots"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MetaDeadeyeMarksPlayer"}}},nil}
 c["Grants Skill: Cast on Block"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MetaCastOnBlockPlayer"}}},nil}
-c["Grants Skill: Command: {0} "]={nil,"Grants Skill: Command: {0}  "}
 c["Grants Skill: Demon Form"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="DemonFormPlayer"}}},nil}
 c["Grants Skill: Elemental Expression"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ElementalExpressionTriggeredPlayer"}}},nil}
 c["Grants Skill: Elemental Storm"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ElementalStormPlayer"}}},nil}
 c["Grants Skill: Elemental Surge"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="AmazonTriggerElementalSurgePlayer"}}},nil}
 c["Grants Skill: Encase in Jade"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="EncaseInJadePlayer"}}},nil}
 c["Grants Skill: Explosive Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ExplosiveConcoctionPlayer"}}},nil}
-c["Grants Skill: Fire Spell on Melee Hit"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MetaCastFireSpellOnHitPlayer"}}},nil}
+c["Grants Skill: Fire Spell on Hit"]={nil,nil}
 c["Grants Skill: Fulminating Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="FulminatingConcoctionPlayer"}}},nil}
 c["Grants Skill: Inevitable Agony"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="InevitableAgonyPlayer"}}},nil}
 c["Grants Skill: Into the Breach"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="IntoTheBreachPlayer"}}},nil}
+c["Grants Skill: Kelari's Deception"]={nil,nil}
+c["Grants Skill: Kelari's Judgment"]={nil,nil}
 c["Grants Skill: Kelari's Malediction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="CorpseBeetlesPlayer"}}},nil}
 c["Grants Skill: Kelari, the Tainted Sands"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonSandDjinnPlayer"}}},nil}
 c["Grants Skill: Level 11 Black Powder Blitz"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=11,skillId="BlackPowderBlitzReservationPlayer"}}},nil}
@@ -5264,10 +5265,16 @@ c["Grants Skill: Manifest Weapon"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkil
 c["Grants Skill: Meditate"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MeditatePlayer"}}},nil}
 c["Grants Skill: Mirage Deadeye"]={nil,nil}
 c["Grants Skill: Moment of Vulnerability"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MomentOfVulnerabilityPlayer"}}},nil}
+c["Grants Skill: Navira's Fracturing"]={nil,nil}
+c["Grants Skill: Navira's Oasis"]={nil,nil}
+c["Grants Skill: Navira's Well"]={nil,nil}
 c["Grants Skill: Navira, the Last Mirage"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonWaterDjinnPlayer"}}},nil}
 c["Grants Skill: Parry"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ParryPlayer"}}},nil}
 c["Grants Skill: Raise Shield"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ShieldBlockPlayer"}}},nil}
 c["Grants Skill: Ritual Sacrifice"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="RitualSacrificePlayer"}}},nil}
+c["Grants Skill: Ruzhan's Fury"]={nil,nil}
+c["Grants Skill: Ruzhan's Reckoning"]={nil,nil}
+c["Grants Skill: Ruzhan's Trap"]={nil,nil}
 c["Grants Skill: Ruzhan, the Blazing Sword"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonFireDjinnPlayer"}}},nil}
 c["Grants Skill: Shattering Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ShatteringConcoctionPlayer"}}},nil}
 c["Grants Skill: Sorcery Ward"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SorceryWardPlayer"}}},nil}
@@ -5330,6 +5337,7 @@ c["If you would gain a Charge, Allies in your Presence gain that Charge instead"
 c["Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true},[2]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="IgniteToChaos",value=true}}},nil}
 c["Ignites you cause are reflected back to you"]={nil,"Ignites you cause are reflected back to you "}
 c["Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you"]={nil,"Ignites you cause are reflected back to you 40% reduced Magnitude of Ignite on you "}
+c["Ignites you inflict deal Damage 10% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=10}},nil}
 c["Ignites you inflict deal Damage 15% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=15}},nil}
 c["Ignites you inflict deal Damage 18% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=18}},nil}
 c["Ignites you inflict deal Damage 4% faster"]={{[1]={flags=0,keywordFlags=0,name="IgniteFaster",type="INC",value=4}},nil}
@@ -5665,7 +5673,7 @@ c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]
 c["Non-Channelling Spells deal 6% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=6}},nil}
 c["Non-Channelling Spells have 3% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=3}},nil}
 c["Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
-c["Non-Keystone Passive Skills in Medium Radius of allocated Keystone Passive Skills can be allocated without being connected to your tree"]={nil,"Non-Keystone Passive Skills in Medium Radius of allocated Keystone Passive Skills can be allocated without being connected to your tree "}
+c["Non-Keystone Passive Skills in Medium Radius of allocated Keystone Passive Skills can be allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="AllocateFromNodeRadius",type="LIST",value={from="Keystone",radiusIndex=2,to={[1]="Notable",[2]="Normal"}}}},nil}
 c["Non-Minion Skills have 50% less Reservation Efficiency"]={nil,"Non-Minion Skills have 50% less Reservation Efficiency "}
 c["Non-Unique Time-Lost Jewels have 40% increased radius"]={nil,"Non-Unique Time-Lost Jewels have 40% increased radius "}
 c["Offering Skills have 15% increased Buff effect"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=15}},nil}
@@ -5927,10 +5935,10 @@ c["Sacrifice 15% of Life to gain that much Energy Shield when you Cast a Spell"]
 c["Sacrifice 20% of Mana and they Leech that Mana"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=0,keywordFlags=0,name="Mana",type="BASE",value=20}},"  and they Leech that Mana "}
 c["Sacrifice 300 Life to not consume the last bolt when firing"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=0,keywordFlags=0,name="Life",type="BASE",value=300}},"  to not consume the last bolt when firing "}
 c["Sacrifice 5% of maximum Energy Shield when you Cast a Spell"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=2,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},"  when you Cast a  "}
-c["Sacrifice 5% of maximum Energy Shield when you Cast a Spell Spells for which this Sacrifice was fully made deal 5% more Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=2,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},"  when you Cast a  Spells for which this Sacrifice was fully made deal 5% more Damage "}
+c["Sacrifice 5% of maximum Energy Shield when you Cast a Spell Spells for which this Sacrifice was fully made deal 30% more Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Sacrifice",type="SkillName"},flags=2,keywordFlags=0,name="EnergyShield",type="BASE",value=5}},"  when you Cast a  Spells for which this Sacrifice was fully made deal 30% more Damage "}
 c["Sacrificing Energy Shield does not interrupt Recharge"]={nil,"Sacrificing Energy Shield does not interrupt Recharge "}
 c["Sacrificing Energy Shield does not interrupt Recharge Sacrifice 5% of maximum Energy Shield when you Cast a Spell"]={nil,"Sacrificing Energy Shield does not interrupt Recharge Sacrifice 5% of maximum Energy Shield when you Cast a Spell "}
-c["Sacrificing Energy Shield does not interrupt Recharge Sacrifice 5% of maximum Energy Shield when you Cast a Spell Spells for which this Sacrifice was fully made deal 5% more Damage"]={nil,"Sacrificing Energy Shield does not interrupt Recharge Sacrifice 5% of maximum Energy Shield when you Cast a Spell Spells for which this Sacrifice was fully made deal 5% more Damage "}
+c["Sacrificing Energy Shield does not interrupt Recharge Sacrifice 5% of maximum Energy Shield when you Cast a Spell Spells for which this Sacrifice was fully made deal 30% more Damage"]={nil,"Sacrificing Energy Shield does not interrupt Recharge Sacrifice 5% of maximum Energy Shield when you Cast a Spell Spells for which this Sacrifice was fully made deal 30% more Damage "}
 c["Shapeshift Skills have 15% increased Skill Effect Duration"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=15}},nil}
 c["Shapeshift Skills have 30% increased Skill Effect Duration"]={{[1]={[1]={skillType=156,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
 c["Share Charges with Allies in your Presence"]={nil,"Share Charges with "}
@@ -5989,7 +5997,7 @@ c["Spells Gain 5% of Damage as extra Chaos Damage"]={nil,"Spells Gain 5% of Dama
 c["Spells consume a Power Charge if able to deal 40% more Damage"]={nil,"Spells consume a Power Charge if able to deal 40% more Damage "}
 c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="ProjectileCount",type="BASE",value=4}},nil}
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}
-c["Spells for which this Sacrifice was fully made deal 5% more Damage"]={nil,"Spells for which this Sacrifice was fully made deal 5% more Damage "}
+c["Spells for which this Sacrifice was fully made deal 30% more Damage"]={nil,"Spells for which this Sacrifice was fully made deal 30% more Damage "}
 c["Spells have a 25% chance to inflict Withered for 4 seconds on Hit"]={{}," to inflict Withered   "}
 c["Storm and Plant Spells:"]={nil,"Storm and Plant Spells: "}
 c["Storm and Plant Spells: deal 50% more damage"]={nil,"Storm and Plant Spells: deal 50% more damage "}
