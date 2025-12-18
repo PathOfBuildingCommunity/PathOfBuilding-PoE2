@@ -2105,8 +2105,8 @@ function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compare
 		end
 	end
 
-	local prioritized = { FullDPS = true, TotalEHP = true }
-	for _, priorityStat in ipairs({ "FullDPS", "TotalEHP" }) do
+	local prioritized = { FullDPS = true, TotalEHP = true, EffectiveLootRarityMod = true }
+	for _, priorityStat in ipairs({ "FullDPS", "TotalEHP", "EffectiveLootRarityMod" }) do
 		for _, statData in ipairs(statList) do
 			if statData.stat == priorityStat then
 				addStatCompareLine(statData)
