@@ -307,7 +307,7 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		ASCENDANCY = {left="Assets/ascendancypassiveheaderleft.png", middle="Assets/ascendancypassiveheadermiddle.png", right="Assets/ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 		ORACLE_PASSIVE = {left="Assets/oraclenormalpassiveheaderleft.png", middle="Assets/oraclenormalpassiveheadermiddle.png", right="Assets/oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 		ORACLE_NOTABLE = {left="Assets/oraclenotablepassiveheaderleft.png", middle="Assets/oraclenotablepassiveheadermiddle.png", right="Assets/oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-		ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="OracleAssets/KeystonePassiveHeaderRight.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+		ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="Assets/oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 	}
 	local config
 	if self.tooltipHeader and main.showFlavourText and self.lines[1] and self.lines[1].text then
