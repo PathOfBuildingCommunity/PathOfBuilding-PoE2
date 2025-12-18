@@ -5121,10 +5121,10 @@ skills["SupportInevitableCriticalsPlayerTwo"] = {
 				["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
 					mod("Multiplier:InevitableCritCap", "BASE", nil),
 				},
-				["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
-					mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+				["support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second"] = {
+					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
 				},
-				["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+				["support_inevitable_criticals_critical_strike_multiplier_+%_final_cap"] = {
 					mod("Multiplier:InevitableCritMultCap", "BASE", nil),
 				},
 			},
@@ -6288,6 +6288,12 @@ skills["SupportOisinsOathPlayer"] = {
 			label = "Oisín's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["mana_leech_from_elemental_instead"] = {
+					flag("ManaLeechBasedOnElementalDamage"),
+					flag("Condition:NoManaLeechFromPhysicalDamage"),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -7088,9 +7094,6 @@ skills["SupportSpellEchoPlayer"] = {
 			statMap = {
 				["support_multicast_cast_speed_+%_final"] = {
 					mod("Speed", "MORE", nil, ModFlag.Cast),
-				},
-				["support_spell_echo_area_of_effect_+%"] = {
-					mod("AreaOfEffect", "INC", nil),
 				},
 			},
 			baseFlags = {

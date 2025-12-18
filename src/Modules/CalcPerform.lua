@@ -396,9 +396,10 @@ local function doActorAttribsConditions(env, actor)
 		if not modDB:Flag(nil, "NoStrengthAttributeBonuses") then
 			if not modDB:Flag(nil, "NoStrBonusToLife") then
 				if modDB:Flag(nil, "HalvesLifeFromStrength") then
-					inherentAttributeMultiplier = inherentAttributeMultiplier * 0.5
+					modDB:NewMod("Life", "BASE", output.Str * 1 * inherentAttributeMultiplier, "Strength")
+				else
+					modDB:NewMod("Life", "BASE", output.Str * 2 * inherentAttributeMultiplier, "Strength")
 				end
-				modDB:NewMod("Life", "BASE", output.Str * 2 * inherentAttributeMultiplier, "Strength")
 			end
 		end
 		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
@@ -1464,7 +1465,7 @@ function calcs.perform(env, skipEHP)
 
 	local effectInc = modDB:Sum("INC", {actor = "player"}, "CharmEffect")
 	local effectIncMagic = modDB:Sum("INC", {actor = "player"}, "MagicCharmEffect")
-	local charmLimit = modDB:Override(nil, "CharmLimit") or modDB:Sum("BASE", nil, "CharmLimit")
+	local charmLimit = m_min(modDB:Override(nil, "CharmLimit") or modDB:Sum("BASE", nil, "CharmLimit"), 3)
 
 	-- charm breakdown
 	if breakdown then
@@ -1508,6 +1509,8 @@ function calcs.perform(env, skipEHP)
 				mergeBuff(srcList, charmBuffsPerBase[item.baseName], key)
 			end
 		end
+		
+		local usedCharms = 0
 		for item in pairs(charms) do
 			if charmLimit <= 0 then
 				break
@@ -1518,6 +1521,7 @@ function calcs.perform(env, skipEHP)
 			charmConditions["Using"..item.baseName:gsub("%s+", "")] = true
 			calcCharmMods(item, item.baseName, item.buffModList, item.modList)
 		end
+		output.EmptyCharms = charmLimit
 		for charmCond, status in pairs(charmConditions) do
 			modDB.conditions[charmCond] = status
 		end

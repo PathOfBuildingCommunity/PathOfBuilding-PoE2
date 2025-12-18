@@ -470,14 +470,15 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 				elseif tag.type == "SkillId" then
 					desc = "Skill: "..build.data.skills[tag.skillId].name
 				elseif tag.type == "SkillType" then
-					for name, type in pairs(SkillType) do
-						if type == tag.skillType then
-							desc = "Skill type: "..(tag.neg and "Not " or "")..self:FormatModName(name)
-							break
+					if tag.skillTypeList then
+						local typeNames = { }
+						for _, skillType in ipairs(tag.skillTypeList) do
+							local formattedSkillType = self:FormatModName(SkillTypeName[skillType] or tostring(skillType))
+							t_insert(typeNames, formattedSkillType)
 						end
-					end
-					if not desc then
-						desc = "Skill type: "..(tag.neg and "Not " or "").."?"
+						desc = "Skill type: "..(tag.neg and "Not " or "")..table.concat(typeNames, " / ")
+					else
+						desc = "Skill type: "..(tag.neg and "Not " or "")..self:FormatModName(SkillTypeName[tag.skillType])
 					end
 				elseif tag.type == "SlotNumber" then
 					desc = "When in slot #"..tag.num
