@@ -685,6 +685,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	end
 
 	local allocatedNotableCount = env.spec.allocatedNotableCount
+	local allocatedSmithBodyArmourNodeCount = env.spec.allocatedSmithBodyArmourNodeCount
 	local allocatedMasteryCount = env.spec.allocatedMasteryCount
 	local allocatedMasteryTypeCount = env.spec.allocatedMasteryTypeCount
 	local allocatedMasteryTypes = copyTable(env.spec.allocatedMasteryTypes)
@@ -717,6 +718,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 					elseif node.type == "Notable" then
 						allocatedNotableCount = allocatedNotableCount + 1
+						if node.applyToArmour then
+							allocatedSmithBodyArmourNodeCount = allocatedSmithBodyArmourNodeCount + 1
+						end
 					end
 				end
 			end
@@ -733,6 +737,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 					elseif node.type == "Notable" then
 						allocatedNotableCount = allocatedNotableCount - 1
+						if node.applyToArmour then
+							allocatedSmithBodyArmourNodeCount = allocatedSmithBodyArmourNodeCount - 1
+						end
 					end
 				end
 			end
@@ -746,6 +753,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 	
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
+	end
+	if allocatedSmithBodyArmourNodeCount and allocatedSmithBodyArmourNodeCount > 0 then
+		modDB:NewMod("Multiplier:AllocatedConnectedNotable", "BASE", allocatedSmithBodyArmourNodeCount)
 	end
 	if allocatedMasteryCount and allocatedMasteryCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedMastery", "BASE", allocatedMasteryCount)
