@@ -966,6 +966,17 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		end
 		return sum
 	end
+	local function addStatWeightScoreBreakdownLines(tooltip, result_index)
+		local evaluation = self:GetResultEvaluation(row_idx, result_index)
+		if not (evaluation and evaluation[1] and evaluation[1].output and self.statSortSelectionList) then
+			return
+		end
+		local calcFunc, baseOutput = self.itemsTab.build.calcsTab:GetMiscCalculator()
+		for _, statWeight in ipairs(self.statSortSelectionList) do
+			local perStatScore = self.tradeQueryGenerator.WeightedRatioOutputs(baseOutput, evaluation[1].output, { statWeight }) * 1000
+			tooltip:AddLine(16, string.format("^7%s Score: %.0f", statWeight.label, perStatScore))
+		end
+	end
 	local function addCompareTooltip(tooltip, result_index, dbMode)
 		local result = self.resultTbl[row_idx][result_index]
 		local item = new("Item", result.item_string)
@@ -982,6 +993,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		addCompareTooltip(tooltip, result_index)
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(result_index) * 1000))
+		addStatWeightScoreBreakdownLines(tooltip, result_index)
 		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
 	end
 	controls["importButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["resultDropdown"..row_idx], "TOPRIGHT"}, {8, 0, 100, row_height}, "Import Item", function()
@@ -1005,6 +1017,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			addCompareTooltip(tooltip, selected_result_index, true)
 			tooltip:AddSeparator(10)
 			tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(selected_result_index) * 1000))
+			addStatWeightScoreBreakdownLines(tooltip, selected_result_index)
 		end
 	end
 	controls["importButton"..row_idx].enabled = function()
