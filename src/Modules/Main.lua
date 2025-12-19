@@ -102,7 +102,7 @@ function main:Init()
 	self.thousandsSeparator = ","
 	self.decimalSeparator = "."
 	self.defaultItemAffixQuality = 0.5
-	self.defaultItemQuality = 0
+	self.defaultItemQuality = 20
 	self.showTitlebarName = true
 	self.dpiScaleOverridePercent = GetDPIScaleOverridePercent and GetDPIScaleOverridePercent() or 0
 	self.showWarnings = true
@@ -786,8 +786,8 @@ function main:SaveSettings()
 		showTitlebarName = tostring(self.showTitlebarName),
 		betaTest = tostring(self.betaTest),
 		edgeSearchHighlight = tostring(self.edgeSearchHighlight),
-			defaultGemQuality = tostring(self.defaultGemQuality or 0),
-			defaultItemQuality = tostring(self.defaultItemQuality or 0),
+		defaultGemQuality = tostring(self.defaultGemQuality or 0),
+		defaultItemQuality = tostring(self.defaultItemQuality or 20),
 		defaultCharLevel = tostring(self.defaultCharLevel or 1),
 		defaultItemAffixQuality = tostring(self.defaultItemAffixQuality or 0.5),
 		lastExportWebsite = self.lastExportWebsite,
