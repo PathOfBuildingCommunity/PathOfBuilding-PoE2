@@ -1105,6 +1105,11 @@ statMap = {
 
 #skill SupportMarkForDeathPlayer
 #set SupportMarkForDeathPlayer
+statMap = {
+	["marked_target_%_physical_damage_taken_as_armour_break"] = {
+		flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+	},
+},
 #mods
 #skillEnd
 
