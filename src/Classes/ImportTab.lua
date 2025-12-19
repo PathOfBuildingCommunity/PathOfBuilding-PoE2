@@ -691,18 +691,11 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	self.build.treeTab.controls.versionSelect.selIndex = #self.build.treeTab.treeVersions
 	-- attributes nodes
 	for skillId, nodeInfo in pairs(charPassiveData.skill_overrides) do
-		local changeAttributeId = 0
-		if nodeInfo.name == "Intelligence" then
-			changeAttributeId = 3
-		elseif nodeInfo.name == "Dexterity" then
-			changeAttributeId = 2
-		elseif nodeInfo.name == "Strength" then
-			changeAttributeId = 1
-		end
-
-		if changeAttributeId > 0 then
-			local id = tonumber(skillId)
-			self.build.spec:SwitchAttributeNode(id, changeAttributeId)
+		local id = tonumber(skillId)
+		local changeAttributeIndex = self.build.spec:GetAttributeIndexForNodeId(id, nodeInfo.name)
+		
+		if changeAttributeIndex > 0 then
+			self.build.spec:SwitchAttributeNode(id, changeAttributeIndex)
 			local node = self.build.spec.nodes[id]
 
 			if node then

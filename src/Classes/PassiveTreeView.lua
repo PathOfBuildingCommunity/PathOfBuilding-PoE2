@@ -258,14 +258,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	-- we always want to keep track of last used attribute
 	local function processAttributeHotkeys(switchAttribute)
 		if IsKeyDown("2") or IsKeyDown("S") then
-			spec.attributeIndex = 1
-			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 1) end
+			spec.attributeIndex = spec:GetAttributeIndexForNodeId(hoverNode.id, "strength")
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex) end
 		elseif IsKeyDown("3") or IsKeyDown("D") then
-			spec.attributeIndex = 2
-			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 2) end
+			spec.attributeIndex = spec:GetAttributeIndexForNodeId(hoverNode.id, "dexterity")
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex) end
 		elseif IsKeyDown("1") or IsKeyDown("I") then
-			spec.attributeIndex = 3
-			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 3) end
+			spec.attributeIndex = spec:GetAttributeIndexForNodeId(hoverNode.id, "intelligence")
+			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex) end
 		end
 	end
 	
@@ -449,13 +449,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					processAttributeHotkeys(hoverNode.isAttribute)
 				elseif hoverNode.isAttribute then
 					-- If the attribute node is already set to str, int, or dex create a toggle effect between attrs
-					if hoverNode.dn == "Intelligence" then
-						spec.attributeIndex = 1
-					elseif hoverNode.dn == "Dexterity" then
-						spec.attributeIndex = 3
-					elseif hoverNode.dn == "Strength" then
-						spec.attributeIndex = 2
-					end
+					spec.attributeIndex = spec:GetNextAttributeIndexForNodeId(hoverNode.id, hoverNode.dn)
 					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
 				end
 				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)

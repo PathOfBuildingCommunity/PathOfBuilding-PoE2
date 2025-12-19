@@ -190,14 +190,30 @@ function PassiveSpecClass:Load(xml, dbFileName)
 					for _, child in ipairs(node) do
 						if child.elem == "AttributeOverride" then
 							for strengthId in child.attrib.strNodes:gmatch("%d+") do
-								self:SwitchAttributeNode(tonumber(strengthId), 1)
+								local strengthNumberId = tonumber(strengthId)
+								local atributeIndex = self:GetAttributeIndexForNodeId(strengthNumberId, "Strength")
+								self:SwitchAttributeNode(strengthNumberId, atributeIndex)
 							end
 							for dexterityId in child.attrib.dexNodes:gmatch("%d+") do
-								self:SwitchAttributeNode(tonumber(dexterityId), 2)
+								local dexterityNumberId = tonumber(dexterityId)
+								local atributeIndex = self:GetAttributeIndexForNodeId(dexterityNumberId, "Dexterity")
+								self:SwitchAttributeNode(dexterityNumberId, atributeIndex)
 							end
 							for intelligenceId in child.attrib.intNodes:gmatch("%d+") do
-								self:SwitchAttributeNode(tonumber(intelligenceId), 3)
+								local intelligenceNumberId = tonumber(intelligenceId)
+								local atributeIndex = self:GetAttributeIndexForNodeId(intelligenceNumberId, "Intelligence")
+								self:SwitchAttributeNode(intelligenceNumberId, atributeIndex)
 							end
+							-- check if have child elems for other attribute types
+							for _, other in ipairs(child) do
+								if other.elem == "other" then
+									local otherId = tonumber(other.attrib.id)
+									local dn = other.attrib.dn
+									local atributeIndex = self:GetAttributeIndexForNodeId(otherId, dn)
+									self:SwitchAttributeNode(otherId, atributeIndex)
+								end
+							end
+
 						else
 							ConPrintf("[PassiveSpecClass:Load] Unexpected element found in Overrides: " .. child.elem)
 						end
@@ -281,7 +297,7 @@ function PassiveSpecClass:Save(xml)
 		elem = "Overrides"
 	}
 	if self.hashOverrides then
-		local strList, dexList, intList = { }, { }, { }
+		local strList, dexList, intList, others = { }, { }, { }, { }
 		for nodeId, node in pairs(self.hashOverrides) do
 			if node.isAttribute then
 				if node.dn == "Strength" then
@@ -290,10 +306,18 @@ function PassiveSpecClass:Save(xml)
 					t_insert(dexList, nodeId)
 				elseif node.dn == "Intelligence" then
 					t_insert(intList, nodeId)
+				else
+					-- other attribute types not currently supported
+					t_insert(others, { elem = "other", attrib = {id=tostring(nodeId), dn=tostring(node.dn)} })
 				end
 			end
 		end
 		local attributeOverride = { elem = "AttributeOverride", attrib = { strNodes = table.concat(strList, ","), dexNodes = table.concat(dexList, ","), intNodes = table.concat(intList, ",") } }
+		if #others > 0 then
+			for _, other in pairs(others) do
+				t_insert(attributeOverride, other)
+			end
+		end
 		t_insert(overrides, attributeOverride)
 	end
 	t_insert(xml, overrides)
@@ -1221,7 +1245,16 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 
 		-- set attribute nodes
 		if self.hashOverrides[node.id] then
-			self:ReplaceNode(node, self.hashOverrides[node.id])
+			-- before building path we need to check for hashOverrides still valid
+			local overrideNode = self.hashOverrides[node.id]
+			if self:IsUnlockedAttributeForNodeId(node.id, overrideNode.dn) then
+				-- valid override
+				self:ReplaceNode(node, self.hashOverrides[node.id])
+			else
+				-- invalid override, remove it
+				self.hashOverrides[node.id] = nil
+				self:ReplaceNode(node, self.tree.nodes[node.id])
+			end
 		end
 
 		-- If node is conquered, replace it or add mods
@@ -2352,14 +2385,126 @@ function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusInde
 end
 
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
-	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
-		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-		if not newNode.isAttribute then return end -- safety check
-		
-		local option = newNode.options[attributeIndex]
-		self:ReplaceNode(newNode, option)
-		self.tree:ProcessStats(newNode)
-		
-		self.hashOverrides[nodeId] = newNode
+	if not self.tree.nodes[nodeId] then --Make sure node exists on current tree
+		return
 	end
+
+	local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
+	if not newNode.isAttribute then return end -- safety check
+
+	-- check if attributeIndex is valid
+	if attributeIndex < 1 or attributeIndex > #newNode.options then
+		return
+	end
+	
+	local option = newNode.options[attributeIndex]
+	
+	-- check if the option have "unlockedBy" and check in the spec if this is allocated
+	if option.unlockedBy then
+		local unlocked = false
+		for _, unlockNodeId in ipairs(option.unlockedBy) do
+			if self.allocNodes[unlockNodeId] then
+				unlocked = true
+				break
+			end
+		end
+		if not unlocked then
+			return
+		end
+	end
+
+	self:ReplaceNode(newNode, option)
+	self.tree:ProcessStats(newNode)
+	
+	self.hashOverrides[nodeId] = newNode
+end
+
+function PassiveSpecClass:GetAttributeIndexForNodeId(nodeId, attributeName)
+	local node = self.tree.nodes[nodeId]
+	if not node then return 0 end --Make sure node exists on current tree
+	if not node.isAttribute then return 0 end -- safety check
+	for index, option in ipairs(node.options) do
+		if option.dn == attributeName then
+			return index
+		end
+	end
+	return 0
+end
+
+function PassiveSpecClass:GetUnlockedAttributeListForNodeId(nodeId)
+	local node = self.tree.nodes[nodeId]
+	if not node then return {} end --Make sure node exists on current tree
+	if not node.isAttribute then return {} end -- safety check
+	local attributeList = {}
+	for index, option in ipairs(node.options) do
+		if option.unlockedBy then
+			local unlocked = false
+			for _, unlockNodeId in ipairs(option.unlockedBy) do
+				if self.allocNodes[unlockNodeId] then
+					unlocked = true
+					break
+				end
+			end
+			if unlocked then
+				t_insert(attributeList, option.dn)
+			end
+		else
+			t_insert(attributeList, option.dn)
+		end
+	end
+	return attributeList
+end
+
+function PassiveSpecClass:IsUnlockedAttributeForNodeId(nodeId, attributeName)
+	local node = self.tree.nodes[nodeId]
+	if not node then return false end --Make sure node exists on current tree
+	if not node.isAttribute then return false end -- safety check
+	
+	for index, option in ipairs(node.options) do
+		if option.dn == attributeName then
+			-- check if the option have "unlockedBy" and check in the spec if
+			if option.unlockedBy then
+				local unlocked = false
+				for _, unlockNodeId in ipairs(option.unlockedBy) do
+					if self.allocNodes[unlockNodeId] then
+						unlocked = true
+						break
+					end
+				end
+				return unlocked
+			end
+			return true
+		end
+	end
+	return false
+end
+
+function PassiveSpecClass:GetNextAttributeIndexForNodeId(nodeId, currentAttributeName)
+	local node = self.tree.nodes[nodeId]
+	if not node then return 1 end --Make sure node exists on current tree
+	if not node.isAttribute then return 1 end -- safety check
+	local foundCurrent = false
+	for index, option in ipairs(node.options) do
+		if foundCurrent then
+			-- check if the option have "unlockedBy" and check in the spec if this is allocated
+			if option.unlockedBy then
+				local unlocked = false
+				for _, unlockNodeId in ipairs(option.unlockedBy) do
+					if self.allocNodes[unlockNodeId] then
+						unlocked = true
+						break
+					end
+				end
+				if unlocked then
+					return index
+				end
+			else
+				return index
+			end
+		end
+		if option.dn == currentAttributeName then
+			foundCurrent = true
+		end
+	end
+	return 1
 end

@@ -785,12 +785,13 @@ end
 function TreeTabClass:ModifyAttributePopup(hoverNode)
 	local controls = { }
 	local spec = self.build.spec
-	local attributes = { "Strength", "Dexterity", "Intelligence" }
+	local attributes = spec:GetUnlockedAttributeListForNodeId(hoverNode.id)
 	
 	controls.attrSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {225, 30, 100, 18}, attributes, nil)
 	controls.save = new("ButtonControl", nil, {-50, 65, 80, 20}, "Allocate", function()
-		spec:SwitchAttributeNode(hoverNode.id, controls.attrSelect.selIndex)
-		spec.attributeIndex = controls.attrSelect.selIndex
+		local attributeIndex = spec:GetAttributeIndexForNodeId(hoverNode.id, controls.attrSelect:GetSelValue())
+		spec:SwitchAttributeNode(hoverNode.id, attributeIndex)
+		spec.attributeIndex = attributeIndex
 		spec:AllocNode(hoverNode, spec.tracePath and hoverNode == spec.tracePath[#spec.tracePath] and spec.tracePath)
 		spec:AddUndoState()
 		self.build.buildFlag = true
