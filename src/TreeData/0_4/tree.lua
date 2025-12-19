@@ -23148,6 +23148,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -23636,6 +23669,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=2,
@@ -23800,6 +23866,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=4,
@@ -23857,6 +23956,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -24066,6 +24198,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -24653,6 +24818,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -24745,7 +24943,7 @@ return {
 			},
 			group=420,
 			icon="Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds",
-			name="Energy Shield and Armour applies to Elemental Damage Hits",
+			name="Energy Shield and Armour applies to Elemental Resistance",
 			orbit=7,
 			orbitIndex=23,
 			skill=1878,
@@ -25411,6 +25609,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -25712,6 +25943,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -26032,6 +26296,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -26142,6 +26439,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -26391,6 +26721,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -26459,6 +26822,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -26876,6 +27272,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -27193,6 +27622,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -27261,6 +27723,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -28333,6 +28828,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -28495,6 +29023,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -28591,6 +29152,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -28766,6 +29360,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -28986,6 +29613,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -29077,6 +29737,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -30321,6 +31014,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=4,
@@ -30822,6 +31548,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -31335,6 +32094,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -32241,6 +33033,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -32326,6 +33151,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -33524,6 +34382,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -33697,6 +34588,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -33865,6 +34789,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -34693,6 +35650,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=3,
@@ -34901,6 +35891,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -35143,6 +36166,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -35219,6 +36275,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -35348,6 +36437,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -36051,6 +37173,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -36699,7 +37854,7 @@ return {
 			},
 			skill=9323,
 			stats={
-				[1]="+8 maximum Rage for each time you've used a Skill that Requires Glory in the past 6 seconds, up to 5 times"
+				[1]="+8 maximum Rage for each time you've used a Skill that Requires Glory in the past 6 seconds"
 			}
 		},
 		[9324]={
@@ -37003,6 +38158,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -38022,6 +39210,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -38078,6 +39299,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -38121,6 +39375,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -38277,6 +39564,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -38668,6 +39988,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -39529,6 +40882,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=3,
@@ -39926,6 +41312,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -40582,6 +42001,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -40725,6 +42177,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -40776,6 +42261,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -40858,6 +42376,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -41078,6 +42629,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -41777,6 +43361,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -42647,6 +44264,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -43066,6 +44716,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -43109,6 +44792,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -43374,6 +45090,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=4,
@@ -43445,6 +45194,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -44817,6 +46599,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -44872,6 +46687,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -44953,7 +46801,7 @@ return {
 			},
 			group=420,
 			icon="Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds",
-			name="Energy Shield and Armour applies to Elemental Damage Hits",
+			name="Energy Shield and Armour applies to Elemental Resistance",
 			orbit=7,
 			orbitIndex=19,
 			skill=14328,
@@ -45000,6 +46848,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -45252,6 +47133,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -45555,6 +47469,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -45632,6 +47579,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -46254,6 +48234,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -46589,6 +48602,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=3,
@@ -46882,6 +48928,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -46933,6 +49012,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -47149,6 +49261,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -47594,6 +49739,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -47915,6 +50093,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -47988,6 +50199,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=2,
@@ -48052,6 +50296,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -48390,6 +50667,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -48470,6 +50780,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -48917,6 +51260,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -49041,6 +51417,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -49200,6 +51609,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -49722,6 +52164,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -50131,6 +52606,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -50220,6 +52728,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -51357,6 +53898,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -51473,6 +54047,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -52231,6 +54838,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -52355,6 +54995,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -52901,6 +55574,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -53908,6 +56614,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -55406,6 +58145,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -55475,6 +58247,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -55693,6 +58498,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -55970,6 +58808,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -56171,6 +59042,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -56254,6 +59158,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -57107,6 +60044,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -57316,6 +60286,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -57388,6 +60391,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -57863,6 +60899,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -58012,6 +61081,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -58442,6 +61544,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -58686,6 +61821,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -58934,6 +62102,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -59891,6 +63092,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -60082,6 +63316,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -60513,6 +63780,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -60764,6 +64064,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -60887,6 +64220,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -61073,6 +64439,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -61141,6 +64540,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -61767,6 +65199,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -62018,6 +65483,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -63473,6 +66971,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -63792,6 +67323,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -64060,6 +67624,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -64385,6 +67982,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -64642,6 +68272,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -64728,6 +68391,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -64914,6 +68610,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -65306,6 +69035,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -65704,6 +69466,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -65841,6 +69636,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -66006,6 +69834,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -66248,6 +70109,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -66336,6 +70230,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -66640,6 +70567,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -66722,6 +70682,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -67374,6 +71367,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -67454,6 +71480,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -67646,6 +71705,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -67754,6 +71846,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -68214,6 +72339,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -68302,6 +72460,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -68407,6 +72598,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -68892,6 +73116,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -69140,6 +73397,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -69742,6 +74032,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -69852,6 +74175,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -70101,6 +74457,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -70356,6 +74745,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -70712,6 +75134,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -71439,6 +75894,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -71685,6 +76173,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -71843,6 +76364,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -72145,6 +76699,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -72205,6 +76792,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -72649,6 +77269,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -73188,6 +77841,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -74555,6 +79241,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -74892,6 +79611,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -75422,6 +80174,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -75494,6 +80279,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -75646,6 +80464,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -75812,6 +80663,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -76932,6 +81816,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -77581,6 +82498,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -77802,6 +82752,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -78253,6 +83236,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -78720,6 +83736,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -78775,6 +83824,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -80013,6 +85095,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -80820,6 +85935,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -81423,6 +86571,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -81488,6 +86669,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -82393,6 +87607,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=2,
@@ -82587,6 +87834,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -82861,6 +88141,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -83448,6 +88761,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -83509,6 +88855,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -83640,6 +89019,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -83714,6 +89126,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -83761,6 +89206,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -84050,6 +89528,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -84217,6 +89728,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -84460,6 +90004,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -85068,6 +90645,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -85312,6 +90922,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -86356,6 +91999,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -86617,6 +92293,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -86690,6 +92399,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -86733,6 +92475,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -87092,7 +92867,7 @@ return {
 			},
 			group=500,
 			icon="Art/2DArt/SkillIcons/passives/DruidGenericShapeshiftNode.dds",
-			name="Shapeshifting Armour applies to Elemental Damage Hits",
+			name="Shapeshifting Armour applies to Elemental Resistance",
 			orbit=2,
 			orbitIndex=7,
 			skill=41338,
@@ -87535,6 +93310,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -87792,6 +93600,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -87975,6 +93816,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -88472,6 +94346,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -88636,6 +94543,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -88826,6 +94766,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -88923,6 +94896,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -89089,6 +95095,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -89227,6 +95266,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -89351,6 +95423,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -89903,6 +96008,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -90968,6 +97106,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -91133,6 +97304,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -91972,6 +98176,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -92015,6 +98252,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -92704,6 +98974,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -92871,6 +99174,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -93161,6 +99497,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -94802,6 +101171,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -94905,6 +101307,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -94973,6 +101408,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -95127,6 +101595,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -95635,6 +102136,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -95984,6 +102518,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -96134,6 +102701,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -96489,6 +103089,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -96896,6 +103529,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -96997,6 +103663,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -97190,6 +103889,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -97631,6 +104363,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -98126,6 +104891,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -98173,6 +104971,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -98401,6 +105232,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -98690,6 +105554,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -98783,6 +105680,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -99039,6 +105969,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -99106,6 +106069,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -99359,6 +106355,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -99410,6 +106439,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -99529,6 +106591,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -99727,6 +106822,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -100068,6 +107196,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -100639,6 +107800,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -100954,6 +108148,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -101185,6 +108412,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -101303,6 +108563,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -101504,6 +108797,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -101660,6 +108986,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -101808,6 +109167,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -102294,6 +109686,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -102402,6 +109827,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -103245,6 +110703,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -103296,6 +110787,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -103683,6 +111207,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=2,
@@ -104029,6 +111586,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -104372,6 +111962,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -104592,6 +112215,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -104841,6 +112497,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -105113,6 +112802,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -105426,6 +113148,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -105486,6 +113241,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -107098,6 +114886,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -107153,6 +114974,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -107386,6 +115240,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -107564,6 +115451,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -107628,6 +115548,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -108016,6 +115969,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -108229,6 +116215,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -108425,6 +116444,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -108472,6 +116524,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -108728,6 +116813,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -108910,6 +117028,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -109250,6 +117401,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -109317,6 +117501,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -109645,6 +117862,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -110292,6 +118542,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=5,
@@ -110381,6 +118664,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -111048,6 +119364,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -111239,6 +119588,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -111589,6 +119971,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -111729,6 +120144,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -111968,6 +120416,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -113257,6 +121738,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -113322,6 +121836,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -114344,6 +122891,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -114395,6 +122975,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -114636,6 +123249,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -115073,6 +123719,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -115386,6 +124065,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=2,
@@ -115454,6 +124166,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -116130,6 +124875,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -116535,6 +125313,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -116831,6 +125642,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -116933,6 +125777,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -117166,6 +126043,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -117626,6 +126536,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -117712,6 +126655,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -117755,6 +126731,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -117860,6 +126869,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -118048,6 +127090,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -118744,6 +127819,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -118960,6 +128068,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -119394,6 +128535,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -119679,6 +128853,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -119811,6 +129018,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -120101,6 +129341,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -120268,6 +129541,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -120460,6 +129766,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -121183,6 +130522,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -121962,6 +131334,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -122268,6 +131673,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -122863,6 +132301,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=3,
@@ -123426,6 +132897,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=0,
@@ -123514,6 +133018,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -124020,6 +133557,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -124742,6 +134312,39 @@ return {
 					stats={
 						[1]="+5 to Intelligence"
 					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
+					}
 				}
 			},
 			orbit=6,
@@ -124946,6 +134549,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
@@ -125679,6 +135315,39 @@ return {
 					name="Intelligence",
 					stats={
 						[1]="+5 to Intelligence"
+					}
+				},
+				[4]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=46793,
+					name="Damage",
+					stats={
+						[1]="5% increased Damage"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[5]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=44242,
+					name="Defences",
+					stats={
+						[1]="5% increased Defences"
+					},
+					unlockedBy={
+						[1]=46454
+					}
+				},
+				[6]={
+					icon="Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds",
+					id=5375,
+					name="Cost Efficiency",
+					stats={
+						[1]="5% increased Cost Efficiency"
+					},
+					unlockedBy={
+						[1]=46454
 					}
 				}
 			},
