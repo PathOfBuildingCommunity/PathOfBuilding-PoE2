@@ -127,6 +127,7 @@ end
 
 function GGPKClass:AddDat64Files()
 	local datFiles = self:GetNeededFiles()
+	table.sort(datFiles, function(a, b) return a:lower() < b:lower() end)
 	for _, fname in ipairs(datFiles) do
 		local record = { }
 		record.name = fname:match("([^/\\]+)$") .. "c64"
