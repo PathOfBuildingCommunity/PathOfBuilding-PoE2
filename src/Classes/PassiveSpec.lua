@@ -64,6 +64,10 @@ function PassiveSpecClass:Init(treeVersion, convert)
 		end
 	end
 
+	-- Table of intuitive leap-like jewel node modifiers from one type of node to others with the given radius
+	-- { from = nodeType, radiusIndex = index, to = { nodeType, [...] } }
+	self.intuitiveLeapLikeNodes = { }
+
 	-- List of currently allocated nodes
 	-- Keys are node IDs, values are nodes
 	self.allocNodes = { }
@@ -831,7 +835,14 @@ function PassiveSpecClass:AllocNode(node, altPath)
 
 	if node.isMultipleChoiceOption then
 		-- For multiple choice passives, make sure no other choices are allocated
-		local parent = node.linked[1]
+		local parent = nil
+		for _, possibleParent in ipairs(node.linked) do
+			if possibleParent.isMultipleChoice and possibleParent.alloc and possibleParent ~= node then
+				parent = possibleParent
+				break
+			end
+		end
+		assert(parent) -- If we're allocating a multiple choice option without an allocated parent, something has gone wrong
 		for _, optNode in ipairs(parent.linked) do
 			if optNode.isMultipleChoiceOption and optNode.alloc and optNode ~= node then
 				self:DeallocSingleNode(optNode)
@@ -1096,6 +1107,23 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- This table will keep track of which nodes have been visited during each path-finding attempt
 	local visited = { }
 	local attributes = { "Dexterity", "Intelligence", "Strength", "Attribute" }
+
+	-- First check for mods that affect intuitive leap-like properties of other nodes
+	local processed = { }
+	local intuitiveLeapLikeNodes = self.intuitiveLeapLikeNodes
+	wipeTable(intuitiveLeapLikeNodes)
+	for id, node in pairs(self.allocNodes) do
+		if node.ascendancyName then -- avoid processing potentially replaceable nodes
+			self.tree:ProcessStats(node)
+			if node.modList:HasMod("LIST", nil, "AllocateFromNodeRadius") then
+				for _, radius in ipairs(node.modList:List(nil, "AllocateFromNodeRadius")) do
+					t_insert(intuitiveLeapLikeNodes, radius)
+				end
+			end
+			processed[id] = true
+		end
+	end
+
 	-- Check all nodes for other nodes which depend on them (i.e. are only connected to the tree through that node)
 	self.switchableNodes = { }
 	for id, node in pairs(self.nodes) do
@@ -1146,6 +1174,32 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 							end
 						end
 					end
+				end
+			end
+			for _, intuitiveLeapMap in ipairs(intuitiveLeapLikeNodes) do
+				local allocatable = false
+				for _, allocatableNodeType in ipairs(intuitiveLeapMap.to) do
+					if allocatableNodeType == node.type then
+						allocatable = true
+						break
+					end
+				end
+				if allocatable then
+					if intuitiveLeapMap.from == "Keystone" then
+						for keyName, keyNode in pairs(self.tree.keystoneMap) do
+							if self.allocNodes[keyNode.id] and keyNode.nodesInRadius and keyNode.nodesInRadius[intuitiveLeapMap.radiusIndex][id] then
+								t_insert(node.intuitiveLeapLikesAffecting, self.nodes[keyNode.id])
+							end
+						end
+					end
+					-- We don't keep a `nodesInRadius` map for notables, so this is disabled for now
+					-- if intuitiveLeapMap.from == "Notable" then
+					-- 	for keyName, keyNode in pairs(self.tree.notableMap) do
+					-- 		if keyNode.nodesInRadius[intuitiveLeapMap.radiusIndex][node.id] then
+					-- 			t_insert(node.intuitiveLeapLikesAffecting, self.nodes[nodeId])
+					-- 		end
+					-- 	end
+					-- end
 				end
 			end
 		end
@@ -1357,6 +1411,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	-- Add selected mastery effect mods to mastery nodes
 	self.allocatedMasteryCount = 0
 	self.allocatedNotableCount = 0
+	self.allocatedSmithBodyArmourNodeCount = 0
 	self.allocatedMasteryTypes = { }
 	self.allocatedMasteryTypeCount = 0
 	for id, node in pairs(self.nodes) do
@@ -1394,6 +1449,9 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 				self:AddMasteryEffectOptionsToNode(node)
 			elseif node.type == "Notable" and node.alloc then
 				self.allocatedNotableCount = self.allocatedNotableCount + 1
+				if node.applyToArmour then
+					self.allocatedSmithBodyArmourNodeCount = self.allocatedSmithBodyArmourNodeCount + 1
+				end
 			end
 		end
 	end
@@ -1461,6 +1519,35 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 
 							-- If n is a jewel socket containing an intuitive leap-like jewel, nodes in its radius (or the radius of the keystone)
 							-- may be dependent on this node if they're found to be unconnected to the start
+							for _, intuitiveLeapMap in ipairs(intuitiveLeapLikeNodes) do
+								local allocatable = false
+								for _, allocatableNodeType in ipairs(intuitiveLeapMap.to) do
+									if allocatableNodeType == node.type then
+										allocatable = true
+										break
+									end
+								end
+								if allocatable then
+									if intuitiveLeapMap.from == n.type then
+										for affectedNodeId, affectedNode in pairs(n.nodesInRadius[intuitiveLeapMap.radiusIndex]) do
+											if affectedNode.alloc then
+												if not intuitiveLeaps[node.id] then
+													intuitiveLeaps[node.id] = { }
+												end
+												t_insert(intuitiveLeaps[node.id], affectedNode)
+											end
+										end
+									end
+									-- We don't keep a `nodesInRadius` map for notables, so this is disabled for now
+									-- if intuitiveLeapMap.from == "Notable" then
+									-- 	for keyName, keyNode in pairs(self.tree.notableMap) do
+									-- 		if keyNode.nodesInRadius[intuitiveLeapMap.radiusIndex][node.id] then
+									-- 			t_insert(node.intuitiveLeapLikesAffecting, self.nodes[nodeId])
+									-- 		end
+									-- 	end
+									-- end
+								end
+							end
 							if not intuitiveLeaps[node.id] then
 								intuitiveLeaps[node.id] = self:NodesInIntuitiveLeapLikeRadius(n)
 							else
@@ -1503,6 +1590,29 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 							end
 							t_insert(intuitiveLeaps[nodeId], depNode)
 							break
+						end
+					end
+				end
+				for _, intuitiveLeapMap in ipairs(intuitiveLeapLikeNodes) do
+					local allocatable = false
+					for _, allocatableNodeType in ipairs(intuitiveLeapMap.to) do
+						if allocatableNodeType == depNode.type then
+							allocatable = true
+							break
+						end
+					end
+					if allocatable then
+						if intuitiveLeapMap.from == "Keystone" then
+							for keyName, keyNode in pairs(self.tree.keystoneMap) do
+								if keyNode.nodesInRadius and keyNode.nodesInRadius[intuitiveLeapMap.radiusIndex][depNode.id] then
+									-- Hold off on the pruning; this node could be supported by Intuitive Leap-like jewel
+									prune = false
+									if not intuitiveLeaps[keyNode.id] then
+										intuitiveLeaps[keyNode.id] = { }
+									end
+									t_insert(intuitiveLeaps[keyNode.id], depNode)
+								end
+							end
 						end
 					end
 				end

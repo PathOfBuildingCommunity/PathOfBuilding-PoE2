@@ -3126,7 +3126,7 @@ skills["SupportDrainedAilmentPlayer"] = {
 }
 skills["SupportShockingRiftPlayer"] = {
 	name = "Electromagnetism",
-	description = "Supports Skills that which Hit enemies. When Supported Skills Shock an enemy that is nearby other Shocked enemies, trigger Electromagnetism, sucking in nearby enemies, Hindering them, and dealing Lightning damage at an interval.",
+	description = "Supports Skills that Hit enemies. When Supported Skills Shock an enemy that is nearby other Shocked enemies, trigger Electromagnetism, sucking in nearby enemies, Hindering them, and dealing Lightning damage at an interval.",
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
@@ -5121,10 +5121,10 @@ skills["SupportInevitableCriticalsPlayerTwo"] = {
 				["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
 					mod("Multiplier:InevitableCritCap", "BASE", nil),
 				},
-				["support_inevitable_criticals_critical_strike_chance_+%_per_second"] = {
-					mod("CritChance", "INC", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+				["support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second"] = {
+					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
 				},
-				["support_inevitable_criticals_critical_strike_chance_+%_cap"] = {
+				["support_inevitable_criticals_critical_strike_multiplier_+%_final_cap"] = {
 					mod("Multiplier:InevitableCritMultCap", "BASE", nil),
 				},
 			},
@@ -5521,6 +5521,7 @@ skills["TriggeredLivingLightningPlayer"] = {
 			},
 			stats = {
 				"display_minion_level_from_triggering_skill_level",
+				"triggerable_in_any_set",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5647,6 +5648,7 @@ skills["TriggeredLivingLightningPlayerTwo"] = {
 			},
 			stats = {
 				"display_minion_level_from_triggering_skill_level",
+				"triggerable_in_any_set",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6288,6 +6290,12 @@ skills["SupportOisinsOathPlayer"] = {
 			label = "Oisín's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["mana_leech_from_elemental_instead"] = {
+					flag("ManaLeechBasedOnElementalDamage"),
+					flag("Condition:NoManaLeechFromPhysicalDamage"),
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -7034,7 +7042,7 @@ skills["SupportSpellCascadePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cascadable, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, },
+	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, },
 	gemFamily = { "SpellCascade",},
 	levels = {
 		[1] = { levelRequirement = 0, },
@@ -7075,7 +7083,7 @@ skills["SupportSpellEchoPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cascadable, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Channel, SkillType.Attack, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, },
 	gemFamily = { "SpellEcho",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 50, },
@@ -7088,9 +7096,6 @@ skills["SupportSpellEchoPlayer"] = {
 			statMap = {
 				["support_multicast_cast_speed_+%_final"] = {
 					mod("Speed", "MORE", nil, ModFlag.Cast),
-				},
-				["support_spell_echo_area_of_effect_+%"] = {
-					mod("AreaOfEffect", "INC", nil),
 				},
 			},
 			baseFlags = {
@@ -8103,7 +8108,7 @@ skills["SupportZenithPlayerTwo"] = {
 	gemFamily = { "Zenith",},
 	ignoreMinionTypes = true,
 	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+		[1] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {

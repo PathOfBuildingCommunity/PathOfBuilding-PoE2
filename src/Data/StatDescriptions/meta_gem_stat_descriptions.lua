@@ -353,7 +353,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Socketed Attacks consume 10 Energy per {0} seconds of Base Skill Attack Time when Triggered"
+				text="Socketed Attacks consume 10 Energy per {0} seconds of Base Skill Attack Time to create a visage"
 			}
 		},
 		stats={

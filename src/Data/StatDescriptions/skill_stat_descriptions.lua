@@ -31308,7 +31308,7 @@ return {
 						[2]=99
 					}
 				},
-				text="{0}% chance to Hinder Enemies on Hit"
+				text="{0}% chance to Hinder enemies on Hit"
 			},
 			[2]={
 				limit={
@@ -31317,7 +31317,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Hinder Enemies on Hit"
+				text="Hinder enemies on Hit"
 			}
 		},
 		stats={

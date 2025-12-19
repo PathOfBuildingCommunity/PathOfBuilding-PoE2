@@ -113,6 +113,8 @@ Metadata/Monsters/LeagueExpeditionNew/ScytheHand/ExpeditionScytheHand_          
 Metadata/Monsters/LeagueExpeditionNew/SwordSkeleton/ExpeditionMegaSkeleton                		----		Order Ostiary
 Metadata/Monsters/TwigMonsters/canopy/TwigMonster                                         		----		Skeleton Spriggan
 Metadata/Monsters/SaplingMonster/TwigMonsterArchnemesis                                   		----		Treant
+Metadata/Monsters/DemonSpiders/BlackStrider                                               		----		Black Strider
+Metadata/Monsters/DemonSpiders/BlackStrider                                               		----		Ashen Arachnid
 Metadata/Monsters/DemonSpiders/MeleeSpider                                                		----		Vault Lurker
 Metadata/Monsters/DemonSpiders/SpiderSabre                                                		----		Sabre Spider
 Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmoured                                 		----		Adorned Beetle
@@ -538,6 +540,8 @@ Metadata/Monsters/BitterGuy/BitterGuyChild1Surge_                               
 Metadata/Monsters/BitterGuy/BitterGuyChild2Surge                                          		----		Torcall, Sobbing Child
 Metadata/Monsters/Bird/MutantBird                                                         		----		Scourge of the Skies
 Metadata/Monsters/Bird/MutantBirdDog                                                      		----		Flesh Pup
+Metadata/Monsters/DemonSpiders/BlackStrider                                               		----		Black Strider
+Metadata/Monsters/DemonSpiders/BlackStrider                                               		----		Ashen Arachnid
 Metadata/Monsters/SaltGolem/SaltGolemNoEmerge_                                            		----		Quake Golem
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard01___                                   		----		Emal
 Metadata/Monsters/MarakethGuards/MarakethHeroGuard02                                      		----		Tanim
@@ -593,9 +597,9 @@ Metadata/Monsters/LeagueIncursionNew/Garrison/VaalOverseerLivingIncursionRare   
 -- These spectres are currently imported, but fail the checks. New updates sometimes remove spectres.--
 -- Don't fully trust this, coded wrong. But it did catch some that were removed. --
 
-Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__                   		----		(not found in MonsterVarieties)
 Metadata/Monsters/NettleAnt/NettleAntSummoned                                             		----		Frozen Mandibles
 Metadata/Monsters/SaltGolem/SaltGolem_                                                    		----		(not found in MonsterVarieties)
+Metadata/Monsters/TerracottaGuardians/TerracottaGuardianSceptreAmbush__                   		----		(not found in MonsterVarieties)
 
 -- Duplicate Spectre Names --
 -- Some duplicate Spectres have been imported, like Terracotta Soldier, as there is a 10 spirit and 60 spirit version.--
@@ -732,6 +736,9 @@ Metadata/Monsters/LeagueExpeditionNew/Skeletons/ExpeditionSkeletonSwordShieldOlr
 Metadata/Monsters/LeagueExpeditionNew/Zombies/ExpeditionZombieHusk_                       		----		Unearthed Zombie
 Metadata/Monsters/LeagueExpeditionNew/DeathKnight/ExpeditionDeathKnightOlroth             		----		Knight of the Sun
 Metadata/Monsters/TwigMonsters/canopy/TwigMonsterCaster                                   		----		Skeleton Spriggan
+Metadata/Monsters/DemonSpiders/BlackStriderSanctumTrial                                   		----		Black Strider
+Metadata/Monsters/DemonSpiders/BlackStriderEmerge                                         		----		Black Strider
+Metadata/Monsters/DemonSpiders/BlackStriderEmergeSanctumTrial                             		----		Black Strider
 Metadata/Monsters/DemonSpiders/MeleeSpiderEmergeDrop_                                     		----		Vault Lurker
 Metadata/Monsters/DemonSpiders/MeleeSpiderSanctumTrial                                    		----		Vault Lurker
 Metadata/Monsters/EtchedBeetles/SmallEtchedBeetleArmouredSanctumTrial_                    		----		Adorned Beetle
@@ -1175,6 +1182,11 @@ Metadata/Monsters/LeagueIncursionNew/Constructs/VaalBowlingBallInertIncursion   
 Metadata/Monsters/LeagueIncursionNew/Constructs/VaalConstructPyramidIncursion             		----		Reconstructor
 Metadata/Monsters/LeagueIncursionNew/Constructs/VaalConstructGolemIncursion               		----		Shockblade Construct
 Metadata/Monsters/LeagueIncursionNew/Constructs/VaalConstructSkitterbotIncursion          		----		Crawler Sentinel
+Metadata/Monsters/LeagueIncursionNew/ConstructsAncient/VaalConstructSkitterbotAncientIncursion		----		Crawler Sentinel
+Metadata/Monsters/LeagueIncursionNew/ConstructsAncient/VaalBowlingBallAncientIncursion    		----		Flame Sentry
+Metadata/Monsters/LeagueIncursionNew/ConstructsAncient/VaalBowlingBallInertAncientIncursion		----		Flame Sentry
+Metadata/Monsters/LeagueIncursionNew/ConstructsAncient/VaalConstructPyramidAncientIncursion		----		Reconstructor
+Metadata/Monsters/LeagueIncursionNew/ConstructsAncient/VaalConstructGolemAncientIncursion_		----		Shockblade Construct
 Metadata/Monsters/LeagueIncursionNew/AlchemyLab/VaalGoliathSoulCoreIncursion_             		----		Vaal Goliath
 Metadata/Monsters/LeagueIncursionNew/AlchemyLab/VaalFlayedKnifestickIncursion             		----		Chaos Zealot
 Metadata/Monsters/LeagueIncursionNew/AlchemyLab/ChaosGodRangedFodderIncursion             		----		Petulant Stonemaw

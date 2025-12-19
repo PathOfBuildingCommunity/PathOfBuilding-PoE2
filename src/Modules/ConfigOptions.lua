@@ -1597,9 +1597,9 @@ Huge sets the radius to 11.
 		enemyModList:NewMod("Condition:LowLife", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "conditionEnemyArmourBroken", type = "check", label = "Is enemy Armour Broken?", ifFlag = "Condition:CanArmourBreak", tooltip = "Some Skills, Items, Support Gems and other effects can Break Armour, which lowers a target's Armour by a specified amount.\nIf this brings the target's Armour value to 0, their Armour is Fully Broken for 12 seconds.", apply = function(val, modList, enemyModList)
-		enemyModList:NewMod("Condition:ArmourFullyBroken", "FLAG", true, "ArmourBreak", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanArmourBreakBelowZero", neg = true })
+		enemyModList:NewMod("Condition:ArmourFullyBroken", "FLAG", true, "ArmourBreak", { type = "Condition", var = "Effective" })
 		enemyModList:NewMod("Condition:ArmourBrokenBelowZeroMax", "FLAG", true, "ArmourBreak", { type = "Condition", var = "Effective" }, { type = "ActorCondition", actor = "enemy", var = "CanArmourBreakBelowZero" })
-		enemyModList:NewMod("Armour", "OVERRIDE", 0, "ArmourBreak", { type = "Condition", var = "ArmourFullyBroken" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" })
+		enemyModList:NewMod("Armour", "OVERRIDE", 0, "ArmourBreak", { type = "Condition", var = "ArmourFullyBroken" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" }, { type = "ActorCondition", actor = "enemy", var = "CanArmourBreakBelowZero", neg = true })
 	end },
 	{ var = "multiplierArmourBreak", type = "count", label = "# of Broken Armour (if not maximum):", ifOption = "conditionEnemyArmourBroken", tooltip = "Use this field to set a custom Armour Break value.\nIf left empty or set to 0, Fully Broken Armour will be assumed.\nArmour cannot be broken below 0 unless stated otherwise.\nIf so, Armour can be broken up to the inverse of its original value.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:ArmourBroken", "FLAG", val > 0, "ArmourBreak", { type = "Condition", var = "Effective" }) -- only activate if value > 0 is entered

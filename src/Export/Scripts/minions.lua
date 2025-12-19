@@ -93,6 +93,7 @@ local itemClassMap = {
 	["Sceptre"] = "One Handed Mace",
 	["Flail"] = "Flail",
 	["Spear"] = "Spear",
+	["Talisman"] = "Talisman",
 	["Unarmed"] = "None",
 }
 

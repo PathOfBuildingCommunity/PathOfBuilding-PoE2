@@ -3,6 +3,38 @@
 
 return {
 	[1]={
+		stats={
+			[1]="global_knockback"
+		}
+	},
+	[2]={
+		[1]={
+		},
+		stats={
+			[1]="active_skill_area_of_effect_radius"
+		}
+	},
+	[3]={
+		[1]={
+			[1]={
+				[1]={
+					k="divide_by_ten_1dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Knocks back enemies in a {0} metre radius"
+			}
+		},
+		stats={
+			[1]="active_skill_base_area_of_effect_radius"
+		}
+	},
+	[4]={
 		[1]={
 			[1]={
 				[1]={
@@ -61,7 +93,14 @@ return {
 			[3]="skill_lunar_blessing_extend_buff_by_X_ms_per_rage"
 		}
 	},
-	[2]={
+	[5]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_wolf_lunar_blessing_all_damage_%_to_gain_as_cold_damage"
+		}
+	},
+	[6]={
 		[1]={
 			[1]={
 				["gem_quality"]=true,
@@ -87,7 +126,7 @@ return {
 			[1]="wolf_lunar_blessing_all_damage_%_to_gain_as_cold_damage"
 		}
 	},
-	[3]={
+	[7]={
 		[1]={
 			[1]={
 				limit={
@@ -103,7 +142,7 @@ return {
 			[1]="wolf_lunar_blessing_attack_speed_+%"
 		}
 	},
-	[4]={
+	[8]={
 		[1]={
 			[1]={
 				limit={
@@ -119,11 +158,15 @@ return {
 			[1]="wolf_lunar_blessing_movement_velocity_+%"
 		}
 	},
-	["base_skill_effect_duration"]=1,
+	["active_skill_area_of_effect_radius"]=2,
+	["active_skill_base_area_of_effect_radius"]=3,
+	["base_skill_effect_duration"]=4,
+	["global_knockback"]=1,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=1,
-	["skill_lunar_blessing_extend_buff_by_X_ms_per_rage"]=1,
-	["wolf_lunar_blessing_all_damage_%_to_gain_as_cold_damage"]=2,
-	["wolf_lunar_blessing_attack_speed_+%"]=3,
-	["wolf_lunar_blessing_movement_velocity_+%"]=4
+	["skill_effect_duration"]=4,
+	["skill_lunar_blessing_extend_buff_by_X_ms_per_rage"]=4,
+	["virtual_wolf_lunar_blessing_all_damage_%_to_gain_as_cold_damage"]=5,
+	["wolf_lunar_blessing_all_damage_%_to_gain_as_cold_damage"]=6,
+	["wolf_lunar_blessing_attack_speed_+%"]=7,
+	["wolf_lunar_blessing_movement_velocity_+%"]=8
 }

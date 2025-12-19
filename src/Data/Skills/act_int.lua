@@ -1502,7 +1502,7 @@ skills["BoneCagePlayer"] = {
 	baseTypeName = "Bone Cage",
 	color = 3,
 	description = "Raise a ring of bone spikes around you. The spikes are destroyed when enemies touch them, damaging and Pinning those enemies. Raising a new ring of spikes destroys the previous one.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Necrotic] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Necrotic] = true, [SkillType.Totemable] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_pins_as_though_dealt_damage_+%_final", 2.5 },
@@ -5791,7 +5791,7 @@ skills["EmberFusilladePlayer"] = {
 	baseTypeName = "Ember Fusillade",
 	color = 3,
 	description = "Conjure a blazing Ember that hovers above you. After a short duration, the Ember launches at an enemy, dealing Fire damage in an area on impact and prioritising the last enemy targeted. Recasting this spell resets the duration for all active Embers. Multiple Embers fired in the same Fusillade will attempt to target different enemies. Consumes a Lightning Infusion if possible to cause the entire Fusillade to create beams that Chain to enemies.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, },
 	castTime = 0.4,
 	qualityStats = {
 		{ "ember_fusillade_damage_+%_final_per_ember_fired", 0.1 },
@@ -8076,7 +8076,7 @@ skills["FlameblastPlayer"] = {
 	baseTypeName = "Flameblast",
 	color = 3,
 	description = "Channel to build destructive energy around you. Releasing the energy causes a devastating explosion that is larger and more intense the longer you Channelled for.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cascadable] = true, [SkillType.GainsStages] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.AreaSpell] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.GainsStages] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.25,
 	qualityStats = {
 		{ "active_skill_cast_speed_+%_final", 1 },
@@ -8470,7 +8470,7 @@ skills["FreezingMarkPlayer"] = {
 	name = "Freezing Mark",
 	baseTypeName = "Freezing Mark",
 	color = 3,
-	description = "Mark a target, making them more susceptible to being Frozen. When the Marked target is Frozen, the Mark Activates, granting you a Buff which gives extra Cold damage and Consming the Mark. Marking another target while you have the Buff will remove the Buff.",
+	description = "Mark a target, making them more susceptible to being Frozen. When the Marked target is Frozen, the Mark Activates, granting you a Buff which gives extra Cold damage and Consuming the Mark. Marking another target while you have the Buff will remove the Buff.",
 	skillTypes = { [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Mark] = true, [SkillType.Cold] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, },
 	castTime = 0.5,
 	qualityStats = {
@@ -8877,7 +8877,7 @@ skills["FrostDartsPlayer"] = {
 	baseTypeName = "Frost Darts",
 	color = 3,
 	description = "Conjures a number of icy Projectiles that launch towards the target. Projectiles that Hit a Chilled or Frozen target create chunks of ice that deal additional damage on impacting the ground. Consumes a Cold Infusion if possible to cause each Projectile to lodge into the enemy then explode.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, },
 	castTime = 0.8,
 	qualityStats = {
 		{ "spell_skills_fire_2_additional_projectiles_final_chance_%", 0.5 },
@@ -16488,7 +16488,7 @@ skills["ReapPlayer"] = {
 			stats = {
 				"spell_minimum_base_physical_damage",
 				"spell_maximum_base_physical_damage",
-				"life_gained_on_cull",
+				"active_skill_life_gained_on_cull",
 				"is_area_damage",
 				"active_skill_show_cull_range",
 				"kill_enemy_on_hit_if_under_10%_life",

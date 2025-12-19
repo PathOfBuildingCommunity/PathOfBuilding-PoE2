@@ -5,7 +5,7 @@ local itemBases = ...
 itemBases["Changeling Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, ezomyte_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 9, PhysicalMax = 15, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
 	req = { },
@@ -13,7 +13,7 @@ itemBases["Changeling Talisman"] = {
 itemBases["Nettle Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, ezomyte_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 12, PhysicalMax = 20, CritChanceBase = 11, AttackRateBase = 1.25, Range = 12, },
 	req = { level = 5, str = 9, int = 8, },
@@ -21,7 +21,7 @@ itemBases["Nettle Talisman"] = {
 itemBases["Cinderbark Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, ezomyte_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "(50-80)% increased Flammability Magnitude",
 	implicitModTypes = { { "elemental", "fire", "ailment" }, },
 	weapon = { PhysicalMin = 12, PhysicalMax = 25, FireMin = 5, FireMax = 10, CritChanceBase = 8, AttackRateBase = 1.2, Range = 12, },
@@ -30,7 +30,7 @@ itemBases["Cinderbark Talisman"] = {
 itemBases["Familial Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, maraketh_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Minions deal (30-50)% increased Damage",
 	implicitModTypes = { { "damage", "minion" }, },
 	weapon = { PhysicalMin = 20, PhysicalMax = 34, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
@@ -39,7 +39,7 @@ itemBases["Familial Talisman"] = {
 itemBases["Frenzied Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, maraketh_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 23, PhysicalMax = 38, CritChanceBase = 8, AttackRateBase = 1.4, Range = 12, },
 	req = { level = 22, str = 28, int = 20, },
@@ -47,7 +47,7 @@ itemBases["Frenzied Talisman"] = {
 itemBases["Primal Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, maraketh_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 31, PhysicalMax = 46, CritChanceBase = 9, AttackRateBase = 1.3, Range = 12, },
@@ -56,7 +56,7 @@ itemBases["Primal Talisman"] = {
 itemBases["Rabid Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicit = "+(8-12) to Maximum Rage",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 31, PhysicalMax = 58, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
@@ -65,7 +65,7 @@ itemBases["Rabid Talisman"] = {
 itemBases["Vicious Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 43, PhysicalMax = 71, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
 	req = { level = 40, str = 47, int = 34, },
@@ -73,7 +73,7 @@ itemBases["Vicious Talisman"] = {
 itemBases["Voltfang Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, karui_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "(15-25)% increased Magnitude of Shock you inflict",
 	implicitModTypes = { { "elemental", "lightning", "ailment" }, },
 	weapon = { PhysicalMin = 16, PhysicalMax = 91, LightningMin = 6, LightningMax = 39, CritChanceBase = 8, AttackRateBase = 1.3, Range = 12, },
@@ -82,7 +82,7 @@ itemBases["Voltfang Talisman"] = {
 itemBases["Lumbering Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, karui_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 71, PhysicalMax = 107, CritChanceBase = 5, AttackRateBase = 1.1, Range = 12, },
 	req = { level = 52, str = 60, int = 43, },
@@ -116,7 +116,7 @@ itemBases["Condemned Talisman"] = {
 itemBases["Howling Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, maraketh_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 52, PhysicalMax = 78, CritChanceBase = 9, AttackRateBase = 1.3, Range = 12, },
@@ -125,7 +125,7 @@ itemBases["Howling Talisman"] = {
 itemBases["Fury Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicit = "+(8-12) to Maximum Rage",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 49, PhysicalMax = 91, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
@@ -134,7 +134,7 @@ itemBases["Fury Talisman"] = {
 itemBases["Cruel Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 62, PhysicalMax = 103, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
 	req = { level = 63, str = 72, int = 51, },
@@ -142,7 +142,7 @@ itemBases["Cruel Talisman"] = {
 itemBases["Spiny Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, ezomyte_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 60, PhysicalMax = 99, CritChanceBase = 11, AttackRateBase = 1.25, Range = 12, },
 	req = { level = 67, str = 86, int = 65, },
@@ -150,7 +150,7 @@ itemBases["Spiny Talisman"] = {
 itemBases["Ashbark Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, ezomyte_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "(50-80)% increased Flammability Magnitude",
 	implicitModTypes = { { "elemental", "fire", "ailment" }, },
 	weapon = { PhysicalMin = 50, PhysicalMax = 105, FireMin = 21, FireMax = 45, CritChanceBase = 8, AttackRateBase = 1.2, Range = 12, },
@@ -159,7 +159,7 @@ itemBases["Ashbark Talisman"] = {
 itemBases["Fang Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, maraketh_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "Minions deal (30-50)% increased Damage",
 	implicitModTypes = { { "damage", "minion" }, },
 	weapon = { PhysicalMin = 70, PhysicalMax = 116, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
@@ -168,7 +168,7 @@ itemBases["Fang Talisman"] = {
 itemBases["Fungal Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, maraketh_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 59, PhysicalMax = 98, CritChanceBase = 8, AttackRateBase = 1.4, Range = 12, },
 	req = { level = 78, str = 96, int = 70, },
@@ -176,7 +176,7 @@ itemBases["Fungal Talisman"] = {
 itemBases["Alpha Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, maraketh_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "+(10-15)% to Block chance",
 	implicitModTypes = { { "block" }, },
 	weapon = { PhysicalMin = 63, PhysicalMax = 94, CritChanceBase = 9, AttackRateBase = 1.3, Range = 12, },
@@ -185,7 +185,7 @@ itemBases["Alpha Talisman"] = {
 itemBases["Maji Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicit = "+(8-12) to Maximum Rage",
 	implicitModTypes = { {  }, },
 	weapon = { PhysicalMin = 61, PhysicalMax = 114, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
@@ -194,7 +194,7 @@ itemBases["Maji Talisman"] = {
 itemBases["Wildwood Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 67, PhysicalMax = 112, CritChanceBase = 8, AttackRateBase = 1.25, Range = 12, },
 	req = { level = 70, str = 98, int = 72, },
@@ -202,7 +202,7 @@ itemBases["Wildwood Talisman"] = {
 itemBases["Thunder Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, karui_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicit = "(15-25)% increased Magnitude of Shock you inflict",
 	implicitModTypes = { { "elemental", "lightning", "ailment" }, },
 	weapon = { PhysicalMin = 23, PhysicalMax = 130, LightningMin = 9, LightningMax = 56, CritChanceBase = 8, AttackRateBase = 1.3, Range = 12, },
@@ -211,7 +211,7 @@ itemBases["Thunder Talisman"] = {
 itemBases["Jade Talisman"] = {
 	type = "Talisman",
 	quality = 20,
-	tags = { default = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
+	tags = { default = true, karui_basetype = true, talisman = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 101, PhysicalMax = 151, CritChanceBase = 5, AttackRateBase = 1.1, Range = 12, },
 	req = { level = 78, str = 109, int = 65, },

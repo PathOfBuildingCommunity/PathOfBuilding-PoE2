@@ -91,64 +91,25 @@ return {
 	[5]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
 				limit={
 					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Buff duration is {0} second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
+						[1]=1,
+						[2]="#"
+					},
+					[2]={
+						[1]=1,
 						[2]="#"
 					}
 				},
-				text="Buff duration is {0} seconds"
+				text="Meteors Trigger {0}% more frequently for each\nadditional enemy in radius, up to {1}%"
 			}
 		},
 		stats={
-			[1]="base_skill_effect_duration"
+			[1]="walking_calamity_meteor_frequency_+%_per_enemy_in_walking_calamity_radius",
+			[2]="walking_calamity_meteor_frequency_+%_cap"
 		}
 	},
 	[6]={
-		[1]={
-		},
-		stats={
-			[1]="skill_effect_duration"
-		}
-	},
-	[7]={
-		[1]={
-			[1]={
-				[1]={
-					k="per_minute_to_per_second_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Buff grants {0} Rage regenerated per second"
-			}
-		},
-		stats={
-			[1]="walking_calamity_base_rage_regeneration_per_minute"
-		}
-	},
-	[8]={
 		[1]={
 			[1]={
 				[1]={
@@ -181,9 +142,79 @@ return {
 			[1]="walking_calamity_large_meteor_same_target_prevention_duration_ms"
 		}
 	},
+	[7]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
+				text="Buff duration is {0} second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Buff duration is {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_skill_effect_duration"
+		}
+	},
+	[8]={
+		[1]={
+		},
+		stats={
+			[1]="skill_effect_duration"
+		}
+	},
 	[9]={
 		[1]={
 			[1]={
+				[1]={
+					k="per_minute_to_per_second_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Buff grants {0} Rage regenerated per second"
+			}
+		},
+		stats={
+			[1]="walking_calamity_base_rage_regeneration_per_minute"
+		}
+	},
+	[10]={
+		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Buff grants {0:+d}% of damage Gained as Fire damage"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]="#",
@@ -199,12 +230,14 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=3,
 	["active_skill_base_area_of_effect_radius"]=4,
-	["base_skill_effect_duration"]=5,
+	["base_skill_effect_duration"]=7,
 	parent="skill_stat_descriptions",
-	["skill_effect_duration"]=6,
-	["walking_calamity_base_rage_regeneration_per_minute"]=7,
+	["skill_effect_duration"]=8,
+	["walking_calamity_base_rage_regeneration_per_minute"]=9,
 	["walking_calamity_large_meteor_every"]=2,
-	["walking_calamity_large_meteor_same_target_prevention_duration_ms"]=8,
-	["walking_calamity_non_skill_base_all_damage_%_to_gain_as_fire"]=9,
+	["walking_calamity_large_meteor_same_target_prevention_duration_ms"]=6,
+	["walking_calamity_meteor_frequency_+%_cap"]=5,
+	["walking_calamity_meteor_frequency_+%_per_enemy_in_walking_calamity_radius"]=5,
+	["walking_calamity_non_skill_base_all_damage_%_to_gain_as_fire"]=10,
 	["walking_calamity_spawn_meteor_every_ms"]=1
 }

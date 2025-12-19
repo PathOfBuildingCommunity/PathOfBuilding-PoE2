@@ -1,5 +1,37 @@
 # Changelog
 
+## [v0.14.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.14.0) (2025/12/19)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.13.0...v0.14.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add support for while Shapeshifted and add Shapeshift base stats [\#1636](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1636) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Entwined Realities [\#1642](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1642) ([Wires77](https://github.com/Wires77))
+- Add support for Disciples reduced Focus Effect Ascendancy [\#1647](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1647) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for changed Smith of Kitava nodes [\#1640](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1640) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Warbringer Imploding Impacts [\#1624](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1624) ([user-74](https://github.com/user-74))
+- Support for many changed Ascendancy nodes [\#1650](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1650) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support Garukhan's Resolve and Oisín's Oath [\#1651](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1651) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for a many new tree mods [\#1649](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1649) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Instruments of Power + Lord of the Wilds weapon mods [\#1646](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1646) ([LocalIdentity](https://github.com/LocalIdentity))
+- Add support for Surpassing Chance for additional projectiles [\#1655](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1655) ([LocalIdentity](https://github.com/LocalIdentity))
+- Update Tailwind and basic attack rate from 0.4 patch notes [\#1639](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1639) ([LocalIdentity](https://github.com/LocalIdentity))
+### Fixed Crashes
+- Fix Crash when using importing build with radius jewel [\#1621](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1621) ([LocalIdentity](https://github.com/LocalIdentity))
+### User Interface
+- Fix Small Passive effect mod not visually changing mods on the tree [\#1653](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1653) ([LocalIdentity](https://github.com/LocalIdentity))
+- Show Vaal item icon, colour mutated mods and fix import of mutated mods [\#1629](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1629) ([Blitz54](https://github.com/Blitz54))
+- Fix font for Elemental Damage on weapon [\#1628](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1628) ([Blitz54](https://github.com/Blitz54))
+### Fixed Behaviours
+- Fix Pathfinder's alternate start nodes not connecting [\#1618](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1618) ([Wires77](https://github.com/Wires77))
+- Fix Quest import on low level characters [\#1641](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1641) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix fully broken armour's damage increase not applying to negative armour [\#1624](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1624) ([user-74](https://github.com/user-74))
+- Fix Talisman's not appearing in Trader [\#1626](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1626) ([LocalIdentity](https://github.com/LocalIdentity))
+- Fix Poison III, Admixture and Poisonburst Arrow Poison Magnitude mods not working [\#1630](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1630) ([LocalIdentity](https://github.com/LocalIdentity))
+
+
 ## [v0.13.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.13.0) (2025/12/15)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.12.2...v0.13.0)

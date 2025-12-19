@@ -540,7 +540,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Create Cold Infusion Remnants instead of Fire Infusion Remnants\nCreate Fire Infusion Remnants instead of Lightning Infusion Remnants\nCreate Lightning Infusion Remnants instead of Cold Infusion Remnants"
+				text="Create Lightning Infusion Remnants instead of Fire\nCreate Cold Infusion Remnants instead of Lightning\nCreate Fire Infusion Remnants instead of Cold"
 			}
 		},
 		stats={
@@ -2061,7 +2061,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="Each Adaptation grants {0}% less Damage taken of that Adaptation's type"
+				text="{0}% less Damage taken of each Elemental Damage Type per matching Adaptation"
 			},
 			[2]={
 				limit={
@@ -2070,7 +2070,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Each Adaptation grants {0}% more Damage taken of that Adaptation's type"
+				text="{0}% more Damage taken of each Elemental Damage Type per matching Adaptation"
 			}
 		},
 		stats={
@@ -3102,7 +3102,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell\nSpells for which this Sacrifice was fully made deal {0}% more Damage"
+				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell\nSpells for which this Sacrifice was fully made deal {1}% more Damage"
 			},
 			[3]={
 				[1]={
@@ -3119,7 +3119,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell\nSpells for which this Sacrifice was fully made deal {0}% less Damage"
+				text="Sacrifice {0}% of maximum Energy Shield when you Cast a Spell\nSpells for which this Sacrifice was fully made deal {1}% less Damage"
 			}
 		},
 		stats={
