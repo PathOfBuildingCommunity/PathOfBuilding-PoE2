@@ -1055,6 +1055,23 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 		end
 	end
+
+	-- Draw ring overlays for other sources of intuitive leap-like effects
+	for _, effectData in ipairs(spec.intuitiveLeapLikeNodes) do
+		local radData = build.data.jewelRadius[effectData.radiusIndex]
+		local outerSize = radData.outer * data.gameConstants["PassiveTreeJewelDistanceMultiplier"] * scale
+		if effectData.from == "Keystone" then
+			for keystoneName, keystoneNode in pairs(spec.tree.keystoneMap) do
+				if keystoneNode and spec.allocNodes[keystoneNode.id]
+					and keystoneName == keystoneNode.name -- keystoneMap contains both TitleCase and lowercase names, so we only need to draw once
+					and keystoneNode.x and keystoneNode.y then
+					local keyX, keyY = treeToScreen(keystoneNode.x, keystoneNode.y)
+					self:DrawImageRotated(self.jewelShadedOuterRing, keyX, keyY, outerSize * 2, outerSize * 2,  -0.7)
+					self:DrawImageRotated(self.jewelShadedOuterRingFlipped, keyX, keyY, outerSize * 2, outerSize * 2, 0.7)
+				end
+			end
+		end
+	end
 end
 
 -- Draws the given asset at the given position
