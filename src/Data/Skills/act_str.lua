@@ -1028,7 +1028,7 @@ skills["ArtilleryBallistaPlayer"] = {
 	}
 }
 skills["ArtilleryBallistaProjectilePlayer"] = {
-	name = "",
+	name = "Ballista Bolt",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Sustained] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.UsedByTotem] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
