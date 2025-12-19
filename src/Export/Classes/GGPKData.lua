@@ -299,6 +299,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/PassiveJewelArt.dat",
 		"Data/Balance/PassiveJewelRadiiArt.dat",
 		"Data/Balance/PassiveJewelUniqueArt.dat",
+		"Data/Balance/PassiveNodeTypes.dat",
+		"Data/Balance/PassiveSkillTypes.dat",
 		"Data/Balance/QuestStaticRewards.dat",
 		"Data/Balance/QuestFlags.dat",
 		"Data/Balance/Quest.dat",

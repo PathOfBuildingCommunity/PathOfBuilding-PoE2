@@ -5002,7 +5002,7 @@ skills["SupportMirageArcherPlayer"] = {
 skills["MirageArcherSpawnPlayer"] = {
 	name = "",
 	hidden = true,
-	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
+	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Proxy] = true, },
 	weaponTypes = {
 		["Bow"] = true,
 		["Crossbow"] = true,

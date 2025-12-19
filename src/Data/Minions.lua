@@ -936,6 +936,7 @@ minions["WaterDjinn"] = {
 		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
 		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
 		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
+		-- set_dont_replace_minion_if_level_changed_until_end_of_action [set_dont_replace_minion_if_level_changed_until_end_of_action = 1]
 	},
 }
 
@@ -985,6 +986,7 @@ minions["FireDjinn"] = {
 		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
 		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
 		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
+		-- set_dont_replace_minion_if_level_changed_until_end_of_action [set_dont_replace_minion_if_level_changed_until_end_of_action = 1]
 	},
 }
 
@@ -1032,5 +1034,6 @@ minions["SandDjinn"] = {
 		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
 		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
 		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
+		-- set_dont_replace_minion_if_level_changed_until_end_of_action [set_dont_replace_minion_if_level_changed_until_end_of_action = 1]
 	},
 }

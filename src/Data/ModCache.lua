@@ -827,7 +827,7 @@ c["+75% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",typ
 c["+75% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=75}},nil}
 c["+76 to Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=76}},nil}
 c["+77 to maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="BASE",value=77}},nil}
-c["+8 maximum Rage for each time you've used a Skill that Requires Glory in the past 6 seconds"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=8}},"  for each time you've used a Skill that Requires Glory in the past 6 seconds "}
+c["+8 maximum Rage for each time you've used a Skill that Requires Glory in the past 6 seconds, up to 5 times"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=8}},"  for each time you've used a Skill that Requires Glory in the past 6 seconds, up to 5 times "}
 c["+8 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=8}},nil}
 c["+8 to Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="BASE",value=8}},nil}
 c["+8 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=8}},nil}

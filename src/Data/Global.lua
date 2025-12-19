@@ -596,6 +596,7 @@ SkillType = {
 	DisableUpdateActionLocationAfterRelease = 256,
 	InteractsWithElementalGround = 257,
 	SupportedByNovaProjectiles = 258,
+	Proxy = 259,
 }
 
 -- build reverse lookup

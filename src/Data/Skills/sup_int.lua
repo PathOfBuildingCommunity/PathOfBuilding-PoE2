@@ -5521,6 +5521,7 @@ skills["TriggeredLivingLightningPlayer"] = {
 			},
 			stats = {
 				"display_minion_level_from_triggering_skill_level",
+				"triggerable_in_any_set",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5647,6 +5648,7 @@ skills["TriggeredLivingLightningPlayerTwo"] = {
 			},
 			stats = {
 				"display_minion_level_from_triggering_skill_level",
+				"triggerable_in_any_set",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

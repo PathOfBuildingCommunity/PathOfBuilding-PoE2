@@ -8773,7 +8773,7 @@ return {
 						[2]=99
 					}
 				},
-				text="{0}% chance to gain an Abyssal Monster Modifier when a Minion from Supported Skills dies\nMaximum 3 Abyssal Monster Modifiers gained this way"
+				text="{0}% chance to gain an Abyssal Monster Modifier for 20 seconds when a Minion from Supported Skills dies\nMaximum 3 Abyssal Monster Modifiers gained this way"
 			},
 			[2]={
 				limit={
@@ -8782,7 +8782,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Gain an Abyssal Monster Modifier when a Minion from Supported Skills dies\nMaximum 3 Abyssal Monster Modifiers gained this way"
+				text="Gain an Abyssal Monster Modifier for 20 Seconds when a Minion from Supported Skills dies\nMaximum 3 Abyssal Monster Modifiers gained this way"
 			}
 		},
 		stats={
