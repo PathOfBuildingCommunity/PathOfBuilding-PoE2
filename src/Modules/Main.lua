@@ -102,6 +102,7 @@ function main:Init()
 	self.thousandsSeparator = ","
 	self.decimalSeparator = "."
 	self.defaultItemAffixQuality = 0.5
+	self.defaultItemQuality = 0
 	self.showTitlebarName = true
 	self.dpiScaleOverridePercent = GetDPIScaleOverridePercent and GetDPIScaleOverridePercent() or 0
 	self.showWarnings = true
@@ -623,6 +624,9 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.defaultGemQuality then
 					self.defaultGemQuality = m_min(tonumber(node.attrib.defaultGemQuality) or 0, 23)
 				end
+				if node.attrib.defaultItemQuality then
+					self.defaultItemQuality = m_min(tonumber(node.attrib.defaultItemQuality) or 0, 20)
+				end
 				if node.attrib.defaultCharLevel then
 					self.defaultCharLevel = m_min(m_max(tonumber(node.attrib.defaultCharLevel) or 1, 1), 100)
 				end
@@ -782,7 +786,8 @@ function main:SaveSettings()
 		showTitlebarName = tostring(self.showTitlebarName),
 		betaTest = tostring(self.betaTest),
 		edgeSearchHighlight = tostring(self.edgeSearchHighlight),
-		defaultGemQuality = tostring(self.defaultGemQuality or 0),
+			defaultGemQuality = tostring(self.defaultGemQuality or 0),
+			defaultItemQuality = tostring(self.defaultItemQuality or 0),
 		defaultCharLevel = tostring(self.defaultCharLevel or 1),
 		defaultItemAffixQuality = tostring(self.defaultItemAffixQuality or 0.5),
 		lastExportWebsite = self.lastExportWebsite,
@@ -1041,6 +1046,13 @@ function main:OpenOptionsPopup()
 	end)
 	controls.defaultGemQuality.tooltipText = "Set the default quality that can be overwritten by build-related quality settings in the skill panel."
 	controls.defaultGemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultGemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default gem quality:")
+
+	nextRow()
+	controls.defaultItemQuality = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultItemQuality, nil, "%D", 2, function(itemQuality)
+		self.defaultItemQuality = m_min(tonumber(itemQuality) or 0, 20)
+	end)
+	controls.defaultItemQuality.tooltipText = "Set the default quality that will be applied to newly created or pasted items."
+	controls.defaultItemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultItemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default item quality:")
 
 	nextRow()
 	controls.defaultCharLevel = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultCharLevel, nil, "%D", 3, function(charLevel)
