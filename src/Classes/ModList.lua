@@ -224,9 +224,10 @@ end
 ---@return boolean @true if the mod is found, false otherwise.
 function ModListClass:HasModInternal(modType, flags, keywordFlags, source, ...)
 	for i = 1, select('#', ...) do
+		local modName = select(i, ...)
 		for i = 1, #self do
 			local mod = self[i]
-			if mod.type == modType and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not source or mod.source:match("[^:]+") == source) then
+			if mod.name == modName and mod.type == modType and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not source or mod.source:match("[^:]+") == source) then
 				return true
 			end
 		end
