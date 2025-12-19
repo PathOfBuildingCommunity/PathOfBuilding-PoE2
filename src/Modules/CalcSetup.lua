@@ -656,10 +656,11 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("ManaDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "EffectiveManaBurnStacks" })
 		modDB:NewMod("LifeDegenPercent", "BASE", 1, "Base", { type = "Multiplier", var = "WeepingWoundsStacks" })
 		modDB:NewMod("WeaponSwapSpeed", "BASE", data.characterConstants["base_weapon_swap_duration_ms"], "Base")  -- 250ms
-		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Attack, { type = "Multiplier", var = "Tailwind", limit = 10 })
-		modDB:NewMod("Speed", "INC", 3, "Base", ModFlag.Cast, { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("Speed", "INC", 2, "Base", ModFlag.Attack, { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("Speed", "INC", 2, "Base", ModFlag.Cast, { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("MovementSpeed", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
-		modDB:NewMod("Evasion", "INC", 15, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("DeflectEffect", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
+		modDB:NewMod("Evasion", "INC", 10, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("SkillSlots", "BASE", 9, "Base")
 
 		-- Initialise enemy modifier database

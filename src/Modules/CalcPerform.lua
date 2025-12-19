@@ -417,9 +417,9 @@ local function doActorAttribsConditions(env, actor)
 	calcBuffRadius(actor, "Presence")
 	calcBuffRadius(actor, "Surrounded")
 	local enemyDistance = m_max(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 0)
-	local surroundedMinimum= m_max(modDB:Sum("BASE", nil, "SurroundedMinimum"), 0)
+	local surroundedMinimum= m_max(modDB:Sum("BASE", nil, "SurroundedMinimum"), 1)
 	condList["EnemyInPresence"] = output.PresenceRadius >= enemyDistance
-	condList["Surrounded"] = surroundedMinimum == 0 or surroundedMinimum == 1 and output.SurroundedRadius >= enemyDistance
+	condList["Surrounded"] = surroundedMinimum == 1 and output.SurroundedRadius >= enemyDistance
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit
