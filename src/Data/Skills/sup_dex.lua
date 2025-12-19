@@ -130,10 +130,10 @@ skills["SupportAdmixturePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["mixed_maladies_poison_effect_+%_final_vs_bleeding"] = {
-					mod("Damage", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 				},
 				["mixed_maladies_bleed_effect_+%_final_vs_poisoned"] = {
-					mod("Damage", "MORE", nil, 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", var = "Poisoned" }),
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Bleed, { type = "ActorCondition", actor = "enemy", var = "Poisoned" }),
 				},
 			},
 			baseFlags = {
@@ -2401,6 +2401,11 @@ skills["SupportGarukhansResolvePlayer"] = {
 			label = "Garukhan's Resolve",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["maximum_critical_strike_chance_is_%_from_support_garukhans_resolve"] = {
+					mod("CritChanceCap", "OVERRIDE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -4028,7 +4033,7 @@ skills["SupportPoisonPlayerThree"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["mixed_maladies_poison_effect_+%_final_vs_bleeding"] = {
-					mod("Damage", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
+					mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }),
 				},
 			},
 			baseFlags = {

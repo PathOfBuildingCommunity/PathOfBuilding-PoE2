@@ -265,6 +265,26 @@ local function doActorAttribsConditions(env, actor)
 				condList["Channelling"] = true
 			end
 		end
+		if actor.mainSkill.skillTypes[SkillType.Bear] then
+			condList["Shapeshifted"] = true
+			condList["BearForm"] = true
+			modDB:NewMod("ArmourAppliesToFireDamageTaken", "BASE", 30, "Bear Form")
+			modDB:NewMod("ArmourAppliesToColdDamageTaken", "BASE", 30, "Bear Form")
+			modDB:NewMod("ArmourAppliesToLightningDamageTaken", "BASE", 30, "Bear Form")
+			modDB:NewMod("Armour", "BASE", 10, "Bear Form", { type = "Multiplier", var = "Level", base = 10 })
+		end
+		if actor.mainSkill.skillTypes[SkillType.Wolf] then
+			condList["Shapeshifted"] = true
+			condList["WolfForm"] = true
+			modDB:NewMod("MovementSpeed", "INC", 30, "Wolf Form")
+		end
+		if actor.mainSkill.skillTypes[SkillType.Wyvern] then
+			condList["Shapeshifted"] = true
+			condList["WyvernForm"] = true
+			modDB:NewMod("EnergyShieldRechargeFaster", "INC", 50, "Wyvern Form")
+			modDB:NewMod("StunThreshold", "INC", 50, "Wyvern Form")
+			modDB:NewMod("AilmentThreshold", "INC", 50, "Wyvern Form")
+		end
 		if skillFlags.hit and not skillFlags.trap and not skillFlags.mine and not skillFlags.totem then
 			condList["HitRecently"] = true
 			if skillFlags.spell then
@@ -376,9 +396,10 @@ local function doActorAttribsConditions(env, actor)
 		if not modDB:Flag(nil, "NoStrengthAttributeBonuses") then
 			if not modDB:Flag(nil, "NoStrBonusToLife") then
 				if modDB:Flag(nil, "HalvesLifeFromStrength") then
-					inherentAttributeMultiplier = inherentAttributeMultiplier * 0.5
+					modDB:NewMod("Life", "BASE", output.Str * 1 * inherentAttributeMultiplier, "Strength")
+				else
+					modDB:NewMod("Life", "BASE", output.Str * 2 * inherentAttributeMultiplier, "Strength")
 				end
-				modDB:NewMod("Life", "BASE", output.Str * 2 * inherentAttributeMultiplier, "Strength")
 			end
 		end
 		if not modDB:Flag(nil, "NoDexterityAttributeBonuses") then
@@ -396,9 +417,9 @@ local function doActorAttribsConditions(env, actor)
 	calcBuffRadius(actor, "Presence")
 	calcBuffRadius(actor, "Surrounded")
 	local enemyDistance = m_max(modDB:Sum("BASE", nil, "Multiplier:enemyDistance"), 0)
-	local surroundedMinimum= m_max(modDB:Sum("BASE", nil, "SurroundedMinimum"), 0)
+	local surroundedMinimum= m_max(modDB:Sum("BASE", nil, "SurroundedMinimum"), 1)
 	condList["EnemyInPresence"] = output.PresenceRadius >= enemyDistance
-	condList["Surrounded"] = surroundedMinimum == 0 or surroundedMinimum == 1 and output.SurroundedRadius >= enemyDistance
+	condList["Surrounded"] = surroundedMinimum == 1 and output.SurroundedRadius >= enemyDistance
 end
 
 -- Helper function to determine curse priority when processing curses beyond the curse limit
@@ -1444,7 +1465,7 @@ function calcs.perform(env, skipEHP)
 
 	local effectInc = modDB:Sum("INC", {actor = "player"}, "CharmEffect")
 	local effectIncMagic = modDB:Sum("INC", {actor = "player"}, "MagicCharmEffect")
-	local charmLimit = modDB:Override(nil, "CharmLimit") or modDB:Sum("BASE", nil, "CharmLimit")
+	local charmLimit = m_min(modDB:Override(nil, "CharmLimit") or modDB:Sum("BASE", nil, "CharmLimit"), 3)
 
 	-- charm breakdown
 	if breakdown then
@@ -1488,6 +1509,8 @@ function calcs.perform(env, skipEHP)
 				mergeBuff(srcList, charmBuffsPerBase[item.baseName], key)
 			end
 		end
+		
+		local usedCharms = 0
 		for item in pairs(charms) do
 			if charmLimit <= 0 then
 				break
@@ -1498,6 +1521,7 @@ function calcs.perform(env, skipEHP)
 			charmConditions["Using"..item.baseName:gsub("%s+", "")] = true
 			calcCharmMods(item, item.baseName, item.buffModList, item.modList)
 		end
+		output.EmptyCharms = charmLimit
 		for charmCond, status in pairs(charmConditions) do
 			modDB.conditions[charmCond] = status
 		end
