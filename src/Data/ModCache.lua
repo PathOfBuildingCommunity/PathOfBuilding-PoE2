@@ -4870,7 +4870,7 @@ c["Evasion Rating from Equipped Helmet, Gloves and Boots is doubled"]={{[1]={[1]
 c["Evasion Rating is doubled if you have not been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},[2]={globalLimit=100,globalLimitKey="EvasionDoubledLimit",type="Multiplier",var="EvasionDoubled"},flags=0,keywordFlags=0,name="Evasion",type="MORE",value=100},[2]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Multiplier:EvasionDoubled",type="OVERRIDE",value=1}},nil}
 c["Evasion Rating is increased by Uncapped Lightning Resistance"]={nil,"Evasion Rating is increased by Uncapped Lightning Resistance "}
 c["Everlasting Sacrifice"]={{[1]={flags=0,keywordFlags=0,name="Condition:EverlastingSacrifice",type="FLAG",value=true}},nil}
-c["Every 10 Rage also grants 12% increased Physical Damage"]={nil,"Every 10 Rage also grants 12% increased Physical Damage "}
+c["Every 10 Rage also grants 12% increased Physical Damage"]={{[1]={[1]={div=10,stat="Rage",type="PerStat"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=12}},nil}
 c["Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds"]={nil,"Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds "}
 c["Every 2 Rage also grants 1% more Spell damage"]={{[1]={[1]={div=2,type="Multiplier",var="RageEffect"},flags=2,keywordFlags=0,name="Damage",type="MORE",value=1}},nil}
 c["Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres"]={nil,"Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres "}
@@ -5664,7 +5664,7 @@ c["No Inherent loss of Rage during effect"]={nil,"No Inherent loss of Rage durin
 c["No Inherent loss of Rage during effect 50% increased Duration"]={nil,"No Inherent loss of Rage during effect 50% increased Duration "}
 c["No Movement Speed Penalty while Shield is Raised"]={nil,"No Movement Speed Penalty while Shield is Raised "}
 c["No Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMin"}},[2]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMax"}},[3]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalDPS"}}},nil}
-c["No Rage effect"]={nil,"No Rage effect "}
+c["No Rage effect"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoRageEffect",type="FLAG",value=true}},nil}
 c["No inherent Mana Regeneration"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoInherentManaRegen",type="FLAG",value=true}},nil}
 c["Non-Channelling Spells cost an additional 6% of your maximum Life"]={{[1]={[1]={floor=true,percent=6,stat="Life",type="PercentStat"},[2]={neg=true,skillType=48,type="SkillType"},flags=0,keywordFlags=131072,name="LifeCostBase",type="BASE",value=1}},nil}
 c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
@@ -5990,8 +5990,8 @@ c["Spells Cast by Totems have 3% increased Cast Speed per Summoned Totem"]={{[1]
 c["Spells Cast by Totems have 4% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Spells Cast by Totems have 5% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=5}},nil}
 c["Spells Cast by Totems have 6% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=6}},nil}
-c["Spells Gain 12% of Damage as extra Chaos Damage"]={nil,"Spells Gain 12% of Damage as extra Chaos Damage "}
-c["Spells Gain 5% of Damage as extra Chaos Damage"]={nil,"Spells Gain 5% of Damage as extra Chaos Damage "}
+c["Spells Gain 12% of Damage as extra Chaos Damage"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="NonChaosDamageGainAsChaos",type="BASE",value=12}},nil}
+c["Spells Gain 5% of Damage as extra Chaos Damage"]={{[1]={[1]={skillType=2,type="SkillType"},flags=0,keywordFlags=0,name="NonChaosDamageGainAsChaos",type="BASE",value=5}},nil}
 c["Spells consume a Power Charge if able to deal 40% more Damage"]={nil,"Spells consume a Power Charge if able to deal 40% more Damage "}
 c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="ProjectileCount",type="BASE",value=4}},nil}
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}

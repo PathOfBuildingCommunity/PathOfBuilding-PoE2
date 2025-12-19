@@ -643,7 +643,11 @@ local function doActorMisc(env, actor)
 			local minStacks = m_min(modDB:Sum("BASE", nil, "MinimumRage"), maxStacks)
 			local rageConfig = modDB:Sum("BASE", nil, "Multiplier:RageStack")
 			local stacks = m_max(m_min(rageConfig, maxStacks), (minStacks > 0 and minStacks) or 0)
-			output.RageEffect =  m_floor(stacks * calcLib.mod(modDB, nil, "RageEffect"))
+			if modDB:Flag(nil, "Condition:NoRageEffect") then
+				output.RageEffect = 0
+			else
+				output.RageEffect = m_floor(stacks * calcLib.mod(modDB, nil, "RageEffect"))
+			end
 			modDB:NewMod("Multiplier:RageEffect", "BASE", output.RageEffect, "Base")
 			output.Rage = stacks
 			output.MaximumRage = maxStacks

@@ -2268,6 +2268,7 @@ local specialModList = {
 		return explodeFunc(chance, amount, type)
 	end,
 	-- Keystones
+	["no rage effect"] = { flag("Condition:NoRageEffect") },
 	["dodge roll cannot avoid damage"] = {},
 	["take (%d+)%% less damage from hits while dodge rolling"] = function(num) return{mod("DamageTakenWhenHit", "MORE", -num, {type = "Condition", var = "InDodgeRoll"})} end,
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
@@ -4666,6 +4667,7 @@ local specialModList = {
 	["arrows that pierce deal (%d+)%% increased damage"] = function(num) return { mod("Damage", "INC", num, nil, bor(ModFlag.Attack, ModFlag.Projectile), { type = "StatThreshold", stat = "PierceCount", threshold = 1 }) } end,
 	["projectiles gain (%d+)%% of non%-chaos damage as extra chaos damage per chain"] = function(num) return { mod("NonChaosDamageGainAsChaos", "BASE", num, nil, ModFlag.Projectile, { type = "PerStat", stat = "Chain" }) } end,
 	["projectiles that have chained gain (%d+)%% of non%-chaos damage as extra chaos damage"] = function(num) return { mod("NonChaosDamageGainAsChaos", "BASE", num, nil, ModFlag.Projectile, { type = "StatThreshold", stat = "Chain", threshold = 1 }) } end,
+	["spells gain (%d+)%% of damage as extra chaos damage"] = function(num) return { mod("NonChaosDamageGainAsChaos", "BASE", num, { type = "SkillType", skillType = SkillType.Spell}) } end,
 	["left ring slot: projectiles from spells cannot chain"] = { flag("CannotChain", nil, bor(ModFlag.Spell, ModFlag.Projectile), { type = "SlotNumber", num = 1 }) },
 	["left ring slot: projectiles from spells fork"] = { flag("ForkOnce", nil, bor(ModFlag.Spell, ModFlag.Projectile), { type = "SlotNumber", num = 1 }), mod("ForkCountMax", "BASE", 1, nil, bor(ModFlag.Spell, ModFlag.Projectile), { type = "SlotNumber", num = 1 }) },
 	["left ring slot: your chilling skitterbot's aura applies socketed h?e?x? ?curse instead"] = { flag("SkitterbotsCannotChill", { type = "SlotNumber", num = 1 }) },
@@ -5586,6 +5588,7 @@ local specialModList = {
 	} end,
 	["when you lose temporal chains you gain maximum rage"] = { flag("Condition:CanGainRage") },
 	["with a murderous eye jewel socketed, melee attacks grant (%d+) rage on hit, no more than once every second"] = { flag("Condition:CanGainRage", { type = "Condition", var = "HaveMurderousEyeJewelIn{SlotName}" }) },
+	["every (%d+) rage also grants (%d+)%% increased physical damage"] = function(div, _, num) return { mod("PhysicalDamage", "INC", tonumber(num), { type = "PerStat", stat = "Rage", div = div } ) } end,
 	["gain %d+ rage after spending a total of %d+ mana"] = { flag("Condition:CanGainRage") },
 	["rage grants cast speed instead of attack speed"] = { flag("Condition:RageCastSpeed") },
 	["rage grants spell damage instead of attack damage"] = { flag("Condition:RageSpellDamage") },
