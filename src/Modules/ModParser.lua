@@ -3273,6 +3273,11 @@ local specialModList = {
 		mod("ManaCost", "MORE", -count, { type = "Condition", var = "MostNumerousBlueSocketedSupports" })
 	} end,
 	
+	-- Huntress - Ritualist
+	["(%d+)%% more damage against enemies affected by blood boils"] = function(num) return {
+		mod("Damage", "MORE", num, {type = "Condition", var = "EnemyAffectedByBloodBoils"}),
+		flag("EnemyBloodBoils"),
+	} end,
 	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
