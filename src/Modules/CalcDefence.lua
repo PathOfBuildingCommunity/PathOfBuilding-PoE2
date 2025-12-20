@@ -2044,8 +2044,11 @@ function calcs.buildDefenceEstimations(env, actor)
 			}
 		end
 		local enemyCritChance = enemyDB:Flag(nil, "NeverCrit") and 0 or enemyDB:Flag(nil, "AlwaysCrit") and 100 or (m_max(m_min((modDB:Override(nil, "enemyCritChance") or env.configInput["enemyCritChance"] or env.configPlaceholder["enemyCritChance"] or 0) * (1 + modDB:Sum("INC", nil, "EnemyCritChance") / 100 + enemyDB:Sum("INC", nil, "CritChance") / 100) * (1 - output["ConfiguredEvadeChance"] / 100), 100), 0))
+		if modDB:Flag(nil, "EnemyUnluckyCrit") then
+			enemyCritChance = enemyCritChance / 100 * enemyCritChance
+		end
 		output["EnemyCritChance"] = enemyCritChance
-		local enemyCritDamage = m_max((env.configInput["enemyCritDamage"] or env.configPlaceholder["enemyCritDamage"] or 0) + enemyDB:Sum("BASE", nil, "CritMultiplier"), 0)
+		local enemyCritDamage = m_max(((env.configInput["enemyCritDamage"] or env.configPlaceholder["enemyCritDamage"] or 0) + enemyDB:Sum("BASE", nil, "CritMultiplier")) * (1 + enemyDB:Sum("INC", { flags = ModFlag.Hit }, "CritMultiplier") / 100), 0)
 		output["EnemyCritEffect"] = 1 + enemyCritChance / 100 * (enemyCritDamage / 100) * (1 - output.CritExtraDamageReduction / 100)
 		local enemyCfg = {keywordFlags = NOT64(KeywordFlag.MatchAll)} -- Match all keywordFlags parameter for enemy min-max damage mods
 		local enemyDamageConversion = {}

@@ -281,6 +281,9 @@ return {
 ["support_spell_echo_number_of_echo_cascades"] = {
 	mod("RepeatCount", "BASE", nil, 0, 0, {type = "SkillType", skillType = SkillType.Cascadable }),
 },
+["support_spell_echo_area_of_effect_+%"] = {
+	mod("RepeatAreaOfEffect", "INC", nil),
+},
 ["base_melee_attack_repeat_count"] = {
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.WeaponMelee, ModFlag.Unarmed) }),
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.RequiresShield }),
@@ -399,6 +402,10 @@ return {
 },
 ["no_mana_cost"] = {
 	mod("ManaCost", "MORE", nil),
+	value = -100,
+},
+["no_cost"] = {
+	mod("Cost", "MORE", nil),
 	value = -100,
 },
 ["base_mana_cost_efficiency_"] = {
@@ -958,6 +965,9 @@ return {
 ["attack_damage_is_lucky_if_surrounded"] = {
 	flag("LuckyHits", { type = "Condition", var = "Surrounded" })
 },
+["attacks_roll_crits_twice"] = {
+	flag("BifurcateCrit", { type = "SkillType", skillType = SkillType.Attack } )
+},
 ["damage_vs_enemies_on_low_life_+%"] = {
 	mod("Damage", "INC", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "LowLife"})
 },
@@ -1386,6 +1396,9 @@ return {
 },
 ["base_poison_damage_+%"] = {
 	mod("Damage", "INC", nil, 0, KeywordFlag.Poison),
+},
+["active_skill_poison_effect_+%_final"] = {
+	mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Poison),
 },
 ["critical_poison_dot_multiplier_+"] = {
 	mod("DotMultiplier", "BASE", nil, 0, KeywordFlag.Poison, { type = "Condition", var = "CriticalStrike" }),

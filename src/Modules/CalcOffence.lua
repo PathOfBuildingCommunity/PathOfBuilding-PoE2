@@ -910,12 +910,12 @@ function calcs.offence(env, actor, activeSkill)
 			local dpsMulti = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * (calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage"))
 			skillModList:NewMod("DPS", "MORE", dpsMulti, "Barrage Repeats")
 		else
-			local additionalProjectiles = calcLib.val(skillModList, "ProjectileCount", skillCfg) - 1
+			local additionalProjectiles = (skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100 - 1) * skillModList:More(skillCfg, "ProjectileCount")
 			if additionalProjectiles > 0 then
 				local barrageAttackTimePenalty = skillModList:Sum("BASE", skillCfg, "BarrageAttackTimePenalty") 
 				if barrageAttackTimePenalty == 0 then barrageAttackTimePenalty = 100 end -- If not otherwise specified on the skill, each additional projectile adds 100% of attack time
 				skillModList:ReplaceMod("SkillAttackTime", "MORE", barrageAttackTimePenalty * additionalProjectiles, activeSkill.activeEffect.grantedEffect.name .. s_format(": %d%% attack time per add. projectile", barrageAttackTimePenalty) )
-				skillModList:NewMod("DPS", "MORE", skillModList:Sum("BASE", skillCfg, "ProjectileCount"), "Barrage Repeats")
+				skillModList:NewMod("DPS", "MORE", skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100, "Barrage Repeats")
 			end
 		end
 	end
@@ -924,6 +924,14 @@ function calcs.offence(env, actor, activeSkill)
 		output.RepeatCount = output.Repeats
 		-- handle all the multipliers from Repeats
 		if env.configInput.repeatMode ~= "NONE" then
+			for i, value in ipairs(skillModList:Tabulate("INC", skillCfg, "RepeatAreaOfEffect")) do
+				local mod = value.mod
+				local modValue = mod.value
+				if env.configInput.repeatMode == "AVERAGE" then
+					modValue = modValue * (output.Repeats - 1) / output.Repeats
+				end
+				skillModList:NewMod("AreaOfEffect", "INC", modValue, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			end
 			for i, value in ipairs(skillModList:Tabulate("INC", skillCfg, "RepeatFinalAreaOfEffect")) do
 				local mod = value.mod
 				local modValue = mod.value
@@ -1089,9 +1097,24 @@ function calcs.offence(env, actor, activeSkill)
 			})
 		end
 	end
-	if skillModList:Sum("BASE", skillCfg, "PhysicalDamageGainAsRandom", "PhysicalDamageConvertToRandom", "PhysicalDamageGainAsColdOrLightning") > 0 then
+	if skillModList:Sum("BASE", skillCfg, "PhysicalDamageGainAsRandom", "PhysicalDamageConvertToRandom", "PhysicalDamageGainAsColdOrLightning", "DamageGainAsRandom") > 0 then
 		skillFlags.randomPhys = true
 		local physMode = env.configInput.physMode or "AVERAGE"
+		for i, value in ipairs(skillModList:Tabulate("BASE", skillCfg, "DamageGainAsRandom")) do
+			local mod = value.mod
+			local effVal = mod.value / 3
+			if physMode == "AVERAGE" then
+				skillModList:NewMod("DamageGainAsFire", "BASE", effVal, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				skillModList:NewMod("DamageGainAsCold", "BASE", effVal, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				skillModList:NewMod("DamageGainAsLightning", "BASE", effVal, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			elseif physMode == "FIRE" then
+				skillModList:NewMod("DamageGainAsFire", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			elseif physMode == "COLD" then
+				skillModList:NewMod("DamageGainAsCold", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			elseif physMode == "LIGHTNING" then
+				skillModList:NewMod("DamageGainAsLightning", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			end
+		end
 		for i, value in ipairs(skillModList:Tabulate("BASE", skillCfg, "PhysicalDamageGainAsRandom")) do
 			local mod = value.mod
 			local effVal = mod.value / 3
@@ -1171,7 +1194,7 @@ function calcs.offence(env, actor, activeSkill)
 			output.ChainMax = (skillModList:Sum("BASE", skillCfg, "ChainCountMax", not skillFlags.projectile and "BeamChainCountMax" or nil) + skillModList:Sum("BASE", skillCfg, "ChainChance") / 100) * skillModList:More(skillCfg, "ChainCountMax", not skillFlags.projectile and "BeamChainCountMax" or nil)
 			output.TerrainChain = m_min(skillModList:Sum("BASE", skillCfg, "TerrainChainChance"), 100)
 			if skillModList:Flag(skillCfg, "AdditionalProjectilesAddChainsInstead") then
-				output.ChainMax = output.ChainMax + m_floor((skillModList:Sum("BASE", skillCfg, "ProjectileCount") - 1) * skillModList:More(skillCfg, "ProjectileCount"))
+				output.ChainMax = output.ChainMax + (skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100 - 1) * skillModList:More(skillCfg, "ProjectileCount")
 			end
 			output.ChainMaxString = output.ChainMax
 			output.Chain = m_min(output.ChainMax, skillModList:Sum("BASE", skillCfg, "ChainCount"))
@@ -1188,14 +1211,14 @@ function calcs.offence(env, actor, activeSkill)
 		if skillModList:Flag(skillCfg, "NoAdditionalProjectiles") then
 			output.ProjectileCount = 1
 		else
-			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount")
+			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100
 			local projMore = skillModList:More(skillCfg, "ProjectileCount")
-			output.ProjectileCount = m_floor(projBase * projMore)
+			output.ProjectileCount = projBase * projMore
 		end
 		if skillModList:Flag(skillCfg, "AdditionalProjectilesAddBouncesInstead") then
-			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount") + skillModList:Sum("BASE", skillCfg, "BounceCount") - 1
+			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100 + skillModList:Sum("BASE", skillCfg, "BounceCount") - 1
 			local projMore = skillModList:More(skillCfg, "ProjectileCount")
-			output.BounceCount = m_floor(projBase * projMore)
+			output.BounceCount = projBase * projMore
 		end
 		if skillModList:Flag(skillCfg, "CannotSplit") or activeSkill.skillTypes[SkillType.ProjectileNumber] then
 			if breakdown then
@@ -1207,7 +1230,7 @@ function calcs.offence(env, actor, activeSkill)
 		else
 			output.SplitCount = skillModList:Sum("BASE", skillCfg, "SplitCount") + enemyDB:Sum("BASE", skillCfg, "SelfSplitCount")
 			if skillModList:Flag(skillCfg, "AdditionalProjectilesAddSplitsInstead") then
-				output.SplitCount = output.SplitCount + m_floor((skillModList:Sum("BASE", skillCfg, "ProjectileCount") - 1) * skillModList:More(skillCfg, "ProjectileCount"))
+				output.SplitCount = output.SplitCount + (skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100 - 1) * skillModList:More(skillCfg, "ProjectileCount")
 			end
 			if skillModList:Flag(skillCfg, "AdditionalChainsAddSplitsInstead") then
 				output.SplitCount = output.SplitCount + skillModList:Sum("BASE", skillCfg, "ChainCountMax")

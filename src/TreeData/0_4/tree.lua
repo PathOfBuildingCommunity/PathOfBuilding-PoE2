@@ -24745,7 +24745,7 @@ return {
 			},
 			group=420,
 			icon="Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds",
-			name="Energy Shield and Armour applies to Elemental Resistance",
+			name="Energy Shield and Armour applies to Elemental Damage Hits",
 			orbit=7,
 			orbitIndex=23,
 			skill=1878,
@@ -36699,7 +36699,7 @@ return {
 			},
 			skill=9323,
 			stats={
-				[1]="+8 maximum Rage for each time you've used a Skill that Requires Glory in the past 6 seconds"
+				[1]="+8 maximum Rage for each time you've used a Skill that Requires Glory in the past 6 seconds, up to 5 times"
 			}
 		},
 		[9324]={
@@ -44953,7 +44953,7 @@ return {
 			},
 			group=420,
 			icon="Art/2DArt/SkillIcons/passives/ArmourAndEnergyShieldNode.dds",
-			name="Energy Shield and Armour applies to Elemental Resistance",
+			name="Energy Shield and Armour applies to Elemental Damage Hits",
 			orbit=7,
 			orbitIndex=19,
 			skill=14328,
@@ -87092,7 +87092,7 @@ return {
 			},
 			group=500,
 			icon="Art/2DArt/SkillIcons/passives/DruidGenericShapeshiftNode.dds",
-			name="Shapeshifting Armour applies to Elemental Resistance",
+			name="Shapeshifting Armour applies to Elemental Damage Hits",
 			orbit=2,
 			orbitIndex=7,
 			skill=41338,

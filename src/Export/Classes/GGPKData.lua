@@ -127,6 +127,7 @@ end
 
 function GGPKClass:AddDat64Files()
 	local datFiles = self:GetNeededFiles()
+	table.sort(datFiles, function(a, b) return a:lower() < b:lower() end)
 	for _, fname in ipairs(datFiles) do
 		local record = { }
 		record.name = fname:match("([^/\\]+)$") .. "c64"
@@ -299,6 +300,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/PassiveJewelArt.dat",
 		"Data/Balance/PassiveJewelRadiiArt.dat",
 		"Data/Balance/PassiveJewelUniqueArt.dat",
+		"Data/Balance/PassiveNodeTypes.dat",
+		"Data/Balance/PassiveSkillTypes.dat",
 		"Data/Balance/QuestStaticRewards.dat",
 		"Data/Balance/QuestFlags.dat",
 		"Data/Balance/Quest.dat",

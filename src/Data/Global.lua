@@ -48,6 +48,7 @@ colorCodes = {
 	SHAPER = "^x55BBFF",
 	ELDER = "^xAA77CC",
 	FRACTURED = "^xA29160",
+	MUTATED = "^xAE2E3B",
 	ADJUDICATOR = "^xE9F831",
 	BASILISK = "^x00CB3A",
 	CRUSADER = "^x2946FC",
@@ -595,7 +596,14 @@ SkillType = {
 	DisableUpdateActionLocationAfterRelease = 256,
 	InteractsWithElementalGround = 257,
 	SupportedByNovaProjectiles = 258,
+	Proxy = 259,
 }
+
+-- build reverse lookup
+SkillTypeName = {}
+for k, v in pairs(SkillType) do
+  SkillTypeName[v] = k
+end
 
 GlobalCache = { 
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
