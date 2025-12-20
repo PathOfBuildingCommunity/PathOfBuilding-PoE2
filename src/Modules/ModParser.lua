@@ -3247,6 +3247,11 @@ local specialModList = {
 		mod("PhysicalMax", "BASE", 1, { type = "PercentStat", stat = "LifeCost", percent = num }, { type = "StatThreshold", stat = "LifeUnreserved", thresholdStat = "LifeCost", thresholdPercent = num }),
 	} end,
 	["gain maximum life instead of maximum energy shield from equipped armour items"] = { flag("ConvertArmourESToLife") },
+	-- Mercenary - Witchhunter
+	["deal up to (%d+)%% more damage to enemies based on their missing concentration"] = function(num) return {
+		mod("Damage", "MORE", num, {type = "Condition", var ="EnemyNoConcentration"}),
+		flag("EnemyConcentration"),
+	} end,
 	-- Mercenary - Gemling
 	["attribute requirements of gems can be satisi?fied by your highest attribute"] = { flag("GemAttributeRequirementsSatisfiedByHighestAttribute") },
 	["you can use two copies of the same support gem in different skills"] = { mod("MaxSupportGemCopies", "OVERRIDE", 2) },
