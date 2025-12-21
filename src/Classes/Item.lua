@@ -384,6 +384,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.mirrored = true
 		elseif line == "Corrupted" then
 			self.corrupted = true
+		elseif line == "Twice Corrupted" then
+			self.corrupted = true
+			self.doubleCorrupted = true
 		elseif line == "Desecrated Prefix" or line == "Desecrated Suffix" then
 			self.desecrated = true
 		elseif line == "Requirements:" then
@@ -1294,7 +1297,9 @@ function ItemClass:BuildRaw()
 	if self.mirrored then
 		t_insert(rawLines, "Mirrored")
 	end
-	if self.corrupted then
+	if self.doubleCorrupted then
+		t_insert(rawLines, "Twice Corrupted")
+	elseif self.corrupted then
 		t_insert(rawLines, "Corrupted")
 	end
 	return table.concat(rawLines, "\n")
