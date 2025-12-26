@@ -172,6 +172,7 @@ local modNameList = {
 	["maximum life"] = "Life",
 	["life regeneration"] = "LifeRegen",
 	["life regeneration rate"] = "LifeRegen",
+	["life and mana regeneration rate"] = { "LifeRegen", "ManaRegen" },
 	["mana"] = "Mana",
 	["maximum mana"] = "Mana",
 	["mana regeneration"] = "ManaRegen",
