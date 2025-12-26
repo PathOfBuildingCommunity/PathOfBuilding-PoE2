@@ -695,8 +695,20 @@ function calcs.offence(env, actor, activeSkill)
 		tempCfg.skillTypes[SkillType.CreatesCompanion] = true -- Add companion skill tag to cfg so it doesn't fail
 		for _, value in ipairs(skillModList:List(tempCfg, "MinionModifier")) do
 			if value.mod.name == "Damage" and value.mod.type == "INC" then
-				local mod = value.mod
-				skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				
+				-- Ensure we only accept skills tagged as companion skills
+				local valid = false
+				for _, tag in ipairs(value.mod) do
+					if tag.type == "SkillType" and tag.skillType == SkillType.CreatesCompanion then
+						valid = true
+						break
+					end
+				end
+
+				if valid then
+					local mod = value.mod
+					skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				end
 			end
 		end
 	end
@@ -3414,6 +3426,20 @@ function calcs.offence(env, actor, activeSkill)
 					output.CritChance = m_max(output.CritChance, 0)
 				end
 				output.PreEffectiveCritChance = output.CritChance
+
+				-- Inevitable Criticals: Use the calculated crit chance to calculate a multiplier offset, then override to 100%
+				-- Leave PreEffectiveCritChance alone so the breakdown can display it, then we display the override
+				if skillModList:Flag(nil, "InevitableCriticalHits") then
+					local avgNumRerolls = 100 / output.CritChance - 1
+					local critMultPenalty = -30 * avgNumRerolls
+
+					-- Add the override mod for display purposes
+					skillModList:NewMod("CritChance", "OVERRIDE", 100, "Tree:55135")
+					skillModList:NewMod("CritMultiplier", "INC", critMultPenalty, "Tree:55135")
+
+					output.CritChance = 100
+				end
+
 				local preHitCheckCritChance = output.CritChance
 				if env.mode_effective then
 					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
@@ -3431,9 +3457,9 @@ function calcs.offence(env, actor, activeSkill)
 					breakdown.CritChance = { }
 					local baseCritFromMainHandStr = baseCritFromMainHand and " from main weapon" or baseCritFromParentMainHand and " from parent main weapon" or ""
 					if base ~= 0 then
-						t_insert(breakdown.CritChance, s_format("(%g + %g) ^8(base%s)", baseCrit, base, baseCritFromMainHandStr))
+						t_insert(breakdown.CritChance, s_format("(%g + %g)%% ^8(base%s)", baseCrit, base, baseCritFromMainHandStr))
 					else
-						t_insert(breakdown.CritChance, s_format("%g ^8(base%s)", baseCrit + base, baseCritFromMainHandStr))
+						t_insert(breakdown.CritChance, s_format("%g%% ^8(base%s)", baseCrit + base, baseCritFromMainHandStr))
 					end
 					if inc ~= 0 then
 						t_insert(breakdown.CritChance, s_format("x %.2f", 1 + inc/100).." ^8(increased/reduced)")
@@ -3442,6 +3468,13 @@ function calcs.offence(env, actor, activeSkill)
 						t_insert(breakdown.CritChance, s_format("x %.2f", more).." ^8(more/less)")
 					end
 					t_insert(breakdown.CritChance, s_format("= %.2f%% ^8(crit chance)", output.PreEffectiveCritChance))
+
+					if skillModList:Flag(nil, "InevitableCriticalHits") then
+						t_insert(breakdown.CritChance, "")
+						t_insert(breakdown.CritChance, "^6Inevitable Critical Hits^7:")
+						t_insert(breakdown.CritChance, "100% crit chance ^8(override)")
+					end
+
 					if preCapCritChance > 100 then
 						local overCap = preCapCritChance - 100
 						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
