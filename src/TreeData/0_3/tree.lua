@@ -33012,7 +33012,7 @@ return {
 			group=1302,
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
-			name="Master of the Elements",
+			name="Invoker",
 			orbit=9,
 			orbitIndex=24,
 			skill=9994,
@@ -51123,7 +51123,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
 			isSwitchable=true,
-			name="Necromancer",
+			name="Lich",
 			options={
 				["Abyssal Lich"]={
 					ascendancyName="Abyssal Lich"
@@ -64496,7 +64496,7 @@ return {
 			group=35,
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
-			name="Brute",
+			name="Warbringer",
 			orbit=6,
 			orbitIndex=48,
 			skill=33812,
@@ -95163,7 +95163,7 @@ return {
 			group=366,
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
-			name="Gambler",
+			name="Gemling Legionnaire",
 			orbit=9,
 			orbitIndex=72,
 			skill=55536,
