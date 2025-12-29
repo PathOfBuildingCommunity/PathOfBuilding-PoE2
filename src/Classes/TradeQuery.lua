@@ -987,16 +987,18 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			self.itemsTab.build:AddStatComparesToTooltip(tooltip, self.onlyWeightedBaseOutput[row_idx][result_index], evaluation[1].output, "^7Equipping this item will give you:")
 		end
 	end
-	controls["resultDropdown"..row_idx].tooltipFunc = function(tooltip, dropdown_mode, dropdown_index, dropdown_display_string)
-		tooltip:Clear()
-		local result_index = self.sortedResultTbl[row_idx][dropdown_index].index
-		local result = self.resultTbl[row_idx][result_index]
-		addCompareTooltip(tooltip, result_index)
-		tooltip:AddSeparator(10)
-		tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(result_index) * 1000))
-		addStatWeightScoreBreakdownLines(tooltip, result_index)
-		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
-	end
+ 	controls["resultDropdown"..row_idx].tooltipFunc = function(tooltip, dropdown_mode, dropdown_index, dropdown_display_string)
+ 		tooltip:Clear()
+ 		local result_index = self.sortedResultTbl[row_idx][dropdown_index].index
+ 		local result = self.resultTbl[row_idx][result_index]
+ 		addCompareTooltip(tooltip, result_index)
+ 		tooltip:AddSeparator(10)
+ 		if IsKeyDown("SHIFT") then
+ 			tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(result_index) * 1000))
+ 			addStatWeightScoreBreakdownLines(tooltip, result_index)
+ 		end
+ 		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
+ 	end
 	controls["importButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["resultDropdown"..row_idx], "TOPRIGHT"}, {8, 0, 100, row_height}, "Import Item", function()
 		self.itemsTab:CreateDisplayItemFromRaw(self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string)
 		local item = self.itemsTab.displayItem
@@ -1011,16 +1013,18 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			self.itemsTab.build.buildFlag = true
 		end
 	end)
-	controls["importButton"..row_idx].tooltipFunc = function(tooltip)
-		tooltip:Clear()
-		local selected_result_index = self.itemIndexTbl[row_idx]
-		if selected_result_index then
-			addCompareTooltip(tooltip, selected_result_index, true)
-			tooltip:AddSeparator(10)
-			tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(selected_result_index) * 1000))
-			addStatWeightScoreBreakdownLines(tooltip, selected_result_index)
-		end
-	end
+ 	controls["importButton"..row_idx].tooltipFunc = function(tooltip)
+ 		tooltip:Clear()
+ 		local selected_result_index = self.itemIndexTbl[row_idx]
+ 		if selected_result_index then
+ 			addCompareTooltip(tooltip, selected_result_index, true)
+ 			tooltip:AddSeparator(10)
+ 			if IsKeyDown("SHIFT") then
+ 				tooltip:AddLine(16, string.format("^7Stat Weight Score: %.0f", getResultWeightedScore(selected_result_index) * 1000))
+ 				addStatWeightScoreBreakdownLines(tooltip, selected_result_index)
+ 			end
+ 		end
+ 	end
 	controls["importButton"..row_idx].enabled = function()
 		return self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string ~= nil
 	end
