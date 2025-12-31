@@ -3688,7 +3688,15 @@ function calcs.offence(env, actor, activeSkill)
 					elseif activeSkill.skillModList:Flag(nil, "InevitableCriticalHits") then
 						-- Calculate average number of rerolls for a non-crit
 						-- Use pre-effective so we don't consider accuracy, which already scales DPS
-						local avgNumRerolls = 100 / output.PreEffectiveCritChance - 1
+						local critChance = output.PreEffectiveCritChance
+
+						-- Consider lucky crits because they were only applied post-effective
+						-- (not that they exist in POE2 for now, but just in case)
+						if skillModList:Flag(cfg, "CritChanceLucky") then
+							critChance = (1 - (1 - critChance / 100) ^ 2) * 100
+						end
+
+						local avgNumRerolls = 100 / critChance - 1
 						local critBonusMultiplier = 1 - m_min(1, .3 * avgNumRerolls)
 
 						-- Crit multiplier includes the base 100%, +some% bonus
