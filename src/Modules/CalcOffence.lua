@@ -696,7 +696,19 @@ function calcs.offence(env, actor, activeSkill)
 		for _, value in ipairs(skillModList:List(tempCfg, "MinionModifier")) do
 			if value.mod.name == "Damage" and value.mod.type == "INC" then
 				local mod = value.mod
-				skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+
+				-- Ensure we only accept skills tagged as companion skills
+				local valid = false
+				for _, tag in ipairs(mod) do
+					if tag.type == "SkillType" and tag.skillType == SkillType.CreatesCompanion then
+						valid = true
+						break
+					end
+				end
+
+				if valid then
+					skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+				end
 			end
 		end
 	end
