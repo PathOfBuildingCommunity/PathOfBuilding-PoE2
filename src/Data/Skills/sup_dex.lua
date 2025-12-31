@@ -412,7 +412,7 @@ skills["SupportArakaalisLustPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_debilitate_hit_damage_+%_final_per_poison_stack"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", actor = "enemy", var = "PoisonStacks", limitVar = "ArakaaliMaxHitDamage", limitTotal = true } ),
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", actor = "enemy", var = "PoisonStacks", limitVar = "ArakaaliMaxHitDamage", limitTotal = true } ),
 				},
 				["support_debilitate_hit_damage_max_poison_stacks"] = {
 					mod("Multiplier:ArakaaliMaxHitDamage", "BASE", nil),
