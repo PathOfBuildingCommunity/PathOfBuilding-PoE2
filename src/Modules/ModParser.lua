@@ -3305,6 +3305,7 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", -20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
 	},
 	-- Druid -- Oracle
+	["inevitable critical hits"] = { flag("InevitableCriticalHits") },
 	["walk the paths not taken"] = {},
 	["gain the benefits of bonded modifiers on runes and idols"] = {
 		flag("Condition:CanUseBondedModifiers"),

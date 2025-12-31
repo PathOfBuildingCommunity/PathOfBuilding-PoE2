@@ -3685,6 +3685,28 @@ function calcs.offence(env, actor, activeSkill)
 					if pass == 1 then
 						-- Apply crit multiplier
 						allMult = allMult * output.CritMultiplier
+					elseif activeSkill.skillModList:Flag(nil, "InevitableCriticalHits") then
+						-- Calculate average number of rerolls for a non-crit
+						-- Use pre-effective so we don't consider accuracy, which already scales DPS
+						local avgNumRerolls = 100 / output.PreEffectiveCritChance - 1
+						local critBonusMultiplier = 1 - m_min(1, .3 * avgNumRerolls)
+
+						-- Crit multiplier includes the base 100%, +some% bonus
+						--   but this penalty only applies to the some% bonus
+						local bonusMult = output.CritMultiplier - 1
+						local modifiedBonus = bonusMult * critBonusMultiplier
+						local newCritMult = 1 + modifiedBonus
+						allMult = allMult * newCritMult
+
+						if breakdown then
+							t_insert(breakdown[damageType], "")
+							t_insert(breakdown[damageType], "Inevitable Criticals: ")
+							t_insert(breakdown[damageType], s_format("  Base Crit Bonus: +%.2f%%", bonusMult * 100))
+							t_insert(breakdown[damageType], s_format("  Avg Num Rerolls: %.2f", avgNumRerolls))
+							t_insert(breakdown[damageType], s_format("  Avg Crit Bonus: +%.2f%%", modifiedBonus * 100))
+							t_insert(breakdown[damageType], s_format("x %.2f ^8(Inevitable Crit Multiplier)", newCritMult))
+							t_insert(breakdown[damageType], "")
+						end
 					end
 					damageTypeHitMin = damageTypeHitMin * allMult
 					damageTypeHitMax = damageTypeHitMax * allMult
