@@ -5470,6 +5470,11 @@ skills["SupportRageforgedPlayer"] = {
 			label = "Rageforged I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rageforged_enraged_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5502,6 +5507,11 @@ skills["SupportRageforgedPlayerTwo"] = {
 			label = "Rageforged II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rageforged_enraged_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
