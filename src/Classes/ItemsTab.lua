@@ -27,7 +27,7 @@ local socketDropList = {
 	{ label = colorCodes.SCION.."S", color = "W" }
 }
 
-local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
+local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2", "Transcendent Arm 1", "Transcendent Arm 2", "Transcendent Leg 1", "Transcendent Leg 2" }
 
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Life Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -2037,6 +2037,9 @@ function ItemsTabClass:CraftItem()
 			if raritySel == 3 or raritySel == 2 then
 				raritySel = 1
 			end
+		end
+		if base.base.type == "Transcendent Arm" or base.base.type == "Transcendent Leg" then
+			raritySel = 1
 		end
 		if raritySel == 2 or raritySel == 3 then
 			item.crafted = true
