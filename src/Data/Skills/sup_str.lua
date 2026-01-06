@@ -5472,7 +5472,7 @@ skills["SupportRageforgedPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_rageforged_enraged_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+					mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
 				},
 			},
 			baseFlags = {
@@ -5509,7 +5509,7 @@ skills["SupportRageforgedPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_rageforged_enraged_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+					mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
 				},
 			},
 			baseFlags = {
