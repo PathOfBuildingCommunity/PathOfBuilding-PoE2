@@ -3065,8 +3065,13 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Show flavour text:
-	if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
-		local flavourTable = flavourLookup[item.title]
+	if item.rarity == "UNIQUE" or item.rarity == "RELIC" or item.base.type:find("Transcendent") and main.showFlavourText then
+		local flavourTable
+		if item.base.type:find("Transcendent") then
+			flavourTable = flavourLookup["Transcendent Limb"]
+		else
+			flavourTable = flavourLookup[item.title]
+		end
 		if flavourTable then
 			local flavour = nil
 
