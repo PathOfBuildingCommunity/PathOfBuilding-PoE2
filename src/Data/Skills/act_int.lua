@@ -6891,8 +6891,8 @@ skills["FallingThunderPlayer"] = {
 					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
 				},
 				["lightning_strike_base_number_of_projectiles_per_power_charge"] = {
-			        mod("ProjectileCount", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
-			    },
+					mod("ProjectileCount", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
+				},
 			},
 			baseFlags = {
 				attack = true,
