@@ -1,7 +1,9 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type Transcendent Arm
+#type Transcendent Limb
+
+#subType Transcendent Arm
 #baseMatch Metadata/Items/Incursion/Arm%d+
-#type Transcendent Leg
+#subType Transcendent Leg
 #baseMatch Metadata/Items/Incursion/Leg%d+
