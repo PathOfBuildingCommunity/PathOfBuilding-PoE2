@@ -781,15 +781,18 @@ end
 
 -- for now we are hardcoding attributes id
 local base_attributes = {
-	[26297] = {}, -- str
-	[14927] = {}, -- dex
-	[57022] = {}--int
+	{id=26297}, -- str
+	{id=14927}, -- dex
+	{id=57022}, --int
+	{id=46793, unlockedBy = {46454}}, -- Damage
+	{id=44242, unlockedBy = {46454}}, -- Defences
+	{id=5375, unlockedBy = {46454}}, -- Cost efficiency
 }
 
-for id, _ in pairs(base_attributes) do
-	local base = dat("passiveskills"):GetRow("PassiveSkillNodeId", id)
+for _, attrInfo in ipairs(base_attributes) do
+	local base = dat("passiveskills"):GetRow("PassiveSkillNodeId", attrInfo.id)
 	if base == nil then
-		printf("Base attribute " .. id .. " not found")
+		printf("Base attribute " .. attrInfo.id .. " not found")
 		goto continue
 	end
 
@@ -798,11 +801,10 @@ for id, _ in pairs(base_attributes) do
 		goto continue
 	end
 
-	local attribute = {
-		["name"] = base.Name,
-		["icon"] = base.Icon,
-		["stats"] = {},
-	}
+	local attribute = attrInfo
+	attribute["name"] = base.Name
+	attribute["icon"] = base.Icon
+	attribute["stats"] = {}
 
 	-- Stats
 	if base.Stats ~= nil then
@@ -817,7 +819,6 @@ for id, _ in pairs(base_attributes) do
 	end
 
 	addToSheet(getSheet("skills"), base.Icon, "normalActive", commonMetadata(nil))
-	base_attributes[id] = attribute
 	:: continue ::
 end
 
@@ -1015,12 +1016,13 @@ for i, group in ipairs(psg.groups) do
 			if passiveRow.Attribute == true then
 				node["options"] = {}
 				node["isAttribute"] = true
-				for attId, value in pairs(base_attributes) do
+				for _, attrInfo in ipairs(base_attributes) do
 					table.insert(node["options"], {
-						["id"] = attId,
-						["name"] = base_attributes[attId].name,
-						["icon"] = base_attributes[attId].icon,
-						["stats"] = base_attributes[attId].stats,
+						["id"] = attrInfo.id,
+						["name"] = attrInfo.name,
+						["icon"] = attrInfo.icon,
+						["stats"] = attrInfo.stats,
+						["unlockedBy"] = attrInfo.unlockedBy,
 					})
 				end
 			end

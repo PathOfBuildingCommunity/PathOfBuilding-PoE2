@@ -3144,6 +3144,9 @@ local specialModList = {
 		mod("EvasionAppliesToLightningDamageTaken", "BASE", num),
 	 } end,
 	["cannot be heavy stunned while sprinting"] = { flag("StunImmune", { type = "Condition", var = "Sprinting" }) },
+	["attribute passive skills can instead grant (%d+)%% increased damage"] = {},
+	["attribute passive skills can instead grant (%d+)%% increased defences"] = {},
+	["attribute passive skills can instead grant (%d+)%% increased cost efficiency"] = {},
 	-- Raider
 	["nearby enemies have (%d+)%% less accuracy rating while you have phasing"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Accuracy", "MORE", -num) }, { type = "Condition", var = "Phasing" }) } end,
 	["immun[ei]t?y? to elemental ailments while phasing"] = { flag("ElementalAilmentImmune", { type = "Condition", var = "Phasing" }), },
