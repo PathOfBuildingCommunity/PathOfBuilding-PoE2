@@ -786,7 +786,7 @@ local base_attributes = {
 	{id=57022}, --int
 	{id=46793, unlockedBy = {46454}}, -- Damage
 	{id=44242, unlockedBy = {46454}}, -- Defences
-	{id=5375, unlockedBy = {46454}}, -- Coost efficiency
+	{id=5375, unlockedBy = {46454}}, -- Cost efficiency
 }
 
 for _, attrInfo in ipairs(base_attributes) do

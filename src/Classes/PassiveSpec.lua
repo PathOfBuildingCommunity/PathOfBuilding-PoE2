@@ -191,26 +191,26 @@ function PassiveSpecClass:Load(xml, dbFileName)
 						if child.elem == "AttributeOverride" then
 							for strengthId in child.attrib.strNodes:gmatch("%d+") do
 								local strengthNumberId = tonumber(strengthId)
-								local atributeIndex = self:GetAttributeIndexForNodeId(strengthNumberId, "Strength")
-								self:SwitchAttributeNode(strengthNumberId, atributeIndex)
+								local attributeIndex  = self:GetAttributeIndexForNodeId(strengthNumberId, "Strength")
+								self:SwitchAttributeNode(strengthNumberId, attributeIndex )
 							end
 							for dexterityId in child.attrib.dexNodes:gmatch("%d+") do
 								local dexterityNumberId = tonumber(dexterityId)
-								local atributeIndex = self:GetAttributeIndexForNodeId(dexterityNumberId, "Dexterity")
-								self:SwitchAttributeNode(dexterityNumberId, atributeIndex)
+								local attributeIndex  = self:GetAttributeIndexForNodeId(dexterityNumberId, "Dexterity")
+								self:SwitchAttributeNode(dexterityNumberId, attributeIndex )
 							end
 							for intelligenceId in child.attrib.intNodes:gmatch("%d+") do
 								local intelligenceNumberId = tonumber(intelligenceId)
-								local atributeIndex = self:GetAttributeIndexForNodeId(intelligenceNumberId, "Intelligence")
-								self:SwitchAttributeNode(intelligenceNumberId, atributeIndex)
+								local attributeIndex  = self:GetAttributeIndexForNodeId(intelligenceNumberId, "Intelligence")
+								self:SwitchAttributeNode(intelligenceNumberId, attributeIndex )
 							end
 							-- check if have child elems for other attribute types
 							for _, other in ipairs(child) do
 								if other.elem == "other" then
 									local otherId = tonumber(other.attrib.id)
 									local dn = other.attrib.dn
-									local atributeIndex = self:GetAttributeIndexForNodeId(otherId, dn)
-									self:SwitchAttributeNode(otherId, atributeIndex)
+									local attributeIndex  = self:GetAttributeIndexForNodeId(otherId, dn)
+									self:SwitchAttributeNode(otherId, attributeIndex )
 								end
 							end
 
