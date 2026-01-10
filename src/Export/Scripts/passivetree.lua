@@ -892,6 +892,9 @@ for i, group in ipairs(psg.groups) do
 				end
 				node["ascendancyName"] = passiveRow.Ascendancy.Name
 				node["isAscendancyStart"] = passiveRow.AscendancyStart or nil
+				if node["isAscendancyStart"] then
+					node["name"] = passiveRow.Ascendancy.Name
+				end
 
 				-- support for jewel sockets in ascendancy
 				if passiveRow.JewelSocket then
