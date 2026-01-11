@@ -5,6 +5,7 @@ return {
 [[
 Atziri's Contempt
 Pronged Spear
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
 League: Fate of the Vaal
 Implicits: 2
 Grants Skill: Spear Throw
