@@ -6883,6 +6883,17 @@ skills["FallingThunderPlayer"] = {
 			baseEffectiveness = 0.62000000476837,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "falling_thunder",
+			statMap = {
+				["lightning_strike_damage_+%_final_per_power_charge"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+				},
+				["lightning_strike_damage_+%_final_when_charged"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
+				},
+				["lightning_strike_base_number_of_projectiles_per_power_charge"] = {
+					mod("ProjectileCount", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
