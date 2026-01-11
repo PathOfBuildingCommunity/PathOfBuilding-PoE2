@@ -3529,7 +3529,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		output.ForcedOutcomeDamageEffect = 1
 
-		-- Calculate multiplier for Forced Outcome's Inevitiable Critical Hits
+		-- Calculate multiplier for Forced Outcome's Inevitable Critical Hits
 		if activeSkill.skillModList:Flag(nil, "ForcedOutcome") then
 
 			-- Use pre-effective to reroll only crit chance, not accuracy

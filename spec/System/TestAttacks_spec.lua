@@ -99,4 +99,158 @@ describe("TestAttacks", function()
 		local incSpeed = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "Speed")
 		assert.are.equals(incSpeed, 99)
 	end)
+
+	it("correctly calculates critical hit damage", function()
+		-- Setup: Add weapon with no crit chance, and strip enemy defenses
+		--   changing enemy mods seems to get overwritten when mods are calculated, so it's easiest to just strip their defenses here
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Heavy Bow
+			-100% increased critical hit chance
+			nearby enemies have 100% less armour
+			nearby enemies have 100% less evasion
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+		
+		-- 1: Get base damage with no crits
+		local critChance = 0
+		local critMult = 2
+		assert.are.equals(critChance, build.calcsTab.mainOutput.CritChance)
+		assert.are.equals(critMult, build.calcsTab.mainOutput.CritMultiplier)
+
+		local averageHit = build.calcsTab.mainOutput.MainHand.AverageHit
+
+		-- 2: Add crits and validate crit damage
+		build.configTab.input.customMods = "+10% to critical hit chance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		local critChance = build.calcsTab.mainOutput.CritChance / 100
+		local newAvgHit = (1 - critChance) * averageHit + critChance * averageHit * critMult
+		assert.are.equals(newAvgHit, build.calcsTab.mainOutput.MainHand.AverageHit)
+	end)
+
+	it("correctly calculates critical hit damage with static values", function()
+		-- Setup: Create a 1 damage weapon with no crit chance, and strip enemy defenses
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Heavy Bow
+			Quality: 0
+			-100% increased critical hit chance
+			-100% increased physical damage
+			adds 1 to 1 physical damage to attacks
+			nearby enemies have 100% less armour
+			nearby enemies have 100% less evasion
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- 1: Validate base damage = 1
+		assert.are.equals(0, build.calcsTab.mainOutput.MainHand.CritChance)
+		assert.are.equals(2, build.calcsTab.mainOutput.CritMultiplier)
+		assert.are.equals(1, build.calcsTab.mainOutput.MainHand.AverageHit)
+
+		-- 2: Add crits and validate new damage = 1.1 (for a 10% crit chance)
+		build.configTab.input.customMods = "+10% to critical hit chance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.1, build.calcsTab.mainOutput.MainHand.AverageHit)
+	end)
+
+	it("correctly adds damage with oracle forced outcome", function()
+		-- Setup: Add weapon with no crit chance, and strip enemy defenses
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Heavy Bow
+			-100% increased Critical Hit Chance
+			nearby enemies have 100% less armour
+			nearby enemies have 100% less evasion
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+		
+		-- 1: Get base damage with no crits
+		local critChance = 0
+		local critMult = 2
+		assert.are.equals(critChance, build.calcsTab.mainOutput.CritChance)
+		assert.are.equals(critMult, build.calcsTab.mainOutput.CritMultiplier)
+
+		local averageHit = build.calcsTab.mainOutput.MainHand.AverageHit
+
+		-- 2: Add crits and forced outcome, and validate damage
+		build.configTab.input.customMods = [[
+			+10% to critical hit chance
+			inevitable critical hits
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		local critChance = build.calcsTab.mainOutput.CritChance / 100
+		local nonCritChance = 1 - critChance
+
+		local critDamageBonusMult = .7 * critChance + .4 * nonCritChance * critChance + .1 * nonCritChance * nonCritChance * critChance
+		local nonCritMult = 1 + (critMult - 1) * critDamageBonusMult
+
+		local forcedExpectedAvgHit = nonCritChance * averageHit * nonCritMult + critChance * averageHit * critMult
+		assert.are.equals(forcedExpectedAvgHit, build.calcsTab.mainOutput.MainHand.AverageHit)
+	end)
+
+	it("does not affect normal crit damage with oracle forced outcome", function()
+		-- Setup: Add weapon with no crit chance, and strip enemy defenses
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Heavy Bow
+			-100% increased Critical Hit Chance
+			nearby enemies have 100% less armour
+			nearby enemies have 100% less evasion
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		local averageHit = build.calcsTab.mainOutput.MainHand.AverageHit
+
+		-- 1: Add forced outcome and validate no change in damage
+		build.configTab.input.customMods = "inevitable critical hits"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		assert.are.equals(averageHit, build.calcsTab.mainOutput.MainHand.AverageHit)
+
+		-- 2: Set crit chance to 100%, remove forced outcome, and validate change in damage
+		build.configTab.input.customMods = "+100% to critical hit chance"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		assert.are_not.equals(averageHit, build.calcsTab.mainOutput.MainHand.AverageHit)
+		averageHit = build.calcsTab.mainOutput.MainHand.AverageHit
+
+		-- 3: Add forced outcome and validate no change in damage
+		build.configTab.input.customMods = build.configTab.input.customMods .. "\ninevitable critical hits"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		assert.are.equals(averageHit, build.calcsTab.mainOutput.MainHand.AverageHit)
+	end)
 end)
