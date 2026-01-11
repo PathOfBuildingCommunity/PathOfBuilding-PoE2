@@ -11,6 +11,28 @@ Adds (16-20) to (23-27) Physical Damage
 Enemies in your Presence are Hindered
 Gain 1 Druidic Prowess for every 20 total Rage spent
 ]],[[
+The Flesh Poppet
+Vicious Talisman
+(90-120)% increased Physical Damage
+(7-13)% increased Attack Speed
++(7-13) to all Attributes
+(30-40)% reduced Presence Area of Effect
+Copy a random Modifier from each enemy in your Presence when
+you Shapeshift to an Animal form
+Modifiers gained this way are lost after 30 seconds or when you next Shapeshift
+]],[[
+Fury of the King
+Ashbark Talisman
+Implicits: 2
+Grants Skill: Level (1-20) Molten Crash
+(50-80)% increased Flammability Magnitude
+Adds (503-589) to (647-713) Fire Damage
+(15-20)% reduced Attack Speed
++(30-40) to Strength
+Bear Skills Convert 80% of Physical Damage to Fire Damage
+Skills which require Glory generate (2-5) Glory every 2 seconds
+Enemies in your Presence have Exposure
+]],[[
 Hysseg's Claw
 Familial Talisman
 Implicits: 2
@@ -21,15 +43,5 @@ Minions deal (30-50)% increased Damage
 +(8-15) to Strength
 +(8-15) to Intelligence
 (5-8)% increased Damage per Minion
-]],[[
-The Flesh Poppet
-Vicious Talisman
-(90-120)% increased Physical Damage
-(7-13)% increased Attack Speed
-+(7-13) to all Attributes
-(30-40)% reduced Presence Area of Effect
-Copy a random Modifier from each enemy in your Presence when
-you Shapeshift to an Animal form
-Modifiers gained this way are lost after 30 seconds or when you next Shapeshift
 ]],
 }
