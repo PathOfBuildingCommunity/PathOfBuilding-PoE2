@@ -1252,6 +1252,7 @@ local preFlagList = {
 	["^attacks used by ballistas [hd][ae][va][el] "] = { flags = ModFlag.Attack, keywordFlags = KeywordFlag.Totem, tag = { type = "Condition", var = "BallistaSkill" } },
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hdf][aei][var][el] a? ?"] = { flags = ModFlag.Spell },
+	["^spells which cost life gain "] = { keywordFlags = KeywordFlag.Spell, tag = { type = "StatThreshold", stat = "LifeCost", threshold = 1 } },
 	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
 	["^offering skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Offering } },
 	["^projectile attack skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
