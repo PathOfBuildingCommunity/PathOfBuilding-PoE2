@@ -3424,8 +3424,44 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				output.PreBifurcateCritChance = output.CritChance
 				local preBifurcateCritChance = output.CritChance
+				local bifurcateCritChance = output.CritChance
 				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
-					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
+					bifurcateCritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
+				end
+				output.CritChance = bifurcateCritChance
+				
+				if activeSkill.skillModList:Flag(cfg, "ForcedOutcome") then
+					-- Lucky Crits and Bifurcation always force a reroll and thus always impose a 30% less penalty on crit mult, even when critting on the first hit
+					-- https://poe2db.tw/Rerolling_Critical_Hit_Chance
+					if env.mode_effective and skillModList:Flag(nil, "BifurcateCrit") then
+						skillModList:NewMod("CritMultiplier", "MORE", -.3, "Forced Outcome + Bifurcate Crits ^8(Always rerolls)")
+					end
+					if env.mode_effective and skillModList:Flag(nil, "CritChanceLucky") then
+						skillModList:NewMod("CritMultiplier", "MORE", -.3, "Forced Outcome + Lucky Crits ^8(Always rerolls)")
+					end
+
+					-- Otherwise ignore them by taking PreEffective - we're already rerolling forever, so theirs don't do anything
+					local critChance = m_min(1, m_max(0, output.PreEffectiveCritChance / 100))
+
+					-- Combine the probabilities and 30% less multipliers for each case, 0/1/2/3/4+ rerolls
+					local nonCritChance = 1 - critChance
+					local critBonusMultiplier =
+						-- 100% crit damage, crit% of the time
+						1 * critChance + 
+						-- 70% if we roll non-crit then a crit
+						0.7 * nonCritChance * critChance +
+						-- 40% if we roll two non-crit then a crit
+						0.4 * nonCritChance * nonCritChance * critChance +
+						-- 10% if we roll three non-crits then a crit
+						0.1 * nonCritChance * nonCritChance * nonCritChance * critChance 
+						-- (Implicitly 0% for 4 or more rerolls)
+
+					local lessCritBonus = (1 - critBonusMultiplier) * -100
+					skillModList:NewMod("CritMultiplier", "MORE", lessCritBonus, "Forced Outcome") -- "Tree:[55135]" doesn't parse a name in the breakdown...
+
+					if env.mode_effective then
+						output.CritChance = 100
+					end
 				end
 				if breakdown and output.CritChance ~= baseCrit then
 					breakdown.CritChance = { }
@@ -3461,7 +3497,12 @@ function calcs.offence(env, actor, activeSkill)
 					if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 						t_insert(breakdown.CritChance, "Critical Strike Bifurcates:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preBifurcateCritChance / 100, preBifurcateCritChance / 100))
-						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", bifurcateCritChance))
+					end
+					if env.mode_effective and skillModList:Flag(cfg, "ForcedOutcome") then
+						t_insert(breakdown.CritChance, "")
+						t_insert(breakdown.CritChance, "Forced Outcome:")
+						t_insert(breakdown.CritChance, "= 100% ^8(always crits)")
 					end
 				end
 			end
@@ -3526,37 +3567,6 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		output.ScaledDamageEffect = 1
-
-		output.ForcedOutcomeDamageEffect = 1
-
-		-- Calculate multiplier for Forced Outcome's Inevitable Critical Hits
-		if activeSkill.skillModList:Flag(nil, "ForcedOutcome") then
-
-			-- Use pre-effective to reroll only crit chance, not accuracy
-			local critChance = m_min(1, m_max(0, output.PreEffectiveCritChance / 100))
-
-			-- Consider lucky crits (they were previously only applied post-effective)
-			if skillModList:Flag(cfg, "CritChanceLucky") then
-				critChance = (1 - (1 - critChance) ^ 2)
-			end
-			
-			-- Combine the probabilities and 30% less multipliers for each case, 1/2/3/4+ rerolls
-			-- (This bonus is only applied to non-critical hits, so requires at least one reroll, with 70% being the max)
-			local nonCritChance = 1 - critChance
-			local critBonusMultiplier =
-				-- 70% crit damage, crit% of the time (after an initial non-crit)
-				0.7 * critChance +
-				-- 40% if we roll non-crit then a crit
-				0.4 * nonCritChance * critChance +
-				-- 10% if we roll two non-crits then a crit
-				0.1 * nonCritChance * nonCritChance * critChance 
-				-- (Implicitly 0% for 4 or more rerolls)
-
-			-- Get the crit damage bonus from the multiplier, and apply our multiplier to it
-			local bonusMult = output.CritMultiplier - 1
-			local modifiedBonus = bonusMult * critBonusMultiplier
-			output.ForcedOutcomeDamageEffect =  1 + modifiedBonus
-		end
 
 		-- Calculate chance and multiplier for dealing triple damage on Normal and Crit
 		output.TripleDamageChanceOnCrit = m_min(skillModList:Sum("BASE", cfg, "TripleDamageChanceOnCrit"), 100)
@@ -3706,9 +3716,6 @@ function calcs.offence(env, actor, activeSkill)
 						if globalOutput.MaxOffensiveWarcryEffect ~= 1 and activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(aggregated max warcry exerted effect modifier)", globalOutput.MaxOffensiveWarcryEffect))
 						end
-						if output.ForcedOutcomeDamageEffect ~= 1 then
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(forced outcome damage modifier)", output.ForcedOutcomeDamageEffect))
-						end
 					end
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * globalOutput.MaxOffensiveWarcryEffect
@@ -3719,9 +3726,6 @@ function calcs.offence(env, actor, activeSkill)
 					if pass == 1 then
 						-- Apply crit multiplier
 						allMult = allMult * output.CritMultiplier
-					else
-						-- Apply inevitable crit damage only on non-crits
-						allMult = allMult * output.ForcedOutcomeDamageEffect
 					end
 					damageTypeHitMin = damageTypeHitMin * allMult
 					damageTypeHitMax = damageTypeHitMax * allMult
