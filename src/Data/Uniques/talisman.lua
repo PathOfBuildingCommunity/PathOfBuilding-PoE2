@@ -5,6 +5,7 @@ return {
 [[
 Amor Mandragora
 Changeling Talisman
+League: Fate of the Vaal
 Adds (16-20) to (23-27) Physical Damage
 +(8-15) to Intelligence
 (10-15)% increased Skill Effect Duration
@@ -13,6 +14,7 @@ Gain 1 Druidic Prowess for every 20 total Rage spent
 ]],[[
 The Flesh Poppet
 Vicious Talisman
+League: Fate of the Vaal
 (90-120)% increased Physical Damage
 (7-13)% increased Attack Speed
 +(7-13) to all Attributes
@@ -23,6 +25,7 @@ Modifiers gained this way are lost after 30 seconds or when you next Shapeshift
 ]],[[
 Fury of the King
 Ashbark Talisman
+League: Fate of the Vaal
 Implicits: 2
 Grants Skill: Level (1-20) Molten Crash
 (50-80)% increased Flammability Magnitude
@@ -35,6 +38,7 @@ Enemies in your Presence have Exposure
 ]],[[
 Hysseg's Claw
 Familial Talisman
+League: Fate of the Vaal
 Implicits: 2
 Grants Skill: Level (1-20) Cackling Companions
 Minions deal (30-50)% increased Damage

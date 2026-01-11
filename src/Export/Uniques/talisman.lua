@@ -5,6 +5,7 @@ return {
 [[
 Amor Mandragora
 Changeling Talisman
+League: Fate of the Vaal
 UniqueLocalAddedPhysicalDamage27
 UniqueIntelligence45
 UniqueSkillEffectDuration2
@@ -13,6 +14,7 @@ UniqueGainDruidicProwessOnSpendingXRage1
 ]],[[
 The Flesh Poppet
 Vicious Talisman
+League: Fate of the Vaal
 UniqueLocalIncreasedPhysicalDamagePercent18
 UniqueLocalIncreasedAttackSpeed24
 UniqueAllAttributes18
@@ -21,6 +23,7 @@ UniqueGainAModifierFromEachEnemyInPresenceOnShapeshift1
 ]],[[
 Fury of the King
 Ashbark Talisman
+League: Fate of the Vaal
 Implicits: 2
 Grants Skill: Level (1-20) Molten Crash
 TalismanImplicitFireDamageAndFlammability1
@@ -33,6 +36,7 @@ UniqueEnemiesInPresenceHaveFireExposure1
 ]],[[
 Hysseg's Claw
 Familial Talisman
+League: Fate of the Vaal
 Implicits: 2
 Grants Skill: Level (1-20) Cackling Companions
 TalismanImplicitMinionDamage1

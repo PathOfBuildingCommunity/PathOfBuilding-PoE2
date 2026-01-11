@@ -3,6 +3,19 @@
 return {
 -- Weapon: Spear
 [[
+Atziri's Contempt
+Pronged Spear
+League: Fate of the Vaal
+Implicits: 2
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Shattering Spite
+UniqueLocalIncreasedPhysicalDamagePercent20
+UniqueLocalAddedFireDamage8
+UniqueLocalAddedLightningDamage7
+UniqueLocalIncreasedAttackSpeed27
+UniquePresenceRadius5
+UniqueSpearsInflictBloodstoneLanceOnHit1
+]],[[
 Chainsting
 Hunting Spear
 League: Dawn of the Hunt
