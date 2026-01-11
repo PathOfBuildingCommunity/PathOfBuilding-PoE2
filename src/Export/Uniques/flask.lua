@@ -23,6 +23,13 @@ UniqueFlaskChargesUsed1
 ]],
 -- Flask: Mana
 [[
+Lavianga's Spirits
+Gargantuan Mana Flask
+Requires Level 49
+League: Fate of the Vaal
+UniqueAlwaysDrinkingFlask1
+UniqueFlaskRecoveryAmount1
+]],[[
 Melting Maelstrom
 Ultimate Mana Flask
 Source: Drops from unique{Kosis, The Revelation}
