@@ -99,4 +99,35 @@ describe("TestAttacks", function()
 		local incSpeed = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "Speed")
 		assert.are.equals(incSpeed, 99)
 	end)
+
+	it("does not include minion damage with inspiring ally", function()
+		local baseDamage = build.calcsTab.mainOutput.MainHand.AverageHit
+
+		build.configTab.input.customMods = "Increases and Reductions to Companion Damage also apply to you"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- No damage change 
+		assert.are.equals(baseDamage, build.calcsTab.mainOutput.MainHand.AverageHit)
+
+		build.configTab.input.customMods = build.configTab.input.customMods .. "\nminions deal 12% increased damage"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- No damage change 
+		assert.are.equals(baseDamage, build.calcsTab.mainOutput.MainHand.AverageHit)
+
+		build.configTab.input.customMods = build.configTab.input.customMods .. "\ncompanions deal 12% increased damage"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		-- Damage should be higher
+		assert.is_true(build.calcsTab.mainOutput.MainHand.AverageHit > baseDamage)
+	end)
 end)
