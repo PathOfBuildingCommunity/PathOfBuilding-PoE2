@@ -2784,7 +2784,7 @@ c["5% increased Area Damage"]={{[1]={flags=512,keywordFlags=0,name="Damage",type
 c["5% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=5}},nil}
 c["5% increased Attack Critical Hit Chance per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["5% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
-c["5% increased Attack Damage for each Minion in your Presence, up to a maximum of 80%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Damage",type="INC",value=5}}}},"  for each  in your Presence, up to a maximum of 80% "}
+c["5% increased Attack Damage for each Minion in your Presence, up to a maximum of 80%"]={{[1]={[1]={limit=80,limitTotal=true,type="Multiplier",var="MinionPresenceCount"},flags=1,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
 c["5% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
 c["5% increased Attack Speed with Bows"]={{[1]={flags=131077,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
 c["5% increased Attack Speed with Daggers"]={{[1]={flags=524293,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
@@ -2805,7 +2805,7 @@ c["5% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywor
 c["5% increased Experience gain"]={{}," Experience gain "}
 c["5% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=5}},nil}
 c["5% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=5}},nil}
-c["5% increased Life and Mana Regeneration Rate for each Minion in your Presence, up to a maximum of 40%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=5}}}},"  and Mana Regeneration Rate for each  in your Presence, up to a maximum of 40% "}
+c["5% increased Life and Mana Regeneration Rate for each Minion in your Presence, up to a maximum of 40%"]={{[1]={[1]={limit=40,limitTotal=true,type="Multiplier",var="MinionPresenceCount"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=5},[2]={[1]={limit=40,limitTotal=true,type="Multiplier",var="MinionPresenceCount"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=5}},nil}
 c["5% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=5}},nil}
 c["5% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=5}},nil}
 c["5% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=5}},nil}

@@ -37771,7 +37771,7 @@ return {
 			group=1430,
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
-			name="Master of the Elements",
+			name="Invoker",
 			nodeOverlay={
 				alloc="InvokerFrameSmallAllocated",
 				path="InvokerFrameSmallCanAllocate",
@@ -59146,7 +59146,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
 			isSwitchable=true,
-			name="Necromancer",
+			name="Lich",
 			nodeOverlay={
 				alloc="LichFrameSmallAllocated",
 				path="LichFrameSmallCanAllocate",
@@ -75029,7 +75029,7 @@ return {
 			group=51,
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
-			name="Brute",
+			name="Warbringer",
 			nodeOverlay={
 				alloc="WarbringerFrameSmallAllocated",
 				path="WarbringerFrameSmallCanAllocate",
@@ -110738,7 +110738,7 @@ return {
 			group=443,
 			icon="Art/2DArt/SkillIcons/passives/damage.dds",
 			isAscendancyStart=true,
-			name="Gambler",
+			name="Gemling Legionnaire",
 			nodeOverlay={
 				alloc="Gemling LegionnaireFrameSmallAllocated",
 				path="Gemling LegionnaireFrameSmallCanAllocate",
