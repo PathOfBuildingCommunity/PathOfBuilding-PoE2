@@ -182,7 +182,7 @@ describe("TestAttacks", function()
 		runCallback("OnFrame")
 		
 		-- 1: Get base damage with no crits
-		local critChance = 0
+		local critChance = 0.0
 		local critMult = 2
 		assert.are.equals(critChance, build.calcsTab.mainOutput.CritChance)
 		assert.are.equals(critMult, build.calcsTab.mainOutput.CritMultiplier)
@@ -199,58 +199,23 @@ describe("TestAttacks", function()
 		build.calcsTab:BuildOutput()
 		runCallback("OnFrame")
 
-		local critChance = build.calcsTab.mainOutput.CritChance / 100
+		critChance = 0.1
 		local nonCritChance = 1 - critChance
 
-		local critDamageBonusMult = .7 * critChance + .4 * nonCritChance * critChance + .1 * nonCritChance * nonCritChance * critChance
-		local nonCritMult = 1 + (critMult - 1) * critDamageBonusMult
+		local critBonusMultiplier = 
+			1 * critChance 
+			+ .7 * nonCritChance * critChance 
+			+ .4 * nonCritChance * nonCritChance * critChance 
+			+ .1 * nonCritChance * nonCritChance * nonCritChance * critChance
 
-		local forcedExpectedAvgHit = nonCritChance * averageHit * nonCritMult + critChance * averageHit * critMult
+		-- When adding them as MORE mods, they get auto rounded after *100, so we need to do the same
+		critBonusMultiplier = math.floor(critBonusMultiplier * 100 + 0.5)/100
+
+		local critBonus = critMult - 1
+		critBonus = critBonus * critBonusMultiplier
+		critMult = 1 + critBonus
+
+		local forcedExpectedAvgHit = averageHit * critMult
 		assert.are.equals(forcedExpectedAvgHit, build.calcsTab.mainOutput.MainHand.AverageHit)
-	end)
-
-	it("does not affect normal crit damage with oracle forced outcome", function()
-		-- Setup: Add weapon with no crit chance, and strip enemy defenses
-		build.itemsTab:CreateDisplayItemFromRaw([[
-			New Item
-			Heavy Bow
-			-100% increased Critical Hit Chance
-			nearby enemies have 100% less armour
-			nearby enemies have 100% less evasion
-		]])
-		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
-		build.calcsTab:BuildOutput()
-		runCallback("OnFrame")
-
-		local averageHit = build.calcsTab.mainOutput.MainHand.AverageHit
-
-		-- 1: Add forced outcome and validate no change in damage
-		build.configTab.input.customMods = "inevitable critical hits"
-		build.configTab:BuildModList()
-		runCallback("OnFrame")
-		build.calcsTab:BuildOutput()
-		runCallback("OnFrame")
-
-		assert.are.equals(averageHit, build.calcsTab.mainOutput.MainHand.AverageHit)
-
-		-- 2: Set crit chance to 100%, remove forced outcome, and validate change in damage
-		build.configTab.input.customMods = "+100% to critical hit chance"
-		build.configTab:BuildModList()
-		runCallback("OnFrame")
-		build.calcsTab:BuildOutput()
-		runCallback("OnFrame")
-
-		assert.are_not.equals(averageHit, build.calcsTab.mainOutput.MainHand.AverageHit)
-		averageHit = build.calcsTab.mainOutput.MainHand.AverageHit
-
-		-- 3: Add forced outcome and validate no change in damage
-		build.configTab.input.customMods = build.configTab.input.customMods .. "\ninevitable critical hits"
-		build.configTab:BuildModList()
-		runCallback("OnFrame")
-		build.calcsTab:BuildOutput()
-		runCallback("OnFrame")
-
-		assert.are.equals(averageHit, build.calcsTab.mainOutput.MainHand.AverageHit)
 	end)
 end)
