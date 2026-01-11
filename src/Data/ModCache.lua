@@ -3140,6 +3140,7 @@ c["7% chance to Avoid Death from Hits"]={{}," to Avoid Death from Hits "}
 c["7% increased Attack Speed while a Rare or Unique Enemy is in your Presence"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="NearbyRareOrUniqueEnemy",[2]="RareOrUnique"}},flags=1,keywordFlags=0,name="Speed",type="INC",value=7}},nil}
 c["7% increased Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="INC",value=7},[2]={flags=0,keywordFlags=0,name="Dex",type="INC",value=7},[3]={flags=0,keywordFlags=0,name="Int",type="INC",value=7},[4]={flags=0,keywordFlags=0,name="All",type="INC",value=7}},nil}
 c["7% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=7}},nil}
+c["7% increased Damage per Minion"]={{[1]={[1]={type="Multiplier",var="SummonedMinion"},flags=0,keywordFlags=0,name="Damage",type="INC",value=7}},nil}
 c["7% increased Exposure Effect"]={{[1]={flags=0,keywordFlags=0,name="FireExposureEffect",type="INC",value=7},[2]={flags=0,keywordFlags=0,name="ColdExposureEffect",type="INC",value=7},[3]={flags=0,keywordFlags=0,name="LightningExposureEffect",type="INC",value=7}},nil}
 c["7.5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=7.5}},nil}
 c["70% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=70}},nil}
@@ -3218,7 +3219,7 @@ c["8% increased Critical Hit Chance for Attacks"]={{[1]={flags=1,keywordFlags=0,
 c["8% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,name="CritChance",type="INC",value=8}},nil}
 c["8% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Damage for each time you've Warcried Recently"]={{[1]={[1]={type="Multiplier",var="WarcryUsedRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
-c["8% increased Damage per Minion"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=8}}}},"  per  "}
+c["8% increased Damage per Minion"]={{[1]={[1]={type="Multiplier",var="SummonedMinion"},flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["8% increased Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="INC",value=8}},nil}
 c["8% increased Effect of your Mark Skills"]={{[1]={[1]={skillType=99,type="SkillType"},flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=8}},nil}
 c["8% increased Elemental Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="INC",value=8}},nil}

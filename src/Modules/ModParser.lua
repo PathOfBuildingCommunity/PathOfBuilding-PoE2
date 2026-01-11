@@ -1504,6 +1504,7 @@ local modTagList = {
 	["per enemy killed recently, up to (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "EnemyKilledRecently", limit = tonumber(num), limitTotal = true } } end,
 	["per (%d+) rampage kills"] = function(num) return { tag = { type = "Multiplier", var = "Rampage", div = num, limit = 1000 / num, limitTotal = true } } end,
 	["per minion, up to (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "SummonedMinion", limit = tonumber(num), limitTotal = true } } end,
+	["per minion"] = { tag = { type = "Multiplier", var = "SummonedMinion" } },
 	["for each different type of persistent minion in your presence"] = { tag = { type = "Multiplier", var =  "PersistentMinionTypes" } },
 	["for each minion in your presence, up to a maximum of (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "MinionPresenceCount", limit = tonumber(num), limitTotal = true } } end,
 	["for each type of ammunition fired in the past (%d+) seconds"] = { tag = { type = "Multiplier", var = "DifferentAmmoFired", limitVar = "AmmoTypes" } },
