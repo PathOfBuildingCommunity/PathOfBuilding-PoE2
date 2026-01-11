@@ -3527,6 +3527,37 @@ function calcs.offence(env, actor, activeSkill)
 
 		output.ScaledDamageEffect = 1
 
+		output.ForcedOutcomeDamageEffect = 1
+
+		-- Calculate multiplier for Forced Outcome's Inevitiable Critical Hits
+		if activeSkill.skillModList:Flag(nil, "ForcedOutcome") then
+
+			-- Use pre-effective to reroll only crit chance, not accuracy
+			local critChance = m_min(1, m_max(0, output.PreEffectiveCritChance / 100))
+
+			-- Consider lucky crits (they were previously only applied post-effective)
+			if skillModList:Flag(cfg, "CritChanceLucky") then
+				critChance = (1 - (1 - critChance) ^ 2)
+			end
+			
+			-- Combine the probabilities and 30% less multipliers for each case, 1/2/3/4+ rerolls
+			-- (This bonus is only applied to non-critical hits, so requires at least one reroll, with 70% being the max)
+			local nonCritChance = 1 - critChance
+			local critBonusMultiplier =
+				-- 70% crit damage, crit% of the time (after an initial non-crit)
+				0.7 * critChance +
+				-- 40% if we roll non-crit then a crit
+				0.4 * nonCritChance * critChance +
+				-- 10% if we roll two non-crits then a crit
+				0.1 * nonCritChance * nonCritChance * critChance 
+				-- (Implicitly 0% for 4 or more rerolls)
+
+			-- Get the crit damage bonus from the multiplier, and apply our multiplier to it
+			local bonusMult = output.CritMultiplier - 1
+			local modifiedBonus = bonusMult * critBonusMultiplier
+			output.ForcedOutcomeDamageEffect =  1 + modifiedBonus
+		end
+
 		-- Calculate chance and multiplier for dealing triple damage on Normal and Crit
 		output.TripleDamageChanceOnCrit = m_min(skillModList:Sum("BASE", cfg, "TripleDamageChanceOnCrit"), 100)
 		output.TripleDamageChance = m_min(skillModList:Sum("BASE", cfg, "TripleDamageChance") or 0 + (env.mode_effective and enemyDB:Sum("BASE", cfg, "SelfTripleDamageChance") or 0) + (output.TripleDamageChanceOnCrit * output.CritChance / 100), 100)
@@ -3675,6 +3706,9 @@ function calcs.offence(env, actor, activeSkill)
 						if globalOutput.MaxOffensiveWarcryEffect ~= 1 and activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(aggregated max warcry exerted effect modifier)", globalOutput.MaxOffensiveWarcryEffect))
 						end
+						if output.ForcedOutcomeDamageEffect ~= 1 then
+							t_insert(breakdown[damageType], s_format("x %.2f ^8(forced outcome damage modifier)", output.ForcedOutcomeDamageEffect))
+						end
 					end
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * globalOutput.MaxOffensiveWarcryEffect
@@ -3685,36 +3719,9 @@ function calcs.offence(env, actor, activeSkill)
 					if pass == 1 then
 						-- Apply crit multiplier
 						allMult = allMult * output.CritMultiplier
-					elseif activeSkill.skillModList:Flag(nil, "InevitableCriticalHits") then
-						-- Calculate average number of rerolls for a non-crit
-						-- Use pre-effective so we don't consider accuracy, which already scales DPS
-						local critChance = output.PreEffectiveCritChance
-
-						-- Consider lucky crits because they were only applied post-effective
-						-- (not that they exist in POE2 for now, but just in case)
-						if skillModList:Flag(cfg, "CritChanceLucky") then
-							critChance = (1 - (1 - critChance / 100) ^ 2) * 100
-						end
-
-						local avgNumRerolls = 100 / critChance - 1
-						local critBonusMultiplier = 1 - m_min(1, .3 * avgNumRerolls)
-
-						-- Crit multiplier includes the base 100%, +some% bonus
-						--   but this penalty only applies to the some% bonus
-						local bonusMult = output.CritMultiplier - 1
-						local modifiedBonus = bonusMult * critBonusMultiplier
-						local newCritMult = 1 + modifiedBonus
-						allMult = allMult * newCritMult
-
-						if breakdown then
-							t_insert(breakdown[damageType], "")
-							t_insert(breakdown[damageType], "Inevitable Criticals: ")
-							t_insert(breakdown[damageType], s_format("  Base Crit Bonus: +%.2f%%", bonusMult * 100))
-							t_insert(breakdown[damageType], s_format("  Avg Num Rerolls: %.2f", avgNumRerolls))
-							t_insert(breakdown[damageType], s_format("  Avg Crit Bonus: +%.2f%%", modifiedBonus * 100))
-							t_insert(breakdown[damageType], s_format("x %.2f ^8(Inevitable Crit Multiplier)", newCritMult))
-							t_insert(breakdown[damageType], "")
-						end
+					else
+						-- Apply inevitable crit damage only on non-crits
+						allMult = allMult * output.ForcedOutcomeDamageEffect
 					end
 					damageTypeHitMin = damageTypeHitMin * allMult
 					damageTypeHitMax = damageTypeHitMax * allMult
