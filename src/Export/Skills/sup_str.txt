@@ -1256,11 +1256,21 @@ statMap = {
 
 #skill SupportRageforgedPlayer
 #set SupportRageforgedPlayer
+statMap = {
+	["support_rageforged_enraged_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportRageforgedPlayerTwo
 #set SupportRageforgedPlayerTwo
+statMap = {
+	["support_rageforged_enraged_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+	},
+},
 #mods
 #skillEnd
 

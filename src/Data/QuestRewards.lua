@@ -250,7 +250,7 @@ return {
 		["Area"] = "Qimah",
 		["Info"] = "Seven Pillars",
 		["Options"] = {
-			"+5% to Elemental Resistances",
+			"+5% to all Elemental Resistances",
 			"3% increased Movement Speed",
 			"15% increased Global Defences",
 			"20% increased Presence Area Of Effect",
