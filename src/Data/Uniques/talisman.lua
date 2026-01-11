@@ -21,6 +21,15 @@ Minions deal (30-50)% increased Damage
 +(8-15) to Strength
 +(8-15) to Intelligence
 (5-8)% increased Damage per Minion
+]],[[
+The Flesh Poppet
+Vicious Talisman
+(90-120)% increased Physical Damage
+(7-13)% increased Attack Speed
++(7-13) to all Attributes
+(30-40)% reduced Presence Area of Effect
+Copy a random Modifier from each enemy in your Presence when
+you Shapeshift to an Animal form
+Modifiers gained this way are lost after 30 seconds or when you next Shapeshift
 ]],
-
 }

@@ -21,6 +21,13 @@ UniqueMovementVelocity26
 UniqueStrength40
 UniqueIntelligence45
 UniqueDamagePerMinion1
+]],[[
+The Flesh Poppet
+Vicious Talisman
+UniqueLocalIncreasedPhysicalDamagePercent18
+UniqueLocalIncreasedAttackSpeed24
+UniqueAllAttributes18
+UniquePresenceRadius4
+UniqueGainAModifierFromEachEnemyInPresenceOnShapeshift1
 ]],
-
 }
