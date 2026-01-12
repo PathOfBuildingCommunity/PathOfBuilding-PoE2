@@ -1649,6 +1649,12 @@ function ItemsTabClass:UpdateRuneControls()
 	-- Build rune selection for item
 	local runes = { }
 	for _, rune in pairs(runeModLines) do
+		if item.augmentsAsBodyArmour then
+			if rune.slot == "None" or rune.slot == "armour" or rune.slot == "body armour" then
+				table.insert(runes, rune)
+			end
+			goto continue
+		end
 		if rune.slot == "None" or -- Needed "None" for Items Tab
 			item.base.type:lower() == rune.slot or
 			item.base.type == rune.slot or
@@ -1663,6 +1669,7 @@ function ItemsTabClass:UpdateRuneControls()
 					table.insert(runes, rune)
 				end
 		end
+		::continue::
 	end
 
 	for i = 1, item.itemSocketCount do

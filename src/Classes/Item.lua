@@ -1337,6 +1337,9 @@ function ItemClass:UpdateRunes()
 		if name and name ~= "None" then
 			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff) and "caster"
 			local specificType = self.base.type:lower()
+			if self.augmentsAsBodyArmour then
+				specificType = "body armour"
+			end
 			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
@@ -1866,6 +1869,9 @@ function ItemClass:BuildModList()
 		-- Hack to remove the energy shield and base int requirement
 		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
 		self.requirements.int = 0
+	end
+	if calcLocal(baseList, "AugmentsAsIfBodyArmour", "FLAG", 0) then
+		self.augmentsAsBodyArmour = true
 	end
 	if calcLocal(baseList, "NoAttributeRequirements", "FLAG", 0) then
 		self.requirements.strMod = 0
