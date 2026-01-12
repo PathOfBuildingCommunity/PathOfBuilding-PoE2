@@ -56,6 +56,7 @@ Variant: Body Armour
 Variant: Gloves
 Variant: Boots
 Variant: Shield
+Sockets: S S
 Implicits: 2
 Has (1-3) Charm Slot
 Flasks gain 0.17 charges per Second

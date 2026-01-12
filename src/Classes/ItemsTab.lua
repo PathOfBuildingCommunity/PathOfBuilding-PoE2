@@ -376,11 +376,11 @@ holding Shift will put it in the second.]])
 
 	-- Section: Sockets and Links
 	self.controls.displayItemSectionSockets = new("Control", {"TOPLEFT",self.controls.displayItemSectionVariant,"BOTTOMLEFT"}, {0, 0, 0, function()
-		return self.displayItem and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre) and 28 or 0
+		return self.displayItem and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre or self.displayItem.title == "Darkness Enthroned") and 28 or 0
 	end})
 	self.controls.displayItemSocketRune = new("LabelControl", {"TOPLEFT",self.controls.displayItemSectionSockets,"TOPLEFT"}, {0, 0, 36, 20}, "^x7F7F7FS")
 	self.controls.displayItemSocketRune.shown = function()
-		return self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre
+		return self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre or self.displayItem.title == "Darkness Enthroned"
 	end
 	self.controls.displayItemSocketRuneEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketRune,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
 		if tonumber(buf) > 6 then
@@ -511,7 +511,7 @@ holding Shift will put it in the second.]])
 
 	-- Section: Rune Selection
 	self.controls.displayItemSectionRune = new("Control", {"TOPLEFT",self.controls.displayItemSectionClusterJewel,"BOTTOMLEFT"}, {0, 0, 0, function()
-		if not self.displayItem or self.displayItem.itemSocketCount == 0 or not (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre) then
+		if not self.displayItem or self.displayItem.itemSocketCount == 0 or not (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre or self.displayItem.title == "Darkness Enthroned") then
 			return 0
 		end
 		local h = 6
@@ -550,7 +550,7 @@ holding Shift will put it in the second.]])
 			end
 		end
 		drop.shown = function()
-			return self.displayItem and i <= self.displayItem.itemSocketCount and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre)
+			return self.displayItem and i <= self.displayItem.itemSocketCount and (self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre or self.displayItem.title == "Darkness Enthroned")
 		end
 		
 		self.controls["displayItemRune"..i] = drop
@@ -1649,11 +1649,16 @@ function ItemsTabClass:UpdateRuneControls()
 	-- Build rune selection for item
 	local runes = { }
 	for _, rune in pairs(runeModLines) do
-		if item.augmentsAsBodyArmour then
-			if rune.slot == "None" or rune.slot == "armour" or rune.slot == "body armour" then
-				table.insert(runes, rune)
+		local augmentFlags = { "BodyArmour", "Shield", "Helmet", "Boots", "Gloves" }
+		for _, flagName in ipairs(augmentFlags) do
+			if item["augmentsAs" .. flagName] then
+				-- Convert BodyArmour -> "body armour"
+				local runeSlot = flagName:gsub("([a-z])([A-Z])", "%1 %2"):lower()
+				if rune.slot == "None" or rune.slot == "armour" or rune.slot == runeSlot then
+					table.insert(runes, rune)
+				end
+				goto continue
 			end
-			goto continue
 		end
 		if rune.slot == "None" or -- Needed "None" for Items Tab
 			item.base.type:lower() == rune.slot or

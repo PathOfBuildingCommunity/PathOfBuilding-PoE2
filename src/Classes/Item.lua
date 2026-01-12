@@ -825,7 +825,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	end
 	-- this will need more advanced logic for jewel sockets in items to work properly but could just be removed as items like this was only introduced during development.
 	if self.base then
-		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
+		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre or self.title == "Darkness Enthroned" then
 			local shouldFixRunesOnItem = #self.runes == 0
 
 			-- Form a key value table with the following format
@@ -1335,10 +1335,20 @@ function ItemClass:UpdateRunes()
 	for i = 1, self.itemSocketCount do
 		local name = self.runes[i]
 		if name and name ~= "None" then
-			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff) and "caster"
+			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff) and "caster" or self.title == "Darkness Enthroned" and "armour"
 			local specificType = self.base.type:lower()
-			if self.augmentsAsBodyArmour then
-				specificType = "body armour"
+			local augmentOverride = {
+				BodyArmour = "body armour",
+				Helmet = "helmet",
+				Shield = "shield",
+				Boots = "boots",
+				Gloves = "gloves",
+			}
+			for flag, slot in pairs(augmentOverride) do
+				if self["augmentsAs" .. flag] then
+					specificType = slot
+					break
+				end
 			end
 			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
 			for _, mod in ipairs(gatheredMods) do
@@ -1870,8 +1880,20 @@ function ItemClass:BuildModList()
 		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
 		self.requirements.int = 0
 	end
+	if calcLocal(baseList, "AugmentsAsIfShield", "FLAG", 0) then
+		self.augmentsAsShield = true
+	end
 	if calcLocal(baseList, "AugmentsAsIfBodyArmour", "FLAG", 0) then
 		self.augmentsAsBodyArmour = true
+	end
+	if calcLocal(baseList, "AugmentsAsIfHelmet", "FLAG", 0) then
+		self.augmentsAsHelmet = true
+	end
+	if calcLocal(baseList, "AugmentsAsIfBoots", "FLAG", 0) then
+		self.augmentsAsBoots = true
+	end
+	if calcLocal(baseList, "AugmentsAsIfGloves", "FLAG", 0) then
+		self.augmentsAsGloves = true
 	end
 	if calcLocal(baseList, "NoAttributeRequirements", "FLAG", 0) then
 		self.requirements.strMod = 0

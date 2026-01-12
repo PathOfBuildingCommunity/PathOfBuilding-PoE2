@@ -3330,7 +3330,7 @@ local specialModList = {
 	["this item gains bonuses from socketed items as though it was ?a? (%a[%a ]*)"] =
 	function(_, type)
 		type = type
-			:gsub("%f[%a]%a", string.upper) -- uppercase first letter of each word
+			:gsub("%f[%a]%a", string.upper)
 			:gsub(" ", "")
 		return { flag("AugmentsAsIf" .. type) }
 	end,
