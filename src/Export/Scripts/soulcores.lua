@@ -44,7 +44,7 @@ directiveTable.base = function(state, args, out)
 	local function writeModLines(modLines, out)
 		for _, modLine in ipairs(modLines) do
 			out:write('\t\t["'..modLine.slotType..'"] = {\n')
-			out:write('\t\t\t\ttype = "Rune",\n')
+			out:write('\t\t\t\ttype = "' .. modLine.type .. '",\n')
 			-- only write labels/statOrder if present
 			if modLine.label and #modLine.label > 0 then
 				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
@@ -90,7 +90,7 @@ directiveTable.base = function(state, args, out)
 				end
 				if #orders > 0 then
 					local out = {
-						type = "Rune",
+						type = soulCores.Type.Id,
 						slotType = class,
 						label = stats,
 						statOrder = orders,

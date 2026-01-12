@@ -3324,6 +3324,9 @@ local specialModList = {
 	["maximum quality is 50%%"] = {
 		-- Display only. For Breach Rings.
 	},
+	["only soul cores can be socketed in this item"] = {
+		-- Display only. For Breach Rings.
+	},
 	["has (%d+) sockets?"] = function(num) return { mod("SocketCount", "BASE", num) } end,
 	["no physical damage"] = { mod("WeaponData", "LIST", { key = "PhysicalMin" }), mod("WeaponData", "LIST", { key = "PhysicalMax" }), mod("WeaponData", "LIST", { key = "PhysicalDPS" }) },
 	["has (%d+)%% increased elemental damage"] = function(num) return { mod("LocalElementalDamage", "INC", num) } end,

@@ -4,7 +4,7 @@
 return {
 	["Hayoxi's Soul Core of Heatproofing"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+40% of Armour also applies to Cold Damage",
 				statOrder = { 4512 },
 				rank = { 50 },
@@ -12,7 +12,7 @@ return {
 	},
 	["Zalatl's Soul Core of Insulation"] = {
 		["boots"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+40% of Armour also applies to Lightning Damage",
 				statOrder = { 4514 },
 				rank = { 50 },
@@ -20,7 +20,7 @@ return {
 	},
 	["Topotante's Soul Core of Dampening"] = {
 		["gloves"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+40% of Armour also applies to Fire Damage",
 				statOrder = { 4513 },
 				rank = { 50 },
@@ -28,13 +28,13 @@ return {
 	},
 	["Atmohua's Soul Core of Retreat"] = {
 		["body armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"30% faster start of Energy Shield Recharge",
 				statOrder = { 967 },
 				rank = { 50 },
 		},
 		["focus"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"30% faster start of Energy Shield Recharge",
 				statOrder = { 967 },
 				rank = { 50 },
@@ -42,7 +42,7 @@ return {
 	},
 	["Quipolatl's Soul Core of Flow"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"8% increased Skill Effect Duration",
 				"8% increased Cooldown Recovery Rate",
 				statOrder = { 1572, 4539 },
@@ -51,7 +51,7 @@ return {
 	},
 	["Tzamoto's Soul Core of Ferocity"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+4 to Maximum Rage",
 				statOrder = { 9032 },
 				rank = { 50 },
@@ -59,7 +59,7 @@ return {
 	},
 	["Uromoti's Soul Core of Attenuation"] = {
 		["boots"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"15% increased Curse Duration",
 				"15% increased Poison Duration",
 				statOrder = { 1466, 2786 },
@@ -68,13 +68,13 @@ return {
 	},
 	["Opiloti's Soul Core of Assault"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5144 },
 				rank = { 50 },
 		},
 		["caster"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5144 },
 				rank = { 50 },
@@ -82,13 +82,13 @@ return {
 	},
 	["Guatelitzi's Soul Core of Endurance"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5143 },
 				rank = { 50 },
 		},
 		["caster"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5143 },
 				rank = { 50 },
@@ -96,13 +96,13 @@ return {
 	},
 	["Xopec's Soul Core of Power"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5145 },
 				rank = { 50 },
 		},
 		["caster"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5145 },
 				rank = { 50 },
@@ -110,13 +110,13 @@ return {
 	},
 	["Estazunti's Soul Core of Convalescence"] = {
 		["boots"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"12% increased speed of Recoup Effects",
 				statOrder = { 9084 },
 				rank = { 50 },
 		},
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"8% of Damage taken Recouped as Life",
 				statOrder = { 970 },
 				rank = { 50 },
@@ -124,7 +124,7 @@ return {
 	},
 	["Tacati's Soul Core of Affliction"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Enemies you Curse have -5% to Chaos Resistance",
 				statOrder = { 3617 },
 				rank = { 50 },
@@ -132,7 +132,7 @@ return {
 	},
 	["Cholotl's Soul Core of War"] = {
 		["bow"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"20% increased Projectile Speed",
 				statOrder = { 875 },
 				rank = { 50 },
@@ -140,7 +140,7 @@ return {
 	},
 	["Citaqualotl's Soul Core of Foulness"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Adds 19 to 29 Chaos damage",
 				statOrder = { 1227 },
 				rank = { 50 },
@@ -148,13 +148,13 @@ return {
 	},
 	["Xipocado's Soul Core of Dominion"] = {
 		["caster"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 8473 },
 				rank = { 50 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 8473 },
 				rank = { 50 },
@@ -162,13 +162,13 @@ return {
 	},
 	["Soul Core of Tacati"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"15% chance to Poison on Hit with this weapon",
 				statOrder = { 7334 },
 				rank = { 0 },
 		},
 		["armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+11% to Chaos Resistance",
 				statOrder = { 961 },
 				rank = { 0 },
@@ -176,13 +176,13 @@ return {
 	},
 	["Soul Core of Opiloti"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"15% chance to cause Bleeding on Hit",
 				statOrder = { 2153 },
 				rank = { 0 },
 		},
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"20% increased Charm Charges gained",
 				statOrder = { 5227 },
 				rank = { 0 },
@@ -190,13 +190,13 @@ return {
 	},
 	["Soul Core of Jiquani"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Recover 2% of maximum Life on Kill",
 				statOrder = { 1437 },
 				rank = { 0 },
 		},
 		["body armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"3% increased maximum Life",
 				statOrder = { 870 },
 				rank = { 0 },
@@ -204,13 +204,13 @@ return {
 	},
 	["Soul Core of Zalatl"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Recover 2% of maximum Mana on Kill",
 				statOrder = { 1439 },
 				rank = { 0 },
 		},
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"3% increased maximum Mana",
 				statOrder = { 872 },
 				rank = { 0 },
@@ -218,13 +218,13 @@ return {
 	},
 	["Soul Core of Citaqualotl"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"30% increased Elemental Damage with Attacks",
 				statOrder = { 859 },
 				rank = { 0 },
 		},
 		["armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+5% to all Elemental Resistances",
 				statOrder = { 957 },
 				rank = { 0 },
@@ -232,13 +232,13 @@ return {
 	},
 	["Soul Core of Puhuarte"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"30% increased Flammability Magnitude",
 				statOrder = { 988 },
 				rank = { 0 },
 		},
 		["gloves"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+1% to Maximum Fire Resistance",
 				statOrder = { 953 },
 				rank = { 0 },
@@ -246,13 +246,13 @@ return {
 	},
 	["Soul Core of Tzamoto"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"30% increased Freeze Buildup",
 				statOrder = { 990 },
 				rank = { 0 },
 		},
 		["helmet"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+1% to Maximum Cold Resistance",
 				statOrder = { 954 },
 				rank = { 0 },
@@ -260,13 +260,13 @@ return {
 	},
 	["Soul Core of Xopec"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"30% increased chance to Shock",
 				statOrder = { 992 },
 				rank = { 0 },
 		},
 		["boots"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+1% to Maximum Lightning Resistance",
 				statOrder = { 955 },
 				rank = { 0 },
@@ -274,13 +274,13 @@ return {
 	},
 	["Soul Core of Azcapa"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+15 to Spirit",
 				statOrder = { 874 },
 				rank = { 0 },
 		},
 		["gloves"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"10% increased Quantity of Gold Dropped by Slain Enemies",
 				statOrder = { 6476 },
 				rank = { 0 },
@@ -288,13 +288,13 @@ return {
 	},
 	["Soul Core of Topotante"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Attacks with this Weapon Penetrate 15% Elemental Resistances",
 				statOrder = { 3330 },
 				rank = { 0 },
 		},
 		["boots"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"25% increased Elemental Ailment Threshold",
 				statOrder = { 4147 },
 				rank = { 0 },
@@ -302,13 +302,13 @@ return {
 	},
 	["Soul Core of Quipolatl"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"5% increased Attack Speed",
 				statOrder = { 919 },
 				rank = { 0 },
 		},
 		["boots"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"15% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 4608 },
 				rank = { 0 },
@@ -316,19 +316,19 @@ return {
 	},
 	["Soul Core of Ticaba"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"+5% to Critical Damage Bonus",
 				statOrder = { 918 },
 				rank = { 0 },
 		},
 		["body armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 950 },
 				rank = { 0 },
 		},
 		["shield"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 950 },
 				rank = { 0 },
@@ -336,13 +336,13 @@ return {
 	},
 	["Soul Core of Atmohua"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Convert 20% of Requirements to Strength",
 				statOrder = { 7338 },
 				rank = { 0 },
 		},
 		["armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Convert 20% of Requirements to Strength",
 				statOrder = { 7338 },
 				rank = { 0 },
@@ -350,13 +350,13 @@ return {
 	},
 	["Soul Core of Cholotl"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Convert 20% of Requirements to Dexterity",
 				statOrder = { 7336 },
 				rank = { 0 },
 		},
 		["armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Convert 20% of Requirements to Dexterity",
 				statOrder = { 7336 },
 				rank = { 0 },
@@ -364,13 +364,13 @@ return {
 	},
 	["Soul Core of Zantipi"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Convert 20% of Requirements to Intelligence",
 				statOrder = { 7337 },
 				rank = { 0 },
 		},
 		["armour"] = {
-				type = "Rune",
+				type = "SoulCore",
 				"Convert 20% of Requirements to Intelligence",
 				statOrder = { 7337 },
 				rank = { 0 },
@@ -378,19 +378,19 @@ return {
 	},
 	["Amanamu's Gaze"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"Remove a Damaging Ailment when you use a Command Skill",
 				statOrder = { 9162 },
 				rank = { 60 },
 		},
 		["body armour"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"+2 to Armour per 1 Spirit",
 				statOrder = { 4275 },
 				rank = { 60 },
 		},
 		["boots"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"1% increased Movement Speed per 15 Spirit, up to a maximum of 40%",
 				"Other Modifiers to Movement Speed except for Sprinting do not apply",
 				statOrder = { 8593, 8593.1 },
@@ -399,19 +399,19 @@ return {
 	},
 	["Kurgal's Gaze"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
 				statOrder = { 4115 },
 				rank = { 60 },
 		},
 		["gloves"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"40% increased effect of Arcane Surge on you",
 				statOrder = { 2891 },
 				rank = { 60 },
 		},
 		["boots"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
 				statOrder = { 7483 },
 				rank = { 60 },
@@ -419,19 +419,19 @@ return {
 	},
 	["Tecrod's Gaze"] = {
 		["body armour"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"Regenerate 1.5% of maximum Life per second",
 				statOrder = { 1617 },
 				rank = { 60 },
 		},
 		["gloves"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"25% increased Life Cost Efficiency",
 				statOrder = { 4572 },
 				rank = { 60 },
 		},
 		["boots"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"10% increased Movement Speed when on Low Life",
 				statOrder = { 1481 },
 				rank = { 60 },
@@ -439,19 +439,19 @@ return {
 	},
 	["Ulaman's Gaze"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"+1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet",
 				statOrder = { 4022 },
 				rank = { 60 },
 		},
 		["gloves"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"Critical Hit chance is Lucky against Parried enemies",
 				statOrder = { 5415 },
 				rank = { 60 },
 		},
 		["body armour"] = {
-				type = "Rune",
+				type = "AbyssalEye",
 				"Prevent +3% of Damage from Deflected Hits",
 				statOrder = { 4541 },
 				rank = { 60 },
@@ -1669,7 +1669,7 @@ return {
 	},
 	["Idol of Sirrius"] = {
 		["gloves"] = {
-				type = "Rune",
+				type = "Idol",
 				"8% increased Attack Speed",
 				"Bonded: 15% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 941, 4608 },
@@ -1678,7 +1678,7 @@ return {
 	},
 	["Idol of Thruldana"] = {
 		["weapon"] = {
-				type = "Rune",
+				type = "Idol",
 				"25% reduced Poison Duration",
 				"Targets can be affected by +1 of your Poisons at the same time",
 				"Bonded: Gain 13% of Elemental Damage as Extra Chaos Damage",
@@ -1688,7 +1688,7 @@ return {
 	},
 	["Idol of Grold"] = {
 		["gloves"] = {
-				type = "Rune",
+				type = "Idol",
 				"20% increased total Power counted by Warcries",
 				"Bonded: 20% increased Glory generation",
 				statOrder = { 9889, 6473 },
@@ -1697,7 +1697,7 @@ return {
 	},
 	["Idol of Eeshta"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "Idol",
 				"12% increased Cost Efficiency",
 				"Bonded: Meta Skills have 12% increased Reservation Efficiency",
 				statOrder = { 4604, 9180 },
@@ -1706,7 +1706,7 @@ return {
 	},
 	["Idol of Egrin"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "Idol",
 				"Enemies you Curse take 6% increased Damage",
 				"Bonded: 20% increased Area of Effect of Curses",
 				statOrder = { 3327, 1875 },
@@ -1715,7 +1715,7 @@ return {
 	},
 	["Idol of Maxarius"] = {
 		["body armour"] = {
-				type = "Rune",
+				type = "Idol",
 				"+1 Charm Slot",
 				"Bonded: Storm Skills have +1 to Limit",
 				statOrder = { 8739, 9505 },
@@ -1724,7 +1724,7 @@ return {
 	},
 	["Idol of Ralakesh"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "Idol",
 				"8% increased Reservation Efficiency of Minion Skills",
 				"Bonded: Minions Revive 8% faster",
 				statOrder = { 8524, 8529 },
@@ -1733,14 +1733,14 @@ return {
 	},
 	["Snake Idol"] = {
 		["gloves"] = {
-				type = "Rune",
+				type = "Idol",
 				"5% increased Curse Magnitudes",
 				"Bonded: Remnants have 10% increased effect",
 				statOrder = { 2266, 9151 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence have 8% increased Attack Speed",
 				"Bonded: 10% increased Skill Speed while Shapeshifted",
 				statOrder = { 893, 9317 },
@@ -1749,14 +1749,14 @@ return {
 	},
 	["Primate Idol"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "Idol",
 				"Minions have 12% increased maximum Life",
 				"Bonded: Remnants can be collected from 20% further away",
 				statOrder = { 962, 9153 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence deal 30% increased Damage",
 				"Bonded: 40% increased Damage while Shapeshifted",
 				statOrder = { 881, 5567 },
@@ -1765,14 +1765,14 @@ return {
 	},
 	["Owl Idol"] = {
 		["focus"] = {
-				type = "Rune",
+				type = "Idol",
 				"10% increased Cooldown Recovery Rate",
 				"Bonded: 15% increased effect of Archon Buffs on you",
 				statOrder = { 4539, 4223 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence have 8% increased Cast Speed",
 				"Bonded: 10% increased Skill Speed while Shapeshifted",
 				statOrder = { 894, 9317 },
@@ -1781,14 +1781,14 @@ return {
 	},
 	["Cat Idol"] = {
 		["gloves"] = {
-				type = "Rune",
+				type = "Idol",
 				"15% increased Accuracy Rating",
 				"Bonded: 20% increased Charm Charges gained",
 				statOrder = { 1268, 5227 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence have 14% increased Critical Hit Chance",
 				"Bonded: 25% increased Critical Hit Chance while Shapeshifted",
 				statOrder = { 891, 5440 },
@@ -1797,14 +1797,14 @@ return {
 	},
 	["Wolf Idol"] = {
 		["gloves"] = {
-				type = "Rune",
+				type = "Idol",
 				"10% increased Magnitude of Bleeding you inflict",
 				"Bonded: 15% reduced Magnitude of Bleeding on You",
 				statOrder = { 4662, 4523 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence have 14% increased Critical Damage Bonus",
 				"Bonded: 25% increased Critical Hit Chance while Shapeshifted",
 				statOrder = { 892, 5440 },
@@ -1813,14 +1813,14 @@ return {
 	},
 	["Stag Idol"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "Idol",
 				"50% increased Thorns Critical Hit Chance",
 				"Bonded: Thorns Damage has 40% chance to ignore Enemy Armour",
 				statOrder = { 9642, 9645 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence deal 1 to 40 added Attack Lightning Damage",
 				"Bonded: 40% increased Attack Damage while Shapeshifted",
 				statOrder = { 885, 4387 },
@@ -1829,14 +1829,14 @@ return {
 	},
 	["Boar Idol"] = {
 		["gloves"] = {
-				type = "Rune",
+				type = "Idol",
 				"Gain 1 Rage on Melee Hit",
 				"Bonded: 15% increased Warcry Cooldown Recovery Rate",
 				statOrder = { 6431, 2929 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence Regenerate 8 Life per second",
 				"Bonded: 25% increased Life Regeneration rate while Shapeshifted",
 				statOrder = { 896, 7037 },
@@ -1845,14 +1845,14 @@ return {
 	},
 	["Bear Idol"] = {
 		["helmet"] = {
-				type = "Rune",
+				type = "Idol",
 				"8% increased Area of Effect",
 				"Bonded: 10% increased Reservation Efficiency of Companion Skills",
 				statOrder = { 1557, 9178 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence deal 12 to 18 added Attack Physical Damage",
 				"Bonded: 40% increased Attack Damage while Shapeshifted",
 				statOrder = { 882, 4387 },
@@ -1861,14 +1861,14 @@ return {
 	},
 	["Ox Idol"] = {
 		["shield"] = {
-				type = "Rune",
+				type = "Idol",
 				"10% increased Block chance",
 				"Bonded: 10% chance for Damage of Enemies Hitting you to be Unlucky",
 				statOrder = { 830, 5981 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"Allies in your Presence have +8% to all Elemental Resistances",
 				"Bonded: +20% of Armour also applies to Elemental Damage while Shapeshifted",
 				statOrder = { 895, 9922 },
@@ -1877,14 +1877,14 @@ return {
 	},
 	["Rabbit Idol"] = {
 		["body armour"] = {
-				type = "Rune",
+				type = "Idol",
 				"5% increased Rarity of Items found",
 				"Bonded: 5% increased Quantity of Gold Dropped by Slain Enemies",
 				statOrder = { 916, 6476 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"10% increased Spirit",
 				"Bonded: Minions have 30% increased Cooldown Recovery Rate for Command Skills",
 				statOrder = { 842, 8471 },
@@ -1893,14 +1893,14 @@ return {
 	},
 	["Fox Idol"] = {
 		["body armour"] = {
-				type = "Rune",
+				type = "Idol",
 				"+2% to Quality of all Skills",
 				"Bonded: +4 to all Attributes",
 				statOrder = { 4167, 946 },
 				rank = { 0 },
 		},
 		["sceptre"] = {
-				type = "Rune",
+				type = "Idol",
 				"30% increased Presence Area of Effect",
 				"Bonded: Minions have 20% increased Area of Effect",
 				statOrder = { 1002, 2649 },

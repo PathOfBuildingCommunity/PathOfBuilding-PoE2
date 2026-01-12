@@ -5763,8 +5763,7 @@ c["On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges
 c["On Hitting an enemy, gains maximum added Lightning damage equal to"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to "}
 c["On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of 500"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of 500 "}
 c["On-Kill Effects happen twice"]={nil,"On-Kill Effects happen twice "}
-c["Only Soul Cores can be Socketed in this item"]={nil,"Only Soul Cores can be Socketed in this item "}
-c["Only Soul Cores can be Socketed in this item This item gains bonuses from Socketed Soul Cores as though it was also Boots"]={nil,"Only Soul Cores can be Socketed in this item This item gains bonuses from Socketed Soul Cores as though it was also Boots "}
+c["Only Soul Cores can be Socketed in this item"]={{},nil}
 c["Only affects Passives in Large Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=10}}},nil}
 c["Only affects Passives in Massive Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=12}}},nil}
 c["Only affects Passives in Medium Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=8}}},nil}
