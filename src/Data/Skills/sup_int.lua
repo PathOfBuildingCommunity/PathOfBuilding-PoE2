@@ -4485,6 +4485,40 @@ skills["SupportGambleshotPlayer"] = {
 		},
 	}
 }
+skills["SupportGuatelitzisAblationPlayer"] = {
+	name = "Guatelitzi's Ablation",
+	description = "Supports Offering Skills. Supported Skills Sacrifice a portion of your life on use. While Offering spikes from Supported Skills persist, you are periodically granted a Power Charge. When spikes from Supported Skills die, Regenerate a percentage of your maximum Life and Mana per second based on the duration the Offering persisted.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Offering, },
+	addSkillTypes = { SkillType.GeneratesCharges, },
+	excludeSkillTypes = { },
+	gemFamily = { "SacrificalOffering",},
+	isLineage = true,
+	flavourText = {"Young Guatelitzi was found moving among the prisoners,", "preparing their living bodies for sacrifice. The High Priests", "recognised his inclinations, and gave him a higher calling.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Guatelitzi's Ablation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "sacrifice_%_life_on_skill_use", 25 },
+				{ "recover_%_life_and_mana_per_minute_for_supported_offering_lifetime", 300 },
+				{ "supported_offerings_grant_you_a_powercharge_every_x_ms", 4000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportHayoxisBindingPlayer"] = {
 	name = "Hayoxi's Fulmination",
 	description = "Supports Curse Skills. Supported Curse Skills create areas which Curse enemies so long as they are within them. Cursed areas from Supported Skills gather power before erupting in a column of annihilating light after a moderate delay.",

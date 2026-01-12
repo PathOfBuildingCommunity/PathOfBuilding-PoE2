@@ -814,6 +814,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportGuatelitzisAblationPlayer
+#set SupportGuatelitzisAblationPlayer
+#mods
+#skillEnd
+
 #skill SupportHayoxisBindingPlayer
 #set SupportHayoxisBindingPlayer
 #mods

@@ -14,11 +14,6 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
-#skill SupportAftershockChancePlayerThree
-#set SupportAftershockChancePlayerThree
-#mods
-#skillEnd
-
 #skill SupportAmanamusTithePlayer
 #set SupportAmanamusTithePlayer
 #mods
@@ -36,11 +31,6 @@ local skills, mod, flag, skill = ...
 
 #skill SupportAncestralCallPlayerTwo
 #set SupportAncestralCallPlayerTwo
-#mods
-#skillEnd
-
-#skill SupportAncestralCallPlayerThree
-#set SupportAncestralCallPlayerThree
 #mods
 #skillEnd
 
@@ -1206,16 +1196,6 @@ statMap = {
 
 #skill ProlongedDurationSupportPlayerTwo
 #set ProlongedDurationSupportPlayerTwo
-statMap = {
-	["support_more_duration_skill_effect_duration_+%_final"] = {
-		mod("Duration", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
-#skill ProlongedDurationSupportPlayerThree
-#set ProlongedDurationSupportPlayerThree
 statMap = {
 	["support_more_duration_skill_effect_duration_+%_final"] = {
 		mod("Duration", "MORE", nil),
