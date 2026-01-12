@@ -652,6 +652,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportExpandPlayer
+#set SupportExpandPlayer
+#mods
+#skillEnd
+
 #skill SupportExpansePlayer
 #set SupportExpansePlayer
 statMap = {

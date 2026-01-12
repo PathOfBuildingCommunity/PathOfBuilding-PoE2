@@ -3800,6 +3800,39 @@ skills["SupportExecratePlayer"] = {
 		},
 	}
 }
+skills["SupportExpandPlayer"] = {
+	name = "Expand",
+	description = "Supports Spells you cast yourself, increasing their area of effect when cast. Cannot support Channelling Skills or Skills with a Cooldown.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Area, SkillType.AND, },
+	addSkillTypes = { SkillType.HasSeals, SkillType.SupportedByExpand, },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, SkillType.HasReservation, SkillType.Vaal, SkillType.Instant, SkillType.Channel, SkillType.Cooldown, SkillType.ComboStacking, SkillType.HasSeals, SkillType.SupportedByExpand, SkillType.NOT, SkillType.AND, },
+	gemFamily = { "Seal","IncreasedAreaOfEffect",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Expand",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_expand_max_seals", 3 },
+				{ "support_expand_charge_gain_interval_ms", 0 },
+				{ "expand_support_seal_gain_frequency_as_%_of_total_cast_time", 200 },
+				{ "skill_area_of_effect_+%_per_expand_seal", 30 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportExpansePlayer"] = {
 	name = "Expanse",
 	description = "Supports any Skill that you use yourself, granting it significantly higher Area of Effect but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
