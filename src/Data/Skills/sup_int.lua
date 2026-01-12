@@ -3800,6 +3800,39 @@ skills["SupportExecratePlayer"] = {
 		},
 	}
 }
+skills["SupportExpandPlayer"] = {
+	name = "Expand",
+	description = "Supports Spells you cast yourself, increasing their area of effect when cast. Cannot support Channelling Skills or Skills with a Cooldown.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Area, SkillType.AND, },
+	addSkillTypes = { SkillType.HasSeals, SkillType.SupportedByExpand, },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, SkillType.HasReservation, SkillType.Vaal, SkillType.Instant, SkillType.Channel, SkillType.Cooldown, SkillType.ComboStacking, SkillType.HasSeals, SkillType.SupportedByExpand, SkillType.NOT, SkillType.AND, },
+	gemFamily = { "Seal","IncreasedAreaOfEffect",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Expand",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_expand_max_seals", 3 },
+				{ "support_expand_charge_gain_interval_ms", 0 },
+				{ "expand_support_seal_gain_frequency_as_%_of_total_cast_time", 200 },
+				{ "skill_area_of_effect_+%_per_expand_seal", 30 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportExpansePlayer"] = {
 	name = "Expanse",
 	description = "Supports any Skill that you use yourself, granting it significantly higher Area of Effect but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
@@ -4478,6 +4511,40 @@ skills["SupportGambleshotPlayer"] = {
 			},
 			stats = {
 				"projectile_randomly_fork_chain_or_pierce",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportGuatelitzisAblationPlayer"] = {
+	name = "Guatelitzi's Ablation",
+	description = "Supports Offering Skills. Supported Skills Sacrifice a portion of your life on use. While Offering spikes from Supported Skills persist, you are periodically granted a Power Charge. When spikes from Supported Skills die, Regenerate a percentage of your maximum Life and Mana per second based on the duration the Offering persisted.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Offering, },
+	addSkillTypes = { SkillType.GeneratesCharges, },
+	excludeSkillTypes = { },
+	gemFamily = { "SacrificalOffering",},
+	isLineage = true,
+	flavourText = {"Young Guatelitzi was found moving among the prisoners,", "preparing their living bodies for sacrifice. The High Priests", "recognised his inclinations, and gave him a higher calling.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Guatelitzi's Ablation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "sacrifice_%_life_on_skill_use", 25 },
+				{ "recover_%_life_and_mana_per_minute_for_supported_offering_lifetime", 300 },
+				{ "supported_offerings_grant_you_a_powercharge_every_x_ms", 4000 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
