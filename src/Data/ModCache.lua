@@ -1248,7 +1248,7 @@ c["100% increased Stun Threshold for each time you've been Stunned Recently"]={{
 c["100% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=100}},nil}
 c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=100}},nil}
 c["100% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=100}},nil}
-c["100% increased effect of Socketed Items"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=100}},"  of Socketed Items "}
+c["100% increased effect of Socketed Items"]={{[1]={flags=0,keywordFlags=0,name="RuneEffect",type="LIST",value={key="RuneIncEffect",value=100}}},nil}
 c["100% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=100}},nil}
 c["100% more Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="MORE",value=100}},nil}
 c["100% of Cold Damage Converted to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ColdDamageConvertToLightning",type="BASE",value=100}},nil}
@@ -3173,6 +3173,7 @@ c["75% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="Ma
 c["75% increased Melee Damage with Spears while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=268435716,keywordFlags=0,name="Damage",type="INC",value=75}},nil}
 c["75% increased Thorns damage if you've Blocked Recently"]={{[1]={[1]={type="Condition",var="BlockedRecently"},flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=75}},nil}
 c["75% increased chance to Shock"]={{[1]={flags=0,keywordFlags=0,name="EnemyShockChance",type="INC",value=75}},nil}
+c["75% increased effect of Socketed Items"]={{[1]={flags=0,keywordFlags=0,name="RuneEffect",type="LIST",value={key="RuneIncEffect",value=75}}},nil}
 c["75% of Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlags=0,name="DamageConvertToFire",type="BASE",value=75}},nil}
 c["75% reduced Amount Recovered"]={{[1]={flags=0,keywordFlags=0,name="FlaskRecovery",type="INC",value=-75}},nil}
 c["750% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=750}},nil}
