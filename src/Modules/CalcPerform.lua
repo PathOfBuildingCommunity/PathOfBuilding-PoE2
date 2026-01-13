@@ -643,7 +643,7 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("Multiplier:RageEffect", "BASE", output.RageEffect, "Base")
 			output.Rage = stacks
 			output.MaximumRage = maxStacks
-			output.RageOnMeleeHit = modDB:Sum("BASE", nil, "RageOnMeleeHit")
+			output.RageOnHit = modDB:Sum("BASE", env.player.mainSkill.skillCfg, "RageOnHit")
 			output.RageWhenHit = modDB:Sum("BASE", nil, "RageWhenHit")
 			modDB:NewMod("Multiplier:Rage", "BASE", output.Rage, "Base")
 			if modDB:Flag(nil, "Condition:RageSpellDamage") then
