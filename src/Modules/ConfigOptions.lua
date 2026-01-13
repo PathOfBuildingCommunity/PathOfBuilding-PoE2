@@ -963,6 +963,9 @@ Huge sets the radius to 11.
 	{ var = "multiplierSummonedMinion", type = "count", label = "# of Summoned Minions:", ifMult = "SummonedMinion", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SummonedMinion", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "multiplierMinionsInPresence", type = "count", label = "# of Minions in your Presence:", ifMult = "MinionPresenceCount", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:MinionPresenceCount", "BASE", val, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "conditionOnConsecratedGround", type = "check", label = "Are you on Consecrated Ground?", tooltip = "In addition to allowing any 'while on Consecrated Ground' modifiers to apply,\nConsecrated Ground grants 5% ^xE05030Life ^7Regeneration to players and allies.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:OnConsecratedGround", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 		modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:OnConsecratedGround", "FLAG", true, "Config", { type = "Condition", var = "Combat" }) })
@@ -1209,6 +1212,10 @@ Huge sets the radius to 11.
 	{ var = "conditionInfusionConsumedRecently", type = "check", label = "Infusion consumed recently?", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:InfusionConsumedRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "conditionInDodgeRoll", type = "check", label = "Are you in dodge roll?", ifCond = "InDodgeRoll", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:InDodgeRoll", "FLAG", true, "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var ="CannotDodgeRoll", neg = true })
+	end },
+
 	{ var = "conditionBeenHitRecently", type = "check", label = "Have you been Hit Recently?", ifCond = "BeenHitRecently", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:BeenHitRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

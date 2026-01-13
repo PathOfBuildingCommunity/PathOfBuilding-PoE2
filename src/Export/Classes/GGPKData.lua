@@ -127,6 +127,7 @@ end
 
 function GGPKClass:AddDat64Files()
 	local datFiles = self:GetNeededFiles()
+	table.sort(datFiles, function(a, b) return a:lower() < b:lower() end)
 	for _, fname in ipairs(datFiles) do
 		local record = { }
 		record.name = fname:match("([^/\\]+)$") .. "c64"
@@ -370,6 +371,8 @@ function GGPKClass:GetNeededFiles()
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
 		"Metadata/Items/Item.it",
+		"Metadata/Items/Incursion2/Arm.it",
+		"Metadata/Items/Incursion2/Leg.it",
 		"Metadata/Items/Weapons/AbstractWeapon.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/AbstractTwoHandWeapon.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/StormbladeTwoHand.it",

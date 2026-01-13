@@ -67,38 +67,6 @@ skills["SupportAftershockChancePlayerTwo"] = {
 		},
 	}
 }
-skills["SupportAftershockChancePlayerThree"] = {
-	name = "Aftershock III",
-	description = "Supports Slam Skills. Supported Skills a chance to create an Aftershock as well as increased chance to cause Aftershocks the longer their Attack time",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Slam, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, },
-	gemFamily = { "Aftershock",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Aftershock III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "chance_to_aftershock_+%_per_250_ms_attack_time", 15 },
-				{ "slam_aftershock_chance_%", 15 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportAmanamusTithePlayer"] = {
 	name = "Amanamu's Tithe",
 	description = "Supports Persistent Minion Skills, granting a chance when Supported Minions die for you to gain an Abyssal Monster Modifier.",
@@ -217,39 +185,6 @@ skills["SupportAncestralCallPlayerTwo"] = {
 			},
 			constantStats = {
 				{ "ancestral_call_spirit_strike_interval_ms", 3000 },
-			},
-			stats = {
-				"support_ancestral_call_strike_is_ancestral_boosted",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportAncestralCallPlayerThree"] = {
-	name = "Ancestral Call III",
-	description = "Supports Strikes you use yourself, providing a powerful Ancestral Boost every second, at the cost of a damage penalty. Cannot Support Channelled Skills and does not modify Skills used by Minions.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.MeleeSingleTarget, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
-	gemFamily = { "AncestralCall",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-	},
-	statSets = {
-		[1] = {
-			label = "Ancestral Call III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "ancestral_call_spirit_strike_interval_ms", 1000 },
-				{ "support_ancestral_call_damage_+%_final", -30 },
 			},
 			stats = {
 				"support_ancestral_call_strike_is_ancestral_boosted",
@@ -4840,6 +4775,11 @@ skills["SupportMarkForDeathPlayer"] = {
 			label = "Mark for Death",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["marked_target_%_physical_damage_taken_as_armour_break"] = {
+					flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5247,41 +5187,6 @@ skills["ProlongedDurationSupportPlayerTwo"] = {
 		},
 	}
 }
-skills["ProlongedDurationSupportPlayerThree"] = {
-	name = "Prolonged Duration III",
-	description = "Supports any skill that has a duration, making that duration significantly longer while applying a cooldown. Cannot support Skills which already have a cooldown.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Duration, },
-	addSkillTypes = { SkillType.Cooldown, SkillType.SupportedByDurationThree, },
-	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByDurationThree, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, SkillType.Triggered, },
-	gemFamily = { "ProlongedDuration",},
-	levels = {
-		[1] = { cooldown = 16, levelRequirement = 0, storedUses = 1, },
-	},
-	statSets = {
-		[1] = {
-			label = "Prolonged Duration III",
-			incrementalEffectiveness = 0.092720001935959,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_more_duration_skill_effect_duration_+%_final"] = {
-					mod("Duration", "MORE", nil),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_more_duration_skill_effect_duration_+%_final", 60 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportQuillburstPlayer"] = {
 	name = "Quill Burst",
 	description = "Supports Melee Attack Skills. Supported Skills trigger Quill Burst, which deals your Thorns Damage in an Area around the target struck. Quill Burst can only be triggered on Hit after you've\nRetaliated with Thorns Damage.",
@@ -5470,6 +5375,11 @@ skills["SupportRageforgedPlayer"] = {
 			label = "Rageforged I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rageforged_enraged_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5502,6 +5412,11 @@ skills["SupportRageforgedPlayerTwo"] = {
 			label = "Rageforged II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_rageforged_enraged_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

@@ -24,16 +24,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportAdhesiveGrenadesPlayerThree
-#set SupportAdhesiveGrenadesPlayerThree
-statMap = {
-	["support_sticky_grenade_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportAdmixturePlayer
 #set SupportAdmixturePlayer
 statMap = {
@@ -102,6 +92,14 @@ statMap = {
 
 #skill SupportArakaalisLustPlayer
 #set SupportArakaalisLustPlayer
+statMap = {
+	["support_debilitate_hit_damage_+%_final_per_poison_stack"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", actor = "enemy", var = "PoisonStacks", limitVar = "ArakaaliMaxHitDamage", limitTotal = true } ),
+	},
+	["support_debilitate_hit_damage_max_poison_stacks"] = {
+		mod("Multiplier:ArakaaliMaxHitDamage", "BASE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -786,16 +784,6 @@ statMap = {
 
 #skill SupportIncreaseLimitPlayerTwo
 #set SupportIncreaseLimitPlayerTwo
-statMap = {
-	["support_limit_skill_effect_duration_+%_final"] = {
-		mod("Duration", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
-#skill SupportIncreaseLimitPlayerThree
-#set SupportIncreaseLimitPlayerThree
 statMap = {
 	["support_limit_skill_effect_duration_+%_final"] = {
 		mod("Duration", "MORE", nil),

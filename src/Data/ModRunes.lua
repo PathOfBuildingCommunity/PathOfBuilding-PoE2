@@ -457,6 +457,89 @@ return {
 				rank = { 60 },
 		},
 	},
+	["Jiquani's Thesis"] = {
+		["helmet"] = {
+				type = "Rune",
+				"+1 to maximum Mana per 2 Item Energy Shield on Equipped Helmet",
+				statOrder = { 6295 },
+				rank = { 60 },
+		},
+		["gloves"] = {
+				type = "Rune",
+				"Energy Shield Recharge starts after spending a total of",
+				" 2000 Mana, no more than once every 2 seconds",
+				statOrder = { 6023, 6023.1 },
+				rank = { 60 },
+		},
+		["boots"] = {
+				type = "Rune",
+				"Increases and Reductions to Movement Speed also",
+				" apply to Energy Shield Recharge Rate",
+				statOrder = { 6874, 6874.1 },
+				rank = { 60 },
+		},
+	},
+	["Quipolatl's Thesis"] = {
+		["helmet"] = {
+				type = "Rune",
+				"A random Skill that requires Glory generates 15% of its maximum Glory when your Mark Activates",
+				statOrder = { 8275 },
+				rank = { 60 },
+		},
+		["gloves"] = {
+				type = "Rune",
+				"Each Runic Inscription from your Curse Skills causes you to Regenerate Mana per second equal to 10% of that Skill's Mana Cost",
+				statOrder = { 9139 },
+				rank = { 60 },
+		},
+		["body armour"] = {
+				type = "Rune",
+				"+50% of Armour also applies to Chaos Damage while on full Energy Shield",
+				statOrder = { 4261 },
+				rank = { 60 },
+		},
+	},
+	["Guatelitzi's Thesis"] = {
+		["helmet"] = {
+				type = "Rune",
+				"Gain Armour equal to 25% of Life Lost from Hits in the past 8 seconds",
+				statOrder = { 6337 },
+				rank = { 60 },
+		},
+		["body armour"] = {
+				type = "Rune",
+				"10% of Physical Damage prevented Recouped as Life",
+				statOrder = { 8867 },
+				rank = { 60 },
+		},
+		["boots"] = {
+				type = "Rune",
+				"Lose 5% of maximum Life per second while Sprinting",
+				"25% increased Movement Speed while Sprinting",
+				statOrder = { 6999, 9465 },
+				rank = { 60 },
+		},
+	},
+	["Citaqualotl's Thesis"] = {
+		["body armour"] = {
+				type = "Rune",
+				"You Recoup 50% of Damage taken by your Offerings as Life",
+				statOrder = { 9105 },
+				rank = { 60 },
+		},
+		["gloves"] = {
+				type = "Rune",
+				"One of your Persistent Minions revives when an Offering expires",
+				statOrder = { 9188 },
+				rank = { 60 },
+		},
+		["boots"] = {
+				type = "Rune",
+				"Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll",
+				statOrder = { 9195 },
+				rank = { 60 },
+		},
+	},
 	["Desert Rune"] = {
 		["weapon"] = {
 				type = "Rune",

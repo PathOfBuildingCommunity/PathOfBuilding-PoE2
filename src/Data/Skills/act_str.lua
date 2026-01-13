@@ -1028,7 +1028,7 @@ skills["ArtilleryBallistaPlayer"] = {
 	}
 }
 skills["ArtilleryBallistaProjectilePlayer"] = {
-	name = "",
+	name = "Ballista Bolt",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Sustained] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.UsedByTotem] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
@@ -1450,14 +1450,14 @@ skills["BerserkPlayer"] = {
 			statDescriptionScope = "berserk",
 			statMap = {
 				["skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"] = {
-					mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
-					div = 60
+					mod("LifeDegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "Rage" }),
+					div = 60,
 				},
 				["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
 					mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 					div = 100,
 				},
-				["rage_effect_+%"] = {
+				["skill_base_rage_effect_+%_to_apply"] = {
 					mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 				}
 			},

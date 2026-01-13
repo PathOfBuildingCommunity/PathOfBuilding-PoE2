@@ -81,8 +81,8 @@ c["+0 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerCharge
 c["+0% to Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResist",type="BASE",value=0}},nil}
 c["+0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=0}},nil}
 c["+0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},nil}
+c["+0.15% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  "}
 c["+0.15% to Thorns Critical Hit Chance +25% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.15}}," Thorns  +25% to Thorns Critical Hit Chance "}
-c["+0.2% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.2}}," Thorns  "}
 c["+0.5 metres to Dodge Roll distance while Surrounded"]={{}," metres to Dodge Roll distance  "}
 c["+0.5 metres to Dodge Roll distance while Surrounded 10% increased Movement Speed while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},[2]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="MovementSpeed",type="BASE",value=0.5}}," metres to Dodge Roll distance  10% increased   "}
 c["+0.5% to Thorns Critical Hit Chance per 50 Tribute"]={{[1]={[1]={actor="parent",div=50,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="CritChance",type="BASE",value=0.5}}," Thorns   "}
@@ -2784,7 +2784,7 @@ c["5% increased Area Damage"]={{[1]={flags=512,keywordFlags=0,name="Damage",type
 c["5% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=5}},nil}
 c["5% increased Attack Critical Hit Chance per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=1,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["5% increased Attack Damage"]={{[1]={flags=1,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
-c["5% increased Attack Damage for each Minion in your Presence, up to a maximum of 80%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Damage",type="INC",value=5}}}},"  for each  in your Presence, up to a maximum of 80% "}
+c["5% increased Attack Damage for each Minion in your Presence, up to a maximum of 80%"]={{[1]={[1]={limit=80,limitTotal=true,type="Multiplier",var="MinionPresenceCount"},flags=1,keywordFlags=0,name="Damage",type="INC",value=5}},nil}
 c["5% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
 c["5% increased Attack Speed with Bows"]={{[1]={flags=131077,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
 c["5% increased Attack Speed with Daggers"]={{[1]={flags=524293,keywordFlags=0,name="Speed",type="INC",value=5}},nil}
@@ -2805,7 +2805,7 @@ c["5% increased Duration of Damaging Ailments on Enemies"]={{[1]={flags=0,keywor
 c["5% increased Experience gain"]={{}," Experience gain "}
 c["5% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=5}},nil}
 c["5% increased Life Regeneration rate"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=5}},nil}
-c["5% increased Life and Mana Regeneration Rate for each Minion in your Presence, up to a maximum of 40%"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=5}}}},"  and Mana Regeneration Rate for each  in your Presence, up to a maximum of 40% "}
+c["5% increased Life and Mana Regeneration Rate for each Minion in your Presence, up to a maximum of 40%"]={{[1]={[1]={limit=40,limitTotal=true,type="Multiplier",var="MinionPresenceCount"},flags=0,keywordFlags=0,name="LifeRegen",type="INC",value=5},[2]={[1]={limit=40,limitTotal=true,type="Multiplier",var="MinionPresenceCount"},flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=5}},nil}
 c["5% increased Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="LightningDamage",type="INC",value=5}},nil}
 c["5% increased Magnitude of Ailments you inflict"]={{[1]={flags=0,keywordFlags=0,name="AilmentMagnitude",type="INC",value=5}},nil}
 c["5% increased Mana Regeneration Rate"]={{[1]={flags=0,keywordFlags=0,name="ManaRegen",type="INC",value=5}},nil}
@@ -4533,8 +4533,7 @@ c["Cannot be Blinded while on Full Life"]={{[1]={[1]={type="Condition",var="Full
 c["Cannot be Critically Hit while Parrying"]={nil,"Cannot be Critically Hit while Parrying "}
 c["Cannot be Heavy Stunned while Sprinting"]={{[1]={[1]={type="Condition",var="Sprinting"},flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Ignited"]={{[1]={flags=0,keywordFlags=0,name="IgniteImmune",type="FLAG",value=true}},nil}
-c["Cannot be Light Stunned"]={nil,"Cannot be Light Stunned "}
-c["Cannot be Light Stunned Cannot Dodge Roll or Sprint"]={nil,"Cannot be Light Stunned Cannot Dodge Roll or Sprint "}
+c["Cannot be Light Stunned"]={{[1]={flags=0,keywordFlags=0,name="StunImmune",type="FLAG",value=true}},nil}
 c["Cannot be Light Stunned if you haven't been Hit Recently"]={nil,"Cannot be Light Stunned if you haven't been Hit Recently "}
 c["Cannot be Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonImmune",type="FLAG",value=true}},nil}
 c["Cannot be Shocked"]={{[1]={flags=0,keywordFlags=0,name="ShockImmune",type="FLAG",value=true}},nil}
@@ -4740,8 +4739,7 @@ c["Detonator skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=241
 c["Detonator skills have 80% reduced damage"]={{[1]={[1]={skillType=241,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=-80}},nil}
 c["Dodge Roll avoids all Hits"]={nil,"Dodge Roll avoids all Hits "}
 c["Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds"]={nil,"Dodge Roll avoids all Hits 10% less Movement and Skill Speed per Dodge Roll in the past 20 seconds "}
-c["Dodge Roll cannot Avoid Damage"]={nil,"Dodge Roll cannot Avoid Damage "}
-c["Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling"]={nil,"Dodge Roll cannot Avoid Damage Take 30% less Damage from Hits while Dodge Rolling "}
+c["Dodge Roll cannot Avoid Damage"]={{},nil}
 c["Dodge Roll passes through Enemies"]={nil,"Dodge Roll passes through Enemies "}
 c["Double Activation Delay of Curses"]={{[1]={flags=0,keywordFlags=0,name="CurseDelay",type="MORE",value=100}},nil}
 c["Double Adaptation Effect"]={{[1]={[1]={globalLimit=100,globalLimitKey="LocalEffectDoubledLimit",type="Multiplier",var="LocalEffectDoubled"},flags=0,keywordFlags=0,name="LocalEffect",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:LocalEffectDoubled",type="OVERRIDE",value=1}}," Adaptation  "}
@@ -4865,7 +4863,7 @@ c["Evasion Rating from Equipped Helmet, Gloves and Boots is doubled"]={{[1]={[1]
 c["Evasion Rating is doubled if you have not been Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="BeenHitRecently"},[2]={globalLimit=100,globalLimitKey="EvasionDoubledLimit",type="Multiplier",var="EvasionDoubled"},flags=0,keywordFlags=0,name="Evasion",type="MORE",value=100},[2]={[1]={neg=true,type="Condition",var="BeenHitRecently"},flags=0,keywordFlags=0,name="Multiplier:EvasionDoubled",type="OVERRIDE",value=1}},nil}
 c["Evasion Rating is increased by Uncapped Lightning Resistance"]={nil,"Evasion Rating is increased by Uncapped Lightning Resistance "}
 c["Everlasting Sacrifice"]={{[1]={flags=0,keywordFlags=0,name="Condition:EverlastingSacrifice",type="FLAG",value=true}},nil}
-c["Every 10 Rage also grants 12% increased Physical Damage"]={nil,"Every 10 Rage also grants 12% increased Physical Damage "}
+c["Every 10 Rage also grants 12% increased Physical Damage"]={{[1]={[1]={div=10,type="Multiplier",var="RageEffect"},flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=12}},nil}
 c["Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds"]={nil,"Every 10 seconds, gain a random non-damaging Shrine buff for 20 seconds "}
 c["Every 2 Rage also grants 1% more Spell damage"]={{[1]={[1]={div=2,type="Multiplier",var="RageEffect"},flags=2,keywordFlags=0,name="Damage",type="MORE",value=1}},nil}
 c["Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres"]={nil,"Every 3 seconds during Effect, deal 100% of Mana spent in those seconds as Chaos Damage to Enemies within 3 metres "}
@@ -5658,7 +5656,7 @@ c["No Inherent loss of Rage during effect"]={nil,"No Inherent loss of Rage durin
 c["No Inherent loss of Rage during effect 50% increased Duration"]={nil,"No Inherent loss of Rage during effect 50% increased Duration "}
 c["No Movement Speed Penalty while Shield is Raised"]={nil,"No Movement Speed Penalty while Shield is Raised "}
 c["No Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMin"}},[2]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMax"}},[3]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalDPS"}}},nil}
-c["No Rage effect"]={nil,"No Rage effect "}
+c["No Rage effect"]={{[1]={flags=0,keywordFlags=0,name="RageEffect",type="OVERRIDE",value=0}},nil}
 c["No inherent Mana Regeneration"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoInherentManaRegen",type="FLAG",value=true}},nil}
 c["Non-Channelling Spells cost an additional 6% of your maximum Life"]={{[1]={[1]={floor=true,percent=6,stat="Life",type="PercentStat"},[2]={neg=true,skillType=48,type="SkillType"},flags=0,keywordFlags=131072,name="LifeCostBase",type="BASE",value=1}},nil}
 c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
@@ -5988,8 +5986,8 @@ c["Spells Cast by Totems have 3% increased Cast Speed per Summoned Totem"]={{[1]
 c["Spells Cast by Totems have 4% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=4}},nil}
 c["Spells Cast by Totems have 5% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=5}},nil}
 c["Spells Cast by Totems have 6% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=6}},nil}
-c["Spells Gain 12% of Damage as extra Chaos Damage"]={nil,"Spells Gain 12% of Damage as extra Chaos Damage "}
-c["Spells Gain 5% of Damage as extra Chaos Damage"]={nil,"Spells Gain 5% of Damage as extra Chaos Damage "}
+c["Spells Gain 12% of Damage as extra Chaos Damage"]={{[1]={flags=2,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=12}},nil}
+c["Spells Gain 5% of Damage as extra Chaos Damage"]={{[1]={flags=2,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=5}},nil}
 c["Spells consume a Power Charge if able to deal 40% more Damage"]={nil,"Spells consume a Power Charge if able to deal 40% more Damage "}
 c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="ProjectileCount",type="BASE",value=4}},nil}
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}
@@ -6013,7 +6011,7 @@ c["Successfully Parrying a Projectile Hit grants 40% increased Damage to your ne
 c["Take 100 Chaos damage per second per Endurance Charge"]={{[1]={[1]={type="Multiplier",var="EnduranceCharge"},flags=0,keywordFlags=0,name="ChaosDegen",type="BASE",value=100}},nil}
 c["Take 100 Fire Damage when you Ignite an Enemy"]={{[1]={flags=0,keywordFlags=0,name="EyeOfInnocenceSelfDamage",type="LIST",value={baseDamage=100,damageType="fire"}}},nil}
 c["Take 100% of Mana Costs you pay for Skills as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsPhysical",type="BASE",value=100}}," s you pay for Skills  "}
-c["Take 30% less Damage from Hits while Dodge Rolling"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-30}},"  from Hits while Dodge Rolling "}
+c["Take 30% less Damage from Hits while Dodge Rolling"]={{[1]={[1]={type="Condition",var="InDodgeRoll"},flags=0,keywordFlags=0,name="DamageTakenWhenHit",type="MORE",value=-30}},nil}
 c["Take 30% more Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},"  from Hits "}
 c["Take 30% more Damage from Hits Take 40% less Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},"  from Hits Take 40% less Damage from Hits "}
 c["Take 30% more Damage over time"]={{[1]={flags=8,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},nil}

@@ -1401,7 +1401,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			
 			-- Apply Inc Node scaling from Hulking Form + Radius Jewels only visually
 			if (((incSmallPassiveSkillEffect + localIncEffect) > 0 and node.type == "Normal") or (localIncEffect > 0 and node.type == "Notable")) and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
-				local scale = 1 + (node.type == "Normal" and (incSmallPassiveSkillEffect or 0) + localIncEffect) / 100
+				local base = (localIncEffect or 0)
+				local scale = 1 + ((node.type == "Normal" and ((incSmallPassiveSkillEffect or 0) + base) or base) / 100)
+
 				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
 				scaledList:ScaleAddList(modsList, scale)
