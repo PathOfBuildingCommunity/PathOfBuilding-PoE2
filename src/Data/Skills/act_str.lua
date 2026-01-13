@@ -1457,7 +1457,7 @@ skills["BerserkPlayer"] = {
 					mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 					div = 100,
 				},
-				["rage_effect_+%"] = {
+				["skill_base_rage_effect_+%_to_apply"] = {
 					mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 				}
 			},
