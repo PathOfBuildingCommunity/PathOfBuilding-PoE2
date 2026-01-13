@@ -1946,4 +1946,5 @@ function ItemClass:BuildModList()
 		self.modList = self:BuildModListForSlotNum(baseList)
 	end
 	self.socketedSoulCoreEffectModifier = calcLocal(baseList, "SocketedSoulCoreEffect", "INC", 0) / 100
+	self.socketedAugmentEffectModifier = calcLocal(baseList, "SocketedAugmentEffect", "INC", 0) / 100
 end

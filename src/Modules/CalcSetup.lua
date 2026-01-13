@@ -1045,17 +1045,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 						mod.sourceSlotNum = slot.slotNum
 					end
 				end
-				
-				if item.requirements and not accelerate.requirementsItems then
-					t_insert(env.requirementsTableItems, {
-						source = "Item",
-						sourceItem = item,
-						sourceSlot = slotName,
-						Str = item.requirements.strMod,
-						Dex = item.requirements.dexMod,
-						Int = item.requirements.intMod,
-					})
-				end
 				-- Rune / Soul Core Sockets
 				local socketed = 0
 				for i = 1, item.itemSocketCount do
@@ -1067,16 +1056,43 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 				if item.socketedSoulCoreEffectModifier ~= 0 then
 					for _, modLine in ipairs(item.runeModLines) do
-						if modLine.soulcore then
+						if modLine.soulCore then
 							for _, mod in ipairs(modLine.modList) do
 								local modCopy = copyTable(mod)
-								modCopy.value = round(modCopy.value / modLine.runeCount)
-								for i = 1, modLine.runeCount do
-									env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+								if type(modCopy.value) == "number" then
+									modCopy.value = round(modCopy.value / modLine.runeCount)
+									for i = 1, modLine.runeCount do
+										env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+									end
 								end
 							end
 						end
 					end
+				end
+				
+				if item.socketedAugmentEffectModifier ~= 0 then
+					for _, modLine in ipairs(item.runeModLines) do
+						for _, mod in ipairs(modLine.modList) do
+							local modCopy = copyTable(mod)
+							if type(modCopy.value) == "number" then
+								modCopy.value = round(modCopy.value / modLine.runeCount)
+								for i = 1, modLine.runeCount do
+									env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
+								end
+							end
+						end
+					end
+				end
+
+				if item.requirements and not accelerate.requirementsItems then
+					t_insert(env.requirementsTableItems, {
+						source = "Item",
+						sourceItem = item,
+						sourceSlot = slotName,
+						Str = item.requirements.strMod,
+						Dex = item.requirements.dexMod,
+						Int = item.requirements.intMod,
+					})
 				end
 
 				if item.type == "Jewel" and item.base.subType == "Abyss" then

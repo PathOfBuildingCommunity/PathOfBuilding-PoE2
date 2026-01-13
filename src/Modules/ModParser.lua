@@ -871,6 +871,7 @@ local modNameList = {
 	["effect of the socketed jewel"] = "SocketedJewelEffect",
 	["effect of socketed abyss jewels"] = "SocketedJewelEffect",
 	["effect of socketed soul cores"] = "SocketedSoulCoreEffect",
+	["effect of socketed items"] = "SocketedAugmentEffect",
 	["to inflict fire exposure on hit"] = "FireExposureChance",
 	["to apply fire exposure on hit"] = "FireExposureChance",
 	["to inflict cold exposure on hit"] = "ColdExposureChance",
@@ -5386,7 +5387,6 @@ local specialModList = {
 	["this jewel's socket has (%d+)%% increased effect per allocated passive skill between it and your class' starting location"] = function(num) return { mod("JewelData", "LIST", { key = "jewelIncEffectFromClassStart", value = num }) } end,
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels, if not from cluster jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
-	["(%d+)%% increased effect of socketed items"] = function(num, _) return { mod("RuneEffect", "LIST", { key = "RuneIncEffect", value = num }) } end,
 	-- Misc
 	["fully broken armour effects also apply to fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
 	["can't use chest armour"] = { mod("CanNotUseBody", "Flag", 1, { type = "DisablesItem", slotName = "Body Armour" }) },
