@@ -3249,8 +3249,8 @@ local specialModList = {
 	["gain maximum life instead of maximum energy shield from equipped armour items"] = { flag("ConvertArmourESToLife") },
 	-- Mercenary - Witchhunter
 	["deal up to (%d+)%% more damage to enemies based on their missing concentration"] = function(num) return {
-		mod("Damage", "MORE", num, {type = "Condition", var ="EnemyNoConcentration"}),
 		flag("EnemyConcentration"),
+		flag("Condition:EnemyConcentration")
 	} end,
 	-- Mercenary - Gemling
 	["attribute requirements of gems can be satisi?fied by your highest attribute"] = { flag("GemAttributeRequirementsSatisfiedByHighestAttribute") },
