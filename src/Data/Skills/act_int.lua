@@ -1502,7 +1502,7 @@ skills["BoneCagePlayer"] = {
 	baseTypeName = "Bone Cage",
 	color = 3,
 	description = "Raise a ring of bone spikes around you. The spikes are destroyed when enemies touch them, damaging and Pinning those enemies. Raising a new ring of spikes destroys the previous one.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Necrotic] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.Nova] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Cascadable] = true, [SkillType.Necrotic] = true, [SkillType.Totemable] = true, },
 	castTime = 1,
 	qualityStats = {
 		{ "active_skill_pins_as_though_dealt_damage_+%_final", 2.5 },
@@ -5791,7 +5791,7 @@ skills["EmberFusilladePlayer"] = {
 	baseTypeName = "Ember Fusillade",
 	color = 3,
 	description = "Conjure a blazing Ember that hovers above you. After a short duration, the Ember launches at an enemy, dealing Fire damage in an area on impact and prioritising the last enemy targeted. Recasting this spell resets the duration for all active Embers. Multiple Embers fired in the same Fusillade will attempt to target different enemies. Consumes a Lightning Infusion if possible to cause the entire Fusillade to create beams that Chain to enemies.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, },
 	castTime = 0.4,
 	qualityStats = {
 		{ "ember_fusillade_damage_+%_final_per_ember_fired", 0.1 },
@@ -6883,6 +6883,17 @@ skills["FallingThunderPlayer"] = {
 			baseEffectiveness = 0.62000000476837,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "falling_thunder",
+			statMap = {
+				["lightning_strike_damage_+%_final_per_power_charge"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+				},
+				["lightning_strike_damage_+%_final_when_charged"] = {
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
+				},
+				["lightning_strike_base_number_of_projectiles_per_power_charge"] = {
+					mod("ProjectileCount", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
+				},
+			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -8877,7 +8888,7 @@ skills["FrostDartsPlayer"] = {
 	baseTypeName = "Frost Darts",
 	color = 3,
 	description = "Conjures a number of icy Projectiles that launch towards the target. Projectiles that Hit a Chilled or Frozen target create chunks of ice that deal additional damage on impacting the ground. Consumes a Cold Infusion if possible to cause each Projectile to lodge into the enemy then explode.",
-	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, },
+	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.Unleashable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Triggerable] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, },
 	castTime = 0.8,
 	qualityStats = {
 		{ "spell_skills_fire_2_additional_projectiles_final_chance_%", 0.5 },
@@ -16488,7 +16499,7 @@ skills["ReapPlayer"] = {
 			stats = {
 				"spell_minimum_base_physical_damage",
 				"spell_maximum_base_physical_damage",
-				"life_gained_on_cull",
+				"active_skill_life_gained_on_cull",
 				"is_area_damage",
 				"active_skill_show_cull_range",
 				"kill_enemy_on_hit_if_under_10%_life",

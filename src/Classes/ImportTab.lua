@@ -624,9 +624,6 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 
 	local updated = false
 	for _, quest in ipairs(data.questRewards) do
-		if #statLines == 0 then
-			break
-		end
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
 			if quest.Stat then
@@ -1036,8 +1033,10 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	item.mirrored = itemData.mirrored
 	item.corrupted = itemData.corrupted
+	item.doubleCorrupted = itemData.doubleCorrupted
 	item.fractured = itemData.fractured
 	item.desecrated = itemData.desecrated
+	item.mutated = itemData.mutated
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
 		item.itemSocketCount = 0
@@ -1114,6 +1113,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 			for line in line:gmatch("[^\n]+") do
 				local modList, extra = modLib.parseMod(line)
 				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, desecrated = true })
+			end
+		end
+	end
+	if itemData.mutatedMods then
+		for _, line in ipairs(itemData.mutatedMods) do
+			for line in line:gmatch("[^\n]+") do
+				local modList, extra = modLib.parseMod(line)
+				t_insert(item.explicitModLines, { line = line, extra = extra, mods = modList or { }, mutated = true })
 			end
 		end
 	end

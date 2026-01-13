@@ -93,8 +93,8 @@ UniqueLocalIncreasedEvasionRatingPercent12
 UniqueCriticalStrikeChance1
 UniqueIncreasedAttackSpeed3
 UniqueDexterity2
-{variant:1}UniqueCriticalStrikeMultiplierOverride1
 {variant:2}UniqueCriticalStrikesCannotBeRerolled1
+UniqueCriticalStrikeMultiplierOverride1
 ]],[[
 Northpaw
 Suede Bracers

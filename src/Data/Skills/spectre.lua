@@ -3971,7 +3971,7 @@ skills["GSAbyssCocoon3BallSpitImpact"] = {
 	statSets = {
 		[1] = {
 			label = "Large Ball Impact",
-			baseEffectiveness = 6,
+			baseEffectiveness = 3.5,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "geometry_spell",
@@ -3982,8 +3982,8 @@ skills["GSAbyssCocoon3BallSpitImpact"] = {
 			},
 			constantStats = {
 				{ "active_skill_area_of_effect_radius_+%_final", -65 },
-				{ "active_skill_ignite_chance_+%_final", 200 },
-				{ "active_skill_ignite_effect_+%_final", 200 },
+				{ "active_skill_ignite_chance_+%_final", 100 },
+				{ "active_skill_ignite_effect_+%_final", 10 },
 			},
 			stats = {
 				"spell_minimum_base_fire_damage",
@@ -4104,7 +4104,7 @@ skills["GSAbyssCocoon3BallSpitSmallImpact"] = {
 	statSets = {
 		[1] = {
 			label = "Small Ball Impact ",
-			baseEffectiveness = 4,
+			baseEffectiveness = 3.1500000953674,
 			incrementalEffectiveness = 0.10000000149012,
 			damageIncrementalEffectiveness = 0.017500000074506,
 			statDescriptionScope = "geometry_spell",
@@ -5146,6 +5146,7 @@ skills["MPAVaalHumanoidCannon"] = {
 				"projectile_uses_contact_position",
 				"projectile_uses_contact_direction",
 				"use_scaled_contact_offset",
+				"base_deal_no_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

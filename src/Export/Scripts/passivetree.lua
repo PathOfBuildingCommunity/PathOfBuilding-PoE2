@@ -77,6 +77,37 @@ local function round_to(num, decimal_places)
     return math.floor(num * multiplier + 0.5) / multiplier
 end
 
+local function extractSheetFiles(allSheets, is4kEnabled, extraFiles)
+	local filesToExtract = {}
+	local seen = {}
+	for _, sheet in ipairs(allSheets) do
+		for icon in pairs(sheet.files) do
+			if not seen[icon] then
+				seen[icon] = true
+				table.insert(filesToExtract, icon)
+			end
+			if is4kEnabled then
+				local icon4k = icon:gsub("(.*/)([^/]+)$", "%14k/%2")
+				if not seen[icon4k] then
+					seen[icon4k] = true
+					table.insert(filesToExtract, icon4k)
+				end
+			end
+		end
+	end
+	if extraFiles then
+		for _, file in ipairs(extraFiles) do
+			if not seen[file] then
+				seen[file] = true
+				table.insert(filesToExtract, file)
+			end
+		end
+	end
+	if #filesToExtract > 0 then
+		main.ggpk:ExtractList(filesToExtract, cacheExtract)
+	end
+end
+
 local function print_table(t, indent)
     indent = indent or 0
     local prefix = string.rep("  ", indent)
@@ -132,18 +163,6 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	local stackTextures = {}
 	local ddsCoords = {}
 
-	-- extract all files first from GGG pack
-	local filesToExtract = { }
-	for icon, _ in pairs(sheet.files) do
-		table.insert(filesToExtract, icon)
-
-		if is4kEnabled then
-			local icon4k = icon:gsub("(.*/)([^/]+)$", "%14k/%2")
-			table.insert(filesToExtract, icon4k)
-		end
-	end
-	main.ggpk:ExtractList(filesToExtract, cacheExtract)
-
 	for icon, sections in pairsSortByKey(sheet.files) do
 		local tex = Texture.new()
 		local rc
@@ -190,13 +209,11 @@ local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
 	sheet.ddsCoords = ddsCoords
 end
 
-local function parseUIImages()
-	local file = "art/uiimages1.txt"
+local function parseUIImages(file)
 	local text
 	if main.ggpk.txt[file] then
 		text = main.ggpk.txt[file]
 	else
-		main.ggpk:ExtractList({file}, cacheExtract)
 		text = convertUTF16to8(getFile(file))
 		main.ggpk.txt[file] = text
 	end
@@ -238,12 +255,6 @@ end
 			- check version (only support version 3 for now)
 --]]
 
--- parse UI Images
-printf("Getting UIImages ...")
-local uiImages = parseUIImages()
--- uncomment next line if wanna print what we found
--- print_table(uiImages, 0)
-
 -- Set to true if you want to generate assets
 local generateAssets = false
 local use4kIfPossible = false
@@ -265,12 +276,18 @@ if rowPassiveTree == nil then
 end
 
 local psgFile = rowPassiveTree.PassiveSkillGraph .. ".psg"
+local uiImagesFile = "art/uiimages1.txt"
 
-printf("Extracting passives tree " .. idPassiveTree .. " from " .. psgFile)
+printf("Extracting required assets (psg + ui images)...")
+main.ggpk:ExtractList({psgFile, uiImagesFile}, cacheExtract)
 
-main.ggpk:ExtractList({psgFile}, cacheExtract)
+-- parse UI Images
+--printf("Getting UIImages ...")
+local uiImages = parseUIImages(uiImagesFile)
+-- uncomment next line if wanna print what we found
+-- print_table(uiImages, 0)
 
-printf("Parsing passives tree " .. idPassiveTree .. " from " .. main.ggpk.oozPath .. psgFile)
+--printf("Parsing passives tree " .. idPassiveTree .. " from " .. main.ggpk.oozPath .. psgFile)
 
 local f = io.open(main.ggpk.oozPath .. psgFile, "rb")
 
@@ -288,18 +305,18 @@ local psg = {
 	groups = { },
 }
 
-printf("Parsing passives...")
+--printf("Parsing passives...")
 local passivesCount = getInt(f)
 
-printf("Passive count: " .. passivesCount)
+--printf("Passive count: " .. passivesCount)
 for i = 1 , passivesCount do
 	table.insert(psg.passives, getLong(f))
 end
 
-printf("Parsing groups...")
+--printf("Parsing groups...")
 local groupCount = getInt(f)
 
-printf("Group count: " .. groupCount)
+--printf("Group count: " .. groupCount)
 for i = 1 , groupCount do
 	local group = { 
 		x = getFloat(f),
@@ -336,7 +353,7 @@ end
 
 f:close()
 
-printf("Passives tree " .. idPassiveTree .. " parsed")
+--printf("Passives tree " .. idPassiveTree .. " parsed")
 
 -- uncomment next line if wanna print what we found
 -- print_table(psg, 0)
@@ -389,15 +406,52 @@ local sheetLocations = {
 	["monster-categories"] = 11,
 }
 local connectionArtToDecompose = {
+	Character = true,
+	CharacterAscendancy = true,
+	--AbyssLichAscendancy = true, Currently breaks the GIMP mask script so can't include it atm
 	CharacterPlanned = true,
 }
+
+local linesFiles = {}
+local linesDds = {}
+do
+	local typeOfConnections = {
+		"Normal", "Intermediate", "IntermediateActive"
+	}
+
+	for connectionArtId in pairs(connectionArtToDecompose) do
+		local connectionArt = dat("PassiveSkillTreeConnectionArt"):GetRow("Id", connectionArtId)
+		if connectionArt == nil then
+			printf("Connection art " .. connectionArtId .. " not found")
+		else
+			for _, typeName in ipairs(typeOfConnections) do
+				local linesFile = {
+					file = connectionArt[typeName],
+					mask = connectionArt.Mask,
+					extension = ".png",
+					basename = connectionArtId .. "_orbit_" .. string.lower(typeName),
+					first = connectionArtId .. "LineConnector",
+					prefix = connectionArtId .. "Orbit",
+					postfix = typeName == "IntermediateActive" and "Active" or typeName,
+					total = 10
+				}
+				table.insert(linesFiles, linesFile)
+			end
+		end
+	end
+
+	for _, lines in ipairs(linesFiles) do
+		table.insert(linesDds, lines.file)
+		table.insert(linesDds, lines.mask)
+	end
+end
 
 local function getSheet(sheetLocation)
 	return sheets[sheetLocations[sheetLocation]]
 end
 
 -- Looking for Background2
-printf("Extracting Background2...")
+--printf("Extracting Background2...")
 local bg2 = uiImages["art/2dart/uiimages/common/background2"]
 if not bg2 then
 	printf("Background2 not found")
@@ -408,7 +462,7 @@ end
 addToSheet(getSheet("background"), bg2.path, "background", commonMetadata("Background2"))
 
 -- add Group Background base ond UIArt from PassiveTree\
-printf("Getting Background Group...")
+--printf("Getting Background Group...")
 local uIArt = rowPassiveTree.UIArt
 
 local gBgSmall = uiImages[string.lower(uIArt.GroupBackgroundSmall)].path
@@ -420,7 +474,7 @@ addToSheet(getSheet("group-background"), gBgMedium, "groupBackground", commonMet
 local gBgLarge = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
 addToSheet(getSheet("group-background"), gBgLarge, "groupBackground", commonMetadata("PSGroupBackground3"))
 
-printf("Getting PassiveFrame")
+--printf("Getting PassiveFrame")
 local pFrameNormal = uiImages[string.lower(uIArt.PassiveFrame.Normal)].path
 addToSheet(getSheet("group-background"), pFrameNormal, "frame", commonMetadata("PSSkillFrame"))
 
@@ -430,7 +484,7 @@ addToSheet(getSheet("group-background"), pFrameActive, "frame", commonMetadata("
 local pFrameCanAllocate = uiImages[string.lower(uIArt.PassiveFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), pFrameCanAllocate, "frame", commonMetadata("PSSkillFrameHighlighted"))
 
-printf("Getting KeystoneFrame")
+--printf("Getting KeystoneFrame")
 local kFrameNormal = uiImages[string.lower(uIArt.KeystoneFrame.Normal)].path
 addToSheet(getSheet("group-background"), kFrameNormal, "frame", commonMetadata("KeystoneFrameUnallocated"))
 
@@ -440,7 +494,7 @@ addToSheet(getSheet("group-background"), kFrameActive, "frame", commonMetadata("
 local kFrameCanAllocate = uiImages[string.lower(uIArt.KeystoneFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), kFrameCanAllocate, "frame", commonMetadata("KeystoneFrameCanAllocate"))
 
-printf("Getting NotableFrame")
+--printf("Getting NotableFrame")
 local nFrameNormal = uiImages[string.lower(uIArt.NotableFrame.Normal)].path
 addToSheet(getSheet("group-background"), nFrameNormal, "frame", commonMetadata("NotableFrameUnallocated"))
 
@@ -450,7 +504,7 @@ addToSheet(getSheet("group-background"), nFrameActive, "frame", commonMetadata("
 local nFrameCanAllocate = uiImages[string.lower(uIArt.NotableFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), nFrameCanAllocate, "frame", commonMetadata("NotableFrameCanAllocate"))
 
-printf("Getting GroupBackgroundBlank")
+--printf("Getting GroupBackgroundBlank")
 local gBgSmallBlank = uiImages[string.lower(uIArt.GroupBackgroundSmall)].path
 addToSheet(getSheet("group-background"), gBgSmallBlank, "groupBackground", commonMetadata("PSGroupBackgroundSmallBlank"))
 
@@ -460,7 +514,7 @@ addToSheet(getSheet("group-background"), gBgMediumBlank, "groupBackground", comm
 local gBgLargeBlank = uiImages[string.lower(uIArt.GroupBackgroundLarge)].path
 addToSheet(getSheet("group-background"), gBgLargeBlank, "groupBackground", commonMetadata("PSGroupBackgroundLargeBlank"))
 
-printf("Getting JewelSocketFrame")
+--printf("Getting JewelSocketFrame")
 local jFrameNormal = uiImages[string.lower(uIArt.JewelFrame.CanAllocate)].path
 addToSheet(getSheet("group-background"), jFrameNormal, "frame", commonMetadata("JewelFrameCanAllocate"))
 
@@ -470,10 +524,10 @@ addToSheet(getSheet("group-background"), jFrameActive, "frame", commonMetadata("
 local jFrameCanAllocate = uiImages[string.lower(uIArt.JewelFrame.Normal)].path
 addToSheet(getSheet("group-background"), jFrameCanAllocate, "frame", commonMetadata("JewelFrameUnallocated"))
 
-print("Getting Orbits art")
+--print("Getting Orbits art")
 connectionArtToDecompose[uIArt.ConnectionsArt.Id] = true
 
-printf("Getting Ascendancy frames")
+--printf("Getting Ascendancy frames")
 local ascMiddle = uiImages[string.lower("Art/2DArt/UIImages/InGame/PassiveSkillScreenAscendancyMiddle")].path
 addToSheet(getSheet("group-background"), ascMiddle, "frame", commonMetadata("AscendancyMiddle"))
 
@@ -493,7 +547,7 @@ for jewel in jewelArt:Rows() do
 	end
 	local asset = uiImages[string.lower(jewel.JewelArt)]
 	local name = jewel.Item.Name
-	printf("Adding jewel socket " .. name .. " " .. asset.path .. " to sprite")
+	--printf("Adding jewel socket " .. name .. " " .. asset.path .. " to sprite")
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
 	:: nexttogo	::
 end
@@ -507,7 +561,7 @@ for jewel in uniqueJewelArt:Rows() do
 	end
 	local asset = uiImages[string.lower(jewel.JewelArt)]
 	local name = jewel.WordsKey.Text
-	printf("Adding unique jewel socket " .. name .. " " .. asset.path .. " to sprite")
+	--printf("Adding unique jewel socket " .. name .. " " .. asset.path .. " to sprite")
 	addToSheet(getSheet("jewel-sockets"), asset.path, "jewelpassive", commonMetadata(name))
 	:: nexttogo ::
 end
@@ -520,7 +574,7 @@ for category in monsterCategories:Rows() do
 		goto nexttogo
 	end
 	local asset = uiImages[string.lower(category.HudImage)]
-	printf("Adding category " .. category.Type .. " " .. asset.path .. " to sprite")
+	--printf("Adding category " .. category.Type .. " " .. asset.path .. " to sprite")
 	local name = category.Type
 	addToSheet(getSheet("monster-categories"), asset.path, "monster-categories", commonMetadata(name))
 	:: nexttogo	::
@@ -625,7 +679,7 @@ for i, classId in ipairs(psg.passives) do
 	end
 
 	if passiveRow.Name:find(ignoreFilter) ~= nil then
-		printf("Ignoring class " .. passiveRow.Name)
+		--printf("Ignoring class " .. passiveRow.Name)
 		goto continue
 	end
 
@@ -638,7 +692,7 @@ for i, classId in ipairs(psg.passives) do
 
 	for j, character in ipairs(listCharacters) do
 		if character.Name:find(ignoreFilter) ~= nil then
-			printf("Ignoring character " .. character.Name)
+			--printf("Ignoring character " .. character.Name)
 			goto continue2
 		end
 		local classDef = {
@@ -669,7 +723,7 @@ for i, classId in ipairs(psg.passives) do
 		local ascendancies = dat("ascendancy"):GetRowList("Class", character)
 		for k, ascendency in ipairs(ascendancies) do
 			if ascendency.Name:find(ignoreFilter) ~= nil or ascendency.isDisabled then
-				printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
+				--printf("Ignoring ascendency " .. ascendency.Name .. " for class " .. character.Name)
 				goto continue3
 			end
 			if ascendency.Replace then
@@ -693,7 +747,7 @@ for i, classId in ipairs(psg.passives) do
 			-- add assets
 			addToSheet(getSheet("ascendancy-background"), ascendency.PassiveTreeImage, "AscendancyBackground", commonMetadata( "Classes" .. ascendency.Name))
 
-			printf("Getting Ascendancy frames " .. ascendency.Name)
+			--printf("Getting Ascendancy frames " .. ascendency.Name)
 			local ascFrameNormal = uiImages[string.lower(ascendency.UIArt.PassiveFrame.CanAllocate)].path
 			addToSheet(getSheet("group-background"), ascFrameNormal, "frame", commonMetadata(ascendency.Name .. "FrameSmallCanAllocate"))
 
@@ -711,17 +765,11 @@ for i, classId in ipairs(psg.passives) do
 
 			local ascFrameLargeAllocated = uiImages[string.lower(ascendency.UIArt.NotableFrame.Active)].path
 			addToSheet(getSheet("group-background"), ascFrameLargeAllocated, "frame", commonMetadata(ascendency.Name .. "FrameLargeAllocated"))
-
-			-- include the connection art in case doesn't exist
-			-- ignore Lich art as it currently breaks the GIMP script to extract lines
-			if ascendency.UIArt.ConnectionsArt.Id:find("Lich") == nil then
-				connectionArtToDecompose[ascendency.UIArt.ConnectionsArt.Id] = true
-			end
 			:: continue3 ::
 		end
 
 		if #classDef.ascendancies == 0 then
-			printf("No ascendancies found for class " .. character.Name)
+			--printf("No ascendancies found for class " .. character.Name)
 			goto continue2
 		end
 		table.insert(tree.classes,classDef)
@@ -800,17 +848,17 @@ for i, group in ipairs(psg.groups) do
 		-- Get Information from passive Skill
 		local passiveRow = dat("passiveskills"):GetRow("PassiveSkillNodeId", passive.id)
 		if passiveRow == nil then
-			printf("Passive skill " .. passive.id .. " not found")
+			--printf("Passive skill " .. passive.id .. " not found")
 		else
 			if passiveRow.Name == "" then
-				printf("Ignoring passive skill " .. passive.id .. " No name")
+				--printf("Ignoring passive skill " .. passive.id .. " No name")
 				goto exitNode
 			end
 			if passiveRow.Name:find(ignoreFilter) ~= nil and passiveRow.Name ~= "[DNT] Kite Fisher" and passiveRow.Name ~= "[DNT] Troller" and passiveRow.Name ~= "[DNT] Spearfisher" and passiveRow.Name ~= "[DNT] Angler" and passiveRow.Name ~= "[DNT] Whaler" then
-				printf("Ignoring passive skill " .. passiveRow.Name)
+				--printf("Ignoring passive skill " .. passiveRow.Name)
 				goto exitNode
 			end
-			printf("Passive skill " .. passiveRow.Name .. "(id: " .. passiveRow.Id .. ") found")
+			--printf("Passive skill " .. passiveRow.Name .. "(id: " .. passiveRow.Id .. ") found")
 			node["name"] = escapeGGGString(passiveRow.Name)
 			node["icon"] = passiveRow.Icon
 			if passiveRow.FlavourText ~= "" then
@@ -839,11 +887,14 @@ for i, group in ipairs(psg.groups) do
 			if passiveRow.Ascendancy ~= nil then
 				groupIsAscendancy = true
 				if passiveRow.Ascendancy.Name:find(ignoreFilter) ~= nil or passiveRow.Ascendancy.isDisabled then
-					printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
+					--printf("Ignoring node ascendancy " .. passiveRow.Ascendancy.Name)
 					goto exitNode
 				end
 				node["ascendancyName"] = passiveRow.Ascendancy.Name
 				node["isAscendancyStart"] = passiveRow.AscendancyStart or nil
+				if node["isAscendancyStart"] then
+					node["name"] = passiveRow.Ascendancy.Name
+				end
 
 				-- support for jewel sockets in ascendancy
 				if passiveRow.JewelSocket then
@@ -867,7 +918,7 @@ for i, group in ipairs(psg.groups) do
 						}
 						
 					else
-						printf("Jewel socket not found for ascendancy " .. passiveRow.Ascendancy.Name)
+						--printf("Jewel socket not found for ascendancy " .. passiveRow.Ascendancy.Name)
 					end
 				elseif node["isOnlyImage"] == nil then
 					local typeFrame = node["isNotable"] and "Large" or "Small"
@@ -913,7 +964,7 @@ for i, group in ipairs(psg.groups) do
 				}
 
 				for id, refNode in ipairs(passiveRow.ConstraintNode) do
-					printf(" - adding node " .. refNode.Name .. " to unlock constraint")
+					--printf(" - adding node " .. refNode.Name .. " to unlock constraint")
 					node.unlockConstraint.nodes[id] = refNode.PassiveSkillNodeId
 				end
 
@@ -991,7 +1042,7 @@ for i, group in ipairs(psg.groups) do
 					local almostOnce = false
 					while handle do
 						almostOnce = true
-						print(statDescription:gsub("Data/StatDescriptions", "") .. ".csd")
+						--print(statDescription:gsub("Data/StatDescriptions", "") .. ".csd")
 						-- loadStatFile(statDescription:gsub("Data/StatDescriptions/", "") .. ".csd")
 						if not handle:NextFile() then
 							break
@@ -1185,7 +1236,7 @@ for i, group in ipairs(psg.groups) do
 			tree.max_y = math.max(tree.max_y, group.y)
 		end
 	else
-		printf("Group " .. i .. " is empty")
+		--("Group " .. i .. " is empty")
 	end
 end
 
@@ -1207,7 +1258,7 @@ for jewelSlot in jewelSlots:Rows() do
 end
 
 -- updating skillsPerOrbit
-printf("Updating skillsPerOrbit...")
+--printf("Updating skillsPerOrbit...")
 for i, orbit in ipairs(orbitsConstants) do
 	-- only numbers base on 12
 	orbit = i == 1 and orbit or math.ceil(orbit / 12) * 12
@@ -1246,11 +1297,10 @@ for i, classId in ipairs(psg.passives) do
 
 	local startAngle = angleToCenter - math.rad(arcAngle[total] / 2)
 	local angleStep = math.rad(arcAngle[total] / (total - 1)) or 0
-
 	local j = 1
 	for _, class in ipairs(classes) do
 		for _, ascendancy in ipairs(class.ascendancies) do
-			printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
+			--printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
 			
 			local angle = startAngle + (j - 1) * angleStep
 			local cX = hardCoded * math.cos(angle)
@@ -1339,9 +1389,10 @@ for from, to in pairs(ascedancyReplacements) do
 end
 
 
-printf("Generating sprite info...")
+--printf("Generating sprite info...")
+extractSheetFiles(sheets, use4kIfPossible, linesDds)
 for i, sheet in ipairs(sheets) do
-	printf("Calculating sprite dimensions for " .. sheet.name)
+	--printf("Calculating sprite dimensions for " .. sheet.name)
 	calculateDDSPack(sheet, main.ggpk.oozPath, basePath .. version .. "/", use4kIfPossible)
 
 	for file, fileInfo in pairs(sheet.ddsCoords) do
@@ -1349,45 +1400,7 @@ for i, sheet in ipairs(sheets) do
 	end
 end
 
-printf("Generating decompose lines images...")
-local linesFiles = {}
-
-local typeOfConnections = {
-	"Normal", "Intermediate", "IntermediateActive"
-}
-
-for connectionArtId, _ in pairsSortByKey(connectionArtToDecompose) do
-	local connectionArt = dat("PassiveSkillTreeConnectionArt"):GetRow("Id", connectionArtId)
-	if connectionArt == nil then
-		printf("Connection art " .. connectionArtId .. " not found")
-		goto continueConnectionArtId
-	end
-
-	for _, typeName in ipairs(typeOfConnections) do
-		local linesFile = {
-			file = connectionArt[typeName],
-			mask = connectionArt.Mask,
-			extension = ".png",
-			basename = connectionArtId .."_orbit_" .. string.lower(typeName),
-			first = connectionArtId .. "LineConnector",
-			prefix = connectionArtId .. "Orbit",
-			postfix = typeName == "IntermediateActive" and "Active" or typeName,
-			total = 10
-		}
-
-		table.insert(linesFiles, linesFile)
-	end
-
-	:: continueConnectionArtId ::
-end
-
-local linesDds = {}
-for _, lines in ipairs(linesFiles) do
-	table.insert(linesDds, lines.file)
-	table.insert(linesDds, lines.mask)
-end
-
-main.ggpk:ExtractList(linesDds, cacheExtract)
+printf("Convert DDS line files to PNG...")
 nvtt.ExportDDSToPng(main.ggpk.oozPath, basePath .. version .. "/", "lines", linesDds, true)
 
 -- change extension from dds to png
@@ -1398,7 +1411,7 @@ end
 
 gimpBatch.extract_lines_from_image("lines_extract", linesFiles, main.ggpk.oozPath, basePath .. version .. "/", GetScriptPath() .. "/Tree/GimpBatch/extract_lines.scm", generateAssets)
 
-printf("generate lines info into assets")
+--printf("generate lines info into assets")
 -- Generate sprites
 for _, lines in ipairs(linesFiles) do
 	local curveOrbitFile = 9
@@ -1429,7 +1442,7 @@ for _, lines in ipairs(linesFiles) do
 	end
 end
 
-printf("Generating file in " .. fileTree)
+printf("Generating lua tree file")
 local out, err = io.open(fileTree, "w")
 if out == nil then
 	printf("Error opening file " .. fileTree)
@@ -1439,10 +1452,10 @@ end
 out:write('return ')
 writeLuaTable(out, tree, 1)
 out:close()
-printf("File " .. fileTree .. " generated")
+--("File " .. fileTree .. " generated")
 
 local fileTreeJson = fileTree:gsub(".lua", ".json")
-printf("Generating json file in " .. fileTreeJson)
+printf("Generating JSON tree file")
 local out, err = io.open(fileTreeJson, "w")
 if out == nil then
 	printf("Error opening file " .. fileTreeJson)
@@ -1451,4 +1464,5 @@ if out == nil then
 end
 out:write(json.encode(tree))
 out:close()
+printf("Skill tree generated")
 :: final ::

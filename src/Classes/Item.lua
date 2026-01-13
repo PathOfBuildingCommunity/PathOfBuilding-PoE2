@@ -59,7 +59,7 @@ local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 end)
 
 local lineFlags = {
-	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
+	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
 }
 
 -- Special function to store unique instances of modifier on specific item slots
@@ -384,6 +384,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			self.mirrored = true
 		elseif line == "Corrupted" then
 			self.corrupted = true
+		elseif line == "Twice Corrupted" then
+			self.corrupted = true
+			self.doubleCorrupted = true
 		elseif line == "Desecrated Prefix" or line == "Desecrated Suffix" then
 			self.desecrated = true
 		elseif line == "Requirements:" then
@@ -642,6 +645,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				if modLine.desecrated then
 					self.desecrated = true
+				end
+				if modLine.mutated then
+					self.mutated = true
 				end
 				if modLine.fractured then
 					self.fractured = true
@@ -1091,7 +1097,7 @@ function ItemClass:NormaliseQuality()
 		if not self.quality then
 			self.quality = 0
 		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modified by quality currency.
-			self.quality = self.base.quality
+			self.quality = main.defaultItemQuality
 		end
 	end	
 end
@@ -1198,6 +1204,9 @@ function ItemClass:BuildRaw()
 		if modLine.desecrated then
 			line = "{desecrated}" .. line
 		end
+		if modLine.mutated then
+			line = "{mutated}" .. line
+		end
 		if modLine.variantList then
 			local varSpec
 			for varId in pairs(modLine.variantList) do
@@ -1288,7 +1297,9 @@ function ItemClass:BuildRaw()
 	if self.mirrored then
 		t_insert(rawLines, "Mirrored")
 	end
-	if self.corrupted then
+	if self.doubleCorrupted then
+		t_insert(rawLines, "Twice Corrupted")
+	elseif self.corrupted then
 		t_insert(rawLines, "Corrupted")
 	end
 	return table.concat(rawLines, "\n")

@@ -44,7 +44,7 @@ end
 function module.combine_images_to_sprite(sheet_name, sheet_data, from_path, to_path, script_batch_path, saturation, executeCommand)
 	executeCommand = executeCommand == nil and true or executeCommand
 	local fileLog = to_path.."log_" .. sheet_name  .. ".txt"
-	printf(fileLog)
+	--printf(fileLog)
 
 	local logFile = io.open(fileLog, "w")
 	local output_path = to_path .. sheet_data["filename"]
