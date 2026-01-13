@@ -712,7 +712,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						self.affixes = (self.base.subType and data.itemMods[self.base.type..self.base.subType])
 								or data.itemMods[self.base.type]
 								or data.itemMods.Item
-						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore"
+						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore" and self.base.type ~= "Transcendent Limb"
 						self.clusterJewel = data.clusterJewels and data.clusterJewels.jewels[self.baseName]
 						self.requirements.str = self.base.req.str or 0
 						self.requirements.dex = self.base.req.dex or 0
@@ -1475,6 +1475,10 @@ function ItemClass:GetPrimarySlot()
 		return "Ring 1"
 	elseif self.type == "Flask" then
 		return "Flask 1"
+	elseif self.base.subType == "Transcendent Leg" then
+		return "Leg 1"
+	elseif self.base.subType == "Transcendent Arm" then
+		return "Arm 1"
 	else
 		return self.type
 	end

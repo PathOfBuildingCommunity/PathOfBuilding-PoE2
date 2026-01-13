@@ -50,6 +50,7 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
+	"incursionlimb"
 }
 
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)
@@ -617,6 +618,7 @@ data.itemMods = {
 	Item = LoadModule("Data/ModItem"),
 	Flask = LoadModule("Data/ModFlask"),
 	Charm = LoadModule("Data/ModCharm"),
+	IncursionLimb = LoadModule("Data/ModIncursionLimb"),
 	Jewel = LoadModule("Data/ModJewel"),
 	Corruption = LoadModule("Data/ModCorrupted"),
 	Runes = LoadModule("Data/ModRunes"),

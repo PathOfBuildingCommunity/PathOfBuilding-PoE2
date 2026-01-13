@@ -32,6 +32,7 @@ local forcedNameMap = {
 	["FourUniqueSceptre6a"]  = "Guiding Palm of the Heart",
 	["FourUniqueSceptre6b"]  = "Guiding Palm of the Eye",
 	["FourUniqueSceptre6c"]  = "Guiding Palm of the Mind",
+	["VaalLimbReplacements"]  = "Transcendent Limb",
 }
 
 for row in dat("UniqueStashLayout"):Rows() do
