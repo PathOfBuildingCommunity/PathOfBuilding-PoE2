@@ -57,7 +57,7 @@ addFlags = {
 #mods
 #skillEnd
 
-#skill ArtilleryBallistaProjectilePlayer
+#skill ArtilleryBallistaProjectilePlayer Ballista Bolt
 #set ArtilleryBallistaProjectilePlayer
 #flags attack area projectile totem
 #mods
