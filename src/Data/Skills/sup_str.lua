@@ -4775,6 +4775,11 @@ skills["SupportMarkForDeathPlayer"] = {
 			label = "Mark for Death",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+            statMap = {
+                ["marked_target_%_physical_damage_taken_as_armour_break"] = {
+                    flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+                },
+            },
 			baseFlags = {
 			},
 			constantStats = {
