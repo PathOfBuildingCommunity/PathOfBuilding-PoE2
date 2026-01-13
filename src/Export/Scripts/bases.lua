@@ -469,6 +469,7 @@ local itemTypes = {
 	"jewel",
 	"flask",
 	"talisman",
+	"incursionlimb",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)
