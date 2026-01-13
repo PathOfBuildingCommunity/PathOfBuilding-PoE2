@@ -625,7 +625,7 @@ function main:LoadSettings(ignoreBuild)
 					self.defaultGemQuality = m_min(tonumber(node.attrib.defaultGemQuality) or 0, 23)
 				end
 				if node.attrib.defaultItemQuality then
-					self.defaultItemQuality = m_min(tonumber(node.attrib.defaultItemQuality) or 0, 30)
+					self.defaultItemQuality = m_min(tonumber(node.attrib.defaultItemQuality) or 20, 30)
 				end
 				if node.attrib.defaultCharLevel then
 					self.defaultCharLevel = m_min(m_max(tonumber(node.attrib.defaultCharLevel) or 1, 1), 100)
@@ -1124,6 +1124,7 @@ function main:OpenOptionsPopup()
 	local initialBetaTest = self.betaTest
 	local initialEdgeSearchHighlight = self.edgeSearchHighlight
 	local initialDefaultGemQuality = self.defaultGemQuality or 0
+	local initialDefaultItemQuality = self.defaultGemQuality or 20
 	local initialDefaultCharLevel = self.defaultCharLevel or 1
 	local initialDefaultItemAffixQuality = self.defaultItemAffixQuality or 0.5
 	local initialShowWarnings = self.showWarnings
@@ -1180,6 +1181,7 @@ function main:OpenOptionsPopup()
 		self.betaTest = initialBetaTest
 		self.edgeSearchHighlight = initialEdgeSearchHighlight
 		self.defaultGemQuality = initialDefaultGemQuality
+		self.defaultItemQuality = initialDefaultItemQuality
 		self.defaultCharLevel = initialDefaultCharLevel
 		self.defaultItemAffixQuality = initialDefaultItemAffixQuality
 		self.showWarnings = initialShowWarnings
