@@ -2669,6 +2669,7 @@ return {
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["gain_x_rage_on_melee_hit"] = {
+	mod("RageOnHit", "BASE", nil, ModFlag.Melee),
 	flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" } ),
 },
 ["warcry_grant_X_rage_per_5_power"] = {
