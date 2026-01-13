@@ -383,6 +383,10 @@ holding Shift will put it in the second.]])
 		return self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre or self.displayItem.title == "Darkness Enthroned"
 	end
 	self.controls.displayItemSocketRuneEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketRune,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
+	 	if tonumber(buf) == nil then
+			self.controls.displayItemSocketRuneEdit:SetText(0)
+			return
+		end
 		if tonumber(buf) > 6 then
 			self.controls.displayItemSocketRuneEdit:SetText(6)
 			return
