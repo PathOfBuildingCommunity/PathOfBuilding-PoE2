@@ -286,6 +286,7 @@ local modNameList = {
 	-- Damage taken
 	["damage taken"] = "DamageTaken",
 	["damage taken when hit"] = "DamageTakenWhenHit",
+	["damage taken from hits"] = "DamageTakenWhenHit",
 	["damage over time taken"] = "DamageTakenOverTime",
 	["damage taken from damage over time"] = "DamageTakenOverTime",
 	["attack damage taken"] = "AttackDamageTaken",
@@ -686,7 +687,6 @@ local modNameList = {
 	["exposure effect"] = { "FireExposureEffect", "ColdExposureEffect", "LightningExposureEffect" },
 	-- Basic damage types
 	["damage"] = "Damage",
-	["damage from hits"] = "DamageTakenWhenHit",
 	["physical damage"] = "PhysicalDamage",
 	["lightning damage"] = "LightningDamage",
 	["cold damage"] = "ColdDamage",
@@ -1779,6 +1779,7 @@ local modTagList = {
 	["during onslaught"] = { tag = { type = "Condition", var = "Onslaught" } },
 	["while you have onslaught"] = { tag = { type = "Condition", var = "Onslaught" } },
 	["while phasing"] = { tag = { type = "Condition", var = "Phasing" } },
+	["while dodge rolling"] = { tag = { type = "Condition", var = "InDodgeRoll" } },
 	["while you have tailwind"] = { tag = { type = "MultiplierThreshold", var = "Tailwind", threshold = 1 } },
 	["while elusive"] = { tag = { type = "Condition", var = "Elusive" } },
 	["gain elusive"] = { tag = { type = "Condition", varList = { "CanBeElusive", "Elusive" } } },
@@ -2268,7 +2269,6 @@ local specialModList = {
 		return explodeFunc(chance, amount, type)
 	end,
 	-- Keystones
-	["no rage effect"] = { flag("Condition:NoRageEffect") },
 	["dodge roll cannot avoid damage"] = {},
 	["take (%d+)%% less damage from hits while dodge rolling"] = function(num) return{mod("DamageTakenWhenHit", "MORE", -num, {type = "Condition", var = "InDodgeRoll"})} end,
 	["(%d+)%% more skill speed while off hand is empty and you have a one%-handed martial weapon equipped in your main hand"] = function(num) return {
@@ -2735,6 +2735,7 @@ local specialModList = {
 	["while a pinnacle atlas boss is in your presence, gain %d+ rage on hit with attacks, no more than once every [%d%.]+ seconds"] = {
 		flag("Condition:CanGainRage", { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }),
 	},
+	["no rage effect"] = { mod("RageEffect", "OVERRIDE", 0) },
 	["inherent effects from having rage are tripled"] = { mod("RageEffect", "MORE", 200) },
 	["inherent effects from having rage are doubled"] = { mod("RageEffect", "MORE", 100) },
 	["cannot be stunned while you have at least (%d+) rage"] = function(num) return { flag("StunImmune", { type = "MultiplierThreshold", var = "Rage", threshold = num }) } end,

@@ -1575,7 +1575,7 @@ c["15% less maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE"
 c["15% more Damage against Enemies affected by Blood Boils"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="MORE",value=15}},"  against Enemies affected by Blood Boils "}
 c["15% more Damage against Enemies affected by Blood Boils Grants Skill: Blood Boil"]={{[1]={[1]={includeTransfigured=true,skillName="Blood Boil",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=15}},"  against Enemies affected by Blood Boils Grants Skill:"}
 c["15% more Maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=15}},nil}
-c["15% of Damage from Hits is taken from your Damageable Companion's Life before you"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenWhenHit",type="BASE",value=15}},"  is taken from your Damageable Companion's Life before you "}
+c["15% of Damage from Hits is taken from your Damageable Companion's Life before you"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=15}},"  from Hits is taken from your Damageable Companion's Life before you "}
 c["15% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=15}},nil}
 c["15% of Damage taken from Deflected Hits Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="BASE",value=15}},"  from Deflected Hits Recouped as Life "}
 c["15% of Elemental Damage taken Recouped as Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LightningEnergyShieldRecoup",type="BASE",value=15},[2]={flags=0,keywordFlags=0,name="ColdEnergyShieldRecoup",type="BASE",value=15},[3]={flags=0,keywordFlags=0,name="FireEnergyShieldRecoup",type="BASE",value=15}},nil}
@@ -2829,8 +2829,8 @@ c["5% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThresho
 c["5% increased Stun Threshold per 25 Tribute"]={{[1]={[1]={actor="parent",div=25,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=5}},nil}
 c["5% increased effect of Archon Buffs on you"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="INC",value=5}},"  of Archon Buffs on you "}
 c["5% increased total Power counted by Warcries"]={{[1]={flags=0,keywordFlags=0,name="WarcryPower",type="INC",value=5}},nil}
-c["5% of Damage from Hits is taken from your Damageable Companion's Life before you"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenWhenHit",type="BASE",value=5}},"  is taken from your Damageable Companion's Life before you "}
-c["5% of Damage from Hits is taken from your Damageable Companion's Life before you 20% increased Defences while your Companion is in your Presence"]={{[1]={[1]={type="Condition",var="CompanionInPresence"},flags=0,keywordFlags=0,name="DamageTakenWhenHit",type="BASE",value=5}},"  is taken from your Damageable Companion's Life before you 20% increased Defences  "}
+c["5% of Damage from Hits is taken from your Damageable Companion's Life before you"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}},"  from Hits is taken from your Damageable Companion's Life before you "}
+c["5% of Damage from Hits is taken from your Damageable Companion's Life before you 20% increased Defences while your Companion is in your Presence"]={{[1]={[1]={type="Condition",var="CompanionInPresence"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=5}},"  from Hits is taken from your Damageable Companion's Life before you 20% increased Defences  "}
 c["5% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=5}},nil}
 c["5% of Damage taken bypasses Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="PhysicalEnergyShieldBypass",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="LightningEnergyShieldBypass",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="ColdEnergyShieldBypass",type="BASE",value=5},[4]={flags=0,keywordFlags=0,name="FireEnergyShieldBypass",type="BASE",value=5},[5]={flags=0,keywordFlags=0,name="ChaosEnergyShieldBypass",type="BASE",value=5}},nil}
 c["5% of Maximum Life Converted to Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=5}},nil}
@@ -5664,7 +5664,7 @@ c["No Inherent loss of Rage during effect"]={nil,"No Inherent loss of Rage durin
 c["No Inherent loss of Rage during effect 50% increased Duration"]={nil,"No Inherent loss of Rage during effect 50% increased Duration "}
 c["No Movement Speed Penalty while Shield is Raised"]={nil,"No Movement Speed Penalty while Shield is Raised "}
 c["No Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMin"}},[2]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalMax"}},[3]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="PhysicalDPS"}}},nil}
-c["No Rage effect"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoRageEffect",type="FLAG",value=true}},nil}
+c["No Rage effect"]={{[1]={flags=0,keywordFlags=0,name="RageEffect",type="OVERRIDE",value=0}},nil}
 c["No inherent Mana Regeneration"]={{[1]={flags=0,keywordFlags=0,name="Condition:NoInherentManaRegen",type="FLAG",value=true}},nil}
 c["Non-Channelling Spells cost an additional 6% of your maximum Life"]={{[1]={[1]={floor=true,percent=6,stat="Life",type="PercentStat"},[2]={neg=true,skillType=48,type="SkillType"},flags=0,keywordFlags=131072,name="LifeCostBase",type="BASE",value=1}},nil}
 c["Non-Channelling Spells deal 10% increased Damage per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
@@ -6016,9 +6016,11 @@ c["Take 100 Chaos damage per second per Endurance Charge"]={{[1]={[1]={type="Mul
 c["Take 100 Fire Damage when you Ignite an Enemy"]={{[1]={flags=0,keywordFlags=0,name="EyeOfInnocenceSelfDamage",type="LIST",value={baseDamage=100,damageType="fire"}}},nil}
 c["Take 100% of Mana Costs you pay for Skills as Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="ManaCostAsPhysical",type="BASE",value=100}}," s you pay for Skills  "}
 c["Take 30% less Damage from Hits while Dodge Rolling"]={{[1]={[1]={type="Condition",var="InDodgeRoll"},flags=0,keywordFlags=0,name="DamageTakenWhenHit",type="MORE",value=-30}},nil}
-c["Take 30% more Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenWhenHitTaken",type="MORE",value=30}},nil}
+c["Take 30% more Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},"  from Hits "}
+c["Take 30% more Damage from Hits Take 40% less Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},"  from Hits Take 40% less Damage from Hits "}
 c["Take 30% more Damage over time"]={{[1]={flags=8,keywordFlags=0,name="DamageTaken",type="MORE",value=30}},nil}
-c["Take 40% less Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTakenWhenHitTaken",type="MORE",value=-40}},nil}
+c["Take 40% less Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-40}},"  from Hits "}
+c["Take 40% less Damage from Hits Take 30% more Damage over time"]={{[1]={flags=0,keywordFlags=0,name="DamageTaken",type="MORE",value=-40}},"  from Hits Take 30% more Damage over time "}
 c["Take 40% less Damage over time"]={{[1]={flags=8,keywordFlags=0,name="DamageTaken",type="MORE",value=-40}},nil}
 c["Take 50% less Damage over Time if you've started taking Damage over Time in the past second"]={{[1]={flags=8,keywordFlags=0,name="DamageTaken",type="MORE",value=-50}},"  if you've started taking Damage over Time in the past second "}
 c["Take 50% less Damage over Time if you've started taking Damage over Time in the past second Take 50% more Damage over Time if you haven't started taking Damage over Time in the past second"]={{[1]={flags=8,keywordFlags=0,name="DamageTaken",type="MORE",value=-50}},"  if you've started taking Damage over Time in the past second Take 50% more Damage over Time if you haven't started taking Damage over Time in the past second "}
