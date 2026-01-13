@@ -1648,6 +1648,13 @@ function ItemsTabClass:UpdateRuneControls()
 	local item = self.displayItem
 	-- Build rune selection for item
 	local runes = { }
+	local alsoSlots = {}
+	for _, flagName in ipairs({ "BodyArmour", "Shield", "Helmet", "Boots", "Gloves" }) do
+		if item["augmentsAlsoAs" .. flagName] then
+			alsoSlots[flagName:gsub("([a-z])([A-Z])", "%1 %2"):lower()] = true
+		end
+	end
+
 	for _, rune in pairs(runeModLines) do
 		local augmentFlags = { "BodyArmour", "Shield", "Helmet", "Boots", "Gloves" }
 		for _, flagName in ipairs(augmentFlags) do
@@ -1665,7 +1672,8 @@ function ItemsTabClass:UpdateRuneControls()
 			item.base.type == rune.slot or
 			item.base.weapon and rune.slot == "weapon" or
 			item.base.armour and rune.slot == "armour" or
-			(item.base.tags.wand or item.base.tags.staff) and rune.slot == "caster" then
+			(item.base.tags.wand or item.base.tags.staff) and rune.slot == "caster" or
+			alsoSlots[rune.slot] then
 				if item.title == "Atziri's Splendour" then
 					if rune.slot == "None" or rune.type == "SoulCore" then
 						table.insert(runes, rune)

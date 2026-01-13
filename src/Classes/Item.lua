@@ -1313,7 +1313,7 @@ end
 -- Rebuild rune modifiers using the item's runes
 function ItemClass:UpdateRunes()
 	wipeTable(self.runeModLines)
-	local getModRunesForTypes = function(runeName, baseType, specificType) 
+	local getModRunesForTypes = function(runeName, baseType, specificType, additionalType)
 		local rune = data.itemMods.Runes[runeName]
 		local gatheredRuneMods = { }
 		if rune then
@@ -1322,9 +1322,14 @@ function ItemClass:UpdateRunes()
 					t_insert(gatheredRuneMods, rune[baseType])
 				-- end
 			end
-			if rune[specificType] then 
+			if rune[specificType] then
 				-- for _, mod in pairs(rune[specificType]) do
 					t_insert(gatheredRuneMods, rune[specificType])
+				-- end
+			end
+			if rune[additionalType] then
+				-- for _, mod in pairs(rune[additionalType]) do
+					t_insert(gatheredRuneMods, rune[additionalType])
 				-- end
 			end
 		end
@@ -1337,6 +1342,7 @@ function ItemClass:UpdateRunes()
 		if name and name ~= "None" then
 			local baseType = self.base.weapon and "weapon" or self.base.armour and "armour" or (self.base.tags.wand or self.base.tags.staff) and "caster" or self.title == "Darkness Enthroned" and "armour"
 			local specificType = self.base.type:lower()
+			local additionalType
 			local augmentOverride = {
 				BodyArmour = "body armour",
 				Helmet = "helmet",
@@ -1350,7 +1356,13 @@ function ItemClass:UpdateRunes()
 					break
 				end
 			end
-			local gatheredMods = getModRunesForTypes(name, baseType, specificType)
+			for flag, slot in pairs(augmentOverride) do -- Atziri's Splendour
+				if self["augmentsAlsoAs" .. flag] then
+					additionalType = slot
+					break
+				end
+			end
+			local gatheredMods = getModRunesForTypes(name, baseType, specificType, additionalType)
 			for _, mod in ipairs(gatheredMods) do
 				for i, modLine in ipairs(mod) do
 					local order = mod.statOrder[i]
@@ -1880,20 +1892,13 @@ function ItemClass:BuildModList()
 		baseList:NewMod("ArmourData", "LIST", { key = "EnergyShield", value = 0 })
 		self.requirements.int = 0
 	end
-	if calcLocal(baseList, "AugmentsAsIfShield", "FLAG", 0) then
-		self.augmentsAsShield = true
-	end
-	if calcLocal(baseList, "AugmentsAsIfBodyArmour", "FLAG", 0) then
-		self.augmentsAsBodyArmour = true
-	end
-	if calcLocal(baseList, "AugmentsAsIfHelmet", "FLAG", 0) then
-		self.augmentsAsHelmet = true
-	end
-	if calcLocal(baseList, "AugmentsAsIfBoots", "FLAG", 0) then
-		self.augmentsAsBoots = true
-	end
-	if calcLocal(baseList, "AugmentsAsIfGloves", "FLAG", 0) then
-		self.augmentsAsGloves = true
+	for _, slot in ipairs({ "Shield", "BodyArmour", "Helmet", "Boots", "Gloves" }) do
+		if calcLocal(baseList, "AugmentsAsIf"..slot, "FLAG", 0) then
+			self["augmentsAs"..slot] = true
+		end
+		if calcLocal(baseList, "AugmentsAsIfAlso"..slot, "FLAG", 0) then
+			self["augmentsAlsoAs"..slot] = true
+		end
 	end
 	if calcLocal(baseList, "NoAttributeRequirements", "FLAG", 0) then
 		self.requirements.strMod = 0

@@ -3339,6 +3339,13 @@ local specialModList = {
 			:gsub(" ", "")
 		return { flag("AugmentsAsIf" .. type) }
 	end,
+	["this item gains bonuses from socketed soul cores as though it was also ?a? (%a[%a ]*)"] =
+	function(_, type)
+		type = type
+			:gsub("%f[%a]%a", string.upper)
+			:gsub(" ", "")
+		return { flag("AugmentsAsIfAlso" .. type) }
+	end,
 	["has (%d+) sockets?"] = function(num) return { mod("SocketCount", "BASE", num) } end,
 	["no physical damage"] = { mod("WeaponData", "LIST", { key = "PhysicalMin" }), mod("WeaponData", "LIST", { key = "PhysicalMax" }), mod("WeaponData", "LIST", { key = "PhysicalDPS" }) },
 	["has (%d+)%% increased elemental damage"] = function(num) return { mod("LocalElementalDamage", "INC", num) } end,
