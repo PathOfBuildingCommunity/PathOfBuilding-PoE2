@@ -1,4 +1,4 @@
-VERSION[0.15.0][2026/01/13]
+VERSION[0.15.0][2026/01/14]
 
 --- New to Path of Building ---
 * Add support for Transcendent Limbs (Blitz54)
@@ -35,8 +35,6 @@ VERSION[0.15.0][2026/01/13]
 --- Fixed Bugs ---
 * Fix increased effect of notables from Time-Lost jewels breaking notable tooltip (paul-rl)
 
---- Other changes ---
-* Fix HTTP/2 response headers parsing (meehl)
 
 VERSION[0.14.0][2025/12/19]
 
