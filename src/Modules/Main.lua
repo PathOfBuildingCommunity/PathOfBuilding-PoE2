@@ -625,7 +625,7 @@ function main:LoadSettings(ignoreBuild)
 					self.defaultGemQuality = m_min(tonumber(node.attrib.defaultGemQuality) or 0, 23)
 				end
 				if node.attrib.defaultItemQuality then
-					self.defaultItemQuality = m_min(tonumber(node.attrib.defaultItemQuality) or 0, 20)
+					self.defaultItemQuality = m_min(tonumber(node.attrib.defaultItemQuality) or 0, 30)
 				end
 				if node.attrib.defaultCharLevel then
 					self.defaultCharLevel = m_min(m_max(tonumber(node.attrib.defaultCharLevel) or 1, 1), 100)
