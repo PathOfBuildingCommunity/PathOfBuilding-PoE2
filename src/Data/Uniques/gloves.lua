@@ -94,7 +94,7 @@ Variant: Current
 5% increased Attack Speed
 +(10-20) to Dexterity
 {variant:2}Your Critical Hit Chance cannot be Rerolled
-{variant:1}Your Critical Damage Bonus is 250%
+Your Critical Damage Bonus is 250%
 ]],[[
 Northpaw
 Suede Bracers

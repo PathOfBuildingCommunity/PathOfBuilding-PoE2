@@ -1970,7 +1970,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 			return item.type == "Focus"
 		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand or (giantsBlood and (weapon1Base.tags.axe or weapon1Base.tags.mace or weapon1Base.tags.sword)) then
 			return item.type == "Shield" or item.type == "Focus" or item.type == "Sceptre"
-					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre")
+					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre" and item.type ~= "Spear")
 					or (giantsBlood and (item.base.tags.axe or item.base.tags.mace or item.base.tags.sword))
 		end
 	end

@@ -652,6 +652,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportExpandPlayer
+#set SupportExpandPlayer
+#mods
+#skillEnd
+
 #skill SupportExpansePlayer
 #set SupportExpansePlayer
 statMap = {
@@ -811,6 +816,11 @@ statMap = {
 		mod("Damage", "MORE", nil),
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportGuatelitzisAblationPlayer
+#set SupportGuatelitzisAblationPlayer
 #mods
 #skillEnd
 
