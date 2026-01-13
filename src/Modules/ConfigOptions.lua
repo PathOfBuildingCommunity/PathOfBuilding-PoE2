@@ -1825,9 +1825,6 @@ Huge sets the radius to 11.
 	{ var = "conditionEnemyConcentration", type = "check", label = "Is the enemy Concentration 0?", ifFlag ="EnemyConcentration", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EnemyNoConcentration", "FLAG", true, "Config", { type = "Condition", var = "Effective" } )
 	end },
-	{ var = "conditionEnemyBloodBoils", type = "check", label = "Is the enemy affected by Blood Boils?", ifFlag ="EnemyBloodBoils", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:EnemyAffectedByBloodBoils", "FLAG", true, "Config", { type = "Condition", var = "Effective" } )
-	end },
 	{ var = "conditionEnemyHasOpenWeakness", type = "check", label = "Does enemy have Open Weakness?", ifCond = "EnemyHasOpenWeakness", apply = function(val, modList, enemyModList)
 		-- This one means the enemy you're targeting has open weakness
 		modList:NewMod("Condition:EnemyHasOpenWeakness", "FLAG", true, "Config", { type = "Condition", var = "Combat" })

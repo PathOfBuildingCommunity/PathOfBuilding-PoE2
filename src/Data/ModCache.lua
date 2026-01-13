@@ -1569,7 +1569,7 @@ c["15% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="
 c["15% increased maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="INC",value=15}},nil}
 c["15% less maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=-15}},nil}
 c["15% less maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="Mana",type="MORE",value=-15}},nil}
-c["15% more Damage against Enemies affected by Blood Boils"]={{[1]={[1]={type="Condition",var="EnemyAffectedByBloodBoils"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=15},[2]={flags=0,keywordFlags=0,name="EnemyBloodBoils",type="FLAG",value=true}},nil}
+c["15% more Damage against Enemies affected by Blood Boils"]={{[1]={[1]={actor="enemy",neg=true,type="ActorCondition",var="Unique"},flags=0,keywordFlags=0,name="Damage",type="MORE",value=15}},nil}
 c["15% more Maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="MORE",value=15}},nil}
 c["15% of Damage from Hits is taken from your Damageable Companion's Life before you"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=15}},"  from Hits is taken from your Damageable Companion's Life before you "}
 c["15% of Damage taken Recouped as Life"]={{[1]={flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=15}},nil}

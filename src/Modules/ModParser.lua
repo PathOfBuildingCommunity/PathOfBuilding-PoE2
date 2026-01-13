@@ -3275,8 +3275,7 @@ local specialModList = {
 	
 	-- Huntress - Ritualist
 	["(%d+)%% more damage against enemies affected by blood boils"] = function(num) return {
-		mod("Damage", "MORE", num, {type = "Condition", var = "EnemyAffectedByBloodBoils"}),
-		flag("EnemyBloodBoils"),
+		mod("Damage", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true }),
 	} end,
 	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
