@@ -27,7 +27,7 @@ local socketDropList = {
 	{ label = colorCodes.SCION.."S", color = "W" }
 }
 
-local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
+local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2", "Arm 1", "Arm 2", "Leg 1", "Leg 2" }
 
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Life Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -1926,6 +1926,10 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 		elseif item.baseName:match("Mana Flask") and slotName:match("Flask 2") then
 			return true
 		end
+	elseif item.base.subType == "Transcendent Arm" and slotType == "Arm" then
+		return true
+	elseif item.base.subType == "Transcendent Leg" and slotType == "Leg" then
+		return true
 	elseif item.type == slotType then
 		return true
 	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
@@ -2037,6 +2041,9 @@ function ItemsTabClass:CraftItem()
 			if raritySel == 3 or raritySel == 2 then
 				raritySel = 1
 			end
+		end
+		if base.base.type == "Transcendent Limb" then
+			raritySel = 1
 		end
 		if raritySel == 2 or raritySel == 3 then
 			item.crafted = true
@@ -3064,8 +3071,13 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Show flavour text:
-	if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
-		local flavourTable = flavourLookup[item.title]
+	if item.rarity == "UNIQUE" or item.rarity == "RELIC" or item.base.type =="Transcendent Limb" and main.showFlavourText then
+		local flavourTable
+		if item.base.type =="Transcendent Limb" then
+			flavourTable = flavourLookup["Transcendent Limb"]
+		else
+			flavourTable = flavourLookup[item.title]
+		end
 		if flavourTable then
 			local flavour = nil
 
