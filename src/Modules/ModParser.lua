@@ -2715,10 +2715,6 @@ local specialModList = {
 			mod("RageWhenHit", "BASE", num),
 			flag("Condition:CanGainRage")
 	}end,
-	["gain %d+ rage on melee weapon hit"] = function(num) return {
-			mod("RageOnHit", "BASE", num, nil, ModFlag.Melee),
-			flag("Condition:CanGainRage")
-	}end,
 	["gain %d+ rage on ([%D]+)"] = {
 		flag("Condition:CanGainRage"),
 	},

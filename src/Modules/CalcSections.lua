@@ -1805,7 +1805,7 @@ return {
 	{ label = "Maximum Rage", { format = "{0:output:MaximumRage}", { modName = "MaximumRage" }, }, },
 	{ label = "Gain on hit", { format = "{0:output:RageOnHit}", { modName = "RageOnHit" }, 
 		{ breakdown = "RageOnHit" },
-		{ modName = { "RageOnHit" }, modType = "BASE", cfg = "weapon1" },
+		{ modName = { "RageOnHit" }, modType = "BASE", cfg = "skill" },
 	}, },
 	{ label = "Gain when hit", { format = "{0:output:RageWhenHit}", { modName = "RageWhenHit" }, }, },
 	{ label = "Recovery", { format = "{1:output:RageRegenRecovery} ({1:output:RageRegenPercent}%)",
