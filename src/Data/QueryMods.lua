@@ -9350,6 +9350,15 @@ return {
 				["type"] = "fractured", 
 			}, 
 		}, 
+		["9897_WeaponSwapSpeed"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "fractured.stat_3233599707", 
+				["text"] = "#% increased Weapon Swap Speed", 
+				["type"] = "fractured", 
+			}, 
+		}, 
 		["990_FreezeDamageIncrease"] = {
 			["1HWeapon"] = {
 				["max"] = 30, 
@@ -19824,7 +19833,7 @@ return {
 	}, 
 	["Rune"] = {
 		["1002"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -20339,9 +20348,17 @@ return {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
 			}, 
+			["Boots"] = {
+				["max"] = 0.35, 
+				["min"] = 0.25, 
+			}, 
 			["Bow"] = {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
+			}, 
+			["Chest"] = {
+				["max"] = 1.5, 
+				["min"] = 0.25, 
 			}, 
 			["Claw"] = {
 				["max"] = 0.4, 
@@ -20355,9 +20372,25 @@ return {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
 			}, 
+			["Focus"] = {
+				["max"] = 0.35, 
+				["min"] = 0.25, 
+			}, 
+			["Gloves"] = {
+				["max"] = 0.35, 
+				["min"] = 0.25, 
+			}, 
+			["Helmet"] = {
+				["max"] = 0.35, 
+				["min"] = 0.25, 
+			}, 
 			["Quarterstaff"] = {
 				["max"] = 0.4, 
 				["min"] = 0.4, 
+			}, 
+			["Shield"] = {
+				["max"] = 0.35, 
+				["min"] = 0.25, 
 			}, 
 			["Spear"] = {
 				["max"] = 0.4, 
@@ -20370,8 +20403,8 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "rune.stat_1981392722", 
-				["text"] = "Bonded: Regenerate #% of maximum Life per second", 
+				["id"] = "rune.stat_836936635", 
+				["text"] = "Regenerate #% of maximum Life per second", 
 				["type"] = "augment", 
 			}, 
 		}, 
@@ -20568,7 +20601,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["2649"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -20847,6 +20880,20 @@ return {
 				["type"] = "augment", 
 			}, 
 		}, 
+		["4261"] = {
+			["Chest"] = {
+				["max"] = 50, 
+				["min"] = 50, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_2191621386", 
+				["text"] = "#% of Armour also applies to Chaos Damage while on full Energy Shield", 
+				["type"] = "augment", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
 		["4275"] = {
 			["Chest"] = {
 				["max"] = 2, 
@@ -20986,7 +21033,7 @@ return {
 			}, 
 		}, 
 		["4387"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
@@ -21533,7 +21580,7 @@ return {
 			}, 
 		}, 
 		["5440"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 25, 
 				["min"] = 25, 
 			}, 
@@ -21599,7 +21646,7 @@ return {
 			}, 
 		}, 
 		["5567"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
@@ -21684,7 +21731,7 @@ return {
 			}, 
 		}, 
 		["5981"] = {
-			["Chest"] = {
+			["Gloves"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -21849,6 +21896,33 @@ return {
 				["type"] = "augment", 
 			}, 
 		}, 
+		["6295"] = {
+			["Helmet"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_280497929", 
+				["text"] = "# to maximum Mana per 2 Item Energy Shield on Equipped Helmet", 
+				["type"] = "augment", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["6337"] = {
+			["Helmet"] = {
+				["max"] = 25, 
+				["min"] = 25, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_3903510399", 
+				["text"] = "Gain Armour equal to #% of Life Lost from Hits in the past 8 seconds", 
+				["type"] = "augment", 
+			}, 
+		}, 
 		["6431"] = {
 			["Gloves"] = {
 				["max"] = 1, 
@@ -21958,8 +22032,21 @@ return {
 				["type"] = "augment", 
 			}, 
 		}, 
+		["6999"] = {
+			["Boots"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_3473409233", 
+				["text"] = "Lose #% of maximum Life per second while Sprinting", 
+				["type"] = "augment", 
+			}, 
+		}, 
 		["7037"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 25, 
 				["min"] = 25, 
 			}, 
@@ -22546,6 +22633,19 @@ return {
 				["type"] = "augment", 
 			}, 
 		}, 
+		["8275"] = {
+			["Helmet"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_2231410646", 
+				["text"] = "A random Skill that requires Glory generates #% of its maximum Glory when your Mark Activates", 
+				["type"] = "augment", 
+			}, 
+		}, 
 		["828"] = {
 			["1HMace"] = {
 				["max"] = 8, 
@@ -22646,7 +22746,7 @@ return {
 			}, 
 		}, 
 		["842"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -22689,7 +22789,7 @@ return {
 			}, 
 		}, 
 		["8471"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -22702,7 +22802,7 @@ return {
 			}, 
 		}, 
 		["8473"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
@@ -23342,7 +23442,7 @@ return {
 			}, 
 		}, 
 		["881"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -23355,7 +23455,7 @@ return {
 			}, 
 		}, 
 		["882"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
@@ -23368,7 +23468,7 @@ return {
 			}, 
 		}, 
 		["885"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 20.5, 
 				["min"] = 20.5, 
 			}, 
@@ -23380,8 +23480,21 @@ return {
 				["type"] = "augment", 
 			}, 
 		}, 
+		["8867"] = {
+			["Chest"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_1374654984", 
+				["text"] = "#% of Physical Damage prevented Recouped as Life", 
+				["type"] = "augment", 
+			}, 
+		}, 
 		["891"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 14, 
 				["min"] = 14, 
 			}, 
@@ -23394,7 +23507,7 @@ return {
 			}, 
 		}, 
 		["892"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 14, 
 				["min"] = 14, 
 			}, 
@@ -23407,7 +23520,7 @@ return {
 			}, 
 		}, 
 		["893"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -23420,7 +23533,7 @@ return {
 			}, 
 		}, 
 		["894"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -23433,7 +23546,7 @@ return {
 			}, 
 		}, 
 		["895"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -23447,7 +23560,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["896"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -23483,6 +23596,32 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_2363593824", 
 				["text"] = "#% increased speed of Recoup Effects", 
+				["type"] = "augment", 
+			}, 
+		}, 
+		["9105"] = {
+			["Chest"] = {
+				["max"] = 50, 
+				["min"] = 50, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_1937310173", 
+				["text"] = "You Recoup #% of Damage taken by your Offerings as Life", 
+				["type"] = "augment", 
+			}, 
+		}, 
+		["9139"] = {
+			["Gloves"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_426207520", 
+				["text"] = "Each Runic Inscription from your Curse Skills causes you to Regenerate Mana per second equal to #% of that Skill's Mana Cost", 
 				["type"] = "augment", 
 			}, 
 		}, 
@@ -23671,6 +23810,19 @@ return {
 				["type"] = "augment", 
 			}, 
 		}, 
+		["9188"] = {
+			["Gloves"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_1480688478", 
+				["text"] = "One of your Persistent Minions revives when an Offering expires", 
+				["type"] = "augment", 
+			}, 
+		}, 
 		["919"] = {
 			["1HMace"] = {
 				["max"] = 5, 
@@ -23721,6 +23873,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "rune.stat_681332047", 
 				["text"] = "#% increased Attack Speed", 
+				["type"] = "augment", 
+			}, 
+		}, 
+		["9195"] = {
+			["Boots"] = {
+				["max"] = 10, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_1585886916", 
+				["text"] = "Sacrifice #% of maximum Life to gain that much Guard when you Dodge Roll", 
 				["type"] = "augment", 
 			}, 
 		}, 
@@ -23891,7 +24056,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["9317"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -24024,6 +24189,19 @@ return {
 				["type"] = "augment", 
 			}, 
 			["usePositiveSign"] = true, 
+		}, 
+		["9465"] = {
+			["Boots"] = {
+				["max"] = 25, 
+				["min"] = 25, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "rune.stat_3107707789", 
+				["text"] = "#% increased Movement Speed while Sprinting", 
+				["type"] = "augment", 
+			}, 
 		}, 
 		["947"] = {
 			["1HMace"] = {
@@ -24285,6 +24463,10 @@ return {
 		}, 
 		["950"] = {
 			["Chest"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
+			["Gloves"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -25291,7 +25473,7 @@ return {
 			}, 
 		}, 
 		["9922"] = {
-			["1HWeapon"] = {
+			["Sceptre"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
