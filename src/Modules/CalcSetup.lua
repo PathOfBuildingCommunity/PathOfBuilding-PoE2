@@ -1059,10 +1059,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 						if modLine.soulCore then
 							for _, mod in ipairs(modLine.modList) do
 								local modCopy = copyTable(mod)
-								if type(modCopy.value) == "number" then
-									modCopy.value = round(modCopy.value / modLine.runeCount)
-									for i = 1, modLine.runeCount do
-										env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+								if type(modCopy.value) ~= "boolean" then
+									if modLine.runeCount ~= nil then
+										modCopy.value = round(modCopy.value / modLine.runeCount)
+										for i = 1, modLine.runeCount do
+											env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+										end
 									end
 								end
 							end
@@ -1074,10 +1076,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 					for _, modLine in ipairs(item.runeModLines) do
 						for _, mod in ipairs(modLine.modList) do
 							local modCopy = copyTable(mod)
-							if type(modCopy.value) == "number" then
-								modCopy.value = round(modCopy.value / modLine.runeCount)
-								for i = 1, modLine.runeCount do
-									env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
+							if type(modCopy.value) ~= "boolean" then
+								if modLine.runeCount ~= nil then
+									modCopy.value = round(modCopy.value / modLine.runeCount)
+									for i = 1, modLine.runeCount do
+										env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
+									end
 								end
 							end
 						end

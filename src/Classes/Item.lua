@@ -835,6 +835,25 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local statGroupedRunes = { }
 			local broadItemType = self.base.weapon and "weapon" or (self.base.tags.wand or self.base.tags.staff) and "caster" or "armour" -- minor optimisation
 			local specificItemType = self.base.type:lower()
+			local additionalType
+			local augmentOverride = {
+				BodyArmour = "body armour",
+				Helmet = "helmet",
+				Shield = "shield",
+				Boots = "boots",
+				Gloves = "gloves",
+			}
+			for flag, slot in pairs(augmentOverride) do
+				if self["augmentsAs" .. flag] then
+					specificItemType = slot
+					break
+				end
+			end
+			for flag, slot in pairs(augmentOverride) do -- Atziri's Splendour
+				if self["augmentsAlsoAs" .. flag] then
+					additionalType = slot
+				end
+			end
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
 				local addModToGroupedRunes = function (modLine)
 					local runeValue = 1
@@ -848,7 +867,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					t_insert(statGroupedRunes[runeStrippedModLine], { runeName, runeValue });
 				end
 				for slotType, slotMod in pairs(runeMods) do
-					if slotType == broadItemType or slotType == specificItemType then
+					if slotType == broadItemType or slotType == specificItemType or slotType == additionalType then
 						for _, mod in ipairs(slotMod) do
 							addModToGroupedRunes(mod)
 						end
@@ -915,7 +934,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 										return true
 									end
 								end
-								
+
 								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
 								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
 								if sum + tonumber(v) <= target + 1e-9 and count < remainingRunes then
@@ -974,7 +993,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						remainingRunes = remainingRunes - numRunes
 						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this 
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
-						modLine.soulCore = groupedRunes[1][1]:match("Soul Core") ~= nil
+						modLine.soulCore = groupedRunes[1][1]:match("Soul Core") or groupedRunes[1][1]:match("Thesis") -- Should match by type
 						modLine.runeCount = numRunes
 
 						if shouldFixRunesOnItem then
