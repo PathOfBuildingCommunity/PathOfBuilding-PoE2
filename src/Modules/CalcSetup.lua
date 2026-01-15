@@ -1060,7 +1060,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 							for _, mod in ipairs(modLine.modList) do
 								local modCopy = copyTable(mod)
 								if type(modCopy.value) ~= "boolean" then
-									if modLine.runeCount ~= nil then
+									if modLine.bonded then
+										env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
+									end
+									if modLine.runeCount > 0 then
 										modCopy.value = round(modCopy.value / modLine.runeCount)
 										for i = 1, modLine.runeCount do
 											env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
@@ -1077,7 +1080,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 						for _, mod in ipairs(modLine.modList) do
 							local modCopy = copyTable(mod)
 							if type(modCopy.value) ~= "boolean" then
-								if modLine.runeCount ~= nil then
+								if modLine.bonded then
+									env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
+								end
+								if modLine.runeCount > 0 then --35 Mana still breaks. As it combines the bonded with itself.
 									modCopy.value = round(modCopy.value / modLine.runeCount)
 									for i = 1, modLine.runeCount do
 										env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
