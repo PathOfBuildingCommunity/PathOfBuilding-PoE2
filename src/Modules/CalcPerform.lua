@@ -487,6 +487,13 @@ local function doActorMisc(env, actor)
 			end
 			modDB.multipliers["BuffOnSelf"] = (modDB.multipliers["BuffOnSelf"] or 0) + 1
 		end
+		if modDB:Flag(nil, "Maim") and not modDB:Flag(nil, "Condition:MaimImmune")  then
+			modDB:NewMod("MovementSpeed", "INC", -30, "Maim")
+			modDB:NewMod("Evasion", "INC", -15, "Maim")
+		end
+		if modDB:Flag(nil, "Hinder") and not modDB:Flag(nil, "Condition:HinderImmune") then
+			modDB:NewMod("MovementSpeed", "INC", -30, "Hinder")
+		end
 		if modDB:Flag(nil, "Onslaught") then
 			local effect
 			--Loop detects if a Silver flask is used to grant Onslaught. If statement adds flask effect to calculation if one is being used
