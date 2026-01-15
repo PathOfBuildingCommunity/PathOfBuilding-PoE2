@@ -951,9 +951,9 @@ function calcs.defence(env, actor)
 		breakdown.Mana = { slots = { } }
 		breakdown.Spirit = { slots = { } }
 	end
-	if actor == env.minion then
-		calcs.doActorLifeManaSpirit(env.minion)
-		calcs.doActorLifeManaSpiritReservation(env.minion)
+	if actor == env.minion or actor == env.player then
+		calcs.doActorLifeManaSpirit(actor)
+		calcs.doActorLifeManaSpiritReservation(actor)
 	end
 
 	-- Block
