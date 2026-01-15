@@ -635,6 +635,8 @@ local function doActorMisc(env, actor)
 			condList["LeechingEnergyShield"] = true
 		end
 		if modDB:Flag(nil, "Condition:CanGainRage") or modDB:Sum("BASE", nil, "RageRegen") > 0 then
+			local skillCfg = actor.mainSkill.skillCfg
+			local skillModList = actor.mainSkill.skillModList
 			local maxStacks = modDB:Sum("BASE", skillCfg, "MaximumRage")
 			local minStacks = m_min(modDB:Sum("BASE", nil, "MinimumRage"), maxStacks)
 			local rageConfig = modDB:Sum("BASE", nil, "Multiplier:RageStack")
@@ -643,7 +645,7 @@ local function doActorMisc(env, actor)
 			modDB:NewMod("Multiplier:RageEffect", "BASE", output.RageEffect, "Base")
 			output.Rage = stacks
 			output.MaximumRage = maxStacks
-			output.RageOnHit = env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RageOnHit")
+			output.RageOnHit = skillModList:Sum("BASE", skillCfg, "RageOnHit")
 			output.RageWhenHit = modDB:Sum("BASE", nil, "RageWhenHit")
 			modDB:NewMod("Multiplier:Rage", "BASE", output.Rage, "Base")
 			if modDB:Flag(nil, "Condition:RageSpellDamage") then
