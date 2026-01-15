@@ -750,11 +750,6 @@ function calcs.defence(env, actor)
 
 	local condList = modDB.conditions
 
-	-- Pre-calculate Life/Mana/Spirit and reservations to set conditions (like LowLife) before defences are calculated
-	-- This ensures modifiers that depend on conditions (e.g., "when on Low Life") work correctly
-	calcs.doActorLifeManaSpirit(actor, true)
-	calcs.doActorLifeManaSpiritReservation(actor)
-
 	-- Action Speed
 	output.ActionSpeedMod = calcs.actionSpeedMod(actor)
 	
@@ -1116,7 +1111,8 @@ function calcs.defence(env, actor)
 	end
 	-- Primary defences: Energy shield, evasion and armour
 	do
-		-- Life/Mana/Spirit already calculated above for conditions
+		-- Pre-calculate Life/Mana/Spirit for mods such as Beidat's hand
+		calcs.doActorLifeManaSpirit(actor, true)
 		local ward = 0
 		local energyShield = 0
 		local armour = 0
