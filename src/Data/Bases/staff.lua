@@ -137,15 +137,6 @@ itemBases["Permafrost Staff"] = {
 	implicitModTypes = { },
 	req = { },
 }
-itemBases["[DNT] Cragbreaker Staff"] = {
-	type = "Staff",
-	quality = 20,
-	socketLimit = 4,
-	tags = { default = true, staff = true, twohand = true, },
-	implicit = "Grants Skill: Level (1-20) [DNT] Crushing Earth",
-	implicitModTypes = { },
-	req = { },
-}
 itemBases["Reflecting Staff"] = {
 	type = "Staff",
 	quality = 20,
