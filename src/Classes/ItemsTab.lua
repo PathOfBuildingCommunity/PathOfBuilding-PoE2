@@ -2604,7 +2604,12 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 			end)
 		elseif sourceId == "ESSENCE" then
 			for _, essence in pairs(self.build.data.essences) do
-				local modId = essence.mods[self.displayItem.type]
+				local modId
+				if self.displayItem.type == "Two Handed Mace" then
+					modId = essence.mods["Two Hand Mace"]
+				else
+					modId = essence.mods[self.displayItem.type]
+				end
 				if modId then
 					local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
 					if mod then -- passive_hash mods don't get described
