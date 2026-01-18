@@ -14,11 +14,6 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
-#skill SupportAftershockChancePlayerThree
-#set SupportAftershockChancePlayerThree
-#mods
-#skillEnd
-
 #skill SupportAmanamusTithePlayer
 #set SupportAmanamusTithePlayer
 #mods
@@ -36,11 +31,6 @@ local skills, mod, flag, skill = ...
 
 #skill SupportAncestralCallPlayerTwo
 #set SupportAncestralCallPlayerTwo
-#mods
-#skillEnd
-
-#skill SupportAncestralCallPlayerThree
-#set SupportAncestralCallPlayerThree
 #mods
 #skillEnd
 
@@ -1105,6 +1095,11 @@ statMap = {
 
 #skill SupportMarkForDeathPlayer
 #set SupportMarkForDeathPlayer
+statMap = {
+	["marked_target_%_physical_damage_taken_as_armour_break"] = {
+		flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+	},
+},
 #mods
 #skillEnd
 
@@ -1214,16 +1209,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill ProlongedDurationSupportPlayerThree
-#set ProlongedDurationSupportPlayerThree
-statMap = {
-	["support_more_duration_skill_effect_duration_+%_final"] = {
-		mod("Duration", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportQuillburstPlayer
 #set SupportQuillburstPlayer
 #mods
@@ -1258,7 +1243,7 @@ statMap = {
 #set SupportRageforgedPlayer
 statMap = {
 	["support_rageforged_enraged_damage_+%_final"] = {
-		mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
 	},
 },
 #mods
@@ -1268,7 +1253,7 @@ statMap = {
 #set SupportRageforgedPlayerTwo
 statMap = {
 	["support_rageforged_enraged_damage_+%_final"] = {
-		mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
 	},
 },
 #mods

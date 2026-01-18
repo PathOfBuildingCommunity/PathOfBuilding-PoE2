@@ -43,6 +43,7 @@ local itemTypes = {
 	"jewel",
 	"flask",
 	"soulcore",
+	"incursionlimb",
 }
 local function writeMods(out, statOrder)
 	local orders = { }

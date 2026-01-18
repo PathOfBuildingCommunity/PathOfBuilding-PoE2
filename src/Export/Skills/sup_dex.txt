@@ -24,16 +24,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportAdhesiveGrenadesPlayerThree
-#set SupportAdhesiveGrenadesPlayerThree
-statMap = {
-	["support_sticky_grenade_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportAdmixturePlayer
 #set SupportAdmixturePlayer
 statMap = {
@@ -794,16 +784,6 @@ statMap = {
 
 #skill SupportIncreaseLimitPlayerTwo
 #set SupportIncreaseLimitPlayerTwo
-statMap = {
-	["support_limit_skill_effect_duration_+%_final"] = {
-		mod("Duration", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
-#skill SupportIncreaseLimitPlayerThree
-#set SupportIncreaseLimitPlayerThree
 statMap = {
 	["support_limit_skill_effect_duration_+%_final"] = {
 		mod("Duration", "MORE", nil),

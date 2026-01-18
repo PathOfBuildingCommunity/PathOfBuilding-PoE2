@@ -53,7 +53,7 @@ function itemLib.formatValue(value, baseValueScalar, valueScalar, precision, dis
 	elseif displayPrecision then
 		return tostring(value, displayPrecision)
 	else
-		return tostring(roundSymmetric(value,  precision and m_min(2, m_floor(math.log(precision, 10))) or 2)) -- max decimals ingame is 2 
+		return tostring(roundSymmetric(value,  precision and m_min(2, m_floor(math.log(precision, 10) + 0.001)) or 2)) -- max decimals ingame is 2 
 	end
 end
 
