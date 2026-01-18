@@ -3437,13 +3437,13 @@ function calcs.offence(env, actor, activeSkill)
 					local nonCritChance = 1 - critChance
 
 					local critBonusMultiplier =
-						1 * critChance + 									 -- 100% crit damage, crit% of the time
-						0.7 * nonCritChance * critChance +					 -- 70% if we roll non-crit then a crit
-						0.4 * math.pow(nonCritChance, 2) * critChance + -- 40% if we roll two non-crit then a crit
-						0.1 * math.pow(nonCritChance, 3) * critChance   -- 10% if we roll three non-crits then a crit
+						1 * critChance + 								  -- 100% crit damage, crit% of the time
+						0.7 * nonCritChance * critChance +				  -- 70% if we roll non-crit then a crit
+						0.4 * m_pow(nonCritChance, 2) * critChance + -- 40% if we roll two non-crit then a crit
+						0.1 * m_pow(nonCritChance, 3) * critChance   -- 10% if we roll three non-crits then a crit
 
 					-- This gets rounded when used in damage logic, so round it ahead of time to make the breakdown accurate (and less ugly)
-					local lessCritBonus = math.floor((1 - critBonusMultiplier) * -100.0 + 0.5)
+					local lessCritBonus = round((1 - critBonusMultiplier) * -100.0, 0)
 					skillModList:NewMod("CritMultiplier", "MORE", lessCritBonus, "Tree:55135")
 
 					-- For the sake of any logic that depends on it, every hit is considered a crit
