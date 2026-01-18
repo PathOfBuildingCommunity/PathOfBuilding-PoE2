@@ -3374,26 +3374,6 @@ function calcs.offence(env, actor, activeSkill)
 			--else -- this shouldn't ever be a case but leaving this here if someone wants to implement it
 			end
 		else
-		-- Helpers
-			local addBreakdown = function(formatString, ...)
-				if not breakdown then return end
-				breakdown.CritChance = breakdown.CritChance or {}
-				table.insert(breakdown.CritChance, s_format(formatString, ...))
-			end
-
-			local printedEffective = false
-			local ensureEffectivePrinted = function()
-				if printedEffective or not env.mode_effective then return end
-				printedEffective = true
-
-				addBreakdown("")
-				addBreakdown("Effective Crit Chance:")
-				addBreakdown("   %.2f%% ^8(base)", output.PreEffectiveCritChance)
-			end
-
-			addBreakdown("Base Crit Chance:")
-
-		-- Override
 			local critOverride = skillModList:Override(cfg, "CritChance")
 			-- destructive link
 			if skillModList:Flag(cfg, "MainHandCritIsEqualToParent") then
@@ -3414,106 +3394,105 @@ function calcs.offence(env, actor, activeSkill)
 				baseCrit = actor.parent.weaponData1 and actor.parent.weaponData1.CritChance or baseCrit
 			end
 
-		-- PreEffective
-			if critOverride then
-				addBreakdown("%g ^8(override)", critOverride)
-				
-				output.PreEffectiveCritChance = critOverride
-			else
-				local base = skillModList:Sum("BASE", cfg, "CritChance") + (env.mode_effective and enemyDB:Sum("BASE", nil, "SelfCritChance") or 0)
-				local baseCritFromMainHandStr = baseCritFromMainHand and " from main weapon" or baseCritFromParentMainHand and " from parent main weapon" or ""
-				if base ~= 0 then
-					addBreakdown("   (%g + %g)%% ^8(base%s)", baseCrit, base, baseCritFromMainHandStr)
-				else
-					addBreakdown("   %g%% ^8(base%s)", baseCrit + base, baseCritFromMainHandStr)
-				end
-				
-				local inc = skillModList:Sum("INC", cfg, "CritChance") + (env.mode_effective and enemyDB:Sum("INC", nil, "SelfCritChance") or 0)
-				if inc ~= 0 then
-					addBreakdown(" x %.2f ^8(increased/reduced)", 1 + inc/100)
-				end
-
-				local more = skillModList:More(cfg, "CritChance")
-				if more ~= 1 then
-					addBreakdown(" x %.2f ^8(more/less)", more)
-				end
-
-				output.PreEffectiveCritChance = (baseCrit + base) * (1 + inc / 100) * more
-
-				if output.PreEffectiveCritChance > 100 then
-					local overCap = output.PreEffectiveCritChance - 100
-					addBreakdown("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100)
-				end
-			end
-			
-			local critChanceCap = skillModList:Override(nil, "CritChanceCap") or skillModList:Sum("BASE", cfg, "CritChanceCap")
-			if critChanceCap < output.PreEffectiveCritChance or output.PreEffectiveCritChance < 0 then
-				addBreakdown("Clamp between 0 and crit chance cap: %f", critChanceCap)
-			end
-			
-			output.PreEffectiveCritChance = m_max(0, m_min(output.PreEffectiveCritChance, critChanceCap))
-			addBreakdown("= %.2f%% ^8(crit chance)", output.PreEffectiveCritChance)
-
-
-		-- Effective
-			output.CritChance = output.PreEffectiveCritChance
-			
-			-- Inevitable Critical Hits (Forced Outcome)
-			if env.mode_effective and skillModList:Flag(cfg, "ForcedOutcome") then
-				local critChance = output.CritChance / 100
-				local nonCritChance = 1 - critChance
-				
-				local critBonusMultiplier =
-					1 * critChance + 								-- 100% crit damage, crit% of the time
-					0.7 * nonCritChance * critChance +				-- 70% if we roll non-crit then a crit
-					0.4 * math.pow(nonCritChance, 2) * critChance + -- 40% if we roll two non-crit then a crit
-					0.1 * math.pow(nonCritChance, 3) * critChance  	-- 10% if we roll three non-crits then a crit
-
-				-- This gets rounded when used in damage logic, so round it ahead of time to make the breakdown accurate (and less ugly)
-				local lessCritBonus = math.floor((1 - critBonusMultiplier) * -100.0 + 0.5)
-				skillModList:NewMod("CritMultiplier", "MORE", lessCritBonus, "Forced Outcome")
-
-				-- Lucky Crits and Bifurcation always roll twice on the initial hit, so they always have an extra penalty, even when critting on the first hit
-				-- https://poe2db.tw/Rerolling_Critical_Hit_Chance
-				if skillModList:Flag(nil, "BifurcateCrit") then
-					skillModList:NewMod("CritMultiplier", "MORE", -30, "Forced Outcome + Bifurcate Crits ^8(Always rerolls)")
-				end
-				if skillModList:Flag(nil, "CritChanceLucky") then
-					skillModList:NewMod("CritMultiplier", "MORE", -30, "Forced Outcome + Lucky Crits ^8(Always rerolls)")
-				end
-
-				ensureEffectivePrinted()
+			if critOverride == 100 then
+				output.PreEffectiveCritChance = 100
+				output.PreBifurcateCritChance = 100
 				output.CritChance = 100
-				addBreakdown("= %.2f%% ^8(forced outcome)", output.CritChance)
 			else
-				-- Ignore these if we have Forced Outcome, their rerolls are meaningless when we already reroll until we crit
-
-				-- Lucky Critical Hits
+				local base = 0
+				local inc = 0
+				local more = 1
+				if not critOverride then
+					base = skillModList:Sum("BASE", cfg, "CritChance") + (env.mode_effective and enemyDB:Sum("BASE", nil, "SelfCritChance") or 0)
+					inc = skillModList:Sum("INC", cfg, "CritChance") + (env.mode_effective and enemyDB:Sum("INC", nil, "SelfCritChance") or 0)
+					more = skillModList:More(cfg, "CritChance")
+				end
+				output.CritChance = (baseCrit + base) * (1 + inc / 100) * more
+				local preCapCritChance = output.CritChance
+				output.CritChance = m_min(output.CritChance, skillModList:Override(nil, "CritChanceCap") or skillModList:Sum("BASE", cfg, "CritChanceCap"))
+				if (baseCrit + base) > 0 then
+					output.CritChance = m_max(output.CritChance, 0)
+				end
+				output.PreEffectiveCritChance = output.CritChance
+				local preHitCheckCritChance = output.CritChance
+				if env.mode_effective then
+					-- Hits that make an accuracy check make a second accuracy check if they roll a crit. If that fails, the crit is nullified and it just stays a normal hit
+					-- https://www.pathofexile.com/forum/view-thread/11707/filter-account-type/staff/page/10#p748465
+					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
+				end
+				local preLuckyCritChance = output.CritChance
 				if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
-					ensureEffectivePrinted()
-					addBreakdown("1 - (1 - %.4f) x (1 - %.4f)", output.CritChance / 100, output.CritChance / 100)
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
-					addBreakdown("= %.2f%% ^8(lucky crits)", output.CritChance)
 				end
-				
-				-- Bifurcated Critical Hits
+				output.PreBifurcateCritChance = output.CritChance
+				local preBifurcateCritChance = output.CritChance
 				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
-					ensureEffectivePrinted()
-					addBreakdown("1 - (1 - %.4f) x (1 - %.4f)", output.CritChance / 100, output.CritChance / 100)
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
-					addBreakdown("= %.2f%% ^8(bifurcated crits)", output.CritChance)
 				end
-			end
-			
-			-- Accuracy
-			if env.mode_effective and output.AccuracyHitChance < 100 then
-				ensureEffectivePrinted()
-				addBreakdown(" x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100)
-				output.CritChance = output.CritChance * output.AccuracyHitChance / 100
-				addBreakdown("= %.2f%%", output.CritChance)
+				if env.mode_effective and skillModList:Flag(cfg, "ForcedOutcome") then
+					-- Lucky crits: not considered a 'reroll' for the sake of forced outcome penalties, just a higher crit chance
+					-- Bifurcated crits: only considered a 'reroll' if both of them fail to crit
+					-- So just use the crit chance as calculated, and it already works with both of them
+					local critChance = output.CritChance / 100
+					local nonCritChance = 1 - critChance
+
+					local critBonusMultiplier =
+						1 * critChance + 									 -- 100% crit damage, crit% of the time
+						0.7 * nonCritChance * critChance +					 -- 70% if we roll non-crit then a crit
+						0.4 * math.pow(nonCritChance, 2) * critChance + -- 40% if we roll two non-crit then a crit
+						0.1 * math.pow(nonCritChance, 3) * critChance   -- 10% if we roll three non-crits then a crit
+
+					-- This gets rounded when used in damage logic, so round it ahead of time to make the breakdown accurate (and less ugly)
+					local lessCritBonus = math.floor((1 - critBonusMultiplier) * -100.0 + 0.5)
+					skillModList:NewMod("CritMultiplier", "MORE", lessCritBonus, "Tree:55135")
+
+					-- For the sake of any logic that depends on it, every hit is considered a crit
+					output.CritChance = 100
+					skillModList:NewMod("CritChance", "OVERRIDE", 100, "Tree:55135")
+				end
+				if breakdown and output.CritChance ~= baseCrit then
+					breakdown.CritChance = { }
+					local baseCritFromMainHandStr = baseCritFromMainHand and " from main weapon" or baseCritFromParentMainHand and " from parent main weapon" or ""
+					if base ~= 0 then
+						t_insert(breakdown.CritChance, s_format("(%g + %g) ^8(base%s)", baseCrit, base, baseCritFromMainHandStr))
+					else
+						t_insert(breakdown.CritChance, s_format("%g ^8(base%s)", baseCrit + base, baseCritFromMainHandStr))
+					end
+					if inc ~= 0 then
+						t_insert(breakdown.CritChance, s_format("x %.2f", 1 + inc/100).." ^8(increased/reduced)")
+					end
+					if more ~= 1 then
+						t_insert(breakdown.CritChance, s_format("x %.2f", more).." ^8(more/less)")
+					end
+					t_insert(breakdown.CritChance, s_format("= %.2f%% ^8(crit chance)", output.PreEffectiveCritChance))
+					if preCapCritChance > 100 then
+						local overCap = preCapCritChance - 100
+						t_insert(breakdown.CritChance, s_format("Crit is overcapped by %.2f%% (%d%% increased Critical Hit Chance)", overCap, overCap / more / (baseCrit + base) * 100))
+					end
+					if env.mode_effective and output.AccuracyHitChance < 100 then
+						t_insert(breakdown.CritChance, "")
+						t_insert(breakdown.CritChance, "Effective Crit Chance:")
+						t_insert(breakdown.CritChance, s_format("%.2f%%", preHitCheckCritChance))
+						t_insert(breakdown.CritChance, s_format("x %.2f ^8(chance to hit)", output.AccuracyHitChance / 100))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preLuckyCritChance))
+					end
+					if env.mode_effective and skillModList:Flag(cfg, "CritChanceLucky") then
+						t_insert(breakdown.CritChance, "Crit Chance is Lucky:")
+						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preLuckyCritChance / 100, preLuckyCritChance / 100))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preBifurcateCritChance))
+					end
+					if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
+						t_insert(breakdown.CritChance, "Critical Strike Bifurcates:")
+						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preBifurcateCritChance / 100, preBifurcateCritChance / 100))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
+					end
+					if env.mode_effective and skillModList:Flag(cfg, "ForcedOutcome") then
+						t_insert(breakdown.CritChance, "Inevitable Critical Hits (Forced Outcome):")
+						t_insert(breakdown.CritChance, "= 100% ^8(override)")
+					end
+				end
 			end
 		end
-
 		if not output.CritEffect then
 			if skillModList:Flag(cfg, "NoCritMultiplier") then
 				output.CritMultiplier = 1
@@ -3531,7 +3510,7 @@ function calcs.offence(env, actor, activeSkill)
 				-- if crit bifurcates are enabled, roll for crit twice and add multiplier for each
 				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 					-- get crit chance and calculate odds of critting twice
-					local critChancePercentage = output.PreEffectiveCritChance
+					local critChancePercentage = output.PreBifurcateCritChance
 					local bifurcateMultiChance = (critChancePercentage ^ 2) / 100
 					output.CritBifurcates = bifurcateMultiChance
 					local damageBonus = extraDamage
