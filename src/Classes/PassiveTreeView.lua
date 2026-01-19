@@ -194,6 +194,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local vX = curTreeX - node.x
 				local vY = curTreeY - node.y
 				if vX * vX + vY * vY <= node.rsq then
+					-- Zeigt Box wenn man auf node ist
 					hoverNode = node
 					break
 				end
@@ -623,11 +624,36 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		DrawImageQuad(handle, unpack(connector.c))
 	end
 
+
+
 	-- Draw the connecting lines between nodes
 	SetDrawLayer(nil, 20)
 	for _, connector in pairs(tree.connectors) do
-		renderConnector(connector)
+		local node2 = spec.nodes[connector.nodeId2]
+		if node2.unlockConstraint then
+			for _, nodeId in ipairs(node2.unlockConstraint.nodes) do
+				if nodeId and build.spec.nodes[nodeId].alloc then
+					renderConnector(connector)
+				end
+			end
+		else
+			renderConnector(connector)
+		end
+
 	end
+
+
+
+
+
+
+
+
+
+
+
+
+
 	for _, subGraph in pairs(spec.subGraphs) do
 		for _, connector in pairs(subGraph.connectors) do
 			renderConnector(connector)
@@ -759,10 +785,19 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if node.activeEffectImage then
 					effect = tree:GetAssetByName(node.activeEffectImage)
 				end
-
-				base = tree:GetAssetByName(node.icon)
-
-				overlay = node.overlay[state]
+				--Zeichnet Rand und Kern
+				if node.unlockConstraint then
+					for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+						if nodeId and build.spec.nodes[nodeId].alloc then
+							base = tree:GetAssetByName(node.icon)
+							overlay = node.overlay[state]
+						end
+					end
+				else
+					base = tree:GetAssetByName(node.icon)
+					overlay = node.overlay[state]
+				end
+				
 			end
 		end
 
@@ -970,13 +1005,27 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 		if node == hoverNode and (node.type ~= "Socket" or not IsKeyDown("SHIFT")) and not IsKeyDown("CTRL") and not main.popups[1] then
 			-- Draw tooltip
-			SetDrawLayer(nil, 100)
-			local size = m_floor(node.size * scale)
-			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode) then
-				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
+			if node.unlockConstraint then
+				for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+					if nodeId and build.spec.nodes[nodeId].alloc then
+						SetDrawLayer(nil, 100)
+						local size = m_floor(node.size * scale)
+						if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode) then
+							self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
+						end
+						self.tooltip.center = true
+						self.tooltip:Draw(m_floor(scrX - size), m_floor(scrY - size), size * 2, size * 2, viewPort)
+					end
+				end
+			else
+				SetDrawLayer(nil, 100)
+				local size = m_floor(node.size * scale)
+				if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode) then
+					self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
+				end
+				self.tooltip.center = true
+				self.tooltip:Draw(m_floor(scrX - size), m_floor(scrY - size), size * 2, size * 2, viewPort)
 			end
-			self.tooltip.center = true
-			self.tooltip:Draw(m_floor(scrX - size), m_floor(scrY - size), size * 2, size * 2, viewPort)
 		end
 	end
 	
