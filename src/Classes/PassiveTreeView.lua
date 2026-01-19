@@ -628,10 +628,11 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	SetDrawLayer(nil, 20)
 
 	for _, connector in pairs(tree.connectors) do
+		local node1 = spec.nodes[connector.nodeId1]
 		local node2 = spec.nodes[connector.nodeId2]
-		if not node2.unlockConstraint then
+		if not node1.unlockConstraint and not node2.unlockConstraint  then
 			renderConnector(connector)
-		elseif checkUnlockConstraints(build, node2) then
+		elseif checkUnlockConstraints(build, node1) and checkUnlockConstraints(build, node2) then
 			renderConnector(connector)
 		end
 	end
