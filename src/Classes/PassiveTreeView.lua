@@ -759,13 +759,20 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				end
 			elseif node.type == "OnlyImage" then
 				-- This is the icon that appears in the center of many groups
-				base = tree:GetAssetByName(node.activeEffectImage)
-
+				if not node.unlockConstraint then
+					base = tree:GetAssetByName(node.activeEffectImage)
+				elseif checkUnlockConstraints(build, node) then
+					base = tree:GetAssetByName(node.activeEffectImage)
+				end
 				SetDrawLayer(nil, 15)
 			else
 				-- Normal node (includes keystones and notables)
 				if node.activeEffectImage then
-					effect = tree:GetAssetByName(node.activeEffectImage)
+					if not node.unlockConstraint then
+						effect = tree:GetAssetByName(node.activeEffectImage)
+					elseif checkUnlockConstraints(build, node) then
+						effect = tree:GetAssetByName(node.activeEffectImage)
+					end
 				end
 				--Zeichnet Rand und Kern
 				if not node.unlockConstraint then
