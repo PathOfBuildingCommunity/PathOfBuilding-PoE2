@@ -605,6 +605,17 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			((displayInstance.level > gemInstance.level) and " (" .. colorCodes.MAGIC .. "+" .. (displayInstance.level - gemInstance.level) .. "^7)") or ((displayInstance.level < gemInstance.level) and " (" .. colorCodes.WARNING .. "-" .. (gemInstance.level - displayInstance.level) .. "^7)") or "",
 			(gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""
 		),"FONTIN SC")
+		if displayInstance.level - gemInstance.level > 0 then
+			self.tooltip:AddLine(fontSizeBig, gemInstance.level .. " Levels from Gem", "FONTIN SC")
+			if displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 then
+				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.gemPropertyInfo[1].value.value .. " Levels from Global Modifiers", "FONTIN SC")
+				if displayInstance.level - gemInstance.level - displayInstance.gemPropertyInfo[1].value.value > 0 then
+					self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level - displayInstance.gemPropertyInfo[1].value.value .. " Levels from Supports", "FONTIN SC")
+				end
+			else
+				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level .. " Levels from Supports", "FONTIN SC")
+			end
+		end
 	end
 	if grantedEffect.support then
 		if grantedEffectLevel.manaMultiplier and grantedEffectLevel.reservationMultiplier and grantedEffectLevel.manaMultiplier == grantedEffectLevel.reservationMultiplier then
