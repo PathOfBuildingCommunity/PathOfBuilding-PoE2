@@ -768,6 +768,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				SetDrawLayer(nil, 15)
 			else
 				-- Normal node (includes keystones and notables)
+				-- draws image below notables which light up when allocated
 				if node.activeEffectImage then
 					if not node.unlockConstraint then
 						effect = tree:GetAssetByName(node.activeEffectImage)
@@ -775,7 +776,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						effect = tree:GetAssetByName(node.activeEffectImage)
 					end
 				end
-				--Zeichnet Rand und Kern
+				--draws node image and border
 				if not node.unlockConstraint then
 					base = tree:GetAssetByName(node.icon)
 					overlay = node.overlay[state]	
