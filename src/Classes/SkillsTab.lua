@@ -272,6 +272,18 @@ will automatically apply to the skill.]]
 	self.controls.gemCountHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].count, "TOPLEFT"}, {8, -2, 0, 16}, "^7Count:")
 end)
 
+function SkillsTabClass:GetCorruptIndex(gemInstance)
+	if gemInstance.corruptLevel == 1 then
+		return 2  -- +1 to Gem Level
+	elseif gemInstance.corruptLevel == -1 then
+		return 4  -- -1 to Gem Level
+	elseif gemInstance.corrupted then
+		return 3  -- Corrupted
+	else
+		return 1  -- Not Corrupted
+	end
+end
+
 function SkillsTabClass:LoadSkill(node, skillSetId)
 	if node.elem ~= "Skill" then
 		return
@@ -651,17 +663,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			self.gemSlots[index2].enableGlobal1.state = gemInstance.enableGlobal1
 			self.gemSlots[index2].enableGlobal2.state = gemInstance.enableGlobal2
 			self.gemSlots[index2].count:SetText(gemInstance.count or 1)
-			local selIndex
-			if gemInstance.corruptLevel == 1 then
-				selIndex = 2  -- +1 to Gem Level
-			elseif gemInstance.corruptLevel == -1 then
-				selIndex = 4  -- -1 to Gem Level
-			elseif gemInstance.corrupted then
-				selIndex = 3  -- Corrupted
-			else
-				selIndex = 1  -- Not Corrupted
-			end
-			self.gemSlots[index2].corruptLevel.selIndex = selIndex
+			self.gemSlots[index2].corruptLevel.selIndex = self:GetCorruptIndex(gemInstance)
 		end
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -708,17 +710,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			self.displayGroup.gemList[index] = gemInstance
 			slot.level:SetText(gemInstance.level)
 			slot.quality:SetText(gemInstance.quality)
-			local selIndex
-			if gemInstance.corruptLevel == 1 then
-				selIndex = 2  -- +1 to Gem Level
-			elseif gemInstance.corruptLevel == -1 then
-				selIndex = 4  -- -1 to Gem Level
-			elseif gemInstance.corrupted and gemInstance.corruptLevel == 0 then
-				selIndex = 3  -- Corrupted
-			else
-				selIndex = 1  -- Not Corrupted
-			end
-			slot.corruptLevel.selIndex = selIndex
+			slot.corruptLevel.selIndex = self:GetCorruptIndex(gemInstance)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
 			slot.enableGlobal2.state = true
@@ -756,17 +748,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
 			slot.count:SetText(gemInstance.count)
-			local selIndex
-			if gemInstance.corruptLevel == 1 then
-				selIndex = 2  -- +1 to Gem Level
-			elseif gemInstance.corruptLevel == -1 then
-				selIndex = 4  -- -1 to Gem Level
-			elseif gemInstance.corrupted and gemInstance.corruptLevel == 0 then
-				selIndex = 3  -- Corrupted
-			else
-				selIndex = 1  -- Not Corrupted
-			end
-			slot.corruptLevel = selIndex
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		gemInstance.level = tonumber(buf) or self.displayGroup.gemList[index].naturalMaxLevel or self:ProcessGemLevel(gemInstance.gemData) or 20
 		self:ProcessSocketGroup(self.displayGroup)
@@ -789,17 +771,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
 			slot.count:SetText(gemInstance.count)
-			local selIndex
-			if gemInstance.corruptLevel == 1 then
-				selIndex = 2  -- +1 to Gem Level
-			elseif gemInstance.corruptLevel == -1 then
-				selIndex = 4  -- -1 to Gem Level
-			elseif gemInstance.corrupted and gemInstance.corruptLevel == 0 then
-				selIndex = 3  -- Corrupted
-			else
-				selIndex = 1  -- Not Corrupted
-			end
-			slot.corruptLevel = selIndex
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		gemInstance.quality = tonumber(buf) or self.defaultGemQuality or 0
 		self:ProcessSocketGroup(self.displayGroup)
@@ -894,17 +866,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.level:SetText(gemInstance.level)
 			slot.quality:SetText(gemInstance.quality)
 			slot.count:SetText(gemInstance.count)
-			local selIndex
-			if gemInstance.corruptLevel == 1 then
-				selIndex = 2  -- +1 to Gem Level
-			elseif gemInstance.corruptLevel == -1 then
-				selIndex = 4  -- -1 to Gem Level
-			elseif gemInstance.corrupted and gemInstance.corruptLevel == 0 then
-				selIndex = 3  -- Corrupted
-			else
-				selIndex = 1  -- Not Corrupted
-			end
-			slot.corruptLevel = selIndex
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		if not gemInstance.gemData.vaalGem then
 			slot.enableGlobal1.state = true
@@ -945,17 +907,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.quality:SetText(gemInstance.quality)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
-			local selIndex
-			if gemInstance.corruptLevel == 1 then
-				selIndex = 2  -- +1 to Gem Level
-			elseif gemInstance.corruptLevel == -1 then
-				selIndex = 4  -- -1 to Gem Level
-			elseif gemInstance.corrupted and gemInstance.corruptLevel == 0 then
-				selIndex = 3  -- Corrupted
-			else
-				selIndex = 1  -- Not Corrupted
-			end
-			slot.corruptLevel = selIndex
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		gemInstance.count = tonumber(buf) or 1
 		slot.count.buf = tostring(gemInstance.count)
@@ -1258,17 +1210,7 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 			self.gemSlots[index].enableGlobal1.state = gemInstance.enableGlobal1
 			self.gemSlots[index].enableGlobal2.state = gemInstance.enableGlobal2
 			self.gemSlots[index].count:SetText(gemInstance.count or 1)
-			local selIndex = 1
-			if gemInstance.corruptLevel == 1 then
-				selIndex = 2  -- +1 to Gem Level
-			elseif gemInstance.corruptLevel == -1 then
-				selIndex = 4  -- -1 to Gem Level
-			elseif gemInstance.corrupted and gemInstance.corruptLevel == 0 then
-				selIndex = 3  -- Corrupted
-			else
-				selIndex = 1  -- Not Corrupted
-			end
-			self.gemSlots[index].corruptLevel.selIndex = selIndex
+			self.gemSlots[index].corruptLevel.selIndex = self:GetCorruptIndex(gemInstance)
 		end
 	end
 end

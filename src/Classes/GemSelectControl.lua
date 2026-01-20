@@ -609,9 +609,14 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		(displayInstance.level - gemInstance.level - displayInstance.corruptLevel > 0)
 		then
 			self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. colorCodes.MAGIC .. totalLevel), "FONTIN SC")
-			self.tooltip:AddLine(fontSizeBig, "^7" .. gemInstance.level .. " Levels from Gem", "FONTIN SC")
+			self.tooltip:AddLine(fontSizeBig, "^7" .. gemInstance.level .. " Levels from Gem" .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""), "FONTIN SC")
 		else
-			self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. totalLevel), "FONTIN SC")
+			self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. totalLevel .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or "")), "FONTIN SC")
+		end
+		if displayInstance.corruptLevel > 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
+		elseif displayInstance.corruptLevel < 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
 		end
 		if displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 then
 			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.gemPropertyInfo[1].value.value .. " Levels from Global Modifiers", "FONTIN SC")
@@ -620,11 +625,6 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			end
 		elseif displayInstance.level - gemInstance.level - displayInstance.corruptLevel > 0 then
 			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level - displayInstance.corruptLevel .. " Levels from Supports", "FONTIN SC")
-		end
-		if displayInstance.corruptLevel > 0 then
-			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
-		elseif displayInstance.corruptLevel < 0 then
-			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
 		end
 	end
 	if grantedEffect.support then
