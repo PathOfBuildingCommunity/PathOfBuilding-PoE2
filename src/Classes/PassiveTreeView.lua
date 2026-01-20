@@ -194,7 +194,6 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local vX = curTreeX - node.x
 				local vY = curTreeY - node.y
 				if vX * vX + vY * vY <= node.rsq then
-					-- Zeigt Box wenn man auf node ist
 					hoverNode = node
 					break
 				end
