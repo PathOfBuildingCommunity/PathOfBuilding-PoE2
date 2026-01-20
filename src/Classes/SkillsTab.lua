@@ -277,7 +277,7 @@ function SkillsTabClass:GetCorruptIndex(gemInstance)
 		return 2  -- +1 to Gem Level
 	elseif gemInstance.corruptLevel == -1 then
 		return 4  -- -1 to Gem Level
-	elseif gemInstance.corrupted then
+	elseif gemInstance.corrupted == true then
 		return 3  -- Corrupted
 	else
 		return 1  -- Not Corrupted
@@ -353,7 +353,7 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		gemInstance.skillMinionItemSetCalcs = tonumber(child.attrib.skillMinionItemSetCalcs)
 		gemInstance.skillMinionSkill = tonumber(child.attrib.skillMinionSkill)
 		gemInstance.skillMinionSkillCalcs = tonumber(child.attrib.skillMinionSkillCalcs)
-		gemInstance.corrupted = child.attrib.corrupted
+		gemInstance.corrupted = child.attrib.corrupted == "true"
 		gemInstance.corruptLevel = tonumber(child.attrib.corruptLevel)
 		gemInstance.statSet = { }
 		gemInstance.statSetCalcs = { }
