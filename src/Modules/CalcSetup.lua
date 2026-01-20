@@ -1653,9 +1653,14 @@ function calcs.initEnv(build, mode, override, specEnv)
 									level = gemInstance.level,
 									quality = gemInstance.quality,
 									qualityId = gemInstance.qualityId,
+									corrupted = gemInstance.corrupted,
+									corruptLevel = gemInstance.corruptLevel,
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
 								}
+								if activeEffect.corruptLevel then
+									activeEffect.level = activeEffect.level + activeEffect.corruptLevel
+								end
 								if env.mode == "CALCS" then
 									activeEffect.statSetCalcs = { index = gemInstance.statSetCalcs and gemInstance.statSetCalcs[grantedEffect.id] or 1}
 								else

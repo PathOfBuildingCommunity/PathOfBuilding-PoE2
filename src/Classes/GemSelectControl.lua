@@ -462,7 +462,9 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 						nameSpec = gemData.name,
 						skillId = gemData.grantedEffectId,
 						displayEffect = nil,
-						gemData = gemData
+						gemData = gemData,
+						corruptLevel = 0,
+						corrupted = false,
 					}
 				self:AddGemTooltip(gemInstance)
 				self.tooltip:AddSeparator(10)
@@ -600,21 +602,29 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier), "FONTIN SC")
 		end
 	if addReq and not grantedEffect.support then
-		self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7%d%s%s",
-			gemInstance.level,
-			((displayInstance.level > gemInstance.level) and " (" .. colorCodes.MAGIC .. "+" .. (displayInstance.level - gemInstance.level) .. "^7)") or ((displayInstance.level < gemInstance.level) and " (" .. colorCodes.WARNING .. "-" .. (gemInstance.level - displayInstance.level) .. "^7)") or "",
-			(gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""
-		),"FONTIN SC")
-		if displayInstance.level - gemInstance.level > 0 then
-			self.tooltip:AddLine(fontSizeBig, gemInstance.level .. " Levels from Gem", "FONTIN SC")
-			if displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 then
-				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.gemPropertyInfo[1].value.value .. " Levels from Global Modifiers", "FONTIN SC")
-				if displayInstance.level - gemInstance.level - displayInstance.gemPropertyInfo[1].value.value > 0 then
-					self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level - displayInstance.gemPropertyInfo[1].value.value .. " Levels from Supports", "FONTIN SC")
-				end
-			else
-				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level .. " Levels from Supports", "FONTIN SC")
+		local totalLevel
+		totalLevel = displayInstance.level
+		if displayInstance.corruptLevel ~= 0 or
+		(displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 ) or
+		(displayInstance.level - gemInstance.level - displayInstance.corruptLevel > 0)
+		then
+			self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. colorCodes.MAGIC .. totalLevel), "FONTIN SC")
+			self.tooltip:AddLine(fontSizeBig, "^7" .. gemInstance.level .. " Levels from Gem", "FONTIN SC")
+		else
+			self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. totalLevel), "FONTIN SC")
+		end
+		if displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.gemPropertyInfo[1].value.value .. " Levels from Global Modifiers", "FONTIN SC")
+			if displayInstance.level - gemInstance.level - displayInstance.corruptLevel - displayInstance.gemPropertyInfo[1].value.value > 0 then
+				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level - displayInstance.corruptLevel - displayInstance.gemPropertyInfo[1].value.value .. " Levels from Supports", "FONTIN SC")
 			end
+		elseif displayInstance.level - gemInstance.level - displayInstance.corruptLevel > 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level - displayInstance.corruptLevel .. " Levels from Supports", "FONTIN SC")
+		end
+		if displayInstance.corruptLevel > 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
+		elseif displayInstance.corruptLevel < 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
 		end
 	end
 	if grantedEffect.support then
@@ -717,6 +727,10 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		local wrap = main:WrapString(grantedEffect.description, 16, m_max(DrawStringWidth(fontSizeBig, "VAR", gemInstance.gemData.tagString), 400))
 		for _, line in ipairs(wrap) do
 			self.tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION..line, "FONTIN ITALIC")
+		end
+		if displayInstance.corrupted == true then
+			self.tooltip:AddSeparator(10)
+			self.tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE .. "Corrupted", "FONTIN SC")
 		end
 	end
 end
