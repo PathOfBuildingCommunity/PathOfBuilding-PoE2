@@ -17,6 +17,26 @@ return {
 	skill("durationSecondary", nil),
 	div = 1000,
 },
+["fire_storm_fireball_delay_ms"] = {
+	skill("hitTimeOverride", nil),
+	div = 1000,
+},
+["lightning_storm_hit_prevention_duration_ms"] = {
+	skill("maxHitRate", nil),
+	div = 1000,
+},
+["rain_of_arrows_delay_per_arrow"] = {
+	skill("hitTimeOverride", nil),
+	div = 1000,
+},
+["lightning_storm_hit_frequency_ms"] = {
+	skill("hitTimeOverride", nil),
+	div = 1000,
+},
+["rain_hit_delay_ms"] = {
+	skill("maxHitRate", nil),
+	div = 1000,
+},
 ["base_tertiary_skill_effect_duration"] = {
 	skill("durationTertiary", nil),
 	div = 1000,
