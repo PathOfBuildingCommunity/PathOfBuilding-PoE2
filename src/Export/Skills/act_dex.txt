@@ -209,6 +209,7 @@ statMap = {
 #skill GasArrowPlayer
 #set GasArrowPlayer
 #flags attack projectile area
+#baseMod flag("fakeHit")
 #mods
 #set GasArrowGasDegenPlayer
 #flags attack area duration projectile
