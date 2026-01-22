@@ -623,9 +623,38 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 		if slot then
 			newGroup.slot = slot
 		end
-		for nameSpec, level, quality, state, count, cFlag, cDelta in
-			skillText:gmatch("([ %a']+) (%d+)/(%d+) ?(%a*) (%d+) ?(C?)([+-]?%d*)")
+		for nameSpec, level, quality, state, count, cFlag, cLevel in
+			skillText:gmatch("([ %a':]+) (%d+)/(%d+) ?(%a*) (%d+) ?(C?)([+-]?%d*)")
 		do
+			local skillMinion = nil
+			local skillMinionCalcs = nil
+			local minionName = nil
+			local minionList = nil
+			
+			if nameSpec:find("Spectre") then
+				minionName = nameSpec:match(": (.+)")
+				nameSpec = "Summon Spectre"
+				minionList = self.build.spectreList
+			elseif nameSpec:find("Companion") then
+				minionName = nameSpec:match(": (.+)")
+				nameSpec = "Tamed Companion"
+				minionList = self.build.beastList
+			end
+			
+			-- Search for the minion if we found a spectre or companion
+			if minionName then
+				for id, spectre in pairs(data.spectres) do
+					if spectre.name == minionName then
+						if not isValueInArray(minionList, id) then
+							t_insert(minionList, id)
+						end
+						skillMinion = id
+						skillMinionCalcs = id
+						break
+					end
+				end
+			end
+			
 			t_insert(newGroup.gemList, {
 				nameSpec = nameSpec,
 				level = tonumber(level) or 20,
@@ -633,9 +662,11 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 				enabled = state ~= "DISABLED",
 				count = tonumber(count) or 1,
 				corrupted = cFlag == "C",
-				corruptLevel = tonumber(cDelta) or 0,
+				corruptLevel = tonumber(cLevel) or 0,
 				enableGlobal1 = true,
-				enableGlobal2 = true
+				enableGlobal2 = true,
+				skillMinion = skillMinion,
+				skillMinionCalcs = skillMinionCalcs
 			})
 		end
 		if #newGroup.gemList > 0 then
