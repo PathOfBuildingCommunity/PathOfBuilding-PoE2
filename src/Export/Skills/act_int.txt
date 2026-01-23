@@ -858,10 +858,20 @@ statMap = {
 		skill("hitTimeOverride", nil),
 		div = 1000,
 	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
 },
 #mods
 #set IcestormEmpoweredPlayer
 #flags spell area duration
+statMap = {
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 

@@ -2830,10 +2830,12 @@ function calcs.offence(env, actor, activeSkill)
 			end
 
 		end
-		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
+		if skillData.hitTimeOverride and not skillData.triggeredOnDeath or skillData.maxHitRatePerEnemy then
 			--checks if skill has a max hit rate per enemy and adjust hitTimeOverride
-			if skillData.maxHitRatePerEnemy and skillData.hitTimeOverride < skillData.maxHitRatePerEnemy then
-				skillData.hitTimeOverride = skillData.maxHitRate
+			if skillData.maxHitRatePerEnemy and not skillData.hitTimeOverride then
+				skillData.hitTimeOverride = skillData.maxHitRatePerEnemy
+			elseif skillData.maxHitRatePerEnemy and skillData.hitTimeOverride < skillData.maxHitRatePerEnemy then
+				skillData.hitTimeOverride = skillData.maxHitRatePerEnemy
 			end
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime

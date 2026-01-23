@@ -18714,6 +18714,16 @@ skills["ThunderstormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "thunderstorm",
+			statMap = {
+				["lightning_storm_hit_frequency_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["lightning_storm_hit_prevention_duration_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

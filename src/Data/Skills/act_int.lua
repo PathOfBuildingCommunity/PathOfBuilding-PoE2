@@ -12980,6 +12980,10 @@ skills["IcestormPlayer"] = {
 					skill("hitTimeOverride", nil),
 					div = 1000,
 				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
 			},
 			baseFlags = {
 				spell = true,
@@ -13062,6 +13066,12 @@ skills["IcestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "icestorm",
+			statMap = {
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
