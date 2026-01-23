@@ -6428,7 +6428,7 @@ skills["SupportSparPlayer"] = {
 }
 skills["SupportSplinteringTotemPlayer"] = {
 	name = "Splinter Totem I",
-	description = "Supports Skills which create Totems, preventing having more than one active Totem but causing that Totem to splinter into smaller versions of itself after it uses an Attack or Spell, with each Totem becoming less effective. Each splintered Totem can further splinter, up to a maximum. Does not Support Skills used by Minions. Only one Totem can be splintering at a time.",
+	description = "Supports Skills which create Totems, preventing having more than one active Totem but causing that Totem to splinter into smaller versions of itself after it uses an Attack or Spell, with each Totem becoming less effective. Each splintered Totem can further splinter, up to a Limit. Does not Support Skills used by Minions. Only one Totem can be splintering at a time.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, },
@@ -6465,7 +6465,7 @@ skills["SupportSplinteringTotemPlayer"] = {
 }
 skills["SupportSplinteringTotemPlayerTwo"] = {
 	name = "Splinter Totem II",
-	description = "Supports Skills which create Totems, preventing having more than one active Totem but causing that Totem to splinter into smaller versions of itself after it uses an Attack or Spell, with each Totem becoming less effective. Each splintered Totem can further splinter, up to a maximum. Does not Support Skills used by Minions. Only one Totem can be splintering at a time.",
+	description = "Supports Skills which create Totems, preventing having more than one active Totem but causing that Totem to splinter into smaller versions of itself after it uses an Attack or Spell, with each Totem becoming less effective. Each splintered Totem can further splinter, up to a Limit. Does not Support Skills used by Minions. Only one Totem can be splintering at a time.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.SummonsTotem, SkillType.UsedByTotem, },

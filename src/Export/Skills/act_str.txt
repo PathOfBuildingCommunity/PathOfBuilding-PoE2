@@ -1139,6 +1139,12 @@ statMap = {
 #mods
 #set VolcanoProjectilePlayer
 #flags spell area projectile
+statMap = { 
+	["volcano_fires_projectiles_every_x_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 

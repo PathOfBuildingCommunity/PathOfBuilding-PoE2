@@ -2708,7 +2708,7 @@ function calcs.offence(env, actor, activeSkill)
 				output.Cooldown = globalOutput.Cooldown
 				output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
 			end
-			if output.Cooldown and skillFlags.selfCast then
+			if output.Cooldown and skillFlags.selfCast or SkillType.Sustained then
 				skillFlags.notAverage = true
 				skillFlags.showAverage = false
 				skillData.showAverage = false
@@ -2831,6 +2831,10 @@ function calcs.offence(env, actor, activeSkill)
 
 		end
 		if skillData.hitTimeOverride and not skillData.triggeredOnDeath then
+			--checks if skill has a max hit rate per enemy and adjust hitTimeOverride
+			if skillData.maxHitRatePerEnemy and skillData.hitTimeOverride < skillData.maxHitRatePerEnemy then
+				skillData.hitTimeOverride = skillData.maxHitRate
+			end
 			output.HitTime = skillData.hitTimeOverride
 			output.HitSpeed = 1 / output.HitTime
 			--Brands always have hitTimeOverride

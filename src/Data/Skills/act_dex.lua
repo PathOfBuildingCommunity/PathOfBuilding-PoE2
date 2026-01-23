@@ -478,7 +478,7 @@ skills["BloodhoundsMarkPlayer"] = {
 	name = "Bloodhound's Mark",
 	baseTypeName = "Bloodhound's Mark",
 	color = 2,
-	description = "Mark a target, making them suffer Heavy Stun build up from Blood Loss. If they suffer enough Blood Loss while Marked, the Mark will Activate, Consuming itself and releasing an explosion of blood when they are killed or Heavy Stunned. The Mark's duration does not expire while the Marked target is suffering Blood Loss.",
+	description = "Mark a target, making them suffer Heavy Stun build up from Blood Loss. If they suffer enough Blood Loss while Marked, the Mark will Activate, Consming itself and releasing an explosion of blood when they are killed or Heavy Stunned. The Mark's duration does not expire while the Marked target is suffering Blood Loss.",
 	skillTypes = { [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Mark] = true, [SkillType.Limit] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Cooldown] = true, },
 	castTime = 0.5,
 	qualityStats = {
@@ -5002,7 +5002,7 @@ skills["SupportMirageArcherPlayer"] = {
 skills["MirageArcherSpawnPlayer"] = {
 	name = "",
 	hidden = true,
-	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Proxy] = true, },
+	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
 		["Bow"] = true,
 		["Crossbow"] = true,
@@ -6690,7 +6690,7 @@ skills["ShatteringSpitePlayer"] = {
 	baseTypeName = "Shattering Spite",
 	fromItem = true,
 	color = 2,
-	description = "Stamp your spear, destroying all Bloodstone Lances on each enemy in your Presence to cause a damaging explosion around that enemy. Each explosion gains new benefits when reaching higher thresholds of Bloodstone Lances removed from an enemy, causing them to deal more damage, have increased area of effect, and Leech Life from enemies caught in the blast.",
+	description = "Stamp your spear, destroying all Bloodstone Lances on each enemy in your Presence to cause a damaging explosion around that enemy. Each explosion is independently larger and more damaging for each Bloodstone Lance on from the enemy it originates from.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Physical] = true, [SkillType.Lightning] = true, [SkillType.Fire] = true, [SkillType.Damage] = true, [SkillType.Spear] = true, },
 	weaponTypes = {
 		["Spear"] = true,
@@ -10130,7 +10130,7 @@ skills["VoltaicMarkPlayer"] = {
 	name = "Voltaic Mark",
 	baseTypeName = "Voltaic Mark",
 	color = 2,
-	description = "Mark a target, making them more susceptible to being Electrocuted. When the Marked target is Electrocuted, the Mark Activates, granting a Buff which gives extra Lightning damage and Consuming the Mark. Marking another target while you have the Buff will remove the Buff.",
+	description = "Mark a target, making them more susceptible to being Electrocuted. When the Marked target is Electrocuted, the Mark Activates, granting a Buff which gives extra Lightning damage and Consming the Mark. Marking another target while you have the Buff will remove the Buff.",
 	skillTypes = { [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Mark] = true, [SkillType.Lightning] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, },
 	castTime = 0.5,
 	qualityStats = {
