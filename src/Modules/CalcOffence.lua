@@ -2708,7 +2708,7 @@ function calcs.offence(env, actor, activeSkill)
 				output.Cooldown = globalOutput.Cooldown
 				output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
 			end
-			if (output.Cooldown and skillFlags.selfCast) or (skillFlags.duration and skillFlags.duration) then
+			if (output.Cooldown and skillFlags.selfCast) or (SkillType.Sustained) then
 				skillFlags.notAverage = true
 				skillFlags.showAverage = false
 				skillData.showAverage = false
