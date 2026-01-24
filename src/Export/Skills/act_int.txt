@@ -329,7 +329,16 @@ statMap = {
 #from item
 #skill CorpseCloudPlayer
 #set CorpseCloudPlayer
-#flags spell area duration
+#flags area duration
+#baseMod mod("PoisonChance", "BASE", 100)
+#baseMod skill("explodeCorpse", true)
+#baseMod skill("corpseExplosionDamageType", "Chaos")
+statMap = {
+	["corpse_explosion_monster_life_permillage_chaos"] = {
+		skill("corpseExplosionLifeMultiplier", nil),
+		div = 1000,
+	},
+},
 #mods
 #set CorpseCloudExplosionPlayer
 #flags spell area
