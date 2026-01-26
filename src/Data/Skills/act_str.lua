@@ -4732,6 +4732,13 @@ skills["EternalRagePlayer"] = {
 			label = "Eternal Rage",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "eternal_rage",
+			statMap = {
+				["ceaseless_rage_base_rage_regeneration_per_minute"] = {
+			        mod("RageRegen", "BASE", nil, 0, 0, {type = "GlobalEffect", effectType = "Buff", effectName = "EternalRage"}),
+					flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" }),
+					div = 60,
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
