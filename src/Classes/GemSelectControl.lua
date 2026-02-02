@@ -62,7 +62,9 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 			enableGlobal2 = true,
 			gemId = gemData.id,
 			nameSpec = gemData.name,
-			skillId = gemData.grantedEffectId
+			skillId = gemData.grantedEffectId,
+			corrupted = self.skillsTab.defaultCorruptionState,
+			corruptLevel = self.skillsTab.defaultCorruptionLevel,
 		}
 	end
 
@@ -463,8 +465,8 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 						skillId = gemData.grantedEffectId,
 						displayEffect = nil,
 						gemData = gemData,
-						corruptLevel = 0,
-						corrupted = false,
+						corruptLevel = self.skillsTab.defaultCorruptionLevel,
+						corrupted = self.skillsTab.defaultCorruptionState == true,
 					}
 				self:AddGemTooltip(gemInstance)
 				self.tooltip:AddSeparator(10)
@@ -603,7 +605,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		end
 	if addReq and not grantedEffect.support then
 		local totalLevel
-		totalLevel = displayInstance.level
+		totalLevel = m_max(displayInstance.level, (gemInstance.level + gemInstance.corruptLevel)) -- Needed for tooltip comparison for dropdown gems. Otherwise they only show level 20 when corrupted.
 		if displayInstance.corruptLevel ~= 0 or
 		(displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 ) or
 		(displayInstance.level - gemInstance.level - displayInstance.corruptLevel > 0)
@@ -620,11 +622,11 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		end
 		if displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 then
 			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.gemPropertyInfo[1].value.value .. " Levels from Global Modifiers", "FONTIN SC")
-			if displayInstance.level - gemInstance.level - displayInstance.corruptLevel - displayInstance.gemPropertyInfo[1].value.value > 0 then
-				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level - displayInstance.corruptLevel - displayInstance.gemPropertyInfo[1].value.value .. " Levels from Supports", "FONTIN SC")
+			if totalLevel - gemInstance.level - displayInstance.corruptLevel*2 - displayInstance.gemPropertyInfo[1].value.value > 0 then
+				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - displayInstance.corruptLevel - displayInstance.gemPropertyInfo[1].value.value .. " Levels from Supports", "FONTIN SC")
 			end
-		elseif displayInstance.level - gemInstance.level - displayInstance.corruptLevel > 0 then
-			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.level - gemInstance.level - displayInstance.corruptLevel .. " Levels from Supports", "FONTIN SC")
+		elseif totalLevel - gemInstance.level - displayInstance.corruptLevel > 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - displayInstance.corruptLevel .. " Levels from Supports", "FONTIN SC")
 		end
 	end
 	if grantedEffect.support then

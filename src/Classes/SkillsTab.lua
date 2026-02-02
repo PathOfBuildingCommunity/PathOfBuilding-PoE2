@@ -39,11 +39,11 @@ local defaultGemLevelList = {
 Awakened gems default to their highest valid non-corrupted gem level.]],
 		gemLevel = "corruptedMaximum",
 	},
-	{
-		label = "Awakened Maximum",
-		description = "All gems default to their highest valid corrupted gem level.",
-		gemLevel = "awakenedMaximum",
-	},
+	--{
+	--	label = "Awakened Maximum",
+	--	description = "All gems default to their highest valid corrupted gem level.",
+	--	gemLevel = "awakenedMaximum",
+	--},
 	{
 		label = "Match Character Level",
 		description = [[All gems default to their highest valid non-corrupted gem level that your character meets the level requirement for.
@@ -98,6 +98,8 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.showSupportGemTypes = "ALL"
 	self.defaultGemLevel = "normalMaximum"
 	self.defaultGemQuality = main.defaultGemQuality
+	self.defaultCorruptionLevel = 0
+	self.defaultCorruptionState = false
 
 	-- Set selector
 	self.controls.setSelect = new("DropDownControl", { "TOPLEFT", self, "TOPLEFT" }, { 76, 8, 210, 20 }, nil, function(index, value)
@@ -764,6 +766,11 @@ function SkillsTabClass:CreateGemSlot(index)
 		gemInstance.naturalMaxLevel = gemInstance.level
 		-- Gem changed, update the list and default the quality id
 		slot.level:SetText(gemInstance.level)
+		if self.defaultCorruptionLevel == 1 then
+			slot.corruptLevel.selIndex = 2
+			gemInstance.corrupted = true
+			gemInstance.corruptLevel = 1
+		end
 		slot.count:SetText(gemInstance.count or 1)
 		if addUndo then
 			self:AddUndoState()
@@ -1120,9 +1127,13 @@ function SkillsTabClass:ProcessGemLevel(gemData)
 		if grantedEffect.plusVersionOf then
 			return naturalMaxLevel
 		else
-			return naturalMaxLevel + 1
+			self.defaultCorruptionLevel = 1
+			self.defaultCorruptionState = true
+			return naturalMaxLevel
 		end
 	elseif self.defaultGemLevel == "normalMaximum" then
+			self.defaultCorruptionLevel = 0
+			self.defaultCorruptionState = false
 		return naturalMaxLevel
 	else -- self.defaultGemLevel == "characterLevel"
 		local maxGemLevel = naturalMaxLevel
