@@ -6335,7 +6335,7 @@ skills["SupportNadirPlayer"] = {
 	}
 }
 skills["SupportOisinsOathPlayer"] = {
-	name = "Oisín's Oath",
+	name = "Oisin's Oath",
 	description = "Supports Skills which Hit enemies, causing their Mana Leech to recover based on Elemental damage instead of Physical damage.",
 	color = 3,
 	support = true,
@@ -6350,7 +6350,7 @@ skills["SupportOisinsOathPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Oisín's Oath",
+			label = "Oisin's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {

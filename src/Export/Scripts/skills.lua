@@ -171,6 +171,7 @@ directiveTable.skill = function(state, args, out)
 		gems[gemEffect.Id] = true
 		if granted.IsSupport then
 			skill.displayName = fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or skillGem.BaseItemType.Name:gsub(" Support", "")
+			skill.displayName = sanitiseText(skill.displayName)
 			out:write('\tname = "', skill.displayName, '",\n')
 			if #gemEffect.Description > 0 then
 				out:write('\tdescription = "', escapeGGGString(gemEffect.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n')), '",\n')
@@ -464,6 +465,7 @@ directiveTable.set = function(state, args, out)
 	local grantedEffectStatSet = copyTableSafe(originalGrantedEffectStatSet, false, true)
 	local statsPerLevel = copyTableSafe(dat("GrantedEffectStatSetsPerLevel"):GetRowList("GrantedEffectStatSets", originalGrantedEffectStatSet), false, true)
 	local label = grantedEffectStatSet.LabelType and grantedEffectStatSet.LabelType.Label or state.skill.displayName
+	label = sanitiseText(label)
 	local set = { }
 	local skill = state.skill
 	if next(skill.sets) == nil then
@@ -889,7 +891,7 @@ for skillGem in dat("SkillGems"):Rows() do
 	for _, gemEffect in ipairs(skillGem.GemEffects) do
 		if gems[gemEffect.Id] then
 			out:write('\t["', "Metadata/Items/Gems/SkillGem" .. gemEffect.Id, '"] = {\n')
-			out:write('\t\tname = "', fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or trueGemNames[gemEffect.Id] or skillGem.BaseItemType.Name:gsub(" Support",""), '",\n')
+			out:write('\t\tname = "', sanitiseText(fullNameGems[skillGem.BaseItemType.Id] and skillGem.BaseItemType.Name or trueGemNames[gemEffect.Id] or skillGem.BaseItemType.Name:gsub(" Support","")), '",\n')
 			-- Hybrid gems (e.g. Vaal gems) use the display name of the active skill e.g. Vaal Summon Skeletons of Sorcery
 			if not skillGem.IsSupport then
 				out:write('\t\tbaseTypeName = "', gemEffect.GrantedEffect.ActiveSkill.DisplayName, '",\n')

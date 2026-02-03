@@ -608,7 +608,7 @@ return {
 		naturalMaxLevel = 1,
 	},
 	["Metadata/Items/Gems/SkillGemOisinsOathSupport"] = {
-		name = "Oisín's Oath",
+		name = "Oisin's Oath",
 		gameId = "Metadata/Items/Gems/SupportGemOisinsOath",
 		variantId = "OisinsOathSupport",
 		grantedEffectId = "SupportOisinsOathPlayer",
