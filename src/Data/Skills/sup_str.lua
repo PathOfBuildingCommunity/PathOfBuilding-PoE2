@@ -6637,7 +6637,7 @@ skills["SupportStompingGroundPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "StompingGround",},
 	weaponTypes = {
-		["Two Handed Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },

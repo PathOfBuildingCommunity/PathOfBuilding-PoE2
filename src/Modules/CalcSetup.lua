@@ -806,7 +806,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			(
 				(not lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type ~= "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")
 				or (not instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type ~= "Focus")
-				or (not giantsBlood and (override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"))
+				or (not giantsBlood and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace"))
 				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
 			) then
 				goto continue
