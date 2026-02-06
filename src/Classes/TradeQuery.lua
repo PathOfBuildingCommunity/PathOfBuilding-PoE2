@@ -15,8 +15,264 @@ local m_max = math.max
 local m_min = math.min
 local m_ceil = math.ceil
 local s_format = string.format
+local DrawStringWidth = DrawStringWidth
 
 local baseSlots = { "Weapon 1", "Weapon 2", "Weapon 1 Swap", "Weapon 2 Swap", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3", "Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
+
+-- List control for stat pool (left column): shows stats from selected item, click to add to sort
+local TradeStatPoolListControlClass = newClass("TradeStatPoolListControl", "ListControl", function(self, anchor, rect, queryTab)
+	self.queryTab = queryTab
+	self.filteredList = {}
+	self.ListControl(anchor, rect, 16, true, false, self.filteredList)
+end)
+function TradeStatPoolListControlClass:UpdateFilteredList()
+	local tab = self.queryTab
+	if not tab or not tab.statPoolListData then
+		wipeTable(self.filteredList)
+		self.list = self.filteredList
+		return
+	end
+	wipeTable(self.filteredList)
+	local filter = (tab.statPoolSearchFilter or ""):lower()
+	for _, entry in ipairs(tab.statPoolListData) do
+		if filter == "" or (entry.label and entry.label:lower():find(filter, 1, true)) or (entry.stat and entry.stat:lower():find(filter, 1, true)) then
+			t_insert(self.filteredList, entry)
+		end
+	end
+	self.list = self.filteredList
+end
+function TradeStatPoolListControlClass:Draw(viewPort, noTooltip)
+	self:UpdateFilteredList()
+	self.ListControl.Draw(self, viewPort, noTooltip)
+end
+function TradeStatPoolListControlClass:GetRowValue(column, index, data)
+	return data and data.label or ""
+end
+function TradeStatPoolListControlClass:OnSelClick(index, data, doubleClick)
+	if not data or not self.queryTab then return end
+	local tab = self.queryTab
+	local entry = { stat = data.stat, label = data.label, priority = false, favorite = false, minVal = nil, maxVal = nil }
+	t_insert(tab.clickSortStats, entry)
+	if tab.controls.sortByList and tab.controls.sortByList.SelectIndex then
+		-- #region agent log
+		do
+			local f = io.open("c:\\Users\\xpret\\AppData\\Roaming\\Path of Building Community (PoE2)\\.cursor\\debug.log", "a")
+			if f then
+				f:write(string.format('{"location":"TradeQuery.lua:OnSelClick add stat","message":"SelectIndex after add","data":{"index":%s},"timestamp":%d,"sessionId":"debug-session","hypothesisId":"H3"}\n', #tab.clickSortStats, (os.time() or 0) * 1000))
+				f:close()
+			end
+		end
+		-- #endregion
+		tab.controls.sortByList:SelectIndex(#tab.clickSortStats)
+	end
+	if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+		tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatClick)
+	end
+end
+
+-- List control for sort-by column (right): label + icons ! * X; Shift+click row to remove
+local iconW = 18
+local iconCount = 3
+local iconTotalW = iconW * iconCount
+
+local TradeSortByListControlClass = newClass("TradeSortByListControl", "ListControl", function(self, anchor, rect, queryTab)
+	self.queryTab = queryTab
+	self.ListControl(anchor, rect, 16, true, false, queryTab.clickSortStats or {})
+	self.colList = {
+		{ width = function(ctrl) local w = ctrl:GetSize(); return (w and w > 0 and w or 200) - 20 - iconTotalW end },
+		{ width = iconW },
+		{ width = iconW },
+		{ width = iconW },
+	}
+end)
+function TradeSortByListControlClass:GetRowValue(column, index, data)
+	if not data then return "" end
+	if column == 1 then return data.label or "" end
+	if column == 2 then return "!" end
+	if column == 3 then return "*" end
+	if column == 4 then return "X" end
+	return ""
+end
+function TradeSortByListControlClass:Draw(viewPort, noTooltip)
+	local x, y = self:GetPos()
+	local w, h = self:GetSize()
+	local cx, cy = GetCursorPos()
+	local rowRegion = self:GetRowRegion()
+	local hoverIconCol = nil
+	local hoverRow = nil
+	if cx >= x + rowRegion.x and cy >= y + rowRegion.y and cx < x + rowRegion.x + rowRegion.width and cy < y + rowRegion.y + rowRegion.height then
+		local relX = cx - (x + rowRegion.x)
+		local relY = cy - (y + rowRegion.y)
+		local scrollOffsetV = self.controls.scrollBarV and self.controls.scrollBarV.offset or 0
+		local scrollOffsetH = self.controls.scrollBarH and self.controls.scrollBarH.offset or 0
+		local rowHeight = self.rowHeight
+		local row = math.floor((relY + scrollOffsetV) / rowHeight) + 1
+		if row >= 1 and row <= #(self.queryTab.clickSortStats or {}) then
+			local colOffset = 0
+			for colIdx, column in ipairs(self.colList) do
+				local colW = self:GetColumnProperty(column, "width") or (colIdx == #self.colList and self.scroll and w - 20 or w - colOffset) or 0
+				local colStart = colOffset - scrollOffsetH
+				local colEnd = colStart + colW
+				if relX >= colStart and relX < colEnd then
+					if colIdx >= 2 and colIdx <= 4 then
+						hoverIconCol = colIdx
+						hoverRow = row
+					end
+					break
+				end
+				colOffset = colOffset + colW
+			end
+		end
+	end
+	self.hoverIconCol = hoverIconCol
+	self.hoverRow = hoverRow
+	self.ListControl.Draw(self, viewPort, noTooltip)
+end
+function TradeSortByListControlClass:SetHighlightColor(index, value)
+	if self.hoverIconCol and self.hoverRow == index then
+		local x, y = self:GetPos()
+		local w, h = self:GetSize()
+		local rowRegion = self:GetRowRegion()
+		local scrollOffsetV = self.controls.scrollBarV and self.controls.scrollBarV.offset or 0
+		local scrollOffsetH = self.controls.scrollBarH and self.controls.scrollBarH.offset or 0
+		local rowHeight = self.rowHeight
+		local lineY = rowHeight * (index - 1) - scrollOffsetV + (self.colLabels and 18 or 0)
+		local colOffset = 0
+		for colIdx, column in ipairs(self.colList) do
+			local colW = self:GetColumnProperty(column, "width") or (colIdx == #self.colList and self.scroll and w - 20 or w - colOffset) or 0
+			if colIdx == self.hoverIconCol then
+				local iconX = colOffset - scrollOffsetH
+				SetDrawColor(0.3, 0.5, 0.8)
+				DrawImage(nil, iconX, lineY, colW, rowHeight)
+				return true
+			end
+			colOffset = colOffset + colW
+		end
+	end
+	return false
+end
+function TradeSortByListControlClass:AddValueTooltip(tooltip, index, data)
+	tooltip:Clear()
+	if not data then return end
+	if self.hoverIconCol == 2 then
+		tooltip:AddLine(16, "! Priority - seek highest value for this stat")
+	elseif self.hoverIconCol == 3 then
+		tooltip:AddLine(16, "* Favorite - highlight on items that have it")
+	elseif self.hoverIconCol == 4 then
+		tooltip:AddLine(16, "X Remove from sort (or Shift+click row)")
+	else
+		tooltip:AddLine(16, "! Priority - seek highest value for this stat")
+		tooltip:AddLine(16, "* Favorite - highlight on items that have it")
+		tooltip:AddLine(16, "X Remove from sort (or Shift+click row)")
+	end
+end
+function TradeSortByListControlClass:OnKeyDown(key, doubleClick)
+	if not self:IsShown() or not self:IsEnabled() then
+		return
+	end
+	if not key or not key:match("BUTTON") then
+		return self.ListControl.OnKeyDown(self, key, doubleClick)
+	end
+	local tab = self.queryTab
+	if not tab or not tab.clickSortStats then
+		return self.ListControl.OnKeyDown(self, key, doubleClick)
+	end
+	local x, y = self:GetPos()
+	local w, h = self:GetSize()
+	local cx, cy = GetCursorPos()
+	local rowRegion = self:GetRowRegion()
+	if cx < x + rowRegion.x or cy < y + rowRegion.y or cx >= x + rowRegion.x + rowRegion.width or cy >= y + rowRegion.y + rowRegion.height then
+		return self.ListControl.OnKeyDown(self, key, doubleClick)
+	end
+	local relX = cx - (x + rowRegion.x)
+	local relY = cy - (y + rowRegion.y)
+	local rowHeight = self.rowHeight
+	local scrollOffsetV = self.controls.scrollBarV and self.controls.scrollBarV.offset or 0
+	local scrollOffsetH = self.controls.scrollBarH and self.controls.scrollBarH.offset or 0
+	local row = math.floor((relY + scrollOffsetV) / rowHeight) + 1
+	if row < 1 or row > #tab.clickSortStats then
+		return self.ListControl.OnKeyDown(self, key, doubleClick)
+	end
+	local data = tab.clickSortStats[row]
+	if not data then
+		return self.ListControl.OnKeyDown(self, key, doubleClick)
+	end
+	local colOffset = 0
+	for colIdx, column in ipairs(self.colList) do
+		local colW = self:GetColumnProperty(column, "width") or (colIdx == #self.colList and self.scroll and w - 20 or w - colOffset) or 0
+		local colStart = colOffset - scrollOffsetH
+		local colEnd = colStart + colW
+		if relX >= colStart and relX < colEnd then
+			if colIdx == 1 then
+				if IsKeyDown("SHIFT") and key == "LEFTBUTTON" then
+					tab.sortPanelUndoStack = tab.sortPanelUndoStack or {}
+					if #tab.sortPanelUndoStack >= 10 then t_remove(tab.sortPanelUndoStack, 1) end
+					local copy = {}
+					for _, e in ipairs(tab.clickSortStats) do
+						t_insert(copy, { stat = e.stat, label = e.label, priority = e.priority, favorite = e.favorite, minVal = e.minVal, maxVal = e.maxVal })
+					end
+					t_insert(tab.sortPanelUndoStack, copy)
+					t_remove(tab.clickSortStats, row)
+					if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+						tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatClick)
+					end
+					return self
+				end
+				return self.ListControl.OnKeyDown(self, key, doubleClick)
+			elseif colIdx == 2 then
+				data.priority = true
+				t_remove(tab.clickSortStats, row)
+				t_insert(tab.clickSortStats, 1, data)
+				return self
+			elseif colIdx == 3 then
+				tab.favoriteStats = tab.favoriteStats or {}
+				tab.favoriteStats[data.stat] = not tab.favoriteStats[data.stat]
+				data.favorite = tab.favoriteStats[data.stat]
+				return self
+			elseif colIdx == 4 then
+				tab.sortPanelUndoStack = tab.sortPanelUndoStack or {}
+				if #tab.sortPanelUndoStack >= 10 then t_remove(tab.sortPanelUndoStack, 1) end
+				local copy = {}
+				for _, e in ipairs(tab.clickSortStats) do
+					t_insert(copy, { stat = e.stat, label = e.label, priority = e.priority, favorite = e.favorite, minVal = e.minVal, maxVal = e.maxVal })
+				end
+				t_insert(tab.sortPanelUndoStack, copy)
+				t_remove(tab.clickSortStats, row)
+				if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+					tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatClick)
+				end
+				return self
+			end
+		end
+		colOffset = colOffset + colW
+	end
+	return self.ListControl.OnKeyDown(self, key, doubleClick)
+end
+function TradeSortByListControlClass:OnSelect(index, value)
+	if self.queryTab and self.queryTab.controls.sortPanelMinEdit and self.queryTab.controls.sortPanelMaxEdit and value then
+		self.queryTab.controls.sortPanelMinEdit:SetText(value.minVal and tostring(value.minVal) or "", true)
+		self.queryTab.controls.sortPanelMaxEdit:SetText(value.maxVal and tostring(value.maxVal) or "", true)
+	elseif self.queryTab and self.queryTab.controls.sortPanelMinEdit and self.queryTab.controls.sortPanelMaxEdit then
+		self.queryTab.controls.sortPanelMinEdit:SetText("", true)
+		self.queryTab.controls.sortPanelMaxEdit:SetText("", true)
+	end
+end
+function TradeSortByListControlClass:OnSelClick(index, data, doubleClick)
+	if not data or not self.queryTab then return end
+	if not IsKeyDown("SHIFT") then return end
+	local tab = self.queryTab
+	tab.sortPanelUndoStack = tab.sortPanelUndoStack or {}
+	if #tab.sortPanelUndoStack >= 10 then t_remove(tab.sortPanelUndoStack, 1) end
+	local copy = {}
+	for _, e in ipairs(tab.clickSortStats) do
+		t_insert(copy, { stat = e.stat, label = e.label, priority = e.priority, favorite = e.favorite, minVal = e.minVal, maxVal = e.maxVal })
+	end
+	t_insert(tab.sortPanelUndoStack, copy)
+	t_remove(tab.clickSortStats, index)
+	if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+		tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatClick)
+	end
+end
 
 local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	self.itemsTab = itemsTab
@@ -27,6 +283,14 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	self.resultTbl = { }
 	self.sortedResultTbl = { }
 	self.itemIndexTbl = { }
+	-- Sort-by-stats panel (TRADER_SORT_BY_STATS_SPEC.md)
+	self.clickSortStats = { }          -- list { stat, label, priority, favorite, minVal, maxVal }
+	self.favoriteStats = { }           -- set [statName] = true
+	self.sortPanelSelectedRowIdx = nil
+	self.sortPanelSelectedItemIdx = nil
+	self.statPoolListData = { }        -- filled by RefreshStatPool from selected item
+	self.sortPanelUndoStack = { }     -- max 10, for Undo after remove
+	self.sortingInProgress = false   -- true while UpdateControlsWithItems is running (show overlay)
 	-- tooltip acceleration tables
 	self.onlyWeightedBaseOutput = { }
 	self.lastComparedWeightList = { }
@@ -56,6 +320,7 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 
 	-- set
 	self.hostName = "https://www.pathofexile.com/"
+	self.lastSearchId = nil
 end)
 
 ---Fetch currency short-names from Poe API (used for PoeNinja price pairing)
@@ -279,12 +544,18 @@ You can click this button to enter your POESESSID.
 - You can only generate weighted searches for public leagues. (Generated searches can be modified
 on trade site to work on other leagues and realms)]]
 
--- Fetches Box
-	self.maxFetchPerSearchDefault = 2
+-- Fetches Box (domyślnie 3 strony; max 50)
+	local fetchPagesMax = 50
+	local defaults = main.tradeDefaults or {}
+	local savedFetch = (defaults.fetchPages and m_min(m_max(defaults.fetchPages, 1), fetchPagesMax)) or nil
+	self.maxFetchPerSearchDefault = savedFetch or 3
+	self.maxFetchPages = self.maxFetchPerSearchDefault
 	self.controls.fetchCountEdit = new("EditControl", {"TOPRIGHT", nil, "TOPRIGHT"}, {-12, 19, 154, row_height}, "", "Fetch Pages", "%D", 3, function(buf)
-		self.maxFetchPages = m_min(m_max(tonumber(buf) or self.maxFetchPerSearchDefault, 1), 10)
+		self.maxFetchPages = m_min(m_max(tonumber(buf) or self.maxFetchPerSearchDefault, 1), fetchPagesMax)
 		self.tradeQueryRequests.maxFetchPerSearch = 10 * self.maxFetchPages
 		self.controls.fetchCountEdit.focusValue = self.maxFetchPages
+		main.tradeDefaults = main.tradeDefaults or {}
+		main.tradeDefaults.fetchPages = self.maxFetchPages
 	end)
 	self.controls.fetchCountEdit.focusValue = self.maxFetchPerSearchDefault
 	self.tradeQueryRequests.maxFetchPerSearch = 10 * self.maxFetchPerSearchDefault
@@ -296,7 +567,7 @@ on trade site to work on other leagues and realms)]]
 		tooltip:Clear()
 		tooltip:AddLine(16, "Specify maximum number of item pages to retrieve per search from PoE Trade.")
 		tooltip:AddLine(16, "Each page fetches up to 10 items.")
-		tooltip:AddLine(16, "Acceptable Range is: 1 to 10")
+		tooltip:AddLine(16, s_format("Acceptable Range is: 1 to %d", fetchPagesMax))
 	end
 
 	-- Stat sort popup button
@@ -322,6 +593,7 @@ on trade site to work on other leagues and realms)]]
 		StatValuePrice = "Stat Value / Price",
 		Price = "(Lowest) Price",
 		Weight = "(Highest) Weighted Sum",
+		StatClick = "(Sort by) Selected stats",
 	}
 	-- Item sort dropdown
 	self.itemSortSelectionList = {
@@ -329,6 +601,7 @@ on trade site to work on other leagues and realms)]]
 		self.sortModes.StatValuePrice,
 		self.sortModes.Price,
 		self.sortModes.Weight,
+		self.sortModes.StatClick,
 	}
 	self.controls.itemSortSelection = new("DropDownControl", {"TOPRIGHT", self.controls.StatWeightMultipliersButton, "TOPLEFT"}, {-8, 0, 170, row_height}, self.itemSortSelectionList, function(index, value)
 		self.pbItemSortSelectionIndex = index
@@ -471,10 +744,13 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 	row_count = row_count + 1
 
+	local sortPanelGap = 50
+	local sortPanelHeight = 160
+	local sortListRowHeight = 16
 	local effective_row_count = row_count - ((scrollBarShown and #slotTables >= 19) and #slotTables-19 or 0) + 2 + 2 -- Two top menu rows, two bottom rows, slots after #19 overlap the other controls at the bottom of the pane
-	self.effective_rows_height = row_height * (effective_row_count - #slotTables + (18 - (#slotTables > 37 and 3 or 0))) -- scrollBar height, "18 - slotTables > 37" logic is fine tuning whitespace after last row
-	self.pane_height = (row_height + row_vertical_padding) * effective_row_count + 3 * pane_margins_vertical + row_height / 2
-	local pane_width = 850 + (scrollBarShown and 25 or 0)
+	self.effective_rows_height = row_height * (effective_row_count - #slotTables + (18 - (#slotTables > 37 and 3 or 0))) + sortPanelGap + sortPanelHeight -- include stats panel area below rows
+	self.pane_height = (row_height + row_vertical_padding) * effective_row_count + 3 * pane_margins_vertical + row_height / 2 + sortPanelGap + sortPanelHeight
+	local pane_width = 950 + (scrollBarShown and 25 or 0)
 
 	self.controls.scrollBar = new("ScrollBarControl", {"TOPRIGHT", self.controls["StatWeightMultipliersButton"],"TOPRIGHT"}, {0, 25, 18, 0}, 50, "VERTICAL", false)
 	self.controls.scrollBar.shown = function() return scrollBarShown end
@@ -486,13 +762,199 @@ Highest Weight - Displays the order retrieved from trade]]
 			end
 		end
 	end
+	-- Sort-by-stats panel: inside Trader window, 50px below item rows; +10 so "Sort by stats" doesn't cover "Stat pool"
+	local sortPanelY = row_count * (row_height + row_vertical_padding) + sortPanelGap + 10
+	self.controls.sortPanelAnchor = new("LabelControl", top_pane_alignment_ref, {0, sortPanelY, 0, 0}, "")
+	self.controls.sortPanelAnchor.queryTab = self
+	self.controls.sortPanelAnchor.shown = function(a)
+		local tab = a.queryTab
+		for _, _ in pairs(tab.resultTbl) do return true end
+		return false
+	end
+	local sortPanelBoxW = pane_width - 2 * pane_margins_horizontal
+	self.controls.sortPanelBox = new("SectionControl", {"TOPLEFT", self.controls.sortPanelAnchor, "TOPLEFT"}, {0, 0, sortPanelBoxW, sortPanelHeight}, "Sort by stats")
+	self.controls.sortPanelBox.queryTab = self
+	self.controls.sortPanelBox.shown = function(box)
+		return box.queryTab.controls.sortPanelAnchor:IsShown()
+	end
+	local sortListH = sortPanelHeight - row_height * 2 - 36
+	local halfW = (sortPanelBoxW - 24) / 2
+	self.controls.sortPanelCol1Label = new("LabelControl", {"TOPLEFT", self.controls.sortPanelBox, "TOPLEFT"}, {0, 12, halfW, row_height}, "^7Stat pool (select item from list)")
+	self.controls.sortPanelCol1Label.queryTab = self
+	self.controls.sortPanelCol1Label.shown = function(lbl) return lbl.queryTab.controls.sortPanelBox:IsShown() end
+	self.statPoolSearchFilter = ""
+	self.controls.statPoolSearch = new("EditControl", {"TOPLEFT", self.controls.sortPanelCol1Label, "BOTTOMLEFT"}, {0, 2, halfW, row_height}, "", "Search for stat", "%c", 100, function(buf)
+		self.statPoolSearchFilter = buf:lower()
+	end)
+	self.controls.statPoolSearch.queryTab = self
+	self.controls.statPoolSearch.shown = function(c) return c.queryTab.controls.sortPanelBox:IsShown() end
+	self.controls.statPoolList = new("TradeStatPoolListControl", {"TOPLEFT", self.controls.statPoolSearch, "BOTTOMLEFT"}, {0, 2, halfW, sortListH}, self)
+	self.controls.statPoolList.queryTab = self
+	self.controls.statPoolList.shown = function(c) return c.queryTab.controls.sortPanelBox:IsShown() end
+	self.controls.sortPanelCol2Label = new("LabelControl", {"TOPLEFT", self.controls.sortPanelBox, "TOPLEFT"}, {halfW + 12, 12, halfW, row_height}, "^7Sort by (click: add, Shift+click: remove)")
+	self.controls.sortPanelCol2Label.queryTab = self
+	self.controls.sortPanelCol2Label.shown = function(lbl) return lbl.queryTab.controls.sortPanelBox:IsShown() end
+	self.controls.sortByList = new("TradeSortByListControl", {"TOPLEFT", self.controls.sortPanelCol2Label, "BOTTOMLEFT"}, {0, 2, halfW, sortListH}, self)
+	self.controls.sortByList.queryTab = self
+	self.controls.sortByList.shown = function(c) return c.queryTab.controls.sortPanelBox:IsShown() end
+	self.controls.sortPanelClearBtn = new("ButtonControl", {"BOTTOMLEFT", self.controls.sortPanelBox, "BOTTOMLEFT"}, {0, -2, 90, row_height}, "Clear all", function()
+		local tab = self
+		tab.sortPanelUndoStack = tab.sortPanelUndoStack or {}
+		if #tab.sortPanelUndoStack >= 10 then t_remove(tab.sortPanelUndoStack, 1) end
+		local copy = {}
+		for _, e in ipairs(tab.clickSortStats) do
+			t_insert(copy, { stat = e.stat, label = e.label, priority = e.priority, favorite = e.favorite, minVal = e.minVal, maxVal = e.maxVal })
+		end
+		t_insert(tab.sortPanelUndoStack, copy)
+		wipeTable(tab.clickSortStats)
+		if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+			tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatValue)
+		end
+	end)
+	self.controls.sortPanelClearBtn.queryTab = self
+	self.controls.sortPanelClearBtn.shown = function(c) return c.queryTab.controls.sortPanelBox:IsShown() end
+	self.controls.sortPanelUndoBtn = new("ButtonControl", {"LEFT", self.controls.sortPanelClearBtn, "RIGHT"}, {4, 0, 80, row_height}, function()
+		local n = #(self.sortPanelUndoStack or {})
+		return n > 0 and ("Undo (" .. n .. ")") or "Undo (0)"
+	end, function()
+		local tab = self
+		if not tab.sortPanelUndoStack or #tab.sortPanelUndoStack == 0 then return end
+		local restored = t_remove(tab.sortPanelUndoStack)
+		wipeTable(tab.clickSortStats)
+		for _, e in ipairs(restored) do
+			t_insert(tab.clickSortStats, e)
+		end
+		if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+			tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatClick)
+		end
+	end)
+	self.controls.sortPanelUndoBtn.queryTab = self
+	self.controls.sortPanelUndoBtn.shown = function(c) return c.queryTab.controls.sortPanelBox:IsShown() end
+	self.controls.sortPanelUndoBtn.enabled = function() return #(self.sortPanelUndoStack or {}) > 0 end
+	self.controls.sortPanelMinLabel = new("LabelControl", {"LEFT", self.controls.sortPanelUndoBtn, "RIGHT"}, {12, 0, 70, row_height}, "^7Greater than:")
+	self.controls.sortPanelMinLabel.queryTab = self
+	self.controls.sortPanelMinLabel.shown = function(lbl) return lbl.queryTab.controls.sortPanelBox:IsShown() end
+	self.controls.sortPanelMinEdit = new("EditControl", {"LEFT", self.controls.sortPanelMinLabel, "RIGHT"}, {2, 0, 50, row_height}, "", nil, "^[%d%.%-]", 10, function(buf)
+		local tab = self
+		local selIdx = (tab.sortByList and tab.sortByList.selIndex) or 1
+		local entry = tab.clickSortStats and tab.clickSortStats[selIdx]
+		-- #region agent log
+		do
+			local f = io.open("c:\\Users\\xpret\\AppData\\Roaming\\Path of Building Community (PoE2)\\.cursor\\debug.log", "a")
+			if f then
+				f:write(string.format('{"location":"TradeQuery.lua:sortPanelMinEdit callback","message":"Greater than changed","data":{"bufLen":%s,"selIdx":%s,"hasEntry":%s},"timestamp":%d,"sessionId":"debug-session","hypothesisId":"H2"}\n', buf and #buf or 0, selIdx or 0, tostring(entry ~= nil), (os.time() or 0) * 1000))
+				f:close()
+			end
+		end
+		-- #endregion
+		if entry then
+			entry.minVal = (buf and buf ~= "") and buf or nil
+			if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+				tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatClick)
+			end
+		end
+	end)
+	self.controls.sortPanelMinEdit.queryTab = self
+	self.controls.sortPanelMinEdit.tooltipFunc = function(tooltip) tooltip:Clear() tooltip:AddLine(16, "Filter: stat >= value (inclusive)") end
+	self.controls.sortPanelMinEdit.shown = function(c)
+		local tab = c.queryTab
+		return tab.controls.sortPanelBox:IsShown() and tab.clickSortStats and #tab.clickSortStats >= 1
+	end
+	self.controls.sortPanelMaxLabel = new("LabelControl", {"LEFT", self.controls.sortPanelMinEdit, "RIGHT"}, {4, 0, 70, row_height}, "^7Less than:")
+	self.controls.sortPanelMaxLabel.queryTab = self
+	self.controls.sortPanelMaxLabel.shown = function(lbl)
+		local tab = lbl.queryTab
+		return tab.controls.sortPanelBox:IsShown() and tab.clickSortStats and #tab.clickSortStats >= 1
+	end
+	self.controls.sortPanelMaxEdit = new("EditControl", {"LEFT", self.controls.sortPanelMaxLabel, "RIGHT"}, {2, 0, 50, row_height}, "", nil, "^[%d%.%-]", 10, function(buf)
+		local tab = self
+		local selIdx = (tab.sortByList and tab.sortByList.selIndex) or 1
+		local entry = tab.clickSortStats and tab.clickSortStats[selIdx]
+		if entry then
+			entry.maxVal = (buf and buf ~= "") and buf or nil
+			if tab.sortPanelSelectedRowIdx and tab.resultTbl[tab.sortPanelSelectedRowIdx] then
+				tab:RunDeferredSort(tab.sortPanelSelectedRowIdx, tab.sortModes.StatClick)
+			end
+		end
+	end)
+	self.controls.sortPanelMaxEdit.queryTab = self
+	self.controls.sortPanelMaxEdit.tooltipFunc = function(tooltip) tooltip:Clear() tooltip:AddLine(16, "Filter: stat <= value (inclusive)") end
+	self.controls.sortPanelMaxEdit.shown = function(c)
+		local tab = c.queryTab
+		return tab.controls.sortPanelBox:IsShown() and tab.clickSortStats and #tab.clickSortStats >= 1
+	end
+
+	-- Overlay shown during sorting (deferred so one frame shows "Sorting..." before blocking)
+	self.controls.sortingOverlay = new("LabelControl", {"TOPLEFT", self.controls.sectionAnchor, "TOPLEFT"}, {0, 0, pane_width, self.pane_height}, "Sorting, please wait...")
+	self.controls.sortingOverlay.queryTab = self
+	self.controls.sortingOverlay.shown = function(c) return c.queryTab.sortingInProgress end
+	self.controls.sortingOverlay.Draw = function(ctrl, viewPort, noTooltip)
+		if not ctrl:IsShown() then return end
+		local x, y = ctrl:GetPos()
+		local w, h = ctrl:GetSize()
+		SetDrawColor(0.1, 0.1, 0.1, 0.85)
+		DrawImage(nil, x, y, w, h)
+		SetDrawColor(1, 1, 1)
+		local msg = "Sorting, please wait..."
+		local fh = 18
+		local fw = DrawStringWidth(fh, "VAR", msg)
+		DrawString(x + (w - fw) / 2, y + (h - fh) / 2, "LEFT", fh, "VAR", msg)
+	end
+
 	self.controls.fullPrice = new("LabelControl", {"BOTTOM", nil, "BOTTOM"}, {0, -row_height - pane_margins_vertical - row_vertical_padding, pane_width - 2 * pane_margins_horizontal, row_height}, "")
+	self.controls.fullPrice.y = function()
+		return -row_height - pane_margins_vertical - row_vertical_padding
+	end
 	self.controls.close = new("ButtonControl", {"BOTTOM", nil, "BOTTOM"}, {0, -pane_margins_vertical, 90, row_height}, "Done", function()
+		main.tradeDefaults = main.tradeDefaults or {}
+		main.tradeDefaults.fetchPages = self.maxFetchPages or self.maxFetchPerSearchDefault
+		local popup = main.popups and main.popups[1]
+		if popup and popup.GetSize then
+			local w, h = popup:GetSize()
+			if w and h then
+				main.tradeDefaults.traderWidth = w
+				main.tradeDefaults.traderHeight = h
+			end
+		end
+		main:SaveSettings()
 		main:ClosePopup()
-		-- there's a case where if you have a socket(s) allocated, open TradeQuery, close it, dealloc, then open TradeQuery again
-		-- the deallocated socket controls were still showing, so this will remove all dynamically created controls from items
 		wipeItemControls()
 	end)
+	self.controls.reSearchBtn = new("ButtonControl", {"RIGHT", self.controls.close, "LEFT"}, {-4, 0, 90, row_height}, "^x50E050RE-SEARCH", function()
+		local row_idx = self.sortPanelSelectedRowIdx
+		if not row_idx then return end
+		local uriCtrl = self.controls["uri"..row_idx]
+		local priceBtn = self.controls["priceButton"..row_idx]
+		if uriCtrl and uriCtrl.validURL and priceBtn and priceBtn.enabled and priceBtn.enabled() then
+			priceBtn.label = "Searching..."
+			self.tradeQueryRequests:SearchWithURL(uriCtrl.buf, function(items, errMsg)
+				if errMsg then
+					self:SetNotice(self.controls.pbNotice, "Error: " .. errMsg)
+				else
+					self:SetNotice(self.controls.pbNotice, "")
+					self.resultTbl[row_idx] = items
+					self:RunDeferredSort(row_idx, self.sortModes.StatClick)
+				end
+				priceBtn.label = "Price Item"
+			end, {
+				callbackQueryId = function(queryId, realm, league)
+					self.lastSearchId = queryId
+					realm = realm or self.pbRealm
+					league = league or self.pbLeague
+					local url = self.tradeQueryRequests:buildUrl(
+						self.hostName .. "trade2/search", realm, league, queryId)
+					uriCtrl:SetText(url, true)
+				end
+			})
+		elseif self.resultTbl[row_idx] then
+			self:RunDeferredSort(row_idx, self.sortModes.StatClick)
+		end
+	end)
+	self.controls.reSearchBtn.shown = function()
+		local row = self.sortPanelSelectedRowIdx
+		if not row or not self.controls["uri"..row] then return false end
+		return self.controls["uri"..row].validURL or (self.resultTbl[row] and #self.resultTbl[row] > 0)
+	end
 
 	-- used in PopupDialog:Draw()
 	local function scrollBarFunc()
@@ -500,7 +962,12 @@ Highest Weight - Displays the order retrieved from trade]]
 		self.controls.scrollBar:SetContentDimension(self.pane_height-100, self.effective_rows_height)
 		self.controls.sectionAnchor.y = -self.controls.scrollBar.offset
 	end
-	main:OpenPopup(pane_width, self.pane_height, "Trader", self.controls, nil, nil, "close", (scrollBarShown and scrollBarFunc or nil))
+	-- Trader window: 5% from top for more space; use saved size if valid else content size
+	local defW = (main.tradeDefaults and main.tradeDefaults.traderWidth) or pane_width
+	local defH = (main.tradeDefaults and main.tradeDefaults.traderHeight) or self.pane_height
+	local openW = m_max(pane_width, m_min(1200, defW))
+	local openH = m_max(self.pane_height, m_min(main.screenH - 80, defH))
+	main:OpenPopup(openW, openH, "Trader", self.controls, nil, nil, "close", (scrollBarShown and scrollBarFunc or nil), nil, 0.05)
 end
 
 -- Popup to set stat weight multipliers for sorting
@@ -665,6 +1132,81 @@ function TradeQueryClass:SetNotice(notice_control, msg)
 	notice_control.label = msg
 end
 
+---Zwraca true, jeśli item przechodzi filtr typu oferty (zgodnie z TRADER_SORT_BY_STATS_SPEC.md).
+---@param item table element z resultTbl (ma .isInstantBuyout, .whisper, .accountStatus)
+---@param listingType string "any" | "instant_buyout" | "whisper" | "whisper_online"
+---@return boolean
+function TradeQueryClass:passesListingTypeFilter(item, listingType)
+	if not listingType or listingType == "any" then return true end
+	if listingType == "instant_buyout" then return item.isInstantBuyout == true end
+	if listingType == "whisper" then return item.whisper and item.whisper ~= "" end
+	if listingType == "whisper_online" then
+		return (item.whisper and item.whisper ~= "") and (item.accountStatus or "") == "ONLINE"
+	end
+	return true
+end
+
+-- Returns full calculator output for one result (no ReduceOutput); used for stat pool and StatClick sort
+function TradeQueryClass:GetResultFullOutput(row_idx, result_index)
+	local result = self.resultTbl[row_idx] and self.resultTbl[row_idx][result_index]
+	if not result then return nil end
+	local calcFunc, baseOutput = self.itemsTab.build.calcsTab:GetMiscCalculator()
+	if not calcFunc then return nil end
+	local slotName = self.slotTables[row_idx].nodeId and "Jewel " .. tostring(self.slotTables[row_idx].nodeId) or self.slotTables[row_idx].slotName
+	if slotName == "Megalomaniac" then
+		local addedNodes = {}
+		for nodeName in (result.item_string.."\r\n"):gmatch("Allocates (.-)\r?\n") do
+			local node = self.itemsTab.build.spec.tree.notableMap[nodeName:lower()]
+			if node and node.recipes ~= nil then
+				addedNodes[node] = true
+			end
+		end
+		return calcFunc({ addNodes = addedNodes })
+	end
+	local item = new("Item", result.item_string)
+	if not self.enchantInSort then
+		item.enchantModLines = { }
+		item:BuildAndParseRaw()
+	end
+	return calcFunc({ repSlotName = slotName, repItem = item })
+end
+
+-- Refreshes stat pool (left column) from ALL results in current search (deduplicated)
+function TradeQueryClass:RefreshStatPool()
+	wipeTable(self.statPoolListData)
+	local row = self.sortPanelSelectedRowIdx
+	if not row or not self.resultTbl[row] or not self.sortedResultTbl[row] then
+		return
+	end
+	local build = self.itemsTab.build
+	if not build or not build.displayStats then
+		return
+	end
+	local allStats = {}
+	for result_index = 1, #self.resultTbl[row] do
+		local output = self:GetResultFullOutput(row, result_index)
+		if output then
+			for _, ds in ipairs(build.displayStats) do
+				local v = output[ds.stat]
+				if v ~= nil and (type(v) == "number" or type(v) == "string") then
+					if not (ds.condFunc and not ds.condFunc(v, output)) then
+						if not allStats[ds.stat] then
+							allStats[ds.stat] = { stat = ds.stat, label = ds.label or ds.stat }
+						end
+					end
+				end
+			end
+		end
+	end
+	local seenStat = {}
+	for _, ds in ipairs(build.displayStats) do
+		if allStats[ds.stat] and not seenStat[ds.stat] then
+			seenStat[ds.stat] = true
+			t_insert(self.statPoolListData, allStats[ds.stat])
+		end
+	end
+end
+
 -- Method to reduce the full output to only the values that were 'weighted'
 function TradeQueryClass:ReduceOutput(output)
 	local smallOutput = {}
@@ -719,9 +1261,23 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index)
 	return result.evaluation
 end
 
+-- Schedules UpdateControlsWithItems for next frame and shows "Sorting, please wait..." overlay
+function TradeQueryClass:RunDeferredSort(row_idx, overrideMode)
+	if not row_idx or not self.resultTbl[row_idx] then return end
+	self.sortingInProgress = true
+	self:SetNotice(self.controls.pbNotice, "Sorting, please wait...")
+	local tab = self
+	main.onFrameFuncs["TraderSorting"] = function()
+		tab:UpdateControlsWithItems(row_idx, overrideMode)
+		tab.sortingInProgress = false
+		main.onFrameFuncs["TraderSorting"] = nil
+	end
+end
+
 -- Method to update controls after a search is completed
-function TradeQueryClass:UpdateControlsWithItems(row_idx)
-	local sortMode = self.itemSortSelectionList[self.pbItemSortSelectionIndex]
+-- overrideMode: optional, e.g. self.sortModes.StatClick when RE-SEARCH is used
+function TradeQueryClass:UpdateControlsWithItems(row_idx, overrideMode)
+	local sortMode = overrideMode or self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	local sortedItems, errMsg = self:SortFetchResults(row_idx, sortMode)
 	if errMsg == "MissingConversionRates" then
 		self:SetNotice(self.controls.pbNotice, "^4Price sorting is not available, falling back to Stat Value sort.")
@@ -730,8 +1286,20 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	if errMsg then
 		self:SetNotice(self.controls.pbNotice, "Error: " .. errMsg)
 		return
+	elseif self.filterNoMatchMessage then
+		self:SetNotice(self.controls.pbNotice, "^4No items match filter criteria. Showing all items sorted by selected stats.")
 	else
 		self:SetNotice(self.controls.pbNotice, "")
+	end
+
+	if not sortedItems or #sortedItems == 0 then
+		self:SetNotice(self.controls.pbNotice, "^4No items match the selected filter.")
+		self.resultTbl[row_idx] = nil
+		self.sortedResultTbl[row_idx] = nil
+		self.itemIndexTbl[row_idx] = nil
+		self.totalPrice[row_idx] = nil
+		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
+		return
 	end
 
 	self.sortedResultTbl[row_idx] = sortedItems
@@ -751,6 +1319,26 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	end
 	self.controls["resultDropdown".. row_idx].selIndex = 1
 	self.controls["resultDropdown".. row_idx]:SetList(dropdownLabels)
+	if not self.sortPanelSelectedRowIdx or not self.resultTbl[self.sortPanelSelectedRowIdx] then
+		self.sortPanelSelectedRowIdx = row_idx
+		self.sortPanelSelectedItemIdx = pb_index
+	end
+	self:RefreshStatPool()
+	if self.controls.sortByList and self.clickSortStats and #self.clickSortStats >= 1 then
+		local sl = self.controls.sortByList
+		if not sl.selIndex or sl.selIndex > #self.clickSortStats then
+			-- #region agent log
+			do
+				local f = io.open("c:\\Users\\xpret\\AppData\\Roaming\\Path of Building Community (PoE2)\\.cursor\\debug.log", "a")
+				if f then
+					f:write(string.format('{"location":"TradeQuery.lua:UpdateControlsWithItems","message":"Auto SelectIndex(1)","data":{"nStats":%s},"timestamp":%d,"sessionId":"debug-session","hypothesisId":"H1"}\n', #self.clickSortStats, (os.time() or 0) * 1000))
+					f:close()
+				end
+			end
+			-- #endregion
+			sl:SelectIndex(1)
+		end
+	end
 end
 
 -- Method to set the current result return in the pane based of an index
@@ -816,6 +1404,78 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 			t_insert(newTbl, { outputAttr = price, index = result_index })
 		end
 		table.sort(newTbl, function(a,b) return a.outputAttr < b.outputAttr end)
+	elseif mode == self.sortModes.StatClick then
+		if not self.clickSortStats or #self.clickSortStats == 0 then
+			for result_index = 1, #self.resultTbl[row_idx] do
+				t_insert(newTbl, { outputAttr = getResultWeight(result_index), index = result_index })
+			end
+			table.sort(newTbl, function(a,b) return a.outputAttr > b.outputAttr end)
+		else
+			for result_index = 1, #self.resultTbl[row_idx] do
+				t_insert(newTbl, { result_index = result_index, index = result_index })
+			end
+			-- Filter by minVal/maxVal (inclusive)
+			local filtered = {}
+			local allFiltered = {}
+			for _, entry in ipairs(newTbl) do
+				local out = self:GetResultFullOutput(row_idx, entry.result_index)
+				if not out then
+					t_insert(filtered, entry)
+					t_insert(allFiltered, entry)
+				else
+					local pass = true
+					for _, statEntry in ipairs(self.clickSortStats) do
+						local v = out[statEntry.stat]
+						local n = tonumber(v)
+						if statEntry.minVal and statEntry.minVal ~= "" then
+							local minN = tonumber(statEntry.minVal)
+							if minN and n then
+								if n < minN then pass = false break end
+							elseif minN and not n then
+								pass = false break
+							end
+						end
+						if statEntry.maxVal and statEntry.maxVal ~= "" and pass then
+							local maxN = tonumber(statEntry.maxVal)
+							if maxN and n then
+								if n > maxN then pass = false break end
+							elseif maxN and not n then
+								pass = false break
+							end
+						end
+					end
+					if pass then
+						t_insert(filtered, entry)
+					end
+					t_insert(allFiltered, entry)
+				end
+			end
+			if #filtered == 0 and #allFiltered > 0 then
+				newTbl = allFiltered
+				self.filterNoMatchMessage = true
+			else
+				self.filterNoMatchMessage = false
+				newTbl = filtered
+			end
+			table.sort(newTbl, function(a, b)
+				local outA = self:GetResultFullOutput(row_idx, a.result_index)
+				local outB = self:GetResultFullOutput(row_idx, b.result_index)
+				if not outA or not outB then return (a.result_index or 0) < (b.result_index or 0) end
+				for _, entry in ipairs(self.clickSortStats) do
+					local stat = entry.stat
+					local vA = outA[stat]
+					local vB = outB[stat]
+					if vA ~= vB then
+						local na, nb = tonumber(vA), tonumber(vB)
+						if na and nb then
+							return na > nb
+						end
+						return tostring(vA or "") > tostring(vB or "")
+					end
+				end
+				return false
+			end)
+		end
 	else
 		return nil, "InvalidSort"
 	end
@@ -867,13 +1527,27 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 					else
 						self:SetNotice(context.controls.pbNotice, "")
 					end
+					local listingType = context.listingType or "any"
+					if listingType ~= "any" then
+						local filtered = {}
+						for _, item in ipairs(items) do
+							if self:passesListingTypeFilter(item, listingType) then
+								t_insert(filtered, item)
+							end
+						end
+						items = filtered
+					end
 					self.resultTbl[context.row_idx] = items
 					self:UpdateControlsWithItems(context.row_idx)
 					context.controls["priceButton"..context.row_idx].label =  "Price Item"
 				end,
 				{
-					callbackQueryId = function(queryId)
-						local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague, queryId)
+					callbackQueryId = function(queryId, realm, league)
+						self.lastSearchId = queryId
+						realm = realm or self.pbRealm
+						league = league or self.pbLeague
+						local url = self.tradeQueryRequests:buildUrl(
+							self.hostName .. "trade2/search", realm, league, queryId)
 						controls["uri"..context.row_idx]:SetText(url, true)
 					end
 				}
@@ -923,7 +1597,16 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 					self:UpdateControlsWithItems(row_idx)
 				end
 				controls["priceButton"..row_idx].label = "Price Item"
-			end)
+			end, 			{
+				callbackQueryId = function(queryId, realm, league)
+					self.lastSearchId = queryId
+					realm = realm or self.pbRealm
+					league = league or self.pbLeague
+					local url = self.tradeQueryRequests:buildUrl(
+						self.hostName .. "trade2/search", realm, league, queryId)
+					controls["uri"..row_idx]:SetText(url, true)
+				end
+			})
 		end)
 	controls["priceButton"..row_idx].enabled = function()
 		local poesessidAvailable = main.POESESSID and main.POESESSID ~= ""
@@ -950,15 +1633,82 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 		self.controls.fullPrice.label = "Total Price: " .. self:GetTotalPriceString()
 	end)
 	controls["changeButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
+	-- Traffic light: status indicator before result row (online/afk/offline)
+	controls["statusIndicator"..row_idx] = new("LabelControl", {"LEFT", controls["changeButton"..row_idx], "RIGHT"}, {4, 0, 12, row_height}, "")
+	controls["statusIndicator"..row_idx].queryTab = self
+	controls["statusIndicator"..row_idx].row_idx = row_idx
+	controls["statusIndicator"..row_idx].Draw = function(indicator, viewPort)
+		if not indicator:IsShown() then return end
+		local tab = indicator.queryTab
+		local idx = indicator.row_idx
+		local resultIdx = tab.itemIndexTbl[idx]
+		if not tab.resultTbl[idx] or not resultIdx then return end
+		local item = tab.resultTbl[idx][resultIdx]
+		local status = (item.accountStatus or "OFFLINE"):upper()
+		local r, g, b = 0.5, 0.5, 0.5
+		if status == "ONLINE" then
+			r, g, b = 0.1, 0.9, 0.1
+		elseif status == "AFK" then
+			r, g, b = 1.0, 0.6, 0.0
+		end
+		local ix, iy = indicator:GetPos()
+		local _, iheight = indicator:GetSize()
+		local cx = ix + 6
+		local cy = iy + iheight / 2
+		local radius = 3.5
+		SetDrawColor(r, g, b, 1)
+		DrawImage(nil, cx - radius, cy - radius, radius * 2, radius * 2)
+		SetDrawColor(1, 1, 1)
+	end
+	controls["statusIndicator"..row_idx].width = 12
+	controls["statusIndicator"..row_idx].shown = function() return self.resultTbl[row_idx] end
 	local dropdownLabels = {}
 	for _, sortedResult in ipairs(self.sortedResultTbl[row_idx] or {}) do
 		local item = new("Item", self.resultTbl[row_idx][sortedResult.index].item_string)
 		table.insert(dropdownLabels, colorCodes[item.rarity]..item.name)
 	end
-	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["changeButton"..row_idx], "TOPRIGHT"}, {8, 0, 325, row_height}, dropdownLabels, function(index)
+	controls["resultDropdown"..row_idx] = new("DropDownControl", { "TOPLEFT", controls["statusIndicator"..row_idx], "TOPRIGHT"}, {4, 0, 325, row_height}, dropdownLabels, function(index)
 		self.itemIndexTbl[row_idx] = self.sortedResultTbl[row_idx][index].index
 		self:SetFetchResultReturn(row_idx, self.itemIndexTbl[row_idx])
+		self.sortPanelSelectedRowIdx = row_idx
+		self.sortPanelSelectedItemIdx = self.sortedResultTbl[row_idx][index].index
+		self:RefreshStatPool()
 	end)
+	local function getItemDisplayName(result)
+		if not result then return "" end
+		local name = ""
+		local ok, itemObj = pcall(function() return new("Item", result.item_string) end)
+		if ok and itemObj and itemObj.title and itemObj.baseName and itemObj.title ~= itemObj.baseName then
+			name = itemObj.title .. " " .. itemObj.baseName:gsub(" %(.+%)", "")
+		end
+		if name == "" and result.fullItemName and result.fullItemName ~= "" then
+			name = result.fullItemName
+		elseif name == "" and result.whisper and result.whisper ~= "" then
+			name = result.whisper:match("your (.+) listed") or ""
+		end
+		if name == "" and ok and itemObj then
+			if itemObj.title and itemObj.baseName then
+				name = itemObj.title .. " " .. itemObj.baseName:gsub(" %(.+%)", "")
+			elseif itemObj.name then
+				name = itemObj.name
+			end
+		end
+		-- Trade site expects "Cataclysm Core Varnished Crossbow", not "Cataclysm Core, Sturdy Crossbow"
+		return (name or ""):gsub(",%s*", " "):gsub("^%s*(.-)%s*$", "%1")
+	end
+	-- Build a trade search URL with item name + optional exact price filter
+	local function buildItemNameSearchURL(itemName, itemAmount, itemCurrency)
+		if not itemName or itemName == "" then return nil end
+		local escapedName = itemName:gsub('"', '\\"')
+		local tradeFilters = ""
+		if itemAmount and itemCurrency and itemCurrency ~= "" then
+			tradeFilters = '"trade_filters":{"filters":{"sale_type":{"option":"priced"},"price":{"option":"' .. itemCurrency .. '","min":' .. tostring(itemAmount) .. ',"max":' .. tostring(itemAmount) .. '}}}'
+		end
+		local filtersBlock = tradeFilters ~= "" and tradeFilters or ""
+		local query = '{"query":{"term":"' .. escapedName .. '","status":{"option":"any"},"filters":{' .. filtersBlock .. '},"stats":[{"type":"and","filters":[]}]},"sort":{"price":"asc"}}'
+		local base = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague)
+		return base .. "?q=" .. urlEncode(query)
+	end
 	local function addCompareTooltip(tooltip, result_index, dbMode)
 		local result = self.resultTbl[row_idx][result_index]
 		local item = new("Item", result.item_string)
@@ -970,11 +1720,16 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	end
 	controls["resultDropdown"..row_idx].tooltipFunc = function(tooltip, dropdown_mode, dropdown_index, dropdown_display_string)
 		tooltip:Clear()
+		if not (self.sortedResultTbl[row_idx] and self.sortedResultTbl[row_idx][dropdown_index]) then
+			tooltip:AddLine(14, "^7If you don't see the item preview on hover, click the item.")
+			return
+		end
 		local result_index = self.sortedResultTbl[row_idx][dropdown_index].index
 		local result = self.resultTbl[row_idx][result_index]
 		addCompareTooltip(tooltip, result_index)
 		tooltip:AddSeparator(10)
 		tooltip:AddLine(16, string.format("^7Price: %s %s", result.amount, result.currency))
+		tooltip:AddLine(12, "^8If you don't see the item preview on hover, click the item.")
 	end
 	controls["importButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["resultDropdown"..row_idx], "TOPRIGHT"}, {8, 0, 100, row_height}, "Import Item", function()
 		self.itemsTab:CreateDisplayItemFromRaw(self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string)
@@ -1000,21 +1755,104 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	controls["importButton"..row_idx].enabled = function()
 		return self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string ~= nil
 	end
-	-- Whisper so we can copy to clipboard
-	controls["whisperButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["importButton"..row_idx], "TOPRIGHT"}, {8, 0, 185, row_height}, function()
-		return self.totalPrice[row_idx] and "Whisper for " .. self.totalPrice[row_idx].amount .. " " .. self.totalPrice[row_idx].currency or "Whisper"
-	end, function()
-		Copy(self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].whisper)
-	end)
-	controls["whisperButton"..row_idx].enabled = function()
-		return self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].whisper ~= nil
-	end
-	controls["whisperButton"..row_idx].tooltipFunc = function(tooltip)
-		tooltip:Clear()
-		if self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]].item_string then
-			tooltip.center = true
-			tooltip:AddLine(16, "Copies the item purchase whisper to the clipboard")
+	-- Dynamic Action Button: Hideout (gold, opens browser) or Whisper (copies to clipboard)
+	controls["actionButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["importButton"..row_idx], "TOPRIGHT"}, {8, 0, 70, row_height}, function()
+		local item = self.resultTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		if not item then return "^7Whisper:" end
+		if item.isInstantBuyout then
+			local statusColor = { ONLINE = colorCodes.POSITIVE, AFK = colorCodes.WARNING, OFFLINE = "^x808080" }
+			local dot = (statusColor[item.accountStatus] or "") .. "o ^xFFCC00"
+			local tp = self.totalPrice[row_idx]
+			return dot .. ((tp and ("Hideout: " .. tp.amount .. " " .. tp.currency)) or "Hideout:")
 		end
+		local statusColor = { ONLINE = colorCodes.POSITIVE, AFK = colorCodes.WARNING, OFFLINE = "^x808080" }
+		local dot = (statusColor[item.accountStatus] or "") .. "o ^7"
+		local tp = self.totalPrice[row_idx]
+		return dot .. ((tp and ("Whisper: " .. tp.amount .. " " .. tp.currency)) or "Whisper:")
+	end, function()
+		local item = self.resultTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		if not item then return end
+		local itemName = getItemDisplayName(item)
+		if item.isInstantBuyout then
+			-- Build URL with item name + exact price filter
+			local nameUrl = buildItemNameSearchURL(itemName, item.amount, item.currency)
+			if nameUrl then
+				OpenURL(nameUrl)
+			else
+				local url = controls["uri"..row_idx].buf
+				if url and url ~= "" then OpenURL(url) end
+			end
+			if itemName ~= "" then Copy(itemName) end
+		else
+			Copy(item.whisper or "")
+		end
+	end)
+	controls["actionButton"..row_idx].queryTab = self
+	controls["actionButton"..row_idx].row_idx = row_idx
+	controls["actionButton"..row_idx].width = function(ctrl)
+		local tab = ctrl.queryTab
+		local r = ctrl.row_idx
+		local item = tab.resultTbl[r] and tab.resultTbl[r][tab.itemIndexTbl[r]]
+		local lab = "o Whisper:"
+		if item and item.isInstantBuyout then
+			lab = tab.totalPrice[r] and ("o Hideout: " .. tab.totalPrice[r].amount .. " " .. tab.totalPrice[r].currency) or "o Hideout:"
+		elseif tab.totalPrice[r] then
+			lab = "o Whisper: " .. tab.totalPrice[r].amount .. " " .. tab.totalPrice[r].currency
+		end
+		return m_max(70, DrawStringWidth(16, "VAR", lab) + 16)
+	end
+	controls["actionButton"..row_idx].enabled = function()
+		if not self.itemIndexTbl[row_idx] or not self.resultTbl[row_idx] then return false end
+		local item = self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		if not item then return false end
+		if item.isInstantBuyout then
+			-- Always enabled for IB: we build the URL from the item name
+			return true
+		end
+		return item.whisper and item.whisper ~= ""
+	end
+	controls["actionButton"..row_idx].tooltipFunc = function(tooltip)
+		tooltip:Clear()
+		local item = self.resultTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		if not item then return end
+		tooltip.center = true
+		if item.isInstantBuyout then
+			tooltip:AddLine(16, "Opens trade page in browser.")
+			tooltip:AddLine(16, "Copies item name to clipboard (for manual search).")
+			tooltip:AddLine(16, "Click 'Travel to Hideout' on the trade site to buy.")
+		else
+			tooltip:AddLine(16, "Copies the whisper to clipboard.")
+			tooltip:AddLine(16, "Paste it in-game chat to contact the seller.")
+		end
+	end
+	controls["actionButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
+	-- [Link] button: open per-row trade URL in browser
+	controls["linkButton"..row_idx] = new("ButtonControl", { "TOPLEFT", controls["actionButton"..row_idx], "TOPRIGHT"}, {5, 0, 36, row_height}, "[Link]", function()
+		local item = self.resultTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		local itemName = item and getItemDisplayName(item) or ""
+		-- Open trade search with item name + exact price filter
+		local amt = item and item.amount or nil
+		local cur = item and item.currency or nil
+		local nameUrl = buildItemNameSearchURL(itemName, amt, cur)
+		if nameUrl then
+			OpenURL(nameUrl)
+		else
+			local url = controls["uri"..row_idx].buf
+			if url and url ~= "" then OpenURL(url) end
+		end
+		if itemName ~= "" then Copy(itemName) end
+	end)
+	controls["linkButton"..row_idx].enabled = function()
+		-- Enabled if we have a valid URI or a selected item (we can build URL from name)
+		if controls["uri"..row_idx].validURL then return true end
+		local item = self.resultTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
+		return item ~= nil
+	end
+	controls["linkButton"..row_idx].shown = function() return self.resultTbl[row_idx] end
+	controls["linkButton"..row_idx].tooltipFunc = function(tooltip)
+		tooltip:Clear()
+		tooltip:AddLine(16, "Open this trade search in browser.")
+		tooltip:AddLine(16, "Copies item name to clipboard (for manual search).")
 	end
 end
 

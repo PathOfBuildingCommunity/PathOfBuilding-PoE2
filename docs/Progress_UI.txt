@@ -1,0 +1,38 @@
+[2025-02-05] - IMPLEMENTED: tooltip_always_left_of_cursor.
+  Logic: Item preview tooltips now default to LEFT of cursor (ttX = cursorX - ttW - 10).
+  Fallback: If ttX < viewPort.x (no room on left), tooltip moves to RIGHT of cursor (ttX = cursorX + 10).
+  Clamping: X and Y clamped to viewport so tooltip never goes off-screen.
+  File: Classes/Tooltip.lua (TooltipClass:Draw).
+PENDING: (none for this change).
+
+[2025-02-05] - Weryfikacja względem docs/TRADER_SORT_BY_STATS_SPEC.md:
+  - passesListingTypeFilter(item, listingType): DODANE (~linia 700), używane w callbacku fetch zamiast inline warunków.
+  - Stan panelu sortowania: dopasowany do spec §2.E – clickSortStats, favoriteStats, sortPanelSelectedRowIdx, sortPanelSelectedItemIdx (usunięte: sortByStats, sortPanelStatPool, sortPanelReferenceRow, sortPanelFavorites, sortPanelPriority, sortPanelStatMin/Max).
+  - resultDropdown callback: ustawia sortPanelSelectedRowIdx i sortPanelSelectedItemIdx przy zmianie zaznaczenia.
+  - UpdateControlsWithItems: domyślne sortPanelSelectedRowIdx/sortPanelSelectedItemIdx przy pierwszym załadowaniu wyników.
+
+[2025-02-05] - IMPLEMENTED: Price on Travel/Hideout and Whisper buttons.
+  TradeQuery.lua: Action button label shows "o Whisper: X currency" / "o Hideout: X currency".
+  width() function uses DrawStringWidth for label with price to auto-size button.
+
+[2025-02-05] - IMPLEMENTED: query_options_listing_type.
+  Query Options (TradeQueryGenerator.lua): dropdown "Listing" with: Any | Instant Buyout | In person (whisper) | In person ONLINE.
+  API: status.option = "online" when "In person ONLINE", else "available".
+  Filter (TradeQuery.lua): passesListingTypeFilter(); persist lastListingType in tradeDefaults.
+IMPLEMENTED: sort_panel_scaffold.
+  TradeQuery.lua: Sort panel below Trader; headers "Pula statystyk", "Sortuj według"; labels "Mniejsze niż" / "Większe niż". State: clickSortStats, favoriteStats, sortPanelSelectedRowIdx, sortPanelSelectedItemIdx (zgodnie ze spec).
+[2025-02-05] - FIX: Query Options alignment (TradeQueryGenerator.lua)
+  inputLabelOffset: 180 -> 0. Pola Listing/Max Price/Max Level/Sockets/Stat to Sort By
+  wyrównane w lewo z checkboxami (Corrupted Mods, Rune Mods, Mirrored items).
+
+[2025-02-05] - IMPLEMENTED: sort_panel_full (spec §2.A–D, §6).
+  - Kolumna 1: Pula statystyk z zaznaczonego przedmiotu (RefreshStatPool).
+  - Kolumna 2: klik dodaj, Shift+klik usuń. StatClick w dropdownie.
+  - Ikony ! * X (tooltipy PL).
+  - EditControl „Mniejsze niż” / „Większe niż” przy każdej statystyce (wartości włącznie), filtrowanie przed sortowaniem.
+
+[2025-02-05] - IMPLEMENTED: Sorting overlay + Stat pool offset + Action button labels.
+  Overlay: przy sortowaniu (klik stat, RE-SEARCH, Clear/Undo, Min/Max) nakładka "Sorting, please wait..." (RunDeferredSort, sortingOverlay).
+  Stat pool: rubryki i etykiety 10 px w dół (brak nakładania "Sort by stats" na "Stat pool").
+  Przycisk akcji: "Travel" → "Hideout:", "Whisper" → "Whisper:" (z dwukropkiem).
+  Tooltip wyników: podpowiedź "If you don't see the item preview on hover, click the item."

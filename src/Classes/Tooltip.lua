@@ -317,16 +317,29 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 	end
 	local ttX = x
 	local ttY = y
-	if w and h then
-		ttX = ttX + w + 5
-		if ttX + ttW > viewPort.x + viewPort.width then
-			ttX = m_max(viewPort.x, x - 5 - ttW)
-			if ttX + ttW > x then
-				ttY = ttY + h
-			end
+	if viewPort and w and h then
+		-- Item previews: ALWAYS left of cursor, unless no room (then right)
+		local cursorX, cursorY = GetCursorPos()
+		local pad = 10
+		ttX = cursorX - ttW - pad
+		if ttX < viewPort.x then
+			-- No room on left, show on right of cursor
+			ttX = cursorX + pad
 		end
+		ttY = cursorY - pad
+		-- Clamp horizontally to viewport
+		if ttX + ttW > viewPort.x + viewPort.width then
+			ttX = viewPort.x + viewPort.width - ttW - pad
+		end
+		if ttX < viewPort.x then
+			ttX = viewPort.x + pad
+		end
+		-- Clamp vertically to viewport
 		if ttY + ttH > viewPort.y + viewPort.height then
-			ttY = m_max(viewPort.y, y + h - ttH)
+			ttY = m_max(viewPort.y, viewPort.y + viewPort.height - ttH - pad)
+		end
+		if ttY < viewPort.y then
+			ttY = viewPort.y + pad
 		end
 	end
 

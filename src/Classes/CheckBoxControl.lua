@@ -106,6 +106,8 @@ function CheckBoxClass:OnKeyDown(key)
 	end
 	if key == "LEFTBUTTON" then
 		self.clicked = true
+	elseif key == "TAB" then
+		return self:TabAdvance(IsKeyDown("SHIFT") and -1 or 1)
 	end
 	return self
 end

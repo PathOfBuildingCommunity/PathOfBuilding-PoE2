@@ -67,6 +67,15 @@ function TradeQueryRequestsClass:ProcessQueue()
 	end
 end
 
+---Inject limit into query JSON so API returns more result IDs per page (up to maxFetchPerSearch)
+local function injectQueryLimit(query, maxFetch)
+	if not query or not maxFetch or maxFetch <= 10 then return query end
+	local ok, tbl = pcall(dkjson.decode, query)
+	if not ok or not tbl then return query end
+	tbl.limit = math.min(maxFetch, 500)
+	return dkjson.encode(tbl)
+end
+
 ---Performs search and fetches results
 ---@param league string
 ---@param query string
@@ -74,10 +83,10 @@ end
 ---@param params table @ params = { callbackQueryId = fun(queryId:string) }
 function TradeQueryRequestsClass:SearchWithQuery(realm, league, query, callback, params)
 	params = params or {}
-	--ConPrintf("Query json: %s", query)
-	self:PerformSearch(realm, league, query, function(response, errMsg)
+	local queryWithLimit = injectQueryLimit(query, self.maxFetchPerSearch)
+	self:PerformSearch(realm, league, queryWithLimit, function(response, errMsg)
 		if params.callbackQueryId and response and response.id then
-			params.callbackQueryId(response.id)
+			params.callbackQueryId(response.id, realm, league)
 		end
 		if errMsg then
 			return callback(nil, errMsg)
@@ -104,7 +113,7 @@ function TradeQueryRequestsClass:SearchWithQueryWeightAdjusted(realm, league, qu
 	local function performSearchCallback(response, errMsg)
 		currentRecursion = currentRecursion + 1
 		if params.callbackQueryId and response and response.id then
-			params.callbackQueryId(response.id)
+			params.callbackQueryId(response.id, realm, league)
 		end
 		if errMsg and ((errMsg == "No Matching Results Found" and currentRecursion >= maxRecursion) or errMsg ~= "No Matching Results Found") then
 			return callback(nil, errMsg)
@@ -166,7 +175,7 @@ function TradeQueryRequestsClass:SearchWithQueryWeightAdjusted(realm, league, qu
 				local queryJson = dkjson.decode(query)
 				queryJson.query.stats[1].value.min = queryJson.query.stats[1].value.min / 2
 				query = dkjson.encode(queryJson)
-				self:PerformSearch(realm, league, query, performSearchCallback)
+				self:PerformSearch(realm, league, injectQueryLimit(query, self.maxFetchPerSearch), performSearchCallback)
 			else -- Search clipped, fetch highest weight item, update query weight and repeat search
 				previousSearchItemIds = response.result
 				previousSearchId = response.id
@@ -180,12 +189,12 @@ function TradeQueryRequestsClass:SearchWithQueryWeightAdjusted(realm, league, qu
 					local queryJson = dkjson.decode(query)
 					queryJson.query.stats[1].value.min = (tonumber(highestWeight) + queryJson.query.stats[1].value.min) / 2
 					query = dkjson.encode(queryJson)
-					self:PerformSearch(realm, league, query, performSearchCallback)
+					self:PerformSearch(realm, league, injectQueryLimit(query, self.maxFetchPerSearch), performSearchCallback)
 				end)
 			end
 		end
 	end
-	self:PerformSearch(realm, league, query, performSearchCallback)
+	self:PerformSearch(realm, league, injectQueryLimit(query, self.maxFetchPerSearch), performSearchCallback)
 end
 
 ---Perform search and run callback function on returned item hashes.
@@ -283,6 +292,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 			end
 			local items = {}
 			for _, trade_entry in pairs(response.result) do
+				if trade_entry and trade_entry.item then
 				local item = trade_entry.item
 				local spirit
 				local armour
@@ -297,34 +307,35 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				
 				if item.properties then
 					for _, property in ipairs(item.properties) do
-						local name = escapeGGGString(property.name)
-						if name == "Armour" then
-							armour = property.values[1][1]
-						elseif name == "Evasion Rating" then
-							evasion = property.values[1][1]
-						elseif name == "Energy Shield" then
-							es = property.values[1][1]
-						elseif name == "Quality" then
-							quality = property.values[1][1]:sub(2, -2) -- remove + and % on quality value	
-						elseif name == "Spirit" then
-							spirit = property.values[1][1]
-						elseif name == "Charm Slots" then
-							charmSlots = property.values[1][1]
-						-- elseif name == "Quality (Mana Modifiers)" then
-							-- catalyst quality stuff tbd it all needs reworking anyway as it has changed.
-						elseif name == "Radius" then
-							radius = property.values[1][1]
-						elseif name == "Limited to" then
-							limit = property.values[1][1]
+						local val = property.values and property.values[1] and property.values[1][1]
+						if val then
+							local name = escapeGGGString(property.name)
+							if name == "Armour" then
+								armour = val
+							elseif name == "Evasion Rating" then
+								evasion = val
+							elseif name == "Energy Shield" then
+								es = val
+							elseif name == "Quality" then
+								quality = (type(val) == "string" and val:sub(2, -2)) or nil
+							elseif name == "Spirit" then
+								spirit = val
+							elseif name == "Charm Slots" then
+								charmSlots = val
+							elseif name == "Radius" then
+								radius = val
+							elseif name == "Limited to" then
+								limit = val
+							end
 						end
 					end
 				end
 				
 				local rawLines = { }
 				t_insert(rawLines, "Rarity: " .. item.rarity)
-				-- item.name is empty when magic and full magic name is in typeLine but typeLine == baseType when rare.
-				if item.name ~= "" then
-					t_insert(rawLines, item.name) 
+				-- item.name is empty/nil when magic (full name in typeLine) or some IB listings; typeLine == base when rare.
+				if item.name and item.name ~= "" then
+					t_insert(rawLines, item.name)
 				end
 				t_insert(rawLines, item.typeLine)
 
@@ -370,8 +381,11 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 
 				if item.requirements then
 					for _, requirement in ipairs(item.requirements) do
-						if requirement.name == "Level"  then
-							t_insert(rawLines, "LevelReq: " .. requirement.values[1][1])
+						if requirement.name == "Level" then
+							local reqVal = requirement.values and requirement.values[1] and requirement.values[1][1]
+							if reqVal then
+								t_insert(rawLines, "LevelReq: " .. reqVal)
+							end
 						end
 					end
 				end
@@ -416,16 +430,47 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				if item.corrupted then
 					t_insert(rawLines, "Corrupted")
 				end
-				
+
+				local listing = trade_entry.listing or {}
+				local account = listing.account or {}
+				local price = listing.price or {}
+				local whisper = listing.whisper
+				local isInstantBuyout = (whisper == nil or whisper == "")
+
+				-- Full display name for trade search (e.g. "Cataclysm Core Varnished Crossbow")
+				local itemNameStr = (item.name or ""):gsub("^%s*(.-)%s*$", "%1")
+				local typeLineStr = (item.typeLine or ""):gsub("^%s*(.-)%s*$", "%1")
+				local fullItemName
+				if itemNameStr ~= "" and typeLineStr ~= "" then
+					if itemNameStr:find(typeLineStr, 1, true) then
+						fullItemName = itemNameStr
+					else
+						fullItemName = itemNameStr .. " " .. typeLineStr
+					end
+				else
+					fullItemName = itemNameStr ~= "" and itemNameStr or typeLineStr
+				end
+
+				local onlineData = account.online
+				local accountStatus = "OFFLINE"
+				if onlineData == true then
+					accountStatus = "ONLINE"
+				elseif type(onlineData) == "table" and onlineData.status == "afk" then
+					accountStatus = "AFK"
+				end
 
 				table.insert(items, {
-					amount = trade_entry.listing.price.amount,
-					currency = trade_entry.listing.price.currency,
+					amount = price.amount,
+					currency = price.currency,
 					item_string = table.concat(rawLines, "\n"),
-					whisper = trade_entry.listing.whisper,
-					weight = trade_entry.item.pseudoMods and trade_entry.item.pseudoMods[1]:match("Sum: (.+)") or "0",
-					id = trade_entry.id
+					whisper = whisper,
+					fullItemName = fullItemName,
+					weight = (trade_entry.item.pseudoMods and trade_entry.item.pseudoMods[1] and trade_entry.item.pseudoMods[1]:match("Sum: (.+)")) or "0",
+					id = trade_entry.id,
+					isInstantBuyout = isInstantBuyout,
+					accountStatus = accountStatus
 				})
+				end
 			end
 			return callback(items)
 		end
@@ -433,10 +478,12 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 end
 
 ---@param callback fun(items:table, errMsg:string)
-function TradeQueryRequestsClass:SearchWithURL(url, callback)
+---@param params table|nil @ params = { callbackQueryId = fun(queryId:string) }
+function TradeQueryRequestsClass:SearchWithURL(url, callback, params)
+	params = params or {}
 	local subpath = url:match(self.hostName .. "trade2/search/(.+)$")
 	local paths = {}
-	for path in subpath:gmatch("[^/]+") do
+	for path in (subpath or ""):gmatch("[^/]+") do
 		table.insert(paths, path)
 	end
 	if #paths < 2 or #paths > 3 then
@@ -444,9 +491,9 @@ function TradeQueryRequestsClass:SearchWithURL(url, callback)
 	end
 	local realm, league, queryId
 	if #paths == 3 then
-		realm = paths[1]
+		realm = urlDecode(paths[1])
 	end
-	league = paths[#paths-1]
+	league = urlDecode(paths[#paths-1])
 	queryId = paths[#paths]
 	self:FetchSearchQuery(realm, league, queryId, function(query, errMsg)
 		if errMsg then
@@ -466,7 +513,7 @@ function TradeQueryRequestsClass:SearchWithURL(url, callback)
 		end
 		query = dkjson.encode(json_data)
 
-		self:SearchWithQuery(realm, league, query, callback)
+		self:SearchWithQuery(realm, league, query, callback, params)
 	end)
 end
 

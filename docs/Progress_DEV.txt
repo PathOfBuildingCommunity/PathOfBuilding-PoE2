@@ -1,0 +1,91 @@
+[2025-02-05] - Path of Building (PoE 2) Trade Module - Dev Progress
+
+=== COMPLETED ===
+
+1. TradeQueryRequests.lua - Data Layer
+   - FetchResultBlock: guards for listing/account/price
+   - isInstantBuyout flag (whisper nil/empty)
+   - accountStatus parsing (ONLINE/AFK/OFFLINE)
+   - lastSearchId storage via callbackQueryId
+   - SearchWithURL: params with callbackQueryId, nil-safe subpath
+   - callbackQueryId now receives (queryId, realm, league) for correct URL build
+   - SearchWithURL: urlDecode(league/realm) to avoid double-encoding
+
+2. TradeQuery.lua - UI Layer
+   - Hybrid Action Button: Travel (opens browser) vs Whisper (copy)
+   - Status indicator (colored "o") in button label
+   - Link button: per-row URL from controls["uri"]
+   - Removed travelCommand (PoE 2 has no /hideout PlayerName)
+   - LINK/TRAVEL URL fix: uri control updated with actual search queryId
+     (Price Item + Find best flows; callbackQueryId now passes realm/league)
+
+3. ItemsTab.lua - AddItemTooltip
+   - Guard for baseName, title, namePrefix, nameSuffix (nil crash fix)
+
+4. Launch.lua - F5 Restart
+   - F5 always triggers restart (removed devMode condition)
+
+5. Main.lua - TradeDefaults Persistence
+   - LoadSettings: TradeDefaults node (maxPrice, maxPriceTypeIndex, checkboxes, jewelType, sockets)
+   - SaveSettings: TradeDefaults node write
+
+6. TradeQueryGenerator.lua - Query Options
+   - Load defaults from main.tradeDefaults on popup open
+   - Max Level default from build.characterLevel
+   - Save to main.tradeDefaults on Execute + main:SaveSettings()
+   - TAB navigation: AddToTabGroup for all focusable controls
+   - m_min = math.min (fix for nil global error)
+
+7. CheckBoxControl, DropDownControl, ButtonControl
+   - TAB/Shift+TAB handling (TabAdvance)
+
+=== 2025-02-05 UPDATE: Link/Travel + Item Name Fallback ===
+- Travel/Link: always Copy(item name) to clipboard as fallback for manual search
+- getItemDisplayName(): from whisper "your X listed" or Item class .name
+- SearchWithQueryWeightAdjusted: use FIRST search id (currentRecursion==1) so URL
+  shows broadest results; recursion merged items from first search may not be in
+  the last search's results
+
+=== 2025-02-05 UPDATE: Full Item Name + Price in URL + Price on Travel Button ===
+- getItemDisplayName(): priorytet Item class (title+baseName) gdy title != baseName (rare);
+  fullItemName; whisper match; fallback Item. Na końcu gsub(","→" ") – trade oczekuje spacji
+- buildItemNameSearchURL(itemName, itemAmount?, itemCurrency?): gdy amount+currency –
+  dodaje trade_filters.sale_type="priced" i price.min/max. Travel i Link przekazują (name, amount, currency)
+- Travel/Hideout button: label z ceną ("o Hideout: 2 exalted"), width() dostosowuje do tekstu
+- Link button: buildItemNameSearchURL(name, amt, cur) zamiast URI; fallback Copy(itemName)
+- TradeQueryRequests.lua rawLines: guard `if item.name and item.name ~= ""` (nil dla magic/IB)
+
+=== 2025-02-05 UPDATE: Sorting overlay + Tooltip hint + Stat pool layout + Button labels ===
+- Sorting overlay: RunDeferredSort() odracza UpdateControlsWithItems do następnej klatki; flaga sortingInProgress;
+  kontrolka sortingOverlay (półprzezroczyste tło + "Sorting, please wait..."). Wszystkie ścieżki wywołujące
+  sortowanie z akcji użytkownika (klik w stat pool, RE-SEARCH, Clear/Undo, Min/Max, usunięcie stat) używają RunDeferredSort.
+- Podgląd przedmiotu: w tooltipFunc resultDropdown dodana podpowiedź po angielsku "If you don't see the item
+  preview on hover, click the item."; guard gdy brak sortedResultTbl[row_idx][dropdown_index].
+- Stat pool: sekcja przesunięta o 10 px w dół (sortPanelY, sortPanelCol1Label/Col2Label offset Y=12), żeby
+  "Sort by stats" nie nakrywał napisu "Stat pool".
+- Przycisk akcji: etykiety "Travel" → "Hideout:" (z dwukropkiem), "Whisper" → "Whisper:" (z dwukropkiem).
+  Np. "Hideout: 2 exalted", "Whisper: 1 exalted". Komentarz w kodzie: "Dynamic Action Button: Hideout or Whisper".
+
+=== 2025-02-05: SYNC Z GITHUB REPO ===
+- Repo: C:\Users\xpret\AppData\Roaming\PathOfBuilding-PoE2-GITHUB repo
+- Mapowanie: bieżący projekt (root Classes/, Modules/, Launch.lua) → repo (src/Classes/, src/Modules/, src/Launch.lua)
+- Pliki do skopiowania (wg Update/ + CHANGELOG): TradeQuery.lua, TradeQueryRequests.lua, TradeQueryGenerator.lua,
+  ItemsTab.lua, Tooltip.lua, ButtonControl, CheckBoxControl, DropDownControl, Main.lua, Build.lua, Launch.lua
+- CHANGELOG_TRADE_MODULE.md, Progress_*.txt – można dodać do docs/ lub root repo
+- Da się – struktura repo spójna (src/Classes, src/Modules). Copy overwrite → git add → commit → push
+
+=== PENDING ===
+- Verify all features work end-to-end
+- Optional: Query Options "Online Status" / "Listing Type" filters (PRD Feature E)
+
+=== BLOCKERS ===
+none
+
+=== KEY FILES ===
+- Classes/TradeQueryRequests.lua
+- Classes/TradeQuery.lua
+- Classes/TradeQueryGenerator.lua
+- Classes/ItemsTab.lua
+- Classes/Tooltip.lua
+- Modules/Main.lua
+- Launch.lua

@@ -1,0 +1,151 @@
+# QA & Security Audit Log
+# Agent: Lead QA & Security Engineer
+# Scope: Trade Query Module (TradeQuery.lua, TradeQueryRequests.lua, Tooltip.lua)
+
+---
+[2025-02-05] - AUDIT: Agent Progress Files
+STATUS: SYNCED
+---
+Progress_DEV.txt: EXISTS - Data layer, UI, ItemsTab, Launch, Main, TradeQueryGenerator, TAB nav
+Progress_UI.txt: EXISTS - Tooltip positioning (Tooltip.lua)
+Progress_QA.txt: CREATED - This audit log
+
+---
+[2025-02-05] - AUDIT: TradeQueryRequests.lua
+STATUS: PASSED
+---
+Null Safety:
+  [OK] listing = trade_entry.listing or {}
+  [OK] account = listing.account or {}
+  [OK] account.online - safely checked (onlineData == true, type(onlineData) == "table")
+  [OK] trade_entry.item - guard: if trade_entry and trade_entry.item then
+  [OK] property.values - safe extraction: val = property.values and property.values[1] and property.values[1][1]
+  [OK] requirement.values - safe extraction before use
+  [OK] pseudoMods[1] - guarded before :match()
+Crash Test (PRD): App will NOT crash if listing.account.online is nil. VERIFIED.
+
+Logic:
+  [OK] isInstantBuyout = (whisper == nil or whisper == "")
+  [OK] accountStatus: ONLINE / AFK / OFFLINE parsed correctly
+  [N/A] travelCommand/lastCharacterName - NOT in result table (see TradeQuery.lua note)
+
+ISSUES: None (critical safeguards in place).
+
+---
+[2025-02-05] - AUDIT: TradeQuery.lua
+STATUS: FAILED
+---
+PRD Compliance - Feature A (Hybrid Action Button):
+  [FAIL] Action for Instant Buyout:
+    PRD: "Construct and copy command: /hideout <listing.account.lastCharacterName>"
+    ACTUAL: Opens browser (OpenURL) instead of copying /hideout command.
+    NOTE: Implementation uses "open trade page" flow. PRD explicitly requires COPY to clipboard.
+
+  [OK] Travel vs Whisper priority: isInstantBuyout checked first. Correct.
+
+  [FAIL] Button Label:
+    PRD: "Travel to Hideout"
+    ACTUAL: "Travel" (abbreviated)
+
+  [OK] Color: ^xFFCC00 (Gold) for IB. Compliant.
+
+  [FAIL] PRD Constraint: "NEVER disable this button if the item is listed."
+    ACTUAL: For IB, button enabled only when controls["uri"].buf is non-empty.
+    If user has no URL (e.g. direct paste), button is DISABLED. Violates PRD.
+
+Traffic Lights (Feature B):
+  [OK] Status dot (o) with color: GREEN (POSITIVE), ORANGE (WARNING), GRAY (OFFLINE)
+  [OK] Rendered before action label.
+
+Link Button (Feature C):
+  [OK] [Link] button opens trade URL in browser via OpenURL(controls["uri"].buf)
+  [OK] URL format uses buildUrl (realm, league) - correct structure.
+
+Logic:
+  [OK] Whisper: Copy(item.whisper or "") - nil-safe
+  [OK] Enabled logic: IB requires URI; Whisper requires whisper string
+
+ISSUES:
+  1. **CRITICAL BLOCKER** - PRD violation: Instant Buyout action MUST copy /hideout <characterName> to clipboard. Current implementation opens browser. DEV must restore travelCommand/lastCharacterName in FetchResultBlock and implement Copy(travelCommand) on IB click.
+  2. Button label should be "Travel to Hideout" per PRD.
+  3. IB button MUST NOT be disabled when item is listed (PRD: "NEVER disable"). Currently disabled when URI empty.
+
+---
+[2025-02-05] - AUDIT: Tooltip.lua (Feature D)
+STATUS: PASSED
+---
+Adaptive Tooltip Positioning:
+  [OK] Uses GetCursorPos(), viewport clamping
+  [OK] Default: LEFT of cursor (ttX = cursorX - ttW - 10)
+  [OK] Fallback: RIGHT if no room on left (ttX < viewPort.x)
+  [OK] Horizontal and vertical clamping to viewport
+  [NOTE] PRD specified "if cursor in right 50% then anchor left". Implementation uses "always left unless no room" - achieves same goal, different algorithm. ACCEPTABLE.
+
+ISSUES: None.
+
+---
+[2025-02-05] - REGRESSION CHECK
+STATUS: N/A
+---
+realmIds contains only "PoE 2". No PoE 1 trade path in this codebase. N/A.
+
+---
+[2025-02-05] - SUMMARY
+---
+TradeQueryRequests.lua: PASSED (null-safe, logic correct)
+Tooltip.lua: PASSED (adaptive positioning implemented)
+TradeQuery.lua: FAILED - CRITICAL BLOCKER
+
+BLOCKER: Fix Instant Buyout action to copy /hideout command per PRD before deployment.
+
+---
+[2025-02-05] - PODSUMOWANIE AUDYTU (SUMMARY)
+---
+Pliki zaktualizowane: Progress_DEV, Progress_UI, Progress_QA
+TradeQueryRequests: PASSED - Null-safe, guards na listing/account/item/property/requirement
+Tooltip: PASSED - Adaptive positioning (left-of-cursor, viewport clamp)
+TradeQuery: FAILED - PRD violations (IB action, button label, enable logic)
+Changelog: CHANGELOG_TRADE_MODULE.md utworzony dla GitHub
+
+---
+[2025-02-05] - FIX: UpdateControlsWithItems crash when filter returns 0 items
+---
+TradeQuery.lua: Guard for empty sortedItems (np. "In person online" filtruje wszystko).
+Gdy #sortedItems == 0: komunikat "No items match the selected filter", cleanup, return.
+
+---
+[2025-02-05] - VERIFY: Full item name + price filter in Link/Travel URL
+---
+TradeQuery.lua: getItemDisplayName returns full rare name (e.g. "Cataclysm Core Varnished Crossbow").
+buildItemNameSearchURL adds price filter when amount+currency passed.
+Link and Travel both use name-based URL with exact price filter.
+QA: Confirm search results are narrowed to item at given price.
+
+---
+[2025-02-05] - VERIFY: Price on Travel/Hideout button
+---
+TradeQuery.lua: Action button label shows price for both Whisper and Hideout (IB).
+QA: Visual check – button text should show "o Hideout: 2 exalted" etc.
+
+---
+[2025-02-05] - FIX: Query Options alignment
+---
+TradeQueryGenerator.lua: inputLabelOffset zmienione z 180 na 0.
+Pola Listing, Max Price, Max Level, # of Empty Sockets, Stat to Sort By
+teraz wyrównane w lewo z checkboxami (Corrupted Mods, Rune Mods, Mirrored items).
+
+---
+[2025-02-05] - FIX: Link/Travel – pełna nazwa przedmiotu w URL (trade site search)
+---
+TradeQuery.lua: buildItemNameSearchURL() buduje URL z query.term = pełna nazwa (np. "Damnation Bane Long Quarterstaff").
+Travel i Link otwierają teraz wyszukiwanie po pełnej nazwie, nie tylko typ bazowy (Long Quarterstaff).
+getItemDisplayName() – kombinacja title+baseName, fullItemName, whisper; gsub(", ", " ") dla formatu trade site.
+
+---
+[2025-02-05] - FIX: Fetch Pages – nie pobiera tylu stron ile wpisano
+---
+TradeQuery.lua: SyncFetchPagesFromControl() – odczyt buf z fetchCountEdit przed wyszukiwaniem, ustawia maxFetchPages i maxFetchPerSearch.
+Wywołana przed SearchWithURL (Price Item).
+TradeQueryRequests.lua: injectQueryLimit() – dodaje limit do query JSON (do 500), aby API zwracało więcej result IDs.
+Wszystkie wywołania PerformSearch używają query z limit.
+UWAGA: Jeśli API PoE2 nie obsługuje parametru limit, może być konieczna paginacja GET z offset.

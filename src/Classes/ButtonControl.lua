@@ -106,6 +106,8 @@ function ButtonClass:OnKeyDown(key)
 	end
 	if key == "LEFTBUTTON" then
 		self.clicked = true
+	elseif key == "TAB" then
+		return self:TabAdvance(IsKeyDown("SHIFT") and -1 or 1)
 	elseif self.enterFunc then
 		self.enterFunc()
 	end

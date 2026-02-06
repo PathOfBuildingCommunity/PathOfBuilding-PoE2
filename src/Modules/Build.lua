@@ -1167,13 +1167,14 @@ function buildMode:OnFrame(inputEvents)
 	-- Update contents of main skill dropdowns
 	self:RefreshSkillSelectControls(self.controls, self.mainSocketGroup, "")
 
-	-- Draw contents of current tab
+	-- Draw contents of current tab (height excludes bottom bar so content is not cut at bottom)
 	local sideBarWidth = 312
+	local contentAreaH = main.screenH - 32 - (main.mainBarHeight or 0)
 	local tabViewPort = {
 		x = sideBarWidth,
 		y = 32,
 		width = main.screenW - sideBarWidth,
-		height = main.screenH - 32
+		height = contentAreaH
 	}
 	if self.viewMode == "IMPORT" then
 		self.importTab:Draw(tabViewPort, inputEvents)  
@@ -1204,11 +1205,11 @@ function buildMode:OnFrame(inputEvents)
 	DrawImage(nil, 0, 28, main.screenW, 4)
 	DrawImage(nil, main.screenW/2 - 2, 0, 4, 28)
 
-	-- Draw side bar background
+	-- Draw side bar background (above bottom bar)
 	SetDrawColor(0.1, 0.1, 0.1)
-	DrawImage(nil, 0, 32, sideBarWidth - 4, main.screenH - 32)
+	DrawImage(nil, 0, 32, sideBarWidth - 4, contentAreaH)
 	SetDrawColor(0.85, 0.85, 0.85)
-	DrawImage(nil, sideBarWidth - 4, 32, 4, main.screenH - 32)
+	DrawImage(nil, sideBarWidth - 4, 32, 4, contentAreaH)
 
 	self:DrawControls(main.viewPort)
 end

@@ -7,6 +7,7 @@
 local dkjson = require "dkjson"
 local curl = require("lcurl.safe")
 local m_max = math.max
+local m_min = math.min
 local s_format = string.format
 local t_insert = table.insert
 
@@ -833,7 +834,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 					}
 				}
 			},
-			status = { option = "available" },
+			status = { option = (self.calcContext.options.listingType == "whisper_online") and "online" or "available" },
 			stats = {
 				{
 					type = "weight",
@@ -880,6 +881,11 @@ function TradeQueryGeneratorClass:FinishQuery()
 
 	for k, v in pairs(self.calcContext.special.queryExtra or {}) do
 		queryTable.query[k] = v
+	end
+	-- Filter by base name so link shows same item type (e.g. "Tense Crossbow")
+	if (not self.calcContext.special.queryExtra or not self.calcContext.special.queryExtra.type)
+		and originalItem and originalItem.baseName then
+		queryTable.query.type = originalItem.baseName
 	end
 
 	for _, entry in ipairs(self.modWeights) do
@@ -948,6 +954,20 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	self.requesterCallback = callback
 	self.requesterContext = context
 
+	local defaults = main.tradeDefaults or {}
+	if defaults.maxPrice and not self.lastMaxPrice then self.lastMaxPrice = defaults.maxPrice end
+	if defaults.maxPriceTypeIndex and not self.lastMaxPriceTypeIndex then self.lastMaxPriceTypeIndex = defaults.maxPriceTypeIndex end
+	if defaults.includeCorrupted ~= nil and self.lastIncludeCorrupted == nil then self.lastIncludeCorrupted = defaults.includeCorrupted end
+	if defaults.includeRunes ~= nil and self.lastIncludeRunes == nil then self.lastIncludeRunes = defaults.includeRunes end
+	if defaults.includeMirrored ~= nil and self.lastIncludeMirrored == nil then self.lastIncludeMirrored = defaults.includeMirrored end
+	if defaults.lastJewelType and not self.lastJewelType then self.lastJewelType = defaults.lastJewelType end
+	if defaults.lastSockets and not self.lastSockets then self.lastSockets = defaults.lastSockets end
+	if defaults.lastListingType and not self.lastListingType then self.lastListingType = defaults.lastListingType end
+
+	local build = self.itemsTab.build
+	local defaultMaxLevel = self.lastMaxLevel or (build and build.characterLevel) or 1
+	defaultMaxLevel = m_max(1, m_min(100, tonumber(defaultMaxLevel) or 1))
+
 	local controls = { }
 	local options = { }
 	local popupHeight = 110
@@ -965,6 +985,8 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 
 	local lastItemAnchor = controls.includeRunes
 
+	local inputLabelOffset = 0
+
 	local function updateLastAnchor(anchor, height)
 		lastItemAnchor = anchor
 		popupHeight = popupHeight + (height or 23)
@@ -978,9 +1000,15 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	controls.includeMirrored.state = (self.lastIncludeMirrored == nil or self.lastIncludeMirrored == true)
 	updateLastAnchor(controls.includeMirrored)
 
+	-- Listing type: Any | Instant Buyout | In person (whisper) | In person ONLINE
+	local listingTypeList = { "Any", "Instant Buyout", "In person (whisper)", "In person ONLINE" }
+	controls.listingType = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {inputLabelOffset, 5, 180, 18}, listingTypeList, function(index, value) end)
+	controls.listingType.selIndex = self.lastListingType or 1
+	controls.listingTypeLabel = new("LabelControl", {"RIGHT", controls.listingType, "LEFT"}, {-5, 0, 0, 16}, "^7Listing:")
+	updateLastAnchor(controls.listingType)
 
 	if isJewelSlot then
-		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Any", "Base", "Radius" }, function(index, value) end) -- this does nothing atm
+		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {inputLabelOffset, 5, 100, 18}, { "Any", "Base", "Radius" }, function(index, value) end) -- this does nothing atm
 		controls.jewelType.selIndex = self.lastJewelType or 1
 		controls.jewelTypeLabel = new("LabelControl", {"RIGHT",controls.jewelType,"LEFT"}, {-5, 0, 0, 16}, "Jewel Type:")
 		updateLastAnchor(controls.jewelType)
@@ -999,9 +1027,30 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	updateLastAnchor(controls.maxPrice)
 
 	controls.maxLevel = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, nil, nil, "%D")
-	controls.maxLevel.buf = self.lastMaxLevel and tostring(self.lastMaxLevel) or ""
+	controls.maxLevel.buf = tostring(defaultMaxLevel)
 	controls.maxLevelLabel = new("LabelControl", {"RIGHT",controls.maxLevel,"LEFT"}, {-5, 0, 0, 16}, "Max Level:")
 	updateLastAnchor(controls.maxLevel)
+
+	local fetchPagesMax = 50
+	local defaults = main.tradeDefaults or {}
+	local savedFetch = (self.queryTab and self.queryTab.maxFetchPages) or (defaults.fetchPages and m_min(m_max(defaults.fetchPages, 1), fetchPagesMax))
+	local defaultFetchPages = savedFetch and m_min(m_max(savedFetch, 1), fetchPagesMax) or 3
+	local function applyFetchPages(buf)
+		local v = m_min(m_max(tonumber(buf) or 3, 1), fetchPagesMax)
+		main.tradeDefaults = main.tradeDefaults or {}
+		main.tradeDefaults.fetchPages = v
+		if self.queryTab then
+			self.queryTab.maxFetchPages = v
+			self.queryTab.tradeQueryRequests.maxFetchPerSearch = 10 * v
+			if self.queryTab.controls.fetchCountEdit then
+				self.queryTab.controls.fetchCountEdit:SetText(tostring(v), true)
+				self.queryTab.controls.fetchCountEdit.focusValue = v
+			end
+		end
+	end
+	controls.fetchPages = new("EditControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 70, 18}, tostring(defaultFetchPages), nil, "%D", 3, applyFetchPages)
+	controls.fetchPagesLabel = new("LabelControl", {"RIGHT", controls.fetchPages, "LEFT"}, {-5, 0, 0, 16}, "^7Fetch Pages:")
+	updateLastAnchor(controls.fetchPages)
 
 	-- basic filtering by slot for sockets Megalomaniac does not have slot and Sockets use "Jewel nodeId"
 	if slot and not isJewelSlot and not slot.slotName:find("Flask") and not slot.slotName:find("Belt") and not slot.slotName:find("Ring") and not slot.slotName:find("Amulet") and not slot.slotName:find("Charm") then
@@ -1064,12 +1113,45 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 			options.sockets = tonumber(controls.sockets.buf)
 			self.lastSockets = options.sockets
 		end
+		if controls.fetchPages and controls.fetchPages.buf then
+			applyFetchPages(controls.fetchPages.buf)
+			main:SaveSettings()
+		end
 		options.statWeights = statWeights
+		local listingIdx = controls.listingType.selIndex or 1
+		options.listingType = ({"any", "instant_buyout", "whisper", "whisper_online"})[listingIdx]
+		self.lastListingType = listingIdx
+		context.listingType = options.listingType
+
+		main.tradeDefaults = main.tradeDefaults or {}
+		local d = main.tradeDefaults
+		d.maxPrice = self.lastMaxPrice
+		d.maxPriceTypeIndex = self.lastMaxPriceTypeIndex
+		d.includeCorrupted = self.lastIncludeCorrupted
+		d.includeRunes = self.lastIncludeRunes
+		d.includeMirrored = self.lastIncludeMirrored
+		d.lastJewelType = self.lastJewelType
+		d.lastSockets = self.lastSockets
+		d.lastListingType = self.lastListingType
+		main:SaveSettings()
 
 		self:StartQuery(slot, options)
 	end)
 	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {45, -10, 80, 20}, "Cancel", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(400, popupHeight, "Query Options", controls)
+
+	controls.includeRunes:AddToTabGroup(controls.includeCorrupted)
+	controls.includeMirrored:AddToTabGroup(controls.includeCorrupted)
+	if controls.listingType then controls.listingType:AddToTabGroup(controls.includeCorrupted) end
+	if controls.jewelType then controls.jewelType:AddToTabGroup(controls.includeCorrupted) end
+	controls.maxPrice:AddToTabGroup(controls.includeCorrupted)
+	controls.maxPriceType:AddToTabGroup(controls.includeCorrupted)
+	controls.maxLevel:AddToTabGroup(controls.includeCorrupted)
+	if controls.fetchPages then controls.fetchPages:AddToTabGroup(controls.includeCorrupted) end
+	if controls.sockets then controls.sockets:AddToTabGroup(controls.includeCorrupted) end
+	controls.generateQuery:AddToTabGroup(controls.includeCorrupted)
+	controls.cancel:AddToTabGroup(controls.includeCorrupted)
+
+	main:OpenPopup(400, popupHeight, "Query Options", controls, "generateQuery", "maxPrice", "cancel")
 end

@@ -136,7 +136,7 @@ function launch:OnFrame()
 end
 
 function launch:OnKeyDown(key, doubleClick)
-	if key == "F5" and self.devMode then
+	if key == "F5" then
 		self.doRestart = "Restarting..."
 	elseif key == "F6" and self.devMode then
 		local before = collectgarbage("count")

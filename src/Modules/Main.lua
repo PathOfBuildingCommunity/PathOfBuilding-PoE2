@@ -670,6 +670,17 @@ function main:LoadSettings(ignoreBuild)
 					self.dpiScaleOverridePercent = tonumber(node.attrib.dpiScaleOverridePercent) or 0
 					SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 				end
+			elseif node.elem == "TradeDefaults" then
+				self.tradeDefaults = self.tradeDefaults or {}
+				local d = self.tradeDefaults
+				if node.attrib.maxPrice then d.maxPrice = tonumber(node.attrib.maxPrice) end
+				if node.attrib.maxPriceTypeIndex then d.maxPriceTypeIndex = tonumber(node.attrib.maxPriceTypeIndex) end
+				if node.attrib.includeCorrupted ~= nil then d.includeCorrupted = node.attrib.includeCorrupted == "true" end
+				if node.attrib.includeRunes ~= nil then d.includeRunes = node.attrib.includeRunes == "true" end
+				if node.attrib.includeMirrored ~= nil then d.includeMirrored = node.attrib.includeMirrored == "true" end
+				if node.attrib.lastJewelType then d.lastJewelType = tonumber(node.attrib.lastJewelType) end
+				if node.attrib.lastSockets then d.lastSockets = tonumber(node.attrib.lastSockets) end
+				if node.attrib.fetchPages then d.fetchPages = tonumber(node.attrib.fetchPages) end
 			end
 		end
 	end
@@ -803,6 +814,21 @@ function main:SaveSettings()
 		showAllItemAffixes = tostring(self.showAllItemAffixes),
 		dpiScaleOverridePercent = tostring(self.dpiScaleOverridePercent)
 	} })
+	local tradeAttrib = {}
+	if self.tradeDefaults then
+		local d = self.tradeDefaults
+		if d.maxPrice then tradeAttrib.maxPrice = tostring(d.maxPrice) end
+		if d.maxPriceTypeIndex then tradeAttrib.maxPriceTypeIndex = tostring(d.maxPriceTypeIndex) end
+		if d.includeCorrupted ~= nil then tradeAttrib.includeCorrupted = tostring(d.includeCorrupted) end
+		if d.includeRunes ~= nil then tradeAttrib.includeRunes = tostring(d.includeRunes) end
+		if d.includeMirrored ~= nil then tradeAttrib.includeMirrored = tostring(d.includeMirrored) end
+		if d.lastJewelType then tradeAttrib.lastJewelType = tostring(d.lastJewelType) end
+		if d.lastSockets then tradeAttrib.lastSockets = tostring(d.lastSockets) end
+		if d.fetchPages then tradeAttrib.fetchPages = tostring(d.fetchPages) end
+	end
+	if next(tradeAttrib) then
+		t_insert(setXML, { elem = "TradeDefaults", attrib = tradeAttrib })
+	end
 	local res, errMsg = common.xml.SaveXMLFile(setXML, self.userPath.."Settings.xml")
 	if not res then
 		launch:ShowErrMsg("Error saving 'Settings.xml': %s", errMsg)
@@ -1544,8 +1570,8 @@ function main:CopyFolder(srcName, dstName)
 	end
 end
 
-function main:OpenPopup(width, height, title, controls, enterControl, defaultControl, escapeControl, scrollBarFunc, resizeFunc)
-	local popup = new("PopupDialog", width, height, title, controls, enterControl, defaultControl, escapeControl, scrollBarFunc, resizeFunc)
+function main:OpenPopup(width, height, title, controls, enterControl, defaultControl, escapeControl, scrollBarFunc, resizeFunc, topMarginFraction)
+	local popup = new("PopupDialog", width, height, title, controls, enterControl, defaultControl, escapeControl, scrollBarFunc, resizeFunc, topMarginFraction)
 	t_insert(self.popups, 1, popup)
 	return popup
 end

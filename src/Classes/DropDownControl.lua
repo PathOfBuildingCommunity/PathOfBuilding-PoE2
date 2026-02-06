@@ -409,6 +409,9 @@ function DropDownClass:OnKeyDown(key)
 			return self
 		end
 	end
+	if key == "TAB" and not self.dropped then
+		return self:TabAdvance(IsKeyDown("SHIFT") and -1 or 1)
+	end
 	local mOverControl = self:GetMouseOverControl()
 	if mOverControl and mOverControl.OnKeyDown then
 		self.selControl = mOverControl
