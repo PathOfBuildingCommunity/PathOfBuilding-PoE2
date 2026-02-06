@@ -310,7 +310,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 							more = values.more ~= 1 and ("x "..values.more),
 							inc = values.inc ~= 0 and ("x "..(1 + values.inc / 100)),
 							efficiency = values.efficiency ~= 0 and ("x " .. round(100 / (100 + values.efficiency), 4)),
-							efficiencyMore = values.efficiencyMore ~= 0 and ("x "..values.efficiencyMore),
+							efficiencyMore = values.efficiencyMore ~= 1 and ("x "..values.efficiencyMore),
 							total = values.reservedPercent .. "%",
 						})
 					end
