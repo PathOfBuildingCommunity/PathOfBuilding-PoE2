@@ -2067,14 +2067,14 @@ function ItemsTabClass:CraftItem()
 		item:BuildAndParseRaw()
 		return item
 	end
-	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 20, 0, 16}, "Rarity:")
+	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 20, 0, 16}, "^7Rarity:")
 	controls.rarity = new("DropDownControl", nil, {-80, 20, 100, 18}, rarityDropList)
 	controls.rarity.selIndex = self.lastCraftRaritySel or 3
 	controls.title = new("EditControl", nil, {70, 20, 190, 18}, "", "Name")
 	controls.title.shown = function()
 		return controls.rarity.selIndex >= 3
 	end
-	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 45, 0, 16}, "Type:")
+	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 45, 0, 16}, "^7Type:")
 	controls.type = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {55, 45, 295, 18}, self.build.data.itemBaseTypeList, function(index, value)
 		controls.base.list = self.build.data.itemBaseLists[self.build.data.itemBaseTypeList[index]]
 		controls.base.selIndex = 1
