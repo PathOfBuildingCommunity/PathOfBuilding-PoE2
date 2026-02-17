@@ -6165,8 +6165,8 @@ for gemId, gemData in pairs(data.gems) do
 			specialModList["^"..skillName:lower().." chains (%d+) additional times"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ChainCountMax", "BASE", num) }, { type = "SkillName", skillName = skillName, includeTransfigured = true }) } end
 		end
 		if gemData.tags.bow then
-			specialModList["^"..skillName:lower().." fires an additional arrow"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", 1) }, { type = "SkillName", skillName = skillName, includeTransfigured = true }) } end
-			specialModList["^"..skillName:lower().." fires (%d+) additional arrows?"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", num) }, { type = "SkillName", skillName = skillName, includeTransfigured = true }) } end
+			specialModList["^"..skillName:lower().." fires an additional arrow"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", 1, nil, 0, KeywordFlag.Arrow) }, { type = "SkillName", skillName = skillName, includeTransfigured = true }) } end
+			specialModList["^"..skillName:lower().." fires (%d+) additional arrows?"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("ProjectileCount", "BASE", num, nil, 0, KeywordFlag.Arrow) }, { type = "SkillName", skillName = skillName, includeTransfigured = true }) } end
 		end
 		if gemData.tags.projectile then
 			specialModList["^"..skillName:lower().." pierces an additional target"] = { mod("PierceCount", "BASE", 1, { type = "SkillName", skillName = skillName, includeTransfigured = true }) }

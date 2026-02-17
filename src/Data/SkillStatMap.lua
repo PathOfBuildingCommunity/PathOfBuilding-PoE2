@@ -1667,7 +1667,7 @@ return {
 	mod("PierceCount", "BASE", nil),
 },
 ["arrow_base_number_of_targets_to_pierce"] = {
-	mod("PierceCount", "BASE", nil, ModFlag.Attack),
+	mod("PierceCount", "BASE", nil, 0, KeywordFlag.Arrow),
 },
 ["pierce_%"] = {
 	mod("PierceChance", "BASE", nil),
@@ -1725,11 +1725,11 @@ return {
 	flag("NoAdditionalProjectiles"),
 },
 ["base_number_of_arrows"] = {
-	mod("ProjectileCount", "BASE", nil),
+	mod("ProjectileCount", "BASE", nil, 0, KeywordFlag.Arrow),
 	base = -1,
 },
 ["number_of_additional_arrows"] = {
-	mod("ProjectileCount", "BASE", nil),
+	mod("ProjectileCount", "BASE", nil, 0, KeywordFlag.Arrow),
 },
 ["base_number_of_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),
