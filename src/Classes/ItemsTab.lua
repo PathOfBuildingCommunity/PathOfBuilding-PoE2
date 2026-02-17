@@ -403,7 +403,7 @@ holding Shift will put it in the second.]])
 		self:AnointDisplayItem(1)
 	end)
 	self.controls.displayItemAnoint.shown = function()
-		return self.displayItem and (self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed)
+		return self.displayItem and ((self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed) and not self.displayItem.sanctified)
 	end
 	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
 		self:CorruptDisplayItem()
@@ -3055,12 +3055,15 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Corrupted item label
-	if item.corrupted or item.mirrored or item.doubleCorrupted then
+	if item.corrupted or item.mirrored or item.doubleCorrupted or item.sanctified then
 		if #item.explicitModLines == 0 then
 			tooltip:AddSeparator(10)
 		end
 		if item.mirrored then
 			tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE.."Mirrored", "FONTIN SC")
+		end
+		if item.sanctified then
+			tooltip:AddLine(fontSizeBig, colorCodes.FRACTURED.."Sanctified", "FONTIN SC")
 		end
 		if item.doubleCorrupted then
 			tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE.."Twice Corrupted", "FONTIN SC")

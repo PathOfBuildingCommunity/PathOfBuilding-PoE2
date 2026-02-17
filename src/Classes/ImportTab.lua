@@ -1033,6 +1033,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	item.mirrored = itemData.mirrored
 	item.corrupted = itemData.corrupted
+	item.sanctified = itemData.sanctified
 	item.doubleCorrupted = itemData.doubleCorrupted
 	item.fractured = itemData.fractured
 	item.desecrated = itemData.desecrated
