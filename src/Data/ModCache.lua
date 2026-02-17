@@ -5886,7 +5886,7 @@ c["Regenerate 3% of maximum Life over 1 second when Stunned"]={nil,"Regenerate 3
 c["Regenerate 3% of maximum Life over 1 second when Stunned +1 to Stun Threshold per Dexterity"]={nil,"Regenerate 3% of maximum Life over 1 second when Stunned +1 to Stun Threshold per Dexterity "}
 c["Regenerate 3% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
 c["Regenerate 3% of maximum Life per second while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
-c["Regenerate 5 Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegen",type="BASE",value=5}},nil}
+c["Regenerate 5 Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegen",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Regenerate 5% of maximum Life over 1 second when Stunned"]={nil,"Regenerate 5% of maximum Life over 1 second when Stunned "}
 c["Regenerate 5% of maximum Life per second while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
 c["Regenerate 6% of your maximum Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegenPercent",type="BASE",value=6}},nil}
