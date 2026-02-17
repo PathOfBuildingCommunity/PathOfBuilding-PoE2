@@ -7603,6 +7603,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_0",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -7687,6 +7697,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_1",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -7776,6 +7796,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_2",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -12950,6 +12980,10 @@ skills["IcestormPlayer"] = {
 					skill("hitTimeOverride", nil),
 					div = 1000,
 				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
 			},
 			baseFlags = {
 				spell = true,
@@ -13032,6 +13066,12 @@ skills["IcestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "icestorm",
+			statMap = {
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

@@ -1109,6 +1109,16 @@ statMap = {
 #skill ThunderstormPlayer
 #set ThunderstormPlayer
 #flags spell area duration
+statMap = {
+	["lightning_storm_hit_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["lightning_storm_hit_prevention_duration_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -1146,6 +1156,12 @@ statMap = {
 #mods
 #set VolcanoProjectilePlayer
 #flags spell area projectile
+statMap = { 
+	["volcano_fires_projectiles_every_x_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
