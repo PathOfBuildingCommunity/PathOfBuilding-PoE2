@@ -775,7 +775,6 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.support = skillData.support
-			gemInstance.level = gemInstance.support and 1 or 20
 
 			local spectreList = data.spectres
 			if typeLine:sub(1, 8) == "Spectre:" then
