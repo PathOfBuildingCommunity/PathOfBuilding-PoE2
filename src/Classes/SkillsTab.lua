@@ -356,7 +356,7 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		gemInstance.skillMinionSkill = tonumber(child.attrib.skillMinionSkill)
 		gemInstance.skillMinionSkillCalcs = tonumber(child.attrib.skillMinionSkillCalcs)
 		gemInstance.corrupted = child.attrib.corrupted == "true"
-		gemInstance.corruptLevel = tonumber(child.attrib.corruptLevel)
+		gemInstance.corruptLevel = tonumber(child.attrib.corruptLevel) or 0
 		gemInstance.statSet = { }
 		gemInstance.statSetCalcs = { }
 		gemInstance.skillMinionSkillStatSetIndexLookup = { }
