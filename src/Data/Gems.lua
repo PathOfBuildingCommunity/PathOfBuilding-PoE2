@@ -9488,7 +9488,7 @@ return {
 		},
 		gemType = "Attack",
 		tagString = "Buff, AoE, Melee, Trigger, Fire, Channelling",
-		weaponRequirements = "Any Melee Martial Weapon",
+		weaponRequirements = "Any non-Talisman Melee Martial Weapon",
 		reqStr = 0,
 		reqDex = 0,
 		reqInt = 0,

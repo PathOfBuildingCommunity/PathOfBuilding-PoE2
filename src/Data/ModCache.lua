@@ -5664,7 +5664,7 @@ c["Non-Channelling Spells deal 6% increased Damage per 100 maximum Life"]={{[1]=
 c["Non-Channelling Spells have 3% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=3}},nil}
 c["Non-Channelling Spells have 5% increased Critical Hit Chance per 100 maximum Life"]={{[1]={[1]={neg=true,skillType=48,type="SkillType"},[2]={div=100,stat="Life",type="PerStat"},flags=2,keywordFlags=0,name="CritChance",type="INC",value=5}},nil}
 c["Non-Keystone Passive Skills in Medium Radius of allocated Keystone Passive Skills can be allocated without being connected to your tree"]={{[1]={flags=0,keywordFlags=0,name="AllocateFromNodeRadius",type="LIST",value={from="Keystone",radiusIndex=2,to={[1]="Notable",[2]="Normal"}}}},nil}
-c["Non-Minion Skills have 50% less Reservation Efficiency"]={nil,"Non-Minion Skills have 50% less Reservation Efficiency "}
+c["Non-Minion Skills have 50% less Reservation Efficiency"]={{[1]={[1]={neg=true,skillType=6,type="SkillType"},flags=0,keywordFlags=0,name="ReservationEfficiency",type="MORE",value=-50}},nil}
 c["Non-Unique Time-Lost Jewels have 40% increased radius"]={nil,"Non-Unique Time-Lost Jewels have 40% increased radius "}
 c["Offering Skills have 15% increased Buff effect"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=15}},nil}
 c["Offering Skills have 20% increased Area of Effect"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=20}},nil}
@@ -5886,7 +5886,7 @@ c["Regenerate 3% of maximum Life over 1 second when Stunned"]={nil,"Regenerate 3
 c["Regenerate 3% of maximum Life over 1 second when Stunned +1 to Stun Threshold per Dexterity"]={nil,"Regenerate 3% of maximum Life over 1 second when Stunned +1 to Stun Threshold per Dexterity "}
 c["Regenerate 3% of maximum Life per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
 c["Regenerate 3% of maximum Life per second while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=3}},nil}
-c["Regenerate 5 Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegen",type="BASE",value=5}},nil}
+c["Regenerate 5 Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegen",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["Regenerate 5% of maximum Life over 1 second when Stunned"]={nil,"Regenerate 5% of maximum Life over 1 second when Stunned "}
 c["Regenerate 5% of maximum Life per second while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=5}},nil}
 c["Regenerate 6% of your maximum Rage per second"]={{[1]={flags=0,keywordFlags=0,name="RageRegenPercent",type="BASE",value=6}},nil}
@@ -5939,8 +5939,7 @@ c["Share Charges with Allies in your Presence"]={nil,"Share Charges with "}
 c["Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius"]={nil,"Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius "}
 c["Shocks you when you reach maximum Power Charges"]={nil,"Shocks you when you reach maximum Power Charges "}
 c["Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created"]={nil,"Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created "}
-c["Skill Gems have no Attribute Requirements"]={nil,"Skill Gems have no Attribute Requirements "}
-c["Skill Gems have no Attribute Requirements Equipment and Skill Gems have 50% reduced Attribute Requirements"]={nil,"Skill Gems have no Attribute Requirements Equipment and Skill Gems have 50% reduced Attribute Requirements "}
+c["Skill Gems have no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalGemAttributeRequirements",type="MORE",value=-100}},nil}
 c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=100}},nil}
 c["Skills Cost +3 Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="BASE",value=3}},nil}
 c["Skills Supported by Unleash have 10% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=10}},nil}

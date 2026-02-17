@@ -1,7 +1,7 @@
 -- Item data (c) Grinding Gear Games
 local itemBases = ...
 
-#type One Handed Sword
+#type One Hand Sword
 #socketLimit 3
 #baseMatch BaseType Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/AbstractOneHandSword
 
@@ -9,7 +9,7 @@ local itemBases = ...
 #base Metadata/Items/Weapons/OneHandWeapons/OneHandSwords/StormBladeOneHand
 #forceHide false
 
-#type Two Handed Sword
+#type Two Hand Sword
 #subType
 #socketLimit 4
 #baseMatch BaseType Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/AbstractTwoHandSword

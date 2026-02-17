@@ -22,11 +22,11 @@ local tradeCategoryNames = {
 	["Quiver"] = { "Quiver" },
 	["Shield"] = { "Shield", "Shield: Armour", "Shield: Armour/Energy Shield", "Shield: Armour/Evasion", "Shield: Evasion" },
 	["Focus"] = { "Focus" },
-	["1HWeapon"] = { "One Handed Mace", "Wand", "Sceptre", "Flail", "Spear" },
-	["2HWeapon"] = { "Staff", "Staff: Warstaff", "Two Handed Mace", "Crossbow", "Bow", "Talisman" },
-	-- ["1HAxe"] = { "One Handed Axe" },
-	-- ["1HSword"] = { "One Handed Sword", "Thrusting One Handed Sword" },
-	["1HMace"] = { "One Handed Mace" },
+	["1HWeapon"] = { "One Hand Mace", "Wand", "Sceptre", "Flail", "Spear" },
+	["2HWeapon"] = { "Staff", "Staff: Warstaff", "Two Hand Mace", "Crossbow", "Bow", "Talisman" },
+	-- ["1HAxe"] = { "One Hand Axe" },
+	-- ["1HSword"] = { "One Hand Sword", "Thrusting One Hand Sword" },
+	["1HMace"] = { "One Hand Mace" },
 	["Sceptre"] = { "Sceptre" },
 	-- ["Dagger"] = { "Dagger" },
 	["Wand"] = { "Wand" },
@@ -36,9 +36,9 @@ local tradeCategoryNames = {
 	["Quarterstaff"] = { "Staff: Warstaff" },
 	["Bow"] = { "Bow" },
 	["Crossbow"] = { "Crossbow"},
-	-- ["2HAxe"] = { "Two Handed Axe" },
-	-- ["2HSword"] = { "Two Handed Sword" },
-	["2HMace"] = { "Two Handed Mace" },
+	-- ["2HAxe"] = { "Two Hand Axe" },
+	-- ["2HSword"] = { "Two Hand Sword" },
+	["2HMace"] = { "Two Hand Mace" },
 	-- ["FishingRod"] = { "Fishing Rod" },
 	["BaseJewel"] = { "Jewel" },
 	["RadiusJewel"] = { "Jewel: Radius" },
@@ -642,19 +642,19 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "Staff" then
 				itemCategoryQueryStr = "weapon.staff"
 				itemCategory = "Staff"
-			elseif existingItem.type == "Two Handed Sword" then
+			elseif existingItem.type == "Two Hand Sword" then
 				itemCategoryQueryStr = "weapon.twosword"
 				itemCategory = "2HSword"
-			elseif existingItem.type == "Two Handed Axe" then
+			elseif existingItem.type == "Two Hand Axe" then
 				itemCategoryQueryStr = "weapon.twoaxe"
 				itemCategory = "2HAxe"
-			elseif existingItem.type == "Two Handed Mace" then
+			elseif existingItem.type == "Two Hand Mace" then
 				itemCategoryQueryStr = "weapon.twomace"
 				itemCategory = "2HMace"
 			elseif existingItem.type == "Fishing Rod" then
 				itemCategoryQueryStr = "weapon.rod"
 				itemCategory = "FishingRod"
-			elseif existingItem.type == "One Handed Sword" then
+			elseif existingItem.type == "One Hand Sword" then
 				itemCategoryQueryStr = "weapon.onesword"
 				itemCategory = "1HSword"
 			elseif existingItem.type == "Spear" then
@@ -663,10 +663,10 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "Flail" then
 				itemCategoryQueryStr = "weapon.flail"
 				itemCategory = "weapon.flail"
-			elseif existingItem.type == "One Handed Axe" then
+			elseif existingItem.type == "One Hand Axe" then
 				itemCategoryQueryStr = "weapon.oneaxe"
 				itemCategory = "1HAxe"
-			elseif existingItem.type == "One Handed Mace" then
+			elseif existingItem.type == "One Hand Mace" then
 				itemCategoryQueryStr = "weapon.onemace"
 				itemCategory = "1HMace"
 			elseif existingItem.type == "Sceptre" then
@@ -681,10 +681,10 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			elseif existingItem.type == "Claw" then
 				itemCategoryQueryStr = "weapon.claw"
 				itemCategory = "Claw"
-			elseif existingItem.type:find("Two Handed") ~= nil then
+			elseif existingItem.type:find("Two Hand") ~= nil then
 				itemCategoryQueryStr = "weapon.twomelee"
 				itemCategory = "2HWeapon"
-			elseif existingItem.type:find("One Handed") ~= nil then
+			elseif existingItem.type:find("One Hand") ~= nil then
 				itemCategoryQueryStr = "weapon.one"
 				itemCategory = "1HWeapon"
 			else

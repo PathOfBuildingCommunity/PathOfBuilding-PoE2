@@ -403,7 +403,7 @@ holding Shift will put it in the second.]])
 		self:AnointDisplayItem(1)
 	end)
 	self.controls.displayItemAnoint.shown = function()
-		return self.displayItem and (self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed)
+		return self.displayItem and ((self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed) and not self.displayItem.sanctified)
 	end
 	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
 		self:CorruptDisplayItem()
@@ -2067,14 +2067,14 @@ function ItemsTabClass:CraftItem()
 		item:BuildAndParseRaw()
 		return item
 	end
-	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 20, 0, 16}, "Rarity:")
+	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 20, 0, 16}, "^7Rarity:")
 	controls.rarity = new("DropDownControl", nil, {-80, 20, 100, 18}, rarityDropList)
 	controls.rarity.selIndex = self.lastCraftRaritySel or 3
 	controls.title = new("EditControl", nil, {70, 20, 190, 18}, "", "Name")
 	controls.title.shown = function()
 		return controls.rarity.selIndex >= 3
 	end
-	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 45, 0, 16}, "Type:")
+	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 45, 0, 16}, "^7Type:")
 	controls.type = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {55, 45, 295, 18}, self.build.data.itemBaseTypeList, function(index, value)
 		controls.base.list = self.build.data.itemBaseLists[self.build.data.itemBaseTypeList[index]]
 		controls.base.selIndex = 1
@@ -3055,12 +3055,15 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Corrupted item label
-	if item.corrupted or item.mirrored or item.doubleCorrupted then
+	if item.corrupted or item.mirrored or item.doubleCorrupted or item.sanctified then
 		if #item.explicitModLines == 0 then
 			tooltip:AddSeparator(10)
 		end
 		if item.mirrored then
 			tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE.."Mirrored", "FONTIN SC")
+		end
+		if item.sanctified then
+			tooltip:AddLine(fontSizeBig, colorCodes.FRACTURED.."Sanctified", "FONTIN SC")
 		end
 		if item.doubleCorrupted then
 			tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE.."Twice Corrupted", "FONTIN SC")

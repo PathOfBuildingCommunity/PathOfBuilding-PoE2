@@ -95,7 +95,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.charSelect.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "Import:")
+	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "^7Import:")
 	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 170, 20}, "Passive Tree and Jewels", function()
 		if self.build.spec:CountAllocNodes() > 0 then
 			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
@@ -772,6 +772,30 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
 		end
 
+		-- This could be done better with the character melee skills data at some point.
+		if typeLine:match("Mace Strike") then
+			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
+			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
+			if weapon2Sel == 0 then
+				if self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
+				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
+				end
+			else
+				if self.build.itemsTab.items[weapon2Sel].base.type == "One Hand Mace" or self.build.itemsTab.items[weapon2Sel].base.type == "Two Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultMaceMace" -- Dual wielding maces
+				elseif self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
+				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
+				end
+			end
+		end
+		if typeLine:match("Spear Stab") and (self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0) ~= 0 then
+			gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpearOffHand"
+		end
+
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.support = skillData.support
@@ -1033,6 +1057,7 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	item.mirrored = itemData.mirrored
 	item.corrupted = itemData.corrupted
+	item.sanctified = itemData.sanctified
 	item.doubleCorrupted = itemData.doubleCorrupted
 	item.fractured = itemData.fractured
 	item.desecrated = itemData.desecrated

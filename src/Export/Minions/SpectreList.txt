@@ -407,6 +407,10 @@ Metadata/Monsters/FallenGods/FallenHooksFoundry                                 
 Metadata/Monsters/SpinningWheelHag/SpinningWheelHag                                       		----		Wheelbound Hag
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits                                     		----		Captured Soul
 Metadata/Monsters/TwilightOrderCleric/TwilightOrderCleric                                 		----		Twilight Order Priest
+Metadata/Monsters/FallenGods/FallenGodMinibossBloaterMinion                               		----		Forgotten Mauler
+Metadata/Monsters/FallenGods/FallenGodMinibossSplitMinion                                 		----		Forgotten Cloven
+Metadata/Monsters/FallenGods/FallenGodMinibossClubHandMinion                              		----		Forgotten Brutaliser
+Metadata/Monsters/FallenGods/FallenGodMinibossStagMinion                                  		----		Forgotten Stag
 Metadata/Monsters/RabidFeralDogMonster/RabidDog                                           		----		Rabid Dog
 Metadata/Monsters/KaruiBoar/ExplosivePig                                                  		----		Volatile Boar
 Metadata/Monsters/Ghouls/FarudinCrawler                                                   		----		Faridun Crawler
@@ -451,7 +455,6 @@ Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemoth            
 Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMeleeRitual_           		----		Treant Spriggan
 Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitual_          		----		Treant Sage
 Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitual2          		----		Treant Mystic
-Metadata/Monsters/LeagueRitual/DryadFaction/DruidicFallenStag                             		----		Forgotten Stag
 Metadata/Monsters/LeagueRitual/DemonFaction/CaveDweller_                                  		----		Nameless Dweller
 Metadata/Monsters/LeagueRitual/DemonFaction/PrimordialMonster3_                           		----		Nameless Horror
 Metadata/Monsters/LeagueRitual/DemonFaction/DemonRhoa                                     		----		Nameless Lurker
@@ -577,6 +580,10 @@ Metadata/Monsters/RootedGuys/RootedGuy03/RootedGuy3                             
 Metadata/Monsters/RootedGuys/RootedGuy04/RootedGuy4                                       		----		Fungal Reaver
 Metadata/Monsters/RootedGuys/Cocoons2/Cocoons2__                                          		----		Infested Cadaver
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpirits                                     		----		Captured Soul
+Metadata/Monsters/FallenGods/FallenGodMinibossBloaterMinion                               		----		Forgotten Mauler
+Metadata/Monsters/FallenGods/FallenGodMinibossSplitMinion                                 		----		Forgotten Cloven
+Metadata/Monsters/FallenGods/FallenGodMinibossClubHandMinion                              		----		Forgotten Brutaliser
+Metadata/Monsters/FallenGods/FallenGodMinibossStagMinion                                  		----		Forgotten Stag
 Metadata/Monsters/LeagueDelirium/DeliriumMinion1                                          		----		Rage
 Metadata/Monsters/LeagueDelirium/DeliriumMinion2                                          		----		Spite
 Metadata/Monsters/LeagueDelirium/DeliriumMinion3                                          		----		Disgust
@@ -983,6 +990,9 @@ Metadata/Monsters/TwilightOrderStigmata/TwilightOrderStigmataAxePatrol          
 Metadata/Monsters/FallenGods/FallenHooks                                                  		----		Forgotten Satyr
 Metadata/Monsters/SummonedPhantasm/HusbandWifeSpiritsWild                                 		----		Captured Soul
 Metadata/Monsters/TwilightOrderCleric/TwilightOrderClericPatrol                           		----		Twilight Order Priest
+Metadata/Monsters/FallenGods/FallenGodMinibossCrawlerMinion                               		----		Forgotten Crawler
+Metadata/Monsters/FallenGods/FallenGodMinibossStalkerMinion                               		----		Forgotten Stalker
+Metadata/Monsters/FallenGods/FallenGodMinibossHooksMinion__                               		----		Forgotten Satyr
 Metadata/Monsters/RabidFeralDogMonster/RabidDogLargeFarmlandsNoName                       		----		Rabid Dog
 Metadata/Monsters/Ghouls/FarudinCrawlerQuarry                                             		----		Faridun Crawler
 Metadata/Monsters/DrudgeMiners/DrudgeBedrockBlasterMinecart_                              		----		Forsaken Miner
@@ -1026,6 +1036,7 @@ Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/RootBehemothWILDWOOD    
 Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterMeleeRitualWILDWOOD    		----		Treant Spriggan
 Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitualWILDWOOD   		----		Treant Sage
 Metadata/Monsters/LeagueRitual/DryadFaction/RootMonster/TwigMonsterCasterRitual2WILDWOOD  		----		Treant Mystic
+Metadata/Monsters/LeagueRitual/DryadFaction/DruidicFallenStag                             		----		Forgotten Stag
 Metadata/Monsters/LeagueRitual/DryadFaction/DruidicFallenStagWILDWOOD                     		----		Forgotten Stag
 Metadata/Monsters/LeagueRitual/DemonFaction/CaveDwellerWILDWOOD                           		----		Nameless Dweller
 Metadata/Monsters/LeagueRitual/DemonFaction/PrimordialMonster3WILDWOOD                    		----		Nameless Horror
