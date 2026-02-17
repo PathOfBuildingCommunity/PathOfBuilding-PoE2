@@ -380,6 +380,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			charmBuffLines[line] = nil
 		elseif line == "--------" then
 			self.checkSection = true
+		elseif line == "Sanctified" then
+			self.sanctified = true
+			self.corruptible = false
 		elseif line == "Mirrored" then
 			self.mirrored = true
 		elseif line == "Corrupted" then
@@ -713,7 +716,6 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 								or data.itemMods[self.base.type]
 								or data.itemMods.Item
 						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore" and self.base.type ~= "Transcendent Limb"
-						self.clusterJewel = data.clusterJewels and data.clusterJewels.jewels[self.baseName]
 						self.requirements.str = self.base.req.str or 0
 						self.requirements.dex = self.base.req.dex or 0
 						self.requirements.int = self.base.req.int or 0
@@ -1296,6 +1298,9 @@ function ItemClass:BuildRaw()
 	end
 	if self.mirrored then
 		t_insert(rawLines, "Mirrored")
+	end
+	if self.sanctified then
+		t_insert(rawLines, "Sanctified")
 	end
 	if self.doubleCorrupted then
 		t_insert(rawLines, "Twice Corrupted")

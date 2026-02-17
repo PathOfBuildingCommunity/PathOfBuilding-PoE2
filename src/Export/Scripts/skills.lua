@@ -165,6 +165,7 @@ directiveTable.skill = function(state, args, out)
 		end
 	end
 	local skill = { }
+	local gemLevels = #dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
 	state.skill = skill
 	state.granted = granted
 	if skillGem and not state.noGem then
@@ -175,6 +176,7 @@ directiveTable.skill = function(state, args, out)
 			if #gemEffect.Description > 0 then
 				out:write('\tdescription = "', escapeGGGString(gemEffect.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n')), '",\n')
 			end
+			gemLevels = 1
 		else
 			skill.displayName = secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
 			out:write('\tname = "', skill.displayName, '",\n')
@@ -218,7 +220,7 @@ directiveTable.skill = function(state, args, out)
 	if skillGem and not state.noGem then
 		gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
 	end
-	for indx = 1, #perLevel do
+	for indx = 1, gemLevels do
 		local levelRow = perLevel[indx]
 		local statRow = statsPerLevel[indx]
 		skill.baseStatRow[indx] = statRow

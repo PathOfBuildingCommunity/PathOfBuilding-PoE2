@@ -3002,8 +3002,6 @@ skills["SupportMaimPlayer"] = {
 	gemFamily = { "Maim",},
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 3, },
-		[3] = { levelRequirement = 6, },
 	},
 	statSets = {
 		[1] = {
