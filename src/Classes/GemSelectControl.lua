@@ -606,6 +606,14 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 			self.tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier), "FONTIN SC")
 		end
 	if addReq and not grantedEffect.support then
+		local totalGlobalLevels = 0
+		if displayInstance.gemPropertyInfo then
+			for i, prop in ipairs(displayInstance.gemPropertyInfo) do
+				if prop.value and prop.value.value then
+					totalGlobalLevels = totalGlobalLevels + prop.value.value
+				end
+			end
+		end
 		local totalLevel
 		totalLevel = m_max(displayInstance.level, (gemInstance.level + gemInstance.corruptLevel)) -- Needed for tooltip comparison for dropdown gems. Otherwise they only show level 20 when corrupted.
 		if displayInstance.corruptLevel ~= 0 or
@@ -622,10 +630,10 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 		elseif displayInstance.corruptLevel < 0 then
 			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
 		end
-		if displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 then
-			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.gemPropertyInfo[1].value.value .. " Levels from Global Modifiers", "FONTIN SC")
-			if totalLevel - gemInstance.level - displayInstance.corruptLevel*2 - displayInstance.gemPropertyInfo[1].value.value > 0 then
-				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - displayInstance.corruptLevel - displayInstance.gemPropertyInfo[1].value.value .. " Levels from Supports", "FONTIN SC")
+		if totalGlobalLevels > 0 then
+			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalGlobalLevels .. " Levels from Global Modifiers", "FONTIN SC")
+			if totalLevel - gemInstance.level - displayInstance.corruptLevel - totalGlobalLevels > 0 then
+				self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - displayInstance.corruptLevel - totalGlobalLevels .. " Levels from Supports", "FONTIN SC")
 			end
 		elseif totalLevel - gemInstance.level - displayInstance.corruptLevel > 0 then
 			self.tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - displayInstance.corruptLevel .. " Levels from Supports", "FONTIN SC")
