@@ -5198,7 +5198,7 @@ skills["PhantasmalArrowPlayer"] = {
 				"has_modular_projectiles_enabled",
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
-				"projectiles_fire_at_ground",
+				"precise_cursor_targeting_uses_contact_point_height_offset",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5273,7 +5273,7 @@ skills["PhantasmalArrowPlayer"] = {
 				"has_modular_projectiles_enabled",
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
-				"projectiles_fire_at_ground",
+				"precise_cursor_targeting_uses_contact_point_height_offset",
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
 			},

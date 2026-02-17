@@ -66,7 +66,6 @@ minions["SummonedRagingSpirit"] = {
 		mod("Speed", "MORE", 40, 1, 0), -- MonsterSummonedSkullFastAttack1 [active_skill_attack_speed_+%_final = 40]
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
-		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
 	},
 }
 

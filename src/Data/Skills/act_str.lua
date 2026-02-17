@@ -3656,7 +3656,6 @@ skills["WyvernDevourPlayer"] = {
 				"wyvern_devour_life_restoration",
 				"active_skill_show_cull_range",
 				"disable_quadruped_head_control",
-				"global_knockback",
 				"is_area_damage",
 			},
 			levels = {
@@ -6398,6 +6397,7 @@ skills["BearFuryOfTheMountainPlayer"] = {
 				{ "bear_fury_of_the_mountain_front_facing_cone_angle", 120 },
 				{ "active_skill_base_area_of_effect_radius", 10 },
 				{ "gain_x_rage_on_attack_hit", 3 },
+				{ "base_minimum_channel_time_ms", 200 },
 			},
 			stats = {
 				"is_area_damage",
@@ -12854,7 +12854,7 @@ skills["WolfLunarBlessingPlayer"] = {
 	baseTypeName = "Lunar Blessing",
 	color = 1,
 	description = "Shapeshift into a Werewolf and offer your Rage to the moon to receive a blessing, gaining bonus Cold damage for yourself and any Wolf Minions you have from Wolf Pack or Predator's Mark. Spends all Rage to extend the Buff's duration. While the Buff is active, your Werewolf Melee Attacks call down Moonbeams on Hit.",
-	skillTypes = { [SkillType.Warcry] = true, [SkillType.Shapeshift] = true, [SkillType.OngoingSkill] = true, [SkillType.Buff] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.Cold] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, },
+	skillTypes = { [SkillType.Warcry] = true, [SkillType.Shapeshift] = true, [SkillType.Buff] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.Cold] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, },
 	weaponTypes = {
 		["Talisman"] = true,
 	},
@@ -15364,6 +15364,7 @@ skills["BearRampagePlayer"] = {
 				"skill_cannot_gain_rage_during_use",
 				"disable_quadruped_head_movement_when_turning",
 				"display_charge_speed_is_move_speed",
+				"base_skill_show_average_damage_instead_of_dps",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -20034,6 +20035,8 @@ skills["WalkingCalamityMeteorPlayer"] = {
 				"is_area_damage",
 				"attack_is_not_melee_override",
 				"triggerable_in_any_set",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -20096,6 +20099,8 @@ skills["WalkingCalamityMeteorPlayer"] = {
 				"is_area_damage",
 				"attack_is_not_melee_override",
 				"triggerable_in_any_set",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.5, actorLevel = 1, },
