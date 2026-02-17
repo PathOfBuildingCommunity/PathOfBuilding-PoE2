@@ -161,6 +161,8 @@ function GemSelectClass:BuildList(buf)
 								tagName = "strength"
 							elseif tagName == "dex" then
 								tagName = "dexterity"
+							elseif tagName == "aoe" then
+								tagName = "area"
 							end
 							-- for :melee we want to exclude gems that DON'T have this tag
 							-- for :-melee we want to exclude gems that DO have this tag

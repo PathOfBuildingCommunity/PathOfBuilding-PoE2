@@ -4195,9 +4195,6 @@ skills["ImpactShockwaveSupportPlayer"] = {
 	gemFamily = { "ImpactShockwave",},
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 3, },
-		[3] = { levelRequirement = 6, },
-		[4] = { levelRequirement = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -5119,8 +5116,6 @@ skills["ProlongedDurationSupportPlayer"] = {
 	gemFamily = { "ProlongedDuration",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-		[2] = { levelRequirement = 3, manaMultiplier = 20, },
-		[3] = { levelRequirement = 6, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5255,8 +5250,6 @@ skills["SupportRagePlayer"] = {
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 3, },
-		[3] = { levelRequirement = 6, },
 	},
 	statSets = {
 		[1] = {
@@ -6630,7 +6623,7 @@ skills["SupportStompingGroundPlayer"] = {
 	excludeSkillTypes = { },
 	gemFamily = { "StompingGround",},
 	weaponTypes = {
-		["Two Handed Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	levels = {
 		[1] = { levelRequirement = 0, },

@@ -434,7 +434,7 @@ skills["SupportAtzirisImpatiencePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Meta, SkillType.Proxy, },
 	gemFamily = { "CooldownRecovery",},
 	isLineage = true,
 	flavourText = {"\"Those who bored the Queen suffered an excessive punishment:", "everyone they had ever known would be killed, effectively", "erasing their life. So, no matter the cost... none kept her waiting.\"", },
@@ -3002,8 +3002,6 @@ skills["SupportMaimPlayer"] = {
 	gemFamily = { "Maim",},
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 3, },
-		[3] = { levelRequirement = 6, },
 	},
 	statSets = {
 		[1] = {

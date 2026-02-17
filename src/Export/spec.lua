@@ -14573,7 +14573,7 @@ return {
 		},
 		[25]={
 			list=false,
-			name="AnnointOnly",
+			name="AnointOnly",
 			refTo="",
 			type="Bool",
 			width=50

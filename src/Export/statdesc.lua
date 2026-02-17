@@ -417,7 +417,7 @@ end
 function describeScalability(fileName)
 	local out = { }
 	local stats = dat("stats")
-	for stat, statDescription in pairs(statDescriptors[fileName]) do
+	for stat, statDescription in pairsSortByKey(statDescriptors[fileName]) do
 		local scalability = { }
 		if statDescription.stats then
 			for i, stat in ipairs(statDescription.stats) do

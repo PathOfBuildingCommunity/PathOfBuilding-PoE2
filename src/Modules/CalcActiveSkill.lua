@@ -224,7 +224,7 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	if weaponTypes then
 		for _, types in ipairs(weaponTypes) do
 			if not types[weaponData.type] and
-			(not weaponData.countsAsAll1H or not (types["Claw"] or types["Dagger"] or types["One Handed Axe"] or types["One Handed Mace"] or types["One Handed Sword"]
+			(not weaponData.countsAsAll1H or not (types["Claw"] or types["Dagger"] or types["One Hand Axe"] or types["One Hand Mace"] or types["One Hand Sword"]
 			or types["Spear"])) and not (weaponData.asThoughUsing and checkAsThoughWeaponTypes(weaponData, weaponTypes)) then
 				return nil, info
 			end

@@ -33,17 +33,17 @@ end
 local weaponClassMap = {
 	["Claw"] = "Claw",
 	["Dagger"] = "Dagger",
-	["One Hand Sword"] = "One Handed Sword",
-	["Thrusting One Hand Sword"] = "Thrusting One Handed Sword",
-	["One Hand Axe"] = "One Handed Axe",
-	["One Hand Mace"] = "One Handed Mace",
+	["One Hand Sword"] = "One Hand Sword",
+	["Thrusting One Hand Sword"] = "Thrusting One Hand Sword",
+	["One Hand Axe"] = "One Hand Axe",
+	["One Hand Mace"] = "One Hand Mace",
 	["Bow"] = "Bow",
 	["Crossbow"] = "Crossbow",
 	["Fishing Rod"] = "Fishing Rod",
 	["Warstaff"] = "Staff",
-	["Two Hand Sword"] = "Two Handed Sword",
-	["Two Hand Axe"] = "Two Handed Axe",
-	["Two Hand Mace"] = "Two Handed Mace",
+	["Two Hand Sword"] = "Two Hand Sword",
+	["Two Hand Axe"] = "Two Hand Axe",
+	["Two Hand Mace"] = "Two Hand Mace",
 	["Unarmed"] = "None",
 	["Flail"] = "Flail",
 	["Spear"] = "Spear",
@@ -165,6 +165,7 @@ directiveTable.skill = function(state, args, out)
 		end
 	end
 	local skill = { }
+	local gemLevels = #dat("GrantedEffectsPerLevel"):GetRowList("GrantedEffect", granted)
 	state.skill = skill
 	state.granted = granted
 	if skillGem and not state.noGem then
@@ -176,6 +177,7 @@ directiveTable.skill = function(state, args, out)
 			if #gemEffect.Description > 0 then
 				out:write('\tdescription = "', escapeGGGString(gemEffect.Description:gsub('"','\\"'):gsub('\r',''):gsub('\n','\\n')), '",\n')
 			end
+			gemLevels = 1
 		else
 			skill.displayName = secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
 			out:write('\tname = "', skill.displayName, '",\n')
@@ -219,7 +221,7 @@ directiveTable.skill = function(state, args, out)
 	if skillGem and not state.noGem then
 		gemLevelProgression = dat("ItemExperiencePerLevel"):GetRowList("ItemExperienceType", skillGem.GemLevelProgression)
 	end
-	for indx = 1, #perLevel do
+	for indx = 1, gemLevels do
 		local levelRow = perLevel[indx]
 		local statRow = statsPerLevel[indx]
 		skill.baseStatRow[indx] = statRow
