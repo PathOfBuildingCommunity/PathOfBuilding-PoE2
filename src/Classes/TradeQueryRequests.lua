@@ -413,10 +413,14 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				if item.mirrored then
 					t_insert(rawLines, "Mirrored")
 				end
-				if item.corrupted then
+				if item.doubleCorrupted then
+					t_insert(rawLines, "Twice Corrupted")
+				elseif item.corrupted then
 					t_insert(rawLines, "Corrupted")
 				end
-				
+				if item.sanctified then
+					t_insert(rawLines, "Sanctified")
+				end
 
 				table.insert(items, {
 					amount = trade_entry.listing.price.amount,
