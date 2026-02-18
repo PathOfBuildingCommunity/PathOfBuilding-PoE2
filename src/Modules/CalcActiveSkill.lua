@@ -444,7 +444,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Apply stat-map flagged skill flags.
-	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect)) do
+	for stat, statValue in pairs(calcLib.buildSkillInstanceStats(activeEffect, activeGrantedEffect, activeStatSet)) do
 		local map = activeGrantedEffect.statMap[stat]
 		if statValue ~= 0 and map and map.skillFlag then
 			skillFlags[map.skillFlag] = true
