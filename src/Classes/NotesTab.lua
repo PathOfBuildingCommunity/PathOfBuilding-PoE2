@@ -35,7 +35,7 @@ Below are some common color codes PoB uses:	]]
 		self.searchStr = buf
 		self.controls.edit.sel = nil
 		self:FindNext()
-	end)
+	end, nil, nil, true)
 	self.controls.search.tooltipText = "Type to search your notes.\nPress Enter for next match, Shift+Enter for previous."
 	-- Intercept OnKeyDown instead of using enterFunc to prevent the engine from dropping keyboard focus
 	local originalOnKeyDown = self.controls.search.OnKeyDown
