@@ -12,6 +12,7 @@ local NotesTabClass = newClass("NotesTab", "ControlHost", "Control", function(se
 	self.build = build
 
 	self.lastContent = ""
+	self.searchStr = ""
 	self.showColorCodes = false
 
 	local notesDesc = [[^7You can use Ctrl +/- (or Ctrl+Scroll) to zoom in and out and Ctrl+0 to reset.
@@ -31,7 +32,7 @@ Below are some common color codes PoB uses:	]]
 	self.controls.intelligence = new("ButtonControl", {"TOPLEFT",self.controls.dexterity,"TOPLEFT"}, {120, 0, 100, 18}, colorCodes.INTELLIGENCE.."INTELLIGENCE", function() self:SetColor(colorCodes.INTELLIGENCE) end)
 	self.controls.default = new("ButtonControl", {"TOPLEFT",self.controls.intelligence,"TOPLEFT"}, {120, 0, 100, 18}, "^7DEFAULT", function() self:SetColor("^7") end)
 
-	self.controls.search = new("EditControl", {"TOPLEFT",self.controls.strength,"TOPLEFT"}, {0, 24, 416, 20}, "", "Search", "%c", 100, function(buf)
+	self.controls.search = new("EditControl", {"TOPLEFT",self.controls.strength,"TOPLEFT"}, {0, 24, 416, 20}, "", "Search", nil, 100, function(buf)
 		self.searchStr = buf
 		self.controls.edit.sel = nil
 		self:FindNext()
