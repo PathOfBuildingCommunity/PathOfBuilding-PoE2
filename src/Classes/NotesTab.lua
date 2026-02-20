@@ -31,12 +31,38 @@ Below are some common color codes PoB uses:	]]
 	self.controls.intelligence = new("ButtonControl", {"TOPLEFT",self.controls.dexterity,"TOPLEFT"}, {120, 0, 100, 18}, colorCodes.INTELLIGENCE.."INTELLIGENCE", function() self:SetColor(colorCodes.INTELLIGENCE) end)
 	self.controls.default = new("ButtonControl", {"TOPLEFT",self.controls.intelligence,"TOPLEFT"}, {120, 0, 100, 18}, "^7DEFAULT", function() self:SetColor("^7") end)
 
-	self.controls.edit = new("EditControl", {"TOPLEFT",self.controls.fire,"TOPLEFT"}, {0, 48, 0, 0}, "", nil, "^%C\t\n", nil, nil, 16, true)
+	self.controls.search = new("EditControl", {"TOPLEFT",self.controls.strength,"TOPLEFT"}, {0, 24, 416, 20}, "", "Search", "%c", 100, function(buf)
+		self.searchStr = buf
+		self.controls.edit.sel = nil
+		self:FindNext()
+	end)
+	self.controls.search.tooltipText = "Type to search your notes.\nPress Enter for next match, Shift+Enter for previous."
+	-- Intercept OnKeyDown instead of using enterFunc to prevent the engine from dropping keyboard focus
+	local originalOnKeyDown = self.controls.search.OnKeyDown
+	self.controls.search.OnKeyDown = function(control, key, doubleClick)
+		if key == "RETURN" then
+			if IsKeyDown("SHIFT") then
+				self:FindPrev()
+			else
+				self:FindNext()
+			end
+			return control 
+		end
+		return originalOnKeyDown(control, key, doubleClick)
+	end
+	self.controls.btnPrev = new("ButtonControl", {"LEFT",self.controls.search,"RIGHT"}, {2, 0, 20, 20}, "<", function()
+		self:FindPrev()
+	end)
+	self.controls.btnNext = new("ButtonControl", {"LEFT",self.controls.btnPrev,"RIGHT"}, {2, 0, 20, 20}, ">", function()
+		self:FindNext()
+	end)
+
+	self.controls.edit = new("EditControl", {"TOPLEFT",self.controls.search,"TOPLEFT"}, {0, 28, 0, 0}, "", nil, "^%C\t\n", nil, nil, 16, true)
 	self.controls.edit.width = function()
 		return self.width - 16
 	end
 	self.controls.edit.height = function()
-		return self.height - 128
+		return self.height - 150
 	end
 	self.controls.toggleColorCodes = new("ButtonControl", {"TOPRIGHT",self,"TOPRIGHT"}, {-10, 70, 160, 20}, "Show Color Codes", function()
 		self.showColorCodes = not self.showColorCodes
@@ -65,6 +91,89 @@ function NotesTabClass:SetColor(color)
 		local lastColor = self.controls.edit:GetSelText():match(self.showColorCodes and "^.*(%^_x%x%x%x%x%x%x)" or "^.*(%^x%x%x%x%x%x%x)") or "^7"
 		self.controls.edit:ReplaceSel(text..self.controls.edit:GetSelText():gsub(self.showColorCodes and "%^_x%x%x%x%x%x%x" or "%^x%x%x%x%x%x%x", "")..lastColor)
 	end
+end
+
+function NotesTabClass:GetSearchMatches()
+	if self.cachedMatches and self.lastSearchStr == self.searchStr and self.lastSearchBuf == self.controls.edit.buf then
+		return self.cachedMatches
+	end
+	local textLower = self.controls.edit.buf:lower()
+	local searchLower = self.searchStr:lower()
+	-- Build a list of ranges covering color codes so we don't accidentally match search text inside them
+	local ranges = {}
+	for s, e in textLower:gmatch("()%^x%x%x%x%x%x()") do t_insert(ranges, {s, e - 1}) end
+	for s, e in textLower:gmatch("()%^%d()") do t_insert(ranges, {s, e - 1}) end
+	for s, e in textLower:gmatch("()%^_x%x%x%x%x%x()") do t_insert(ranges, {s, e - 1}) end
+	for s, e in textLower:gmatch("()%^_%d()") do t_insert(ranges, {s, e - 1}) end
+	local matches = {}
+	local searchStart = 1
+	while true do
+		local s, e = textLower:find(searchLower, searchStart, true)
+		if not s then break end
+		local valid = true
+		for _, r in ipairs(ranges) do
+			if not (e < r[1] or s > r[2]) then
+				valid = false
+				break
+			end
+		end
+		if valid then
+			t_insert(matches, {s = s, e = e})
+		end
+		searchStart = e + 1
+	end
+	self.cachedMatches = matches
+	self.lastSearchStr = self.searchStr
+	self.lastSearchBuf = self.controls.edit.buf
+	return matches
+end
+
+function NotesTabClass:FindNext()
+	if not self.searchStr or self.searchStr == "" then
+		self.controls.edit.sel = nil
+		return
+	end
+	local matches = self:GetSearchMatches()
+	if #matches == 0 then
+		self.controls.edit.sel = nil
+		return
+	end
+	local targetIndex = self.controls.edit.sel and self.controls.edit.caret or 1
+	local nextMatch = matches[1]
+	for _, match in ipairs(matches) do
+		if match.s >= targetIndex then
+			nextMatch = match
+			break
+		end
+	end
+	self.controls.edit.sel = nextMatch.s
+	self.controls.edit.caret = nextMatch.e + 1
+	self.controls.edit:ScrollCaretIntoView()
+end
+
+function NotesTabClass:FindPrev()
+	if not self.searchStr or self.searchStr == "" then
+		self.controls.edit.sel = nil
+		return
+	end
+
+	local matches = self:GetSearchMatches()
+	if #matches == 0 then
+		self.controls.edit.sel = nil
+		return
+	end
+	local targetIndex = self.controls.edit.sel or (#self.controls.edit.buf + 1)
+	local prevMatch = matches[#matches]
+	for i = #matches, 1, -1 do
+		if matches[i].s < targetIndex then
+			prevMatch = matches[i]
+			break
+		end
+	end
+
+	self.controls.edit.sel = prevMatch.s
+	self.controls.edit.caret = prevMatch.e + 1
+	self.controls.edit:ScrollCaretIntoView()
 end
 
 function NotesTabClass:Load(xml, fileName)

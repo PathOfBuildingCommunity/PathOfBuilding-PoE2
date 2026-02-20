@@ -290,7 +290,7 @@ function EditClass:Draw(viewPort, noTooltip)
 	local marginR = self.controls.scrollBarV:IsShown() and 14 or 0
 	local marginB = self.controls.scrollBarH:IsShown() and 14 or 0
 	SetViewport(textX, textY, width - 4 - marginL - marginR, height - 4 - marginB)
-	if not self.hasFocus then
+	if not self.hasFocus and not self.sel then
 		if self.buf == '' and self.placeholder then
 			SetDrawColor(self.disableCol)
 			DrawString(-self.controls.scrollBarH.offset, -self.controls.scrollBarV.offset, "LEFT", textHeight, self.font, self.placeholder)
@@ -364,7 +364,7 @@ function EditClass:Draw(viewPort, noTooltip)
 			end
 			textY = textY + textHeight
 		end
-		if caretX then
+		if caretX and self.hasFocus then
 			if (GetTime() - self.blinkStart) % 1000 < 500 then
 				SetDrawColor(self.textCol)
 				DrawImage(nil, caretX, caretY, 1, textHeight)
