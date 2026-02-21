@@ -35,8 +35,20 @@ Below are some common color codes PoB uses:	]]
 	self.controls.search = new("EditControl", {"TOPLEFT",self.controls.strength,"TOPLEFT"}, {0, 24, 416, 20}, "", "Search", nil, 100, function(buf)
 		self.searchStr = buf
 		self.controls.edit.sel = nil
+		if buf == "" then
+			self.lastMatchS = nil
+			self.lastMatchE = nil
+			return
+		end
 		self:FindNext()
 	end, nil, nil, true)
+	local originalSearchDraw = self.controls.search.Draw
+	self.controls.search.Draw = function(control, viewPort, noTooltip)
+		if not control.hasFocus and control.sel == control.caret then
+			control.sel = nil
+		end
+		originalSearchDraw(control, viewPort, noTooltip)
+	end
 	self.controls.search.tooltipText = "Type to search your notes.\nPress Enter for next match, Shift+Enter for previous."
 	-- Intercept OnKeyDown instead of using enterFunc to prevent the engine from dropping keyboard focus
 	local originalOnKeyDown = self.controls.search.OnKeyDown
@@ -50,6 +62,17 @@ Below are some common color codes PoB uses:	]]
 			return control 
 		end
 		return originalOnKeyDown(control, key, doubleClick)
+	end
+	-- Intercept OnFocusGained to re-highlight matches when clicking back into the search box
+	local originalOnFocusGained = self.controls.search.OnFocusGained
+	self.controls.search.OnFocusGained = function(control)
+		originalOnFocusGained(control)
+		if self.searchStr and self.searchStr ~= "" 
+		and self.lastMatchS
+		and (not self.controls.edit.sel or self.controls.edit.sel == self.controls.edit.caret) then
+			self.controls.edit.sel = self.lastMatchS
+			self.controls.edit.caret = self.lastMatchE + 1
+		end
 	end
 	self.controls.btnPrev = new("ButtonControl", {"LEFT",self.controls.search,"RIGHT"}, {2, 0, 20, 20}, "<", function()
 		self:FindPrev()
@@ -68,6 +91,7 @@ Below are some common color codes PoB uses:	]]
 	self.controls.toggleColorCodes = new("ButtonControl", {"TOPRIGHT",self,"TOPRIGHT"}, {-10, 70, 160, 20}, "Show Color Codes", function()
 		self.showColorCodes = not self.showColorCodes
 		self:SetShowColorCodes(self.showColorCodes)
+		self.controls.edit.sel = nil
 	end)
 	self:SelectControl(self.controls.edit)
 end)
@@ -102,10 +126,13 @@ function NotesTabClass:GetSearchMatches()
 	local searchLower = self.searchStr:lower()
 	-- Build a list of ranges covering color codes so we don't accidentally match search text inside them
 	local ranges = {}
-	for s, e in textLower:gmatch("()%^x%x%x%x%x%x()") do t_insert(ranges, {s, e - 1}) end
-	for s, e in textLower:gmatch("()%^%d()") do t_insert(ranges, {s, e - 1}) end
-	for s, e in textLower:gmatch("()%^_x%x%x%x%x%x()") do t_insert(ranges, {s, e - 1}) end
-	for s, e in textLower:gmatch("()%^_%d()") do t_insert(ranges, {s, e - 1}) end
+	if self.showColorCodes then
+		for s, e in textLower:gmatch("()%^x%x%x%x%x%x%x()") do t_insert(ranges, {s, e - 1}) end
+		for s, e in textLower:gmatch("()%^%d()") do t_insert(ranges, {s, e - 1}) end
+	else
+		for s, e in textLower:gmatch("()%^_x%x%x%x%x%x%x()") do t_insert(ranges, {s, e - 1}) end
+		for s, e in textLower:gmatch("()%^_%d()") do t_insert(ranges, {s, e - 1}) end
+	end
 	local matches = {}
 	local searchStart = 1
 	while true do
@@ -142,13 +169,15 @@ function NotesTabClass:FindNext()
 	local targetIndex = self.controls.edit.sel and self.controls.edit.caret or 1
 	local nextMatch = matches[1]
 	for _, match in ipairs(matches) do
-		if match.s >= targetIndex then
+		if match.e >= targetIndex then
 			nextMatch = match
 			break
 		end
 	end
 	self.controls.edit.sel = nextMatch.s
 	self.controls.edit.caret = nextMatch.e + 1
+	self.lastMatchS = nextMatch.s
+	self.lastMatchE = nextMatch.e
 	self.controls.edit:ScrollCaretIntoView()
 end
 
@@ -157,7 +186,6 @@ function NotesTabClass:FindPrev()
 		self.controls.edit.sel = nil
 		return
 	end
-
 	local matches = self:GetSearchMatches()
 	if #matches == 0 then
 		self.controls.edit.sel = nil
@@ -171,9 +199,10 @@ function NotesTabClass:FindPrev()
 			break
 		end
 	end
-
 	self.controls.edit.sel = prevMatch.s
 	self.controls.edit.caret = prevMatch.e + 1
+	self.lastMatchS = prevMatch.s
+	self.lastMatchE = prevMatch.e
 	self.controls.edit:ScrollCaretIntoView()
 end
 
