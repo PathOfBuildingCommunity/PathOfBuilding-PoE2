@@ -346,10 +346,11 @@ function EditClass:Draw(viewPort, noTooltip)
 					sel = sel .. "  "
 				end
 				local selWidth = DrawStringWidth(textHeight, self.font, sel)
+				local r,g,b,a = GetDrawColor()
 				SetDrawColor(self.selBGCol)
 				DrawImage(nil, textX, textY, selWidth, textHeight)
 				DrawString(textX, textY, "LEFT", textHeight, self.font, sel)
-				SetDrawColor(self.textCol)
+				SetDrawColor(r,g,b,a)
 				textX = textX + selWidth
 			end
 			if right >= s and right < e and right == self.caret then
