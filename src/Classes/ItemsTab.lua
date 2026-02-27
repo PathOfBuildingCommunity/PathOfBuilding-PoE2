@@ -2624,16 +2624,65 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					return a.essence.tierLevel > b.essence.tierLevel
 				end
 			end)
+		elseif sourceId == "DESECRATED" then
+			for _, mod in pairs(self.displayItem.affixes) do -- Normal mods for the item can be desecrated as well.
+				if (mod.type == "Prefix" or mod.type == "Suffix") and self.displayItem:GetModSpawnWeight(mod) > 0 then
+					t_insert(modList, {
+						label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]",
+						mod = mod,
+						type = "desecrated",
+					})
+				end
+			end
+			for modId, mod in pairs(self.build.data.itemMods.Desecrated) do
+				for _, weightKey in pairs(mod.weightKey) do
+					local tag_name = weightKey:lower()
+					local item_type = self.displayItem.type:lower():gsub(" ", "_")
+					if tag_name == item_type then
+						t_insert(modList, {
+							label = mod.affix .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ") (Desecrated)",
+							mod = mod,
+							type = "desecrated",
+							desecratedSpecific = true,
+						})
+					end
+				end
+			end
+			table.sort(modList, function(a, b)
+				local modA = a.mod
+				local modB = b.mod
+
+				-- Desecrated specific mods always come first
+				if a.desecratedSpecific ~= b.desecratedSpecific then
+					return a.desecratedSpecific == true
+				end
+
+				for i = 1, m_max(#modA.statOrder or 0, #modB.statOrder or 0) do
+					local statA = modA.statOrder and modA.statOrder[i]
+					local statB = modB.statOrder and modB.statOrder[i]
+
+					if not statA then
+						return true
+					elseif not statB then
+						return false
+					elseif statA ~= statB then
+						return statA < statB
+					end
+				end
+				return (modA.level or 0) > (modB.level or 0)
+			end)
 		end
 	end
 	if not self.displayItem.crafted then
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
 		t_insert(sourceList, { label = "Suffix", sourceId = "SUFFIX" })
 	end
-	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods, 
+	buildMods("DESECRATED")
+	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods,
 									-- but it makes it so we don't have to maintain a list of applicable essence-able base types
 	if #modList > 0 then
 		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
+		t_insert(sourceList, { label = "Desecrated", sourceId = "DESECRATED" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
