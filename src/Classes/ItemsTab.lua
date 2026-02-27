@@ -2694,6 +2694,11 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 			if controls.custom.buf:match("%S") then
 				t_insert(item.explicitModLines, { line = controls.custom.buf, custom = true })
 			end
+		elseif sourceId == "DESECRATED" then
+			local listMod = modList[controls.modSelect.selIndex]
+			for _, line in ipairs(listMod.mod) do
+				t_insert(item.explicitModLines, { line = line, modTags = listMod.mod.modTags, [listMod.type] = true, custom = true })
+			end
 		else
 			local listMod = modList[controls.modSelect.selIndex]
 			for _, line in ipairs(listMod.mod) do
