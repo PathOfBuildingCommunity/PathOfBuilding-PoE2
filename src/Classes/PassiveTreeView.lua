@@ -13,6 +13,9 @@ local m_max = math.max
 local m_floor = math.floor
 local band = AND64 -- bit.band
 local b_rshift = bit.rshift
+--This variable is used to display the Unseen Path nodes in green when unallocated and hovered over
+--When true the checkUnlockConstraint function will return true for the check
+local unseenPathHover = false
 
 local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.ring = NewImageHandle()
@@ -195,7 +198,12 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				local vY = curTreeY - node.y
 				if vX * vX + vY * vY <= node.rsq then
 					hoverNode = node
+					if hoverNode.id == 5571 and not hoverNode.alloc then
+						unseenPathHover = true
+					end
 					break
+				else
+					unseenPathHover = false
 				end
 			end
 		end
@@ -611,7 +619,13 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		connector.c[5], connector.c[6] = treeToScreen(vert[5], vert[6])
 		connector.c[7], connector.c[8] = treeToScreen(vert[7], vert[8])
 
-		if hoverDep and hoverDep[node1] and hoverDep[node2] then
+		if hoverNode and hoverNode.id == 5571 and hoverDep and (hoverDep[node1] or hoverDep[node2]) and not hoverNode.alloc then
+			--Used to display Unseen Path nodes green when unallocated and hovered over
+			setConnectorColor(0, 1, 0)
+		elseif hoverDep and (hoverDep[node1] or hoverDep[node2]) and hoverNode.id == 5571 and not hoverNode.isAlloc then
+			--Used to display Unseen Path nodes red when allocated and hovered over node
+			setConnectorColor(1, 0, 0)
+		elseif hoverDep and hoverDep[node1] and hoverDep[node2] then
 			-- Both nodes depend on the node currently being hovered over, so color the line red
 			setConnectorColor(1, 0, 0)
 		elseif connector.ascendancyName and connector.ascendancyName ~= spec.curAscendClassBaseName then
@@ -911,7 +925,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
 				if hoverNode and hoverNode ~= node then
 					-- Mouse is hovering over a different node
-					if hoverDep and hoverDep[node] then
+					if hoverDep and hoverDep[node] and hoverNode.id == 5571 and not hoverNode.alloc then
+						SetDrawColor(0, 1, 0)
+					elseif hoverDep and hoverDep[node] then
 						-- This node depends on the hover node, turn it red
 						SetDrawColor(1, 0, 0)
 					elseif hoverNode.type == "Socket" and hoverNode.nodesInRadius then
@@ -1819,6 +1835,9 @@ end
 
 -- Checks if a node has unlockConstraint and if that node is allocated
 function checkUnlockConstraints(build, node)
+	if unseenPathHover and node.unlockConstraint and node.unlockConstraint.nodes[1] == 5571 then
+		return true
+	end
 	if node.unlockConstraint then
 			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
 				if nodeId and not build.spec.nodes[nodeId].alloc then
