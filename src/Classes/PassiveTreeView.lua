@@ -619,10 +619,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		connector.c[5], connector.c[6] = treeToScreen(vert[5], vert[6])
 		connector.c[7], connector.c[8] = treeToScreen(vert[7], vert[8])
 
-		if hoverNode and hoverNode.id == 5571 and hoverDep and (hoverDep[node1] or hoverDep[node2]) and not hoverNode.alloc then
+		if hoverNode and hoverNode.id == 5571 and hoverDep and (hoverDep[node1] or hoverDep[node2]) and not hoverNode.alloc and not connector.ascendancyName then
 			--Used to display Unseen Path nodes green when unallocated and hovered over
 			setConnectorColor(0, 1, 0)
-		elseif hoverDep and (hoverDep[node1] or hoverDep[node2]) and hoverNode.id == 5571 and not hoverNode.isAlloc then
+		elseif hoverDep and (hoverDep[node1] or hoverDep[node2]) and hoverNode.id == 5571 and not hoverNode.isAlloc and not connector.ascendancyName then
 			--Used to display Unseen Path nodes red when allocated and hovered over node
 			setConnectorColor(1, 0, 0)
 		elseif hoverDep and hoverDep[node1] and hoverDep[node2] then
