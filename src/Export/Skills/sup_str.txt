@@ -107,16 +107,32 @@ statMap = {
 
 #skill SupportBarbsPlayer
 #set SupportBarbsPlayer
+statMap = {
+	["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
+		flag("ThornsDamageAppliesToHits"),
+	},
+}
 #mods
 #skillEnd
 
 #skill SupportBarbsPlayerTwo
 #set SupportBarbsPlayerTwo
+statMap = {
+	["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
+		flag("ThornsDamageAppliesToHits"),
+	},
+}
 #mods
 #skillEnd
 
 #skill SupportBarbsPlayerThree
 #set SupportBarbsPlayerThree
+statMap = {
+	["deal_thorns_damage_twice_on_hit_for_X_hits_after_thorns_trigger"] = {
+		flag("ThornsDamageAppliesToHits"),
+		flag("BarbsThornsTwiceOnHit"),
+	},
+}
 #mods
 #skillEnd
 
@@ -1211,6 +1227,11 @@ statMap = {
 
 #skill SupportQuillburstPlayer
 #set SupportQuillburstPlayer
+statMap = {
+	["trigger_spiked_gauntlets_for_X_hits_after_thorns_trigger"] = {
+		flag("EnableTriggeredQuillburst"),
+	},
+}
 #mods
 #skillEnd
 

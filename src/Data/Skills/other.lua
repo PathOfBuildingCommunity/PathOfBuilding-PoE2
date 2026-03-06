@@ -228,6 +228,86 @@ skills["AcidicConcoctionPlayer"] = {
 		},
 	}
 }
+skills["ThornsPlayer"] = {
+	name = "Thorns",
+	hidden = true,
+	fromItem = true,
+	skillTypes = { [SkillType.Damage] = true },
+	qualityStats = {},
+	levels = {
+		[1] = { levelRequirement = 0 },
+	},
+	preDamageFunc = function(activeSkill, output, breakdown)
+		local skillModList = activeSkill.skillModList
+		local cfg = activeSkill.skillCfg
+
+		if activeSkill.actor and activeSkill.actor.modDB and activeSkill.actor.modDB:Flag(nil, "Condition:Shapeshifted") then
+			skillModList:NewMod("Condition:Shapeshifted", "FLAG", true, "Thorns")
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("INC", cfg, "ThornsDamage")) do
+			local mod = value.mod
+			skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+		local function remapThornsBase(fromStat, toStat)
+			for _, value in ipairs(skillModList:Tabulate("BASE", cfg, fromStat)) do
+				local mod = value.mod
+				skillModList:NewMod(toStat, "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			end
+		end
+
+		remapThornsBase("PhysicalThornsMin", "PhysicalMin")
+		remapThornsBase("PhysicalThornsMax", "PhysicalMax")
+		remapThornsBase("FireThornsMin", "FireMin")
+		remapThornsBase("FireThornsMax", "FireMax")
+		remapThornsBase("ColdThornsMin", "ColdMin")
+		remapThornsBase("ColdThornsMax", "ColdMax")
+		remapThornsBase("LightningThornsMin", "LightningMin")
+		remapThornsBase("LightningThornsMax", "LightningMax")
+		remapThornsBase("ChaosThornsMin", "ChaosMin")
+		remapThornsBase("ChaosThornsMax", "ChaosMax")
+
+		-- Crit calculations
+		for _, value in ipairs(skillModList:Tabulate("BASE", cfg, "ThornsCritChance")) do
+			local mod = value.mod
+			skillModList:NewMod("CritChance", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("INC", cfg, "ThornsCritChance")) do
+			local mod = value.mod
+			skillModList:NewMod("CritChance", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("INC", cfg, "ThornsCritMultiplier")) do
+			local mod = value.mod
+			skillModList:NewMod("CritMultiplier", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("BASE", cfg, "ThornsChanceToIgnoreEnemyArmour")) do
+			local mod = value.mod
+			skillModList:NewMod("ChanceToIgnoreEnemyPhysicalDamageReduction", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end,
+	statSets = {
+		[1] = {
+			label = "Thorns",
+			incrementalEffectiveness = 0,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				thorns = true,
+			},
+			baseMods = {
+				flag("CannotBleed"),
+				flag("CannotPoison"),
+			},
+			constantStats = {},
+			stats = {},
+			levels = {
+				[1] = {},
+			},
+		},
+	}
+}
 skills["AlignFatePlayer"] = {
 	name = "Align Fate",
 	baseTypeName = "Align Fate",

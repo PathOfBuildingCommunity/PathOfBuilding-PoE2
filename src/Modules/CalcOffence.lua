@@ -725,28 +725,62 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
-	if skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
-		-- Caltrops mod
-		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ThornsDamage")) do
+
+	-- Apply thorns-derived modifiers to hits
+	if skillModList:Flag(nil, "ThornsModifiersApplyToHits") or skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
+		-- % increased Thorns damage
+		for _, value in ipairs(skillModList:Tabulate("INC", {}, "ThornsDamage")) do
 			local mod = value.mod
 			skillModList:NewMod("Damage", "INC", mod.value, mod.source, ModFlag.Hit, mod.keywordFlags, unpack(mod))
 		end
-		-- Increased Thorns critical damage bonus
-		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ThornsCritMultiplier")) do
-			local mod = value.mod
-			skillModList:NewMod("CritMultiplier", "INC", mod.value, mod.source, 0, 0)
-		end
-		-- +#% to Thorns critical hit chance
+
+		-- Thorns crit chance
 		for _, value in ipairs(skillModList:Tabulate("BASE", {}, "ThornsCritChance")) do
 			local mod = value.mod
-			skillModList:NewMod("CritChance", "BASE", mod.value, mod.source, 0, 0)
+			skillModList:NewMod("CritChance", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
-		-- Thorns damage has +#% chance to ignore enemy armour
+		for _, value in ipairs(skillModList:Tabulate("INC", {}, "ThornsCritChance")) do
+			local mod = value.mod
+			skillModList:NewMod("CritChance", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		-- Thorns crit multiplier
+		for _, value in ipairs(skillModList:Tabulate("INC", {}, "ThornsCritMultiplier")) do
+			local mod = value.mod
+			skillModList:NewMod("CritMultiplier", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		-- Thorns chance to ignore enemy armour
 		for _, value in ipairs(skillModList:Tabulate("BASE", {}, "ThornsChanceToIgnoreEnemyArmour")) do
 			local mod = value.mod
-			skillModList:NewMod("ChanceToIgnoreEnemyPhysicalDamageReduction", "BASE", mod.value, mod.source, 0, 0)
+			skillModList:NewMod("ChanceToIgnoreEnemyPhysicalDamageReduction", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
+
+	-- Apply full thorns damage payload to hits
+	if skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
+		local multiplier = skillModList:Flag(nil, "BarbsThornsTwiceOnHit") and 2 or 1
+
+		local function remapThornsBase(fromStat, toStat)
+			for _, value in ipairs(skillModList:Tabulate("BASE", {}, fromStat)) do
+				local mod = value.mod
+				skillModList:NewMod(toStat, "BASE", mod.value * multiplier, mod.source, ModFlag.Hit, mod.keywordFlags, unpack(mod))
+			end
+		end
+
+		-- Base thorns damage to hits
+		remapThornsBase("PhysicalThornsMin", "PhysicalMin")
+		remapThornsBase("PhysicalThornsMax", "PhysicalMax")
+		remapThornsBase("FireThornsMin", "FireMin")
+		remapThornsBase("FireThornsMax", "FireMax")
+		remapThornsBase("ColdThornsMin", "ColdMin")
+		remapThornsBase("ColdThornsMax", "ColdMax")
+		remapThornsBase("LightningThornsMin", "LightningMin")
+		remapThornsBase("LightningThornsMax", "LightningMax")
+		remapThornsBase("ChaosThornsMin", "ChaosMin")
+		remapThornsBase("ChaosThornsMax", "ChaosMax")
+	end
+
 	if skillModList:Flag(nil, "CastSpeedAppliesToAttacks") then
 		-- Get all increases for this; assumption is that multiple sources would not stack, so find the max
 		local multiplier = (skillModList:Max(skillCfg, "ImprovedCastSpeedAppliesToAttacks") or 100) / 100
