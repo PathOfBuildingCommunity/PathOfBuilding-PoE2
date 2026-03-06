@@ -1203,6 +1203,11 @@ Huge sets the radius to 11.
 	{ var = "multiplierStunnedRecently", type = "count", label = "# of times Stunned Recently:", ifOption = "conditionStunnedRecently", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:StunnedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "StunnedRecently" } )
 	end },
+	{ var = "conditionShapeshifted", type = "check", label = "Currently Shapeshifted?", apply = function(val, modList, enemyModList)
+		if val then
+			modList:NewMod("Condition:Shapeshifted", "FLAG", true, "Config")
+		end
+	end },
 	{ var = "conditionShapeshiftToAnimal", type = "check", label = "Shapeshifted to animal recently?", ifSkillType = { SkillType.Bear, SkillType.Wolf, SkillType.Wyvern }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ShapeshiftToAnimal", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },

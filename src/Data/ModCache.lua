@@ -1369,6 +1369,7 @@ c["125% increased Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskCha
 c["125% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=125}},nil}
 c["125% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=125}},nil}
 c["125% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=125}},nil}
+c["13 to 23 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=13},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=23}},nil}
 c["13% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=13}},nil}
 c["13% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=13}},nil}
 c["13% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=13}},nil}
@@ -1404,8 +1405,7 @@ c["140% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShie
 c["140% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=140}},nil}
 c["140% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=140}},nil}
 c["15 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=15}},nil}
-c["15 to 25 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=15}}," to 25 Physical  "}
-c["15 to 25 Physical Thorns damage Thorns can Retaliate against all Hits"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=15}}," to 25 Physical  Thorns can Retaliate against all Hits "}
+c["15 to 25 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=15},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=25}},nil}
 c["15% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=15}},nil}
 c["15% chance for Remnants you create to grant their effects twice"]={{[1]={flags=0,keywordFlags=0,name="LocalEffect",type="BASE",value=15}}," for Remnants you create to grant their s twice "}
 c["15% chance for Shapeshift Slam Skills you use yourself to cause an additional Aftershock"]={{}," for Shapeshift Slam Skills you use yourself to cause an additional Aftershock "}
@@ -1670,6 +1670,7 @@ c["175% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlag
 c["175% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=175}},nil}
 c["175% increased Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EvasionAndEnergyShield",type="INC",value=175}},nil}
 c["175% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=175}},nil}
+c["18 to 28 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=18},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=28}},nil}
 c["18% increased Area of Effect for Attacks"]={{[1]={flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=18}},nil}
 c["18% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=18}},nil}
 c["18% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=18}},nil}
@@ -1732,7 +1733,7 @@ c["2% reduced Light Radius per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,st
 c["2% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={flags=0,keywordFlags=0,name="MovementSpeedPenalty",type="INC",value=-2}},nil}
 c["2% reduced Presence Area of Effect per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="PresenceArea",type="INC",value=-2}},nil}
 c["20 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=20}},nil}
-c["20 to 30 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=20}}," to 30 Physical  "}
+c["20 to 30 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=20},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=30}},nil}
 c["20% Chance to build an additional Combo on Hit"]={{}," to build an additional Combo  "}
 c["20% chance for Attack Hits to apply Incision"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanInflictIncision",type="FLAG",value=true}},nil}
 c["20% chance for Bleeding to be Aggravated when Inflicted against Enemies on Jagged Ground"]={{},"  to be Aggravated when Inflicted against Enemies on Jagged Ground "}
@@ -2036,8 +2037,8 @@ c["24% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keyw
 c["24% reduced Slowing Potency of Debuffs on You"]={{}," Slowing Potency of Debuffs on You "}
 c["240% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=240}},nil}
 c["25 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=25}},nil}
-c["25 to 35 Cold Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=25}}," to 35 Cold  "}
-c["25 to 35 Fire Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=25}}," to 35 Fire  "}
+c["25 to 35 Cold Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdThornsMin",type="BASE",value=25},[3]={flags=0,keywordFlags=0,name="ColdThornsMax",type="BASE",value=35}},nil}
+c["25 to 35 Fire Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireThornsMin",type="BASE",value=25},[3]={flags=0,keywordFlags=0,name="FireThornsMax",type="BASE",value=35}},nil}
 c["25% Chance to gain a Charge when you kill an enemy"]={nil,"a Charge  "}
 c["25% Chance to gain a Charge when you kill an enemy Creates Ignited Ground for 4 seconds when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life"]={nil,"a Charge  Creates Ignited Ground  when used, Igniting enemies as though dealing Fire damage equal to 500% of your maximum Life "}
 c["25% Chance to gain a Charge when you kill an enemy Energy Shield Recharge starts on use"]={nil,"a Charge  Energy Shield Recharge starts on use "}
@@ -2242,8 +2243,10 @@ c["250% increased bonuses gained from Equipped Quiver"]={{[1]={flags=0,keywordFl
 c["250% of Melee Physical Damage taken reflected to Attacker"]={{[1]={flags=256,keywordFlags=0,name="PhysicalDamage",type="BASE",value=250}},"  taken reflected to Attacker "}
 c["250% of Melee Physical Damage taken reflected to Attacker Regenerate 5% of maximum Life per second while Surrounded"]={{[1]={[1]={type="Condition",var="Surrounded"},flags=256,keywordFlags=0,name="PhysicalDamage",type="BASE",value=250}},"  taken reflected to Attacker Regenerate 5% of maximum Life per second  "}
 c["253% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=253}},nil}
+c["26 to 40 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=26},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=40}},nil}
 c["26% reduced Charges per use"]={{[1]={flags=0,keywordFlags=0,name="FlaskChargesUsed",type="INC",value=-26}},nil}
 c["275% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=275}},nil}
+c["28 to 38 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=28},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=38}},nil}
 c["28% increased maximum Energy Shield"]={{[1]={[1]={type="Global"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=28}},nil}
 c["29% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ChaosDamage",type="INC",value=29}},nil}
 c["3 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=3}},nil}
@@ -2303,7 +2306,8 @@ c["3% reduced Movement Speed Penalty from using Skills while moving"]={{[1]={fla
 c["3% reduced Skill Speed"]={{[1]={flags=0,keywordFlags=0,name="Speed",type="INC",value=-3},[2]={flags=0,keywordFlags=0,name="WarcrySpeed",type="INC",value=-3},[3]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=-3}},nil}
 c["3% reduced maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=-3}},nil}
 c["30 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=30}},nil}
-c["30 to 40 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=30}}," to 40 Physical  "}
+c["30 to 40 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=30},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=40}},nil}
+c["30 to 44 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=30},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=44}},nil}
 c["30% chance for Lightning Damage with Hits to be Lucky"]={{[1]={flags=0,keywordFlags=0,name="LightningLuckyHitsChance",type="BASE",value=30}},nil}
 c["30% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidChaosDamageChance",type="BASE",value=30}},nil}
 c["30% chance to Avoid Cold Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidColdDamageChance",type="BASE",value=30}},nil}
@@ -2504,7 +2508,7 @@ c["300% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="Armou
 c["300% increased Armour, Evasion and Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="Defences",type="INC",value=300}},nil}
 c["300% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=300}},nil}
 c["300% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=300}},nil}
-c["31 to 49 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=31}}," to 49 Physical  "}
+c["31 to 49 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=31},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=49}},nil}
 c["32% increased Spell Damage while wielding a Melee Weapon"]={{[1]={[1]={type="Condition",var="UsingMeleeWeapon"},flags=2,keywordFlags=0,name="Damage",type="INC",value=32}},nil}
 c["325% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=325}},nil}
 c["33% increased Damage with Hits against Enemies affected by Ailments"]={{[1]={[1]={actor="enemy",type="ActorCondition",varList={[1]="Frozen",[2]="Chilled",[3]="Shocked",[4]="Ignited",[5]="Scorched",[6]="Brittle",[7]="Sapped",[8]="Poisoned",[9]="Bleeding"}},flags=0,keywordFlags=262144,name="Damage",type="INC",value=33}},nil}
@@ -2515,7 +2519,7 @@ c["33% of Elemental Damage Converted to Fire Damage"]={{[1]={flags=0,keywordFlag
 c["33% of Elemental Damage Converted to Lightning Damage"]={{[1]={flags=0,keywordFlags=0,name="ElementalDamageConvertToLightning",type="BASE",value=33}},nil}
 c["333% increased effect of Socketed Soul Cores"]={{[1]={flags=0,keywordFlags=0,name="SocketedSoulCoreEffect",type="INC",value=333}},nil}
 c["35 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=35}},nil}
-c["35 to 53 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=35}}," to 53 Physical  "}
+c["35 to 53 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=35},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=53}},nil}
 c["35% increased Attack Damage while you have an Ally in your Presence"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="NearbyAlly"},flags=1,keywordFlags=0,name="Damage",type="INC",value=35}},nil}
 c["35% increased Attack Speed"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="INC",value=35}},nil}
 c["35% increased Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="INC",value=35}},nil}
@@ -2559,6 +2563,7 @@ c["375% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="Armou
 c["38% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=38}},nil}
 c["38% increased Duration"]={{[1]={flags=0,keywordFlags=0,name="Duration",type="INC",value=38}},nil}
 c["4 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=4}},nil}
+c["4 to 8 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=4},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=8}},nil}
 c["4% chance for Spell Skills to fire 2 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="TwoAdditionalProjectilesChance",type="BASE",value=4}},nil}
 c["4% chance that if you would gain Rage on Hit, you instead gain up to your maximum Rage"]={{[1]={flags=4,keywordFlags=0,name="MaximumRage",type="BASE",value=4}}," that if you would gain Rage , you instead gain up to your  "}
 c["4% increased Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=4}},nil}
@@ -2762,8 +2767,8 @@ c["450% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="Armou
 c["48% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=48}},nil}
 c["5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=5}},nil}
 c["5 Mana gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=5}},nil}
-c["5 to 10 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=5}}," to 10 Physical  "}
-c["5 to 10 Physical Thorns damage Pain Attunement"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=5}}," to 10 Physical  Pain Attunement "}
+c["5 to 10 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=10}},nil}
+c["5 to 9 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=5},[3]={flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=9}},nil}
 c["5% Chance to build an additional Combo on Hit"]={{}," to build an additional Combo  "}
 c["5% additional Physical Damage Reduction while you have at least 150 Devotion"]={{[1]={[1]={stat="Devotion",threshold=150,type="StatThreshold"},flags=0,keywordFlags=0,name="PhysicalDamageReduction",type="BASE",value=5}},nil}
 c["5% chance for Slam Skills you use yourself to cause an additional Aftershock"]={{}," for Slam Skills you use yourself to cause an additional Aftershock "}
@@ -5079,10 +5084,9 @@ c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Lif
 c["Gain Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds"]={nil,"Infernal Flame instead of spending Mana for Skill costs Take maximum Life and Energy Shield as Fire Damage when Infernal Flame reaches maximum Lose all Infernal Flame on reaching maximum Infernal Flame 25% of Infernal Flame lost per second if none was gained in the past 2 seconds "}
 c["Gain Onslaught for 4 seconds when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies "}
 c["Gain Onslaught for 4 seconds when a Minion Dies 18% increased Area of Effect for Attacks"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},"  when a  Dies 18% increased  for Attacks "}
-c["Gain Physical Thorns damage equal to 10% of Item Armour on Equipped Body Armour"]={nil,"Physical Thorns damage equal to 10% of Item Armour on Equipped Body Armour "}
-c["Gain Physical Thorns damage equal to 6% of Item Armour on Equipped Body Armour"]={nil,"Physical Thorns damage equal to 6% of Item Armour on Equipped Body Armour "}
-c["Gain Physical Thorns damage equal to 6% of Item Armour on Equipped Body Armour 12% chance for Trigger skills to refund half of Energy Spent"]={nil,"Physical Thorns damage equal to 6% of Item Armour on Equipped Body Armour 12% chance for Trigger skills to refund half of Energy Spent "}
-c["Gain Physical Thorns damage equal to 8% of maximum Life while Shapeshifted"]={nil,"Physical Thorns damage equal to 8% of maximum Life while Shapeshifted "}
+c["Gain Physical Thorns damage equal to 10% of Item Armour on Equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={[1]={div=10,stat="ArmourOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=1},[3]={[1]={div=10,stat="ArmourOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=1}},nil}
+c["Gain Physical Thorns damage equal to 6% of Item Armour on Equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={[1]={div=16.666666666667,stat="ArmourOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=1},[3]={[1]={div=16.666666666667,stat="ArmourOnBody Armour",type="PerStat"},flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=1}},nil}
+c["Gain Physical Thorns damage equal to 8% of maximum Life while Shapeshifted"]={{[1]={flags=0,keywordFlags=0,name="GrantsThorns",type="FLAG",value=true},[2]={[1]={percent=8,stat="Life",type="PercentStat"},[2]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="PhysicalThornsMin",type="BASE",value=1},[3]={[1]={percent=8,stat="Life",type="PercentStat"},[2]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="PhysicalThornsMax",type="BASE",value=1}},nil}
 c["Gain Power Charges instead of Frenzy Charges"]={nil,"Power Charges instead of Frenzy Charges "}
 c["Gain Power Charges instead of Frenzy Charges Gain Frenzy Charges instead of Endurance Charges"]={nil,"Power Charges instead of Frenzy Charges Gain Frenzy Charges instead of Endurance Charges "}
 c["Gain Power Charges instead of Frenzy Charges Gain Frenzy Charges instead of Endurance Charges Gain Endurance Charges instead of Power Charges"]={nil,"Power Charges instead of Frenzy Charges Gain Frenzy Charges instead of Endurance Charges Gain Endurance Charges instead of Power Charges "}

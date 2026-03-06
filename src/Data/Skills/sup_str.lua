@@ -540,6 +540,11 @@ skills["SupportBarbsPlayer"] = {
 			label = "Barbs I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
+					flag("ThornsDamageAppliesToHits"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -571,6 +576,11 @@ skills["SupportBarbsPlayerTwo"] = {
 			label = "Barbs II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
+					flag("ThornsDamageAppliesToHits"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -602,6 +612,12 @@ skills["SupportBarbsPlayerThree"] = {
 			label = "Barbs III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["deal_thorns_damage_twice_on_hit_for_X_hits_after_thorns_trigger"] = {
+					flag("ThornsDamageAppliesToHits"),
+					flag("BarbsThornsTwiceOnHit"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5200,6 +5216,11 @@ skills["SupportQuillburstPlayer"] = {
 			label = "Quill Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["trigger_spiked_gauntlets_for_X_hits_after_thorns_trigger"] = {
+					flag("EnableTriggeredQuillburst"),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5221,6 +5242,53 @@ skills["TriggeredQuillburstPlayer"] = {
 	castTime = 1,
 	qualityStats = {
 	},
+	preDamageFunc = function(activeSkill, output, breakdown)
+		local skillModList = activeSkill.skillModList
+		local cfg = activeSkill.skillCfg
+
+		local function remapThornsBase(fromStat, toStat)
+			for _, value in ipairs(skillModList:Tabulate("BASE", cfg, fromStat)) do
+				local mod = value.mod
+				skillModList:NewMod(toStat, "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			end
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("INC", cfg, "ThornsDamage")) do
+			local mod = value.mod
+			skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		remapThornsBase("PhysicalThornsMin", "PhysicalMin")
+		remapThornsBase("PhysicalThornsMax", "PhysicalMax")
+		remapThornsBase("FireThornsMin", "FireMin")
+		remapThornsBase("FireThornsMax", "FireMax")
+		remapThornsBase("ColdThornsMin", "ColdMin")
+		remapThornsBase("ColdThornsMax", "ColdMax")
+		remapThornsBase("LightningThornsMin", "LightningMin")
+		remapThornsBase("LightningThornsMax", "LightningMax")
+		remapThornsBase("ChaosThornsMin", "ChaosMin")
+		remapThornsBase("ChaosThornsMax", "ChaosMax")
+
+		for _, value in ipairs(skillModList:Tabulate("BASE", cfg, "ThornsCritChance")) do
+			local mod = value.mod
+			skillModList:NewMod("CritChance", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("INC", cfg, "ThornsCritChance")) do
+			local mod = value.mod
+			skillModList:NewMod("CritChance", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("INC", cfg, "ThornsCritMultiplier")) do
+			local mod = value.mod
+			skillModList:NewMod("CritMultiplier", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+
+		for _, value in ipairs(skillModList:Tabulate("BASE", cfg, "ThornsChanceToIgnoreEnemyArmour")) do
+			local mod = value.mod
+			skillModList:NewMod("ChanceToIgnoreEnemyPhysicalDamageReduction", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end,
 	levels = {
 		[1] = { cooldown = 0.15, levelRequirement = 0, storedUses = 1, },
 	},
@@ -5230,6 +5298,7 @@ skills["TriggeredQuillburstPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_spiked_gauntlets",
 			baseFlags = {
+				thorns = true,
 			},
 			constantStats = {
 				{ "triggered_by_spiked_gauntlets_support_%", 100 },

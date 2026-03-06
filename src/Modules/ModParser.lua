@@ -3437,16 +3437,70 @@ local specialModList = {
 	["your skills deal you (%d+)%% of mana cost as (.+) damage"] = function(dmgMult, _, dmgType) return {
 		mod("ScoldsBridleSelfDamage", "LIST", {dmgMult = dmgMult, damageType = dmgType})
 	} end,
-	-- Thorns
+
+	-- Thorns base damage
+	["(%d+) to (%d+) physical thorns damage"] = function(_, minStr, maxStr)
+		return {
+			flag("GrantsThorns"),
+			mod("PhysicalThornsMin", "BASE", tonumber(minStr)),
+			mod("PhysicalThornsMax", "BASE", tonumber(maxStr)),
+		}
+	end,
+	["(%d+) to (%d+) fire thorns damage"] = function(_, minStr, maxStr)
+		return {
+			flag("GrantsThorns"),
+			mod("FireThornsMin", "BASE", tonumber(minStr)),
+			mod("FireThornsMax", "BASE", tonumber(maxStr)),
+		}
+	end,
+	["(%d+) to (%d+) cold thorns damage"] = function(_, minStr, maxStr)
+		return {
+			flag("GrantsThorns"),
+			mod("ColdThornsMin", "BASE", tonumber(minStr)),
+			mod("ColdThornsMax", "BASE", tonumber(maxStr)),
+		}
+	end,
+	["(%d+) to (%d+) lightning thorns damage"] = function(_, minStr, maxStr)
+		return {
+			flag("GrantsThorns"),
+			mod("LightningThornsMin", "BASE", tonumber(minStr)),
+			mod("LightningThornsMax", "BASE", tonumber(maxStr)),
+		}
+	end,
+	["(%d+) to (%d+) chaos thorns damage"] = function(_, minStr, maxStr)
+		return {
+			flag("GrantsThorns"),
+			mod("ChaosThornsMin", "BASE", tonumber(minStr)),
+			mod("ChaosThornsMax", "BASE", tonumber(maxStr)),
+		}
+	end,
+
+	-- Thorns critical modifiers
 	["(%d+)%% increased thorns critical damage bonus"] = function(num) return {
 		mod("ThornsCritMultiplier", "INC", num)
+	} end,
+	["(%d+)%% increased thorns critical hit chance"] = function(num) return {
+		mod("ThornsCritChance", "INC", num)
 	} end,
 	["%+(%d+)%% to thorns critical hit chance"] = function(num) return {
 		mod("ThornsCritChance", "BASE", num)
 	} end,
+
+	-- Thorns (other damage modifiers)
 	["thorns damage has (%d+)%% chance to ignore enemy armour"] = function(num) return {
 		mod("ThornsChanceToIgnoreEnemyArmour", "BASE", num)
 	} end,
+	["gain physical thorns damage equal to (%d+)%% of item armour on equipped body armour"] = function(num) return {
+		flag("GrantsThorns"),
+		mod("PhysicalThornsMin", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", div = 100 / tonumber(num) }),
+		mod("PhysicalThornsMax", "BASE", 1, { type = "PerStat", stat = "ArmourOnBody Armour", div = 100 / tonumber(num) }),
+	} end,
+	["gain physical thorns damage equal to (%d+)%% of maximum life while shapeshifted"] = function(num) return {
+		flag("GrantsThorns"),
+		mod("PhysicalThornsMin", "BASE", 1, { type = "PercentStat", stat = "Life", percent = tonumber(num) }, { type = "Condition", var = "Shapeshifted" }),
+		mod("PhysicalThornsMax", "BASE", 1, { type = "PercentStat", stat = "Life", percent = tonumber(num) }, { type = "Condition", var = "Shapeshifted" }),
+	} end,
+
 	-- Extra skill/support
 	["grants skill: (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
 	["grants skill: level (%d+) (.+)"] = function(num, _, skill) return grantedExtraSkill(skill, num) end,

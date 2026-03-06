@@ -196,6 +196,10 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	if modList:Flag(nil, "CanExplode") then
 		t_insert(env.explodeSources, node)
 	end
+
+	if modList:Flag(nil, "GrantsThorns") then
+		t_insert(env.thornsSources, node)
+	end
 	
 	for i, mod in ipairs(modList) do
 		local added = false
@@ -548,6 +552,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.grantedSkillsNodes = { }
 		env.grantedSkillsItems = { }
 		env.explodeSources = { }
+		env.thornsSources = { }
 		env.itemWarnings = { }
 		env.flasks = { }
 		env.charms = { }
@@ -831,6 +836,9 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 			if item and item.baseModList and item.baseModList:Flag(nil, "CanExplode") then
 				t_insert(env.explodeSources, item)
+			end
+			if item and item.baseModList and item.baseModList:Flag(nil, "GrantsThorns") then
+				t_insert(env.thornsSources, item)
 			end
 			if slot.weaponSet and slot.weaponSet ~= (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) then
 				goto continue
@@ -1461,6 +1469,35 @@ function calcs.initEnv(build, mode, override, specEnv)
 				markList[group] = true
 				build.skillsTab:ProcessSocketGroup(group)
 			end
+
+			if #env.thornsSources ~= 0 then
+				local group
+				for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
+					if socketGroup.source == "Thorns" then
+						group = socketGroup
+						break
+					end
+				end
+				if not group then
+					group = { label = "Thorns", enabled = true, gemList = { }, source = "Thorns", noSupports = true }
+					t_insert(build.skillsTab.socketGroupList, group)
+				end
+
+				group.thornsSources = env.thornsSources
+				wipeTable(group.gemList)
+
+				local activeGemInstance = {
+					skillId = "ThornsPlayer",
+					quality = 0,
+					enabled = true,
+					level = 1,
+					triggered = true,
+				}
+				t_insert(group.gemList, activeGemInstance)
+				markList[group] = true
+				build.skillsTab:ProcessSocketGroup(group)
+			end
+
 
 			-- Remove any socket groups that no longer have a matching item
 			local i = 1

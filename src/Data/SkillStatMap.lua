@@ -996,7 +996,7 @@ return {
 	mod("ImprovedSpellDamageAppliesToAttacks", "MAX", nil),
 },
 ["additive_thorns_damage_modifiers_apply_to_attack_damage"] = {
-	flag("ThornsDamageAppliesToHits"),
+	flag("ThornsModifiersApplyToHits"),
 },
 ["active_skill_main_hand_weapon_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "MainHandAttack" }),
