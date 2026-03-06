@@ -361,8 +361,7 @@ c["+25% to Critical Damage Bonus against Stunned Enemies"]={{[1]={[1]={actor="en
 c["+25% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type="BASE",value=25}},nil}
 c["+25% to Fire Resistance while on Low Life"]={{[1]={[1]={type="Condition",var="LowLife"},flags=0,keywordFlags=0,name="FireResist",type="BASE",value=25}},nil}
 c["+25% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=25}},nil}
-c["+25% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=25}}," Thorns  "}
-c["+25% to Thorns Critical Hit Chance 15 to 25 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=25}}," Thorns  15 to 25 Physical Thorns damage "}
+c["+25% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ThornsCritChance",type="BASE",value=25}},nil}
 c["+250 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=250}},nil}
 c["+250 to Accuracy against Bleeding Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=0,name="AccuracyVsEnemy",type="BASE",value=250}},nil}
 c["+250 to Ailment Threshold"]={{[1]={flags=0,keywordFlags=0,name="AilmentThreshold",type="BASE",value=250}},nil}
@@ -695,8 +694,7 @@ c["+4% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",
 c["+4% to Maximum Cold Resistance"]={{[1]={flags=0,keywordFlags=0,name="ColdResistMax",type="BASE",value=4}},nil}
 c["+4% to Maximum Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResistMax",type="BASE",value=4}},nil}
 c["+4% to Maximum Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResistMax",type="BASE",value=4}},nil}
-c["+4% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=4}}," Thorns  "}
-c["+4% to Thorns Critical Hit Chance Gain Physical Thorns damage equal to 6% of Item Armour on Equipped Body Armour"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=4}}," Thorns  Gain Physical Thorns damage equal to 6% of Item Armour on Equipped Body Armour "}
+c["+4% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ThornsCritChance",type="BASE",value=4}},nil}
 c["+4% to all Elemental Resistances per socketed Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=4}},nil}
 c["+4% to maximum Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceMax",type="BASE",value=4}},nil}
 c["+40 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=40}},nil}
@@ -784,7 +782,7 @@ c["+6 to Level of all Projectile Skills"]={{[1]={flags=0,keywordFlags=0,name="Ge
 c["+6 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=6},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=6},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=6},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=6}},nil}
 c["+6 to all Attributes per Socket filled"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Str",type="BASE",value=6},[2]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Dex",type="BASE",value=6},[3]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Int",type="BASE",value=6},[4]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="All",type="BASE",value=6}},nil}
 c["+6% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=6}},nil}
-c["+6% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=6}}," Thorns  "}
+c["+6% to Thorns Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="ThornsCritChance",type="BASE",value=6}},nil}
 c["+6% to all Elemental Resistances per socketed Grand Spectrum"]={{[1]={[1]={type="Multiplier",var="GrandSpectrum"},flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=6}},nil}
 c["+6.5% to Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="CritChance",type="BASE",value=6.5}},nil}
 c["+60 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type="BASE",value=60}},nil}
@@ -2445,7 +2443,7 @@ c["30% increased Stun Recovery"]={{[1]={flags=0,keywordFlags=0,name="StunRecover
 c["30% increased Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}},nil}
 c["30% increased Stun Threshold if you haven't been Stunned Recently"]={{[1]={[1]={neg=true,type="Condition",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}},nil}
 c["30% increased Stun Threshold while on Full Life"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=30}},nil}
-c["30% increased Thorns Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=30}}," Thorns  "}
+c["30% increased Thorns Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="ThornsCritMultiplier",type="INC",value=30}},nil}
 c["30% increased Totem Duration"]={{[1]={flags=0,keywordFlags=0,name="TotemDuration",type="INC",value=30}},nil}
 c["30% increased Totem Life"]={{[1]={flags=0,keywordFlags=0,name="TotemLife",type="INC",value=30}},nil}
 c["30% increased Totem Placement speed"]={{[1]={flags=0,keywordFlags=0,name="TotemPlacementSpeed",type="INC",value=30}},nil}
@@ -6046,8 +6044,8 @@ c["This item gains bonuses from Socketed Items as though it was a Helmet"]={nil,
 c["This item gains bonuses from Socketed Items as though it was a Helmet This item gains bonuses from Socketed Items as though it was a Shield"]={nil,"This item gains bonuses from Socketed Items as though it was a Helmet This item gains bonuses from Socketed Items as though it was a Shield "}
 c["This item gains bonuses from Socketed Items as though it was a Shield"]={nil,"This item gains bonuses from Socketed Items as though it was a Shield "}
 c["This item gains bonuses from Socketed Items as though it was a Shield 100% increased effect of Socketed Items"]={nil,"This item gains bonuses from Socketed Items as though it was a Shield 100% increased effect of Socketed Items "}
-c["Thorns Damage has 25% chance to ignore Enemy Armour"]={nil,"Thorns Damage has 25% chance to ignore Enemy Armour "}
-c["Thorns Damage has 50% chance to ignore Enemy Armour"]={nil,"Thorns Damage has 50% chance to ignore Enemy Armour "}
+c["Thorns Damage has 25% chance to ignore Enemy Armour"]={{[1]={flags=0,keywordFlags=0,name="ThornsChanceToIgnoreEnemyArmour",type="BASE",value=25}},nil}
+c["Thorns Damage has 50% chance to ignore Enemy Armour"]={{[1]={flags=0,keywordFlags=0,name="ThornsChanceToIgnoreEnemyArmour",type="BASE",value=50}},nil}
 c["Thorns can Retaliate against all Hits"]={nil,"Thorns can Retaliate against all Hits "}
 c["Totems Regenerate 3% of maximum Life per second"]={nil,"Totems Regenerate 3% of maximum Life per second "}
 c["Totems die 6 seconds after their Life is reduced to 0"]={nil,"Totems die 6 seconds after their Life is reduced to 0 "}

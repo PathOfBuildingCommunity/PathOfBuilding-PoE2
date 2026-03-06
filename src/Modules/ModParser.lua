@@ -3433,10 +3433,20 @@ local specialModList = {
 	}end,
 	["take (%d+) (.+) damage when herald of thunder hits an enemy"] = function(dmg, _, dmgType) return {
 		mod("StormSecretSelfDamage", "LIST", {baseDamage = dmg, damageType = dmgType})
-	}end,
+	} end,
 	["your skills deal you (%d+)%% of mana cost as (.+) damage"] = function(dmgMult, _, dmgType) return {
 		mod("ScoldsBridleSelfDamage", "LIST", {dmgMult = dmgMult, damageType = dmgType})
-	}end,
+	} end,
+	-- Thorns
+	["(%d+)%% increased thorns critical damage bonus"] = function(num) return {
+		mod("ThornsCritMultiplier", "INC", num)
+	} end,
+	["%+(%d+)%% to thorns critical hit chance"] = function(num) return {
+		mod("ThornsCritChance", "BASE", num)
+	} end,
+	["thorns damage has (%d+)%% chance to ignore enemy armour"] = function(num) return {
+		mod("ThornsChanceToIgnoreEnemyArmour", "BASE", num)
+	} end,
 	-- Extra skill/support
 	["grants skill: (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
 	["grants skill: level (%d+) (.+)"] = function(num, _, skill) return grantedExtraSkill(skill, num) end,

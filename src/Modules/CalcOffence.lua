@@ -727,9 +727,24 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
 		-- Caltrops mod
-		for i, value in ipairs(skillModList:Tabulate("INC",  { }, "ThornsDamage")) do
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ThornsDamage")) do
 			local mod = value.mod
 			skillModList:NewMod("Damage", "INC", mod.value, mod.source, ModFlag.Hit, mod.keywordFlags, unpack(mod))
+		end
+		-- Increased Thorns critical damage bonus
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ThornsCritMultiplier")) do
+			local mod = value.mod
+			skillModList:NewMod("CritMultiplier", "INC", mod.value, mod.source, 0, 0)
+		end
+		-- +#% to Thorns critical hit chance
+		for _, value in ipairs(skillModList:Tabulate("BASE", {}, "ThornsCritChance")) do
+			local mod = value.mod
+			skillModList:NewMod("CritChance", "BASE", mod.value, mod.source, 0, 0)
+		end
+		-- Thorns damage has +#% chance to ignore enemy armour
+		for _, value in ipairs(skillModList:Tabulate("BASE", {}, "ThornsChanceToIgnoreEnemyArmour")) do
+			local mod = value.mod
+			skillModList:NewMod("ChanceToIgnoreEnemyPhysicalDamageReduction", "BASE", mod.value, mod.source, 0, 0)
 		end
 	end
 	if skillModList:Flag(nil, "CastSpeedAppliesToAttacks") then
