@@ -1178,6 +1178,17 @@ function calcs.perform(env, skipEHP)
 			-- Set trigger time to 1 min in ms ( == 6000 ). Technically any large value would do.
 			activeSkill.skillData.triggerTime = 60 * 1000
 		end
+		-- Into the Breach: only purple flames get calculated
+		if activeSkill.activeEffect.grantedEffect.name == "Into the Breach" then
+			local purpleFlameCount = modDB:Sum("BASE", nil, "Multiplier:PurpleFlamesCount")
+			local baseChaosGain = activeSkill.skillModList:Sum("BASE", nil, "BreachFlameChaosGain")
+			if purpleFlameCount > 0 and baseChaosGain > 0 then
+				local remnantEffectMod = calcLib.mod(activeSkill.skillModList, nil, "RemnantEffect")
+				local doubled = modDB:Flag(nil, "BreachFlameEffectDoubled") and 2 or 1
+				local chaosGainPerFlame = m_floor(baseChaosGain * remnantEffectMod * doubled)
+				modDB:NewMod("DamageGainAsChaos", "BASE", chaosGainPerFlame * purpleFlameCount, "Into the Breach", { type = "GlobalEffect", effectType = "Buff" })
+			end
+		end
 		-- The Saviour
 		if activeSkill.activeEffect.grantedEffect.name == "Reflection" or activeSkill.skillData.triggeredBySaviour then
 			activeSkill.infoMessage = "Triggered by a Crit from The Saviour"

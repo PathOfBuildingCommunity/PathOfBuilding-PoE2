@@ -5903,13 +5903,9 @@ c["Remnants can be collected from 50% further away All Flames of Chayula that yo
 c["Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple"]={nil,"Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple "}
 c["Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red"]={nil,"Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red "}
 c["Remnants can be collected from 50% further away Remnants you create reappear once, 3 seconds after being collected"]={nil,"Remnants can be collected from 50% further away Remnants you create reappear once, 3 seconds after being collected "}
-c["Remnants have 10% increased effect"]={nil,"Remnants have 10% increased effect "}
+c["Remnants have 10% increased effect"]={{[1]={flags=0,keywordFlags=0,name="RemnantEffect",type="INC",value=10}},nil}
 c["Remnants have 2% increased effect per 10 Tribute"]={nil,"Remnants have 2% increased effect per 10 Tribute "}
-c["Remnants have 50% increased effect"]={nil,"Remnants have 50% increased effect "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Blue"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Blue "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red "}
+c["Remnants have 50% increased effect"]={{[1]={flags=0,keywordFlags=0,name="RemnantEffect",type="INC",value=50}},nil}
 c["Remnants you create reappear once, 3 seconds after being collected"]={nil,"Remnants you create reappear once, 3 seconds after being collected "}
 c["Remove Ignite when you Warcry"]={nil,"Remove Ignite when you Warcry "}
 c["Remove a Curse after Channelling for 2 seconds"]={nil,"Remove a Curse after Channelling for 2 seconds "}

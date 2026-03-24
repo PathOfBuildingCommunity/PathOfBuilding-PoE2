@@ -3288,7 +3288,7 @@ local specialModList = {
 	["(%d+)%% chance to gain (%d+)%% of damage with hits as extra (%a+) damage"] = function(num, _, num2, strType) return {
 		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
-	["effect and duration of flames of chayula on you is doubled"] = { mod("Multiplier:FlameEffect", "BASE", 1) } ,
+	["effect and duration of flames of chayula on you is doubled"] = { flag("BreachFlameEffectDoubled") },
 	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
 		flag("ManaLeechBasedOnElementalDamage"),
 		flag("ManaLeechBasedOnChaosDamage"), 
@@ -5358,6 +5358,7 @@ local specialModList = {
 	["while a pinnacle atlas boss is in your presence, flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("FlaskEffect", "INC", num, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }, { type = "ActorCondition", actor = "player"}) } end,
 	["magic utility flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("MagicUtilityFlaskEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
 	["flasks applied to you have (%d+)%% reduced effect"] = function(num) return { mod("FlaskEffect", "INC", -num, { type = "ActorCondition", actor = "player"}) } end,
+	["remnants have (%d+)%% increased effect"] = function(num) return { mod("RemnantEffect", "INC", num) } end,
 	["(%d+)%% increased charm cooldown recovery rate"] = function(num) return { mod("CharmCooldownRecovery", "INC", num) } end,
 	["adds (%d+) passive skills"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelNodeCount", value = num }) } end,
 	["1 added passive skill is a jewel socket"] = { mod("JewelData", "LIST", { key = "clusterJewelSocketCount", value = 1 }) },

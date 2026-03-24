@@ -1421,6 +1421,68 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.LinkEffectMod = breakdown.mod(skillModList, skillCfg, "LinkEffect", "BuffEffect")
 		end
 	end
+	if activeSkill.skillTypes[SkillType.GeneratesRemnants] then
+		local remnantEffectMod = calcLib.mod(skillModList, skillCfg, "RemnantEffect")
+		output.RemnantEffectMod = remnantEffectMod
+		if breakdown then
+			breakdown.RemnantEffectMod = breakdown.mod(skillModList, skillCfg, "RemnantEffect")
+		end
+		local baseLifeGain = skillModList:Sum("BASE", skillCfg, "LifeGainPerRemnant")
+		if baseLifeGain > 0 then
+			output.LifeGainPerRemnant = m_floor(baseLifeGain * remnantEffectMod)
+			if breakdown then
+				breakdown.LifeGainPerRemnant = {
+					s_format("%d ^8(base life per remnant)", baseLifeGain),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d ^8(life per remnant)", output.LifeGainPerRemnant),
+				}
+			end
+		end
+		local baseManaGain = skillModList:Sum("BASE", skillCfg, "ManaGainPerRemnant")
+		if baseManaGain > 0 then
+			output.ManaGainPerRemnant = m_floor(baseManaGain * remnantEffectMod)
+			if breakdown then
+				breakdown.ManaGainPerRemnant = {
+					s_format("%d ^8(base mana per remnant)", baseManaGain),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d ^8(mana per remnant)", output.ManaGainPerRemnant),
+				}
+			end
+		end
+		local baseChaosGainPerFlame = skillModList:Sum("BASE", skillCfg, "BreachFlameChaosGain")
+		if baseChaosGainPerFlame > 0 then
+			output.ChaosGainPerFlame = m_floor(baseChaosGainPerFlame * remnantEffectMod)
+			if breakdown then
+				breakdown.ChaosGainPerFlame = {
+					s_format("%d%% ^8(base chaos gain per flame)", baseChaosGainPerFlame),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d%% ^8(damage gained as chaos per flame)", output.ChaosGainPerFlame),
+				}
+			end
+		end
+		local baseLifeLeech = skillModList:Sum("BASE", skillCfg, "BreachFlameLifeLeech")
+		if baseLifeLeech > 0 then
+			output.BreachFlameLifeLeech = m_floor(baseLifeLeech * remnantEffectMod)
+			if breakdown then
+				breakdown.BreachFlameLifeLeech = {
+					s_format("%d%% ^8(base life leech per flame)", baseLifeLeech),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d%% ^8(life leech per flame)", output.BreachFlameLifeLeech),
+				}
+			end
+		end
+		local baseManaLeech = skillModList:Sum("BASE", skillCfg, "BreachFlameManaLeech")
+		if baseManaLeech > 0 then
+			output.BreachFlameManaLeech = m_floor(baseManaLeech * remnantEffectMod)
+			if breakdown then
+				breakdown.BreachFlameManaLeech = {
+					s_format("%d%% ^8(base mana leech per flame)", baseManaLeech),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d%% ^8(mana leech per flame)", output.BreachFlameManaLeech),
+				}
+			end
+		end
+	end
 	if activeSkill.skillTypes[SkillType.IceCrystal] then
 		local IceCrystalLifeMod = calcLib.mod(skillModList, skillCfg, "IceCrystalLife")
 		local baseIceCrystal = skillModList:Sum("BASE", skillCfg, "IceCrystalLifeBase")

@@ -206,12 +206,6 @@ local configSettings = {
 	{ var = "arcaneCloakUsedRecentlyCheck", type = "check", label = "Include in ^x7070FFMana ^7spent Recently?", ifSkill = "Arcane Cloak", tooltip = "When enabled, the mana spent by Arcane Cloak used at full mana \nwill be added to the value provided in # of ^x7070FFMana ^7spent Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneCloakUsedRecently", "FLAG", true, "Config")
 	end },
-	{ label = "Flame of Chayula Breaches:", ifSkill = "Into the Breach" },
-	{ var = "flameStacks", type = "count", label = "Chayula Breach Flames:", tooltip = "Amount of Red, Blue & Purple Flames consumed during duration (max 10)", ifSkill = { "Into the Breach" }, apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:BreachFlamesCount", "BASE", m_min(val, 10), "Config")
-		modList:NewMod("Multiplier:FlameEffect", "BASE", 1, "Config")
-		modList:NewMod("DamageGainAsChaos", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
-	end },
 	{ label = "Aspect of the Avian:", ifSkill = "Aspect of the Avian" },
 	{ var = "aspectOfTheAvianAviansMight", type = "check", label = "Is Avian's Might active?", ifSkill = "Aspect of the Avian", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AviansMightActive", "FLAG", true, "Config")
@@ -419,6 +413,10 @@ local configSettings = {
 	{ label = "Intensify:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" } },
 	{ var = "intensifyIntensity", type = "count", label = "# of Intensity:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Intensity", "BASE", val, "Config")
+	end },
+	{ label = "Into the Breach:", ifSkill = "Into the Breach" },
+	{ var = "purpleFlameStacks", type = "count", label = "Purple Flames collected:", tooltip = "Number of Purple Flames of Chayula collected (max 10).", ifSkill = { "Into the Breach" },apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:PurpleFlamesCount", "BASE", m_min(val, 10), "Config")
 	end },
 	{ label = "Link Skills:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" } },
 	{ var = "multiplierLinkedTargets", type = "count", label = "# of linked Targets:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" }, apply = function(val, modList, enemyModList)
