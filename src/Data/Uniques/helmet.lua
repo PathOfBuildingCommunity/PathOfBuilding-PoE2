@@ -429,10 +429,10 @@ Variant: Current
 (15-25) Life Regeneration per second
 (15-25)% increased Mana Regeneration Rate
 {variant:1}Alternating every 5 seconds:
-{variant:2}Alternating every 5 seconds:
 {variant:1}Take 30% more Damage from Hits
-{variant:2}Take 40% less Damage from Hits
 {variant:1}Take 30% more Damage over time
+{variant:2}Alternating every 5 seconds:
+{variant:2}Take 40% less Damage from Hits
 {variant:2}Take 40% less Damage over time
 ]],[[
 Veil of the Night
