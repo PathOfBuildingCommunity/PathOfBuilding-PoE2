@@ -204,10 +204,10 @@ Variant: Current
 +(25-30)% to Cold Resistance
 +(10-15)% to Lightning Resistance
 {variant:1}Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75%
-{variant:2}Increases Movement Speed by 25%, plus 1% per 800 Evasion Rating, up to a maximum of 75%
-{variant:3}Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%
 {variant:1}Other Modifiers to Movement Speed except for Sprinting do not apply
+{variant:2}Increases Movement Speed by 25%, plus 1% per 800 Evasion Rating, up to a maximum of 75%
 {variant:2}Other Modifiers to Movement Speed except for Sprinting do not apply
+{variant:3}Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%
 {variant:3}Other Modifiers to Movement Speed except for Sprinting do not apply
 ]],[[
 The Rat Cage
@@ -510,8 +510,8 @@ Variant: Current
 +(17-23)% to Chaos Resistance
 +(200-300) to Ailment Threshold
 {variant:1}Life that would be lost by taking Damage is instead Reserved
-{variant:2}Life that would be lost by taking Damage is instead Reserved
 {variant:1}until you take no Damage to Life for 5 seconds
+{variant:2}Life that would be lost by taking Damage is instead Reserved
 {variant:2}until you take no Damage to Life for 3 seconds
 ]],
 -- Body: Armour/Energy Shield
