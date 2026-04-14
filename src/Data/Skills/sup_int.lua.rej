@@ -1,0 +1,41 @@
+diff a/src/Data/Skills/sup_int.lua b/src/Data/Skills/sup_int.lua	(rejected hunks)
+@@ -1393,9 +1393,6 @@ skills["SupportHextouch"] = {
+ 		["hextouch_support_curse_duration_+%_final"] = {
+ 		},
+ 	},
+-	qualityStats = {
+-		{ "dummy_stat_display_nothing", 0 },
+-	},
+ 	constantStats = {
+ 		{ "apply_linked_curses_on_hit_%", 100 },
+ 	},
+@@ -1708,9 +1705,6 @@ skills["SignalPrey"] = {
+ 	castTime = 0,
+ 	baseFlags = {
+ 	},
+-	qualityStats = {
+-		{ "dummy_stat_display_nothing", 0 },
+-	},
+ 	constantStats = {
+ 		{ "base_skill_effect_duration", 8000 },
+ 	},
+@@ -3414,9 +3408,6 @@ skills["SupportImpendingDoom"] = {
+ 			-- Display only
+ 		},
+ 	},
+-	qualityStats = {
+-		{ "dummy_stat_display_nothing", 0 },
+-	},
+ 	stats = {
+ 		"trigger_vicious_hex_explosion_when_curse_ends",
+ 	},
+@@ -5307,9 +5298,6 @@ skills["SupportPrismaticBurst"] = {
+ 			-- Display only
+ 		},
+ 	},
+-	qualityStats = {
+-		{ "dummy_stat_display_nothing", 0 },
+-	},
+ 	constantStats = {
+ 		{ "trigger_prismatic_burst_on_hit_%_chance", 100 },
+ 	},
