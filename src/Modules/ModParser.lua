@@ -883,7 +883,6 @@ local modNameList = {
 	["to ignore enemy physical damage reduction"] = "ChanceToIgnoreEnemyPhysicalDamageReduction",
 	["weapon swap speed"] = "WeaponSwapSpeed",
 	["to chain an additional time from terrain"] = "TerrainChainChance",
-	["to apply lightning exposure on hit"] = "LightningExposureChance",
 	["to pierce an enemy"] = "PierceChance",
 	["to chain an additional time"] = "ChainChance",
 	["penalty to accuracy rating at range"] = "AccuracyPenalty",
@@ -1873,7 +1872,6 @@ local modTagList = {
 	["if you[' ]h?a?ve hit a cursed enemy recently"] = { tagList = { { type = "Condition", var = "HitRecently" }, { type = "ActorCondition", actor = "enemy", var = "Cursed" } } },
 	["if you[' ]h?a?ve dealt a projectile attack hit in the past eight seconds"] = { tag = { type = "Condition", var = "HitProjectileRecently" } },
 	["if you[' ]h?a?ve dealt a melee hit in the past eight seconds"] = { tag = { type = "Condition", var = "HitMeleeRecently" } },
-	["if you[' ]h?a?ve dealt a melee hit in the past eight seconds"] = { tag = { type = "Condition", var = "HitMeleeRecently" } },
 	["if you[' ]h?a?ve hit an enemy with a melee attack recently"] = { tag = { type = "Condition", var = "HitMeleeRecently" } },
 	["if you[' ]h?a?ve triggered a skill recently"] = { tag = { type = "Condition", var = "TriggeredSkillRecently" } },
 	["when you or your totems hit an enemy with a spell"] = { tag = { type = "Condition", varList = { "HitSpellRecently","TotemsHitSpellRecently" } }, },
@@ -1953,7 +1951,6 @@ local modTagList = {
 	["for each skill you've used recently, up to (%d+)%%"] = function(num) return { tag = { type = "Multiplier", var = "SkillUsedRecently", limit = num, limitTotal = true } } end,
 	["for each different non%-instant spell you[' ]h?a?ve cast recently"] = { tag = { type = "Multiplier", var = "NonInstantSpellCastRecently" } },
 	["if you[' ]h?a?ve used a warcry recently"] = { tag = { type = "Condition", var = "UsedWarcryRecently" } },
-	["when you warcry"] = { tag = { type = "Condition", var = "UsedWarcryRecently" } },
 	["if you[' ]h?a?ve warcried recently"] = { tag = { type = "Condition", var = "UsedWarcryRecently" } },
 	["for each time you[' ]h?a?ve warcried recently"] = { tag = { type = "Multiplier", var = "WarcryUsedRecently" } },
 	["for each time you[' ]h?a?ve been stunned recently"] = { tag = { type = "Multiplier", var = "StunnedRecently" } },
@@ -2160,8 +2157,10 @@ end
 local function extraSupport(name, level, slot)
 	local skillId = gemIdLookup[name] or gemIdLookup[name:gsub("^increased ","")] or gemIdLookup[name:gsub(" support$","")]
 
+	---@diagnostic disable-next-line: undefined-global
 	if itemSlotName == "main hand" then
 		slot = "Weapon 1"
+	---@diagnostic disable-next-line: undefined-global
 	elseif itemSlotName == "off hand" then
 		slot = "Weapon 2"
 	elseif slot then
@@ -6903,6 +6902,7 @@ for k, v in pairs(jewelOtherFuncs) do
 		-- Need to not modify any nodes already modified by timeless jewels
 		-- Some functions return a function instead of simply adding mods, so if
 		-- we don't see a node right away, run the outer function first
+		---@diagnostic disable-next-line: redundant-parameter
 		local innerFuncOrNil = v(cap1, cap2, cap3, cap4, cap5)
 		-- In all (current) cases, there is only one nested layer, so no need for recursion
 		return function(node, out, other)

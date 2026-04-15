@@ -5,10 +5,12 @@
 --
 
 local dkjson = require "dkjson"
+local m_min = math.min
 
 ---@class TradeQueryRequests
 local TradeQueryRequestsClass = newClass("TradeQueryRequests", function(self, rateLimiter)
-	self.maxFetchPerSearch = 10
+    self.maxFetchPerSearch = 10
+	---@diagnostic disable-next-line: undefined-global
 	self.tradeQuery = tradeQuery
 	self.rateLimiter = rateLimiter or new("TradeQueryRateLimiter")
 	self.requestQueue = {
@@ -71,7 +73,7 @@ end
 ---@param league string
 ---@param query string
 ---@param callback fun(items:table, errMsg:string)
----@param params table @ params = { callbackQueryId = fun(queryId:string) }
+---@param params { callbackQueryId: fun(queryId:string) }?
 function TradeQueryRequestsClass:SearchWithQuery(realm, league, query, callback, params)
 	params = params or {}
 	--ConPrintf("Query json: %s", query)
@@ -238,7 +240,7 @@ end
 ---Fetch item details for itemHashes
 ---@param itemHashes string[]
 ---@param queryId string
----@param callback fun(items:table, errMsg:string)
+---@param callback fun(items:table, errMsg:string?)
 function TradeQueryRequestsClass:FetchResults(itemHashes, queryId, callback)
 	local quantity_found = math.min(#itemHashes, self.maxFetchPerSearch)
 	local max_block_size = 10
@@ -264,7 +266,7 @@ end
 
 ---Fetch details for paginated items
 ---@param url string
----@param callback fun(items: table, errMsg:string)
+---@param callback fun(items: table, errMsg:string?)
 function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 	table.insert(self.requestQueue["fetch"], {
 		url = url,
@@ -526,7 +528,7 @@ end
 ---@param root string
 ---@param realm string
 ---@param league string
----@param queryId string
+---@param queryId string?
 function TradeQueryRequestsClass:buildUrl(root, realm, league, queryId)
 	local result = root
 	if realm and realm ~='pc' then

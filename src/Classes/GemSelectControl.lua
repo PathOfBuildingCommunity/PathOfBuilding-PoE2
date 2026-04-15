@@ -309,7 +309,7 @@ function GemSelectClass:UpdateSortCache()
 		sortCache.dps[gemId] = baseDPS
 		-- Ignore gems that don't support the active skill
 		if sortCache.canSupport[gemId] or (gemData.grantedEffect.hasGlobalEffect and not gemData.grantedEffect.support) then
-			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS, fastCalcOptions, calcBase)
+			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 			-- Check for nil because some fields may not be populated, default to 0
 			sortCache.dps[gemId] = (dpsField == "FullDPS" and output[dpsField] ~= nil and output[dpsField]) or (output.Minion and output.Minion.CombinedDPS) or (output[dpsField] ~= nil and output[dpsField]) or 0
 		end
@@ -452,7 +452,7 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 			if calcFunc then
 				self.tooltip:Clear()
 				local gemData = self.gems[self.list[self.hoverSel]]
-				local output = self:CalcOutputWithThisGem(calcFunc, gemData, self.skillsTab.sortGemsByDPSField == "FullDPS", nil, calcBase)
+				local output = self:CalcOutputWithThisGem(calcFunc, gemData, self.skillsTab.sortGemsByDPSField == "FullDPS")
 				local gemInstance = {
 						level = self.skillsTab:ProcessGemLevel(gemData),
 						quality = self.skillsTab.defaultGemQuality or 0,

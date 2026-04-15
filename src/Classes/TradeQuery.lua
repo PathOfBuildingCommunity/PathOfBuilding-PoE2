@@ -59,7 +59,7 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 end)
 
 ---Fetch currency short-names from Poe API (used for PoeNinja price pairing)
----@param callback fun()
+---@param callback fun(data, errMsg)
 function TradeQueryClass:FetchCurrencyConversionTable(callback)
 	launch:DownloadPage(
 		"https://www.pathofexile.com/api/trade2/data/static",
@@ -94,7 +94,8 @@ function TradeQueryClass:PullLeagueList()
 		self.hostName .. "api/leagues?type=main&compact=1",
 		function(response, errMsg)
 			if errMsg then
-				self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
+				self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg)) 
+				---@diagnostic disable-next-line: redundant-return-value
 				return "POE ERROR", "Error: "..errMsg
 			else
 				local json_data = dkjson.decode(response.body)
@@ -168,7 +169,7 @@ function TradeQueryClass:PullPoENinjaCurrencyConversion(league)
 					self:SetNotice(self.controls.pbNotice, "Failed to Get PoE Ninja response")
 					return
 				end
-				self:PriceBuilderProcessPoENinjaResponse(json_data, self.controls)
+				self:PriceBuilderProcessPoENinjaResponse(json_data)
 				local print_str = ""
 				for key, value in pairs(self.pbCurrencyConversion[self.pbLeague]) do
 					print_str = print_str .. '"'..key..'": '..tostring(value)..','
@@ -545,6 +546,7 @@ function TradeQueryClass:SetStatWeights(previousSelectionList)
 		local sliderOffsetX = round(184 * (1 - controls.Slider.val))
 		local tooltipWidth, tooltipHeight = self:GetSize()
 		if main.screenW >= 1338 - sliderOffsetX then
+			---@diagnostic disable-next-line: undefined-global
 			return controls[stat.label.."Slider"].tooltip.realDraw(self, x - 8 - sliderOffsetX, y - 4 - tooltipHeight, width, height, viewPort)
 		end
 		return controls.Slider.tooltip.realDraw(self, x, y, width, height, viewPort)

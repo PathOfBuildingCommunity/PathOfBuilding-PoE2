@@ -196,6 +196,7 @@ local function repairLUTs()
 				jewelType = jewelType + 1
 			end
 			--]]
+			---@diagnostic disable-next-line: undefined-global
 			local compressedFile = io.open(scriptPath .. "/Data/TimelessJewelData/" .. data.timelessJewelTypes[jewelType], "rb")
 			if compressedFile then
 				ConPrintf("base LUT found: " .. jewelTypeName)
@@ -204,6 +205,7 @@ local function repairLUTs()
 
 				--- Code for compressing existing data if it changed
 				local compressedFileData = Deflate(jewelData)
+				---@diagnostic disable-next-line: undefined-global
 				local file = assert(io.open(scriptPath .. "Data/TimelessJewelData/" .. jewelTypeName .. ".zip", "wb+"))
 				file:write(compressedFileData)
 				file:close()

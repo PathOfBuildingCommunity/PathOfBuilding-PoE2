@@ -45,6 +45,7 @@ end
 -- Optimize coroutines to run at full framerate
 local co_create = coroutine.create
 local active_coroutines = setmetatable({}, { __mode = "k" })
+---@diagnostic disable-next-line: duplicate-set-field
 function coroutine.create(func)
 	local co = co_create(func)
 	active_coroutines[co] = true
@@ -247,7 +248,7 @@ end
 
 --- Clean item text by removing or replacing unsupported or redundant characters or sequences
 ---@param text string
----@return string
+---@return string?
 function sanitiseText(text)
 	if not text then return nil end
 	-- Something something unicode support something grumble
@@ -653,7 +654,7 @@ end
 
 --- Rounds down a number to the nearest <dec> decimal places
 ---@param val number
----@param dec number
+---@param dec number?
 ---@return number
 function floor(val, dec)
 	if dec then
@@ -758,7 +759,7 @@ end
 
 function getFormatNumSep(dec)
 	return function(val)
-		return formatNumSep(val, dec)
+		return formatNumSep(val)
 	end
 end
 

@@ -920,6 +920,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			elseif not orderA and not orderB then
 				return groupOrder[a] < groupOrder[b]
 			else
+				---@diagnostic disable-next-line: return-type-mismatch
 				return orderA
 			end
 		end)

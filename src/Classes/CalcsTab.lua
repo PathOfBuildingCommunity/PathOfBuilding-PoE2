@@ -192,7 +192,7 @@ Effective DPS: Curses and enemy properties (such as resistances and status condi
 	self.powerBuilderInitialized = nil
 end)
 
-function CalcsTabClass:Load(xml, dbFileName)
+function CalcsTabClass:Load(xml, fileName)
 	for _, node in ipairs(xml) do
 		if type(node) == "table" then
 			if node.elem == "Input" then
@@ -631,7 +631,7 @@ function CalcsTabClass:PowerBuilder()
 
 	-- Calculate the impact of every cluster notable
 	-- used for the power report screen
-	for nodeName, node in pairs(self.build.spec.tree.clusterNodeMap) do
+	for nodeId, node in pairs(self.build.spec.tree.clusterNodeMap) do
 		if not node.power then
 			node.power = {}
 		end

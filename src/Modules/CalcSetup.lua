@@ -175,6 +175,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	end
 	
 	if modList:Flag(nil, "PassiveSkillHasOtherEffect") then
+		---@diagnostic disable-next-line: undefined-global
 		for i, mod in ipairs(modList:List(skillCfg, "NodeModifier")) do
 			if i == 1 then wipeTable(modList) end
 			modList:AddMod(mod.mod)

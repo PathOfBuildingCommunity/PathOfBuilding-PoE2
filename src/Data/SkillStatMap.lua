@@ -1249,9 +1249,6 @@ return {
 ["shock_chance_+%"] = {
 	mod("EnemyShockChance", "INC", nil),
 },
-["active_skill_shock_chance_+%_final"] = {
-	mod("EnemyShockChance", "MORE", nil),
-},
 ["always_shock"] = {
 	mod("EnemyShockChance", "BASE", nil),
 	value = 100,
@@ -2223,9 +2220,6 @@ return {
 ["mine_detonation_radius_+%"] = {
 	mod("MineDetonationAreaOfEffect", "INC", nil),
 },
-["mine_throwing_speed_+%_per_frenzy_charge"] = {
-	mod("MineLayingSpeed", "INC", nil, 0, 0, { type = "Multiplier", var = "FrenzyCharge" }),
-},
 ["remote_mined_by_support"] = {
 	flag("ManaCostGainAsReservation"),
 	flag("LifeCostGainAsReservation"),
@@ -2863,9 +2857,6 @@ return {
 ["quality_display_siege_cascade_damage_+%_final_vs_immobilised_enemies_is_gem"] = {
 	-- Display Only
 },
-["quality_display_active_skill_base_area_of_effect_radius_is_gem"] = {
-	-- Display Only
-},
 ["quality_display_lightning_arrow_is_gem"] = {
 	-- Display Only
 },
@@ -2882,9 +2873,6 @@ return {
 	-- Display Only
 },
 ["quality_display_active_skill_damage_+%_final_vs_immobilised_enemies_is_gem"] = {
-	-- Display Only
-},
-["quality_display_base_number_of_projectiles_is_gem"] = {
 	-- Display Only
 },
 ["quality_display_sandstorm_swipe_is_gem"] = {

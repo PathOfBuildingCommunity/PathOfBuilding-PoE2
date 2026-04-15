@@ -180,7 +180,9 @@ local function applySpecial(val, spec)
 		val[spec.v].min = val[spec.v].min * 0.6
 		val[spec.v].max = val[spec.v].max * 0.6
 	elseif spec.k == "mod_value_to_item_class" then
+		---@diagnostic disable-next-line: undefined-global
 		val[spec.v].min = ItemClasses[val[spec.v].min].Name
+		---@diagnostic disable-next-line: undefined-global
 		val[spec.v].max = ItemClasses[val[spec.v].max].Name
 		val[spec.v].fmt = "s"
 	elseif spec.k == "one_hundred_divide_by_value" then

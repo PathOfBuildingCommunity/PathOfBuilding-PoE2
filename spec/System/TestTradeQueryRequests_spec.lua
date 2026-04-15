@@ -70,6 +70,7 @@ describe("TradeQueryRequests", function()
 		it("retries on 429 with exponential backoff", function()
 			local orig_os_time = os.time
 			local mock_time = 1000
+			---@diagnostic disable-next-line: duplicate-set-field
 			os.time = function() return mock_time end
 
 			local request = {

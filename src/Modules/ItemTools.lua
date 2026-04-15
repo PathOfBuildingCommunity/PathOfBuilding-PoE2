@@ -50,7 +50,8 @@ function itemLib.formatValue(value, baseValueScalar, valueScalar, precision, dis
 	if displayPrecision then value = roundSymmetric(value, displayPrecision) end -- presentation
 	if displayPrecision and not ifRequired then -- whitespace is needed
 		return string.format("%."..displayPrecision.."f", value)
-	elseif displayPrecision then
+    elseif displayPrecision then
+		---@diagnostic disable-next-line: redundant-parameter
 		return tostring(value, displayPrecision)
 	else
 		return tostring(roundSymmetric(value,  precision and m_min(2, m_floor(math.log(precision, 10) + 0.001)) or 2)) -- max decimals ingame is 2 
@@ -87,10 +88,10 @@ function itemLib.applyRange(line, range, valueScalar, baseValueScalar)
 	--- Takes a completely strippedLine where all values and ranges are replaced with a # + signs are kept for consistency upon re-substitution.
 	--- This will then substitute back in the values until a line in scalabilityData is found this start with substituting everything and until none.
 	--- This means if there is a more generic mod that might be scalable on both parameters but their is a narrower one that isn't it won't be scaled.
-	---@param line the modLine stripped of all values and ranges replaced by #
-	---@param values all values present in the modLine
-	---@return scalableLine line with only scalableValues replaced with #
-	---@return scalableValues values which can be scaled and added into scalableLine in place of a #
+	---@param line string the modLine stripped of all values and ranges replaced by #
+	---@param values table all values present in the modLine
+	---@return string? scalableLine line with only scalableValues replaced with #
+	---@return table? scalableValues values which can be scaled and added into scalableLine in place of a #
 	local function findScalableLine(line, values)
 		local function replaceNthInstance(input, pattern, replacement, n)
 			local count = 0
