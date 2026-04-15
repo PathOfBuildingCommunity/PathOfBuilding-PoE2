@@ -1,0 +1,37 @@
+{
+  "runtime": {
+    "version": "LuaJIT"
+  },
+  "workspace": {
+    "library": [
+            "runtime/lua",
+            "${addons}/busted/module/library",
+            "${addons}/luassert/module/library",
+            "${addons}/luafilesystem/module/library"
+        ],
+    "ignoreDir": ["runtime", "src/Export"]
+  },
+  "diagnostics": {
+    "globals": ["UpdateProgress"],
+    "severity": {
+      "need-check-nil": "Information",
+      "param-type-mismatch": "Information",
+      "undefined-field": "Information",
+      "undefined-doc-class": "Information",
+      "undefined-doc-name": "Information",
+      "missing-return": "Information",
+      "inject-field": "Information",
+      "assign-type-mismatch": "Information",
+      "cast-local-type": "Information"
+    },
+    "disable": ["lowercase-global"]
+  },
+  "hint": {
+    "enable": true
+  },
+  "Lua.format.defaultConfig": {
+    "indent_style": "tab",
+    "indent_size": "4"
+  },
+  "workspace.checkThirdParty": false
+}
