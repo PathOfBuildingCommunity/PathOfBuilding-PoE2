@@ -463,6 +463,7 @@ function ImportTabClass:DownloadCharacterList()
 			end
 		end
 		table.sort(leagueList)
+			charSelectLeague = self.controls.charSelectLeague
 		wipeTable(self.controls.charSelectLeague.list)
 		for _, league in ipairs(leagueList) do
 			t_insert(self.controls.charSelectLeague.list, {
