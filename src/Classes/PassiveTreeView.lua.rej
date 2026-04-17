@@ -1,0 +1,10 @@
+diff a/src/Classes/PassiveTreeView.lua b/src/Classes/PassiveTreeView.lua	(rejected hunks)
+@@ -1607,7 +1608,7 @@ function PassiveTreeViewClass:AddCompareNodeTooltip(tooltip, node, build)
+ 		local cJewel = self:GetCompareJewel(node.id)
+ 		local cItemsTab = self.compareSpec.build and self.compareSpec.build.itemsTab
+ 		if cJewel and cItemsTab then
+-			cItemsTab:AddItemTooltip(tooltip, cJewel, { nodeId = node.id })
++			cItemsTab:AddItemTooltip(tooltip, cJewel, nil)
+ 		else
+ 			self:AddCompareNodeName(tooltip, node)
+ 		end
