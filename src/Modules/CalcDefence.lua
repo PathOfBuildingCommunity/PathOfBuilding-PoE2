@@ -3112,7 +3112,10 @@ function calcs.buildDefenceEstimations(env, actor)
 		if poolTable.Life >= 0 and damageTotal >= maxDamage then -- If still living and the amount of damage exceeds maximum threshold we survived infinite number of hits.
 			return m_huge
 		end
-		return numHits
+		if numHits ~= numHits then
+			return 0
+		end
+		return m_max(numHits, 0)
 	end
 	
 	if damageCategoryConfig ~= "DamageOverTime" then
@@ -3578,9 +3581,12 @@ function calcs.buildDefenceEstimations(env, actor)
 					local damageConvertedMulti = convertPercent / 100
 					local totalHitPool = output[damageConvertedType.."TotalHitPool"]
 					local totalTakenMulti = output[damageConvertedType.."AfterReductionTakenHitMulti"] * (1 - output["VaalArcticArmourMitigation"])
-
-					if effectiveAppliedArmour == 0 and convertPercent == 100 then	-- use a simpler calculation for no armour DR
-						local drMulti = output[damageConvertedType.."ResistTakenHitMulti"] * (1 - output[damageConvertedType.."DamageReduction"] / 100)
+					if damageConvertedMulti <= 0 then
+						local takenWithoutIncoming = m_max(takenFlat, 0) * totalTakenMulti
+						hitTaken = takenWithoutIncoming >= totalHitPool and 0 or m_huge
+					elseif effectiveAppliedArmour == 0 and convertPercent == 100 then -- use a simpler calculation for no armour DR
+						local totalResistMult = output[damageConvertedType.."ResistTakenHitMulti"]
+						local drMulti = totalResistMult * (1 - output[damageConvertedType.."DamageReduction"] / 100)
 						hitTaken = m_max(totalHitPool / damageConvertedMulti / drMulti - takenFlat, 0) / totalTakenMulti
 					else
 						-- get relevant raw reductions and reduction modifiers
