@@ -1479,18 +1479,78 @@ function ItemsTabClass:DeleteItem(item, deferUndoState)
 	end
 end
 
+local function isAnointable(item)
+	return (item.canBeAnointed or item.base.type == "Amulet")
+end
+
+local function isAugmentable(item)
+	return (item.sockets and #item.sockets > 0) or (item.base.socketLimit and item.base.socketLimit > 0)
+end
+
+function ItemsTabClass:copyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
+	local newItemType = sourceSlotName or (newItem.base.weapon and "Weapon 1" or newItem.base.type)
+	-- tabula rasa has jewel sockets which don't apply here
+	if newItem.name == "Tabula Rasa, Garment" then return end
+	if self.activeItemSet[newItemType] then
+		local currentItem = self.activeItemSet[newItemType].selItemId and self.items[self.activeItemSet[newItemType].selItemId]
+		-- if you don't have an equipped item that matches the type of the newItem, no need to do anything
+		if currentItem then
+			local modifiableItem = not (newItem.corrupted or newItem.mirrored or newItem.sanctified)
+			-- if the new item is anointable and does not have an anoint and your current respective item does, apply that anoint to the new item
+			if isAnointable(newItem) and (#newItem.enchantModLines == 0 or overwrite) and self.activeItemSet[newItemType].selItemId > 0 and modifiableItem then
+				local currentAnoint = currentItem.enchantModLines
+				newItem.enchantModLines = currentAnoint
+			end
+			
+			--https://www.poe2wiki.net/wiki/Augment_socket
+			-- augments, given there are enough sockets
+
+			local hasEmptySockets = true
+			for i = 1, #newItem.runes do
+				if newItem.runes[i] ~= "None" then
+					hasEmptySockets = false
+					break
+				end
+			end
+			local shouldChangeAugments = copyAugments and isAugmentable(newItem) and
+			(#newItem.runes == 0 or hasEmptySockets or overwrite)
+
+			-- current runes sans "None"
+			local currentRunes = {}
+			for i = 1, #currentItem.runes do
+				if currentItem.runes[i] ~= "None" then
+					table.insert(currentRunes, currentItem.runes[i])
+				end
+			end
+			-- add sockets, if necessary and possible
+			if shouldChangeAugments and isAugmentable(newItem) and modifiableItem and #newItem.sockets < #currentItem.sockets then
+				local maxSockets = modifiableItem and math.min(#currentItem.sockets, newItem.base.socketLimit)
+				local neededSockets = math.max(0, maxSockets - #newItem.sockets)
+				for i = 1, neededSockets do
+					table.insert(newItem.runes, "None")
+					table.insert(newItem.sockets, { group = #newItem.sockets + 1})
+				end
+				newItem.itemSocketCount = #newItem.sockets
+				newItem:UpdateRunes()
+			end
+			-- replace runes with current ones, or set to none
+			if shouldChangeAugments then
+				for i = 1, #newItem.sockets do
+					newItem.runes[i] = currentRunes[i] or "None"
+				end
+				newItem:UpdateRunes()
+			end
+
+			newItem:BuildAndParseRaw()
+		end
+	end
+end
+
 -- Attempt to create a new item from the given item raw text and sets it as the new display item
 function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 	local newItem = new("Item", itemRaw)
 	if newItem.base then
-		-- if the new item is an amulet and does not have an anoint and your current amulet does, apply that anoint to the new item
-		if newItem.base.type == "Amulet" and #newItem.enchantModLines == 0 and self.activeItemSet["Amulet"].selItemId > 0 then
-			local currentAnoint = self.items[self.activeItemSet["Amulet"].selItemId].enchantModLines
-			if currentAnoint and #currentAnoint == 1 then -- skip if amulet has more than one anoint e.g. Stranglegasp
-				newItem.enchantModLines = currentAnoint
-				newItem:BuildAndParseRaw()
-			end
-		end
+		self:copyAnointsAndAugments(newItem, main.migrateAugments, false)
 		if normalise then
 			newItem:NormaliseQuality()
 			newItem:BuildModList()
