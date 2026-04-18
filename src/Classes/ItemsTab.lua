@@ -1488,7 +1488,9 @@ local function isAugmentable(item)
 end
 
 function ItemsTabClass:copyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
-	local newItemType = sourceSlotName or (newItem.base.weapon and "Weapon 1" or newItem.base.type)
+	local isWeapon = newItem.base.tags and (newItem.base.tags.onehand or newItem.base.tags.twohand)
+	local isShield = newItem.base.tags and (newItem.base.tags.shield or newItem.base.tags.focus)
+	local newItemType = sourceSlotName or (isWeapon and "Weapon 1") or (isShield and "Weapon 2") or newItem.base.type
 	-- tabula rasa has jewel sockets which don't apply here
 	if newItem.name == "Tabula Rasa, Garment" then return end
 	if self.activeItemSet[newItemType] then
