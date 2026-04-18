@@ -1512,7 +1512,7 @@ local function isAugmentable(item)
 	return (item.sockets and #item.sockets > 0) or (item.base.socketLimit and item.base.socketLimit > 0)
 end
 
-function ItemsTabClass:copyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
+function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
 	local isWeapon = newItem.base.tags and (newItem.base.tags.onehand or newItem.base.tags.twohand)
 	local isShield = newItem.base.tags and (newItem.base.tags.shield or newItem.base.tags.focus)
 	local newItemType = sourceSlotName or (isWeapon and "Weapon 1") or (isShield and "Weapon 2") or newItem.base.type
@@ -1577,7 +1577,7 @@ end
 function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 	local newItem = new("Item", itemRaw)
 	if newItem.base then
-		self:copyAnointsAndAugments(newItem, main.migrateAugments, false)
+		self:CopyAnointsAndAugments(newItem, main.migrateAugments, false)
 		if normalise then
 			newItem:NormaliseQuality()
 			newItem:BuildModList()

@@ -1,6 +1,9 @@
 describe("TradeQuery Currency Conversion", function()
-	local mock_tradeQuery = new("TradeQuery", { itemsTab = {} })
+	local mock_tradeQuery
 
+	before_each(function()
+		mock_tradeQuery = new("TradeQuery", { itemsTab = {} })
+	end)
 	-- test case for commit: "Skip callback on errors to prevent incomplete conversions"
 	describe("FetchCurrencyConversionTable", function()
 		-- Pass: Callback not called on error
@@ -40,15 +43,19 @@ describe("TradeQuery Currency Conversion", function()
 	end)
 
 	describe("PriceBuilderProcessPoENinjaResponse", function()
-		-- Pass: Processes without error, restoring map
+		-- Pass: Processes without error, restoring map while adding a notice
 		-- Fail: Corrupts map or crashes, indicating fragile API response handling, breaking future conversions
 		it("handles unmapped currency", function()
 			local orig_conv = mock_tradeQuery.currencyConversionTradeMap
 			mock_tradeQuery.currencyConversionTradeMap = { div = "id" }
+			mock_tradeQuery.pbLeague = "league"
+			mock_tradeQuery.pbCurrencyConversion = { league = {} }
+			mock_tradeQuery.controls.pbNotice = { label = "" }
 			local resp = { exotic = 10 }
 			mock_tradeQuery:PriceBuilderProcessPoENinjaResponse(resp)
 			-- No crash expected
 			assert.is_true(true)
+			assert.is_true(mock_tradeQuery.controls.pbNotice.label == "No currencies received from PoE Ninja")
 			mock_tradeQuery.currencyConversionTradeMap = orig_conv
 		end)
 	end)

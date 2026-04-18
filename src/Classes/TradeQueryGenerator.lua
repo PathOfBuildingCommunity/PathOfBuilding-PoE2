@@ -706,6 +706,15 @@ function TradeQueryGeneratorClass:FinishQuery()
 	-- So apply a modifier to get a reasonable min and hopefully approximate that the query will start out with small upgrades.
 	local minWeight = megalomaniacSpecialMinWeight or currentStatDiff * 0.5
 	
+	-- what the trade site API uses for instant buyout etc.
+	self.tradeTypes = {
+		"securable",
+		"available",
+		"onlineleague",
+		"online",
+		"any",
+	}
+	local selectedTradeType = self.tradeTypes[self.tradeTypeIndex]
 	-- Generate trade query str and open in browser
 	local filters = 0
 	local queryTable = {
@@ -718,7 +727,7 @@ function TradeQueryGeneratorClass:FinishQuery()
 					}
 				}
 			},
-			status = { option = "available" },
+			status = { option = selectedTradeType },
 			stats = {
 				{
 					type = "weight",
@@ -740,6 +749,10 @@ function TradeQueryGeneratorClass:FinishQuery()
 	if options.maxPrice and options.maxPrice > 0 then
 		num_extra = num_extra + 1
 	end
+	if options.account then
+		queryTable.query.filters.trade_filters.filters.account = {input = options.account}
+	end
+
 	if options.maxLevel and options.maxLevel > 0 then
 		num_extra = num_extra + 1
 	end
@@ -836,29 +849,64 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 
 	local isJewelSlot = slot and slot.slotName:find("Jewel") ~= nil
 
-	controls.includeCorrupted = new("CheckBoxControl", {"TOP",nil,"TOP"}, {-40, 30, 18}, "Corrupted Mods:", function(state) end)
-	controls.includeCorrupted.state = not context.slotTbl.alreadyCorrupted and (self.lastIncludeCorrupted == nil or self.lastIncludeCorrupted == true)
-	controls.includeCorrupted.enabled = not context.slotTbl.alreadyCorrupted
-
-	local canHaveRunes = slot and (slot.slotName:find("Weapon 1") or slot.slotName:find("Weapon 2") or slot.slotName:find("Helmet") or slot.slotName:find("Body Armour") or slot.slotName:find("Gloves") or slot.slotName:find("Boots"))
-	controls.includeRunes = new("CheckBoxControl", {"TOPRIGHT",controls.includeCorrupted,"BOTTOMRIGHT"}, {0, 5, 18}, "Rune Mods:", function(state) end)
-	controls.includeRunes.state = canHaveRunes and (self.lastIncludeRunes == nil or self.lastIncludeRunes == true)
-	controls.includeRunes.enabled = canHaveRunes
-
-	local lastItemAnchor = controls.includeRunes
-
+	local lastItemAnchor
 	local function updateLastAnchor(anchor, height)
 		lastItemAnchor = anchor
 		popupHeight = popupHeight + (height or 23)
 	end
 
+	controls.includeCorrupted = new("CheckBoxControl", {"TOP",nil,"TOP"}, {-40, 30, 18}, "Corrupted Mods:", function(state) end, "Includes corruption implicit modifiers in the weighted sum.\nNote that there is a maximum search filter count which means this might cause other weights to not be included.")
+	controls.includeCorrupted.state = not context.slotTbl.alreadyCorrupted and (self.lastIncludeCorrupted == nil or self.lastIncludeCorrupted == true)
+	controls.includeCorrupted.enabled = not context.slotTbl.alreadyCorrupted
+	updateLastAnchor(controls.includeCorrupted)
+
+
+	
+
+	controls.includeMirrored = new("CheckBoxControl", {"TOPRIGHT",lastItemAnchor,"BOTTOMRIGHT"}, {0, 5, 18}, "Mirrored Items:", function(state) end)
+	controls.includeMirrored.state = (self.lastIncludeMirrored == nil or self.lastIncludeMirrored == true)
+	updateLastAnchor(controls.includeMirrored)
+
+	-- there are also some exceptions like the darkness enthroned belt, but runes on these are not yet working pob
+	local isAugmentableSlot = slot and (slot.slotName:find("Weapon 1") or slot.slotName:find("Weapon 2") or slot.slotName:find("Helmet") or slot.slotName:find("Body Armour") or slot.slotName:find("Gloves") or slot.slotName:find("Boots"))
+	if isAugmentableSlot then
+		local augmentTooltip = [[Controls how augments are used in the search.
+
+Copy Current: augments in weights are skipped and augments are replaced with the current augments when possible.
+Usually the best opinion as this ensures the augments makes sense for your build.
+
+Keep: augments will be included in weights and will not be changed on items.
+Best used when you value an augment greatly, and cannot add it yourself.
+
+Remove: augments are completely ignored, and removed from items.]]
+		controls.augmentBehaviour = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 110, 18}, {"Copy Current", "Keep", "Remove"}, function(state) end, augmentTooltip)
+		controls.augmentBehaviour:SetSel(self.lastAugmentBehaviourIdx or 1)
+		controls.augmentBehaviourLabel = new("LabelControl", { "RIGHT", controls.augmentBehaviour, "LEFT" },
+			{ -4, 0, 80, 16 }, "Rune Behaviour:")
+		updateLastAnchor(controls.augmentBehaviour)
+	end
+
+	local isAmulet = slot and (slot.slotName:find("Amulet"))
+	if isAmulet then
+		local augmentTooltip = [[Controls how anoints are used in the search.
+
+Copy Current: anoints are replaced with the current anoint when possible.
+Usually the best opinion as this ensures the anoint makes sense for your build.
+
+Keep: anoints will not be changed on items.
+Best used when you cannot add one yourself. Note that weights cannot be generated for anoints.
+
+Remove: anoints are completely ignored, and removed from items.]]
+		controls.anointBehaviour = new("DropDownControl", {"TOPLEFT", lastItemAnchor, "BOTTOMLEFT"}, {0, 5, 110, 18}, {"Copy Current", "Keep", "Remove"}, function(state) end, augmentTooltip)
+		controls.anointBehaviour:SetSel(self.lastAnointBehaviourIdx or 1)
+		controls.anointBehaviourLabel = new("LabelControl", { "RIGHT", controls.anointBehaviour, "LEFT" },
+			{ -4, 0, 80, 16 }, "Anoint Behaviour:")
+		updateLastAnchor(controls.anointBehaviour)
+	end
+
 	if context.slotTbl.unique then
 		options.special = { itemName = context.slotTbl.slotName }
 	end
-
-	controls.includeMirrored = new("CheckBoxControl", {"TOPRIGHT",lastItemAnchor,"BOTTOMRIGHT"}, {0, 5, 18}, "Mirrored items:", function(state) end)
-	controls.includeMirrored.state = (self.lastIncludeMirrored == nil or self.lastIncludeMirrored == true)
-	updateLastAnchor(controls.includeMirrored)
 
 
 	if isJewelSlot then
@@ -889,7 +937,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	if slot and not isJewelSlot and not slot.slotName:find("Flask") and not slot.slotName:find("Belt") and not slot.slotName:find("Ring") and not slot.slotName:find("Amulet") and not slot.slotName:find("Charm") then
 		controls.sockets = new("EditControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 70, 18}, nil, nil, "%D")
 		controls.sockets.buf = self.lastSockets and tostring(self.lastSockets) or ""
-		controls.socketsLabel = new("LabelControl", {"RIGHT",controls.sockets,"LEFT"}, {-5, 0, 0, 16}, "# of Empty Sockets:")
+		controls.socketsLabel = new("LabelControl", {"RIGHT",controls.sockets,"LEFT"}, {-5, 0, 0, 16}, "^7# of Empty Sockets:")
 		updateLastAnchor(controls.sockets)
 	end
 
@@ -919,14 +967,27 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	controls.generateQuery = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {-45, -10, 80, 20}, "Execute", function()
 		main:ClosePopup()
 
+		self.tradeTypeIndex = context.controls.tradeTypeSelection.selIndex
+
 		if controls.includeMirrored then
 			self.lastIncludeMirrored, options.includeMirrored = controls.includeMirrored.state, controls.includeMirrored.state
 		end
 		if controls.includeCorrupted then
 			self.lastIncludeCorrupted, options.includeCorrupted = controls.includeCorrupted.state, controls.includeCorrupted.state
 		end
-		if controls.includeRunes  then
-			self.lastIncludeRunes, options.includeRunes = controls.includeRunes.state, controls.includeRunes.state
+		if controls.augmentBehaviour then
+			-- remember setting
+			self.lastAugmentBehaviourIdx = controls.augmentBehaviour.selIndex
+			-- used by TradeQuery to change augments accordingly
+			self.lastAugmentBehaviour = controls.augmentBehaviour:GetSelValue()
+			-- whether weights should be generated
+			options.includeRunes = controls.augmentBehaviour:GetSelValue() == "Keep"
+		end
+		if controls.anointBehaviour then
+			-- remember setting
+			self.lastAnointBehaviourIdx = controls.anointBehaviour.selIndex
+			-- used by TradeQuery to change anoints accordingly
+			self.lastAnointBehaviour = controls.anointBehaviour:GetSelValue()
 		end
 		if controls.jewelType then
 			self.lastJewelType = controls.jewelType.selIndex
