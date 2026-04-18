@@ -429,7 +429,11 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				table.insert(items, {
 					amount = trade_entry.listing.price.amount,
 					currency = trade_entry.listing.price.currency,
-					priceType = trade_entry.listing.price.type,
+					-- note: using these to travel to the hideout or for a
+					-- direct whisper is not allowed, even if they are provided
+					-- right here
+					-- hideout_token = trade_entry.listing.hideout_token,
+					-- whisper_token = trade_entry.listing.whisper_token,
 					item_string = table.concat(rawLines, "\n"),
 					whisper = trade_entry.listing.whisper,
 					trader = trade_entry.listing.account.name,

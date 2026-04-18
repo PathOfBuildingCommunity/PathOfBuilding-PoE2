@@ -49,8 +49,6 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	self.realmIds = {
 		["PoE 2"]   = "poe2",
 	}
-	--- @type integer?
-	self.backoffFinish = nil
 	-- last query for each row
 	self.lastQueries = {}
 
@@ -174,23 +172,23 @@ function TradeQueryClass:PullPoENinjaCurrencyConversion(league)
 end
 
 -- Method to process the PoE.Ninja response
---- @param responseLines table[]
---- @return bool
-function TradeQueryClass:PriceBuilderProcessPoENinjaResponse(responseLines)
-	-- Populate the divine-converted values for each tradeId
-	for _, currencyDetails in ipairs(responseLines) do
-		-- these use the same ids as the trade site, which are also short
-		-- readable names, like "transmute" or "aug", which means there's no
-		-- need for conversion.
-		local id = currencyDetails.id
-		-- poe.ninja uses divs as the primary currency, and as far as I know,
-		-- this figure is equivalent to the best ratio in equivalent divs
-		local divs = currencyDetails.primaryValue
-		if not id or not divs then
-			self:SetNotice(self.controls.pbNotice, "Currencies not updated: malformed PoE Ninja response")
-			return false
+function TradeQueryClass:PriceBuilderProcessPoENinjaResponse(resp)
+	if resp then
+		-- Populate the chaos-converted values for each tradeId
+		for currencyName, chaosEquivalent in pairs(resp) do
+			local currencyName = currencyName:lower()
+			if self.currencyConversionTradeMap[currencyName] then
+				self.pbCurrencyConversion[self.pbLeague][self.currencyConversionTradeMap[currencyName]] = chaosEquivalent
+			else
+				ConPrintf("Unhandled Currency Name: '"..currencyName.."'")
+			end
 		end
-		self.pbCurrencyConversion[self.pbLeague][id] = divs
+		-- if nothing was actually found, we should add a notice
+		if next(self.pbCurrencyConversion[self.pbLeague]) == nil then
+			self:SetNotice(self.controls.pbNotice, "No currencies received from PoE Ninja")
+		end
+	else
+		self:SetNotice(self.controls.pbNotice, "PoE Ninja JSON Processing Error")
 	end
 	-- if nothing was actually found, we should add a notice
 	if next(self.pbCurrencyConversion[self.pbLeague]) == nil then
@@ -475,29 +473,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		t_insert(slotTables, { slotName = self.itemsTab.sockets[nodeId].label, nodeId = nodeId })
 	end
 
-	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
-		main.api:FetchAuthToken(function()
-			if main.api.authToken then
-				self.charImportStatus = "Authenticated"
-
-				main.lastToken = main.api.authToken
-				main.lastRefreshToken = main.api.refreshToken
-				main.tokenExpiry = main.api.tokenExpiry
-				main:SaveSettings()
-
-				TradeQueryClass:SetNotice(self.controls.pbNotice, "")
-			else
-				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
-			end
-		end)
-		local clickTime = os.time()
-		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
-	end)
-	self.controls.authenticateButton.shown = function()
-		return self.charImportMode == "AUTHENTICATION"
-	end
-
-	self.controls.sectionAnchor = new("LabelControl", {"LEFT", self.controls.tradeTypeSelection, "LEFT"}, {0, row_vertical_padding, 0, 0}, "")
+	self.controls.sectionAnchor = new("LabelControl", {"LEFT", self.controls.tradeTypeSelection, "LEFT"}, {0, row_vertical_padding + row_height, 0, 0}, "")
 	top_pane_alignment_ref = {"TOPLEFT", self.controls.sectionAnchor, "TOPLEFT"}
 	local scrollBarShown = #slotTables > 21 -- clipping starts beyond this
 	-- dynamically hide rows that are above or below the scrollBar
@@ -562,7 +538,6 @@ Highest Weight - Displays the order retrieved from trade]]
 		self:PullPoENinjaCurrencyConversion(self.pbLeague)
 	end)
 	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical, 300, row_height}, "")
-	self:SetCurrencyConversionButton()
 
 	-- used in PopupDialog:Draw()
 	local function scrollBarFunc()
@@ -679,6 +654,16 @@ function TradeQueryClass:SetCurrencyConversionButton()
 	local currencyLabel = "Update Currency Conversion Rates"
 	self.pbFileTimestampDiff[self.controls.league.selIndex] = nil
 	if self.pbLeague == nil then
+		return
+	end
+	if true then -- tbd once poe ninja has data for poe2
+		self.controls.updateCurrencyConversion.label = "Currency Rates are not available"
+		self.controls.updateCurrencyConversion.enabled = false
+		self.controls.updateCurrencyConversion.tooltipFunc = function(tooltip)
+			tooltip:Clear()
+			tooltip:AddLine(16, "Currency Conversion rates are pulled from PoE Ninja")
+			tooltip:AddLine(16, "The data is only available for the PC realm.")
+		end
 		return
 	end
 	local values_file = io.open("../"..self.pbLeague.."_currency_values.json", "r")
@@ -887,7 +872,7 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 			-- still seems to overrate very cheap items that are bad
 
 			-- scaling factor for price
-			local k = 0.1
+			local k = 0.03
 			t_insert(newTbl,
 				{ outputAttr = getResultWeight(result_index) - k * math.log(priceTable[result_index], 10), index =
 				result_index })
@@ -1116,9 +1101,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			local price = self.totalPrice[row_idx] and
 				self.totalPrice[row_idx].amount .. " " .. self.totalPrice[row_idx].currency
 
-			-- we also check the price type so we can prefer instant buyout over
-			-- whisper
-			if itemResult.whisper and (itemResult.priceType ~= "~b/o") then
+			if itemResult.whisper then
 				return price and "Whisper for " .. price or "Whisper"
 			else
 				return price and "Search for " .. price or "Search"
@@ -1126,7 +1109,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 
 		end, function()
 			local itemResult = self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
-			if  itemResult.whisper and (itemResult.priceType ~= "~b/o") then
+			if  itemResult.whisper then
 				Copy(itemResult.whisper)
 			else
 				local exactQuery = dkjson.decode(self.lastQueries[row_idx])
@@ -1142,11 +1125,13 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				exactQuery.query.filters.trade_filters.filters.account = { input = itemResult.trader }
 
 				local exactQueryStr = dkjson.encode(exactQuery)
-
-				local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s?q=%s", self.pbLeague, urlEncode(exactQueryStr))
-
-				Copy(encodedUrl)
-				OpenURL(encodedUrl)
+				
+				self.tradeQueryRequests:SearchWithQuery(self.pbRealm, self.pbLeague, exactQueryStr, function(_, _)
+				end, {callbackQueryId = function(queryId)
+					local url = self.hostName.."trade2/search/"..self.pbLeague.."/"..queryId
+					Copy(url)
+					OpenURL(url)
+				end})
 			end
 		end)
 
