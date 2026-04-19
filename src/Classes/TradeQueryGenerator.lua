@@ -247,6 +247,10 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 
 		local statOrder = modLine:find("Nearby Enemies have %-") ~= nil and mod.statOrder[index + 1] or mod.statOrder[index] -- hack to get minus res mods associated with the correct statOrder
 		local uniqueIndex = mod.group ~= "" and tostring(statOrder).."_"..mod.group or tostring(statOrder)
+		-- ensure that regular jewel and radius jewel mods don't get the same index
+		if mod.nodeType then
+			uniqueIndex = uniqueIndex.."Radius"
+		end
 
 		if self.modData[modType][uniqueIndex] == nil then
 			if tradeMod == nil then
@@ -627,6 +631,13 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 
 	-- Create a temp item for the slot with no mods
 	local itemRawStr = "Rarity: RARE\nStat Tester\n" .. testItemType
+	if options.jewelType == "Radius" then
+		itemRawStr = [[Rarity: RARE
+Stat Tester
+Time-Lost Sapphire
+Radius: Small
+Implicits: 0]]
+	end	
 	local testItem = new("Item", itemRawStr)
 
 	-- Calculate base output with a blank item
@@ -665,7 +676,25 @@ function TradeQueryGeneratorClass:ExecuteQuery()
 		self:GeneratePassiveNodeWeights(self.modData.AllocatesXEnchant)
 		return
 	end
-	self:GenerateModWeights(self.modData["Explicit"])
+
+	-- the trade site has no filters for jewel categories, so we can remove the
+	-- other mods to filter the category. this should also free up some filter slots.
+	if self.calcContext.options.jewelType == "Radius" then
+		local radiusMods = {}
+		-- local baseMods = {}
+		for k, v in pairs(self.modData["Explicit"]) do
+			if v.RadiusJewel then
+				radiusMods[k] = v
+			end
+		end
+
+		self:GenerateModWeights(radiusMods)
+	else
+	-- radius mods are not filtered out here, but they valued at zero and
+	-- ignored as the base item won't have a "radius:" line
+		self:GenerateModWeights(self.modData["Explicit"])
+	end
+
 	self:GenerateModWeights(self.modData["Implicit"])
 	if self.calcContext.options.includeCorrupted then
 		self:GenerateModWeights(self.modData["Corrupted"])
@@ -910,7 +939,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 
 
 	if isJewelSlot then
-		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Any", "Base", "Radius" }, function(index, value) end) -- this does nothing atm
+		controls.jewelType = new("DropDownControl", {"TOPLEFT",lastItemAnchor,"BOTTOMLEFT"}, {0, 5, 100, 18}, { "Base", "Radius" }, function(index, value) end)
 		controls.jewelType.selIndex = self.lastJewelType or 1
 		controls.jewelTypeLabel = new("LabelControl", {"RIGHT",controls.jewelType,"LEFT"}, {-5, 0, 0, 16}, "Jewel Type:")
 		updateLastAnchor(controls.jewelType)
@@ -991,7 +1020,7 @@ Remove: anoints are completely ignored, and removed from items.]]
 		end
 		if controls.jewelType then
 			self.lastJewelType = controls.jewelType.selIndex
-			options.jewelType = controls.jewelType.list[controls.jewelType.selIndex]
+			options.jewelType = controls.jewelType:GetSelValue()
 		end
 		if controls.maxPrice.buf then
 			options.maxPrice = tonumber(controls.maxPrice.buf)
