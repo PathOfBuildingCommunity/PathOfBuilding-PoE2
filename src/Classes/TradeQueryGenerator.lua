@@ -183,6 +183,7 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 	return meanStatDiff
 end
 
+function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
 
 function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
 -- processes mods from the data exports to a format that is more useful for
@@ -230,13 +231,13 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 		-- iterate trade mod category to find mod with matching text.
 		local function getTradeMod()
 			local entry
-			local tradeHashStr = tostring(tradeHash)
+			local tradeHashStr = tostring(mod.tradeHash)
 			for _, v in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices[modType]].entries) do
 				-- prefix removed
 				local ids = v.id:gsub(".+..stat_", "").."|"
 				-- split by non-integer
 				for id in ids:gmatch("%d+") do
-					if tradeHashStr == id then
+					if tradeHashStr == id then 
 						entry = v
 						goto finish
 					end
@@ -263,21 +264,7 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 		local tradeMod = nil
 		local invert
 
-		if mod.statOrder[index] == nil then -- if there isn't a mod order we have to use the trade id instead e.g. implicits.
-			tradeMod, invert = getTradeMod()
-			if tradeMod == nil then
-				logToFile("Unable to match %s mod: %s", modType, modLine)
-				goto nextModLine
-			end
-			mod.statOrder[index] = tradeMod.id
-		end
-
-		local statOrder = modLine:find("Nearby Enemies have %-") ~= nil and mod.statOrder[index + 1] or mod.statOrder[index] -- hack to get minus res mods associated with the correct statOrder
-		local uniqueIndex = mod.group ~= "" and tostring(statOrder).."_"..mod.group or tostring(statOrder)
-		-- ensure that regular jewel and radius jewel mods don't get the same index
-		if mod.nodeType then
-			uniqueIndex = uniqueIndex.."Radius"
-		end
+		local uniqueIndex = tostring(mod.tradeHash)
 
 		if self.modData[modType][uniqueIndex] == nil then
 			if tradeMod == nil then
@@ -491,7 +478,7 @@ function TradeQueryGeneratorClass:InitMods()
 	for name, runeMods in pairsSortByKey(data.itemMods.Runes) do
 		for slotType, mods in pairs(runeMods) do
 			for i, modLine in ipairs(mods) do
-				local mod = {modLine, tradeHashes = mods.tradeHashes, type = "Rune"}
+				local mod = {modLine, tradeHash = mods.tradeHashes[i], type = "Rune"}
 				if slotType == "weapon" then
 					self:ProcessMod(mod, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true, ["Talisman"] = true  })
 				elseif slotType == "armour" then
@@ -503,7 +490,7 @@ function TradeQueryGeneratorClass:InitMods()
 					local matchedCategory = nil
 					for category, categoryOptions in pairs(tradeCategoryNames) do
 						for i, opt in pairs(categoryOptions) do
-							if opt:lower():match("^"..slotType) then
+							if opt:lower():match(slotType) then
 								matchedCategory = category
 								break
 							end
