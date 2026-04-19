@@ -7402,9 +7402,75 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2321178454", 
+				["id"] = "enchant.stat_2321178454", 
 				["text"] = "#% chance to Pierce an Enemy", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1087_AllDamage"] = {
+			["Quiver"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
+			["Ring"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2154246560", 
+				["text"] = "#% increased Damage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1227_LocalChaosDamage"] = {
+			["1HMace"] = {
+				["max"] = 14.5, 
+				["min"] = 9.5, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 14.5, 
+				["min"] = 9.5, 
+			}, 
+			["2HMace"] = {
+				["max"] = 20.5, 
+				["min"] = 13.5, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 20.5, 
+				["min"] = 9.5, 
+			}, 
+			["Bow"] = {
+				["max"] = 14.5, 
+				["min"] = 9.5, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 20.5, 
+				["min"] = 13.5, 
+			}, 
+			["Flail"] = {
+				["max"] = 14.5, 
+				["min"] = 9.5, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 20.5, 
+				["min"] = 13.5, 
+			}, 
+			["Spear"] = {
+				["max"] = 14.5, 
+				["min"] = 9.5, 
+			}, 
+			["Talisman"] = {
+				["max"] = 20.5, 
+				["min"] = 13.5, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2223678961", 
+				["text"] = "Adds # to # Chaos damage", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1402_GlobalIncreasePhysicalSpellSkillGemLevel"] = {
@@ -7427,9 +7493,77 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1600707273", 
+				["id"] = "enchant.stat_1600707273", 
 				["text"] = "# to Level of all Physical Spell Skills", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1445_GainLifeOnBlock"] = {
+			["Shield"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_762600725", 
+				["text"] = "# Life gained when you Block", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1446_GainManaOnBlock"] = {
+			["Shield"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2122183138", 
+				["text"] = "# Mana gained when you Block", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1486_MaximumEnduranceCharges"] = {
+			["Belt"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1515657623", 
+				["text"] = "# to Maximum Endurance Charges", 
+				["type"] = "enchant", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1491_MaximumFrenzyCharges"] = {
+			["Gloves"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_4078695", 
+				["text"] = "# to Maximum Frenzy Charges", 
+				["type"] = "enchant", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1496_MaximumPowerCharges"] = {
+			["Helmet"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_227523295", 
+				["text"] = "# to Maximum Power Charges", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -7441,9 +7575,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_280731498", 
+				["id"] = "enchant.stat_280731498", 
 				["text"] = "#% increased Area of Effect", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["1569_SkillEffectDuration"] = {
@@ -7454,9 +7588,95 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3377888098", 
+				["id"] = "enchant.stat_3377888098", 
 				["text"] = "#% increased Skill Effect Duration", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1599_DamageGainedAsChaos"] = {
+			["Helmet"] = {
+				["max"] = 8, 
+				["min"] = 5, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_3398787959", 
+				["text"] = "Gain #% of Damage as Extra Chaos Damage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1617_LifeRegenerationRatePercentage"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_836936635", 
+				["text"] = "Regenerate #% of maximum Life per second", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1659_MaximumBlockChance"] = {
+			["Shield"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_480796730", 
+				["text"] = "#% to maximum Block chance", 
+				["type"] = "enchant", 
+			}, 
+			["usePositiveSign"] = true, 
+		}, 
+		["1937_BlindingHit"] = {
+			["2HWeapon"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["Bow"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2301191210", 
+				["text"] = "#% chance to Blind Enemies on hit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2153_LocalChanceToBleed"] = {
+			["1HMace"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["2HMace"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["Flail"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1519615863", 
+				["text"] = "#% chance to cause Bleeding on Hit", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2258_CurseEffectiveness"] = {
@@ -7467,9 +7687,30 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2353576063", 
+				["id"] = "enchant.stat_2353576063", 
 				["text"] = "#% increased Curse Magnitudes", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["2599_ImmunityToBlind"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1436284579", 
+				["text"] = "Cannot be Blinded", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2613_FireResistancePenetration"] = {
@@ -7480,9 +7721,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2653955271", 
+				["id"] = "enchant.stat_2653955271", 
 				["text"] = "Damage Penetrates #% Fire Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2614_ColdResistancePenetration"] = {
@@ -7493,9 +7734,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3417711605", 
+				["id"] = "enchant.stat_3417711605", 
 				["text"] = "Damage Penetrates #% Cold Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2615_LightningResistancePenetration"] = {
@@ -7506,9 +7747,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_818778753", 
+				["id"] = "enchant.stat_818778753", 
 				["text"] = "Damage Penetrates #% Lightning Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2875_WarcrySpeed"] = {
@@ -7519,9 +7760,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1316278494", 
+				["id"] = "enchant.stat_1316278494", 
 				["text"] = "#% increased Warcry Speed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2878_IncreasedStunThreshold"] = {
@@ -7532,9 +7773,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_680068163", 
+				["id"] = "enchant.stat_680068163", 
 				["text"] = "#% increased Stun Threshold", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["2879_FreezeThreshold"] = {
@@ -7545,10 +7786,24 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3780644166", 
+				["id"] = "enchant.stat_3780644166", 
 				["text"] = "#% increased Freeze Threshold", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
+		}, 
+		["4166_GlobalSkillGemLevel"] = {
+			["Amulet"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_4283407333", 
+				["text"] = "# to Level of all Skills", 
+				["type"] = "enchant", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["4283_ArmourBreak"] = {
 			["Gloves"] = {
@@ -7558,9 +7813,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1776411443", 
+				["id"] = "enchant.stat_1776411443", 
 				["text"] = "Break #% increased Armour", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["4509_GlobalCooldownRecovery"] = {
@@ -7571,9 +7826,18 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1004011302", 
+				["id"] = "enchant.stat_1004011302", 
 				["text"] = "#% increased Cooldown Recovery Rate", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4552_SlowEffect"] = {
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_3650992555", 
+				["text"] = "Debuffs you inflict have #% increased Slow Magnitude", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["4608_SlowPotency"] = {
@@ -7585,9 +7849,30 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_924253255", 
+				["id"] = "enchant.stat_924253255", 
 				["text"] = "#% increased Slowing Potency of Debuffs on You", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["4866_CorruptedBloodImmunity"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1658498488", 
+				["text"] = "Corrupted Blood cannot be inflicted on you", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["5918_EnergyGeneration"] = {
@@ -7598,9 +7883,48 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4236566306", 
+				["id"] = "enchant.stat_4236566306", 
 				["text"] = "Meta Skills gain #% increased Energy", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6448_CharmChargeGeneration"] = {
+			["Amulet"] = {
+				["max"] = 0.17, 
+				["min"] = 0.08, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_185580205", 
+				["text"] = "Charms gain # charges per Second", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6451_LifeFlaskChargeGeneration"] = {
+			["Amulet"] = {
+				["max"] = 0.17, 
+				["min"] = 0.08, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1102738251", 
+				["text"] = "Life Flasks gain # charges per Second", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6452_ManaFlaskChargeGeneration"] = {
+			["Amulet"] = {
+				["max"] = 0.17, 
+				["min"] = 0.08, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2200293569", 
+				["text"] = "Mana Flasks gain # charges per Second", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["6476_GoldFoundIncrease"] = {
@@ -7611,9 +7935,150 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3175163625", 
+				["id"] = "enchant.stat_3175163625", 
 				["text"] = "#% increased Quantity of Gold Dropped by Slain Enemies", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["6752_ImmuneToMaim"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_3429557654", 
+				["text"] = "Immune to Maim", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7131_LocalWeaponRangeIncrease"] = {
+			["1HMace"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["2HMace"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["Flail"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_548198834", 
+				["text"] = "#% increased Melee Strike Range with this weapon", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7239_LocalRageOnHit"] = {
+			["1HMace"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["2HMace"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Flail"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Spear"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1725749947", 
+				["text"] = "Grants # Rage on Hit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7320_LocalChanceToMaim"] = {
+			["2HWeapon"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["Bow"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_2763429652", 
+				["text"] = "#% chance to Maim on Hit", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["7334_LocalChanceToPoisonOnHit"] = {
+			["1HWeapon"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["Spear"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_3885634897", 
+				["text"] = "#% chance to Poison on Hit with this weapon", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["821_LocalPhysicalDamagePercent"] = {
@@ -7660,9 +8125,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1509134228", 
+				["id"] = "enchant.stat_1509134228", 
 				["text"] = "#% increased Physical Damage", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["823_LocalFireDamage"] = {
@@ -7709,9 +8174,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_709508406", 
+				["id"] = "enchant.stat_709508406", 
 				["text"] = "Adds # to # Fire Damage", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["824_LocalColdDamage"] = {
@@ -7758,9 +8223,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1037193709", 
+				["id"] = "enchant.stat_1037193709", 
 				["text"] = "Adds # to # Cold Damage", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["825_LocalLightningDamage"] = {
@@ -7807,9 +8272,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3336890334", 
+				["id"] = "enchant.stat_3336890334", 
 				["text"] = "Adds # to # Lightning Damage", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["827_MovementVelocity"] = {
@@ -7820,22 +8285,26 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2250533757", 
+				["id"] = "enchant.stat_2250533757", 
 				["text"] = "#% increased Movement Speed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
-		["830_LocalIncreasedBlockPercentage"] = {
-			["Shield"] = {
-				["max"] = 15, 
-				["min"] = 10, 
+		["828_IncreasedSkillSpeed"] = {
+			["Quiver"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["Ring"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4147897060", 
-				["text"] = "#% increased Block chance", 
-				["type"] = "fractured", 
+				["id"] = "enchant.stat_970213192", 
+				["text"] = "#% increased Skill Speed", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["834_LocalPhysicalDamageReductionRatingPercent"] = {
@@ -7862,9 +8331,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2866361420", 
+				["id"] = "enchant.stat_2866361420", 
 				["text"] = "#% increased Armour", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["835_LocalEvasionRatingIncreasePercent"] = {
@@ -7891,9 +8360,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2106365538", 
+				["id"] = "enchant.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["836_LocalEnergyShieldPercent"] = {
@@ -7920,9 +8389,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4015621042", 
+				["id"] = "enchant.stat_4015621042", 
 				["text"] = "#% increased Energy Shield", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["837_LocalArmourAndEvasion"] = {
@@ -7949,9 +8418,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2451402625", 
+				["id"] = "enchant.stat_2451402625", 
 				["text"] = "#% increased Armour and Evasion", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["838_LocalArmourAndEnergyShield"] = {
@@ -7978,9 +8447,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3321629045", 
+				["id"] = "enchant.stat_3321629045", 
 				["text"] = "#% increased Armour and Energy Shield", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["839_LocalEvasionAndEnergyShield"] = {
@@ -8003,9 +8472,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1999113824", 
+				["id"] = "enchant.stat_1999113824", 
 				["text"] = "#% increased Evasion and Energy Shield", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["842_LocalIncreasedSpiritPercent"] = {
@@ -8020,9 +8489,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3984865854", 
+				["id"] = "enchant.stat_3984865854", 
 				["text"] = "#% increased Spirit", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["853_WeaponSpellDamage"] = {
@@ -8049,9 +8518,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2974417149", 
+				["id"] = "enchant.stat_2974417149", 
 				["text"] = "#% increased Spell Damage", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["859_IncreasedWeaponElementalDamagePercent"] = {
@@ -8098,9 +8567,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_387439868", 
+				["id"] = "enchant.stat_387439868", 
 				["text"] = "#% increased Elemental Damage with Attacks", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["862_IncreasedAccuracy"] = {
@@ -8115,9 +8584,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_803737631", 
+				["id"] = "enchant.stat_803737631", 
 				["text"] = "# to Accuracy Rating", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8129,9 +8598,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2866361420", 
+				["id"] = "enchant.stat_2866361420", 
 				["text"] = "#% increased Armour", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["866_GlobalEvasionRatingPercent"] = {
@@ -8142,9 +8611,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2106365538", 
+				["id"] = "enchant.stat_2106365538", 
 				["text"] = "#% increased Evasion Rating", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["868_GlobalEnergyShieldPercent"] = {
@@ -8155,9 +8624,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2482852589", 
+				["id"] = "enchant.stat_2482852589", 
 				["text"] = "#% increased maximum Energy Shield", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["869_IncreasedLife"] = {
@@ -8172,9 +8641,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3299347043", 
+				["id"] = "enchant.stat_3299347043", 
 				["text"] = "# to maximum Life", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8194,9 +8663,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1050105434", 
+				["id"] = "enchant.stat_1050105434", 
 				["text"] = "# to maximum Mana", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8208,9 +8677,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3981240776", 
+				["id"] = "enchant.stat_3981240776", 
 				["text"] = "# to Spirit", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8226,9 +8695,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1798257884", 
+				["id"] = "enchant.stat_1798257884", 
 				["text"] = "Allies in your Presence deal #% increased Damage", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["892_AlliesInPresenceCriticalStrikeMultiplier"] = {
@@ -8243,9 +8712,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3057012405", 
+				["id"] = "enchant.stat_3057012405", 
 				["text"] = "Allies in your Presence have #% increased Critical Damage Bonus", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["893_AlliesInPresenceIncreasedAttackSpeed"] = {
@@ -8260,9 +8729,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1998951374", 
+				["id"] = "enchant.stat_1998951374", 
 				["text"] = "Allies in your Presence have #% increased Attack Speed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["894_AlliesInPresenceIncreasedCastSpeed"] = {
@@ -8277,9 +8746,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_289128254", 
+				["id"] = "enchant.stat_289128254", 
 				["text"] = "Allies in your Presence have #% increased Cast Speed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["8959_ChainFromTerrain"] = {
@@ -8290,9 +8759,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4081947835", 
+				["id"] = "enchant.stat_4081947835", 
 				["text"] = "Projectiles have #% chance to Chain an additional time from terrain", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["916_ItemFoundRarityIncrease"] = {
@@ -8307,9 +8776,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3917489142", 
+				["id"] = "enchant.stat_3917489142", 
 				["text"] = "#% increased Rarity of Items found", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["918_LocalCriticalStrikeMultiplier"] = {
@@ -8356,60 +8825,11 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2694482655", 
+				["id"] = "enchant.stat_2694482655", 
 				["text"] = "#% to Critical Damage Bonus", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
-		}, 
-		["919_LocalIncreasedAttackSpeed"] = {
-			["1HMace"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["1HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["2HMace"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["2HWeapon"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Bow"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Crossbow"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Flail"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Quarterstaff"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Spear"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["Talisman"] = {
-				["max"] = 8, 
-				["min"] = 6, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "fractured.stat_681332047", 
-				["text"] = "#% increased Attack Speed", 
-				["type"] = "fractured", 
-			}, 
 		}, 
 		["921_LocalAttributeRequirements"] = {
 			["1HMace"] = {
@@ -8492,9 +8912,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3639275092", 
+				["id"] = "enchant.stat_3639275092", 
 				["text"] = "#% increased Attribute Requirements", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["924_GlobalIncreaseFireSpellSkillGemLevel"] = {
@@ -8517,9 +8937,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_591105508", 
+				["id"] = "enchant.stat_591105508", 
 				["text"] = "# to Level of all Fire Spell Skills", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8543,9 +8963,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2254480358", 
+				["id"] = "enchant.stat_2254480358", 
 				["text"] = "# to Level of all Cold Spell Skills", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8569,9 +8989,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1545858329", 
+				["id"] = "enchant.stat_1545858329", 
 				["text"] = "# to Level of all Lightning Spell Skills", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8595,9 +9015,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4226189338", 
+				["id"] = "enchant.stat_4226189338", 
 				["text"] = "# to Level of all Chaos Spell Skills", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8609,9 +9029,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_9187492", 
+				["id"] = "enchant.stat_9187492", 
 				["text"] = "# to Level of all Melee Skills", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8623,9 +9043,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2162097452", 
+				["id"] = "enchant.stat_2162097452", 
 				["text"] = "# to Level of all Minion Skills", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8649,9 +9069,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_737908626", 
+				["id"] = "enchant.stat_737908626", 
 				["text"] = "#% increased Critical Hit Chance for Spells", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["937_CriticalStrikeMultiplier"] = {
@@ -8666,9 +9086,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3556824919", 
+				["id"] = "enchant.stat_3556824919", 
 				["text"] = "#% increased Critical Damage Bonus", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["942_IncreasedCastSpeed"] = {
@@ -8691,9 +9111,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2891184298", 
+				["id"] = "enchant.stat_2891184298", 
 				["text"] = "#% increased Cast Speed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["943_AdditionalAmmo"] = {
@@ -8708,9 +9128,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1967051901", 
+				["id"] = "enchant.stat_1967051901", 
 				["text"] = "Loads an additional bolt", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["943_Strength"] = {
@@ -8729,9 +9149,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4080418644", 
+				["id"] = "enchant.stat_4080418644", 
 				["text"] = "# to Strength", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8751,9 +9171,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3261801346", 
+				["id"] = "enchant.stat_3261801346", 
 				["text"] = "# to Dexterity", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8770,9 +9190,9 @@ return {
 				["overrideModLineSingular"] = "Bow Attacks fire an additional Arrow", 
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3885405204", 
+				["id"] = "enchant.stat_3885405204", 
 				["text"] = "Bow Attacks fire # additional Arrows", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["945_Intelligence"] = {
@@ -8791,9 +9211,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_328541901", 
+				["id"] = "enchant.stat_328541901", 
 				["text"] = "# to Intelligence", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8813,9 +9233,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4080418644", 
+				["id"] = "enchant.stat_4080418644", 
 				["text"] = "# to Strength", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8835,9 +9255,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3261801346", 
+				["id"] = "enchant.stat_3261801346", 
 				["text"] = "# to Dexterity", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8857,9 +9277,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_328541901", 
+				["id"] = "enchant.stat_328541901", 
 				["text"] = "# to Intelligence", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8871,9 +9291,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3771516363", 
+				["id"] = "enchant.stat_3771516363", 
 				["text"] = "#% additional Physical Damage Reduction", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["952_MaximumElementalResistance"] = {
@@ -8888,9 +9308,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1978899297", 
+				["id"] = "enchant.stat_1978899297", 
 				["text"] = "#% to all Maximum Elemental Resistances", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8902,9 +9322,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4095671657", 
+				["id"] = "enchant.stat_4095671657", 
 				["text"] = "#% to Maximum Fire Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8924,9 +9344,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3372524247", 
+				["id"] = "enchant.stat_3372524247", 
 				["text"] = "#% to Fire Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8938,9 +9358,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3676141501", 
+				["id"] = "enchant.stat_3676141501", 
 				["text"] = "#% to Maximum Cold Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8960,9 +9380,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4220027924", 
+				["id"] = "enchant.stat_4220027924", 
 				["text"] = "#% to Cold Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8974,9 +9394,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1011760251", 
+				["id"] = "enchant.stat_1011760251", 
 				["text"] = "#% to Maximum Lightning Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -8996,9 +9416,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1671376347", 
+				["id"] = "enchant.stat_1671376347", 
 				["text"] = "#% to Lightning Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9014,9 +9434,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2901986750", 
+				["id"] = "enchant.stat_2901986750", 
 				["text"] = "#% to all Elemental Resistances", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9036,9 +9456,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2923486259", 
+				["id"] = "enchant.stat_2923486259", 
 				["text"] = "#% to Chaos Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9054,9 +9474,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3372524247", 
+				["id"] = "enchant.stat_3372524247", 
 				["text"] = "#% to Fire Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9072,9 +9492,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_4220027924", 
+				["id"] = "enchant.stat_4220027924", 
 				["text"] = "#% to Cold Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9090,9 +9510,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1671376347", 
+				["id"] = "enchant.stat_1671376347", 
 				["text"] = "#% to Lightning Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9108,9 +9528,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2923486259", 
+				["id"] = "enchant.stat_2923486259", 
 				["text"] = "#% to Chaos Resistance", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
@@ -9126,9 +9546,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1315743832", 
+				["id"] = "enchant.stat_1315743832", 
 				["text"] = "#% increased Thorns damage", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["967_EnergyShieldDelay"] = {
@@ -9139,9 +9559,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1782086450", 
+				["id"] = "enchant.stat_1782086450", 
 				["text"] = "#% faster start of Energy Shield Recharge", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["969_LifeRegenerationRate"] = {
@@ -9156,9 +9576,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_44972811", 
+				["id"] = "enchant.stat_44972811", 
 				["text"] = "#% increased Life Regeneration rate", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["970_DamageTakenGainedAsLife"] = {
@@ -9169,9 +9589,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1444556985", 
+				["id"] = "enchant.stat_1444556985", 
 				["text"] = "#% of Damage taken Recouped as Life", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["971_LifeLeechPermyriad"] = {
@@ -9182,9 +9602,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2557965901", 
+				["id"] = "enchant.stat_2557965901", 
 				["text"] = "Leech #% of Physical Attack Damage as Life", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["975_LifeGainedFromEnemyDeath"] = {
@@ -9211,9 +9631,30 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3695891184", 
+				["id"] = "enchant.stat_3695891184", 
 				["text"] = "Gain # Life per enemy killed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["9764_YouCannotBeHindered"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_721014846", 
+				["text"] = "You cannot be Hindered", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["976_ManaRegeneration"] = {
@@ -9228,9 +9669,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_789117908", 
+				["id"] = "enchant.stat_789117908", 
 				["text"] = "#% increased Mana Regeneration Rate", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["977_PercentDamageGoesToMana"] = {
@@ -9241,9 +9682,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_472520716", 
+				["id"] = "enchant.stat_472520716", 
 				["text"] = "#% of Damage taken Recouped as Mana", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["979_ManaLeechPermyriad"] = {
@@ -9254,9 +9695,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_707457662", 
+				["id"] = "enchant.stat_707457662", 
 				["text"] = "Leech #% of Physical Attack Damage as Mana", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["980_ManaGainedFromEnemyDeath"] = {
@@ -9283,9 +9724,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_1368271171", 
+				["id"] = "enchant.stat_1368271171", 
 				["text"] = "Gain # Mana per enemy killed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["985_LocalStunDamageIncrease"] = {
@@ -9320,9 +9761,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_791928121", 
+				["id"] = "enchant.stat_791928121", 
 				["text"] = "Causes #% increased Stun Buildup", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["988_IgniteChanceIncrease"] = {
@@ -9345,18 +9786,18 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_2968503605", 
+				["id"] = "enchant.stat_2968503605", 
 				["text"] = "#% increased Flammability Magnitude", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["9897_WeaponSwapSpeed"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_3233599707", 
+				["id"] = "enchant.stat_3233599707", 
 				["text"] = "#% increased Weapon Swap Speed", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["990_FreezeDamageIncrease"] = {
@@ -9379,9 +9820,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_473429811", 
+				["id"] = "enchant.stat_473429811", 
 				["text"] = "#% increased Freeze Buildup", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["992_ShockChanceIncrease"] = {
@@ -9404,9 +9845,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_293638271", 
+				["id"] = "enchant.stat_293638271", 
 				["text"] = "#% increased chance to Shock", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 		["998_PresenceRadius"] = {
@@ -9417,9 +9858,9 @@ return {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
-				["id"] = "fractured.stat_101878827", 
+				["id"] = "enchant.stat_101878827", 
 				["text"] = "#% increased Presence Area of Effect", 
-				["type"] = "fractured", 
+				["type"] = "enchant", 
 			}, 
 		}, 
 	}, 
@@ -19833,7 +20274,7 @@ return {
 	}, 
 	["Rune"] = {
 		["1002"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -20601,7 +21042,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["2649"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -21033,7 +21474,7 @@ return {
 			}, 
 		}, 
 		["4387"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
@@ -21580,7 +22021,7 @@ return {
 			}, 
 		}, 
 		["5440"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 25, 
 				["min"] = 25, 
 			}, 
@@ -21646,7 +22087,7 @@ return {
 			}, 
 		}, 
 		["5567"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
@@ -21731,7 +22172,7 @@ return {
 			}, 
 		}, 
 		["5981"] = {
-			["Gloves"] = {
+			["Chest"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -22046,7 +22487,7 @@ return {
 			}, 
 		}, 
 		["7037"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 25, 
 				["min"] = 25, 
 			}, 
@@ -22746,7 +23187,7 @@ return {
 			}, 
 		}, 
 		["842"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -22789,7 +23230,7 @@ return {
 			}, 
 		}, 
 		["8471"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -22802,7 +23243,7 @@ return {
 			}, 
 		}, 
 		["8473"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 40, 
 				["min"] = 40, 
 			}, 
@@ -23442,7 +23883,7 @@ return {
 			}, 
 		}, 
 		["881"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 30, 
 				["min"] = 30, 
 			}, 
@@ -23455,7 +23896,7 @@ return {
 			}, 
 		}, 
 		["882"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
@@ -23468,7 +23909,7 @@ return {
 			}, 
 		}, 
 		["885"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20.5, 
 				["min"] = 20.5, 
 			}, 
@@ -23494,7 +23935,7 @@ return {
 			}, 
 		}, 
 		["891"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 14, 
 				["min"] = 14, 
 			}, 
@@ -23507,7 +23948,7 @@ return {
 			}, 
 		}, 
 		["892"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 14, 
 				["min"] = 14, 
 			}, 
@@ -23520,7 +23961,7 @@ return {
 			}, 
 		}, 
 		["893"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -23533,7 +23974,7 @@ return {
 			}, 
 		}, 
 		["894"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -23546,7 +23987,7 @@ return {
 			}, 
 		}, 
 		["895"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -23560,7 +24001,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["896"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 8, 
 				["min"] = 8, 
 			}, 
@@ -24056,7 +24497,7 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["9317"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -24463,10 +24904,6 @@ return {
 		}, 
 		["950"] = {
 			["Chest"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Gloves"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -25473,7 +25910,7 @@ return {
 			}, 
 		}, 
 		["9922"] = {
-			["Sceptre"] = {
+			["1HWeapon"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 

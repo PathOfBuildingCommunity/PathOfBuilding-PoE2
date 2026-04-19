@@ -84,7 +84,7 @@ end
 local tradeStatCategoryIndices = {
 	["Explicit"] = 2,
 	["Implicit"] = 3,
-	["Corrupted"] = 4,
+	["Corrupted"] = 5,
 	["AllocatesXEnchant"] = 5,
 	["Rune"] = 6,
 }
