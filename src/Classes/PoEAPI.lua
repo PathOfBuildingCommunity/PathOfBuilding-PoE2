@@ -6,6 +6,7 @@ local scopesOAuth = {
 	"account:profile",
 	"account:leagues",
 	"account:characters",
+	"account:trade"
 }
 
 local filename = "poe_api_response.json"
@@ -20,6 +21,7 @@ local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, t
 
 	self.ERROR_NO_AUTH = "No auth token"
 end)
+
 
 -- func callback(valid, updateSettings)
 function PoEAPIClass:ValidateAuth(callback)
@@ -57,6 +59,12 @@ local function base64_encode(secret)
 	return base64.encode(secret):gsub("+","-"):gsub("/","_"):gsub("=$", "")
 end
 
+function PoEAPIClass:ResetDetails()
+	self.authToken = nil
+	self.refreshToken = nil
+	self.tokenExpiry = nil
+end
+
 -- func callback(response, errorMsg, updateSettings)
 function PoEAPIClass:FetchAuthToken(callback)
 	math.randomseed(os.time())
@@ -84,9 +92,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 			callback = function(code, errMsg, state, port)
 				if not code then
 					ConPrintf("Failed to get code from server: %s", errMsg)
-					self.authToken = nil
-					self.refreshToken = nil
-					self.tokenExpiry = nil
+					self:ResetDetails()
 					callback(nil, errMsg or self.ERROR_NO_AUTH, true)
 					return
 				end
@@ -103,9 +109,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 				launch:DownloadPage("https://www.pathofexile.com/oauth/token", function (response, errMsg)
 					if errMsg then
 						ConPrintf("Failed to get token from server: " .. errMsg)
-						self.authToken = nil
-						self.refreshToken = nil
-						self.tokenExpiry = nil
+						self:ResetDetails()
 						callback(nil, errMsg, true)
 						return
 					end
@@ -127,9 +131,7 @@ function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 	self:ValidateAuth(function(valid, updateSettings)
 		if not valid then
 			-- Clean info about token and refresh token
-			self.authToken = nil
-			self.refreshToken = nil
-			self.tokenExpiry = nil
+			self:ResetDetails()
 			callback(nil, self.ERROR_NO_AUTH, true)
 			return
 		end

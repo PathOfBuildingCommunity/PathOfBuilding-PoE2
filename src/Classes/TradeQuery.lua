@@ -55,6 +55,9 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	main.onFrameFuncs["TradeQueryRequests"] = function()
 		self.tradeQueryRequests:ProcessQueue()
 	end
+	if not main.api then
+		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
+	end
 
 	-- set
 	self.hostName = "https://www.pathofexile.com/"
@@ -252,35 +255,71 @@ function TradeQueryClass:PriceItem()
 		return #self.itemsTab.itemSetOrderList > 1
 	end
 
-	self.controls.poesessidButton = new("ButtonControl", {"TOPLEFT", self.controls.setSelect, "TOPLEFT"}, {0, row_height + row_vertical_padding, 188, row_height}, function() return main.POESESSID ~= "" and "^2Session Mode" or colorCodes.WARNING.."No Session Mode" end, function()
-		local poesessid_controls = {}
-		poesessid_controls.sessionInput = new("EditControl", nil, {0, 18, 350, 18}, main.POESESSID, nil, "%X", 32)
-		poesessid_controls.sessionInput:SetProtected(true)
-		poesessid_controls.sessionInput.placeholder = "Enter your session ID here"
-		poesessid_controls.sessionInput.tooltipText = "You can get this from your web browser's cookies while logged into the Path of Exile website."
-		poesessid_controls.save = new("ButtonControl", {"TOPRIGHT", poesessid_controls.sessionInput, "TOP"}, {-8, 24, 90, row_height}, "Save", function()
-			main.POESESSID = poesessid_controls.sessionInput.buf
-			main:ClosePopup()
+	self.loginStatus = function() 
+		if main.api.authToken then
+			self.clickTime = nil
+			return "Authenticated"
+		elseif self.clickTime then
+			local left = m_max(0,(self.clickTime + 30) - os.time())
+			if left == 0 then
+				self.clickTime = nil
+				return "Not authenticated"
+			else
+				return "Logging in... (" .. left .. ")"
+			end
+		else
+			return colorCodes.WARNING.."Not authenticated"
+		end
+	end
+
+	if main.api.authToken then
+		main.api:ValidateAuth(function(valid, _updateSettings)
+			if valid then
+				return
+			else
+				main.api:ResetDetails()
+			end
+		end)
+	end
+	self.controls.poesessidButton = new("ButtonControl", {"TOPLEFT", self.controls.setSelect, "TOPLEFT"}, {0, row_height + row_vertical_padding, 188, row_height}, self.loginStatus, function()
+		-- LOGIN
+		if not main.api.authToken then
+			main.api:FetchAuthToken(function()
+				if main.api.authToken then
+					self.loginStatus = "Authenticated"
+
+					main.lastToken = main.api.authToken
+					main.lastRefreshToken = main.api.refreshToken
+					main.tokenExpiry = main.api.tokenExpiry
+					main:SaveSettings()
+				else
+					self.loginStatus = colorCodes.WARNING.."Not authenticated"
+				end
+			end)
+			self.clickTime = os.time()
+		-- LOGOUT
+		else
+			main.lastToken = nil
+			main.api.authToken = nil
+			main.lastRefreshToken = nil
+			main.api.refreshToken = nil
+			main.tokenExpiry = nil
+			main.api.tokenExpiry = nil
 			main:SaveSettings()
-			self:UpdateRealms()
-		end)
-		poesessid_controls.save.enabled = function() return #poesessid_controls.sessionInput.buf == 32 or poesessid_controls.sessionInput.buf == "" end
-		poesessid_controls.cancel = new("ButtonControl", {"TOPLEFT", poesessid_controls.sessionInput, "TOP"}, {8, 24, 90, row_height}, "Cancel", function()
-			main:ClosePopup()
-		end)
-		main:OpenPopup(364, 72, "Change session ID", poesessid_controls)
+		end
 	end)
 	self.controls.poesessidButton.tooltipText = [[
-The Trader feature supports two modes of operation depending on the POESESSID availability.
-You can click this button to enter your POESESSID.
+The Trader feature supports two modes of operation depending on the authorization availability.
+You can click this button to authorize PoB by logging in.
 
 ^2Session Mode^7
-- Requires POESESSID.
+- Requires authorization on pathofexile.com.
 - You can search, compare, and quickly import items without leaving Path of Building.
+- You can select an item and search it directly.
 - You can generate and perform searches for the private leagues you are participating.
 
 ^xFF9922No Session Mode^7
-- Doesn't require POESESSID.
+- Doesn't require authorization.
 - You cannot search and compare items in Path of Building.
 - You can generate weighted search URLs but have to visit the trade site and manually import items.
 - You can only generate weighted searches for public leagues. (Generated searches can be modified
@@ -442,8 +481,41 @@ Highest Weight - Displays the order retrieved from trade]]
 	for _, nodeId in ipairs(activeSocketList) do
 		t_insert(slotTables, { slotName = self.itemsTab.sockets[nodeId].label, nodeId = nodeId })
 	end
+	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
+		main.lastToken = nil
+		main.api.authToken = nil
+		main.lastRefreshToken = nil
+		main.api.refreshToken = nil
+		main.tokenExpiry = nil
+		main.api.tokenExpiry = nil
+		main:SaveSettings()
+		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+	end)
+	self.controls.logoutApiButton.shown = function()
+		return (main.api.authToken) and main.api.authToken ~= nil
+	end
 
-	self.controls.sectionAnchor = new("LabelControl", {"LEFT", self.controls.tradeTypeSelection, "LEFT"}, {0, row_vertical_padding + row_height, 0, 0}, "")
+	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
+		main.api:FetchAuthToken(function()
+			if main.api.authToken then
+				self.charImportStatus = "Authenticated"
+
+				main.lastToken = main.api.authToken
+				main.lastRefreshToken = main.api.refreshToken
+				main.tokenExpiry = main.api.tokenExpiry
+				main:SaveSettings()
+			else
+				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+			end
+		end)
+		local clickTime = os.time()
+		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
+	end)
+	self.controls.authenticateButton.shown = function()
+		return self.charImportMode == "AUTHENTICATION"
+	end
+
+	self.controls.sectionAnchor = new("LabelControl", {"LEFT", self.controls.tradeTypeSelection, "LEFT"}, {0, row_vertical_padding + row_height*10, 0, 0}, "")
 	top_pane_alignment_ref = {"TOPLEFT", self.controls.sectionAnchor, "TOPLEFT"}
 	local scrollBarShown = #slotTables > 21 -- clipping starts beyond this
 	-- dynamically hide rows that are above or below the scrollBar
@@ -480,6 +552,8 @@ Highest Weight - Displays the order retrieved from trade]]
 		return hideRowFunc(self, row_count)
 	end
 	row_count = row_count + 1
+
+	row_count = row_count + 5
 
 	local effective_row_count = row_count - ((scrollBarShown and #slotTables >= 19) and #slotTables-19 or 0) + 2 + 2 -- Two top menu rows, two bottom rows, slots after #19 overlap the other controls at the bottom of the pane
 	self.effective_rows_height = row_height * (effective_row_count - #slotTables + (18 - (#slotTables > 37 and 3 or 0))) -- scrollBar height, "18 - slotTables > 37" logic is fine tuning whitespace after last row
@@ -894,7 +968,7 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			else
 				self:SetNotice(context.controls.pbNotice, "")
 			end
-			if main.POESESSID == nil or main.POESESSID == "" then
+			if main.api.authToken == nil then
 				local url = self.tradeQueryRequests:buildUrl(self.hostName .. "trade2/search", self.pbRealm, self.pbLeague)
 				url = url .. "?q=" .. urlEncode(query)
 				controls["uri"..context.row_idx]:SetText(url, true)
@@ -996,15 +1070,15 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			end)
 		end)
 	controls["priceButton"..row_idx].enabled = function()
-		local poesessidAvailable = main.POESESSID and main.POESESSID ~= ""
+		local isAuthorized = main.authToken ~= nil
 		local validURL = controls["uri"..row_idx].validURL
 		local isSearching = controls["priceButton"..row_idx].label == "Searching..."
-		return poesessidAvailable and validURL and not isSearching
+		return isAuthorized and validURL and not isSearching
 	end
 	controls["priceButton"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		if not main.POESESSID or main.POESESSID == "" then
-			tooltip:AddLine(16, "You must set your POESESSID to use search feature")
+		if not main.authToken then
+			tooltip:AddLine(16, "You must log in to use the search feature")
 		elseif not controls["uri"..row_idx].validURL then
 			tooltip:AddLine(16, "Enter a valid trade URL")
 		end
@@ -1174,7 +1248,7 @@ function TradeQueryClass:UpdateRealms()
 		end)
 	end
 
-	-- perform a generic search to make sure POESESSID if valid.
+	-- perform a generic search to make sure POESESSID is valid.
 	self.tradeQueryRequests:PerformSearch("poe2", "Standard", [[{"query":{"status":{"option":"online"},"stats":[{"type":"and","filters":[]}]},"sort":{"price":"asc"}}]], function(response, errMsg) 
 		if errMsg then
 			self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
