@@ -81,6 +81,9 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	if not main.api then
 		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
 	end
+	if not main.api then
+		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
+	end
 
 	-- set
 	self.hostName = "https://www.pathofexile.com/"
@@ -246,7 +249,7 @@ function TradeQueryClass:PriceItem()
 		return #self.itemsTab.itemSetOrderList > 1
 	end
 
-	self.loginStatus = function()
+	self.loginStatus = function() 
 		if main.api.authToken then
 			self.clickTime = nil
 			return "Authenticated"
@@ -472,8 +475,41 @@ Highest Weight - Displays the order retrieved from trade]]
 	for _, nodeId in ipairs(activeSocketList) do
 		t_insert(slotTables, { slotName = self.itemsTab.sockets[nodeId].label, nodeId = nodeId })
 	end
+	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
+		main.lastToken = nil
+		main.api.authToken = nil
+		main.lastRefreshToken = nil
+		main.api.refreshToken = nil
+		main.tokenExpiry = nil
+		main.api.tokenExpiry = nil
+		main:SaveSettings()
+		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+	end)
+	self.controls.logoutApiButton.shown = function()
+		return (main.api.authToken) and main.api.authToken ~= nil
+	end
 
-	self.controls.sectionAnchor = new("LabelControl", {"LEFT", self.controls.tradeTypeSelection, "LEFT"}, {0, row_vertical_padding + row_height, 0, 0}, "")
+	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
+		main.api:FetchAuthToken(function()
+			if main.api.authToken then
+				self.charImportStatus = "Authenticated"
+
+				main.lastToken = main.api.authToken
+				main.lastRefreshToken = main.api.refreshToken
+				main.tokenExpiry = main.api.tokenExpiry
+				main:SaveSettings()
+			else
+				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+			end
+		end)
+		local clickTime = os.time()
+		self.charImportStatus = function() return "Logging in... (" .. m_max(0, (clickTime + 30) - os.time()) .. ")" end
+	end)
+	self.controls.authenticateButton.shown = function()
+		return self.charImportMode == "AUTHENTICATION"
+	end
+
+	self.controls.sectionAnchor = new("LabelControl", {"LEFT", self.controls.tradeTypeSelection, "LEFT"}, {0, row_vertical_padding + row_height*10, 0, 0}, "")
 	top_pane_alignment_ref = {"TOPLEFT", self.controls.sectionAnchor, "TOPLEFT"}
 	local scrollBarShown = #slotTables > 21 -- clipping starts beyond this
 	-- dynamically hide rows that are above or below the scrollBar
@@ -520,6 +556,8 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	row_count = row_count + 2
+
+	row_count = row_count + 5
 
 	local effective_row_count = row_count - ((scrollBarShown and #slotTables >= 19) and #slotTables-19 or 0) + 2 + 2 -- Two top menu rows, two bottom rows, slots after #19 overlap the other controls at the bottom of the pane
 	self.effective_rows_height = row_height * (effective_row_count - #slotTables + (18 - (#slotTables > 37 and 3 or 0))) -- scrollBar height, "18 - slotTables > 37" logic is fine tuning whitespace after last row
@@ -1017,14 +1055,14 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			end)
 		end)
 	controls["priceButton"..row_idx].enabled = function()
-		local isAuthorized = main.api.authToken ~= nil
+		local isAuthorized = main.authToken ~= nil
 		local validURL = controls["uri"..row_idx].validURL
 		local isSearching = controls["priceButton"..row_idx].label == "Searching..."
 		return isAuthorized and validURL and not isSearching
 	end
 	controls["priceButton"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		if not main.api.authToken then
+		if not main.authToken then
 			tooltip:AddLine(16, "You must log in to use the search feature")
 		elseif not controls["uri"..row_idx].validURL then
 			tooltip:AddLine(16, "Enter a valid trade URL")
@@ -1212,7 +1250,7 @@ function TradeQueryClass:UpdateRealms()
 		end)
 	end
 
-	-- perform a generic search to make sure the authorization is valid.
+	-- perform a generic search to make sure POESESSID is valid.
 	self.tradeQueryRequests:PerformSearch("poe2", "Standard", [[{"query":{"status":{"option":"online"},"stats":[{"type":"and","filters":[]}]},"sort":{"price":"asc"}}]], function(response, errMsg) 
 		if errMsg then
 			-- a 403 here likely means that the user has an outdated scope

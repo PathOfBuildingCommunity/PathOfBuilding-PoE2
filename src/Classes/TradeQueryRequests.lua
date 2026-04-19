@@ -54,9 +54,13 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 							end
 							return
 						end
-						if errMsg == "Response code: 401" and response.body:find("invalid_token") then
-							errMsg = errMsg .. "\nAuthorization is invalid. Please Re-Log and reset"
-							main.api:ResetDetails()
+						-- if limit rules don't return account then the auth token is invalid.
+						if response.header:match("[xX]%-[rR]ate%-[lL]imit%-[rR]ules: (.-)\n"):match("Account") == nil and main.api.authToken then
+							if errMsg then
+								errMsg = errMsg .. "\nAuthorization is invalid. Please Re-Log and reset"
+							else
+								errMsg = "Authorization is invalid. Please Re-Log and reset"
+							end
 						end
 						request.callback(response.body, errMsg, unpack(request.callbackParams or {}))
 					end
@@ -429,11 +433,6 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				table.insert(items, {
 					amount = trade_entry.listing.price.amount,
 					currency = trade_entry.listing.price.currency,
-					-- note: using these to travel to the hideout or for a
-					-- direct whisper is not allowed, even if they are provided
-					-- right here
-					-- hideout_token = trade_entry.listing.hideout_token,
-					-- whisper_token = trade_entry.listing.whisper_token,
 					item_string = table.concat(rawLines, "\n"),
 					whisper = trade_entry.listing.whisper,
 					trader = trade_entry.listing.account.name,
