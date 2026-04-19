@@ -50,6 +50,7 @@ directiveTable.base = function(state, args, out)
 				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
 				local statOrder = modLine.statOrder or {}
 				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
+				out:write('\t\t\t\ttradeHashes = { '..table.concat(modLine.tradeHashes, ', ')..' },\n')
 			end
 			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
 			out:write('\t\t},\n')
@@ -66,8 +67,10 @@ directiveTable.base = function(state, args, out)
 		rank = soulCores.LevelReq or 0
 
 		local stats = { }
+		local statHashes = {}
 		for i, statKey in ipairs(soulCoreStat.Stats) do
 			local statValue = soulCoreStat["StatValue"][i]
+			table.insert(statHashes, intToBytes(statKey.Hash))
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
 		local bondedStats = { }
@@ -89,12 +92,31 @@ directiveTable.base = function(state, args, out)
 					table.insert(orders, order)
 				end
 				if #orders > 0 then
+					local tradeHashes = {}
+					-- -- stat hashes might be multiple different modifiers, or
+					-- -- they can be the minimum and maximum of a single modifier
+					for _, stat in ipairs(stats) do
+						if stat:find("^Bonded:") then
+							-- continue
+						-- range stat: output a single tradehash
+						elseif stat:find("%d+ to %d+") then
+							local tradeHash = murmurHash2(table.concat(statHashes), 0x02312233)
+							table.insert(tradeHashes, tradeHash)
+						-- otherwise output separate tradehashes
+						else
+							for _, statHash in ipairs(statHashes) do
+								local tradeHash = murmurHash2(statHash, 0x02312233)
+								table.insert(tradeHashes, tradeHash)
+							end
+						end
+					end
 					local out = {
 						type = soulCores.Type.Id,
 						slotType = class,
 						label = stats,
 						statOrder = orders,
 						rank = rank,
+						tradeHashes = tradeHashes
 					}
 					table.insert(modLines, out)
 				end
