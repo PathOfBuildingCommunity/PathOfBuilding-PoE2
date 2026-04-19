@@ -263,7 +263,21 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 		local tradeMod = nil
 		local invert
 
-		local uniqueIndex = tostring(tradeHash)
+		if mod.statOrder[index] == nil then -- if there isn't a mod order we have to use the trade id instead e.g. implicits.
+			tradeMod, invert = getTradeMod()
+			if tradeMod == nil then
+				logToFile("Unable to match %s mod: %s", modType, modLine)
+				goto nextModLine
+			end
+			mod.statOrder[index] = tradeMod.id
+		end
+
+		local statOrder = modLine:find("Nearby Enemies have %-") ~= nil and mod.statOrder[index + 1] or mod.statOrder[index] -- hack to get minus res mods associated with the correct statOrder
+		local uniqueIndex = mod.group ~= "" and tostring(statOrder).."_"..mod.group or tostring(statOrder)
+		-- ensure that regular jewel and radius jewel mods don't get the same index
+		if mod.nodeType then
+			uniqueIndex = uniqueIndex.."Radius"
+		end
 
 		if self.modData[modType][uniqueIndex] == nil then
 			if tradeMod == nil then
@@ -702,7 +716,7 @@ Stat Tester
 Time-Lost Sapphire
 Radius: Small
 Implicits: 0]]
-	end
+	end	
 	local testItem = new("Item", itemRawStr)
 
 	-- Calculate base output with a blank item
@@ -755,7 +769,7 @@ function TradeQueryGeneratorClass:ExecuteQuery()
 
 		self:GenerateModWeights(radiusMods)
 	else
-	-- radius mods are not filtered out here, but they are valued at zero and
+	-- radius mods are not filtered out here, but they valued at zero and
 	-- ignored as the base item won't have a "radius:" line
 		self:GenerateModWeights(self.modData["Explicit"])
 	end
