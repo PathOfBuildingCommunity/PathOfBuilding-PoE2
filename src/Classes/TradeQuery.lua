@@ -129,11 +129,14 @@ function TradeQueryClass:PullPoENinjaCurrencyConversion(league)
 				return
 			end
 			local json_data = dkjson.decode(response.body)
-			if not json_data then
+			if not json_data or not json_data.lines then
 				self:SetNotice(self.controls.pbNotice, "Failed to Get PoE Ninja response")
 				return
 			end
-			self:PriceBuilderProcessPoENinjaResponse(json_data)
+			if not self:PriceBuilderProcessPoENinjaResponse(json_data.lines) then
+				-- don't edit json on failure
+				return
+			end
 			local print_str = ""
 			for key, value in pairs(self.pbCurrencyConversion[self.pbLeague]) do
 				print_str = print_str .. '"'..key..'": '..tostring(value)..','
@@ -147,11 +150,11 @@ function TradeQueryClass:PullPoENinjaCurrencyConversion(league)
 end
 
 -- Method to process the PoE.Ninja response
---- @param resp table
-function TradeQueryClass:PriceBuilderProcessPoENinjaResponse(resp)
-	-- Populate the chaos-converted values for each tradeId
-	local data = resp.lines
-	for _, currencyDetails in ipairs(data) do
+--- @param responseLines table[]
+--- @return bool
+function TradeQueryClass:PriceBuilderProcessPoENinjaResponse(responseLines)
+	-- Populate the divine-converted values for each tradeId
+	for _, currencyDetails in ipairs(responseLines) do
 		-- these use the same ids as the trade site, which are also short
 		-- readable names, like "transmute" or "aug", which means there's no
 		-- need for conversion.
@@ -159,12 +162,18 @@ function TradeQueryClass:PriceBuilderProcessPoENinjaResponse(resp)
 		-- poe.ninja uses divs as the primary currency, and as far as I know,
 		-- this figure is equivalent to the best ratio in equivalent divs
 		local divs = currencyDetails.primaryValue
+		if not id or not divs then
+			self:SetNotice(self.controls.pbNotice, "Currencies not updated: malformed PoE Ninja response")
+			return false
+		end
 		self.pbCurrencyConversion[self.pbLeague][id] = divs
 	end
 	-- if nothing was actually found, we should add a notice
 	if next(self.pbCurrencyConversion[self.pbLeague]) == nil then
 		self:SetNotice(self.controls.pbNotice, "No currencies received from PoE Ninja")
+		return false
 	end
+	return true
 end
 
 local function initStatSortSelectionList(list)
