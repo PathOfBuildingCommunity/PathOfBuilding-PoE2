@@ -481,19 +481,6 @@ Highest Weight - Displays the order retrieved from trade]]
 	for _, nodeId in ipairs(activeSocketList) do
 		t_insert(slotTables, { slotName = self.itemsTab.sockets[nodeId].label, nodeId = nodeId })
 	end
-	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
-		main.lastToken = nil
-		main.api.authToken = nil
-		main.lastRefreshToken = nil
-		main.api.refreshToken = nil
-		main.tokenExpiry = nil
-		main.api.tokenExpiry = nil
-		main:SaveSettings()
-		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
-	end)
-	self.controls.logoutApiButton.shown = function()
-		return (main.api.authToken) and main.api.authToken ~= nil
-	end
 
 	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
 		main.api:FetchAuthToken(function()
@@ -1248,7 +1235,7 @@ function TradeQueryClass:UpdateRealms()
 		end)
 	end
 
-	-- perform a generic search to make sure POESESSID is valid.
+	-- perform a generic search to make sure the authorization is valid.
 	self.tradeQueryRequests:PerformSearch("poe2", "Standard", [[{"query":{"status":{"option":"online"},"stats":[{"type":"and","filters":[]}]},"sort":{"price":"asc"}}]], function(response, errMsg) 
 		if errMsg then
 			self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
