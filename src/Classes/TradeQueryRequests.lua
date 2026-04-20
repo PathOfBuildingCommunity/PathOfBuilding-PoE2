@@ -19,7 +19,8 @@ local TradeQueryRequestsClass = newClass("TradeQueryRequests", function(self, ra
 end)
 
 ---Main routine for processing request queue
-function TradeQueryRequestsClass:ProcessQueue()
+--- @param onRateLimit fun(integer)?
+function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 	for key, queue in pairs(self.requestQueue) do
 		if #queue > 0 then
 			local policy = self.rateLimiter:GetPolicyName(key)
@@ -33,10 +34,18 @@ function TradeQueryRequestsClass:ProcessQueue()
 						self.rateLimiter:FinishRequest(policy, requestId)
 						self.rateLimiter:UpdateFromHeader(response.header)
 						if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
+							local retryAfter = response.header:match("Retry%-After:%s+(%d+)")
+							retryAfter = retryAfter and tonumber(retryAfter) or 0
 							request.attempts = (request.attempts or 0) + 1
-							local backoff = math.min(2 ^ request.attempts, 60)
+							
+							local backoff = math.max(math.min(2 ^ request.attempts, 60), retryAfter)
 							request.retryTime = os.time() + backoff
 							table.insert(queue, 1, request)
+							-- optional callback with the backoff time when rate
+							-- limited to inform user
+							if onRateLimit then
+								onRateLimit(backoff)
+							end
 							return
 						end
 						-- if limit rules don't return account then the auth token is invalid.
