@@ -176,7 +176,7 @@ function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
 		local requestId = self.rateLimiter:InsertRequest(policy)
 		local onComplete = function(response, errMsg)
 			self.rateLimiter:FinishRequest(policy, requestId)
-			self.rateLimiter:UpdateFromHeader(response.header)
+			self.rateLimiter:UpdateFromHeader(response.header, policy)
 			if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
 				timeNext = self.rateLimiter:NextRequestTime(policy, now)
 				callback(timeNext, "Response code: 429")

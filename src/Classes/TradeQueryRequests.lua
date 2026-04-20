@@ -32,7 +32,7 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 					local requestId = self.rateLimiter:InsertRequest(policy)
 					local onComplete = function(response, errMsg)
 						self.rateLimiter:FinishRequest(policy, requestId)
-						self.rateLimiter:UpdateFromHeader(response.header)
+						self.rateLimiter:UpdateFromHeader(response.header, policy)
 						if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
 							local retryAfter = response.header:match("Retry%-After:%s+(%d+)")
 							retryAfter = retryAfter and tonumber(retryAfter) or 0
