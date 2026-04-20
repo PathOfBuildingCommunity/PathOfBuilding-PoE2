@@ -860,7 +860,7 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 			-- still seems to overrate very cheap items that are bad
 
 			-- scaling factor for price
-			local k = 0.03
+			local k = 0.1
 			t_insert(newTbl,
 				{ outputAttr = getResultWeight(result_index) - k * math.log(priceTable[result_index], 10), index =
 				result_index })
