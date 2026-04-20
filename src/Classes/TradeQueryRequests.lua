@@ -34,7 +34,7 @@ function TradeQueryRequestsClass:ProcessQueue()
 						self.rateLimiter:UpdateFromHeader(response.header)
 						if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
 							request.attempts = (request.attempts or 0) + 1
-							local backoff = m_min(2 ^ request.attempts, 60)
+							local backoff = math.min(2 ^ request.attempts, 60)
 							request.retryTime = os.time() + backoff
 							table.insert(queue, 1, request)
 							return

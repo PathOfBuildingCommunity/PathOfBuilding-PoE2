@@ -75,6 +75,9 @@ function TradeQueryRateLimiterClass:ParsePolicy(headerString)
 	local policies = {}
 	local headers = self:ParseHeader(headerString)
 	local policyName = headers["x-rate-limit-policy"]
+	if not policyName then
+		return
+	end
 	policies[policyName] = {}
 	local retryAfter = headers["retry-after"]
 	if retryAfter then
@@ -111,6 +114,9 @@ end
 
 function TradeQueryRateLimiterClass:UpdateFromHeader(headerString)
 	local newPolicies = self:ParsePolicy(headerString)
+	if not newPolicies then
+		return
+	end
 	for policyKey, policyValue in pairs(newPolicies) do
 		if self.requestHistory[policyKey] == nil then
 			self.requestHistory[policyKey] = { timestamps = {} }
