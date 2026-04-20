@@ -34,8 +34,9 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	-- default set of trade item sort selection
 	self.slotTables = { }
 	self.pbItemSortSelectionIndex = 1
+	-- for each league, a table of values of each currency in div
+	--- @type table<string, table<string, integer>>
 	self.pbCurrencyConversion = { }
-	self.currencyConversionTradeMap = { }
 	self.lastCurrencyConversionRequest = 0
 	self.lastCurrencyFileTime = { }
 	self.pbFileTimestampDiff = { }
@@ -63,34 +64,6 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	self.hostName = "https://www.pathofexile.com/"
 end)
 
----Fetch currency short-names from Poe API (used for PoeNinja price pairing)
----@param callback fun()
-function TradeQueryClass:FetchCurrencyConversionTable(callback)
-	launch:DownloadPage(
-		"https://www.pathofexile.com/api/trade2/data/static",
-		function(response, errMsg)
-			if errMsg then
-				-- SKIP CALLBACK ON ERROR TO PREVENT PARTIAL DATA
-				return
-			end
-			local obj = dkjson.decode(response.body)
-			local currencyConversionTradeMap = {}
-			local currencyTable
-			for _, value in pairs(obj.result) do
-				if value.id and value.id == "Currency" then
-					currencyTable = value.entries
-					break
-				end
-			end
-			for _, value in pairs(currencyTable) do
-				currencyConversionTradeMap[value.text:lower()] = value.id
-			end
-			self.currencyConversionTradeMap = currencyConversionTradeMap
-			if callback then
-				callback()
-			end
-		end)
-end
 
 
 -- Method to pull down and interpret available leagues from PoE
@@ -126,24 +99,18 @@ function TradeQueryClass:PullLeagueList()
 		end)
 end
 
--- Method to convert currency to chaos equivalent
-function TradeQueryClass:ConvertCurrencyToChaos(currency, amount)
-	local conversionTable = self.pbCurrencyConversion[self.pbLeague]
-
-	-- we take the ceiling of all prices to integer chaos
-	-- to prevent dealing with shenanigans of people asking 4.9 chaos
-	if conversionTable and conversionTable[currency:lower()] then
-		--ConPrintf("Converted '"..currency.."' at " ..tostring(conversionTable[currency:lower()]))
-		return m_ceil(amount * conversionTable[currency:lower()])
-	elseif currency:lower() == "chaos" then
-		return m_ceil(amount)
-	else
-		ConPrintf("Unhandled Currency Conversion: '" .. currency:lower() .. "'")
-		return nil
+--- @param currencyId string
+--- @param amount integer
+--- @return number?
+function TradeQueryClass:ConvertCurrencyToDivs(currencyId, amount)
+	local map = self.pbCurrencyConversion[self.pbLeague]
+	if map and map[currencyId] then
+		return amount * map[currencyId]
 	end
 end
 
 -- Method to pull down and interpret the PoE.Ninja JSON endpoint data
+--- @param league string
 function TradeQueryClass:PullPoENinjaCurrencyConversion(league)
 	local now = get_time()
 	-- Limit PoE Ninja Currency Conversion request to 1 per hour
@@ -151,59 +118,52 @@ function TradeQueryClass:PullPoENinjaCurrencyConversion(league)
 		self:SetNotice(self.controls.pbNotice, "PoE Ninja Rate Limit Exceeded: " .. tostring(3600 - (now - self.lastCurrencyConversionRequest)))
 		return
 	end
-	-- We are getting currency short-names from Poe API before getting PoeNinja rates
-	-- Potentially, currency short-names could be cached but this request runs
-	-- once per hour at most and the Poe API response is already Cloudflare cached
-	self:FetchCurrencyConversionTable(function(data, errMsg)
-		if errMsg then
-			self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
-			return
-		end
-		self.pbCurrencyConversion[league] = { }
-		self.lastCurrencyConversionRequest = now
-		launch:DownloadPage(
-			"https://poe.ninja/api/data/CurrencyRates?league=" .. urlEncode(league),
-			function(response, errMsg)
-				if errMsg then
-					self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
-					return
-				end
-				local json_data = dkjson.decode(response.body)
-				if not json_data then
-					self:SetNotice(self.controls.pbNotice, "Failed to Get PoE Ninja response")
-					return
-				end
-				self:PriceBuilderProcessPoENinjaResponse(json_data, self.controls)
-				local print_str = ""
-				for key, value in pairs(self.pbCurrencyConversion[self.pbLeague]) do
-					print_str = print_str .. '"'..key..'": '..tostring(value)..','
-				end
-				local foo = io.open("../"..self.pbLeague.."_currency_values.json", "w")
-				foo:write("{" .. print_str .. '"updateTime": ' .. tostring(get_time()) .. "}")
-				foo:close()
-				self:SetCurrencyConversionButton()
-			end)
-	end)
+
+	self.pbCurrencyConversion[league] = { }
+	self.lastCurrencyConversionRequest = now
+	launch:DownloadPage(
+		"https://poe.ninja/poe2/api/economy/exchange/current/overview?type=Currency&league=" .. urlEncode(league),
+		function(response, errMsg)
+			if errMsg then
+				self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
+				return
+			end
+			local json_data = dkjson.decode(response.body)
+			if not json_data then
+				self:SetNotice(self.controls.pbNotice, "Failed to Get PoE Ninja response")
+				return
+			end
+			self:PriceBuilderProcessPoENinjaResponse(json_data)
+			local print_str = ""
+			for key, value in pairs(self.pbCurrencyConversion[self.pbLeague]) do
+				print_str = print_str .. '"'..key..'": '..tostring(value)..','
+			end
+			local foo = io.open("../"..self.pbLeague.."_currency_values.json", "w")
+			foo:write("{" .. print_str .. '"updateTime": ' .. tostring(get_time()) .. "}")
+			foo:close()
+			self:SetCurrencyConversionButton()
+		end)
+
 end
 
 -- Method to process the PoE.Ninja response
+--- @param resp table
 function TradeQueryClass:PriceBuilderProcessPoENinjaResponse(resp)
-	if resp then
-		-- Populate the chaos-converted values for each tradeId
-		for currencyName, chaosEquivalent in pairs(resp) do
-			local currencyName = currencyName:lower()
-			if self.currencyConversionTradeMap[currencyName] then
-				self.pbCurrencyConversion[self.pbLeague][self.currencyConversionTradeMap[currencyName]] = chaosEquivalent
-			else
-				ConPrintf("Unhandled Currency Name: '"..currencyName.."'")
-			end
-		end
-		-- if nothing was actually found, we should add a notice
-		if next(self.pbCurrencyConversion[self.pbLeague]) == nil then
-			self:SetNotice(self.controls.pbNotice, "No currencies received from PoE Ninja")
-		end
-	else
-		self:SetNotice(self.controls.pbNotice, "PoE Ninja JSON Processing Error")
+	-- Populate the chaos-converted values for each tradeId
+	local data = resp.lines
+	for _, currencyDetails in ipairs(data) do
+		-- these use the same ids as the trade site, which are also short
+		-- readable names, like "transmute" or "aug", which means there's no
+		-- need for conversion.
+		local id = currencyDetails.id
+		-- poe.ninja uses divs as the primary currency, and as far as I know,
+		-- this figure is equivalent to the best ratio in equivalent divs
+		local divs = currencyDetails.primaryValue
+		self.pbCurrencyConversion[self.pbLeague][id] = divs
+	end
+	-- if nothing was actually found, we should add a notice
+	if next(self.pbCurrencyConversion[self.pbLeague]) == nil then
+		self:SetNotice(self.controls.pbNotice, "No currencies received from PoE Ninja")
 	end
 end
 
@@ -538,9 +498,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	self.controls["name"..row_count].shown = function()
 		return hideRowFunc(self, row_count)
 	end
-	row_count = row_count + 1
-
-	row_count = row_count + 5
+	row_count = row_count + 2
 
 	local effective_row_count = row_count - ((scrollBarShown and #slotTables >= 19) and #slotTables-19 or 0) + 2 + 2 -- Two top menu rows, two bottom rows, slots after #19 overlap the other controls at the bottom of the pane
 	self.effective_rows_height = row_height * (effective_row_count - #slotTables + (18 - (#slotTables > 37 and 3 or 0))) -- scrollBar height, "18 - slotTables > 37" logic is fine tuning whitespace after last row
@@ -687,16 +645,6 @@ function TradeQueryClass:SetCurrencyConversionButton()
 	if self.pbLeague == nil then
 		return
 	end
-	if true then -- tbd once poe ninja has data for poe2
-		self.controls.updateCurrencyConversion.label = "Currency Rates are not available"
-		self.controls.updateCurrencyConversion.enabled = false
-		self.controls.updateCurrencyConversion.tooltipFunc = function(tooltip)
-			tooltip:Clear()
-			tooltip:AddLine(16, "Currency Conversion rates are pulled from PoE Ninja")
-			tooltip:AddLine(16, "The data is only available for the PC realm.")
-		end
-		return
-	end
 	local values_file = io.open("../"..self.pbLeague.."_currency_values.json", "r")
 	if values_file then
 		local lines = values_file:read "*a"
@@ -815,10 +763,10 @@ function TradeQueryClass:UpdateControlsWithItems(row_idx)
 	local sortMode = self.itemSortSelectionList[self.pbItemSortSelectionIndex]
 	local sortedItems, errMsg = self:SortFetchResults(row_idx, sortMode)
 	if errMsg == "MissingConversionRates" then
-		self:SetNotice(self.controls.pbNotice, "^4Price sorting is not available, falling back to Stat Value sort.")
+		self:SetNotice(self.controls.pbNotice, "^4Please update currency rates to sort by price. Falling back to Stat Value sort.")
 		sortedItems, errMsg = self:SortFetchResults(row_idx, self.sortModes.StatValue)
-	end
-	if errMsg then
+		return
+	elseif errMsg then
 		self:SetNotice(self.controls.pbNotice, "Error: " .. errMsg)
 		return
 	else
@@ -861,19 +809,20 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 		end
 		return sum
 	end
+	--- @return table<integer, number>?
 	local function getPriceTable()
-		local out = {}
-		local pricedItems = self:addChaosEquivalentPriceToItems(self.resultTbl[row_idx])
-		if pricedItems == nil then
-			return nil
+		--- @type table<integer, number>
+		local divPrices = {}	
+		for idx, item in ipairs(self.resultTbl[row_idx]) do
+			if item.currency and item.amount then
+				local divs = self:ConvertCurrencyToDivs(item.currency, item.amount)
+				if not divs then
+					return nil
+				end
+				divPrices[idx] = divs
+			else return nil end
 		end
-		for index, tbl in pairs(pricedItems) do
-			local chaosAmount = self:ConvertCurrencyToChaos(tbl.currency, tbl.amount)
-			if chaosAmount > 0 then
-				out[index] = chaosAmount
-			end
-		end
-		return out
+		return divPrices
 	end
 	local newTbl = {}
 	if mode == self.sortModes.Weight then
@@ -921,19 +870,6 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 		return nil, "InvalidSort"
 	end
 	return newTbl
-end
-
---- Convert item prices to chaos equivalent using poeninja data, returns nil if fails to convert any
-function TradeQueryClass:addChaosEquivalentPriceToItems(items)
-	local outputItems = copyTable(items)
-	for _, item in ipairs(outputItems) do
-		local chaosAmount = self:ConvertCurrencyToChaos(item.currency, item.amount)
-		if chaosAmount == nil then
-			return nil
-		end
-		item.chaosEquivalent = chaosAmount
-	end
-	return outputItems
 end
 
 -- Method to generate pane elements for each item slot
@@ -1057,14 +993,14 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 			end)
 		end)
 	controls["priceButton"..row_idx].enabled = function()
-		local isAuthorized = main.authToken ~= nil
+		local isAuthorized = main.api.authToken ~= nil
 		local validURL = controls["uri"..row_idx].validURL
 		local isSearching = controls["priceButton"..row_idx].label == "Searching..."
 		return isAuthorized and validURL and not isSearching
 	end
 	controls["priceButton"..row_idx].tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		if not main.authToken then
+		if not main.api.authToken then
 			tooltip:AddLine(16, "You must log in to use the search feature")
 		elseif not controls["uri"..row_idx].validURL then
 			tooltip:AddLine(16, "Enter a valid trade URL")

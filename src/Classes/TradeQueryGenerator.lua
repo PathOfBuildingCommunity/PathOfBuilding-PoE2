@@ -608,7 +608,7 @@ local currencyTable = {
 	{ name = "Orb of Transmutation", id = "transmute" },
 	{ name = "Regal Orb", id = "regal" },
 	{ name = "Vaal Orb", id = "vaal" },
-	{ name = "Annulment Orb", id = "annul" },
+	{ name = "Orb of Annulment", id = "annul" },
 	{ name = "Orb of Alchemy", id = "alch" },
 	{ name = "Mirror of Kalandra", id = "mirror" }
 }
