@@ -756,7 +756,7 @@ function TradeQueryGeneratorClass:ExecuteQuery()
 
 		self:GenerateModWeights(radiusMods)
 	else
-	-- radius mods are not filtered out here, but they valued at zero and
+	-- radius mods are not filtered out here, but they are valued at zero and
 	-- ignored as the base item won't have a "radius:" line
 		self:GenerateModWeights(self.modData["Explicit"])
 	end
