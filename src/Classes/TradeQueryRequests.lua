@@ -43,7 +43,8 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 							local retryAfter = response.header:match("Retry%-After:%s+(%d+)")
 							retryAfter = retryAfter and tonumber(retryAfter) or 0
 							request.attempts = (request.attempts or 0) + 1
-							local backoff = math.min(2 ^ request.attempts, 60)
+							
+							local backoff = math.max(math.min(2 ^ request.attempts, 60), retryAfter)
 							request.retryTime = os.time() + backoff
 							table.insert(queue, 1, request)
 							-- optional callback with the backoff time when rate
