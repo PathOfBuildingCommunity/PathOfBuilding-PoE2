@@ -64,6 +64,7 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 			local now = get_time()
 			if self.backoffFinish < now then
 				self.backoffFinish = nil
+				self:SetNotice(self.controls.pbNotice, "")
 				return
 			end
 			local msg = s_format("Rate limited. Retrying after %s seconds...",  self.backoffFinish - now)

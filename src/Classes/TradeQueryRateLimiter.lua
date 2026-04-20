@@ -71,16 +71,15 @@ function TradeQueryRateLimiterClass:ParseHeader(headerString)
 	return headers
 end
 
-function TradeQueryRateLimiterClass:ParsePolicy(headerString, policy)
+function TradeQueryRateLimiterClass:ParsePolicy(headerString, policy) 
 	local policies = {}
 	local headers = self:ParseHeader(headerString)
-	local policyName = headers["x-rate-limit-policy"]
-	if not policyName then
-		return
-	end
+	local policyName = headers["x-rate-limit-policy"] or policy
+	ConPrintf("policy: %s, headers: %s", policy, headerString)
 	policies[policyName] = {}
 	local retryAfter = headers["retry-after"]
 	if retryAfter then
+		ConPrintf("retry after: %d", retryAfter)
 		policies[policyName].retryAfter = os.time() + retryAfter
 	end
 	local ruleNames = {}
@@ -112,8 +111,8 @@ function TradeQueryRateLimiterClass:ParsePolicy(headerString, policy)
 	return policies
 end
 
-function TradeQueryRateLimiterClass:UpdateFromHeader(headerString)
-	local newPolicies = self:ParsePolicy(headerString)
+function TradeQueryRateLimiterClass:UpdateFromHeader(headerString, policy)
+	local newPolicies = self:ParsePolicy(headerString, policy)
 	if not newPolicies then
 		return
 	end
