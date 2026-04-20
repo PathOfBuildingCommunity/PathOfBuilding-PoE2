@@ -23,7 +23,7 @@ local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, t
 end)
 
 
--- func callback(valid, updateSettings)
+--- @param callback fun(valid: bool, updateSettings: bool)
 function PoEAPIClass:ValidateAuth(callback)
 	-- make a call for profile if not error we are good
 	-- if error 401 then try to recreate the token with 
@@ -61,13 +61,14 @@ local function base64_encode(secret)
 	return base64.encode(secret):gsub("+","-"):gsub("/","_"):gsub("=$", "")
 end
 
+--- resets current authorization details
 function PoEAPIClass:ResetDetails()
 	self.authToken = nil
 	self.refreshToken = nil
 	self.tokenExpiry = nil
 end
 
--- func callback(response, errorMsg, updateSettings)
+--- @param callback fun(response: table?, errCode: string?, updateSettings: boolean)
 function PoEAPIClass:FetchAuthToken(callback)
 	math.randomseed(os.time())
 	local secret = math.random(2^32-1)
