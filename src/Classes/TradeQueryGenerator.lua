@@ -383,6 +383,23 @@ function TradeQueryGeneratorClass:InitMods()
 	self:GenerateModData(data.itemMods.Flask, tradeQueryStatsParsed, { ["LifeFlask"] = true, ["ManaFlask"] = true })
 	self:GenerateModData(data.itemMods.Charm, tradeQueryStatsParsed, { ["Charm"] = true })
 
+	-- essences, because in item mod data they don't have equipment tags
+	for name, essence in pairs(data.essences) do
+		-- weird exception: linked to mod that says "% dex int or str"
+		if name:find("Perfect") and not (name == "Metadata/Items/Currency/CurrencyPerfectEssenceAttribute") then
+			for itemType, modName in pairs(essence.mods) do
+				local mask = {}
+				local itemType = itemType == "Warstaff" and "Quarterstaff" or itemType
+				mask[itemType] = true
+				self:ProcessMod(data.itemMods.Item[modName], tradeQueryStatsParsed, regularItemMask, mask)
+			end
+		end
+	end
+	-- fix the weird exception
+	for _, v in ipairs({"EssencePercentStrength1", "EssencePercentDexterity1", "EssencePercentIntelligence1"}) do
+		self:ProcessMod(data.itemMods.Item[v], tradeQueryStatsParsed, regularItemMask, { Amulet = true })
+	end
+
 	for _, entry in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices.AllocatesXEnchant].entries) do
 		if entry.text:sub(1, 10) == "Allocates " then
 			-- The trade id for allocatesX enchants end with "|[nodeID]" for the allocated node.

@@ -7395,6 +7395,10 @@ return {
 	}, 
 	["Corrupted"] = {
 		["1004011302"] = {
+			["Helmet"] = {
+				["max"] = 12, 
+				["min"] = 8, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7418,6 +7422,10 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["101878827"] = {
+			["Helmet"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7586,6 +7594,10 @@ return {
 			}, 
 		}, 
 		["1316278494"] = {
+			["Helmet"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7624,6 +7636,18 @@ return {
 			}, 
 		}, 
 		["1436284579"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7741,6 +7765,18 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1658498488"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -7750,6 +7786,14 @@ return {
 			}, 
 		}, 
 		["1671376347"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["Belt"] = {
 				["max"] = 25, 
 				["min"] = 20, 
@@ -7757,6 +7801,10 @@ return {
 			["Boots"] = {
 				["max"] = 25, 
 				["min"] = 20, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -8176,6 +8224,10 @@ return {
 			}, 
 		}, 
 		["2353576063"] = {
+			["Helmet"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8337,6 +8389,10 @@ return {
 			}, 
 		}, 
 		["280731498"] = {
+			["Helmet"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8419,9 +8475,21 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["2923486259"] = {
+			["AnyJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
+			}, 
 			["Chest"] = {
 				["max"] = 19, 
 				["min"] = 13, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 7, 
+				["min"] = 3, 
 			}, 
 			["Ring"] = {
 				["max"] = 19, 
@@ -8559,9 +8627,21 @@ return {
 				["max"] = 15, 
 				["min"] = 10, 
 			}, 
+			["AnyJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
 			["Belt"] = {
 				["max"] = 15, 
 				["min"] = 10, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["Ring"] = {
 				["max"] = 15, 
@@ -8581,9 +8661,21 @@ return {
 				["max"] = 15, 
 				["min"] = 10, 
 			}, 
+			["AnyJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
 			["Belt"] = {
 				["max"] = 15, 
 				["min"] = 10, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["Ring"] = {
 				["max"] = 15, 
@@ -8695,6 +8787,14 @@ return {
 			}, 
 		}, 
 		["3372524247"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["Belt"] = {
 				["max"] = 25, 
 				["min"] = 20, 
@@ -8702,6 +8802,10 @@ return {
 			["Boots"] = {
 				["max"] = 25, 
 				["min"] = 20, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -8713,6 +8817,10 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["3377888098"] = {
+			["Helmet"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8722,6 +8830,10 @@ return {
 			}, 
 		}, 
 		["3398787959"] = {
+			["Helmet"] = {
+				["max"] = 8, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -8744,6 +8856,18 @@ return {
 			}, 
 		}, 
 		["3429557654"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9121,9 +9245,21 @@ return {
 				["max"] = 15, 
 				["min"] = 10, 
 			}, 
+			["AnyJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
+			}, 
 			["Belt"] = {
 				["max"] = 15, 
 				["min"] = 10, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["Ring"] = {
 				["max"] = 15, 
@@ -9166,6 +9302,14 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["4220027924"] = {
+			["AnyJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
+			}, 
 			["Belt"] = {
 				["max"] = 25, 
 				["min"] = 20, 
@@ -9173,6 +9317,10 @@ return {
 			["Boots"] = {
 				["max"] = 25, 
 				["min"] = 20, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 10, 
+				["min"] = 5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -9210,6 +9358,10 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["4236566306"] = {
+			["Helmet"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9440,6 +9592,18 @@ return {
 			}, 
 		}, 
 		["721014846"] = {
+			["AnyJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["BaseJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["RadiusJewel"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10379,6 +10543,10 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1389153006"] = {
+			["Amulet"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10965,6 +11133,10 @@ return {
 			}, 
 		}, 
 		["1742651309"] = {
+			["Belt"] = {
+				["max"] = 30, 
+				["min"] = 26, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11256,6 +11428,58 @@ return {
 			}, 
 		}, 
 		["1881230714"] = {
+			["Bow"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Dagger"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Flail"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["One Hand Axe"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["One Hand Mace"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["One Hand Sword"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Spear"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Talisman"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Two Hand Axe"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Two Hand Mace"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
+			["Two Hand Sword"] = {
+				["max"] = 25, 
+				["min"] = 20, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12204,9 +12428,61 @@ return {
 				["max"] = 60, 
 				["min"] = 26, 
 			}, 
+			["Bow"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Dagger"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Flail"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Axe"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Mace"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Sword"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
 			["Staff"] = {
 				["max"] = 60, 
 				["min"] = 26, 
+			}, 
+			["Talisman"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Axe"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Mace"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Sword"] = {
+				["max"] = 33, 
+				["min"] = 25, 
 			}, 
 			["Wand"] = {
 				["max"] = 30, 
@@ -12555,6 +12831,10 @@ return {
 			["Amulet"] = {
 				["max"] = 8, 
 				["min"] = 3, 
+			}, 
+			["Ring"] = {
+				["max"] = 6, 
+				["min"] = 4, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -12962,6 +13242,10 @@ return {
 			}, 
 		}, 
 		["2970621759"] = {
+			["Gloves"] = {
+				["max"] = 30, 
+				["min"] = 26, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13066,9 +13350,61 @@ return {
 				["max"] = 60, 
 				["min"] = 26, 
 			}, 
+			["Bow"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Dagger"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Flail"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Axe"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Mace"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Sword"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
 			["Staff"] = {
 				["max"] = 60, 
 				["min"] = 26, 
+			}, 
+			["Talisman"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Axe"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Mace"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Sword"] = {
+				["max"] = 33, 
+				["min"] = 25, 
 			}, 
 			["Wand"] = {
 				["max"] = 30, 
@@ -13154,6 +13490,58 @@ return {
 			}, 
 		}, 
 		["3035140377"] = {
+			["Bow"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["Dagger"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["Flail"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["One Hand Axe"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["One Hand Mace"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["One Hand Sword"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["Spear"] = {
+				["max"] = 3, 
+				["min"] = 3, 
+			}, 
+			["Talisman"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["Two Hand Axe"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["Two Hand Mace"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
+			["Two Hand Sword"] = {
+				["max"] = 5, 
+				["min"] = 5, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13295,6 +13683,10 @@ return {
 			}, 
 		}, 
 		["315791320"] = {
+			["Sceptre"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13356,6 +13748,10 @@ return {
 			}, 
 		}, 
 		["3175163625"] = {
+			["Gloves"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13512,9 +13908,61 @@ return {
 				["max"] = 60, 
 				["min"] = 26, 
 			}, 
+			["Bow"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Dagger"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Flail"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Axe"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Mace"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Sword"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
 			["Staff"] = {
 				["max"] = 60, 
 				["min"] = 26, 
+			}, 
+			["Talisman"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Axe"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Mace"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Sword"] = {
+				["max"] = 33, 
+				["min"] = 25, 
 			}, 
 			["Wand"] = {
 				["max"] = 30, 
@@ -14404,6 +14852,10 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["3679418014"] = {
+			["Helmet"] = {
+				["max"] = 30, 
+				["min"] = 26, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14771,6 +15223,10 @@ return {
 			}, 
 		}, 
 		["3855016469"] = {
+			["Body Armour"] = {
+				["max"] = 50, 
+				["min"] = 40, 
+			}, 
 			["Shield"] = {
 				["max"] = 54, 
 				["min"] = 21, 
@@ -15044,6 +15500,58 @@ return {
 			}, 
 		}, 
 		["4019237939"] = {
+			["Bow"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Dagger"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Flail"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Axe"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Mace"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["One Hand Sword"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Spear"] = {
+				["max"] = 20, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Axe"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Mace"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
+			["Two Hand Sword"] = {
+				["max"] = 33, 
+				["min"] = 25, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15246,6 +15754,18 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["4101445926"] = {
+			["Focus"] = {
+				["max"] = 20, 
+				["min"] = 18, 
+			}, 
+			["Staff"] = {
+				["max"] = 32, 
+				["min"] = 28, 
+			}, 
+			["Wand"] = {
+				["max"] = 20, 
+				["min"] = 18, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15255,6 +15775,10 @@ return {
 			}, 
 		}, 
 		["4129825612"] = {
+			["Body Armour"] = {
+				["max"] = 15, 
+				["min"] = 10, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15264,6 +15788,10 @@ return {
 			}, 
 		}, 
 		["4139681126"] = {
+			["Amulet"] = {
+				["max"] = 10, 
+				["min"] = 7, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15946,6 +16474,10 @@ return {
 			}, 
 		}, 
 		["656461285"] = {
+			["Amulet"] = {
+				["max"] = 10, 
+				["min"] = 7, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16238,6 +16770,10 @@ return {
 			}, 
 		}, 
 		["734614379"] = {
+			["Amulet"] = {
+				["max"] = 10, 
+				["min"] = 7, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16836,6 +17372,10 @@ return {
 				["max"] = 8, 
 				["min"] = 3, 
 			}, 
+			["Body Armour"] = {
+				["max"] = 10, 
+				["min"] = 8, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17394,23 +17934,6 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
-		["2527686725"] = {
-			["2HWeapon"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
-			["Talisman"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
-			["specialCaseData"] = {
-			}, 
-			["tradeMod"] = {
-				["id"] = "implicit.stat_2527686725", 
-				["text"] = "#% increased Magnitude of Shock you inflict", 
-				["type"] = "implicit", 
-			}, 
-		}, 
 		["2646093132"] = {
 			["Ring"] = {
 				["max"] = 1, 
@@ -17718,6 +18241,20 @@ return {
 				["text"] = "#% increased Projectile Range", 
 				["type"] = "implicit", 
 			}, 
+		}, 
+		["3489782002"] = {
+			["Amulet"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3489782002", 
+				["text"] = "# to maximum Energy Shield", 
+				["type"] = "implicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["3544800472"] = {
 			["Chest"] = {
@@ -19511,7 +20048,7 @@ return {
 			}, 
 		}, 
 		["2481353198"] = {
-			["Helmet"] = {
+			["Chest"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -20997,10 +21534,6 @@ return {
 		}, 
 		["3855016469"] = {
 			["Chest"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
-			["Helmet"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
