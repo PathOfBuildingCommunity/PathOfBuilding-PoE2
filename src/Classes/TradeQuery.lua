@@ -1109,7 +1109,9 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 			local price = self.totalPrice[row_idx] and
 				self.totalPrice[row_idx].amount .. " " .. self.totalPrice[row_idx].currency
 
-			if itemResult.whisper then
+			-- we also check the price type so we can prefer instant buyout over
+			-- whisper
+			if itemResult.whisper and (itemResult.priceType ~= "~b/o") then
 				return price and "Whisper for " .. price or "Whisper"
 			else
 				return price and "Search for " .. price or "Search"
@@ -1117,7 +1119,7 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 
 		end, function()
 			local itemResult = self.itemIndexTbl[row_idx] and self.resultTbl[row_idx][self.itemIndexTbl[row_idx]]
-			if  itemResult.whisper then
+			if  itemResult.whisper and (itemResult.priceType ~= "~b/o") then
 				Copy(itemResult.whisper)
 			else
 				local exactQuery = dkjson.decode(self.lastQueries[row_idx])
