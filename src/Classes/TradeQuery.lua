@@ -553,7 +553,10 @@ Highest Weight - Displays the order retrieved from trade]]
 		main:ClosePopup()
 		-- there's a case where if you have a socket(s) allocated, open TradeQuery, close it, dealloc, then open TradeQuery again
 		-- the deallocated socket controls were still showing, so this will remove all dynamically created controls from items
-		wipeItemControls()
+
+		-- later note: this is disabled because it causes the trader to crash if
+		-- it's closed mid-search
+		-- wipeItemControls()
 	end)
 
 	self.controls.updateCurrencyConversion = new("ButtonControl", {"BOTTOMLEFT", nil, "BOTTOMLEFT"}, {pane_margins_horizontal, -pane_margins_vertical, 240, row_height}, "Get Currency Conversion Rates", function()
