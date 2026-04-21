@@ -30,7 +30,6 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 			-- relay wait info to caller when actually waiting, and not just
 			-- getting a magic poe2 release date number
 			if onRateLimit and timeLeft > 1 and timeNext ~= 1956528000 then
-				ConPrintf(string.format("%d - %d = %d", timeNext, now, timeLeft))
 				onRateLimit(timeLeft)
 			end
 			if not (queue[1].retryTime and now < queue[1].retryTime) then
