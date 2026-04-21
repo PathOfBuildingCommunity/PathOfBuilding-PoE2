@@ -26,6 +26,13 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 			local policy = self.rateLimiter:GetPolicyName(key)
 			local now = os.time()
 			local timeNext = self.rateLimiter:NextRequestTime(policy, now)
+			local timeLeft = timeNext - now
+			-- relay wait info to caller when actually waiting, and not just
+			-- getting a magic poe2 release date number
+			if onRateLimit and timeLeft > 1 and timeNext ~= 1956528000 then
+				ConPrintf(string.format("%d - %d = %d", timeNext, now, timeLeft))
+				onRateLimit(timeLeft)
+			end
 			if not (queue[1].retryTime and now < queue[1].retryTime) then
 				if now >= timeNext then
 					local request = table.remove(queue, 1)
