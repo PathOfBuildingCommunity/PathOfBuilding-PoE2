@@ -57,18 +57,27 @@ local TradeQueryClass = newClass("TradeQuery", function(self, itemsTab)
 	self.tradeQueryRequests = new("TradeQueryRequests")
 	local function onRateLimit(backoff)
 		self.backoffFinish = get_time() + backoff
+		self.countDown = coroutine.create(function()
+			while self.backoffFinish  do
+				local now = get_time()
+				if self.backoffFinish < (now + 0.5) then
+					self.backoffFinish = nil
+					self:SetNotice(self.controls.pbNotice, "")
+					return
+				end
+				local msg = s_format("Rate limited. Retrying after %s seconds...",  self.backoffFinish - now)
+				self:SetNotice(self.controls.pbNotice, colorCodes.WARNING..msg)
+				coroutine.yield()
+			end
+		end)
 	end
 	main.onFrameFuncs["TradeQueryRequests"] = function()
 		self.tradeQueryRequests:ProcessQueue(onRateLimit)
-		if self.backoffFinish then
-			local now = get_time()
-			if self.backoffFinish < now then
-				self.backoffFinish = nil
-				self:SetNotice(self.controls.pbNotice, "")
-				return
+		if self.countDown then
+			coroutine.resume(self.countDown)
+			if coroutine.status(self.countDown) == "dead" then
+				self.countDown = nil
 			end
-			local msg = s_format("Rate limited. Retrying after %s seconds...",  self.backoffFinish - now)
-			self:SetNotice(self.controls.pbNotice, colorCodes.WARNING..msg)
 		end
 	end
 	if not main.api then
