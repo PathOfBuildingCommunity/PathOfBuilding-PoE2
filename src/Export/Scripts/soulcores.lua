@@ -98,11 +98,11 @@ directiveTable.base = function(state, args, out)
 					for _, stat in ipairs(stats) do
 						if stat:find("^Bonded:") then
 							-- continue
-						-- range stat: output a single tradehash
+						-- range stat: output a single trade hash
 						elseif stat:find("%d+ to %d+") then
 							local tradeHash = murmurHash2(table.concat(statHashes), 0x02312233)
 							table.insert(tradeHashes, tradeHash)
-						-- otherwise output separate tradehashes
+						-- otherwise output separate trade hashes
 						else
 							for _, statHash in ipairs(statHashes) do
 								local tradeHash = murmurHash2(statHash, 0x02312233)
