@@ -30,7 +30,6 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 			-- relay wait info to caller when actually waiting, and not just
 			-- getting a magic poe2 release date number
 			if onRateLimit and timeLeft > 1 and timeNext ~= 1956528000 then
-				ConPrintf(string.format("%d - %d = %d", timeNext, now, timeLeft))
 				onRateLimit(timeLeft)
 			end
 			if not (queue[1].retryTime and now < queue[1].retryTime) then
@@ -234,7 +233,7 @@ function TradeQueryRequestsClass:PerformSearch(realm, league, query, callback)
 						errMsg = "[ " .. response.error.code .. ": " .. response.error.message .. " ]"
 					end
 				else
-					ConPrintf("Found 0 results for " .. self.hostName .. "api/trade2/search/" .. league .. "/" .. response.id)
+					ConPrintf("Found 0 results for %sapi/trade2/search/%s/%s", self.hostName, league, response.id)
 					errMsg = "No Matching Results Found"
 				end
 				return callback(response, errMsg)
