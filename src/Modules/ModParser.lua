@@ -5370,7 +5370,7 @@ local specialModList = {
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels, if not from cluster jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
 	["(%d+)%% increased effect of jewel socket passive skills containing corrupted (m?r?ag?r?i?e?c?) jewels"] = function(num, _, rarity) return { mod("JewelData", "LIST", { key = "corrupted" .. firstToUpper(rarity) .. "JewelIncEffect", value = num }) } end,
 	-- Misc
-	["fully broken armour effects also apply to fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
+	["fully broken armour you inflict also increases fire damage taken from hits"] = { flag("ArmourBreakFireDamageTaken"), },
 	["can't use chest armour"] = { mod("CanNotUseBody", "Flag", 1, { type = "DisablesItem", slotName = "Body Armour" }) },
 	--["can't use helmets"] = { mod("CanNotUseHelmet", "Flag", 1, { type = "DisablesItem", slotName = "Helmet" }) }, -- this one does not work due to being on a passive?
 	["can't use helmet"] = { mod("CanNotUseHelmet", "Flag", 1, { type = "DisablesItem", slotName = "Helmet" }) }, -- this is to allow for custom mod without saying the other is parsed
