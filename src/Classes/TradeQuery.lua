@@ -556,6 +556,7 @@ Highest Weight - Displays the order retrieved from trade]]
 		self:PullPoENinjaCurrencyConversion(self.pbLeague)
 	end)
 	self.controls.pbNotice = new("LabelControl",  {"BOTTOMRIGHT", nil, "BOTTOMRIGHT"}, {-row_height - pane_margins_vertical - row_vertical_padding, -pane_margins_vertical, 300, row_height}, "")
+	self:SetCurrencyConversionButton()
 
 	-- used in PopupDialog:Draw()
 	local function scrollBarFunc()
