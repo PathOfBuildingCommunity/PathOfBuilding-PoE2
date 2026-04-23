@@ -1143,13 +1143,11 @@ you can add them, copy the link here, and press "Price Item" to evaluate the ite
 				exactQuery.query.filters.trade_filters.filters.account = { input = itemResult.trader }
 
 				local exactQueryStr = dkjson.encode(exactQuery)
-				
-				self.tradeQueryRequests:SearchWithQuery(self.pbRealm, self.pbLeague, exactQueryStr, function(_, _)
-				end, {callbackQueryId = function(queryId)
-					local url = self.hostName.."trade2/search/"..self.pbLeague.."/"..queryId
-					Copy(url)
-					OpenURL(url)
-				end})
+
+				local encodedUrl = s_format("https://www.pathofexile.com/trade2/search/%s?q=%s", self.pbLeague, urlEncode(exactQueryStr))
+
+				Copy(encodedUrl)
+				OpenURL(encodedUrl)
 			end
 		end)
 
