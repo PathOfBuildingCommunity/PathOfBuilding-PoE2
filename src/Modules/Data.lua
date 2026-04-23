@@ -607,8 +607,41 @@ data.jewelRadii = {
 		{ inner = 1400, outer = 1700, col = "^xFFCC00", label = "Variable" },
 		{ inner = 1650, outer = 1950, col = "^xFF6600", label = "Variable" },
 		{ inner = 1800, outer = 2100, col = "^x0099FF", label = "Variable" },
+
+		-- Baryanic Leylines (Disciple of Varashta): non-unique Time-Lost radius +40%
+		{ inner = 0, outer = 1400, col = "^xBB6600", label = "Small" },
+		{ inner = 0, outer = 1610, col = "^x66FFCC", label = "Medium" },
+		{ inner = 0, outer = 1820, col = "^x2222CC", label = "Large" },
+		{ inner = 0, outer = 2100, col = "^xC100FF", label = "Very Large" },
 	}
 }
+
+-- Maps a base Time-Lost Jewel radius index to the upgraded index granted by
+-- "Non-Unique Time-Lost Jewels have X% increased radius" effects. Keyed by
+-- percentage so additional tiers can be added later.
+data.nonUniqueTimeLostJewelRadiusUpgrades = {
+	[40] = { [1] = 13, [2] = 14, [3] = 15, [4] = 16 },
+}
+
+-- Returns the radius index that should be used for a non-unique Time-Lost Jewel
+-- given the base index and the total "% increased radius" value in effect.
+-- Picks the largest supported tier at or below upgradePct; returns baseIndex
+-- unchanged when no tier applies.
+function data.resolveTimeLostRadiusIndex(baseIndex, upgradePct)
+	if not baseIndex or not upgradePct or upgradePct <= 0 then
+		return baseIndex
+	end
+	local bestPct
+	for pct, map in pairs(data.nonUniqueTimeLostJewelRadiusUpgrades) do
+		if pct <= upgradePct and map[baseIndex] and (not bestPct or pct > bestPct) then
+			bestPct = pct
+		end
+	end
+	if bestPct then
+		return data.nonUniqueTimeLostJewelRadiusUpgrades[bestPct][baseIndex]
+	end
+	return baseIndex
+end
 
 data.jewelRadius = data.setJewelRadiiGlobally(latestTreeVersion)
 
