@@ -764,7 +764,7 @@ function calcs.offence(env, actor, activeSkill)
 		local function remapThornsBase(fromStat, toStat)
 			for _, value in ipairs(skillModList:Tabulate("BASE", {}, fromStat)) do
 				local mod = value.mod
-				skillModList:NewMod(toStat, "BASE", mod.value * multiplier, mod.source, ModFlag.Hit, mod.keywordFlags, unpack(mod))
+				skillModList:NewMod(toStat, "BASE", mod.value * multiplier, mod.source, ModFlag.Hit, mod.keywordFlags)
 			end
 		end
 

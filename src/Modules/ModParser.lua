@@ -3500,6 +3500,11 @@ local specialModList = {
 		mod("PhysicalThornsMin", "BASE", 1, { type = "PercentStat", stat = "Life", percent = tonumber(num) }, { type = "Condition", var = "Shapeshifted" }),
 		mod("PhysicalThornsMax", "BASE", 1, { type = "PercentStat", stat = "Life", percent = tonumber(num) }, { type = "Condition", var = "Shapeshifted" }),
 	} end,
+	["gain (%a+) thorns damage equal to (%d+)%% of maximum mana"] = function(_, type, num) return {
+		flag("GrantsThorns"),
+		mod(firstToUpper(type).."ThornsMin", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = tonumber(num) }),
+		mod(firstToUpper(type).."ThornsMax", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = tonumber(num) }),
+	} end,
 
 	-- Extra skill/support
 	["grants skill: (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
