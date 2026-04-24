@@ -3488,7 +3488,10 @@ local specialModList = {
 
 	-- Thorns (other damage modifiers)
 	["thorns damage has (%d+)%% chance to ignore enemy armour"] = function(num) return {
-		mod("ThornsChanceToIgnoreEnemyArmour", "BASE", num)
+		mod("YourThornsIgnoreArmourMod", "BASE", num)
+	} end,
+	["bonded: thorns damage has (%d+)%% chance to ignore enemy armour"] = function(num) return {
+		mod("ThornsChanceToIgnoreEnemyArmour", "BASE", num, nil, 0, 0, { type = "Condition", var = "CanUseBondedModifiers" })
 	} end,
 	["gain physical thorns damage equal to (%d+)%% of item armour on equipped body armour"] = function(num) return {
 		flag("GrantsThorns"),
