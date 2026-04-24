@@ -297,8 +297,6 @@ skills["ThornsPlayer"] = {
 				thorns = true,
 			},
 			baseMods = {
-				flag("CannotBleed"),
-				flag("CannotPoison"),
 			},
 			constantStats = {},
 			stats = {},
