@@ -54,13 +54,9 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 							end
 							return
 						end
-						-- if limit rules don't return account then the auth token is invalid.
-						if response.header:match("[xX]%-[rR]ate%-[lL]imit%-[rR]ules: (.-)\n"):match("Account") == nil and main.api.authToken then
-							if errMsg then
-								errMsg = errMsg .. "\nAuthorization is invalid. Please Re-Log and reset"
-							else
-								errMsg = "Authorization is invalid. Please Re-Log and reset"
-							end
+						if errMsg == "Response code: 401" and response.body:find("invalid_token") then
+							errMsg = errMsg .. "\nAuthorization is invalid. Please Re-Log and reset"
+							main.api:ResetDetails()
 						end
 						request.callback(response.body, errMsg, unpack(request.callbackParams or {}))
 					end
