@@ -1611,7 +1611,7 @@ statMap = {
 #set SupportThornskinPlayer
 statMap = {
 	["support_thorns_spirit_cost_thorns_damage_+%"] = {
-		mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+		mod("Damage", "INC", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
 	},
 },
 #mods
@@ -1621,7 +1621,7 @@ statMap = {
 #set SupportThornskinPlayerTwo
 statMap = {
 	["support_thorns_spirit_cost_thorns_damage_+%"] = {
-		mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+		mod("Damage", "INC", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
 	},
 },
 #mods
