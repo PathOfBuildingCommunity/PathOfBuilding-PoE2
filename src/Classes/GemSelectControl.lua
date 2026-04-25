@@ -105,10 +105,6 @@ function GemSelectClass:PopulateGemList()
 	end
 end
 
-function GemSelectClass:GetQualityType(gemId)
-	return gemId and gemId:gsub(":.+","") or "Default"
-end
-
 function GemSelectClass:FilterSupport(gemId, gemData)
 	local showSupportTypes = self.skillsTab.showSupportGemTypes
 	return (not gemData.grantedEffect.support
