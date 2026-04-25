@@ -111,7 +111,7 @@ statMap = {
 	["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
 		flag("ThornsDamageAppliesToHits"),
 	},
-}
+},
 #mods
 #skillEnd
 
@@ -121,7 +121,7 @@ statMap = {
 	["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
 		flag("ThornsDamageAppliesToHits"),
 	},
-}
+},
 #mods
 #skillEnd
 
@@ -132,7 +132,7 @@ statMap = {
 		flag("ThornsDamageAppliesToHits"),
 		flag("BarbsThornsTwiceOnHit"),
 	},
-}
+},
 #mods
 #skillEnd
 
@@ -1231,7 +1231,7 @@ statMap = {
 	["trigger_spiked_gauntlets_for_X_hits_after_thorns_trigger"] = {
 		flag("EnableTriggeredQuillburst"),
 	},
-}
+},
 #mods
 #skillEnd
 
