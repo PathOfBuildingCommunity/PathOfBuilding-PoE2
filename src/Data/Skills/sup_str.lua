@@ -544,7 +544,7 @@ skills["SupportBarbsPlayer"] = {
 				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
 					flag("ThornsDamageAppliesToHits"),
 				},
-			},
+			}
 			baseFlags = {
 			},
 			constantStats = {
@@ -580,7 +580,7 @@ skills["SupportBarbsPlayerTwo"] = {
 				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
 					flag("ThornsDamageAppliesToHits"),
 				},
-			},
+			}
 			baseFlags = {
 			},
 			constantStats = {
@@ -617,7 +617,7 @@ skills["SupportBarbsPlayerThree"] = {
 					flag("ThornsDamageAppliesToHits"),
 					flag("BarbsThornsTwiceOnHit"),
 				},
-			},
+			}
 			baseFlags = {
 			},
 			constantStats = {
@@ -5220,7 +5220,7 @@ skills["SupportQuillburstPlayer"] = {
 				["trigger_spiked_gauntlets_for_X_hits_after_thorns_trigger"] = {
 					flag("EnableTriggeredQuillburst"),
 				},
-			},
+			}
 			baseFlags = {
 			},
 			constantStats = {

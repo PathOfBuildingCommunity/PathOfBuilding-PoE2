@@ -196,19 +196,6 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	if modList:Flag(nil, "CanExplode") then
 		t_insert(env.explodeSources, node)
 	end
-
-	if (modList:Sum("BASE", nil, "PhysicalThornsMin") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "PhysicalThornsMax") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "FireThornsMin") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "FireThornsMax") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "ColdThornsMin") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "ColdThornsMax") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "LightningThornsMin") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "LightningThornsMax") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "ChaosThornsMin") or 0) ~= 0
-		or (modList:Sum("BASE", nil, "ChaosThornsMax") or 0) ~= 0 then
-		t_insert(env.thornsSources, node)
-	end
 	
 	for i, mod in ipairs(modList) do
 		local added = false
@@ -561,7 +548,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 		env.grantedSkillsNodes = { }
 		env.grantedSkillsItems = { }
 		env.explodeSources = { }
-		env.thornsSources = { }
 		env.itemWarnings = { }
 		env.flasks = { }
 		env.charms = { }
@@ -845,21 +831,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 			if item and item.baseModList and item.baseModList:Flag(nil, "CanExplode") then
 				t_insert(env.explodeSources, item)
-			end
-			-- Explicitly flag thorns damage sources
-			if item and item.baseModList and (
-				(item.baseModList:Sum("BASE", nil, "PhysicalThornsMin") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "PhysicalThornsMax") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "FireThornsMin") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "FireThornsMax") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "ColdThornsMin") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "ColdThornsMax") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "LightningThornsMin") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "LightningThornsMax") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "ChaosThornsMin") or 0) ~= 0
-				or (item.baseModList:Sum("BASE", nil, "ChaosThornsMax") or 0) ~= 0
-			) then
-				t_insert(env.thornsSources, item)
 			end
 
 			if slot.weaponSet and slot.weaponSet ~= (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) then
@@ -1492,7 +1463,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				build.skillsTab:ProcessSocketGroup(group)
 			end
 
-			if #env.thornsSources ~= 0 then
+			do
 				local group
 				for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
 					if socketGroup.source == "Thorns" then

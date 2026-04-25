@@ -223,6 +223,7 @@ ModFlag.Spell =		 0x0000000000000002
 ModFlag.Hit =		 0x0000000000000004
 ModFlag.Dot =		 0x0000000000000008
 ModFlag.Cast =		 0x0000000000000010
+ModFlag.Thorns =	 0x0000000000000020
 -- Damage sources
 ModFlag.Melee =		 0x0000000000000100
 ModFlag.Area =		 0x0000000000000200
