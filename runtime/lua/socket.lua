@@ -37,7 +37,7 @@ function _M.bind(host, port, backlog)
             sock, err = socket.tcp6()
         end
         if not sock then return nil, err end
-        sock:setoption("reuseaddr", true)
+        -- sock:setoption("reuseaddr", true)
         res, err = sock:bind(alt.addr, port)
         if not res then
             sock:close()
