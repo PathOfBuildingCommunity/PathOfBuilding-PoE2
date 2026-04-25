@@ -25,32 +25,32 @@ function _M.connect6(address, port, laddress, lport)
 end
 
 function _M.bind(host, port, backlog)
-	if host == "*" then host = "0.0.0.0" end
-	local addrinfo, err = socket.dns.getaddrinfo(host);
-	if not addrinfo then return nil, err end
-	local sock, res
-	err = "no info on address"
-	for i, alt in base.ipairs(addrinfo) do
-		if alt.family == "inet" then
-			sock, err = socket.tcp4()
-		else
-			sock, err = socket.tcp6()
-		end
-		if not sock then return nil, err end
-		-- sock:setoption("reuseaddr", true)
-		res, err = sock:bind(alt.addr, port)
-		if not res then
-			sock:close()
-		else
-			res, err = sock:listen(backlog)
-			if not res then
-				sock:close()
-			else
-				return sock
-			end
-		end
-	end
-	return nil, err
+    if host == "*" then host = "0.0.0.0" end
+    local addrinfo, err = socket.dns.getaddrinfo(host);
+    if not addrinfo then return nil, err end
+    local sock, res
+    err = "no info on address"
+    for i, alt in base.ipairs(addrinfo) do
+        if alt.family == "inet" then
+            sock, err = socket.tcp4()
+        else
+            sock, err = socket.tcp6()
+        end
+        if not sock then return nil, err end
+        -- sock:setoption("reuseaddr", true)
+        res, err = sock:bind(alt.addr, port)
+        if not res then
+            sock:close()
+        else
+            res, err = sock:listen(backlog)
+            if not res then
+                sock:close()
+            else
+                return sock
+            end
+        end
+    end
+    return nil, err
 end
 
 _M.try = _M.newtry()
