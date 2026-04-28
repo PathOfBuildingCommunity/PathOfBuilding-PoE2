@@ -5251,7 +5251,7 @@ skills["TriggeredQuillburstPlayer"] = {
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_spiked_gauntlets",
 			baseFlags = {
-				thorns = true
+				thorns = true,
 			},
 			constantStats = {
 				{ "triggered_by_spiked_gauntlets_support_%", 100 },
