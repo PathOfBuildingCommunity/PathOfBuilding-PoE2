@@ -60,19 +60,26 @@ function main:Init()
 	self.gameAccounts = { }
 
 	local ignoreBuild
+	local pendingBuildName
 	if arg[1] then
-		local importLink = buildSites.ParseImportLinkFromURI(arg[1])
-		buildSites.DownloadBuild(arg[1], nil, function(isSuccess, data, importLink)
-			if not isSuccess then
-				self:SetMode("BUILD", false, data)
-			else
-				local xmlText = Inflate(common.base64.decode(data:gsub("-","+"):gsub("_","/")))
-				self:SetMode("BUILD", false, "Imported Build", xmlText, false, importLink)
-				self.newModeChangeToTree = true
-			end
-		end)
+		if arg[1]:lower():match("%.xml$") then
+			-- Build name passed as argument, resolved against buildPath after settings load
+			pendingBuildName = arg[1]:gsub("\\", "/")
+			ignoreBuild = true
+		else
+			local importLink = buildSites.ParseImportLinkFromURI(arg[1])
+			buildSites.DownloadBuild(arg[1], nil, function(isSuccess, data, importLink)
+				if not isSuccess then
+					self:SetMode("BUILD", false, data)
+				else
+					local xmlText = Inflate(common.base64.decode(data:gsub("-","+"):gsub("_","/")))
+					self:SetMode("BUILD", false, "Imported Build", xmlText, false, importLink)
+					self.newModeChangeToTree = true
+				end
+			end)
+			ignoreBuild = true
+		end
 		arg[1] = nil -- Protect against downloading again this session.
-		ignoreBuild = true
 	end
 
 	if not ignoreBuild then
@@ -141,6 +148,24 @@ function main:Init()
 
 	if self.userPath then
 		self:ChangeUserPath(self.userPath, ignoreBuild)
+	end
+
+	-- Open a build by name from the builds folder (passed via command line)
+	if pendingBuildName and self.buildPath then
+		-- Ensure it ends with .xml and resolve relative to buildPath
+		local fileName = pendingBuildName:match("([^/]+)$")
+		if fileName then
+			local buildFile = self.buildPath .. fileName
+			if not buildFile:lower():match("%.xml$") then
+				buildFile = buildFile .. ".xml"
+			end
+			local file = io.open(buildFile, "r")
+			if file then
+				file:close()
+				local buildName = fileName:gsub("%.xml$", "")
+				self:SetMode("BUILD", buildFile, buildName)
+			end
+		end
 	end
 
 	self.uniqueDB = { list = { }, loading = true }
