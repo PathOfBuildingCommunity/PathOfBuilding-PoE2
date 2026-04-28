@@ -60,11 +60,10 @@ function main:Init()
 	self.gameAccounts = { }
 
 	local ignoreBuild
-	local pendingBuildName
+	local pendingBuildFile
 	if arg[1] then
 		if arg[1]:lower():match("%.xml$") then
-			-- Build name passed as argument, resolved against buildPath after settings load
-			pendingBuildName = arg[1]:gsub("\\", "/")
+			pendingBuildFile = arg[1]:gsub("\\", "/")
 			ignoreBuild = true
 		else
 			local importLink = buildSites.ParseImportLinkFromURI(arg[1])
@@ -150,21 +149,14 @@ function main:Init()
 		self:ChangeUserPath(self.userPath, ignoreBuild)
 	end
 
-	-- Open a build by name from the builds folder (passed via command line)
-	if pendingBuildName and self.buildPath then
-		-- Reject path traversal attempts
-		if not pendingBuildName:match("%.%.") then
-			local relativePath = pendingBuildName
-			if not relativePath:lower():match("%.xml$") then
-				relativePath = relativePath .. ".xml"
-			end
-			local buildFile = self.buildPath .. relativePath
-			local file = io.open(buildFile, "r")
-			if file then
-				file:close()
-				local buildName = relativePath:match("([^/]+)%.xml$") or relativePath
-				self:SetMode("BUILD", buildFile, buildName)
-			end
+	-- Open a build file from the builds folder (passed via command line)
+	if pendingBuildFile and self.buildPath and not pendingBuildFile:match("%.%.") then
+		local buildFile = self.buildPath .. pendingBuildFile
+		local file = io.open(buildFile, "r")
+		if file then
+			file:close()
+			local buildName = pendingBuildFile:match("([^/]+)%.xml$") or pendingBuildFile
+			self:SetMode("BUILD", buildFile, buildName)
 		end
 	end
 
