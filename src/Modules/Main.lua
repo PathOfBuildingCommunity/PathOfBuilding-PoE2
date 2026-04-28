@@ -163,11 +163,7 @@ function main:Init()
 			file:close()
 			local buildName = pendingBuildFile:match("([^/]+)%.xml$") or pendingBuildFile
 			self:SetMode("BUILD", buildFile, buildName)
-		else
-			self:SetMode("BUILD", false, "Unnamed build")
 		end
-	elseif pendingBuildFile then
-		self:SetMode("BUILD", false, "Unnamed build")
 	end
 
 	self.uniqueDB = { list = { }, loading = true }
