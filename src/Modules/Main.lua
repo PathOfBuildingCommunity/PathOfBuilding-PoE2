@@ -150,14 +150,24 @@ function main:Init()
 	end
 
 	-- Open a build file from the builds folder (passed via command line)
-	if pendingBuildFile and self.buildPath and not pendingBuildFile:match("%.%.") then
-		local buildFile = self.buildPath .. pendingBuildFile
-		local file = io.open(buildFile, "r")
+	if pendingBuildFile and not pendingBuildFile:match("%.%.") then
+		local buildFile
+		-- Check if it's an absolute path (drive letter on Windows or / on Unix)
+		if pendingBuildFile:match("^%a:/") or pendingBuildFile:match("^/") then
+			buildFile = pendingBuildFile
+		elseif self.buildPath then
+			buildFile = self.buildPath .. pendingBuildFile
+		end
+		local file = buildFile and io.open(buildFile, "r")
 		if file then
 			file:close()
 			local buildName = pendingBuildFile:match("([^/]+)%.xml$") or pendingBuildFile
 			self:SetMode("BUILD", buildFile, buildName)
+		else
+			self:SetMode("BUILD", false, "Unnamed build")
 		end
+	elseif pendingBuildFile then
+		self:SetMode("BUILD", false, "Unnamed build")
 	end
 
 	self.uniqueDB = { list = { }, loading = true }
