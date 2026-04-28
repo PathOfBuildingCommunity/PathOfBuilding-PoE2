@@ -152,17 +152,17 @@ function main:Init()
 
 	-- Open a build by name from the builds folder (passed via command line)
 	if pendingBuildName and self.buildPath then
-		-- Ensure it ends with .xml and resolve relative to buildPath
-		local fileName = pendingBuildName:match("([^/]+)$")
-		if fileName then
-			local buildFile = self.buildPath .. fileName
-			if not buildFile:lower():match("%.xml$") then
-				buildFile = buildFile .. ".xml"
+		-- Reject path traversal attempts
+		if not pendingBuildName:match("%.%.") then
+			local relativePath = pendingBuildName
+			if not relativePath:lower():match("%.xml$") then
+				relativePath = relativePath .. ".xml"
 			end
+			local buildFile = self.buildPath .. relativePath
 			local file = io.open(buildFile, "r")
 			if file then
 				file:close()
-				local buildName = fileName:gsub("%.xml$", "")
+				local buildName = relativePath:match("([^/]+)%.xml$") or relativePath
 				self:SetMode("BUILD", buildFile, buildName)
 			end
 		end
