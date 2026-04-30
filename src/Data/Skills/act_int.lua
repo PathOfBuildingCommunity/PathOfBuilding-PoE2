@@ -2957,6 +2957,11 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["apply_x_wither_on_hit"] = {
+					flag("Condition:CanWither"),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				projectile = true,
@@ -11737,6 +11742,11 @@ skills["HisFoulEmergencePlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "his_foul_emergence",
+			statMap = {
+				["active_skill_withered_base_duration_ms"] = {
+					flag("Condition:CanWither"),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -22443,6 +22453,11 @@ skills["WitheringPresencePlayer"] = {
 			label = "Withering Presence",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "withering_presence",
+			statMap = {
+				["skill_withering_presence_frequency_ms"] = {
+					flag("Condition:CanWither"),
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},

@@ -5594,7 +5594,7 @@ c["Minions have +4% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0
 c["Minions have +5% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResistMax",type="BASE",value=5}}}},nil}
 c["Minions have +7% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=7}}}},nil}
 c["Minions have +8% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=8}}}},nil}
-c["Minions have 10% chance to inflict Withered on Hit"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}}}},nil}
+c["Minions have 10% chance to inflict Withered on Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["Minions have 10% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}}}},nil}
 c["Minions have 10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=10}}}},nil}
 c["Minions have 10% reduced Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=-10}}}},nil}
@@ -6085,8 +6085,7 @@ c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="S
 c["Unlimited number of Summoned Totems"]={nil,"Unlimited number of Summoned Totems "}
 c["Unlimited number of Summoned Totems Totems reserve 75 Spirit each"]={nil,"Unlimited number of Summoned Totems Totems reserve 75 Spirit each "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
-c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence "}
-c["Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Withered Magnitude"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Withered Magnitude "}
+c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["Used when you are affected by a Slow"]={nil,"Used when you are affected by a Slow "}
 c["Used when you are affected by a Slow Grants Onslaught during effect"]={nil,"Used when you are affected by a Slow Grants Onslaught during effect "}
 c["Used when you become Frozen"]={nil,"Used when you become Frozen "}

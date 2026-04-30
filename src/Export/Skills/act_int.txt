@@ -208,6 +208,11 @@ statMap = {
 #skill WeaponGrantedChaosboltPlayer
 #set WeaponGrantedChaosboltPlayer
 #flags spell projectile
+statMap = {
+	["apply_x_wither_on_hit"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd
 
@@ -795,6 +800,11 @@ statMap = {
 #skill HisFoulEmergencePlayer
 #set HisFoulEmergencePlayer
 #flags spell area duration
+statMap = {
+	["active_skill_withered_base_duration_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd
 
@@ -1474,5 +1484,10 @@ statMap = {
 #skill WitheringPresencePlayer
 #set WitheringPresencePlayer
 #flags duration
+statMap = {
+	["skill_withering_presence_frequency_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd
