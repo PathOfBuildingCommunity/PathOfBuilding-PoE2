@@ -75,8 +75,8 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.accountNameHeader.shown = function()
 		return self.charImportMode == "GETACCOUNTNAME"
 	end
-	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, {0, 4, 60, 20}, realmList )
-	self.controls.accountRealm:SelByValue( main.lastRealm or "PC", "id" )
+	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, {0, 4, 60, 20}, realmList)
+	self.controls.accountRealm:SelByValue(main.lastRealm or "PC", "id")
 
 	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountNameHeader,"RIGHT"}, {8, 0, 60, 20}, "Start", function()
 		self:DownloadCharacterList()
@@ -357,7 +357,9 @@ end
 
 function ImportTabClass:Load(xml, fileName)
 	self.lastRealm = xml.attrib.lastRealm
-	self.controls.accountRealm:SelByValue( self.lastRealm or main.lastRealm or "PC", "id" )
+	self.controls.accountRealm:SelByValue(self.lastRealm or main.lastRealm or "PC", "id")
+	self.lastLeague = xml.attrib.lastLeague
+	self.controls.charSelectLeague:SelByValue(self.lastLeague or "Standard", "id")
 	self.lastAccountHash = xml.attrib.lastAccountHash
 	self.importLink = xml.attrib.importLink
 	self.controls.enablePartyExportBuffs.state = xml.attrib.exportParty == "true"
@@ -375,6 +377,7 @@ end
 function ImportTabClass:Save(xml)
 	xml.attrib = {
 		lastRealm = self.lastRealm,
+		lastLeague = self.lastLeague,
 		lastAccountHash = self.lastAccountHash,
 		lastCharacterHash = self.lastCharacterHash,
 		exportParty = tostring(self.controls.enablePartyExportBuffs.state),
@@ -402,6 +405,23 @@ function ImportTabClass:Draw(viewPort, inputEvents)
 end
 
 function ImportTabClass:DownloadCharacterList()
+	function FindMatchingStandardLeague(league)
+		-- Find a Standard league name for a given league name
+		-- Reference https://api.pathofexile.com/league?realm=pc
+		if string.find(league, "Hardcore") then
+			return "Hardcore"
+		elseif string.find(league, "HC SSF") then
+			-- includes Ruthless "HC SSF R "
+			return "SSF Hardcore"
+		elseif string.find(league, "SSF") then
+			-- Any non HardCore SSF's - includes Ruthless "SSF R "
+			return "SSF Standard"
+		else
+			-- normal league and ruthless league (Sanctum, Ruthless Sanctum)
+			return "Standard"
+		end
+	end	
+	
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
@@ -463,6 +483,7 @@ function ImportTabClass:DownloadCharacterList()
 			end
 		end
 		table.sort(leagueList)
+		charSelectLeague = self.controls.charSelectLeague
 		wipeTable(self.controls.charSelectLeague.list)
 		for _, league in ipairs(leagueList) do
 			t_insert(self.controls.charSelectLeague.list, {
@@ -473,8 +494,25 @@ function ImportTabClass:DownloadCharacterList()
 		t_insert(self.controls.charSelectLeague.list, {
 			label = "All",
 		})
-		if self.controls.charSelectLeague.selIndex > #self.controls.charSelectLeague.list then
-			self.controls.charSelectLeague.selIndex = 1
+		-- set the league combo to the last used if possible, used for previously imported characters
+			if self.lastLeague then
+				charSelectLeague:SelByValue(self.lastLeague, "league")
+				-- check that it worked
+				if charSelectLeague:GetSelValueByKey("league") ~= self.lastLeague then
+					-- League maybe over, Character will be in standard
+					local standardLeagueName = FindMatchingStandardLeague(self.lastLeague)
+					self.controls.charSelectLeague:SelByValue(standardLeagueName, "league")
+					if charSelectLeague:GetSelValueByKey("league") ~= standardLeagueName then
+						-- give up and select the first entry. Ruthless mode may not have Standard equivalents
+						charSelectLeague.selIndex = 1
+					else
+						self.lastLeague = standardLeagueName
+					end
+				end
+			else
+				if self.controls.charSelectLeague.selIndex > #self.controls.charSelectLeague.list then
+					self.controls.charSelectLeague.selIndex = 1
+				end
 		end
 		self.lastCharList = charList
 		self:BuildCharacterList(self.controls.charSelectLeague:GetSelValueByKey("league"))
@@ -553,6 +591,9 @@ function ImportTabClass:DownloadCharacter(callback)
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
+		if not self.lastLeague then
+			self.lastLeague = charSelectLeague:GetSelValueByKey("league")
+		end
 		--local out = io.open("get-passive-skills.json", "w")
 		--out:write(json)
 		--out:close()
@@ -713,6 +754,9 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 
 	self.build.spec:AddUndoState()
 	self:ImportQuestRewardConfig(charPassiveData.quest_stats)
+	if not self.lastLeague then
+		self.lastLeague = charSelectLeague:GetSelValueByKey("league")
+	end
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
 	self.build.configTab:UpdateLevel()

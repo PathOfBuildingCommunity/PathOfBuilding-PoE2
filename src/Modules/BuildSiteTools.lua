@@ -7,27 +7,36 @@
 buildSites = { }
 
 -- Import/Export websites list used in dropdowns
+-- label: What a user sees in the export dropdown and when the import box recognizes the website
+-- id: Protocol handler id used to load builds with the pob: URL scheme e.g. pob://Maxroll/siteSpecificBuildId
+-- matchURL: A pattern to match URLs belonging to this website to show a valid url message in ImportTab
+-- regexURL: Copied link from website to extract the build ID and pass to downloadURL to get the raw build XML
+-- downloadURL: The URL to download the raw build code
+-- codeOut: Gets prepended to returned code from postUrl.  Needed to enable export in ImportTab
+-- postUrl: The URL to upload a build code.  Needed to enable export in ImportTab
+-- postFields: The POST fields prepended to base64-encoded XML.  Needed to enable export in ImportTab
+-- linkURL: The URL pattern to link to the provided build code (Unused currently)
 buildSites.websiteList = {
 	{
-		label = "Maxroll", id = "Maxroll", matchURL = "maxroll%.gg/poe2/pob/.*", regexURL = "maxroll%.gg/poe2/pob/(.+)%s*$", downloadURL = "maxroll%.gg/poe2/api/pob/%1",
+		label = "Maxroll", id = "Maxroll", matchURL = "^https:/maxroll%.gg/poe2/pob/.*", regexURL = "maxroll%.gg/poe2/pob/(.+)%s*$", downloadURL = "maxroll%.gg/poe2/api/pob/%1",
 		codeOut = "https://maxroll.gg/poe2/pob/", postUrl = "https://maxroll.gg/poe2/api/pob", postFields = "pobCode=", linkURL = "maxroll%.gg/poe2/pob/%1"
 	},
 	{
-		label = "pobb.in", id = "POBBin", matchURL = "pobb%.in/.+", regexURL = "pobb%.in/(.+)%s*$", downloadURL = "pobb.in/pob/%1",
+		label = "pobb.in", id = "POBBin", matchURL = "^https:/pobb%.in/.+", regexURL = "pobb%.in/(.+)%s*$", downloadURL = "pobb.in/pob/%1",
 		codeOut = "https://pobb.in/", postUrl = "https://pobb.in/pob/", postFields = "", linkURL = "pobb.in/%1"
 	},
 	{
-		label = "poe.ninja", id = "PoeNinja", matchURL = "poe2?%.ninja/?p?o?e?2?/pob/.+", regexURL = "poe2?%.ninja/?p?o?e?2?/pob/(.+)%s*$", downloadURL = "poe.ninja/poe2/pob/raw/%1",
+		label = "poe.ninja", id = "PoeNinja", matchURL = "^https:/poe2?%.ninja/?p?o?e?2?/pob/.+", regexURL = "poe2?%.ninja/?p?o?e?2?/pob/(.+)%s*$", downloadURL = "poe.ninja/poe2/pob/raw/%1",
 		codeOut = "", postUrl = "https://poe.ninja/poe2/pob/api/upload", postFields = "code=", linkURL="poe.ninja/poe2/pob/%1"
 	},
 	{ 
-		label = "poe2db.tw", id = "PoE2DB", matchURL = "poe2db%.tw/pob/.+", regexURL = "poe2db%.tw/pob/(.+)%s*$", downloadURL = "poe2db.tw/pob/%1/raw", 
+		label = "poe2db.tw", id = "PoE2DB", matchURL = "^https:/poe2db%.tw/pob/.+", regexURL = "poe2db%.tw/pob/(.+)%s*$", downloadURL = "poe2db.tw/pob/%1/raw", 
 		codeOut = "", postUrl = "https://poe2db.tw/pob/api/gen", postFields = "", linkURL = "poe2db.tw/pob/%1" 
 	},
 	{
-		label = "Pastebin.com", id = "pastebin", matchURL = "pastebin%.com/%w+", regexURL = "pastebin%.com/(%w+)%s*$", downloadURL = "pastebin.com/raw/%1", linkURL = "pastebin.com/%1"
+		label = "Pastebin.com", id = "pastebin", matchURL = "^https:/pastebin%.com/%w+", regexURL = "pastebin%.com/(%w+)%s*$", downloadURL = "pastebin.com/raw/%1", linkURL = "pastebin.com/%1"
 	},
-	{ label = "PastebinP.com", id = "pastebinProxy", matchURL = "pastebinp%.com/%w+", regexURL = "pastebinp%.com/(%w+)%s*$", downloadURL = "pastebinp.com/raw/%1", linkURL = "pastebin.com/%1" },
+	{ label = "PastebinP.com", id = "pastebinProxy", matchURL = "^https:/pastebinp%.com/%w+", regexURL = "pastebinp%.com/(%w+)%s*$", downloadURL = "pastebinp.com/raw/%1", linkURL = "pastebin.com/%1" },
 	{ label = "Rentry.co", id = "rentry", matchURL = "rentry%.co/%w+", regexURL = "rentry%.co/(%w+)%s*$", downloadURL = "rentry.co/paste/%1/raw", linkURL = "rentry.co/%1" },
 }
 
