@@ -1,7 +1,27 @@
 -- Start a server
 local url = ...
-local socket = require("socket")
-local server = assert(socket.bind("*", 49082) or socket.bind("*", 49083) or socket.bind("*", 49084))
+local luaSocket = require("socket")
+-- localhost redirects to 127.0.0.1 AKA IPv4.  luaSocket.bind() will use IPv6 if something is already running on the IPv4 host
+local server = luaSocket.tcp4()
+local function bindSocket()
+	local res, err
+	-- `reuseaddr` being true here would allow other applications to reuse the same port
+	server:setoption("reuseaddr", false)
+	-- Bind to localhost explicitly instead of all interfaces because LuaSocket doesn't recognize something running on localhost as conflicting with `*` or `0.0.0.0`
+	res, err = server:bind("localhost", 49082) or server:bind("localhost", 49083) or server:bind("localhost", 49084)
+	if not res then
+		server:close()
+	else
+		res, err = server:listen(1)
+		if not res then
+			server:close()
+		else
+			return server
+		end
+	end
+	return nil, err
+end
+assert(bindSocket())
 local host, port = server:getsockname()
 ConPrintf("Server started on %s:%s", host, port)
 
