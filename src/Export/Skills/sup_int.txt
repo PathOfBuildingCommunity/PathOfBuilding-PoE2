@@ -1513,9 +1513,20 @@ statMap = {
 
 #skill SupportZarokhsRevoltPlayer
 #set SupportZarokhsRevoltPlayer
+statMap = {
+		["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
+			mod("SealRepeatPenalty", "MORE", nil),
+		},
+		["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+			mod("SealGainFrequency", "BASE", nil),
+		},
+		["support_anticipation_rapid_fire_count"] = {
+			mod("SealCount", "BASE", nil),
+		},
+},
+#baseMod flag("HasSeals")
 #mods
 #skillEnd
-
 
 #skill SupportZenithPlayer
 #set SupportZenithPlayer

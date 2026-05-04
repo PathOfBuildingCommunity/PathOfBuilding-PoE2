@@ -8035,7 +8035,21 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			label = "Zarokh's Revolt",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_anticipation_rapid_fire_count"] = {
+					mod("SealCount", "BASE", nil),
+				},
+				["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+					mod("SealGainFrequency", "BASE", nil),
+				},
+				["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
+					mod("SealRepeatPenalty", "MORE", nil),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				flag("HasSeals"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },
