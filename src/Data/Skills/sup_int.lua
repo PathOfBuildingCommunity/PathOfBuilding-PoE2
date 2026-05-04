@@ -8036,15 +8036,15 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
-				["support_anticipation_rapid_fire_count"] = {
-					mod("SealCount", "BASE", nil),
-				},
-				["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
-					mod("SealGainFrequency", "BASE", nil),
-				},
-				["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
-					mod("SealRepeatPenalty", "MORE", nil),
-				},
+					["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
+						mod("SealRepeatPenalty", "MORE", nil),
+					},
+					["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+						mod("SealGainFrequency", "BASE", nil),
+					},
+					["support_anticipation_rapid_fire_count"] = {
+						mod("SealCount", "BASE", nil),
+					},
 			},
 			baseFlags = {
 			},
@@ -8064,7 +8064,6 @@ skills["SupportZarokhsRevoltPlayer"] = {
 		},
 	}
 }
-
 skills["SupportZenithPlayer"] = {
 	name = "Zenith I",
 	description = "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana. Does not modify Skills used by Minions.",
