@@ -484,6 +484,8 @@ Highest Weight - Displays the order retrieved from trade]]
 				main.lastRefreshToken = main.api.refreshToken
 				main.tokenExpiry = main.api.tokenExpiry
 				main:SaveSettings()
+
+				TradeQueryClass:SetNotice(self.controls.pbNotice, "")
 			else
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			end
@@ -531,6 +533,16 @@ Highest Weight - Displays the order retrieved from trade]]
 	self.controls["name"..row_count].shown = function()
 		return hideRowFunc(self, row_count)
 	end
+
+	-- fix case where the row count is reduced from the last time the popup was
+	-- opened, which would leave extra row controls in the menu
+	for k, v in pairs(self.controls) do
+		local number = k:match("(%d+)")
+		if number and tonumber(number) > row_count then
+			self.controls[k] = nil
+		end
+	end
+
 	row_count = row_count + 2
 
 	local effective_row_count = row_count - ((scrollBarShown and #slotTables >= 19) and #slotTables-19 or 0) + 2 + 2 -- Two top menu rows, two bottom rows, slots after #19 overlap the other controls at the bottom of the pane
@@ -544,12 +556,6 @@ Highest Weight - Displays the order retrieved from trade]]
 	self.controls.fullPrice = new("LabelControl", {"BOTTOM", nil, "BOTTOM"}, {0, -row_height - pane_margins_vertical - row_vertical_padding, pane_width - 2 * pane_margins_horizontal, row_height}, "")
 	self.controls.close = new("ButtonControl", {"BOTTOM", nil, "BOTTOM"}, {0, -pane_margins_vertical, 90, row_height}, "Done", function()
 		main:ClosePopup()
-		-- there's a case where if you have a socket(s) allocated, open TradeQuery, close it, dealloc, then open TradeQuery again
-		-- the deallocated socket controls were still showing, so this will remove all dynamically created controls from items
-
-		-- later note: this is disabled because it causes the trader to crash if
-		-- it's closed mid-search
-		-- wipeItemControls()
 	end)
 
 	self.controls.updateCurrencyConversion = new("ButtonControl", {"BOTTOMLEFT", nil, "BOTTOMLEFT"}, {pane_margins_horizontal, -pane_margins_vertical, 240, row_height}, "Get Currency Conversion Rates", function()
