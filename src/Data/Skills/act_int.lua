@@ -20949,6 +20949,14 @@ skills["TemporalChainsPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "temporal_chains",
+			statMap = {
+				["base_skill_debuff_action_speed_+%_final_to_inflict"] = {
+					mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" })
+				},
+				["base_temporal_chains_other_buff_time_passed_+%_to_apply"] = {
+					mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				duration = true,
