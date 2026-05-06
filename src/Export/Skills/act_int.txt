@@ -276,6 +276,7 @@ statMap = {
 #skill ContagionPlayer
 #set ContagionPlayer
 #flags area duration spell
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -811,7 +812,8 @@ statMap = {
 #from item
 #skill VileDisruptionPlayer
 #set VileDisruptionPlayer
-#flags spell area
+#flags spell area duration
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 

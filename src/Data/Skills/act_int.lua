@@ -3795,6 +3795,9 @@ skills["ContagionPlayer"] = {
 				duration = true,
 				spell = true,
 			},
+			baseMods = {
+				skill("debuff", true),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 5000 },
 				{ "active_skill_base_area_of_effect_radius", 17 },
@@ -12082,6 +12085,10 @@ skills["VileDisruptionPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				duration = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },
