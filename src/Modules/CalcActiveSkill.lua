@@ -80,7 +80,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 		for stat, statValue in pairs(stats) do
 			local map = set.statMap[stat]
 			if map then
-					-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
+				-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 				for _, modOrGroup in ipairs(map) do
 					-- either we are adding the mods of the activeSkill like usual or we are adding only the Buffs from the other statSets
 					if set == statSet or (applyBuffsFromAllStatSets and modOrGroup[1] and modOrGroup[1].effectType == "Buff") then
