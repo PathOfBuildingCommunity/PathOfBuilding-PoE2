@@ -98,9 +98,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 				end
 			end
 		end
-		--if set == statSet then
-			modList:AddList(set.baseMods)
-		--end
+		modList:AddList(set.baseMods)
 	end
 end
 
