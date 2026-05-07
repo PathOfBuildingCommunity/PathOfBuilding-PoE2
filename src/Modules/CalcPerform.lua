@@ -1801,6 +1801,19 @@ function calcs.perform(env, skipEHP)
 		end
 	end
 
+
+	local function conditionCheck(buff, skillModList, skillCfg)
+		if buff.cond and not skillModList:GetCondition(buff.cond, skillCfg) then
+			return true
+		elseif buff.condList then
+			for _, cond in ipairs(buff.condList) do
+				if cond and not skillModList:GetCondition(cond, skillCfg) then
+					return true
+				end
+			end
+		end
+		return false
+	end
 	local appliedCombustion = false
 	local warcryList = { }
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
@@ -1813,7 +1826,7 @@ function calcs.perform(env, skipEHP)
 		local skillModList = activeSkill.skillModList
 		local skillCfg = activeSkill.skillCfg
 		for _, buff in ipairs(activeSkill.buffList) do
-			if buff.cond and not skillModList:GetCondition(buff.cond, skillCfg) then
+			if conditionCheck(buff, skillModList, skillCfg) then
 				-- Nothing!
 			elseif buff.enemyCond and not enemyDB:GetCondition(buff.enemyCond) then
 				-- Also nothing :/

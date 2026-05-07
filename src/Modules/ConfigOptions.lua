@@ -361,8 +361,11 @@ local configSettings = {
 		modList:NewMod("EnergyShieldRecoveryRate", "INC", -val * 9, val.." Wasting Touch Stacks", { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "AffectedByGloriousMadness" })
 	end },
 	{ label = "Flame Wall:", ifSkill = "Flame Wall" },
-	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through Flame Wall?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
+	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FlameWallAddedDamage", "FLAG", true, "Config")
+	end },
+	{ var = "flameWallInfused", type = "check", label = "Lightning Infused?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FlameWallInfused", "FLAG", true, "Config")
 	end },
 	{ label = "Flicker Strike:", ifSkill = "Flicker Strike", includeTransfigured = true },
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)

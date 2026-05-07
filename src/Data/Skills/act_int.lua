@@ -7960,15 +7960,10 @@ skills["FlameWallPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "flame_wall",
-			statMap = {
-				["flame_wall_minimum_added_fire_damage"] = {
-					mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
-				},
-				["flame_wall_maximum_added_fire_damage"] = {
-					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
-				},
-			},
 			baseFlags = {
+			},
+			baseMods = {
+				flag("applyBuffsFromAllStatSets"),
 			},
 			constantStats = {
 				{ "number_of_allowed_firewalls", 3 },
@@ -8045,6 +8040,20 @@ skills["FlameWallPlayer"] = {
 			incrementalEffectiveness = 0.11999999731779,
 			damageIncrementalEffectiveness = 0.0015000000130385,
 			statDescriptionScope = "flame_wall",
+			statMap = {
+				["flame_wall_minimum_added_fire_damage"] = {
+					mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+				},
+				["flame_wall_maximum_added_fire_damage"] = {
+					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+				},
+				["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
+					mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCondList = { "FlameWallAddedDamage", "FlameWallInfused" } }),
+				},
+				["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
+					mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCondList = { "FlameWallAddedDamage", "FlameWallInfused" } }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

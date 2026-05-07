@@ -48,6 +48,16 @@ local function mergeLevelMod(modList, mod, value)
 	end
 end
 
+local function getFlagFromBaseMods(baseMods, flag)
+	if baseMods then
+		for _, baseMod in ipairs(baseMods) do
+			if baseMod.type == "FLAG" and baseMod.name == flag then
+				return true
+			end
+		end
+	end
+	return false
+end
 -- Merge skill effect modifiers with given mod list
 -- If a stat set is provided, only merge modifiers from that statset
 function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
@@ -56,33 +66,41 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 	if statSet and not isValueInArray(skillEffect.grantedEffect.statSets, statSet) then
 		return
 	end
-	local grantedEffect = skillEffect.grantedEffect	
-	for _, statSet in ipairs(statSet and {statSet} or grantedEffect.statSets) do 
-		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, statSet)
+	local grantedEffect = skillEffect.grantedEffect
+	-- for some skills like Flame Wall, the Projectile Buff is on a separate statSet and we want to add it regardless of which statSet is active
+	-- enabled by adding '#baseMod flag("applyBuffsFromAllStatSets)' to the main/first skill txt
+	local applyBuffsFromAllStatSets = getFlagFromBaseMods(statSet.baseMods, "buffsFromAllStatSets")
+	for _, set in ipairs((applyBuffsFromAllStatSets and grantedEffect.statSets or (statSet and {statSet} or grantedEffect.statSets))) do
+		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
 				stats[stat.key] = (stats[stat.key] or 0) + stat.value
 			end
 		end
 		for stat, statValue in pairs(stats) do
-			local map = statSet.statMap[stat]
+			local map = set.statMap[stat]
 			if map then
-				-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
+					-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 				for _, modOrGroup in ipairs(map) do
-					-- Found a mod, since all mods have names
-					if modOrGroup.name then
-						modOrGroup.source = string.format("Skill:%s", grantedEffect.id)
-						mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) / (map.div or 1) + (map.base or 0))
-					else
-						for _, mod in ipairs(modOrGroup) do
-							mod.source = string.format("Skill:%s", grantedEffect.id)
-							mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+					-- either we are adding the mods of the activeSkill like usual or we are adding only the Buffs from the other statSets
+					if set == statSet or (applyBuffsFromAllStatSets and modOrGroup[1] and modOrGroup[1].effectType == "Buff") then
+						-- Found a mod, since all mods have names
+						if modOrGroup.name then
+							modOrGroup.source = string.format("Skill:%s", grantedEffect.id)
+							mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) / (map.div or 1) + (map.base or 0))
+						else
+							for _, mod in ipairs(modOrGroup) do
+								mod.source = string.format("Skill:%s", grantedEffect.id)
+								mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+							end
 						end
 					end
 				end
 			end
 		end
-		modList:AddList(statSet.baseMods)
+		--if set == statSet then
+			modList:AddList(set.baseMods)
+		--end
 	end
 end
 
@@ -917,6 +935,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					name = effectName,
 					allowTotemBuff = effectTag.allowTotemBuff,
 					cond = effectTag.effectCond,
+					condList = effectTag.effectCondList,
 					enemyCond = effectTag.effectEnemyCond,
 					stackVar = effectTag.effectStackVar,
 					stackLimit = effectTag.effectStackLimit,

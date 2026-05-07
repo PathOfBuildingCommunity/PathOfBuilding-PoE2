@@ -550,6 +550,10 @@ statMap = {
 #skill FlameWallPlayer
 #set FlameWallPlayer
 #flags
+#baseMod flag("applyBuffsFromAllStatSets")
+#mods
+#set FlameWallProjectileBuffPlayer
+#flags
 statMap = {
 	["flame_wall_minimum_added_fire_damage"] = {
 		mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
@@ -557,10 +561,13 @@ statMap = {
 	["flame_wall_maximum_added_fire_damage"] = {
 		mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
 	},
+	["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
+		mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCondList = { "FlameWallAddedDamage", "FlameWallInfused" } }),
+	},
+	["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
+		mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCondList = { "FlameWallAddedDamage", "FlameWallInfused" } }),
+	},
 },
-#mods
-#set FlameWallProjectileBuffPlayer
-#flags
 #mods
 #skillEnd
 
