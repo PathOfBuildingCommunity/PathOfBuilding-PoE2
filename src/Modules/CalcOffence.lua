@@ -402,6 +402,14 @@ function calcs.offence(env, actor, activeSkill)
 	output.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
 
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
+		-- Applies increased AoE based on seals count
+		if skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "AreaSeal") and not skillModList:Flag(nil, "NoRepeatBonuses") then
+			output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
+			output.SealMax = skillModList:Sum("BASE", skillCfg, "SealCount")
+			output.TimeMaxSeals = output.SealCooldown * output.SealMax
+			env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", (output.SealMax * (calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") - 1) * 100), "Expand")
+		end
+
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
 		output.AreaOfEffectMod = round(round(incArea * moreArea, 10), 2)
 		if skillData.radiusIsWeaponRange then
@@ -1096,7 +1104,7 @@ function calcs.offence(env, actor, activeSkill)
 		modDB:NewMod("DPS", "MORE", detonateTwice, "Grenade Activate Twice")
 	end
 
-	if skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable] and not skillModList:Flag(nil, "NoRepeatBonuses") then
+	if skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "DamageSeal") and not skillModList:Flag(nil, "NoRepeatBonuses") then
 		-- Applies DPS multiplier based on seals count
 		local totalCastSpeed = 1 / activeSkill.activeEffect.grantedEffect.castTime * calcLib.mod(skillModList, skillCfg, "Speed")
 		output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
@@ -5672,7 +5680,7 @@ function calcs.offence(env, actor, activeSkill)
 			elseif skillFlags.totem then
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.TotemPlacementSpeed > 0 and output.TotemPlacementSpeed or 1 / output.Cooldown) or output.TotemPlacementSpeed) / repeats
 				timeType = "totem placement"
-			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "UseMaxUnleash") then
+			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "DamageSeal") and skillModList:Flag(nil, "UseMaxUnleash") then
 				useSpeed = env.player.mainSkill.skillData.hitTimeOverride / repeats
 				timeType = "full unleash"
 			elseif output.EffectiveReloadTime then -- Crossbows: Account for mana cost only happening on reload (once all bolts are fired)

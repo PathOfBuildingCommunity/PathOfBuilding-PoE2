@@ -665,6 +665,19 @@ statMap = {
 
 #skill SupportExpandPlayer
 #set SupportExpandPlayer
+statMap = {
+	["support_expand_max_seals"] = {
+		mod("SealCount", "BASE", nil),
+	},
+	["skill_area_of_effect_+%_per_expand_seal"] = {
+		mod("SealRepeatPenalty", "MORE", nil),
+	},
+	["expand_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+		mod("SealGainFrequency", "BASE", nil),
+	},
+},
+#baseMod flag("HasSeals")
+#baseMod flag("AreaSeal")
 #mods
 #skillEnd
 
@@ -1445,6 +1458,7 @@ statMap = {
 #skill SupportUnleashPlayer
 #set SupportUnleashPlayer
 #baseMod flag("HasSeals")
+#baseMod flag("DamageSeal")
 #mods
 #skillEnd
 
