@@ -414,7 +414,7 @@ return {
 	mod("Cost", "MORE", nil),
 	value = -100,
 },
-["base_mana_cost_efficiency_"] = {
+["base_mana_cost_efficiency_+%"] = {
 	mod("ManaCostEfficiency", "INC", nil),
 },
 ["base_life_cost_+%"] = {
@@ -2173,6 +2173,9 @@ return {
 },
 ["spell_maximum_added_chaos_damage"] = {
 	mod("ChaosMax", "BASE", nil, 0, KeywordFlag.Spell),
+},
+["support_spell_damage_+%_final_while_above_90%_maximum_mana"] = {
+	mod("Damage", "MORE", nil, 0, KeywordFlag.Spell, { type = "Condition", var = "FullMana"}),
 },
 
 --
