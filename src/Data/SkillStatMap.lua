@@ -2174,6 +2174,15 @@ return {
 ["spell_maximum_added_chaos_damage"] = {
 	mod("ChaosMax", "BASE", nil, 0, KeywordFlag.Spell),
 },
+["support_anticipation_rapid_fire_count"] = {
+	mod("SealCount", "BASE", nil),
+},
+["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+	mod("SealGainFrequency", "BASE", nil),
+},
+["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
+	mod("SealRepeatPenalty", "MORE", nil),
+},
 
 --
 -- Skill type modifier
