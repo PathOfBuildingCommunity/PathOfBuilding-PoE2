@@ -836,6 +836,9 @@ skills["SupportBitingFrostPlayer"] = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
 				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -872,6 +875,9 @@ skills["SupportBitingFrostPlayerTwo"] = {
 			statMap = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
 				},
 			},
 			baseFlags = {

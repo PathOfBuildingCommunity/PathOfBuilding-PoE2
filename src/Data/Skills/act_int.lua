@@ -10705,6 +10705,14 @@ skills["GlacialCascadePlayer"] = {
 			label = "Final Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "glacial_cascade_attack",
+			statMap = {
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_non_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true })
+				},
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" })
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
