@@ -1806,20 +1806,24 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	-- essentially trying to avoid calling ProcessStats for a Normal/Notable node that can't possibly be affected
 	-- loops potentially every socket (24) until itemsTab is loaded or a jewel socket is hovered, then it will only loop the allocated sockets
 	-- Radius indexes to probe: Very Large (4) plus any Time-Lost upgrade tiers (e.g. Baryanic Leylines'
-	-- "Very Large +40%" at 16) so nodes only reachable via an increased radius still show jewel mods.
+	-- "Very Large +40%" at 16) that the current build actually has access to.
 	local radiusProbeIndexes = { 4 }
-	if data.nonUniqueTimeLostJewelRadiusUpgrades then
-		for _, map in pairs(data.nonUniqueTimeLostJewelRadiusUpgrades) do
-			for _, upgradedIndex in pairs(map) do
-				local seen = false
-				for _, existing in ipairs(radiusProbeIndexes) do
-					if existing == upgradedIndex then
-						seen = true
-						break
+	local timeLostRadiusUpgrade = build.calcsTab and build.calcsTab.mainEnv and build.calcsTab.mainEnv.modDB
+		and build.calcsTab.mainEnv.modDB:Sum("INC", nil, "NonUniqueTimeLostJewelRadius") or 0
+	if timeLostRadiusUpgrade > 0 and data.nonUniqueTimeLostJewelRadiusUpgrades then
+		for pct, map in pairs(data.nonUniqueTimeLostJewelRadiusUpgrades) do
+			if pct <= timeLostRadiusUpgrade then
+				for _, upgradedIndex in pairs(map) do
+					local seen = false
+					for _, existing in ipairs(radiusProbeIndexes) do
+						if existing == upgradedIndex then
+							seen = true
+							break
+						end
 					end
-				end
-				if not seen then
-					t_insert(radiusProbeIndexes, upgradedIndex)
+					if not seen then
+						t_insert(radiusProbeIndexes, upgradedIndex)
+					end
 				end
 			end
 		end
