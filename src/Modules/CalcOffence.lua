@@ -401,13 +401,21 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate armour break
 	output.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
 
+	local function getSkillNameFromFlag(skillModList, flag)
+		local sourceMod = skillModList:Tabulate("FLAG", nil, flag)
+		local sourceName = sourceMod[1] and sourceMod[1].mod and sourceMod[1].mod.source -- e.g. Skill:SupportExpandPlayer
+		local dataSkill = env.data.skills[(sourceName:gsub("Skill:", ""))]
+		return dataSkill and dataSkill.name
+	end
+
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 		-- Applies increased AoE based on seals count
 		if skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "AreaSeal") and not skillModList:Flag(nil, "NoRepeatBonuses") then
 			output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
 			output.SealMax = skillModList:Sum("BASE", skillCfg, "SealCount")
 			output.TimeMaxSeals = output.SealCooldown * output.SealMax
-			env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", (output.SealMax * (calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") - 1) * 100), "Expand")
+			local skillName = getSkillNameFromFlag(skillModList, "AreaSeal") or "Support"
+			env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", (output.SealMax * (calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") - 1) * 100), skillName)
 		end
 
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
@@ -1113,15 +1121,16 @@ function calcs.offence(env, actor, activeSkill)
 		output.TimeMaxSeals = output.SealCooldown * output.SealMax
 
 		if not skillData.hitTimeOverride then
+			local skillName = getSkillNameFromFlag(skillModList, "DamageSeal") or "Support"
 			if skillModList:Flag(nil, "UseMaxUnleash") then
 				for i, value in ipairs(skillModList:Tabulate("INC",  { }, "MaxSealCrit")) do
 					local mod = value.mod
 					skillModList:NewMod("CritChance", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 				end
-				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", (output.SealMax * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty")) * 100, "Unleash")
+				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", (output.SealMax * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty")) * 100, skillName)
 				env.player.mainSkill.skillData.hitTimeOverride = m_max(output.TimeMaxSeals, totalCastSpeed * 1.1)
 			else
-				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", round(1 / output.SealCooldown / (totalCastSpeed * 1.1) * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") * 100, 2), "Unleash")
+				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", round(1 / output.SealCooldown / (totalCastSpeed * 1.1) * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") * 100, 2), skillName)
 			end
 		end
 
