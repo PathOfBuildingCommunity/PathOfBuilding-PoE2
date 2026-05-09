@@ -1118,6 +1118,12 @@ statMap = {
 		skill("maxHitRatePerEnemy", nil),
 		div = 1000,
 	},
+	["thunderstorm_wet_debuff_shock_chance_on_+%_final"] = {
+		mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thunderstorm"}),
+	},
+	["thunderstorm_wet_debuff_hit_damage_freeze_multiplier_+%_final"] = {
+		mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thunderstorm"}),
+	},
 },
 #mods
 #skillEnd
