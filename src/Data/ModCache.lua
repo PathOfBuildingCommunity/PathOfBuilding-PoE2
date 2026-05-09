@@ -4620,8 +4620,7 @@ c["Critical Hits cannot Extract Impale 31 to 49 Physical Thorns damage"]={nil,"C
 c["Critical Hits do not deal extra Damage"]={{[1]={flags=0,keywordFlags=0,name="NoCritMultiplier",type="FLAG",value=true}},nil}
 c["Critical Hits ignore Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreElementalResistances",type="FLAG",value=true}},nil}
 c["Critical Hits ignore non-negative Enemy Monster Elemental Resistances"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
-c["Critical Hits inflict Impale"]={nil,"Critical Hits inflict Impale "}
-c["Critical Hits inflict Impale Critical Hits cannot Extract Impale"]={nil,"Critical Hits inflict Impale Critical Hits cannot Extract Impale "}
+c["Critical Hits inflict Impale"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=0,keywordFlags=262144,name="ImpaleChance",type="BASE",value=100}},nil}
 c["Critical Hits with Daggers have a 25% chance to Poison the Enemy"]={{[1]={[1]={type="Condition",var="CriticalStrike"},flags=524288,keywordFlags=0,name="PoisonChance",type="BASE",value=25}},nil}
 c["Critical Hits with Spells apply 3 Stack of Critical Weakness"]={nil,"Critical Hits with Spells apply 3 Stack of Critical Weakness "}
 c["Critical Hits with Spells apply 5 Stacks of Critical Weakness"]={nil,"Critical Hits with Spells apply 5 Stacks of Critical Weakness "}

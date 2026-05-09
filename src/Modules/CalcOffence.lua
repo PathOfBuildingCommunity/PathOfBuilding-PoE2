@@ -4453,12 +4453,14 @@ function calcs.offence(env, actor, activeSkill)
 		output.SappedChance = 0
 		output.ChaosPoisonChance = 0
 
-		output.ImpaleChance = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
+		cfg.skillCond["CriticalStrike"] = true
 		if not skillFlags.hit then
 			output.ImpaleChanceOnCrit = 0
 		else
 			output.ImpaleChanceOnCrit = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
 		end
+		cfg.skillCond["CriticalStrike"] = false
+		output.ImpaleChance = env.mode_effective and m_min(100, skillModList:Sum("BASE", cfg, "ImpaleChance")) or 0
 
 		-- address Weapon1H interaction with Ailment for nodes like Coated Arms (PoE1: Sleight of Hand)
 		-- bit.and on cfg.flags confirms if the skill has the 1H flag
