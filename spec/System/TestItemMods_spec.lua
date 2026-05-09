@@ -220,4 +220,36 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
 	end)
+
+	it("twisted empyrean", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Twisted Empyrean Test
+			Greatmace
+			Quality: 0
+			Sockets: S S S S
+			Rune: None
+			Rune: None
+			Rune: None
+			Rune: None
+			LevelReq: 52
+			Implicits: 0
+			Attacks with this Weapon have Added Cold Damage equal to 6% to 10% of Maximum Mana
+			Convert 100% of Fire Damage of Mace Skills to Cold Damage
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
+		runCallback("OnFrame")
+
+		build.configTab.input.customMods = [[
+		+904 maximum mana
+		100 to 200 added fire damage
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.equals(171, round(build.calcsTab.mainOutput.AverageDamage))
+	end)
 end)
