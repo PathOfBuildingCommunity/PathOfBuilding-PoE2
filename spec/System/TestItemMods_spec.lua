@@ -220,4 +220,45 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
 	end)
+	it("liminal coil", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Liminal Coil Test
+			Acrid Wand
+			Quality: 20
+			Sockets: S S S
+			Rune: None
+			Rune: None
+			Rune: None
+			LevelReq: 41
+			Implicits: 0
+			Magnitudes of Curses you inflict are zero
+			Curses you inflict ignore Curse Limit
+			Spell Hits Gain 27% of Damage as Extra Chaos Damage per Curse on Target
+			Spell Hits Gain 27% of Damage as Extra Physical Damage per Curse on Target
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		runCallback("OnFrame")
+
+		local basePhys = round(build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
+		local baseChaos = round(build.calcsTab.mainOutput.ChaosStoredCombinedAvg)
+
+		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1")
+		runCallback("OnFrame")
+		local afterEleWeaknessPhys = round(build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
+		local afterEleWeaknessChaos = round(build.calcsTab.mainOutput.ChaosStoredCombinedAvg)
+		-- curses increase damage
+		assert.are_not.equals(basePhys, afterEleWeaknessPhys)
+		assert.are_not.equals(basePhys, afterEleWeaknessChaos)
+
+		build.skillsTab:PasteSocketGroup("Enfeeble 20/0  1")
+		runCallback("OnFrame")
+		local afterEnfeeblePhys = round(build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
+		local afterEnfeebleChaos = round(build.calcsTab.mainOutput.ChaosStoredCombinedAvg)
+		-- more curse more dmg
+		assert.are_not.equals(afterEleWeaknessPhys, afterEnfeeblePhys)
+		assert.are_not.equals(afterEleWeaknessChaos, afterEnfeebleChaos)
+	end)
 end)

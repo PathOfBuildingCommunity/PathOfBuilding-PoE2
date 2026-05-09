@@ -3588,6 +3588,9 @@ local specialModList = {
 		mod("DamageGainAsCold", "BASE", num),
 		mod("DamageGainAsFire", "BASE", num),
 	} end,
+	["spell hits gain (%d+)%% of damage as extra (%a+) damage per curse on target"] = function(num, _, damageType) return {
+		mod("DamageGainAs"..firstToUpper(damageType), "BASE", num, nil, ModFlag.Spell, { type = "Multiplier", var = "CurseOnEnemy" }),
+	} end, -- Liminal Coil
 	["gain (%d+)%% of weapon physical damage as extra damage of an? r?a?n?d?o?m? ?element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num, nil, ModFlag.Weapon) } end,
 	["gain (%d+)%% of physical damage as extra damage of a random element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num ) } end,
 	["(%d+)%% chance for hits to deal (%d+)%% of physical damage as extra damage of a random element"] = function(num, _, physPercent) return { mod("PhysicalDamageGainAsRandom", "BASE", (num*physPercent/100) ) } end,
@@ -4170,6 +4173,8 @@ local specialModList = {
 	["you can apply an additional curse while affected by malevolence"] = { mod("EnemyCurseLimit", "BASE", 1, { type = "Condition", var = "AffectedByMalevolence" }) },
 	["you can apply an additional curse while at maximum power charges"] = { mod("EnemyCurseLimit", "BASE", 1, { type = "StatThreshold", stat = "PowerCharges", thresholdStat = "PowerChargesMax" }) },
 	["you can apply one fewer curse"] = { mod("EnemyCurseLimit", "BASE", -1) },
+	["curses you inflict ignore curse limit"] = { mod("EnemyCurseLimit", "BASE", 99) },
+	["magnitudes of curses you inflict are zero"] = { mod("CurseEffect", "MORE", -100) },
 	["you can apply an additional mark"] = { mod("EnemyMarkLimit", "BASE", 1) },
 	["double activation delay of curses"] = { mod("CurseDelay", "MORE", 100) },
 	["curses have no activation delay"] = { mod("CurseDelay", "MORE", -100) },
