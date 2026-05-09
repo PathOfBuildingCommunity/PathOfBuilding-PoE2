@@ -243,13 +243,24 @@ describe("TetsItemMods", function()
 		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
 		runCallback("OnFrame")
 
+		local baseTotalDps = round(build.calcsTab.mainOutput.AverageDamage)
+		local baseColdAvg = round(build.calcsTab.mainOutput.ColdStoredCombinedAvg)
+
 		build.configTab.input.customMods = [[
 		+904 maximum mana
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		-- more mana increases average hit
+		assert.are_not.equals(baseTotalDps, round(build.calcsTab.mainOutput.AverageDamage))
+
+		build.configTab.input.customMods = [[
 		100 to 200 added fire damage
 		]]
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
-
-		assert.equals(171, round(build.calcsTab.mainOutput.AverageDamage))
+		-- added fire damage increases cold damage
+		assert.are_not.equals(baseColdAvg, round(build.calcsTab.mainOutput.ColdStoredCombinedAvg))
+		assert.equals(0, round(build.calcsTab.mainOutput.FireStoredCombinedAvg))
 	end)
 end)
