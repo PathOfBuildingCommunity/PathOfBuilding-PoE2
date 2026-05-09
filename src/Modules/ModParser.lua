@@ -580,7 +580,9 @@ local modNameList = {
 	["to impale enemies on hit"] = "ImpaleChance",
 	["to impale on spell hit"] = { "ImpaleChance", flags = ModFlag.Spell },
 	["impale effect"] = "ImpaleEffect",
+	["impale magnitude"] = "ImpaleEffect",
 	["effect of impales you inflict"] = "ImpaleEffect",
+	["magnitude of impales you inflict"] = "ImpaleEffect",
 	["effects of impale inflicted"] = "ImpaleEffect", -- typo / old wording change
 	["effect of impales inflicted"] = "ImpaleEffect",
 	["magnitude of impales inflicted"] = "ImpaleEffect",
