@@ -3588,6 +3588,13 @@ local specialModList = {
 		mod("DamageGainAsCold", "BASE", num),
 		mod("DamageGainAsFire", "BASE", num),
 	} end,
+	["attacks with this weapon have added (%a+) damage equal to (%d+)%% to (%d+)%% of maximum (%a+)"] = function(_, damageType, min, max) return {
+		mod(firstToUpper(damageType).."Min", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = min }, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+		mod(firstToUpper(damageType).."Max", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = max }, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+	} end,
+	["convert (%d+)%% of (%a+) damage of (%a+) skills to (%a+) damage"] = function (num, _, fromDmg, skillType, toDmg) return {
+		mod(firstToUpper(fromDmg) .. "DamageConvertTo" .. firstToUpper(toDmg), "BASE", num, nil, ModFlag[firstToUpper(skillType)])
+	} end, -- Twisted Empyrean
 	["gain (%d+)%% of weapon physical damage as extra damage of an? r?a?n?d?o?m? ?element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num, nil, ModFlag.Weapon) } end,
 	["gain (%d+)%% of physical damage as extra damage of a random element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num ) } end,
 	["(%d+)%% chance for hits to deal (%d+)%% of physical damage as extra damage of a random element"] = function(num, _, physPercent) return { mod("PhysicalDamageGainAsRandom", "BASE", (num*physPercent/100) ) } end,
