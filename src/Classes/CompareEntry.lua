@@ -60,8 +60,8 @@ function CompareEntryClass:LoadFromXML(xmlText)
 		ConPrintf("CompareEntry: Error parsing XML: %s", errMsg)
 		return true
 	end
-	if not dbXML or not dbXML[1] or dbXML[1].elem ~= "PathOfBuilding" then
-		ConPrintf("CompareEntry: 'PathOfBuilding' root element missing")
+	if not dbXML or not dbXML[1] or dbXML[1].elem ~= "PathOfBuilding2" then
+		ConPrintf("CompareEntry: 'PathOfBuilding2' root element missing")
 		return true
 	end
 
@@ -348,19 +348,19 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 	end
 
 	-- Mine count
-	if activeSkill.skillFlags and activeSkill.skillFlags.mine then
+	if activeSkill.activeEffect.statSet.skillFlags and activeSkill.activeEffect.statSet.skillFlags.mine then
 		controls.mainSkillMineCount.shown = true
 		controls.mainSkillMineCount.buf = tostring(activeEffect.srcInstance["skillMineCount"..suffix] or "")
 	end
 
 	-- Stage count (for multi-stage skills without parts)
-	if activeSkill.skillFlags and activeSkill.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
+	if activeSkill.activeEffect.statSet.skillFlags and activeSkill.activeEffect.statSet.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
 		controls.mainSkillStageCount.shown = true
 		controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeSkill.skillData.stagesMin or 1)
 	end
 
 	-- Minion controls
-	if activeSkill.skillFlags and not activeSkill.skillFlags.disable and (activeEffect.grantedEffect.minionList or (activeSkill.minionList and activeSkill.minionList[1])) then
+	if activeSkill.activeEffect.statSet.skillFlags and not activeSkill.activeEffect.statSet.skillFlags.disable and (activeEffect.grantedEffect.minionList or (activeSkill.minionList and activeSkill.minionList[1])) then
 		self:RefreshMinionControls(controls, activeSkill, activeEffect, suffix)
 	end
 end
@@ -442,10 +442,10 @@ function CompareEntryClass:CompareStatList(tooltip, statList, actor, baseOutput,
 			local flagMatch = true
 			if statData.flag then
 				if type(statData.flag) == "string" then
-					flagMatch = actor.mainSkill.skillFlags[statData.flag]
+					flagMatch = actor.mainSkill.activeEffect.statSet.skillFlags[statData.flag]
 				elseif type(statData.flag) == "table" then
 					for _, flag in ipairs(statData.flag) do
-						if not actor.mainSkill.skillFlags[flag] then
+						if not actor.mainSkill.activeEffect.statSet.skillFlags[flag] then
 							flagMatch = false
 							break
 						end
@@ -454,12 +454,12 @@ function CompareEntryClass:CompareStatList(tooltip, statList, actor, baseOutput,
 			end
 			if statData.notFlag then
 				if type(statData.notFlag) == "string" then
-					if actor.mainSkill.skillFlags[statData.notFlag] then
+					if actor.mainSkill.activeEffect.statSet.skillFlags[statData.notFlag] then
 						flagMatch = false
 					end
 				elseif type(statData.notFlag) == "table" then
 					for _, flag in ipairs(statData.notFlag) do
-						if actor.mainSkill.skillFlags[flag] then
+						if actor.mainSkill.activeEffect.statSet.skillFlags[flag] then
 							flagMatch = false
 							break
 						end

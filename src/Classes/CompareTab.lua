@@ -3010,8 +3010,8 @@ function CompareTabClass:DrawStatList(drawY, displayStats, primaryOutput, compar
 
 	-- Get skill flags from each build's selected actor (player, or minion when the
 	-- top-section "Skill:" is a minion skill) for stat filtering
-	local primaryFlags = primaryActor and primaryActor.mainSkill and primaryActor.mainSkill.skillFlags or {}
-	local compareFlags = compareActor and compareActor.mainSkill and compareActor.mainSkill.skillFlags or {}
+	local primaryFlags = primaryActor and primaryActor.mainSkill and primaryActor.mainSkill.activeEffect.statSet.skillFlags or {}
+	local compareFlags = compareActor and compareActor.mainSkill and compareActor.mainSkill.activeEffect.statSet.skillFlags or {}
 
 	for _, statData in ipairs(displayStats) do
 		if not statData.stat and not statData.label then
