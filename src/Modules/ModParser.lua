@@ -4103,9 +4103,6 @@ local specialModList = {
 	["your curses have (%d+)%% increased magnitudes if (%d+)%% of curse duration expired"] = function(num, _, limit) return {
 		mod("Magnitude", "INC", num, { type = "MultiplierThreshold", actor = "enemy", var = "CurseExpired", threshold = tonumber(limit) }, { type = "SkillType", skillType =  SkillType.AppliesCurse })
 	} end,
-	["(%a+) magnitude is doubled"] = function(_, curse) return {
-		mod("Magnitude", "MORE", 100, { type = "SkillName", skillName = firstToUpper(curse) })
-	} end,
 	["non%-aura hexes expire upon reaching (%d+)%% of base effect non%-aura hexes gain (%d+)%% increased effect per second"] = function(limit, _, num) return {
 		mod("CurseEffect", "INC", tonumber(num), { type = "Multiplier", actor = "enemy", var = "CurseDurationExpired", limit = tonumber(limit), limitTotal = true }, { type = "SkillType", skillType = SkillType.Aura, neg = true }, { type = "SkillType", skillType =  SkillType.Hex })
 	} end,
@@ -6151,10 +6148,12 @@ local skillNameList = {
 	[" corpse cremation " ] = { tag = { type = "SkillName", skillName = "Cremation", includeTransfigured = true }}, -- Sigh.
 }
 local preSkillNameList = { }
+-- skills from older versions of the game that cannot be obtained anymore and should be ignored by ModParser's skillNameLists
+local deprecatedSkillNames = { "Flammability", "Conductivity", "Hypothermia"}
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
-	if not grantedEffect.hidden and not grantedEffect.support then
-		local skillName = grantedEffect.baseTypeName or grantedEffect.name
+	local skillName = grantedEffect.baseTypeName or grantedEffect.name
+	if not grantedEffect.hidden and not grantedEffect.support and not isValueInTable(deprecatedSkillNames, skillName) then
 		skillNameList[" "..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
