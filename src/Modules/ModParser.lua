@@ -6149,11 +6149,11 @@ local skillNameList = {
 }
 local preSkillNameList = { }
 -- skills from older versions of the game that cannot be obtained anymore and should be ignored by ModParser's skillNameLists
-local deprecatedSkillNames = { "Flammability", "Conductivity", "Hypothermia"}
+local deprecatedSkillNames = { ["Flammability"] = true, ["Conductivity"] = true, ["Hypothermia"] = true }
 for gemId, gemData in pairs(data.gems) do
 	local grantedEffect = gemData.grantedEffect
 	local skillName = grantedEffect.baseTypeName or grantedEffect.name
-	if not grantedEffect.hidden and not grantedEffect.support and not isValueInTable(deprecatedSkillNames, skillName) then
+	if not grantedEffect.hidden and not grantedEffect.support and not deprecatedSkillNames[skillName] then
 		skillNameList[" "..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
 		preSkillNameList["^"..skillName:lower().." has ?a? "] = { tag = { type = "SkillName", skillName = skillName, includeTransfigured = true } }
