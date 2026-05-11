@@ -172,6 +172,7 @@ data.misc = { -- magic numbers
 	ServerTickTime = 0.033,
 	ServerTickRate = 1 / 0.033,
 	AccuracyPerDexBase = 6,
+	DefaultAttrNodeValue = 5,
 	LowPoolThreshold = 0.35,
 	TemporalChainsEffectCap = 75,
 	BuffExpirationSlowCap = 0.25,

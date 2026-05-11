@@ -2442,7 +2442,7 @@ end
 ---@return number attributeIndex, table playerAttr returns a number for the `attributeIndex` and the `playerAttr` table for future iterations
 function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResults)
 	local autoAttributeConfig = self.autoAttributeConfig
-	local defaultAttrNodeValue = 5 -- doesn't seem to be anywhere in `data`, so I am storing it here, in case it ever changes
+	local defaultAttrNodeValue = data.misc.DefaultAttrNodeValue
 	local playerAttr
 	local attributeList = { "dex", "int", "str" }
 	if cachedPlayerAttr ~= nil then
