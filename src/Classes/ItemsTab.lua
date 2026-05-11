@@ -968,6 +968,8 @@ function ItemsTabClass:Load(xml, dbFileName)
 			local itemSet = self:NewItemSet(tonumber(node.attrib.id))
 			itemSet.title = node.attrib.title
 			itemSet.useSecondWeaponSet = node.attrib.useSecondWeaponSet == "true"
+			itemSet.levelMin = tonumber(node.attrib.levelMin)
+			itemSet.levelMax = tonumber(node.attrib.levelMax)
 			for _, child in ipairs(node) do
 				if child.elem == "Slot" then
 					local slotName = child.attrib.name or ""
@@ -1056,7 +1058,7 @@ function ItemsTabClass:Save(xml)
 	end
 	for _, itemSetId in ipairs(self.itemSetOrderList) do
 		local itemSet = self.itemSets[itemSetId]
-		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet) } }
+		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet), levelMin = itemSet.levelMin and tostring(itemSet.levelMin) or nil, levelMax = itemSet.levelMax and tostring(itemSet.levelMax) or nil } }
 		for slotName, slot in pairs(self.slots) do
 			if not slot.nodeId then
 				t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true" }})
@@ -2053,7 +2055,49 @@ function ItemsTabClass:OpenItemSetManagePopup()
 	controls.sharedList = new("SharedItemSetListControl", nil, {155, 50, 300, 200}, self)
 	controls.setList.dragTargetList = { controls.sharedList }
 	controls.sharedList.dragTargetList = { controls.setList }
-	controls.close = new("ButtonControl", nil, {0, 260, 90, 20}, "Done", function()
+
+	-- Level bracket inputs for the .build (PoE2 BuildPlanner) export.
+	-- Bound to the row currently selected in the local item-set list.
+	local function clampLvl(buf)
+		local n = tonumber(buf)
+		if not n then return nil end
+		n = m_floor(n)
+		if n < 0 then n = 0 end
+		if n > 100 then n = 100 end
+		return n
+	end
+	local function selectedSet()
+		return self.itemSets[controls.setList.selValue]
+	end
+	controls.lvlLabel = new("LabelControl", nil, {-225, 260, 0, 16}, "^7.build export level range:")
+	controls.lvlMin = new("EditControl", nil, {-95, 260, 60, 20}, nil, nil, "%D", 3, function(buf)
+		local set = selectedSet()
+		if set then
+			set.levelMin = clampLvl(buf)
+			self.modFlag = true
+		end
+	end)
+	controls.lvlMin.tooltipText = "Lowest character level this item set applies to in the exported .build (1-100). Leave blank to auto-split across item sets."
+	controls.lvlDash = new("LabelControl", nil, {-30, 260, 0, 16}, "^7-")
+	controls.lvlMax = new("EditControl", nil, {30, 260, 60, 20}, nil, nil, "%D", 3, function(buf)
+		local set = selectedSet()
+		if set then
+			set.levelMax = clampLvl(buf)
+			self.modFlag = true
+		end
+	end)
+	controls.lvlMax.tooltipText = "Highest character level this item set applies to in the exported .build (1-100). Leave blank to auto-split across item sets."
+	local function refreshLvl()
+		local set = selectedSet()
+		controls.lvlMin:SetText(set and set.levelMin and tostring(set.levelMin) or "")
+		controls.lvlMax:SetText(set and set.levelMax and tostring(set.levelMax) or "")
+	end
+	controls.setList.OnSelClick = function(listSelf, index, value, doubleClick)
+		refreshLvl()
+	end
+	refreshLvl()
+
+	controls.close = new("ButtonControl", nil, {180, 260, 90, 20}, "Done", function()
 		main:ClosePopup()
 	end)
 	main:OpenPopup(630, 290, "Manage Item Sets", controls)

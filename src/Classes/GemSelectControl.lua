@@ -588,6 +588,12 @@ function GemSelectClass:AddGemTooltip(gemInstance)
 			self.tooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
 		end
 	end
+	-- Author note (Shift+Right-Click to set/edit) emitted into the PoE2 .build export.
+	self.tooltip:AddSeparator(10)
+	self.tooltip:AddLine(14, colorCodes.TIP.."Shift + Right-Click to add a build note (PoE2 .build export)")
+	if gemInstance.note and gemInstance.note ~= "" then
+		self.tooltip:AddLine(14, "^7Note: "..gemInstance.note)
+	end
 end
 
 function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
@@ -863,6 +869,18 @@ function GemSelectClass:OnKeyDown(key, doubleClick)
 				self:ScrollSelIntoView()
 			end
 		end
+	elseif key == "RIGHTBUTTON" and IsKeyDown("SHIFT") then
+		-- Shift+Right-Click: edit the per-gem author note for the PoE2 .build export.
+		local gemList = self.skillsTab.displayGroup and self.skillsTab.displayGroup.gemList
+		local gemInstance = gemList and gemList[self.index]
+		if gemInstance then
+			local title = "Note: " .. ((gemInstance.nameSpec and gemInstance.nameSpec ~= "") and gemInstance.nameSpec or "Gem")
+			main:OpenNoteEditPopup(title, gemInstance.note, function(text)
+				gemInstance.note = text
+				self.skillsTab.build.modFlag = true
+			end)
+		end
+		return self
 	elseif key == "RETURN" or key == "RIGHTBUTTON" then
 		self.dropped = true
 		self:UpdateSortCache()
