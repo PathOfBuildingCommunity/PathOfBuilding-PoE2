@@ -317,11 +317,11 @@ local configSettings = {
 	{ var = "conditionShockConsumed", type = "check", label = "Consumed Shock", ifSkill = "Elemental Discharge", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ShockConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
-	{ label = "Corrupting Cry:", ifSkill = "Corrupting Cry" },
-	{ var = "conditionCorruptingCryStages", type = "count", label = "# of Corrupting Cry stacks on enemy", ifSkill = "Corrupting Cry", defaultState = 1, apply = function(val, modList, enemyModList)
-		-- 10 is the maximum amount of Corrupting Blood Stages. modList does not contain skill base mods at this point so hard coding it here is the cleanest way to handle the cap.
+	{ label = "Corrupting Cry:", ifGemFamily = "Corrupting Cry" },
+	{ var = "conditionCorruptingCryStages", type = "count", label = "# of Corrupting Cry stacks", ifGemFamily = "Corrupting Cry", defaultPlaceholderState = 10, apply = function(val, modList, enemyModList)
 		-- It's set to 9 here with val -1 to so that it defaults to 1 stage and has max 10 stages.
-		modList:NewMod("Multiplier:CorruptingCryStageAfterFirst", "BASE", m_min(val-1, 9), "Config", { type = "Condition", var = "Effective" })
+		-- set limit in skill multiplier for max stages
+		modList:NewMod("Multiplier:CorruptingCryStageAfterFirst", "BASE", val-1, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ label = "Cruelty:", ifSkill = "Cruelty" },
 	{ var = "overrideCruelty", type = "count", label = "Damage % (if not maximum):", ifSkill = "Cruelty", tooltip = "Cruelty is a buff provided by Cruelty Support which grants\nup to 40% more damage over time to the skills it supports.", apply = function(val, modList, enemyModList)

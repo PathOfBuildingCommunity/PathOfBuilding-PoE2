@@ -1662,7 +1662,7 @@ skills["SupportCorruptingCryPlayer"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
@@ -1718,7 +1718,7 @@ skills["SupportCorruptingCryPlayerTwo"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
@@ -4968,7 +4968,7 @@ skills["SupportCorruptingCryPlayerThree"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 5 },

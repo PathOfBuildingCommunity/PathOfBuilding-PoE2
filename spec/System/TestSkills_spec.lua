@@ -84,4 +84,21 @@ describe("TestSkills", function()
 		local finalCost = build.calcsTab.mainOutput.ManaCost
 		assert.are.equals(16, round(finalCost))
 	end)
+
+	it("Test corrupted blood config", function()
+		build.skillsTab:PasteSocketGroup("Seismic Cry 20/0  1\nCorrupting Cry I 1/0  1")
+		runCallback("OnFrame")
+
+		local baseCorruptingCryDps = build.calcsTab.mainOutput.CorruptingBloodDPS -- placeholder/input is 10
+
+		build.configTab.input.conditionCorruptingCryStages = 5
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.True(baseCorruptingCryDps > build.calcsTab.mainOutput.CorruptingBloodDPS)
+
+		build.configTab.input.conditionCorruptingCryStages = 100 -- test limit
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.True(baseCorruptingCryDps == build.calcsTab.mainOutput.CorruptingBloodDPS)
+	end)
 end)

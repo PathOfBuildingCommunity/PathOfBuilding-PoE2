@@ -369,7 +369,7 @@ statMap = {
 #baseMod skill("debuff", true)
 #baseMod flag("dotIsCorruptingBlood")
 #baseMod mod("Multiplier:CorruptingCryMaxStages", "BASE", 10)
-#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"})
+#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9})
 #mods
 #skillEnd
 
@@ -394,7 +394,7 @@ statMap = {
 #baseMod skill("debuff", true)
 #baseMod flag("dotIsCorruptingBlood")
 #baseMod mod("Multiplier:CorruptingCryMaxStages", "BASE", 10)
-#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"})
+#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9})
 #mods
 #skillEnd
 
@@ -1160,7 +1160,7 @@ statMap = {
 #baseMod skill("debuff", true)
 #baseMod flag("dotIsCorruptingBlood")
 #baseMod mod("Multiplier:CorruptingCryMaxStages", "BASE", 10)
-#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"})
+#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9})
 #mods
 #skillEnd
 
