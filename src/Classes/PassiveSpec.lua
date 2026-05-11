@@ -2467,7 +2467,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 			-- Note: I believe this currently wouldn't work with "override" mods or "Omniscience", but I don't think those exist in PoE2 atm
 			if autoAttributeConfig.ignoreItemMods then
 				playerAttr[attr].itemBase = itemModDB:Sum("BASE", nil, attrUpper)
-				playerAttr[attr].itemInc = playerModDB:Sum("INC", nil, attrUpper)
+				playerAttr[attr].itemInc = itemModDB:Sum("INC", nil, attrUpper)
 				playerAttr[attr].itemMore = itemModDB:More(nil, attrUpper)
 				playerAttr[attr].base = playerAttr[attr].base - playerAttr[attr].itemBase
 				playerAttr[attr].inc = playerAttr[attr].inc - playerAttr[attr].itemInc
