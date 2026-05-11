@@ -2556,3 +2556,52 @@ function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
 	return playerAttr
 end
 
+-- Reallocates all basic attribute nodes, based on desired uder weights
+function PassiveSpecClass:AutoReallocAllAttributeNodes()
+	if not self.autoAttributeConfig or not self.autoAttributeConfig.enabled then
+		return
+	end
+	
+	-- init player attribute cach with current tree, items, and config
+	local defaultAttrValue = data.misc.DefaultAttrNodeValue
+	local allNodes = self.build.spec.allocNodes
+	local attrBaseOffset = { str = 0, dex = 0, int = 0 } -- base values that need to be subtracted from cache
+	local attrNodes = { }
+	
+	-- Check for currently allocated base attribute nodes and record their effects
+	for _, node in pairs(allNodes) do
+		if node.isAttribute then
+			local isBaseAttr = true -- assume it's a "normal" attribute node
+			if node.dn == "Strength" then
+				attrBaseOffset.str = attrBaseOffset.str + defaultAttrValue
+			elseif node.dn == "Dexterity" then
+				attrBaseOffset.dex = attrBaseOffset.dex + defaultAttrValue
+			elseif node.dn == "Intelligence" then
+				attrBaseOffset.int = attrBaseOffset.int + defaultAttrValue
+			else
+				-- isAttribute, but not set to str/dex/int likely means something like Pathfinder's "Traveler's Wisdom"
+				isBaseAttr = false
+			end
+			
+			-- add to list for re-allocation
+			if isBaseAttr then 
+				t_insert(attrNodes,node) 
+			end
+		end
+	end
+	--self:CreateUndoState()
+	
+	-- Initialise "corrected" playerAttrCache, i.e. player stats, but with attributes from base attribute passives subtracted
+	local playerAttrCache = self:InitAutoAttributePlayerCache(attrBaseOffset)
+	local attrIndex
+	for _, attrNode in pairs(attrNodes) do
+		attrIndex, playerAttrCache = self:GetAutoAttribute(playerAttrCache)
+		self:SwitchAttributeNode(attrNode.id, attrIndex)
+	end
+	-- Rebuild/refresh paths and update stats
+	self:BuildAllDependsAndPaths()
+	self:AddUndoState()
+	self.build.buildFlag = true
+
+end
+

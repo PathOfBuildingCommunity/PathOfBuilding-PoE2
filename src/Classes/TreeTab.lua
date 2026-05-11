@@ -893,9 +893,15 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	}
 	-- 'save' and 'cancel' buttons
 	local mainButton = {
+		width = 100,
+		height = 20,
+		x = { }, -- left/right/center button x values assigned after
 		y = 290,
-		x = 60,
 	}
+	mainButton.x.center = 0
+	mainButton.x.left = m_floor(- mainButton.width - (mainButton.width * 0.1))
+	mainButton.x.right = m_floor(mainButton.width + (mainButton.width * 0.1))
+		
 	-- config settings
 	local settingsSection = {
 		width = 400,
@@ -995,17 +1001,40 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	controls.ignoreItemModsLabel = new("LabelControl", { "TOPLEFT", controls.useAttrReqLabel, "BOTTOMLEFT" }, { 0, 10, settingsColumns[1].width, settingsColumns[1].height, }, "^7Ignore Item Mods")
 	controls.ignoreItemModsCheck = new("CheckBoxControl", { "TOP", controls.useAttrReqCheck, "BOTTOM" }, { 0, 10, 18 }, "", function(value) config.ignoreItemMods = value end, "^7Enabling this option will ignore attributes gained from items, when calculating total player attributes\n^8(This includes both flat and percentage modifiers)^7", config.ignoreItemMods)
 	
-	controls.apply = new("ButtonControl", nil, { -mainButton.x, mainButton.y, 100, 20 }, "Apply", function()
-		
+	local function applyChanges()
 		self.build.spec.autoAttributeConfig = self:UpdateAutoAttributeConfig(copyTable(config))
 		
 		-- Enable "Save" build button, if autoAttributeConfig changed
 		if not tableDeepEquals(self.build.spec.autoAttributeConfig, self.build.spec.autoAttributeConfigSaved) then 
 			self.autoAttrFlag = true
 		end
+	end
+
+	-- Apply changes button
+	controls.apply = new("ButtonControl", nil, { mainButton.x.left, mainButton.y, mainButton.width, mainButton.height }, "Save Config", function()
+		applyChanges()
 		main:ClosePopup()
 	end)
-	controls.cancel = new("ButtonControl", nil, { mainButton.x, mainButton.y, 100, 20 }, "Cancel", function()
+
+	-- Re-allocate all button
+	controls.reallocateAll = new("ButtonControl", nil, { mainButton.x.center, mainButton.y, mainButton.width, mainButton.height }, "Re-Allocate All", 
+		function()
+			-- Open confirmation popup first
+			main:OpenConfirmPopup(
+				"Confirm Re-Allocation",
+				"This will re-allocate all attribute travel nodes based on your current Auto Attribute settings.\nContinue?",
+				"Confirm",
+				function()
+					applyChanges() -- save changes first
+					self.build.spec:AutoReallocAllAttributeNodes()
+					main:ClosePopup() -- close main popup
+				end
+			)
+		end
+	)
+
+	-- Cancel button
+	controls.cancel = new("ButtonControl", nil, { mainButton.x.right, mainButton.y, mainButton.width, mainButton.height }, "Cancel", function()
 		main:ClosePopup()
 	end)
 	
