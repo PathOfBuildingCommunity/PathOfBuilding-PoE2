@@ -528,23 +528,25 @@ function CompareTabClass:InitControls()
 	self.controls.primCalcsMinionSkill.shown = false
 
 	self.controls.primCalcsMinionSkillStatSet = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMinionSkill,"BOTTOMLEFT",true}, {0, 0, 150, 16}, nil, function(index, value)
-		local mainSocketGroup = self.primaryBuild.skillsTab.socketGroupList[self.mainSocketGroup]
-		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
-		srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
-		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] or { }
-		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId][srcInstance.skillMinionSkill] = index
-		self.primaryBuild.modFlag = true
-		self.primaryBuild.buildFlag = true
+		local mainSocketGroup = self.primaryBuild.skillsTab.socketGroupList[self.primaryBuild.calcsTab.input.skill_number]
+		if mainSocketGroup then
+			local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
+			srcInstance.skillMinionSkillStatSetIndexLookupCalcs = srcInstance.skillMinionSkillStatSetIndexLookupCalcs or { }
+			srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId] or { }
+			srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId][srcInstance.skillMinionSkillCalcs] = index
+			self.primaryBuild.buildFlag = true
+		end
 	end)
 	self.controls.primCalcsMinionSkillStatSet.shown = false
 
 	self.controls.primCalcsStatSet = new("DropDownControl", nil, {0, 0, 200, 18}, nil, function(index, value)
-		local mainSocketGroup = self.primaryBuild.skillsTab.socketGroupList[self.mainSocketGroup]
-		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
-		srcInstance.statSet = srcInstance.statSet or { }
-		srcInstance.statSet[value.grantedEffectId] = index
-		self.primaryBuild.modFlag = true
-		self.primaryBuild.buildFlag = true
+		local mainSocketGroup = self.primaryBuild.skillsTab.socketGroupList[self.primaryBuild.calcsTab.input.skill_number]
+		if mainSocketGroup then
+			local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
+			srcInstance.statSetCalcs = srcInstance.statSetCalcs or { }
+			srcInstance.statSetCalcs[value.grantedEffectId] = index
+			self.primaryBuild.buildFlag = true
+		end
 	end)
 	self.controls.primCalcsStatSet.shown = false
 
@@ -676,24 +678,26 @@ function CompareTabClass:InitControls()
 
 	self.controls.cmpCalcsMinionSkillStatSet = new("DropDownControl", nil, {0, 0, 150, 16}, nil, function(index, value)
 		local entry = self:GetActiveCompare()
-		local mainSocketGroup = entry.skillsTab.socketGroupList[self.mainSocketGroup]
-		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
-		srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
-		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] or { }
-		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId][srcInstance.skillMinionSkill] = index
-		entry.modFlag = true
-		entry.buildFlag = true
+		local mainSocketGroup = entry.skillsTab.socketGroupList[entry.calcsTab.input.skill_number]
+		if mainSocketGroup then
+			local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
+			srcInstance.skillMinionSkillStatSetIndexLookupCalcs = srcInstance.skillMinionSkillStatSetIndexLookupCalcs or { }
+			srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId] or { }
+			srcInstance.skillMinionSkillStatSetIndexLookupCalcs[value.grantedEffectId][srcInstance.skillMinionSkillCalcs] = index
+			entry.buildFlag = true
+		end
 	end)
 	self.controls.cmpCalcsMinionSkillStatSet.shown = false
 
 	self.controls.cmpCalcsStatSet = new("DropDownControl", nil, {0, 0, 200, 18}, nil, function(index, value)
 		local entry = self:GetActiveCompare()
-		local mainSocketGroup = entry.skillsTab.socketGroupList[self.mainSocketGroup]
-		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
-		srcInstance.statSet = srcInstance.statSet or { }
-		srcInstance.statSet[value.grantedEffectId] = index
-		entry.modFlag = true
-		entry.buildFlag = true
+		local mainSocketGroup = entry.skillsTab.socketGroupList[entry.calcsTab.input.skill_number]
+		if mainSocketGroup then
+			local srcInstance = mainSocketGroup.displaySkillListCalcs[mainSocketGroup.mainActiveSkillCalcs].activeEffect.srcInstance
+			srcInstance.statSetCalcs = srcInstance.statSetCalcs or { }
+			srcInstance.statSetCalcs[value.grantedEffectId] = index
+			entry.buildFlag = true
+		end
 	end)
 	self.controls.cmpCalcsStatSet.shown = false
 
