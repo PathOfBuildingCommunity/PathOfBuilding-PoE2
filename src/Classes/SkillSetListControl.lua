@@ -32,10 +32,15 @@ local SkillSetListClass = newClass("SkillSetListControl", "ListControl", functio
 	self.controls.rename.enabled = function()
 		return self.selValue ~= nil
 	end
-	self.controls.new = new("ButtonControl", { "RIGHT", self.controls.rename, "LEFT" }, { -4, 0, 60, 18 }, "New",
-		function()
-			self:CreateSkillSet()
-		end)
+	self.controls.new = new("ButtonControl", {"RIGHT",self.controls.rename,"LEFT"}, {-4, 0, 60, 18}, "New", function()
+		local existing = { }
+		for _, id in ipairs(skillsTab.skillSetOrderList) do
+			t_insert(existing, skillsTab.skillSets[id])
+		end
+		local newSet = skillsTab:NewSkillSet()
+		require("Modules/BuildExportPoE2").PresetNextLevels(existing, newSet)
+		self:RenameSet(newSet, true)
+	end)
 end)
 
 function SkillSetListClass:CreateSkillSet()

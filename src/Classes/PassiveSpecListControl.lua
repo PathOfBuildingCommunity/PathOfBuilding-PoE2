@@ -39,6 +39,7 @@ local PassiveSpecListClass = newClass("PassiveSpecListControl", "ListControl", f
 		newSpec:SelectClass(treeTab.build.spec.curClassId)
 		newSpec:SelectAscendClass(treeTab.build.spec.curAscendClassId)
 		newSpec:SelectSecondaryAscendClass(treeTab.build.spec.curSecondaryAscendClassId)
+		require("Modules/BuildExportPoE2").PresetNextLevels(treeTab.specList, newSpec)
 		self:RenameSpec(newSpec, "New Tree", true)
 	end)
 	self:UpdateItemsTabPassiveTreeDropdown()
