@@ -527,6 +527,27 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.primCalcsMinionSkill.shown = false
 
+	self.controls.primCalcsMinionSkillStatSet = new("DropDownControl", {"TOPLEFT",self.controls.mainSkillMinionSkill,"BOTTOMLEFT",true}, {0, 0, 150, 16}, nil, function(index, value)
+		local mainSocketGroup = self.primaryBuild.skillsTab.socketGroupList[self.mainSocketGroup]
+		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
+		srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
+		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] or { }
+		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId][srcInstance.skillMinionSkill] = index
+		self.primaryBuild.modFlag = true
+		self.primaryBuild.buildFlag = true
+	end)
+	self.controls.primCalcsMinionSkillStatSet.shown = false
+
+	self.controls.primCalcsStatSet = new("DropDownControl", nil, {0, 0, 200, 18}, nil, function(index, value)
+		local mainSocketGroup = self.primaryBuild.skillsTab.socketGroupList[self.mainSocketGroup]
+		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
+		srcInstance.statSet = srcInstance.statSet or { }
+		srcInstance.statSet[value.grantedEffectId] = index
+		self.primaryBuild.modFlag = true
+		self.primaryBuild.buildFlag = true
+	end)
+	self.controls.primCalcsStatSet.shown = false
+
 	self.controls.primCalcsMode = new("DropDownControl", nil, {0, 0, 120, 18}, calcsBuffModeDropList, function(index, value)
 		self.primaryBuild.calcsTab.input.misc_buffMode = value.buffMode
 		self.primaryBuild.buildFlag = true
@@ -652,6 +673,29 @@ function CompareTabClass:InitControls()
 		end
 	end)
 	self.controls.cmpCalcsMinionSkill.shown = false
+
+	self.controls.cmpCalcsMinionSkillStatSet = new("DropDownControl", nil, {0, 0, 150, 16}, nil, function(index, value)
+		local entry = self:GetActiveCompare()
+		local mainSocketGroup = entry.skillsTab.socketGroupList[self.mainSocketGroup]
+		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
+		srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
+		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] or { }
+		srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId][srcInstance.skillMinionSkill] = index
+		entry.modFlag = true
+		entry.buildFlag = true
+	end)
+	self.controls.cmpCalcsMinionSkillStatSet.shown = false
+
+	self.controls.cmpCalcsStatSet = new("DropDownControl", nil, {0, 0, 200, 18}, nil, function(index, value)
+		local entry = self:GetActiveCompare()
+		local mainSocketGroup = entry.skillsTab.socketGroupList[self.mainSocketGroup]
+		local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
+		srcInstance.statSet = srcInstance.statSet or { }
+		srcInstance.statSet[value.grantedEffectId] = index
+		entry.modFlag = true
+		entry.buildFlag = true
+	end)
+	self.controls.cmpCalcsStatSet.shown = false
 
 	self.controls.cmpCalcsMode = new("DropDownControl", nil, {0, 0, 120, 18}, calcsBuffModeDropList, function(index, value)
 		local entry = self:GetActiveCompare()
@@ -2031,7 +2075,10 @@ function CompareTabClass:UpdateSetSelectors(compareEntry)
 		mainSkillMineCount = self.controls.cmpMineCount,
 		mainSkillMinion = self.controls.cmpMinion,
 		mainSkillMinionLibrary = { shown = false },
+		mainSkillBeastLibrary = { shown = false },
 		mainSkillMinionSkill = self.controls.cmpMinionSkill,
+		mainSkillMinionSkillStatSet = self.controls.cmpCalcsMinionSkillStatSet,
+		statSet = self.controls.cmpCalcsStatSet
 	}
 	compareEntry:RefreshSkillSelectControls(cmpControls, compareEntry.mainSocketGroup, "")
 end
@@ -2047,7 +2094,10 @@ function CompareTabClass:RefreshCalcsSkillControls(compareEntry)
 		mainSkillMineCount = self.controls.primCalcsMineCount,
 		mainSkillMinion = self.controls.primCalcsMinion,
 		mainSkillMinionLibrary = { shown = false },
+		mainSkillBeastLibrary = { shown = false },
 		mainSkillMinionSkill = self.controls.primCalcsMinionSkill,
+		mainSkillMinionSkillStatSet = self.controls.primCalcsMinionSkillStatSet,
+		statSet = self.controls.primCalcsStatSet
 	}
 	self.primaryBuild:RefreshSkillSelectControls(primControls, self.primaryBuild.calcsTab.input.skill_number, "Calcs")
 	self.controls.primCalcsSocketGroup.shown = true
@@ -2064,7 +2114,10 @@ function CompareTabClass:RefreshCalcsSkillControls(compareEntry)
 		mainSkillMineCount = self.controls.cmpCalcsMineCount,
 		mainSkillMinion = self.controls.cmpCalcsMinion,
 		mainSkillMinionLibrary = { shown = false },
+		mainSkillBeastLibrary = { shown = false },
 		mainSkillMinionSkill = self.controls.cmpCalcsMinionSkill,
+		mainSkillMinionSkillStatSet = self.controls.cmpCalcsMinionSkillStatSet,
+		statSet = self.controls.cmpCalcsStatSet
 	}
 	compareEntry:RefreshSkillSelectControls(cmpControls, compareEntry.calcsTab.input.skill_number, "Calcs")
 	self.controls.cmpCalcsSocketGroup.shown = true
@@ -2078,10 +2131,10 @@ function CompareTabClass:RefreshCalcsSkillControls(compareEntry)
 	local calcsControlNames = {
 		"primCalcsSocketGroup", "primCalcsMainSkill", "primCalcsSkillPart",
 		"primCalcsStageCount", "primCalcsMineCount", "primCalcsShowMinion", "primCalcsMinion",
-		"primCalcsMinionSkill", "primCalcsMode",
+		"primCalcsMinionSkill", "primCalcsMode", "primCalcsMinionSkillStatSet", "primCalcsStatSet",
 		"cmpCalcsSocketGroup", "cmpCalcsMainSkill", "cmpCalcsSkillPart",
 		"cmpCalcsStageCount", "cmpCalcsMineCount", "cmpCalcsShowMinion", "cmpCalcsMinion",
-		"cmpCalcsMinionSkill", "cmpCalcsMode",
+		"cmpCalcsMinionSkill", "cmpCalcsMode", "cmpCalcsMinionSkillStatSet", "cmpCalcsStatSet"
 	}
 	for _, name in ipairs(calcsControlNames) do
 		local ctrl = self.controls[name]
@@ -2134,12 +2187,14 @@ function CompareTabClass:LayoutCalcsSkillControls(vp, compareEntry)
 	local calcsRows = {
 		{ "SocketGroup",  true,  true  },
 		{ "MainSkill",    true,  false },
+		{ "StatSet",      true,  false },
 		{ "SkillPart",    true,  false },
 		{ "StageCount",   false, false },
-		{ "MineCount",    false, false },
+		-- { "MineCount",    false, false },
 		{ "ShowMinion",   false, false },
 		{ "Minion",       true,  false },
 		{ "MinionSkill",  true,  false },
+		{ "MinionSkillStatSet",  true,  false },
 		{ "Mode",         false, true  },
 	}
 	for _, row in ipairs(calcsRows) do
@@ -3362,9 +3417,9 @@ function CompareTabClass:ShouldShowRing3(compareEntry)
 end
 
 function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
-	local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
+	local baseSlots = { "Weapon 1", "Weapon 2", "Weapon 1 Swap", "Weapon 2 Swap", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
 	if self:ShouldShowRing3(compareEntry) then
-		t_insert(baseSlots, 10, "Ring 3")
+		t_insert(baseSlots, 12, "Ring 3")
 	end
 	local primaryEnv = self.primaryBuild.calcsTab and self.primaryBuild.calcsTab.mainEnv
 	local primaryHasRing3 = primaryEnv and primaryEnv.modDB:Flag(nil, "AdditionalRingSlot")
@@ -4015,6 +4070,10 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 	if drawLabel("Active Skill", leftX, leftY, self.controls.primCalcsMainSkill) then leftY = leftY + rowH end
 	if drawLabel("Active Skill", rightX, rightY, self.controls.cmpCalcsMainSkill) then rightY = rightY + rowH end
 
+	-- Stat set
+	if drawLabel("Stat Set", leftX, leftY, self.controls.primCalcsStatSet) then leftY = leftY + rowH end
+	if drawLabel("Stat Set", rightX, rightY, self.controls.cmpCalcsStatSet) then rightY = rightY + rowH end
+
 	-- Skill Part
 	if drawLabel("Skill Part", leftX, leftY, self.controls.primCalcsSkillPart) then leftY = leftY + rowH end
 	if drawLabel("Skill Part", rightX, rightY, self.controls.cmpCalcsSkillPart) then rightY = rightY + rowH end
@@ -4023,9 +4082,9 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 	if drawLabel("Stages", leftX, leftY, self.controls.primCalcsStageCount) then leftY = leftY + rowH end
 	if drawLabel("Stages", rightX, rightY, self.controls.cmpCalcsStageCount) then rightY = rightY + rowH end
 
-	-- Mine Count
-	if drawLabel("Mines", leftX, leftY, self.controls.primCalcsMineCount) then leftY = leftY + rowH end
-	if drawLabel("Mines", rightX, rightY, self.controls.cmpCalcsMineCount) then rightY = rightY + rowH end
+	-- -- Mine Count
+	-- if drawLabel("Mines", leftX, leftY, self.controls.primCalcsMineCount) then leftY = leftY + rowH end
+	-- if drawLabel("Mines", rightX, rightY, self.controls.cmpCalcsMineCount) then rightY = rightY + rowH end
 
 	-- Show Minion Stats
 	if drawLabel("Show Minion Stats", leftX, leftY, self.controls.primCalcsShowMinion) then leftY = leftY + rowH end
@@ -4038,6 +4097,11 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 	-- Minion Skill
 	if drawLabel("Minion Skill", leftX, leftY, self.controls.primCalcsMinionSkill) then leftY = leftY + rowH end
 	if drawLabel("Minion Skill", rightX, rightY, self.controls.cmpCalcsMinionSkill) then rightY = rightY + rowH end
+
+	-- Minion Skill Stat Set
+	if drawLabel("Minion Skill Stat Set", leftX, leftY, self.controls.primCalcsMinionSkillStatSet) then leftY = leftY + rowH end
+	if drawLabel("Minion Skill Stat Set", rightX, rightY, self.controls.cmpCalcsMinionSkillStatSet) then rightY = rightY + rowH end
+
 
 	-- Calc Mode
 	drawLabel("Calc Mode", leftX, leftY, self.controls.primCalcsMode)

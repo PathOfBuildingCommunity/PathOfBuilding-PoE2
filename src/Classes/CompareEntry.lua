@@ -293,6 +293,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 		controls.mainSkillStageCount.shown = false
 		controls.mainSkillMinion.shown = false
 		controls.mainSkillMinionSkill.shown = false
+		controls.mainSkillMinionSkillStatSet.shown = false
 	end
 
 	if #controls.mainSocketGroup.list == 0 then
@@ -348,19 +349,32 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 	end
 
 	-- Mine count
-	if activeSkill.activeEffect.statSet.skillFlags and activeSkill.activeEffect.statSet.skillFlags.mine then
-		controls.mainSkillMineCount.shown = true
-		controls.mainSkillMineCount.buf = tostring(activeEffect.srcInstance["skillMineCount"..suffix] or "")
-	end
+	-- if activeSkill.activeEffect.statSet.skillFlags and activeSkill.activeEffect.statSet.skillFlags.mine then
+	-- 	controls.mainSkillMineCount.shown = true
+	-- 	controls.mainSkillMineCount.buf = tostring(activeEffect.srcInstance["skillMineCount"..suffix] or "")
+	-- end
 
+	-- Stat set
+	if activeSkill.activeEffect then
+		wipeTable(controls.statSet.list)
+		for i, statSet in ipairs(activeEffect.grantedEffect.statSets) do
+			t_insert(controls.statSet.list,
+				{ val = i, label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+		end
+		controls.statSet.selIndex = activeEffect.srcInstance["statSet" .. suffix] and
+		activeEffect.srcInstance["statSet" .. suffix][activeEffect.grantedEffect.id] or 1
+		controls.statSet.enabled = #controls.statSet.list > 1
+		controls.statSet.shown = true
+	end
 	-- Stage count (for multi-stage skills without parts)
-	if activeSkill.activeEffect.statSet.skillFlags and activeSkill.activeEffect.statSet.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
+	if activeSkill.activeEffect.srcInstance.statSet.skillFlags and activeSkill.activeEffect.statSet.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
 		controls.mainSkillStageCount.shown = true
 		controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeSkill.skillData.stagesMin or 1)
 	end
 
 	-- Minion controls
-	if activeSkill.activeEffect.statSet.skillFlags and not activeSkill.activeEffect.statSet.skillFlags.disable and (activeEffect.grantedEffect.minionList or (activeSkill.minionList and activeSkill.minionList[1])) then
+	local disabled = activeSkill.activeEffect and activeSkill.activeEffect.statSet and activeSkill.activeEffect.statSet.skillFlags.disable
+	if not disabled and activeSkill.minion and (activeEffect.grantedEffect.minionList or (activeSkill.minionList and activeSkill.minionList[1])) then
 		self:RefreshMinionControls(controls, activeSkill, activeEffect, suffix)
 	end
 end
@@ -375,27 +389,38 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 				itemSetId = itemSetId,
 			})
 		end
-		controls.mainSkillMinion:SelByValue(activeEffect.srcInstance["skillMinionItemSet"..suffix] or 1, "itemSetId")
+		controls.mainSkillMinion:SelByValue(activeEffect.srcInstance["skillMinionItemSet" .. suffix] or 1, "itemSetId")
 	else
 		for _, minionId in ipairs(activeSkill.minionList) do
 			t_insert(controls.mainSkillMinion.list, {
-				label = self.data.minions[minionId] and self.data.minions[minionId].name or minionId,
+				label = self.data.minions[minionId].name,
 				minionId = minionId,
 			})
 		end
-		controls.mainSkillMinion:SelByValue(activeEffect.srcInstance["skillMinion"..suffix] or (controls.mainSkillMinion.list[1] and controls.mainSkillMinion.list[1].minionId), "minionId")
+		controls.mainSkillMinion:SelByValue(
+		activeEffect.srcInstance["skillMinion" .. suffix] or controls.mainSkillMinion.list[1], "minionId")
 	end
 	controls.mainSkillMinion.enabled = #controls.mainSkillMinion.list > 1
 	controls.mainSkillMinion.shown = true
-
 	wipeTable(controls.mainSkillMinionSkill.list)
 	if activeSkill.minion then
 		for _, minionSkill in ipairs(activeSkill.minion.activeSkillList) do
 			t_insert(controls.mainSkillMinionSkill.list, minionSkill.activeEffect.grantedEffect.name)
 		end
-		controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill"..suffix] or 1
+		controls.mainSkillMinionSkill.selIndex = activeEffect.srcInstance["skillMinionSkill" .. suffix] or 1
 		controls.mainSkillMinionSkill.shown = true
 		controls.mainSkillMinionSkill.enabled = #controls.mainSkillMinionSkill.list > 1
+		wipeTable(controls.mainSkillMinionSkillStatSet.list)
+		for _, statSet in ipairs(activeSkill.minion.activeSkillList[controls.mainSkillMinionSkill.selIndex].activeEffect.grantedEffect.statSets) do
+			t_insert(controls.mainSkillMinionSkillStatSet.list,
+				{ label = statSet.label, grantedEffectId = activeEffect.grantedEffect.id })
+		end
+		local minionStatSetIndexLookup = activeEffect.srcInstance["skillMinionSkillStatSetIndexLookup" .. suffix]
+		controls.mainSkillMinionSkillStatSet.selIndex = minionStatSetIndexLookup and
+		minionStatSetIndexLookup[activeEffect.grantedEffect.id] and
+		minionStatSetIndexLookup[activeEffect.grantedEffect.id][controls.mainSkillMinionSkill.selIndex] or 1
+		controls.mainSkillMinionSkillStatSet.shown = true
+		controls.mainSkillMinionSkillStatSet.enabled = #controls.mainSkillMinionSkillStatSet.list > 1
 	else
 		t_insert(controls.mainSkillMinion.list, "<No spectres in build>")
 	end
