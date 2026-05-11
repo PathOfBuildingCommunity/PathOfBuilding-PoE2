@@ -2556,13 +2556,13 @@ function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
 	return playerAttr
 end
 
--- Reallocates all basic attribute nodes, based on desired uder weights
+-- Reallocates all basic attribute nodes, based on desired user weights
 function PassiveSpecClass:AutoReallocAllAttributeNodes()
 	if not self.autoAttributeConfig or not self.autoAttributeConfig.enabled then
 		return
 	end
-	
-	-- init player attribute cach with current tree, items, and config
+
+	-- init player attribute cache with current tree, items, and config
 	local defaultAttrValue = data.misc.DefaultAttrNodeValue
 	local allNodes = self.build.spec.allocNodes
 	local attrBaseOffset = { str = 0, dex = 0, int = 0 } -- base values that need to be subtracted from cache
