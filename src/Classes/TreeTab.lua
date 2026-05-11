@@ -591,6 +591,9 @@ function TreeTabClass:ConvertToVersion(version, remove, success, ignoreRuthlessC
 	local newSpec = new("PassiveSpec", self.build, version)
 	newSpec.title = self.build.spec.title
 	newSpec.jewels = copyTable(self.build.spec.jewels)
+	if self.build.spec.autoAttributeConfig then
+		newSpec.autoAttributeConfig = copyTable(self.build.spec.autoAttributeConfig)
+	end
 	newSpec:RestoreUndoState(self.build.spec:CreateUndoState(), version)
 	newSpec:BuildClusterJewelGraphs()
 	t_insert(self.specList, self.activeSpec + 1, newSpec)
