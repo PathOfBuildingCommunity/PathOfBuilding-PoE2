@@ -68,83 +68,11 @@ local function writeMods(outName, condFunc)
 				out:write('statOrder = { ', table.concat(orders, ', '), ' }, ')
 				out:write('level = ', mod.Level, ', group = "', mod.Type.Id, '", ')
 				out:write('weightKey = { ')
-				local GoldModPrices = dat("GoldModPrices"):GetRow("Id", dat("Mods"):GetRow("Id", mod.Id))
-				if GoldModPrices and #GoldModPrices.SpawnTags > 0 then
-					for _, tag in ipairs(GoldModPrices.SpawnTags) do
-						out:write('"', tag.Id, '", ')
-					end
-					out:write('}, ')
-					out:write('weightVal = { ', table.concat(GoldModPrices.SpawnWeights, ', '), ' }, ')
-				else -- no spawn tags exist for flask/charm/corrupted/jewel mods
-					-- flasks/charms
-					if mod.Domain == 2 and GoldModPrices then
-						if isValueInArray(lifeFlaskModTypes, mod.Type.Id) then
-							out:write('"life_flask", ')
-						elseif isValueInArray(manaFlaskModTypes, mod.Type.Id) then
-							out:write('"mana_flask", ')
-						elseif mod.Id:match("^Flask") then 
-							out:write('"flask", ') 
-						elseif mod.Id:match("^Charm") then
-							out:write('"utility_flask", ') 
-						end
-						out:write('"default" }, ')
-						out:write('weightVal = { 1, 0 }, ')
-					elseif (mod.Domain == 1 or mod.Domain == 11) and (mod.GenerationType == 3 and mod.Id:match("SpecialCorruption") or mod.GenerationType == 5) then -- corrupted enchants
-						local weightVals = ""
-						for key, mods in pairs(corruptedModTypes.blackList) do
-							if isValueInArray(mods, mod.Id) then
-								out:write('"'..key..'", ')
-								weightVals = weightVals.."0, "
-							end
-						end
-						for key, mods in pairs(corruptedModTypes.whiteList) do
-							if isValueInArray(mods, mod.Id) then
-								out:write('"'..key..'", ')
-								weightVals = weightVals.."1, "
-							end
-						end
-						out:write('"default" }, weightVal = { '..weightVals..' 0 }, ')
-					elseif mod.Domain == 11 then -- jewels
-						local keysCount = 0
-						if mod.Id:match("JewelRadius") then
-							if isValueInArray(strJewelTypes, mod.Type.Id) then
-								out:write('"str_radius_jewel", ')
-								keysCount = keysCount + 1
-							end
-							if isValueInArray(dexJewelTypes, mod.Type.Id) then
-								out:write('"dex_radius_jewel", ')
-								keysCount = keysCount + 1
-							end
-							if isValueInArray(intJewelTypes, mod.Type.Id) then
-								out:write('"int_radius_jewel", ')
-								keysCount = keysCount + 1
-							end
-							-- some mods can appear on all radius jewels
-							if keysCount == 0 then
-								out:write('"radius_jewel", ')
-								keysCount = keysCount + 1
-							end
-						else 
-							if isValueInArray(strJewelTypes, mod.Type.Id) then
-								out:write('"strjewel", ')
-								keysCount = keysCount + 1
-							end
-							if isValueInArray(dexJewelTypes, mod.Type.Id) then
-								out:write('"dexjewel", ')
-								keysCount = keysCount + 1
-							end
-							if isValueInArray(intJewelTypes, mod.Type.Id) then
-								out:write('"intjewel", ')
-								keysCount = keysCount + 1
-							end
-						end
-						out:write('"default" }, ')
-						out:write('weightVal = { ', string.rep("1, ", keysCount), '0 }, ')
-					else
-						out:write('}, ')
-						out:write('weightVal = { ', table.concat(mod.SpawnWeights, ', '), ' }, ')
-					end
+				for _, tag in ipairs(mod.SpawnTags) do
+					out:write('"', tag.Id, '", ')
 				end
+				out:write('}, ')
+				out:write('weightVal = { ', table.concat(mod.SpawnWeight, ', '), ' }, ')
 				if mod.GenerationWeightTags[1] then
 					-- make large clusters only have 1 notable suffix
 					if mod.GenerationType == 2 and mod.Tags[1] and outName == "../Data/ModJewelCluster.lua" and mod.Tags[1].Id == "has_affliction_notable" then
@@ -241,6 +169,9 @@ writeMods("../Data/ModCharm.lua", function(mod)
 end)
 writeMods("../Data/ModJewel.lua", function(mod)
 	return (mod.Domain == 11 and (mod.GenerationType == 1 or mod.GenerationType == 2)) or (mod.Domain == 21 and mod.GenerationType == 3)
+end)
+writeMods("../Data/ModIncursionLimb.lua", function(mod)
+	return (mod.Domain == 37 and mod.GenerationType == 3)
 end)
 writeMods("../Data/ModItemExclusive.lua", function(mod) -- contains primarily uniques and items implicits but also other mods only available on a single base or unique.
 	return (mod.Domain == 1 or mod.Domain == 2 or mod.Domain == 11 or mod.Domain == 22) and mod.GenerationType == 3

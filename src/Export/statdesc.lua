@@ -13,9 +13,9 @@ function loadStatFile(fileName)
 	local curDescriptor = { }
 	local order = 1
 	local function processLine(line)
-		local include = line:match('include "Metadata/StatDescriptions/(.+)"$')
+		local include = line:match('include "Data/StatDescriptions/(.+)"$')
 		if include then
-			local text = convertUTF16to8(getFile("Metadata/StatDescriptions/"..include))
+			local text = convertUTF16to8(getFile("Data/StatDescriptions/"..include))
 			for line in text:gmatch("[^\r\n]+") do
 				processLine(line)
 			end
@@ -69,19 +69,33 @@ function loadStatFile(fileName)
 						end
 						table.insert(desc.limit, limit)
 					end
-					for k, v in special:gmatch("([%w%%_]+) (%d+)") do
-						table.insert(desc, {
-							k = k,
-							v = tonumber(v) or v,
-						})
-						nk[k] = v
+					local specialTokens = { }
+					for token in special:gmatch("([%w%%_]+)") do
+						table.insert(specialTokens, token)
 					end
-					if special:match("canonical_line") then
-						table.insert(desc, {
-							k = "canonical_line",
-							v = true,
-						})
-						nk["canonical_line"] = true
+					local tokenIndex = 1
+					while tokenIndex <= #specialTokens do
+						local token = specialTokens[tokenIndex]
+						if token == "canonical_line" then
+							table.insert(desc, {
+								k = "canonical_line",
+								v = true,
+							})
+							nk["canonical_line"] = true
+							tokenIndex = tokenIndex + 1
+						else
+							local value = specialTokens[tokenIndex + 1]
+							if value then
+								table.insert(desc, {
+									k = token,
+									v = tonumber(value) or value,
+								})
+								nk[token] = value
+								tokenIndex = tokenIndex + 2
+							else
+								tokenIndex = tokenIndex + 1
+							end
+						end
 					end
 					if quality:match("gem_quality") then
 						desc[quality] = true
@@ -92,7 +106,7 @@ function loadStatFile(fileName)
 			end
 		end
 	end
-	local text = convertUTF16to8(getFile("Metadata/StatDescriptions/"..fileName))
+	local text = convertUTF16to8(getFile("Data/StatDescriptions/"..fileName))
 	for line in text:gmatch("[^\r\n]+") do
 		processLine(line)
 	end
@@ -317,6 +331,10 @@ function describeStats(stats)
 					val[spec.v].min = ItemClasses[val[spec.v].min].Name
 					val[spec.v].max = ItemClasses[val[spec.v].max].Name
 					val[spec.v].fmt = "s"
+				elseif spec.k == "one_hundred_divide_by_value" then
+					val[spec.v].min = round(100 / val[spec.v].min, 2)
+					val[spec.v].max = round(100 / val[spec.v].max, 2)
+					val[spec.v].fmt = "g"
 				elseif spec.k == "multiplicative_damage_modifier" then
 					val[spec.v].min = 100 + val[spec.v].min
 					val[spec.v].max = 100 + val[spec.v].max
@@ -413,7 +431,7 @@ end
 function describeScalability(fileName)
 	local out = { }
 	local stats = dat("stats")
-	for stat, statDescription in pairs(statDescriptors[fileName]) do
+	for stat, statDescription in pairsSortByKey(statDescriptors[fileName]) do
 		local scalability = { }
 		if statDescription.stats then
 			for i, stat in ipairs(statDescription.stats) do

@@ -14,5 +14,5 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=1,
-	parent="specific_skill_stat_descriptions/gas_cloud_arrow_statset_0"
+	parent="specific_skill_stat_descriptions/gas_arrow_statset_0"
 }

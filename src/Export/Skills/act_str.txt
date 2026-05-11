@@ -35,12 +35,13 @@ addFlags = {
 },
 #set SupportAncestralWarriorTotemPlayer
 #flags
-statMap = {
-	["support_ancestral_warrior_totem_attack_speed_+%_final"] = {
-		mod("Speed", "MORE", nil, ModFlag.Attack),
-	},
-},
-#baseMod mod("ActiveTotemLimit", "BASE", 1)
+#baseMod mod("ActiveTotemLimit", "OVERRIDE", 10)
+#mods
+#skillEnd
+
+#skill WolfArcticHowlPlayer
+#set WolfArcticHowlPlayer
+#flags warcry area duration
 #mods
 #skillEnd
 
@@ -56,7 +57,7 @@ statMap = {
 #mods
 #skillEnd
 
-#skill ArtilleryBallistaProjectilePlayer
+#skill ArtilleryBallistaProjectilePlayer Ballista Bolt
 #set ArtilleryBallistaProjectilePlayer
 #flags attack area projectile totem
 #mods
@@ -81,19 +82,25 @@ statMap = {
 #mods
 #skillEnd
 
+#skill BarkskinPlayer
+#set BarkskinPlayer
+#flags
+#mods
+#skillEnd
+
 #skill BerserkPlayer
 #set BerserkPlayer
 #flags
 statMap = {
 	["skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"] = {
-		mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
-		div = 60
+		mod("LifeDegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "Rage" }),
+		div = 60,
 	},
 	["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
 		mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 		div = 100,
 	},
-	["rage_effect_+%"] = {
+	["skill_base_rage_effect_+%_to_apply"] = {
 		mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 	}
 },
@@ -125,6 +132,19 @@ statMap = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
 	},
 },
+#mods
+#skillEnd
+
+#skill BriarpatchPlayer
+#set BriarpatchPlayer
+#flags spell area duration
+#mods
+#skillEnd
+
+#minionList HyenaMinion
+#skill HyenaCacklePlayer
+#set HyenaCacklePlayer
+#flags minion
 #mods
 #skillEnd
 
@@ -200,6 +220,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill WolfCrossSlashPlayer
+#set WolfCrossSlashPlayer
+#flags attack melee area
+#mods
+#set WolfCrossSlashMarkConsumedPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
 #skill DefianceBannerReservationPlayer
 #set DefianceBannerReservationPlayer
 #flags
@@ -218,6 +247,12 @@ statMap = {
 		mod("MovementSpeed", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
 },
+#mods
+#skillEnd
+
+#skill WyvernDevourPlayer
+#set WyvernDevourPlayer
+#flags attack melee area
 #mods
 #skillEnd
 
@@ -285,6 +320,28 @@ statMap = {
 #mods
 #skillEnd
 
+#skill EntanglePlayer
+#set EntanglePlayer
+#flags spell area duration
+#mods
+#set EntangleVinePlayer
+#flags spell duration
+#mods
+#skillEnd
+
+#skill EternalRagePlayer
+#set EternalRagePlayer
+#flags
+statMap = {
+	["ceaseless_rage_base_rage_regeneration_per_minute"] = {
+		mod("RageRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "EternalRage" }),
+		flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" }),
+		div = 60,
+	},
+},
+#mods
+#skillEnd
+
 #skill ExplosiveGrenadePlayer
 #set ExplosiveGrenadePlayer
 #flags attack area projectile
@@ -292,6 +349,34 @@ statMap = {
 	["base_skill_show_average_damage_instead_of_dps"] = {
 	},
 },
+#mods
+#skillEnd
+
+#skill MetaFeralInvocationPlayer
+#set MetaFeralInvocationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportFeralInvocationPlayer
+#set SupportFeralInvocationPlayer
+#mods
+#skillEnd
+
+#skill FerociousRoarMetaPlayer
+#set FerociousRoarMetaPlayer
+#flags warcry area
+#mods
+#skillEnd
+
+#skill SupportFerociousRoarPlayer
+#set SupportFerociousRoarPlayer
+#mods
+#skillEnd
+
+#skill WyvernFlameBreathPlayer
+#set WyvernFlameBreathPlayer
+#flags attack area duration
 #mods
 #skillEnd
 
@@ -319,6 +404,21 @@ statMap = {
 #skill FortifyingCryShockwavePlayer
 #set FortifyingCryShockwavePlayer
 #flags attack melee area shieldAttack
+#mods
+#skillEnd
+
+#skill FuriousSlamPlayer
+#set FuriousSlamPlayer
+#flags attack melee area duration
+#mods
+#set FuriousSlamEnragedPlayer
+#flags attack melee area duration
+#mods
+#skillEnd
+
+#skill BearFuryOfTheMountainPlayer
+#set BearFuryOfTheMountainPlayer
+#flags attack melee area duration
 #mods
 #skillEnd
 
@@ -405,6 +505,11 @@ statMap = {
 #skill LeapSlamPlayer
 #set LeapSlamPlayer
 #flags attack area melee
+statMap = {
+	["active_skill_consume_enemy_fully_broken_armour_to_gain_hit_damage_stun_multiplier_+%"] = {
+		mod("EnemyHeavyStunBuildup", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "ArmourFullyBroken" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -637,6 +742,24 @@ statMap = {
 #mods
 #skillEnd
 
+#skill LunarAssaultPlayer
+#set LunarAssaultPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#skill WolfLunarBlessingPlayer
+#set WolfLunarBlessingPlayer
+#flags duration area
+#mods
+#skillEnd
+
+#skill WolfLunarBlessingBeamAttackPlayer
+#set WolfLunarBlessingBeamAttackPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
 #skill MagmaBarrierPlayer
 #set MagmaBarrierPlayer
 #flags
@@ -660,6 +783,16 @@ statMap = {
 #mods
 #set MoltenBlastSecondaryPlayer
 #flags attack projectile
+#mods
+#skillEnd
+
+#from item
+#skill MoltenCrashPlayer
+#set MoltenCrashPlayer
+#flags attack melee area duration
+#mods
+#set MoltenCrashFissurePlayer
+#flags attack melee area duration
 #mods
 #skillEnd
 
@@ -687,9 +820,32 @@ statMap = {
 #mods
 #skillEnd
 
+#skill OilBarragePlayer
+#set OilBarragePlayer
+#flags attack projectile area duration
+#mods
+#set OilBarrageOilPlayer
+#flags attack area duration
+#mods
+#set OilBarrageEmpoweredPlayer
+#flags attack projectile area duration
+#mods
+#skillEnd
+
 #skill OilGrenadePlayer
 #set OilGrenadePlayer
 #flags attack area projectile duration
+#mods
+#set OilGrenadeOilGroundPlayer
+#flags attack area projectile duration
+statMap = {
+	["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
+		mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+		mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+		mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mult = -1,
+},
+},
 #mods
 #skillEnd
 
@@ -712,9 +868,45 @@ end,
 #mods
 #skillEnd
 
+#skill WolfPouncePlayer
+#set WolfPouncePlayer
+#flags attack area melee
+#mods
+#skillEnd
+
+#skill SupportCrossSlashPlayer
+#set SupportCrossSlashPlayer
+#mods
+#skillEnd
+
+#skill WolfPounceMarkPlayer
+#set WolfPounceMarkPlayer
+#flags duration
+#mods
+#skillEnd
+
+#minionList WolfMinion
+#skill WolfCrossSlashWolfPlayer
+#set WolfCrossSlashWolfPlayer
+#flags minion
+#mods
+#skillEnd
+
+#skill BearRampagePlayer
+#set BearRampagePlayer
+#flags attack melee area
+#mods
+#skillEnd
+
 #skill ResonatingShieldPlayer
 #set ResonatingShieldPlayer
 #flags attack area melee shieldAttack
+#mods
+#skillEnd
+
+#skill RollingMagmaPlayer
+#set RollingMagmaPlayer
+#flags attack projectile area
 #mods
 #skillEnd
 
@@ -757,11 +949,30 @@ statMap = {
 #skillEnd
 
 #skill ShieldChargePlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.hitTimeMultiplier = 1
+	activeSkill.skillData.channelTimeMultiplier = 1
+end,
 #set ShieldChargePlayer
-#flags attack area melee shieldAttack
+#flags attack area melee shieldAttack channelRelease
+statMap = {
+	["shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final"] = {
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
 #mods
 #set ShieldChargeFinalConePlayer
-#flags attack area melee shieldAttack
+#flags attack area melee shieldAttack channelRelease
+statMap = {
+	["shield_charge_hit_damage_stun_multiplier_when_fully_charged_+%_final"] = {
+		mod("EnemyHeavyStunBuildup", "MORE", nil),
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+	},
+},
+#baseMod skill("minChannelTime", 1.3)
 #mods
 #skillEnd
 
@@ -798,6 +1009,21 @@ statMap = {
 #mods
 #set SiegeBallistaProjectileExplodePlayer
 #flags attack projectile totem
+#mods
+#skillEnd
+
+#skill SummonMetaTotemSpellTotemPlayer
+#set SummonMetaTotemSpellTotemPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaTotemSpellTotemPlayer
+addFlags = {
+	totem = true,
+},
+#set SupportMetaTotemSpellTotemPlayer
+#baseMod mod("ActiveTotemLimit", "OVERRIDE", 2) -- Should fix to take from active part of gem
 #mods
 #skillEnd
 
@@ -860,6 +1086,12 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ThrashingVinesPlayer
+#set ThrashingVinesPlayer
+#flags spell area duration
+#mods
+#skillEnd
+
 #from item
 #skill MetaCastLightningSpellOnHitPlayer
 #set MetaCastLightningSpellOnHitPlayer
@@ -874,9 +1106,31 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ThunderstormPlayer
+#set ThunderstormPlayer
+#flags spell area duration
+statMap = {
+	["lightning_storm_hit_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["lightning_storm_hit_prevention_duration_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
+#mods
+#skillEnd
+
 #skill TimeOfNeedPlayer
 #set TimeOfNeedPlayer
 #flags duration
+#mods
+#skillEnd
+
+#skill TornadoPlayer
+#set TornadoPlayer
+#flags spell area duration
 #mods
 #skillEnd
 
@@ -896,6 +1150,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill VolcanoPlayer
+#set VolcanoPlayer
+#flags spell area
+#mods
+#set VolcanoProjectilePlayer
+#flags spell area projectile
+statMap = { 
+	["volcano_fires_projectiles_every_x_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
+#mods
+#skillEnd
+
 #skill ShockGrenadePlayer
 #set ShockGrenadePlayer
 #flags attack area projectile
@@ -905,6 +1174,21 @@ statMap = {
 #skill WarBannerReservationPlayer
 #set WarBannerReservationPlayer
 #flags
+#mods
+#skillEnd
+
+#skill WalkingCalamityPlayer
+#set WalkingCalamityPlayer
+#flags duration
+#mods
+#skillEnd
+
+#skill WalkingCalamityMeteorPlayer
+#set WalkingCalamityMeteorPlayer
+#flags attack area
+#mods
+#set WalkingCalamityMeteorLargePlayer
+#flags attack area duration
 #mods
 #skillEnd
 
@@ -919,5 +1203,21 @@ statMap = {
 		mod("Accuracy", "INC", nil, 0, 0, { type = "Condition", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "Aura"}),
 	},
 },
+#mods
+#skillEnd
+
+#skill WingBlastPlayer
+#set WingBlastPlayer
+#flags attack melee area
+#mods
+#set WingBlastStunExplosionPlayer
+#flags attack melee area
+#mods
+#skillEnd
+
+#minionList WolfMinion
+#skill WolfPackPlayer
+#set WolfPackPlayer
+#flags minion
 #mods
 #skillEnd

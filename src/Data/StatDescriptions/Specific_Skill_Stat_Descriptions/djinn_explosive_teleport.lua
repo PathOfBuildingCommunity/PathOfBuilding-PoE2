@@ -4,19 +4,6 @@
 return {
 	[1]={
 		[1]={
-			[1]={
-				[1]={
-					k="divide_by_ten_1dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1,
-						[2]="#"
-					}
-				},
-				text="DNT Explosion Radius@{0}m"
-			}
 		},
 		stats={
 			[1]="active_skill_area_of_effect_radius"
@@ -31,11 +18,11 @@ return {
 				},
 				limit={
 					[1]={
-						[1]=1,
-						[2]=1
+						[1]=10,
+						[2]=10
 					}
 				},
-				text="DNT Explosion radius is {0} metre"
+				text="Explosion radius is {0} metre"
 			},
 			[2]={
 				[1]={
@@ -44,11 +31,11 @@ return {
 				},
 				limit={
 					[1]={
-						[1]=2,
+						[1]="#",
 						[2]="#"
 					}
 				},
-				text="DNT Explosion radius is {0} metres"
+				text="Explosion radius is {0} metres"
 			}
 		},
 		stats={
@@ -64,7 +51,23 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Deals {0}% more Damage per previous teleportation in sequence"
+				text="Clone explosions inflict {0} additional Critical Weakness on Hit"
+			}
+		},
+		stats={
+			[1]="apply_X_stacks_of_critical_weakness_on_hit"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% more damage for each previous time this Skill has been used consecutively"
 			},
 			[2]={
 				[1]={
@@ -77,7 +80,7 @@ return {
 						[2]=-1
 					}
 				},
-				text="DNT Deals {0}% less Damage per previous teleportation in sequence"
+				text="{0}% less damage for each previous time this Skill has been used consecutively"
 			}
 		},
 		stats={
@@ -86,6 +89,7 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["djinn_damage_+%_final_per_teleport_in_sequence"]=3,
+	["apply_X_stacks_of_critical_weakness_on_hit"]=3,
+	["djinn_damage_+%_final_per_teleport_in_sequence"]=4,
 	parent="skill_stat_descriptions"
 }

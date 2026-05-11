@@ -96,31 +96,14 @@ return {
 	},
 	[3]={
 		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Cooldown does not recover during Buff effect"
-			}
-		},
-		stats={
-			[1]="display_this_skill_cooldown_does_not_recover_during_buff"
-		}
-	},
-	[4]={
-		[1]={
 		},
 		stats={
 			[1]="skill_effect_duration"
 		}
 	},
 	["base_skill_effect_duration"]=2,
-	["display_this_skill_cooldown_does_not_recover_during_buff"]=3,
 	parent="skill_stat_descriptions",
 	["quality_display_base_skill_effect_duration_is_gem"]=2,
-	["skill_effect_duration"]=4,
+	["skill_effect_duration"]=3,
 	["skill_specific_stat_description_mode"]=1
 }

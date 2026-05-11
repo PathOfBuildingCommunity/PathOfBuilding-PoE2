@@ -37,6 +37,7 @@ local itemTypes = {
 	"staff",
 	"sceptre",
 	"sword",
+	"talisman",
 	"wand",
 	"body",
 	"gloves",
@@ -49,7 +50,7 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
-	"soulcore",
+	"incursionlimb"
 }
 
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)
@@ -223,6 +224,7 @@ data.misc = { -- magic numbers
 	maxExperiencePenaltyFreeAreaLevel = 70,
 	experiencePenaltyMultiplier = 0.06,
 	-- Expected values to calculate EHP
+	normalEnemyDPSMult = 1 / 4.40,
 	stdBossDPSMult = 4 / 4.40,
 	pinnacleBossDPSMult = 8 / 4.40,
 	pinnacleBossPen = 15 / 5,
@@ -316,18 +318,22 @@ data.keystones = {
 	"Heartstopper",
 	"Hollow Palm Technique",
 	"Iron Reflexes",
+	"Lord of the Wilds",
 	"Mind Over Matter",
 	"Necromantic Talisman",
 	"Oasis",
 	"Pain Attunement",
+	"Primal Hunger",
 	"Resolute Technique",
 	"Resonance",
 	"Ritual Cadence",
+	"Scarred Faith",
 	"Trusted Kinship",
 	"Unwavering Stance",
 	"Vaal Pact",
 	"Walker of the Wilds",
 	"Whispers of Doom",
+	"Wildsurge Incantation",
 	"Zealot's Oath",
 }
 
@@ -340,6 +346,31 @@ data.nonDamagingAilment = {
 	["Chill"] = { associatedType = "Cold", alt = false, default = 30, min = 30, max = data.gameConstants["ChillMaxEffect"], precision = 0, duration = data.gameConstants["BaseChillDuration"] },
 	["Freeze"] = { associatedType = "Cold", alt = false, default = nil, min = 0.3, max = 3, precision = 2, duration = data.gameConstants["FreezeDuration"] },
 	["Shock"] = { associatedType = "Lightning", alt = false, default = data.gameConstants["BaseShockMagnitude"], min = data.gameConstants["BaseShockMagnitude"], max = 100, precision = 0, duration = data.gameConstants["BaseShockDuration"] },
+}
+
+data.buildupTypes = {
+		["Electrocute"] = {
+			["ScalesFrom"] = {
+			}
+		},
+		["Freeze"] = {
+			["ScalesFrom"] = {
+				["Cold"] = true,
+			}
+		},
+		["HeavyStun"] = {
+			["ScalesFrom"] = {
+				["Physical"] = true,
+				["Fire"] = true,
+				["Cold"] = true,
+				["Lightning"] = true,
+				["Chaos"] = true,
+			}
+		},
+		["Pin"] = {
+			["ScalesFrom"] = {
+			}
+		},
 }
 
 data.defaultAilmentDamageTypes = {
@@ -372,16 +403,6 @@ data.defaultAilmentDamageTypes = {
 		["Chill"] = {
 			["ScalesFrom"] = {
 				["Cold"] = true,
-			}
-		},
-		["Freeze"] = {
-			["ScalesFrom"] = {
-				["Cold"] = true,
-			}
-		},
-		["Electrocute"] = {
-			["ScalesFrom"] = {
-				["Lightning"] = true,
 			}
 		},
 	}
@@ -517,23 +538,26 @@ data.weaponTypeInfo = {
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff" },
 	["Warstaff"] = { oneHand = false, melee = true, flag = "Warstaff" },
 	["Wand"] = { oneHand = true, melee = false, flag = "Wand" },
-	["One Handed Axe"] = { oneHand = true, melee = true, flag = "Axe" },
-	["One Handed Mace"] = { oneHand = true, melee = true, flag = "Mace" },
-	["One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword" },
-	["Thrusting One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Handed Sword" },
+	["One Hand Axe"] = { oneHand = true, melee = true, flag = "Axe" },
+	["One Hand Mace"] = { oneHand = true, melee = true, flag = "Mace" },
+	["One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword" },
+	["Thrusting One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Hand Sword" },
 	["Fishing Rod"] = { oneHand = false, melee = true, flag = "Fishing" },
-	["Two Handed Axe"] = { oneHand = false, melee = true, flag = "Axe" },
-	["Two Handed Mace"] = { oneHand = false, melee = true, flag = "Mace" },
-	["Two Handed Sword"] = { oneHand = false, melee = true, flag = "Sword" },
+	["Two Hand Axe"] = { oneHand = false, melee = true, flag = "Axe" },
+	["Two Hand Mace"] = { oneHand = false, melee = true, flag = "Mace" },
+	["Two Hand Sword"] = { oneHand = false, melee = true, flag = "Sword" },
+	["Talisman"] = { oneHand = false, melee = true, flag = "Talisman" },
 }
 data.unarmedWeaponData = {
-	[0] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
-	[1] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder
-	[2] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
-	[3] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
-	[4] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Duelist
-	[5] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar
-	[6] = { type = "None", AttackRate = 1.4, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow
+	[0] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
+	[1] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
+	[2] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Huntress
+	[3] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Warrior
+	[4] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Mercenary
+	[5] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Druid
+	[6] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[7] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Sorceress
+	[8] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Monk
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)
@@ -594,6 +618,7 @@ data.itemMods = {
 	Item = LoadModule("Data/ModItem"),
 	Flask = LoadModule("Data/ModFlask"),
 	Charm = LoadModule("Data/ModCharm"),
+	IncursionLimb = LoadModule("Data/ModIncursionLimb"),
 	Jewel = LoadModule("Data/ModJewel"),
 	Corruption = LoadModule("Data/ModCorrupted"),
 	Runes = LoadModule("Data/ModRunes"),

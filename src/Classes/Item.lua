@@ -59,7 +59,7 @@ local ItemClass = newClass("Item", function(self, raw, rarity, highQuality)
 end)
 
 local lineFlags = {
-	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
+	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
 }
 
 -- Special function to store unique instances of modifier on specific item slots
@@ -380,10 +380,16 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			charmBuffLines[line] = nil
 		elseif line == "--------" then
 			self.checkSection = true
+		elseif line == "Sanctified" then
+			self.sanctified = true
+			self.corruptible = false
 		elseif line == "Mirrored" then
 			self.mirrored = true
 		elseif line == "Corrupted" then
 			self.corrupted = true
+		elseif line == "Twice Corrupted" then
+			self.corrupted = true
+			self.doubleCorrupted = true
 		elseif line == "Desecrated Prefix" or line == "Desecrated Suffix" then
 			self.desecrated = true
 		elseif line == "Requirements:" then
@@ -628,6 +634,12 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					end
 					return ""
 				end)
+
+				-- Used to flag Bonded soul core mods
+				if line:find("Bonded:") then
+					modLine.bonded = true
+				end
+
 				if modLine.rune then
 					modLine.enchant = true
 				end
@@ -636,6 +648,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				if modLine.desecrated then
 					self.desecrated = true
+				end
+				if modLine.mutated then
+					self.mutated = true
 				end
 				if modLine.fractured then
 					self.fractured = true
@@ -700,8 +715,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						self.affixes = (self.base.subType and data.itemMods[self.base.type..self.base.subType])
 								or data.itemMods[self.base.type]
 								or data.itemMods.Item
-						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore"
-						self.clusterJewel = data.clusterJewels and data.clusterJewels.jewels[self.baseName]
+						self.corruptible = self.base.type ~= "Flask" and self.base.type ~= "Charm" and self.base.type ~= "Rune" and self.base.type ~= "SoulCore" and self.base.type ~= "Transcendent Limb"
 						self.requirements.str = self.base.req.str or 0
 						self.requirements.dex = self.base.req.dex or 0
 						self.requirements.int = self.base.req.int or 0
@@ -1085,7 +1099,7 @@ function ItemClass:NormaliseQuality()
 		if not self.quality then
 			self.quality = 0
 		elseif not self.uniqueID and not self.corrupted and not self.mirrored and not (self.base.type == "Charm") and self.quality < self.base.quality then -- charms cannot be modified by quality currency.
-			self.quality = self.base.quality
+			self.quality = main.defaultItemQuality
 		end
 	end	
 end
@@ -1192,6 +1206,9 @@ function ItemClass:BuildRaw()
 		if modLine.desecrated then
 			line = "{desecrated}" .. line
 		end
+		if modLine.mutated then
+			line = "{mutated}" .. line
+		end
 		if modLine.variantList then
 			local varSpec
 			for varId in pairs(modLine.variantList) do
@@ -1282,7 +1299,12 @@ function ItemClass:BuildRaw()
 	if self.mirrored then
 		t_insert(rawLines, "Mirrored")
 	end
-	if self.corrupted then
+	if self.sanctified then
+		t_insert(rawLines, "Sanctified")
+	end
+	if self.doubleCorrupted then
+		t_insert(rawLines, "Twice Corrupted")
+	elseif self.corrupted then
 		t_insert(rawLines, "Corrupted")
 	end
 	return table.concat(rawLines, "\n")
@@ -1433,6 +1455,10 @@ function ItemClass:GetPrimarySlot()
 		return "Ring 1"
 	elseif self.type == "Flask" then
 		return "Flask 1"
+	elseif self.base.subType == "Transcendent Leg" then
+		return "Leg 1"
+	elseif self.base.subType == "Transcendent Arm" then
+		return "Arm 1"
 	else
 		return self.type
 	end
@@ -1532,7 +1558,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			weaponData.ReloadTime = round(self.base.weapon.ReloadTimeBase / (1 + weaponData.ReloadSpeedInc / 100), 2)
 		end
 		local LocalIncEle = calcLocal(modList, "LocalElementalDamage", "INC", 0)
-		for _, dmgType in pairs(dmgTypeList) do
+		for _, dmgType in ipairs(dmgTypeList) do
 			local min = (self.base.weapon[dmgType.."Min"] or 0) + calcLocal(modList, dmgType.."Min", "BASE", 0)
 			local max = (self.base.weapon[dmgType.."Max"] or 0) + calcLocal(modList, dmgType.."Max", "BASE", 0)
 			if dmgType == "Physical" then
@@ -1575,7 +1601,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 			end
 		end
 		weaponData.TotalDPS = 0
-		for _, dmgType in pairs(dmgTypeList) do
+		for _, dmgType in ipairs(dmgTypeList) do
 			weaponData.TotalDPS = weaponData.TotalDPS + (weaponData[dmgType.."DPS"] or 0)
 		end
 	elseif self.base.armour then
@@ -1606,7 +1632,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		armourData.Ward = round((wardBase) * (1 + (wardInc + defencesInc) / 100) * (1 + (qualityScalar / 100)))
 
 		if self.base.armour.BlockChance then
-			armourData.BlockChance = m_floor((self.base.armour.BlockChance + calcLocal(modList, "BlockChance", "BASE", 0)) * (1 + calcLocal(modList, "BlockChance", "INC", 0) / 100))
+			armourData.BlockChance = m_floor((self.base.armour.BlockChance * (1 + calcLocal(modList, "BlockChance", "INC", 0) / 100) + calcLocal(modList, "BlockChance", "BASE", 0)))
 		end
 		if self.base.armour.MovementPenalty then
 			modList:NewMod("MovementSpeed", "BASE", -self.base.armour.MovementPenalty, self.modSource, { type = "Condition", var = "IgnoreMovementPenalties", neg = true })
@@ -1812,7 +1838,7 @@ function ItemClass:BuildModList()
 
 	for _, entry in ipairs(minimumReqLevel) do
 		if entry.name == self.title then
-			minReqLevel = entry.level
+			minReqLevel = tonumber(entry.level)
 			break
 		end
 	end

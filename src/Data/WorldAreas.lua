@@ -40,6 +40,18 @@ worldAreas["GuildHideout__"] = {
 	},
 }
 
+worldAreas["CurrentTown"] = {
+	name = "Current Town (Act 1)",
+	baseName = "Current Town",
+	tags = {  },
+	act = 1,
+	level = 0,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
 worldAreas["HideoutCave"] = {
 	name = "Submerged Hideout (Act 1)",
 	baseName = "Submerged Hideout",
@@ -761,8 +773,8 @@ worldAreas["HideoutRacetrack"] = {
 }
 
 worldAreas["HideoutShipwreck"] = {
-	name = "Shipwreck Hideout (Act 1)",
-	baseName = "Shipwreck Hideout",
+	name = "Kraken's Cove Hideout (Act 1)",
+	baseName = "Kraken's Cove Hideout",
 	tags = {  },
 	act = 1,
 	level = 65,
@@ -811,6 +823,102 @@ worldAreas["HideoutShoreline"] = {
 worldAreas["HideoutArenaKulemak"] = {
 	name = "Black Cathedral Hideout (Act 1)",
 	baseName = "Black Cathedral Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutGrinding"] = {
+	name = "Grinding Hideout (Act 1)",
+	baseName = "Grinding Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutArcaneIsle"] = {
+	name = "Arcane Isle Hideout (Act 1)",
+	baseName = "Arcane Isle Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutSacrifice"] = {
+	name = "Sacrifice Hideout (Act 1)",
+	baseName = "Sacrifice Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutVerdant"] = {
+	name = "Verdant Hideout (Act 1)",
+	baseName = "Verdant Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankUrban"] = {
+	name = "Civic Square Hideout (Act 1)",
+	baseName = "Civic Square Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankMountain"] = {
+	name = "Alpine Plateau Hideout (Act 1)",
+	baseName = "Alpine Plateau Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankDesert2"] = {
+	name = "Vastiri Plains Hideout (Act 1)",
+	baseName = "Vastiri Plains Hideout",
+	tags = {  },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = true,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["HideoutBlankCrypt"] = {
+	name = "Mausoleum Hideout (Act 1)",
+	baseName = "Mausoleum Hideout",
 	tags = {  },
 	act = 1,
 	level = 65,
@@ -1341,7 +1449,6 @@ worldAreas["G2_3"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Boulder Ant",
 		"Faridun Bladedancer",
 		"Faridun Fledgling",
 		"Faridun Heavy Infantry",
@@ -1650,6 +1757,7 @@ worldAreas["G2_10_2"] = {
 		"Forgotten Satyr",
 		"Forgotten Stalker",
 		"Forsaken Miner",
+		"Mantis Rat",
 		"Plague Nymph",
 	},
 	bossVarieties = {
@@ -1751,7 +1859,6 @@ worldAreas["Sanctum_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Boulder Ant",
 		"Brimstone Crab",
 		"Quake Golem",
 		"Rasp Scavenger",
@@ -2449,7 +2556,6 @@ worldAreas["G4_1_1"] = {
 	isMap = false,
 	isHideout = false,
 	monsterVarieties = {
-		"Boulder Ant",
 		"Feral Kin",
 		"Shaman Kin",
 		"Skulltop Kin",
@@ -3066,6 +3172,7 @@ worldAreas["P2_1"] = {
 		"Dune Lurker",
 		"Goliath",
 		"Living Sand",
+		"Mantis Rat",
 		"Molten Imp",
 		"Porcupine Goliath",
 		"Rasp Scavenger",
@@ -3436,20 +3543,6 @@ worldAreas["MapVoidReliquary"] = {
 	isMap = true,
 	isHideout = false,
 	monsterVarieties = {
-	},
-}
-
-worldAreas["MapSpiderJungle"] = {
-	name = "Spider Jungle (Map)",
-	baseName = "Spider Jungle",
-	tags = { "map", "forest", "VaalStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
 	},
 }
 
@@ -4352,20 +4445,6 @@ worldAreas["MapBastion"] = {
 	},
 }
 
-worldAreas["MapRefuge"] = {
-	name = "Refuge (Map)",
-	baseName = "Refuge",
-	tags = { "map", "undead", "mammal_beast", "forest_biome", "VaalStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-	},
-}
-
 worldAreas["MapAlpineRidge"] = {
 	name = "Alpine Ridge (Map)",
 	baseName = "Alpine Ridge",
@@ -4544,6 +4623,9 @@ worldAreas["MapPlantation"] = {
 	isHideout = false,
 	monsterVarieties = {
 	},
+	bossVarieties = {
+		"Thariel, the Umbral Wraith",
+	},
 }
 
 worldAreas["MapAzmerianRanges"] = {
@@ -4580,6 +4662,21 @@ worldAreas["MapEpitaph"] = {
 	},
 	bossVarieties = {
 		"Saphira, The Dread Consort",
+	},
+}
+
+worldAreas["MapReservoir"] = {
+	name = "Reservoir (Map)",
+	baseName = "Reservoir",
+	tags = { "map", "area_with_water" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Grudgelash, Vile Thorn",
 	},
 }
 
@@ -4762,6 +4859,21 @@ worldAreas["MapFrozenFalls"] = {
 	},
 }
 
+worldAreas["MapSwarm"] = {
+	name = "Swarm (Map)",
+	baseName = "Swarm",
+	tags = { "map", "desert_biome" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+	bossVarieties = {
+		"Volkhar, the Emberborn",
+	},
+}
+
 worldAreas["MapWaywardIsle"] = {
 	name = "Wayward Isle (Map)",
 	baseName = "Wayward Isle",
@@ -4802,45 +4914,6 @@ worldAreas["MapStronghold"] = {
 	},
 }
 
-worldAreas["MapCrag"] = {
-	name = "Crag (Map)",
-	baseName = "Crag",
-	tags = { "map", "area_with_water", "water_biome" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-		"Yama The White",
-	},
-}
-
-worldAreas["MapQimar"] = {
-	name = "Qimar (Map)",
-	baseName = "Qimar",
-	tags = { "map", "area_with_water", "desert_biome", "MarakethStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
-worldAreas["MapDryPassage"] = {
-	name = "Dry Passage (Map)",
-	baseName = "Dry Passage",
-	tags = { "map", "area_with_water", "desert_biome", "MarakethStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
 worldAreas["MapPort"] = {
 	name = "Port (Map)",
 	baseName = "Port",
@@ -4853,21 +4926,6 @@ worldAreas["MapPort"] = {
 	},
 	bossVarieties = {
 		"Torrek of the Drowned Fleet",
-	},
-}
-
-worldAreas["MapBoulevard"] = {
-	name = "Boulevard (Map)",
-	baseName = "Boulevard",
-	tags = { "map", "area_with_water" },
-	act = 10,
-	level = 65,
-	isMap = true,
-	isHideout = false,
-	monsterVarieties = {
-	},
-	bossVarieties = {
-		"Torvian, Hand of the Saviour",
 	},
 }
 
@@ -5373,22 +5431,10 @@ worldAreas["MapHideoutCanal_Claimable"] = {
 	},
 }
 
-worldAreas["ExpeditionLogBook_Peninsula"] = {
-	name = "Craggy Peninsula",
-	baseName = "Craggy Peninsula",
-	tags = { "area_with_water", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
 worldAreas["ExpeditionLogBook_Tropical"] = {
 	name = "Lush Isle",
 	baseName = "Lush Isle",
-	tags = { "area_with_water", "EzomyteStrongbox" },
+	tags = { "area_with_water", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5400,7 +5446,7 @@ worldAreas["ExpeditionLogBook_Tropical"] = {
 worldAreas["ExpeditionLogBook_Tundra"] = {
 	name = "Frigid Bluffs",
 	baseName = "Frigid Bluffs",
-	tags = { "area_with_water", "EzomyteStrongbox" },
+	tags = { "area_with_water", "VaalStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5414,19 +5460,7 @@ worldAreas["ExpeditionLogBook_Tundra"] = {
 worldAreas["ExpeditionLogBook_Atoll"] = {
 	name = "Barren Atoll",
 	baseName = "Barren Atoll",
-	tags = { "area_with_water", "EzomyteStrongbox" },
-	act = 10,
-	level = 65,
-	isMap = false,
-	isHideout = false,
-	monsterVarieties = {
-	},
-}
-
-worldAreas["ExpeditionLogBook_Digsite"] = {
-	name = "Abandoned Excavation",
-	baseName = "Abandoned Excavation",
-	tags = { "area_with_water", "EzomyteStrongbox" },
+	tags = { "area_with_water", "KaruiStrongbox" },
 	act = 10,
 	level = 65,
 	isMap = false,
@@ -5912,7 +5946,6 @@ worldAreas["G_Endgame_Town"] = {
 		"Bogfelled Commoner",
 		"Bogfelled Slave",
 		"Bone Stalker",
-		"Boulder Ant",
 		"Bramble Ape",
 		"Bramble Burrower",
 		"Bramble Hulk",
@@ -6283,8 +6316,8 @@ worldAreas["MapRazedFields"] = {
 		"Azak Throatcutter",
 	},
 	bossVarieties = {
-		"Ignatia, the Flame-Sworn",
-		"Gelida, the Frost-Tongue",
+		"Elvara, the Savage Flame",
+		"Rael, the Frost Hand",
 	},
 }
 
@@ -6381,6 +6414,57 @@ worldAreas["MapVaalVault"] = {
 	bossVarieties = {
 		"Ytzara, Blood Oracle",
 		"Maztli, Flesh-Shaper",
+	},
+}
+
+worldAreas["IncursionTemplePresent"] = {
+	name = "Lost Temple (Act 1)",
+	baseName = "Lost Temple",
+	description = "Two thousand years of dust and rot await",
+	tags = { "VaalStrongbox", "vaal_shrine" },
+	act = 1,
+	level = 65,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["IncursionTemple"] = {
+	name = "Atziri's Temple (Act 3)",
+	baseName = "Atziri's Temple",
+	description = "400 BIC",
+	tags = { "VaalStrongbox", "vaal_shrine" },
+	act = 3,
+	level = 46,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["MapMezzanine"] = {
+	name = "Mezzanine (Map)",
+	baseName = "Mezzanine",
+	tags = { "map" },
+	act = 10,
+	level = 65,
+	isMap = true,
+	isHideout = false,
+	monsterVarieties = {
+	},
+}
+
+worldAreas["IncursionHub"] = {
+	name = "Vaal Ruins (Act 3)",
+	baseName = "Vaal Ruins",
+	description = "Forgotten remnants lie in silence",
+	tags = {  },
+	act = 3,
+	level = 2,
+	isMap = false,
+	isHideout = false,
+	monsterVarieties = {
 	},
 }
 

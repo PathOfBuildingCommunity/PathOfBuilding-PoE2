@@ -391,11 +391,16 @@ statMap = {
 #set RainOfArrowsPlayer
 #flags attack projectile area
 statMap = {
-	["rain_of_arrows_projectile_count_multiplier_if_any_frenzy_charge_spent"] = {
-		mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", limit = 1 }),
-	},
 	["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"] = {
 		mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+	},
+	["rain_of_arrows_delay_per_arrow"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
 	},
 },
 #mods
@@ -434,11 +439,15 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill ShatteringSpitePlayer
+#set ShatteringSpitePlayer
+#flags attack area
+#mods
+#skillEnd
+
 #skill ShockchainArrowPlayer
 #set ShockchainArrowPlayer
-#flags attack projectile
-#mods
-#set ShockchainArrowBeamPlayer
 #flags attack projectile
 #mods
 #set ShockchainArrowExplosionPlayer
@@ -656,19 +665,13 @@ statMap = {
 #set VoltaicMarkPlayer
 #flags spell
 statMap = {
-	["thaumaturgist_mark_enemies_shocked_chance_+%_final"] = {
-		mod("SelfShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	["thaumaturgist_mark_hit_damage_electrocute_multiplier_+%"] = {
+		mod("ElectrocuteBuildup", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
 	},
-	["thaumaturgist_mark_enemy_shock_effect_+%_taken"] = {
-		mod("SelfShockMagnitude", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	["thaumaturgist_mark_damage_buff_damage_%_to_gain_as_lightning"] = {
+		mod("DamageGainAsLightning", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }),
 	},
 },
-#mods
-#skillEnd
-
-#skill TriggeredVoltaicMarkNovaPlayer
-#set TriggeredVoltaicMarkNovaPlayer
-#flags nonWeaponAttack area
 #mods
 #skillEnd
 

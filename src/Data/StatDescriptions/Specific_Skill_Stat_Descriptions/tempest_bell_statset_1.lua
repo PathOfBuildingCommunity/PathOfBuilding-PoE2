@@ -4,7 +4,7 @@
 return {
 	[1]={
 		stats={
-			[1]="tempest_bell_hit_limit"
+			[1]="bell_hit_limit"
 		}
 	},
 	[2]={
@@ -49,6 +49,6 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
-	parent="specific_skill_stat_descriptions/tempest_bell_statset_0",
-	["tempest_bell_hit_limit"]=1
+	["bell_hit_limit"]=1,
+	parent="specific_skill_stat_descriptions/tempest_bell_statset_0"
 }

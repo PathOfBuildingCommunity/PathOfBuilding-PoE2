@@ -15,7 +15,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="DNT Gains {0} Energy per ten Mana spent on ranged Attacks"
+				text="DNT-UNUSED Gains {0} Energy per ten Mana spent on ranged Attacks"
 			}
 		},
 		stats={

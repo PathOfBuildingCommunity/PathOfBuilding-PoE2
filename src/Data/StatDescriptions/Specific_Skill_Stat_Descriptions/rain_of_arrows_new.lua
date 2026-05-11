@@ -188,7 +188,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Fires {0}% more Arrows per Frenzy Charge consumed"
+				text="Fires {0}% more Arrows if a Frenzy Charge was consumed"
 			}
 		},
 		stats={

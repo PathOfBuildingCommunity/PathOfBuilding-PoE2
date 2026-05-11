@@ -212,7 +212,7 @@ do
 	table.insert(heart, "Selected Alt Variant Two: 40")
 	table.insert(heart, "Selected Alt Variant Three: 41")
 	for index, mod in ipairs(heartMods) do
-		table.insert(heart, "{variant:" .. index .. "}" .. mod.mod[1])
+		table.insert(heart, "{variant:" .. index .. "}{desecrated}" .. mod.mod[1])
 	end
 	table.insert(data.uniques.generated, table.concat(heart, "\n"))
 end
