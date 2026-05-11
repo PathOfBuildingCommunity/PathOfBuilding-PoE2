@@ -318,7 +318,7 @@ local configSettings = {
 		modList:NewMod("Condition:ShockConsumed", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ label = "Corrupting Cry:", ifGemFamily = "Corrupting Cry" },
-	{ var = "conditionCorruptingCryStages", type = "count", label = "# of Corrupting Cry stacks", ifGemFamily = "Corrupting Cry", defaultPlaceholderState = 10, apply = function(val, modList, enemyModList)
+	{ var = "conditionCorruptingCryStages", type = "count", label = "# of Corrupted Blood stacks:", ifGemFamily = "Corrupting Cry", defaultPlaceholderState = 10, apply = function(val, modList, enemyModList)
 		-- It's set to 9 here with val -1 to so that it defaults to 1 stage and has max 10 stages.
 		-- set limit in skill multiplier for max stages
 		modList:NewMod("Multiplier:CorruptingCryStageAfterFirst", "BASE", val-1, "Config", { type = "Condition", var = "Effective" })
