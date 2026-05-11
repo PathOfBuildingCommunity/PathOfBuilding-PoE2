@@ -192,9 +192,7 @@ function M.openPopup(item, slotName, primaryBuild)
 	local modTypeSources = {
 		{ list = item.implicitModLines, type = "implicit" },
 		{ list = item.enchantModLines, type = "enchant" },
-		{ list = item.scourgeModLines, type = "explicit" },
 		{ list = item.explicitModLines, type = "explicit" },
-		{ list = item.crucibleModLines, type = "explicit" },
 	}
 	for _, source in ipairs(modTypeSources) do
 		if source.list then
