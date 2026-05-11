@@ -15,6 +15,7 @@ local REALM_API_IDS = {
 	["PC"]   = "pc",
 	["PS4"]  = "sony",
 	["Xbox"] = "xbox",
+	["PoE2"] = "poe2",
 }
 
 -- Listed status display names and their API option values
@@ -158,7 +159,7 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 
 	-- Build URL
 	local queryJson = dkjson.encode(queryTable)
-	local url = hostName .. "trade/search"
+	local url = hostName .. "trade2/search"
 	if realm and realm ~= "" and realm ~= "pc" then
 		url = url .. "/" .. realm
 	end
@@ -273,15 +274,23 @@ function M.openPopup(item, slotName, primaryBuild)
 			t_insert(leagueList, "Ruthless")
 			t_insert(leagueList, "Hardcore Ruthless")
 			controls.leagueDrop:SetList(leagueList)
+			-- default to sc
+			for i,v in ipairs(controls.leagueDrop.list) do
+				if not v:match("^HC") then
+					controls.leagueDrop:SetSel(i)
+					break
+				end
+			end
 		end)
 	end
 
 	-- Realm dropdown
 	controls.realmLabel = new("LabelControl", {"TOPLEFT", nil, "TOPLEFT"}, {leftMargin, ctrlY, 0, 16}, "^7Realm:")
-	controls.realmDrop = new("DropDownControl", {"LEFT", controls.realmLabel, "RIGHT"}, {4, 0, 80, 20}, {"PC", "PS4", "Xbox"}, function(index, value)
-		local realmApiId = REALM_API_IDS[value] or "pc"
+	controls.realmDrop = new("DropDownControl", {"LEFT", controls.realmLabel, "RIGHT"}, {4, 0, 80, 20}, {"PoE2"}, function(index, value)
+		local realmApiId = REALM_API_IDS[value] or "poe2"
 		fetchLeaguesForRealm(realmApiId)
 	end)
+	controls.realmDrop.disabled = true
 
 	-- League dropdown
 	controls.leagueLabel = new("LabelControl", {"LEFT", controls.realmDrop, "RIGHT"}, {12, 0, 0, 16}, "^7League:")
@@ -297,7 +306,7 @@ function M.openPopup(item, slotName, primaryBuild)
 	controls.listedLabel = new("LabelControl", {"RIGHT", controls.listedDrop, "LEFT"}, {-4, 0, 0, 16}, "^7Listed:")
 
 	-- Fetch initial leagues for default realm
-	fetchLeaguesForRealm("pc")
+	fetchLeaguesForRealm("poe2")
 	ctrlY = ctrlY + rowHeight + 4
 
 	if isUnique then

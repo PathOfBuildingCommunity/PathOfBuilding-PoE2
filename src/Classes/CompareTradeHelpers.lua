@@ -74,7 +74,7 @@ local function getTradeStatsLookup()
 	local tradeStats = ""
 	local easy = common.curl.easy()
 	if not easy then return nil end
-	easy:setopt_url("https://www.pathofexile.com/api/trade/data/stats")
+	easy:setopt_url("https://www.pathofexile.com/api/trade2/data/stats")
 	easy:setopt_useragent("Path of Building/" .. (launch.versionNumber or ""))
 	easy:setopt_writefunction(function(d)
 		tradeStats = tradeStats .. d
