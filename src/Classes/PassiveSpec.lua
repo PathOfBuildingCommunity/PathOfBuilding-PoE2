@@ -2445,38 +2445,12 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 	local defaultAttrNodeValue = data.misc.DefaultAttrNodeValue
 	local playerAttr
 	local attributeList = { "dex", "int", "str" }
+
+	-- Mod-based analysis is only performed once per path to reduce performance impact, otherwise cachedPlayerAttr is used
 	if cachedPlayerAttr ~= nil then
 		playerAttr = cachedPlayerAttr
 	else
-		-- Mod-based analysis is only performed once per path to reduce performance impact, otherwise cachedPlayerAttr is used
-		local playerModDB = self.build.calcsTab.mainEnv.player.modDB
-		local itemModDB = self.build.calcsTab.mainEnv.itemModDB
-
-		-- Initialize player attribute values
-		playerAttr = { }
-		for _, attr in ipairs(attributeList) do
-			local attrUpper = attr:gsub("^%l", string.upper)
-			playerAttr[attr] = { }
-			
-			-- Calculating individual factor values instead of just using `mainOutput` because they are used to "simulate" effects for multi-node allocation
-			playerAttr[attr].base = playerModDB:Sum("BASE", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].base or 0)
-			playerAttr[attr].inc = playerModDB:Sum("INC", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].inc or 0)
-			playerAttr[attr].more = playerModDB:More(nil, attrUpper) * (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].more or 1)
-
-			-- Remove item effects if configured 
-			-- Note: I believe this currently wouldn't work with "override" mods or "Omniscience", but I don't think those exist in PoE2 atm
-			if autoAttributeConfig.ignoreItemMods then
-				playerAttr[attr].itemBase = itemModDB:Sum("BASE", nil, attrUpper)
-				playerAttr[attr].itemInc = itemModDB:Sum("INC", nil, attrUpper)
-				playerAttr[attr].itemMore = itemModDB:More(nil, attrUpper)
-				playerAttr[attr].base = playerAttr[attr].base - playerAttr[attr].itemBase
-				playerAttr[attr].inc = playerAttr[attr].inc - playerAttr[attr].itemInc
-				playerAttr[attr].more = playerAttr[attr].more / playerAttr[attr].itemMore
-			end
-
-			playerAttr[attr].mult = (1 + (playerAttr[attr].inc / 100)) * playerAttr[attr].more
-			playerAttr[attr].total = playerAttr[attr].base * playerAttr[attr].mult
-		end
+		playerAttr = self:InitAutoAttributePlayerCache()
 	end
 	
 	-- Update weights based on attribute requirements if necessary
@@ -2538,3 +2512,47 @@ function PassiveSpecClass:GetTempPathAttributeResults(modList, cachedAttrResults
 
 	return attrResults
 end
+
+-- Calculates initial total effects of player attribute mods, which is cached to avoid parsing mods on each pass
+---@param attrOffset table | nil optional table `{str = number, dex = number, int = number}`. Used to manually offset certain stats, e.g. when re-allocating entire tree. Ignored if `nil`
+---@return table playerAttr `{str/dex/int = statTable }`, statTable `{base, inc, more, itemBase, itemInc, itemMore, mult, total = number}`
+function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
+	local attributeList = { "dex", "int", "str" }
+	local playerModDB = self.build.calcsTab.mainEnv.player.modDB
+	local itemModDB = self.build.calcsTab.mainEnv.itemModDB
+	local autoAttributeConfig = self.autoAttributeConfig or { }
+
+	-- Initialize player attribute values
+	local playerAttr = { }
+	for _, attr in ipairs(attributeList) do
+		local attrUpper = attr:gsub("^%l", string.upper)
+		playerAttr[attr] = { }
+		
+		-- Calculating individual factor values instead of just using `mainOutput` because they are used to "simulate" effects for multi-node allocation
+		playerAttr[attr].base = playerModDB:Sum("BASE", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].base or 0)
+		playerAttr[attr].inc = playerModDB:Sum("INC", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].inc or 0)
+		playerAttr[attr].more = playerModDB:More(nil, attrUpper) * (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].more or 1)
+
+		-- Remove item effects if configured 
+		-- Note: I believe this currently wouldn't work with "override" mods or "Omniscience", but I don't think those exist in PoE2 atm
+		if autoAttributeConfig.ignoreItemMods then
+			playerAttr[attr].itemBase = itemModDB:Sum("BASE", nil, attrUpper)
+			playerAttr[attr].itemInc = itemModDB:Sum("INC", nil, attrUpper)
+			playerAttr[attr].itemMore = itemModDB:More(nil, attrUpper)
+			playerAttr[attr].base = playerAttr[attr].base - playerAttr[attr].itemBase
+			playerAttr[attr].inc = playerAttr[attr].inc - playerAttr[attr].itemInc
+			playerAttr[attr].more = playerAttr[attr].more / playerAttr[attr].itemMore
+		end
+
+		-- Apply offset if provided
+		if attrOffset then
+			playerAttr[attr].base = playerAttr[attr].base - (attrOffset[attr] or 0)
+		end
+
+		playerAttr[attr].mult = (1 + (playerAttr[attr].inc / 100)) * playerAttr[attr].more
+		playerAttr[attr].total = playerAttr[attr].base * playerAttr[attr].mult
+	end
+
+	return playerAttr
+end
+

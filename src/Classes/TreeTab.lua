@@ -879,7 +879,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	local function toggleOptions(state)
 		-- used to disable/enable config fields when main option is set
 		for key, control in pairs(controls) do
-			if not (key:find("Label123") or key:find("enabled") or key:find("apply") or key:find("cancel")) then
+			if not (key:find("enabled") or key:find("apply") or key:find("cancel")) then
 				control.enabled = state
 			end
 		end
