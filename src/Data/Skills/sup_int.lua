@@ -6142,6 +6142,14 @@ skills["SupportMorganasTempestPlayer"] = {
 			label = "Morgana's Tempest",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_approaching_storms_area_of_effect_+%_final"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+				["support_approaching_storms_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

@@ -2147,13 +2147,13 @@ function calcs.perform(env, skipEHP)
 			elseif buff.type == "Curse" or buff.type == "CurseBuff" then
 				local mark = activeSkill.skillTypes[SkillType.Mark]
 				modDB.conditions["SelfCast"..buff.name:gsub(" ","")] = not (activeSkill.skillTypes[SkillType.Triggered] or activeSkill.skillTypes[SkillType.Aura])
-				if env.mode_effective and (not enemyDB:Flag(nil, "Hexproof") or modDB:Flag(nil, "CursesIgnoreHexproof") or activeSkill.skillData.ignoreHexLimit or activeSkill.skillData.ignoreHexproof) or mark then
+				if env.mode_effective and (not enemyDB:Flag(nil, "Hexproof") or modDB:Flag(nil, "CursesIgnoreHexproof") or activeSkill.skillData.ignoreCurseLimit or activeSkill.skillData.ignoreHexproof) or mark then
 					local curse = {
 						name = buff.name,
 						fromPlayer = true,
 						priority = determineCursePriority(buff.name, activeSkill),
 						isMark = mark,
-						ignoreHexLimit = (modDB:Flag(activeSkill.skillCfg, "CursesIgnoreHexLimit") or activeSkill.skillData.ignoreHexLimit) and not mark or false,
+						ignoreCurseLimit = (modDB:Flag(activeSkill.skillCfg, "CursesIgnoreCurseLimit") or activeSkill.skillData.ignoreCurseLimit or activeSkill.skillModList:Flag(nil, "CursesIgnoreCurseLimit")) and not mark or false,
 						socketedCursesHexLimit = modDB:Flag(activeSkill.skillCfg, "SocketedCursesAdditionalLimit")
 					}
 					local inc = skillModList:Sum("INC", skillCfg, "CurseEffect") + enemyDB:Sum("INC", nil, "CurseEffectOnSelf")
@@ -2697,7 +2697,7 @@ function calcs.perform(env, skipEHP)
 	for _, source in ipairs({curses, minionCurses, allyCurses}) do
 		for _, curse in ipairs(source) do
 			-- Calculate curses that ignore hex limit after
-			if not curse.ignoreHexLimit and not curse.socketedCursesHexLimit then
+			if not curse.ignoreCurseLimit and not curse.socketedCursesHexLimit then
 				local slot
 				local skipAddingCurse = false
 				-- Check if we need to disable a certain curse aura.
@@ -2741,7 +2741,7 @@ function calcs.perform(env, skipEHP)
 
 	for _, source in ipairs({curses, minionCurses}) do
 		for _, curse in ipairs(source) do
-			if curse.ignoreHexLimit then
+			if curse.ignoreCurseLimit then
 				local skipAddingCurse = false
 				for i = 1, #curseSlots do
 					if curseSlots[i].name == curse.name then

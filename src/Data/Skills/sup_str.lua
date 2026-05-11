@@ -7879,6 +7879,14 @@ skills["SupportZerphisLegacyPlayer"] = {
 			label = "Zerphi's Infamy",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_zerphis_legacy_area_of_effect_+%"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+				},
+				["support_zerphis_legacy_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

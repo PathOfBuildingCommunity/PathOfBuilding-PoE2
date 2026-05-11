@@ -327,7 +327,8 @@ function calcSkillCooldown(skillModList, skillCfg, skillData)
 	-- If a skill can store extra uses and has a cooldown, it doesn't round the cooldown value to server ticks
 	local rounded = false
 	if (skillData.storedUses and skillData.storedUses > 1) or (skillData.VaalStoredUses and skillData.VaalStoredUses > 1) or skillModList:Sum("BASE", skillCfg, "AdditionalCooldownUses") > 0 then
-		return cooldown, rounded, nil, noCooldownChance
+		-- if the skill does not have an innate cooldown, we need to pass the added otherwise things go boom
+		return cooldown, rounded, skillData.cooldown and nil or addedCooldown, noCooldownChance
 	else
 		cooldown = m_ceil(cooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
 		rounded = true
