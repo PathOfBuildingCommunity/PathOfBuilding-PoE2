@@ -394,7 +394,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpMineCount.shown = false
 
 	-- Minion selector
-	self.controls.cmpMinion = new("DropDownControl", {"LEFT", self.controls.cmpMineCount, "RIGHT"}, {4, 0, 140, 50}, {}, function(index, value)
+	self.controls.cmpMinion = new("DropDownControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {4, 0, 140, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
