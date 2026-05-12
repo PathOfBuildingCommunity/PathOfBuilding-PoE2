@@ -29,48 +29,11 @@ function M.modLineValue(line)
 	return tonumber(line:match("[%d]+%.?[%d]*")) or 0
 end
 
--- Helper: lazily build a reverse lookup from QueryMods tradeMod.text → tradeMod.id
-local _tradeModLookup = nil
-local function getTradeModLookup()
-	if _tradeModLookup then return _tradeModLookup end
-	_tradeModLookup = {}
-	if not queryModsData then return _tradeModLookup end
-	for _groupName, mods in pairs(queryModsData) do
-		for _modKey, modData in pairs(mods) do
-			if type(modData) == "table" and modData.tradeMod then
-				local text = modData.tradeMod.text
-				local modType = modData.tradeMod.type or "explicit"
-				local id = modData.tradeMod.id
-				local key = text .. "|" .. modType
-				_tradeModLookup[key] = id
-				if not _tradeModLookup[text] then
-					_tradeModLookup[text] = id
-				end
-				-- Also store with template-converted text for mods with literal numbers
-				-- (e.g. "1 Added Passive Skill is X" → "# Added Passive Skill is X")
-				local template = M.modLineTemplate(text)
-				if template ~= text then
-					local templateKey = template .. "|" .. modType
-					if not _tradeModLookup[templateKey] then
-						_tradeModLookup[templateKey] = id
-					end
-					if not _tradeModLookup[template] then
-						_tradeModLookup[template] = id
-					end
-				end
-			end
-		end
-	end
-	return _tradeModLookup
-end
-
--- Helper: lazily fetch and cache the trade API stats for comprehensive mod matching
--- Covers mods not in QueryMods.lua (cluster enchants, unique-specific mods, etc.)
-local _tradeStatsLookup = nil
+-- Helper: fetch and cache the trade API stats
+local _tradeStats = nil
 local _tradeStatsFetched = false
 local function getTradeStatsLookup()
-	if _tradeStatsFetched then return _tradeStatsLookup end
-	_tradeStatsFetched = true
+	if _tradeStats then return _tradeStats end
 	local tradeStats = ""
 	local easy = common.curl.easy()
 	if not easy then return nil end
@@ -82,24 +45,10 @@ local function getTradeStatsLookup()
 	end)
 	local ok = easy:perform()
 	easy:close()
-	if not ok or tradeStats == "" then return nil end
+	if not ok or tradeStats == "" then return {} end
 	local parsed = dkjson.decode(tradeStats)
-	if not parsed or not parsed.result then return nil end
-	_tradeStatsLookup = {}
-	for _, category in ipairs(parsed.result) do
-		local catLabel = category.label
-		for _, entry in ipairs(category.entries) do
-			local stripped = entry.text:gsub("[#()0-9%-%+%.]", "")
-			local key = stripped .. "|" .. catLabel
-			if not _tradeStatsLookup[key] then
-				_tradeStatsLookup[key] = entry
-			end
-			if not _tradeStatsLookup[stripped] then
-				_tradeStatsLookup[stripped] = entry
-			end
-		end
-	end
-	return _tradeStatsLookup
+	_tradeStats = parsed.result
+	return _tradeStats
 end
 
 -- Map source types used in OpenBuySimilarPopup to trade API category labels
@@ -109,48 +58,83 @@ M.sourceTypeToCategory = {
 	["enchant"] = "Enchant",
 }
 
--- Helper: find the trade stat ID for a mod line
-function M.findTradeModId(modLine, modType)
-	-- Try QueryMods-based lookup
-	local lookup = getTradeModLookup()
-	local template = M.modLineTemplate(modLine)
-	-- Try exact match with type first
-	local key = template .. "|" .. modType
-	if lookup[key] then
-		return lookup[key]
-	end
-	-- Try without leading +/- sign
-	local stripped = template:gsub("^[%+%-]", "")
-	key = stripped .. "|" .. modType
-	if lookup[key] then
-		return lookup[key]
-	end
-	-- Fallback: match by template text only (any type)
-	if lookup[template] then
-		return lookup[template]
-	end
-	if lookup[stripped] then
-		return lookup[stripped]
-	end
-
-	-- Try trade API stats (covers mods not in QueryMods)
-	local tradeStats = getTradeStatsLookup()
-	if tradeStats then
-		local strippedLine = modLine:gsub("[#()0-9%-%+%.]", "")
-		local category = M.sourceTypeToCategory[modType]
-		if category then
-			local catKey = strippedLine .. "|" .. category
-			if tradeStats[catKey] then
-				return tradeStats[catKey].id
+function M.shouldBeInverted(tradeId, modLine, modType)
+	local formattedLine = M.formatDatabaseText(M.formatDatabaseText(modLine))
+	for _, category in ipairs(getTradeStatsLookup()) do
+		if category.id == modType then
+			for _, stat in ipairs(category.entries) do
+				if tradeId == stat.id then
+					-- local modifiers don't seem to be inverted
+					if stat.text:match("(Local)") then
+						return false
+					end
+					-- trade site sometimes has a + sign, sometimes not
+					return not (formattedLine == stat.text or formattedLine:gsub("^%+", "") == stat.text)
+				end
 			end
 		end
-		-- Fallback: any category
-		if tradeStats[strippedLine] then
-			return tradeStats[strippedLine].id
+	end
+end
+
+-- Helper: normalise data texts to # format
+function M.formatDatabaseText(text)
+	-- decimal -> integer
+	text = text:gsub("%d+%.%d+", "1")
+	-- (123-124) -> #
+	text = text:gsub("%(%d+%-%d+%)", "#")
+	text = text:gsub("%d+", "#")
+	return text
+end
+
+-- Helper: find the trade stat ID for a mod line
+function M.findTradeHash(item, modLine, modType)
+	local formattedLine = M.formatDatabaseText(modLine)
+	-- the data export splits some mods into different parts, even though they
+	-- are technically just one stat. we handle that here
+	function findStat(dbMod)
+		local lineIdx = 1
+		local statIdx = 1
+		while dbMod.statOrder[lineIdx] do
+			local skipped = false
+			while dbMod.statOrder[lineIdx] == m_floor(dbMod.statOrder[lineIdx + 1] or -1) do
+				-- some stats are split, skip those for now
+				lineIdx = lineIdx + 1
+				skipped = true
+			end
+			if not skipped and dbMod[lineIdx] then
+				local dbFormatted = M.formatDatabaseText(dbMod[lineIdx])
+				if formattedLine == dbFormatted and item:GetModSpawnWeight(dbMod, nil, {default = true}) then
+					return dbMod.tradeHashes[statIdx]
+				end
+			end
+			lineIdx = lineIdx + 1
+			statIdx = statIdx + 1
 		end
 	end
-
-	return nil
+	-- corruptions
+	if modType == "enchant" then
+		for _, dbMod in pairs(data.itemMods.Corruption) do
+			local tradeHashMaybe = findStat(dbMod)
+			if tradeHashMaybe then
+				return tradeHashMaybe
+			end
+		end
+	-- explicit
+	elseif modType ~= "implicit" then
+		for _, dbMod in pairs(data.itemMods.Item) do
+			local tradeHashMaybe = findStat(dbMod)
+				if tradeHashMaybe then
+					return tradeHashMaybe
+				end
+		end
+	end
+	-- implicit, and special explicit (e.g. unique and essence)
+	for _, dbMod in pairs(data.itemMods.Exclusive) do
+		local tradeHashMaybe = findStat(dbMod)
+			if tradeHashMaybe then
+				return tradeHashMaybe
+			end
+	end
 end
 
 -- Map slot name + item type to (trade API category string, itemCategoryTags key).
@@ -164,6 +148,7 @@ function M.getTradeCategoryInfo(slotName, item)
 		if itemType == "Shield" then return "armour.shield", "Shield"
 		elseif itemType == "Quiver" then return "armour.quiver", "Quiver"
 		elseif itemType == "Bow" then return "weapon.bow", "Bow"
+		elseif itemType == "Staff" and item.base.subType == "Warstaff" then return "weapon.warstaff", "Staff"
 		elseif itemType == "Staff" then return "weapon.staff", "Staff"
 		elseif itemType == "Two Handed Sword" then return "weapon.twosword", "2HSword"
 		elseif itemType == "Two Handed Axe" then return "weapon.twoaxe", "2HAxe"

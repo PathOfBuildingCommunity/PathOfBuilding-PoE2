@@ -110,36 +110,40 @@ local function writeMods(outName, condFunc)
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end
 
-				if mod.Stat5 and mod.Stat4 and mod.Stat3 and mod.Stat2 then
-					local part_1 = intToBytes(mod.Stat1.Hash)
-					local part_2 = intToBytes(mod.Stat2.Hash)
-					local part_3 = intToBytes(mod.Stat3.Hash)
-					local part_4 = intToBytes(mod.Stat4.Hash)
-					local part_5 = intToBytes(mod.Stat5.Hash)
-					local trade_hash = murmurHash2(part_1..part_2..part_3..part_4..part_5, 0x02312233)
-					out:write('tradeHash = ', trade_hash, ', ')
-				elseif mod.Stat4 and mod.Stat3 and mod.Stat2 then
-					local part_1 = intToBytes(mod.Stat1.Hash)
-					local part_2 = intToBytes(mod.Stat2.Hash)
-					local part_3 = intToBytes(mod.Stat3.Hash)
-					local part_4 = intToBytes(mod.Stat4.Hash)
-					local trade_hash = murmurHash2(part_1..part_2..part_3..part_4, 0x02312233)
-					out:write('tradeHash = ', trade_hash, ', ')
-				elseif mod.Stat3 and mod.Stat2 then
-					local part_1 = intToBytes(mod.Stat1.Hash)
-					local part_2 = intToBytes(mod.Stat2.Hash)
-					local part_3 = intToBytes(mod.Stat3.Hash)
-					local trade_hash = murmurHash2(part_1..part_2..part_3, 0x02312233)
-					out:write('tradeHash = ', trade_hash, ', ')
-				elseif mod.Stat2 then
-					local part_1 = intToBytes(mod.Stat1.Hash)
-					local part_2 = intToBytes(mod.Stat2.Hash)
-					local trade_hash = murmurHash2(part_1..part_2, 0x02312233)
-					out:write('tradeHash = ', trade_hash, ', ')
-				elseif mod.Stat1 then
-					local trade_hash = murmurHash2(intToBytes(mod.Stat1.Hash), 0x02312233)
-					out:write('tradeHash = ', trade_hash, ', ')
+				local modIdx = 1
+				local tradeHashes = {}
+				while mod["Stat"..modIdx] do
+					if modIdx == 6 then
+						break
+					end
+					local bytes = intToBytes(mod["Stat"..modIdx].Hash)
+					-- # to # stats consist of two different stats as the min and max have different ranges
+					if mod["Stat"..modIdx].Id:match("minimum") then
+						local nextStat = mod["Stat"..(modIdx+1)]
+						if nextStat and nextStat.Id:match("maximum") then
+							modIdx = modIdx + 1
+							bytes = bytes..intToBytes(mod["Stat"..modIdx].Hash)
+						end
+						
+					end
+
+					-- radius jewel mods:
+					-- notable
+					if mod.NodeType == 2 then
+						-- append stat hash for
+						-- "local_jewel_mod_stats_added_to_notable_passives"
+						bytes = bytes..intToBytes(1950420994)
+					-- small
+					elseif mod.NodeType and mod.NodeType == 1 then
+						-- append stat hash for
+						-- "local_jewel_mod_stats_added_to_small_passives"
+						bytes = bytes..intToBytes(1498395485)
+					end
+					table.insert(tradeHashes, murmurHash2(bytes, 0x02312233))
+					modIdx = modIdx + 1
 				end
+				local tradeHashesStr = table.concat(tradeHashes, ", ")
+				out:write('tradeHashes = { ', tradeHashesStr, ' }, ')
 				out:write('},\n')
 			else
 				print("Mod '"..mod.Id.."' has no stats")
@@ -150,8 +154,6 @@ local function writeMods(outName, condFunc)
 	out:write('}')
 	out:close()
 end
-
-
 
 writeMods("../Data/ModItem.lua", function(mod)
 	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2)

@@ -20,8 +20,8 @@ local REALM_API_IDS = {
 
 -- Listed status display names and their API option values
 local LISTED_STATUS_OPTIONS = {
-	{ label = "Instant Buyout & In Person", apiValue = "available" },
 	{ label = "Instant Buyout", apiValue = "securable" },
+	{ label = "Instant Buyout & In Person", apiValue = "available" },
 	{ label = "In Person (Online)", apiValue = "online" },
 	{ label = "Any", apiValue = "any" },
 }
@@ -129,7 +129,7 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 			end
 		end
 		if next(armourFilters) then
-			queryFilters.armour_filters = {
+			queryFilters.equipment_filters = {
 				filters = armourFilters
 			}
 		end
@@ -143,8 +143,17 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 			local maxVal = tonumber(controls[prefix .. "Max"].buf)
 			local filter = { id = entry.tradeId }
 			local value = {}
-			if minVal then value.min = minVal end
-			if maxVal then value.max = maxVal end
+			if minVal then
+				value.min = minVal
+			end
+			if maxVal then
+				value.max = maxVal
+			end
+			if entry.invert then
+				value.min, value.max = value.max, value.min
+				value.min = value.min and -value.min
+				value.max = value.max and -value.max
+			end
 			if next(value) then
 				filter.value = value
 			end
@@ -190,8 +199,8 @@ function M.openPopup(item, slotName, primaryBuild)
 	-- Collect mod entries with trade IDs
 	local modEntries = {}
 	local modTypeSources = {
-		{ list = item.implicitModLines, type = "implicit" },
 		{ list = item.enchantModLines, type = "enchant" },
+		{ list = item.implicitModLines, type = "implicit" },
 		{ list = item.explicitModLines, type = "explicit" },
 	}
 	for _, source in ipairs(modTypeSources) do
@@ -199,17 +208,20 @@ function M.openPopup(item, slotName, primaryBuild)
 			for _, modLine in ipairs(source.list) do
 				if item:CheckModLineVariant(modLine) then
 					local formatted = itemLib.formatModLine(modLine)
+					formatted = formatted and formatted:gsub(main.notSupportedTooltipText, "")
 					if formatted then
 						-- Use range-resolved text for matching
 						local resolvedLine = (modLine.range and itemLib.applyRange(modLine.line, modLine.range, modLine.valueScalar)) or modLine.line
-						local tradeId = tradeHelpers.findTradeModId(resolvedLine, source.type)
+						local tradeHash = tradeHelpers.findTradeHash(item, resolvedLine, source.type)
+						local identifier = tradeHash and string.format("%s.stat_%s", source.type, tradeHash)
 						local value = tradeHelpers.modLineValue(resolvedLine)
 						t_insert(modEntries, {
 							line = modLine.line,
 							formatted = formatted:gsub("%^x%x%x%x%x%x%x", ""):gsub("%^%x", ""), -- strip color codes
-							tradeId = tradeId,
+							tradeId = identifier,
 							value = value,
 							modType = source.type,
+							invert = tradeHelpers.shouldBeInverted(identifier, resolvedLine, source.type)
 						})
 					end
 				end
