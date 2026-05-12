@@ -2942,48 +2942,25 @@ local specialModList = {
 		mod("EnemyShockChance", "BASE", 100) ,
 		mod("EnemyIgniteChance", "BASE", 100),
 	},
-	["all damage with hits can ignite"] = {
-		flag("PhysicalCanIgnite"),
-		flag("ColdCanIgnite"),
-		flag("LightningCanIgnite"),
-		flag("ChaosCanIgnite"),
-	},
-	["all damage can ignite"] = {
-		flag("PhysicalCanIgnite"),
-		flag("ColdCanIgnite"),
-		flag("LightningCanIgnite"),
-		flag("ChaosCanIgnite"),
-	},
-	["all damage with hits can chill"] = {
-		flag("PhysicalCanChill"),
-		flag("FireCanChill"),
-		flag("LightningCanChill"),
-		flag("ChaosCanChill"),
-	},
-	["all damage with hits can shock"] = {
-		flag("PhysicalCanShock"),
-		flag("FireCanShock"),
-		flag("ColdCanShock"),
-		flag("ChaosCanShock"),
-	},
+	-- Can..ailment applies to all damageTypes vs PhysicalCan..ailment, FireCan..ailment etc
+	["all damage ?w?i?t?h? ?h?i?t?s? can (%a+)"] = function(_, ailment) return {
+		flag("Can"..firstToUpper(ailment)),
+	} end,
 	["all damage from hits contributes to shock chance"] = {
 		flag("PhysicalCanShock"),
 		flag("FireCanShock"),
 		flag("ColdCanShock"),
 		flag("ChaosCanShock"),
 	},
-	["all damage from hits contributes to chill magnitude"] = {
-		flag("PhysicalCanChill"),
-		flag("FireCanChill"),
-		flag("LightningCanChill"),
-		flag("ChaosCanChill"),
-	},
-	["all damage can shock"] = {
-		flag("PhysicalCanShock"),
-		flag("FireCanShock"),
-		flag("ColdCanShock"),
-		flag("ChaosCanShock"),
-	},
+	["all damage from hits contributes to (%a+) magnitude"] = function(_, ailment) return {
+		flag("Can"..firstToUpper(ailment)),
+	} end,
+	["all damage from hits with this weapon contributes to (%a+) magnitude"] = function(_, ailment) return {
+		flag("Can"..firstToUpper(ailment), { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+	} end,
+	["all damage from hits against (%a+) targets contributes to (%a+) magnitude"] = function(_, ailment, ailment2) return {
+		flag("Can"..firstToUpper(ailment2), { type = "ActorCondition", actor = "enemy", var = firstToUpper(ailment) }),
+	} end,
 	["other aegis skills are disabled"] = {
 		flag("DisableSkill", { type = "SkillType", skillType = SkillType.Aegis }),
 		flag("EnableSkill", { type = "SkillName", skillId = "Primal Aegis" }),
@@ -3970,16 +3947,6 @@ local specialModList = {
 	["y?o?u?r? ?fire damage can poison"] = { flag("FireCanPoison") },
 	["y?o?u?r? ?cold damage can poison"] = { flag("ColdCanPoison") },
 	["y?o?u?r? ?lightning damage can poison"] = { flag("LightningCanPoison") },
-	["all damage from hits can poison"] = {
-		flag("FireCanPoison"),
-		flag("ColdCanPoison"),
-		flag("LightningCanPoison"),
-	},
-	["all damage can poison"] = {
-		flag("FireCanPoison"),
-		flag("ColdCanPoison"),
-		flag("LightningCanPoison"),
-	},
 	["all damage from hits with this weapon can poison"] = {
 		flag("FireCanPoison", { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
 		flag("ColdCanPoison", { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
@@ -4000,11 +3967,6 @@ local specialModList = {
 		flag("FireCanPoison", { type = "SkillName", skillNameList = { "Freezing Pulse", "Eye of Winter" }, includeTransfigured = true }),
 		flag("ColdCanPoison", { type = "SkillName", skillNameList = { "Freezing Pulse", "Eye of Winter" }, includeTransfigured = true }),
 		flag("LightningCanPoison", { type = "SkillName", skillNameList = { "Freezing Pulse", "Eye of Winter" }, includeTransfigured = true })
-	},
-	["all damage from hits contributes to poison magnitude"] = {
-		flag("FireCanPoison"),
-		flag("ColdCanPoison"),
-		flag("LightningCanPoison"),
 	},
 	["all damage from you and allies in your presence contributes to ignite chance and magnitude"] = {
 		mod("ExtraAura", "LIST", { mod = flag("ColdCanIgnite") }),

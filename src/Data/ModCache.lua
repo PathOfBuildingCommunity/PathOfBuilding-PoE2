@@ -3449,14 +3449,12 @@ c["Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the 
 c["Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target 40% chance to Aggravate Bleeding on Hit"]={nil,"Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target 40% chance to Aggravate Bleeding on Hit "}
 c["All Attacks count as Empowered Attacks"]={nil,"All Attacks count as Empowered Attacks "}
 c["All Attacks count as Empowered Attacks Cannot use Warcries"]={nil,"All Attacks count as Empowered Attacks Cannot use Warcries "}
-c["All Damage from Hits Contributes to Chill Magnitude"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanChill",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireCanChill",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanChill",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ChaosCanChill",type="FLAG",value=true}},nil}
-c["All Damage from Hits Contributes to Poison Magnitude"]={{[1]={flags=0,keywordFlags=0,name="FireCanPoison",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanPoison",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanPoison",type="FLAG",value=true}},nil}
+c["All Damage from Hits Contributes to Chill Magnitude"]={{[1]={flags=0,keywordFlags=0,name="CanChill",type="FLAG",value=true}},nil}
+c["All Damage from Hits Contributes to Poison Magnitude"]={{[1]={flags=0,keywordFlags=0,name="CanPoison",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Shock Chance"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanShock",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireCanShock",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="ColdCanShock",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ChaosCanShock",type="FLAG",value=true}},nil}
-c["All Damage from Hits against Bleeding targets Contributes to Chill Magnitude"]={nil,"All Damage from Hits against Bleeding targets Contributes to Chill Magnitude "}
-c["All Damage from Hits against Bleeding targets Contributes to Chill Magnitude 20% chance to inflict Bleeding on Hit"]={nil,"All Damage from Hits against Bleeding targets Contributes to Chill Magnitude 20% chance to inflict Bleeding on Hit "}
-c["All Damage from Hits against Poisoned targets Contributes to Chill Magnitude"]={nil,"All Damage from Hits against Poisoned targets Contributes to Chill Magnitude "}
-c["All Damage from Hits against Poisoned targets Contributes to Chill Magnitude 25% increased Magnitude of Poison you inflict"]={nil,"All Damage from Hits against Poisoned targets Contributes to Chill Magnitude 25% increased Magnitude of Poison you inflict "}
-c["All Damage from Hits with this Weapon Contributes to Chill Magnitude"]={nil,"All Damage from Hits with this Weapon Contributes to Chill Magnitude "}
+c["All Damage from Hits against Bleeding targets Contributes to Chill Magnitude"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Bleeding"},flags=0,keywordFlags=0,name="CanChill",type="FLAG",value=true}},nil}
+c["All Damage from Hits against Poisoned targets Contributes to Chill Magnitude"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Poisoned"},flags=0,keywordFlags=0,name="CanChill",type="FLAG",value=true}},nil}
+c["All Damage from Hits with this Weapon Contributes to Chill Magnitude"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},[2]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="CanChill",type="FLAG",value=true}},nil}
 c["All Damage from Hits with this Weapon Contributes to Freeze Buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanFreeze",type="FLAG",value=true}},nil}
 c["All Damage from Hits with this Weapon Contributes to Pin Buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanPin",type="FLAG",value=true}},nil}
 c["All Damage from you and Allies in your Presence"]={nil,"All Damage from you and "}
