@@ -851,12 +851,57 @@ function main:ChangeUserPath(newUserPath, ignoreBuild)
 	self:LoadSettings(ignoreBuild)
 	self:LoadSharedItems()
 end
-
-function main:OpenOptionsPopup()
+--- Opens the popup for the "Options" menu
+--- @param savedState table|nil optional passing of saved values, in case of reopening `{nodePowerTheme, colorPositive, ...}`
+function main:OpenOptionsPopup(savedState)
 	local controls = { }
 
-	local currentY = 20
-	local popupWidth = 600
+	-- Check for `savedState` or assign initial values
+	-- NOTE: update both this and the `controls.cancel` section below, when adding new options
+	savedState = savedState or {
+		nodePowerTheme = self.nodePowerTheme,
+		colorPositive = self.colorPositive,
+		colorNegative = self.colorNegative,
+		colorHighlight = self.colorHighlight,
+		showThousandsSeparators = self.showThousandsSeparators,
+		thousandsSeparator = self.thousandsSeparator,
+		decimalSeparator = self.decimalSeparator,
+		showTitlebarName = self.showTitlebarName,
+		betaTest = self.betaTest,
+		edgeSearchHighlight = self.edgeSearchHighlight,
+		defaultGemQuality = self.defaultGemQuality or 0,
+		defaultCharLevel = self.defaultCharLevel or 1,
+		defaultItemAffixQuality = self.defaultItemAffixQuality or 0.5,
+		showWarnings = self.showWarnings,
+		slotOnlyTooltips = self.slotOnlyTooltips,
+		migrateEldritchImplicits = self.migrateEldritchImplicits,
+		notSupportedModTooltips = self.notSupportedModTooltips,
+		invertSliderScrollDirection = self.invertSliderScrollDirection,
+		disableDevAutoSave = self.disableDevAutoSave,
+		showPublicBuilds = self.showPublicBuilds,
+		showFlavourText = self.showFlavourText,
+		showAnimations = self.showAnimations,
+		showAllItemAffixes = self.showAllItemAffixes,
+		dpiScaleOverridePercent = self.dpiScaleOverridePercent
+	}
+
+	-- NOTE: Height needs to be adjusted if more menu options are added
+	local oneColumnHeightReq = 850 -- Min height required to not split menu into two columns
+	local columnWidth = 600
+	
+	local startingY = 20
+	local currentY = startingY
+	local currentX = 0 -- initialized at `0`, only used for two-column layouts
+
+	-- Determine layout limits and modes
+	local useTwoColumns = self.screenH < oneColumnHeightReq and self.screenW >= columnWidth * 2
+	local useScrollBar = self.screenH < oneColumnHeightReq and not useTwoColumns
+	local scrollBarWidth = useScrollBar and 18 or 0
+	
+	local popupWidth = useTwoColumns and columnWidth * 2 or columnWidth
+
+	-- Scrollbar anchor
+	controls.sectionAnchor = new("Control", { "TOPLEFT", nil, "TOPLEFT" }, { 0, 0, popupWidth, 0 })
 
 	-- local func to make a new line with a heightModifier
 	local function nextRow(heightModifier)
@@ -868,18 +913,18 @@ function main:OpenOptionsPopup()
 	-- local func to make a new section header
 	local function drawSectionHeader(id, title, omitHorizontalLine)
 		local headerBGColor ={ .6, .6, .6}
-		controls["section-"..id .. "-bg"] = new("RectangleOutlineControl", { "TOPLEFT", nil, "TOPLEFT" }, { 8, currentY, popupWidth - 17, 26 }, headerBGColor, 1)
+		controls["section-"..id .. "-bg"] = new("RectangleOutlineControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + scrollBarWidth + 8, currentY, columnWidth - (scrollBarWidth * 2) - 17, 26 }, headerBGColor, 1)
 		nextRow(.2)
-		controls["section-"..id .. "-label"] = new("LabelControl", { "TOPLEFT", nil, "TOPLEFT" }, { popupWidth / 2 - 60, currentY, 0, 16 }, "^7" .. title)
+		controls["section-"..id .. "-label"] = new("LabelControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + columnWidth / 2 - 60, currentY, 0, 16 }, "^7" .. title)
 		nextRow(1.5)
 	end
 
 	local defaultLabelSpacingPx = -4
-	local defaultLabelPlacementX = popupWidth*0.45
+	local defaultLabelPlacementX = columnWidth*0.45
 
 	drawSectionHeader("app", "Application options")
 
-	controls.connectionProtocol = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 100, 18 }, {
+	controls.connectionProtocol = new("DropDownControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, {
 		{ label = "Auto", protocol = 0 },
 		{ label = "IPv4", protocol = 1 },
 		{ label = "IPv6", protocol = 2 },
@@ -891,7 +936,7 @@ function main:OpenOptionsPopup()
 	controls.connectionProtocol:SelByValue(launch.connectionProtocol, "protocol")
 
 	nextRow()
-	controls.proxyType = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 18 }, {
+	controls.proxyType = new("DropDownControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 18 }, {
 		{ label = "HTTP", scheme = "http" },
 		{ label = "SOCKS", scheme = "socks5" },
 		{ label = "SOCKS5H", scheme = "socks5h" },
@@ -906,7 +951,7 @@ function main:OpenOptionsPopup()
 	end
 
 	nextRow()
-	controls.dpiScaleOverride = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 150, 18 }, {
+	controls.dpiScaleOverride = new("DropDownControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 150, 18 }, {
 		{ label = "Use system default", percent = 0 },
 		{ label = "100%", percent = 100 },
 		{ label = "125%", percent = 125 },
@@ -918,13 +963,16 @@ function main:OpenOptionsPopup()
 	}, function(index, value)
 		self.dpiScaleOverridePercent = value.percent
 		SetDPIScaleOverridePercent(value.percent)
+		self.screenW, self.screenH = GetVirtualScreenSize() -- refresh screen size immediately
+		self:ClosePopup()
+		self:OpenOptionsPopup(savedState)
 	end)
 	controls.dpiScaleOverrideLabel = new("LabelControl", { "RIGHT", controls.dpiScaleOverride, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7UI scaling override:")
 	controls.dpiScaleOverride.tooltipText = "Overrides Windows DPI scaling inside Path of Building.\nChoose a percentage between 100% and 250% or revert to the system default."
 	controls.dpiScaleOverride:SelByValue(self.dpiScaleOverridePercent, "percent")
 
 	nextRow()
-	controls.buildPath = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 290, 18 })
+	controls.buildPath = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 290, 18 })
 	controls.buildPathLabel = new("LabelControl", { "RIGHT", controls.buildPath, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Build save path:")
 	if self.buildPath ~= self.defaultBuildPath then
 		controls.buildPath:SetText(self.buildPath)
@@ -932,7 +980,7 @@ function main:OpenOptionsPopup()
 	controls.buildPath.tooltipText = "Overrides the default save location for builds.\nThe default location is: '"..self.defaultBuildPath.."'"
 
 	nextRow()
-	controls.nodePowerTheme = new("DropDownControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 100, 18 }, {
+	controls.nodePowerTheme = new("DropDownControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, {
 		{ label = "Red & Blue", theme = "RED/BLUE" },
 		{ label = "Red & Green", theme = "RED/GREEN" },
 		{ label = "Green & Blue", theme = "GREEN/BLUE" },
@@ -944,7 +992,7 @@ function main:OpenOptionsPopup()
 	controls.nodePowerTheme:SelByValue(self.nodePowerTheme, "theme")
 
 	nextRow()
-	controls.colorPositive = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 100, 18 }, tostring(self.colorPositive:gsub('^(^)', '0')), nil, nil, 8, function(buf)
+	controls.colorPositive = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, tostring(self.colorPositive:gsub('^(^)', '0')), nil, nil, 8, function(buf)
 		local match = string.match(buf, "0x%x+")
 		if match and #match == 8 then
 			updateColorCode("POSITIVE", buf)
@@ -956,7 +1004,7 @@ function main:OpenOptionsPopup()
 		"The default value is " .. tostring(defaultColorCodes.POSITIVE:gsub('^(^)', '0')) .. ".\nIf updating while inside a build, please re-load the build after saving."
 
 	nextRow()
-	controls.colorNegative = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 100, 18 }, tostring(self.colorNegative:gsub('^(^)', '0')), nil, nil, 8, function(buf)
+	controls.colorNegative = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, tostring(self.colorNegative:gsub('^(^)', '0')), nil, nil, 8, function(buf)
 		local match = string.match(buf, "0x%x+")
 		if match and #match == 8 then
 			updateColorCode("NEGATIVE", buf)
@@ -968,8 +1016,8 @@ function main:OpenOptionsPopup()
 		"The default value is " .. tostring(defaultColorCodes.NEGATIVE:gsub('^(^)', '0')) .. ".\nIf updating while inside a build, please re-load the build after saving."
 
 	nextRow()
-  
-	controls.colorHighlight = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 100, 18 }, tostring(self.colorHighlight:gsub('^(^)', '0')), nil, nil, 8, function(buf)
+
+	controls.colorHighlight = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 100, 18 }, tostring(self.colorHighlight:gsub('^(^)', '0')), nil, nil, 8, function(buf)
 		local match = string.match(buf, "0x%x+")
 		if match and #match == 8 then
 			updateColorCode("HIGHLIGHT", buf)
@@ -1103,7 +1151,7 @@ function main:OpenOptionsPopup()
 	
 	if launch.devMode then
 		nextRow()
-		controls.disableDevAutoSave = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Disable Dev AutoSave:", function(state)
+		controls.disableDevAutoSave = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Disable Dev AutoSave:", function(state)
 			self.disableDevAutoSave = state
 		end)
 		controls.disableDevAutoSave.tooltipText = "Do not Autosave builds while on Dev branch"
@@ -1143,10 +1191,14 @@ function main:OpenOptionsPopup()
 	local initialShowAllItemAffixes = self.showAllItemAffixes
 	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
 
+	-- Adjust height in case of two-column layout
+	currentY = m_max(leftColumnMaxY, currentY)
+
 	-- last line with buttons has more spacing
 	nextRow(1.5)
 
-	controls.save = new("ButtonControl", nil, {-45, currentY, 80, 20}, "Save", function()
+	-- lock the Save/Cancel buttons to the bottom so they don't scroll away
+	controls.save = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {-45, -10, 80, 20}, "Save", function()
 		launch.connectionProtocol = tonumber(self.connectionProtocol)
 		if controls.proxyURL.buf:match("%w") then
 			launch.proxyURL = controls.proxyType.list[controls.proxyType.selIndex].scheme .. "://" .. controls.proxyURL.buf
@@ -1171,7 +1223,7 @@ function main:OpenOptionsPopup()
 		main:ClosePopup()
 		main:SaveSettings()
 	end)
-	controls.cancel = new("ButtonControl", nil, {45, currentY, 80, 20}, "Cancel", function()
+	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {45, -10, 80, 20}, "Cancel", function()
 		self.nodePowerTheme = initialNodePowerTheme
 		self.colorPositive = initialColorPositive
 		updateColorCode("POSITIVE", self.colorPositive)
@@ -1203,8 +1255,60 @@ function main:OpenOptionsPopup()
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 	end)
-	nextRow(1.5)
-	self:OpenPopup(popupWidth, currentY, "Options", controls, "save", nil, "cancel")
+	
+	local popupHeight = useScrollBar and (self.screenH - 20) or currentY + 30
+	
+	if useScrollBar then
+		controls.scrollBar = new("ScrollBarControl", {"TOPRIGHT", nil, "TOPRIGHT"}, {-2, 25, scrollBarWidth, popupHeight - 65}, 50, "VERTICAL", true)
+		controls.scrollBar:SetContentDimension(currentY, popupHeight - 65)
+	end
+	
+	local function scrollBarFunc()
+		if useScrollBar then
+			controls.sectionAnchor.y = -controls.scrollBar.offset
+		end
+	end
+
+	local popup = self:OpenPopup(popupWidth, popupHeight, "Options", controls, "save", nil, "cancel", useScrollBar and scrollBarFunc or nil)
+
+	local originalDrawControls = popup.DrawControls
+
+	local function controlIsInsideScrollClip(popupDialog, control)
+		if control == controls.scrollBar or control == controls.save or control == controls.cancel then
+			return true
+		end
+		local _, y = popupDialog:GetPos()
+		local _, height = popupDialog:GetSize()
+		local clipY_top = y + 20 -- just below title
+		local clipY_bottom = y + height - 40 -- just above buttons
+		local _, cy = control:GetPos()
+		local _, ch = control:GetSize()
+		return cy >= clipY_top and (cy + ch) <= clipY_bottom
+	end
+
+	-- Modify draw controls to "clip" elements in case the scrollbar is used
+	popup.DrawControls = function(self, viewPort)
+			if not useScrollBar then
+				return originalDrawControls(self, viewPort)
+			end
+
+			for id, control in pairs(self.controls) do
+				-- always draw static UI elements
+				if control:IsShown() and control.Draw and controlIsInsideScrollClip(self, control) then
+					control:Draw(viewPort, (self.selControl and self.selControl.hasFocus and self.selControl ~= control) or nil)
+				end
+			end
+		end
+
+	if useScrollBar then
+		popup.GetMouseOverControl = function(self)
+			for _, control in pairs(self.controls) do
+				if control.IsMouseOver and controlIsInsideScrollClip(self, control) and control:IsMouseOver() then
+					return control
+				end
+			end
+		end
+	end
 end
 
 function main:SetManifestBranch(branchName)
