@@ -84,4 +84,13 @@ describe("TestSkills", function()
 		local finalCost = build.calcsTab.mainOutput.ManaCost
 		assert.are.equals(16, round(finalCost))
 	end)
+
+	it("Test multiple persistent buff supports", function()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+
+		local buffList = build.calcsTab.calcsOutput.BuffList
+		assert.True(buffList and (buffList:match("Clarity I") ~= nil and buffList:match("Clarity II") ~= nil))
+	end)
 end)

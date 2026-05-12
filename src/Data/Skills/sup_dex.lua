@@ -4243,7 +4243,7 @@ skills["SupportPrecisionPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_precision_accuracy_rating_+%"] = {
-					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision I" } ),
 				},
 			},
 			baseFlags = {
@@ -4279,7 +4279,7 @@ skills["SupportPrecisionPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_precision_accuracy_rating_+%"] = {
-					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision II" } ),
 				},
 			},
 			baseFlags = {

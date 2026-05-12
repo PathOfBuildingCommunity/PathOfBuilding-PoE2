@@ -910,7 +910,7 @@ statMap = {
 #set SupportPrecisionPlayer
 statMap = {
 	["support_precision_accuracy_rating_+%"] = {
-		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision I" } ),
 	},
 },
 #mods
@@ -920,7 +920,7 @@ statMap = {
 #set SupportPrecisionPlayerTwo
 statMap = {
 	["support_precision_accuracy_rating_+%"] = {
-		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision II" } ),
 	},
 },
 #mods
