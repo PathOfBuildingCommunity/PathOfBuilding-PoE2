@@ -355,7 +355,7 @@ return {
 	{ label = "Skill DPS", flag = "triggered", { format = "{1:output:TotalDPS}", { breakdown = "TotalDPS" }, { label = "DPS Multiplier", modName = "DPS", cfg = "skill" }, }, },
 } }
 } },
-{ 3, "Warcries", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Exerting Warcries", data = {
+{ 3, "Warcries", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Ancestral Boosts", data = {
 	extra = "{2:output:TheoreticalOffensiveWarcryEffect} Avg Combined Impact  |  {2:output:TheoreticalMaxOffensiveWarcryEffect} Max Combined Impact",
 	colWidth = 114,
 	{

@@ -3368,6 +3368,7 @@ function calcs.offence(env, actor, activeSkill)
 
 			-- dynamic way of calcing the Ancestral Boost for supports without duplicating the code for each unique support
 			local function calcAncestralBoost(skillName, moreDmg, moreArea)
+				globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
 				local skillNameVar = skillName:gsub(" ", "") -- Fist Of War -> FistOfWar
 				local skillNameLabel = skillName:lower()
 

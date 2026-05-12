@@ -382,4 +382,21 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
 	end)
+
+	it("Test Ancestral Call - Ancestral Boost calcs", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Boneshatter 20/0  1\nAncestral Call I 1/0  1")
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.calcsOutput.AvgAncestralCallDamageEffect ~= nil)
+		assert.True(build.calcsTab.calcsOutput.AncestralCallUptimeRatio ~= nil)
+		assert.are.equal(3, build.calcsTab.calcsOutput.StrikeTargets)
+	end)
 end)
