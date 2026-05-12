@@ -2450,7 +2450,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 	if cachedPlayerAttr ~= nil then
 		playerAttr = cachedPlayerAttr
 	else
-		playerAttr = self:InitAutoAttributePlayerCache()
+		playerAttr = self:InitAutoAttributePlayerCache(cachedPathAttrResults)
 	end
 	
 	-- Update weights based on attribute requirements if necessary
@@ -2514,8 +2514,8 @@ function PassiveSpecClass:GetTempPathAttributeResults(modList, cachedAttrResults
 end
 
 -- Calculates initial total effects of player attribute mods, which is cached to avoid parsing mods on each pass
----@param attrOffset table | nil optional table `{str = number, dex = number, int = number}`. Used to manually offset certain stats, e.g. when re-allocating entire tree. Ignored if `nil`
----@return table playerAttr `{str/dex/int = statTable }`, statTable `{base, inc, more, itemBase, itemInc, itemMore, mult, total = number}`
+---@param attrOffset table | nil optional table `{str/dex/int = { base = number, inc = number, more = number } }`. Used to manually offset certain stats, e.g. when re-allocating entire tree. Ignored if `nil`
+---@return table playerAttr table with subtable for each attribute: `{str/dex/int = {base = number, inc = number, more = number, itemBase = number, itemInc = number, itemMore = number, mult = number, total = number} }`
 function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
 	local attributeList = { "dex", "int", "str" }
 	local playerModDB = self.build.calcsTab.mainEnv.player.modDB
@@ -2529,12 +2529,12 @@ function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
 		playerAttr[attr] = { }
 		
 		-- Calculating individual factor values instead of just using `mainOutput` because they are used to "simulate" effects for multi-node allocation
-		playerAttr[attr].base = playerModDB:Sum("BASE", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].base or 0)
-		playerAttr[attr].inc = playerModDB:Sum("INC", nil, attrUpper) + (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].inc or 0)
-		playerAttr[attr].more = playerModDB:More(nil, attrUpper) * (cachedPathAttrResults and cachedPathAttrResults[attr] and cachedPathAttrResults[attr].more or 1)
+		playerAttr[attr].base = playerModDB:Sum("BASE", nil, attrUpper)
+		playerAttr[attr].inc = playerModDB:Sum("INC", nil, attrUpper)
+		playerAttr[attr].more = playerModDB:More(nil, attrUpper)
 
 		-- Remove item effects if configured 
-		-- Note: I believe this currently wouldn't work with "override" mods or "Omniscience", but I don't think those exist in PoE2 atm
+		-- NOTE: I believe this currently wouldn't work with "override" mods or "Omniscience", but I don't think those exist in PoE2 atm
 		if autoAttributeConfig.ignoreItemMods then
 			playerAttr[attr].itemBase = itemModDB:Sum("BASE", nil, attrUpper)
 			playerAttr[attr].itemInc = itemModDB:Sum("INC", nil, attrUpper)
@@ -2545,8 +2545,10 @@ function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
 		end
 
 		-- Apply offset if provided
-		if attrOffset then
-			playerAttr[attr].base = playerAttr[attr].base - (attrOffset[attr] or 0)
+		if attrOffset and attrOffset[attr] then
+			playerAttr[attr].base = playerAttr[attr].base + (attrOffset[attr].base or 0)
+			playerAttr[attr].inc = playerAttr[attr].inc + (attrOffset[attr].inc or 0)
+			playerAttr[attr].more = playerAttr[attr].more * (attrOffset[attr].more or 1)
 		end
 
 		playerAttr[attr].mult = (1 + (playerAttr[attr].inc / 100)) * playerAttr[attr].more
@@ -2566,7 +2568,11 @@ function PassiveSpecClass:AutoReallocAllAttributeNodes()
 	local defaultAttrValue = data.misc.DefaultAttrNodeValue
 	local allNodes = self.build.spec.allocNodes
 	local activeWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
-	local attrBaseOffset = { str = 0, dex = 0, int = 0 } -- base values that need to be subtracted from cache
+	local attrModOffsets = { 
+		str = { base = 0 }, 
+		dex = { base = 0 }, 
+		int = { base = 0 }
+	} -- only contains offsets for 'base' values
 	local attrNodes = { }
 	
 	-- Check for currently allocated base attribute nodes and record their effects
@@ -2575,13 +2581,13 @@ function PassiveSpecClass:AutoReallocAllAttributeNodes()
 			-- Only attributes in generic passives or currently active weapon set passives affected
 			local isAffectedAttr = node.allocMode == 0 or node.allocMode == activeWeaponSet
 			if node.dn == "Strength" then
-				attrBaseOffset.str = attrBaseOffset.str + defaultAttrValue
+				attrModOffsets.str.base = attrModOffsets.str.base - defaultAttrValue
 			elseif node.dn == "Dexterity" then
-				attrBaseOffset.dex = attrBaseOffset.dex + defaultAttrValue
+				attrModOffsets.dex.base = attrModOffsets.dex.base - defaultAttrValue
 			elseif node.dn == "Intelligence" then
-				attrBaseOffset.int = attrBaseOffset.int + defaultAttrValue
+				attrModOffsets.int.base = attrModOffsets.int.base - defaultAttrValue
 			else
-				-- isAttribute in current set, but not set to str/dex/int likely means something like Pathfinder's "Traveler's Wisdom"
+				-- isAttribute in current set, but not set to str/dex/int likely means something like Pathfinder's "Traveler's Wisdom" or otherwise modified
 				isAffectedAttr = false
 			end
 			
@@ -2591,10 +2597,9 @@ function PassiveSpecClass:AutoReallocAllAttributeNodes()
 			end
 		end
 	end
-	--self:CreateUndoState()
 	
 	-- Initialise "corrected" playerAttrCache, i.e. player stats, but with attributes from base attribute passives subtracted
-	local playerAttrCache = self:InitAutoAttributePlayerCache(attrBaseOffset)
+	local playerAttrCache = self:InitAutoAttributePlayerCache(attrModOffsets)
 	local attrIndex
 	for _, attrNode in pairs(attrNodes) do
 		attrIndex, playerAttrCache = self:GetAutoAttribute(playerAttrCache)
