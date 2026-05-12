@@ -112,38 +112,50 @@ local function writeMods(outName, condFunc)
 
 				local modIdx = 1
 				local tradeHashes = {}
-				while mod["Stat"..modIdx] do
+				while mod["Stat" .. modIdx] do
+					local currentStats = {}
+					currentStats[mod["Stat" .. modIdx].Id] = {
+						min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
+					}
 					if modIdx == 6 then
 						break
 					end
-					local bytes = intToBytes(mod["Stat"..modIdx].Hash)
+					local bytes = intToBytes(mod["Stat" .. modIdx].Hash)
 					-- # to # stats consist of two different stats as the min and max have different ranges
-					if mod["Stat"..modIdx].Id:match("minimum") then
-						local nextStat = mod["Stat"..(modIdx+1)]
+					if mod["Stat" .. modIdx].Id:match("minimum") then
+						local nextStat = mod["Stat" .. (modIdx + 1)]
 						if nextStat and nextStat.Id:match("maximum") then
 							modIdx = modIdx + 1
-							bytes = bytes..intToBytes(mod["Stat"..modIdx].Hash)
+							bytes = bytes .. intToBytes(mod["Stat" .. modIdx].Hash)
+							currentStats[mod["Stat" .. modIdx].Id] = {
+								min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
+							}
 						end
-						
 					end
+
+					local description, _, _ = describeStats(currentStats)
 
 					-- radius jewel mods:
 					-- notable
 					if mod.NodeType == 2 then
 						-- append stat hash for
 						-- "local_jewel_mod_stats_added_to_notable_passives"
-						bytes = bytes..intToBytes(1950420994)
-					-- small
+						bytes = bytes .. intToBytes(1950420994)
+						-- small
 					elseif mod.NodeType and mod.NodeType == 1 then
 						-- append stat hash for
 						-- "local_jewel_mod_stats_added_to_small_passives"
-						bytes = bytes..intToBytes(1498395485)
+						bytes = bytes .. intToBytes(1498395485)
 					end
-					table.insert(tradeHashes, murmurHash2(bytes, 0x02312233))
+					tradeHashes[murmurHash2(bytes, 0x02312233)] = description
 					modIdx = modIdx + 1
 				end
-				local tradeHashesStr = table.concat(tradeHashes, ", ")
-				out:write('tradeHashes = { ', tradeHashesStr, ' }, ')
+				out:write("tradeHashes = { ")
+				for hash, desc in pairs(tradeHashes) do
+					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
+				end
+				out:write('} ')
 				out:write('},\n')
 			else
 				print("Mod '"..mod.Id.."' has no stats")

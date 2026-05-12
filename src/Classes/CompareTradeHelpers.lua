@@ -92,25 +92,19 @@ function M.findTradeHash(item, modLine, modType)
 	-- the data export splits some mods into different parts, even though they
 	-- are technically just one stat. we handle that here
 	function findStat(dbMod)
-		local lineIdx = 1
-		local statIdx = 1
-		while dbMod.statOrder[lineIdx] do
-			local skipped = false
-			while dbMod.statOrder[lineIdx] == m_floor(dbMod.statOrder[lineIdx + 1] or -1) do
-				-- some stats are split, skip those for now
-				lineIdx = lineIdx + 1
-				skipped = true
-			end
-			if not skipped and dbMod[lineIdx] then
-				local dbFormatted = M.formatDatabaseText(dbMod[lineIdx])
-				if formattedLine == dbFormatted and item:GetModSpawnWeight(dbMod, nil, {default = true}) then
-					return dbMod.tradeHashes[statIdx]
+		if not item:GetModSpawnWeight(dbMod, nil, { default = true }) then
+			return nil
+		end
+		for tradeHash, description in pairs(dbMod.tradeHashes) do
+			for _, line in ipairs(description) do
+				local dbFormatted = M.formatDatabaseText(line)
+				if formattedLine == dbFormatted then
+					return tradeHash
 				end
 			end
-			lineIdx = lineIdx + 1
-			statIdx = statIdx + 1
 		end
 	end
+
 	-- corruptions
 	if modType == "enchant" then
 		for _, dbMod in pairs(data.itemMods.Corruption) do
@@ -119,24 +113,23 @@ function M.findTradeHash(item, modLine, modType)
 				return tradeHashMaybe
 			end
 		end
-	-- explicit
+		-- explicit
 	elseif modType ~= "implicit" then
 		for _, dbMod in pairs(data.itemMods.Item) do
 			local tradeHashMaybe = findStat(dbMod)
-				if tradeHashMaybe then
-					return tradeHashMaybe
-				end
+			if tradeHashMaybe then
+				return tradeHashMaybe
+			end
 		end
 	end
 	-- implicit, and special explicit (e.g. unique and essence)
 	for _, dbMod in pairs(data.itemMods.Exclusive) do
 		local tradeHashMaybe = findStat(dbMod)
-			if tradeHashMaybe then
-				return tradeHashMaybe
-			end
+		if tradeHashMaybe then
+			return tradeHashMaybe
+		end
 	end
 end
-
 -- Map slot name + item type to (trade API category string, itemCategoryTags key).
 -- queryStr:      e.g. "armour.shield", "weapon.onemace"
 -- categoryLabel: e.g. "Shield", "1HMace", "1HWeapon" (nil for flask / generic jewel / unsupported)
