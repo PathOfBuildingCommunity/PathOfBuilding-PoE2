@@ -2530,6 +2530,13 @@ return {
 ["slam_aftershock_chance_%"] = {
 	mod("AftershockChance", "BASE", nil)
 },
+-- Final Strike
+["final_strike_is_ancestrally_boosted"] = {
+	flag("FinalStrikeAncestrallyBoosted"),
+},
+["is_final_strike"] = {
+	flag("Condition:FinalStrike"),
+},
 -- Curse
 ["curse_effect_+%"] = {
 	mod("CurseEffect", "INC", nil),

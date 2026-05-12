@@ -26,11 +26,25 @@ local skills, mod, flag, skill = ...
 
 #skill SupportAncestralCallPlayer
 #set SupportAncestralCallPlayer
+statMap = {
+	["ancestral_call_spirit_strike_interval_ms"] = {
+		mod("AncestralCallCooldown", "BASE", nil),
+		div = 1000,
+	},
+},
+#baseMod mod("AdditionalStrikeTarget", "BASE", 2)
 #mods
 #skillEnd
 
 #skill SupportAncestralCallPlayerTwo
 #set SupportAncestralCallPlayerTwo
+statMap = {
+	["ancestral_call_spirit_strike_interval_ms"] = {
+		mod("AncestralCallCooldown", "BASE", nil),
+		div = 1000,
+	},
+},
+#baseMod mod("AdditionalStrikeTarget", "BASE", 2)
 #mods
 #skillEnd
 

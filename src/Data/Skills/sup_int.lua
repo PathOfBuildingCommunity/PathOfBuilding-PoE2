@@ -2590,6 +2590,11 @@ skills["SupportCrescendoPlayerTwo"] = {
 			label = "Crescendo II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_crescendo_non_final_strike_attack_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FinalStrike", neg = true})
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

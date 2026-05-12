@@ -3337,6 +3337,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		
 		output.FistOfWarDamageEffect = 1
+		output.AncestralCallDamageEffect = 1
 		if env.mode_combat then
 			local ruthlessEffect = env.configInput.ruthlessSupportMode or "AVERAGE"
 			local ruthlessBlowMaxCount = skillModList:Sum("BASE", cfg, "RuthlessBlowMaxCount")
@@ -3355,6 +3356,16 @@ function calcs.offence(env, actor, activeSkill)
 			local ruthlessBlowStunEffect = (ruthlessBlowChance / 100) * ruthlessBlowStunMultiplier
 			skillModList:NewMod("EnemyHeavyStunBuildup", "MORE", ruthlessBlowStunEffect * 100, "Ruthless Blows")
 
+			-- passive nodes
+			local ancestrallyBoostedIncDamageMulti = 1 + modDB:Sum("INC", cfg, "AncestralBoostDamage") / 100
+			local ancestrallyBoostedIncArea = modDB:Sum("INC", cfg, "AncestralBoostAreaOfEffect")
+			-- Final Strike calcs could be done in many other places, but clumping the Ancestral Boost things together made sense
+			if skillModList:Flag(cfg, "FinalStrikeAncestrallyBoosted") then
+				local modSource = skillModList:Tabulate("FLAG", cfg, "FinalStrikeAncestrallyBoosted")[1].mod.source -- e.g. Skill:SupportCrescendoPlayerThree
+				local sourceName = "Ancestral Boost - "..modSource:match("Support(.-)Player") -- crude way to grab Support name, there may be a way in data now or a way to create a map in data with the above structured key
+				skillModList:NewMod("Damage", "INC", modDB:Sum("INC", cfg, "AncestralBoostDamage"), sourceName, { type = "Condition", var = "FinalStrike" })
+			end
+
 			globalOutput.FistOfWarCooldown = skillModList:Sum("BASE", cfg, "FistOfWarCooldown") or 0
 			-- If Fist of War & Active Skill is a Slam Skill & NOT a Vaal Skill & NOT used by mirage or other
 			if globalOutput.FistOfWarCooldown ~= 0 and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] then
@@ -3367,8 +3378,8 @@ function calcs.offence(env, actor, activeSkill)
 						s_format("= %d%%", globalOutput.FistOfWarUptimeRatio),
 					}
 				end
-				globalOutput.AvgFistOfWarDamage = globalOutput.FistOfWarDamageMultiplier
-				globalOutput.AvgFistOfWarDamageEffect = 1 + globalOutput.FistOfWarDamageMultiplier * (globalOutput.FistOfWarUptimeRatio / 100)
+				globalOutput.AvgFistOfWarDamage = globalOutput.FistOfWarDamageMultiplier * ancestrallyBoostedIncDamageMulti
+				globalOutput.AvgFistOfWarDamageEffect = 1 + globalOutput.FistOfWarDamageMultiplier * ancestrallyBoostedIncDamageMulti * (globalOutput.FistOfWarUptimeRatio / 100)
 				if globalBreakdown then
 					globalBreakdown.AvgFistOfWarDamageEffect = {
 						s_format("1 + (%.2f ^8(fist of war damage multiplier)", globalOutput.FistOfWarDamageMultiplier),
@@ -3376,19 +3387,63 @@ function calcs.offence(env, actor, activeSkill)
 						s_format("= %.2f", globalOutput.AvgFistOfWarDamageEffect),
 					}
 				end
-				globalOutput.MaxFistOfWarDamageEffect = 1 + globalOutput.FistOfWarDamageMultiplier
+				globalOutput.MaxFistOfWarDamageEffect = 1 + globalOutput.FistOfWarDamageMultiplier * ancestrallyBoostedIncArea
 				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 					output.FistOfWarDamageEffect = globalOutput.MaxFistOfWarDamageEffect
 					skillModList:NewMod("AreaOfEffect", "MORE", skillModList:Sum("BASE", nil, "FistOfWarMOREAoE"), "Max Fist of War Boosted AoE")
+					skillModList:NewMod("AreaOfEffect", "INC", ancestrallyBoostedIncArea, "Max Fist of War Boosted AoE")
 				else
 					output.FistOfWarDamageEffect = globalOutput.AvgFistOfWarDamageEffect
-					skillModList:NewMod("AreaOfEffect", "MORE", m_floor(skillModList:Sum("BASE", nil, "FistOfWarMOREAoE") / 100 * globalOutput.FistOfWarUptimeRatio), "Avg Fist Of War Boosted AoE")
+					skillModList:NewMod("AreaOfEffect", "MORE", m_floor(skillModList:Sum("BASE", nil, "FistOfWarMOREAoE") * globalOutput.FistOfWarUptimeRatio / 100), "Avg Fist Of War Boosted AoE")
+					skillModList:NewMod("AreaOfEffect", "INC", m_floor(ancestrallyBoostedIncArea * globalOutput.FistOfWarUptimeRatio / 100), "Avg Fist Of War Boosted AoE")
 				end
 				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
 				globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput.AvgFistOfWarDamageEffect
 				globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput.MaxFistOfWarDamageEffect
 			else
 				output.FistOfWarDamageEffect = 1
+			end
+
+			globalOutput.AncestralCallCooldown = skillModList:Sum("BASE", cfg, "AncestralCallCooldown") or 0
+			-- If Ancestral Call & Active Skill is NOT a Vaal Skill & NOT used by mirage or other & NOT a Channel Skill
+			if globalOutput.AncestralCallCooldown ~= 0 and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] and not activeSkill.skillTypes[SkillType.Channel] then
+				globalOutput.AncestralCallAdditionalStrike = skillModList:Sum("BASE", nil, "AncestralCallAdditionalStrike")
+				skillModList:NewMod("AdditionalStrikeTarget", "BASE", globalOutput.AncestralCallAdditionalStrike, "Ancestral Call when Ancestrally Boosted")
+
+				globalOutput.AncestralCallDamageMultiplier = ancestrallyBoostedIncDamageMulti
+				globalOutput.AncestralCallUptimeRatio = m_min( (1 / globalOutput.Speed) / globalOutput.AncestralCallCooldown, 1) * 100
+				if globalBreakdown then
+					globalBreakdown.AncestralCallUptimeRatio = {
+						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
+						s_format("/ %.2f, 1) ^8(ancestral call cooldown)", globalOutput.AncestralCallCooldown),
+						s_format("= %d%%", globalOutput.AncestralCallUptimeRatio),
+					}
+				end
+				globalOutput.AvgAncestralCallDamage = globalOutput.AncestralCallDamageMultiplier
+				globalOutput.AvgAncestralCallDamageEffect = 1
+				if ancestrallyBoostedIncDamageMulti > 1 then -- if there is no increased damage, then Ancestrally Boosted Strikes do not have any damage portion
+					globalOutput.AvgAncestralCallDamageEffect = 1 + ancestrallyBoostedIncDamageMulti * (globalOutput.AncestralCallUptimeRatio / 100)
+				end
+				if globalBreakdown then
+					globalBreakdown.AvgAncestralCallDamageEffect = {
+						s_format("1 + (%.2f ^8(ancestral call damage multiplier)", ancestrallyBoostedIncDamageMulti > 1 and globalOutput.AncestralCallDamageMultiplier or 0),
+						s_format("x %.2f) ^8(ancestral call uptime ratio)", globalOutput.AncestralCallUptimeRatio / 100 or 0),
+						s_format("= %.2f", globalOutput.AvgAncestralCallDamageEffect),
+					}
+				end
+				globalOutput.MaxAncestralCallDamageEffect = ancestrallyBoostedIncDamageMulti
+				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
+					output.AncestralCallDamageEffect = globalOutput.MaxAncestralCallDamageEffect
+					skillModList:NewMod("AreaOfEffect", "INC", ancestrallyBoostedIncArea, "Max Ancestral Call Boosted AoE")
+				else
+					output.AncestralCallDamageEffect = globalOutput.AvgAncestralCallDamageEffect
+					skillModList:NewMod("AreaOfEffect", "INC", m_floor(ancestrallyBoostedIncArea * globalOutput.AncestralCallUptimeRatio / 100), "Avg Ancestral Call Boosted AoE")
+				end
+				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
+				globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput.AvgAncestralCallDamageEffect
+				globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput.MaxAncestralCallDamageEffect
+			else
+				output.AncestralCallDamageEffect = 1
 			end
 		end
 
@@ -3729,6 +3784,9 @@ function calcs.offence(env, actor, activeSkill)
 						if output.FistOfWarDamageEffect ~= 1 then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(fist of war effect modifier)", output.FistOfWarDamageEffect))
 						end
+						if output.AncestralCallDamageEffect ~= 1 then
+							t_insert(breakdown[damageType], s_format("x %.2f ^8(ancestral call effect modifier)", output.AncestralCallDamageEffect))
+						end
 						if globalOutput.OffensiveWarcryEffect ~= 1  and not activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(aggregated warcry exerted effect modifier)", globalOutput.OffensiveWarcryEffect))
 						end
@@ -3737,9 +3795,9 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					end
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * globalOutput.MaxOffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * output.AncestralCallDamageEffect * globalOutput.MaxOffensiveWarcryEffect
 					else
-						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * globalOutput.OffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * output.AncestralCallDamageEffect * globalOutput.OffensiveWarcryEffect
 					end
 					local allMult = output.allMult
 					if pass == 1 then
