@@ -3362,7 +3362,7 @@ function calcs.offence(env, actor, activeSkill)
 			-- Final Strike calcs could be done in many other places, but clumping the Ancestral Boost things together made sense
 			if skillModList:Flag(cfg, "FinalStrikeAncestrallyBoosted") then
 				local modSource = skillModList:Tabulate("FLAG", cfg, "FinalStrikeAncestrallyBoosted")[1].mod.source -- e.g. Skill:SupportCrescendoPlayerThree
-				local sourceName = "Ancestral Boost - "..modSource:match("Support(.-)Player") -- crude way to grab Support name, there may be a way in data now or a way to create a map in data with the above structured key
+				local sourceName = "Ancestral Boost - "..data.gemNameForModSource[modSource]
 				skillModList:NewMod("Damage", "INC", modDB:Sum("INC", cfg, "AncestralBoostDamage"), sourceName, { type = "Condition", var = "FinalStrike" })
 			end
 
