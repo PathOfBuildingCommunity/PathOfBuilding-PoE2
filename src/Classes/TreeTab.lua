@@ -1966,6 +1966,8 @@ function TreeTabClass:FindTimelessJewel()
 			endRow = startRow + seedCount - 1
 		end
 		controls.searchResults.selIndex = startRow
+		-- scroll so that startRow is the first visible row
+		controls.searchResults:ScrollToIndex(startRow)
 		controls.searchResults.highlightIndex = endRow
 
 		controls.searchTradeButton.lastSearch = {startRow, seedCount}
@@ -2338,7 +2340,7 @@ function TreeTabClass:FindTimelessJewel()
 			t_sort(timelessData.searchResults, function(a, b) return a.total > b.total end)
 			controls.searchTradeButton.enabled = timelessData.searchResults and #timelessData.searchResults > 0
 			controls.searchTradeButton.lastSearch = nil
-			controls.searchTradeButton.label = "Copy Trade URL"
+				controls.searchTradeButton.label = "Open Trade URL"
 			controls.searchResults.highlightIndex = nil
 			controls.searchResults.selIndex = 1
 		end
