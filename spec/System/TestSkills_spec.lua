@@ -91,6 +91,22 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		local buffList = build.calcsTab.calcsOutput.BuffList
-		assert.True(buffList and (buffList:match("Clarity I") ~= nil and buffList:match("Clarity II") ~= nil))
+		assert.are.equals(buffList, "Clarity I, Clarity II")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1\nClarity II 1/0 1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+
+		local buffList = build.calcsTab.calcsOutput.BuffList
+		assert.are.equals(buffList, "Clarity II")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity II 1/0  1\n")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+
+		local buffList = build.calcsTab.calcsOutput.BuffList
+		assert.are.equals(buffList, "Clarity II")
 	end)
 end)
