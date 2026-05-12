@@ -3357,7 +3357,7 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("EnemyHeavyStunBuildup", "MORE", ruthlessBlowStunEffect * 100, "Ruthless Blows")
 
 			-- passive nodes
-			local ancestrallyBoostedIncDamageMulti = 1 + modDB:Sum("INC", cfg, "AncestralBoostDamage") / 100
+			local ancestrallyBoostedIncDamageMulti = modDB:Sum("INC", cfg, "AncestralBoostDamage") / 100
 			local ancestrallyBoostedIncArea = modDB:Sum("INC", cfg, "AncestralBoostAreaOfEffect")
 			-- Final Strike calcs could be done in many other places, but clumping the Ancestral Boost things together made sense
 			if skillModList:Flag(cfg, "FinalStrikeAncestrallyBoosted") then
@@ -3421,17 +3421,17 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				globalOutput.AvgAncestralCallDamage = globalOutput.AncestralCallDamageMultiplier
 				globalOutput.AvgAncestralCallDamageEffect = 1
-				if ancestrallyBoostedIncDamageMulti > 1 then -- if there is no increased damage, then Ancestrally Boosted Strikes do not have any damage portion
+				if ancestrallyBoostedIncDamageMulti > 0 then -- if there is no increased damage, then Ancestrally Boosted Strikes do not have any damage portion
 					globalOutput.AvgAncestralCallDamageEffect = 1 + ancestrallyBoostedIncDamageMulti * (globalOutput.AncestralCallUptimeRatio / 100)
 				end
 				if globalBreakdown then
 					globalBreakdown.AvgAncestralCallDamageEffect = {
-						s_format("1 + (%.2f ^8(ancestral call damage multiplier)", ancestrallyBoostedIncDamageMulti > 1 and globalOutput.AncestralCallDamageMultiplier or 0),
+						s_format("1 + (%.2f ^8(ancestral call damage multiplier)", ancestrallyBoostedIncDamageMulti > 0 and globalOutput.AncestralCallDamageMultiplier or 0),
 						s_format("x %.2f) ^8(ancestral call uptime ratio)", globalOutput.AncestralCallUptimeRatio / 100 or 0),
 						s_format("= %.2f", globalOutput.AvgAncestralCallDamageEffect),
 					}
 				end
-				globalOutput.MaxAncestralCallDamageEffect = ancestrallyBoostedIncDamageMulti
+				globalOutput.MaxAncestralCallDamageEffect = 1 + ancestrallyBoostedIncDamageMulti
 				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 					output.AncestralCallDamageEffect = globalOutput.MaxAncestralCallDamageEffect
 					skillModList:NewMod("AreaOfEffect", "INC", ancestrallyBoostedIncArea, "Max Ancestral Call Boosted AoE")
