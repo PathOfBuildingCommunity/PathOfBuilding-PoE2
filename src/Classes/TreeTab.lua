@@ -1022,7 +1022,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 			-- Open confirmation popup first
 			main:OpenConfirmPopup(
 				"Confirm Re-Allocation",
-				"This will re-allocate all attribute travel nodes based on your current Auto Attribute settings.\nContinue?",
+				"This will re-allocate all attribute travel nodes based on your Auto Attribute settings for the currently active weapon set.\nContinue?",
 				"Confirm",
 				function()
 					applyChanges() -- save changes first

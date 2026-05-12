@@ -2565,13 +2565,15 @@ function PassiveSpecClass:AutoReallocAllAttributeNodes()
 	-- init player attribute cache with current tree, items, and config
 	local defaultAttrValue = data.misc.DefaultAttrNodeValue
 	local allNodes = self.build.spec.allocNodes
+	local activeWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
 	local attrBaseOffset = { str = 0, dex = 0, int = 0 } -- base values that need to be subtracted from cache
 	local attrNodes = { }
 	
 	-- Check for currently allocated base attribute nodes and record their effects
 	for _, node in pairs(allNodes) do
 		if node.isAttribute then
-			local isBaseAttr = true -- assume it's a "normal" attribute node
+			-- Only attributes in generic passives or currently active weapon set passives affected
+			local isAffectedAttr = node.allocMode == 0 or node.allocMode == activeWeaponSet
 			if node.dn == "Strength" then
 				attrBaseOffset.str = attrBaseOffset.str + defaultAttrValue
 			elseif node.dn == "Dexterity" then
@@ -2579,12 +2581,12 @@ function PassiveSpecClass:AutoReallocAllAttributeNodes()
 			elseif node.dn == "Intelligence" then
 				attrBaseOffset.int = attrBaseOffset.int + defaultAttrValue
 			else
-				-- isAttribute, but not set to str/dex/int likely means something like Pathfinder's "Traveler's Wisdom"
-				isBaseAttr = false
+				-- isAttribute in current set, but not set to str/dex/int likely means something like Pathfinder's "Traveler's Wisdom"
+				isAffectedAttr = false
 			end
 			
 			-- add to list for re-allocation
-			if isBaseAttr then 
+			if isAffectedAttr then 
 				t_insert(attrNodes,node) 
 			end
 		end
