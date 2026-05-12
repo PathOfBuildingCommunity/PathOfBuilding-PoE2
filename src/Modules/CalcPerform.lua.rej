@@ -1,0 +1,20 @@
+diff a/src/Modules/CalcPerform.lua b/src/Modules/CalcPerform.lua	(rejected hunks)
+@@ -1338,6 +1338,7 @@ function calcs.perform(env, skipEHP)
+ 					env.player.modDB:NewMod("Multiplier:NonVaalSummonedMinion", "BASE", output[activeSkill.minion.minionData.limit], "Config", { type = "Condition", var = "Combat" })
+ 				end
+ 				minionCount[activeSkill.minion.minionData.limit] = true
++				t_insert(minionCount, activeSkill.minion.minionData.limit)
+ 			end
+ 		end
+ 		if activeSkill.skillTypes[SkillType.CreatesMinion] and not activeSkill.skillTypes[SkillType.MinionsAreUndamagable] then
+@@ -1370,6 +1371,10 @@ function calcs.perform(env, skipEHP)
+ 		end
+ 	end
+ 
++	if #minionCount == 1 then
++		modDB.conditions["OnlyMinion"] = true
++	end
++
+ 	-- Special Rarity / Quantity Calc for Bisco's
+ 	local lootQuantityNormalEnemies = modDB:Sum("INC", nil, "LootQuantityNormalEnemies")
+ 	output.LootQuantityNormalEnemies = (lootQuantityNormalEnemies > 0) and lootQuantityNormalEnemies + modDB:Sum("INC", nil, "LootQuantity") or 0
