@@ -1102,7 +1102,8 @@ statMap = {
 #minionList RaisedZombie
 #skill RaiseZombiePlayer
 #set RaiseZombiePlayer
-#flags spell minion permanentMinion
+#flags spell minion
+#baseMod flag("Condition:TemporaryMinion")
 #mods
 #skillEnd
 
@@ -1400,6 +1401,7 @@ statMap = {
 #skill UnearthPlayer
 #set UnearthPlayer
 #flags spell area minion
+#baseMod flag("Condition:TemporaryMinion")
 #mods
 #skillEnd
 

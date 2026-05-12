@@ -84,4 +84,27 @@ describe("TestSkills", function()
 		local finalCost = build.calcsTab.mainOutput.ManaCost
 		assert.are.equals(16, round(finalCost))
 	end)
+
+	it("Test 'every rage also grants you' for minion mods", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Unearth 20/0  1")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nRage I 1/0  1")
+		runCallback("OnFrame")
+
+		local baseUnearthAttackSpeed = build.calcsTab.mainOutput.Minion.Speed
+
+		build.configTab.input.customMods = "Every Rage also grants you 1% increased Minion Attack Speed"
+		build.configTab.input.multiplierRage = 30
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.True(baseUnearthAttackSpeed < build.calcsTab.mainOutput.Minion.Speed)
+	end)
 end)

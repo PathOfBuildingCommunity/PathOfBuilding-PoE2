@@ -16291,7 +16291,9 @@ skills["RaiseZombiePlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+			},
+			baseMods = {
+				flag("Condition:TemporaryMinion"),
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 1 },
@@ -21216,6 +21218,9 @@ skills["UnearthPlayer"] = {
 				spell = true,
 				area = true,
 				minion = true,
+			},
+			baseMods = {
+				flag("Condition:TemporaryMinion"),
 			},
 			constantStats = {
 				{ "unearth_base_cone_speed_multiplier", 50 },
