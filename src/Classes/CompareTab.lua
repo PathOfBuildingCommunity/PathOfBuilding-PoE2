@@ -326,8 +326,20 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.cmpMainSkill.shown = false
 
+	self.controls.cmpStatSet = new("DropDownControl", {"LEFT", self.controls.cmpMainSkill, "RIGHT"}, {2, 0, 150, 20}, {}, function(index, value)
+		local entry = self:GetActiveCompare()
+		local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+		if mainSocketGroup then
+			local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
+			srcInstance.statSet = srcInstance.statSet or { }
+			srcInstance.statSet[value.grantedEffectId] = index
+			entry.buildFlag = true
+		end
+	end)
+	self.controls.cmpStatSet.shown = true
+
 	-- Skill part (multi-part skills)
-	self.controls.cmpSkillPart = new("DropDownControl", {"LEFT", self.controls.cmpMainSkill, "RIGHT"}, {2, 0, 100, 20}, {}, function(index, value)
+	self.controls.cmpSkillPart = new("DropDownControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {2, 0, 100, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -382,7 +394,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpMineCount.shown = false
 
 	-- Minion selector
-	self.controls.cmpMinion = new("DropDownControl", {"LEFT", self.controls.cmpMineCount, "RIGHT"}, {4, 0, 140, 20}, {}, function(index, value)
+	self.controls.cmpMinion = new("DropDownControl", {"LEFT", self.controls.cmpMineCount, "RIGHT"}, {4, 0, 140, 50}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -421,6 +433,20 @@ function CompareTabClass:InitControls()
 		end
 	end)
 	self.controls.cmpMinionSkill.shown = false
+
+	-- Minion skill stat set selector
+	self.controls.cmpMinionSkillStatSet = new("DropDownControl", {"LEFT", self.controls.cmpMinionSkill, "RIGHT"}, {2, 0, 140, 20}, {}, function(index, value)
+		local entry = self:GetActiveCompare()
+		local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
+		if mainSocketGroup then
+			local srcInstance = mainSocketGroup.displaySkillList[mainSocketGroup.mainActiveSkill].activeEffect.srcInstance
+			srcInstance.skillMinionSkillStatSetIndexLookup = srcInstance.skillMinionSkillStatSetIndexLookup or { }
+			srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] = srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId] or { }
+			srcInstance.skillMinionSkillStatSetIndexLookup[value.grantedEffectId][srcInstance.skillMinionSkill] = index
+			entry.buildFlag = true
+		end
+	end)
+	self.controls.cmpMinionSkillStatSet.shown = false
 
 	-- ============================================================
 	-- Calcs view skill detail controls (per-build, independent of sidebar & regular Calcs tab)
@@ -2081,8 +2107,8 @@ function CompareTabClass:UpdateSetSelectors(compareEntry)
 		mainSkillMinionLibrary = { shown = false },
 		mainSkillBeastLibrary = { shown = false },
 		mainSkillMinionSkill = self.controls.cmpMinionSkill,
-		mainSkillMinionSkillStatSet = self.controls.cmpCalcsMinionSkillStatSet,
-		statSet = self.controls.cmpCalcsStatSet
+		mainSkillMinionSkillStatSet = self.controls.cmpMinionSkillStatSet,
+		statSet = self.controls.cmpStatSet
 	}
 	compareEntry:RefreshSkillSelectControls(cmpControls, compareEntry.mainSocketGroup, "")
 end
