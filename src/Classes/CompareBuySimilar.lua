@@ -208,11 +208,11 @@ function M.openPopup(item, slotName, primaryBuild)
 			for _, modLine in ipairs(source.list) do
 				if item:CheckModLineVariant(modLine) then
 					local formatted = itemLib.formatModLine(modLine)
-					formatted = formatted and formatted:gsub(main.notSupportedTooltipText, "")
+					formatted = formatted and formatted:gsub(" %^8%(Not supported in PoB yet%)", "")
 					if formatted then
 						-- Use range-resolved text for matching
 						local resolvedLine = (modLine.range and itemLib.applyRange(modLine.line, modLine.range, modLine.valueScalar)) or modLine.line
-						local tradeHash = tradeHelpers.findTradeHash(item, resolvedLine, source.type)
+						local tradeHash = tradeHelpers.findTradeHash(item, resolvedLine, source.type, modLine.desecrated)
 						local identifier = tradeHash and string.format("%s.stat_%s", source.type, tradeHash)
 						local value = tradeHelpers.modLineValue(resolvedLine)
 						t_insert(modEntries, {

@@ -64,12 +64,15 @@ function M.shouldBeInverted(tradeId, modLine, modType)
 		if category.id == modType then
 			for _, stat in ipairs(category.entries) do
 				if tradeId == stat.id then
-					-- local modifiers don't seem to be inverted
-					if stat.text:match("(Local)") then
+					-- remove radius jewel extra text
+					local formattedTradeSiteText = M.formatDatabaseText(stat.text)
+					-- local modifiers don't seem to be inverted. same goes for
+					-- the single stat that has (charm) in it
+					if formattedTradeSiteText:match("(Local)") or formattedTradeSiteText:match(" %(Charm%)$") then
 						return false
 					end
 					-- trade site sometimes has a + sign, sometimes not
-					return not (formattedLine == stat.text or formattedLine:gsub("^%+", "") == stat.text)
+					return not (formattedLine == formattedTradeSiteText or formattedLine:gsub("^%+", "") == formattedTradeSiteText)
 				end
 			end
 		end
@@ -83,16 +86,21 @@ function M.formatDatabaseText(text)
 	-- (123-124) -> #
 	text = text:gsub("%(%d+%-%d+%)", "#")
 	text = text:gsub("%d+", "#")
+	-- remove radius jewel text. the same description is used for regular and
+	-- radius jewels in the exports
+	text = text:gsub("^Notable Passive Skills in Radius also grant ", "")
+	text = text:gsub("^Small Passive Skills in Radius also grant ", "")
 	return text
 end
 
 -- Helper: find the trade stat ID for a mod line
-function M.findTradeHash(item, modLine, modType)
+function M.findTradeHash(item, modLine, modType, isDesecrated)
 	local formattedLine = M.formatDatabaseText(modLine)
 	-- the data export splits some mods into different parts, even though they
 	-- are technically just one stat. we handle that here
-	function findStat(dbMod)
-		if not item:GetModSpawnWeight(dbMod, nil, { default = true }) then
+	function findStat(dbMod, allowDefault)
+		local excludeTags = (not allowDefault) and { default = true } or nil
+		if #dbMod.weightKey > 0 and not (item:GetModSpawnWeight(dbMod, nil, excludeTags) > 0) then
 			return nil
 		end
 		for tradeHash, description in pairs(dbMod.tradeHashes) do
@@ -115,7 +123,9 @@ function M.findTradeHash(item, modLine, modType)
 		end
 		-- explicit
 	elseif modType ~= "implicit" then
-		for _, dbMod in pairs(data.itemMods.Item) do
+		local modList = (item.base and item.base.type == "Jewel" and data.itemMods.Jewel)
+			or data.itemMods.Item
+		for _, dbMod in pairs(modList) do
 			local tradeHashMaybe = findStat(dbMod)
 			if tradeHashMaybe then
 				return tradeHashMaybe
@@ -124,9 +134,28 @@ function M.findTradeHash(item, modLine, modType)
 	end
 	-- implicit, and special explicit (e.g. unique and essence)
 	for _, dbMod in pairs(data.itemMods.Exclusive) do
-		local tradeHashMaybe = findStat(dbMod)
+		local tradeHashMaybe = findStat(dbMod, true)
 		if tradeHashMaybe then
 			return tradeHashMaybe
+		end
+	end
+	-- desecrated mods (some of these are unique)
+	if isDesecrated then
+		for _, dbMod in pairs(data.itemMods.Desecrated) do
+			local tradeHashMaybe = findStat(dbMod)
+			if tradeHashMaybe then
+				return tradeHashMaybe
+			end
+		end
+	end
+	-- charm mods
+	if item.base and item.base.type == "Charm" then
+		for _, dbMod in pairs(data.itemMods.Charm) do
+			-- charms don't seem to have any spawn weights, so allow the default tag here
+			local tradeHashMaybe = findStat(dbMod, true)
+			if tradeHashMaybe then
+				return tradeHashMaybe
+			end
 		end
 	end
 end

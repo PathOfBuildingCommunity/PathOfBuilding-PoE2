@@ -2358,7 +2358,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 		end
 	end
 	if categories.items then
-		local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
+		local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Charm 1", "Charm 2", "Charm 3" }
 		if self:ShouldShowRing3(compareEntry) then
 			t_insert(baseSlots, 10, "Ring 3")
 		end
@@ -2522,7 +2522,7 @@ function CompareTabClass:ComparePowerBuilder(compareEntry, powerStat, categories
 	-- Items
 	-- ==========================================
 	if categories.items then
-		local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
+		local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Charm 1", "Charm 2", "Charm 3" }
 		if self:ShouldShowRing3(compareEntry) then
 			t_insert(baseSlots, 10, "Ring 3")
 		end
@@ -3421,7 +3421,7 @@ function CompareTabClass:ShouldShowRing3(compareEntry)
 end
 
 function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
-	local baseSlots = { "Weapon 1", "Weapon 2", "Weapon 1 Swap", "Weapon 2 Swap", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Flask 3", "Flask 4", "Flask 5" }
+	local baseSlots = { "Weapon 1", "Weapon 2", "Weapon 1 Swap", "Weapon 2 Swap", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Belt", "Flask 1", "Flask 2", "Charm 1", "Charm 2", "Charm 3" }
 	if self:ShouldShowRing3(compareEntry) then
 		t_insert(baseSlots, 12, "Ring 3")
 	end
