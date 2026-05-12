@@ -755,7 +755,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	self.build.spec:AddUndoState()
 	self:ImportQuestRewardConfig(charPassiveData.quest_stats)
 	if not self.lastLeague then
-		self.lastLeague = charSelectLeague:GetSelValueByKey("league")
+		self.lastLeague = charSelectLeague and charSelectLeague:GetSelValueByKey("league")
 	end
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
