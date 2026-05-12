@@ -85,28 +85,22 @@ describe("TestSkills", function()
 		assert.are.equals(16, round(finalCost))
 	end)
 
-	it("Test multiple persistent buff supports", function()
+	it("Test stacking persistent buff supports of same category", function()
 		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1")
 		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
 		runCallback("OnFrame")
-
-		local buffList = build.calcsTab.calcsOutput.BuffList
-		assert.are.equals(buffList, "Clarity I, Clarity II")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity I, Clarity II")
 
 		newBuild()
 		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1\nClarity II 1/0 1")
 		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
 		runCallback("OnFrame")
-
-		local buffList = build.calcsTab.calcsOutput.BuffList
-		assert.are.equals(buffList, "Clarity II")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity II")
 
 		newBuild()
-		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity II 1/0  1\n")
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity II 1/0  1")
 		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
 		runCallback("OnFrame")
-
-		local buffList = build.calcsTab.calcsOutput.BuffList
-		assert.are.equals(buffList, "Clarity II")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity II")
 	end)
 end)
