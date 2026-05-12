@@ -336,7 +336,7 @@ function CompareTabClass:InitControls()
 			entry.buildFlag = true
 		end
 	end)
-	self.controls.cmpStatSet.shown = true
+	self.controls.cmpStatSet.shown = false
 
 	-- Skill part (multi-part skills)
 	self.controls.cmpSkillPart = new("DropDownControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {2, 0, 100, 20}, {}, function(index, value)
@@ -356,7 +356,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpSkillPart.shown = false
 
 	-- Stage count
-	self.controls.cmpStageCountLabel = new("LabelControl", {"LEFT", self.controls.cmpSkillPart, "RIGHT"}, {4, 0, 0, 16}, "^7Stages:")
+	self.controls.cmpStageCountLabel = new("LabelControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {4, 0, 0, 16}, "^7Stages:")
 	self.controls.cmpStageCountLabel.shown = function() return self.controls.cmpStageCount.shown end
 	self.controls.cmpStageCount = new("EditControl", {"LEFT", self.controls.cmpStageCountLabel, "RIGHT"}, {2, 0, 52, 20}, "", nil, "%D", 5, function(buf)
 		local entry = self:GetActiveCompare()

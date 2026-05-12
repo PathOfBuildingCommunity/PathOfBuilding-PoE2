@@ -341,10 +341,9 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 			t_insert(controls.mainSkillPart.list, { val = i, label = part.name })
 		end
 		controls.mainSkillPart.selIndex = activeEffect.srcInstance["skillPart"..suffix] or 1
-		local selectedPart = activeEffect.grantedEffect.parts[controls.mainSkillPart.selIndex]
-		if selectedPart and selectedPart.stages then
+		if activeEffect.grantedEffect.parts[controls.mainSkillPart.selIndex].stages then
 			controls.mainSkillStageCount.shown = true
-			controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or selectedPart.stagesMin or 1)
+			controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeEffect.grantedEffect.parts[controls.mainSkillPart.selIndex].stagesMin or 1)
 		end
 	end
 
@@ -367,7 +366,7 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 		controls.statSet.shown = true
 	end
 	-- Stage count (for multi-stage skills without parts)
-	if activeSkill.activeEffect.srcInstance.statSet.skillFlags and activeSkill.activeEffect.statSet.skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
+	if activeSkill.activeEffect["statSet"..suffix].skillFlags.multiStage and not (activeEffect.grantedEffect.parts and #activeEffect.grantedEffect.parts > 1) then
 		controls.mainSkillStageCount.shown = true
 		controls.mainSkillStageCount.buf = tostring(activeEffect.srcInstance["skillStageCount"..suffix] or activeSkill.skillData.stagesMin or 1)
 	end
