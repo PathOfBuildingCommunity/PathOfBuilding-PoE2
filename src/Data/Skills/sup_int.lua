@@ -5150,7 +5150,7 @@ skills["SupportInevitableCriticalsPlayerTwo"] = {
 					mod("Multiplier:InevitableCritCap", "BASE", nil),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second"] = {
-					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+					mod("CritMultiplier", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitNegTotal = true }),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_cap"] = {
 					mod("Multiplier:InevitableCritMultCap", "BASE", nil),
