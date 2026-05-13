@@ -7,6 +7,7 @@ local t_insert = table.insert
 local m_floor = math.floor
 local dkjson = require "dkjson"
 local tradeHelpers = LoadModule("Classes/CompareTradeHelpers")
+local tradeQueryHelpers = LoadModule("Classes/TradeQueryHelpers")
 
 local M = {}
 
@@ -85,7 +86,7 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 		end
 	else
 		-- Category filter
-		local categoryStr = tradeHelpers.getTradeCategory(slotName, item)
+		local categoryStr, _ = tradeQueryHelpers.GetTradeCategory(slotName, item)
 		if categoryStr then
 			queryFilters.type_filters = {
 				filters = {
