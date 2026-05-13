@@ -349,6 +349,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	self.sockets = { }
 	self.runes = { }
 	self.itemSocketCount = 0
+	self.jewelSocketCount = 0
 	self.classRequirementModLines = { }
 	self.buffModLines = { }
 	self.enchantModLines = { }
@@ -440,6 +441,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 						if c:match("[S]") then
 							t_insert(self.sockets, { group = group })
 							group = group + 1
+						elseif c:match("[J]") then -- e.g. specVal = "Sockets: J J J J J J"
+							self.jewelSocketCount = self.jewelSocketCount + 1
 						end
 					end
 					self.itemSocketCount = #self.sockets
@@ -1268,6 +1271,14 @@ function ItemClass:BuildRaw()
 			t_insert(rawLines, "Rune: "..(self.runes[i] or "None"))
 		end
 	end
+	if self.jewelSocketCount and self.jewelSocketCount > 0 then
+		local socketString = ""
+		for _ = 1, self.jewelSocketCount do
+			socketString = socketString .. "J "
+		end
+		socketString = socketString:gsub(" $", "")
+		t_insert(rawLines, "Sockets: " .. socketString)
+	end
 	if self.requirements and self.requirements.level then
 		t_insert(rawLines, "LevelReq: " .. self.requirements.level)
 	end
@@ -1831,6 +1842,14 @@ function ItemClass:BuildModList()
 				triggerChance = skill.triggerChance,
 			})
 		end
+	end
+	--Sekhema's Resolve
+	if baseList:Flag(nil, "JewelSocketRestriction") then
+		self.canSocketJewelBase = { }
+		self.canSocketJewelBase["Diamond"] = calcLocal(baseList, "CanSocketJewelBaseDiamond", "FLAG", 0)
+		self.canSocketJewelBase["Sapphire"] = calcLocal(baseList, "CanSocketJewelBaseSapphire", "FLAG", 0)
+		self.canSocketJewelBase["Emerald"] = calcLocal(baseList, "CanSocketJewelBaseEmerald", "FLAG", 0)
+		self.canSocketJewelBase["Ruby"] = calcLocal(baseList, "CanSocketJewelBaseRuby", "FLAG", 0)
 	end
 
 	local reqLevel = 0

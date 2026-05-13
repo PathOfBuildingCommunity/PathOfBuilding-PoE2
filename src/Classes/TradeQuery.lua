@@ -415,11 +415,34 @@ Highest Weight - Displays the order retrieved from trade]]
 		self:UpdateRealms()
 	end
 
+	local activeJewelSockets = {
+		["Weapon 1"] = { }, ["Weapon 2"] = { }, ["Helmet"] = { },
+		["Body Armour"] = { }, ["Gloves"] = { }, ["Boots"] = { },
+		["Belt"] = { }, ["Ring 1"] = { }, ["Ring 2"] = { }, ["Ring 3"] = { },
+	}
+	-- loop all slots, set any active jewel sockets
+	for index, slot in pairs(self.itemsTab.slots) do
+		if index:find("Jewel") and slot.shown() then
+			t_insert(activeJewelSockets[slot.parentSlot.slotName], slot)
+		end
+	end
+	for _, jewel in pairs(activeJewelSockets) do -- sort Jewel #1 > Jewel #2
+		t_sort(jewel, function(a, b)
+			return a.label < b.label
+		end)
+	end
+
 	-- Individual slot rows
 	local slotTables = {}
 	for _, slotName in ipairs(baseSlots) do
 		if self.itemsTab.slots[slotName].shown() then
 			t_insert(slotTables, { slotName = slotName })
+		end
+		-- add jewel sockets to slotTables if exist for this slot
+		if activeJewelSockets[slotName] then
+			for _, jewelSocket in pairs(activeJewelSockets[slotName]) do
+				t_insert(slotTables, { slotName = jewelSocket.label, fullName = jewelSocket.slotName }) -- actual slotName doesn't fit/excessive in slotName on popup but is needed for exact matching later
+			end
 		end
 	end
 	local activeSocketList = { }
@@ -840,7 +863,9 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 	local controls = self.controls
 	local slotTbl = self.slotTables[row_idx]
 	local activeSlotRef = slotTbl.nodeId and self.itemsTab.activeItemSet[slotTbl.nodeId] or self.itemsTab.activeItemSet[slotTbl.slotName]
-	local activeSlot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId] or slotTbl.slotName and self.itemsTab.slots[slotTbl.slotName]
+	local activeSlot = slotTbl.nodeId and self.itemsTab.sockets[slotTbl.nodeId]
+						or slotTbl.slotName and (self.itemsTab.slots[slotTbl.slotName]
+						or slotTbl.fullName and self.itemsTab.slots[slotTbl.fullName]) -- fullName for Jewel Sockets
 	local nameColor = slotTbl.unique and colorCodes.UNIQUE or "^7"
 	controls["name"..row_idx] = new("LabelControl", top_pane_alignment_ref, {0, row_idx*(row_height + row_vertical_padding), 100, row_height - 4}, nameColor..slotTbl.slotName)
 	controls["bestButton"..row_idx] = new("ButtonControl", { "LEFT", controls["name"..row_idx], "LEFT"}, {100 + 8, 0, 80, row_height}, "Find best", function()

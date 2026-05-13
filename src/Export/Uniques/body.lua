@@ -756,7 +756,6 @@ UniqueEvasionOvercappedLightningResistance1
 Tabula Rasa
 Garment
 League: Dawn of the Hunt
-Sockets: S S S S S S
-Has 6 Rune Sockets
+Sockets: J J J J J J
 ]],
 }

@@ -1009,6 +1009,16 @@ function calcs.initEnv(build, mode, override, specEnv)
 				item = nil
 			end
 			local scale = 1
+			-- unequips Jewel if parentSlot providing the socket is removed
+			if item and item.type == "Jewel" and slot.parentSlot then
+				-- Check if the item in the parent slot has enough Jewel Sockets
+				local parentItem = env.player.itemList[slot.parentSlot.slotName]
+				if not parentItem or parentItem.jewelSocketCount < slot.slotNum then
+					item = nil
+				else
+					scale = parentItem.socketedJewelEffectModifier
+				end
+			end
 			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
 				local node = env.spec.nodes[slot.nodeId]
 				if node and node.distanceToClassStart then
