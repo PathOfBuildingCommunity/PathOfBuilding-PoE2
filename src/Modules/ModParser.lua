@@ -2952,6 +2952,20 @@ local specialModList = {
 		flag("ColdCanShock"),
 		flag("ChaosCanShock"),
 	},
+	-- Three Dragons
+	["fire damage from hits contributes to shock chance instead of flammability and ignite magnitudes"] = {
+		flag("FireCanShock"),
+		flag("FireCannotIgnite"),
+	},
+	["cold damage from hits contributes to flammability and ignite magnitudes instead of chill magnitude or freeze buildup"] = {
+		flag("ColdCanIgnite"),
+		flag("ColdCannotChill"),
+		flag("ColdCannotFreeze"),
+	},
+	["lightning damage from hits contributes to freeze buildup instead of shock chance"] = {
+		flag("LightningCanFreeze"),
+		flag("LightningCannotShock"),
+	},
 	["all damage from hits contributes to (%a+) magnitude"] = function(_, ailment) return {
 		flag("Can"..firstToUpper(ailment)),
 	} end,

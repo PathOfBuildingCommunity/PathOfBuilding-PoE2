@@ -4581,8 +4581,7 @@ c["Charms applied to you have 25% increased Effect"]={{[1]={[1]={actor="player",
 c["Charms gain 0.15 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGenerated",type="BASE",value=0.15}},nil}
 c["Charms gain 0.5 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGenerated",type="BASE",value=0.5}},nil}
 c["Charms use no Charges"]={{[1]={flags=0,keywordFlags=0,name="CharmsUseNoCharges",type="FLAG",value=true}},nil}
-c["Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup"]={nil,"Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup "}
-c["Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance"]={nil,"Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance "}
+c["Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="ColdCanIgnite",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCannotChill",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="ColdCannotFreeze",type="FLAG",value=true}},nil}
 c["Cold Resistance is unaffected by Area Penalties"]={nil,"Cold Resistance is unaffected by Area Penalties "}
 c["Cold Resistance is unaffected by Area Penalties Fire Resistance is unaffected by Area Penalties"]={nil,"Cold Resistance is unaffected by Area Penalties Fire Resistance is unaffected by Area Penalties "}
 c["Combo count loss occurs 20% slower"]={nil,"Combo count loss occurs 20% slower "}
@@ -4891,8 +4890,7 @@ c["Excess Life Recovery from Leech is applied to Energy Shield"]={nil,"Excess Li
 c["Excess Life Recovery from Regeneration is applied to Energy Shield"]={{[1]={[1]={type="Condition",var="FullLife"},flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
 c["Exposure you inflict lowers Resistances by an additional 5%"]={{[1]={flags=0,keywordFlags=0,name="ExtraExposure",type="BASE",value=-5}},nil}
 c["Final Repeat of Spells has 30% increased Area of Effect"]={{[1]={[1]={neg=true,type="Condition",var="CastOnFrostbolt"},[2]={type="Condition",varList={[1]="averageRepeat",[2]="alwaysFinalRepeat"}},flags=2,keywordFlags=0,name="RepeatFinalAreaOfEffect",type="INC",value=30}},nil}
-c["Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes"]={nil,"Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes "}
-c["Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup"]={nil,"Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes Cold Damage from Hits Contributes to Flammability and Ignite Magnitudes instead of Chill Magnitude or Freeze Buildup "}
+c["Fire Damage from Hits Contributes to Shock Chance instead of Flammability and Ignite Magnitudes"]={{[1]={flags=0,keywordFlags=0,name="FireCanShock",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireCannotIgnite",type="FLAG",value=true}},nil}
 c["Fire Resistance is unaffected by Area Penalties"]={nil,"Fire Resistance is unaffected by Area Penalties "}
 c["Fire Resistance is unaffected by Area Penalties Lightning Resistance is unaffected by Area Penalties"]={nil,"Fire Resistance is unaffected by Area Penalties Lightning Resistance is unaffected by Area Penalties "}
 c["Fire Spells Convert 100% of Fire Damage to Chaos Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="FireDamageConvertToChaos",type="BASE",value="100"}},nil}
@@ -5469,7 +5467,7 @@ c["Life Recovery from your Flasks also applies to your Companions"]={nil,"Life R
 c["Life Regeneration is applied to Energy Shield instead"]={{[1]={flags=0,keywordFlags=0,name="ZealotsOath",type="FLAG",value=true}},nil}
 c["Life and Mana Flasks can be equipped in either slot"]={nil,"Life and Mana Flasks can be equipped in either slot "}
 c["Life that would be lost by taking Damage is instead Reserved"]={{[1]={flags=0,keywordFlags=0,name="DamageInsteadReservesLife",type="FLAG",value=true}},nil}
-c["Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance"]={nil,"Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance "}
+c["Lightning Damage from Hits Contributes to Freeze Buildup instead of Shock Chance"]={{[1]={flags=0,keywordFlags=0,name="LightningCanFreeze",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="LightningCannotShock",type="FLAG",value=true}},nil}
 c["Lightning Damage of Enemies Hitting you is Unlucky"]={nil,"Lightning Damage of Enemies Hitting you is Unlucky "}
 c["Lightning Damage of Enemies Hitting you is Unlucky during effect"]={nil,"Lightning Damage of Enemies Hitting you is Unlucky during effect "}
 c["Lightning Resistance does not affect Lightning damage taken"]={{[1]={flags=0,keywordFlags=0,name="SelfIgnoreLightningResistance",type="FLAG",value=true}},nil}
