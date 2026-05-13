@@ -1378,7 +1378,6 @@ local preFlagList = {
 	["allies in your presence [hgd][ae][via][enl] "] = { newAura = true, newAuraOnlyAllies = true },
 	["^you and allies in your presence [hgd][ae][via][enl] "] = { newAura = true },
 	["^every rage also grants "] = { tag = { type = "Multiplier", var = "RageEffect" } },
-	["^every rage also grants you "] = { tag = { type = "Multiplier", var = "RageEffect", actor = "parent" } },
 	["^each rage also grants "] = { tag = { type = "Multiplier", var = "RageEffect" } },
 	["^every (%d+) rage also grants "] = function(num) return { tag = { type = "Multiplier", var = "RageEffect", div = tonumber(num) } } end,
 	["^you and allies affected by auras from your skills [hgd][ae][via][enl] "] = { tag = { type = "Condition", var = "AffectedByAura" } },
@@ -4657,6 +4656,14 @@ local specialModList = {
 	["summoned skeleton warriors are permanent and follow you"] = { flag("RaisedSkeletonPermanentDuration", { type = "SkillName", skillName = "Summon Skeletons" }) },
 	["minions recoup (%d+)%% of damage taken as life"] = function(num) return { mod("MinionModifier", "LIST", { mod = mod("LifeRecoup", "BASE", num) }) } end,
 	["temporary minion skills have %+(%d+) to limit of minions summoned"] = function(num) return { mod("ActiveMinionLimit", "BASE", num, { type = "BaseFlag", baseFlag = "duration", neg = true }) } end,
+	["every rage also grants you (%d+)%% increased minion attack speed"] = function(num) return {
+			mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, { type = "Multiplier", var = "RageEffect", actor = "player" }) }),
+			mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", num, { type = "Multiplier", var = "RageEffect", actor = "parent" }) }),
+	} end,
+	["every rage also grants you (%d+)%% increased minion damage"] = function(num) return {
+			mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num, { type = "Multiplier", var = "RageEffect", actor = "player" }) }),
+			mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", num, { type = "Multiplier", var = "RageEffect", actor = "parent" }) }),
+	} end,
 	-- Projectiles
 	["skills chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num) } end,
 	["arrows chain %+(%d) times"] = function(num) return { mod("ChainCountMax", "BASE", num, nil, 0, KeywordFlag.Arrow) } end,
