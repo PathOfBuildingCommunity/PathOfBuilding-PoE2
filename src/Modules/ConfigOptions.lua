@@ -405,7 +405,7 @@ local configSettings = {
 		modList:NewMod("Multiplier:IncisionConsumedRecently", "BASE", val, "Config")
 	end },
 	{ label = "Inexorable Critical Support:", ifSkill = { "Inexorable Critical I", "Inexorable Critical II" } },
-	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable Crit:", ifSkill = { "Inexorable Critical I", "Inexorable Critical II" }, defaultState = 5, tooltip = "Also implies you've crit recently if the value is 3s or below", apply = function(val, modList, enemyModList)
+	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable Crit:", ifSkill = { "Inexorable Critical I", "Inexorable Critical II" }, defaultState = 10, tooltip = "Also implies you've crit recently if the value is 3s or below", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SecondsSinceInevitableCrit", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 		if val < 4 then
 			modList:NewMod("Condition:CritRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
