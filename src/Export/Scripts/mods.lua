@@ -110,24 +110,31 @@ local function writeMods(outName, condFunc)
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end
 
+				-- Note that some of the resulting hashes might not be correct.
+				-- Some of the tradehashes are also associated with another
+				-- value. For example the "only affects passives in # ring" is
+				-- correct here, but has a variant value appended to it like:
+				-- explicit.stat_3642528642|7. Some stats may also be handled in
+				-- a way similar to radius jewels that this script doesn't do.
 				local modIdx = 1
 				local tradeHashes = {}
 				while mod["Stat" .. modIdx] do
 					local currentStats = {}
-					currentStats[mod["Stat" .. modIdx].Id] = {
+					local stat = mod["Stat" .. modIdx]
+					currentStats[stat.Id] = {
 						min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
 					}
 					if modIdx == 6 then
 						break
 					end
-					local bytes = intToBytes(mod["Stat" .. modIdx].Hash)
+					local bytes = intToBytes(stat.Hash)
 					-- # to # stats consist of two different stats as the min and max have different ranges
-					if mod["Stat" .. modIdx].Id:match("minimum") then
+					if stat.Id:match("minimum") then
 						local nextStat = mod["Stat" .. (modIdx + 1)]
 						if nextStat and nextStat.Id:match("maximum") then
 							modIdx = modIdx + 1
-							bytes = bytes .. intToBytes(mod["Stat" .. modIdx].Hash)
-							currentStats[mod["Stat" .. modIdx].Id] = {
+							bytes = bytes .. intToBytes(nextStat.Hash)
+							currentStats[nextStat.Id] = {
 								min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
 							}
 						end
