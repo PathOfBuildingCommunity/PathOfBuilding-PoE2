@@ -2060,6 +2060,7 @@ local modTagList = {
 	["against marked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" } },
 	["when hitting marked enemy"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" }, keywordFlags = KeywordFlag.Hit },
 	["from marked enemy"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" } },
+	["to y?o?u?r? ?marked targets?"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" } },
 	["against taunted enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Taunted" } },
 	["against bleeding enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Bleeding" } },
 	["you inflict on bleeding enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Bleeding" } },
