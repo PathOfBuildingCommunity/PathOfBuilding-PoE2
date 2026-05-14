@@ -183,8 +183,7 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 	return meanStatDiff
 end
 
-function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
-
+ 
 function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
 -- processes mods from the data exports to a format that is more useful for
 -- generating weights.
@@ -202,6 +201,9 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 		-- the mod export sometimes splits stats to multiple lines. they should
 		-- still get parsed correctly if we combine them, and that makes it
 		-- simpler to process them
+		if not modLines then
+			ConPrintf("")
+		end
 		local modLine = table.concat(modLines, " ")
 		if modLine:find("Grants Level") or modLine:find("inflict Decay") then -- skip mods that grant skills / decay, as they will often be overwhelmingly powerful but don't actually fit into the build
 			goto nextModLine
@@ -231,8 +233,11 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 		-- iterate trade mod category to find mod with matching text.
 		local function getTradeMod()
 			local entry
-			local tradeHashStr = tostring(mod.tradeHash)
+			local tradeHashStr = tostring(tradeHash)
 			for _, v in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices[modType]].entries) do
+				if _ == 33 then
+					ConPrintf("")
+				end
 				-- prefix removed
 				local ids = v.id:gsub(".+..stat_", "").."|"
 				-- split by non-integer
@@ -264,7 +269,7 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 		local tradeMod = nil
 		local invert
 
-		local uniqueIndex = tostring(mod.tradeHash)
+		local uniqueIndex = tostring(tradeHash)
 
 		if self.modData[modType][uniqueIndex] == nil then
 			if tradeMod == nil then
@@ -478,7 +483,7 @@ function TradeQueryGeneratorClass:InitMods()
 	for name, runeMods in pairsSortByKey(data.itemMods.Runes) do
 		for slotType, mods in pairs(runeMods) do
 			for i, modLine in ipairs(mods) do
-				local mod = {modLine, tradeHash = mods.tradeHashes[i], type = "Rune"}
+				local mod = {modLine, tradeHashes = mods.tradeHashes, type = "Rune"}
 				if slotType == "weapon" then
 					self:ProcessMod(mod, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true, ["Talisman"] = true  })
 				elseif slotType == "armour" then

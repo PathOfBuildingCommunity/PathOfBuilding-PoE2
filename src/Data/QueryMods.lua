@@ -9670,14 +9670,6 @@ return {
 			}, 
 		}, 
 		["1007380041"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9734,14 +9726,6 @@ return {
 			}, 
 		}, 
 		["1022759479"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9800,14 +9784,6 @@ return {
 			}, 
 		}, 
 		["1039268420"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9839,7 +9815,7 @@ return {
 			}, 
 			["Focus"] = {
 				["max"] = 164, 
-				["min"] = 10, 
+				["min"] = 6, 
 			}, 
 			["Gloves"] = {
 				["max"] = 124, 
@@ -9847,7 +9823,7 @@ return {
 			}, 
 			["Helmet"] = {
 				["max"] = 149, 
-				["min"] = 10, 
+				["min"] = 6, 
 			}, 
 			["Ring"] = {
 				["max"] = 179, 
@@ -9894,23 +9870,23 @@ return {
 		["1062208444"] = {
 			["Boots"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Chest"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Gloves"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Helmet"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Shield"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -9938,14 +9914,6 @@ return {
 			}, 
 		}, 
 		["1087108135"] = {
-			["AnyJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9955,14 +9923,6 @@ return {
 			}, 
 		}, 
 		["1087531620"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -9989,14 +9949,6 @@ return {
 			}, 
 		}, 
 		["111835965"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10045,14 +9997,6 @@ return {
 			}, 
 		}, 
 		["1137305356"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10062,14 +10006,6 @@ return {
 			}, 
 		}, 
 		["1145481685"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10079,14 +10015,6 @@ return {
 			}, 
 		}, 
 		["1160637284"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10113,14 +10041,6 @@ return {
 			}, 
 		}, 
 		["1166140625"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10165,14 +10085,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1185341308"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10303,23 +10215,23 @@ return {
 		["124859000"] = {
 			["Boots"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Chest"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Gloves"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Helmet"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Shield"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -10346,15 +10258,89 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1261982764"] = {
+			["LifeFlask"] = {
+				["max"] = 100, 
+				["min"] = 61, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1261982764", 
+				["text"] = "#% increased Life Recovered", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1263695895"] = {
+			["1HMace"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["2HMace"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Bow"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Flail"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Helmet"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Ring"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Sceptre"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Spear"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Staff"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Talisman"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["Wand"] = {
+				["max"] = 15, 
+				["min"] = 5, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1263695895", 
+				["text"] = "#% increased Light Radius", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1266413530"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10364,14 +10350,6 @@ return {
 			}, 
 		}, 
 		["127081978"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10381,14 +10359,6 @@ return {
 			}, 
 		}, 
 		["1285594161"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10429,14 +10399,6 @@ return {
 			}, 
 		}, 
 		["1309799717"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10497,14 +10459,6 @@ return {
 			}, 
 		}, 
 		["1320662475"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10514,14 +10468,6 @@ return {
 			}, 
 		}, 
 		["1321104829"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10531,14 +10477,6 @@ return {
 			}, 
 		}, 
 		["1323216174"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10548,14 +10486,6 @@ return {
 			}, 
 		}, 
 		["1337740333"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10565,14 +10495,6 @@ return {
 			}, 
 		}, 
 		["1352561456"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10678,14 +10600,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["138421180"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10729,14 +10643,6 @@ return {
 			}, 
 		}, 
 		["139889694"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10776,14 +10682,6 @@ return {
 			}, 
 		}, 
 		["1417267954"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10811,14 +10709,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1426522529"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10828,14 +10718,6 @@ return {
 			}, 
 		}, 
 		["1432756708"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10900,14 +10782,6 @@ return {
 			}, 
 		}, 
 		["147764878"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10917,14 +10791,6 @@ return {
 			}, 
 		}, 
 		["1494950893"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10934,14 +10800,6 @@ return {
 			}, 
 		}, 
 		["1495814176"] = {
-			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10951,14 +10809,6 @@ return {
 			}, 
 		}, 
 		["1505023559"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -10968,19 +10818,28 @@ return {
 			}, 
 		}, 
 		["1514844108"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1514844108", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Parried Debuff Duration", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1526933524"] = {
+			["LifeFlask"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["ManaFlask"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1526933524", 
+				["text"] = "Instant Recovery", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -11028,14 +10887,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1552666713"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11173,14 +11024,6 @@ return {
 			}, 
 		}, 
 		["1590846356"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11233,14 +11076,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1602294220"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11267,14 +11102,6 @@ return {
 			}, 
 		}, 
 		["1653682082"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11472,14 +11299,6 @@ return {
 			}, 
 		}, 
 		["1756380435"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11487,7 +11306,6 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% to Chaos Resistance", 
 				["type"] = "explicit", 
 			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["1772247089"] = {
 			["AnyJewel"] = {
@@ -11507,14 +11325,6 @@ return {
 			}, 
 		}, 
 		["1773308808"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11541,14 +11351,6 @@ return {
 			}, 
 		}, 
 		["1777421941"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11583,14 +11385,6 @@ return {
 			}, 
 		}, 
 		["179541474"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11617,14 +11411,6 @@ return {
 			}, 
 		}, 
 		["1800303440"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11650,6 +11436,19 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1811130680"] = {
+			["ManaFlask"] = {
+				["max"] = 100, 
+				["min"] = 61, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1811130680", 
+				["text"] = "#% increased Mana Recovered", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1829102168"] = {
 			["AnyJewel"] = {
 				["max"] = 10, 
@@ -11668,14 +11467,6 @@ return {
 			}, 
 		}, 
 		["1834658952"] = {
-			["AnyJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11723,14 +11514,6 @@ return {
 			}, 
 		}, 
 		["1846980580"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11738,17 +11521,8 @@ return {
 				["text"] = "Notable Passive Skills in Radius also grant # to Maximum Rage", 
 				["type"] = "explicit", 
 			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["1852184471"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11892,14 +11666,6 @@ return {
 			}, 
 		}, 
 		["1892122971"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11909,14 +11675,6 @@ return {
 			}, 
 		}, 
 		["1896066427"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -11992,14 +11750,6 @@ return {
 			}, 
 		}, 
 		["1944020877"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12023,14 +11773,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1994296038"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12059,19 +11801,19 @@ return {
 		["1999113824"] = {
 			["Boots"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Chest"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Gloves"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Helmet"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Shield"] = {
 				["max"] = 110, 
@@ -12120,14 +11862,6 @@ return {
 			}, 
 		}, 
 		["2056107438"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12137,14 +11871,6 @@ return {
 			}, 
 		}, 
 		["2066964205"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12154,14 +11880,6 @@ return {
 			}, 
 		}, 
 		["2077117738"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12267,14 +11985,6 @@ return {
 			}, 
 		}, 
 		["2107703111"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12284,14 +11994,6 @@ return {
 			}, 
 		}, 
 		["2108821127"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12344,14 +12046,6 @@ return {
 			}, 
 		}, 
 		["2131720304"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12375,14 +12069,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["2149603090"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12469,14 +12155,6 @@ return {
 			}, 
 		}, 
 		["2202308025"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12486,14 +12164,6 @@ return {
 			}, 
 		}, 
 		["221701169"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12617,14 +12287,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["2256120736"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12634,14 +12296,6 @@ return {
 			}, 
 		}, 
 		["2272980012"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12668,14 +12322,6 @@ return {
 			}, 
 		}, 
 		["2320654813"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12706,14 +12352,6 @@ return {
 			}, 
 		}, 
 		["2334956771"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12811,14 +12449,6 @@ return {
 			}, 
 		}, 
 		["2359002191"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12841,14 +12471,6 @@ return {
 			}, 
 		}, 
 		["2374711847"] = {
-			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12858,14 +12480,6 @@ return {
 			}, 
 		}, 
 		["2392824305"] = {
-			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12905,14 +12519,6 @@ return {
 			}, 
 		}, 
 		["2421151933"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12939,14 +12545,6 @@ return {
 			}, 
 		}, 
 		["2442527254"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -12958,23 +12556,23 @@ return {
 		["2451402625"] = {
 			["Boots"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Chest"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Gloves"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Helmet"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Shield"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -13020,14 +12618,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["2466785537"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13233,14 +12823,6 @@ return {
 			}, 
 		}, 
 		["2534359663"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13250,14 +12832,6 @@ return {
 			}, 
 		}, 
 		["253641217"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13297,14 +12871,6 @@ return {
 			}, 
 		}, 
 		["255840549"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13314,15 +12880,6 @@ return {
 			}, 
 		}, 
 		["2580617872"] = {
-			["AnyJewel"] = {
-				["max"] = -2, 
-				["min"] = -5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = -2, 
-				["min"] = -5, 
-			}, 
-			["invertOnNegative"] = true, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13360,14 +12917,6 @@ return {
 			}, 
 		}, 
 		["2610562860"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13394,14 +12943,6 @@ return {
 			}, 
 		}, 
 		["2638756573"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13437,14 +12978,6 @@ return {
 			}, 
 		}, 
 		["266564538"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13485,14 +13018,6 @@ return {
 			}, 
 		}, 
 		["2690740379"] = {
-			["AnyJewel"] = {
-				["max"] = 4, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 4, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13569,14 +13094,6 @@ return {
 			}, 
 		}, 
 		["2704905000"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13603,14 +13120,6 @@ return {
 			}, 
 		}, 
 		["2709646369"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13637,14 +13146,6 @@ return {
 			}, 
 		}, 
 		["2726713579"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13737,14 +13238,6 @@ return {
 			}, 
 		}, 
 		["2768899959"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13754,14 +13247,6 @@ return {
 			}, 
 		}, 
 		["2770044702"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13801,14 +13286,6 @@ return {
 			}, 
 		}, 
 		["2809428780"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13818,14 +13295,6 @@ return {
 			}, 
 		}, 
 		["2822644689"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13852,14 +13321,6 @@ return {
 			}, 
 		}, 
 		["2840989393"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13886,14 +13347,6 @@ return {
 			}, 
 		}, 
 		["2849546516"] = {
-			["AnyJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -13962,14 +13415,6 @@ return {
 			}, 
 		}, 
 		["288364275"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14063,14 +13508,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["2907381231"] = {
-			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14080,14 +13517,6 @@ return {
 			}, 
 		}, 
 		["2912416697"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14176,14 +13605,6 @@ return {
 			}, 
 		}, 
 		["2954360902"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14243,14 +13664,6 @@ return {
 			}, 
 		}, 
 		["2969557004"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14275,11 +13688,11 @@ return {
 		["2974417149"] = {
 			["1HWeapon"] = {
 				["max"] = 119, 
-				["min"] = 25, 
+				["min"] = 15, 
 			}, 
 			["2HWeapon"] = {
 				["max"] = 238, 
-				["min"] = 50, 
+				["min"] = 30, 
 			}, 
 			["Amulet"] = {
 				["max"] = 30, 
@@ -14299,11 +13712,11 @@ return {
 			}, 
 			["Staff"] = {
 				["max"] = 238, 
-				["min"] = 50, 
+				["min"] = 30, 
 			}, 
 			["Wand"] = {
 				["max"] = 119, 
-				["min"] = 25, 
+				["min"] = 15, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -14314,14 +13727,6 @@ return {
 			}, 
 		}, 
 		["2976476845"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14580,14 +13985,6 @@ return {
 			}, 
 		}, 
 		["30438393"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14614,14 +14011,6 @@ return {
 			}, 
 		}, 
 		["3065378291"] = {
-			["AnyJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14648,14 +14037,6 @@ return {
 			}, 
 		}, 
 		["3088348485"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14682,14 +14063,6 @@ return {
 			}, 
 		}, 
 		["3106718406"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14699,14 +14072,6 @@ return {
 			}, 
 		}, 
 		["3113764475"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14807,14 +14172,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["3171212276"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14824,14 +14181,6 @@ return {
 			}, 
 		}, 
 		["3173882956"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14931,14 +14280,6 @@ return {
 			}, 
 		}, 
 		["3222402650"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14948,14 +14289,6 @@ return {
 			}, 
 		}, 
 		["3225608889"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -14963,7 +14296,6 @@ return {
 				["text"] = "Small Passive Skills in Radius also grant Minions have #% to all Elemental Resistances", 
 				["type"] = "explicit", 
 			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["3233599707"] = {
 			["specialCaseData"] = {
@@ -14984,14 +14316,6 @@ return {
 			}, 
 		}, 
 		["3256879910"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15320,15 +14644,15 @@ return {
 			}, 
 			["Chest"] = {
 				["max"] = 214, 
-				["min"] = 10, 
+				["min"] = 7, 
 			}, 
 			["Gloves"] = {
 				["max"] = 149, 
-				["min"] = 10, 
+				["min"] = 7, 
 			}, 
 			["Helmet"] = {
 				["max"] = 174, 
-				["min"] = 10, 
+				["min"] = 7, 
 			}, 
 			["Ring"] = {
 				["max"] = 119, 
@@ -15364,23 +14688,23 @@ return {
 		["3321629045"] = {
 			["Boots"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Chest"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Gloves"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Helmet"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Shield"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -15592,14 +14916,6 @@ return {
 			}, 
 		}, 
 		["3386297724"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15609,14 +14925,6 @@ return {
 			}, 
 		}, 
 		["3391917254"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15626,14 +14934,6 @@ return {
 			}, 
 		}, 
 		["3394832998"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15643,14 +14943,6 @@ return {
 			}, 
 		}, 
 		["3395186672"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15694,14 +14986,6 @@ return {
 			}, 
 		}, 
 		["3409275777"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15728,14 +15012,6 @@ return {
 			}, 
 		}, 
 		["3419203492"] = {
-			["AnyJewel"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 25, 
-				["min"] = 15, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15764,23 +15040,23 @@ return {
 		["3484657501"] = {
 			["Boots"] = {
 				["max"] = 160, 
-				["min"] = 16, 
+				["min"] = 8, 
 			}, 
 			["Chest"] = {
 				["max"] = 276, 
-				["min"] = 16, 
+				["min"] = 4, 
 			}, 
 			["Gloves"] = {
 				["max"] = 160, 
-				["min"] = 16, 
+				["min"] = 8, 
 			}, 
 			["Helmet"] = {
 				["max"] = 202, 
-				["min"] = 16, 
+				["min"] = 8, 
 			}, 
 			["Shield"] = {
 				["max"] = 256, 
-				["min"] = 16, 
+				["min"] = 8, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -15823,14 +15099,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["3513818125"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15907,14 +15175,6 @@ return {
 			}, 
 		}, 
 		["3579898587"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -15979,14 +15239,6 @@ return {
 			}, 
 		}, 
 		["3628935286"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16082,14 +15334,6 @@ return {
 			}, 
 		}, 
 		["3641543553"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16099,14 +15343,6 @@ return {
 			}, 
 		}, 
 		["3665922113"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16116,14 +15352,6 @@ return {
 			}, 
 		}, 
 		["3666476747"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16150,14 +15378,6 @@ return {
 			}, 
 		}, 
 		["3669820740"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16271,14 +15491,6 @@ return {
 			}, 
 		}, 
 		["3700202631"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16335,14 +15547,6 @@ return {
 			}, 
 		}, 
 		["3752589831"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16403,14 +15607,6 @@ return {
 			}, 
 		}, 
 		["3774951878"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16454,14 +15650,6 @@ return {
 			}, 
 		}, 
 		["378796798"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16505,14 +15693,6 @@ return {
 			}, 
 		}, 
 		["3821543413"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16618,14 +15798,6 @@ return {
 			}, 
 		}, 
 		["3856744003"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16635,14 +15807,6 @@ return {
 			}, 
 		}, 
 		["3858398337"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16652,14 +15816,6 @@ return {
 			}, 
 		}, 
 		["3859848445"] = {
-			["AnyJewel"] = {
-				["max"] = 6, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 6, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16669,14 +15825,6 @@ return {
 			}, 
 		}, 
 		["3865605585"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16744,15 +15892,24 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
-		["391602279"] = {
+		["3891355829"] = {
 			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
+				["max"] = 1, 
+				["min"] = 1, 
 			}, 
 			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
+				["max"] = 1, 
+				["min"] = 1, 
 			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_3891355829|1", 
+				["text"] = "Upgrades Radius to Medium", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["391602279"] = {
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16791,14 +15948,6 @@ return {
 			}, 
 		}, 
 		["3936121440"] = {
-			["AnyJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 5, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16808,14 +15957,6 @@ return {
 			}, 
 		}, 
 		["394473632"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -16903,11 +16044,11 @@ return {
 		["3984865854"] = {
 			["1HWeapon"] = {
 				["max"] = 65, 
-				["min"] = 27, 
+				["min"] = 10, 
 			}, 
 			["Sceptre"] = {
 				["max"] = 65, 
-				["min"] = 27, 
+				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -16954,23 +16095,23 @@ return {
 		["4015621042"] = {
 			["Boots"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Chest"] = {
 				["max"] = 110, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Focus"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Gloves"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Helmet"] = {
 				["max"] = 100, 
-				["min"] = 15, 
+				["min"] = 6, 
 			}, 
 			["Shield"] = {
 				["max"] = 110, 
@@ -17046,14 +16187,6 @@ return {
 			}, 
 		}, 
 		["4032352472"] = {
-			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 12, 
-				["min"] = 8, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17082,11 +16215,11 @@ return {
 		["4052037485"] = {
 			["Boots"] = {
 				["max"] = 60, 
-				["min"] = 10, 
+				["min"] = 5, 
 			}, 
 			["Chest"] = {
 				["max"] = 96, 
-				["min"] = 10, 
+				["min"] = 2, 
 			}, 
 			["Focus"] = {
 				["max"] = 90, 
@@ -17094,11 +16227,15 @@ return {
 			}, 
 			["Gloves"] = {
 				["max"] = 60, 
-				["min"] = 10, 
+				["min"] = 5, 
 			}, 
 			["Helmet"] = {
 				["max"] = 73, 
-				["min"] = 10, 
+				["min"] = 5, 
+			}, 
+			["Shield"] = {
+				["max"] = 42, 
+				["min"] = 5, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -17226,14 +16363,6 @@ return {
 			}, 
 		}, 
 		["4089835882"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17243,14 +16372,6 @@ return {
 			}, 
 		}, 
 		["4092130601"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17303,14 +16424,6 @@ return {
 			}, 
 		}, 
 		["412709880"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17346,14 +16459,6 @@ return {
 			}, 
 		}, 
 		["4142814612"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17414,14 +16519,6 @@ return {
 			}, 
 		}, 
 		["4162678661"] = {
-			["AnyJewel"] = {
-				["max"] = 4, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 4, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17431,14 +16528,6 @@ return {
 			}, 
 		}, 
 		["4173554949"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17448,14 +16537,6 @@ return {
 			}, 
 		}, 
 		["4180952808"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17623,14 +16704,6 @@ return {
 			}, 
 		}, 
 		["4258720395"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17691,14 +16764,6 @@ return {
 			}, 
 		}, 
 		["442393998"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17725,14 +16790,6 @@ return {
 			}, 
 		}, 
 		["455816363"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17759,14 +16816,6 @@ return {
 			}, 
 		}, 
 		["462424929"] = {
-			["AnyJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 7, 
-				["min"] = 3, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17822,14 +16871,6 @@ return {
 			}, 
 		}, 
 		["473917671"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17839,14 +16880,6 @@ return {
 			}, 
 		}, 
 		["484792219"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17873,14 +16906,6 @@ return {
 			}, 
 		}, 
 		["504915064"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17890,14 +16915,6 @@ return {
 			}, 
 		}, 
 		["517664839"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17970,14 +16987,6 @@ return {
 			}, 
 		}, 
 		["525523040"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -17989,23 +16998,23 @@ return {
 		["53045048"] = {
 			["Boots"] = {
 				["max"] = 142, 
-				["min"] = 11, 
+				["min"] = 6, 
 			}, 
 			["Chest"] = {
 				["max"] = 251, 
-				["min"] = 11, 
+				["min"] = 3, 
 			}, 
 			["Gloves"] = {
 				["max"] = 142, 
-				["min"] = 11, 
+				["min"] = 6, 
 			}, 
 			["Helmet"] = {
 				["max"] = 181, 
-				["min"] = 11, 
+				["min"] = 6, 
 			}, 
 			["Shield"] = {
 				["max"] = 232, 
-				["min"] = 11, 
+				["min"] = 6, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -18017,14 +17026,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["533892981"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18168,14 +17169,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["593241812"] = {
-			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18185,14 +17178,6 @@ return {
 			}, 
 		}, 
 		["61644361"] = {
-			["AnyJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 12, 
-				["min"] = 6, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18248,15 +17233,20 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["648019518"] = {
+			["LifeFlask"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_648019518", 
+				["text"] = "Removes #% of Life Recovered from Mana when used", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["654207792"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18398,43 +17388,43 @@ return {
 		["691932474"] = {
 			["1HMace"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["1HWeapon"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["2HMace"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["2HWeapon"] = {
 				["max"] = 650, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["Bow"] = {
 				["max"] = 650, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["Crossbow"] = {
 				["max"] = 650, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["Flail"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["Quarterstaff"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["Spear"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["Talisman"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -18446,14 +17436,6 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["693237939"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18465,12 +17447,13 @@ return {
 		["700317374"] = {
 			["LifeFlask"] = {
 				["max"] = 80, 
-				["min"] = 41, 
+				["min"] = -50, 
 			}, 
 			["ManaFlask"] = {
 				["max"] = 80, 
-				["min"] = 41, 
+				["min"] = -50, 
 			}, 
+			["invertOnNegative"] = true, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18563,14 +17546,6 @@ return {
 			}, 
 		}, 
 		["713216632"] = {
-			["AnyJewel"] = {
-				["max"] = 15, 
-				["min"] = 8, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 15, 
-				["min"] = 8, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18580,14 +17555,6 @@ return {
 			}, 
 		}, 
 		["715957346"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -18756,11 +17723,11 @@ return {
 		["789117908"] = {
 			["1HWeapon"] = {
 				["max"] = 69, 
-				["min"] = 10, 
+				["min"] = 8, 
 			}, 
 			["2HWeapon"] = {
 				["max"] = 104, 
-				["min"] = 15, 
+				["min"] = 8, 
 			}, 
 			["Amulet"] = {
 				["max"] = 69, 
@@ -18780,19 +17747,19 @@ return {
 			}, 
 			["Ring"] = {
 				["max"] = 69, 
-				["min"] = 10, 
+				["min"] = 8, 
 			}, 
 			["Sceptre"] = {
 				["max"] = 69, 
-				["min"] = 10, 
+				["min"] = 8, 
 			}, 
 			["Staff"] = {
 				["max"] = 104, 
-				["min"] = 15, 
+				["min"] = 8, 
 			}, 
 			["Wand"] = {
 				["max"] = 69, 
-				["min"] = 10, 
+				["min"] = 8, 
 			}, 
 			["specialCaseData"] = {
 			}, 
@@ -18880,7 +17847,7 @@ return {
 			}, 
 			["Helmet"] = {
 				["max"] = 550, 
-				["min"] = 11, 
+				["min"] = 10, 
 			}, 
 			["Quiver"] = {
 				["max"] = 550, 
@@ -18997,14 +17964,6 @@ return {
 			}, 
 		}, 
 		["821948283"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19023,14 +17982,6 @@ return {
 			}, 
 		}, 
 		["830345042"] = {
-			["AnyJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 4, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19040,14 +17991,6 @@ return {
 			}, 
 		}, 
 		["844449513"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19074,14 +18017,6 @@ return {
 			}, 
 		}, 
 		["868556494"] = {
-			["AnyJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 2, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19232,14 +18167,6 @@ return {
 			}, 
 		}, 
 		["942519401"] = {
-			["AnyJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 10, 
-				["min"] = 5, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19249,14 +18176,6 @@ return {
 			}, 
 		}, 
 		["944643028"] = {
-			["AnyJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 1, 
-				["min"] = 1, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19266,14 +18185,6 @@ return {
 			}, 
 		}, 
 		["945774314"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19282,15 +18193,20 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["959641748"] = {
+			["ManaFlask"] = {
+				["max"] = 15, 
+				["min"] = 15, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_959641748", 
+				["text"] = "Removes #% of Mana Recovered from Life when used", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["980177976"] = {
-			["AnyJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
-			["RadiusJewel"] = {
-				["max"] = 3, 
-				["min"] = 2, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -19866,6 +18782,23 @@ return {
 			}, 
 			["usePositiveSign"] = true, 
 		}, 
+		["2527686725"] = {
+			["2HWeapon"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2527686725", 
+				["text"] = "#% increased Magnitude of Shock you inflict", 
+				["type"] = "implicit", 
+			}, 
+		}, 
 		["2646093132"] = {
 			["Ring"] = {
 				["max"] = 1, 
@@ -20026,6 +18959,23 @@ return {
 				["type"] = "implicit", 
 			}, 
 		}, 
+		["2968503605"] = {
+			["2HWeapon"] = {
+				["max"] = 80, 
+				["min"] = 50, 
+			}, 
+			["Talisman"] = {
+				["max"] = 80, 
+				["min"] = 50, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2968503605", 
+				["text"] = "#% increased Flammability Magnitude", 
+				["type"] = "implicit", 
+			}, 
+		}, 
 		["2994271459"] = {
 			["Charm"] = {
 				["max"] = 1, 
@@ -20055,6 +19005,24 @@ return {
 				["text"] = "Adds # to # Physical Damage to Attacks", 
 				["type"] = "implicit", 
 			}, 
+		}, 
+		["3182714256"] = {
+			["Amulet"] = {
+				["max"] = 2, 
+				["min"] = -2, 
+			}, 
+			["Ring"] = {
+				["max"] = 2, 
+				["min"] = -2, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3182714256", 
+				["text"] = "# Prefix Modifier allowed", 
+				["type"] = "implicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["3261801346"] = {
 			["Amulet"] = {
@@ -20490,6 +19458,24 @@ return {
 				["text"] = "#% increased Attack Speed", 
 				["type"] = "implicit", 
 			}, 
+		}, 
+		["718638445"] = {
+			["Amulet"] = {
+				["max"] = 2, 
+				["min"] = -2, 
+			}, 
+			["Ring"] = {
+				["max"] = 2, 
+				["min"] = -2, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_718638445", 
+				["text"] = "# Suffix Modifier allowed", 
+				["type"] = "implicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["731781020"] = {
 			["Belt"] = {
@@ -21405,6 +20391,50 @@ return {
 			["usePositiveSign"] = true, 
 		}, 
 		["1755296234"] = {
+			["1HMace"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["2HMace"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Bow"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Claw"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Flail"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Spear"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Talisman"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21412,6 +20442,7 @@ return {
 				["text"] = "Targets can be affected by # of your Poisons at the same time", 
 				["type"] = "augment", 
 			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["1772929282"] = {
 			["Helmet"] = {
@@ -21524,53 +20555,54 @@ return {
 		}, 
 		["2011656677"] = {
 			["1HMace"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["1HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["2HMace"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["2HWeapon"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["Boots"] = {
 				["max"] = 15, 
 				["min"] = 15, 
 			}, 
 			["Bow"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["Claw"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["Crossbow"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["Flail"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["Quarterstaff"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["Spear"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
 			["Talisman"] = {
-				["max"] = 1, 
-				["min"] = 1, 
+				["max"] = -25, 
+				["min"] = -25, 
 			}, 
+			["invertOnNegative"] = true, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -21578,7 +20610,6 @@ return {
 				["text"] = "#% increased Poison Duration", 
 				["type"] = "augment", 
 			}, 
-			["usePositiveSign"] = true, 
 		}, 
 		["2023107756"] = {
 			["1HMace"] = {
@@ -21966,7 +20997,7 @@ return {
 			}, 
 		}, 
 		["2481353198"] = {
-			["Gloves"] = {
+			["Chest"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -23378,7 +22409,7 @@ return {
 			}, 
 		}, 
 		["3759663284"] = {
-			["2HWeapon"] = {
+			["Bow"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
@@ -23455,10 +22486,6 @@ return {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
-			["Gloves"] = {
-				["max"] = 20, 
-				["min"] = 20, 
-			}, 
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -23521,7 +22548,7 @@ return {
 			}, 
 		}, 
 		["3885405204"] = {
-			["2HWeapon"] = {
+			["Bow"] = {
 				["max"] = 1, 
 				["min"] = 1, 
 			}, 
