@@ -50,7 +50,12 @@ directiveTable.base = function(state, args, out)
 				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
 				local statOrder = modLine.statOrder or {}
 				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
-				out:write('\t\t\t\ttradeHashes = { '..table.concat(modLine.tradeHashes, ', ')..' },\n')
+				out:write('\t\t\t\ttradeHashes = { ')
+				for hash, desc in pairs(modLine.tradeHashes) do
+					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
+				end
+				out:write(' },\n')
 			end
 			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
 			out:write('\t\t},\n')
@@ -92,24 +97,31 @@ directiveTable.base = function(state, args, out)
 					table.insert(orders, order)
 				end
 				if #orders > 0 then
-					local tradeHashes = {}
-					-- -- stat hashes might be multiple different modifiers, or
-					-- -- they can be the minimum and maximum of a single modifier
-					for _, stat in ipairs(stats) do
-						if stat:find("^Bonded:") then
-							-- continue
-						-- range stat: output a single trade hash
-						elseif stat:find("%d+ to %d+") then
-							local tradeHash = murmurHash2(table.concat(statHashes), 0x02312233)
-							table.insert(tradeHashes, tradeHash)
-						-- otherwise output separate trade hashes
-						else
-							for _, statHash in ipairs(statHashes) do
-								local tradeHash = murmurHash2(statHash, 0x02312233)
-								table.insert(tradeHashes, tradeHash)
-							end
+				local modIdx = 1
+				local tradeHashes = {}
+				while soulCoreStat.Stats[modIdx] do
+					local currentStats = {}
+					local stat = soulCoreStat.Stats[modIdx]
+					currentStats[stat.Id] = {
+						min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+					}
+					local bytes = intToBytes(stat.Hash)
+					-- # to # stats consist of two different stats as the min and max have different ranges
+					if stat.Id:match("minimum") then
+						local nextStat = soulCoreStat.Stats[modIdx + 1]
+						if nextStat and nextStat.Id:match("maximum") then
+							modIdx = modIdx + 1
+							bytes = bytes .. intToBytes(nextStat.Hash)
+							currentStats[nextStat.Id] = {
+								min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+							}
 						end
 					end
+
+					local description, _, _ = describeStats(currentStats)
+					tradeHashes[murmurHash2(bytes, 0x02312233)] = description
+					modIdx = modIdx + 1
+				end
 					local out = {
 						type = soulCores.Type.Id,
 						slotType = class,
