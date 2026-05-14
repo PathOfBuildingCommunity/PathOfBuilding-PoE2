@@ -127,7 +127,12 @@ function ComparePowerReportListClass:AddValueTooltip(tooltip, index, entry)
 			if tooltip:CheckForUpdate(node, IsKeyDown("SHIFT"), launch.devModeAlt, build.outputRevision) then
 				local viewer = build.treeTab and build.treeTab.viewer
 				if viewer then
-					viewer:AddNodeTooltip(tooltip, node, build)
+					-- calculate inc from SmallPassiveSkillEffect
+					local incSmallPassiveSkillEffect = 0
+					for _, node in pairs(build.treeTab.build.spec.allocNodes) do
+						incSmallPassiveSkillEffect = incSmallPassiveSkillEffect + node.modList:Sum("INC", nil ,"SmallPassiveSkillEffect")
+					end
+					viewer:AddNodeTooltip(tooltip, node, build, incSmallPassiveSkillEffect)
 				end
 			end
 		else
