@@ -66,6 +66,15 @@ function PoEAPIClass:ResetDetails()
 	self.authToken = nil
 	self.refreshToken = nil
 	self.tokenExpiry = nil
+	self:UpdateMain()
+end
+
+--- updates main so that API details are saved across restarts
+function PoEAPIClass:UpdateMain()
+	main.lastToken = self.authToken
+	main.lastRefreshToken = self.refreshToken
+	main.tokenExpiry = self.tokenExpiry
+	main:SaveSettings()
 end
 
 --- @param callback fun(response: table?, errCode: string?, updateSettings: boolean)
