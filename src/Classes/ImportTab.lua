@@ -1265,12 +1265,10 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 end
 
-local jewelBases = { "Ruby", "Sapphire", "Emerald", "Diamond"}
-
 function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)
 	-- Build socket group list
 	for _, socketedItem in ipairs(socketedItems) do
-		if isValueInTable(jewelBases, socketedItem.baseType) then
+		if isValueInTable({ "Diamond", "Emerald", "Ruby", "Sapphire" }, socketedItem.baseType) then
 			self:ImportItem(socketedItem, slotName .. " Jewel Socket "..socketedItem.socket + 1)
 		else
 			t_insert(item.runes, socketedItem.baseType)

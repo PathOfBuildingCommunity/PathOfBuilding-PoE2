@@ -964,7 +964,7 @@ function ItemsTabClass:Load(xml, dbFileName)
 					end
 				end
 			end
-			-- backwards compat or fallback if the item doesn't have "Sockets: J ..."
+			-- backwards compat or fallback if the item doesn't have "Sockets: J ..." on Load
 			-- maybe at some point we won't need this at all
 			local fallBackJewelSocketCount = {
 				["Tabula Rasa"] = 6,
