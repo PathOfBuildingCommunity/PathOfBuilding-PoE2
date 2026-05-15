@@ -165,7 +165,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end
 
 	-- Controls: top bar, right side
-	self.anchorTopBarRight = new("Control", nil, {function() return main.screenW / 2 + self.controls.characterLevel.width + 11 end, 4, 0, 20})
+	self.anchorTopBarRight = new("Control", nil, {function() return main.screenW / 2 + self.controls.characterLevel.width + 10 end, 4, 0, 20})
 
 	local function getPointDisplayX() -- I had it hardcoded to -323 before switching to the control sizing
 		return - (23 + self.controls.pointDisplay:GetSize() + self.controls.levelScalingButton:GetSize() + self.controls.characterLevel:GetSize())
@@ -199,7 +199,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.levelScalingButton,"RIGHT"}, {8, 0, 106, 20}, "", "Level", "%D", 3, function(buf)
+	self.controls.characterLevel = new("EditControl", {"LEFT",self.controls.levelScalingButton,"RIGHT"}, {10, 0, 106, 20}, "", "Level", "%D", 3, function(buf)
 		self.characterLevel = m_min(m_max(tonumber(buf) or 1, 1), 100)
 		self.configTab:BuildModList()
 		self.modFlag = true
