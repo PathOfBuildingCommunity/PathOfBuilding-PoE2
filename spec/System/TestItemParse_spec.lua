@@ -270,4 +270,16 @@ describe("TestItemParse", function()
 		assert.are.equals(2, #item.runeModLines)
 		
 	end)
+
+	it("jewel sockets", function()
+		local item = new("Item", [[
+			Six Socket Body
+			Garment
+			Quality: 20
+			Sockets: J J J J J J
+		]])
+		item:BuildAndParseRaw()
+		
+		assert.are.equals(6, item.jewelSocketCount)
+	end)
 end)
