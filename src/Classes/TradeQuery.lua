@@ -1213,6 +1213,11 @@ function TradeQueryClass:UpdateRealms()
 	-- perform a generic search to make sure the authorization is valid.
 	self.tradeQueryRequests:PerformSearch("poe2", "Standard", [[{"query":{"status":{"option":"online"},"stats":[{"type":"and","filters":[]}]},"sort":{"price":"asc"}}]], function(response, errMsg) 
 		if errMsg then
+			-- a 403 here likely means that the user has an outdated scope
+			if errMsg == "Response code: 403" then
+				main.api:ResetDetails()
+				errMsg = errMsg.."\nPlease re-authenticate"
+			end
 			self:SetNotice(self.controls.pbNotice, "Error: " .. tostring(errMsg))
 		end
 	end)
