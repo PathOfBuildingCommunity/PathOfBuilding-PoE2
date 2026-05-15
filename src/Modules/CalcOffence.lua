@@ -3410,7 +3410,7 @@ function calcs.offence(env, actor, activeSkill)
 				globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput["Max"..skillNameVar.."DamageEffect"]
 			end
 
-			-- combine Ancentral Empowerment with other sources of Slam Ancestral Boost, namely Fist of War, when both active
+			-- combine Ancestral Empowerment with other sources of Slam Ancestral Boost, namely Fist of War, when both active
 			local function calcCombinedAncestralBoost(skillName, moreDmg, incArea, uptimeOverride, additionalSkillName)
 				globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
 				local skillNameVar = skillName:gsub(" ", "") -- Fist Of War -> FistOfWar
