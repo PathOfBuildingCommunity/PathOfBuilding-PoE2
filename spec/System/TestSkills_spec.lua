@@ -399,4 +399,42 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.calcsOutput.AncestralCallUptimeRatio ~= nil)
 		assert.are.equal(3, build.calcsTab.calcsOutput.StrikeTargets)
 	end)
+
+	it("Test Combined Ancestral Boosts - Ancestral Empowerment and Fist of War", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nFist of War I 1/0  1")
+		runCallback("OnFrame")
+		build.configTab.input.customMods = "every second slam skill you use yourself is ancestrally boosted"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local fistOfWarOneMaxDmgEffect = build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect
+
+		-- test that we are using the calcCombinedAncestralBoost function and the calcSection triggers are correct
+		assert.True(build.calcsTab.calcsOutput.AncestralEmpowermentCombinedUptimeRatio ~= nil)
+		assert.True(build.calcsTab.calcsOutput.AncestralEmpowermentUptimeRatio == nil)
+		assert.True(build.calcsTab.calcsOutput.FistOfWarUptimeRatio == nil)
+
+		newBuild()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nFist of War III 1/0  1")
+		runCallback("OnFrame")
+		build.configTab.input.customMods = "every second slam skill you use yourself is ancestrally boosted"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- test doubled effects of Fist of War III with Ancestral Empowerment
+		assert.True(fistOfWarOneMaxDmgEffect < build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect)
+	end)
 end)

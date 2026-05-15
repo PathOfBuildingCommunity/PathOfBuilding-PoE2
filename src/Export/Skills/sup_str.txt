@@ -769,7 +769,7 @@ statMap = {
 	},
 },
 #baseMod mod("FistOfWarDamageMultiplier", "BASE", 30)
-#baseMod mod("FistOfWarMOREAoE", "BASE", 25)
+#baseMod mod("FistOfWarIncAoE", "BASE", 25)
 #mods
 #skillEnd
 
@@ -782,7 +782,7 @@ statMap = {
 	},
 },
 #baseMod mod("FistOfWarDamageMultiplier", "BASE", 30)
-#baseMod mod("FistOfWarMOREAoE", "BASE", 25)
+#baseMod mod("FistOfWarIncAoE", "BASE", 25)
 #mods
 #skillEnd
 
@@ -798,7 +798,7 @@ statMap = {
 	},
 },
 #baseMod mod("FistOfWarDamageMultiplier", "BASE", 60)
-#baseMod mod("FistOfWarMOREAoE", "BASE", 50)
+#baseMod mod("FistOfWarIncAoE", "BASE", 50)
 #mods
 #skillEnd
 

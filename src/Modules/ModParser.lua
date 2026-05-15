@@ -2625,6 +2625,11 @@ local specialModList = {
 	-- Ancestrally Boosted
 	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function(num) return { mod("AncestralBoostDamage", "INC", num, nil, ModFlag.Attack, 0) } end,
 	["(%d+)%% increased area of effect of ancestrally boosted attacks"] = function(num) return { mod("AncestralBoostAreaOfEffect", "INC", num, nil, ModFlag.Attack, 0) } end,
+	["every second slam skill you use yourself is ancestrally boosted"] = {
+		flag("AncestralEmpowerment", { type = "SkillType", skillType = SkillType.Slam }),
+		mod("AncestralEmpowermentDamageMultiplier", "BASE", 30, { type = "SkillType", skillType = SkillType.Slam }),
+        mod("AncestralEmpowermentIncAoE", "BASE", 25, { type = "SkillType", skillType = SkillType.Slam }),
+	},
 	-- Leech Related
 	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
 	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },

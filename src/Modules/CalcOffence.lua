@@ -3338,6 +3338,8 @@ function calcs.offence(env, actor, activeSkill)
 		
 		output.FistOfWarDamageEffect = 1
 		output.AncestralCallDamageEffect = 1
+		output.AncestralEmpowermentDamageEffect = 1
+		output.AncestralEmpowermentCombinedDamageEffect = 1
 		if env.mode_combat then
 			local ruthlessEffect = env.configInput.ruthlessSupportMode or "AVERAGE"
 			local ruthlessBlowMaxCount = skillModList:Sum("BASE", cfg, "RuthlessBlowMaxCount")
@@ -3366,8 +3368,9 @@ function calcs.offence(env, actor, activeSkill)
 				skillModList:NewMod("Damage", "INC", modDB:Sum("INC", cfg, "AncestralBoostDamage"), sourceName, { type = "Condition", var = "FinalStrike" })
 			end
 
-			-- dynamic way of calcing the Ancestral Boost for supports without duplicating the code for each unique support
-			local function calcAncestralBoost(skillName, moreDmg, moreArea)
+			-- dynamic way of calcing the Ancestral Boost from a single source without duplicating the code
+			-- uptimeOverride: Ancestral Empowerment
+			local function calcAncestralBoost(skillName, moreDmg, incArea, uptimeOverride)
 				globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
 				local skillNameVar = skillName:gsub(" ", "") -- Fist Of War -> FistOfWar
 				local skillNameLabel = skillName:lower()
@@ -3377,11 +3380,11 @@ function calcs.offence(env, actor, activeSkill)
 				else
 					globalOutput[skillNameVar.."DamageMultiplier"] = ancestrallyBoostedIncDamageMulti
 				end
-				globalOutput[skillNameVar.."UptimeRatio"] = m_min( (1 / globalOutput.Speed) / globalOutput[skillNameVar.."Cooldown"], 1) * 100
+				globalOutput[skillNameVar.."UptimeRatio"] = uptimeOverride or m_min( (1 / globalOutput.Speed) / globalOutput[skillNameVar.."Cooldown"], 1) * 100
 				if globalBreakdown then
 					globalBreakdown[skillNameVar.."UptimeRatio"] = {
 						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
-						s_format("/ %.2f, 1) ^8("..skillNameLabel.." cooldown)", globalOutput[skillNameVar.."Cooldown"]),
+						s_format("/ %.2f, 1) ^8("..skillNameLabel.." cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar.."Cooldown"]),
 						s_format("= %d%%", globalOutput[skillNameVar.."UptimeRatio"]),
 					}
 				end
@@ -3397,12 +3400,64 @@ function calcs.offence(env, actor, activeSkill)
 				globalOutput["Max"..skillNameVar.."DamageEffect"] = 1 + globalOutput[skillNameVar.."DamageMultiplier"]
 				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 					output[skillNameVar.."DamageEffect"] = globalOutput["Max"..skillNameVar.."DamageEffect"]
-					skillModList:NewMod("AreaOfEffect", "MORE", moreArea or 0, "Max "..skillName.." Boosted AoE")
-					skillModList:NewMod("AreaOfEffect", "INC", ancestrallyBoostedIncArea, "Max "..skillName.." Boosted AoE")
+					skillModList:NewMod("AreaOfEffect", "INC", (incArea or 0) + ancestrallyBoostedIncArea, "Max "..skillName.." Boosted AoE")
 				else
 					output[skillNameVar.."DamageEffect"] = globalOutput["Avg"..skillNameVar.."DamageEffect"]
-					skillModList:NewMod("AreaOfEffect", "MORE", m_floor((moreArea or 0) * globalOutput[skillNameVar.."UptimeRatio"] / 100), "Avg "..skillName.." Boosted AoE")
-					skillModList:NewMod("AreaOfEffect", "INC", m_floor(ancestrallyBoostedIncArea * globalOutput[skillNameVar.."UptimeRatio"] / 100), "Avg "..skillName.." Boosted AoE")
+					skillModList:NewMod("AreaOfEffect", "INC", m_floor(((incArea or 0) + ancestrallyBoostedIncArea) * globalOutput[skillNameVar.."UptimeRatio"] / 100), "Avg "..skillName.." Boosted AoE")
+				end
+				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
+				globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput["Avg"..skillNameVar.."DamageEffect"]
+				globalOutput.TheoreticalMaxOffensiveWarcryEffect = globalOutput.TheoreticalMaxOffensiveWarcryEffect * globalOutput["Max"..skillNameVar.."DamageEffect"]
+			end
+
+			-- combine Ancentral Empowerment with other sources of Slam Ancestral Boost, namely Fist of War, when both active
+			local function calcCombinedAncestralBoost(skillName, moreDmg, incArea, uptimeOverride, additionalSkillName)
+				globalOutput.CreateWarcryOffensiveCalcSection = true -- labels for the CalcSection
+				local skillNameVar = skillName:gsub(" ", "") -- Fist Of War -> FistOfWar
+				local skillNameLabel = skillName:lower()
+
+				if moreDmg then
+					globalOutput[skillNameVar.."DamageMultiplier"] = moreDmg * (1 + ancestrallyBoostedIncDamageMulti)
+				else
+					globalOutput[skillNameVar.."DamageMultiplier"] = ancestrallyBoostedIncDamageMulti
+				end
+				-- for CalcSections, set the AncestralEmpowerment damage for mod breakdown
+				globalOutput[skillNameVar.."CombinedDamageMultiplier"] = globalOutput[skillNameVar.."DamageMultiplier"]
+				skillNameVar = skillNameVar.."Combined"
+				local additionalSkillNameVar = additionalSkillName:gsub(" ", "")
+				local additionalSkillNameLabel = additionalSkillName:lower()
+
+				-- a lot of these are doubled up because it would be very long lines otherwise and hopefully this helps legibility
+				globalOutput[skillNameVar.."UptimeRatio"] = uptimeOverride or m_min( (1 / globalOutput.Speed) / globalOutput[skillNameVar.."Cooldown"], 1) * 100
+				globalOutput[skillNameVar.."UptimeRatio"] = globalOutput[skillNameVar.."UptimeRatio"] + (globalOutput[additionalSkillNameVar.."UptimeRatio"] or 0) / 2
+				if globalBreakdown then
+					globalBreakdown[skillNameVar.."UptimeRatio"] = {
+						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
+						s_format("/ %.2f, 1) ^8("..skillNameLabel.." cooldown)", uptimeOverride and (1 / globalOutput.Speed / (uptimeOverride / 100)) or globalOutput[skillNameVar.."Cooldown"]),
+						"+",
+						s_format("min( (1 / %.2f) ^8(second per attack)", globalOutput.Speed),
+						s_format("/ %.2f, 1) ^8("..additionalSkillNameLabel.." cooldown)", globalOutput[additionalSkillNameVar.."Cooldown"]),
+						s_format("= %d%%", globalOutput[skillNameVar.."UptimeRatio"]),
+					}
+				end
+				globalOutput["Avg"..skillNameVar.."Damage"] = globalOutput[skillNameVar.."DamageMultiplier"]
+				globalOutput["Avg"..skillNameVar.."DamageEffect"] = 1 + globalOutput["Avg"..skillNameVar.."Damage"] * (uptimeOverride and uptimeOverride / 100 or (globalOutput[skillNameVar.."UptimeRatio"] / 100))
+				globalOutput["Avg"..skillNameVar.."DamageEffect"] = (globalOutput["Avg"..skillNameVar.."DamageEffect"] * (1 + globalOutput["Avg"..additionalSkillNameVar.."Damage"] * globalOutput[additionalSkillNameVar.."UptimeRatio"] / 100 / 2))
+				if globalBreakdown then
+					globalBreakdown["Avg"..skillNameVar.."DamageEffect"] = {
+						s_format("1 + (%.2f x %.2f) ^8("..skillNameLabel.." damage multiplier x ^8"..skillNameLabel.." uptime ratio)", globalOutput[skillNameVar.."DamageMultiplier"], uptimeOverride / 100),
+						s_format("   + (%.2f x %.2f) ^8("..additionalSkillNameLabel.." damage multiplier x ^8"..additionalSkillNameLabel.." uptime ratio)", globalOutput[additionalSkillNameVar.."DamageMultiplier"], globalOutput[additionalSkillNameVar.."UptimeRatio"] / 100 / 2),
+						s_format("= %.2f", globalOutput["Avg"..skillNameVar.."DamageEffect"]),
+					}
+				end
+				globalOutput["Avg"..skillNameVar.."Damage"] = globalOutput[skillNameVar.."DamageMultiplier"] + globalOutput[additionalSkillNameVar.."DamageMultiplier"]
+				globalOutput["Max"..skillNameVar.."DamageEffect"] = 1 + globalOutput[skillNameVar.."DamageMultiplier"] + globalOutput[additionalSkillNameVar.."DamageMultiplier"]
+				if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
+					output[skillNameVar.."DamageEffect"] = globalOutput["Max"..skillNameVar.."DamageEffect"]
+					skillModList:NewMod("AreaOfEffect", "INC", (incArea or 0) + ancestrallyBoostedIncArea, "Max "..skillName.." Boosted AoE")
+				else
+					output[skillNameVar.."DamageEffect"] = globalOutput["Avg"..skillNameVar.."DamageEffect"]
+					skillModList:NewMod("AreaOfEffect", "INC", m_floor(((incArea or 0) + ancestrallyBoostedIncArea) * globalOutput[skillNameVar.."UptimeRatio"] / 100), "Avg "..skillName.." Boosted AoE")
 				end
 				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
 				globalOutput.TheoreticalOffensiveWarcryEffect = globalOutput.TheoreticalOffensiveWarcryEffect * globalOutput["Avg"..skillNameVar.."DamageEffect"]
@@ -3410,9 +3465,21 @@ function calcs.offence(env, actor, activeSkill)
 			end
 
 			globalOutput.FistOfWarCooldown = skillModList:Sum("BASE", cfg, "FistOfWarCooldown") or 0
+			if skillModList:Flag(cfg, "AncestralEmpowerment") and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] then
+				if globalOutput.FistOfWarCooldown ~= 0 then -- get the fist of war calcs in output to use in Empowerment
+					calcAncestralBoost("Fist Of War", (skillModList:Sum("BASE", nil, "FistOfWarDamageMultiplier") / 100), skillModList:Sum("BASE", nil, "FistOfWarIncAoE"))
+					globalOutput.TheoreticalOffensiveWarcryEffect = 1 -- reset effects from FistOfWar calc, we combine later
+					globalOutput.TheoreticalMaxOffensiveWarcryEffect = 1
+
+					calcCombinedAncestralBoost("Ancestral Empowerment", (skillModList:Sum("BASE", cfg, "AncestralEmpowermentDamageMultiplier") / 100), skillModList:Sum("BASE", cfg, "AncestralEmpowermentIncAoE"), 50, "Fist Of War")
+					globalOutput.FistOfWarUptimeRatio = nil -- hide from CalcSections, but we need it for the combined calc first
+				else
+					calcAncestralBoost("Ancestral Empowerment", (skillModList:Sum("BASE", cfg, "AncestralEmpowermentDamageMultiplier") / 100), skillModList:Sum("BASE", cfg, "AncestralEmpowermentIncAoE"), 50)
+				end
+			end
 			-- If Fist of War & Active Skill is a Slam Skill & NOT a Vaal Skill & NOT used by mirage or other
-			if globalOutput.FistOfWarCooldown ~= 0 and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] then
-				calcAncestralBoost("Fist Of War", (skillModList:Sum("BASE", nil, "FistOfWarDamageMultiplier") / 100), skillModList:Sum("BASE", nil, "FistOfWarMOREAoE"))
+			if not skillModList:Flag(cfg, "AncestralEmpowerment") and globalOutput.FistOfWarCooldown ~= 0 and activeSkill.skillTypes[SkillType.Slam] and not activeSkill.skillTypes[SkillType.Vaal] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] then
+				calcAncestralBoost("Fist Of War", (skillModList:Sum("BASE", nil, "FistOfWarDamageMultiplier") / 100), skillModList:Sum("BASE", nil, "FistOfWarIncAoE"))
 			else
 				output.FistOfWarDamageEffect = 1
 			end
@@ -3769,6 +3836,12 @@ function calcs.offence(env, actor, activeSkill)
 						if output.AncestralCallDamageEffect ~= 1 then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(ancestral call effect modifier)", output.AncestralCallDamageEffect))
 						end
+						if output.AncestralEmpowermentDamageEffect ~= 1 then
+							t_insert(breakdown[damageType], s_format("x %.2f ^8(ancestral empowerment effect modifier)", output.AncestralEmpowermentDamageEffect))
+						end
+						if output.AncestralEmpowermentCombinedDamageEffect ~= 1 then
+							t_insert(breakdown[damageType], s_format("x %.2f ^8(ancestral empowerment + effect modifier)", output.AncestralEmpowermentCombinedDamageEffect))
+						end
 						if globalOutput.OffensiveWarcryEffect ~= 1  and not activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
 							t_insert(breakdown[damageType], s_format("x %.2f ^8(aggregated warcry exerted effect modifier)", globalOutput.OffensiveWarcryEffect))
 						end
@@ -3777,9 +3850,9 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					end
 					if activeSkill.skillModList:Flag(nil, "Condition:WarcryMaxHit") then
-						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * output.AncestralCallDamageEffect * globalOutput.MaxOffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * output.AncestralCallDamageEffect * output.AncestralEmpowermentDamageEffect * output.AncestralEmpowermentCombinedDamageEffect * globalOutput.MaxOffensiveWarcryEffect
 					else
-						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * output.AncestralCallDamageEffect * globalOutput.OffensiveWarcryEffect
+						output.allMult = output.ScaledDamageEffect * output.FistOfWarDamageEffect * output.AncestralCallDamageEffect * output.AncestralEmpowermentDamageEffect * output.AncestralEmpowermentCombinedDamageEffect * globalOutput.OffensiveWarcryEffect
 					end
 					local allMult = output.allMult
 					if pass == 1 then

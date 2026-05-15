@@ -3436,7 +3436,7 @@ skills["FistOfWarSupportPlayer"] = {
 			},
 			baseMods = {
 				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
+				mod("FistOfWarIncAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3477,7 +3477,7 @@ skills["FistOfWarSupportPlayerTwo"] = {
 			},
 			baseMods = {
 				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
+				mod("FistOfWarIncAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3521,7 +3521,7 @@ skills["FistOfWarSupportPlayerThree"] = {
 			},
 			baseMods = {
 				mod("FistOfWarDamageMultiplier", "BASE", 60),
-				mod("FistOfWarMOREAoE", "BASE", 50),
+				mod("FistOfWarIncAoE", "BASE", 50),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
