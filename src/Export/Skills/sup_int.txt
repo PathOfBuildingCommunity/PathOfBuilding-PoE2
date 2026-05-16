@@ -629,6 +629,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEternalMarkPlayer
+#set SupportEternalMarkPlayer
+#mods
+#skillEnd
+
 #skill SupportExcisePlayer
 #set SupportExcisePlayer
 statMap = {

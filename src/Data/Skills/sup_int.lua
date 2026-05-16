@@ -3686,6 +3686,34 @@ skills["SupportEssenceHarvestPlayer"] = {
 		},
 	}
 }
+skills["SupportEternalMarkPlayer"] = {
+	name = "Eternal Mark",
+	description = "Supports Mark Skills, causing them to not be Consumed the first time they are Activated.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "EternalMark",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Eternal Mark",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"marks_avoid_consumption_when_first_activated",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportExcisePlayer"] = {
 	name = "Excise",
 	description = "Supports any damaging Skill that you use yourself, granting it significantly higher chance to Critically Hit, but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
