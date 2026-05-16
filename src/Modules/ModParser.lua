@@ -3840,11 +3840,11 @@ local specialModList = {
 		mod("EnemyChillMagnitude", "MORE", num),
 		mod("EnemyFreezeBuildup", "MORE", num),
 	} end,
-	["modifiers to stun buildup apply to freeze buildup instead for parry"] = {
-		flag("FreezeBuildupInsteadOfStunBuildup", { type = "SkillName", skillName = "Parry", includeTransfigured = true }),
-		flag("CannotStun", { type = "SkillName", skillName = "Parry", includeTransfigured = true }),
-		flag("CannotHeavyStun", { type = "SkillName", skillName = "Parry", includeTransfigured = true }),
-	},
+	["modifiers to stun buildup apply to freeze buildup instead for (%a+)"] = function(_, skill) return {
+		flag("FreezeBuildupInsteadOfStunBuildup", { type = "SkillName", skillName = firstToUpper(skill), includeTransfigured = true }),
+		flag("CannotStun", { type = "SkillName", skillName = firstToUpper(skill), includeTransfigured = true }),
+		flag("CannotHeavyStun", { type = "SkillName", skillName = firstToUpper(skill), includeTransfigured = true }),
+	} end,
 	["immun[ei]t?y? to elemental ailments while on consecrated ground if you have at least (%d+) devotion"] = function(num) return { flag("ElementalAilmentImmune", { type = "Condition", var = "OnConsecratedGround" }, { type = "StatThreshold", stat = "Devotion", threshold = num }), } end,
 	["freeze enemies as though dealing (%d+)%% more damage"] = function(num) return { mod("FreezeAsThoughDealing", "MORE", num) } end,
 	["freeze chilled enemies as though dealing (%d+)%% more damage"] = function(num) return { mod("FreezeAsThoughDealing", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) } end,
