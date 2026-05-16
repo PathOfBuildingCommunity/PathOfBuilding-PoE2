@@ -3366,6 +3366,8 @@ function calcs.offence(env, actor, activeSkill)
 				local modSource = skillModList:Tabulate("FLAG", cfg, "FinalStrikeAncestrallyBoosted")[1].mod.source -- e.g. Skill:SupportCrescendoPlayerThree
 				local sourceName = "Ancestral Boost - "..data.gemNameForModSource[modSource]
 				skillModList:NewMod("Damage", "INC", modDB:Sum("INC", cfg, "AncestralBoostDamage"), sourceName, { type = "Condition", var = "FinalStrike" })
+				skillModList:NewMod("AreaOfEffect", "INC", ancestrallyBoostedIncArea, sourceName, { type = "Condition", var = "FinalStrike" })
+				calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, globalOutput, globalBreakdown)
 			end
 
 			-- dynamic way of calcing the Ancestral Boost from a single source without duplicating the code
