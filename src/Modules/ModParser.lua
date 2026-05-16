@@ -3088,7 +3088,8 @@ local specialModList = {
 	["while you are not on low mana, you and allies in your presence have unholy might"] = { mod("ExtraAura", "LIST", { mod = flag("Condition:UnholyMight")}, { type = "Condition", var = "LowMana", neg = true }) },
 	["(%d+)%% increased magnitude of unholy might buffs you grant per (%d+) maximum mana"] = function(num, _, num2) return { mod("ExtraAura", "LIST", { mod = mod("Multiplier:UnholyMightMagnitude", "BASE", num, { type = "PerStat", stat = "Mana", div = tonumber(num2), actor = "parent"}), { type = "GlobalEffect", effectName = "BlackenedHeart", effectType = "Aura", unscalable = true}}) } end,
 	["non%-channelling spells cost an additional (%d+)%% of maximum energy shield"] = function(num) return { mod("ESCostBase", "BASE", 1, nil, 0, KeywordFlag.Spell, { type = "PercentStat", percent = num, stat = "EnergyShield", floor = true }, { type = "SkillType", skillType = SkillType.Channel, neg = true } )} end,
-	["non%-channelling spells consume a power charge if able to deal (%d+)%% more damage"] = function(num) return { mod("Damage", "MORE", num, nil, 0,KeywordFlag.Spell, { type = "SkillType", skillType = SkillType.Channel, neg = true }, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 })} end,
+	["non%-channelling spells consume a power charge if able to deal (%d+)%% more damage"] = function(num) return { mod("Damage", "MORE", num, nil, 0,KeywordFlag.Spell, { type = "SkillType", skillType = SkillType.Channel, neg = true }, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1, scalar = "ConsumedPowerChargeEffect" })} end,
+	["spells consume a power charge if able to deal (%d+)%% more damage"] = function(num) return { mod("Damage", "MORE", num, nil, 0, KeywordFlag.Spell, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 })} end,
 	["no inherent mana regeneration"] = { flag("Condition:NoInherentManaRegen") },
 	["%+1 ring slot"] = { flag("AdditionalRingSlot") },
 	["regenerate (%D+) equal to (%d+)%% of maximum (%D+) per second"] = function(_, resource1, num, resource2) return { mod( combineToUpper(resource1) .. "Regen", "BASE", 1, { type = "PercentStat", stat = combineToUpper(resource2), percent = num } )} end,
@@ -3280,6 +3281,9 @@ local specialModList = {
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
 	["your chills can slow targets by up to a maximum of (%d+)%%"] = function(num) return { mod("ChillMax", "OVERRIDE", num)} end,
+	["%+(%d+) to limit for elemental skills"] = function(num) return {
+		mod("AdditionalCooldownUses", "BASE", num, { type = "SkillType", skillTypeList = { SkillType.Cold, SkillType.Fire, SkillType.Lightning }})
+	} end,
 	-- Monk - Chayula
 	["base maximum darkness is (%d+)"] = function(num) return { flag("PlayerHasDarkness"), mod("Darkness", "BASE", num) } end,
 	["removes all spirit"] = { mod("Spirit", "OVERRIDE", 0) },
@@ -3290,6 +3294,9 @@ local specialModList = {
 	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
 		flag("ManaLeechBasedOnElementalDamage"),
 		flag("ManaLeechBasedOnChaosDamage"), 
+	},
+	["grants unravelling"] = {
+		flag("Unravelling")
 	},
 	-- Monk - Invoker
 	["critical hits ignore non%-negative enemy monster elemental resistances"] = { flag("IgnoreNonNegativeEleRes", { type = "Condition", var = "CriticalStrike" }) },
