@@ -2848,6 +2848,9 @@ local specialModList = {
 	["projectiles deal (%d+)%% more hit damage to targets in the first ([%d%.]+) metres of their movement, scaling [du][op]w?n? with distance travelled to reach (%d+)%% after ([%d%.]+) metres"] = function(num, _, strFirstDist, strLowPrct, strSecondDist) return { 
 		mod("Damage", "MORE", 100, nil, bor(ModFlag.Hit, ModFlag.Projectile), { type = "DistanceRamp", ramp = { { 10*tonumber(strFirstDist), num / 100}, {10*tonumber(strSecondDist), tonumber(strLowPrct) / 100} } }),
 	} end,
+	["benefits from consuming (%a+) charges for your skills have (%d+)%% chance to be doubled"] = function(_, type, num) return {
+		mod("Consumed"..firstToUpper(type).."ChargeEffect", "BASE", num)
+	} end,
 	-- Disciple of Varashta
 	["(%d+)%% of your current energy shield is added to your armour for determining your physical damage reduction from armour"] = function(num) return { 
 		mod("EnergyShieldAppliesToPhysicalDamageTaken", "BASE", num),
