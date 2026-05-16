@@ -415,7 +415,7 @@ return {
 		{ format = "" },
 		{ format = "{2:output:ExertedAttackMaxHitEffect}", { modName = "ExertIncrease", cfg = "skill" }, { modName = "ExertAttackIncrease", cfg = "skill" }, },
 	},
-	{ label = "Ancest. Empower +", bgCol = colorCodes.MAINHANDBG, haveOutput = "AncestralEmpowermentCombinedUptimeRatio",
+	{ label = "AncestralEmpower+", bgCol = colorCodes.MAINHANDBG, haveOutput = "AncestralEmpowermentCombinedUptimeRatio",
 	  { format = "{2:output:AvgAncestralEmpowermentCombinedDamageEffect}", { breakdown = "AvgAncestralEmpowermentCombinedDamageEffect"}, },
 	  { format = "{2:output:AvgAncestralEmpowermentCombinedDamage}", { modName = { "AncestralEmpowermentDamageMultiplier", "FistOfWarDamageMultiplier" }, cfg = "skill" }, { modName = "AncestralBoostDamage", cfg = "skill" }, },
 	  { format = "{0:output:AncestralEmpowermentCombinedUptimeRatio}%", { breakdown = "AncestralEmpowermentCombinedUptimeRatio" },  },
