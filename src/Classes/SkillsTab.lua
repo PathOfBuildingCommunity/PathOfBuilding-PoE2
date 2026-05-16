@@ -1028,7 +1028,7 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 		gemInstance.color = "^8"
 		gemInstance.nameSpec = gemInstance.nameSpec or ""
 		local prevDefaultLevel = gemInstance.gemData and gemInstance.gemData.naturalMaxLevel or (gemInstance.new and 20)
-		gemInstance.gemData, gemInstance.grantedEffect = nil
+		gemInstance.gemData, gemInstance.grantedEffect = nil, nil
 		if gemInstance.gemId then
 			-- Specified by gem ID
 			-- Used for skills granted by skill gems
@@ -1067,7 +1067,7 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 				gemInstance.nameSpec = gemInstance.gemData.name
 			end
 		else
-			gemInstance.errMsg, gemInstance.gemData, gemInstance.skillId = nil
+			gemInstance.errMsg, gemInstance.gemData, gemInstance.skillId = nil, nil, nil
 		end
 		if gemInstance.gemData and gemInstance.gemData.grantedEffect.unsupported then
 			gemInstance.errMsg = gemInstance.nameSpec .. " is not supported yet"

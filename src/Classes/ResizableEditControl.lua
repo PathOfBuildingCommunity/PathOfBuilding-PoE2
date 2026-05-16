@@ -26,7 +26,7 @@ local ResizableEditClass = newClass("ResizableEditControl", "EditControl", funct
 	self.protected = false
 end)
 function ResizableEditClass:Draw(viewPort, noTooltip)
-    self:SetBoundedDrag(self)
+    self:SetBoundedDrag()
     self.EditControl:Draw(viewPort, noTooltip)
 end
 function ResizableEditClass:SetBoundedDrag()

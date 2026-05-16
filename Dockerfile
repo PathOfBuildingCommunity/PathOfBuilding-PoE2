@@ -1,4 +1,4 @@
-FROM alpine:3.18 AS base
+FROM alpine:3.22 AS base
 # Common dependencies
 RUN apk add --no-cache cmake readline-dev build-base tar
 
@@ -18,12 +18,15 @@ RUN git clone https://github.com/LuaJIT/LuaJIT && cd LuaJIT && git checkout 871d
 RUN cd LuaJIT && make
 
 FROM buildbase AS emmyluadebugger
-RUN git clone --depth 1 --branch 1.7.1 https://github.com/EmmyLua/EmmyLuaDebugger
+RUN git clone --depth 1 --branch 1.8.7 https://github.com/EmmyLua/EmmyLuaDebugger
 RUN cd EmmyLuaDebugger && mkdir build && cd build && cmake -DCMAKE_BUILD_TYPE=Release ../ && make
 
 FROM base
 # Luarocks packages dependencies
 RUN apk add --no-cache curl unzip openssl
+
+# Install other dependencies useful for the CI
+RUN apk add --no-cache libxml2-utils git lua-language-server jq
 
 RUN --mount=type=cache,from=buildBase,source=/opt,target=/opt make -C /opt/lua-5.1.5/ install
 RUN --mount=type=cache,from=luarocks,source=/opt,target=/opt make -C /opt/luarocks-3.7.0/ install

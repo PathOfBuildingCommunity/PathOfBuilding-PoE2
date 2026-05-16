@@ -1195,6 +1195,7 @@ function main:OpenOptionsPopup()
 		self.notSupportedModTooltips = initialNotSupportedModTooltips
 		self.invertSliderScrollDirection = initialInvertSliderScrollDirection
 		self.disableDevAutoSave = initialDisableDevAutoSave
+		---@diagnostic disable-next-line: undefined-global
 		self.showPublicBuilds = initialShowPublicBuilds
 		self.showFlavourText = initialShowFlavourText
 		self.showAnimations = initialShowAnimations

@@ -80,7 +80,7 @@ function GetAsyncCount()
 end
 
 -- Search Handles
-function NewFileSearch() end
+function NewFileSearch(path, dirOnly) end
 
 -- General Functions
 function SetWindowTitle(title) end
@@ -113,7 +113,7 @@ function GetUserPath()
 	return ""
 end
 function MakeDir(path) end
-function RemoveDir(path) end
+function RemoveDir(path, recursive) end
 function SetWorkDir(path) end
 function GetWorkDir()
 	return ""
@@ -163,8 +163,9 @@ function SpawnProcess(cmdName, args) end
 function OpenURL(url) end
 function SetProfiling(isEnabled) end
 function Restart() end
-function Exit() end
+function Exit(errMsg) end
 function TakeScreenshot() end
+function SetForeground() end
 
 ---@return string? provider
 ---@return string? version
@@ -196,6 +197,7 @@ runCallback("OnFrame") -- Need at least one frame for everything to initialise
 if mainObject.promptMsg then
 	-- Something went wrong during startup
 	print(mainObject.promptMsg)
+	---@diagnostic disable-next-line: discard-returns
 	io.read("*l")
 	return
 end

@@ -278,6 +278,7 @@ function ModStoreClass:GetStat(stat, cfg)
 		local totalLife = self.actor.output["Life"]
 		if totalLife == 0 then return 0 else
 			for _, activeSkill in ipairs(self.actor.activeSkillList) do
+				---@diagnostic disable-next-line: undefined-global
 				if (activeSkill.skillTypes[SkillType.HasReservation] and not activeSkill.skillFlags.disable and activeSkill.buffList and activeSkill.buffList[1] and cfg and (isNameInBuffList(activeSkill.buffList, cfg.skillName) or isNameInBuffList(activeSkill.buffList, cfg.summonSkillName)) ) then
 					local lifeBase = activeSkill.skillData["LifeReservedBase"] or 0
 					reservedPercentLife = lifeBase / totalLife * 100

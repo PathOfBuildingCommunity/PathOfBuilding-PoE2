@@ -33,7 +33,7 @@ src/Export/ggpk/*.dll
 src/TreeData/**/*.scm
 src/TreeData/**/*.txt
 src/TreeData/**/*.bat
- 
+
 # PoB Trader
 *_currency_values.json
 

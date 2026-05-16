@@ -2225,7 +2225,7 @@ end
 
 ---Gets the name of the anointed node on an item
 ---@param item table @The item to get the anoint from
----@return string @The name of the anointed node, or nil if there is no anoint
+---@return table? @The names of the anointed node, or nil if there is no anoint
 function ItemsTabClass:getAnoint(item)
 	local result = { }
 	if item then

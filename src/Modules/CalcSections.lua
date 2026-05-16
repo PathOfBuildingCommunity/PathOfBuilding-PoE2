@@ -510,8 +510,8 @@ return {
 	{ label = "Trigger Rate Cap", flag = "triggered", notFlagList = {"focused", "hasOverride"}, { format = "{2:output:TriggerRateCap}", { breakdown = "TriggerRateCap" }, { modName = "CooldownRecovery", modType = "INC", cfg = "skill", }, }, },
 	{ label = "Trigger Rate Cap", flagList = {"triggered", "hasOverride"}, notFlag = "focused", { format = "{2:output:TriggerRateCap}", { breakdown = "TriggerRateCap" }, { modName = "CooldownRecovery", modType = "OVERRIDE", cfg = "skill", }, }, },
 	{ label = "Trigger Rate Cap", flagList = {"triggered", "focused"}, { format = "{2:output:TriggerRateCap}", { breakdown = "TriggerRateCap" }, { modName = "FocusCooldownRecovery", modType = "INC", cfg = "skill", }, }, },
-	{ label = "Eff. Source Rate", flag = "triggered", notFlag = "focused", notFlag = "globalTrigger", { format = "{2:output:EffectiveSourceRate}", { breakdown = "EffectiveSourceRate" } }, },
-	{ label = "Skill Trigger Rate", flag = "triggered", notFlag = "focused", { format = "{2:output:SkillTriggerRate}", { breakdown = "SkillTriggerRate" }, { breakdown = "SimData" }, }, },
+	{ label = "Eff. Source Rate", flag = "triggered", notFlagList = {"focused", "globalTrigger"}, { format = "{2:output:EffectiveSourceRate}", { breakdown = "EffectiveSourceRate" } }, },
+	{ label = "Skill Trigger Rate", flag = "triggered", notFlagList = {"focused", "globalTrigger"}, { format = "{2:output:SkillTriggerRate}", { breakdown = "SkillTriggerRate" }, { breakdown = "SimData" }, }, },
 	{ label = "Skill Trigger Rate", flagList = {"triggered", "focused"}, { format = "{2:output:SkillTriggerRate}", { breakdown = "SkillTriggerRate" }, { breakdown = "SimData" }, { modName = "FocusCooldownRecovery", modType = "INC", cfg = "skill", }, }, },
 	{ label = "Cast time", flag = "spell", notFlag = "triggered", { format = "{2:output:Time}s", }, },
 	{ label = "CWDT Threshold", haveOutput = "CWDTThreshold", flag = "triggered", { format = "{2:output:CWDTThreshold}", { breakdown = "CWDTThreshold" }, }, },
@@ -618,8 +618,8 @@ return {
 	{ label = "OH DMG Mod.", bgCol = colorCodes.OFFHANDBG, flag = "weapon2Attack", haveOutput = "OffHand.ImpaleModifier", { format = "{3:output:OffHand.ImpaleModifier}", modType = "MORE",
 		{ breakdown = "OffHand.ImpaleModifier" },
 	}, },
-	{ label = "Impale DPS", flag = "impale", flag = "notAverage", { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
-	{ label = "Impale Damage", flag = "impale", flag = "showAverage", { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
+	{ label = "Impale DPS", flagList = {"impale", "notAverage"}, { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
+	{ label = "Impale Damage", flagList = {"impale", "showAverage"}, { format = "{1:output:ImpaleDPS}", { breakdown = "ImpaleDPS" }, }, },
 } }
 } },
 { 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Skill type-specific Stats", data = {

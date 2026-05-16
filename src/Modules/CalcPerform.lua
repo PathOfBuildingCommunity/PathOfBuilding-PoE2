@@ -23,7 +23,7 @@ local m_huge = math.huge
 --- @param env table
 --- @param activeSkill table active skill to be used as main when calculating output values
 --- @param ... table keys to values to be returned (Note: EmmyLua does not natively support documenting variadic parameters)
---- @return table unpacked table containing the desired values
+--- @return ... unpacked table containing the desired values
 local function getCachedOutputValue(env, activeSkill, ...)
 	local uuid = cacheSkillUUID(activeSkill, env)
 	if not GlobalCache.cachedData[env.mode][uuid] or env.mode == "CALCULATOR" then
@@ -494,6 +494,7 @@ local function doActorMisc(env, actor)
 		end
 		-- Fortify
 		if modDB:Flag(nil, "Fortified") or modDB:Sum("BASE", nil, "Multiplier:Fortification") > 0 then
+			---@diagnostic disable-next-line: undefined-global
 			local maxStacks = modDB:Override(nil, "MaximumFortification") or modDB:Sum("BASE", skillCfg, "MaximumFortification")
 			local minStacks = m_min(modDB:Sum("BASE", nil, "MinimumFortification"), maxStacks)
 			local stacks = modDB:Override(nil, "FortificationStacks") or (alliedFortify > 0 and alliedFortify) or (minStacks > 0 and minStacks) or maxStacks
@@ -660,6 +661,7 @@ local function doActorMisc(env, actor)
 			condList["LeechingEnergyShield"] = true
 		end
 		if modDB:Flag(nil, "Condition:CanGainRage") or modDB:Sum("BASE", nil, "RageRegen") > 0 then
+			---@diagnostic disable-next-line: undefined-global
 			local maxStacks = modDB:Sum("BASE", skillCfg, "MaximumRage")
 			local minStacks = m_min(modDB:Sum("BASE", nil, "MinimumRage"), maxStacks)
 			local rageConfig = modDB:Sum("BASE", nil, "Multiplier:RageStack")
@@ -2907,6 +2909,7 @@ function calcs.perform(env, skipEHP)
 
 	-- Check for modifiers to apply to actors affected by player auras or curses
 	for _, value in ipairs(modDB:List(nil, "AffectedByAuraMod")) do
+		---@diagnostic disable-next-line: undefined-global
 		for actor in pairs(affectedByAura) do
 			actor.modDB:AddMod(value.mod)
 		end

@@ -9183,7 +9183,7 @@ skills["VoidIllusionSpawnPlayer"] = {
 					if statSet.index ~= 3 then
 						local allExplodeMods = activeSkill.skillModList:Tabulate("LIST", activeSkill.skillCfg, "ExplodeMod")
 						for _, explodeMod in ipairs(allExplodeMods) do
-							local activeEffectSource = activeSkill.activeEffect.srcInstance.explodeSource.modSource or "Tree:"..activeSkill.activeEffect.srcInstance.explodeSource.id
+							local activeEffectSource = activeSkill.activeEffect.srcInstance.explodeSource.modSource or ("Tree:"..activeSkill.activeEffect.srcInstance.explodeSource.id)
 							if explodeMod.mod.source == activeEffectSource then
 								local explodeMod = explodeMod.value
 								if explodeMod.type == "RandomElement" then

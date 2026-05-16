@@ -143,7 +143,7 @@ function listMode:OnFrame(inputEvents)
 					local build = self.controls.buildList.copyBuild
 					if build.subPath ~= self.subPath then
 						if build.folderName then
-							main:CopyFolder(build.folderName, main.buildPath..build.subPath, main.buildPath..self.subPath)
+							main:CopyFolder(build.folderName, main.buildPath..build.subPath)
 						else
 							copyFile(build.fullFileName, self:GetDestName(self.subPath, build.fileName))
 						end

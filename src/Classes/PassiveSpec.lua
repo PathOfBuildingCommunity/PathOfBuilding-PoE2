@@ -2255,7 +2255,7 @@ end
 --- Adds a line to or replaces a node given a line to add/replace with
 --- @param node table The node to replace/add to
 --- @param sd string The line being parsed and added
---- @param replacement boolean true to replace the node with the new mod, false to simply add it
+--- @param replacement boolean? true to replace the node with the new mod, false to simply add it
 function PassiveSpecClass:NodeAdditionOrReplacementFromString(node,sd,replacement)
 	local addition = {}
 	addition.sd = {sd}

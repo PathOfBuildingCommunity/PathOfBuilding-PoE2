@@ -209,7 +209,7 @@ function ModDBClass:ListInternal(context, result, cfg, flags, keywordFlags, sour
 				if mod.type == "LIST" and band(flags, mod.flags) == mod.flags and MatchKeywordFlags(keywordFlags, mod.keywordFlags) and (not source or mod.source:match("[^:]+") == source) then
 					local value
 					if mod[1] then
-						local value = context:EvalMod(mod, cfg) or nullValue
+						local value = context:EvalMod(mod, cfg) or nil
 						if value then
 							t_insert(result, value)
 						end
