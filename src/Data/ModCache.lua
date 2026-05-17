@@ -4509,9 +4509,8 @@ c["Can Attack as though using a Quarterstaff while both of your hand slots are e
 c["Can Socket a non-Unique Basic Jewel into the Phylactery"]={{},nil}
 c["Can be modified while Corrupted"]={nil,"Can be modified while Corrupted "}
 c["Can be modified while Corrupted +150 to maximum Life"]={nil,"Can be modified while Corrupted +150 to maximum Life "}
-c["Can have 2 additional Instilled Modifiers"]={nil,"Can have 2 additional Instilled Modifiers "}
-c["Can have 2 additional Instilled Modifiers Can have 3 additional Instilled Modifiers"]={nil,"Can have 2 additional Instilled Modifiers Can have 3 additional Instilled Modifiers "}
-c["Can have 3 additional Instilled Modifiers"]={nil,"Can have 3 additional Instilled Modifiers "}
+c["Can have 2 additional Instilled Modifiers"]={{},nil}
+c["Can have 3 additional Instilled Modifiers"]={{},nil}
 c["Can instead consume 25% of maximum Mana to trigger Charms with insufficient charges"]={nil,"Can instead consume 25% of maximum Mana to trigger Charms with insufficient charges "}
 c["Can only use a Normal Body Armour"]={nil,"Can only use a Normal Body Armour "}
 c["Can only use a Normal Body Armour +200 to Armour for each Connected Notable Passive Skill Allocated"]={nil,"Can only use a Normal Body Armour +200 to Armour for each Connected Notable Passive Skill Allocated "}
