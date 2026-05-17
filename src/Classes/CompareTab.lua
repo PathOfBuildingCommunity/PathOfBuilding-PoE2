@@ -18,13 +18,35 @@ local buildListHelpers = LoadModule("Modules/BuildListHelpers")
 -- Node IDs below this value are normal passive tree nodes; IDs at or above are cluster jewel nodes
 local CLUSTER_NODE_OFFSET = 65536
 
+-- Wrap a string into lines for a given pixel width at font height 14 ("VAR").
+local function wrapInfoLine(str, width)
+	local lines = {}
+	if not str or str == "" or type(width) ~= "number" or width <= 0 then
+		return lines
+	end
+	local lineStart = 1
+	local lineEnd = 0
+	for wordStart, wordEnd in str:gmatch("()%S+()") do
+		local candidate = str:sub(lineStart, wordEnd - 1)
+		if lineEnd >= lineStart and DrawStringWidth(14, "VAR", candidate) > width then
+			t_insert(lines, str:sub(lineStart, lineEnd))
+			lineStart = wordStart
+		end
+		lineEnd = wordEnd - 1
+	end
+	if lineEnd >= lineStart then
+		t_insert(lines, str:sub(lineStart, lineEnd))
+	end
+	return lines
+end
+
 -- Layout constants (shared across Draw, DrawConfig, DrawItems, DrawCalcs, etc.)
 local LAYOUT = {
 	-- Main tab control bar
 	controlBarHeight = 126,
 
 	-- Tree view header/footer
-	treeHeaderHeight = 58,
+	treeHeaderHeight = 74,
 	treeFooterHeight = 30,
 	treeOverlayCheckX = 155,
 
@@ -33,19 +55,24 @@ local LAYOUT = {
 	summaryCol2Right = 440,
 	summaryCol3Right = 580,
 	summaryCol4 = 600,
+	summaryHeaderHeight = 38,
 
 	-- Items view
-	itemsCheckboxOffset = 60,
+	itemsCheckboxOffset = 78,
 	itemsCopyBtnW = 60,
-	itemsCopyUseBtnW = 78,
+	itemsEquipBtnW = 60,
 	itemsCopyBtnH = 18,
 	itemsBuyBtnW = 60,
+	itemsHScrollBarHeight = 16,
+	compareColGap = 48,
+	skillsHeaderHeight = 24,
+	skillsHScrollBarHeight = 16,
 
 	-- Calcs view
 	calcsMaxCardWidth = 400,
 	calcsLabelWidth = 132,
 	calcsSepW = 2,
-	calcsHeaderBarHeight = 24,
+	calcsHeaderBarHeight = 12,
 
 	-- Power report section (inside Summary view)
 	powerReportLeft = 10,
@@ -120,6 +147,7 @@ local CompareTabClass = newClass("CompareTab", "ControlHost", "Control", functio
 
 	-- Tooltip for calcs hover breakdown
 	self.calcsTooltip = new("Tooltip")
+	self.calcsShowOnlyDifferences = true
 
 	-- Interactive config controls state
 	self.configControls = {}        -- { var -> { control, varData } }
@@ -303,7 +331,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpSkillLabel.shown = setsEnabled
 
 	-- Socket group dropdown
-	self.controls.cmpSocketGroup = new("DropDownControl", {"LEFT", self.controls.cmpSkillLabel, "RIGHT"}, {2, 0, 200, 20}, {}, function(index, value)
+	self.controls.cmpSocketGroup = new("DropDownControl", {"LEFT", self.controls.cmpSkillLabel, "RIGHT"}, {4, 0, 200, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			entry:SetMainSocketGroup(index)
@@ -314,7 +342,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpSocketGroup.enableDroppedWidth = true
 
 	-- Active skill within group
-	self.controls.cmpMainSkill = new("DropDownControl", {"LEFT", self.controls.cmpSocketGroup, "RIGHT"}, {2, 0, 150, 20}, {}, function(index, value)
+	self.controls.cmpMainSkill = new("DropDownControl", {"LEFT", self.controls.cmpSocketGroup, "RIGHT"}, {4, 0, 225, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -339,7 +367,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpStatSet.shown = false
 
 	-- Skill part (multi-part skills)
-	self.controls.cmpSkillPart = new("DropDownControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {2, 0, 100, 20}, {}, function(index, value)
+	self.controls.cmpSkillPart = new("DropDownControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {4, 0, 200, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -356,9 +384,9 @@ function CompareTabClass:InitControls()
 	self.controls.cmpSkillPart.shown = false
 
 	-- Stage count
-	self.controls.cmpStageCountLabel = new("LabelControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {4, 0, 0, 16}, "^7Stages:")
+	self.controls.cmpStageCountLabel = new("LabelControl", {"LEFT", self.controls.cmpSkillPart, "RIGHT"}, {6, 0, 0, 16}, "^7Stages:")
 	self.controls.cmpStageCountLabel.shown = function() return self.controls.cmpStageCount.shown end
-	self.controls.cmpStageCount = new("EditControl", {"LEFT", self.controls.cmpStageCountLabel, "RIGHT"}, {2, 0, 52, 20}, "", nil, "%D", 5, function(buf)
+	self.controls.cmpStageCount = new("EditControl", {"LEFT", self.controls.cmpStageCountLabel, "RIGHT"}, {4, 0, 52, 20}, "", nil, "%D", 5, function(buf)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -375,9 +403,9 @@ function CompareTabClass:InitControls()
 	self.controls.cmpStageCount.shown = false
 
 	-- Mine count
-	self.controls.cmpMineCountLabel = new("LabelControl", {"LEFT", self.controls.cmpStageCount, "RIGHT"}, {4, 0, 0, 16}, "^7Mines:")
+	self.controls.cmpMineCountLabel = new("LabelControl", {"LEFT", self.controls.cmpStageCount, "RIGHT"}, {6, 0, 0, 16}, "^7Mines:")
 	self.controls.cmpMineCountLabel.shown = function() return self.controls.cmpMineCount.shown end
-	self.controls.cmpMineCount = new("EditControl", {"LEFT", self.controls.cmpMineCountLabel, "RIGHT"}, {2, 0, 52, 20}, "", nil, "%D", 5, function(buf)
+	self.controls.cmpMineCount = new("EditControl", {"LEFT", self.controls.cmpMineCountLabel, "RIGHT"}, {4, 0, 52, 20}, "", nil, "%D", 5, function(buf)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -394,7 +422,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpMineCount.shown = false
 
 	-- Minion selector
-	self.controls.cmpMinion = new("DropDownControl", {"LEFT", self.controls.cmpStatSet, "RIGHT"}, {4, 0, 140, 20}, {}, function(index, value)
+	self.controls.cmpMinion = new("DropDownControl", {"LEFT", self.controls.cmpMineCount, "RIGHT"}, {6, 0, 140, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -418,7 +446,7 @@ function CompareTabClass:InitControls()
 	self.controls.cmpMinion.shown = false
 
 	-- Minion skill selector
-	self.controls.cmpMinionSkill = new("DropDownControl", {"LEFT", self.controls.cmpMinion, "RIGHT"}, {2, 0, 140, 20}, {}, function(index, value)
+	self.controls.cmpMinionSkill = new("DropDownControl", {"LEFT", self.controls.cmpMinion, "RIGHT"}, {4, 0, 140, 20}, {}, function(index, value)
 		local entry = self:GetActiveCompare()
 		if entry then
 			local mainSocketGroup = entry.skillsTab.socketGroupList[entry.mainSocketGroup]
@@ -736,6 +764,13 @@ function CompareTabClass:InitControls()
 	end)
 	self.controls.cmpCalcsMode.shown = false
 
+	self.controls.calcsShowOnlyDifferencesCheck = new("CheckBoxControl", nil, {0, 0, 18}, "Show only differences", function(state)
+		self.calcsShowOnlyDifferences = state
+	end, "Show only rows that differ between both builds. Disable to include unchanged rows.")
+	self.controls.calcsShowOnlyDifferencesCheck.shown = function()
+		return self.compareViewMode == "CALCS" and self:GetActiveCompare() ~= nil
+	end
+
 	-- ============================================================
 	-- Tree footer controls (visible only in TREE view mode with a comparison loaded)
 	-- ============================================================
@@ -945,7 +980,7 @@ function CompareTabClass:InitControls()
 	end
 
 	-- Config view: search bar
-	self.controls.configSearchEdit = new("EditControl", nil, {0, 0, 200, 20}, "", "Search", "%c", 100, nil, nil, nil, true)
+	self.controls.configSearchEdit = new("EditControl", nil, {0, 0, 240, 20}, "", "Search", "%c", 100, nil, nil, nil, true)
 	self.controls.configSearchEdit.shown = function()
 		return self.compareViewMode == "CONFIG" and self:GetActiveCompare() ~= nil
 	end
@@ -1051,6 +1086,30 @@ function CompareTabClass:InitControls()
 	self.controls.calcsScrollBar.shown = function()
 		return self.compareViewMode == "CALCS" and self:GetActiveCompare() ~= nil and calcsScrollBar.enabled
 	end
+
+	-- Shared vertical scrollbar for Summary/Items/Skills/Config sub-tabs
+	self.controls.viewScrollBar = new("ScrollBarControl", nil, {0, 0, 18, 0}, 50, "VERTICAL", true)
+	local viewScrollBar = self.controls.viewScrollBar
+	self.controls.viewScrollBar.shown = function()
+		return self:GetActiveCompare() ~= nil
+			and self.compareViewMode ~= "TREE"
+			and self.compareViewMode ~= "CALCS"
+			and viewScrollBar.enabled
+	end
+
+	-- Horizontal scrollbar for Items sub-tab
+	self.controls.itemsHScrollBar = new("ScrollBarControl", nil, {0, 0, 0, LAYOUT.itemsHScrollBarHeight}, 60, "HORIZONTAL", true)
+	local itemsHScrollBar = self.controls.itemsHScrollBar
+	self.controls.itemsHScrollBar.shown = function()
+		return self.compareViewMode == "ITEMS" and self:GetActiveCompare() ~= nil and itemsHScrollBar.enabled
+	end
+
+	-- Horizontal scrollbar for Skills sub-tab
+	self.controls.skillsHScrollBar = new("ScrollBarControl", nil, {0, 0, 0, LAYOUT.skillsHScrollBarHeight}, 60, "HORIZONTAL", true)
+	local skillsHScrollBar = self.controls.skillsHScrollBar
+	self.controls.skillsHScrollBar.shown = function()
+		return self.compareViewMode == "SKILLS" and self:GetActiveCompare() ~= nil and skillsHScrollBar.enabled
+	end
 end
 
 -- Get a short display name from a build name (strips "AccountName - " prefix)
@@ -1113,7 +1172,7 @@ function CompareTabClass:NormalizeConfigVals(varData, pVal, cVal)
 end
 
 -- Create a single config control for a given varData, writing to the specified input/configTab/build
-local function makeConfigControl(varData, inputTable, configTab, buildObj)
+local function makeConfigControl(varData, inputTable, configTab, buildObj, sourceControl)
 	local control
 	local pVal = inputTable[varData.var]
 	if varData.type == "check" then
@@ -1148,6 +1207,12 @@ local function makeConfigControl(varData, inputTable, configTab, buildObj)
 	end
 	if control then
 		control.shown = function() return false end
+		-- Reuse tooltip behavior from the source ConfigTab control so compare view
+		-- matches normal Config tab hover help (including dynamic tooltip funcs).
+		if sourceControl then
+			control.tooltipText = sourceControl.tooltipText
+			control.tooltipFunc = sourceControl.tooltipFunc
+		end
 	end
 	return control
 end
@@ -1181,8 +1246,10 @@ function CompareTabClass:RebuildConfigControls(compareEntry)
 				currentSection = nil
 			end
 		elseif currentSection and varData.var and varData.type ~= "text" then
-			local pCtrl = makeConfigControl(varData, pInput, self.primaryBuild.configTab, primaryBuild)
-			local cCtrl = makeConfigControl(varData, cInput, compareEntry.configTab, compareEntry)
+			local pSource = self.primaryBuild.configTab.varControls and self.primaryBuild.configTab.varControls[varData.var]
+			local cSource = compareEntry.configTab.varControls and compareEntry.configTab.varControls[varData.var]
+			local pCtrl = makeConfigControl(varData, pInput, self.primaryBuild.configTab, primaryBuild, pSource)
+			local cCtrl = makeConfigControl(varData, cInput, compareEntry.configTab, compareEntry, cSource)
 
 			if pCtrl and cCtrl then
 				self.controls["cfg_p_" .. varData.var] = pCtrl
@@ -1579,6 +1646,11 @@ function CompareTabClass:OpenImportFolderPopup()
 			self:LoadBuild(build)
 		end
 	end
+	function controls.buildList:OnHoverKeyUp(key)
+		if self.controls.scrollBarV:IsScrollDownKey(key) or self.controls.scrollBarV:IsScrollUpKey(key) then
+			self:OnKeyUp(key)
+		end
+	end
 	function controls.buildList:CanReceiveDrag() return false end
 	function controls.buildList:OnSelCopy() end
 	function controls.buildList:OnSelCut() end
@@ -1606,6 +1678,7 @@ end
 -- DRAW - Main render method
 -- ============================================================
 function CompareTabClass:Draw(viewPort, inputEvents)
+	main:DrawBackground(viewPort)
 	-- Position top-bar controls
 	self.controls.subTabAnchor.x = viewPort.x + 4
 	self.controls.subTabAnchor.y = viewPort.y + 96
@@ -1644,12 +1717,18 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 	if compareEntry then
 		self:UpdateSetSelectors(compareEntry)
 	end
+	for _, event in ipairs(inputEvents) do
+		if event.type == "KeyDown" and event.key == "f" and IsKeyDown("CTRL") then
+			if self.compareViewMode == "CONFIG" and compareEntry then
+				self:SelectControl(self.controls.configSearchEdit)
+			end
+		end
+	end
 	-- Layout and refresh calcs skill detail controls
 	self.calcsSkillHeaderHeight = 0
 	if self.compareViewMode == "CALCS" and compareEntry then
 		self.calcsSkillHeaderHeight = self:LayoutCalcsSkillControls(contentVP, compareEntry)
 	end
-	self:HandleScrollInput(contentVP, inputEvents)
 
 	-- Draw calcs skill header background
 	if self.compareViewMode == "CALCS" and self.calcsSkillHeaderHeight > 0 then
@@ -1657,11 +1736,51 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 		DrawImage(nil, contentVP.x, contentVP.y, contentVP.width, self.calcsSkillHeaderHeight)
 	end
 
+	-- Layout shared vertical scrollbar for Summary/Items/Skills/Config.
+	local mode = self.compareViewMode
+	local viewScrollBar = self.controls.viewScrollBar
+	if compareEntry and mode ~= "TREE" and mode ~= "CALCS" then
+		local topReserve = 0
+		local bottomReserve = 0
+		local contentHeight = 0
+		if mode == "SUMMARY" then
+			topReserve = LAYOUT.summaryHeaderHeight
+			contentHeight = self.summaryTotalContentHeight or 0
+		elseif mode == "CONFIG" then
+			topReserve = LAYOUT.configFixedHeaderHeight
+			contentHeight = self.configTotalContentHeight or 0
+		elseif mode == "ITEMS" then
+			topReserve = LAYOUT.itemsCheckboxOffset
+			bottomReserve = self.controls.itemsHScrollBar.enabled and LAYOUT.itemsHScrollBarHeight or 0
+			contentHeight = self.itemsTotalContentHeight or 0
+		elseif mode == "SKILLS" then
+			topReserve = LAYOUT.skillsHeaderHeight
+			bottomReserve = self.controls.skillsHScrollBar.enabled and LAYOUT.skillsHScrollBarHeight or 0
+			contentHeight = self.skillsTotalContentHeight or 0
+		end
+		local viewHeight = m_max(contentVP.height - topReserve - bottomReserve, 0)
+		viewScrollBar.x = contentVP.x + contentVP.width - 18
+		viewScrollBar.y = contentVP.y + topReserve
+		viewScrollBar.height = viewHeight
+		viewScrollBar:SetContentDimension(contentHeight, viewHeight)
+		viewScrollBar:SetOffset(self.scrollY)
+		self.scrollY = viewScrollBar.offset
+	else
+		viewScrollBar:SetContentDimension(0, contentVP.height)
+		viewScrollBar:SetOffset(0)
+	end
+
 	-- Process input events for our controls (including footer controls)
 	self:ProcessControlsInput(inputEvents, viewPort)
+	self:HandleScrollInput(contentVP, inputEvents)
+	if self.controls.viewScrollBar:IsShown() then
+		self.scrollY = self.controls.viewScrollBar.offset
+	end
+
+	local drawingTree = self.compareViewMode == "TREE" and compareEntry ~= nil
 
 	-- Draw TREE view BEFORE controls so header dropdowns render on top of the tree
-	if self.compareViewMode == "TREE" and compareEntry then
+	if drawingTree then
 		self:DrawTree(contentVP, inputEvents, compareEntry)
 
 		-- Elevate to main draw layer 1 (matching TreeTab pattern) so controls
@@ -1681,14 +1800,11 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 			SetDrawColor(0.85, 0.85, 0.85)
 			DrawImage(nil, contentVP.x, layout.footerY, contentVP.width, 2)
 		end
-	end
-
-	-- Draw controls (at main layer 1 when in TREE mode, above all tree content)
-	self:DrawControls(viewPort)
-
-	-- Reset to default draw layer after controls
-	if self.compareViewMode == "TREE" and compareEntry then
-		SetDrawLayer(0)
+		SetDrawColor(1, 1, 1)
+		DrawString(self.controls.leftSpecSelect.x, contentVP.y + 4, "LEFT", 18, "VAR",
+			colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
+		DrawString(self.controls.rightSpecSelect.x, contentVP.y + 4, "LEFT", 18, "VAR",
+			colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
 	end
 
 	if not compareEntry then
@@ -1700,62 +1816,99 @@ function CompareTabClass:Draw(viewPort, inputEvents)
 		DrawString(0, 70, "CENTER", 16, "VAR",
 			"^7Click " .. colorCodes.POSITIVE .. "Import..." .. "^7 above to import a build to compare against.")
 		SetViewport()
-		return
-	end
+	else
+		-- Position items expanded mode checkbox and item set dropdowns (inside content area, top-left)
+		-- Label draws to the left of the checkbox, so offset x by labelWidth to keep it visible
+		if self.compareViewMode == "ITEMS" then
+			self.controls.itemsExpandedCheck.x = contentVP.x + 10 + self.controls.itemsExpandedCheck.labelWidth
+			self.controls.itemsExpandedCheck.y = contentVP.y + 8
 
-	-- Position items expanded mode checkbox and item set dropdowns (inside content area, top-left)
-	-- Label draws to the left of the checkbox, so offset x by labelWidth to keep it visible
-	if self.compareViewMode == "ITEMS" then
-		self.controls.itemsExpandedCheck.x = contentVP.x + 10 + self.controls.itemsExpandedCheck.labelWidth
-		self.controls.itemsExpandedCheck.y = contentVP.y + 8
+			local colWidth = self.itemsColWidth or m_floor(contentVP.width / 2)
+			local itemSetLabelW = DrawStringWidth(16, "VAR", "^7Item set:") + 4
+			local scrollOffsetX = -((self.controls.itemsHScrollBar and self.controls.itemsHScrollBar.offset) or 0)
 
-		local colWidth = m_floor(contentVP.width / 2)
-		local itemSetLabelW = DrawStringWidth(16, "VAR", "^7Item set:") + 4
+			-- Item set dropdowns
+			local buildLabelY = contentVP.y + 30
+			local row1Y = contentVP.y + 52
 
-		-- Item set dropdowns
-		local row1Y = contentVP.y + 34
+			-- Primary build item set dropdown
+			self.controls.primaryItemSetLabel.x = contentVP.x + scrollOffsetX + 10
+			self.controls.primaryItemSetLabel.y = row1Y + 2
+			self.controls.primaryItemSetSelect.x = contentVP.x + scrollOffsetX + 10 + itemSetLabelW
+			self.controls.primaryItemSetSelect.y = row1Y
 
-		-- Primary build item set dropdown
-		self.controls.primaryItemSetLabel.x = contentVP.x + 10
-		self.controls.primaryItemSetLabel.y = row1Y + 2
-		self.controls.primaryItemSetSelect.x = contentVP.x + 10 + itemSetLabelW
-		self.controls.primaryItemSetSelect.y = row1Y
+			-- Compare build item set dropdown
+			self.controls.compareItemSetLabel2.x = contentVP.x + scrollOffsetX + colWidth + 10
+			self.controls.compareItemSetLabel2.y = row1Y + 2
+			self.controls.compareItemSetSelect2.x = contentVP.x + scrollOffsetX + colWidth + 10 + itemSetLabelW
+			self.controls.compareItemSetSelect2.y = row1Y
 
-		-- Compare build item set dropdown
-		self.controls.compareItemSetLabel2.x = contentVP.x + colWidth + 10
-		self.controls.compareItemSetLabel2.y = row1Y + 2
-		self.controls.compareItemSetSelect2.x = contentVP.x + colWidth + 10 + itemSetLabelW
-		self.controls.compareItemSetSelect2.y = row1Y
+			SetDrawColor(1, 1, 1)
+			DrawString(self.controls.primaryItemSetLabel.x, buildLabelY, "LEFT", 18, "VAR",
+				colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
+			DrawString(self.controls.compareItemSetLabel2.x, buildLabelY, "LEFT", 18, "VAR",
+				colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+			SetDrawColor(0.5, 0.5, 0.5)
+			DrawImage(nil, contentVP.x + 4, contentVP.y + LAYOUT.itemsCheckboxOffset - 2, contentVP.width - 8, 2)
 
-		-- Populate primary build item set list
-		if self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.itemSetOrderList then
-			self:PopulateSetDropdown(self.primaryBuild.itemsTab, "itemSetOrderList", "itemSets", "activeItemSetId", self.controls.primaryItemSetSelect)
+			-- Populate primary build item set list
+			if self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.itemSetOrderList then
+				self:PopulateSetDropdown(self.primaryBuild.itemsTab, "itemSetOrderList", "itemSets", "activeItemSetId", self.controls.primaryItemSetSelect)
+			end
+
+			-- Populate compare build item set list
+			if compareEntry and compareEntry.itemsTab and compareEntry.itemsTab.itemSetOrderList then
+				self:PopulateSetDropdown(compareEntry.itemsTab, "itemSetOrderList", "itemSets", "activeItemSetId", self.controls.compareItemSetSelect2)
+			end
 		end
 
-		-- Populate compare build item set list
-		if compareEntry and compareEntry.itemsTab and compareEntry.itemsTab.itemSetOrderList then
-			self:PopulateSetDropdown(compareEntry.itemsTab, "itemSetOrderList", "itemSets", "activeItemSetId", self.controls.compareItemSetSelect2)
+		-- Dispatch to sub-view (TREE already drawn above)
+		if self.compareViewMode == "SUMMARY" then
+			self:DrawSummary(contentVP, compareEntry)
+		elseif self.compareViewMode == "ITEMS" then
+			self:DrawItems(contentVP, compareEntry, inputEvents)
+		elseif self.compareViewMode == "SKILLS" then
+			self:DrawSkills(contentVP, compareEntry)
+		elseif self.compareViewMode == "CALCS" then
+			self:DrawCalcs(contentVP, compareEntry)
+		elseif self.compareViewMode == "CONFIG" then
+			self:DrawConfig(contentVP, compareEntry)
 		end
-
 	end
 
-	-- Dispatch to sub-view (TREE already drawn above)
-	if self.compareViewMode == "SUMMARY" then
-		self:DrawSummary(contentVP, compareEntry)
-	elseif self.compareViewMode == "ITEMS" then
-		self:DrawItems(contentVP, compareEntry, inputEvents)
-	elseif self.compareViewMode == "SKILLS" then
-		self:DrawSkills(contentVP, compareEntry)
-	elseif self.compareViewMode == "CALCS" then
-		self:DrawCalcs(contentVP, compareEntry)
-	elseif self.compareViewMode == "CONFIG" then
-		self:DrawConfig(contentVP, compareEntry)
+	self:DrawControls(viewPort)
+	if self.compareViewMode == "CONFIG" and compareEntry then
+		self:DrawConfig(contentVP, compareEntry, true)
+		self:DrawControlList(viewPort, {
+			self.controls.copyConfigBtn,
+			self.controls.configToggleBtn,
+			self.controls.configSearchEdit,
+			self.controls.configPrimarySetLabel,
+			self.controls.configPrimarySetSelect,
+		})
+	end
+	if drawingTree then
+		SetDrawLayer(0)
+	end
+	if self.controls.viewScrollBar:IsShown() then
+		self.scrollY = self.controls.viewScrollBar.offset
 	end
 end
 
 -- ============================================================
 -- DRAW HELPERS
 -- ============================================================
+
+function CompareTabClass:DrawControlList(viewPort, controls)
+	local noTooltip = function(control)
+		return self.selControl and self.selControl.hasFocus and self.selControl ~= control
+	end
+	for _, control in ipairs(controls) do
+		if control:IsShown() and control.Draw then
+			control:Draw(viewPort, noTooltip(control))
+		end
+	end
+end
 
 -- Pre-draw tree header/footer backgrounds and position tree controls.
 -- Must run before ProcessControlsInput so controls render on top of backgrounds.
@@ -1859,6 +2012,9 @@ function CompareTabClass:LayoutTreeView(contentVP, compareEntry)
 		self.controls.rightFooterAnchor.y = footerY + 4
 		self.controls.rightTreeSearch.width = halfWidth - 8
 	end
+	self.controls.leftSpecSelect.y = contentVP.y + 22
+	self.controls.rightSpecSelect.y = contentVP.y + 22
+	self.controls.treeOverlayCheck.y = contentVP.y + 48
 
 	-- (Common) Update spec dropdown lists
 	if self.primaryBuild.treeTab then
@@ -1936,12 +2092,19 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 	-- Position header controls
 	local row1Y = contentVP.y + 4
 	local row2Y = contentVP.y + 28
-	self.controls.copyConfigBtn.x = contentVP.x + 10
-	self.controls.copyConfigBtn.y = row1Y
-	self.controls.configToggleBtn.x = contentVP.x + 260
-	self.controls.configToggleBtn.y = row1Y
+	local configHeaderLeftX = contentVP.x + 10
+	local configSetSelectX = contentVP.x + 80
+	local configSetSelectW = 225
+	local inputEndX = configSetSelectX + configSetSelectW
+	local actionX = inputEndX + 10
 
-	self.controls.configSearchEdit.x = contentVP.x + 10
+	self.controls.copyConfigBtn.x = actionX
+	self.controls.copyConfigBtn.y = row1Y
+	self.controls.configToggleBtn.x = actionX
+	self.controls.configToggleBtn.y = row2Y
+
+	self.controls.configSearchEdit.x = configHeaderLeftX
+	self.controls.configSearchEdit.width = inputEndX - configHeaderLeftX
 	self.controls.configSearchEdit.y = row2Y
 
 	-- Update primary config set dropdown list
@@ -1955,10 +2118,11 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 		end
 	end
 	self.controls.configPrimarySetSelect:SetList(pSetList)
-	self.controls.configPrimarySetLabel.x = contentVP.x + 220
-	self.controls.configPrimarySetLabel.y = row2Y + 2
-	self.controls.configPrimarySetSelect.x = contentVP.x + 290
-	self.controls.configPrimarySetSelect.y = row2Y
+	self.controls.configPrimarySetLabel.x = configHeaderLeftX
+	self.controls.configPrimarySetLabel.y = row1Y + 2
+	self.controls.configPrimarySetSelect.x = configSetSelectX
+	self.controls.configPrimarySetSelect.width = configSetSelectW
+	self.controls.configPrimarySetSelect.y = row1Y
 
 	-- Build section layout: multi-column grid, mirroring regular ConfigTab
 	local rowHeight = LAYOUT.configRowHeight
@@ -2051,6 +2215,8 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 
 	-- Third pass: position controls at absolute coords
 	local scrollTopAbs = contentVP.y + fixedHeaderHeight
+	local scrollBottomAbs = contentVP.y + contentVP.height
+	local ctrlH = rowHeight
 	for _, sec in ipairs(sectionLayout) do
 		local sectionAbsX = contentVP.x + sec.x
 		local rowY = sec.y + sectionInnerPad
@@ -2060,10 +2226,9 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 			ci.primaryControl.y = contentVP.y + fixedHeaderHeight + rowY - self.scrollY
 			ci.compareControl.x = sectionAbsX + LAYOUT.configCol3
 			ci.compareControl.y = contentVP.y + fixedHeaderHeight + rowY - self.scrollY
-			local capturedRowY = rowY
 			local shownFn = function()
-				local ay = contentVP.y + fixedHeaderHeight + capturedRowY - self.scrollY
-				return ay >= scrollTopAbs - 20 and ay < contentVP.y + contentVP.height
+				local ay = ci.primaryControl.y
+				return ay + ctrlH > scrollTopAbs and ay < scrollBottomAbs
 					and self.compareViewMode == "CONFIG" and self:GetActiveCompare() ~= nil
 			end
 			ci.primaryControl.shown = shownFn
@@ -2185,9 +2350,10 @@ function CompareTabClass:LayoutCalcsSkillControls(vp, compareEntry)
 	self:RefreshCalcsSkillControls(compareEntry)
 
 	local colWidth = m_floor((vp.width - 20) / 2)
+	local wrapWidth = colWidth - 8
 	local leftX = vp.x + 4
 	local rightX = leftX + colWidth + 12
-	local labelW = 140
+	local labelW = 120
 	local controlW = colWidth - labelW - 8
 	local rowH = 22
 	local y = vp.y + 4
@@ -2240,20 +2406,34 @@ function CompareTabClass:LayoutCalcsSkillControls(vp, compareEntry)
 	local textLinesHeight = 2 -- padding before text
 	local primaryEnv = self.primaryBuild.calcsTab and self.primaryBuild.calcsTab.calcsEnv
 	local compareEnv = compareEntry.calcsTab and compareEntry.calcsTab.calcsEnv
-	local pOutput = primaryEnv and primaryEnv.player and primaryEnv.player.output
-	local cOutput = compareEnv and compareEnv.player and compareEnv.player.output
-	if pOutput or cOutput then
+	local primaryOutput = primaryEnv and primaryEnv.player and primaryEnv.player.output
+	local compareOutput = compareEnv and compareEnv.player and compareEnv.player.output
+	if primaryOutput or compareOutput then
+		local wrapWidth = colWidth - 8
+		local infoLabels = {
+			BuffList = "Aura/Buff Skills",
+			CombatList = "Combat Buffs",
+			CurseList = "Curses/Debuffs",
+		}
 		local infoKeys = { "BuffList", "CombatList", "CurseList" }
 		for _, key in ipairs(infoKeys) do
-			local pVal = pOutput and pOutput[key]
-			local cVal = cOutput and cOutput[key]
-			if (pVal and pVal ~= "") or (cVal and cVal ~= "") then
-				textLinesHeight = textLinesHeight + 18
+			local primaryValue = primaryOutput and primaryOutput[key]
+			local compareValue = compareOutput and compareOutput[key]
+			if (primaryValue and primaryValue ~= "") or (compareValue and compareValue ~= "") then
+				local label = infoLabels[key]
+				local primaryLineCount = (primaryValue and primaryValue ~= "") and #wrapInfoLine(label .. ": " .. primaryValue, wrapWidth) or 0
+				local compareLineCount = (compareValue and compareValue ~= "") and #wrapInfoLine(label .. ": " .. compareValue, wrapWidth) or 0
+				textLinesHeight = textLinesHeight + m_max(primaryLineCount, compareLineCount, 1) * 18
 			end
 		end
 	end
 
-	local headerHeight = m_max(leftY, rightY) - vp.y + textLinesHeight + 4 -- +4 for separator padding
+	local textBaseY = m_max(leftY, rightY)
+	local headerHeight = textBaseY - vp.y + textLinesHeight + 4 -- + separator padding
+	local showOnlyDiffCheck = self.controls.calcsShowOnlyDifferencesCheck
+	showOnlyDiffCheck.state = self.calcsShowOnlyDifferences and true or false
+	showOnlyDiffCheck.x = leftX + showOnlyDiffCheck.labelWidth + 2
+	showOnlyDiffCheck.y = vp.y + headerHeight + 4
 	return headerHeight
 end
 
@@ -2265,9 +2445,10 @@ function CompareTabClass:HandleScrollInput(contentVP, inputEvents)
 
 	local listControl = self.controls.comparePowerReportList
 	local mouseOverList = listControl:IsShown() and listControl:IsMouseOver()
+	local mouseOverViewScrollBar = self.controls.viewScrollBar:IsShown() and self.controls.viewScrollBar:IsMouseOver()
 
 	for id, event in ipairs(inputEvents) do
-		if event.type == "KeyDown" and mouseInContent and not mouseOverList then
+		if event.type == "KeyUp" and mouseInContent and not mouseOverList then
 			if self.compareViewMode == "CALCS" then
 				if event.key == "WHEELUP" then
 					self.controls.calcsScrollBar:Scroll(-1)
@@ -2276,18 +2457,31 @@ function CompareTabClass:HandleScrollInput(contentVP, inputEvents)
 					self.controls.calcsScrollBar:Scroll(1)
 					inputEvents[id] = nil
 				end
-			elseif event.key == "WHEELUP" and self.compareViewMode ~= "TREE" then
+			elseif event.key == "WHEELUP" and self.compareViewMode ~= "TREE" and not mouseOverViewScrollBar then
 				self.scrollY = m_max(self.scrollY - 40, 0)
+				self.controls.viewScrollBar:SetOffset(self.scrollY)
+				self.scrollY = self.controls.viewScrollBar.offset
 				inputEvents[id] = nil
-			elseif event.key == "WHEELDOWN" and self.compareViewMode ~= "TREE" then
+			elseif event.key == "WHEELDOWN" and self.compareViewMode ~= "TREE" and not mouseOverViewScrollBar then
 				local maxScroll = 0
 				if self.compareViewMode == "CONFIG" and self.configTotalContentHeight then
 					local scrollViewH = contentVP.height - LAYOUT.configFixedHeaderHeight
 					maxScroll = m_max(self.configTotalContentHeight - scrollViewH, 0)
-				else
-					maxScroll = 99999
+				elseif self.compareViewMode == "SUMMARY" and (self.summaryTotalContentHeight or 0) > 0 then
+					local scrollViewH = contentVP.height - LAYOUT.summaryHeaderHeight
+					maxScroll = m_max(self.summaryTotalContentHeight - scrollViewH, 0)
+				elseif self.compareViewMode == "ITEMS" and (self.itemsTotalContentHeight or 0) > 0 then
+					local hBarReserve = self.controls.itemsHScrollBar.enabled and LAYOUT.itemsHScrollBarHeight or 0
+					local scrollViewH = contentVP.height - LAYOUT.itemsCheckboxOffset - hBarReserve
+					maxScroll = m_max(self.itemsTotalContentHeight - scrollViewH, 0)
+				elseif self.compareViewMode == "SKILLS" and (self.skillsTotalContentHeight or 0) > 0 then
+					local hBarReserve = self.controls.skillsHScrollBar.enabled and LAYOUT.skillsHScrollBarHeight or 0
+					local scrollViewH = contentVP.height - LAYOUT.skillsHeaderHeight - hBarReserve
+					maxScroll = m_max(self.skillsTotalContentHeight - scrollViewH, 0)
 				end
 				self.scrollY = m_min(self.scrollY + 40, maxScroll)
+				self.controls.viewScrollBar:SetOffset(self.scrollY)
+				self.scrollY = self.controls.viewScrollBar.offset
 				inputEvents[id] = nil
 			end
 		end
@@ -2963,6 +3157,8 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	local lineHeight = 18
 	local headerHeight = 22
+	local headerReserve = LAYOUT.summaryHeaderHeight
+	local scrollViewH = vp.height - headerReserve
 
 	-- Column positions (col3R and col4 shift right dynamically to avoid name overlap)
 	local col1 = LAYOUT.summaryCol1
@@ -2978,22 +3174,18 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 	local col3R = m_min(m_max(LAYOUT.summaryCol3Right, minCol3R), maxCol3R)
 	local col4 = col3R + 20
 
-	SetViewport(vp.x, vp.y, vp.width, vp.height)
-	local drawY = 4 - self.scrollY
-
-	-- Headers
+	SetViewport(vp.x, vp.y, vp.width, headerReserve)
 	SetDrawColor(1, 1, 1)
-	DrawString(col1, drawY, "LEFT", headerHeight, "VAR", "^7Stat")
-	DrawString(col2R, drawY, "RIGHT_X", headerHeight, "VAR", colorCodes.POSITIVE .. primaryName)
-	DrawString(col3R, drawY, "RIGHT_X", headerHeight, "VAR",
+	DrawString(col1, 4, "LEFT", headerHeight, "VAR", "^7Stat")
+	DrawString(col2R, 4, "RIGHT_X", headerHeight, "VAR", colorCodes.POSITIVE .. primaryName)
+	DrawString(col3R, 4, "RIGHT_X", headerHeight, "VAR",
 		colorCodes.WARNING .. compareName)
-	DrawString(col4, drawY, "LEFT", headerHeight, "VAR", "^7Difference")
-	drawY = drawY + headerHeight + 4
-
-	-- Separator
+	DrawString(col4, 4, "LEFT", headerHeight, "VAR", "^7Difference")
 	SetDrawColor(0.5, 0.5, 0.5)
-	DrawImage(nil, 4, drawY, vp.width - 8, 2)
-	drawY = drawY + 6
+	DrawImage(nil, 4, headerHeight + 8, vp.width - 8, 2)
+
+	SetViewport(vp.x, vp.y + headerReserve, vp.width, scrollViewH)
+	local drawY = -self.scrollY
 
 	-- Stat comparison
 	local displayStats = summaryUseMinion and self.primaryBuild.minionDisplayStats or self.primaryBuild.displayStats
@@ -3022,8 +3214,7 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	-- Position controls dynamically based on drawY
 	-- The controls need absolute screen positions (vp.x/vp.y offset + viewport-local drawY)
-	-- drawY already includes the scroll offset (starts at 4 - self.scrollY)
-	local controlY = vp.y + drawY
+	local controlY = vp.y + headerReserve + drawY
 	local ctrlBaseX = vp.x + LAYOUT.powerReportLeft
 
 	-- Metric dropdown
@@ -3076,15 +3267,16 @@ function CompareTabClass:DrawSummary(vp, compareEntry)
 
 	-- Position the list control (absolute screen coordinates).
 	-- The list has a fixed height and its own internal scrollbar for rows.
-	-- Width matches the table columns (750) plus scrollbar (20px border/scroll area).
+	-- Width matches the table columns (720) plus scrollbar (20px border/scroll area).
 	local listHeight = 250
-	local listWidth = 770
+	local listWidth = 740
 	listControl.x = vp.x + LAYOUT.powerReportLeft
-	listControl.y = vp.y + drawY
+	listControl.y = vp.y + headerReserve + drawY
 	listControl.width = listWidth
 	listControl.height = listHeight
 
 	drawY = drawY + listHeight + 20 -- bottom padding
+	self.summaryTotalContentHeight = drawY + self.scrollY + 36
 
 	SetViewport()
 end
@@ -3454,11 +3646,59 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	local primaryEnv = self.primaryBuild.calcsTab and self.primaryBuild.calcsTab.mainEnv
 	local primaryHasRing3 = primaryEnv and primaryEnv.modDB:Flag(nil, "AdditionalRingSlot")
 	local lineHeight = 20
-	local colWidth = m_floor(vp.width / 2)
+	local jewelSlots = self:GetJewelComparisonSlots(compareEntry)
+
+	-- Pre-compute slot label widths for alignment. Keep base item rows
+	-- independent from long jewel socket labels so the compare columns don't
+	-- move when jewel names or modifier detail state changes.
+	local maxBaseLabelW = 0
+	for _, sn in ipairs(baseSlots) do
+		local w = DrawStringWidth(16, "VAR", "^7" .. sn .. ":")
+		if w > maxBaseLabelW then maxBaseLabelW = w end
+	end
+	maxBaseLabelW = maxBaseLabelW + 2
+
+	local pItems = self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.items
+	local pSlots = self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.slots
+	local cItems = compareEntry.itemsTab and compareEntry.itemsTab.items
+	local cSlots = compareEntry.itemsTab and compareEntry.itemsTab.slots
+	local function getSlotItems(slotName)
+		local pSlot = pSlots and pSlots[slotName]
+		local cSlot = cSlots and cSlots[slotName]
+		local pItem = pSlot and pItems and pItems[pSlot.selItemId]
+		local cItem = cSlot and cItems and cItems[cSlot.selItemId]
+		return pItem, cItem
+	end
+
+	local maxDiffW = 0
+	for _, diffLabel in ipairs({
+		"^8(both empty)",
+		colorCodes.POSITIVE .. "(match)",
+		colorCodes.NEGATIVE .. "(missing)",
+		colorCodes.TIP .. "(extra)",
+		colorCodes.WARNING .. "(different)",
+	}) do
+		maxDiffW = m_max(maxDiffW, DrawStringWidth(14, "VAR", diffLabel))
+	end
+
+	local primaryContentW = 10 + maxBaseLabelW + 4 + tradeHelpers.ITEM_BOX_W + 6 + maxDiffW
+	local colWidth = primaryContentW + LAYOUT.compareColGap
+	local contentWidth = colWidth * 2
+	self.itemsColWidth = colWidth
 
 	local checkboxOffset = LAYOUT.itemsCheckboxOffset
-	SetViewport(vp.x, vp.y + checkboxOffset, vp.width, vp.height - checkboxOffset)
+	local hBar = self.controls.itemsHScrollBar
+	hBar.x = vp.x
+	hBar.y = vp.y + vp.height - LAYOUT.itemsHScrollBarHeight
+	hBar.width = vp.width
+	hBar:SetContentDimension(contentWidth, vp.width)
+	self.itemsScrollX = hBar.offset
+
+	local bottomReserve = hBar.enabled and LAYOUT.itemsHScrollBarHeight or 0
+	local scrollViewH = vp.height - checkboxOffset - bottomReserve
+	SetViewport(vp.x, vp.y + checkboxOffset, vp.width, scrollViewH)
 	local drawY = 4 - self.scrollY
+	local scrollOffsetX = -self.itemsScrollX
 
 	-- Get cursor position relative to viewport for hover detection
 	local cursorX, cursorY = GetCursorPos()
@@ -3471,38 +3711,30 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	-- Track item copy button clicks
 	local clickedCopySlot = nil
-	local clickedCopyUseSlot = nil
+	local clickedEquipSlot = nil
 	local clickedBuySlot = nil
 	local clickedBuyItem = nil
 
-	-- Track Copy+Use button hover for stat comparison tooltip
-	local hoverCopyUseItem = nil
-	local hoverCopyUseSlotName = nil
-	local hoverCopyUseBtnX, hoverCopyUseBtnY = 0, 0
-	local hoverCopyUseBtnW, hoverCopyUseBtnH = 0, 0
+	-- Track Equip button hover for stat comparison tooltip
+	local hoverEquipItem = nil
+	local hoverEquipSlotName = nil
+	local hoverEquipBtnX, hoverEquipBtnY = 0, 0
+	local hoverEquipBtnW, hoverEquipBtnH = 0, 0
 
 	-- Headers
 	SetDrawColor(1, 1, 1)
-	DrawString(10, drawY, "LEFT", 18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-	DrawString(colWidth + 10, drawY, "LEFT", 18, "VAR", colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+	DrawString(scrollOffsetX + 10, drawY, "LEFT", 18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
+	DrawString(scrollOffsetX + colWidth + 10, drawY, "LEFT", 18, "VAR", colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
 	drawY = drawY + 24
 
-	-- Pre-compute max slot label width for alignment
-	local maxLabelW = 0
-	for _, sn in ipairs(baseSlots) do
-		local w = DrawStringWidth(16, "VAR", "^7" .. sn .. ":")
-		if w > maxLabelW then maxLabelW = w end
-	end
-	maxLabelW = maxLabelW + 2
-
 	-- Helper: process copy/buy button hover state and click events for a slot.
-	-- Closes over hoverCopyUse*/clicked* locals above.
-	local function processSlotButtons(b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, cItem, copySlotName, copyUseSlotName)
+	-- Closes over hoverEquip*/clicked* locals above.
+	local function processSlotButtons(b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, cItem, copySlotName, equipSlotName)
 		if b2Hover and cItem then
-			hoverCopyUseItem = cItem
-			hoverCopyUseSlotName = copyUseSlotName
-			hoverCopyUseBtnX, hoverCopyUseBtnY = b2X, b2Y
-			hoverCopyUseBtnW, hoverCopyUseBtnH = b2W, b2H
+			hoverEquipItem = cItem
+			hoverEquipSlotName = equipSlotName
+			hoverEquipBtnX, hoverEquipBtnY = b2X, b2Y
+			hoverEquipBtnW, hoverEquipBtnH = b2W, b2H
 		end
 		if cItem and inputEvents then
 			for id, event in ipairs(inputEvents) do
@@ -3511,10 +3743,10 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 						clickedCopySlot = copySlotName
 						inputEvents[id] = nil
 					elseif b2Hover then
-						clickedCopyUseSlot = copyUseSlotName
+						clickedEquipSlot = equipSlotName
 						inputEvents[id] = nil
 					elseif b3Hover then
-						clickedBuySlot = copyUseSlotName
+						clickedBuySlot = equipSlotName
 						clickedBuyItem = cItem
 						inputEvents[id] = nil
 					end
@@ -3525,16 +3757,17 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 
 	-- Helper: draw a single slot entry (expanded or compact mode).
 	-- Closes over drawY, colWidth, cursorX/Y, vp, self, compareEntry, hoverItem/hoverX/Y/W/H/hoverItemsTab.
-	local function drawSlotEntry(label, pItem, cItem, copySlotName, copyUseSlotName, labelW, pWarn, cWarn, slotMissing)
+	local function drawSlotEntry(label, pItem, cItem, copySlotName, equipSlotName, labelW, pWarn, cWarn, slotMissing)
 		if self.itemsExpandedMode then
 			-- === EXPANDED MODE ===
 			SetDrawColor(1, 1, 1)
-			DrawString(10, drawY, "LEFT", 16, "VAR", "^7" .. label .. ":" .. (pWarn or ""))
-			DrawString(colWidth - 10, drawY, "RIGHT", 14, "VAR", tradeHelpers.getSlotDiffLabel(pItem, cItem))
+			DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", "^7" .. label .. ":" .. (pWarn or ""))
+			local labelEndW = DrawStringWidth(16, "VAR", "^7" .. label .. ":" .. (pWarn or ""))
+			DrawString(scrollOffsetX + 10 + labelEndW + 8, drawY + 2, "LEFT", 14, "VAR", tradeHelpers.getSlotDiffLabel(pItem, cItem))
 
 			if cItem then
-				local b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H = tradeHelpers.drawCopyButtons(cursorX, cursorY, vp.width - 214, drawY + 1, slotMissing, LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsCopyUseBtnW)
-				processSlotButtons(b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, cItem, copySlotName, copyUseSlotName)
+				local b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H = tradeHelpers.drawCopyButtons(cursorX, cursorY, scrollOffsetX + contentWidth - 214, drawY + 21, slotMissing, LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsEquipBtnW)
+				processSlotButtons(b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, cItem, copySlotName, equipSlotName)
 			end
 
 			drawY = drawY + 20
@@ -3542,12 +3775,12 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 			local pModMap = tradeHelpers.buildModMap(pItem)
 			local cModMap = tradeHelpers.buildModMap(cItem)
 			local itemStartY = drawY
-			local leftHeight = self:DrawItemExpanded(pItem, 20, drawY, colWidth - 30, cModMap)
-			local rightHeight = self:DrawItemExpanded(cItem, colWidth + 20, drawY, colWidth - 30, pModMap)
+			local leftHeight = self:DrawItemExpanded(pItem, scrollOffsetX + 20, drawY, colWidth - 30, cModMap)
+			local rightHeight = self:DrawItemExpanded(cItem, scrollOffsetX + colWidth + 20, drawY, colWidth - 30, pModMap)
 
 			SetDrawColor(0.25, 0.25, 0.25)
 			local maxH = m_max(leftHeight, rightHeight)
-			DrawImage(nil, colWidth, itemStartY, 1, maxH)
+			DrawImage(nil, scrollOffsetX + colWidth, itemStartY, 1, maxH)
 
 			drawY = drawY + maxH + 6
 		else
@@ -3557,7 +3790,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 				tradeHelpers.drawCompactSlotRow(drawY, label, pItem, cItem,
 					colWidth, cursorX, cursorY, labelW,
 					self.primaryBuild.itemsTab, compareEntry.itemsTab, pWarn, cWarn, slotMissing,
-					LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsCopyUseBtnW)
+					LAYOUT.itemsCopyBtnW, LAYOUT.itemsCopyBtnH, LAYOUT.itemsBuyBtnW, LAYOUT.itemsEquipBtnW, scrollOffsetX)
 
 			if rowHoverItem then
 				hoverItem = rowHoverItem
@@ -3566,46 +3799,35 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 				hoverW, hoverH = rowHoverW, rowHoverH
 			end
 
-			processSlotButtons(b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, cItem, copySlotName, copyUseSlotName)
+			processSlotButtons(b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, cItem, copySlotName, equipSlotName)
 
 			drawY = drawY + 20
 		end
 	end
 
 	for _, slotName in ipairs(baseSlots) do
-		-- Separator
-		SetDrawColor(0.3, 0.3, 0.3)
-		DrawImage(nil, 4, drawY, vp.width - 8, 1)
-		drawY = drawY + 2
-
 		-- Get items from both builds
-		local pSlot = self.primaryBuild.itemsTab and self.primaryBuild.itemsTab.slots and self.primaryBuild.itemsTab.slots[slotName]
-		local cSlot = compareEntry.itemsTab and compareEntry.itemsTab.slots and compareEntry.itemsTab.slots[slotName]
-		local pItem = pSlot and self.primaryBuild.itemsTab.items and self.primaryBuild.itemsTab.items[pSlot.selItemId]
-		local cItem = cSlot and compareEntry.itemsTab and compareEntry.itemsTab.items and compareEntry.itemsTab.items[cSlot.selItemId]
+		local pItem, cItem = getSlotItems(slotName)
 
 		local slotMissing = slotName == "Ring 3" and not primaryHasRing3
-		drawSlotEntry(slotName, pItem, cItem, slotName, slotName, maxLabelW, nil, nil, slotMissing)
+		drawSlotEntry(slotName, pItem, cItem, slotName, slotName, maxBaseLabelW, nil, nil, slotMissing)
 	end
 
 	-- === TREE SET DROPDOWNS ===
-	drawY = drawY + 12
-	SetDrawColor(0.5, 0.5, 0.5)
-	DrawImage(nil, 4, drawY, vp.width - 8, 1)
-	drawY = drawY + 10
+	drawY = drawY + 22
 
 	-- Convert drawY to absolute screen coords for control positioning
 	local absY = vp.y + checkboxOffset + drawY
 	local treeSetLabelW = DrawStringWidth(16, "VAR", "^7Tree set:") + 4
 
-	self.controls.primaryTreeSetLabel.x = vp.x + 10
+	self.controls.primaryTreeSetLabel.x = vp.x + scrollOffsetX + 10
 	self.controls.primaryTreeSetLabel.y = absY + 2
-	self.controls.primaryTreeSetSelect.x = vp.x + 10 + treeSetLabelW
+	self.controls.primaryTreeSetSelect.x = vp.x + scrollOffsetX + 10 + treeSetLabelW
 	self.controls.primaryTreeSetSelect.y = absY
 
-	self.controls.compareTreeSetLabel.x = vp.x + colWidth + 10
+	self.controls.compareTreeSetLabel.x = vp.x + scrollOffsetX + colWidth + 10
 	self.controls.compareTreeSetLabel.y = absY + 2
-	self.controls.compareTreeSetSelect.x = vp.x + colWidth + 10 + treeSetLabelW
+	self.controls.compareTreeSetSelect.x = vp.x + scrollOffsetX + colWidth + 10 + treeSetLabelW
 	self.controls.compareTreeSetSelect.y = absY
 
 	-- Populate tree set lists
@@ -3621,41 +3843,26 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	drawY = drawY + 24
 
 	-- === JEWELS SECTION ===
-	local jewelSlots = self:GetJewelComparisonSlots(compareEntry)
 	if #jewelSlots > 0 then
 		-- Section header
 		SetDrawColor(1, 1, 1)
-		DrawString(10, drawY, "LEFT", 16, "VAR", "^7-- Jewels --")
+		DrawString(scrollOffsetX + 10, drawY, "LEFT", 16, "VAR", "^7-- Jewels --")
 		drawY = drawY + 20
 
-		-- Pre-compute max jewel label width for alignment
-		local maxJewelLabelW = maxLabelW
-		for _, jE in ipairs(jewelSlots) do
-			local w = DrawStringWidth(16, "VAR", "^7" .. jE.label .. ":") + 2
-			if w > maxJewelLabelW then maxJewelLabelW = w end
-		end
-
-		for jIdx, jEntry in ipairs(jewelSlots) do
-			-- Separator (skip before first jewel since section header already has one)
-			if jIdx > 1 then
-				SetDrawColor(0.3, 0.3, 0.3)
-				DrawImage(nil, 4, drawY, vp.width - 8, 1)
-				drawY = drawY + 2
-			end
-
+		for _, jEntry in ipairs(jewelSlots) do
 			-- Tree allocation warning text
 			local pWarn = (jEntry.pItem and not jEntry.pNodeAllocated) and colorCodes.WARNING .. "  (tree missing allocated node)" or ""
 			local cWarn = (jEntry.cItem and not jEntry.cNodeAllocated) and colorCodes.WARNING .. "  (tree missing allocated node)" or ""
 
-			drawSlotEntry(jEntry.label, jEntry.pItem, jEntry.cItem, jEntry.cSlotName, jEntry.pSlotName, maxJewelLabelW, pWarn, cWarn, nil)
+			drawSlotEntry(jEntry.label, jEntry.pItem, jEntry.cItem, jEntry.cSlotName, jEntry.pSlotName, maxBaseLabelW, pWarn, cWarn, nil)
 		end
 	end
 
 	-- Process item copy button clicks
 	if clickedCopySlot then
 		self:CopyCompareItemToPrimary(clickedCopySlot, compareEntry, false)
-	elseif clickedCopyUseSlot then
-		self:CopyCompareItemToPrimary(clickedCopyUseSlot, compareEntry, true)
+	elseif clickedEquipSlot then
+		self:CopyCompareItemToPrimary(clickedEquipSlot, compareEntry, true)
 	end
 
 	-- Process buy button click
@@ -3664,29 +3871,32 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 	end
 
 	-- Draw item tooltip on hover (compact mode only, on top of everything)
+	SetViewport()
+	local maxTooltipWidth = m_min(600, m_max(260, vp.width - 24))
 	if hoverItem and hoverItemsTab then
 		self.itemTooltip:Clear()
-		hoverItemsTab:AddItemTooltip(self.itemTooltip, hoverItem, nil)
+		hoverItemsTab:AddItemTooltip(self.itemTooltip, hoverItem, nil, nil, maxTooltipWidth)
 		SetDrawLayer(nil, 100)
-		self.itemTooltip:Draw(hoverX, hoverY, hoverW, hoverH, vp)
+		self.itemTooltip:Draw(vp.x + hoverX, vp.y + checkboxOffset + hoverY, hoverW, hoverH, vp)
 		SetDrawLayer(nil, 0)
 	end
 
-	-- Draw stat comparison tooltip when hovering Copy+Use button
-	if hoverCopyUseItem and hoverCopyUseSlotName and not hoverItem then
+	-- Draw stat comparison tooltip when hovering Equip button
+	if hoverEquipItem and hoverEquipSlotName and not hoverItem then
 		self.itemTooltip:Clear()
+		self.itemTooltip.maxWidth = maxTooltipWidth
 		local calcFunc, calcBase = self.calcs.getMiscCalculator(self.primaryBuild)
 		if calcFunc then
 			-- Create a fresh item to evaluate
-			local newItem = new("Item", hoverCopyUseItem.raw)
+			local newItem = new("Item", hoverEquipItem.raw)
 			newItem:NormaliseQuality()
 
 			-- Determine what's currently in the target slot
-			local pSlot = self.primaryBuild.itemsTab.slots[hoverCopyUseSlotName]
+			local pSlot = self.primaryBuild.itemsTab.slots[hoverEquipSlotName]
 			local selItem = pSlot and self.primaryBuild.itemsTab.items[pSlot.selItemId]
 
 			-- For jewel sockets that aren't allocated, temporarily allocate the node
-			local override = { repSlotName = hoverCopyUseSlotName, repItem = newItem }
+			local override = { repSlotName = hoverEquipSlotName, repItem = newItem }
 			if pSlot and pSlot.nodeId then
 				local pSpec = self.primaryBuild.spec
 				if pSpec and pSpec.allocNodes and not pSpec.allocNodes[pSlot.nodeId] then
@@ -3698,7 +3908,7 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 			end
 
 			local output = calcFunc(override)
-			local slotLabel = pSlot and pSlot.label or hoverCopyUseSlotName
+			local slotLabel = pSlot and pSlot.label or hoverEquipSlotName
 			local header
 			if selItem then
 				header = string.format("^7Equipping this item in %s will give you:\n(replacing %s%s^7)", slotLabel, colorCodes[selItem.rarity] or "^7", selItem.name)
@@ -3714,10 +3924,11 @@ function CompareTabClass:DrawItems(vp, compareEntry, inputEvents)
 		SetDrawLayer(nil, 100)
 		-- Force tooltip to the left of the button by passing a large width
 		-- so the right-side placement overflows and the Draw logic flips to left
-		self.itemTooltip:Draw(hoverCopyUseBtnX, hoverCopyUseBtnY, vp.width, hoverCopyUseBtnH, vp)
+		self.itemTooltip:Draw(vp.x + hoverEquipBtnX, vp.y + checkboxOffset + hoverEquipBtnY, vp.width, hoverEquipBtnH, vp)
 		SetDrawLayer(nil, 0)
 	end
 
+	self.itemsTotalContentHeight = drawY
 	SetViewport()
 end
 
@@ -3726,16 +3937,6 @@ end
 -- ============================================================
 function CompareTabClass:DrawSkills(vp, compareEntry)
 	local lineHeight = 18
-	local colWidth = m_floor(vp.width / 2)
-
-	SetViewport(vp.x, vp.y, vp.width, vp.height)
-	local drawY = 4 - self.scrollY
-
-	-- Headers
-	SetDrawColor(1, 1, 1)
-	DrawString(10, drawY, "LEFT", 18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
-	DrawString(colWidth + 10, drawY, "LEFT", 18, "VAR", colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
-	drawY = drawY + 24
 
 	-- Get socket groups from both builds
 	local pGroups = self.primaryBuild.skillsTab and self.primaryBuild.skillsTab.socketGroupList or {}
@@ -3835,7 +4036,31 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 
 	local gemFontSize = 16
 	local gemLineHeight = 18
-	local gemTextWidth = colWidth - 30
+	local gemTextWidth
+
+	local function getGemLevelQualityString(gem)
+		local grantedEffect = gem.grantedEffect or (gem.gemData and gem.gemData.grantedEffect)
+		local isSupport = grantedEffect and grantedEffect.support
+		local levelStr = (not isSupport and gem.level) and (" " .. gem.level) or ""
+		local qualStr = gem.quality and ((isSupport and " " or "/") .. gem.quality) or ""
+		return levelStr .. qualStr
+	end
+
+	-- Helper: build the exact string drawGemList will render (used for both drawing and width measurement)
+	local function buildGemDisplayString(entry)
+		if entry.status == "missing" then
+			return colorCodes.NEGATIVE .. "- " .. entry.name .. "^7"
+		elseif entry.gem then
+			local gemName = entry.gem.grantedEffect and entry.gem.grantedEffect.name or entry.gem.nameSpec or "?"
+			local gemColor = entry.gem.color or colorCodes.GEM
+			local prefix = ""
+			if entry.status == "additional" then
+				prefix = colorCodes.POSITIVE .. "+ "
+			end
+			return prefix .. gemColor .. gemName .. "^7" .. getGemLevelQualityString(entry.gem)
+		end
+		return ""
+	end
 
 	-- Helper: build aligned display lists for a matched pair of groups
 	-- Common gems appear first, then additional, then missing
@@ -3937,33 +4162,100 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 				end
 				local gemName = entry.gem.grantedEffect and entry.gem.grantedEffect.name or entry.gem.nameSpec or "?"
 				local gemColor = entry.gem.color or colorCodes.GEM
-				local levelStr = entry.gem.level and (" Lv" .. entry.gem.level) or ""
-				local qualStr = entry.gem.quality and entry.gem.quality > 0 and ("/" .. entry.gem.quality .. "q") or ""
 				local prefix = ""
 				if entry.status == "additional" then
 					prefix = colorCodes.POSITIVE .. "+ "
 				end
-				DrawString(xOffset, y, "LEFT", gemFontSize, "VAR", prefix .. gemColor .. gemName .. "^7" .. levelStr .. qualStr)
+				DrawString(xOffset, y, "LEFT", gemFontSize, "VAR", prefix .. gemColor .. gemName .. "^7" .. getGemLevelQualityString(entry.gem))
 			end
 			y = y + gemLineHeight
 		end
 		return y
 	end
 
-	-- Position pre-pass: compute gem positions without drawing to enable hover hit-testing
-	local gemEntries = {} -- { gem, x, y, group }
-	local preY = 4 - self.scrollY + 24 -- after headers
-	for _, pair in ipairs(renderPairs) do
-		preY = preY + 2 -- separator
+	-- Build display lists once and measure widest primary-side content
+	local function getGroupLabel(group, idx)
+		local groupLabel = group.displayLabel or group.label or ("Group " .. idx)
+		if group.slot then
+			groupLabel = groupLabel .. " (" .. group.slot .. ")"
+		end
+		return groupLabel
+	end
+	local groupHeaderX = 10
+	local groupHeaderTextX = groupHeaderX
+	local function getGroupHeaderWidth(group, idx)
+		return groupHeaderTextX + DrawStringWidth(18, "VAR", "^7" .. getGroupLabel(group, idx))
+	end
+	local function drawGroupHeader(group, idx, x, y)
+		DrawString(x, y, "LEFT", 18, "VAR", "^7" .. getGroupLabel(group, idx))
+	end
+
+	local displayListsByPair = {}
+	local maxPrimaryW = 0
+	for idx, pair in ipairs(renderPairs) do
 		local pSet = pair.pIdx and pSets[pair.pIdx] or {}
 		local cSet = pair.cIdx and cSets[pair.cIdx] or {}
-
 		local pGroup = pair.pIdx and pGroups[pair.pIdx]
 		local cGroup = pair.cIdx and cGroups[pair.cIdx]
-		local pDisplayList, cDisplayList = buildAlignedGemLists(pGroup, cGroup, pSet, cSet)
+		local pDisplay, cDisplay = buildAlignedGemLists(pGroup, cGroup, pSet, cSet)
+		displayListsByPair[idx] = { p = pDisplay, c = cDisplay }
 
-		local pGemY = collectGemEntries(gemEntries, pDisplayList, 20, preY + lineHeight, pGroup)
-		local cGemY = collectGemEntries(gemEntries, cDisplayList, colWidth + 20, preY + lineHeight, cGroup)
+		if pGroup then
+			local w = getGroupHeaderWidth(pGroup, pair.pIdx)
+			if w > maxPrimaryW then maxPrimaryW = w end
+		end
+		for _, entry in ipairs(pDisplay) do
+			local line = buildGemDisplayString(entry)
+			local w = groupHeaderTextX + DrawStringWidth(gemFontSize, "VAR", line)
+			if w > maxPrimaryW then maxPrimaryW = w end
+		end
+	end
+
+	-- Include primary header width so the compare header has room too
+	local primaryHeaderW = 10 + DrawStringWidth(18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
+	if primaryHeaderW > maxPrimaryW then maxPrimaryW = primaryHeaderW end
+
+	local colWidth = maxPrimaryW + LAYOUT.compareColGap
+	local contentWidth = colWidth * 2
+	local needsHScroll = contentWidth > vp.width
+	gemTextWidth = colWidth - (groupHeaderTextX + 10)
+	local headerReserve = LAYOUT.skillsHeaderHeight
+
+	-- Configure horizontal scrollbar
+	local hBar = self.controls.skillsHScrollBar
+	hBar.x = vp.x
+	hBar.y = vp.y + vp.height - LAYOUT.skillsHScrollBarHeight
+	hBar.width = vp.width
+	hBar:SetContentDimension(contentWidth, vp.width)
+	self.skillsScrollX = hBar.offset
+
+	local bottomReserve = needsHScroll and LAYOUT.skillsHScrollBarHeight or 0
+	local scrollViewH = vp.height - headerReserve - bottomReserve
+	local scrollOffsetX = -self.skillsScrollX
+
+	SetDrawColor(1, 1, 1)
+	DrawString(vp.x + scrollOffsetX + 10, vp.y + 4, "LEFT", 18, "VAR", colorCodes.POSITIVE .. self:GetShortBuildName(self.primaryBuild.buildName))
+	DrawString(vp.x + scrollOffsetX + colWidth + 10, vp.y + 4, "LEFT", 18, "VAR", colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
+	SetDrawColor(0.5, 0.5, 0.5)
+	DrawImage(nil, vp.x + 4, vp.y + headerReserve, vp.width - 8, 2)
+
+	SetViewport(vp.x, vp.y + headerReserve, vp.width, scrollViewH)
+	local drawY = 4 - self.scrollY
+
+	-- Position pre-pass: compute gem positions for hover hit-testing
+	local gemEntries = {} -- { gem, x, y, group }
+	local preY = 4 - self.scrollY
+	for idx, pair in ipairs(renderPairs) do
+		if idx > 1 then
+			preY = preY + 2
+		end
+		local pDisplayList = displayListsByPair[idx].p
+		local cDisplayList = displayListsByPair[idx].c
+		local pGroup = pair.pIdx and pGroups[pair.pIdx]
+		local cGroup = pair.cIdx and cGroups[pair.cIdx]
+
+		local pGemY = collectGemEntries(gemEntries, pDisplayList, scrollOffsetX + groupHeaderTextX, preY + lineHeight, pGroup)
+		local cGemY = collectGemEntries(gemEntries, cDisplayList, scrollOffsetX + colWidth + groupHeaderTextX, preY + lineHeight, cGroup)
 
 		preY = preY + m_max(pGemY - preY, cGemY - preY) + 6
 	end
@@ -3971,9 +4263,9 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 	-- Hit-test: find hovered gem
 	local cursorX, cursorY = GetCursorPos()
 	local localCursorX = cursorX - vp.x
-	local localCursorY = cursorY - vp.y
+	local localCursorY = cursorY - (vp.y + headerReserve)
 	local hoveredEntry = nil
-	if localCursorX >= 0 and localCursorX < vp.width and localCursorY >= 0 and localCursorY < vp.height then
+	if localCursorX >= 0 and localCursorX < vp.width and localCursorY >= 0 and localCursorY < scrollViewH then
 		for _, entry in ipairs(gemEntries) do
 			if localCursorX >= entry.x and localCursorX < entry.x + gemTextWidth
 				and localCursorY >= entry.y and localCursorY < entry.y + gemLineHeight then
@@ -4003,46 +4295,40 @@ function CompareTabClass:DrawSkills(vp, compareEntry)
 	end
 
 	-- Draw pass
-	for _, pair in ipairs(renderPairs) do
-		SetDrawColor(0.3, 0.3, 0.3)
-		DrawImage(nil, 4, drawY, vp.width - 8, 1)
-		drawY = drawY + 2
+	for idx, pair in ipairs(renderPairs) do
+		if idx > 1 then
+			SetDrawColor(0.3, 0.3, 0.3)
+			-- Divider spans the viewport width, independent of horizontal scroll
+			DrawImage(nil, 0, drawY, vp.width, 1)
+			drawY = drawY + 2
+		end
 
-		local pSet = pair.pIdx and pSets[pair.pIdx] or {}
-		local cSet = pair.cIdx and cSets[pair.cIdx] or {}
+		local pDisplayList = displayListsByPair[idx].p
+		local cDisplayList = displayListsByPair[idx].c
 		local pFinalGemY = drawY + lineHeight
 		local cFinalGemY = drawY + lineHeight
 
-		-- Build aligned display lists
 		local pGroup = pair.pIdx and pGroups[pair.pIdx]
 		local cGroup = pair.cIdx and cGroups[pair.cIdx]
-		local pDisplayList, cDisplayList = buildAlignedGemLists(pGroup, cGroup, pSet, cSet)
 
 		-- Primary group label (left side)
 		if pGroup then
-			local groupLabel = pGroup.displayLabel or pGroup.label or ("Group " .. pair.pIdx)
-			if pGroup.slot then
-				groupLabel = groupLabel .. " (" .. pGroup.slot .. ")"
-			end
-			DrawString(10, drawY, "LEFT", 16, "VAR", "^7" .. groupLabel)
+			drawGroupHeader(pGroup, pair.pIdx, scrollOffsetX + groupHeaderX, drawY)
 		end
 
 		-- Compare group label (right side)
 		if cGroup then
-			local groupLabel = cGroup.displayLabel or cGroup.label or ("Group " .. pair.cIdx)
-			if cGroup.slot then
-				groupLabel = groupLabel .. " (" .. cGroup.slot .. ")"
-			end
-			DrawString(colWidth + 10, drawY, "LEFT", 16, "VAR", "^7" .. groupLabel)
+			drawGroupHeader(cGroup, pair.cIdx, scrollOffsetX + colWidth + groupHeaderX, drawY)
 		end
 
-		pFinalGemY = drawGemList(pDisplayList, 20, drawY + lineHeight, highlightSet)
-		cFinalGemY = drawGemList(cDisplayList, colWidth + 20, drawY + lineHeight, highlightSet)
+		pFinalGemY = drawGemList(pDisplayList, scrollOffsetX + groupHeaderTextX, drawY + lineHeight, highlightSet, gemTextWidth)
+		cFinalGemY = drawGemList(cDisplayList, scrollOffsetX + colWidth + groupHeaderTextX, drawY + lineHeight, highlightSet, gemTextWidth)
 
 		-- Calculate height for this row
 		drawY = drawY + m_max(pFinalGemY - drawY, cFinalGemY - drawY) + 6
 	end
 
+	self.skillsTotalContentHeight = drawY + self.scrollY + 36
 	SetViewport()
 end
 
@@ -4141,54 +4427,109 @@ function CompareTabClass:DrawCalcsSkillHeader(vp, compareEntry, headerHeight, pr
 
 	-- Text info lines (Aura/Buffs, Combat Buffs, Curses)
 	local textY = m_max(leftY, rightY) + 2
-	local pOutput = primaryEnv.player and primaryEnv.player.output
-	local cOutput = compareEnv.player and compareEnv.player.output
+	local primaryOutput = primaryEnv.player and primaryEnv.player.output
+	local compareOutput = compareEnv.player and compareEnv.player.output
 	self.calcsSkillHeaderHover = nil  -- Reset hover state
-	if pOutput or cOutput then
+	if primaryOutput or compareOutput then
 		local cursorX, cursorY = GetCursorPos()
+		local wrapWidth = colWidth - 8
 		local infoLines = {
 			{ label = "Aura/Buff Skills", key = "BuffList", breakdown = "SkillBuffs" },
 			{ label = "Combat Buffs", key = "CombatList" },
 			{ label = "Curses/Debuffs", key = "CurseList", breakdown = "SkillDebuffs" },
 		}
 		for _, info in ipairs(infoLines) do
-			local pVal = pOutput and pOutput[info.key]
-			local cVal = cOutput and cOutput[info.key]
-			if (pVal and pVal ~= "") or (cVal and cVal ~= "") then
+			local primaryValue = primaryOutput and primaryOutput[info.key]
+			local compareValue = compareOutput and compareOutput[info.key]
+			if (primaryValue and primaryValue ~= "") or (compareValue and compareValue ~= "") then
+				local primaryLines = (primaryValue and primaryValue ~= "") and wrapInfoLine(info.label .. ": " .. primaryValue, wrapWidth) or {}
+				local compareLines = (compareValue and compareValue ~= "") and wrapInfoLine(info.label .. ": " .. compareValue, wrapWidth) or {}
+				local primaryHeight = #primaryLines * 18
+				local compareHeight = #compareLines * 18
+				local rowH = m_max(primaryHeight, compareHeight, 18)
 				-- Check hover per-side for lines that have breakdown data
-				if info.breakdown and cursorY >= textY and cursorY < textY + 18 then
-					local onLeft = cursorX >= leftX and cursorX < rightX
-					local onRight = cursorX >= rightX and cursorX < vp.x + vp.width
+				if info.breakdown and cursorY >= textY and cursorY < textY + rowH then
+					local onLeft = cursorX >= leftX and cursorX < rightX and primaryHeight > 0 and cursorY < textY + primaryHeight
+					local onRight = cursorX >= rightX and cursorX < vp.x + vp.width and compareHeight > 0 and cursorY < textY + compareHeight
 					if onLeft then
 						SetDrawColor(0.15, 0.25, 0.15)
-						DrawImage(nil, leftX, textY, colWidth, 18)
+						DrawImage(nil, leftX, textY, colWidth, primaryHeight)
 						self.calcsSkillHeaderHover = {
 							breakdown = info.breakdown,
 							label = info.label,
 							build = self.primaryBuild,
-							x = leftX, y = textY, w = colWidth, h = 18,
+							x = leftX, y = textY, w = colWidth, h = primaryHeight,
 						}
 					elseif onRight then
 						SetDrawColor(0.15, 0.25, 0.15)
-						DrawImage(nil, rightX, textY, colWidth, 18)
+						DrawImage(nil, rightX, textY, colWidth, compareHeight)
 						self.calcsSkillHeaderHover = {
 							breakdown = info.breakdown,
 							label = info.label,
 							build = compareEntry,
-							x = rightX, y = textY, w = colWidth, h = 18,
+							x = rightX, y = textY, w = colWidth, h = compareHeight,
 						}
 					end
 				end
-				DrawString(leftX, textY + 1, "LEFT", 14, "VAR", "^7" .. info.label .. ": " .. (pVal or ""))
-				DrawString(rightX, textY + 1, "LEFT", 14, "VAR", "^7" .. info.label .. ": " .. (cVal or ""))
-				textY = textY + 18
+				for i, line in ipairs(primaryLines) do
+					DrawString(leftX, textY + 1 + (i - 1) * 18, "LEFT", 14, "VAR", "^7" .. line)
+				end
+				for i, line in ipairs(compareLines) do
+					DrawString(rightX, textY + 1 + (i - 1) * 18, "LEFT", 14, "VAR", "^7" .. line)
+				end
+				textY = textY + rowH
 			end
 		end
 	end
 
 	-- Separator line
 	SetDrawColor(0.4, 0.4, 0.4)
-	DrawImage(nil, vp.x + 2, vp.y + headerHeight - 2, vp.width - 4, 1)
+	DrawImage(nil, vp.x + 2, vp.y + headerHeight - 2, vp.width - 4, 2)
+end
+
+local function calcRowMatchesBetweenBuilds(self, colData, primaryActor, compareActor, compareEntry)
+	if not colData or not colData.format then return false end
+	local primaryFormatOk, primaryFormattedValue = pcall(formatCalcStr, colData.format, primaryActor, colData)
+	local compareFormatOk, compareFormattedValue = pcall(formatCalcStr, colData.format, compareActor, colData)
+	if not primaryFormatOk or not compareFormatOk or tostring(primaryFormattedValue or "") ~= tostring(compareFormattedValue or "") then
+		return false
+	end
+	for _, sectionData in ipairs(colData) do
+		if sectionData.modName then -- Compare mod rows to see if they match
+			local primaryRows = calcsHelpers.TabulateMods(sectionData, primaryActor)
+			local compareRows = calcsHelpers.TabulateMods(sectionData, compareActor)
+			if #primaryRows ~= #compareRows then return false end
+			local counts = {}
+			for _, row in ipairs(primaryRows) do
+				local key = calcsHelpers.ModRowKey(row) .. "|" .. tostring(row.value)
+				counts[key] = (counts[key] or 0) + 1
+			end
+			for _, row in ipairs(compareRows) do
+				local key = calcsHelpers.ModRowKey(row) .. "|" .. tostring(row.value)
+				local count = counts[key]
+				if not count then return false end
+				counts[key] = count > 1 and count - 1 or nil
+			end
+		end
+		if sectionData.breakdown then -- Compare breakdown to see if they are the same
+			local primaryBreakdownLines = calcsHelpers.GetBreakdownLines(sectionData, self.primaryBuild)
+			local compareBreakdownLines = calcsHelpers.GetBreakdownLines(sectionData, compareEntry)
+			local primaryLineCount = primaryBreakdownLines and #primaryBreakdownLines or 0
+			local compareLineCount = compareBreakdownLines and #compareBreakdownLines or 0
+			if primaryLineCount ~= compareLineCount then return false end
+			for i = 1, primaryLineCount do
+				if primaryBreakdownLines[i] ~= compareBreakdownLines[i] then return false end
+			end
+		end
+	end
+	return true
+end
+
+local function subSectionExtraMatches(subSecData, primaryActor, compareActor)
+	if not subSecData or not subSecData.extra then return true end
+	local primaryExtraOk, primaryExtraText = pcall(formatCalcStr, subSecData.extra, primaryActor)
+	local compareExtraOk, compareExtraText = pcall(formatCalcStr, subSecData.extra, compareActor)
+	return primaryExtraOk and compareExtraOk and tostring(primaryExtraText or "") == tostring(compareExtraText or "")
 end
 
 function CompareTabClass:DrawCalcs(vp, compareEntry)
@@ -4225,7 +4566,8 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 	local maxCol = m_max(1, m_floor(gridWidth / (cardWidth + 8)))
 	local baseX = 4
 	local headerBarHeight = LAYOUT.calcsHeaderBarHeight
-	local baseY = headerBarHeight
+	local filterRowOffset = self.controls.calcsShowOnlyDifferencesCheck:IsShown() and 12 or 0
+	local baseY = headerBarHeight + filterRowOffset
 
 	-- Pre-compute section visibility and heights
 	local sections = {}
@@ -4241,12 +4583,21 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 				for _, rowData in ipairs(subSec.data) do
 					-- Only include rows with a label and a first column with a format string
 					if rowData.label and rowData[1] and rowData[1].format then
-						if self.primaryBuild.calcsTab:CheckFlag(rowData, primaryActor) or self.primaryBuild.calcsTab:CheckFlag(rowData, compareActor) then
-							t_insert(rows, rowData)
+						local primaryVisible = self.primaryBuild.calcsTab:CheckFlag(rowData, primaryActor)
+						local compareVisible = self.primaryBuild.calcsTab:CheckFlag(rowData, compareActor)
+						if primaryVisible or compareVisible then
+							local keepRow = true
+							if self.calcsShowOnlyDifferences and primaryVisible and compareVisible then
+								keepRow = not calcRowMatchesBetweenBuilds(self, rowData[1], primaryActor, compareActor, compareEntry)
+							end
+							if keepRow then
+								t_insert(rows, rowData)
+							end
 						end
 					end
 				end
-				if #rows > 0 then
+				local keepSubSection = #rows > 0 or (self.calcsShowOnlyDifferences and not subSectionExtraMatches(subSec.data, primaryActor, compareActor))
+				if keepSubSection then
 					t_insert(subSecInfo, { label = subSec.label, rows = rows, data = subSec.data })
 					sectionHasRows = true
 				end
@@ -4332,11 +4683,11 @@ function CompareTabClass:DrawCalcs(vp, compareEntry)
 				if subSec.data and subSec.data.extra then
 					local extraTextW = DrawStringWidth(16, "VAR BOLD", subSec.label .. ":")
 					local extraX = x + 3 + extraTextW + 8
-					local ok1, pExtra = pcall(formatCalcStr, subSec.data.extra, primaryActor)
-					local ok2, cExtra = pcall(formatCalcStr, subSec.data.extra, compareActor)
-					if ok1 and ok2 then
+					local primaryExtraOk, primaryExtraText = pcall(formatCalcStr, subSec.data.extra, primaryActor)
+					local compareExtraOk, compareExtraText = pcall(formatCalcStr, subSec.data.extra, compareActor)
+					if primaryExtraOk and compareExtraOk then
 						DrawString(extraX, lineY + 3, "LEFT", 16, "VAR",
-							colorCodes.POSITIVE .. pExtra .. "  ^8|  " .. colorCodes.WARNING .. cExtra)
+							colorCodes.POSITIVE .. primaryExtraText .. "  ^8|  " .. colorCodes.WARNING .. compareExtraText)
 					end
 				end
 				-- Separator below header
@@ -4433,7 +4784,7 @@ end
 -- ============================================================
 -- CONFIG VIEW
 -- ============================================================
-function CompareTabClass:DrawConfig(vp, compareEntry)
+function CompareTabClass:DrawConfig(vp, compareEntry, headerOnly)
 	local rowHeight = LAYOUT.configRowHeight
 	local columnHeaderHeight = LAYOUT.configColumnHeaderHeight
 	local fixedHeaderHeight = LAYOUT.configFixedHeaderHeight
@@ -4443,6 +4794,8 @@ function CompareTabClass:DrawConfig(vp, compareEntry)
 
 	-- Fixed header area: row 1 = buttons, row 2 = search/dropdowns, then column headers + separator
 	SetViewport(vp.x, vp.y, vp.width, fixedHeaderHeight)
+	SetDrawColor(0.05, 0.05, 0.05)
+	DrawImage(nil, 0, 0, vp.width, fixedHeaderHeight)
 	-- Controls are drawn by ControlHost (positioned in LayoutConfigView)
 	local colHeaderY = 54
 	SetDrawColor(1, 1, 1)
@@ -4454,6 +4807,10 @@ function CompareTabClass:DrawConfig(vp, compareEntry)
 		colorCodes.WARNING .. (compareEntry.label or "Compare Build"))
 	SetDrawColor(0.5, 0.5, 0.5)
 	DrawImage(nil, 4, colHeaderY + columnHeaderHeight + 4, vp.width - 8, 2)
+	if headerOnly then
+		SetViewport()
+		return
+	end
 
 	-- Scrollable content area (clipped below fixed header)
 	local scrollH = vp.height - fixedHeaderHeight

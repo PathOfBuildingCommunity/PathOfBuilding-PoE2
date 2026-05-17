@@ -201,15 +201,15 @@ function M.getSlotDiffLabel(pItem, cItem)
 	end
 end
 
--- Helper: draw Copy, Copy+Use, and Buy buttons at the given position.
+-- Helper: draw Copy, Equip, and Buy buttons at the given position.
 -- btnStartX is the left edge where the first button (Buy) should appear.
 -- copyBtnW, copyBtnH, buyBtnW are button dimensions (passed from LAYOUT by caller).
--- Returns copyHovered, copyUseHovered, buyHovered booleans.
-function M.drawCopyButtons(cursorX, cursorY, btnStartX, btnY, slotMissing, copyBtnW, copyBtnH, buyBtnW, copyUseBtnW)
+-- Returns copyHovered, equipHovered, buyHovered booleans.
+function M.drawCopyButtons(cursorX, cursorY, btnStartX, btnY, slotMissing, copyBtnW, copyBtnH, buyBtnW, equipBtnW)
 	local btnW     = copyBtnW
 	local btnH     = copyBtnH
 	local buyW     = buyBtnW
-	local copyUseW = copyUseBtnW
+	local equipW = equipBtnW
 	local btn3X = btnStartX
 	local btn1X = btn3X + buyW + 4
 	local btn2X = btn1X + btnW + 4
@@ -249,18 +249,18 @@ function M.drawCopyButtons(cursorX, cursorY, btnStartX, btnY, slotMissing, copyB
 
 	local b2Hover
 	if slotMissing then
-		-- Show "Missing slot" label instead of Copy+Use button
+		-- Show "Missing slot" label instead of Equip button
 		SetDrawColor(1, 1, 1)
-		DrawString(btn2X + copyUseW / 2, btnY + 1, "CENTER_X", 14, "VAR", "^xBBBBBBMissing slot")
+		DrawString(btn2X + equipW / 2, btnY + 1, "CENTER_X", 14, "VAR", "^xBBBBBBMissing slot")
 		b2Hover = false
 	else
-		-- "Copy+Use" button
-		b2Hover = cursorX >= btn2X and cursorX < btn2X + copyUseW
+		-- "Equip" button
+		b2Hover = cursorX >= btn2X and cursorX < btn2X + equipW
 			and cursorY >= btnY and cursorY < btnY + btnH
-		drawBtn(btn2X, copyUseW, b2Hover, "^7Copy+Use")
+		drawBtn(btn2X, equipW, b2Hover, "^7Equip")
 	end
 
-	return b1Hover, b2Hover, b3Hover, btn2X, btnY, copyUseW, btnH
+	return b1Hover, b2Hover, b3Hover, btn2X, btnY, equipW, btnH
 end
 
 -- Helper: fit a colored item name within maxW pixels, truncating with "..." if needed.
@@ -281,16 +281,35 @@ local function fitItemName(colorCode, name, maxW)
 	return colorCode .. name:sub(1, lo) .. "..."
 end
 
+local function fitSlotLabel(label, maxW)
+	local display = "^7" .. label .. ":"
+	if DrawStringWidth(16, "VAR", display) <= maxW then
+		return display
+	end
+	local lo, hi = 0, #label
+	while lo < hi do
+		local mid = m_floor((lo + hi + 1) / 2)
+		if DrawStringWidth(16, "VAR", "^7" .. label:sub(1, mid) .. "...:") <= maxW then
+			lo = mid
+		else
+			hi = mid - 1
+		end
+	end
+	return "^7" .. label:sub(1, lo) .. "...:"
+end
+
 -- Helper: draw a single compact-mode item row.
 -- Returns: pHover, cHover, b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, hoverItem, hoverItemsTab
 -- copyBtnW, copyBtnH, buyBtnW are button dimensions (passed from LAYOUT by caller).
 local ITEM_BOX_W = 310
+M.ITEM_BOX_W = ITEM_BOX_W
 local ITEM_BOX_H = 20
 
 function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 	colWidth, cursorX, cursorY, maxLabelW, primaryItemsTab, compareItemsTab, pWarn, cWarn, slotMissing,
-	copyBtnW, copyBtnH, buyBtnW, copyUseBtnW)
+	copyBtnW, copyBtnH, buyBtnW, equipBtnW, xOffset)
 
+	xOffset = xOffset or 0
 	local pName = pItem and pItem.name or "(empty)"
 	local cName = cItem and cItem.name or "(empty)"
 	if pWarn and pWarn ~= "" then pName = pName .. pWarn end
@@ -300,11 +319,11 @@ function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 	local diffLabel = M.getSlotDiffLabel(pItem, cItem)
 
 	-- Layout positions (fixed 310px box width matching regular Items tab)
-	local labelX = 10
+	local labelX = xOffset + 10
 	local pBoxX = labelX + maxLabelW + 4
 	local pBoxW = ITEM_BOX_W
 
-	local cBoxX = colWidth + 10
+	local cBoxX = xOffset + colWidth + 10
 	local cBoxW = ITEM_BOX_W
 
 	-- Diff indicator position
@@ -318,7 +337,7 @@ function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 
 	-- Draw slot label
 	SetDrawColor(1, 1, 1)
-	DrawString(labelX, drawY + 2, "LEFT", 16, "VAR", "^7" .. slotLabel .. ":")
+	DrawString(labelX, drawY + 2, "LEFT", 16, "VAR", fitSlotLabel(slotLabel, maxLabelW))
 
 	-- Draw primary item box
 	local pBorderGray = pHover and 0.5 or 0.33
@@ -346,7 +365,7 @@ function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 	if cItem then
 		local btnStartX = cBoxX + cBoxW + 6
 		b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H =
-			M.drawCopyButtons(cursorX, cursorY, btnStartX, drawY + 1, slotMissing, copyBtnW, copyBtnH, buyBtnW, copyUseBtnW)
+			M.drawCopyButtons(cursorX, cursorY, btnStartX, drawY + 1, slotMissing, copyBtnW, copyBtnH, buyBtnW, equipBtnW)
 	end
 
 	-- Determine hovered item and tooltip anchor position
