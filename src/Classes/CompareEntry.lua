@@ -28,6 +28,7 @@ local CompareEntryClass = newClass("CompareEntry", "ControlHost", function(self,
 	self.notesText = ""
 
 	self.spectreList = {}
+	self.beastList = {}
 	self.timelessData = {
 		jewelType = {}, conquerorType = {},
 		devotionVariant1 = 1, devotionVariant2 = 1,
@@ -188,10 +189,15 @@ function CompareEntryClass:LoadBuildSection(xml)
 	end
 	self.mainSocketGroup = tonumber(xml.attrib.mainSkillIndex) or tonumber(xml.attrib.mainSocketGroup) or 1
 	wipeTable(self.spectreList)
+	wipeTable(self.beastList)
 	for _, child in ipairs(xml) do
 		if child.elem == "Spectre" then
 			if child.attrib.id and data.minions[child.attrib.id] then
 				t_insert(self.spectreList, child.attrib.id)
+			end
+		elseif child.elem == "BeastCompanion" then
+			if child.attrib.id and data.minions[child.attrib.id] then
+				t_insert(self.beastList, child.attrib.id)
 			end
 		elseif child.elem == "TimelessData" then
 			self.timelessData.jewelType = { id = tonumber(child.attrib.jewelTypeId) }
