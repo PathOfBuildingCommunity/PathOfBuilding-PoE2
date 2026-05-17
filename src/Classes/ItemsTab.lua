@@ -54,7 +54,8 @@ for _, entry in pairs(data.flavourText) do
 end
 
 local function isAnointable(item)
-	return (item.canBeAnointed or item.base.type == "Amulet")
+	return (item.canBeAnointed or item.base.type == "Amulet") and not item.sanctified
+		and not item.corrupted and not item.mirrored
 end
 
 local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
@@ -406,7 +407,7 @@ holding Shift will put it in the second.]])
 		self:AnointDisplayItem(1)
 	end)
 	self.controls.displayItemAnoint.shown = function()
-		return self.displayItem and isAnointable(self.displayItem) and not self.displayItem.sanctified
+		return self.displayItem and isAnointable(self.displayItem)
 	end
 	self.controls.displayItemAnoint2 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 2...", function()
 		self:AnointDisplayItem(2)
