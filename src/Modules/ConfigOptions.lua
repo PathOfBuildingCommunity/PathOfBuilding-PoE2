@@ -154,7 +154,7 @@ local configSettings = {
 	{ var = "conditionHaveEnergyShield", type = "check", label = "Do you always have ^x88FFFFEnergy Shield?", ifCond = "HaveEnergyShield", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveEnergyShield", "FLAG", true, "Config")
 	end },
-	{ var = "multiplierCurrentEnergyShield", type = "count", label = "Current ^x88FFFFEnergy Shield^7 percentage:", ifCond = "UseCurrentEnergyShield", defaultPlaceholderState = 100, tooltip = "Used in calculations for Silks of Veneration and The Mutable Star.\nOverflowed ^x88FFFFEnergy Shield^7 is allowed, up to 150%.", apply = function(val, modList, enemyModList)
+	{ var = "multiplierCurrentEnergyShield", type = "count", label = "Current ^x88FFFFEnergy Shield^7 percentage:", ifCond = "UseCurrentEnergyShield", defaultPlaceholderState = 100, tooltip = "Used in calculations for ^xAF6025Silks of Veneration^7 and ^xAF6025The Mutable Star^7.\nOverflowed ^x88FFFFEnergy Shield^7 is allowed, up to 150%.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UseCurrentEnergyShield", "FLAG", true, "Config")
 		modList:NewMod("Multiplier:CurrentEnergyShield", "BASE", val, "Config")
 	end },
