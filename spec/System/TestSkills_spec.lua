@@ -84,4 +84,15 @@ describe("TestSkills", function()
 		local finalCost = build.calcsTab.mainOutput.ManaCost
 		assert.are.equals(16, round(finalCost))
 	end)
+
+	it("Flame Wall Projectile Buff", function()
+		build.skillsTab:PasteSocketGroup("Flame Wall 20/0  1")
+
+		build.configTab.input.flameWallAddedDamage = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- validate Flame Wall buff appears even when the Wall/default skillPart is active
+		assert.are.equals("Flame Wall", build.calcsTab.calcsOutput.BuffList)
+	end)
 end)

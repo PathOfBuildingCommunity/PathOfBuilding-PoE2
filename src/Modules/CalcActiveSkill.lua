@@ -69,7 +69,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 	local grantedEffect = skillEffect.grantedEffect
 	-- for some skills like Flame Wall, the Projectile Buff is on a separate statSet and we want to add it regardless of which statSet is active
 	-- enabled by adding '#baseMod flag("applyBuffsFromAllStatSets)' to the main/first skill txt
-	local applyBuffsFromAllStatSets = getFlagFromBaseMods(statSet and statSet.baseMods, "buffsFromAllStatSets")
+	local applyBuffsFromAllStatSets = getFlagFromBaseMods(statSet and statSet.baseMods, "applyBuffsFromAllStatSets")
 	for _, set in ipairs((applyBuffsFromAllStatSets and grantedEffect.statSets or (statSet and {statSet} or grantedEffect.statSets))) do
 		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
 		if extraStats and extraStats[1] then
