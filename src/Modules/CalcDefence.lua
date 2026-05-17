@@ -1780,7 +1780,7 @@ function calcs.defence(env, actor)
 		-- Kurgal mod
 		calcRecoup(modDB:Sum("BASE", nil, "ElementalEnergyShieldRecoup"), "EnergyShield", "")
 
-		-- iterate over each damagetype and add to base Life/Mana/Energy Shield Recoup
+		-- iterate over each damageType and add to base Life/Mana/Energy Shield Recoup
 		for _, recoupType in ipairs(recoupTypeList) do
 			for _, damageType in ipairs(dmgTypeList) do
 				local recoup = modDB:Sum("BASE", nil, damageType..recoupType.."Recoup")
