@@ -3442,7 +3442,11 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 
 		local function getReplacedItemAndOutput(compareSlot)
 			local selItem = self.items[compareSlot.selItemId]
-			local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil })
+			local override = { repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil }
+			if compareSlot.nodeId and (itemChangesPassiveTreeRadius(selItem) or itemChangesPassiveTreeRadius(item)) then
+				override.spec = buildSpecForJewelComparison(self, compareSlot, override.repItem)
+			end
+			local output = calcFunc(override)
 			return selItem, output
 		end
 		local function addCompareForSlot(compareSlot, selItem, output)
