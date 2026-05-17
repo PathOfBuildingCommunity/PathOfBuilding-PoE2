@@ -1750,7 +1750,7 @@ function calcs.defence(env, actor)
 
 	-- recoup
 	local function calcRecoup(recoup, recoupType, damageType)
-		output[damageType..recoupType.."Recoup"] = (output[damageType..recoupType.."Recoup"] or 0) + recoup * output[recoupType.."RecoveryRateMod"]
+		output[damageType..recoupType.."Recoup"] = recoup * output[recoupType.."RecoveryRateMod"]
 		output["anyRecoup"] = output["anyRecoup"] + output[damageType..recoupType.."Recoup"]
 		if breakdown then
 			if output[recoupType.."RecoveryRateMod"] ~= 1 then
@@ -1777,9 +1777,6 @@ function calcs.defence(env, actor)
 				modDB:ReplaceMod("EnergyShieldRecoup", "BASE", recoup, mod.source)
 			end
 		end
-		-- Kurgal mod
-		calcRecoup(modDB:Sum("BASE", nil, "ElementalEnergyShieldRecoup"), "EnergyShield", "")
-
 		-- iterate over each damageType and add to base Life/Mana/Energy Shield Recoup
 		for _, recoupType in ipairs(recoupTypeList) do
 			for _, damageType in ipairs(dmgTypeList) do
@@ -1792,7 +1789,6 @@ function calcs.defence(env, actor)
 				end
 			end
 		end
-		
 		-- pseudo recoup (eg %physical damage prevented from hits regenerated)
 		for _, resource in ipairs(recoupTypeList) do
 			if not modDB:Flag(nil, "No"..resource.."Regen") and not modDB:Flag(nil, "CannotGain"..resource) then
