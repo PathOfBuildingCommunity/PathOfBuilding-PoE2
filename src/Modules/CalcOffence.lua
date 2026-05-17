@@ -4838,8 +4838,9 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					else
 						local resist = calcResistForType(ailmentDamageType, dotCfg)
-						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime") + (ailmentDamageType ~= ailmentTypeMod and enemyDB:Sum("INC", dotCfg, ailmentTypeMod .. "DamageTaken") or 0)
-						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime") * (ailmentDamageType ~= ailmentTypeMod and enemyDB:More("INC", dotCfg, ailmentTypeMod .. "DamageTaken") or 1)
+						local elementalDamageTaken = isElemental[ailmentDamageType] and "ElementalDamageTaken" or nil
+						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", elementalDamageTaken)
+						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", elementalDamageTaken)
 						effMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
 						globalOutput[ailment .. "EffMult"] = effMult
 						if breakdown and effMult ~= 1 then
