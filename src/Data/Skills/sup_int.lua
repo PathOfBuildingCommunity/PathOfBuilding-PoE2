@@ -571,6 +571,11 @@ skills["SupportArbitersIgnitionPlayer"] = {
 			label = "Arbiter's Ignition",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["gain_archon_elemental_when_you_ignite_enemy_chance_%"] = {
+					flag("Condition:CanHaveElementalArchon", { type = "GlobalEffect", effectType = "Buff" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

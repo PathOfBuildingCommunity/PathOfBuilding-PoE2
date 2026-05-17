@@ -23,6 +23,9 @@ local skillTypes = {
 	"sup_dex",
 	"sup_int",
 }
+local buffTypes = {
+	"general",
+}
 local itemTypes = {
 	"axe",
 	"bow",
@@ -94,6 +97,12 @@ local function processMod(grantedEffect, mod, statName)
 	end
 	if notMinionStat then
 		t_insert(mod, { type = "ActorCondition", actor = "parent", neg = true })
+	end
+end
+local function processBuffMod(buff, mod, statName)
+	mod.source = "Buff:"..buff.name
+	if type(mod.value) == "table" and mod.value.mod then
+		mod.value.mod.source = "Buff:"..buff.name
 	end
 end
 
@@ -824,6 +833,49 @@ Uber Pinnacle Boss adds the following modifiers:
 	]]..tostring(m_floor(data.misc.uberBossDPSMult * 100))..[[% of monster Damage of each type
 	]]..tostring(m_floor(data.misc.uberBossDPSMult * 4.25 * 100))..[[% of monster Damage total
 	]]..tostring(data.misc.uberBossPen)..[[% penetration]]
+end
+
+-- load buffs
+data.buffs = {}
+data.buffStatMap = LoadModule("Data/BuffStatMap", makeSkillMod, makeFlagMod)
+data.buffStatMapMeta = {
+	__index = function(t, key)
+		local map = data.buffStatMap[key]
+		if map then
+			map = copyTable(map)
+			t[key] = map
+			for _, mod in ipairs(map) do
+				processBuffMod(t._buff, mod, key)
+			end
+			return map
+		end
+	end
+}
+for _, type in pairs(buffTypes) do
+	LoadModule("Data/Buffs/"..type, data.buffs, makeSkillMod, makeFlagMod)
+end
+for buffId, buffInfo in pairs(data.buffs) do
+	local buff = {}
+	buff.name = sanitiseText(buffInfo.name)
+	buff.id = buffId
+	buff.modSource = "Buff:"..buff.name
+	buffInfo.statMap = buffInfo.statMap or {}
+
+	setmetatable(buffInfo.statMap, data.buffStatMapMeta)
+	buffInfo.statMap._buff = buff
+
+	for name, map in pairs(buffInfo.statMap) do
+		-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
+		for _, modOrGroup in ipairs(map) do
+			if modOrGroup.name then
+				processBuffMod(buff, modOrGroup, name)
+			else
+				for _, mod in ipairs(modOrGroup) do
+					processBuffMod(buff, mod, name)
+				end
+			end
+		end
+	end
 end
 
 -- Load skills

@@ -2113,6 +2113,7 @@ local modTagList = {
 	["per poison affecting enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "PoisonStack" } },
 	["per poison affecting enemy, up to %+([%d%.]+)%%"] = function(num) return { tag = { type = "Multiplier", actor = "enemy", var = "PoisonStack", limit = num, limitTotal = true } } end,
 	["for each spider's web on the enemy"] = { tag = { type = "Multiplier", actor = "enemy", var = "Spider's WebStack" } },
+	["while affected by an archon buff"] = { tag = { type = "Condition", var = "ArchonBuff" } },
 }
 
 local mod = modLib.createMod
@@ -5980,6 +5981,41 @@ local specialModList = {
 	["you take (%d+)%% reduced extra damage from critical hits by cursed enemies"] = function(num) return { mod("ReduceCritExtraDamage", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Cursed" }) } end,
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
+	} end,
+	-- archon modifiers
+	["gain elemental archon when your energy shield recharge begins"] = {
+		flag("Condition:CanHaveElementalArchon"),
+	},
+	["gain elemental archon when you cast a spell while on high infernal flame"] = {
+		flag("Condition:CanHaveElementalArchon"),
+	},
+	["gain elemental archon after spending 100%% of your maximum mana"] = {
+		flag("Condition:CanHaveElementalArchon"),
+	},
+	["immune to freeze and chill while affected by an archon buff"] = {
+		flag("FreezeImmune", { type = "Condition", var = "ArchonBuff" }),
+		flag("ChillImmune", { type = "Condition", var = "ArchonBuff" }),
+	},
+	["immune to shock while affected by an archon buff"]	 = {
+		flag("ShockImmune", { type = "Condition", var = "ArchonBuff" }),
+	},
+	["(%d+)%% increased effect of archon buffs on you"] = function(num) return {
+		mod("ArchonEffect", "INC", num),
+	} end,
+	["(%d+)%% increased archon buff duration"] = function(num) return {
+		mod("ArchonDuration", "INC", num),
+	} end,
+	["archon buffs also grant %+(%d+)%% to all elemental resistances"] = function(num) return {
+		mod("ElementalResist", "BASE", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+	} end,
+	["archon buffs also grant (%d+)%% increased movement speed"] = function(num) return {
+		mod("MovementSpeed", "INC", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+	} end,
+	["archon buffs also grant %+(%d+)%% critical damage bonus"] = function(num) return {
+		mod("CritMultiplier", "INC", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
+	} end,
+	["archon buffs also grant %+(%d+)%% critical hit chance"] = function(num) return {
+		mod("CritChance", "INC", num, { type = "Condition", var = "ArchonBuff" }, { type="PercentStat", stat="ElementalArchonIncEffect", div=100, percent=1 }),
 	} end,
 }
 for _, name in pairs(data.keystones) do
