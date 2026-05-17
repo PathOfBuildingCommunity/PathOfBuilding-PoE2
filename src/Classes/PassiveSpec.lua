@@ -2503,7 +2503,7 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 			end
 
 			if optionText then
-				option = { name = optionDisplayName(optionText), sd = { optionText } }
+				option = { name = optionDisplayName(optionText), sd = { optionText }, icon = "Art/2DArt/SkillIcons/passives/PathFinder/PathfinderAdditionalPoints.dds" }
 				attributeIndex = index
 			end
 		end
