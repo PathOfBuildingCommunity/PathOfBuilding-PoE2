@@ -651,6 +651,11 @@ local function doActorMisc(env, actor)
 			local effect = m_max(m_floor(70 * calcLib.mod(modDB, nil, "SelfChillEffect")), 0)
 			modDB:NewMod("ActionSpeed", "INC", -effect, "Freeze")
 		end
+		if modDB:Flag(nil, "Unravelling") then
+			modDB:NewMod("ChaosCanFreeze", "FLAG", true, { type = "Condition", var = "ColdUnravel"})
+			modDB:NewMod("ChaosCanIgnite", "FLAG", true, { type = "Condition", var = "FireUnravel"})
+			modDB:NewMod("ChaosCanShock", "FLAG", true, { type = "Condition", var = "LightningUnravel"})
+		end
 		if modDB:Flag(nil, "CanLeechLifeOnFullLife") and not modDB:Flag(nil, "GhostReaver") then
 			condList["Leeching"] = true
 			condList["LeechingLife"] = true

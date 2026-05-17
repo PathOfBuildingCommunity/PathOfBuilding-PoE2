@@ -643,19 +643,11 @@ local configSettings = {
 	end },
 	{ var = "conditionUnravelling", type = "list", label = "Acolyte's Unravelling:", ifFlag = "Unravelling", tooltip = "While affected by Unravelling, your ^xD02090Chaos^7 Damage randomly either also contributes to ^x3F6DB3Freeze^7 buildup,\n^xB97123Ignite^7 chance and magnitude, or ^xADAA47Shock^7 chance - changing which it contributes to every two seconds. ",
 	list = {
-		{val="NONE",label="None"},
-		{val="Freeze",label="Unravelling Frost"},
-		{val="Ignite",label="Unravelling Flame"},
-		{val="Shock",label="Unravelling Bolt"},
-		{val="ALL",label="All"},
+		{val="Cold",label="Unravelling Frost"},
+		{val="Fire",label="Unravelling Flame"},
+		{val="Lightning",label="Unravelling Bolt"},
 	}, apply = function(val, modList, enemyModList)
-		if val == "ALL" then
-			modList:NewMod("ChaosCanFreeze", "FLAG", true, "Config")
-			modList:NewMod("ChaosCanIgnite", "FLAG", true, "Config")
-			modList:NewMod("ChaosCanShock", "FLAG", true, "Config")
-		elseif val ~= "NONE" then
-			modList:NewMod("ChaosCan"..val, "FLAG", true, "Config")
-		end
+		modList:NewMod("Condition:"..val.."Unravel", "FLAG", true, "Config")
 	end },
 	{ label = "Vigilant Strike:", ifSkill = "Vigilant Strike" },
 	{ var = "VigilantStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Vigilant Strike", defaultState = true, apply = function(val, modList, enemyModList)
