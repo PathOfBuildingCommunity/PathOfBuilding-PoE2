@@ -3258,9 +3258,10 @@ function calcs.perform(env, skipEHP)
 				t_insert(env.itemWarnings.gemGroupCountWarning, { allowedGemGroups, gemInfo })
 			end
 		else
-			if gemInfo.support and gemInfo.lineage and gemInfo.count > 1 then
+			local maxLineageCount = modDB:Sum("BASE", nil, "MaxLineageCount")
+			if gemInfo.support and gemInfo.lineage and gemInfo.count > maxLineageCount then
 				env.itemWarnings.lineageSupportGemLimitWarning = env.itemWarnings.lineageSupportGemLimitWarning or { }
-				t_insert(env.itemWarnings.lineageSupportGemLimitWarning, { gemName, 1, gemInfo.groups })
+				t_insert(env.itemWarnings.lineageSupportGemLimitWarning, { gemName, maxLineageCount, gemInfo.groups })
 			end
 		end
 	end
