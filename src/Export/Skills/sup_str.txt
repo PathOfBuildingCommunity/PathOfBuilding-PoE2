@@ -1238,6 +1238,11 @@ statMap = {
 #skill TriggeredQuillburstPlayer
 #set TriggeredQuillburstPlayer
 #flags thorns
+statMap = {
+	["display_skill_deals_thorns_damage"] = {
+		flag("ThornsDamageAppliesToHits"),
+	},
+},
 #mods thorns area
 #skillEnd
 

@@ -5250,6 +5250,11 @@ skills["TriggeredQuillburstPlayer"] = {
 			label = "Quill Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_spiked_gauntlets",
+			statMap = {
+				["display_skill_deals_thorns_damage"] = {
+					flag("ThornsDamageAppliesToHits"),
+				},
+			},
 			baseFlags = {
 				thorns = true,
 			},
