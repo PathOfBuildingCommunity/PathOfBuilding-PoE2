@@ -304,5 +304,14 @@ describe("TetsItemMods", function()
 		-- make sure something like Fireball still needs the Int requirement and isn't being ignored
 		assert.True(build.controls.warnings.lines[1]:match("Intelligence requirement") ~= nil)
 		assert.True(build.controls.warnings.lines[1]:match("Fireball") ~= nil)
+
+		build.configTab.input.customMods = [[
+			+1000 Strength
+			+100 mana
+			Attribute Requirements of Gems can be satisified by your highest Attribute
+		]] -- fix mana warning
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- validate Gemling's Adaptive Capability still works
 	end)
 end)
