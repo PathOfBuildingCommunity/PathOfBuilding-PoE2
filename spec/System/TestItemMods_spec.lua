@@ -220,4 +220,89 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
 	end)
+
+	it("Jarngreipr - strength satisfies melee weapons and skills", function()
+		build.configTab.input.customMods = "+1000 Strength"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Chober Chaber
+			Leaden Greathammer
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 33
+			Implicits: 0
+			+100 Intelligence Requirement
+			{variant:1}{range:0.5}(80-120)% increased Physical Damage
+			{variant:2}{range:0.5}Adds (58-65) to (102-110) Physical Damage
+			{range:0.5}+(80-100) to maximum Mana
+			{variant:2}+50 to Spirit
+			{variant:1}+5% to Critical Hit Chance
+			Increases and Reductions to Minion Damage also affect you
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1]:match("Intelligence requirement") ~= nil)
+		assert.True(build.controls.warnings.lines[1]:match("Chober Chaber") ~= nil)
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Jarngreipr
+			Ringmail Gauntlets
+			Armour: 23
+			Evasion: 18
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 6
+			Implicits: 0
+			{variant:2}50% increased Armour and Evasion
+			{range:0.5}Adds (2-3) to (5-6) Physical Damage to Attacks
+			{range:0.5}+(30-50) to maximum Life
+			{range:0.5}(4-8)% increased Attack Speed
+			Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- melee item check int
+
+		newBuild()
+		build.configTab.input.customMods = "+1000 Strength"
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Primal Strikes 20/0 1")
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1]:match("Dexterity requirement") ~= nil)
+		assert.True(build.controls.warnings.lines[1]:match("Primal Strikes") ~= nil)
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Jarngreipr
+			Ringmail Gauntlets
+			Armour: 23
+			Evasion: 18
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 6
+			Implicits: 0
+			{variant:2}50% increased Armour and Evasion
+			{range:0.5}Adds (2-3) to (5-6) Physical Damage to Attacks
+			{range:0.5}+(30-50) to maximum Life
+			{range:0.5}(4-8)% increased Attack Speed
+			Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- melee skill check dex
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0 1")
+		runCallback("OnFrame")
+		-- make sure something like Fireball still needs the Int requirement and isn't being ignored
+		assert.True(build.controls.warnings.lines[1]:match("Intelligence requirement") ~= nil)
+		assert.True(build.controls.warnings.lines[1]:match("Fireball") ~= nil)
+	end)
 end)
