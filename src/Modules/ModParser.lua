@@ -6219,8 +6219,14 @@ end
 local jewelFuncList = { }
 
 local function parseMod(line, order)
-	-- Check if this is a special modifier
+	-- Attribute Options (PoE2)
 	local lineLower = line:lower()
+	local optionText = lineLower:match("^attribute passive skills can instead grant (.*)")
+	if optionText then
+		optionText = optionText:gsub("^%s+", ""):gsub("%s+$", "")
+		return { mod("AttributeOption", "LIST", optionText) }
+	end
+	-- Check if this is a special modifier
 	for pattern, patternVal in pairs(jewelFuncList) do
 		local _, _, cap1, cap2, cap3, cap4, cap5 = lineLower:find(pattern, 1)
 		if cap1 then

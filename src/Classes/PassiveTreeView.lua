@@ -266,10 +266,21 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		elseif IsKeyDown("1") or IsKeyDown("I") then
 			spec.attributeIndex = 3
 			if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, 3) end
+		else
+			local dynamicOptions = spec:GetDynamicAttributeOptions()
+			for i = 4, 9 do
+				if IsKeyDown(tostring(i)) then
+					if dynamicOptions[i - 3] then
+						spec.attributeIndex = i
+						if switchAttribute then spec:SwitchAttributeNode(hoverNode.id, i) end
+					end
+					break
+				end
+			end
 		end
 	end
 	
-	local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D")
+	local hotkeyPressed = IsKeyDown("1") or IsKeyDown("I") or IsKeyDown("2") or IsKeyDown("S") or IsKeyDown("3") or IsKeyDown("D") or IsKeyDown("4") or IsKeyDown("5") or IsKeyDown("6") or IsKeyDown("7") or IsKeyDown("8") or IsKeyDown("9")
 
 	-- Helper function to determine if global node allocation should be blocked
 	local function shouldBlockGlobalNodeAllocation(node)
@@ -448,15 +459,47 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if hotkeyPressed then
 					processAttributeHotkeys(hoverNode.isAttribute)
 				elseif hoverNode.isAttribute then
-					-- If the attribute node is already set to str, int, or dex create a toggle effect between attrs
-					if hoverNode.dn == "Intelligence" then
-						spec.attributeIndex = 1
-					elseif hoverNode.dn == "Dexterity" then
-						spec.attributeIndex = 3
-					elseif hoverNode.dn == "Strength" then
-						spec.attributeIndex = 2
+					if hoverNode.alloc then
+						-- Allocated node: cycle to the next available attribute type
+						local dynamicOptions = spec:GetDynamicAttributeOptions()
+						local totalOptions = 3 + #dynamicOptions
+						local currentIndex = hoverNode.attributeIndex
+						if not currentIndex then
+							-- Infer from name if index is missing (legacy)
+							if hoverNode.dn == "Strength" then currentIndex = 1
+							elseif hoverNode.dn == "Dexterity" then currentIndex = 2
+							elseif hoverNode.dn == "Intelligence" then currentIndex = 3
+							else currentIndex = 1 end
+						elseif currentIndex > 3 then
+							-- Correct for loaded builds where all custom nodes are stored with index 4.
+							-- Look up the actual position by matching the stat string in the current dynamic list.
+							local stat = hoverNode.sd and hoverNode.sd[1]
+							if stat then
+								for i, s in ipairs(dynamicOptions) do
+									if s == stat then
+										currentIndex = i + 3
+										break
+									end
+								end
+							end
+						end
+						local nextIndex = (currentIndex % totalOptions) + 1
+						spec.attributeIndex = nextIndex
+						spec:SwitchAttributeNode(hoverNode.id, nextIndex)
+					else
+						-- Unallocated node: apply the last used attribute type directly,
+						-- bypassing the popup. Works for standard (1-3) and custom (4+) types.
+						local attrIndex = spec.attributeIndex or 1
+						if attrIndex > 3 then
+							-- Validate the custom option still exists (source may have been removed)
+							local dynamicOptions = spec:GetDynamicAttributeOptions()
+							if not dynamicOptions[attrIndex - 3] then
+								attrIndex = 1
+								spec.attributeIndex = 1
+							end
+						end
+						spec:SwitchAttributeNode(hoverNode.id, attrIndex)
 					end
-					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
 				end
 				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
 				spec:AddUndoState()

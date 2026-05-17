@@ -189,17 +189,24 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				if node.elem == "Overrides" then
 					for _, child in ipairs(node) do
 						if child.elem == "AttributeOverride" then
-							for strengthId in child.attrib.strNodes:gmatch("%d+") do
-								self:SwitchAttributeNode(tonumber(strengthId), 1)
+							-- Load standard attributes
+							for id in (child.attrib.strnodes or child.attrib.strNodes or ""):gmatch("%d+") do
+								self:SwitchAttributeNode(tonumber(id), 1)
 							end
-							for dexterityId in child.attrib.dexNodes:gmatch("%d+") do
-								self:SwitchAttributeNode(tonumber(dexterityId), 2)
+							for id in (child.attrib.dexnodes or child.attrib.dexNodes or ""):gmatch("%d+") do
+								self:SwitchAttributeNode(tonumber(id), 2)
 							end
-							for intelligenceId in child.attrib.intNodes:gmatch("%d+") do
-								self:SwitchAttributeNode(tonumber(intelligenceId), 3)
+							for id in (child.attrib.intnodes or child.attrib.intNodes or ""):gmatch("%d+") do
+								self:SwitchAttributeNode(tonumber(id), 3)
 							end
-						else
-							ConPrintf("[PassiveSpecClass:Load] Unexpected element found in Overrides: " .. child.elem)
+							-- Load custom attributes from child elements
+							for _, subChild in ipairs(child) do
+								if subChild.elem == "Custom" then
+									for id in (subChild.attrib.nodes or ""):gmatch("%d+") do
+										self:SwitchAttributeNode(tonumber(id), subChild.attrib.name)
+									end
+								end
+							end
 						end
 					end
 				end
@@ -281,19 +288,31 @@ function PassiveSpecClass:Save(xml)
 		elem = "Overrides"
 	}
 	if self.hashOverrides then
-		local strList, dexList, intList = { }, { }, { }
+		local standard = { [1] = { }, [2] = { }, [3] = { } }
+		local custom = { }
 		for nodeId, node in pairs(self.hashOverrides) do
 			if node.isAttribute then
-				if node.dn == "Strength" then
-					t_insert(strList, nodeId)
-				elseif node.dn == "Dexterity" then
-					t_insert(dexList, nodeId)
-				elseif node.dn == "Intelligence" then
-					t_insert(intList, nodeId)
+				local index = node.attributeIndex or 1
+				if index <= 3 then
+					t_insert(standard[index], nodeId)
+				else
+					local stat = node.stats and node.stats[1]
+					if stat then
+						custom[stat] = custom[stat] or { }
+						t_insert(custom[stat], nodeId)
+					end
 				end
 			end
 		end
-		local attributeOverride = { elem = "AttributeOverride", attrib = { strNodes = table.concat(strList, ","), dexNodes = table.concat(dexList, ","), intNodes = table.concat(intList, ",") } }
+		local attrib = { 
+			strnodes = table.concat(standard[1], ","), 
+			dexnodes = table.concat(standard[2], ","), 
+			intnodes = table.concat(standard[3], ",")
+		}
+		local attributeOverride = { elem = "AttributeOverride", attrib = attrib }
+		for stat, ids in pairs(custom) do
+			t_insert(attributeOverride, { elem = "Custom", attrib = { name = stat, nodes = table.concat(ids, ",") } })
+		end
 		t_insert(overrides, attributeOverride)
 	end
 	t_insert(xml, overrides)
@@ -866,12 +885,23 @@ end
 
 -- Deallocate the given node, and all nodes which depend on it (i.e. which are only connected to the tree through this node)
 function PassiveSpecClass:DeallocNode(node)
+	local providesAttributeOption = false
+	for i = 1, #node.modList do
+		if node.modList[i].name == "AttributeOption" then
+			providesAttributeOption = true
+			break
+		end
+	end
 	for _, depNode in ipairs(node.depends) do
 		-- reset any switched attribute nodes
 		if depNode.isAttribute then
 			self.hashOverrides[depNode.id] = nil
 		end
 		self:DeallocSingleNode(depNode)
+	end
+
+	if providesAttributeOption then
+		self:RevertInvalidAttributeOverrides()
 	end
 
 	-- Rebuild all paths and dependencies for all allocated nodes
@@ -1698,6 +1728,7 @@ function PassiveSpecClass:ReplaceNode(old, newNode)
 	old.keystoneMod = newNode.keystoneMod
 	old.activeEffectImage = newNode.activeEffectImage
 	old.reminderText = newNode.reminderText or { }
+	old.attributeIndex = newNode.attributeIndex
 end
 
 ---Reconnects altered timeless jewel to class start, for Pure Talent
@@ -2351,15 +2382,142 @@ function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusInde
 	return false
 end
 
+-- Derives a short display name from a raw attribute option stat string.
+-- e.g. "5% increased damage" -> "Damage", "+2% movement speed" -> "movement speed"
+local function optionDisplayName(optionText)
+	return optionText:match("%% increased (.+)") or optionText:match("%+?%d+%%? (.+)") or optionText
+end
+
+function PassiveSpecClass:GetOptionDisplayName(optionText)
+	return optionDisplayName(optionText)
+end
+
+-- Scans current dynamic attribute options and reverts any hashOverrides whose option no
+-- longer exists (e.g. after unequipping an item or removing a custom modifier line).
+-- Returns true if any overrides were removed, so the caller can rebuild paths if needed.
+function PassiveSpecClass:RevertInvalidAttributeOverrides()
+	local dynamicOptions = self:GetDynamicAttributeOptions()
+	local optionsMap = { }
+	for _, stat in ipairs(dynamicOptions) do
+		optionsMap[stat] = true
+	end
+	local reverted = false
+	for nodeId, overrideNode in pairs(self.hashOverrides) do
+		if overrideNode.isAttribute and overrideNode.attributeIndex and overrideNode.attributeIndex > 3 then
+			local stat = overrideNode.stats and overrideNode.stats[1]
+			if stat and not optionsMap[stat] then
+				self.hashOverrides[nodeId] = nil
+				reverted = true
+			end
+		end
+	end
+	if (self.attributeIndex or 1) > 3 then
+		if not optionsMap[dynamicOptions[self.attributeIndex - 3]] then
+			self.attributeIndex = 1
+		end
+	end
+	return reverted
+end
+
+function PassiveSpecClass:GetDynamicAttributeOptions()
+	-- Cache keyed on outputRevision: rebuild only when the build recalculates, not every frame.
+	local rev = self.build and self.build.outputRevision or 0
+	if self._dynAttrCache and self._dynAttrCacheRev == rev then
+		return self._dynAttrCache
+	end
+	local optionsMap = { }
+	local optionsList = { }
+	-- Scan all allocated nodes for AttributeOption modifiers
+	for _, node in pairs(self.allocNodes) do
+		for i = 1, #node.modList do
+			local mod = node.modList[i]
+			if mod.name == "AttributeOption" and not optionsMap[mod.value] then
+				optionsMap[mod.value] = true
+				t_insert(optionsList, mod.value)
+			end
+		end
+	end
+	-- Scan all equipped items for AttributeOption modifiers
+	if self.build and self.build.itemsTab then
+		for _, slot in pairs(self.build.itemsTab.slots) do
+			local itemId = slot.selItemId
+			if itemId and itemId ~= 0 then
+				local item = self.build.itemsTab.items[itemId]
+				if item and item.baseModList then
+					for _, mod in ipairs(item.baseModList) do
+						if mod.name == "AttributeOption" and not optionsMap[mod.value] then
+							optionsMap[mod.value] = true
+							t_insert(optionsList, mod.value)
+						end
+					end
+				end
+			end
+		end
+	end
+	-- Scan custom modifiers from the Config tab
+	if self.build and self.build.configTab then
+		local customMods = self.build.configTab.input.customMods
+		if customMods then
+			for line in customMods:gmatch("([^\n]*)\n?") do
+				local strippedLine = StripEscapes(line):gsub("^[%s?]+", ""):gsub("[%s?]+$", "")
+				if strippedLine ~= "" then
+					local mods, extra = modLib.parseMod(strippedLine)
+					if mods and not extra then
+						for _, mod in ipairs(mods) do
+							if mod.name == "AttributeOption" and not optionsMap[mod.value] then
+								optionsMap[mod.value] = true
+								t_insert(optionsList, mod.value)
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+	table.sort(optionsList)
+	self._dynAttrCache = optionsList
+	self._dynAttrCacheRev = rev
+	return optionsList
+end
+
 function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
-	if self.tree.nodes[nodeId] then --Make sure node exists on current tree
-		local newNode = copyTableSafe(self.tree.nodes[nodeId], false, true)
-		if not newNode.isAttribute then return end -- safety check
-		
-		local option = newNode.options[attributeIndex]
-		self:ReplaceNode(newNode, option)
-		self.tree:ProcessStats(newNode)
-		
-		self.hashOverrides[nodeId] = newNode
+	local node = self.tree.nodes[nodeId]
+	if node then
+		local newNode = copyTableSafe(node, false, true)
+		if not newNode.isAttribute then return end
+
+		local option
+		if type(attributeIndex) == "number" and attributeIndex <= 3 then
+			option = newNode.options[attributeIndex]
+		else
+			local optionText
+			local index = attributeIndex
+			if type(attributeIndex) == "string" then
+				-- Find by stat string (used for loading)
+				optionText = attributeIndex
+				index = 4 -- Assign an arbitrary index > 3 so it's treated as custom by Save() and UI
+			else
+				-- Find by index (used for UI/Hotkeys)
+				local dynamicOptions = self:GetDynamicAttributeOptions()
+				optionText = dynamicOptions[attributeIndex - 3]
+			end
+
+			if optionText then
+				option = { name = optionDisplayName(optionText), sd = { optionText } }
+				attributeIndex = index
+			end
+		end
+
+		if option then
+			self:ReplaceNode(newNode, option)
+			newNode.attributeIndex = attributeIndex
+			if attributeIndex > 3 then
+				-- Persist the stat string so Save() and DeallocNode reversion can find it
+				-- (ReplaceNode does not copy the stats field)
+				newNode.stats = option.sd
+			end
+			self.tree:ProcessStats(newNode)
+			self.hashOverrides[nodeId] = newNode
+		end
 	end
 end
