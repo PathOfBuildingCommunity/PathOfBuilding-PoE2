@@ -3,13 +3,32 @@ if not loadStatFile then
 end
 loadStatFile("stat_descriptions.csd")
 
+-- not comprehensive. see moddomains table in export tool and enums.lua
+local Domains = {
+	GenericMod = 1,
+	FlaskCharm = 2,
+	Jewel = 11,
+	UniqueJewel = 22,
+	Veiled = 28,
+	-- not actually present on the table, but still referenced by mods
+	IncursionLimb = 37,
+}
+
+local GenTypes = {
+	Prefix = 1,
+	Suffix = 2,
+	-- includes both implicit mods and unique explicit mods
+	Intrinsic = 3,
+	Corruption = 5,
+}
+
 function table.containsId(table, element)
-  for _, value in pairs(table) do
-    if value.Id == element then
-      return true
-    end
-  end
-  return false
+	for _, value in pairs(table) do
+		if value.Id == element then
+			return true
+		end
+	end
+	return false
 end
 
 local whiteListStat = {
@@ -28,12 +47,12 @@ local function writeMods(outName, condFunc)
 			local stats, orders, missing = describeMod(mod)
 			if missing[1] then
 				local printHeader = true
-				for	k, _ in pairs(missing) do
+				for k, _ in pairs(missing) do
 					if k ~= 1 and not whiteListStat[k] then
 						if printHeader then
 							printHeader = false
 							ConPrintf("====================================")
-							ConPrintf("Mod '"..mod.Id.."' is missing stats:")
+							ConPrintf("Mod '" .. mod.Id .. "' is missing stats:")
 						end
 						ConPrintf('%s', k)
 					end
@@ -41,19 +60,15 @@ local function writeMods(outName, condFunc)
 			end
 			if #orders > 0 then
 				out:write('\t["', mod.Id, '"] = { ')
-				if mod.GenerationType == 1 then
+				if mod.GenerationType == GenTypes.Prefix then
 					out:write('type = "Prefix", ')
-				elseif mod.GenerationType == 2 then
+				elseif mod.GenerationType == GenTypes.Suffix then
 					out:write('type = "Suffix", ')
-				elseif mod.GenerationType == 3 then
-					if mod.Domain == 1 and mod.Id:match("^Synthesis") then
-						out:write('type = "Synthesis", ')
-					elseif mod.Domain == 16 then
-						out:write('type = "DelveImplicit", ')
-					elseif mod.Id:match("SpecialCorruption") then
+				elseif mod.GenerationType == GenTypes.Intrinsic then
+					if mod.Id:match("SpecialCorruption") then
 						out:write('type = "SpecialCorrupted", ')
 					end
-				elseif mod.GenerationType == 5 then
+				elseif mod.GenerationType == GenTypes.Corruption then
 					out:write('type = "Corrupted", ')
 				end
 				out:write('affix = "', mod.Name, '", ')
@@ -63,7 +78,7 @@ local function writeMods(outName, condFunc)
 						table.remove(orders, index)
 						break
 					end
- 				end
+				end
 				out:write('"', table.concat(stats, '", "'), '", ')
 				out:write('statOrder = { ', table.concat(orders, ', '), ' }, ')
 				out:write('level = ', mod.Level, ', group = "', mod.Type.Id, '", ')
@@ -75,7 +90,7 @@ local function writeMods(outName, condFunc)
 				out:write('weightVal = { ', table.concat(mod.SpawnWeight, ', '), ' }, ')
 				if mod.GenerationWeightTags[1] then
 					-- make large clusters only have 1 notable suffix
-					if mod.GenerationType == 2 and mod.Tags[1] and outName == "../Data/ModJewelCluster.lua" and mod.Tags[1].Id == "has_affliction_notable" then
+					if mod.GenerationType == GenTypes.Suffix and mod.Tags[1] and outName == "../Data/ModJewelCluster.lua" and mod.Tags[1].Id == "has_affliction_notable" then
 						out:write('weightMultiplierKey = { "has_affliction_notable2", ')
 						for _, tag in ipairs(mod.GenerationWeightTags) do
 							out:write('"', tag.Id, '", ')
@@ -159,13 +174,13 @@ local function writeMods(outName, condFunc)
 				end
 				out:write("tradeHashes = { ")
 				for hash, desc in pairs(tradeHashes) do
-					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+					local descriptionLines = '"' .. table.concat(desc, '", "') .. '"'
 					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
 				end
 				out:write('} ')
 				out:write('},\n')
 			else
-				print("Mod '"..mod.Id.."' has no stats")
+				print("Mod '" .. mod.Id .. "' has no stats")
 			end
 		end
 		::continue::
@@ -175,32 +190,41 @@ local function writeMods(outName, condFunc)
 end
 
 writeMods("../Data/ModItem.lua", function(mod)
-	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2)
-	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards")) and not mod.Id:match("Master")
+	return mod.Domain == Domains.GenericMod and
+		(mod.GenerationType == GenTypes.Prefix or mod.GenerationType == GenTypes.Suffix)
+		and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards")) and
+		not mod.Id:match("Master")
 end)
 writeMods("../Data/ModCorrupted.lua", function(mod)
-	return (mod.Domain == 11 or mod.Domain == 1) and (mod.GenerationType == 3 and mod.Id:match("SpecialCorruption") or mod.GenerationType == 5)
+	return (mod.Domain == Domains.Jewel or mod.Domain == Domains.GenericMod) and
+	(mod.GenerationType == GenTypes.Intrinsic and mod.Id:match("SpecialCorruption") or mod.GenerationType == GenTypes.Corruption)
 end)
 writeMods("../Data/ModFlask.lua", function(mod)
-	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2) and mod.Id:match("^Flask")
+	return mod.Domain == Domains.FlaskCharm and
+	(mod.GenerationType == GenTypes.Prefix or mod.GenerationType == GenTypes.Suffix) and mod.Id:match("^Flask")
 end)
 writeMods("../Data/ModCharm.lua", function(mod)
-	return mod.Domain == 2 and ((mod.GenerationType == 1 and mod.Id:match("^Charm"))
-	or (mod.GenerationType == 2 and not mod.Id:match("Immunity"))) 
+	return mod.Domain == Domains.FlaskCharm and ((mod.GenerationType == GenTypes.Prefix and mod.Id:match("^Charm"))
+		or (mod.GenerationType == GenTypes.Suffix and not mod.Id:match("Immunity")))
 end)
 writeMods("../Data/ModJewel.lua", function(mod)
-	return (mod.Domain == 11 and (mod.GenerationType == 1 or mod.GenerationType == 2)) or (mod.Domain == 21 and mod.GenerationType == 3)
+	return (mod.Domain == Domains.Jewel and (mod.GenerationType == GenTypes.Prefix or mod.GenerationType == GenTypes.Suffix)) or
+	(mod.Domain == Domains.FlaskCharm1 and mod.GenerationType == GenTypes.Intrinsic)
 end)
 writeMods("../Data/ModIncursionLimb.lua", function(mod)
-	return (mod.Domain == 37 and mod.GenerationType == 3)
+	return (mod.Domain == Domains.IncursionLimb and mod.GenerationType == GenTypes.Intrinsic)
 end)
-writeMods("../Data/ModItemExclusive.lua", function(mod) -- contains primarily uniques and items implicits but also other mods only available on a single base or unique.
-	return (mod.Domain == 1 or mod.Domain == 2 or mod.Domain == 11 or mod.Domain == 22) and mod.GenerationType == 3
-	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1])
-	and not mod.Id:match("^Synthesis") and not mod.Id:match("Royale") and not mod.Id:match("Cowards") and not mod.Id:match("Map") and not mod.Id:match("Ultimatum") and not mod.Id:match("SpecialCorruption")
-end)
+writeMods("../Data/ModItemExclusive.lua",
+	-- contains primarily uniques and items implicits but also other mods only available on a single base or unique.
+	function(mod)
+		return (mod.Domain == Domains.GenericMod or mod.Domain == Domains.FlaskCharm or mod.Domain == Domains.Jewel or mod.Domain == Domains.UniqueJewel) and
+			mod.GenerationType == GenTypes.Intrinsic
+			and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1])
+			and not mod.Id:match("^Synthesis") and not mod.Id:match("Royale") and not mod.Id:match("Cowards") and
+			not mod.Id:match("Map") and not mod.Id:match("Ultimatum") and not mod.Id:match("SpecialCorruption")
+	end)
 writeMods("../Data/ModVeiled.lua", function(mod)
-	return mod.Domain == 28 and not mod.Id:match("Map")
+	return mod.Domain == Domains.Veiled and not mod.Id:match("Map")
 end)
 
 print("Mods exported.")
