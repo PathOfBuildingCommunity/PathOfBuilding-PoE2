@@ -3672,6 +3672,19 @@ function calcs.offence(env, actor, activeSkill)
 			output[damageType.."StoredCombinedAvg"] = 0
 		end
 
+		local ailmentSourceCfg
+		local function getAilmentSourceCfg()
+			if not ailmentSourceCfg then
+				ailmentSourceCfg = { }
+				for key, value in pairs(cfg) do
+					ailmentSourceCfg[key] = value
+				end
+				ailmentSourceCfg.flags = band(ailmentSourceCfg.flags or 0, bnot(ModFlag.Hit))
+				ailmentSourceCfg.keywordFlags = band(ailmentSourceCfg.keywordFlags or 0, bnot(KeywordFlag.Hit))
+			end
+			return ailmentSourceCfg
+		end
+
 		-- Calculate hit damage for each damage type
 		local totalHitMin, totalHitMax, totalHitAvg = 0, 0, 0
 		local totalCritMin, totalCritMax, totalCritAvg = 0, 0, 0
@@ -3742,17 +3755,24 @@ function calcs.offence(env, actor, activeSkill)
 					damageTypeHitAvgLucky = (damageTypeHitMin / 3 + 2 * damageTypeHitMax / 3)
 					damageTypeHitAvg = damageTypeHitAvgNotLucky * (1 - damageTypeLuckyChance) + damageTypeHitAvgLucky * damageTypeLuckyChance
 
-					-- Store pre-resist/armour/penetration hit damage for ailment calculations
+					-- Store pre-resist/armour/penetration source damage for ailment calculations.
+					-- Hit-only modifiers, such as "Damage with Hits", must not become ailment source damage.
+					local ailmentSourceHitMin, ailmentSourceHitMax = calcDamage(activeSkill, output, getAilmentSourceCfg(), nil, damageType, 0)
+					ailmentSourceHitMin = ailmentSourceHitMin * allMult
+					ailmentSourceHitMax = ailmentSourceHitMax * allMult
+					local ailmentSourceHitAvgNotLucky = (ailmentSourceHitMin / 2 + ailmentSourceHitMax / 2)
+					local ailmentSourceHitAvgLucky = (ailmentSourceHitMin / 3 + 2 * ailmentSourceHitMax / 3)
+					local ailmentSourceHitAvg = ailmentSourceHitAvgNotLucky * (1 - damageTypeLuckyChance) + ailmentSourceHitAvgLucky * damageTypeLuckyChance
 					if pass == 1 then
-						output[damageType.."StoredCombinedAvg"] = output[damageType.."StoredCombinedAvg"] + damageTypeHitAvg * (output.CritChance / 100)
-						output[damageType.."StoredCritAvg"] = damageTypeHitAvg
-						output[damageType.."StoredCritMin"] = damageTypeHitMin
-						output[damageType.."StoredCritMax"] = damageTypeHitMax
+						output[damageType.."StoredCombinedAvg"] = output[damageType.."StoredCombinedAvg"] + ailmentSourceHitAvg * (output.CritChance / 100)
+						output[damageType.."StoredCritAvg"] = ailmentSourceHitAvg
+						output[damageType.."StoredCritMin"] = ailmentSourceHitMin
+						output[damageType.."StoredCritMax"] = ailmentSourceHitMax
 					else
-						output[damageType.."StoredCombinedAvg"] = output[damageType.."StoredCombinedAvg"] + damageTypeHitAvg * (1 - output.CritChance / 100)
-						output[damageType.."StoredHitAvg"] = damageTypeHitAvg
-						output[damageType.."StoredHitMin"] = damageTypeHitMin
-						output[damageType.."StoredHitMax"] = damageTypeHitMax
+						output[damageType.."StoredCombinedAvg"] = output[damageType.."StoredCombinedAvg"] + ailmentSourceHitAvg * (1 - output.CritChance / 100)
+						output[damageType.."StoredHitAvg"] = ailmentSourceHitAvg
+						output[damageType.."StoredHitMin"] = ailmentSourceHitMin
+						output[damageType.."StoredHitMax"] = ailmentSourceHitMax
 					end
 
 					if (damageTypeHitMin ~= 0 or damageTypeHitMax ~= 0) and env.mode_effective then
