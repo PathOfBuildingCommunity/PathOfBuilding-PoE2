@@ -85,6 +85,22 @@ describe("TestSkills", function()
 		assert.are.equals(16, round(finalCost))
 	end)
 
+	it("Test buff expiration rate is separate from skill effect duration", function()
+		build.skillsTab:PasteSocketGroup("Bone Offering 20/0  1")
+		runCallback("OnFrame")
+
+		local baseDuration = build.calcsTab.mainOutput.Duration
+		build.configTab.input.customMods = "32% increased Skill Effect Duration\nBuffs on you expire 10% slower"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local activeSkill = build.calcsTab.mainEnv.player.activeSkillList[1]
+		local expectedDuration = math.ceil(baseDuration * 1.32 / 0.9 * data.misc.ServerTickRate) / data.misc.ServerTickRate
+		assert.are.equals(32, activeSkill.skillModList:Sum("INC", activeSkill.skillCfg, "Duration"))
+		assert.are.equals(-10, build.calcsTab.mainEnv.player.modDB:Sum("BASE", activeSkill.skillCfg, "SelfBuffExpirationRate"))
+		assert.True(math.abs(build.calcsTab.mainOutput.Duration - expectedDuration) < 0.001)
+	end)
+
 	it("Consumed Charge Effect", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item

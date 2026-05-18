@@ -355,17 +355,28 @@ local function calcWarcryCastTime(skillModList, skillCfg, skillData, actor)
 	return warcryCastTime
 end
 
-function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB)
+local function calcSelfBuffDurationMult(modDB, skillCfg, activeSkill, isDebuffDuration)
+	if not activeSkill or isDebuffDuration or not activeSkill.skillTypes[SkillType.Buff] then
+		return 1
+	end
+	local expirationRate = 1 + modDB:Sum("BASE", skillCfg, "SelfBuffExpirationRate") / 100
+	return 1 / m_max(data.misc.BuffExpirationSlowCap, expirationRate)
+end
+
+function calcSkillDuration(skillModList, skillCfg, skillData, env, enemyDB, modDB, activeSkill)
 	local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 	durationMod = m_max(durationMod, 0)
 	local durationBase = (skillData.duration or 0) + skillModList:Sum("BASE", skillCfg, "Duration", "PrimaryDuration")
 	local duration = durationBase * durationMod
+	local buffDurationMult = modDB and calcSelfBuffDurationMult(modDB, skillCfg, activeSkill, skillData.debuff) or 1
 	local debuffDurationMult = 1
 	if env.mode_effective then
 		debuffDurationMult = 1 / m_max(data.misc.BuffExpirationSlowCap, calcLib.mod(enemyDB, skillCfg, "BuffExpireFaster"))
 	end
 	if skillData.debuff then
 		duration = duration * debuffDurationMult
+	else
+		duration = duration * buffDurationMult
 	end
 	return duration
 end
@@ -1420,7 +1431,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 	end
 	if activeSkill.skillTypes[SkillType.Warcry] then
-		local full_duration = calcSkillDuration(skillModList, skillCfg, activeSkill.skillData, env, enemyDB)
+		local full_duration = calcSkillDuration(skillModList, skillCfg, activeSkill.skillData, env, enemyDB, modDB, activeSkill)
 		local actual_cooldown = calcSkillCooldown(skillModList, skillCfg, activeSkill.skillData)
 		local uptime = env.modDB:Flag(nil, "Condition:WarcryMaxHit") and 1 or m_min(full_duration / actual_cooldown, 1)
 		local unscaledEffect = calcLib.mod(skillModList, skillCfg, "WarcryEffect", "BuffEffect")
@@ -1728,6 +1739,7 @@ function calcs.offence(env, actor, activeSkill)
 	if env.mode_effective then
 		debuffDurationMult = 1 / m_max(data.misc.BuffExpirationSlowCap, calcLib.mod(enemyDB, skillCfg, "BuffExpireFaster"))
 	end
+	local buffDurationMult = calcSelfBuffDurationMult(modDB, skillCfg, activeSkill, skillData.debuff)
 	do
 		output.DurationMod = calcLib.mod(skillModList, skillCfg, "Duration", "PrimaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 		output.DurationMod = m_max(output.DurationMod, 0)
@@ -1742,6 +1754,8 @@ function calcs.offence(env, actor, activeSkill)
 			output.Duration = durationBase * output.DurationMod
 			if skillData.debuff then
 				output.Duration = output.Duration * debuffDurationMult
+			else
+				output.Duration = output.Duration * buffDurationMult
 			end
 			output.Duration = m_ceil(output.Duration * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.Duration ~= durationBase then
@@ -1754,6 +1768,9 @@ function calcs.offence(env, actor, activeSkill)
 				if skillData.debuff and debuffDurationMult ~= 1 then
 					t_insert(breakdown.Duration, s_format("/ %.3f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
 				end
+				if not skillData.debuff and buffDurationMult ~= 1 then
+					t_insert(breakdown.Duration, s_format("/ %.3f ^8(buff expires slower/faster)", 1 / buffDurationMult))
+				end
 				t_insert(breakdown.Duration, s_format("rounded up to nearest server tick"))
 				t_insert(breakdown.Duration, s_format("= %.3fs", output.Duration))
 			end
@@ -1762,9 +1779,12 @@ function calcs.offence(env, actor, activeSkill)
 		if durationBase > 0 then
 			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "SecondaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 			durationMod = m_max(durationMod, 0)
+			local secondaryBuffDurationMult = calcSelfBuffDurationMult(modDB, skillCfg, activeSkill, skillData.debuffSecondary)
 			output.DurationSecondary = durationBase * durationMod
 			if skillData.debuffSecondary then
 				output.DurationSecondary = output.DurationSecondary * debuffDurationMult
+			else
+				output.DurationSecondary = output.DurationSecondary * secondaryBuffDurationMult
 			end
 			output.DurationSecondary = m_ceil(output.DurationSecondary * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.DurationSecondary ~= durationBase then
@@ -1781,6 +1801,9 @@ function calcs.offence(env, actor, activeSkill)
 				if skillData.debuffSecondary and debuffDurationMult ~= 1 then
 					t_insert(breakdown.DurationSecondary, s_format("/ %.3f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
 				end
+				if not skillData.debuffSecondary and secondaryBuffDurationMult ~= 1 then
+					t_insert(breakdown.DurationSecondary, s_format("/ %.3f ^8(buff expires slower/faster)", 1 / secondaryBuffDurationMult))
+				end
 				t_insert(breakdown.DurationSecondary, s_format("rounded up to nearest server tick"))
 				t_insert(breakdown.DurationSecondary, s_format("= %.3fs", output.DurationSecondary))
 			end
@@ -1789,9 +1812,12 @@ function calcs.offence(env, actor, activeSkill)
 		if durationBase > 0 then
 			local durationMod = calcLib.mod(skillModList, skillCfg, "Duration", "TertiaryDuration", "DamagingAilmentDuration", skillData.mineDurationAppliesToSkill and "MineDuration" or nil)
 			durationMod = m_max(durationMod, 0)
+			local tertiaryBuffDurationMult = calcSelfBuffDurationMult(modDB, skillCfg, activeSkill, skillData.debuffTertiary)
 			output.DurationTertiary = durationBase * durationMod
 			if skillData.debuffTertiary then
 				output.DurationTertiary = output.DurationTertiary * debuffDurationMult
+			else
+				output.DurationTertiary = output.DurationTertiary * tertiaryBuffDurationMult
 			end
 			output.DurationTertiary = m_ceil(output.DurationTertiary * data.misc.ServerTickRate) / data.misc.ServerTickRate
 			if breakdown and output.DurationTertiary ~= durationBase then
@@ -1807,6 +1833,9 @@ function calcs.offence(env, actor, activeSkill)
 				end
 				if skillData.debuffTertiary and debuffDurationMult ~= 1 then
 					t_insert(breakdown.DurationTertiary, s_format("/ %.3f ^8(debuff expires slower/faster)", 1 / debuffDurationMult))
+				end
+				if not skillData.debuffTertiary and tertiaryBuffDurationMult ~= 1 then
+					t_insert(breakdown.DurationTertiary, s_format("/ %.3f ^8(buff expires slower/faster)", 1 / tertiaryBuffDurationMult))
 				end
 				t_insert(breakdown.DurationTertiary, s_format("rounded up to nearest server tick"))
 				t_insert(breakdown.DurationTertiary, s_format("= %.3fs", output.DurationTertiary))
@@ -3064,7 +3093,7 @@ function calcs.offence(env, actor, activeSkill)
 			if not activeSkill.skillTypes[SkillType.NeverExertable] and not activeSkill.skillTypes[SkillType.Triggered] and not activeSkill.skillTypes[SkillType.Channel] and not activeSkill.skillTypes[SkillType.OtherThingUsesSkill] and not activeSkill.skillTypes[SkillType.Retaliation] then
 				for index, value in ipairs(actor.activeSkillList) do
 					if value.activeEffect.grantedEffect.name == "Ancestral Cry" and activeSkill.skillTypes[SkillType.MeleeSingleTarget] and not globalOutput.AncestralCryCalculated then
-						globalOutput.AncestralCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
+						globalOutput.AncestralCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB, modDB, value)
 						globalOutput.AncestralCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
 						globalOutput.AncestralCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.AncestralExertsCount = env.modDB:Sum("BASE", nil, "NumAncestralExerts") or 0
@@ -3086,7 +3115,7 @@ function calcs.offence(env, actor, activeSkill)
 						end
 						globalOutput.AncestralCryCalculated = true
 					elseif value.activeEffect.grantedEffect.name == "Infernal Cry" and not globalOutput.InfernalCryCalculated then
-						globalOutput.InfernalCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
+						globalOutput.InfernalCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB, modDB, value)
 						globalOutput.InfernalCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
 						globalOutput.InfernalCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						if activeSkill.skillTypes[SkillType.Melee] then
@@ -3111,7 +3140,7 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.InfernalCryCalculated = true
 					elseif value.activeEffect.grantedEffect.name == "Intimidating Cry" and activeSkill.skillTypes[SkillType.Melee] and not globalOutput.IntimidatingCryCalculated then
 						globalOutput.CreateWarcryOffensiveCalcSection = true
-						globalOutput.IntimidatingCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
+						globalOutput.IntimidatingCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB, modDB, value)
 						globalOutput.IntimidatingCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
 						globalOutput.IntimidatingCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.IntimidatingExertsCount = env.modDB:Sum("BASE", nil, "NumIntimidatingExerts") or 0
@@ -3156,7 +3185,7 @@ function calcs.offence(env, actor, activeSkill)
 						globalOutput.IntimidatingCryCalculated = true
 					elseif value.activeEffect.grantedEffect.name == "Rallying Cry" and activeSkill.skillTypes[SkillType.Melee] and not globalOutput.RallyingCryCalculated then
 						globalOutput.CreateWarcryOffensiveCalcSection = true
-						globalOutput.RallyingCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
+						globalOutput.RallyingCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB, modDB, value)
 						globalOutput.RallyingCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
 						globalOutput.RallyingCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.RallyingExertsCount = env.modDB:Sum("BASE", nil, "NumRallyingExerts") or 0
@@ -3202,7 +3231,7 @@ function calcs.offence(env, actor, activeSkill)
 
 					elseif value.activeEffect.grantedEffect.name == "Seismic Cry" and activeSkill.skillTypes[SkillType.Slam] and not globalOutput.SeismicCryCalculated then
 						globalOutput.CreateWarcryOffensiveCalcSection = true
-						globalOutput.SeismicCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
+						globalOutput.SeismicCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB, modDB, value)
 						globalOutput.SeismicCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
 						globalOutput.SeismicCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						globalOutput.SeismicExertsCount = env.modDB:Sum("BASE", nil, "NumSeismicExerts") or 0
@@ -3231,7 +3260,7 @@ function calcs.offence(env, actor, activeSkill)
 						end
 						globalOutput.SeismicCryCalculated = true
 					elseif value.activeEffect.grantedEffect.name == "Battlemage's Cry" and not globalOutput.BattleMageCryCalculated then
-						globalOutput.BattleMageCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB)
+						globalOutput.BattleMageCryDuration = calcSkillDuration(value.skillModList, value.skillCfg, value.skillData, env, enemyDB, modDB, value)
 						globalOutput.BattleMageCryCooldown = calcSkillCooldown(value.skillModList, value.skillCfg, value.skillData)
 						globalOutput.BattleMageCryCastTime = calcWarcryCastTime(value.skillModList, value.skillCfg, value.skillData, actor)
 						if activeSkill.skillTypes[SkillType.Melee] then
