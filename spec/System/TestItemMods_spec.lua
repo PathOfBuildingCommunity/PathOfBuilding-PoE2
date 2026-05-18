@@ -7,6 +7,39 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
+		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Ruby Ring
+			Implicits: 0
+			16% increased Rarity of Items found
+			16% increased Rarity of Items found
+			16% increased Rarity of Items found
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.are.equals(62, build.calcsTab.mainOutput.EffectiveLootRarityMod)
+	end)
+
+	it("aggregates matching ring resistance lines before applying ring bonus effect", function()
+		build.configTab.input.customMods = "80% increased bonuses gained from left Equipped Ring"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Amethyst Ring
+			Implicits: 0
+			+12% to Chaos Resistance
+			+26% to Chaos Resistance
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.are.equals(68, build.calcsTab.mainOutput.ChaosResistTotal)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z

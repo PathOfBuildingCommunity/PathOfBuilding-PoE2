@@ -62,6 +62,18 @@ local function mergeBuff(src, destTable, destKey)
 	end
 end
 
+local function modHasTagType(mod, tagType)
+	for _, tag in ipairs(mod) do
+		if tag.type == tagType then
+			return true
+		end
+	end
+end
+
+local function canAggregateSlotEffectMod(mod)
+	return type(mod.value) == "number" and (mod.type == "BASE" or mod.type == "INC") and #mod == 0
+end
+
 -- Merge keystone modifiers
 local function mergeKeystones(env)
 	for _, modObj in ipairs(env.modDB:Tabulate("LIST", nil, "Keystone")) do
@@ -1237,19 +1249,32 @@ function calcs.perform(env, skipEHP)
 				end
 			end
 			if item then
+				local groupedMods = { }
+				local groupedModOrder = { }
+				local slotEffectSource = "Many Sources:".. colorCodes.SOURCE .. tostring(slotEffectMod * 100) .. "% " .. slot .. " Bonus Effect"
 				for _, mod in ipairs(item.modList or item.slotModList[2]) do
-					-- Filter out SocketedIn type mods
-					for _, tag in ipairs(mod) do
-						if tag.type == "SocketedIn" then
-							goto skip_mod
+					if not modHasTagType(mod, "SocketedIn") then
+						if canAggregateSlotEffectMod(mod) then
+							local key = modLib.formatModParams(mod)
+							local modCopy = groupedMods[key]
+							if not modCopy then
+								modCopy = copyTable(mod)
+								modCopy.source = slotEffectSource
+								groupedMods[key] = modCopy
+								t_insert(groupedModOrder, modCopy)
+							else
+								modCopy.value = modCopy.value + mod.value
+							end
+						else
+							local modCopy = copyTable(mod)
+							modCopy.source = slotEffectSource
+							modDB:ScaleAddMod(modCopy, slotEffectMod)
 						end
 					end
+				end
 
-					local modCopy = copyTable(mod)
-					modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(slotEffectMod * 100) .. "% " .. slot .. " Bonus Effect"
-					modDB:ScaleAddMod(modCopy, slotEffectMod)
-
-					::skip_mod::
+				for _, mod in ipairs(groupedModOrder) do
+					modDB:ScaleAddMod(mod, slotEffectMod)
 				end
 			end
 		end
