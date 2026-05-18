@@ -7,6 +7,36 @@ describe("TestSkills", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 	
+
+	it("uses granted effect minion list when active skill minion list is missing", function()
+		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
+		local activeEffect = {
+			srcInstance = srcInstance,
+			grantedEffect = {
+				id = "TestSpectreSkill",
+				name = "Spectre: Test",
+				statSets = { { label = "Default" } },
+				minionList = { "Metadata/Monsters/Skeletons/Skeleton" },
+			},
+			statSet = { skillFlags = { } },
+		}
+		local activeSkill = {
+			activeEffect = activeEffect,
+			skillData = { },
+			-- activeSkill.minionList intentionally absent; this reproduces #1677.
+		}
+		build.data.minions["Metadata/Monsters/Skeletons/Skeleton"] = { name = "Test Skeleton" }
+		build.skillsTab.socketGroupList[1] = {
+			displaySkillList = { activeSkill },
+			mainActiveSkill = 1,
+		}
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+
+		assert.are.equals("Test Skeleton", build.controls.mainSkillMinion.list[1].label)
+		assert.are.equals("Metadata/Monsters/Skeletons/Skeleton", build.controls.mainSkillMinion.list[1].minionId)
+	end)
+
 	it("Test blasphemy reserving Spirit", function()
 		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\n")
 		runCallback("OnFrame")
