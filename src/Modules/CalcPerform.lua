@@ -1898,8 +1898,7 @@ function calcs.perform(env, skipEHP)
 							end
 						end
 						local full_duration = calcSkillDuration(modStore, skillCfg, activeSkill.skillData, env, enemyDB)
-						local cooldownOverride = modStore:Override(skillCfg, "CooldownRecovery")
-						local actual_cooldown = cooldownOverride or (activeSkill.skillData.cooldown  + modStore:Sum("BASE", skillCfg, "CooldownRecovery")) / calcLib.mod(modStore, skillCfg, "CooldownRecovery")
+						local actual_cooldown = calcSkillCooldown(modStore, skillCfg, activeSkill.skillData)
 						local uptime = modDB:Flag(nil, "Condition:WarcryMaxHit") and 1 or m_min(full_duration / actual_cooldown, 1)
 						local extraWarcryModList = activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and new("ModList") or {}
 						if not modDB:Flag(nil, "CannotGainWarcryBuffs") then
@@ -2968,7 +2967,7 @@ function calcs.perform(env, skipEHP)
 					t_insert(mods, modLib.createMod("ColdDamageTaken", "INC", num, "Bonechill", { type = "Condition", var = "Chilled" }))
 				end
 				if modDB:Flag(nil, "ChillEffectIncDamageTaken") then
-					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Ahuana's Bite", { type = "Condition", var = "Chilled" }))
+					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Asphyxia's Wrath", { type = "Condition", var = "Chilled" }))
 				end
 				return mods
 			end
