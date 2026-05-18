@@ -6152,9 +6152,8 @@ c["You are Blind"]={{[1]={[1]={neg=true,type="Condition",var="CannotBeBlinded"},
 c["You are Immune to Bleeding"]={{[1]={flags=0,keywordFlags=0,name="BleedImmune",type="FLAG",value=true}},nil}
 c["You are considered on Low Life while at 75% of maximum Life or below instead"]={{[1]={flags=0,keywordFlags=0,name="LowLifePercentage",type="BASE",value=0.75}},nil}
 c["You can Break Enemy Armour to below 0"]={{[1]={[1]={effectName="ImplodingImpacts",effectType="Buff",type="GlobalEffect"},flags=0,keywordFlags=0,name="Condition:CanArmourBreakBelowZero",type="FLAG",value=true}},nil}
-c["You can Socket 2 additional copies of each Lineage Support Gem, in different Skills"]={nil,"You can Socket 2 additional copies of each Lineage Support Gem, in different Skills "}
-c["You can Socket an additional copy of each Lineage Support Gem, in different Skills"]={nil,"You can Socket an additional copy of each Lineage Support Gem, in different Skills "}
-c["You can Socket an additional copy of each Lineage Support Gem, in different Skills You can Socket 2 additional copies of each Lineage Support Gem, in different Skills"]={nil,"You can Socket an additional copy of each Lineage Support Gem, in different Skills You can Socket 2 additional copies of each Lineage Support Gem, in different Skills "}
+c["You can Socket 2 additional copies of each Lineage Support Gem, in different Skills"]={{[1]={flags=0,keywordFlags=0,name="MaxLineageCount",type="BASE",value=2}},nil}
+c["You can Socket an additional copy of each Lineage Support Gem, in different Skills"]={{[1]={flags=0,keywordFlags=0,name="MaxLineageCount",type="BASE",value=1}},nil}
 c["You can apply an additional Curse"]={{[1]={flags=0,keywordFlags=0,name="EnemyCurseLimit",type="BASE",value=1}},nil}
 c["You can equip a Focus while wielding a Staff"]={{[1]={flags=0,keywordFlags=0,name="InstrumentsOfPower",type="FLAG",value=true}},nil}
 c["You can equip a non-Unique Sceptre while wielding a Talisman"]={{[1]={flags=0,keywordFlags=0,name="LordOfTheWilds",type="FLAG",value=true}},nil}

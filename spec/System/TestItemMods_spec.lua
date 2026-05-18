@@ -375,4 +375,24 @@ describe("TetsItemMods", function()
 		assert.True(build.calcsTab.calcsOutput.EnergyShieldRecoupRecoveryAvg > 0)
 		assert.True(build.calcsTab.calcsOutput.LifeRecoupRecoveryAvg == build.calcsTab.calcsOutput.EnergyShieldRecoupRecoveryAvg)
 	end)
+
+	it("solus ipse, max lineage count", function()
+		build.configTab.input.customMods = [[
+			You can Socket 2 additional copies of each Lineage Support Gem, in different Skills
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Arc 20/0 1 \nZarokh's Refrain 1/0 1")
+		build.skillsTab:PasteSocketGroup("Ice Nova 20/0 1 \nZarokh's Refrain 1/0 1")
+		build.skillsTab:PasteSocketGroup("Fireball 20/0 1 \nZarokh's Refrain 1/0 1")
+		runCallback("OnFrame")
+
+		assert.are.equals(2, #build.controls.warnings.lines)
+
+		build.skillsTab:PasteSocketGroup("Comet 20/0 1 \nZarokh's Refrain 1/0 1")
+		runCallback("OnFrame")
+
+		assert.are.equals(3, #build.controls.warnings.lines)
+		assert.True(build.controls.warnings.lines[3]:match("lineage support gems allocated") ~= nil)
+	end)
 end)

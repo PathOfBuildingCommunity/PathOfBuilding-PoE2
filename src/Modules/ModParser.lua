@@ -6001,6 +6001,8 @@ local specialModList = {
 	["nearby allies have (%d+)%% chance to block attack damage per (%d+) strength you have"] = function(block, _, str) return {
 		mod("ExtraAura", "LIST", { onlyAllies = true, mod = mod("BlockChance", "BASE", block) }, { type = "PerStat", stat = "Str", div = tonumber(str) }),
 	} end,
+	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
+	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }
