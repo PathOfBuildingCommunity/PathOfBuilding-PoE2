@@ -1257,6 +1257,7 @@ local preFlagList = {
 	["^attack skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Attack },
 	["^spells [hgdf][aei][ivar][nel] a? ?"] = { flags = ModFlag.Spell },
 	["^spell skills [hd][ae][va][el] "] = { keywordFlags = KeywordFlag.Spell },
+	["^spell hits [ghd][ae][iva][eln] "] = { flags = ModFlag.Hit, keywordFlags = KeywordFlag.Spell },
 	["^offering skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.Offering } },
 	["^projectile attack skills [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
 	["^projectiles from attacks [hd][ae][va][el] "] = { tag = { type = "SkillType", skillType = SkillType.RangedAttack } },
@@ -1492,6 +1493,7 @@ local modTagList = {
 	["per buff on you"] = { tag = { type = "Multiplier", var = "BuffOnSelf" } },
 	["per hit suppressed recently"] = { tag = { type = "Multiplier", var = "HitsSuppressedRecently" } },
 	["per curse on enemy"] = { tag = { type = "Multiplier", var = "CurseOnEnemy" } },
+	["per curse on target"] = { tag = { type = "Multiplier", var = "CurseOnEnemy" } },
 	["for each curse on enemy"] = { tag = { type = "Multiplier", var = "CurseOnEnemy" } },
 	["for each curse on the enemy"] = { tag = { type = "Multiplier", var = "CurseOnEnemy" } },
 	["per curse on you"] = { tag = { type = "Multiplier", var = "CurseOnSelf" } },
@@ -3588,9 +3590,6 @@ local specialModList = {
 		mod("DamageGainAsCold", "BASE", num),
 		mod("DamageGainAsFire", "BASE", num),
 	} end,
-	["spell hits gain (%d+)%% of damage as extra (%a+) damage per curse on target"] = function(num, _, damageType) return {
-		mod("DamageGainAs"..firstToUpper(damageType), "BASE", num, nil, ModFlag.Spell, { type = "Multiplier", var = "CurseOnEnemy" }),
-	} end, -- Liminal Coil
 	["gain (%d+)%% of weapon physical damage as extra damage of an? r?a?n?d?o?m? ?element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num, nil, ModFlag.Weapon) } end,
 	["gain (%d+)%% of physical damage as extra damage of a random element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num ) } end,
 	["(%d+)%% chance for hits to deal (%d+)%% of physical damage as extra damage of a random element"] = function(num, _, physPercent) return { mod("PhysicalDamageGainAsRandom", "BASE", (num*physPercent/100) ) } end,
