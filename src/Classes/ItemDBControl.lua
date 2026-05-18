@@ -239,7 +239,7 @@ function ItemDBClass:ListBuilder()
 		local start = GetTime()
 		local calcFunc, calcBase = self.itemsTab.build.calcsTab:GetMiscCalculator(self.build)
 		for itemIndex, item in ipairs(list) do
-			item.measuredPower = 0
+			item.measuredPower = nil
 			for slotName, slot in pairs(self.itemsTab.slots) do
 				if self.itemsTab:IsItemValidForSlot(item, slotName) and not slot.inactive and (not slot.weaponSet or slot.weaponSet == (self.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)) then
 					local output = calcFunc(item.base.flask and { toggleFlask = item } or item.base.charm and { toggleCharm = item } or { repSlotName = slotName, repItem = item }, useFullDPS)
@@ -247,9 +247,10 @@ function ItemDBClass:ListBuilder()
 					if self.sortDetail.transform then
 						measuredPower = self.sortDetail.transform(measuredPower)
 					end
-					item.measuredPower = m_max(item.measuredPower, measuredPower)
+					item.measuredPower = item.measuredPower and m_max(item.measuredPower, measuredPower) or measuredPower
 				end
 			end
+			item.measuredPower = item.measuredPower or 0
 			local now = GetTime()
 			if now - start > 50 then
 				self.defaultText = "^7Sorting... ("..m_floor(itemIndex/#list*100).."%)"

@@ -7,6 +7,40 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("sorts defensive item stats when the best score is negative", function()
+		build.configTab.input.enemyFireDamage = "1000"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local saferRing = new("Item", [[
+			New Item
+			Ring
+			+50% to Fire Resistance
+		]])
+		local baselineRing = new("Item", [[
+			New Item
+			Ring
+		]])
+		local itemDB = build.itemsTab.controls.uniqueDB
+		itemDB.db = { list = { baselineRing, saferRing } }
+		itemDB.sortMode = "FireTakenHit"
+		itemDB.sortDetail = {
+			stat = "FireTakenHit",
+			transform = function(value)
+				return -value
+			end
+		}
+		itemDB.sortOrder = {
+			itemDB.sortControl.STAT,
+			itemDB.sortControl.NAME
+		}
+
+		itemDB:ListBuilder()
+
+		assert.are.equals(saferRing, itemDB.list[1])
+		assert.is_true(saferRing.measuredPower < 0)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
