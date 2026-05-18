@@ -75,6 +75,9 @@ function main:Init()
 	self.datFileByName = { }
 
 	self:LoadSettings()
+	if self.datSource and self.datSource.spec then
+		self.datSpecs = LoadModule(self.datSource.spec)
+	end
 	self.reExportGGPKData = false
 	if IsKeyDown("CTRL") then
 		self.reExportGGPKData = true
@@ -373,15 +376,30 @@ function main:CanExit()
 	return true
 end
 
+local function getDatSpecPath(datSource)
+	if not datSource or not datSource.spec then
+		return
+	end
+	return datSource.spec..(datSource.spec:match("%.lua$") and "" or ".lua")
+end
+
+function main:SaveDatSpec(datSource)
+	local specPath = getDatSpecPath(datSource)
+	if not specPath or not self.datSpecs then
+		return
+	end
+	local out = io.open(specPath, "w")
+	out:write('return ')
+	writeLuaTable(out, self.datSpecs, 1)
+	out:close()
+end
+
 function main:LoadDatSource(value)
 	self.leagueLabel = nil
 	local reExportState = self.reExportGGPKData
 	self.reExportGGPKData = true
+	self:SaveDatSpec(self.datSource)
 	self.datSource = value
-	local out = io.open(self.datSource.spec..(self.datSource.spec:match("%.lua$") and "" or ".lua"), "w")
-	out:write('return ')
-	writeLuaTable(out, self.datSpecs, 1)
-	out:close()
 	self.datSpecs = LoadModule(self.datSource.spec)
 	self:InitGGPK()
 	if USE_DAT64 then
@@ -405,12 +423,7 @@ function main:OpenPathPopup()
 end
 
 function main:Shutdown()
-	if self.datSource and self.datSource.spec then
-		local out = io.open(self.datSource.spec, "w")
-		out:write('return ')
-		writeLuaTable(out, self.datSpecs, 1)
-		out:close()
-	end
+	self:SaveDatSpec(self.datSource)
 
 	self:SaveSettings()
 end

@@ -29,6 +29,16 @@ local function scanDir(directory, extension)
 	return t
 end
 
+local function getDatFilePathCandidates(fname)
+	if fname:match("^Data/Balance/") then
+		return {
+			fname,
+			fname:gsub("^Data/Balance/", "Data/"),
+		}
+	end
+	return { fname }
+end
+
 -- Path can be in any format recognized by the extractor at oozPath, ie,
 -- a .ggpk file or a Steam Path of Exile directory
 local GGPKClass = newClass("GGPKData", function(self, path, datPath, reExport)
@@ -132,7 +142,13 @@ function GGPKClass:AddDat64Files()
 	for _, fname in ipairs(datFiles) do
 		local record = { }
 		record.name = fname:match("([^/\\]+)$") .. "c64"
-		local rawFile = io.open(self.oozPath .. fname:gsub("/", "\\") .. "c64", 'rb')
+		local rawFile
+		for _, fileName in ipairs(getDatFilePathCandidates(fname)) do
+			rawFile = io.open(self.oozPath .. fileName:gsub("/", "\\") .. "c64", 'rb')
+			if rawFile then
+				break
+			end
+		end
 		if rawFile then
 			record.data = rawFile:read("*all")
 			rawFile:close()
