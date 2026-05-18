@@ -16,6 +16,22 @@ local bor = OR64 -- bit.bor
 local band = AND64 -- bit.band
 local bnot = NOT64 -- bit.bnot
 
+local removableChargeMultiplier = {
+	RemovableEnduranceCharge = true,
+	RemovableFrenzyCharge = true,
+	RemovablePowerCharge = true,
+	RemovableTotalCharge = true,
+}
+
+local function usesRemovableChargeMultiplier(mod)
+	for _, tag in ipairs(mod) do
+		if removableChargeMultiplier[tag.var] and (tag.type == "Multiplier" or tag.type == "MultiplierThreshold") then
+			return true
+		end
+	end
+	return false
+end
+
 -- Merge level modifier with given mod list
 local mergeLevelCache = { }
 local function mergeLevelMod(modList, mod, value)
@@ -901,7 +917,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 				break
 			end
 		end
-		if effectTag and effectTag.modCond and not skillModList:GetCondition(effectTag.modCond, activeSkill.skillCfg) then
+		if activeSkill.skillTypes[SkillType.CannotConsumeCharges] and usesRemovableChargeMultiplier(skillModList[i]) then
+			t_remove(skillModList, i)
+		elseif effectTag and effectTag.modCond and not skillModList:GetCondition(effectTag.modCond, activeSkill.skillCfg) then
 			t_remove(skillModList, i)
 		elseif effectType then
 			local buff
