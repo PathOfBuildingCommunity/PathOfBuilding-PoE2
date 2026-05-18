@@ -6,6 +6,18 @@ describe("TestSkills", function()
 	teardown(function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
+
+	it("maps Potent Exposure to exposure effect modifiers", function()
+		local statMap = build.data.skills["SupportPotentExposurePlayer"].statSets[1].statMap["exposure_effect_+%"]
+		local mappedMods = { }
+		for _, mod in ipairs(statMap) do
+			mappedMods[mod.name] = mod.type
+		end
+
+		assert.are.equals("INC", mappedMods.FireExposureEffect)
+		assert.are.equals("INC", mappedMods.ColdExposureEffect)
+		assert.are.equals("INC", mappedMods.LightningExposureEffect)
+	end)
 	
 	it("Test blasphemy reserving Spirit", function()
 		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\n")

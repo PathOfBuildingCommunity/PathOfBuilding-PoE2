@@ -1652,6 +1652,11 @@ return {
 	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
 	mult = -1,
 },
+["exposure_effect_+%"] = {
+	mod("FireExposureEffect", "INC", nil),
+	mod("ColdExposureEffect", "INC", nil),
+	mod("LightningExposureEffect", "INC", nil),
+},
 ["offering_spells_effect_+%"] = {
 	mod("BuffEffect", "INC", nil),
 },
