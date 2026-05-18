@@ -228,4 +228,21 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.True(baseCorruptingCryDps == build.calcsTab.mainOutput.CorruptingBloodDPS)
 	end)
+
+	it("Test Atziri's Allure - ignore curse limit", function()
+		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1\nAtziri's Allure 1/0 1")
+		build.skillsTab:PasteSocketGroup("Flammability 20/0  1\n")
+		runCallback("OnFrame")
+
+		local curseList = build.calcsTab.calcsOutput.CurseList
+		assert.True(curseList:match("Flammability") ~= nil and curseList:match("Elemental Weakness") ~= nil)
+	end)
+
+	-- skills that don't have a base CD and have more than one use need to use the added cooldown by whatever support allows the +1 limit to be supportable
+	it("Test Added Cooldown interaction with +1 Limit", function()
+		build.skillsTab:PasteSocketGroup("Thunderstorm 20/0  1\nHourglass 1/0 1\nOverabundance I 1/0 1\n")
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
+	end)
 end)
