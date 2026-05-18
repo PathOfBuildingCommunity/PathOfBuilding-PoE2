@@ -900,19 +900,27 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 			end
 
 			gemInstance.nameSpec = self.build.data.gems[gemId].name
-			for _, property in pairs(skillData.properties) do
+			local displayLevel
+			local gemLevel
+			local corruptionLevel = 0
+			for _, property in ipairs(skillData.properties) do
 				if property.name == "Level" then
-					if skillData.properties[_ + 1] and skillData.properties[_ + 1].values[1][1]:match("(%d+) Level[s]? from Gem") then
-						gemInstance.level = tonumber(skillData.properties[_ + 1].values[1][1]:match("(%d+) Level[s]? from Gem"))
-					else
-						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
-					end
-					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption") then
-						gemInstance.level = gemInstance.level + tonumber(skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption"))
-					end
+					displayLevel = tonumber(property.values[1][1]:match("%d+"))
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
+				elseif property.values and property.values[1] and property.values[1][1] then
+					gemLevel = tonumber(property.values[1][1]:match("(%d+) Level[s]? from Gem")) or gemLevel
+					corruptionLevel = tonumber(property.values[1][1]:match("([%+%-]?%d+) Level[s]? from Corruption")) or corruptionLevel
 				end
+			end
+			if gemLevel then
+				gemInstance.level = gemLevel + corruptionLevel
+			else
+				gemInstance.level = displayLevel
+				gemLevel = displayLevel and displayLevel - corruptionLevel
+			end
+			if corruptionLevel ~= 0 and gemLevel then
+				gemInstance.requirementGemLevel = gemLevel
 			end
 
 			return gemInstance

@@ -69,6 +69,7 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	-- Create gemInstance to represent the hovered gem
 	local gemInstance = gemList[self.index]
 	gemInstance.level = self.skillsTab:ProcessGemLevel(gemData)
+	gemInstance.requirementGemLevel = nil
 	gemInstance.gemData = gemData
 	gemInstance.displayEffect = nil
 	-- Calculate the impact of using this gem
@@ -77,6 +78,7 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	if oldGem then
 		gemInstance.gemData = oldGem.gemData
 		gemInstance.level = oldGem.level
+		gemInstance.requirementGemLevel = oldGem.requirementGemLevel
 		gemInstance.displayEffect = oldGem.displayEffect
 	else
 		gemList[self.index] = nil
@@ -694,7 +696,7 @@ function GemSelectClass:AddGrantedEffectInfo(gemInstance, grantedEffect, addReq)
 	end
 	self.tooltip:AddSeparator(10)
 	if addReq then
-		local reqLevel = grantedEffect.levels[gemInstance.level] and grantedEffect.levels[gemInstance.level].levelRequirement or 1
+		local reqLevel = calcLib.getGemLevelRequirement(gemInstance, grantedEffect)
 		local reqStr = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqStr, grantedEffect.support)
 		local reqDex = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqDex, grantedEffect.support)
 		local reqInt = calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqInt, grantedEffect.support)

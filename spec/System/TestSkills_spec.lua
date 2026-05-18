@@ -72,6 +72,31 @@ describe("TestSkills", function()
 		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
 	end)
 
+	it("Corrupted gem levels do not raise gem requirements", function()
+		build.skillsTab:PasteSocketGroup("Lightning Arrow 20/0  1")
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		local gemInstance = socketGroup.gemList[1]
+		gemInstance.requirementGemLevel = 19
+
+		build.skillsTab:ProcessSocketGroup(socketGroup)
+
+		local grantedEffect = gemInstance.gemData.grantedEffect
+		local level19Requirement = grantedEffect.levels[19].levelRequirement
+		local level20Requirement = grantedEffect.levels[20].levelRequirement
+
+		assert.are.equals(20, gemInstance.level)
+		assert.are.equals(level19Requirement, gemInstance.reqLevel)
+		assert.are_not.equals(level20Requirement, gemInstance.reqLevel)
+		assert.are.equals(calcLib.getGemStatRequirement(level19Requirement, gemInstance.gemData.reqDex, grantedEffect.support), gemInstance.reqDex)
+
+		gemInstance.level = 19
+		gemInstance.requirementGemLevel = 20
+		build.skillsTab:ProcessSocketGroup(socketGroup)
+
+		assert.are.equals(19, gemInstance.level)
+		assert.are.equals(level20Requirement, gemInstance.reqLevel)
+	end)
+
 	it("Test mana cost efficiency with support gems", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Contagion 6/0  1\nMagnified Area I 1/0  1")

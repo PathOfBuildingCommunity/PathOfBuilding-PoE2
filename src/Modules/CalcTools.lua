@@ -132,6 +132,17 @@ function calcLib.getGemStatRequirement(level, multi, isSupport)
 	return req < 8 and 0 or req
 end
 
+function calcLib.getGemLevelRequirement(gemInstance, grantedEffect)
+	local requirementGemLevel = gemInstance.requirementGemLevel or gemInstance.level
+	if grantedEffect.levels[requirementGemLevel] then
+		return grantedEffect.levels[requirementGemLevel].levelRequirement
+	elseif grantedEffect.levels[gemInstance.level] then
+		return grantedEffect.levels[gemInstance.level].levelRequirement
+	else
+		return 1
+	end
+end
+
 -- Build table of stats for the given skill instance statset
 function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
 	local stats = { }

@@ -307,6 +307,7 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 			end
 		end
 		gemInstance.level = tonumber(child.attrib.level)
+		gemInstance.requirementGemLevel = tonumber(child.attrib.requirementGemLevel)
 		gemInstance.quality = tonumber(child.attrib.quality)
 		gemInstance.enabled = not child.attrib.enabled and true or child.attrib.enabled == "true"
 		gemInstance.enableGlobal1 = not child.attrib.enableGlobal1 or child.attrib.enableGlobal1 == "true"
@@ -435,6 +436,7 @@ function SkillsTabClass:Save(xml)
 					gemId = gemInstance.gemData and gemInstance.gemData.gameId,
 					variantId = gemInstance.gemData and gemInstance.gemData.variantId,
 					level = tostring(gemInstance.level),
+					requirementGemLevel = gemInstance.requirementGemLevel and tostring(gemInstance.requirementGemLevel),
 					quality = tostring(gemInstance.quality),
 					enabled = tostring(gemInstance.enabled),
 					enableGlobal1 = tostring(gemInstance.enableGlobal1),
@@ -680,6 +682,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			return
 		end
 		gemInstance.gemId = gemId
+		gemInstance.requirementGemLevel = nil
 		gemInstance.skillId = nil
 		self:ProcessSocketGroup(self.displayGroup)
 		-- New gems need to be constrained by ProcessGemLevel
@@ -708,6 +711,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.count:SetText(gemInstance.count)
 		end
 		gemInstance.level = tonumber(buf) or self.displayGroup.gemList[index].naturalMaxLevel or self:ProcessGemLevel(gemInstance.gemData) or 20
+		gemInstance.requirementGemLevel = nil
 		self:ProcessSocketGroup(self.displayGroup)
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -1087,14 +1091,16 @@ function SkillsTabClass:ProcessSocketGroup(socketGroup)
 			if prevDefaultLevel and gemInstance.gemData and gemInstance.gemData.naturalMaxLevel ~= prevDefaultLevel then
 				gemInstance.level = gemInstance.gemData.naturalMaxLevel
 				gemInstance.naturalMaxLevel = gemInstance.level
+				gemInstance.requirementGemLevel = nil
 			elseif gemInstance.new then
 				gemInstance.level = gemInstance.gemData.naturalMaxLevel
 				gemInstance.naturalMaxLevel = gemInstance.level
+				gemInstance.requirementGemLevel = nil
 				gemInstance.new = nil
 			end
 			calcLib.validateGemLevel(gemInstance)
 			if gemInstance.gemData then
-				gemInstance.reqLevel = grantedEffect.levels[gemInstance.level].levelRequirement
+				gemInstance.reqLevel = calcLib.getGemLevelRequirement(gemInstance, grantedEffect)
 				gemInstance.reqStr = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqStr, grantedEffect.support)
 				gemInstance.reqDex = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqDex, grantedEffect.support)
 				gemInstance.reqInt = calcLib.getGemStatRequirement(gemInstance.reqLevel, gemInstance.gemData.reqInt, grantedEffect.support)
