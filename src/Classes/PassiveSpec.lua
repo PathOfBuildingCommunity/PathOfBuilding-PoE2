@@ -2340,9 +2340,13 @@ function PassiveSpecClass:NodeAdditionOrReplacementFromString(node,sd,replacemen
 end
 
 function PassiveSpecClass:NodeInKeystoneRadius(keystoneNames, nodeId, radiusIndex)
+	if not radiusIndex then
+		return false
+	end
 	for _, node in pairs(self.nodes) do
 		if node.name and node.type == "Keystone" and keystoneNames[node.name:lower()] then
-			if (node.nodesInRadius[radiusIndex][nodeId]) then
+			local nodesInRadius = node.nodesInRadius and node.nodesInRadius[radiusIndex]
+			if nodesInRadius and nodesInRadius[nodeId] then
 				return true
 			end
 		end

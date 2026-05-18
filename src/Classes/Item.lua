@@ -1098,6 +1098,15 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	if deferJewelRadiusIndexAssignment then
 		self.jewelRadiusIndex = self.jewelData.radiusIndex
 	end
+	if self.jewelData and self.jewelData.fromNothingKeystone and not self.jewelRadiusIndex then
+		for index, radiusData in pairs(data.jewelRadius) do
+			if radiusData.label == "Small" then
+				self.jewelRadiusIndex = index
+				self.jewelRadiusLabel = radiusData.label
+				break
+			end
+		end
+	end
 	if self.jewelData and self.jewelData.timeLostJewelRadiusOverride then
 		self.jewelRadiusIndex = self.jewelData.timeLostJewelRadiusOverride
 	end

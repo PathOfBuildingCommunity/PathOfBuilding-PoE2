@@ -58,6 +58,26 @@ describe("TestItemParse", function()
 	--it("Sockets", function()
 	--end)
 
+
+	it("defaults trade-site From Nothing jewels to small radius", function()
+		local item = new("Item", [[
+			Rarity: Unique
+			From Nothing
+			Diamond
+			Item Level: 84
+			--------
+			Passives in Radius of Walker of the Wilds can be Allocated
+			without being connected to your tree
+			--------
+			Corrupted
+		]])
+
+		assert.are.equals("Small", item.jewelRadiusLabel)
+		assert.are.equals(1, item.jewelRadiusIndex)
+		assert.are.equals("walker of the wilds", item.jewelData.fromNothingKeystone)
+		assert.truthy(item.jewelData.fromNothingKeystones["walker of the wilds"])
+	end)
+
 	--TODO: impl jewels for POB2
 	--it("Jewel", function()
 	--end)
