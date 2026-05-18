@@ -133,12 +133,26 @@ function calcLib.getGemStatRequirement(level, multi, isSupport)
 end
 
 -- Build table of stats for the given skill instance statset
-function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet)
+function calcLib.getSkillInstanceQualityStat(skillInstance, grantedEffect, statId)
+	local value = 0
+	if skillInstance.quality > 0 and grantedEffect.qualityStats then
+		for _, stat in ipairs(grantedEffect.qualityStats) do
+			if stat[1] == statId then
+				value = value + math.modf(stat[2] * skillInstance.quality)
+			end
+		end
+	end
+	return value
+end
+
+function calcLib.buildSkillInstanceStats(skillInstance, grantedEffect, statSet, ignoredQualityStats)
 	local stats = { }
 	if skillInstance.quality > 0 and grantedEffect.qualityStats then
 		local qualityStats = grantedEffect.qualityStats
 		for _, stat in ipairs(qualityStats) do
-			stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
+			if not (ignoredQualityStats and ignoredQualityStats[stat[1]]) then
+				stats[stat[1]] = (stats[stat[1]] or 0) + math.modf(stat[2] * skillInstance.quality)
+			end
 		end
 	end
 	local grantedEffectLevel = grantedEffect.levels[skillInstance.level] or { }

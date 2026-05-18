@@ -99,4 +99,35 @@ describe("TestAttacks", function()
 		local incSpeed = build.calcsTab.mainEnv.player.activeSkillList[1].skillModList:Sum("INC", nil, "Speed")
 		assert.are.equals(incSpeed, 99)
 	end)
+
+	it("applies melee attack speed quality to the skill attack speed multiplier", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Ice Strike 14/0  1")
+		runCallback("OnFrame")
+
+		local activeSkill = build.calcsTab.mainEnv.player.activeSkillList[1]
+		local baseSpeed = build.calcsTab.mainOutput.Speed
+		assert.are.equals(40, activeSkill.skillData.attackSpeedMultiplier)
+		assert.are.equals(1, activeSkill.skillModList:More(activeSkill.skillCfg, "Speed"))
+
+		newBuild()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Ice Strike 14/20  1")
+		runCallback("OnFrame")
+
+		activeSkill = build.calcsTab.mainEnv.player.activeSkillList[1]
+		assert.are.equals(50, activeSkill.skillData.attackSpeedMultiplier)
+		assert.are.equals(1, activeSkill.skillModList:More(activeSkill.skillCfg, "Speed"))
+		assert.True(math.abs((build.calcsTab.mainOutput.Speed / baseSpeed) - (1.5 / 1.4)) < 0.001)
+	end)
 end)

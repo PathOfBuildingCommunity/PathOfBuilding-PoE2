@@ -16,6 +16,8 @@ local bor = OR64 -- bit.bor
 local band = AND64 -- bit.band
 local bnot = NOT64 -- bit.bnot
 
+local activeSkillAttackSpeedFinalStat = "active_skill_attack_speed_+%_final"
+
 -- Merge level modifier with given mod list
 local mergeLevelCache = { }
 local function mergeLevelMod(modList, mod, value)
@@ -50,7 +52,7 @@ end
 
 -- Merge skill effect modifiers with given mod list
 -- If a stat set is provided, only merge modifiers from that statset
-function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
+function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats, ignoredQualityStats)
 	calcLib.validateGemLevel(skillEffect)
 	-- Verify that statSet provided is from skillEffect
 	if statSet and not isValueInArray(skillEffect.grantedEffect.statSets, statSet) then
@@ -58,7 +60,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 	end
 	local grantedEffect = skillEffect.grantedEffect	
 	for _, statSet in ipairs(statSet and {statSet} or grantedEffect.statSets) do 
-		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, statSet)
+		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, statSet, ignoredQualityStats)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
 				stats[stat.key] = (stats[stat.key] or 0) + stat.value
@@ -661,7 +663,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 
 	-- Add active gem modifiers
 	activeEffect.actorLevel = activeSkill.actor.minionData and activeSkill.actor.level
-	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, activeStatSet, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"))
+	local attackSpeedQuality = calcLib.getSkillInstanceQualityStat(activeEffect, activeGrantedEffect, activeSkillAttackSpeedFinalStat)
+	local ignoredQualityStats = attackSpeedQuality ~= 0 and { [activeSkillAttackSpeedFinalStat] = true } or nil
+	calcs.mergeSkillInstanceMods(env, skillModList, activeEffect, activeStatSet, skillModList:List(activeSkill.skillCfg, "ExtraSkillStat"), ignoredQualityStats)
 	local grantedEffectLevel = copyTable(activeGrantedEffect.levels[activeEffect.level])
 	if activeStatSet and activeStatSet.levels then
 		for k, v in pairs(activeStatSet.levels[activeEffect.level] or { }) do
@@ -679,8 +683,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	if level.attackTime then
 		activeSkill.skillData.attackTime = level.attackTime
 	end
-	if level.attackSpeedMultiplier then
-		activeSkill.skillData.attackSpeedMultiplier = level.attackSpeedMultiplier
+	if level.attackSpeedMultiplier or attackSpeedQuality ~= 0 then
+		activeSkill.skillData.attackSpeedMultiplier = (level.attackSpeedMultiplier or 0) + attackSpeedQuality
 	end
 	if level.cooldown then
 		activeSkill.skillData.cooldown = level.cooldown
