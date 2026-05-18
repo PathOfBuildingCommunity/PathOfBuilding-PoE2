@@ -344,4 +344,35 @@ describe("TetsItemMods", function()
 		runCallback("OnFrame")
 		assert.True(build.controls.warnings.lines[1] == nil) -- Gemling highest attribute still satisfies melee gems with Jarngreipr
 	end)
+
+	it("sacrosanctum - add life recoup to es recoup", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Sacrosanctum
+			Corvus Mantle
+			Armour: 588
+			Energy Shield: 202
+			League: Dawn of the Hunt
+			Variant: Pre 0.4.0
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 68
+			Implicits: 1
+			{range:0.5}+(20-30) to Spirit
+			{range:0.5}(80-120)% increased Armour and Energy Shield
+			{range:0.5}+(20-30) to Strength
+			{range:0.5}+(20-30) to Intelligence
+			{range:0.5}+(17-23)% to Chaos Resistance
+			{variant:1}{range:0.5}(5-10)% of Damage taken Recouped as Life
+			{variant:2}{range:0.5}(10-20)% of Damage taken Recouped as Life
+			Damage taken Recouped as Life is also Recouped as Energy Shield
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.calcsOutput.LifeRecoupRecoveryAvg > 0)
+		assert.True(build.calcsTab.calcsOutput.EnergyShieldRecoupRecoveryAvg > 0)
+		assert.True(build.calcsTab.calcsOutput.LifeRecoupRecoveryAvg == build.calcsTab.calcsOutput.EnergyShieldRecoupRecoveryAvg)
+	end)
 end)
