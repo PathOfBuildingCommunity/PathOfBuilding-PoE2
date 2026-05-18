@@ -645,6 +645,14 @@ local configSettings = {
 	{ var = "conditionInsane", type = "check", label = "Are you Insane?", ifCond = "Insane", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Insane", "FLAG", true, "Config")
 	end },
+	{ var = "conditionUnravelling", type = "list", label = "Acolyte's Unravelling:", ifFlag = "Unravelling", tooltip = "While affected by Unravelling, your ^xD02090Chaos^7 Damage randomly either also contributes to ^x3F6DB3Freeze^7 buildup,\n^xB97123Ignite^7 chance and magnitude, or ^xADAA47Shock^7 chance - changing which it contributes to every two seconds. ",
+	list = {
+		{val="Cold",label="Unravelling Frost"},
+		{val="Fire",label="Unravelling Flame"},
+		{val="Lightning",label="Unravelling Bolt"},
+	}, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:"..val.."Unravel", "FLAG", true, "Config")
+	end },
 	{ label = "Vigilant Strike:", ifSkill = "Vigilant Strike" },
 	{ var = "VigilantStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Vigilant Strike", defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Vigilant Strike" })

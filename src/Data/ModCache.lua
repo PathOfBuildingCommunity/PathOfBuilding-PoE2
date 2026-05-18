@@ -285,7 +285,7 @@ c["+2 to Level of all Skills with a Strength requirement"]={{[1]={flags=0,keywor
 c["+2 to Level of all Skills with an Intelligence requirement"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={gemRequirements={reqInt=1},key="level",keyOfScaledMod="value",keyword="all",value=2}}},nil}
 c["+2 to Level of all Spell Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="spell",value=2}}},nil}
 c["+2 to Level of all Wolf Pack Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="wolf pack",value=2}}},nil}
-c["+2 to Limit for Elemental Skills"]={{}," Limit for Elemental Skills "}
+c["+2 to Limit for Elemental Skills"]={{[1]={[1]={skillTypeList={[1]=29,[2]=28,[3]=30},type="SkillType"},flags=0,keywordFlags=0,name="AdditionalCooldownUses",type="BASE",value=2}},nil}
 c["+2 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="EnduranceChargesMax",type="BASE",value=2}},nil}
 c["+2 to Maximum Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesMax",type="BASE",value=2}},nil}
 c["+2 to Maximum Power Charges"]={{[1]={flags=0,keywordFlags=0,name="PowerChargesMax",type="BASE",value=2}},nil}
@@ -5276,7 +5276,7 @@ c["Grants Skill: Time Snap"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",typ
 c["Grants Skill: Unbound Avatar"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="UnboundAvatarPlayer"}}},nil}
 c["Grants Skill: Void Illusion"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="VoidIllusionPlayer"}}},nil}
 c["Grants Thaumaturgical Dynamism"]={nil,"Grants Thaumaturgical Dynamism "}
-c["Grants Unravelling"]={nil,"Grants Unravelling "}
+c["Grants Unravelling"]={{[1]={flags=0,keywordFlags=0,name="Unravelling",type="FLAG",value=true}},nil}
 c["Grants a Frenzy Charge on use"]={nil,"Grants a Frenzy Charge on use "}
 c["Grants a Power Charge on use"]={nil,"Grants a Power Charge on use "}
 c["Grants effect of Dreaming Gloom Shrine"]={nil,"Grants effect of Dreaming Gloom Shrine "}
@@ -5986,7 +5986,7 @@ c["Spells Cast by Totems have 5% increased Cast Speed"]={{[1]={flags=18,keywordF
 c["Spells Cast by Totems have 6% increased Cast Speed"]={{[1]={flags=18,keywordFlags=16384,name="Speed",type="INC",value=6}},nil}
 c["Spells Gain 12% of Damage as extra Chaos Damage"]={{[1]={flags=2,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=12}},nil}
 c["Spells Gain 5% of Damage as extra Chaos Damage"]={{[1]={flags=2,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=5}},nil}
-c["Spells consume a Power Charge if able to deal 40% more Damage"]={nil,"Spells consume a Power Charge if able to deal 40% more Damage "}
+c["Spells consume a Power Charge if able to deal 40% more Damage"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="RemovablePowerCharge"},flags=0,keywordFlags=131072,name="Damage",type="MORE",value=40}},nil}
 c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="ProjectileCount",type="BASE",value=4}},nil}
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}
 c["Spells for which this Sacrifice was fully made deal 30% more Damage"]={nil,"Spells for which this Sacrifice was fully made deal 30% more Damage "}
