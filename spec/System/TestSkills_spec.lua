@@ -72,6 +72,25 @@ describe("TestSkills", function()
 		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
 	end)
 
+	it("Fractional skill count scales Full DPS", function()
+		build.skillsTab:PasteSocketGroup("Ball Lightning 20/0  1")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		local fullDPS = build.calcsTab.mainOutput.FullDPS
+		assert.truthy(fullDPS)
+		assert.True(fullDPS > 0)
+
+		newBuild()
+
+		build.skillsTab:PasteSocketGroup("Ball Lightning 20/0  0.5")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		runCallback("OnFrame")
+
+		assert.are.equals(0.5, build.skillsTab.socketGroupList[1].gemList[1].count)
+		assert.True(math.abs(build.calcsTab.mainOutput.FullDPS - fullDPS * 0.5) < fullDPS * 0.001)
+	end)
+
 	it("Test mana cost efficiency with support gems", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Contagion 6/0  1\nMagnified Area I 1/0  1")
