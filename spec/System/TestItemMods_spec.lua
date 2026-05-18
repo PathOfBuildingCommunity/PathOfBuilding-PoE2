@@ -552,4 +552,38 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(baseColdAvg, round(build.calcsTab.mainOutput.ColdStoredCombinedAvg))
 		assert.equals(0, round(build.calcsTab.mainOutput.FireStoredCombinedAvg))
 	end)
+
+	it("does not grant attributes from disconnected radius-allocated attribute passives", function()
+		local function makeAttributeNode(connectedToStart)
+			local node = {
+				id = 1,
+				type = "Normal",
+				isAttribute = true,
+				connectedToStart = connectedToStart,
+				intuitiveLeapLikesAffecting = { { id = 100 } },
+				modList = new("ModList"),
+				allocMode = 0,
+			}
+			node.modList:NewMod("Int", "BASE", 5, "Tree:1")
+			return node
+		end
+
+		local disconnectedNode = makeAttributeNode(false)
+		local env = {
+			mode = "MAIN",
+			radiusJewelList = { },
+			allocNodes = {
+				[disconnectedNode.id] = disconnectedNode,
+			},
+		}
+
+		assert.are.equals(0, build.calcsTab.calcs.buildModListForNode(env, disconnectedNode, 0):Sum("BASE", nil, "Int"))
+
+		local connectedNode = makeAttributeNode(true)
+		env.allocNodes = {
+			[connectedNode.id] = connectedNode,
+		}
+
+		assert.are.equals(5, build.calcsTab.calcs.buildModListForNode(env, connectedNode, 0):Sum("BASE", nil, "Int"))
+	end)
 end)

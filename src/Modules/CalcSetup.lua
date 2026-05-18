@@ -117,6 +117,10 @@ local function refreshJewelStatCache(env)
 	end
 end
 
+local function attributeNodeAllocatedByDisconnectedRadius(node)
+	return node.isAttribute and not node.connectedToStart and node.intuitiveLeapLikesAffecting and #node.intuitiveLeapLikesAffecting > 0
+end
+
 function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeystoneMods)
 	local localSmallIncEffect = 0
 	local localNotableIncEffect = 0
@@ -128,6 +132,9 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 		if node.keystoneMod then
 			modList:AddMod(node.keystoneMod)
 		end
+	elseif attributeNodeAllocatedByDisconnectedRadius(node) then
+		-- PoE2 currently does not grant the Str/Dex/Int from attribute passives
+		-- allocated only through "can be Allocated without being connected" radius effects.
 	else
 		modList:AddList(node.modList)
 	end
