@@ -409,6 +409,18 @@ holding Shift will put it in the second.]])
 		self:UpdateDisplayItemTooltip()
 	end)
 	self.controls.displayItemSocketRuneEdit.shown = self.controls.displayItemSocketRune
+
+	-- Jewel Sockets // shown where Runes are shown
+	self.controls.displayItemSocketJewel = new("LabelControl", {"TOPLEFT",self.controls.displayItemSocketRune,"TOPLEFT"}, {70, 0, 36, 20}, "^x7F7F7FJ")
+	self.controls.displayItemSocketJewelEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketJewel,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
+		if tonumber(buf) > 6 then
+			self.controls.displayItemSocketJewelEdit:SetText(6)
+			return
+		end
+		self.displayItem.jewelSocketCount = tonumber(buf)
+		self.displayItem:BuildAndParseRaw()
+		self:UpdateDisplayItemTooltip()
+	end)
 	
 	-- Section: Enchant / Anoint / Corrupt
 	self.controls.displayItemSectionEnchant = new("Control", {"TOPLEFT",self.controls.displayItemSectionSockets,"BOTTOMLEFT"}, {0, 0, 0, function()
@@ -1627,6 +1639,7 @@ function ItemsTabClass:SetDisplayItem(item)
 			self:UpdateAffixControls()
 		end
 		self.controls.displayItemSocketRuneEdit:SetText(item.itemSocketCount)
+		self.controls.displayItemSocketJewelEdit:SetText(item.jewelSocketCount)
 		self.controls.displayItemQualityEdit:SetText(item.quality)
 		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1)
 		if item.catalystQuality then
