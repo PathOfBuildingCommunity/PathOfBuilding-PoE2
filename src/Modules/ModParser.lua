@@ -2064,6 +2064,7 @@ local modTagList = {
 	["against marked enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" } },
 	["when hitting marked enemy"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" }, keywordFlags = KeywordFlag.Hit },
 	["from marked enemy"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" } },
+	["to y?o?u?r? ?marked targets?"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Marked" } },
 	["against taunted enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Taunted" } },
 	["against bleeding enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Bleeding" } },
 	["you inflict on bleeding enemies"] = { tag = { type = "ActorCondition", actor = "enemy", var = "Bleeding" } },
@@ -3609,6 +3610,13 @@ local specialModList = {
 		mod("DamageGainAsCold", "BASE", num),
 		mod("DamageGainAsFire", "BASE", num),
 	} end,
+	["attacks with this weapon have added (%a+) damage equal to (%d+)%% to (%d+)%% of maximum (%a+)"] = function(_, damageType, min, max) return {
+		mod(firstToUpper(damageType).."Min", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = min }, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+		mod(firstToUpper(damageType).."Max", "BASE", 1, { type = "PercentStat", stat = "Mana", percent = max }, { type = "Condition", var = "{Hand}Attack" }, { type = "SkillType", skillType = SkillType.Attack }),
+	} end,
+	["convert (%d+)%% of (%a+) damage of (%a+) skills to (%a+) damage"] = function (num, _, fromDmg, skillType, toDmg) return {
+		mod(firstToUpper(fromDmg) .. "DamageConvertTo" .. firstToUpper(toDmg), "BASE", num, nil, ModFlag[firstToUpper(skillType)])
+	} end, -- Twisted Empyrean
 	["gain (%d+)%% of weapon physical damage as extra damage of an? r?a?n?d?o?m? ?element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num, nil, ModFlag.Weapon) } end,
 	["gain (%d+)%% of physical damage as extra damage of a random element"] = function(num) return { mod("PhysicalDamageGainAsRandom", "BASE", num ) } end,
 	["(%d+)%% chance for hits to deal (%d+)%% of physical damage as extra damage of a random element"] = function(num, _, physPercent) return { mod("PhysicalDamageGainAsRandom", "BASE", (num*physPercent/100) ) } end,
@@ -3952,6 +3960,11 @@ local specialModList = {
 	} end,
 	["enemies chilled by your hits have damage taken increased by chill effect"] = { flag("ChillEffectIncDamageTaken") },
 	["enemies chilled by your hits increase damage taken by chill magnitude"] = { flag("ChillEffectIncDamageTaken") },
+	["elemental damage from hits contributes to flammability, ignite, and chill magnitudes, freeze buildup, and shock chance"] = {
+		flag("FireCanChill"), flag("FireCanFreeze"), flag("FireCanShock"),
+		flag("ColdCanIgnite"), flag("ColdCanShock"),
+		flag("LightningCanIgnite"), flag("LightningCanChill"), flag("LightningCanFreeze"),
+	},
 	-- Bleed
 	["melee attacks cause bleeding"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Melee) },
 	["attacks cause bleeding when hitting cursed enemies"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Attack, { type = "ActorCondition", actor = "enemy", var = "Cursed" }) },
