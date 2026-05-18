@@ -245,4 +245,40 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("Test Barrage only repeats Barrageable skills", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1")
+		runCallback("OnFrame")
+		local spiralVolleyDPS = build.calcsTab.mainOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Barrage 20/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(spiralVolleyDPS, build.calcsTab.mainOutput.TotalDPS)
+
+		newBuild()
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Ice Shot 20/0  1")
+		runCallback("OnFrame")
+		local iceShotDPS = build.calcsTab.mainOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Barrage 20/0  1")
+		runCallback("OnFrame")
+		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
+	end)
 end)
