@@ -395,4 +395,26 @@ describe("TetsItemMods", function()
 		assert.are.equals(3, #build.controls.warnings.lines)
 		assert.True(build.controls.warnings.lines[3]:match("lineage support gems allocated") ~= nil)
 	end)
+
+	it("all damage can contribute", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Tidebreaker
+			Pointed Maul
+			League: Dawn of the Hunt
+			Quality: 20
+			LevelReq: 45
+			Implicits: 0
+			{range:0.5}(120-150)% increased Physical Damage
+			{range:0.5}+(2-3) to Level of all Melee Skills
+			{range:0.5}+(20-30) to Intelligence
+			{range:0.5}Causes (150-200)% increased Stun Buildup
+			All Damage from Hits with this Weapon Contributes to Chill Magnitude
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
+		runCallback("OnFrame")
+		assert.True(build.calcsTab.calcsOutput.ChillEffectMod ~= nil)
+	end)
 end)
