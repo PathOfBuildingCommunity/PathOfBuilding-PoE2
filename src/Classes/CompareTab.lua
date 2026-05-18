@@ -2217,6 +2217,7 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 	local scrollTopAbs = contentVP.y + fixedHeaderHeight
 	local scrollBottomAbs = contentVP.y + contentVP.height
 	local ctrlH = rowHeight
+	local mouseClipRect = { contentVP.x, scrollTopAbs, contentVP.width, scrollBottomAbs - scrollTopAbs }
 	for _, sec in ipairs(sectionLayout) do
 		local sectionAbsX = contentVP.x + sec.x
 		local rowY = sec.y + sectionInnerPad
@@ -2233,6 +2234,8 @@ function CompareTabClass:LayoutConfigView(contentVP, compareEntry)
 			end
 			ci.primaryControl.shown = shownFn
 			ci.compareControl.shown = shownFn
+			ci.primaryControl.mouseClipRect = mouseClipRect
+			ci.compareControl.mouseClipRect = mouseClipRect
 			rowY = rowY + rowHeight
 		end
 	end
