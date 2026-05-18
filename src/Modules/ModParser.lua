@@ -2849,7 +2849,7 @@ local specialModList = {
 		mod("Damage", "MORE", 100, nil, bor(ModFlag.Hit, ModFlag.Projectile), { type = "DistanceRamp", ramp = { { 10*tonumber(strFirstDist), num / 100}, {10*tonumber(strSecondDist), tonumber(strLowPrct) / 100} } }),
 	} end,
 	["benefits from consuming (%a+) charges for your skills have (%d+)%% chance to be doubled"] = function(_, type, num) return {
-		mod("Consumed"..firstToUpper(type).."ChargeEffect", "BASE", num)
+		mod("Multiplier:Consumed"..firstToUpper(type).."ChargeEffect", "BASE", num)
 	} end,
 	-- Disciple of Varashta
 	["(%d+)%% of your current energy shield is added to your armour for determining your physical damage reduction from armour"] = function(num) return { 

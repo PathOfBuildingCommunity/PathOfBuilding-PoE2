@@ -801,7 +801,6 @@ local function doActorCharges(env, actor)
 		output.PowerCharges = m_max(output.PowerCharges, m_min(output.PowerChargesMax, output.PowerChargesMin))
 	end
 	output.RemovablePowerCharges = m_max(output.PowerCharges - output.PowerChargesMin, 0)
-	output.ConsumedPowerChargeEffect = modDB:Sum("BASE", nil, "ConsumedPowerChargeEffect")
 	if modDB:Flag(nil, "Condition:UseFrenzyCharges") then
 		output.FrenzyCharges = modDB:Override(nil, "FrenzyCharges") or output.FrenzyChargesMax
 	end
@@ -814,7 +813,6 @@ local function doActorCharges(env, actor)
 		output.FrenzyCharges = m_max(output.FrenzyCharges, m_min(output.FrenzyChargesMax, output.FrenzyChargesMin))
 	end
 	output.RemovableFrenzyCharges = m_max(output.FrenzyCharges - output.FrenzyChargesMin, 0)
-	output.ConsumedFrenzyChargeEffect = modDB:Sum("BASE", nil, "ConsumedFrenzyChargeEffect")
 	if modDB:Flag(nil, "Condition:UseEnduranceCharges") then
 		output.EnduranceCharges = modDB:Override(nil, "EnduranceCharges") or output.EnduranceChargesMax
 	end
@@ -827,7 +825,6 @@ local function doActorCharges(env, actor)
 		output.EnduranceCharges = m_max(output.EnduranceCharges, m_min(output.EnduranceChargesMax, output.EnduranceChargesMin))
 	end
 	output.RemovableEnduranceCharges = m_max(output.EnduranceCharges - output.EnduranceChargesMin, 0)
-	output.ConsumedEnduranceChargeEffect = modDB:Sum("BASE", nil, "ConsumedEnduranceChargeEffect")
 	if modDB:Flag(nil, "UseSiphoningCharges") then
 		output.SiphoningCharges = modDB:Override(nil, "SiphoningCharges") or output.SiphoningChargesMax
 	end
@@ -861,13 +858,10 @@ local function doActorCharges(env, actor)
 	modDB.multipliers["PowerCharge"] = output.PowerCharges
 	modDB.multipliers["PowerChargeMax"] = output.PowerChargesMax
 	modDB.multipliers["RemovablePowerCharge"] = output.RemovablePowerCharges
-	modDB.multipliers["ConsumedPowerChargeEffect"] = output.ConsumedPowerChargeEffect
 	modDB.multipliers["FrenzyCharge"] = output.FrenzyCharges
 	modDB.multipliers["RemovableFrenzyCharge"] = output.RemovableFrenzyCharges
-	modDB.multipliers["ConsumedFrenzyChargeEffect"] = output.ConsumedFrenzyChargeEffect
 	modDB.multipliers["EnduranceCharge"] = output.EnduranceCharges
 	modDB.multipliers["RemovableEnduranceCharge"] = output.RemovableEnduranceCharges
-	modDB.multipliers["ConsumedEnduranceChargeEffect"] = output.ConsumedEnduranceChargeEffect
 	modDB.multipliers["TotalCharges"] = output.TotalCharges
 	modDB.multipliers["RemovableTotalCharges"] = output.RemovableTotalCharges
 	modDB.multipliers["SiphoningCharge"] = output.SiphoningCharges
@@ -1188,13 +1182,6 @@ function calcs.perform(env, skipEHP)
 		if activeSkill.activeEffect.grantedEffect.name == "Reflection" or activeSkill.skillData.triggeredBySaviour then
 			activeSkill.infoMessage = "Triggered by a Crit from The Saviour"
 			activeSkill.infoTrigger = "Saviour"
-		end
-
-		-- Heightened Charges
-		if activeSkill.skillModList:Flag(nil, "ConsumedChargeEffect") then
-			activeSkill.skillModList.multipliers["ConsumedEnduranceChargeEffect"] = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ConsumedEnduranceChargeEffect") - modDB:Sum("BASE", activeSkill.skillCfg, "ConsumedEnduranceChargeEffect")
-			activeSkill.skillModList.multipliers["ConsumedFrenzyChargeEffect"] = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ConsumedFrenzyChargeEffect") - modDB:Sum("BASE", activeSkill.skillCfg, "ConsumedFrenzyChargeEffect")
-			activeSkill.skillModList.multipliers["ConsumedPowerChargeEffect"] = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "ConsumedPowerChargeEffect") - modDB:Sum("BASE", activeSkill.skillCfg, "ConsumedPowerChargeEffect")
 		end
 	end
 

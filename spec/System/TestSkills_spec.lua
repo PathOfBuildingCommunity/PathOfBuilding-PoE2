@@ -105,7 +105,7 @@ describe("TestSkills", function()
 
 		local thrillingChaseTotalDPS = build.calcsTab.mainOutput.TotalDPS
 		assert.True(baseTotalDPS < thrillingChaseTotalDPS)
-		assert.are.equals(50, build.calcsTab.mainOutput.ConsumedFrenzyChargeEffect)
+		assert.are.equals(50, build.calcsTab.mainEnv.modDB:Sum("BASE", nil, "Multiplier:ConsumedFrenzyChargeEffect"))
 
 
 		newBuild()
@@ -123,13 +123,13 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		local heightenedChargesTotalDPS = build.calcsTab.mainOutput.TotalDPS
 		assert.True(baseTotalDPS < heightenedChargesTotalDPS)
-		assert.are.equals(20, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList.multipliers.ConsumedFrenzyChargeEffect)
+		assert.are.equals(20, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
 
 		build.configTab.input.customMods = "Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 		-- thrilling and heightened charges > thrilling
 		assert.True(thrillingChaseTotalDPS < build.calcsTab.mainOutput.TotalDPS)
-		assert.are.equals(70, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:Sum("BASE", nil, "ConsumedFrenzyChargeEffect"))
+		assert.are.equals(70, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
 	end)
 end)

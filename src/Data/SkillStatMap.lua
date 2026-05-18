@@ -2766,10 +2766,9 @@ return {
 	mod("PowerChargesMax", "OVERRIDE", nil),
 },
 ["chance_%_to_double_effect_of_removing_charges"] = {
-	flag("ConsumedChargeEffect"),
-	mod("ConsumedEnduranceChargeEffect", "BASE", nil),
-	mod("ConsumedFrenzyChargeEffect", "BASE", nil),
-	mod("ConsumedPowerChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedEnduranceChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedFrenzyChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedPowerChargeEffect", "BASE", nil),
 },
 ["set_base_heavy_stun_duration_ms"] = {
 	mod("StunDuration", "OVERRIDE", nil),
