@@ -344,6 +344,12 @@ function calcSkillCooldown(skillModList, skillCfg, skillData)
 	end
 end
 
+local function isMortarCannonSupportedGrenade(activeSkill, skillData)
+	local totemBase = skillData.totemBase
+	return activeSkill.skillTypes[SkillType.Grenade] and activeSkill.skillTypes[SkillType.UsedByTotem] and
+		totemBase and totemBase.grantedEffect and totemBase.grantedEffect.id == "SupportMortarCannonPlayer"
+end
+
 local function calcWarcryCastTime(skillModList, skillCfg, skillData, actor)
 	local baseSpeed = 1 / skillModList:Sum("BASE", skillCfg, "WarcryCastTime")
 	local warcryCastTime = baseSpeed * calcLib.mod(skillModList, skillCfg, "WarcrySpeed") * calcs.actionSpeedMod(actor)
@@ -2739,9 +2745,12 @@ function calcs.offence(env, actor, activeSkill)
 				output.Speed = output.Speed * totemActionSpeed
 				output.CastRate = output.Speed
 			end
+			local cooldownCapsUseRate = not isMortarCannonSupportedGrenade(activeSkill, skillData)
 			if globalOutput.Cooldown then
 				output.Cooldown = globalOutput.Cooldown
-				output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				if cooldownCapsUseRate then
+					output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				end
 			end
 			if output.Cooldown and skillFlags.selfCast or skillData.maxHitRatePerEnemy or skillData.hitTimeOverride then
 				skillFlags.notAverage = true
@@ -2844,7 +2853,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.Speed, s_format("= %.2f ^8(eff. attack rate)", output.Speed))
 				end
 				-- Cooldown:
-				if output.Cooldown and (1 / output.Cooldown) < output.CastRate then
+				if cooldownCapsUseRate and output.Cooldown and (1 / output.Cooldown) < output.CastRate then
 					t_insert(breakdown.Speed, s_format("\n"))
 					t_insert(breakdown.Speed, s_format("1 / %.2f ^8(skill cooldown)", output.Cooldown))
 					if output.Repeats > 1 then

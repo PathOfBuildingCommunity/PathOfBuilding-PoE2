@@ -245,4 +245,42 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("does not use grenade cooldown recovery as Mortar Cannon attack rate", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Sturdy Crossbow
+			Physical Damage: 5-10
+			Attacks per Second: 1.50
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Mortar Cannon 20/0  1\nExplosive Grenade 20/0  1\n")
+		runCallback("OnFrame")
+
+		local socketGroup = build.skillsTab.socketGroupList[1]
+		local foundGrenadeSkill = false
+		for index, activeSkill in ipairs(socketGroup.displaySkillList) do
+			if activeSkill.activeEffect.grantedEffect.id == "ExplosiveGrenadePlayer" then
+				socketGroup.mainActiveSkill = index
+				foundGrenadeSkill = true
+				break
+			end
+		end
+		assert.True(foundGrenadeSkill)
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		local baseSpeed = build.calcsTab.mainOutput.Speed
+		local baseTime = build.calcsTab.mainOutput.Time
+		local baseCooldown = build.calcsTab.mainOutput.Cooldown
+		assert.True(baseCooldown > 0)
+
+		build.configTab.input.customMods = "100% increased Cooldown Recovery Rate for Grenade Skills"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.mainOutput.Cooldown < baseCooldown)
+		assert.are.equals(baseSpeed, build.calcsTab.mainOutput.Speed)
+		assert.are.equals(baseTime, build.calcsTab.mainOutput.Time)
+	end)
 end)
