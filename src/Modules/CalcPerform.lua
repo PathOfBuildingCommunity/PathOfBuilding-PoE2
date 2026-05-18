@@ -1621,14 +1621,14 @@ function calcs.perform(env, skipEHP)
 					local strengthSatisfiesMelee = strengthSatisfiesMeleeFlag
 						and ((reqSource.source == "Item" and reqSource.sourceItem.base.weapon and env.data.weaponTypeInfo[reqSource.sourceItem.base.type].melee)
 						or (reqSource.source == "Gem" and reqSource.sourceGem.gemData.tags.melee))
-					if req > (strengthSatisfiesMelee and attr ~= "Str" and output["Str"]
-							or (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val)) then
+					local satisfyingAttributeValue = gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val
+					if req > (strengthSatisfiesMelee and attr ~= "Str" and m_max(satisfyingAttributeValue, output["Str"]) or satisfyingAttributeValue) then
 						out.val = req
 						out.source = reqSource
 					end
 					if breakdown then
-						local reqBool = req > ((strengthSatisfiesMelee and breakdownAttr ~= "Str" and output["Str"])
-											or (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or output[breakdownAttr]))
+						local breakdownAttributeValue = gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or output[breakdownAttr]
+						local reqBool = req > (strengthSatisfiesMelee and breakdownAttr ~= "Str" and m_max(breakdownAttributeValue, output["Str"]) or breakdownAttributeValue)
 						local row = {
 							req = reqBool and colorCodes.NEGATIVE..req or req,
 							reqNum = req,

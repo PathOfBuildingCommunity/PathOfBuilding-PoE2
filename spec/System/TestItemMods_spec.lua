@@ -313,5 +313,35 @@ describe("TetsItemMods", function()
 		build.configTab:BuildModList()
 		runCallback("OnFrame")
 		assert.True(build.controls.warnings.lines[1] == nil) -- validate Gemling's Adaptive Capability still works
+
+		newBuild()
+		build.configTab.input.customMods = [[
+			+1000 Intelligence
+			+100 mana
+			Attribute Requirements of Gems can be satisified by your highest Attribute
+		]]
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Primal Strikes 20/0 1")
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Jarngreipr
+			Ringmail Gauntlets
+			Armour: 23
+			Evasion: 18
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 6
+			Implicits: 0
+			{variant:2}50% increased Armour and Evasion
+			{range:0.5}Adds (2-3) to (5-6) Physical Damage to Attacks
+			{range:0.5}+(30-50) to maximum Life
+			{range:0.5}(4-8)% increased Attack Speed
+			Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- Gemling highest attribute still satisfies melee gems with Jarngreipr
 	end)
 end)
