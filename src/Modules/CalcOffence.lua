@@ -787,6 +787,17 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("EnemyPinBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
+	if skillModList:Flag(nil, "FreezeBuildupInsteadOfStunBuildup") then
+		-- Kaltenhalt
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyFreezeBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+		for i, value in ipairs(skillModList:Tabulate("MORE", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyFreezeBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if skillModList:Flag(nil, "ProjectileSpeedAppliesToProjectileDamage") then
 		-- Projectile speed to projectile damage conversion
 		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ProjectileSpeed")) do
