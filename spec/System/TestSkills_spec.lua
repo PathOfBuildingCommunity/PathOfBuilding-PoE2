@@ -72,6 +72,38 @@ describe("TestSkills", function()
 		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
 	end)
 
+	it("Bow Attacks fire additional arrows increases bow projectile count", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Lightning Arrow 20/0  1")
+		runCallback("OnFrame")
+
+		local baseProjectileCount = build.calcsTab.mainOutput.ProjectileCount
+		assert.truthy(baseProjectileCount)
+
+		build.configTab.input.customMods = "Bow Attacks fire 2 additional Arrows"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(baseProjectileCount + 2, build.calcsTab.mainOutput.ProjectileCount)
+
+		newBuild()
+
+		build.skillsTab:PasteSocketGroup("Ball Lightning 20/0  1")
+		runCallback("OnFrame")
+
+		local spellProjectileCount = build.calcsTab.mainOutput.ProjectileCount
+
+		build.configTab.input.customMods = "Bow Attacks fire 2 additional Arrows"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(spellProjectileCount, build.calcsTab.mainOutput.ProjectileCount)
+	end)
+
 	it("Test mana cost efficiency with support gems", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Contagion 6/0  1\nMagnified Area I 1/0  1")
