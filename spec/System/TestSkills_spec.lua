@@ -245,4 +245,27 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("Stomping Ground does not make Rampage require a mace", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Changeling Talisman
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Rampage 20/0  1\nStomping Ground 1/0  1")
+		runCallback("OnFrame")
+
+		local rampageSkill
+		for _, activeSkill in ipairs(build.calcsTab.calcsEnv.player.activeSkillList) do
+			if activeSkill.activeEffect.grantedEffect.name == "Rampage" then
+				rampageSkill = activeSkill
+				break
+			end
+		end
+
+		assert.True(rampageSkill ~= nil)
+		assert.True(not rampageSkill.skillFlags.disable)
+	end)
 end)
