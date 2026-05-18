@@ -698,13 +698,31 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
+	local function modHasSkillType(mod, skillType)
+		for _, tag in ipairs(mod) do
+			if tag.type == "SkillType" then
+				if tag.skillType == skillType then
+					return true
+				end
+				if tag.skillTypeList then
+					for _, listedSkillType in ipairs(tag.skillTypeList) do
+						if listedSkillType == skillType then
+							return true
+						end
+					end
+				end
+			end
+		end
+		return false
+	end
+
 	if skillModList:Flag(nil, "CompanionDamageAppliesToPlayer") then
 		-- Companion Damage conversion from Inspiring Ally
 		local tempCfg = copyTable(skillCfg, true)
 		tempCfg.skillTypes[SkillType.CreatesCompanion] = true -- Add companion skill tag to cfg so it doesn't fail
-		for _, value in ipairs(skillModList:List(tempCfg, "MinionModifier")) do
-			if value.mod.name == "Damage" and value.mod.type == "INC" then
-				local mod = value.mod
+		for _, value in ipairs(skillModList:Tabulate("LIST", tempCfg, "MinionModifier")) do
+			local mod = value.value and value.value.mod
+			if modHasSkillType(value.mod, SkillType.CreatesCompanion) and mod and mod.name == "Damage" and mod.type == "INC" then
 				skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 			end
 		end
