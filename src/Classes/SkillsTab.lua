@@ -1165,17 +1165,20 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 			end
 		end
 		if activeSkill.minion then
-			tooltip:AddSeparator(10)
-			tooltip:AddLine(16, "^7Active Skill #" .. index .. "'s Main Minion Skill:")
-			local activeEffect = activeSkill.minion.mainSkill.effectList[1]
-			tooltip:AddLine(20, string.format("%s%s ^7%d/%d",
-				data.skillColorMap[activeEffect.grantedEffect.color] or colorCodes.NORMAL,
-				activeEffect.grantedEffect.name,
-				activeEffect.level,
-				activeEffect.quality
-			))
-			if activeEffect.srcInstance then
-				gemShown[activeEffect.srcInstance] = true
+			local mainSkill = activeSkill.minion.mainSkill
+			local activeEffect = mainSkill and mainSkill.effectList and mainSkill.effectList[1]
+			if activeEffect and activeEffect.grantedEffect then
+				tooltip:AddSeparator(10)
+				tooltip:AddLine(16, "^7Active Skill #" .. index .. "'s Main Minion Skill:")
+				tooltip:AddLine(20, string.format("%s%s ^7%d/%d",
+					data.skillColorMap[activeEffect.grantedEffect.color] or colorCodes.NORMAL,
+					activeEffect.grantedEffect.name,
+					activeEffect.level,
+					activeEffect.quality
+				))
+				if activeEffect.srcInstance then
+					gemShown[activeEffect.srcInstance] = true
+				end
 			end
 		end
 	end

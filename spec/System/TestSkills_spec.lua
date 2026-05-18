@@ -7,6 +7,22 @@ describe("TestSkills", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 	
+
+	it("does not crash when minion tooltip state has no main skill", function()
+		local tooltip = {
+			AddLine = function() end,
+			AddSeparator = function() end,
+		}
+		local socketGroup = {
+			enabled = true,
+			slotEnabled = true,
+			displaySkillList = { { effectList = { }, minion = { } } },
+			gemList = { },
+		}
+
+		build.skillsTab:AddSocketGroupTooltip(tooltip, socketGroup)
+	end)
+
 	it("Test blasphemy reserving Spirit", function()
 		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\n")
 		runCallback("OnFrame")
