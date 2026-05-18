@@ -112,6 +112,8 @@ end
 
 function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sourceRes, useRes, invertChance, minPen)
 	local out = { }
+	minPen = minPen or 0
+	local effectiveResist = resist > minPen and m_max(resist - pen, minPen) or resist
 	local resistForm = (damageType == "Physical") and "physical damage reduction" or "resistance"
 	local resistLabel = resistForm
 
@@ -145,7 +147,7 @@ function breakdown.effMult(damageType, resist, pen, taken, mult, takenMore, sour
 	if useRes then
 		breakdown.multiChain(out, {
 			label = "Effective DPS modifier:",
-			{ "%.2f ^8(%s)", 1 - (math.max(resist - pen,0)) / 100, resistForm },
+			{ "%.2f ^8(%s)", 1 - effectiveResist / 100, resistForm },
 			{ "%.2f ^8(increased/reduced damage taken)", 1 + taken / 100 },
 			{ "%.2f ^8(more/less damage taken)", takenMore },
 			total = s_format("= %.3f", mult),
