@@ -289,6 +289,26 @@ local function getTotemBaseStats(activeSkill)
 	return totemBase
 end
 
+local function getTotemLevel(totemBase)
+	if not totemBase.skillLevel then
+		return 1
+	end
+	local grantedEffectLevel = totemBase.grantedEffect and totemBase.grantedEffect.levels
+		and totemBase.grantedEffect.levels[totemBase.skillLevel]
+	local actorLevel = grantedEffectLevel and grantedEffectLevel.actorLevel
+	if not actorLevel and totemBase.grantedEffect and totemBase.grantedEffect.statSets then
+		for _, statSet in ipairs(totemBase.grantedEffect.statSets) do
+			local statSetLevel = statSet.levels and statSet.levels[totemBase.skillLevel]
+			if statSetLevel and statSetLevel.actorLevel then
+				actorLevel = statSetLevel.actorLevel
+				break
+			end
+		end
+	end
+	local totemLevel = actorLevel and round(actorLevel) or data.minionLevelTable[totemBase.skillLevel] or 1
+	return m_min(m_max(totemLevel, 1), #data.monsterAllyLifeTable)
+end
+
 --- Applies additional modifiers to skills with the "Empowered" flag.
 --- Checks for "ExtraEmpoweredMod" mods and applies them
 --- if they match the conditions set by the empowering effect.
@@ -539,7 +559,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		if totemBase.grantedEffect and totemBase.gemData then
 			activeSkill.skillData.totemBase = totemBase
 		end
-		activeSkill.skillData.totemLevel = data.minionLevelTable[totemBase.skillLevel] or 1
+		activeSkill.skillData.totemLevel = getTotemLevel(totemBase)
 
 		-- Get skill totem ID for totem skills
 		-- This is used to calculate totem life
