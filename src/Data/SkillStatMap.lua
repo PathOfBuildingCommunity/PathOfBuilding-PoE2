@@ -2183,6 +2183,15 @@ return {
 ["support_spell_damage_+%_final_while_above_90%_maximum_mana"] = {
 	mod("Damage", "MORE", nil, 0, KeywordFlag.Spell, { type = "Condition", var = "FullMana"}),
 },
+["support_anticipation_rapid_fire_count"] = {
+	mod("SealCount", "BASE", nil),
+},
+["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+	mod("SealGainFrequency", "BASE", nil),
+},
+["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
+	mod("SealRepeatPenalty", "MORE", nil),
+},
 
 --
 -- Skill type modifier
