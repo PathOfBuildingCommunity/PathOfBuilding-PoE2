@@ -154,6 +154,10 @@ local configSettings = {
 	{ var = "conditionHaveEnergyShield", type = "check", label = "Do you always have ^x88FFFFEnergy Shield?", ifCond = "HaveEnergyShield", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveEnergyShield", "FLAG", true, "Config")
 	end },
+	{ var = "multiplierCurrentEnergyShield", type = "count", label = "Current ^x88FFFFEnergy Shield^7 percentage:", ifCond = "UseCurrentEnergyShield", defaultPlaceholderState = 100, tooltip = "Used in calculations for ^xAF6025Silks of Veneration^7 and ^xAF6025The Mutable Star^7.\nOverflowed ^x88FFFFEnergy Shield^7 is allowed, up to 150%.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:UseCurrentEnergyShield", "FLAG", true, "Config")
+		modList:NewMod("Multiplier:CurrentEnergyShield", "BASE", val, "Config")
+	end },
 	{ var = "minionsConditionFullLife", type = "check", label = "Are your Minions always on Full ^xE05030Life?", ifMinionCond = "FullLife", apply = function(val, modList, enemyModList)
 		modList:NewMod("MinionModifier", "LIST", { mod = modLib.createMod("Condition:FullLife", "FLAG", true, "Config") }, "Config")
 	end },
@@ -404,8 +408,8 @@ local configSettings = {
 	{ var = "incisionConsumedRecently", type = "count", label = "# of Incisions consumed recently:", ifSkill = "Incision", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:IncisionConsumedRecently", "BASE", val, "Config")
 	end },
-	{ label = "Inevitable Critical Support:", ifSkill = "Inevitable Critical" },
-	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable crit:", ifSkill = "Inevitable Critical", tooltip = "Also implies you've crit recently if the value is 3s or below", apply = function(val, modList, enemyModList)
+	{ label = "Inexorable Critical Support:", ifSkill = { "Inexorable Critical I", "Inexorable Critical II" } },
+	{ var = "SecondsSinceInevitableCrit", type = "count", label = "# of seconds since Inevitable Crit:", ifSkill = { "Inexorable Critical I", "Inexorable Critical II" }, defaultState = 10, tooltip = "Also implies you've crit recently if the value is 3s or below", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:SecondsSinceInevitableCrit", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 		if val < 4 then
 			modList:NewMod("Condition:CritRecently", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
@@ -640,6 +644,14 @@ local configSettings = {
 	{ label = "Unhinge:", ifSkill = "Unhinge" },
 	{ var = "conditionInsane", type = "check", label = "Are you Insane?", ifCond = "Insane", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:Insane", "FLAG", true, "Config")
+	end },
+	{ var = "conditionUnravelling", type = "list", label = "Acolyte's Unravelling:", ifFlag = "Unravelling", tooltip = "While affected by Unravelling, your ^xD02090Chaos^7 Damage randomly either also contributes to ^x3F6DB3Freeze^7 buildup,\n^xB97123Ignite^7 chance and magnitude, or ^xADAA47Shock^7 chance - changing which it contributes to every two seconds. ",
+	list = {
+		{val="Cold",label="Unravelling Frost"},
+		{val="Fire",label="Unravelling Flame"},
+		{val="Lightning",label="Unravelling Bolt"},
+	}, apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:"..val.."Unravel", "FLAG", true, "Config")
 	end },
 	{ label = "Vigilant Strike:", ifSkill = "Vigilant Strike" },
 	{ var = "VigilantStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Vigilant Strike", defaultState = true, apply = function(val, modList, enemyModList)
