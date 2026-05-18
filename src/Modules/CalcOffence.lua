@@ -788,6 +788,17 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("EnemyPinBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
+	if skillModList:Flag(nil, "FreezeBuildupInsteadOfStunBuildup") then
+		-- Kaltenhalt
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyFreezeBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+		for i, value in ipairs(skillModList:Tabulate("MORE", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyFreezeBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if skillModList:Flag(nil, "ProjectileSpeedAppliesToProjectileDamage") then
 		-- Projectile speed to projectile damage conversion
 		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ProjectileSpeed")) do
@@ -1193,7 +1204,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate skill type stats
 	if skillFlags.minion then
 		if activeSkill.minion and activeSkill.minion.minionData.limit then
-			output.ActiveMinionLimit = m_floor(env.modDB:Override(nil, activeSkill.minion.minionData.limit) or calcLib.val(skillModList, activeSkill.minion.minionData.limit, skillCfg))
+			output.ActiveMinionLimit = m_floor(env.modDB:Override(nil, activeSkill.minion.minionData.limit) or (calcLib.val(skillModList, activeSkill.minion.minionData.limit, skillCfg) + calcLib.val(skillModList, "ActiveMinionLimit", skillCfg)))
 		end
 		output.SummonedMinionsPerCast = m_floor(calcLib.val(skillModList, "MinionPerCastCount", skillCfg))
 		if output.SummonedMinionsPerCast == 0 then

@@ -9,6 +9,7 @@ local curl = require("lcurl.safe")
 local m_max = math.max
 local s_format = string.format
 local t_insert = table.insert
+local tradeHelpers = LoadModule("Classes/TradeQueryHelpers")
 
 -- string are an any type while tables require all fields to be matched with type and subType require both to be matched exactly. [1] type, [2] subType, subType is optional and must be nil if not present.
 local tradeCategoryNames = {
@@ -613,134 +614,15 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 				calcNodesInsteadOfMods = true,
 			}
 		end
-	elseif slot.slotName:find("^Weapon %d") then
-		if existingItem then
-			if existingItem.type == "Shield" then
-				itemCategoryQueryStr = "armour.shield"
-				itemCategory = "Shield"
-			elseif existingItem.type == "Focus" then
-				itemCategoryQueryStr = "armour.focus"
-				itemCategory = "Focus"
-			elseif existingItem.type == "Buckler" then
-				itemCategoryQueryStr = "armour.buckler"
-				itemCategory = "Buckler"
-			elseif existingItem.type == "Quiver" then
-				itemCategoryQueryStr = "armour.quiver"
-				itemCategory = "Quiver"
-			elseif existingItem.type == "Bow" then
-				itemCategoryQueryStr = "weapon.bow"
-				itemCategory = "Bow"
-			elseif existingItem.type == "Crossbow" then
-				itemCategoryQueryStr = "weapon.crossbow"
-				itemCategory = "Crossbow"
-			elseif existingItem.type == "Talisman" then
-				itemCategoryQueryStr = "weapon.talisman"
-				itemCategory = "Talisman"	
-			elseif existingItem.type == "Staff" and existingItem.base.subType == "Warstaff" then
-				itemCategoryQueryStr = "weapon.warstaff"
-				itemCategory = "Quarterstaff"
-			elseif existingItem.type == "Staff" then
-				itemCategoryQueryStr = "weapon.staff"
-				itemCategory = "Staff"
-			elseif existingItem.type == "Two Hand Sword" then
-				itemCategoryQueryStr = "weapon.twosword"
-				itemCategory = "2HSword"
-			elseif existingItem.type == "Two Hand Axe" then
-				itemCategoryQueryStr = "weapon.twoaxe"
-				itemCategory = "2HAxe"
-			elseif existingItem.type == "Two Hand Mace" then
-				itemCategoryQueryStr = "weapon.twomace"
-				itemCategory = "2HMace"
-			elseif existingItem.type == "Fishing Rod" then
-				itemCategoryQueryStr = "weapon.rod"
-				itemCategory = "FishingRod"
-			elseif existingItem.type == "One Hand Sword" then
-				itemCategoryQueryStr = "weapon.onesword"
-				itemCategory = "1HSword"
-			elseif existingItem.type == "Spear" then
-				itemCategoryQueryStr = "weapon.spear"
-				itemCategory = "Spear"
-			elseif existingItem.type == "Flail" then
-				itemCategoryQueryStr = "weapon.flail"
-				itemCategory = "weapon.flail"
-			elseif existingItem.type == "One Hand Axe" then
-				itemCategoryQueryStr = "weapon.oneaxe"
-				itemCategory = "1HAxe"
-			elseif existingItem.type == "One Hand Mace" then
-				itemCategoryQueryStr = "weapon.onemace"
-				itemCategory = "1HMace"
-			elseif existingItem.type == "Sceptre" then
-				itemCategoryQueryStr = "weapon.sceptre"
-				itemCategory = "Sceptre"
-			elseif existingItem.type == "Wand" then
-				itemCategoryQueryStr = "weapon.wand"
-				itemCategory = "Wand"
-			elseif existingItem.type == "Dagger" then
-				itemCategoryQueryStr = "weapon.dagger"
-				itemCategory = "Dagger"
-			elseif existingItem.type == "Claw" then
-				itemCategoryQueryStr = "weapon.claw"
-				itemCategory = "Claw"
-			elseif existingItem.type:find("Two Hand") ~= nil then
-				itemCategoryQueryStr = "weapon.twomelee"
-				itemCategory = "2HWeapon"
-			elseif existingItem.type:find("One Hand") ~= nil then
-				itemCategoryQueryStr = "weapon.one"
-				itemCategory = "1HWeapon"
-			else
-				logToFile("'%s' is not supported for weighted trade query generation", existingItem.type)
-				return
-			end
-		else
-			-- Item does not exist in this slot so assume 1H weapon
-			itemCategoryQueryStr = "weapon.one"
-			itemCategory = "1HWeapon"
-		end
-	elseif slot.slotName == "Body Armour" then
-		itemCategoryQueryStr = "armour.chest"
-		itemCategory = "Chest"
-	elseif slot.slotName == "Helmet" then
-		itemCategoryQueryStr = "armour.helmet"
-		itemCategory = "Helmet"
-	elseif slot.slotName == "Gloves" then
-		itemCategoryQueryStr = "armour.gloves"
-		itemCategory = "Gloves"
-	elseif slot.slotName == "Boots" then
-		itemCategoryQueryStr = "armour.boots"
-		itemCategory = "Boots"
-	elseif slot.slotName == "Amulet" then
-		itemCategoryQueryStr = "accessory.amulet"
-		itemCategory = "Amulet"
-	elseif slot.slotName == "Ring 1" or slot.slotName == "Ring 2" or slot.slotName == "Ring 3" then
-		itemCategoryQueryStr = "accessory.ring"
-		itemCategory = "Ring"
-	elseif slot.slotName == "Belt" then
-		itemCategoryQueryStr = "accessory.belt"
-		itemCategory = "Belt"
-	elseif slot.slotName:find("Time-Lost") ~= nil then
-		itemCategoryQueryStr = "jewel"
-		itemCategory = "RadiusJewel"
-	elseif slot.slotName:find("Jewel") ~= nil then
-		itemCategoryQueryStr = "jewel"
-		itemCategory = options.jewelType .. "Jewel"
-		-- not present on trade site
-		-- if itemCategory == "RadiusJewel" then
-		-- 	itemCategoryQueryStr = "jewel.radius"
-		-- elseif itemCategory == "BaseJewel" then
-		-- 	itemCategoryQueryStr = "jewel.base"
-		-- end
-	elseif slot.slotName:find("Flask 1") ~= nil then
-		itemCategoryQueryStr = "flask.life"
-		itemCategory = "Life Flask"
-	elseif slot.slotName:find("Flask 2") ~= nil then
-		itemCategoryQueryStr = "flask.mana"
-		itemCategory = "Mana Flask"
-	elseif slot.slotName:find("Charm") ~= nil then
-		itemCategoryQueryStr = "flask" -- these don't have a unique string so overlapping mods of the same benefit could interfere. 
-		itemCategory = "Charm"
 	else
-		logToFile("'%s' is not supported for weighted trade query generation", existingItem and existingItem.type or "n/a")
-		return
+		itemCategoryQueryStr, itemCategory = tradeHelpers.GetTradeCategory(slot.slotName, existingItem)
+		if not itemCategory then
+			logToFile("'%s' is not supported for weighted trade query generation", existingItem and existingItem.type or "n/a")
+			return
+		end
+		if itemCategory == "Jewel" then
+			itemCategory = options.jewelType .. "Jewel"
+		end
 	end
 
 	-- Create a temp item for the slot with no mods
