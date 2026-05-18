@@ -1793,7 +1793,7 @@ skills["SupportClarityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity I" }),
 				},
 			},
 			baseFlags = {
@@ -1829,7 +1829,7 @@ skills["SupportClarityPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity II" }),
 				},
 			},
 			baseFlags = {
@@ -6244,7 +6244,7 @@ skills["SupportMysticismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism I" }),
 				},
 			},
 			baseFlags = {
@@ -6280,7 +6280,7 @@ skills["SupportMysticismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism II" }),
 				},
 			},
 			baseFlags = {

@@ -192,4 +192,23 @@ describe("TestSkills", function()
 
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
+
+	it("Test stacking persistent buff supports of same category", function()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity I, Clarity II")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1\nClarity II 1/0 1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity II")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity II 1/0  1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity II")
+	end)
 end)
