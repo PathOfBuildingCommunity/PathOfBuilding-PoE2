@@ -75,8 +75,11 @@ function TradeQueryRateLimiterClass:ParsePolicy(headerString)
 	local policies = {}
 	local headers = self:ParseHeader(headerString)
 	local policyName = headers["x-rate-limit-policy"]
+	if not policyName or policyName == "" then
+		return policies
+	end
 	policies[policyName] = {}
-	local retryAfter = headers["retry-after"]
+	local retryAfter = tonumber(headers["retry-after"])
 	if retryAfter then
 		policies[policyName].retryAfter = os.time() + retryAfter
 	end
@@ -96,13 +99,17 @@ function TradeQueryRateLimiterClass:ParsePolicy(headerString)
 		for key, headerKey in pairs(properties) do
 			policies[policyName][ruleName][key] = {}
 			local headerValue = headers[headerKey]
-			for bucket in headerValue:gmatch("[^,]+") do -- example 8:10:60,15:60:120,60:300:1800
-				local next = bucket:gmatch("[^:]+") -- example 8:10:60
-				local request, window, timeout = tonumber(next()), tonumber(next()), tonumber(next())
-				policies[policyName][ruleName][key][window] = {
-					["request"] = request,
-					["timeout"] = timeout
-				}
+			if headerValue then
+				for bucket in headerValue:gmatch("[^,]+") do -- example 8:10:60,15:60:120,60:300:1800
+					local next = bucket:gmatch("[^:]+") -- example 8:10:60
+					local request, window, timeout = tonumber(next()), tonumber(next()), tonumber(next())
+					if request and window and timeout then
+						policies[policyName][ruleName][key][window] = {
+							["request"] = request,
+							["timeout"] = timeout
+						}
+					end
+				end
 			end
 		end
 	end

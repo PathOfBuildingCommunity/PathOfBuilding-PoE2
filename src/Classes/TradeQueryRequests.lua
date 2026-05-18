@@ -31,8 +31,9 @@ function TradeQueryRequestsClass:ProcessQueue()
 					local requestId = self.rateLimiter:InsertRequest(policy)
 					local onComplete = function(response, errMsg)
 						self.rateLimiter:FinishRequest(policy, requestId)
-						self.rateLimiter:UpdateFromHeader(response.header)
-						if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
+						local responseHeader = response and response.header or ""
+						self.rateLimiter:UpdateFromHeader(responseHeader)
+						if responseHeader:match("HTTP/[%d%.]+ (%d+)") == "429" then
 							request.attempts = (request.attempts or 0) + 1
 							local backoff = m_min(2 ^ request.attempts, 60)
 							request.retryTime = os.time() + backoff
@@ -40,15 +41,12 @@ function TradeQueryRequestsClass:ProcessQueue()
 							return
 						end
 						-- if limit rules don't return account then the POESESSID is invalid.
-						if response.header:match("[xX]%-[rR]ate%-[lL]imit%-[rR]ules: (.-)\n"):match("Account") == nil and main.POESESSID ~= "" then
+						local rateLimitRules = responseHeader:match("[xX]%-[rR]ate%-[lL]imit%-[rR]ules: (.-)\n")
+						if not errMsg and rateLimitRules and rateLimitRules:match("Account") == nil and main.POESESSID ~= "" then
 							main.POESESSID = ""
-							if errMsg then
-								errMsg = errMsg .. "\nPOESESSID is invalid. Please Re-Log and reset"
-							else
-								errMsg = "POESESSID is invalid. Please Re-Log and reset"
-							end
+							errMsg = "POESESSID is invalid. Please Re-Log and reset"
 						end
-						request.callback(response.body, errMsg, unpack(request.callbackParams or {}))
+						request.callback(response and response.body, errMsg, unpack(request.callbackParams or {}))
 					end
 					-- self:SendRequest(request.url , onComplete, {body = request.body, poesessid = main.POESESSID})
 					local header = "Content-Type: application/json"

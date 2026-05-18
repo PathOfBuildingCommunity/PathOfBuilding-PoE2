@@ -24,6 +24,12 @@ describe("TradeQueryRateLimiter", function()
 			assert.are.equal(policy.ip.state[10].request, 7)
 			assert.are.equal(policy.account.limits[5].request, 2)
 		end)
+
+		it("ignores responses without rate limit policy headers", function()
+			local limiter = new("TradeQueryRateLimiter")
+			local policies = limiter:ParsePolicy("HTTP/1.1 503 Service Unavailable\nContent-Type: text/html")
+			assert.are.same({}, policies)
+		end)
 	end)
 
 	describe("UpdateFromHeader", function()
@@ -34,6 +40,15 @@ describe("TradeQueryRateLimiter", function()
 			limiter.limitMargin = 1
 			local header = "X-Rate-Limit-Policy: test\nX-Rate-Limit-Rules: Ip\nX-Rate-Limit-Ip: 5:10:60\nX-Rate-Limit-Ip-State: 4:10:60"
 			limiter:UpdateFromHeader(header)
+			assert.are.equal(limiter.policies["test"].ip.limits[10].request, 4)
+		end)
+
+		it("leaves current limits intact when a response has no rate limit policy", function()
+			local limiter = new("TradeQueryRateLimiter")
+			limiter.limitMargin = 1
+			local header = "X-Rate-Limit-Policy: test\nX-Rate-Limit-Rules: Ip\nX-Rate-Limit-Ip: 5:10:60\nX-Rate-Limit-Ip-State: 4:10:60"
+			limiter:UpdateFromHeader(header)
+			limiter:UpdateFromHeader("HTTP/1.1 525 SSL Handshake Failed\nContent-Type: text/html")
 			assert.are.equal(limiter.policies["test"].ip.limits[10].request, 4)
 		end)
 	end)
