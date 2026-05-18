@@ -84,4 +84,52 @@ describe("TestSkills", function()
 		local finalCost = build.calcsTab.mainOutput.ManaCost
 		assert.are.equals(16, round(finalCost))
 	end)
+
+	it("Consumed Charge Effect", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1")
+		runCallback("OnFrame")
+		build.configTab.input.useFrenzyCharges = true
+		build.configTab.input.overrideFrenzyCharges = 1
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local baseTotalDPS = build.calcsTab.mainOutput.TotalDPS
+		build.configTab.input.customMods = "Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local thrillingChaseTotalDPS = build.calcsTab.mainOutput.TotalDPS
+		assert.True(baseTotalDPS < thrillingChaseTotalDPS)
+		assert.are.equals(50, build.calcsTab.mainEnv.modDB:Sum("BASE", nil, "Multiplier:ConsumedFrenzyChargeEffect"))
+
+
+		newBuild()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1\nHeightened Charges 1/0 1")
+		runCallback("OnFrame")
+		build.configTab.input.useFrenzyCharges = true
+		build.configTab.input.overrideFrenzyCharges = 1
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local heightenedChargesTotalDPS = build.calcsTab.mainOutput.TotalDPS
+		assert.True(baseTotalDPS < heightenedChargesTotalDPS)
+		assert.are.equals(20, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
+
+		build.configTab.input.customMods = "Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		-- thrilling and heightened charges > thrilling
+		assert.True(thrillingChaseTotalDPS < build.calcsTab.mainOutput.TotalDPS)
+		assert.are.equals(70, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
+	end)
 end)
