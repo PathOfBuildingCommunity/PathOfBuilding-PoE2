@@ -5848,6 +5848,9 @@ skills["EmberFusilladePlayer"] = {
 		[39] = { critChance = 7, levelRequirement = 90, cost = { Mana = 206, }, },
 		[40] = { critChance = 7, levelRequirement = 90, cost = { Mana = 225, }, },
 	},
+			preDamageFunc = function(activeSkill, output)
+				activeSkill.skillData.dpsMultiplier = output.ProjectileCount or 1
+			end,
 	statSets = {
 		[1] = {
 			label = "Projectile",

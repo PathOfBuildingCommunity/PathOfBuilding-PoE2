@@ -238,6 +238,32 @@ describe("TestSkills", function()
 		assert.True(curseList:match("Flammability") ~= nil and curseList:match("Elemental Weakness") ~= nil)
 	end)
 
+	it("Ember Fusillade projectile count scales hit DPS and Full DPS", function()
+		build.skillsTab:PasteSocketGroup("Ember Fusillade 20/0  1\n")
+		build.skillsTab.socketGroupList[1].includeInFullDPS = true
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		local baseProjectileCount = build.calcsTab.mainOutput.ProjectileCount
+		local baseTotalDPS = build.calcsTab.mainOutput.TotalDPS
+		local baseFullDPS = build.calcsTab.mainOutput.FullDPS
+
+		assert.True(baseProjectileCount > 0)
+		assert.True(baseTotalDPS > 0)
+		assert.True(baseFullDPS > 0)
+
+		build.configTab.input.customMods = "Ember Fusillade fires 2 additional Projectiles"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local projectileCount = build.calcsTab.mainOutput.ProjectileCount
+		local expectedProjectileRatio = projectileCount / baseProjectileCount
+
+		assert.True(projectileCount > baseProjectileCount)
+		assert.True(build.calcsTab.mainOutput.TotalDPS > baseTotalDPS * expectedProjectileRatio * 0.95)
+		assert.True(build.calcsTab.mainOutput.FullDPS > baseFullDPS * expectedProjectileRatio * 0.95)
+	end)
+
 	-- skills that don't have a base CD and have more than one use need to use the added cooldown by whatever support allows the +1 limit to be supportable
 	it("Test Added Cooldown interaction with +1 Limit", function()
 		build.skillsTab:PasteSocketGroup("Thunderstorm 20/0  1\nHourglass 1/0 1\nOverabundance I 1/0 1\n")

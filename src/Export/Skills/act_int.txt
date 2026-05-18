@@ -405,6 +405,9 @@ statMap = {
 #skillEnd
 
 #skill EmberFusilladePlayer
+preDamageFunc = function(activeSkill, output)
+	activeSkill.skillData.dpsMultiplier = output.ProjectileCount or 1
+end,
 #set EmberFusilladePlayer
 #flags spell duration projectile
 #mods
