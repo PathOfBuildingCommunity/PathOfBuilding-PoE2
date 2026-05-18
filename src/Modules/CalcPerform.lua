@@ -1587,6 +1587,7 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 		local ignoreAttrReq = modDB:Flag(nil, "IgnoreAttributeRequirements")
+		local strengthSatisfiesMeleeFlag = modDB:Flag(nil, "StrengthSatisfiesMeleeWeaponsAndSkills")
 		for _, attr in ipairs(attrTable) do
 			local breakdownAttr = attr
 			if breakdown then
@@ -1616,13 +1617,20 @@ function calcs.perform(env, skipEHP)
 					elseif reqSource.source == "Support Gems" then
 						req = m_floor(reqSource[attr])
 					end
-					if req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val) then
+					-- Jarngreipr // if it's a melee weapon or melee skill gem and your Strength is greater than or equal to the Dex/Int requirement
+					local strengthSatisfiesMelee = strengthSatisfiesMeleeFlag
+						and ((reqSource.source == "Item" and reqSource.sourceItem.base.weapon and env.data.weaponTypeInfo[reqSource.sourceItem.base.type].melee)
+						or (reqSource.source == "Gem" and reqSource.sourceGem.gemData.tags.melee))
+					local satisfyingAttributeValue = gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val
+					if req > (strengthSatisfiesMelee and attr ~= "Str" and m_max(satisfyingAttributeValue, output["Str"]) or satisfyingAttributeValue) then
 						out.val = req
 						out.source = reqSource
 					end
 					if breakdown then
+						local breakdownAttributeValue = gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or output[breakdownAttr]
+						local reqBool = req > (strengthSatisfiesMelee and breakdownAttr ~= "Str" and m_max(breakdownAttributeValue, output["Str"]) or breakdownAttributeValue)
 						local row = {
-							req = req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or output[breakdownAttr]) and colorCodes.NEGATIVE..req or req,
+							req = reqBool and colorCodes.NEGATIVE..req or req,
 							reqNum = req,
 							source = reqSource.source,
 						}
