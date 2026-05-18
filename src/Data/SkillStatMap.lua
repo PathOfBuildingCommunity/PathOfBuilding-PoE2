@@ -576,6 +576,9 @@ return {
 ["base_cooldown_speed_+%_final"] = {
 	mod("CooldownRecovery", "MORE", nil),
 },
+["support_cooldown_reduction_cooldown_recovery_+%"] = {
+	mod("CooldownRecovery", "MORE", nil),
+},
 ["additional_weapon_base_attack_time_ms"] = {
 	mod("Speed", "BASE", nil, ModFlag.Attack),
 	div = 1000,
@@ -1621,6 +1624,9 @@ return {
 },
 ["number_of_additional_curses_allowed"] = {
 	mod("EnemyCurseLimit", "BASE", nil),
+},
+["curse_ignores_curse_limit"] = {
+	flag("CursesIgnoreCurseLimit")
 },
 ["consecrated_ground_enemy_damage_taken_+%"] = {
 	mod("DamageTakenConsecratedGround", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "OnConsecratedGround" }),
@@ -2680,6 +2686,9 @@ return {
 ["base_limit_+"] = {
 	mod("AdditionalCooldownUses", "BASE", nil),
 },
+["support_storm_skill_limit_+"] = {
+	mod("AdditionalCooldownUses", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+},
 ["kill_enemy_on_hit_if_under_10%_life"] = {
 	mod("CullPercent", "MAX", nil),
 	value = 10
@@ -2764,6 +2773,11 @@ return {
 },
 ["set_max_power_charges"] = {
 	mod("PowerChargesMax", "OVERRIDE", nil),
+},
+["chance_%_to_double_effect_of_removing_charges"] = {
+	mod("Multiplier:ConsumedEnduranceChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedFrenzyChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedPowerChargeEffect", "BASE", nil),
 },
 ["set_base_heavy_stun_duration_ms"] = {
 	mod("StunDuration", "OVERRIDE", nil),

@@ -81,7 +81,7 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 		if not self.toggleConfigs then
 			return false
 		end
-		if varData.ifOption or varData.ifSkill or varData.ifSkillData or varData.ifSkillFlag or varData.legacy then
+		if varData.ifOption or varData.ifSkill or varData.ifSkillData or varData.ifSkillFlag or varData.ifGemFamily or varData.legacy then
 			return false
 		end
 		for _, keyword in pairs(excludeKeywords) do
@@ -522,6 +522,18 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 					for _, activeSkill in ipairs(self.build.calcsTab.mainEnv.player.activeSkillList) do
 						if activeSkill.skillData[ifOption] then
 							return true
+						end
+					end
+					return false
+				end))
+			end
+			if varData.ifGemFamily then
+				t_insert(shownFuncs, listOrSingleIfOption(varData.ifGemFamily, function(ifOption)
+					for _, activeSkill in ipairs(self.build.calcsTab.mainEnv.player.activeSkillList) do
+						for _, support in ipairs(activeSkill.supportList) do
+							if support.gemData and support.gemData.gemFamily == ifOption then
+								return true
+							end
 						end
 					end
 					return false

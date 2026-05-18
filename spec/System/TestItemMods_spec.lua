@@ -220,6 +220,255 @@ describe("TetsItemMods", function()
 		assert.are_not.equals(120, build.calcsTab.mainOutput.Armour)
 		runCallback("OnFrame")
 	end)
+
+	it("Jarngreipr - strength satisfies melee weapons and skills", function()
+		build.configTab.input.customMods = "+1000 Strength"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Chober Chaber
+			Leaden Greathammer
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 33
+			Implicits: 0
+			+100 Intelligence Requirement
+			{variant:1}{range:0.5}(80-120)% increased Physical Damage
+			{variant:2}{range:0.5}Adds (58-65) to (102-110) Physical Damage
+			{range:0.5}+(80-100) to maximum Mana
+			{variant:2}+50 to Spirit
+			{variant:1}+5% to Critical Hit Chance
+			Increases and Reductions to Minion Damage also affect you
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1]:match("Intelligence requirement") ~= nil)
+		assert.True(build.controls.warnings.lines[1]:match("Chober Chaber") ~= nil)
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Jarngreipr
+			Ringmail Gauntlets
+			Armour: 23
+			Evasion: 18
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 6
+			Implicits: 0
+			{variant:2}50% increased Armour and Evasion
+			{range:0.5}Adds (2-3) to (5-6) Physical Damage to Attacks
+			{range:0.5}+(30-50) to maximum Life
+			{range:0.5}(4-8)% increased Attack Speed
+			Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- melee item check int
+
+		newBuild()
+		build.configTab.input.customMods = "+1000 Strength"
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Primal Strikes 20/0 1")
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1]:match("Dexterity requirement") ~= nil)
+		assert.True(build.controls.warnings.lines[1]:match("Primal Strikes") ~= nil)
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Jarngreipr
+			Ringmail Gauntlets
+			Armour: 23
+			Evasion: 18
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 6
+			Implicits: 0
+			{variant:2}50% increased Armour and Evasion
+			{range:0.5}Adds (2-3) to (5-6) Physical Damage to Attacks
+			{range:0.5}+(30-50) to maximum Life
+			{range:0.5}(4-8)% increased Attack Speed
+			Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- melee skill check dex
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0 1")
+		runCallback("OnFrame")
+		-- make sure something like Fireball still needs the Int requirement and isn't being ignored
+		assert.True(build.controls.warnings.lines[1]:match("Intelligence requirement") ~= nil)
+		assert.True(build.controls.warnings.lines[1]:match("Fireball") ~= nil)
+
+		build.configTab.input.customMods = [[
+			+1000 Strength
+			+100 mana
+			Attribute Requirements of Gems can be satisified by your highest Attribute
+		]] -- fix mana warning
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- validate Gemling's Adaptive Capability still works
+
+		newBuild()
+		build.configTab.input.customMods = [[
+			+1000 Intelligence
+			+100 mana
+			Attribute Requirements of Gems can be satisified by your highest Attribute
+		]]
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Primal Strikes 20/0 1")
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Jarngreipr
+			Ringmail Gauntlets
+			Armour: 23
+			Evasion: 18
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 6
+			Implicits: 0
+			{variant:2}50% increased Armour and Evasion
+			{range:0.5}Adds (2-3) to (5-6) Physical Damage to Attacks
+			{range:0.5}+(30-50) to maximum Life
+			{range:0.5}(4-8)% increased Attack Speed
+			Strength can satisfy other Attribute Requirements of Melee Weapons and Melee Skills
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		assert.True(build.controls.warnings.lines[1] == nil) -- Gemling highest attribute still satisfies melee gems with Jarngreipr
+	end)
+
+	it("sacrosanctum - add life recoup to es recoup", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Sacrosanctum
+			Corvus Mantle
+			Armour: 588
+			Energy Shield: 202
+			League: Dawn of the Hunt
+			Variant: Pre 0.4.0
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 68
+			Implicits: 1
+			{range:0.5}+(20-30) to Spirit
+			{range:0.5}(80-120)% increased Armour and Energy Shield
+			{range:0.5}+(20-30) to Strength
+			{range:0.5}+(20-30) to Intelligence
+			{range:0.5}+(17-23)% to Chaos Resistance
+			{variant:1}{range:0.5}(5-10)% of Damage taken Recouped as Life
+			{variant:2}{range:0.5}(10-20)% of Damage taken Recouped as Life
+			Damage taken Recouped as Life is also Recouped as Energy Shield
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.calcsOutput.LifeRecoupRecoveryAvg > 0)
+		assert.True(build.calcsTab.calcsOutput.EnergyShieldRecoupRecoveryAvg > 0)
+		assert.True(build.calcsTab.calcsOutput.LifeRecoupRecoveryAvg == build.calcsTab.calcsOutput.EnergyShieldRecoupRecoveryAvg)
+	end)
+
+	it("solus ipse, max lineage count", function()
+		build.configTab.input.customMods = [[
+			You can Socket 2 additional copies of each Lineage Support Gem, in different Skills
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Arc 20/0 1 \nZarokh's Refrain 1/0 1")
+		build.skillsTab:PasteSocketGroup("Ice Nova 20/0 1 \nZarokh's Refrain 1/0 1")
+		build.skillsTab:PasteSocketGroup("Fireball 20/0 1 \nZarokh's Refrain 1/0 1")
+		runCallback("OnFrame")
+
+		assert.are.equals(2, #build.controls.warnings.lines)
+
+		build.skillsTab:PasteSocketGroup("Comet 20/0 1 \nZarokh's Refrain 1/0 1")
+		runCallback("OnFrame")
+
+		assert.are.equals(3, #build.controls.warnings.lines)
+		assert.True(build.controls.warnings.lines[3]:match("lineage support gems allocated") ~= nil)
+	end)
+
+	it("all damage can contribute", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Tidebreaker
+			Pointed Maul
+			League: Dawn of the Hunt
+			Quality: 20
+			LevelReq: 45
+			Implicits: 0
+			{range:0.5}(120-150)% increased Physical Damage
+			{range:0.5}+(2-3) to Level of all Melee Skills
+			{range:0.5}+(20-30) to Intelligence
+			{range:0.5}Causes (150-200)% increased Stun Buildup
+			All Damage from Hits with this Weapon Contributes to Chill Magnitude
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
+		runCallback("OnFrame")
+		assert.True(build.calcsTab.calcsOutput.ChillEffectMod ~= nil)
+	end)
+
+	it("ironbound", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Ironbound Test
+			Gemini Bow
+			Quality: 20
+			Sockets: S S S S
+			Rune: None
+			Rune: None
+			Rune: None
+			Rune: None
+			LevelReq: 78
+			Implicits: 1
+			23% chance to chain an additional time
+			5% increased Block Chance per 100 Total Item Armour on Equipped Armour Items
+			Hits with this Weapon have 1 to 4 Added Physical Damage per 1% Block Chance
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: RARE
+			Armour Chest
+			Glorious Plate
+			Armour: 534
+			Crafted: true
+			Prefix: None
+			Prefix: None
+			Prefix: None
+			Suffix: None
+			Suffix: None
+			Suffix: None
+			Quality: 0
+			LevelReq: 65
+			Implicits: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		local basePhys = build.calcsTab.mainOutput.PhysicalStoredCombinedAvg
+
+		build.configTab.input.customMods = [[
+			10% chance to block
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- ~500 armour gives 25% increased block => 12.5%
+		assert.equals(12.5, build.calcsTab.mainOutput.EffectiveBlockChance)
+		assert.True(basePhys < build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
+	end)
 	it("liminal coil", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			Rarity: UNIQUE
