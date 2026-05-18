@@ -8091,6 +8091,7 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			},
 			baseMods = {
 				flag("HasSeals"),
+				flag("DamageSeal"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },

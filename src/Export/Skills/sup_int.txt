@@ -1541,6 +1541,7 @@ statMap = {
 #skill SupportZarokhsRevoltPlayer
 #set SupportZarokhsRevoltPlayer
 #baseMod flag("HasSeals")
+#baseMod flag("DamageSeal")
 #mods
 #skillEnd
 
