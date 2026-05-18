@@ -34,6 +34,14 @@ local ModStoreClass = newClass("ModStore", function(self, parent)
 	self.conditions = { }
 end)
 
+local function getActor(self, actorType)
+	if actorType == "player" then
+		return self.actor.player or (self.actor.parent and self.actor.parent.player) or (self.actor.enemy and self.actor.enemy.player)
+	else
+		return self.actor[actorType]
+	end
+end
+
 function ModStoreClass:ScaleAddMod(mod, scale)
 	local unscalable = false
 	for _, effects in ipairs(mod) do
@@ -315,15 +323,17 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			-- This explicit target is necessary because even though the GetMultiplier method does call self.parent.GetMultiplier, it does so with noMod = true,
 			-- disabling the summation (3rd part): (not noMod and self:Sum("BASE", cfg, multiplierName[var]) or 0)
 			if tag.limitActor then
-				if self.actor[tag.limitActor] then
-					limitTarget = self.actor[tag.limitActor].modDB
+				local limitActor = getActor(self, tag.limitActor)
+				if limitActor then
+					limitTarget = limitActor.modDB
 				else
 					return
 				end
 			end
 			if tag.actor then
-				if self.actor[tag.actor] then
-					target = self.actor[tag.actor].modDB
+				local actor = getActor(self, tag.actor)
+				if actor then
+					target = actor.modDB
 				else
 					return
 				end
@@ -394,15 +404,17 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			local target = self
 			local thresholdTarget = self
 			if tag.thresholdActor then
-				if self.actor[tag.thresholdActor] then
-					thresholdTarget = self.actor[tag.thresholdActor].modDB
+				local thresholdActor = getActor(self, tag.thresholdActor)
+				if thresholdActor then
+					thresholdTarget = thresholdActor.modDB
 				else
 					return
 				end
 			end
 			if tag.actor then
-				if self.actor[tag.actor] then
-					target = self.actor[tag.actor].modDB
+				local actor = getActor(self, tag.actor)
+				if actor then
+					target = actor.modDB
 				else
 					return
 				end
@@ -431,8 +443,9 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			local target = self
 			-- This functions similar to the above tagTypes in regard to which actor to use, but for PerStat
 			-- if the actor is 'parent', we don't want to return if we're already using 'parent', just keep using 'self'
-			if tag.actor and self.actor[tag.actor] then
-				target = self.actor[tag.actor].modDB
+			local actor = getActor(self, tag.actor)
+			if actor then
+				target = actor.modDB
 			end
 			if tag.statList then
 				base = 0
@@ -479,8 +492,9 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			local target = self
 			-- This functions similar to the above tagTypes in regard to which actor to use, but for PercentStat
 			-- if the actor is 'parent', we don't want to return if we're already using 'parent', just keep using 'self'
-			if tag.actor and self.actor[tag.actor] then
-				target = self.actor[tag.actor].modDB
+			local actor = getActor(self, tag.actor)
+			if actor then
+				target = actor.modDB
 			end
 			if tag.statList then
 				base = 0
@@ -595,7 +609,8 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 			local match = false
 			local target = self
 			if tag.actor then
-				target = self.actor[tag.actor] and self.actor[tag.actor].modDB
+				local actor = getActor(self, tag.actor)
+				target = actor and actor.modDB
 			end
 			if target and (tag.var or tag.varList) then
 				if tag.varList then
@@ -789,6 +804,19 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 				end
 			else
 				match = cfg and cfg.skillTypes and cfg.skillTypes[tag.skillType]
+			end
+			if tag.neg then
+				match = not match
+			end
+			if not match then
+				return
+			end
+		elseif tag.type == "BaseFlag" then
+			local match = false
+			if cfg and cfg.skillGem and cfg.skillGem.grantedEffect and cfg.skillGem.grantedEffect.statSets and cfg.skillGem.grantedEffect.statSets[1] then
+				match = cfg.skillGem.grantedEffect.statSets[1].baseFlags[tag.baseFlag]
+			else
+				match = cfg and cfg.baseFlags and cfg.baseFlags[tag.baseFlag]
 			end
 			if tag.neg then
 				match = not match

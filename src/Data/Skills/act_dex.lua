@@ -897,7 +897,6 @@ skills["SummonBeastPlayer"] = {
 				minion = true,
 				summonBeast = true,
 				duration = true,
-				permanentMinion = true,
 			},
 			baseMods = {
 				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
