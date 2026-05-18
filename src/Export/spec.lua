@@ -13150,7 +13150,7 @@ return {
 			width=50
 		},
 		[109]={
-			list=false,
+			list=true,
 			name="",
 			refTo="",
 			type="Key",

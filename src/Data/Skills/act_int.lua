@@ -10705,6 +10705,14 @@ skills["GlacialCascadePlayer"] = {
 			label = "Final Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "glacial_cascade_attack",
+			statMap = {
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_non_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true })
+				},
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" })
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -16168,7 +16176,6 @@ skills["RagingSpiritsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
 			},
 			constantStats = {
 				{ "base_number_of_raging_spirits_allowed", 10 },
@@ -16291,7 +16298,6 @@ skills["RaiseZombiePlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 1 },
@@ -17690,7 +17696,7 @@ skills["SummonSkeletalArsonistsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -17810,7 +17816,7 @@ skills["SummonSkeletalBrutesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -17930,7 +17936,7 @@ skills["SummonSkeletalClericsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18050,7 +18056,7 @@ skills["SummonSkeletalFrostMagesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18171,7 +18177,7 @@ skills["SummonSkeletalReaversPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18292,7 +18298,7 @@ skills["SummonSkeletalSnipersPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18412,7 +18418,7 @@ skills["SummonSkeletalStormMagesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18534,7 +18540,7 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -19713,7 +19719,6 @@ skills["SummonSpectrePlayer"] = {
 				minion = true,
 				spectre = true,
 				duration = true,
-				permanentMinion = true,
 			},
 			baseMods = {
 				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
