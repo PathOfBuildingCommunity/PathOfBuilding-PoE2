@@ -58,6 +58,23 @@ local function isAnointable(item)
 		and not item.corrupted and not item.mirrored
 end
 
+local function sortItemModListByStats(modList)
+	table.sort(modList, function(a, b)
+		local modA = a.mod
+		local modB = b.mod
+		for i = 1, m_max(#modA, #modB) do
+			if not modA[i] then
+				return true
+			elseif not modB[i] then
+				return false
+			elseif modA.statOrder[i] ~= modB.statOrder[i] then
+				return modA.statOrder[i] < modB.statOrder[i]
+			end
+		end
+		return modA.level > modB.level
+	end)
+end
+
 local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
 	self.UndoHandler()
 	self.ControlHost()
@@ -2656,6 +2673,57 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	main:OpenPopup(620, 103 + enchantNum * 20, "Corrupted Item", controls)
 end
 
+-- Builds the selectable modifier list for the Add Modifier popup
+function ItemsTabClass:BuildAddModifierList(sourceId)
+	local modList = { }
+	if sourceId == "PREFIX" or sourceId == "SUFFIX" then -- might be implied.
+		for _, mod in pairs(self.displayItem.affixes) do
+			if sourceId:lower() == mod.type:lower() and self.displayItem:GetModSpawnWeight(mod) > 0 then
+				t_insert(modList, {
+					label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]",
+					mod = mod,
+					type = "custom",
+				})
+			end
+		end
+		sortItemModListByStats(modList)
+	elseif sourceId == "ESSENCE" then
+		for _, essence in pairs(self.build.data.essences) do
+			local modId = essence.mods[self.displayItem.type]
+			if modId then
+				local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
+				if mod then -- passive_hash mods don't get described
+					t_insert(modList, {
+						label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
+						mod = mod,
+						type = "custom",
+						essence = essence,
+					})
+				end
+			end
+		end
+		table.sort(modList, function(a, b)
+			if a.essence.type ~= b.essence.type then
+				return a.essence.type > b.essence.type
+			else
+				return a.essence.tierLevel > b.essence.tierLevel
+			end
+		end)
+	elseif sourceId == "DESECRATED" then
+		for _, mod in pairs(data.itemMods.Desecrated) do
+			if mod.type and self.displayItem:GetModSpawnWeight(mod) > 0 then
+				t_insert(modList, {
+					label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]" .. " (" .. mod.type .. ")",
+					mod = mod,
+					type = "desecrated",
+				})
+			end
+		end
+		sortItemModListByStats(modList)
+	end
+	return modList
+end
+
 -- Opens the custom modifier popup
 function ItemsTabClass:AddCustomModifierToDisplayItem()
 	local controls = { }
@@ -2665,52 +2733,8 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	---@param sourceId string @The crafting source id to build the list of mods for
 	local function buildMods(sourceId)
 		wipeTable(modList)
-		if sourceId == "PREFIX" or sourceId == "SUFFIX" then -- might be implied.
-			for _, mod in pairs(self.displayItem.affixes) do
-				if sourceId:lower() == mod.type:lower() and self.displayItem:GetModSpawnWeight(mod) > 0 then
-					t_insert(modList, {
-						label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]",
-						mod = mod,
-						type = "custom",
-					})
-				end
-			end
-			table.sort(modList, function(a, b)
-				local modA = a.mod
-				local modB = b.mod
-				for i = 1, m_max(#modA, #modB) do
-					if not modA[i] then
-						return true
-					elseif not modB[i] then
-						return false
-					elseif modA.statOrder[i] ~= modB.statOrder[i] then
-						return modA.statOrder[i] < modB.statOrder[i]
-					end
-				end
-				return modA.level > modB.level
-			end)
-		elseif sourceId == "ESSENCE" then
-			for _, essence in pairs(self.build.data.essences) do
-				local modId = essence.mods[self.displayItem.type]
-				if modId then
-					local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
-					if mod then -- passive_hash mods don't get described
-						t_insert(modList, {
-							label = essence.name .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ")",
-							mod = mod,
-							type = "custom",
-							essence = essence,
-						})
-					end
-				end
-			end
-			table.sort(modList, function(a, b)
-				if a.essence.type ~= b.essence.type then
-					return a.essence.type > b.essence.type
-				else
-					return a.essence.tierLevel > b.essence.tierLevel
-				end
-			end)
+		for _, mod in ipairs(self:BuildAddModifierList(sourceId)) do
+			t_insert(modList, mod)
 		end
 	end
 	if not self.displayItem.crafted then
@@ -2721,6 +2745,10 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 									-- but it makes it so we don't have to maintain a list of applicable essence-able base types
 	if #modList > 0 then
 		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
+	end
+	buildMods("DESECRATED")
+	if #modList > 0 then
+		t_insert(sourceList, { label = "Desecrated", sourceId = "DESECRATED" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)

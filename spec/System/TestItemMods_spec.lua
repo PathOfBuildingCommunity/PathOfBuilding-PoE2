@@ -7,6 +7,50 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	local function findAddModifierListEntry(list, line)
+		for _, listMod in ipairs(list) do
+			for _, modLine in ipairs(listMod.mod) do
+				if modLine == line then
+					return listMod
+				end
+			end
+		end
+	end
+
+	it("Add Modifier lists applicable desecrated modifiers", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Ring
+		]])
+
+		local ringMods = build.itemsTab:BuildAddModifierList("DESECRATED")
+		local cooldownMod = findAddModifierListEntry(ringMods, "(8-12)% increased Cooldown Recovery Rate")
+
+		assert.truthy(cooldownMod)
+		assert.are.equals("desecrated", cooldownMod.type)
+
+		local ringItem = new("Item", build.itemsTab.displayItem:BuildRaw())
+		for _, line in ipairs(cooldownMod.mod) do
+			table.insert(ringItem.explicitModLines, { line = line, modTags = cooldownMod.mod.modTags, [cooldownMod.type] = true })
+		end
+		ringItem:BuildAndParseRaw()
+
+		assert.truthy(ringItem.desecrated)
+		assert.truthy(ringItem.explicitModLines[1].desecrated)
+		assert.truthy(ringItem:BuildRaw():find("{desecrated}", 1, true))
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fur Plate
+		]])
+
+		local bodyArmourMods = build.itemsTab:BuildAddModifierList("DESECRATED")
+		local damageFromManaMod = findAddModifierListEntry(bodyArmourMods, "(10-20)% of Damage is taken from Mana before Life")
+
+		assert.truthy(damageFromManaMod)
+		assert.are.equals("desecrated", damageFromManaMod.type)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
