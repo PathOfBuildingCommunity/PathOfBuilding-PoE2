@@ -85,6 +85,133 @@ describe("TestSkills", function()
 		assert.are.equals(16, round(finalCost))
 	end)
 
+	it("Consumed Charge Effect", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1")
+		runCallback("OnFrame")
+		build.configTab.input.useFrenzyCharges = true
+		build.configTab.input.overrideFrenzyCharges = 1
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local baseTotalDPS = build.calcsTab.mainOutput.TotalDPS
+		build.configTab.input.customMods = "Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local thrillingChaseTotalDPS = build.calcsTab.mainOutput.TotalDPS
+		assert.True(baseTotalDPS < thrillingChaseTotalDPS)
+		assert.are.equals(50, build.calcsTab.mainEnv.modDB:Sum("BASE", nil, "Multiplier:ConsumedFrenzyChargeEffect"))
+
+
+		newBuild()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1\nHeightened Charges 1/0 1")
+		runCallback("OnFrame")
+		build.configTab.input.useFrenzyCharges = true
+		build.configTab.input.overrideFrenzyCharges = 1
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local heightenedChargesTotalDPS = build.calcsTab.mainOutput.TotalDPS
+		assert.True(baseTotalDPS < heightenedChargesTotalDPS)
+		assert.are.equals(20, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
+
+		build.configTab.input.customMods = "Benefits from consuming Frenzy Charges for your Skills have 50% chance to be doubled"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		-- thrilling and heightened charges > thrilling
+		assert.True(thrillingChaseTotalDPS < build.calcsTab.mainOutput.TotalDPS)
+		assert.are.equals(70, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
+	end)
+
+	it("Test 'every rage also grants you' for minion mods and minion apply to you mods #run", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Unearth 20/0  1")
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nRage I 1/0  1")
+		runCallback("OnFrame")
+
+		local baseUnearthAttackSpeed = build.calcsTab.mainOutput.Minion.Speed
+
+		build.configTab.input.customMods = "Every Rage also grants you 1% increased Minion Attack Speed"
+		build.configTab.input.multiplierRage = 30
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.True(baseUnearthAttackSpeed < build.calcsTab.mainOutput.Minion.Speed)
+
+		newBuild()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Chober Chaber
+			Leaden Greathammer
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 33
+			Implicits: 0
+			+100 Intelligence Requirement
+			{variant:1}{range:0.5}(80-120)% increased Physical Damage
+			{variant:2}{range:0.5}Adds (58-65) to (102-110) Physical Damage
+			{range:0.5}+(80-100) to maximum Mana
+			{variant:2}+50 to Spirit
+			{variant:1}+5% to Critical Hit Chance
+			Increases and Reductions to Minion Damage also affect you
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1\nRage I 1/0  1")
+		runCallback("OnFrame")
+
+		build.configTab.input.multiplierRage = 30
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local baseLeapSlamHit = build.calcsTab.mainOutput.AverageDamage
+
+		build.configTab.input.customMods = "Every Rage also grants you 1% increased Minion Damage"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
+	end)
+
+	it("Test stacking persistent buff supports of same category", function()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity I, Clarity II")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1\nClarity II 1/0 1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity II")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity II 1/0  1")
+		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Clarity II")
+	end)
+
 	it("Test corrupted blood config", function()
 		build.skillsTab:PasteSocketGroup("Seismic Cry 20/0  1\nCorrupting Cry I 1/0  1")
 		runCallback("OnFrame")

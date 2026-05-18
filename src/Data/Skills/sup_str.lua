@@ -1293,7 +1293,7 @@ skills["SupportCannibalismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism I" }),
 				},
 			},
 			baseFlags = {
@@ -1329,7 +1329,7 @@ skills["SupportCannibalismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism II" }),
 				},
 			},
 			baseFlags = {
@@ -2128,7 +2128,7 @@ skills["SupportDirestrikePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike I" }, { type = "Condition", var = "LowLife" }),
 				},
 			},
 			baseFlags = {
@@ -2164,7 +2164,7 @@ skills["SupportDirestrikePlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike II" }, { type = "Condition", var = "LowLife" }),
 				},
 			},
 			baseFlags = {
@@ -3958,7 +3958,7 @@ skills["SupportHerbalismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism I" }),
 				},
 			},
 			baseFlags = {
@@ -3994,7 +3994,7 @@ skills["SupportHerbalismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism II" }),
 				},
 			},
 			baseFlags = {
@@ -6993,7 +6993,7 @@ skills["SupportThornskinPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin I" }),
 				},
 			},
 			baseFlags = {
@@ -7029,7 +7029,7 @@ skills["SupportThornskinPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin II" }),
 				},
 			},
 			baseFlags = {
@@ -7703,7 +7703,7 @@ skills["SupportVitalityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_vitality_life_regeneration_rate_per_minute_%"] = {
-					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality I" }),
 					div = 60,
 				},
 			},
@@ -7740,7 +7740,7 @@ skills["SupportVitalityPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_vitality_life_regeneration_rate_per_minute_%"] = {
-					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality II" }),
 					div = 60,
 				},
 			},
