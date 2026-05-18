@@ -229,6 +229,40 @@ describe("TestSkills", function()
 		assert.True(baseCorruptingCryDps == build.calcsTab.mainOutput.CorruptingBloodDPS)
 	end)
 
+	it("Infernal Cry grants extra fire damage to empowered melee attacks", function()
+		build.skillsTab:PasteSocketGroup("Infernal Cry 20/0  1")
+		runCallback("OnFrame")
+
+		local infernalCry
+		for _, activeSkill in ipairs(build.calcsTab.mainEnv.player.activeSkillList) do
+			if activeSkill.activeEffect.grantedEffect.name == "Infernal Cry" then
+				infernalCry = activeSkill
+				break
+			end
+		end
+
+		assert.is_not_nil(infernalCry)
+		assert.are.equals("Warcry", infernalCry.buffList[1].type)
+		local foundExtraFire = false
+		for _, mod in ipairs(infernalCry.buffList[1].modList) do
+			if mod.name == "DamageGainAsFire" then
+				foundExtraFire = true
+				assert.are.equals("BASE", mod.type)
+				assert.True(mod.value > 0)
+				assert.are.equals(ModFlag.Melee, mod.flags)
+				local hasWarcryTag
+				local hasEmpoweredCondition
+				for _, tag in ipairs(mod) do
+					hasWarcryTag = hasWarcryTag or tag.type == "GlobalEffect" and tag.effectType == "Warcry"
+					hasEmpoweredCondition = hasEmpoweredCondition or tag.type == "Condition" and tag.var == "Empowered"
+				end
+				assert.True(hasWarcryTag)
+				assert.True(hasEmpoweredCondition)
+			end
+		end
+		assert.True(foundExtraFire)
+	end)
+
 	it("Test Atziri's Allure - ignore curse limit", function()
 		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1\nAtziri's Allure 1/0 1")
 		build.skillsTab:PasteSocketGroup("Flammability 20/0  1\n")
