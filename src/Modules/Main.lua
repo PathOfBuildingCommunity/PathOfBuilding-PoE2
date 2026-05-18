@@ -809,6 +809,8 @@ function main:SaveSettings()
 end
 
 function main:OpenPathPopup(invalidPath, errMsg, ignoreBuild)
+	invalidPath = invalidPath or ""
+	errMsg = errMsg or "Unknown error"
 	local controls = { }
 	local defaultLabelPlacementX = 8
 
