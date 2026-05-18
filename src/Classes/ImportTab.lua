@@ -15,6 +15,25 @@ local realmList = {
 	{ label = "PoE2", id = "PoE2", realmCode = "poe2", hostName = "https://www.pathofexile.com/", profileURL = "account/view-profile/" },
 }
 
+local function getImportTreeVersion(league)
+	local ruthlessTreeVersion = latestTreeVersion .. "_ruthless"
+	if league and league:match("Ruthless") and main:LoadTree(ruthlessTreeVersion) then
+		return ruthlessTreeVersion
+	end
+	return latestTreeVersion
+end
+
+local function getImportClassColor(charClass, league)
+	local defaultColor = colorCodes.DEFAULT
+	if not charClass or charClass == "?" then
+		return defaultColor
+	end
+	local tree = main:LoadTree(getImportTreeVersion(league))
+	local ascendClass = tree and tree.ascendNameMap and tree.ascendNameMap[charClass]
+	local baseClassName = ascendClass and ascendClass.class and ascendClass.class.name
+	return colorCodes[charClass:upper()] or (baseClassName and colorCodes[baseClassName:upper()]) or "^7"
+end
+
 local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(self, build)
 	self.ControlHost()
 	self.Control()
@@ -537,11 +556,7 @@ function ImportTabClass:BuildCharacterList(league)
 			charName = char.name or "?"
 			charClass = char.class or "?"
 
-			classColor = colorCodes.DEFAULT
-			if charClass ~= "?" then
-				local tree = main:LoadTree(latestTreeVersion .. (char.league:match("Ruthless") and "_ruthless" or ""))
-				classColor = colorCodes[charClass:upper()] or colorCodes[tree.ascendNameMap[charClass].class.name:upper()] or "^7"
-			end
+			classColor = getImportClassColor(charClass, char.league)
 
 			local detail
 			if league == nil then
@@ -735,7 +750,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 		end
 	end
 
-	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, getImportTreeVersion(charData.league))
 
 	-- workaround to update the ui to last option
 	self.build.treeTab.controls.versionSelect.selIndex = #self.build.treeTab.treeVersions
