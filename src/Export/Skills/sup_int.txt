@@ -1304,6 +1304,11 @@ statMap = {
 
 #skill SupportRitualisticCursePlayer
 #set SupportRitualisticCursePlayer
+statMap = {
+	["support_ritual_curse_curse_delay_+%_final"] = {
+		mod("CurseDelay", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
