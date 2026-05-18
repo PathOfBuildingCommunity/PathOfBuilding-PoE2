@@ -12081,7 +12081,7 @@ return {
 	["Runebinder"] = {  },
 	["Runic Monsters in your Maps are Duplicated"] = {  },
 	["Sacrifice # Life to not consume the last bolt when firing"] = { { isScalable = true } },
-	["Sacrifice #% of Life to gain that much Energy Shield when you Cast a Spell"] = { { isScalable = true } },
+	["Sacrifice #% of Life to gain that much Energy Shield when you Cast a Spell"] = { { isScalable = false } },
 	["Sacrifice #% of maximum Life to gain that much Guard when you Dodge Roll"] = { { isScalable = true } },
 	["Sacrifice #% of your Life when you Use or Trigger a Spell Skill"] = { { isScalable = true } },
 	["Sacrifice up to # to receive double on Trial completion"] = { { isScalable = false, formats = { "ultimatum_wager_type_hash" } } },

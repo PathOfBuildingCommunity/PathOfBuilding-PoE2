@@ -26,6 +26,8 @@ local applyRangeTests = {
 	[{ "(15-20)% increased Cold Damage per 1% Cold Resistance above 75%", 1.0, 1.5 }] = "30% increased Cold Damage per 1% Cold Resistance above 75%",
 	[{ "(15-20)% increased Cold Damage per 1% Cold Resistance above 75%", 0.5, 1.0 }] = "18% increased Cold Damage per 1% Cold Resistance above 75%",
 	[{ "(15-20)% increased Cold Damage per 1% Cold Resistance above 75%", 0.5, 1.5 }] = "27% increased Cold Damage per 1% Cold Resistance above 75%",
+	-- Unscalable unique range
+	[{ "Sacrifice (5-15)% of Life to gain that much Energy Shield when you Cast a Spell", 1.0, 1.5 }] = "Sacrifice 15% of Life to gain that much Energy Shield when you Cast a Spell",
 	-- High precision range
 	[{ "Regenerate (66.7-75) Life per second", 1.0, 1.0 }] = "Regenerate 75 Life per second",
 	[{ "Regenerate (66.7-75) Life per second", 1.0, 1.5 }] = "Regenerate 112.5 Life per second",
