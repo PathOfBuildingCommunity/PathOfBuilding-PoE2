@@ -327,7 +327,8 @@ function calcSkillCooldown(skillModList, skillCfg, skillData)
 	-- If a skill can store extra uses and has a cooldown, it doesn't round the cooldown value to server ticks
 	local rounded = false
 	if (skillData.storedUses and skillData.storedUses > 1) or (skillData.VaalStoredUses and skillData.VaalStoredUses > 1) or skillModList:Sum("BASE", skillCfg, "AdditionalCooldownUses") > 0 then
-		return cooldown, rounded, nil, noCooldownChance
+		-- if the skill does not have an innate cooldown, we need to pass the added otherwise things go boom
+		return cooldown, rounded, skillData.cooldown and nil or addedCooldown, noCooldownChance
 	else
 		cooldown = m_ceil(cooldown * data.misc.ServerTickRate) / data.misc.ServerTickRate
 		rounded = true
@@ -787,6 +788,17 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("EnemyPinBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
+	if skillModList:Flag(nil, "FreezeBuildupInsteadOfStunBuildup") then
+		-- Kaltenhalt
+		for i, value in ipairs(skillModList:Tabulate("INC", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyFreezeBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+		for i, value in ipairs(skillModList:Tabulate("MORE", { }, "EnemyHeavyStunBuildup")) do
+			local mod = value.mod
+			skillModList:NewMod("EnemyFreezeBuildup", mod.type, mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+		end
+	end
 	if skillModList:Flag(nil, "ProjectileSpeedAppliesToProjectileDamage") then
 		-- Projectile speed to projectile damage conversion
 		for i, value in ipairs(skillModList:Tabulate("INC", { }, "ProjectileSpeed")) do
@@ -1192,7 +1204,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate skill type stats
 	if skillFlags.minion then
 		if activeSkill.minion and activeSkill.minion.minionData.limit then
-			output.ActiveMinionLimit = m_floor(env.modDB:Override(nil, activeSkill.minion.minionData.limit) or calcLib.val(skillModList, activeSkill.minion.minionData.limit, skillCfg))
+			output.ActiveMinionLimit = m_floor(env.modDB:Override(nil, activeSkill.minion.minionData.limit) or (calcLib.val(skillModList, activeSkill.minion.minionData.limit, skillCfg) + calcLib.val(skillModList, "ActiveMinionLimit", skillCfg)))
 		end
 		output.SummonedMinionsPerCast = m_floor(calcLib.val(skillModList, "MinionPerCastCount", skillCfg))
 		if output.SummonedMinionsPerCast == 0 then
