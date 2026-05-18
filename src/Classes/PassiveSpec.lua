@@ -2392,9 +2392,6 @@ function PassiveSpecClass:GetOptionDisplayName(optionText)
 	return optionDisplayName(optionText)
 end
 
--- Scans current dynamic attribute options and reverts any hashOverrides whose option no
--- longer exists (e.g. after unequipping an item or removing a custom modifier line).
--- Returns true if any overrides were removed, so the caller can rebuild paths if needed.
 function PassiveSpecClass:RevertInvalidAttributeOverrides()
 	local dynamicOptions = self:GetDynamicAttributeOptions()
 	local optionsMap = { }
