@@ -422,7 +422,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	}
 	-- loop all slots, set any active jewel sockets
 	for index, slot in pairs(self.itemsTab.slots) do
-		if index:find("Jewel") and slot.shown() then
+		if index:find("Jewel Socket") and slot.shown() then
 			t_insert(activeJewelSockets[slot.parentSlot.slotName], slot)
 		end
 	end
