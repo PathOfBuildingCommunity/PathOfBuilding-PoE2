@@ -340,13 +340,29 @@ local function doActorAttribsConditions(env, actor)
 		end
 	end
 	if env.mode_effective then
-		if env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "FireExposureChance") > 0 or modDB:Sum("BASE", nil, "FireExposureChance") > 0 then
+		local function hasActiveSkillExposureSource(activeSkill, modName)
+			return activeSkill.skillModList and activeSkill.skillCfg
+				and activeSkill.skillModList:HasMod("BASE", activeSkill.skillCfg, modName)
+		end
+		local function hasExposureSource(element)
+			local modName = element .. "ExposureChance"
+			if modDB:Sum("BASE", nil, modName) > 0 then
+				return true
+			end
+			for _, activeSkill in ipairs(env.player.activeSkillList) do
+				if hasActiveSkillExposureSource(activeSkill, modName) then
+					return true
+				end
+			end
+			return false
+		end
+		if hasExposureSource("Fire") then
 			condList["CanApplyFireExposure"] = true
 		end
-		if env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "ColdExposureChance") > 0 or modDB:Sum("BASE", nil, "ColdExposureChance") > 0 then
+		if hasExposureSource("Cold") then
 			condList["CanApplyColdExposure"] = true
 		end
-		if env.player.mainSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "LightningExposureChance") > 0 or modDB:Sum("BASE", nil, "LightningExposureChance") > 0 then
+		if hasExposureSource("Lightning") then
 			condList["CanApplyLightningExposure"] = true
 		end
 	end

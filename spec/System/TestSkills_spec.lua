@@ -245,4 +245,42 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("Test conditional exposure supports make exposure configurable", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Killing Palm 20/0  1\nLightning Attunement 1/0  1\nLightning Exposure 1/0  1")
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.mainEnv.player.modDB:Flag(nil, "Condition:CanApplyLightningExposure"))
+	end)
+
+	it("Test exposure supports on other active skills make exposure configurable", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+		build.skillsTab:PasteSocketGroup("Killing Palm 20/0  1\nLightning Attunement 1/0  1\nLightning Exposure 1/0  1")
+		runCallback("OnFrame")
+
+		assert.are.equals("Spark", build.calcsTab.mainEnv.player.mainSkill.activeEffect.grantedEffect.name)
+		assert.True(build.calcsTab.mainEnv.player.modDB:Flag(nil, "Condition:CanApplyLightningExposure"))
+
+		build.configTab.input.conditionEnemyLightningExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(-20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "LightningExposure"))
+	end)
 end)
