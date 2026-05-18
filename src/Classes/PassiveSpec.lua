@@ -190,13 +190,13 @@ function PassiveSpecClass:Load(xml, dbFileName)
 					for _, child in ipairs(node) do
 						if child.elem == "AttributeOverride" then
 							-- Load standard attributes
-							for id in (child.attrib.strnodes or child.attrib.strNodes or ""):gmatch("%d+") do
+							for id in (child.attrib.strNodes or ""):gmatch("%d+") do
 								self:SwitchAttributeNode(tonumber(id), 1)
 							end
-							for id in (child.attrib.dexnodes or child.attrib.dexNodes or ""):gmatch("%d+") do
+							for id in (child.attrib.dexNodes or ""):gmatch("%d+") do
 								self:SwitchAttributeNode(tonumber(id), 2)
 							end
-							for id in (child.attrib.intnodes or child.attrib.intNodes or ""):gmatch("%d+") do
+							for id in (child.attrib.intNodes or ""):gmatch("%d+") do
 								self:SwitchAttributeNode(tonumber(id), 3)
 							end
 							-- Load custom attributes from child elements
@@ -305,9 +305,9 @@ function PassiveSpecClass:Save(xml)
 			end
 		end
 		local attrib = { 
-			strnodes = table.concat(standard[1], ","), 
-			dexnodes = table.concat(standard[2], ","), 
-			intnodes = table.concat(standard[3], ",")
+			strNodes = table.concat(standard[1], ","), 
+			dexNodes = table.concat(standard[2], ","), 
+			intNodes = table.concat(standard[3], ",")
 		}
 		local attributeOverride = { elem = "AttributeOverride", attrib = attrib }
 		for stat, ids in pairs(custom) do

@@ -749,7 +749,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 				self.build.spec:ReplaceNode(node, self.build.spec.hashOverrides[id])
 			end
 		elseif nodeInfo.stats and nodeInfo.stats[1] then
-			local stat = nodeInfo.stats[1]:gsub("%[([^%]|]*)%|?[^%]]*%]", "%1"):lower()
+			local stat = escapeGGGString(nodeInfo.stats[1]):lower()
 			self.build.spec:SwitchAttributeNode(id, stat)
 			local node = self.build.spec.nodes[id]
 			if node then
