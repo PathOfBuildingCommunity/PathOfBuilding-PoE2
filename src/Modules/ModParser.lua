@@ -5658,7 +5658,7 @@ local specialModList = {
 	["(%d+)%% increased total power counted by warcries"] = function(num) return { mod("WarcryPower", "INC", num) } end,
 	["warcries have a minimum of (%d+) power"] = function(num) return { mod("MinimumWarcryPower", "BASE", num) } end,
 	["stance skills have (%+%d+) seconds to cooldown"] = function(num) return { mod("CooldownRecovery", "BASE", num, { type = "SkillType", skillType = SkillType.Stance }) } end,
-	["skills have (%-.+) seconds to cooldown"] = function(num) return { mod("CooldownRecovery", "BASE", num) } end,
+	["skills have %-([%d%.]+) seconds to cooldown"] = function(num) return { mod("CooldownRecoveryFromTemporalis", "BASE", -num) } end,
 	["using warcries is instant"] = { flag("InstantWarcry") },
 	["attacks with axes or swords grant (%d+) rage on hit, no more than once every second"] = {
 		flag("Condition:CanGainRage", { type = "Condition", varList = { "UsingAxe", "UsingSword" } }),

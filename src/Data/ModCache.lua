@@ -5940,9 +5940,9 @@ c["Skills gain a Base Life Cost equal to 50% of Base Mana Cost"]={{[1]={flags=0,
 c["Skills gain a Base Life Cost equal to Base Mana Cost"]={{[1]={flags=0,keywordFlags=0,name="BaseManaCostAsLifeCost",type="BASE",value=100}},nil}
 c["Skills have +1 to Limit"]={{[1]={flags=0,keywordFlags=0,name="AdditionalCooldownUses",type="BASE",value=1}},nil}
 c["Skills have +5 to Rage cost"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="BASE",value=5},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
-c["Skills have -1 seconds to Cooldown"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="BASE",value=-1}},nil}
-c["Skills have -1.5 seconds to Cooldown"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="BASE",value=-1.5}},nil}
-c["Skills have -2 seconds to Cooldown"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecovery",type="BASE",value=-2}},nil}
+c["Skills have -1 seconds to Cooldown"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecoveryFromTemporalis",type="BASE",value=-1}},nil}
+c["Skills have -1.5 seconds to Cooldown"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecoveryFromTemporalis",type="BASE",value=-1.5}},nil}
+c["Skills have -2 seconds to Cooldown"]={{[1]={flags=0,keywordFlags=0,name="CooldownRecoveryFromTemporalis",type="BASE",value=-2}},nil}
 c["Skills have 10% chance to not remove Charges but still count as consuming them"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=10}}," to not remove  but still count as consuming them "}
 c["Skills have 10% chance to not remove Elemental Infusions but still count as consuming them"]={{}," to not remove Elemental Infusions but still count as consuming them "}
 c["Skills have 20% increased Critical Hit Chance per Connected Blue Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillCritChanceIncreasedPerBlueSupport",type="FLAG",value=20}},nil}
