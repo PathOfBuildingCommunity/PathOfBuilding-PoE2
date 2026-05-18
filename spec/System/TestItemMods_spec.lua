@@ -417,4 +417,56 @@ describe("TetsItemMods", function()
 		runCallback("OnFrame")
 		assert.True(build.calcsTab.calcsOutput.ChillEffectMod ~= nil)
 	end)
+
+	it("ironbound", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Ironbound Test
+			Gemini Bow
+			Quality: 20
+			Sockets: S S S S
+			Rune: None
+			Rune: None
+			Rune: None
+			Rune: None
+			LevelReq: 78
+			Implicits: 1
+			23% chance to chain an additional time
+			5% increased Block Chance per 100 Total Item Armour on Equipped Armour Items
+			Hits with this Weapon have 1 to 4 Added Physical Damage per 1% Block Chance
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: RARE
+			Armour Chest
+			Glorious Plate
+			Armour: 534
+			Crafted: true
+			Prefix: None
+			Prefix: None
+			Prefix: None
+			Suffix: None
+			Suffix: None
+			Suffix: None
+			Quality: 0
+			LevelReq: 65
+			Implicits: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		local basePhys = build.calcsTab.mainOutput.PhysicalStoredCombinedAvg
+
+		build.configTab.input.customMods = [[
+			10% chance to block
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- ~500 armour gives 25% increased block => 12.5%
+		assert.equals(12.5, build.calcsTab.mainOutput.EffectiveBlockChance)
+		assert.True(basePhys < build.calcsTab.mainOutput.PhysicalStoredCombinedAvg)
+	end)
 end)

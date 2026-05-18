@@ -1583,7 +1583,7 @@ local modTagList = {
 	["per (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["for every (%d+) (i?t?e?m? ?)evasion rating on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnBody Armour", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)evasion rating on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "EvasionOnAllArmourItems", div = num } } end,
-	["per (%d+) (i?t?e?m? ?)armour on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnAllArmourItems", div = num } } end,
+	["per (%d+) t?o?t?a?l? ?(i?t?e?m? ?)armour on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "ArmourOnAllArmourItems", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)energy shield on equipped armour items"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = num } } end,
 	["for every (%d+) (i?t?e?m? ?)energy shield on equipped body armour"] = function(num) return { tag = { type = "PerStat", stat = "EnergyShieldOnBody Armour", div = num } } end,
 	["per (%d+) (i?t?e?m? ?)armour on equipped shield"] = function(num) return { tagList = { { type = "PerStat", stat = "ArmourOnWeapon 2", div = num }, { type = "Condition", var = "UsingShield" } } } end,
