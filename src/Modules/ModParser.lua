@@ -4151,6 +4151,10 @@ local specialModList = {
 	["(%d+)%% increased effect of arcane surge on you per hypnotic eye jewel affecting you, up to a maximum of (%d+)%%"] = function(num, _, limit) return {
 		mod("ArcaneSurgeEffect", "INC", num, { type = "Multiplier", var = "HypnoticEyeJewel", globalLimit = tonumber(limit), globalLimitKey = "KurgalGaze" })
 	} end,
+	["(%d+)%% increased effect of arcane surge on you per ten percent missing mana"] = function(num) return {
+		mod("ArcaneSurgeEffect", "INC", num, { type = "Multiplier", var = "MissingManaPercentage", div = 10 }),
+		mod("SkillData", "LIST", { key = "currentManaPercentage", value = true }),
+	} end,
 	["(%d+)%% increased main hand critical hit chance per murderous eye jewel affecting you, up to a maximum of (%d+)%%"] = function(num, _, limit) return {
 		mod("CritChance", "INC", num, { type = "Multiplier", var = "MurderousEyeJewel", globalLimit = tonumber(limit), globalLimitKey = "TecrodGazeMainHand" }, { type = "Condition", var = "MainHandAttack" })
 	} end,

@@ -221,6 +221,25 @@ describe("TetsItemMods", function()
 		runCallback("OnFrame")
 	end)
 
+	it("Arcane Surge effect per ten percent missing mana", function()
+		build.configTab.input.customMods = [[
+			20% increased Effect of Arcane Surge on you per ten percent missing Mana
+		]]
+		build.configTab.input.multiplierCurrentManaPercentage = 100
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.equals(0, build.calcsTab.mainEnv.modDB:GetMultiplier("MissingManaPercentage"))
+		assert.equals(0, build.calcsTab.mainEnv.modDB:Sum("INC", nil, "ArcaneSurgeEffect"))
+
+		build.configTab.input.multiplierCurrentManaPercentage = 50
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.equals(50, build.calcsTab.mainEnv.modDB:GetMultiplier("MissingManaPercentage"))
+		assert.equals(100, build.calcsTab.mainEnv.modDB:Sum("INC", nil, "ArcaneSurgeEffect"))
+	end)
+
 	it("Jarngreipr - strength satisfies melee weapons and skills", function()
 		build.configTab.input.customMods = "+1000 Strength"
 		build.configTab:BuildModList()

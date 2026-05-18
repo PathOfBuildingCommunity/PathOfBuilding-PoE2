@@ -115,7 +115,9 @@ local configSettings = {
 		modList:NewMod("SkillData", "LIST", { key = "corpseLife", value = val }, "Config")
 	end },
 	{ var = "multiplierCurrentManaPercentage", type = "count", label = "Current ^x7070FFMana^7 %:", ifSkillData = "currentManaPercentage", defaultState = 100, apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:CurrentManaPercentage", "BASE", m_max(m_min(val,100), 0), "Config")
+		local currentManaPercentage = m_max(m_min(val, 100), 0)
+		modList:NewMod("Multiplier:CurrentManaPercentage", "BASE", currentManaPercentage, "Config")
+		modList:NewMod("Multiplier:MissingManaPercentage", "BASE", 100 - currentManaPercentage, "Config")
 	end },
 	{ var = "conditionStationary", type = "count", label = "Time spent stationary", ifCond = "Stationary",
 		tooltip = "Applies mods that use `while stationary` and `per / every second while stationary`",
