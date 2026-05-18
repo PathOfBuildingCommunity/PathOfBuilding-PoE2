@@ -591,8 +591,8 @@ function TreeTabClass:ConvertToVersion(version, remove, success, ignoreRuthlessC
 	local newSpec = new("PassiveSpec", self.build, version)
 	newSpec.title = self.build.spec.title
 	newSpec.jewels = copyTable(self.build.spec.jewels)
-	if self.build.spec.autoAttributeConfig then
-		newSpec.autoAttributeConfig = copyTable(self.build.spec.autoAttributeConfig)
+	if self.build.spec.autoAttributeConfigs then
+		newSpec.autoAttributeConfigs = copyTable(self.build.spec.autoAttributeConfigs)
 	end
 	newSpec:RestoreUndoState(self.build.spec:CreateUndoState(), version)
 	newSpec:BuildClusterJewelGraphs()
@@ -869,34 +869,88 @@ end
 
 -- Popup for configuration of automatic attribute allocation
 function TreeTabClass:ConfigureAutoAttributePopup()
-	if self.build.spec.autoAttributeConfig == nil then
-		self.build.spec.autoAttributeConfig = self:UpdateAutoAttributeConfig() -- will initialize if not yet set
+	if self.build.spec.autoAttributeConfigs == nil then
+		self.build.spec.autoAttributeConfigs = self:InitAutoAttributeConfigs() -- will initialize if not yet set
 	end
+
+	-- Remember initially active weaponSet in case it is switched
+	local initialWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
+	local pendingRefresh = false
+
+	-- returns currently active set of the attribute config
+	-- TODO maybe this needs to take into account the "useForBothSets" variable?
+	---@return 1 | 2
+	local cfgSet = function() return self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1 end
 	
 	local controls = { }
-	local config = copyTable(self.build.spec.autoAttributeConfig)
+	local configs = copyTable(self.build.spec.autoAttributeConfigs)
+	local attributeList = {"str", "dex", "int"}
 
 	local function toggleOptions(state)
 		-- used to disable/enable config fields when main option is set
 		for key, control in pairs(controls) do
-			if not (key:find("enabled") or key:find("apply") or key:find("cancel")) then
+			if not (key:find("enabled") or key:find("apply") or key:find("cancel") or key:find("weaponSwap")) then
 				control.enabled = state
 			end
 		end
 	end
+
+	local function switchToWeaponSet(num)
+		if num == 2 then
+			self.build.itemsTab.activeItemSet.useSecondWeaponSet = true
+		else
+			self.build.itemsTab.activeItemSet.useSecondWeaponSet = false
+		end
+		self.build.buildFlag = true -- schedule recalc
+		pendingRefresh = true -- schedule local UI refresh (happens after)
+
+	end
+
+	local function updateControlValues()
+		local currentSet = configs[cfgSet()]
+		self:UpdateAutoAttributeSet(currentSet)
+
+		-- Update general toggles
+		controls.enabledCheck.state = currentSet.enabled
+		controls.useAttrReqCheck.state = currentSet.useAttrReq
+		controls.ignoreItemModsCheck.state = currentSet.ignoreItemMods
+		controls.useForBothSetsCheck.state = currentSet.useForBothSets
+		
+		-- Update dynamically generated attribute rows
+		for _, attr in ipairs(attributeList) do
+			controls[attr .. "Weight"]:SetText(tostring(currentSet[attr].weight or ""), false)
+			controls[attr .. "MaxVal"]:SetText(tostring(currentSet[attr].max or ""), false)
+			controls[attr .. "UseMaxVal"].state = currentSet[attr].useMaxVal
+		end
+		
+		-- Correctly toggle everything based on whether the current set is enabled
+		toggleOptions(currentSet.enabled)
+	end
+
+	-- This acts as a pseudo-`resizeFunc`. I don't need to resize, but need a check that runs every frame
+	local function refreshUI()
+		-- if refresh is needed and build calcs have finished
+		if pendingRefresh then
+			if not self.build.buildFlag then
+				updateControlValues()
+				pendingRefresh = false
+			end
+		end
+	end
+
 	
 	-- UI dimensions
 	-- Main popup window
 	local window = {
 		width = 450,
-		height = 330,
+		height = 350,
 	}
 	-- 'save' and 'cancel' buttons
 	local mainButton = {
 		width = 100,
 		height = 20,
 		x = { }, -- left/right/center button x values assigned after
-		y = 290,
+		y = 310,
 	}
 	mainButton.x.center = 0
 	mainButton.x.left = m_floor(- mainButton.width - (mainButton.width * 0.1))
@@ -935,16 +989,37 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 			width = 65,
 			height = 16,
 		},
-	}
+	}	
 
 	-- Actual control elements
-	-- Main Checkbox
+	-- Main Checkbox (for generally enabling auto config)
 	controls.enabledLabel = new("LabelControl", nil, { -90, 35, 135, 16 }, "^7Automatic Attribute Allocation")
 	controls.enabledCheck = new("CheckBoxControl", { "LEFT", controls.enabledLabel, "RIGHT" }, { 10, 0, 18 }, "", 
 		function(value) 
-			config.enabled = value 
+			configs[cfgSet()].enabled = value
 			toggleOptions(value)
-		end, "^7Enabling this option will automatically decide which attribute to allocate on travel nodes, \naccording to the configured weights and current total attributes", config.enabled)
+		end, 
+		"^7Enabling this option will automatically decide which attribute to allocate on travel nodes, \naccording to the configured weights and current total attributes", 
+		configs[cfgSet()].enabled
+	)
+
+	-- Weapon Set swap controls
+	controls.weaponSwapLabel = new("LabelControl", nil, { 170, 14, 80, 16}, "^7Weapon Set")
+	controls.weaponSwapButton1 = new("ButtonControl", {"RIGHT",controls.enabledCheck,"LEFT"}, {160, 0, 18, 18}, "I", 
+		function ()
+			switchToWeaponSet(1)
+		end
+	)
+	controls.weaponSwapButton1.overSizeText = 3
+	controls.weaponSwapButton1.locked = function () return cfgSet() == 1 end
+	
+	controls.weaponSwapButton2 = new("ButtonControl", {"LEFT",controls.weaponSwapButton1,"RIGHT"}, {2, 0, 18, 18}, "II", 
+	function()
+			switchToWeaponSet(2)
+		end
+	)
+	controls.weaponSwapButton2.overSizeText = 3
+	controls.weaponSwapButton2.locked = function () return cfgSet() == 2 end
 	
 	-- Section for config settings
 	-- Header columns
@@ -952,67 +1027,98 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	for i, column in ipairs(settingsColumns) do
 		local anchor = i == 1 and { "TOPLEFT", controls.settingsSection, "TOPLEFT" } or {"LEFT", controls[settingsColumns[i-1].id .. "Label"], "RIGHT" }
 		local marginY = i == 1 and settingsSection.marginY or 0
-		controls[column.id .. "Label"] = new("LabelControl", anchor, {  i ~= 1 and settingsSection.marginX or 8, marginY, column.width, column.height }, "^7" .. column.header)
+		controls[column.id .. "Label"] = new("LabelControl", anchor, { i ~= 1 and settingsSection.marginX or 8, marginY, column.width, column.height }, "^7" .. column.header)
 	end
 	-- Attribute settings
-	local attributeList = {"str", "dex", "int"}
 	local attrEditTabGroup = { }
 	for i, attr in ipairs (attributeList) do
-		controls[attr .. "Label"] = new("LabelControl", { "TOPLEFT", i == 1 and controls.attributeLabel or controls[attributeList[i-1] .. "Label"], "BOTTOMLEFT" }, {  0, settingsSection.marginY / 2, settingsColumns[1].width, settingsColumns[1].height - 2 }, colorCodes[config[attr].name:upper()] ..  config[attr].name .. ":^7")
-		controls[attr .. "Weight"] = new("EditControl", {"LEFT", controls[attr .. "Label"], "LEFT"}, { settingsSection.marginX + controls.attributeLabel.width(), 0, settingsColumns[2].width, settingsColumns[2].height },  config[attr].weight, nil, "%D", nil, function(value) 
-			if not config.useAttrReq then
-				config[attr].weight = tonumber(value) 
+		controls[attr .. "Label"] = new("LabelControl", { "TOPLEFT", i == 1 and controls.attributeLabel or controls[attributeList[i-1] .. "Label"], "BOTTOMLEFT" }, {  0, settingsSection.marginY / 2, settingsColumns[1].width, settingsColumns[1].height - 2 }, colorCodes[configs[cfgSet()][attr].name:upper()] ..  configs[cfgSet()][attr].name .. ":^7")
+		controls[attr .. "Weight"] = new("EditControl", {"LEFT", controls[attr .. "Label"], "LEFT"}, { settingsSection.marginX + controls.attributeLabel.width(), 0, settingsColumns[2].width, settingsColumns[2].height },  configs[cfgSet()][attr].weight, nil, "%D", nil, function(value) 
+			if not configs[cfgSet()].useAttrReq then
+				configs[cfgSet()][attr].weight = tonumber(value) 
 			else -- make sure weight display value is updated to current stats, if attribute requirements are to be used
 				local attrReq = self.build.calcsTab.mainOutput["Req" .. attr:gsub("^%l", string.upper)] or 0
-				config[attr].weight = tonumber(attrReq)
+				configs[cfgSet()][attr].weight = tonumber(attrReq)
 				controls[attr .. "Weight"]:SetText(tostring(attrReq), false)
 			end
 		end, nil, nil, true)
 		controls[attr .. "Weight"]:AddToTabGroup(attrEditTabGroup)
-		controls[attr .. "MaxVal"] = new("EditControl", {"LEFT", controls[attr .. "Weight"], "LEFT"}, { settingsSection.marginX + controls.weightLabel.width(), 0, settingsColumns[3].width, settingsColumns[3].height },  config[attr].max, nil, "%D", nil, function(value) config[attr].max = tonumber(value) end, nil, nil, true)
+		controls[attr .. "MaxVal"] = new("EditControl", {"LEFT", controls[attr .. "Weight"], "LEFT"}, { settingsSection.marginX + controls.weightLabel.width(), 0, settingsColumns[3].width, settingsColumns[3].height },  configs[cfgSet()][attr].max, nil, "%D", nil, function(value) configs[cfgSet()][attr].max = tonumber(value) end, nil, nil, true)
 		controls[attr .. "MaxVal"]:AddToTabGroup(attrEditTabGroup)
 		controls[attr .. "UseMaxVal"] = new("CheckBoxControl", {"LEFT", controls[attr .. "MaxVal"], "LEFT"}, { settingsSection.marginX + controls.maxValLabel.width(), 0, settingsColumns[4].height },  "", function(state) 
 				if state then -- If box is switched to 'checked', only allow change if less than two boxes are checked
-					local maxCheckCount = (config.str.useMaxVal and 1 or 0) + (config.dex.useMaxVal and 1 or 0) + (config.int.useMaxVal and 1 or 0)
+					local maxCheckCount = (configs[cfgSet()].str.useMaxVal and 1 or 0) + (configs[cfgSet()].dex.useMaxVal and 1 or 0) + (configs[cfgSet()].int.useMaxVal and 1 or 0)
 					if maxCheckCount < 2 then
-						config[attr].useMaxVal = state
+						configs[cfgSet()][attr].useMaxVal = state
 					else
 						controls[attr .. "UseMaxVal"].state = false
 					end
 				else
-					config[attr].useMaxVal = state
+					configs[cfgSet()][attr].useMaxVal = state
 				end
-			end, "Enabling a \"Max Value\" will ignore the weight and stop allocating this attribute once the threshold is exceeded\n^8(no more than two attributes can be limited this way)^7", config[attr].useMaxVal)
+			end, "Enabling a \"Max Value\" will ignore the weight and stop allocating this attribute once the threshold is exceeded\n^8(no more than two attributes can be limited this way)^7", configs[cfgSet()][attr].useMaxVal)
 	end
+
+	-- Extra Options Secion
+	local extraOptionsXOffset = controls[settingsColumns[1].id .. "Label"].width() + controls[settingsColumns[2].id .. "Label"].width() + (2 * settingsSection.marginX) -- sum of dynamic widths and margins
 
 	-- Use Attribute Requirements option
 	controls.useAttrReqLabel = new("LabelControl", { "TOPLEFT", controls.intLabel, "BOTTOMLEFT" }, {  0, settingsSection.marginY, settingsColumns[1].width, settingsColumns[1].height }, "^7Use Attribute Requirements")
-	controls.useAttrReqCheck = new("CheckBoxControl", { "TOPLEFT", controls.intMaxVal, "BOTTOMLEFT" }, { 0, settingsSection.marginY -1, 18 }, "", function(state) 
-			config.useAttrReq = state
+	controls.useAttrReqCheck = new("CheckBoxControl", { "LEFT", controls.useAttrReqLabel, "LEFT" }, { extraOptionsXOffset, 0, 18 }, "", function(state) 
+			configs[cfgSet()].useAttrReq = state
 			if state then
 				for _, attr in ipairs (attributeList) do
 					controls[attr .. "Weight"]:SetText(self.build.calcsTab.mainOutput["Req" .. attr:gsub("^%l", string.upper) .. "String"] or "0", true)
 				end
 			end
 		end, 
-		"^7Enabling this option will automatically set the weights to current attribute requirements\n^8(You can still manually set \"Max Value\")^7", config.useAttrReq
+		"^7Enabling this option will automatically set the weights to current attribute requirements\n^8(You can still manually set \"Max Value\")^7", configs[cfgSet()].useAttrReq
 		)
 	-- Ignore Item Mods option
 	controls.ignoreItemModsLabel = new("LabelControl", { "TOPLEFT", controls.useAttrReqLabel, "BOTTOMLEFT" }, { 0, 10, settingsColumns[1].width, settingsColumns[1].height, }, "^7Ignore Item Mods")
-	controls.ignoreItemModsCheck = new("CheckBoxControl", { "TOP", controls.useAttrReqCheck, "BOTTOM" }, { 0, 10, 18 }, "", function(value) config.ignoreItemMods = value end, "^7Enabling this option will ignore attributes gained from items, when calculating total player attributes\n^8(This includes both flat and percentage modifiers)^7", config.ignoreItemMods)
+	controls.ignoreItemModsCheck = new("CheckBoxControl", { "LEFT", controls.ignoreItemModsLabel, "LEFT" }, { extraOptionsXOffset, 0, 18 }, "", function(value) configs[cfgSet()].ignoreItemMods = value end, "^7Enabling this option will ignore attributes gained from items, when calculating total player attributes\n^8(This includes both flat and percentage modifiers)^7", configs[cfgSet()].ignoreItemMods)
 	
+	-- Use for both weapon sets option
+	controls.useForBothSetsLabel = new("LabelControl", { "TOPLEFT", controls.ignoreItemModsLabel, "BOTTOMLEFT" }, { 0, 10, settingsColumns[1].width, settingsColumns[1].height, }, "^7Use for both Weapon Sets")
+	controls.useForBothSetsCheck = new("CheckBoxControl", { "LEFT", controls.useForBothSetsLabel, "LEFT" }, { extraOptionsXOffset, 0, 18 }, "", 
+		function(value)
+			local activeSet = cfgSet()
+			configs[activeSet].useForBothSets = value
+			-- make sure setting isn't true for both
+			if value then
+				configs[activeSet == 1 and 2 or 1].useForBothSets = false
+			end
+		end,
+		"^7Enabling this option will use the settings from this set regardless of active weapon set\n^8(Attribute requirements will still be based on each respective weapon set)^7",
+		configs[cfgSet()].useForBothSets
+	)
+
+	-- function to make sure changes are saved
 	local function applyChanges()
-		self.build.spec.autoAttributeConfig = self:UpdateAutoAttributeConfig(copyTable(config))
+		-- update both sets
+		self:UpdateAutoAttributeSet(copyTable(configs[1]), 1)
+		self:UpdateAutoAttributeSet(copyTable(configs[2]), 2)
 		
 		-- Enable "Save" build button, if autoAttributeConfig changed
-		if not tableDeepEquals(self.build.spec.autoAttributeConfig, self.build.spec.autoAttributeConfigSaved) then 
+		if not tableDeepEquals(self.build.spec.autoAttributeConfigs, self.build.spec.autoAttributeConfigsSaved) then
 			self.autoAttrFlag = true
 		end
 	end
 
+	-- function to make sure weapon set is reset to initial value
+	local function resetWeaponSet()
+		-- check if weapon set was changed and revert if so
+		if initialWeaponSet ~= self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1 then
+			switchToWeaponSet(initialWeaponSet)
+			self.buildFlag = true
+		end
+	end
+
+
 	-- Apply changes button
 	controls.apply = new("ButtonControl", nil, { mainButton.x.left, mainButton.y, mainButton.width, mainButton.height }, "Save Config", function()
 		applyChanges()
+		resetWeaponSet()
 		main:ClosePopup()
 	end)
 
@@ -1022,11 +1128,12 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 			-- Open confirmation popup first
 			main:OpenConfirmPopup(
 				"Confirm Re-Allocation",
-				"This will re-allocate all attribute travel nodes based on your Auto Attribute settings for the currently active weapon set.\nContinue?",
+				"This will re-allocate all attribute travel nodes based on your Auto Attribute settings for the currently active weapon set.\n\nContinue?",
 				"Confirm",
 				function()
 					applyChanges() -- save changes first
-					self.build.spec:AutoReallocAllAttributeNodes()
+					self.build.spec:AutoReallocAllAttributeNodes(cfgSet())
+					resetWeaponSet()
 					main:ClosePopup() -- close main popup
 				end
 			)
@@ -1035,65 +1142,102 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 
 	-- Cancel button
 	controls.cancel = new("ButtonControl", nil, { mainButton.x.right, mainButton.y, mainButton.width, mainButton.height }, "Cancel", function()
+		resetWeaponSet()
 		main:ClosePopup()
 	end)
 	
-	main:OpenPopup(window.width, window.height, "Auto Attribute Config", controls, "apply", nil, "cancel")
+	main:OpenPopup(window.width, window.height, "Auto Attribute Config", controls, "apply", nil, "cancel", nil, refreshUI)
 	toggleOptions(controls.enabledCheck.state)
+	
+	-- do an initial update upon first opening
+	if not pendingRefresh then
+		updateControlValues()
+	end
 	
 end
 
--- Create the default autoAttributeConfig in case the popup is opened for the first time
----@return table defaultConfig
-function TreeTabClass:InitAutoAttributeConfig()
-	local defaultConfig = {
+-- Create the default autoAttributeConfigs in case the popup is opened for the first time
+---@return table defaultConfigs @returns table with indeces 1, 2 `[1] = defaultSet, [2] = defaultSet`
+function TreeTabClass:InitAutoAttributeConfigs()
+	local defaultSet = {
 			enabled = false,
 			ignoreItemMods = false, -- Whether to calculate player totals without the effects from items
 			useAttrReq = false, -- Whether weights are auto-populated based on current attribute requirements
+			useForBothSets = false, -- Whether config from this weapon set is used for both
 			dex = { weight = nil, max = nil, useMaxVal = false, id = 2, name = "Dexterity" }, -- "weight" and "max" determined by user, "id" and "name" is static
 			int = { weight = nil, max = nil, useMaxVal = false, id = 3, name = "Intelligence" },
 			str = { weight = nil, max = nil, useMaxVal = false, id = 1, name = "Strength" },
 		}
-	return defaultConfig
+	return { [1] = defaultSet, [2] = copyTable(defaultSet) }
 end
 
--- Update calculated and potentially static values that are not part of the autoAttributeConfig popup form
----@param autoAttributeConfig table | nil the autoAttributeConfig you're starting from, if any
----@param addStaticInfo boolean | nil whether to add static infor like the 'id' and 'name' of attributes (e.g. when loading from a save file)
----@return table @returns the updated config
-function TreeTabClass:UpdateAutoAttributeConfig(autoAttributeConfig, addStaticInfo)
-	-- Initialize config if empty
-	if autoAttributeConfig == nil then
-		autoAttributeConfig = self:InitAutoAttributeConfig()
+-- Return index of autoAttributeConfigs set that is supposed to be used for next allocation.
+---@param allocMode 0 | 1 | 2 number that specifies if allocating generic passives (`0`), or weapon set `1` / `2` specific passives
+---@param autoAttributeConfigs table the autoAttributeConfigs you want to access
+---@return 1 | 2 | -1 @returns index that should be used or `-1` as indication that it should not be used at all
+function TreeTabClass:ActiveAutoAttributeSetIdx(allocMode, autoAttributeConfigs)
+	-- First check if there are overrides in the config
+	local overrideIdx 
+	if autoAttributeConfigs[1] and autoAttributeConfigs[1].useForBothSets then
+		overrideIdx = 1
+	elseif autoAttributeConfigs[2] and autoAttributeConfigs[2].useForBothSets then
+		overrideIdx = 2
 	end
 
-	-- Static values (Should only be necessary when loading from xml)
-	if addStaticInfo then
-		local staticInfo = {
-			dex = { id = 2, name = "Dexterity" },
-			int = { id = 3, name = "Intelligence" },
-			str = { id = 1, name = "Strength" },
-		}
-		for key, value in pairs(staticInfo) do
-			autoAttributeConfig[key].id = value.id
-			autoAttributeConfig[key].name = value.name
-		end
+	if overrideIdx then return overrideIdx end
+
+	local activeWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
+	allocMode = allocMode or 0 -- nil check
+
+	-- don't use auto allocation if alloc mode is different from current weaponSet
+	-- NOTE: not using automatic allocation for now because it's hard get accurate attribute values and requirements for the non-active set
+	if allocMode ~= 0 and allocMode ~= activeWeaponSet then
+		return -1 
 	end
+
+	-- otherwise return activeWeaponSet
+	return activeWeaponSet
+end
+
+-- Update calculated and values that are not part of the autoAttributeConfigs popup form. 
+-- The provided table is modified directly. `spec.autoAttributeConfigs` is only modified, if `writeToSetIdx` is provided
+---@param autoAttributeSet table the autoAttributeSet you want to update
+---@param writeToSetIdx 1 | 2 | nil if provided autoAttributeSet is only a copy and needs to be written to `autoAttributeConfigs` this determines the index
+function TreeTabClass:UpdateAutoAttributeSet(autoAttributeSet, writeToSetIdx)
 
 	-- Calculated values
-	if autoAttributeConfig.useAttrReq then
+	if autoAttributeSet.useAttrReq then
 		-- Make sure weights based on attribute requirements are up to date
-		autoAttributeConfig.dex.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqDex"] or 0) or autoAttributeConfig.dex.weight -- Additional `nil` check for `mainOutput`, e.g. in case of initial load
-		autoAttributeConfig.int.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqInt"] or 0) or autoAttributeConfig.int.weight
-		autoAttributeConfig.str.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqStr"] or 0) or autoAttributeConfig.str.weight
+		autoAttributeSet.dex.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqDex"] or 0) or autoAttributeSet.dex.weight -- Additional `nil` check for `mainOutput`, e.g. in case of initial load
+		autoAttributeSet.int.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqInt"] or 0) or autoAttributeSet.int.weight
+		autoAttributeSet.str.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqStr"] or 0) or autoAttributeSet.str.weight
 	end
 	
-	autoAttributeConfig.totalWeight = (autoAttributeConfig.dex.weight or 0) + (autoAttributeConfig.int.weight or 0) + (autoAttributeConfig.str.weight or 0)
-	autoAttributeConfig.dex.ratio = autoAttributeConfig.totalWeight == 0 and (1/3) or (autoAttributeConfig.dex.weight or 0) / autoAttributeConfig.totalWeight
-	autoAttributeConfig.int.ratio = autoAttributeConfig.totalWeight == 0 and (1/3) or (autoAttributeConfig.int.weight or 0) / autoAttributeConfig.totalWeight
-	autoAttributeConfig.str.ratio = autoAttributeConfig.totalWeight == 0 and (1/3) or (autoAttributeConfig.str.weight or 0) / autoAttributeConfig.totalWeight
+	autoAttributeSet.totalWeight = (autoAttributeSet.dex.weight or 0) + (autoAttributeSet.int.weight or 0) + (autoAttributeSet.str.weight or 0)
+	autoAttributeSet.dex.ratio = autoAttributeSet.totalWeight == 0 and (1/3) or (autoAttributeSet.dex.weight or 0) / autoAttributeSet.totalWeight
+	autoAttributeSet.int.ratio = autoAttributeSet.totalWeight == 0 and (1/3) or (autoAttributeSet.int.weight or 0) / autoAttributeSet.totalWeight
+	autoAttributeSet.str.ratio = autoAttributeSet.totalWeight == 0 and (1/3) or (autoAttributeSet.str.weight or 0) / autoAttributeSet.totalWeight
 
-	return autoAttributeConfig
+	-- extra writing step is only needed if providing a copy (e.g. temp config from pop-up)
+	if writeToSetIdx then 
+		self.build.spec.autoAttributeConfigs[writeToSetIdx] = autoAttributeSet
+	end
+end
+
+-- Add static values that are not part of the autoAttributeConfigs popup form (e.g. when loading from xml for first time)
+---@param autoAttributeConfigs table the autoAttributeConfigs that is lacking the data
+function TreeTabClass:AddStaticDataToAutoAttributeConfigs(autoAttributeConfigs)
+	local staticInfo = {
+		dex = { id = 2, name = "Dexterity" },
+		int = { id = 3, name = "Intelligence" },
+		str = { id = 1, name = "Strength" },
+	}
+	for key, value in pairs(staticInfo) do
+		autoAttributeConfigs[1][key].id = value.id
+		autoAttributeConfigs[1][key].name = value.name
+		autoAttributeConfigs[2][key].id = value.id
+		autoAttributeConfigs[2][key].name = value.name
+	end
 end
 
 function TreeTabClass:SaveMasteryPopup(node, listControl)

@@ -134,30 +134,42 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				for nodeId in node.attrib.nodes:gmatch("%d+") do
 					weaponSets[tonumber(nodeId)] = weaponSet
 				end
-			elseif node.elem == "AutoAttributeConfig" then
-				local autoAttributeConfig = { }
-				if node.attrib then
-					autoAttributeConfig.enabled = node.attrib.enabled == "true"
-					autoAttributeConfig.ignoreItemMods = node.attrib.ignoreItemMods == "true"
-					autoAttributeConfig.useAttrReq = node.attrib.useAttrReq == "true"
-					for _, attrEntry in ipairs(node) do
-						if (not attrEntry.elem) or (not attrEntry.attrib) then
-							launch:ShowErrMsg("^1Error parsing '%s': 'AutoAttributeConfig' element has invalid structure^7", dbFileName)
+			elseif node.elem == "AutoAttributeConfigs" then
+				local autoAttributeConfigs = {
+					[1] = { },
+					[2] = { }
+				}
+				-- loop over "WeaponSet1" and "WeaponSet2"
+				for _, weaponSetNode in ipairs(node) do
+					if type(weaponSetNode) == "table" and weaponSetNode.elem and weaponSetNode.elem:match("^WeaponSet%d$") then
+						local weaponSetIdx = tonumber(weaponSetNode.elem:match("^WeaponSet(%d)"))
+						if weaponSetNode.attrib then
+							autoAttributeConfigs[weaponSetIdx].enabled = weaponSetNode.attrib.enabled == "true"
+							autoAttributeConfigs[weaponSetIdx].ignoreItemMods = weaponSetNode.attrib.ignoreItemMods == "true"
+							autoAttributeConfigs[weaponSetIdx].useAttrReq = weaponSetNode.attrib.useAttrReq == "true"
+							autoAttributeConfigs[weaponSetIdx].useForBothSets = weaponSetNode.attrib.useForBothSets == "true"
+							for _, attrEntry in ipairs(weaponSetNode) do
+								if (not attrEntry.elem) or (not attrEntry.attrib) then
+									launch:ShowErrMsg("^1Error parsing '%s': 's' element has invalid structure^7", dbFileName)
+									return true
+								end
+								autoAttributeConfigs[weaponSetIdx][attrEntry.elem] = { }
+								autoAttributeConfigs[weaponSetIdx][attrEntry.elem].max = attrEntry.attrib.max ~= "nil" and tonumber(attrEntry.attrib.max) or nil
+								autoAttributeConfigs[weaponSetIdx][attrEntry.elem].weight = attrEntry.attrib.weight ~= "nil" and tonumber(attrEntry.attrib.weight) or nil
+								autoAttributeConfigs[weaponSetIdx][attrEntry.elem].useMaxVal = attrEntry.attrib.useMaxVal == "true"
+							end
+						else
+							launch:ShowErrMsg("^1Error parsing '%s': 'AutoAttributeConfigs' element missing 'attrib' attribute^7", dbFileName)
 							return true
 						end
-						autoAttributeConfig[attrEntry.elem] = { }
-						autoAttributeConfig[attrEntry.elem].max = attrEntry.attrib.max ~= "nil" and tonumber(attrEntry.attrib.max) or nil
-						autoAttributeConfig[attrEntry.elem].weight = attrEntry.attrib.weight ~= "nil" and tonumber(attrEntry.attrib.weight) or nil
-						autoAttributeConfig[attrEntry.elem].useMaxVal = attrEntry.attrib.useMaxVal == "true"
 					end
-				else
-					launch:ShowErrMsg("^1Error parsing '%s': 'AutoAttributeConfig' element missing 'attrib' attribute^7", dbFileName)
-					return true
 				end
 				-- Add static and calculated values
-				autoAttributeConfig = self.build.treeTab:UpdateAutoAttributeConfig(autoAttributeConfig, true)
-				self.autoAttributeConfig = copyTable(autoAttributeConfig)
-				self.autoAttributeConfigSaved = copyTable(autoAttributeConfig) --extra entry to detect changes later
+				self.build.treeTab:AddStaticDataToAutoAttributeConfigs(autoAttributeConfigs)
+				self.build.treeTab:UpdateAutoAttributeSet(autoAttributeConfigs[1])
+				self.build.treeTab:UpdateAutoAttributeSet(autoAttributeConfigs[2])
+				self.autoAttributeConfigs = copyTable(autoAttributeConfigs)
+				self.autoAttributeConfigsSaved = copyTable(autoAttributeConfigs) --extra entry to detect changes later
 
 			end
 		end
@@ -323,28 +335,38 @@ function PassiveSpecClass:Save(xml)
 	end
 	t_insert(xml, overrides)
 	
-	local autoAttributeConfig = {
-		elem = "AutoAttributeConfig"
+	local autoAttributeConfigs = {
+		elem = "AutoAttributeConfigs"
 	}
-	if self.autoAttributeConfig then
-		-- This only saves values to the xml that are neither static, nor calculated. The rest is regenerated on load
-		autoAttributeConfig.attrib = {
-			enabled = tostring(self.autoAttributeConfig.enabled),
-			ignoreItemMods = tostring(self.autoAttributeConfig.ignoreItemMods),
-			useAttrReq = tostring(self.autoAttributeConfig.useAttrReq),
-		}
-		for _, attr in ipairs({"str", "dex", "int"}) do
-			local attrEntry = { elem = tostring(attr), 
-				attrib = { 
-					weight = tostring(self.autoAttributeConfig[attr].weight),
-					max = tostring(self.autoAttributeConfig[attr].max),
-					useMaxVal = tostring(self.autoAttributeConfig[attr].useMaxVal),
+	if self.autoAttributeConfigs and self.autoAttributeConfigs[1] and self.autoAttributeConfigs[2] then
+		-- Loop through weapon sets 1 and 2
+		for weaponSet = 1, 2 do
+			local configSet = self.autoAttributeConfigs[weaponSet]
+			local weaponSetEntry = {
+				elem = "WeaponSet" .. weaponSet,
+				attrib = {
+					enabled = tostring(configSet.enabled),
+					ignoreItemMods = tostring(configSet.ignoreItemMods),
+					useAttrReq = tostring(configSet.useAttrReq),
+					useForBothSets = tostring(configSet.useForBothSets),
 				}
 			}
-			t_insert(autoAttributeConfig, attrEntry)
+			-- Save attribute entries for this weapon set
+			for _, attr in ipairs({"str", "dex", "int"}) do
+				local attrEntry = { 
+					elem = tostring(attr), 
+					attrib = { 
+						weight = tostring(configSet[attr].weight),
+						max = tostring(configSet[attr].max),
+						useMaxVal = tostring(configSet[attr].useMaxVal),
+					}
+				}
+				t_insert(weaponSetEntry, attrEntry)
+			end
+			t_insert(autoAttributeConfigs, weaponSetEntry)
 		end
-		t_insert(xml, autoAttributeConfig)
-		self.autoAttributeConfigSaved = copyTable(self.autoAttributeConfig)
+		t_insert(xml, autoAttributeConfigs)
+		self.autoAttributeConfigsSaved = copyTable(self.autoAttributeConfigs)
 	end
 
 end
@@ -865,13 +887,17 @@ function PassiveSpecClass:AllocNode(node, altPath, manualAttribute)
 		return
 	end
 
+	-- re-used local vars for automatic attribute allocation
 	local cachedPlayerAttr = nil -- Used for iterative, automatic determination of desired attribute nodes
-	local cachedPathAttrResults = nil --Used for temp storage of mod effects gained from the nodes, which are not yet included in the playerModDb until after allocation
+	local cachedPathAttrResults = nil -- Used for temp storage of mod effects gained from the nodes, which are not yet included in the playerModDb until after allocation
+	local autoAttrIdx = self.autoAttributeConfigs and self.build.treeTab:ActiveAutoAttributeSetIdx(node.allocMode, self.autoAttributeConfigs) or -1
+	local autoAttributeSet = autoAttrIdx > 0 and self.autoAttributeConfigs[autoAttrIdx] or nil
+
 	local function handleAttributeNode(attrNode)
 		if not attrNode.isAttribute then return end
-		if (not manualAttribute) and self.autoAttributeConfig and self.autoAttributeConfig.enabled then
-			-- Note: cachedPathAttrResults is passed every time, but only used if `cachedPlayerAttr == nil`
-			self.attributeIndex, cachedPlayerAttr = self:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResults)
+		if (not manualAttribute) and autoAttributeSet and autoAttributeSet.enabled then
+			-- NOTE: cachedPathAttrResults is passed every time, but only used if `cachedPlayerAttr == nil`
+			self.attributeIndex, cachedPlayerAttr = self:GetAutoAttribute(autoAttributeSet, cachedPlayerAttr, cachedPathAttrResults)
 		end
 		self:SwitchAttributeNode(attrNode.id, self.attributeIndex or 1)
 	end
@@ -884,7 +910,7 @@ function PassiveSpecClass:AllocNode(node, altPath, manualAttribute)
 		end
 		self.allocNodes[node.id] = node
 	else
-		if (not manualAttribute) and self.autoAttributeConfig and self.autoAttributeConfig.enabled and ((((altPath and #altPath) or 0) > 1) or ((node.pathDist or 0) > 1) ) then
+		if (not manualAttribute) and autoAttributeSet and autoAttributeSet.enabled and ((((altPath and #altPath) or 0) > 1) or ((node.pathDist or 0) > 1) ) then
 			-- Precalculate effects on attributes from non-attribues passives, if necessary
 			for _, pathNode in ipairs(altPath or node.path) do
 				if pathNode.finalModList and #pathNode.finalModList > 0 then
@@ -2436,12 +2462,12 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 end
 
 -- Function to auto calculate which attribute to allocate based on desired user weights
--- Should only be called if `self.autoAttributeConfig and self.autoAttributeConfig.enabled`
+-- Should only be called if `autoAttributeSet.enabled`
+---@param autoAttributeSet table Active autoAttributeSet that is to be used for the calculation
 ---@param cachedPlayerAttr table | nil optional table with cached playerAttribute values. Used when iterating over multiple attribute nodes without having to recalculate each time. Ignored if `nil`
 ---@param cachedPathAttrResults table | nil optional table that contains a cumulative effects of `finalModList` from non-attribute nodes on the path that need to be taken into account for attribute total estimation
 ---@return number attributeIndex, table playerAttr returns a number for the `attributeIndex` and the `playerAttr` table for future iterations
-function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResults)
-	local autoAttributeConfig = self.autoAttributeConfig
+function PassiveSpecClass:GetAutoAttribute(autoAttributeSet, cachedPlayerAttr, cachedPathAttrResults)
 	local defaultAttrNodeValue = data.misc.DefaultAttrNodeValue
 	local playerAttr
 	local attributeList = { "dex", "int", "str" }
@@ -2450,24 +2476,24 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 	if cachedPlayerAttr ~= nil then
 		playerAttr = cachedPlayerAttr
 	else
-		playerAttr = self:InitAutoAttributePlayerCache(cachedPathAttrResults)
+		playerAttr = self:InitAutoAttributePlayerCache(autoAttributeSet.ignoreItemMods, cachedPathAttrResults)
 	end
 	
 	-- Update weights based on attribute requirements if necessary
-	if autoAttributeConfig.useAttrReq then
-		self.autoAttributeConfig = self.build.treeTab:UpdateAutoAttributeConfig(autoAttributeConfig)
+	if autoAttributeSet.useAttrReq then
+		self.build.treeTab:UpdateAutoAttributeSet(autoAttributeSet)
 	end
 	
 	-- Mark attributes ineligible if the max value is set and already exceeded.
 	local effConfigWeightTotal = 0
 	for _, attr in ipairs(attributeList) do
-		if autoAttributeConfig[attr].max ~= nil and autoAttributeConfig[attr].useMaxVal and (playerAttr[attr].total >= autoAttributeConfig[attr].max) then
+		if autoAttributeSet[attr].max ~= nil and autoAttributeSet[attr].useMaxVal and (playerAttr[attr].total >= autoAttributeSet[attr].max) then
 			playerAttr[attr].eligible = false
 			playerAttr[attr].effTotal = 0
 		else
 			playerAttr[attr].eligible = true
 			playerAttr[attr].effTotal = playerAttr[attr].total
-			effConfigWeightTotal = effConfigWeightTotal + (autoAttributeConfig[attr].weight or 0)
+			effConfigWeightTotal = effConfigWeightTotal + (autoAttributeSet[attr].weight or 0)
 		end
 	end
 	
@@ -2483,7 +2509,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 	-- Find attribute with greatest diff from effective target ratio
 	for _, attr in ipairs(attributeList) do
 		if playerAttr[attr].eligible then
-			local effConfigRatio = (autoAttributeConfig[attr].weight or 0) / m_max(effConfigWeightTotal, 1 )
+			local effConfigRatio = (autoAttributeSet[attr].weight or 0) / m_max(effConfigWeightTotal, 1 )
 			local diff = effConfigRatio - playerAttr[attr].effRatio
 			if (maxDiff == nil) or (diff > maxDiff) then
 				maxDiff = diff
@@ -2497,7 +2523,7 @@ function PassiveSpecClass:GetAutoAttribute(cachedPlayerAttr, cachedPathAttrResul
 		playerAttr[neededAttr].total = playerAttr[neededAttr].base * playerAttr[neededAttr].mult
 	end
 
-	return autoAttributeConfig[neededAttr] and autoAttributeConfig[neededAttr].id or 1, playerAttr
+	return autoAttributeSet[neededAttr] and autoAttributeSet[neededAttr].id or 1, playerAttr
 end
 
 -- Analyzes a `finalModList` from a path with respect to effects on `dex`/ `int` / `str` for use in `GetAutoAttribute`
@@ -2514,13 +2540,13 @@ function PassiveSpecClass:GetTempPathAttributeResults(modList, cachedAttrResults
 end
 
 -- Calculates initial total effects of player attribute mods, which is cached to avoid parsing mods on each pass
+---@param ignoreItemMods boolean whether item mods affecting attributes should be ignored
 ---@param attrOffset table | nil optional table `{str/dex/int = { base = number, inc = number, more = number } }`. Used to manually offset certain stats, e.g. when re-allocating entire tree. Ignored if `nil`
 ---@return table playerAttr table with subtable for each attribute: `{str/dex/int = {base = number, inc = number, more = number, itemBase = number, itemInc = number, itemMore = number, mult = number, total = number} }`
-function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
+function PassiveSpecClass:InitAutoAttributePlayerCache(ignoreItemMods, attrOffset)
 	local attributeList = { "dex", "int", "str" }
 	local playerModDB = self.build.calcsTab.mainEnv.player.modDB
 	local itemModDB = self.build.calcsTab.mainEnv.itemModDB
-	local autoAttributeConfig = self.autoAttributeConfig or { }
 
 	-- Initialize player attribute values
 	local playerAttr = { }
@@ -2535,7 +2561,7 @@ function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
 
 		-- Remove item effects if configured 
 		-- NOTE: I believe this currently wouldn't work with "override" mods or "Omniscience", but I don't think those exist in PoE2 atm
-		if autoAttributeConfig.ignoreItemMods then
+		if ignoreItemMods then
 			playerAttr[attr].itemBase = itemModDB:Sum("BASE", nil, attrUpper)
 			playerAttr[attr].itemInc = itemModDB:Sum("INC", nil, attrUpper)
 			playerAttr[attr].itemMore = itemModDB:More(nil, attrUpper)
@@ -2559,8 +2585,10 @@ function PassiveSpecClass:InitAutoAttributePlayerCache(attrOffset)
 end
 
 -- Reallocates all basic attribute nodes, based on desired user weights
-function PassiveSpecClass:AutoReallocAllAttributeNodes()
-	if not self.autoAttributeConfig or not self.autoAttributeConfig.enabled then
+---@param autoAttrIdx 1 | 2 index of autoAttributeConfigs that should be used
+function PassiveSpecClass:AutoReallocAllAttributeNodes(autoAttrIdx)
+	local autoAttributeSet = self.autoAttributeConfigs and self.autoAttributeConfigs[autoAttrIdx]
+	if not autoAttributeSet or not autoAttributeSet.enabled then
 		return
 	end
 
@@ -2568,7 +2596,7 @@ function PassiveSpecClass:AutoReallocAllAttributeNodes()
 	local defaultAttrValue = data.misc.DefaultAttrNodeValue
 	local allNodes = self.build.spec.allocNodes
 	local activeWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
-	local attrModOffsets = { 
+	local attrModOffsets = {
 		str = { base = 0 }, 
 		dex = { base = 0 }, 
 		int = { base = 0 }
@@ -2592,17 +2620,19 @@ function PassiveSpecClass:AutoReallocAllAttributeNodes()
 			end
 			
 			-- add to list for re-allocation
-			if isAffectedAttr then 
-				t_insert(attrNodes,node) 
+			if isAffectedAttr then
+				t_insert(attrNodes,node)
 			end
 		end
 	end
 	
 	-- Initialise "corrected" playerAttrCache, i.e. player stats, but with attributes from base attribute passives subtracted
-	local playerAttrCache = self:InitAutoAttributePlayerCache(attrModOffsets)
+	local playerAttrCache = self:InitAutoAttributePlayerCache(autoAttributeSet.ignoreItemMods, attrModOffsets)
+	
+	-- Do actual re-allocation
 	local attrIndex
 	for _, attrNode in pairs(attrNodes) do
-		attrIndex, playerAttrCache = self:GetAutoAttribute(playerAttrCache)
+		attrIndex, playerAttrCache = self:GetAutoAttribute(autoAttributeSet, playerAttrCache)
 		self:SwitchAttributeNode(attrNode.id, attrIndex)
 	end
 	-- Rebuild/refresh paths and update stats

@@ -414,8 +414,10 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				end
 				if hoverNode.path and not shouldBlockGlobalNodeAllocation(hoverNode) then
+					local autoAttrIdx = spec.autoAttributeConfigs and build.treeTab:ActiveAutoAttributeSetIdx(hoverNode.allocMode, spec.autoAttributeConfigs) or -1
 					-- Handle allocation of unallocated nodes
-					if hoverNode.isAttribute and not hotkeyPressed and not (spec.autoAttributeConfig and spec.autoAttributeConfig.enabled) then
+					if hoverNode.isAttribute and not hotkeyPressed and not (autoAttrIdx > 0 and spec.autoAttributeConfigs[autoAttrIdx].enabled) then
+							-- if no hotkey or automatic allocation, show selection popup
 							build.treeTab:ModifyAttributePopup(hoverNode)
 					else
 						-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
@@ -1754,14 +1756,16 @@ end
 -- Helper function to add information about currently active auto attribute allocation config
 function PassiveTreeViewClass:AddAutoAttributeConfigHintToTooltip(tooltip, node, build)
 	if not node.isAttribute then return end
-	local config = build.spec.autoAttributeConfig
+	local configs = build.spec.autoAttributeConfigs
+	local attrConfigIdx = configs and build.treeTab:ActiveAutoAttributeSetIdx(node.allocMode, configs) or -1
+	local autoAttributeSet = attrConfigIdx > 0 and configs[attrConfigIdx] or nil
 
-	if config and config.enabled then
+	if autoAttributeSet and autoAttributeSet.enabled then
 		local hintTxt = colorCodes.TIP .. "Automatic Attribute Allocation is " .. colorCodes.POSITIVE .. "enabled^7"
 		local configTxt = "^7Weights: "
-		configTxt = configTxt .. colorCodes.STRENGTH .. "Str: ^7" .. (config.str.weight or 0) .. (config.str.useMaxVal and (" ^8[max: " .. (config.str.max or "0") .. "]") or "") .. " ^7| "
-		configTxt = configTxt .. colorCodes.DEXTERITY .. "Dex: ^7" .. (config.dex.weight or 0) .. (config.dex.useMaxVal and (" ^8[max: " .. (config.dex.max or "0") .. "]") or "") .. " ^7| "
-		configTxt = configTxt .. colorCodes.INTELLIGENCE .. "Int: ^7" .. (config.int.weight or 0) .. (config.int.useMaxVal and (" ^8[max: " .. (config.int.max or "0") .. "]") or "") .. "^7"
+		configTxt = configTxt .. colorCodes.STRENGTH .. "Str: ^7" .. (autoAttributeSet.str.weight or 0) .. (autoAttributeSet.str.useMaxVal and (" ^8[max: " .. (autoAttributeSet.str.max or "0") .. "]") or "") .. " ^7| "
+		configTxt = configTxt .. colorCodes.DEXTERITY .. "Dex: ^7" .. (autoAttributeSet.dex.weight or 0) .. (autoAttributeSet.dex.useMaxVal and (" ^8[max: " .. (autoAttributeSet.dex.max or "0") .. "]") or "") .. " ^7| "
+		configTxt = configTxt .. colorCodes.INTELLIGENCE .. "Int: ^7" .. (autoAttributeSet.int.weight or 0) .. (autoAttributeSet.int.useMaxVal and (" ^8[max: " .. (autoAttributeSet.int.max or "0") .. "]") or "") .. "^7"
 		tooltip:AddLine(14, hintTxt)
 		tooltip:AddLine(14, configTxt)
 	end
