@@ -258,6 +258,11 @@ return {
 			"+5 to all Attributes",
 			"5% increased Experience Gain\n\t-5% to Elemental Resistances\n\t3% reduced Movement Speed\n\t15% reduced Global Defences\n\t20% reduced Presence Area Of Effect\n\t12% reduced Cooldown Recovery Rate\n\t5% reduced Attributes",
 		},
+		["ImportStatAliases"] = {
+			["+5% to all Elemental Resistances"] = {
+				"+5% to Elemental Resistances",
+			},
+		},
 		["AreaLevel"] = 63,
 		["useConfig"] = true
 	},

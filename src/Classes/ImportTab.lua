@@ -650,12 +650,35 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 	end
 
 	-- Ensure all required lines exist, then remove them so they can't match again
-	local function matchQuest(requiredLines)
+	local function getImportAliases(importAliases, needed)
+		if not importAliases then
+			return nil
+		end
+		for canonicalLine, aliases in pairs(importAliases) do
+			if canonicalLine:lower() == needed then
+				return aliases
+			end
+		end
+	end
+
+	local function statLineMatches(line, needed, importAliases)
+		if line == needed then
+			return true
+		end
+		for _, alias in ipairs(getImportAliases(importAliases, needed) or {}) do
+			if line == escapeGGGString(alias):lower() then
+				return true
+			end
+		end
+		return false
+	end
+
+	local function matchQuest(requiredLines, importAliases)
 		local indices = {}
 		for _, needed in ipairs(requiredLines) do
 			local found
 			for idx, line in ipairs(statLines) do
-				if line == needed then
+				if statLineMatches(line, needed, importAliases) then
 					found = idx
 					break
 				end
@@ -677,7 +700,7 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 		if quest.useConfig == true then
 			local var = "quest" .. quest.Description .. quest.Area .. quest.Info
 			if quest.Stat then
-				local matches = matchQuest(splitLine(quest.Stat))
+				local matches = matchQuest(splitLine(quest.Stat), quest.ImportStatAliases)
 				if configTab.input[var] ~= matches then
 					configTab.input[var] = matches
 					updated = true
@@ -685,7 +708,7 @@ function ImportTabClass:ImportQuestRewardConfig(questStats)
 			elseif quest.Options then
 				local selected = configTab.defaultState[var] or "None"
 				for _, option in ipairs(quest.Options) do
-					if matchQuest(splitLine(option)) then
+					if matchQuest(splitLine(option), quest.ImportStatAliases) then
 						selected = option
 						break
 					end

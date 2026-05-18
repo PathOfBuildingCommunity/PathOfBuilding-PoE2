@@ -7,6 +7,17 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("Import keeps Qimah elemental resistance reward from API wording", function()
+		local qimahRewardVar = "questInterlude 2QimahSeven Pillars"
+
+		build.importTab:ImportQuestRewardConfig({ "+5% to Elemental Resistances" })
+		assert.are.equals("+5% to all Elemental Resistances", build.configTab.input[qimahRewardVar])
+
+		newBuild()
+		build.importTab:ImportQuestRewardConfig({ "+5% to all Elemental Resistances" })
+		assert.are.equals("+5% to all Elemental Resistances", build.configTab.input[qimahRewardVar])
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
