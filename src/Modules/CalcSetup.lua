@@ -827,6 +827,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					grantedSkill.nameSpec = skillData and skillData.name or nil
 					grantedSkill.sourceItem = item
 					grantedSkill.slotName = slotName
+					grantedSkill.source = grantedSkill.source or "Item:" .. slotName
 					t_insert(env.grantedSkillsItems, grantedSkill)
 				end
 			end
@@ -1372,14 +1373,26 @@ function calcs.initEnv(build, mode, override, specEnv)
 				return normalizedGrantedSkill.level
 			end
 
+			local function getGrantedSkillSource(grantedSkill)
+				return grantedSkill.source or (grantedSkill.sourceItem and grantedSkill.slotName and "Item:" .. grantedSkill.slotName)
+			end
+
+			local function isGeneratedGrantedSkillGroup(socketGroup)
+				local activeGem = socketGroup.gemList and socketGroup.gemList[1]
+				return socketGroup.source or (activeGem and (activeGem.fromItem or activeGem.fromNode))
+			end
+
 			-- Process extra skills granted by items or tree nodes
 			local markList = wipeTable(tempTable1)
 			for _, grantedSkill in ipairs(env.grantedSkills) do
+				local grantedSkillSource = getGrantedSkillSource(grantedSkill)
 				-- Check if a matching group already exists
 				local group
 				for index, socketGroup in pairs(build.skillsTab.socketGroupList) do
-					if socketGroup.source == grantedSkill.source and socketGroup.slot == grantedSkill.slotName then
-						if socketGroup.gemList[1] and socketGroup.gemList[1].skillId == grantedSkill.skillId and (socketGroup.gemList[1].level == grantedSkill.level or socketGroup.gemList[1].level == getNormalizedSkillLevel(grantedSkill)) then
+					local activeGem = socketGroup.gemList and socketGroup.gemList[1]
+					local sourceMatches = socketGroup.source == grantedSkillSource or (not socketGroup.source and grantedSkill.sourceItem and activeGem and activeGem.fromItem)
+					if sourceMatches and socketGroup.slot == grantedSkill.slotName then
+						if activeGem and activeGem.skillId == grantedSkill.skillId and (activeGem.level == grantedSkill.level or activeGem.level == getNormalizedSkillLevel(grantedSkill)) then
 							group = socketGroup
 							markList[socketGroup] = true
 							break
@@ -1388,12 +1401,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 				end
 				if not group then
 					-- Create a new group for this skill
-					group = { label = "", enabled = true, gemList = { }, source = grantedSkill.source, slot = grantedSkill.slotName }
+					group = { label = "", enabled = true, gemList = { }, source = grantedSkillSource, slot = grantedSkill.slotName }
 					t_insert(build.skillsTab.socketGroupList, group)
 					markList[group] = true
 				end
 
 				-- Update the group
+				group.source = grantedSkillSource
 				group.sourceItem = grantedSkill.sourceItem
 				group.sourceNode = grantedSkill.sourceNode
 				local activeGemInstance = group.gemList[1] or {
@@ -1403,6 +1417,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					enabled = true,
 				}
 				activeGemInstance.fromItem = grantedSkill.sourceItem ~= nil
+				activeGemInstance.fromNode = grantedSkill.sourceNode ~= nil
 				activeGemInstance.level = grantedSkill.level
 				activeGemInstance.gemId = data.gemForSkill[data.skills[grantedSkill.skillId]]
 				activeGemInstance.enableGlobal1 = true
@@ -1467,7 +1482,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			local i = 1
 			while build.skillsTab.socketGroupList[i] do
 				local socketGroup = build.skillsTab.socketGroupList[i]
-				if socketGroup.source and not markList[socketGroup] then
+				if isGeneratedGrantedSkillGroup(socketGroup) and not markList[socketGroup] then
 					t_remove(build.skillsTab.socketGroupList, i)
 					if build.skillsTab.displayGroup == socketGroup then
 						build.skillsTab.displayGroup = nil

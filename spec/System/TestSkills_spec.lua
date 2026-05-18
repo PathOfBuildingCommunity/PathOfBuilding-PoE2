@@ -245,4 +245,45 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("does not duplicate existing item-granted skill groups without a source", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Chernobog's Pillar
+			Blacksteel Tower Shield
+			Implicits: 1
+			Grants Skill: Raise Shield
+			100% increased Armour
+			+30% to Fire Resistance
+			+23% to Chaos Resistance
+			+150 to Stun Threshold
+			Gain 1% of damage as Fire damage per 1% Chance to Block
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		local function getRaiseShieldGroups()
+			local groups = { }
+			for _, group in ipairs(build.skillsTab.socketGroupList) do
+				if group.gemList[1] and group.gemList[1].skillId == "ShieldBlockPlayer" then
+					table.insert(groups, group)
+				end
+			end
+			return groups
+		end
+
+		local groups = getRaiseShieldGroups()
+		assert.are.equals(1, #groups)
+
+		-- Builds saved before item-granted groups had stable sources can contain
+		-- generated item skills with nil source. They should be adopted, not
+		-- duplicated, on the next calculation pass.
+		groups[1].source = nil
+		assert.True(groups[1].gemList[1].fromItem)
+		runCallback("OnFrame")
+
+		groups = getRaiseShieldGroups()
+		assert.are.equals(1, #groups)
+		assert.True(type(groups[1].source) == "string")
+	end)
 end)
