@@ -762,7 +762,7 @@ statMap = {
 
 #skill HandOfChayulaPlayer
 #set HandOfChayulaPlayer
-#flags attack melee area unarmed
+#flags attack melee area
 #mods
 #skillEnd
 
@@ -930,7 +930,7 @@ statMap = {
 
 #skill KillingPalmPlayer
 #set KillingPalmPlayer
-#flags attack area melee unarmed
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -1153,7 +1153,7 @@ statMap = {
 
 #skill ShatteringPalmPlayer
 #set ShatteringPalmPlayer
-#flags attack area melee unarmed
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -1336,7 +1336,7 @@ statMap = {
 
 #skill StaggeringPalmPlayer
 #set StaggeringPalmPlayer
-#flags attack area unarmed
+#flags attack area melee
 #mods
 #skillEnd
 
