@@ -2741,7 +2741,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if globalOutput.Cooldown then
 				output.Cooldown = globalOutput.Cooldown
-				output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				if not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
+					output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				end
 			end
 			if output.Cooldown and skillFlags.selfCast or skillData.maxHitRatePerEnemy or skillData.hitTimeOverride then
 				skillFlags.notAverage = true
