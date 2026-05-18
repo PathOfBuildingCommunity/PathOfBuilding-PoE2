@@ -815,6 +815,20 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		-- Node cannot be connected to the tree as there is no possible path
 		return
 	end
+	local path = altPath or node.path
+
+	if self.allocMode == 0 and #node.intuitiveLeapLikesAffecting == 0 then
+		if not altPath and node.pathRoot and node.pathRoot.alloc and node.pathRoot.allocMode and node.pathRoot.allocMode > 0 then
+			-- Normal passives cannot continue from weapon-set-only branches.
+			return
+		end
+		for _, pathNode in ipairs(path) do
+			if pathNode.alloc and pathNode.allocMode and pathNode.allocMode > 0 then
+				-- Normal passives cannot continue from weapon-set-only branches.
+				return
+			end
+		end
+	end
 
 	-- Allocate all nodes along the path
 	if #node.intuitiveLeapLikesAffecting > 0 then
@@ -822,7 +836,7 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		node.allocMode = (node.ascendancyName or node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket) and 0 or self.allocMode
 		self.allocNodes[node.id] = node
 	else
-		for _, pathNode in ipairs(altPath or node.path) do
+		for _, pathNode in ipairs(path) do
 			pathNode.alloc = true
 			pathNode.allocMode = (node.ascendancyName or pathNode.type == "Keystone" or pathNode.type == "Socket" or pathNode.containJewelSocket) and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
@@ -952,6 +966,7 @@ end
 function PassiveSpecClass:BuildPathFromNode(root)
 	root.pathDist = 0
 	root.path = { }
+	root.pathRoot = root
 	local queue = { root }
 	local o, i = 1, 2 -- Out, in
 	while o < i do
@@ -999,6 +1014,7 @@ function PassiveSpecClass:BuildPathFromNode(root)
 					other.pathDist = other.pathDist + 1
 				end
 				other.path = wipeTable(other.path)
+				other.pathRoot = root
 				other.path[1] = other
 				for i, n in ipairs(node.path) do
 					other.path[i+1] = n
@@ -1668,6 +1684,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	for id, node in pairs(self.nodes) do
 		node.pathDist = (node.alloc and #node.intuitiveLeapLikesAffecting == 0) and 0 or 1000
 		node.path = nil
+		node.pathRoot = nil
 		if node.isJewelSocket or node.expansionJewel then
 			node.distanceToClassStart = 0
 		end
