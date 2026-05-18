@@ -3209,6 +3209,16 @@ local specialModList = {
 		mod("SelfIgniteEffect", "MORE", -100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL"}),
 		mod("SelfPoisonEffect", "MORE", -100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL"}),
 	},
+	-- Silks of Veneration // limit is 150% because of overflowed ES
+	["current energy shield also grants elemental damage reduction"] = {
+		mod("EnergyShieldAppliesToColdDamageTaken", "BASE", 1, { type = "Multiplier", var = "CurrentEnergyShield", limit = 150 }, { type = "Condition", var = "UseCurrentEnergyShield"}),
+		mod("EnergyShieldAppliesToFireDamageTaken", "BASE", 1, { type = "Multiplier", var = "CurrentEnergyShield", limit = 150 }, { type = "Condition", var = "UseCurrentEnergyShield"}),
+		mod("EnergyShieldAppliesToLightningDamageTaken", "BASE", 1, { type = "Multiplier", var = "CurrentEnergyShield", limit = 150 }, { type = "Condition", var = "UseCurrentEnergyShield"}),
+	},
+	-- Mutable Star // assumed 150% limit because overflow, could not verify in wiki
+	["defend against hits as though you had (%d+)%% more armour per (%d+)%% current energy shield"] =  function(armour, _, perCurrentES) return {
+		mod("ArmourDefense", "MAX", armour, { type = "Multiplier", var = "CurrentEnergyShield", div = perCurrentES, limit = 150 }, { type = "Condition", var = "UseCurrentEnergyShield"}),
+	} end,
 	-- Warrior - Titan
 	["(%d+)%% increased effect of small passive skills"] = function(num) return { mod("SmallPassiveSkillEffect", "INC", num) } end,
 	["carry a chest which adds (%d+) inventory slots"] = { },
