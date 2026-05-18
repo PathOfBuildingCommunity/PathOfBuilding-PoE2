@@ -117,6 +117,12 @@ local function refreshJewelStatCache(env)
 	end
 end
 
+local function addCopiedModList(modList, cachedList)
+	for i = 1, #cachedList do
+		modList:AddMod(copyTable(cachedList[i], true))
+	end
+end
+
 function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeystoneMods)
 	local localSmallIncEffect = 0
 	local localNotableIncEffect = 0
@@ -144,11 +150,12 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 				local cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]
 				if not cache or (cache.hash ~= rad.jewelHash) then
 					refreshJewelStatCache(env)
+					cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]
 				end
 				if node.type == "Normal" and cache and #cache.smallModList > 0 then
-					modList:AddList(cache.smallModList)
+					addCopiedModList(modList, cache.smallModList)
 				elseif node.type == "Notable" and cache and #cache.notableModList > 0 then
-					modList:AddList(cache.notableModList)
+					addCopiedModList(modList, cache.notableModList)
 				end
 				break
 			end
