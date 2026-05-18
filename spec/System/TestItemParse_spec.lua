@@ -54,6 +54,37 @@ describe("TestItemParse", function()
 		assert.are.equals(12, item.quality)
 	end)
 
+	it("Breach Ring catalyst quality from game copy is metadata only", function()
+		local item = new("Item", [[
+			Item Class: Rings
+			Rarity: Rare
+			Sol Turn
+			Breach Ring
+			--------
+			Quality (Attack Modifiers): +50% (augmented)
+			--------
+			Requirements:
+			Level: 60
+			--------
+			Item Level: 79
+			--------
+			Maximum Quality is 50% (implicit)
+			--------
+			Adds 28 to 36 Physical Damage to Attacks
+			Adds 3 to 79 Lightning damage to Attacks
+			+136 to Accuracy Rating
+			18% increased Rarity of Items found
+			+26 to Dexterity
+			+29% to Fire Resistance
+		]])
+
+		assert.are.equals(9, item.catalyst)
+		assert.are.equals(50, item.catalystQuality)
+		assert.are.equals(6, #item.explicitModLines)
+		assert.are.equals("Adds 28 to 36 Physical Damage to Attacks", item.explicitModLines[1].line)
+		assert.are.equals(1, item.explicitModLines[1].valueScalar)
+	end)
+
 	--TODO: impl sockets for POB2
 	--it("Sockets", function()
 	--end)

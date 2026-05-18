@@ -26,8 +26,32 @@ local catalystTags = {
 	{ "speed" },
 	{ "attribute" },
 }
+local catalystQualityLabelMap = {
+	["Life Modifiers"] = 1,
+	["Mana Modifiers"] = 2,
+	["Defense Modifiers"] = 3,
+	["Defence Modifiers"] = 3,
+	["Physical"] = 4,
+	["Physical Modifiers"] = 4,
+	["Fire Modifiers"] = 5,
+	["Cold Modifiers"] = 6,
+	["Lightning Modifiers"] = 7,
+	["Chaos Modifiers"] = 8,
+	["Attack Modifiers"] = 9,
+	["Caster Modifiers"] = 10,
+	["Speed Modifiers"] = 11,
+	["Attribute Modifiers"] = 12,
+}
 
 local minimumReqLevel = { }
+
+local function parseCatalystQualityLine(line)
+	local label, quality = line:match("^Quality %((.-)%): %+?(%d+)%% %(augmented%)$")
+	if not label then
+		return nil, nil
+	end
+	return catalystQualityLabelMap[label], tonumber(quality)
+end
 
 local function getCatalystScalar(catalystId, tags, quality)
 	if not catalystId or type(catalystId) ~= "number" or not catalystTags[catalystId] or not tags or type(tags) ~= "table" or #tags == 0 then
@@ -395,6 +419,14 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		elseif line == "Requirements:" then
 			-- nothing to do
 		else
+			local catalystId, catalystQuality = parseCatalystQualityLine(line)
+			if catalystId then
+				self.catalyst = catalystId
+				self.catalystQuality = catalystQuality
+				self.checkSection = false
+				goto continue
+			end
+
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
 					if foundImplicit then
