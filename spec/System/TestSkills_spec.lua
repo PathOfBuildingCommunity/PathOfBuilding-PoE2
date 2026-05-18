@@ -245,4 +245,25 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("Test active gem DPS sorting estimates replacement skills", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Bombard Crossbow
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Oil Grenade 20/0  1")
+		runCallback("OnFrame")
+
+		build.skillsTab.sortGemsByDPS = true
+		build.skillsTab.sortGemsByDPSField = "CombinedDPS"
+		local activeGemSelect = build.skillsTab.gemSlots[1].nameSpec
+		activeGemSelect:UpdateSortCache()
+
+		local _, explosiveGrenade = build.skillsTab:FindSkillGem("Explosive Grenade")
+		assert.True(activeGemSelect.sortCache.dpsCalculated["Default:" .. explosiveGrenade.id])
+	end)
 end)

@@ -246,6 +246,7 @@ function GemSelectClass:UpdateSortCache()
 		canSupport = { },
 		dps = { },
 		dpsColor = { },
+		dpsCalculated = { },
 		sortType = self.skillsTab.sortGemsByDPSField
 	}
 	self.sortCache = sortCache
@@ -300,14 +301,19 @@ function GemSelectClass:UpdateSortCache()
 	local calcFunc, calcBase = self.skillsTab.build.calcsTab:GetMiscCalculator(self.build)
 	-- Check for nil because some fields may not be populated, default to 0
 	local baseDPS = (dpsField == "FullDPS" and calcBase[dpsField] ~= nil and calcBase[dpsField]) or (calcBase.Minion and calcBase.Minion.CombinedDPS) or (calcBase[dpsField] ~= nil and calcBase[dpsField]) or 0
+	sortCache.baseDPS = baseDPS
 
 	for gemId, gemData in pairs(self.gems) do
 		sortCache.dps[gemId] = baseDPS
-		-- Ignore gems that don't support the active skill
-		if sortCache.canSupport[gemId] or (gemData.grantedEffect.hasGlobalEffect and not gemData.grantedEffect.support) then
+		local canEstimateDPS = sortCache.canSupport[gemId]
+			or (gemData.grantedEffect.hasGlobalEffect and not gemData.grantedEffect.support)
+			or (self.index == 1 and not gemData.grantedEffect.support)
+		-- Ignore gems that cannot affect the active skill or replace the active gem
+		if canEstimateDPS then
 			local output = self:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS, fastCalcOptions, calcBase)
 			-- Check for nil because some fields may not be populated, default to 0
 			sortCache.dps[gemId] = (dpsField == "FullDPS" and output[dpsField] ~= nil and output[dpsField]) or (output.Minion and output.Minion.CombinedDPS) or (output[dpsField] ~= nil and output[dpsField]) or 0
+			sortCache.dpsCalculated[gemId] = true
 		end
 		-- Color based on the DPS
 		if sortCache.dps[gemId] > baseDPS then
@@ -436,6 +442,9 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 					SetDrawColor(self.sortCache.dpsColor[gemId])
 					main:DrawCheckMark(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y + (height - 4) / 2, (height - 4) * 0.8)
 				elseif gemData.grantedEffect.hasGlobalEffect then
+					SetDrawColor(self.sortCache.dpsColor[gemId])
+					DrawString(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y - 2, "CENTER_X", height, "VAR", "+")
+				elseif self.sortCache.dpsCalculated[gemId] and self.sortCache.dps[gemId] ~= self.sortCache.baseDPS then
 					SetDrawColor(self.sortCache.dpsColor[gemId])
 					DrawString(width - 4 - height / 2 - (scrollBar.enabled and 18 or 0), y - 2, "CENTER_X", height, "VAR", "+")
 				end
