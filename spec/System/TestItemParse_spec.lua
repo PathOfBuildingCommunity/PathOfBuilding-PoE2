@@ -107,6 +107,41 @@ describe("TestItemParse", function()
 		assert.are.equals("+12 to Dexterity", item.explicitModLines[1].line)
 	end)
 
+	it("Pasted separated base granted skills stay implicit", function()
+		local item = new("Item", [[
+			Item Class: Spears
+			Rarity: Rare
+			Brood Edge
+			Jagged Spear
+			--------
+			Physical Damage: 33-61
+			Elemental Damage: 39-62 (fire), 9-14 (cold)
+			Critical Hit Chance: 8.70% (augmented)
+			Attacks per Second: 1.74 (augmented)
+			--------
+			Requires: Level 59, 33 Str, 81 (unmet) Dex
+			--------
+			Item Level: 76
+			--------
+			Bleeding you inflict deals Damage 11% faster (implicit)
+			--------
+			Grants Skill: Spear Throw
+			--------
+			Adds 39 to 62 Fire Damage
+			Adds 9 to 14 Cold Damage
+			+2.7% to Critical Hit Chance
+			16% increased Attack Speed
+			+22 to Dexterity
+		]])
+
+		assert.are.equals(2, #item.implicitModLines)
+		assert.are.equals("Bleeding you inflict deals Damage 11% faster", item.implicitModLines[1].line)
+		assert.are.equals("Grants Skill: Spear Throw", item.implicitModLines[2].line)
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("SpearThrowPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals("Adds 39 to 62 Fire Damage", item.explicitModLines[1].line)
+	end)
+
 	--TODO: POB2 Leagues?
 	--it("League", function()
 	--end)
