@@ -1317,7 +1317,9 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 		local countGroup = true
 		if socketGroup.enabled then
 			for _, gemInstance in ipairs(socketGroup.gemList) do
-				if gemInstance.fromItem or (gemInstance.gemData and gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.fromTree) then
+				local grantedByNonGemSource = gemInstance.fromItem or gemInstance.fromNode or socketGroup.sourceNode
+				local grantedFromTree = gemInstance.gemData and gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.fromTree
+				if grantedByNonGemSource or grantedFromTree then
 					countGroup = false
 				end
 				if gemInstance.gemData and gemInstance.enabled then

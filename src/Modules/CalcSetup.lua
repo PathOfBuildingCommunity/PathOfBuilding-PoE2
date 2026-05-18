@@ -1403,6 +1403,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					enabled = true,
 				}
 				activeGemInstance.fromItem = grantedSkill.sourceItem ~= nil
+				activeGemInstance.fromNode = grantedSkill.sourceNode ~= nil
 				activeGemInstance.level = grantedSkill.level
 				activeGemInstance.gemId = data.gemForSkill[data.skills[grantedSkill.skillId]]
 				activeGemInstance.enableGlobal1 = true

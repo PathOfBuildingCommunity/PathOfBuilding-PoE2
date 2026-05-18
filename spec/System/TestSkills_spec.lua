@@ -245,4 +245,32 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("Test node-granted skills do not consume gem groups", function()
+		for _ = 1, 9 do
+			build.skillsTab:PasteSocketGroup("Arc 20/0  1")
+		end
+
+		local grantedGroup = {
+			label = "Loyal Hellhound",
+			enabled = true,
+			source = "Loyal Hellhound",
+			sourceNode = { name = "Loyal Hellhound" },
+			gemList = {
+				{
+					skillId = "SummonInfernalHoundPlayer",
+					nameSpec = "Summon Infernal Hound",
+					quality = 0,
+					level = 1,
+					enabled = true,
+					fromNode = true,
+				},
+			},
+		}
+		build.skillsTab:ProcessSocketGroup(grantedGroup)
+		table.insert(build.skillsTab.socketGroupList, grantedGroup)
+		build.skillsTab:UpdateGlobalGemCountAssignments()
+
+		assert.are.equals(9, GlobalGemAssignments["GemGroupCount"])
+	end)
 end)
