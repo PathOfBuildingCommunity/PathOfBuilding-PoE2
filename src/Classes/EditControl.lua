@@ -57,6 +57,7 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 	self.selBGCol = "^xBBBBBB"
 	self.blinkStart = GetTime()
 	self.allowZoom = allowZoom
+	self.readOnly = false
 	local function buttonSize()
 		local _, height = self:GetSize()
 		return height - 4
@@ -67,14 +68,16 @@ local EditClass = newClass("EditControl", "ControlHost", "Control", "UndoHandler
 		self.controls.buttonDown = new("ButtonControl", {"RIGHT",self,"RIGHT"}, {-2, 0, buttonSize, buttonSize}, "-", function()
 			self:OnKeyUp("DOWN")
 		end)
+		self.controls.buttonDown.shown = function() return not self.readOnly end
 		self.controls.buttonUp = new("ButtonControl", {"RIGHT",self.controls.buttonDown,"LEFT"}, {-1, 0, buttonSize, buttonSize}, "+", function()
 			self:OnKeyUp("UP")
 		end)
+		self.controls.buttonUp.shown = function() return not self.readOnly end
 	elseif clearable then
 		self.controls.buttonClear = new("ButtonControl", {"RIGHT",self,"RIGHT"}, {-2, 0, buttonSize, buttonSize}, "x", function()
 			self:SetText("", true)
 		end)
-		self.controls.buttonClear.shown = function() return #self.buf > 0 and self:IsMouseInBounds() end
+		self.controls.buttonClear.shown = function() return not self.readOnly and #self.buf > 0 and self:IsMouseInBounds() end
 	end
 	self.controls.scrollBarH = new("ScrollBarControl", {"BOTTOMLEFT",self,"BOTTOMLEFT"}, {1, -1, 0, 14}, 60, "HORIZONTAL", true)
 	self.controls.scrollBarH.width = function()
@@ -277,7 +280,7 @@ function EditClass:Draw(viewPort, noTooltip)
 		end
 		textX = textX + DrawStringWidth(textHeight, self.font, self.prompt) + textHeight/2
 	end
-	if not enabled then
+	if not enabled and not self.readOnly then
 		return
 	end
 	if mOver and not noTooltip then
