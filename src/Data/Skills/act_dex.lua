@@ -204,7 +204,7 @@ skills["BarragePlayer"] = {
 					flag("SequentialProjectiles", { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }),
 				},
 				["empower_barrage_number_of_barrage_repeats_per_frenzy_charge"] = {
-					mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }, { type = "Multiplier", var = "RemovableFrenzyCharge"}),
+					mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }, { type = "Multiplier", var = "RemovableFrenzyCharge", scalar = "ConsumedFrenzyChargeEffect" }),
 				},
 				["empower_barrage_cooldown_%of_attack_time"] = {
 					-- how to set attack time for this cooldown?
@@ -897,7 +897,6 @@ skills["SummonBeastPlayer"] = {
 				minion = true,
 				summonBeast = true,
 				duration = true,
-				permanentMinion = true,
 			},
 			baseMods = {
 				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
@@ -3282,15 +3281,15 @@ skills["HeraldOfPlaguePlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -3412,15 +3411,15 @@ skills["HeraldOfThunderPlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0,
 	qualityStats = {
@@ -4429,10 +4428,10 @@ skills["LightningSpearPlayer"] = {
 			statDescriptionScope = "lightning_spear_statset_0",
 			statMap = {
 				["lightning_spear_damage_+%_final_when_charged"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
 				},
 				["lightning_spear_additional_number_to_split_when_charged"] = {
-					mod("SplitCount", "BASE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("SplitCount", "BASE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
 				},
 				["lightning_burst_display"] = {
 					-- Display Only
@@ -5198,7 +5197,7 @@ skills["PhantasmalArrowPlayer"] = {
 				"has_modular_projectiles_enabled",
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
-				"projectiles_fire_at_ground",
+				"precise_cursor_targeting_uses_contact_point_height_offset",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5273,7 +5272,7 @@ skills["PhantasmalArrowPlayer"] = {
 				"has_modular_projectiles_enabled",
 				"can_perform_skill_while_moving",
 				"should_use_additive_aiming_animation",
-				"projectiles_fire_at_ground",
+				"precise_cursor_targeting_uses_contact_point_height_offset",
 				"is_area_damage",
 				"display_statset_hide_usage_stats",
 			},
@@ -6107,7 +6106,15 @@ skills["RainOfArrowsPlayer"] = {
 			statDescriptionScope = "rain_of_arrows_new",
 			statMap = {
 				["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"] = {
-					mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+					mod("ProjectileCount", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
+				},
+				["rain_of_arrows_delay_per_arrow"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
 				},
 			},
 			baseFlags = {
@@ -7980,13 +7987,13 @@ skills["SpiralVolleyPlayer"] = {
 			statDescriptionScope = "spiral_volley",
 			statMap = {
 				["spiral_volley_damage_+%_final_when_frenzy_charges_consumed"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
 				},
 				["spiral_volley_damage_+%_final_per_frenzy_charge_consumed"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", scalar = "ConsumedFrenzyChargeEffect" }),
 				},
 				["spiral_volley_X_chains_per_frenzy_charge_consumed"] = {
-					mod("ChainCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+					mod("ChainCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", scalar = "ConsumedFrenzyChargeEffect" }),
 				},
 			},
 			baseFlags = {
@@ -10696,15 +10703,15 @@ skills["WindDancerPlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -10829,15 +10836,15 @@ skills["TriggeredWindDancerPlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 1,
 	qualityStats = {

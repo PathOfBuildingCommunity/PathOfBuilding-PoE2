@@ -64,6 +64,7 @@ colorCodes = {
 	SCOURGE = "^xFF6E25",
 	CRUCIBLE = "^xFFA500",
 	GEMDESCRIPTION = "^xBAAD85",
+	SPLITPERSONALITY = "^xFFD62A"
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
@@ -267,6 +268,7 @@ KeywordFlag.Lightning =	0x00000080
 KeywordFlag.Chaos =		0x00000100
 KeywordFlag.Vaal =		0x00000200
 KeywordFlag.Bow =		0x00000400
+KeywordFlag.Arrow =		0x00000800
 -- Skill types
 KeywordFlag.Trap =		0x00001000
 KeywordFlag.Mine =		0x00002000

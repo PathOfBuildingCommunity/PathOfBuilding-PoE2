@@ -70,13 +70,6 @@ local sortGemTypeList = {
 	{ label = "Effective Hit Pool", type = "TotalEHP" },
 }
 
-local alternateGemQualityList ={
-	{ label = "Default", type = "Default" },
-	{ label = "Anomalous", type = "Alternate1" },
-	{ label = "Divergent", type = "Alternate2" },
-	{ label = "Phantasmal", type = "Alternate3" },
-}
-
 local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
 	self.UndoHandler()
 	self.ControlHost()

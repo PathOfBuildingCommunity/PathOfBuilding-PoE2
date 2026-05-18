@@ -39,7 +39,12 @@ function PassiveMasteryControlClass:AddValueTooltip(tooltip, index, effect)
 	self.node.sd = self.treeTab.build.spec.tree.masteryEffects[effect.id].sd
 	self.node.allMasteryOptions = false
 	self.treeTab.build.spec.tree:ProcessStats(self.node)
-	self.treeView:AddNodeTooltip(tooltip, self.node, self.treeTab.build)
+	-- calculate inc from SmallPassiveSkillEffect
+	local incSmallPassiveSkillEffect = 0
+	for _, node in pairs(self.treeTab.build.spec.allocNodes) do
+		incSmallPassiveSkillEffect = incSmallPassiveSkillEffect + node.modList:Sum("INC", nil ,"SmallPassiveSkillEffect")
+	end
+	self.treeView:AddNodeTooltip(tooltip, self.node, self.treeTab.build, incSmallPassiveSkillEffect)
 end
 
 function PassiveMasteryControlClass:OnSelClick(index, mastery, doubleClick)

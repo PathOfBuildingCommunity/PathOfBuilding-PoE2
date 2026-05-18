@@ -10,8 +10,8 @@ Variant: Pre 0.4.0
 Variant: Current
 Limited to: 1
 {variant:1}(0-100)% increased Effect of Jewel Socket Passive Skills
-{variant:2}(0-150)% increased Effect of Jewel Socket Passive Skills
 {variant:1}containing Corrupted Magic Jewels
+{variant:2}(0-150)% increased Effect of Jewel Socket Passive Skills
 {variant:2}containing Corrupted Magic Jewels
 ]],[[
 Controlled Metamorphosis

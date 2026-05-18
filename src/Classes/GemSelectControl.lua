@@ -105,10 +105,6 @@ function GemSelectClass:PopulateGemList()
 	end
 end
 
-function GemSelectClass:GetQualityType(gemId)
-	return gemId and gemId:gsub(":.+","") or "Default"
-end
-
 function GemSelectClass:FilterSupport(gemId, gemData)
 	local showSupportTypes = self.skillsTab.showSupportGemTypes
 	return (not gemData.grantedEffect.support
@@ -159,6 +155,8 @@ function GemSelectClass:BuildList(buf)
 								tagName = "strength"
 							elseif tagName == "dex" then
 								tagName = "dexterity"
+							elseif tagName == "aoe" then
+								tagName = "area"
 							end
 							-- for :melee we want to exclude gems that DON'T have this tag
 							-- for :-melee we want to exclude gems that DO have this tag
@@ -352,7 +350,7 @@ function GemSelectClass:UpdateGem(setText, addUndo)
 	if setText then
 		self:SetText(self.gemName)
 	end
-	self.gemChangeFunc(self.gemId and self.gemId:gsub("%w+:", ""), self:GetQualityType(self.gemId), addUndo and self.gemName ~= self.initialBuf)
+	self.gemChangeFunc(self.gemId and self.gemId:gsub("%w+:", ""), addUndo and self.gemName ~= self.initialBuf)
 end
 
 function GemSelectClass:ScrollSelIntoView()

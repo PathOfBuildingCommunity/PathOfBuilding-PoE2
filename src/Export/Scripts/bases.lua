@@ -90,7 +90,10 @@ directiveTable.base = function(state, args, out)
 	end
 	displayName = displayName:gsub("\195\182","o")
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
-	displayName = displayName ~= "Energy Blade" and displayName or (state.type == "One Handed Sword" and "Energy Blade One Handed" or "Energy Blade Two Handed")
+	displayName = displayName ~= "Energy Blade" and displayName or (state.type == "One Hand Sword" and "Energy Blade One Handed" or "Energy Blade Two Handed")
+	if displayName:find("DNT") then
+		return
+	end
 	out:write('itemBases["', displayName, '"] = {\n')
 	out:write('\ttype = "', state.type, '",\n')
 	if state.subType and #state.subType > 0 then
@@ -415,8 +418,8 @@ directiveTable.setBase = function(state, args, out)
 	local baseClass, baseSubType = unpack(bases["All"][baseName])
 	local groupName = baseClass
 	if itemName then
-		out:write(s_format(itemName, baseClass):gsub("One Handed", "1H"):gsub("Two Handed", "2H"),'\n')
-		groupName = s_format(itemName, (baseClass:match("One Handed") or baseClass:match("Claw") or baseClass:match("Dagger") or baseClass:match("Sceptre") or baseClass:match("Wand")) and "One Handed" or (baseClass:match("Two Handed") or baseClass:match("Staff")) and "Two Handed" or "")
+		out:write(s_format(itemName, baseClass):gsub("One Hand", "1H"):gsub("Two Hand", "2H"),'\n')
+		groupName = s_format(itemName, (baseClass:match("One Hand") or baseClass:match("Claw") or baseClass:match("Dagger") or baseClass:match("Sceptre") or baseClass:match("Wand")) and "One Hand" or (baseClass:match("Two Hand") or baseClass:match("Staff")) and "Two Hand" or "")
 	else
 		if baseSubType then
 			groupName = baseSubType..' '..baseClass
@@ -469,6 +472,7 @@ local itemTypes = {
 	"jewel",
 	"flask",
 	"talisman",
+	"incursionlimb",
 }
 for _, name in pairs(itemTypes) do
 	processTemplateFile(name, "Bases/", "../Data/Bases/", directiveTable)

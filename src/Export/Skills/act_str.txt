@@ -57,7 +57,7 @@ addFlags = {
 #mods
 #skillEnd
 
-#skill ArtilleryBallistaProjectilePlayer
+#skill ArtilleryBallistaProjectilePlayer Ballista Bolt
 #set ArtilleryBallistaProjectilePlayer
 #flags attack area projectile totem
 #mods
@@ -93,14 +93,14 @@ statMap = {
 #flags
 statMap = {
 	["skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"] = {
-		mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
-		div = 60
+		mod("LifeDegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "Rage" }),
+		div = 60,
 	},
 	["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
 		mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 		div = 100,
 	},
-	["rage_effect_+%"] = {
+	["skill_base_rage_effect_+%_to_apply"] = {
 		mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 	}
 },
@@ -332,6 +332,13 @@ statMap = {
 #skill EternalRagePlayer
 #set EternalRagePlayer
 #flags
+statMap = {
+	["ceaseless_rage_base_rage_regeneration_per_minute"] = {
+		mod("RageRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "EternalRage" }),
+		flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" }),
+		div = 60,
+	},
+},
 #mods
 #skillEnd
 
@@ -1102,6 +1109,22 @@ statMap = {
 #skill ThunderstormPlayer
 #set ThunderstormPlayer
 #flags spell area duration
+statMap = {
+	["lightning_storm_hit_frequency_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["lightning_storm_hit_prevention_duration_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+	["thunderstorm_wet_debuff_shock_chance_on_+%_final"] = {
+		mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thunderstorm"}),
+	},
+	["thunderstorm_wet_debuff_hit_damage_freeze_multiplier_+%_final"] = {
+		mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thunderstorm"}),
+	},
+},
 #mods
 #skillEnd
 
@@ -1139,6 +1162,12 @@ statMap = {
 #mods
 #set VolcanoProjectilePlayer
 #flags spell area projectile
+statMap = { 
+	["volcano_fires_projectiles_every_x_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 

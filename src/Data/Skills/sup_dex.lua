@@ -74,43 +74,6 @@ skills["SupportAdhesiveGrenadesPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportAdhesiveGrenadesPlayerThree"] = {
-	name = "Adhesive Grenades III",
-	description = "Supports Grenade Skills. Grenades from Supported Skills do not bounce, instead halting movement where they intially land. Grenades from Supported Skills have longer cooldowns, and a chance to detonate an additional time.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Grenade, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "AdhesiveGrenades",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Adhesive Grenades III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_sticky_grenade_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "grenade_skill_%_chance_to_explode_twice", 35 },
-				{ "grenade_skill_cooldown_speed_+%", -50 },
-			},
-			stats = {
-				"grenade_skill_does_not_bounce_off_ground",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportAdmixturePlayer"] = {
 	name = "Admixture",
 	description = "Supports Skills which can cause Damaging Hits. Bleeding inflicted by those Hits is more effective against Poisoned Enemies, and Poison inflicted by Supported Skills is more effective against Bleeding Enemies.",
@@ -410,6 +373,14 @@ skills["SupportArakaalisLustPlayer"] = {
 			label = "Arakaali's Lust",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_debilitate_hit_damage_+%_final_per_poison_stack"] = {
+					mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "Multiplier", actor = "enemy", var = "PoisonStacks", limitVar = "ArakaaliMaxHitDamage", limitTotal = true } ),
+				},
+				["support_debilitate_hit_damage_max_poison_stacks"] = {
+					mod("Multiplier:ArakaaliMaxHitDamage", "BASE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -463,7 +434,7 @@ skills["SupportAtzirisImpatiencePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Meta, SkillType.Proxy, },
 	gemFamily = { "CooldownRecovery",},
 	isLineage = true,
 	flavourText = {"\"Those who bored the Queen suffered an excessive punishment:", "everyone they had ever known would be killed, effectively", "erasing their life. So, no matter the cost... none kept her waiting.\"", },
@@ -2189,9 +2160,9 @@ skills["SupportFerocityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
-					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
+					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
 				},
 			},
 			baseFlags = {
@@ -3031,8 +3002,6 @@ skills["SupportMaimPlayer"] = {
 	gemFamily = { "Maim",},
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 3, },
-		[3] = { levelRequirement = 6, },
 	},
 	statSets = {
 		[1] = {
@@ -3520,40 +3489,6 @@ skills["SupportIncreaseLimitPlayerTwo"] = {
 				{ "support_limit_skill_effect_duration_+%_final", -40 },
 			},
 			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportIncreaseLimitPlayerThree"] = {
-	name = "Overabundance III",
-	description = "Supports skills which can have a Limited number of effects active at once, doubling that Limit at the cost of Cursing yourself on Skill use. Only applies to restrictions that use the word \"Limit\".",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Limit, },
-	addSkillTypes = { SkillType.HasReservation, SkillType.SupportedByOverabundanceThree, },
-	excludeSkillTypes = { SkillType.HasReservation, SkillType.SupportedByOverabundanceThree, SkillType.NOT, SkillType.AND, },
-	gemFamily = { "Overabundance",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Overabundance III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_limit_skill_effect_duration_+%_final"] = {
-					mod("Duration", "MORE", nil),
-				},
-			},
-			baseFlags = {
-			},
-			stats = {
-				"skill_has_double_limit",
-				"randomly_curse_self_on_skill_use",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -4308,7 +4243,7 @@ skills["SupportPrecisionPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_precision_accuracy_rating_+%"] = {
-					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision I" } ),
 				},
 			},
 			baseFlags = {
@@ -4344,7 +4279,7 @@ skills["SupportPrecisionPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_precision_accuracy_rating_+%"] = {
-					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision II" } ),
 				},
 			},
 			baseFlags = {

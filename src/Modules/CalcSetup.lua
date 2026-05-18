@@ -662,6 +662,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("DeflectEffect", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("Evasion", "INC", 10, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("SkillSlots", "BASE", 9, "Base")
+		modDB:NewMod("MaxLineageCount", "BASE", 1, "Base")
 
 		-- Initialise enemy modifier database
 		calcs.initModDB(env, enemyDB)
@@ -781,14 +782,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 		instrumentsOfPower = nodesModsList:Flag(nil, "InstrumentsOfPower") or false,
 		lordOfTheWilds = nodesModsList:Flag(nil, "LordOfTheWilds") or false,
 	}
-	local cache = build.itemsTab.lastWeaponFlagState
-	local losingGiantsBlood = cache and cache.giantsBlood and not weaponFlagState.giantsBlood
-	local losingInstrumentsOfPower = cache and cache.instrumentsOfPower and not weaponFlagState.instrumentsOfPower
-	local losingLordOfTheWilds = cache and cache.lordOfTheWilds and not weaponFlagState.lordOfTheWilds
-	if losingGiantsBlood or losingInstrumentsOfPower or losingLordOfTheWilds then -- Only validate socket when losing Keystone / Ascendancy
-		build.itemsTab:ValidateWeaponSlots(weaponFlagState)
+	-- Only mutate equipped items in the real build pass; calculator overrides (e.g. node power) are transient.
+	if mode == "MAIN" then
+		local cache = build.itemsTab.lastWeaponFlagState
+		local losingGiantsBlood = cache and cache.giantsBlood and not weaponFlagState.giantsBlood
+		local losingInstrumentsOfPower = cache and cache.instrumentsOfPower and not weaponFlagState.instrumentsOfPower
+		local losingLordOfTheWilds = cache and cache.lordOfTheWilds and not weaponFlagState.lordOfTheWilds
+		if losingGiantsBlood or losingInstrumentsOfPower or losingLordOfTheWilds then -- Only validate socket when losing Keystone / Ascendancy
+			build.itemsTab:ValidateWeaponSlots(weaponFlagState)
+		end
+		build.itemsTab.lastWeaponFlagState = { giantsBlood = weaponFlagState.giantsBlood, instrumentsOfPower = weaponFlagState.instrumentsOfPower, lordOfTheWilds = weaponFlagState.lordOfTheWilds }
 	end
-	build.itemsTab.lastWeaponFlagState = { giantsBlood = weaponFlagState.giantsBlood, instrumentsOfPower = weaponFlagState.instrumentsOfPower, lordOfTheWilds = weaponFlagState.lordOfTheWilds }
 
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
@@ -806,7 +810,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			(
 				(not lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type ~= "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")
 				or (not instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type ~= "Focus")
-				or (not giantsBlood and (override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"))
+				or (not giantsBlood and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace"))
 				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
 			) then
 				goto continue
@@ -844,7 +848,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 						item.jewelData.limitDisabled = nil
 					end
 					if item and item.type == "Jewel" and item.name:match("The Adorned, Diamond") then
-						env.modDB.multipliers["CorruptedMagicJewelEffect"] = item.jewelData.corruptedMagicJewelIncEffect / 100
+						if item.jewelData.corruptedMagicJewelIncEffect then
+							env.modDB.multipliers["CorruptedMagicJewelEffect"] = item.jewelData.corruptedMagicJewelIncEffect / 100
+						end
+						if item.jewelData.corruptedRareJewelIncEffect then
+							env.modDB.multipliers["CorruptedRareJewelEffect"] = item.jewelData.corruptedRareJewelIncEffect / 100
+						end
 					end
 					if item.limit and not env.configInput.ignoreJewelLimits then
 						local limitKey = item.base.subType == "Timeless" and "Historic" or item.title
@@ -1216,8 +1225,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 							env.itemModDB:ScaleAddMod(mod, scale)
 						end
 					end
-				elseif env.modDB.multipliers["CorruptedMagicJewelEffect"] and item.type == "Jewel" and item.rarity == "MAGIC" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" and not env.spec.nodes[slot.nodeId].containJewelSocket then
-					scale = scale + env.modDB.multipliers["CorruptedMagicJewelEffect"]
+				elseif env.modDB.multipliers["Corrupted" .. item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end) .. "JewelEffect"] and item.type == "Jewel" and item.corrupted and slot.nodeId and item.base.subType ~= "Charm" and not env.spec.nodes[slot.nodeId].containJewelSocket then
+					scale = scale + env.modDB.multipliers["Corrupted" .. item.rarity:gsub("(%a)(%u*)", function(a, b) return a..string.lower(b) end) .. "JewelEffect"]
 					local combinedList = new("ModList")
 					for _, mod in ipairs(srcList) do
 						combinedList:MergeMod(mod)
@@ -1577,7 +1586,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 								grantedEffect = grantedEffect,
 								level = gemInstance.level,
 								quality = gemInstance.quality,
-								qualityId = gemInstance.qualityId,
 								srcInstance = gemInstance,
 								gemData = gemInstance.gemData,
 								superseded = false,
@@ -1647,7 +1655,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 									grantedEffect = grantedEffect,
 									level = gemInstance.level,
 									quality = gemInstance.quality,
-									qualityId = gemInstance.qualityId,
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
 								}

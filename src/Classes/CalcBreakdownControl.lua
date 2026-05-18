@@ -183,6 +183,7 @@ function CalcBreakdownClass:AddBreakdownSection(sectionData)
 				{ label = "More/less", key = "more" },
 				{ label = "Inc/red", key = "inc" },
 				{ label = "Efficiency", key = "efficiency" },
+				{ label = "Efficiency More/less", key = "efficiencyMore" },
 				{ label = "Count", key = "count" },
 				{ label = "Reservation", key = "total" },
 			}
@@ -480,6 +481,8 @@ function CalcBreakdownClass:AddModSection(sectionData, modList)
 					else
 						desc = "Skill type: "..(tag.neg and "Not " or "")..self:FormatModName(SkillTypeName[tag.skillType])
 					end
+				elseif tag.type == "BaseFlag" then
+					desc = "Base flag: "..(tag.neg and "Not " or "")..self:FormatModName(tostring(tag.baseFlag))
 				elseif tag.type == "SlotNumber" then
 					desc = "When in slot #"..tag.num
 				elseif tag.type == "GlobalEffect" then

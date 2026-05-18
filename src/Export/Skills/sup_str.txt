@@ -14,11 +14,6 @@ local skills, mod, flag, skill = ...
 #mods
 #skillEnd
 
-#skill SupportAftershockChancePlayerThree
-#set SupportAftershockChancePlayerThree
-#mods
-#skillEnd
-
 #skill SupportAmanamusTithePlayer
 #set SupportAmanamusTithePlayer
 #mods
@@ -36,11 +31,6 @@ local skills, mod, flag, skill = ...
 
 #skill SupportAncestralCallPlayerTwo
 #set SupportAncestralCallPlayerTwo
-#mods
-#skillEnd
-
-#skill SupportAncestralCallPlayerThree
-#set SupportAncestralCallPlayerThree
 #mods
 #skillEnd
 
@@ -260,7 +250,7 @@ statMap = {
 #set SupportCannibalismPlayer
 statMap = {
 	["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-		mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+		mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism I" }),
 	},
 },
 #mods
@@ -270,7 +260,7 @@ statMap = {
 #set SupportCannibalismPlayerTwo
 statMap = {
 	["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-		mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+		mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism II" }),
 	},
 },
 #flags
@@ -379,7 +369,7 @@ statMap = {
 #baseMod skill("debuff", true)
 #baseMod flag("dotIsCorruptingBlood")
 #baseMod mod("Multiplier:CorruptingCryMaxStages", "BASE", 10)
-#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"})
+#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9})
 #mods
 #skillEnd
 
@@ -404,7 +394,7 @@ statMap = {
 #baseMod skill("debuff", true)
 #baseMod flag("dotIsCorruptingBlood")
 #baseMod mod("Multiplier:CorruptingCryMaxStages", "BASE", 10)
-#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"})
+#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9})
 #mods
 #skillEnd
 
@@ -497,7 +487,7 @@ statMap = {
 #set SupportDirestrikePlayer
 statMap = {
 	["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-		mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+		mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike I" }, { type = "Condition", var = "LowLife" }),
 	},
 },
 #mods
@@ -507,7 +497,7 @@ statMap = {
 #set SupportDirestrikePlayerTwo
 statMap = {
 	["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-		mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+		mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike II" }, { type = "Condition", var = "LowLife" }),
 	},
 },
 #mods
@@ -902,7 +892,7 @@ statMap = {
 #set SupportHerbalismPlayer
 statMap = {
 	["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-		mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+		mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism I" }),
 	},
 },
 #mods
@@ -912,7 +902,7 @@ statMap = {
 #set SupportHerbalismPlayerTwo
 statMap = {
 	["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-		mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+		mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism II" }),
 	},
 },
 #mods
@@ -1105,6 +1095,11 @@ statMap = {
 
 #skill SupportMarkForDeathPlayer
 #set SupportMarkForDeathPlayer
+statMap = {
+	["marked_target_%_physical_damage_taken_as_armour_break"] = {
+		flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+	},
+},
 #mods
 #skillEnd
 
@@ -1165,7 +1160,7 @@ statMap = {
 #baseMod skill("debuff", true)
 #baseMod flag("dotIsCorruptingBlood")
 #baseMod mod("Multiplier:CorruptingCryMaxStages", "BASE", 10)
-#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"})
+#baseMod mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9})
 #mods
 #skillEnd
 
@@ -1214,16 +1209,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill ProlongedDurationSupportPlayerThree
-#set ProlongedDurationSupportPlayerThree
-statMap = {
-	["support_more_duration_skill_effect_duration_+%_final"] = {
-		mod("Duration", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportQuillburstPlayer
 #set SupportQuillburstPlayer
 #mods
@@ -1256,11 +1241,21 @@ statMap = {
 
 #skill SupportRageforgedPlayer
 #set SupportRageforgedPlayer
+statMap = {
+	["support_rageforged_enraged_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+	},
+},
 #mods
 #skillEnd
 
 #skill SupportRageforgedPlayerTwo
 #set SupportRageforgedPlayerTwo
+statMap = {
+	["support_rageforged_enraged_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1595,7 +1590,7 @@ statMap = {
 #set SupportThornskinPlayer
 statMap = {
 	["support_thorns_spirit_cost_thorns_damage_+%"] = {
-		mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+		mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin I" }),
 	},
 },
 #mods
@@ -1605,7 +1600,7 @@ statMap = {
 #set SupportThornskinPlayerTwo
 statMap = {
 	["support_thorns_spirit_cost_thorns_damage_+%"] = {
-		mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+		mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin II" }),
 	},
 },
 #mods
@@ -1751,7 +1746,7 @@ statMap = {
 #set SupportVitalityPlayer
 statMap = {
 	["support_vitality_life_regeneration_rate_per_minute_%"] = {
-		mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+		mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality I" }),
 		div = 60,
 	},
 },
@@ -1762,7 +1757,7 @@ statMap = {
 #set SupportVitalityPlayerTwo
 statMap = {
 	["support_vitality_life_regeneration_rate_per_minute_%"] = {
-		mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+		mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality II" }),
 		div = 60,
 	},
 },
@@ -1787,5 +1782,13 @@ statMap = {
 
 #skill SupportZerphisLegacyPlayer
 #set SupportZerphisLegacyPlayer
+statMap = {
+	["support_zerphis_legacy_area_of_effect_+%"] = {
+		mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+	},
+	["support_zerphis_legacy_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+	},
+},
 #mods
 #skillEnd

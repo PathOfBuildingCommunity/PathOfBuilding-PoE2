@@ -255,7 +255,7 @@ local function doActorAttribsConditions(env, actor)
 			if actor.mainSkill.skillTypes[SkillType.Movement] then
 				condList["UsedMovementSkillRecently"] = true
 			end
-			if skillFlags.minion and not skillFlags.permanentMinion then
+			if skillFlags.minion and not skillFlags.duration then
 				condList["UsedMinionSkillRecently"] = true
 			end
 			if actor.mainSkill.skillTypes[SkillType.Vaal] then
@@ -651,6 +651,11 @@ local function doActorMisc(env, actor)
 			local effect = m_max(m_floor(70 * calcLib.mod(modDB, nil, "SelfChillEffect")), 0)
 			modDB:NewMod("ActionSpeed", "INC", -effect, "Freeze")
 		end
+		if modDB:Flag(nil, "Unravelling") then
+			modDB:NewMod("ChaosCanFreeze", "FLAG", true, { type = "Condition", var = "ColdUnravel"})
+			modDB:NewMod("ChaosCanIgnite", "FLAG", true, { type = "Condition", var = "FireUnravel"})
+			modDB:NewMod("ChaosCanShock", "FLAG", true, { type = "Condition", var = "LightningUnravel"})
+		end
 		if modDB:Flag(nil, "CanLeechLifeOnFullLife") and not modDB:Flag(nil, "GhostReaver") then
 			condList["Leeching"] = true
 			condList["LeechingLife"] = true
@@ -664,7 +669,7 @@ local function doActorMisc(env, actor)
 			local minStacks = m_min(modDB:Sum("BASE", nil, "MinimumRage"), maxStacks)
 			local rageConfig = modDB:Sum("BASE", nil, "Multiplier:RageStack")
 			local stacks = m_max(m_min(rageConfig, maxStacks), (minStacks > 0 and minStacks) or 0)
-			output.RageEffect =  m_floor(stacks * calcLib.mod(modDB, nil, "RageEffect"))
+			output.RageEffect = modDB:Override(nil, "RageEffect") or m_floor(stacks * calcLib.mod(modDB, nil, "RageEffect"))
 			modDB:NewMod("Multiplier:RageEffect", "BASE", output.RageEffect, "Base")
 			output.Rage = stacks
 			output.MaximumRage = maxStacks
@@ -1587,6 +1592,7 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 		local ignoreAttrReq = modDB:Flag(nil, "IgnoreAttributeRequirements")
+		local strengthSatisfiesMeleeFlag = modDB:Flag(nil, "StrengthSatisfiesMeleeWeaponsAndSkills")
 		for _, attr in ipairs(attrTable) do
 			local breakdownAttr = attr
 			if breakdown then
@@ -1616,13 +1622,20 @@ function calcs.perform(env, skipEHP)
 					elseif reqSource.source == "Support Gems" then
 						req = m_floor(reqSource[attr])
 					end
-					if req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val) then
+					-- Jarngreipr // if it's a melee weapon or melee skill gem and your Strength is greater than or equal to the Dex/Int requirement
+					local strengthSatisfiesMelee = strengthSatisfiesMeleeFlag
+						and ((reqSource.source == "Item" and reqSource.sourceItem.base.weapon and env.data.weaponTypeInfo[reqSource.sourceItem.base.type].melee)
+						or (reqSource.source == "Gem" and reqSource.sourceGem.gemData.tags.melee))
+					local satisfyingAttributeValue = gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or out.val
+					if req > (strengthSatisfiesMelee and attr ~= "Str" and m_max(satisfyingAttributeValue, output["Str"]) or satisfyingAttributeValue) then
 						out.val = req
 						out.source = reqSource
 					end
 					if breakdown then
+						local breakdownAttributeValue = gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or output[breakdownAttr]
+						local reqBool = req > (strengthSatisfiesMelee and breakdownAttr ~= "Str" and m_max(breakdownAttributeValue, output["Str"]) or breakdownAttributeValue)
 						local row = {
-							req = req > (gemAttributeRequirementsSatisfiedByHighestAttribute and reqSource.source == "Gem" and highestAttributeValue or output[breakdownAttr]) and colorCodes.NEGATIVE..req or req,
+							req = reqBool and colorCodes.NEGATIVE..req or req,
 							reqNum = req,
 							source = reqSource.source,
 						}
@@ -1885,8 +1898,7 @@ function calcs.perform(env, skipEHP)
 							end
 						end
 						local full_duration = calcSkillDuration(modStore, skillCfg, activeSkill.skillData, env, enemyDB)
-						local cooldownOverride = modStore:Override(skillCfg, "CooldownRecovery")
-						local actual_cooldown = cooldownOverride or (activeSkill.skillData.cooldown  + modStore:Sum("BASE", skillCfg, "CooldownRecovery")) / calcLib.mod(modStore, skillCfg, "CooldownRecovery")
+						local actual_cooldown = calcSkillCooldown(modStore, skillCfg, activeSkill.skillData)
 						local uptime = modDB:Flag(nil, "Condition:WarcryMaxHit") and 1 or m_min(full_duration / actual_cooldown, 1)
 						local extraWarcryModList = activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and new("ModList") or {}
 						if not modDB:Flag(nil, "CannotGainWarcryBuffs") then
@@ -2147,13 +2159,13 @@ function calcs.perform(env, skipEHP)
 			elseif buff.type == "Curse" or buff.type == "CurseBuff" then
 				local mark = activeSkill.skillTypes[SkillType.Mark]
 				modDB.conditions["SelfCast"..buff.name:gsub(" ","")] = not (activeSkill.skillTypes[SkillType.Triggered] or activeSkill.skillTypes[SkillType.Aura])
-				if env.mode_effective and (not enemyDB:Flag(nil, "Hexproof") or modDB:Flag(nil, "CursesIgnoreHexproof") or activeSkill.skillData.ignoreHexLimit or activeSkill.skillData.ignoreHexproof) or mark then
+				if env.mode_effective and (not enemyDB:Flag(nil, "Hexproof") or modDB:Flag(nil, "CursesIgnoreHexproof") or activeSkill.skillData.ignoreCurseLimit or activeSkill.skillData.ignoreHexproof) or mark then
 					local curse = {
 						name = buff.name,
 						fromPlayer = true,
 						priority = determineCursePriority(buff.name, activeSkill),
 						isMark = mark,
-						ignoreHexLimit = (modDB:Flag(activeSkill.skillCfg, "CursesIgnoreHexLimit") or activeSkill.skillData.ignoreHexLimit) and not mark or false,
+						ignoreCurseLimit = (modDB:Flag(activeSkill.skillCfg, "CursesIgnoreCurseLimit") or activeSkill.skillData.ignoreCurseLimit or activeSkill.skillModList:Flag(nil, "CursesIgnoreCurseLimit")) and not mark or false,
 						socketedCursesHexLimit = modDB:Flag(activeSkill.skillCfg, "SocketedCursesAdditionalLimit")
 					}
 					local inc = skillModList:Sum("INC", skillCfg, "CurseEffect") + enemyDB:Sum("INC", nil, "CurseEffectOnSelf")
@@ -2697,7 +2709,7 @@ function calcs.perform(env, skipEHP)
 	for _, source in ipairs({curses, minionCurses, allyCurses}) do
 		for _, curse in ipairs(source) do
 			-- Calculate curses that ignore hex limit after
-			if not curse.ignoreHexLimit and not curse.socketedCursesHexLimit then
+			if not curse.ignoreCurseLimit and not curse.socketedCursesHexLimit then
 				local slot
 				local skipAddingCurse = false
 				-- Check if we need to disable a certain curse aura.
@@ -2741,7 +2753,7 @@ function calcs.perform(env, skipEHP)
 
 	for _, source in ipairs({curses, minionCurses}) do
 		for _, curse in ipairs(source) do
-			if curse.ignoreHexLimit then
+			if curse.ignoreCurseLimit then
 				local skipAddingCurse = false
 				for i = 1, #curseSlots do
 					if curseSlots[i].name == curse.name then
@@ -2955,7 +2967,7 @@ function calcs.perform(env, skipEHP)
 					t_insert(mods, modLib.createMod("ColdDamageTaken", "INC", num, "Bonechill", { type = "Condition", var = "Chilled" }))
 				end
 				if modDB:Flag(nil, "ChillEffectIncDamageTaken") then
-					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Ahuana's Bite", { type = "Condition", var = "Chilled" }))
+					t_insert(mods, modLib.createMod("DamageTaken", "INC", num, "Asphyxia's Wrath", { type = "Condition", var = "Chilled" }))
 				end
 				return mods
 			end
@@ -3258,9 +3270,10 @@ function calcs.perform(env, skipEHP)
 				t_insert(env.itemWarnings.gemGroupCountWarning, { allowedGemGroups, gemInfo })
 			end
 		else
-			if gemInfo.support and gemInfo.lineage and gemInfo.count > 1 then
+			local maxLineageCount = modDB:Sum("BASE", nil, "MaxLineageCount")
+			if gemInfo.support and gemInfo.lineage and gemInfo.count > maxLineageCount then
 				env.itemWarnings.lineageSupportGemLimitWarning = env.itemWarnings.lineageSupportGemLimitWarning or { }
-				t_insert(env.itemWarnings.lineageSupportGemLimitWarning, { gemName, 1, gemInfo.groups })
+				t_insert(env.itemWarnings.lineageSupportGemLimitWarning, { gemName, maxLineageCount, gemInfo.groups })
 			end
 		end
 	end

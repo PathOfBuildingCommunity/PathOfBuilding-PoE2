@@ -329,7 +329,16 @@ statMap = {
 #from item
 #skill CorpseCloudPlayer
 #set CorpseCloudPlayer
-#flags spell area duration
+#flags area duration
+#baseMod mod("PoisonChance", "BASE", 100)
+#baseMod skill("explodeCorpse", true)
+#baseMod skill("corpseExplosionDamageType", "Chaos")
+statMap = {
+	["corpse_explosion_monster_life_permillage_chaos"] = {
+		skill("corpseExplosionLifeMultiplier", nil),
+		div = 1000,
+	},
+},
 #mods
 #set CorpseCloudExplosionPlayer
 #flags spell area
@@ -453,6 +462,17 @@ statMap = {
 #mods
 #set FallingThunderProjectilePlayer
 #flags attack projectile
+statMap = {
+	["lightning_strike_damage_+%_final_per_power_charge"] = {
+		mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+	},
+	["lightning_strike_damage_+%_final_when_charged"] = {
+		mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
+	},
+	["lightning_strike_base_number_of_projectiles_per_power_charge"] = {
+		mod("ProjectileCount", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
+	},
+},
 #mods
 #skillEnd
 
@@ -488,12 +508,42 @@ statMap = {
 #skill FirestormPlayer
 #set FirestormPlayer
 #flags spell area duration
+statMap = {
+	["fire_storm_fireball_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #set FirestormColdInfusionPlayer
 #flags spell area duration
+statMap = {
+	["fire_storm_fireball_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #set FirestormLightningInfusionPlayer
 #flags spell area duration
+statMap = {
+	["fire_storm_fireball_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -687,6 +737,14 @@ end,
 #mods
 #set GlacialCascadeLastSpikePlayer
 #flags attack area
+statMap = {
+	["active_skill_consume_enemy_freeze_to_gain_damage_against_non_unique_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true })
+	},
+	["active_skill_consume_enemy_freeze_to_gain_damage_against_unique_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" })
+	},
+},
 #mods
 #skillEnd
 
@@ -817,10 +875,20 @@ statMap = {
 		skill("hitTimeOverride", nil),
 		div = 1000,
 	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
 },
 #mods
 #set IcestormEmpoweredPlayer
 #flags spell area duration
+statMap = {
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -1035,14 +1103,14 @@ statMap = {
 #minionList SummonedRagingSpirit
 #skill RagingSpiritsPlayer
 #set RagingSpiritsPlayer
-#flags spell minion permanentMinion
+#flags spell minion
 #mods
 #skillEnd
 
 #minionList RaisedZombie
 #skill RaiseZombiePlayer
 #set RaiseZombiePlayer
-#flags spell minion permanentMinion
+#flags spell minion
 #mods
 #skillEnd
 
@@ -1128,49 +1196,49 @@ statMap = {
 #minionList RaisedSkeletonArsonist
 #skill SummonSkeletalArsonistsPlayer
 #set SummonSkeletalArsonistsPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonBrute
 #skill SummonSkeletalBrutesPlayer
 #set SummonSkeletalBrutesPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonCleric
 #skill SummonSkeletalClericsPlayer
 #set SummonSkeletalClericsPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonFrostMage
 #skill SummonSkeletalFrostMagesPlayer
 #set SummonSkeletalFrostMagesPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonReaver
 #skill SummonSkeletalReaversPlayer
 #set SummonSkeletalReaversPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonSniper
 #skill SummonSkeletalSnipersPlayer
 #set SummonSkeletalSnipersPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonStormMage
 #skill SummonSkeletalStormMagesPlayer
 #set SummonSkeletalStormMagesPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
@@ -1178,7 +1246,7 @@ statMap = {
 #minionList RaisedSkeletonWarriors
 #skill SummonSkeletalWarriorsPlayer
 #set SummonSkeletalWarriorsPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
@@ -1248,7 +1316,7 @@ statMap = {
 #minionList
 #skill SummonSpectrePlayer
 #set SummonSpectrePlayer
-#flags spell minion spectre duration permanentMinion
+#flags spell minion spectre duration
 #baseMod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3
 #mods
 #skillEnd

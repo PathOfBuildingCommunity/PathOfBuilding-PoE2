@@ -3224,4 +3224,12 @@ return {
 			"lung. You never know what Vaal technology will cost you...\"",
 		},
 	},
+	[402] = {
+		id = "VaalLimbReplacements",
+		name = "Transcendent Limb",
+		text = {
+			"\"Behold! A marvel of innovation! Pay no mind the cost of flesh...\"",
+			"- Guatelitzi, Architect of Flesh",
+		},
+	},
 }

@@ -75,8 +75,8 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.accountNameHeader.shown = function()
 		return self.charImportMode == "GETACCOUNTNAME"
 	end
-	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, {0, 4, 60, 20}, realmList )
-	self.controls.accountRealm:SelByValue( main.lastRealm or "PC", "id" )
+	self.controls.accountRealm = new("DropDownControl", {"TOPLEFT",self.controls.accountNameHeader,"BOTTOMLEFT"}, {0, 4, 60, 20}, realmList)
+	self.controls.accountRealm:SelByValue(main.lastRealm or "PC", "id")
 
 	self.controls.accountNameGo = new("ButtonControl", {"LEFT",self.controls.accountNameHeader,"RIGHT"}, {8, 0, 60, 20}, "Start", function()
 		self:DownloadCharacterList()
@@ -95,7 +95,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.charSelect.enabled = function()
 		return self.charImportMode == "SELECTCHAR"
 	end
-	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "Import:")
+	self.controls.charImportHeader = new("LabelControl", {"TOPLEFT",self.controls.charSelect,"BOTTOMLEFT"}, {0, 16, 200, 16}, "^7Import:")
 	self.controls.charImportTree = new("ButtonControl", {"LEFT",self.controls.charImportHeader, "RIGHT"}, {8, 0, 170, 20}, "Passive Tree and Jewels", function()
 		if self.build.spec:CountAllocNodes() > 0 then
 			main:OpenConfirmPopup("Character Import", "Importing the passive tree will overwrite your current tree.", "Import", function()
@@ -273,6 +273,15 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 				self.build:Init(self.build.dbFileName, self.build.buildName, self.importCodeXML, false, self.importCodeSite and self.controls.importCodeIn.buf or nil)
 				self.build.viewMode = "TREE"
 			end)
+		elseif self.controls.importCodeMode.selIndex == 3 then
+			-- Import as comparison build
+			if self.build.compareTab then
+				if self.build.compareTab:ImportBuild(self.importCodeXML, "Imported comparison") then
+					self.build.viewMode = "COMPARE"
+				else
+					main:OpenMessagePopup("Import Error", "Failed to import build for comparison.")
+				end
+			end
 		else
 			self.build:Shutdown()
 			self.build:Init(false, "Imported build", self.importCodeXML, false, self.importCodeSite and self.controls.importCodeIn.buf or nil)
@@ -290,9 +299,9 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.controls.importCodeState.label = function()
 		return self.importCodeDetail or ""
 	end
-	self.controls.importCodeMode = new("DropDownControl", {"TOPLEFT",self.controls.importCodeIn,"BOTTOMLEFT"}, {0, 4, 160, 20}, { "Import to this build", "Import to a new build" })
+	self.controls.importCodeMode = new("DropDownControl", {"TOPLEFT",self.controls.importCodeIn,"BOTTOMLEFT"}, {0, 4, 200, 20}, { "Import to this build", "Import to a new build", "Import as comparison" })
 	self.controls.importCodeMode.enabled = function()
-		return self.build.dbFileName and self.importCodeValid
+		return (self.build.dbFileName or self.controls.importCodeMode.selIndex == 3) and self.importCodeValid
 	end
 	self.controls.importCodeGo = new("ButtonControl", {"LEFT",self.controls.importCodeMode,"RIGHT"}, {8, 0, 160, 20}, "Import", function()
 		if self.importCodeSite and not self.importCodeXML then
@@ -357,7 +366,9 @@ end
 
 function ImportTabClass:Load(xml, fileName)
 	self.lastRealm = xml.attrib.lastRealm
-	self.controls.accountRealm:SelByValue( self.lastRealm or main.lastRealm or "PC", "id" )
+	self.controls.accountRealm:SelByValue(self.lastRealm or main.lastRealm or "PC", "id")
+	self.lastLeague = xml.attrib.lastLeague
+	self.controls.charSelectLeague:SelByValue(self.lastLeague or "Standard", "id")
 	self.lastAccountHash = xml.attrib.lastAccountHash
 	self.importLink = xml.attrib.importLink
 	self.controls.enablePartyExportBuffs.state = xml.attrib.exportParty == "true"
@@ -375,6 +386,7 @@ end
 function ImportTabClass:Save(xml)
 	xml.attrib = {
 		lastRealm = self.lastRealm,
+		lastLeague = self.lastLeague,
 		lastAccountHash = self.lastAccountHash,
 		lastCharacterHash = self.lastCharacterHash,
 		exportParty = tostring(self.controls.enablePartyExportBuffs.state),
@@ -402,6 +414,23 @@ function ImportTabClass:Draw(viewPort, inputEvents)
 end
 
 function ImportTabClass:DownloadCharacterList()
+	function FindMatchingStandardLeague(league)
+		-- Find a Standard league name for a given league name
+		-- Reference https://api.pathofexile.com/league?realm=pc
+		if string.find(league, "Hardcore") then
+			return "Hardcore"
+		elseif string.find(league, "HC SSF") then
+			-- includes Ruthless "HC SSF R "
+			return "SSF Hardcore"
+		elseif string.find(league, "SSF") then
+			-- Any non HardCore SSF's - includes Ruthless "SSF R "
+			return "SSF Standard"
+		else
+			-- normal league and ruthless league (Sanctum, Ruthless Sanctum)
+			return "Standard"
+		end
+	end	
+	
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
@@ -463,6 +492,7 @@ function ImportTabClass:DownloadCharacterList()
 			end
 		end
 		table.sort(leagueList)
+		charSelectLeague = self.controls.charSelectLeague
 		wipeTable(self.controls.charSelectLeague.list)
 		for _, league in ipairs(leagueList) do
 			t_insert(self.controls.charSelectLeague.list, {
@@ -473,8 +503,25 @@ function ImportTabClass:DownloadCharacterList()
 		t_insert(self.controls.charSelectLeague.list, {
 			label = "All",
 		})
-		if self.controls.charSelectLeague.selIndex > #self.controls.charSelectLeague.list then
-			self.controls.charSelectLeague.selIndex = 1
+		-- set the league combo to the last used if possible, used for previously imported characters
+			if self.lastLeague then
+				charSelectLeague:SelByValue(self.lastLeague, "league")
+				-- check that it worked
+				if charSelectLeague:GetSelValueByKey("league") ~= self.lastLeague then
+					-- League maybe over, Character will be in standard
+					local standardLeagueName = FindMatchingStandardLeague(self.lastLeague)
+					self.controls.charSelectLeague:SelByValue(standardLeagueName, "league")
+					if charSelectLeague:GetSelValueByKey("league") ~= standardLeagueName then
+						-- give up and select the first entry. Ruthless mode may not have Standard equivalents
+						charSelectLeague.selIndex = 1
+					else
+						self.lastLeague = standardLeagueName
+					end
+				end
+			else
+				if self.controls.charSelectLeague.selIndex > #self.controls.charSelectLeague.list then
+					self.controls.charSelectLeague.selIndex = 1
+				end
 		end
 		self.lastCharList = charList
 		self:BuildCharacterList(self.controls.charSelectLeague:GetSelValueByKey("league"))
@@ -553,6 +600,9 @@ function ImportTabClass:DownloadCharacter(callback)
 			return
 		end
 		self.lastCharacterHash = common.sha1(charData.name)
+		if not self.lastLeague then
+			self.lastLeague = charSelectLeague:GetSelValueByKey("league")
+		end
 		--local out = io.open("get-passive-skills.json", "w")
 		--out:write(json)
 		--out:close()
@@ -713,6 +763,9 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 
 	self.build.spec:AddUndoState()
 	self:ImportQuestRewardConfig(charPassiveData.quest_stats)
+	if not self.lastLeague then
+		self.lastLeague = charSelectLeague and charSelectLeague:GetSelValueByKey("league")
+	end
 	self.build.characterLevel = charData.level
 	self.build.characterLevelAutoMode = false
 	self.build.configTab:UpdateLevel()
@@ -770,6 +823,30 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		end		
 		if typeLine:match("^Companion:") then
 			gemId = "Metadata/Items/Gems/SkillGemSummonBeast"
+		end
+
+		-- This could be done better with the character melee skills data at some point.
+		if typeLine:match("Mace Strike") then
+			local weapon1Sel = self.build.itemsTab.activeItemSet["Weapon 1"].selItemId or 0
+			local weapon2Sel = self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0
+			if weapon2Sel == 0 then
+				if self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
+				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
+				end
+			else
+				if self.build.itemsTab.items[weapon2Sel].base.type == "One Hand Mace" or self.build.itemsTab.items[weapon2Sel].base.type == "Two Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultMaceMace" -- Dual wielding maces
+				elseif self.build.itemsTab.items[weapon1Sel].base.type == "One Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault1HMace"
+				elseif self.build.itemsTab.items[weapon1Sel].base.type == "Two Hand Mace" then
+					gemId = "Metadata/Items/Gems/SkillGemPlayerDefault2HMace"
+				end
+			end
+		end
+		if typeLine:match("Spear Stab") and (self.build.itemsTab.activeItemSet["Weapon 2"].selItemId or 0) ~= 0 then
+			gemId = "Metadata/Items/Gems/SkillGemPlayerDefaultSpearOffHand"
 		end
 
 		if gemId then
@@ -914,7 +991,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 end
 
 local rarityMap = { [0] = "NORMAL", "MAGIC", "RARE", "UNIQUE", [9] = "RELIC", [10] = "RELIC" }
-local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"] = "Weapon 1 Swap", ["Offhand2"] = "Weapon 2 Swap", ["Helm"] = "Helmet", ["BodyArmour"] = "Body Armour", ["Gloves"] = "Gloves", ["Boots"] = "Boots", ["Amulet"] = "Amulet", ["Ring"] = "Ring 1", ["Ring2"] = "Ring 2", ["Ring3"] = "Ring 3", ["Belt"] = "Belt" }
+local slotMap = { ["Weapon"] = "Weapon 1", ["Offhand"] = "Weapon 2", ["Weapon2"] = "Weapon 1 Swap", ["Offhand2"] = "Weapon 2 Swap", ["Helm"] = "Helmet", ["BodyArmour"] = "Body Armour", ["Gloves"] = "Gloves", ["Boots"] = "Boots", ["Amulet"] = "Amulet", ["Ring"] = "Ring 1", ["Ring2"] = "Ring 2", ["Ring3"] = "Ring 3", ["Belt"] = "Belt", ["IncursionArmLeft"] = "Arm 2", ["IncursionArmRight"] = "Arm 1", ["IncursionLegLeft"] = "Leg 2", ["IncursionLegRight"] = "Leg 1" }
 
 function ImportTabClass:ImportItem(itemData, slotName)
 	if not slotName then
@@ -1033,6 +1110,8 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	end
 	item.mirrored = itemData.mirrored
 	item.corrupted = itemData.corrupted
+	item.sanctified = itemData.sanctified
+	item.doubleCorrupted = itemData.doubleCorrupted
 	item.fractured = itemData.fractured
 	item.desecrated = itemData.desecrated
 	item.mutated = itemData.mutated

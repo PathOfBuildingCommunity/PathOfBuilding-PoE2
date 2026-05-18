@@ -72,6 +72,76 @@ function PassiveTreeViewClass:Save(xml)
 	}
 end
 
+-- Look up the jewel item socketed at a given node ID in a compare spec.
+-- Uses itemsTab.sockets (the slot controls) which stay in sync with the active item/tree set.
+function PassiveTreeViewClass:GetCompareJewel(nodeId)
+	if not self.compareSpec then return nil end
+	local cBuild = self.compareSpec.build
+	local cItemsTab = cBuild and cBuild.itemsTab
+	if not cItemsTab or not cItemsTab.sockets then return nil end
+	local cSocket = cItemsTab.sockets[nodeId]
+	if cSocket and cSocket.selItemId and cSocket.selItemId > 0 then
+		return cItemsTab.items[cSocket.selItemId]
+	end
+	return nil
+end
+
+-- Returns the overlay asset name for a socketed jewel, or nil if no special overlay applies.
+function PassiveTreeViewClass:GetJewelSocketOverlay(jewel, isExpansion)
+	if jewel.baseName == "Crimson Jewel" then
+		return isExpansion and "JewelSocketActiveRedAlt" or "JewelSocketActiveRed"
+	elseif jewel.baseName == "Viridian Jewel" then
+		return isExpansion and "JewelSocketActiveGreenAlt" or "JewelSocketActiveGreen"
+	elseif jewel.baseName == "Cobalt Jewel" then
+		return isExpansion and "JewelSocketActiveBlueAlt" or "JewelSocketActiveBlue"
+	elseif jewel.baseName == "Prismatic Jewel" then
+		return isExpansion and "JewelSocketActivePrismaticAlt" or "JewelSocketActivePrismatic"
+	elseif jewel.base and jewel.base.subType == "Abyss" then
+		return isExpansion and "JewelSocketActiveAbyssAlt" or "JewelSocketActiveAbyss"
+	elseif jewel.base and jewel.base.subType == "Charm" then
+		if jewel.baseName == "Ursine Charm" then
+			return "CharmSocketActiveStr"
+		elseif jewel.baseName == "Corvine Charm" then
+			return "CharmSocketActiveInt"
+		elseif jewel.baseName == "Lupine Charm" then
+			return "CharmSocketActiveDex"
+		end
+	elseif jewel.baseName == "Timeless Jewel" then
+		return isExpansion and "JewelSocketActiveLegionAlt" or "JewelSocketActiveLegion"
+	elseif jewel.baseName == "Large Cluster Jewel" then
+		return "JewelSocketActiveAltPurple"
+	elseif jewel.baseName == "Medium Cluster Jewel" then
+		return "JewelSocketActiveAltBlue"
+	elseif jewel.baseName == "Small Cluster Jewel" then
+		return "JewelSocketActiveAltRed"
+	end
+end
+
+-- Returns the draw color for a node when compare overlay is active.
+-- Handles diff coloring for allocated/unallocated, mastery changes, and jewel socket differences.
+function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build, nodeDefaultColor)
+	if not compareNode then
+		return nodeDefaultColor
+	end
+	if compareNode.alloc and not node.alloc then
+		return 0, 1, 0
+	elseif not compareNode.alloc and node.alloc then
+		return 1, 0, 0
+	elseif node.type == "Mastery" and compareNode.alloc and node.alloc and node.sd ~= compareNode.sd then
+		return 0, 0, 1
+	elseif node.type == "Socket" and compareNode.alloc and node.alloc then
+		local pJewelId = spec.jewels[node.id]
+		local pJewel = pJewelId and build.itemsTab.items[pJewelId]
+		local cJewel = self:GetCompareJewel(node.id)
+		local pName = pJewel and pJewel.name or ""
+		local cName = cJewel and cJewel.name or ""
+		if pName ~= cName then
+			return 0, 0, 1
+		end
+	end
+	return nodeDefaultColor
+end
+
 function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	local spec = build.spec
 	local tree = spec.tree
@@ -185,6 +255,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	end
 
 	local hoverNode
+	local hoverCompareNode -- Track compare-only node hover separately
 	if mOver then
 		-- Cursor is over the tree, check if it is over a node
 		local curTreeX, curTreeY = screenToTree(cursorX, cursorY)
@@ -196,6 +267,20 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				if vX * vX + vY * vY <= node.rsq then
 					hoverNode = node
 					break
+				end
+			end
+		end
+		-- If not hovering a primary node, check compare-only nodes (e.g. cluster jewel subgraph nodes)
+		if not hoverNode and self.compareSpec then
+			for nodeId, cNode in pairs(self.compareSpec.nodes) do
+				if not spec.nodes[nodeId] and cNode.alloc and cNode.rsq and cNode.x and cNode.y
+					and cNode.type ~= "ClassStart" and cNode.type ~= "AscendClassStart" then
+					local vX = curTreeX - cNode.x
+					local vY = curTreeY - cNode.y
+					if vX * vX + vY * vY <= cNode.rsq then
+						hoverCompareNode = cNode
+						break
+					end
 				end
 			end
 		end
@@ -632,6 +717,34 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		for _, connector in pairs(subGraph.connectors) do
 			renderConnector(connector)
 		end
+	end
+	-- Draw connectors for compare-only subgraphs (cluster jewels only in compare build)
+	if self.compareSpec then
+		for subGraphId, subGraph in pairs(self.compareSpec.subGraphs) do
+			if not spec.subGraphs[subGraphId] then
+				for _, connector in pairs(subGraph.connectors) do
+					local cNode1 = self.compareSpec.nodes[connector.nodeId1]
+					local cNode2 = self.compareSpec.nodes[connector.nodeId2]
+					if cNode1 and cNode2 and cNode1.alloc and cNode2.alloc and connector.vert then
+						local state = "Active"
+						local vert = connector.vert[state] or connector.vert["Normal"]
+						if vert then
+							connector.c = connector.c or {}
+							connector.c[1], connector.c[2] = treeToScreen(vert[1], vert[2])
+							connector.c[3], connector.c[4] = treeToScreen(vert[3], vert[4])
+							connector.c[5], connector.c[6] = treeToScreen(vert[5], vert[6])
+							connector.c[7], connector.c[8] = treeToScreen(vert[7], vert[8])
+							SetDrawColor(0, 1, 0)
+							local asset = tree.assets[connector.type..state] or tree.assets[connector.type.."Normal"]
+							if asset then
+								DrawImageQuad(asset.handle, unpack(connector.c))
+							end
+						end
+					end
+				end
+			end
+		end
+		SetDrawColor(1, 1, 1)
 	end
 
 	if self.showHeatMap then
@@ -1336,7 +1449,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	if (node.type == "Socket" or node.containJewelSocket) and node.alloc then
 		local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(node.id)
 		if jewel then
-			build.itemsTab:AddItemTooltip(tooltip, jewel, { nodeId = node.id })
+			build.itemsTab:AddItemTooltip(tooltip, jewel, socket)
 			if node.distanceToClassStart and node.distanceToClassStart > 0 then
 				tooltip:AddSeparator(14)
 				tooltip:AddLine(16, string.format("^7Distance to start: %d", node.distanceToClassStart))
@@ -1353,6 +1466,22 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 
 		tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Shift or Ctrl to hide this tooltip.")
 		return
+	end
+
+	-- For unallocated sockets, show compare build's jewel if it has one
+	if node.type == "Socket" and not node.alloc and self.compareSpec then
+		local cJewel = self:GetCompareJewel(node.id)
+		local cItemsTab = self.compareSpec.build and self.compareSpec.build.itemsTab
+		local cAllocated = self.compareSpec.allocNodes and self.compareSpec.allocNodes[node.id]
+		if cJewel and cAllocated then
+			-- Show the compare build's jewel tooltip instead of generic socket info
+			local socket = build.itemsTab:GetSocketAndJewelForNodeID(node.id)
+			cItemsTab:AddItemTooltip(tooltip, cJewel, socket)
+			tooltip:AddSeparator(14)
+			tooltip:AddLine(14, colorCodes.DEXTERITY .. "Jewel from compared build")
+			tooltip:AddLine(14, colorCodes.TIP.."Tip: Hold Shift or Ctrl to hide this tooltip.")
+			return
+		end
 	end
 
 	-- Node name
@@ -1401,7 +1530,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			
 			-- Apply Inc Node scaling from Hulking Form + Radius Jewels only visually
 			if (((incSmallPassiveSkillEffect + localIncEffect) > 0 and node.type == "Normal") or (localIncEffect > 0 and node.type == "Notable")) and not node.isAttribute and not node.ascendancyName and node.mods[i].list then
-				local scale = 1 + (node.type == "Normal" and (incSmallPassiveSkillEffect or 0) + localIncEffect) / 100
+				local base = (localIncEffect or 0)
+				local scale = 1 + ((node.type == "Normal" and ((incSmallPassiveSkillEffect or 0) + base) or base) / 100)
+
 				local modsList = copyTable(node.mods[i].list)
 				local scaledList = new("ModList")
 				scaledList:ScaleAddList(modsList, scale)
