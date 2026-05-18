@@ -36,6 +36,9 @@ local applyRangeTests = {
 	[{ "+(-25-50)% to Fire Resistance", 1.0, 1.5 }] = "+75% to Fire Resistance",
 	[{ "+(-25-50)% to Fire Resistance", 0.0, 1.0 }] = "-25% to Fire Resistance",
 	[{ "+(-25-50)% to Fire Resistance", 0.0, 1.5 }] = "-37% to Fire Resistance",
+
+	-- Range with plus sign that resolves exactly to zero
+	[{ "+(-1-1) to Maximum Power Charges", 0.5, 1.0 }] = "0 to Maximum Power Charges",
 }
 
 describe("TestItemTools", function()
