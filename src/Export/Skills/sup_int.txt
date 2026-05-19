@@ -143,6 +143,9 @@ statMap = {
 	["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
 	},
+	["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+	},
 },
 #mods
 #skillEnd
@@ -152,6 +155,9 @@ statMap = {
 statMap = {
 	["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+	},
+	["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
 	},
 },
 #mods
@@ -294,7 +300,7 @@ statMap = {
 #set SupportClarityPlayer
 statMap = {
 	["support_clarity_mana_regeneration_rate_+%"] = {
-		mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+		mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity I" }),
 	},
 },
 #mods
@@ -304,7 +310,7 @@ statMap = {
 #set SupportClarityPlayerTwo
 statMap = {
 	["support_clarity_mana_regeneration_rate_+%"] = {
-		mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+		mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity II" }),
 	},
 },
 #mods
@@ -629,6 +635,11 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEternalMarkPlayer
+#set SupportEternalMarkPlayer
+#mods
+#skillEnd
+
 #skill SupportExcisePlayer
 #set SupportExcisePlayer
 statMap = {
@@ -937,7 +948,7 @@ statMap = {
 		mod("Multiplier:InevitableCritCap", "BASE", nil),
 	},
 	["support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second"] = {
-		mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+		mod("CritMultiplier", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitNegTotal = true }),
 	},
 	["support_inevitable_criticals_critical_strike_multiplier_+%_final_cap"] = {
 		mod("Multiplier:InevitableCritMultCap", "BASE", nil),
@@ -1144,6 +1155,14 @@ statMap = {
 
 #skill SupportMorganasTempestPlayer
 #set SupportMorganasTempestPlayer
+statMap = {
+	["support_approaching_storms_area_of_effect_+%_final"] = {
+		mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+	},
+	["support_approaching_storms_damage_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+	},
+},
 #mods
 #skillEnd
 
@@ -1161,7 +1180,7 @@ statMap = {
 #set SupportMysticismPlayer
 statMap = {
 	["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism I" }),
 	},
 },
 #mods
@@ -1171,7 +1190,7 @@ statMap = {
 #set SupportMysticismPlayerTwo
 statMap = {
 	["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+		mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism II" }),
 	},
 },
 #mods
@@ -1291,6 +1310,11 @@ statMap = {
 
 #skill SupportRitualisticCursePlayer
 #set SupportRitualisticCursePlayer
+statMap = {
+	["support_ritual_curse_curse_delay_+%_final"] = {
+		mod("CurseDelay", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -1420,17 +1444,6 @@ statMap = {
 
 #skill SupportUnleashPlayer
 #set SupportUnleashPlayer
-statMap = {
-	["support_anticipation_rapid_fire_count"] = {
-		mod("SealCount", "BASE", nil),
-	},
-	["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
-		mod("SealGainFrequency", "BASE", nil),
-	},
-	["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
-		mod("SealRepeatPenalty", "MORE", nil),
-	},
-},
 #baseMod flag("HasSeals")
 #mods
 #skillEnd
@@ -1513,9 +1526,9 @@ statMap = {
 
 #skill SupportZarokhsRevoltPlayer
 #set SupportZarokhsRevoltPlayer
+#baseMod flag("HasSeals")
 #mods
 #skillEnd
-
 
 #skill SupportZenithPlayer
 #set SupportZenithPlayer

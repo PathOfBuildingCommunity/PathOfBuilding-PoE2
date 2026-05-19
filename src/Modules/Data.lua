@@ -623,7 +623,8 @@ data.itemMods = {
 	Jewel = LoadModule("Data/ModJewel"),
 	Corruption = LoadModule("Data/ModCorrupted"),
 	Runes = LoadModule("Data/ModRunes"),
-	Exclusive = LoadModule("Data/ModItemExclusive")
+	Exclusive = LoadModule("Data/ModItemExclusive"),
+	Desecrated = LoadModule("Data/ModVeiled")
 }
 
 -- update JewelRadius affixes for Time-Lost jewels

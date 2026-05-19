@@ -3795,6 +3795,9 @@ skills["ContagionPlayer"] = {
 				duration = true,
 				spell = true,
 			},
+			baseMods = {
+				skill("debuff", true),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 5000 },
 				{ "active_skill_base_area_of_effect_radius", 17 },
@@ -10705,6 +10708,14 @@ skills["GlacialCascadePlayer"] = {
 			label = "Final Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "glacial_cascade_attack",
+			statMap = {
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_non_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true })
+				},
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" })
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -12082,6 +12093,10 @@ skills["VileDisruptionPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				duration = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },
@@ -16168,7 +16183,6 @@ skills["RagingSpiritsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
 			},
 			constantStats = {
 				{ "base_number_of_raging_spirits_allowed", 10 },
@@ -16291,7 +16305,6 @@ skills["RaiseZombiePlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 1 },
@@ -17690,7 +17703,7 @@ skills["SummonSkeletalArsonistsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -17810,7 +17823,7 @@ skills["SummonSkeletalBrutesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -17930,7 +17943,7 @@ skills["SummonSkeletalClericsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18050,7 +18063,7 @@ skills["SummonSkeletalFrostMagesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18171,7 +18184,7 @@ skills["SummonSkeletalReaversPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18292,7 +18305,7 @@ skills["SummonSkeletalSnipersPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18412,7 +18425,7 @@ skills["SummonSkeletalStormMagesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18534,7 +18547,7 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -19713,7 +19726,6 @@ skills["SummonSpectrePlayer"] = {
 				minion = true,
 				spectre = true,
 				duration = true,
-				permanentMinion = true,
 			},
 			baseMods = {
 				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
@@ -20949,6 +20961,14 @@ skills["TemporalChainsPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "temporal_chains",
+			statMap = {
+				["base_skill_debuff_action_speed_+%_final_to_inflict"] = {
+					mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" })
+				},
+				["base_temporal_chains_other_buff_time_passed_+%_to_apply"] = {
+					mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				duration = true,

@@ -662,6 +662,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("DeflectEffect", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("Evasion", "INC", 10, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("SkillSlots", "BASE", 9, "Base")
+		modDB:NewMod("MaxLineageCount", "BASE", 1, "Base")
 
 		-- Initialise enemy modifier database
 		calcs.initModDB(env, enemyDB)
