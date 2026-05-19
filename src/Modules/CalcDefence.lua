@@ -3077,13 +3077,16 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			iterationMultiplier = 1
 			-- to speed it up, run recursively but accelerated
-			local speedUp = data.misc.ehpCalcSpeedUp
+			-- Stateful pool mechanics are not associative: collapsing too many hits into one
+			-- can cross MoM/life-loss-prevention boundaries differently from repeated hits.
+			local speedUp = DamageIn["StatefulEHP"] and m_min(data.misc.ehpCalcSpeedUp, 4) or data.misc.ehpCalcSpeedUp
 			DamageIn["cyclesRan"] = DamageIn["cyclesRan"] or false
 			if not DamageIn["cyclesRan"] and poolTable.Life > 0 and DamageIn["iterations"] < maxIterations then
 				Damage = { }
 				for _, damageType in ipairs(dmgTypeList) do
 					Damage[damageType] = DamageIn[damageType] * speedUp
 				end
+				Damage["StatefulEHP"] = DamageIn["StatefulEHP"]
 				if DamageIn.GainWhenHit then
 					Damage.GainWhenHit = true
 					Damage.LifeWhenHit = DamageIn.LifeWhenHit
@@ -3135,6 +3138,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			for _, damageType in ipairs(dmgTypeList) do
 				DamageIn[damageType] = output[damageType.."TakenHit"]
 			end
+			DamageIn["StatefulEHP"] = output["preventedLifeLossTotal"] > 0
 			output["NumberOfDamagingHits"] = numberOfHitsToDie(DamageIn)
 		end
 
@@ -3226,6 +3230,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				output["LifeLossLostOverTime"] = 0
 				output["LifeBelowHalfLossLostOverTime"] = 0
 			end
+			DamageIn["StatefulEHP"] = DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit
 			averageAvoidChance = averageAvoidChance / 5
 			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * effectiveDeflectMulti * (1 - averageAvoidChance / 100))
 			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(DamageIn) or output["NumberOfDamagingHits"]

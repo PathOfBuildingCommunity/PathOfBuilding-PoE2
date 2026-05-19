@@ -527,4 +527,59 @@ describe("TestDefence", function()
 		assert.are.equals(0, floor(poolsRemaining.Life))
 		assert.are.equals(0, floor(poolsRemaining.OverkillDamage))
 	end)
+
+	it("does not reduce stateful EHP when block chance increases", function()
+		-- Regression fixture from #1754. The build uses life-loss prevention and MoM,
+		-- so the EHP speedup path must preserve monotonic block improvements.
+		local defendersResolveNodeId = 64327
+		local adjacentBlockNodeId = 39517
+
+		local function readFixture(path)
+			local file = assert(io.open(path, "rb"))
+			local contents = file:read("*a")
+			file:close()
+			return contents
+		end
+
+		local function loadIssue1754Build(extraNodeIds)
+			local xmlText = readFixture("../spec/Fixtures/issue1754_block_ehp.xml")
+			xmlText = xmlText:gsub('nodes="([^"]*)"', function(nodes)
+				local allocated = { }
+				for nodeId in nodes:gmatch("%d+") do
+					allocated[nodeId] = true
+				end
+				for _, nodeId in ipairs(extraNodeIds) do
+					if not allocated[tostring(nodeId)] then
+						nodes = nodes .. "," .. tostring(nodeId)
+					end
+				end
+				return 'nodes="' .. nodes .. '"'
+			end, 1)
+			loadBuildFromXML(xmlText, "issue 1754")
+			runCallback("OnFrame")
+			runCallback("OnFrame")
+			return build.calcsTab.calcsOutput
+		end
+
+		local base = loadIssue1754Build({ })
+		local baseEHP = base.TotalEHP
+		local baseBlock = base.EffectiveBlockChance
+		local defendersResolve = loadIssue1754Build({ defendersResolveNodeId })
+		local defendersResolveEHP = defendersResolve.TotalEHP
+		local defendersResolveBlock = defendersResolve.EffectiveBlockChance
+		local adjacentBlock = loadIssue1754Build({ defendersResolveNodeId, adjacentBlockNodeId })
+		local adjacentBlockEHP = adjacentBlock.TotalEHP
+		local adjacentBlockChance = adjacentBlock.EffectiveBlockChance
+		local defendersResolveAddsBlock = defendersResolveBlock > baseBlock
+		local defendersResolveAddsEHP = defendersResolveEHP > baseEHP
+		local adjacentNodeAddsBlock = adjacentBlockChance > defendersResolveBlock
+		local adjacentNodeAddsEHP = adjacentBlockEHP > defendersResolveEHP
+
+		newBuild()
+
+		assert.is_true(defendersResolveAddsBlock)
+		assert.is_true(defendersResolveAddsEHP)
+		assert.is_true(adjacentNodeAddsBlock)
+		assert.is_true(adjacentNodeAddsEHP)
+	end)
 end)
