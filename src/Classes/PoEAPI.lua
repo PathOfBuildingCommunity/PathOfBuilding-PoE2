@@ -57,6 +57,7 @@ local function base64_encode(secret)
 	return base64.encode(secret):gsub("+","-"):gsub("/","_"):gsub("=$", "")
 end
 
+-- func callback(response, errorMsg, updateSettings)
 function PoEAPIClass:FetchAuthToken(callback)
 	math.randomseed(os.time())
 	local secret = math.random(2^32-1)
@@ -86,11 +87,16 @@ function PoEAPIClass:FetchAuthToken(callback)
 					self.authToken = nil
 					self.refreshToken = nil
 					self.tokenExpiry = nil
-					callback(nil, self.ERROR_NO_AUTH, true)
+					callback(nil, errMsg or self.ERROR_NO_AUTH, true)
 					return
 				end
 
 				if initialState ~= state then
+					ConPrintf("OAuth state mismatch during authentication")
+					self.authToken = nil
+					self.refreshToken = nil
+					self.tokenExpiry = nil
+					callback(nil, "OAuth state mismatch", true)
 					return
 				end
 				local formText = "client_id=pob&grant_type=authorization_code&code=" .. code .. "&redirect_uri=http://localhost:" .. port .. "&scope=" .. table.concat(scopesOAuth, " ") .. "&code_verifier=" .. code_verifier
@@ -100,7 +106,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 						self.authToken = nil
 						self.refreshToken = nil
 						self.tokenExpiry = nil
-						callback()
+						callback(nil, errMsg, true)
 						return
 					end
 					local responseLua = dkjson.decode(response.body)
