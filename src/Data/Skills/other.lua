@@ -6048,6 +6048,21 @@ skills["PinnacleOfPowerPlayer"] = {
 			label = "Pinnacle of Power",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "pinnacle_of_power",
+			statMap = {
+				["elemental_power_elemental_damage_+%_final_per_power_charge"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Cold, SkillType.Fire, SkillType.Lightning } }, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff" }),
+					flag("ColdCanIgnite", { type = "GlobalEffect", effectType = "Buff" }), flag("ColdCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+					flag("FireCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("FireCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+					flag("LightningCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("LightningCanIgnite", { type = "GlobalEffect", effectType = "Buff" }),
+				},
+				["elemental_power_buff_duration_per_power_charge_ms"] = {
+					mod("Duration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+					div = 1000,
+				},
+				["quality_stat_elemental_power_elemental_damage_+%_final_per_power_charge_is_gem"] = {
+					-- display only
+				},
+			},
 			baseFlags = {
 				buff = true,
 				duration = true,
