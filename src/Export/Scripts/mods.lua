@@ -127,7 +127,7 @@ local function writeMods(outName, condFunc)
 				end
 
 				-- Note that some of the resulting hashes might not be correct.
-				-- Some of the tradehashes are also associated with another
+				-- Some of the trade hashes are also associated with another
 				-- value. For example the "only affects passives in # ring" is
 				-- correct here, but has a variant value appended to it like:
 				-- explicit.stat_3642528642|7. Some stats may also be handled in
