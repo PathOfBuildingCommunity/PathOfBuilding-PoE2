@@ -878,22 +878,13 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	local pendingRefresh = false
 
 	-- returns currently active set of the attribute config
-	-- TODO maybe this needs to take into account the "useForBothSets" variable?
 	---@return 1 | 2
 	local cfgSet = function() return self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1 end
 	
 	local controls = { }
 	local configs = copyTable(self.build.spec.autoAttributeConfigs)
+	local backupConfigs = { } -- stores backups to restore values after set gets "overridden" via `useForBothSets`
 	local attributeList = {"str", "dex", "int"}
-
-	local function toggleOptions(state)
-		-- used to disable/enable config fields when main option is set
-		for key, control in pairs(controls) do
-			if not (key:find("enabled") or key:find("apply") or key:find("cancel") or key:find("weaponSwap")) then
-				control.enabled = state
-			end
-		end
-	end
 
 	local function switchToWeaponSet(num)
 		if num == 2 then
@@ -906,11 +897,77 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 
 	end
 
-	local function updateControlValues()
-		local currentSet = configs[cfgSet()]
-		self:UpdateAutoAttributeSet(currentSet)
+	-- Check if one set takes priority for both
+	---@return 1 | 2 | nil
+	local function getOverrideSet()
+		if configs[1].useForBothSets then
+			return 1
+		elseif configs[2].useForBothSets then
+			return 2
+		end
 
-		-- Update general toggles
+		return nil
+	end
+
+	-- used to disable/enable config fields when main option is set
+	local function toggleOptions(state)
+		local isOverriden = getOverrideSet() and getOverrideSet() ~= cfgSet()
+
+		-- loop over all controls and switch all except always active ones like "save" and "cancel" or special conditions
+		for key, control in pairs(controls) do
+			if not (key:find("enabled") or key:find("apply") or key:find("cancel") or key:find("weaponSwap") or key:find("reallocateAll")) then
+				control.enabled = state
+				if isOverriden then
+					control.readOnly = true
+				elseif control.readOnly then
+					control.readOnly = false
+				end
+			elseif key:find("enabled") then
+				-- always disable overall `enabled` checkbox if set is overridden, otherwise always enable
+				if getOverrideSet() and getOverrideSet() ~= cfgSet() then
+					control.enabled = false
+				else
+					control.enabled = true
+				end
+			elseif key:find("reallocateAll") then
+				-- reallocation still possible from overrriden set based on values from other set
+				if isOverriden then
+					control.enabled = configs[getOverrideSet()].enabled
+				else
+					control.enabled = state
+				end
+			end
+
+		end
+	end
+
+	local function updateControlValues()
+		local nominalSetIdx = cfgSet()
+		local effectiveSetIdx = getOverrideSet() or nominalSetIdx
+		local isOverride = effectiveSetIdx ~= nominalSetIdx
+		
+		if isOverride then
+			-- copy a backup of overriden set
+			if not backupConfigs[nominalSetIdx] then
+				backupConfigs[nominalSetIdx] = configs[nominalSetIdx]
+			end
+			-- populate UI with copied stats from effective set, except `useForBothSets`
+			configs[nominalSetIdx] = copyTable(configs[effectiveSetIdx])
+			configs[nominalSetIdx].useForBothSets = false -- set to false, as this is just the "clone"
+		else
+			-- if no longer overriden, retrieve and delete stored backup
+			if backupConfigs[nominalSetIdx] then
+				configs[nominalSetIdx] = backupConfigs[nominalSetIdx]
+				backupConfigs[nominalSetIdx] = nil
+			end
+		end
+
+		local currentSet = configs[nominalSetIdx]
+
+		-- update nominal set in place
+		self:UpdateAutoAttributeSet(currentSet, nominalSetIdx, false)
+
+		-- Update general toggle controls
 		controls.enabledCheck.state = currentSet.enabled
 		controls.useAttrReqCheck.state = currentSet.useAttrReq
 		controls.ignoreItemModsCheck.state = currentSet.ignoreItemMods
@@ -923,8 +980,8 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 			controls[attr .. "UseMaxVal"].state = currentSet[attr].useMaxVal
 		end
 		
-		-- Correctly toggle everything based on whether the current set is enabled
-		toggleOptions(currentSet.enabled)
+		-- Correctly toggle controls based on whether the current set is not overridden & enabled
+		toggleOptions((not isOverride) and currentSet.enabled)
 	end
 
 	-- This acts as a pseudo-`resizeFunc`. I don't need to resize, but need a check that runs every frame
@@ -937,7 +994,6 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 			end
 		end
 	end
-
 	
 	-- UI dimensions
 	-- Main popup window
@@ -993,7 +1049,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 
 	-- Actual control elements
 	-- Main Checkbox (for generally enabling auto config)
-	controls.enabledLabel = new("LabelControl", nil, { -90, 35, 135, 16 }, "^7Automatic Attribute Allocation")
+	controls.enabledLabel = new("LabelControl", nil, { -90, 35, 135, 16 }, "^7Enable Automatic Allocation")
 	controls.enabledCheck = new("CheckBoxControl", { "LEFT", controls.enabledLabel, "RIGHT" }, { 10, 0, 18 }, "", 
 		function(value) 
 			configs[cfgSet()].enabled = value
@@ -1006,12 +1062,12 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	-- Weapon Set swap controls
 	controls.weaponSwapLabel = new("LabelControl", nil, { 170, 14, 80, 16}, "^7Weapon Set")
 	controls.weaponSwapButton1 = new("ButtonControl", {"RIGHT",controls.enabledCheck,"LEFT"}, {160, 0, 18, 18}, "I", 
-		function ()
+		function()
 			switchToWeaponSet(1)
 		end
 	)
 	controls.weaponSwapButton1.overSizeText = 3
-	controls.weaponSwapButton1.locked = function () return cfgSet() == 1 end
+	controls.weaponSwapButton1.locked = function() return cfgSet() == 1 end
 	
 	controls.weaponSwapButton2 = new("ButtonControl", {"LEFT",controls.weaponSwapButton1,"RIGHT"}, {2, 0, 18, 18}, "II", 
 	function()
@@ -1020,10 +1076,20 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 	)
 	controls.weaponSwapButton2.overSizeText = 3
 	controls.weaponSwapButton2.locked = function () return cfgSet() == 2 end
+
+	controls.weaponSetHint = new("LabelControl", {"TOP", controls.weaponSwapLabel, "BOTTOM"}, { 0, 30, 80, 16}, 
+		function() 
+			return colorCodes.TIP .. "Using Set " .. (tostring(getOverrideSet() or 0))
+		end
+	)
+	controls.weaponSetHint.shown = function()
+		local override = getOverrideSet()
+		return override and override ~= cfgSet() 
+	end
 	
 	-- Section for config settings
 	-- Header columns
-	controls.settingsSection = new("SectionControl", nil, { 0, settingsSection.gapTop, settingsSection.width, settingsSection.height }, "^7Allocation Settings")
+	controls.settingsSection = new("SectionControl", nil, { 0, settingsSection.gapTop, settingsSection.width, settingsSection.height }, "^8Allocation Settings")
 	for i, column in ipairs(settingsColumns) do
 		local anchor = i == 1 and { "TOPLEFT", controls.settingsSection, "TOPLEFT" } or {"LEFT", controls[settingsColumns[i-1].id .. "Label"], "RIGHT" }
 		local marginY = i == 1 and settingsSection.marginY or 0
@@ -1095,9 +1161,13 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 
 	-- function to make sure changes are saved
 	local function applyChanges()
-		-- update both sets
-		self:UpdateAutoAttributeSet(copyTable(configs[1]), 1)
-		self:UpdateAutoAttributeSet(copyTable(configs[2]), 2)
+		-- restore backups if any exist
+		if backupConfigs[1] then configs[1] = backupConfigs[1] end
+		if backupConfigs[2] then configs[2] = backupConfigs[2] end
+
+		-- update both sets and write to spec
+		self:UpdateAutoAttributeSet(copyTable(configs[1]), 1, true)
+		self:UpdateAutoAttributeSet(copyTable(configs[2]), 2, true)
 		
 		-- Enable "Save" build button, if autoAttributeConfig changed
 		if not tableDeepEquals(self.build.spec.autoAttributeConfigs, self.build.spec.autoAttributeConfigsSaved) then
@@ -1176,7 +1246,18 @@ end
 ---@param autoAttributeConfigs table the autoAttributeConfigs you want to access
 ---@return 1 | 2 | -1 @returns index that should be used or `-1` as indication that it should not be used at all
 function TreeTabClass:ActiveAutoAttributeSetIdx(allocMode, autoAttributeConfigs)
-	-- First check if there are overrides in the config
+	
+	local activeWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
+	
+	allocMode = allocMode or 0 -- nil check
+	
+	-- don't use auto allocation if alloc mode is different from current weaponSet
+	-- NOTE: not using in this scenario for now because it's hard get accurate attribute values and requirements for the non-active set
+	if allocMode ~= 0 and allocMode ~= activeWeaponSet then
+		return -1
+	end
+
+	-- check for overrides
 	local overrideIdx 
 	if autoAttributeConfigs[1] and autoAttributeConfigs[1].useForBothSets then
 		overrideIdx = 1
@@ -1184,30 +1265,22 @@ function TreeTabClass:ActiveAutoAttributeSetIdx(allocMode, autoAttributeConfigs)
 		overrideIdx = 2
 	end
 
-	if overrideIdx then return overrideIdx end
-
-	local activeWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
-	allocMode = allocMode or 0 -- nil check
-
-	-- don't use auto allocation if alloc mode is different from current weaponSet
-	-- NOTE: not using automatic allocation for now because it's hard get accurate attribute values and requirements for the non-active set
-	if allocMode ~= 0 and allocMode ~= activeWeaponSet then
-		return -1 
-	end
-
-	-- otherwise return activeWeaponSet
-	return activeWeaponSet
+	return overrideIdx or activeWeaponSet
 end
 
 -- Update calculated and values that are not part of the autoAttributeConfigs popup form. 
 -- The provided table is modified directly. `spec.autoAttributeConfigs` is only modified, if `writeToSetIdx` is provided
 ---@param autoAttributeSet table the autoAttributeSet you want to update
----@param writeToSetIdx 1 | 2 | nil if provided autoAttributeSet is only a copy and needs to be written to `autoAttributeConfigs` this determines the index
-function TreeTabClass:UpdateAutoAttributeSet(autoAttributeSet, writeToSetIdx)
+---@param nominalSetIdx 1 | 2 | nil the nominal weapon set that this config set relates to. (If weapon set 2 uses config set 1, this should be `2`)
+---@param writeToSpec boolean|nil if true, writes the updated config back to `spec.autoAttributeConfigs` at `nominalSetIdx`. NOTE: in this case nominal and actual set Idx should match
+function TreeTabClass:UpdateAutoAttributeSet(autoAttributeSet, nominalSetIdx, writeToSpec)
+	local activeWeaponSetIdx = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
+	local isActiveSet = nominalSetIdx == activeWeaponSetIdx
 
 	-- Calculated values
-	if autoAttributeSet.useAttrReq then
+	if autoAttributeSet.useAttrReq and isActiveSet then
 		-- Make sure weights based on attribute requirements are up to date
+		-- But only if `mainOutput` contains data for the current set
 		autoAttributeSet.dex.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqDex"] or 0) or autoAttributeSet.dex.weight -- Additional `nil` check for `mainOutput`, e.g. in case of initial load
 		autoAttributeSet.int.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqInt"] or 0) or autoAttributeSet.int.weight
 		autoAttributeSet.str.weight = self.build.calcsTab.mainOutput and (self.build.calcsTab.mainOutput["ReqStr"] or 0) or autoAttributeSet.str.weight
@@ -1219,8 +1292,8 @@ function TreeTabClass:UpdateAutoAttributeSet(autoAttributeSet, writeToSetIdx)
 	autoAttributeSet.str.ratio = autoAttributeSet.totalWeight == 0 and (1/3) or (autoAttributeSet.str.weight or 0) / autoAttributeSet.totalWeight
 
 	-- extra writing step is only needed if providing a copy (e.g. temp config from pop-up)
-	if writeToSetIdx then 
-		self.build.spec.autoAttributeConfigs[writeToSetIdx] = autoAttributeSet
+	if nominalSetIdx and writeToSpec then
+		self.build.spec.autoAttributeConfigs[nominalSetIdx] = autoAttributeSet
 	end
 end
 

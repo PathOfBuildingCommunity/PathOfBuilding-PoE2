@@ -166,8 +166,8 @@ function PassiveSpecClass:Load(xml, dbFileName)
 				end
 				-- Add static and calculated values
 				self.build.treeTab:AddStaticDataToAutoAttributeConfigs(autoAttributeConfigs)
-				self.build.treeTab:UpdateAutoAttributeSet(autoAttributeConfigs[1])
-				self.build.treeTab:UpdateAutoAttributeSet(autoAttributeConfigs[2])
+				self.build.treeTab:UpdateAutoAttributeSet(autoAttributeConfigs[1], 1)
+				self.build.treeTab:UpdateAutoAttributeSet(autoAttributeConfigs[2], 2)
 				self.autoAttributeConfigs = copyTable(autoAttributeConfigs)
 				self.autoAttributeConfigsSaved = copyTable(autoAttributeConfigs) --extra entry to detect changes later
 
@@ -890,7 +890,7 @@ function PassiveSpecClass:AllocNode(node, altPath, manualAttribute)
 	-- re-used local vars for automatic attribute allocation
 	local cachedPlayerAttr = nil -- Used for iterative, automatic determination of desired attribute nodes
 	local cachedPathAttrResults = nil -- Used for temp storage of mod effects gained from the nodes, which are not yet included in the playerModDb until after allocation
-	local autoAttrIdx = self.autoAttributeConfigs and self.build.treeTab:ActiveAutoAttributeSetIdx(node.allocMode, self.autoAttributeConfigs) or -1
+	local autoAttrIdx = self.autoAttributeConfigs and self.build.treeTab:ActiveAutoAttributeSetIdx(self.allocMode, self.autoAttributeConfigs) or -1
 	local autoAttributeSet = autoAttrIdx > 0 and self.autoAttributeConfigs[autoAttrIdx] or nil
 
 	local function handleAttributeNode(attrNode)
@@ -2469,6 +2469,7 @@ end
 ---@return number attributeIndex, table playerAttr returns a number for the `attributeIndex` and the `playerAttr` table for future iterations
 function PassiveSpecClass:GetAutoAttribute(autoAttributeSet, cachedPlayerAttr, cachedPathAttrResults)
 	local defaultAttrNodeValue = data.misc.DefaultAttrNodeValue
+	local activeWeaponSet = self.build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1
 	local playerAttr
 	local attributeList = { "dex", "int", "str" }
 
@@ -2481,7 +2482,7 @@ function PassiveSpecClass:GetAutoAttribute(autoAttributeSet, cachedPlayerAttr, c
 	
 	-- Update weights based on attribute requirements if necessary
 	if autoAttributeSet.useAttrReq then
-		self.build.treeTab:UpdateAutoAttributeSet(autoAttributeSet)
+		self.build.treeTab:UpdateAutoAttributeSet(autoAttributeSet, activeWeaponSet, false)
 	end
 	
 	-- Mark attributes ineligible if the max value is set and already exceeded.

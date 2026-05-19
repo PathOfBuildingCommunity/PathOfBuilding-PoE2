@@ -414,7 +414,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				end
 				if hoverNode.path and not shouldBlockGlobalNodeAllocation(hoverNode) then
-					local autoAttrIdx = spec.autoAttributeConfigs and build.treeTab:ActiveAutoAttributeSetIdx(hoverNode.allocMode, spec.autoAttributeConfigs) or -1
+					local autoAttrIdx = spec.autoAttributeConfigs and build.treeTab:ActiveAutoAttributeSetIdx(spec.allocMode, spec.autoAttributeConfigs) or -1
 					-- Handle allocation of unallocated nodes
 					if hoverNode.isAttribute and not hotkeyPressed and not (autoAttrIdx > 0 and spec.autoAttributeConfigs[autoAttrIdx].enabled) then
 							-- if no hotkey or automatic allocation, show selection popup
@@ -1757,7 +1757,7 @@ end
 function PassiveTreeViewClass:AddAutoAttributeConfigHintToTooltip(tooltip, node, build)
 	if not node.isAttribute then return end
 	local configs = build.spec.autoAttributeConfigs
-	local attrConfigIdx = configs and build.treeTab:ActiveAutoAttributeSetIdx(node.allocMode, configs) or -1
+	local attrConfigIdx = configs and build.treeTab:ActiveAutoAttributeSetIdx(build.spec.allocMode, configs) or -1
 	local autoAttributeSet = attrConfigIdx > 0 and configs[attrConfigIdx] or nil
 
 	if autoAttributeSet and autoAttributeSet.enabled then
