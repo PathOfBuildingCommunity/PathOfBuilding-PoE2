@@ -7,6 +7,26 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("Queen of the Forest preserves sprinting movement speed only", function()
+		build.configTab.input.customMods = [[
++60000 to Evasion Rating
+30% increased Movement Speed
+12% increased Movement Speed while Sprinting
+Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%
+Other Modifiers to Movement Speed except for Sprinting do not apply
+]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(1.75, build.calcsTab.mainOutput.MovementSpeedMod)
+
+		build.configTab.input.conditionSprinting = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(2.37, build.calcsTab.mainOutput.MovementSpeedMod)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z

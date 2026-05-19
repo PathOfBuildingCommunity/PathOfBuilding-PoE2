@@ -2125,6 +2125,39 @@ local function flag(name, ...)
 	return mod(name, "FLAG", true, ...)
 end
 
+local function movementSpeedOnlySprintingPerStat(base, per, stat, div, limit)
+	return mod("MovementSpeedOnlySprinting", "INC", tonumber(per), {
+		type = "PerStat",
+		stat = stat,
+		div = tonumber(div),
+		base = tonumber(base),
+		limit = tonumber(limit),
+		limitTotal = true,
+	})
+end
+
+local function onlySprintingMovementSpeedFlag()
+	return flag("OnlySprintingMovementSpeedApplies")
+end
+
+local function movementSpeedPerEvasionOnlySprinting(base, _, per, div, limit)
+	return { movementSpeedOnlySprintingPerStat(base, per, "Evasion", div, limit) }
+end
+
+local function movementSpeedPerEvasionWithOnlySprinting(base, _, per, div, limit)
+	return {
+		movementSpeedOnlySprintingPerStat(base, per, "Evasion", div, limit),
+		onlySprintingMovementSpeedFlag(),
+	}
+end
+
+local function movementSpeedPerSpiritWithOnlySprinting(per, _, div, limit)
+	return {
+		movementSpeedOnlySprintingPerStat(0, per, "Spirit", div, limit),
+		onlySprintingMovementSpeedFlag(),
+	}
+end
+
 local gems = {}
 for id in pairs(data.gems) do
     table.insert(gems, id)
@@ -2214,6 +2247,12 @@ end
 
 -- List of special modifiers
 local specialModList = {
+	-- Movement speed replacement mods
+	["increases movement speed by (%d+)%%, plus (%d+)%% per (%d+) evasion rating, up to a maximum of (%d+)%%"] = movementSpeedPerEvasionOnlySprinting,
+	["increases movement speed by (%d+)%%, plus (%d+)%% per (%d+) evasion rating, up to a maximum of (%d+)%% other modifiers to movement speed except for sprinting do not apply"] = movementSpeedPerEvasionWithOnlySprinting,
+	["other modifiers to movement speed except for sprinting do not apply increases movement speed by (%d+)%%, plus (%d+)%% per (%d+) evasion rating, up to a maximum of (%d+)%%"] = movementSpeedPerEvasionWithOnlySprinting,
+	["(%d+)%% increased movement speed per (%d+) spirit, up to a maximum of (%d+)%% other modifiers to movement speed except for sprinting do not apply"] = movementSpeedPerSpiritWithOnlySprinting,
+	["other modifiers to movement speed except for sprinting do not apply"] = { onlySprintingMovementSpeedFlag() },
 	-- Explode mods
 	["enemies you kill have a (%d+)%% chance to explode, dealing a (.+) of their maximum life as (.+) damage"] = function(chance, _, amount, type)	-- Obliteration, Unspeakable Gifts (chaos cluster), synth implicit mod, current crusader body mod, Ngamahu Warmonger tattoo
 		return explodeFunc(chance, amount, type)

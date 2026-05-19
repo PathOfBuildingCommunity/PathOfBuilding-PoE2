@@ -22,6 +22,42 @@ local tempTable1 = { }
 
 local isElemental = { Fire = true, Cold = true, Lightning = true }
 
+local function hasSprintingCondition(mod)
+	for _, tag in ipairs(mod) do
+		if tag.type == "Condition" and tag.var == "Sprinting" and not tag.neg then
+			return true
+		end
+	end
+	return false
+end
+
+local function sumSprintingMovementSpeedMods(modDB, modType)
+	local sum = 0
+	for _, value in ipairs(modDB:Tabulate(modType, nil, "MovementSpeed")) do
+		if hasSprintingCondition(value.mod) then
+			sum = sum + value.value
+		end
+	end
+	return sum
+end
+
+local function moreSprintingMovementSpeedMods(modDB)
+	local more = 1
+	for _, value in ipairs(modDB:Tabulate("MORE", nil, "MovementSpeed")) do
+		if hasSprintingCondition(value.mod) then
+			more = more * (1 + value.value / 100)
+		end
+	end
+	return more
+end
+
+local function calcOnlySprintingMovementSpeedMod(modDB)
+	local base = modDB:Sum("BASE", nil, "MovementSpeedOnlySprinting") + sumSprintingMovementSpeedMods(modDB, "BASE")
+	local inc = modDB:Sum("INC", nil, "MovementSpeedOnlySprinting") + sumSprintingMovementSpeedMods(modDB, "INC")
+	local more = modDB:More(nil, "MovementSpeedOnlySprinting") * moreSprintingMovementSpeedMods(modDB)
+	return round((1 + base) * (1 + inc / 100) * more, 3)
+end
+
 -- List of all damage types, ordered according to the conversion sequence
 local hitSourceList = {"Attack", "Spell"}
 local dmgTypeList = {"Physical", "Lightning", "Cold", "Fire", "Chaos"}
@@ -1871,7 +1907,11 @@ function calcs.defence(env, actor)
 	end
 
 	-- Miscellaneous: move speed, avoidance, weapon swap speed
-	output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or (round((1 + modDB:Sum("BASE", nil, "MovementSpeed")) * calcLib.mod(modDB, nil, "MovementSpeed"), 3)))
+	if modDB:Flag(nil, "OnlySprintingMovementSpeedApplies") then
+		output.MovementSpeedMod = calcOnlySprintingMovementSpeedMod(modDB)
+	else
+		output.MovementSpeedMod = modDB:Override(nil, "MovementSpeed") or (modDB:Flag(nil, "MovementSpeedEqualHighestLinkedPlayers") and actor.partyMembers.output.MovementSpeedMod or (round((1 + modDB:Sum("BASE", nil, "MovementSpeed", "MovementSpeedOnlySprinting")) * calcLib.mod(modDB, nil, "MovementSpeed", "MovementSpeedOnlySprinting"), 3)))
+	end
 	if modDB:Flag(nil, "MovementSpeedCannotBeBelowBase") then
 		output.MovementSpeedMod = m_max(output.MovementSpeedMod, 1)
 	end
