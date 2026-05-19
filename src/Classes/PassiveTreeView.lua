@@ -50,6 +50,10 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.searchStrResults = {}
 	self.showStatDifferences = true
 	self.hoverNode = nil
+
+	-- Progression timeline hover highlights, set by TreeTab each frame
+	self.progressionHighlight = nil
+	self.progressionHighlightDealloc = nil
 end)
 
 function PassiveTreeViewClass:Load(xml, fileName)
@@ -408,26 +412,46 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		return shouldBlock
 	end
 
+	local function recordHoverAlloc()
+		local altPath = self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath
+		spec:AllocNodeRecorded(hoverNode, altPath)
+		spec:AddUndoState()
+		build.buildFlag = true
+	end
+
 	if treeClick == "LEFT" then
 		if hoverNode then
 			-- User left-clicked on a node
+			local prog = spec:Progression()
 			if hoverNode.alloc and not shouldBlockGlobalNodeDeallocation(hoverNode) then
 				-- Handle deallocation of allocated nodes
-				if hoverNode.isAttribute then
-					-- change to other attribute without needing to deallocate
-					if hotkeyPressed then
-						processAttributeHotkeys(true)
-						-- reload allocated node with new attribute
-						spec:BuildAllDependsAndPaths()
-					else -- reset switched node to generic Attribute
-						spec.hashOverrides[hoverNode.id] = nil
+				local deallocFn = function()
+					if hoverNode.isAttribute then
+						-- change to other attribute without needing to deallocate
+						if hotkeyPressed then
+							processAttributeHotkeys(true)
+							-- reload allocated node with new attribute
+							spec:BuildAllDependsAndPaths()
+						else -- reset switched node to generic Attribute
+							spec.hashOverrides[hoverNode.id] = nil
+							spec:DeallocNode(hoverNode)
+						end
+					else
 						spec:DeallocNode(hoverNode)
 					end
-				else
-					spec:DeallocNode(hoverNode)
 				end
-				spec:AddUndoState()
-				build.buildFlag = true
+				if prog:IsScrubbed() then
+					-- Destructive: later progression was pathed through this node
+					main:OpenConfirmPopup("Edit Progression", "^7Editing the progression before later allocations.\nThe progression recorded after this point will be disconnected and discarded.", "Continue", function()
+						prog:CaptureScrubbed(nil, deallocFn, true)
+						spec:AddUndoState()
+						build.buildFlag = true
+					end)
+				else
+					prog:Capture(nil, deallocFn)
+					spec:AddUndoState()
+					build.buildFlag = true
+				end
 			else
 				-- Check if the node belongs to a different ascendancy
 				if hoverNode.ascendancyName then
@@ -445,6 +469,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 
 					if isDifferentAscendancy then
+						-- Class/ascendancy switch re-anchors the tree; leave scrub first
+						if prog:IsScrubbed() then prog:ScrubToFinal() end
 						-- First, check if it's in the current class (same-class switching)
 						for ascendClassId, ascendClass in pairs(spec.curClass.classes) do
 							if ascendClass.id == hoverNode.ascendancyName then
@@ -456,6 +482,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						if targetAscendClassId then
 							-- Same-class switching - always allowed
 							spec:SelectAscendClass(targetAscendClassId)
+							prog:ReconcileFromTree()
 							spec:AddUndoState()
 							spec:SetWindowTitleWithBuildClass()
 							build.buildFlag = true
@@ -477,13 +504,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 								local used = spec:CountAllocNodes()
 								local clickedAscendNodeId = hoverNode and hoverNode.id
 								local function allocateClickedAscendancy()
-									if not clickedAscendNodeId then
-										return
+									if clickedAscendNodeId then
+										local targetNode = spec.nodes[clickedAscendNodeId]
+										if targetNode and not targetNode.alloc then
+											spec:AllocNode(targetNode)
+										end
 									end
-									local targetNode = spec.nodes[clickedAscendNodeId]
-									if targetNode and not targetNode.alloc then
-										spec:AllocNode(targetNode)
-									end
+									-- Class/ascendancy change re-anchors the timeline, not a node delta
+									prog:ReconcileFromTree()
 								end
 
 								-- Allow cross-class switching if: no regular points allocated OR tree is connected to target class
@@ -529,9 +557,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 						if hotkeyPressed then
 							processAttributeHotkeys(hoverNode.isAttribute)
 						end
-						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
-						spec:AddUndoState()
-						build.buildFlag = true
+						recordHoverAlloc()
 					end
 				end
 			end
@@ -539,6 +565,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	elseif treeClick == "RIGHT" then
 		-- User right-clicked on a node
 		if hoverNode then
+			local prog = spec:Progression()
 			if hoverNode.alloc and (hoverNode.type == "Socket" or hoverNode.containJewelSocket) then
 				local slot = build.itemsTab.sockets[hoverNode.id]
 				if slot:IsEnabled() then
@@ -564,9 +591,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
 				end
-				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
-				spec:AddUndoState()
-				build.buildFlag = true
+				recordHoverAlloc()
 			end
 		end
 	end
@@ -1156,6 +1181,16 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				DrawImage(self.highlightRing, scrX - size, scrY - size, size * 2, size * 2)
 			end
 
+		end
+		if (self.progressionHighlight and self.progressionHighlight[nodeId]) or (self.progressionHighlightDealloc and self.progressionHighlightDealloc[nodeId]) then
+			SetDrawLayer(nil, 30)
+			if self.progressionHighlight and self.progressionHighlight[nodeId] then
+				SetDrawColor(0.2, 0.7, 1)
+			else
+				SetDrawColor(0.85, 0.25, 0.25)
+			end
+			local size = 140 * scale / self.zoom ^ 0.2
+			DrawImage(self.highlightRing, scrX - size, scrY - size, size * 2, size * 2)
 		end
 		if node == hoverNode and (not node.unlockConstraint or checkUnlockConstraints(build, node)) and (node.type ~= "Socket" or not IsKeyDown("SHIFT")) and not IsKeyDown("CTRL") and not main.popups[1] then
 			-- Draw tooltip

@@ -39,6 +39,11 @@ local PassiveSpecListClass = newClass("PassiveSpecListControl", "ListControl", f
 		newSpec:SelectClass(treeTab.build.spec.curClassId)
 		newSpec:SelectAscendClass(treeTab.build.spec.curAscendClassId)
 		newSpec:SelectSecondaryAscendClass(treeTab.build.spec.curSecondaryAscendClassId)
+		-- New tree gets a timeline if the build is eligible or another tree has one
+		local cur = treeTab.build.spec
+		if treeTab.build.timelineEligible or (cur and cur:Progression():IsEnabled()) then
+			newSpec:Progression():Enable()
+		end
 		self:RenameSpec(newSpec, "New Tree", true)
 	end)
 	self:UpdateItemsTabPassiveTreeDropdown()

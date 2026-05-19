@@ -42,6 +42,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 
 	self.specList = { }
 	self.specList[1] = new("PassiveSpec", build, latestTreeVersion)
+	self.specList[1]:Progression():EnableIfEligible()
 	self:SetActiveSpec(1)
 	self:SetCompareSpec(1)
 
@@ -146,6 +147,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 			wipeTable(self.build.spec.hashOverrides) -- reset attribute nodes to "Attribute"
 			self.build.spec:ResetNodes()
 			self.build.spec:BuildAllDependsAndPaths()
+			self.build.spec:Progression():Reset()
 			self.build.spec:AddUndoState()
 			self.build.buildFlag = true
 			main:ClosePopup()
@@ -264,6 +266,9 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.controls.powerReport = new("ButtonControl", { "LEFT", self.controls.treeHeatMapStatSelect, "RIGHT" }, { 8, 0, 150, 20 },
 		function() return self.controls.powerReportList.shown and "Hide Power Report" or "Show Power Report" end, function()
 		self.controls.powerReportList.shown = not self.controls.powerReportList.shown
+		if self.controls.powerReportList.shown then
+			self.showTimeline = false
+		end
 	end)
 
 	-- Power Report List
@@ -278,6 +283,66 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		end
 	end)
 	self.controls.powerReportList.shown = false
+
+	-- Timeline drawer; mutually exclusive with the power report drawer
+	self.showTimeline = true
+	self.controls.timelineToggle = new("ButtonControl", { "LEFT", self.controls.nodePowerMaxDepthSelect, "RIGHT", 20, 0 }, { 0, 0, 200, 20 },
+		function() return self.showTimeline and "Hide Passive Progression" or "Show Passive Progression" end, function()
+		self.showTimeline = not self.showTimeline
+		if self.showTimeline then
+			self.controls.powerReportList.shown = false
+		end
+	end)
+	self.controls.timelineToggle.tooltipText = "Show or hide the passive progression for this tree."
+	self.controls.timelineToggle.shown = function()
+		local spec = self.build.spec
+		return spec and spec:Progression():IsEnabled() and not self.viewer.showHeatMap
+	end
+
+	local timelineYPos = self.controls.treeHeatMap.y == 0 and self.controls.specSelect.height + 4 or self.controls.specSelect.height * 2 + 8
+	self.controls.timeline = new("TimelineControl", { "TOPLEFT", self.controls.specSelect, "BOTTOMLEFT" }, { 0, timelineYPos, 700, 62 }, self)
+	self.controls.timeline.shown = false
+
+	-- Scrubber buttons; auto-hidden with the strip via the anchor chain
+	self.controls.timelineFirst = new("ButtonControl", { "TOPLEFT", self.controls.timeline, "BOTTOMLEFT", 0, 12 }, { 0, 0, 26, 20 }, "|<", function()
+		self.controls.timeline:ScrubTo(0)
+	end)
+	self.controls.timelineFirst.tooltipText = "Jump to the start (nothing allocated)"
+	self.controls.timelinePrevNotable = new("ButtonControl", { "LEFT", self.controls.timelineFirst, "RIGHT" }, { 4, 0, 28, 20 }, "<<", function()
+		self.controls.timeline:StepNotable(-1)
+	end)
+	self.controls.timelinePrevNotable.tooltipText = "Previous notable / keystone / ascendancy / respec"
+	self.controls.timelinePrev = new("ButtonControl", { "LEFT", self.controls.timelinePrevNotable, "RIGHT" }, { 4, 0, 26, 20 }, "<", function()
+		self.controls.timeline:ScrubStep(-1)
+	end)
+	self.controls.timelinePrev.tooltipText = "Step back one node"
+	self.controls.timelineNext = new("ButtonControl", { "LEFT", self.controls.timelinePrev, "RIGHT" }, { 4, 0, 26, 20 }, ">", function()
+		self.controls.timeline:ScrubStep(1)
+	end)
+	self.controls.timelineNext.tooltipText = "Step forward one node"
+	self.controls.timelineNextNotable = new("ButtonControl", { "LEFT", self.controls.timelineNext, "RIGHT" }, { 4, 0, 28, 20 }, ">>", function()
+		self.controls.timeline:StepNotable(1)
+	end)
+	self.controls.timelineNextNotable.tooltipText = "Next notable / keystone / ascendancy / respec"
+	self.controls.timelineLive = new("ButtonControl", { "LEFT", self.controls.timelineNextNotable, "RIGHT" }, { 4, 0, 26, 20 }, ">|", function()
+		self.controls.timeline:ScrubTo(1 / 0)
+	end)
+	self.controls.timelineLive.tooltipText = "Jump to the final tree"
+	self.controls.timelineRespec = new("ButtonControl", { "LEFT", self.controls.timelineLive, "RIGHT" }, { 14, 0, 110, 20 },
+		function()
+			local _, prog = self.controls.timeline:GetProg()
+			return prog and prog.respecOpen and "End Respec" or "Mark Respec"
+		end, function()
+		local spec, prog, tl = self.controls.timeline:GetProg()
+		if prog then
+			tl:ToggleRespec()
+			spec:AddUndoState()
+			self.build.buildFlag = true
+		end
+	end)
+	self.controls.timelineRespec.tooltipText = "Start or end a respec. Refunds and re-allocations\z
+		\nmade while active are grouped into a single entry."
+
 	-- Progress callback from the CalcsTab power builder coroutine
 	self.powerBuilderToastActive = false
 	self.lastProgressToastUpdate = 0
@@ -401,9 +466,11 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 		linesHeight = 0
 		self.controls.treeSearch:SetAnchor("LEFT", self.controls.versionSelect, "RIGHT", 8, 0)
 		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.specSelect, "BOTTOMLEFT", 0, self.controls.specSelect.height + 6)
+		self.controls.timeline:SetAnchor("TOPLEFT", self.controls.specSelect, "BOTTOMLEFT", 0, self.controls.specSelect.height + 6)
 	else
 		self.controls.treeSearch:SetAnchor("TOPLEFT", self.controls.specSelect, "BOTTOMLEFT", 0, 4)
 		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.treeSearch, "BOTTOMLEFT", 0, self.controls.treeSearch.height + 6)
+		self.controls.timeline:SetAnchor("TOPLEFT", self.controls.treeSearch, "BOTTOMLEFT", 0, self.controls.treeSearch.height + 6)
 	end
 
 	-- Check second line
@@ -414,6 +481,7 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 		linesHeight = linesHeight * 2
 		self.controls.treeHeatMap:SetAnchor("TOPLEFT", self.controls.treeSearch, "BOTTOMLEFT", 124, 4)
 		self.controls.powerReportList:SetAnchor("TOPLEFT", self.controls.treeHeatMap, "BOTTOMLEFT", -124, self.controls.treeHeatMap.height + 6)
+		self.controls.timeline:SetAnchor("TOPLEFT", self.controls.treeHeatMap, "BOTTOMLEFT", -124, self.controls.treeHeatMap.height + 6)
 	end
 
 	-- determine positions for convert line of controls
@@ -428,7 +496,17 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 		self.controls.specConvertText:SetAnchor("BOTTOMLEFT", self.controls.specSelect, "TOPLEFT", 0, -38)
 	end
 
-	local bottomDrawerHeight = self.controls.powerReportList.shown and 194 or 0
+	-- Size the timeline drawer to fit within the tree viewport
+	local spec = self.build.spec
+	local timelineActive = self.showTimeline and not self.controls.powerReportList.shown
+		and spec and spec:Progression():IsEnabled()
+	self.controls.timeline.shown = timelineActive and true or false
+	local timelineDrawerHeight = 0
+	if timelineActive then
+		self.controls.timeline.width = viewPort.width - 16
+		timelineDrawerHeight = 140
+	end
+	local bottomDrawerHeight = (self.controls.powerReportList.shown and 194 or 0) + timelineDrawerHeight
 	self.controls.specSelect.y = -bottomDrawerHeight - linesHeight
 
 	local treeViewPort = { x = viewPort.x, y = viewPort.y, width = viewPort.width, height = viewPort.height - (self.showConvert and 64 + bottomDrawerHeight + linesHeight or 32 + bottomDrawerHeight + linesHeight)}
@@ -436,6 +514,8 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 		self.viewer:Focus(self.jumpToX, self.jumpToY, treeViewPort, self.build)
 		self.jumpToNode = false
 	end
+	self:UpdateTimelineHighlights()
+
 	self.viewer.compareSpec = self.isComparing and self.specList[self.activeCompareSpec] or nil
 	self.viewer:Draw(self.build, treeViewPort, inputEvents)
 
@@ -533,8 +613,26 @@ function TreeTabClass:Save(xml)
 	end
 end
 
+-- Highlight the hovered timeline stage's nodes on the tree
+function TreeTabClass:UpdateTimelineHighlights()
+	self.viewer.progressionHighlight, self.viewer.progressionHighlightDealloc = nil, nil
+	if not (self.controls.timeline.shown and self.controls.timeline.hoverStage) then return end
+	local spec = self.build.spec
+	local stage = spec and spec:Progression():GetStage(self.controls.timeline.hoverStage)
+	if not stage then return end
+	local allocSet, deallocSet = { }, { }
+	for _, id in ipairs(stage.alloc) do allocSet[id] = true end
+	for _, id in ipairs(stage.dealloc) do deallocSet[id] = true end
+	self.viewer.progressionHighlight = allocSet
+	self.viewer.progressionHighlightDealloc = deallocSet
+end
+
 function TreeTabClass:SetActiveSpec(specId, deferSync)
 	local prevSpec = self.build.spec
+	if prevSpec then
+		-- Don't leave a spec stuck in a scrub preview when switching away from it
+		prevSpec:Progression():ScrubToFinal()
+	end
 	self.activeSpec = m_min(specId, #self.specList)
 	local curSpec = self.specList[self.activeSpec]
 	data.setJewelRadiiGlobally(curSpec.treeVersion)
@@ -576,7 +674,10 @@ end
 function TreeTabClass:SetCompareSpec(specId)
 	self.activeCompareSpec = m_min(specId, #self.specList)
 	local curSpec = self.specList[self.activeCompareSpec]
-
+	if curSpec then
+		-- Don't compare against a spec frozen mid-scrub; show its final tree
+		curSpec:Progression():ScrubToFinal()
+	end
 	self.compareSpec = curSpec
 end
 
@@ -852,13 +953,13 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 	controls.save = new("ButtonControl", nil, {-50, 65, 80, 20}, "Allocate", function()
 		spec:SwitchAttributeNode(hoverNode.id, controls.attrSelect.selIndex)
 		spec.attributeIndex = controls.attrSelect.selIndex
-		spec:AllocNode(hoverNode, spec.tracePath and hoverNode == spec.tracePath[#spec.tracePath] and spec.tracePath)
+		spec:AllocNodeRecorded(hoverNode, spec.tracePath and hoverNode == spec.tracePath[#spec.tracePath] and spec.tracePath)
 		spec:AddUndoState()
 		self.build.buildFlag = true
 		main:ClosePopup()
 	end)
 	controls.close = new("ButtonControl", nil, {50, 65, 80, 20}, "Cancel", function()
-		spec:DeallocNode(hoverNode)
+		spec:Progression():Capture(nil, function() spec:DeallocNode(hoverNode) end)
 		main:ClosePopup()
 	end)
 	controls.hotkeyTooltip = new("LabelControl", nil, {0, 100, 0, 16}, 
@@ -881,7 +982,7 @@ function TreeTabClass:SaveMasteryPopup(node, listControl)
 		self.build.spec.tree:ProcessStats(node)
 		self.build.spec.masterySelections[node.id] = effect.id
 		if not node.alloc then
-			self.build.spec:AllocNode(node, self.viewer.tracePath and node == self.viewer.tracePath[#self.viewer.tracePath] and self.viewer.tracePath)
+			self.build.spec:AllocNodeRecorded(node, self.viewer.tracePath and node == self.viewer.tracePath[#self.viewer.tracePath] and self.viewer.tracePath)
 		end
 		self.build.spec:AddUndoState()
 		self.modFlag = true
