@@ -478,6 +478,21 @@ local function doActorMisc(env, actor)
 	local output = actor.output
 	local condList = modDB.conditions
 
+	local function getMaximumRageWithWeaponSetCaps(baseCfg)
+		local maxStacks = modDB:Sum("BASE", baseCfg, "MaximumRage")
+		if actor == env.player then
+			for weaponSet = 1, 2 do
+				local weaponSetCfg = baseCfg and copyTable(baseCfg) or { }
+				weaponSetCfg.overrideCond = setmetatable({
+					WeaponSet1 = weaponSet == 1,
+					WeaponSet2 = weaponSet == 2,
+				}, { __index = baseCfg and baseCfg.overrideCond })
+				maxStacks = m_max(maxStacks, modDB:Sum("BASE", weaponSetCfg, "MaximumRage"))
+			end
+		end
+		return maxStacks
+	end
+
 	-- Add misc buffs/debuffs
 	if env.mode_combat then
 		if env.player.mainSkill.baseSkillModList:Flag(nil, "Cruelty") then
@@ -665,7 +680,7 @@ local function doActorMisc(env, actor)
 			condList["LeechingEnergyShield"] = true
 		end
 		if modDB:Flag(nil, "Condition:CanGainRage") or modDB:Sum("BASE", nil, "RageRegen") > 0 then
-			local maxStacks = modDB:Sum("BASE", skillCfg, "MaximumRage")
+			local maxStacks = getMaximumRageWithWeaponSetCaps(skillCfg)
 			local minStacks = m_min(modDB:Sum("BASE", nil, "MinimumRage"), maxStacks)
 			local rageConfig = modDB:Sum("BASE", nil, "Multiplier:RageStack")
 			local stacks = m_max(m_min(rageConfig, maxStacks), (minStacks > 0 and minStacks) or 0)

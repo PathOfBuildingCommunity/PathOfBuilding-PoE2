@@ -193,6 +193,17 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
+	it("Test maximum Rage can use the highest weapon set cap", function()
+		build.configTab.input.multiplierRage = 48
+		build.configTab:BuildModList()
+		build.configTab.modList:NewMod("Condition:CanGainRage", "FLAG", true, "Test")
+		build.configTab.modList:NewMod("MaximumRage", "BASE", 18, "Weapon Set 2 Test", { type = "Condition", var = "WeaponSet2" })
+		runCallback("OnFrame")
+
+		assert.are.equals(48, build.calcsTab.mainOutput.MaximumRage)
+		assert.are.equals(48, build.calcsTab.mainOutput.Rage)
+	end)
+
 	it("Test stacking persistent buff supports of same category", function()
 		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1")
 		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
