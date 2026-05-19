@@ -2504,20 +2504,37 @@ function PassiveSpecClass:GetAutoAttribute(autoAttributeSet, cachedPlayerAttr, c
 	playerAttr.int.effRatio = playerAttr.int.effTotal / playerAttr.effSumTotal
 	playerAttr.str.effRatio = playerAttr.str.effTotal / playerAttr.effSumTotal
 
-	local maxDiff = nil
 	local neededAttr = nil
-
-	-- Find attribute with greatest diff from effective target ratio
-	for _, attr in ipairs(attributeList) do
-		if playerAttr[attr].eligible then
-			local effConfigRatio = (autoAttributeSet[attr].weight or 0) / m_max(effConfigWeightTotal, 1 )
-			local diff = effConfigRatio - playerAttr[attr].effRatio
-			if (maxDiff == nil) or (diff > maxDiff) then
-				maxDiff = diff
-				neededAttr = attr
+	
+	-- First: check if there is an absolute deficit in requirements that supersedes relative differences
+	if autoAttributeSet.useAttrReq then
+		for _, attr in ipairs(attributeList) do
+			local maxDeficit = 0 -- based on absolute value
+			if playerAttr[attr].eligible then
+				local currentDeficit = (autoAttributeSet[attr].weight or 0) - playerAttr[attr].effTotal
+				if currentDeficit > maxDeficit then
+					maxDeficit = currentDeficit
+					neededAttr = attr
+				end
 			end
 		end
 	end
+
+	-- Second: if no deficit found, find attribute with greatest diff relative from effective target ratio
+	if neededAttr == nil then
+		local maxDiff = nil -- based on relative values
+		for _, attr in ipairs(attributeList) do
+			if playerAttr[attr].eligible then
+				local effConfigRatio = (autoAttributeSet[attr].weight or 0) / m_max(effConfigWeightTotal, 1 )
+				local diff = effConfigRatio - playerAttr[attr].effRatio
+				if (maxDiff == nil) or (diff > maxDiff) then
+					maxDiff = diff
+					neededAttr = attr
+				end
+			end
+		end
+	end
+	
 	-- Add effect of new attribute node to `playerAttr` for further iterations
 	if neededAttr ~= nil then
 		playerAttr[neededAttr].base = playerAttr[neededAttr].base + defaultAttrNodeValue
