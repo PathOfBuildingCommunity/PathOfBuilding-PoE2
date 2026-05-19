@@ -892,7 +892,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 		else
 			self.build.itemsTab.activeItemSet.useSecondWeaponSet = false
 		end
-		self.build.buildFlag = true -- schedule recalc
+		self.build.buildFlag = true -- schedule recalculation
 		pendingRefresh = true -- schedule local UI refresh (happens after)
 
 	end
@@ -930,7 +930,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 					control.enabled = true
 				end
 			elseif key:find("reallocateAll") then
-				-- reallocation still possible from overrriden set based on values from other set
+				-- reallocation still possible from overriden set based on values from other set
 				if isOverriden then
 					control.enabled = configs[getOverrideSet()].enabled
 				else
@@ -1125,7 +1125,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 			end, "Enabling a \"Max Value\" will ignore the weight and stop allocating this attribute once the threshold is exceeded\n^8(no more than two attributes can be limited this way)^7", configs[cfgSet()][attr].useMaxVal)
 	end
 
-	-- Extra Options Secion
+	-- Extra Options Section
 	local extraOptionsXOffset = controls[settingsColumns[1].id .. "Label"].width() + controls[settingsColumns[2].id .. "Label"].width() + (2 * settingsSection.marginX) -- sum of dynamic widths and margins
 
 	-- Use Attribute Requirements option
@@ -1227,7 +1227,7 @@ function TreeTabClass:ConfigureAutoAttributePopup()
 end
 
 -- Create the default autoAttributeConfigs in case the popup is opened for the first time
----@return table defaultConfigs @returns table with indeces 1, 2 `[1] = defaultSet, [2] = defaultSet`
+---@return table defaultConfigs @returns table with indices 1, 2 `[1] = defaultSet, [2] = defaultSet`
 function TreeTabClass:InitAutoAttributeConfigs()
 	local defaultSet = {
 			enabled = false,
