@@ -9,7 +9,7 @@ local curl = require("lcurl.safe")
 local m_max = math.max
 local s_format = string.format
 local t_insert = table.insert
-local tradeHelpers = LoadModule("Classes/TradeQueryHelpers")
+local tradeHelpers = LoadModule("Classes/TradeHelpers")
 
 -- string are an any type while tables require all fields to be matched with type and subType require both to be matched exactly. [1] type, [2] subType, subType is optional and must be nil if not present.
 local tradeCategoryNames = {
@@ -690,7 +690,7 @@ function TradeQueryGeneratorClass:StartQuery(slot, options)
 			}
 		end
 	else
-		itemCategoryQueryStr, itemCategory = tradeHelpers.GetTradeCategory(slot.slotName, existingItem)
+		itemCategoryQueryStr, itemCategory = tradeHelpers.getTradeCategory(slot.slotName, existingItem)
 		if not itemCategory then
 			logToFile("'%s' is not supported for weighted trade query generation", existingItem and existingItem.type or "n/a")
 			return
