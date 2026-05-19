@@ -62,6 +62,18 @@ local lineFlags = {
 	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
 }
 
+local function baseHasImplicitLine(base, line)
+	if not base or not base.implicit then
+		return false
+	end
+	for implicitLine in base.implicit:gmatch("[^\n]+") do
+		if implicitLine == line then
+			return true
+		end
+	end
+	return false
+end
+
 -- Special function to store unique instances of modifier on specific item slots
 -- that require special handling for ItemConditions. Only called if line #224 is
 -- uncommented
@@ -395,10 +407,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		elseif line == "Requirements:" then
 			-- nothing to do
 		else
+			local lineIsBaseImplicit = mode == "GAME" and baseHasImplicitLine(self.base, line)
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
-					if foundImplicit then
-						-- There were definitely implicits, so any following modifiers must be explicits
+					if foundImplicit and not lineIsBaseImplicit then
+						-- There were definitely implicits, so any following non-base-implicit modifiers must be explicits
 						gameModeStage = "EXPLICIT"
 						foundExplicit = true
 					else
@@ -595,7 +608,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					   specName == "Armour" or specName == "Energy Shield" or specName == "Evasion" or specName == "Requires" then
 					self.hidden_specs = true
 				-- Anything else is an explicit with a colon in it (Fortress Covenant, Pure Talent, etc) unless it's part of the custom name
-				elseif not (self.name:match(specName) and self.name:match(specVal)) then
+				elseif not lineIsBaseImplicit and not (self.name:match(specName) and self.name:match(specVal)) then
 					foundExplicit = true
 					gameModeStage = "EXPLICIT"
 				end
@@ -644,6 +657,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					modLine.enchant = true
 				end
 				if modLine.enchant then
+					modLine.implicit = true
+				end
+				if lineIsBaseImplicit then
 					modLine.implicit = true
 				end
 				if modLine.desecrated then
