@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- cspell:ignore Damageover Gainon Recoupand Dotsand Infernall Skilltypespecific -->
 <PathOfBuilding2>
 	<Build mainSocketGroup="6" viewMode="IMPORT" className="Warrior" ascendClassName="Titan" characterLevelAutoMode="false" level="100" targetVersion="0_1">
 		<Buffs curseList="" combatList="" buffList="Cannibalism, Fortifying Cry, Herbalism, Incision, Infernal Cry, Magma Barrier, Precision, Rage, Scavenged Plating, War Banner"/>

@@ -61,5 +61,15 @@ describe("TradeQuery Currency Conversion", function()
 			local result = mock_tradeQuery:GetTotalPriceString()
 			assert.are.equal(result, "5 chaos, 10 div")
 		end)
+
+		it("keeps sparse row order while aggregating prices", function()
+			mock_tradeQuery.totalPrice = {
+				[2] = { currency = "chaos", amount = 3 },
+				[4] = { currency = "div", amount = 1 },
+				[5] = { currency = "chaos", amount = 2 },
+			}
+			local result = mock_tradeQuery:GetTotalPriceString()
+			assert.are.equal(result, "5 chaos, 1 div")
+		end)
 	end)
 end)

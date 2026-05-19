@@ -542,6 +542,7 @@ describe("TestDefence", function()
 		end
 
 		local function loadIssue1754Build(extraNodeIds)
+			newBuild()
 			local xmlText = readFixture("../spec/Fixtures/issue1754_block_ehp.xml")
 			xmlText = xmlText:gsub('nodes="([^"]*)"', function(nodes)
 				local allocated = { }
@@ -558,7 +559,13 @@ describe("TestDefence", function()
 			loadBuildFromXML(xmlText, "issue 1754")
 			runCallback("OnFrame")
 			runCallback("OnFrame")
-			return build.calcsTab.calcsOutput
+			local calcsOutput = build.calcsTab.calcsOutput
+			local result = {
+				TotalEHP = calcsOutput.TotalEHP,
+				EffectiveBlockChance = calcsOutput.EffectiveBlockChance,
+			}
+			newBuild()
+			return result
 		end
 
 		local base = loadIssue1754Build({ })

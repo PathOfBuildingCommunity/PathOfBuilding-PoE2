@@ -207,6 +207,9 @@ build = mainObject.main.modes["BUILD"]
 function newBuild()
 	mainObject.main:SetMode("BUILD", false, "Help, I'm stuck in Path of Building!")
 	runCallback("OnFrame")
+	if build and build.skillsTab then
+		build.skillsTab:UpdateGlobalGemCountAssignments()
+	end
 end
 function loadBuildFromXML(xmlText, name)
 	mainObject.main:SetMode("BUILD", false, name or "", xmlText)
