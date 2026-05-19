@@ -238,6 +238,57 @@ describe("TestSkills", function()
 		assert.True(curseList:match("Flammability") ~= nil and curseList:match("Elemental Weakness") ~= nil)
 	end)
 
+	it("Dark Effigy scales Vile Effusion with Chaos DoT debuffs", function()
+		build.skillsTab:PasteSocketGroup("Dark Effigy 20/0  1")
+		runCallback("OnFrame")
+
+		local noDebuffOutput = build.calcsTab.mainOutput.Minion
+		assert.True(noDebuffOutput ~= nil)
+		assert.are.equals(0, noDebuffOutput.ProjectileCount)
+		assert.are.equals(0, noDebuffOutput.TotalDPS or 0)
+
+		build.skillsTab:PasteSocketGroup("Contagion 20/0  1")
+		runCallback("OnFrame")
+
+		local oneDebuffOutput = build.calcsTab.mainOutput.Minion
+		assert.are.equals(1, oneDebuffOutput.ProjectileCount)
+		assert.True(oneDebuffOutput.TotalDPS > 0)
+		local oneDebuffDPS = oneDebuffOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Essence Drain 20/0  1")
+		runCallback("OnFrame")
+
+		local twoDebuffOutput = build.calcsTab.mainOutput.Minion
+		assert.are.equals(2, twoDebuffOutput.ProjectileCount)
+		assert.True(twoDebuffOutput.TotalDPS > oneDebuffDPS * 1.9)
+		local twoDebuffDPS = twoDebuffOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Temporal Chains 20/0  1\nDecaying Hex 1/0  1")
+		runCallback("OnFrame")
+
+		local decayingHexOutput = build.calcsTab.mainOutput.Minion
+		assert.are.equals(3, decayingHexOutput.ProjectileCount)
+		assert.True(decayingHexOutput.TotalDPS > twoDebuffDPS * 1.4)
+		local decayingHexDPS = decayingHexOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Essence Drain 20/0  1\nPoison I 1/0 1")
+		runCallback("OnFrame")
+
+		local poisonSupportOutput = build.calcsTab.mainOutput.Minion
+		assert.are.equals(4, poisonSupportOutput.ProjectileCount)
+		assert.True(poisonSupportOutput.TotalDPS > decayingHexDPS * 1.3)
+		local poisonSupportDPS = poisonSupportOutput.TotalDPS
+
+		build.configTab.input.conditionEnemyPoisoned = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local poisonedOutput = build.calcsTab.mainOutput.Minion
+		assert.are.equals(4, poisonedOutput.ProjectileCount)
+		assert.True(poisonedOutput.TotalDPS > poisonSupportDPS * 0.99)
+		assert.True(poisonedOutput.TotalDPS < poisonSupportDPS * 1.01)
+	end)
+
 	-- skills that don't have a base CD and have more than one use need to use the added cooldown by whatever support allows the +1 limit to be supportable
 	it("Test Added Cooldown interaction with +1 Limit", function()
 		build.skillsTab:PasteSocketGroup("Thunderstorm 20/0  1\nHourglass 1/0 1\nOverabundance I 1/0 1\n")

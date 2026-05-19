@@ -65,6 +65,36 @@ end })
 local globalOutput = nil
 local globalBreakdown = nil
 
+local function isActiveSkillDisabled(env, activeSkill)
+	local statSet = env.mode == "CALCS" and activeSkill.activeEffect.statSetCalcs or activeSkill.activeEffect.statSet
+	return statSet and statSet.skillFlags and statSet.skillFlags.disable
+end
+
+local function countActiveChaosDotDebuffs(env, enemyDB, currentActiveSkill)
+	local count = 0
+	local hasPoisonDebuff = enemyDB:GetCondition("Poisoned")
+	local countedSkills = { }
+	for _, activeSkill in ipairs(env.player.activeSkillList) do
+		if activeSkill ~= currentActiveSkill and not isActiveSkillDisabled(env, activeSkill) then
+			local skillName = activeSkill.activeEffect.grantedEffect.name
+			local skillData = activeSkill.skillData or { }
+			local isChaosDotSkill = (activeSkill.skillTypes[SkillType.Chaos] and activeSkill.skillTypes[SkillType.DamageOverTime])
+				or skillData.ChaosDot or skillData.decay
+			if not countedSkills[skillName] and isChaosDotSkill then
+				countedSkills[skillName] = true
+				count = count + 1
+			end
+			if not hasPoisonDebuff and activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "PoisonChance", "ChaosPoisonChance") > 0 then
+				hasPoisonDebuff = true
+			end
+		end
+	end
+	if hasPoisonDebuff then
+		count = count + 1
+	end
+	return count
+end
+
 local function calcConvertedDamage(activeSkill, output, cfg, damageType)
 	local skillModList = activeSkill.skillModList
 	-- Calculate conversions
@@ -1246,6 +1276,11 @@ function calcs.offence(env, actor, activeSkill)
 			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100
 			local projMore = skillModList:More(skillCfg, "ProjectileCount")
 			output.ProjectileCount = projBase * projMore
+		end
+		if activeSkill.activeEffect.grantedEffect.name == "Vile Effusion" then
+			local chaosDotDebuffs = countActiveChaosDotDebuffs(env, enemyDB, activeSkill)
+			output.ProjectileCount = chaosDotDebuffs
+			skillModList:NewMod("DPS", "MORE", (chaosDotDebuffs - 1) * 100, "Vile Effusion")
 		end
 		if skillModList:Flag(skillCfg, "AdditionalProjectilesAddBouncesInstead") then
 			local projBase = skillModList:Sum("BASE", skillCfg, "ProjectileCount") + 2 * skillModList:Sum("BASE", skillCfg, "TwoAdditionalProjectilesChance") / 100 + skillModList:Sum("BASE", skillCfg, "SurpassingProjectileChance") / 100 + skillModList:Sum("BASE", skillCfg, "BounceCount") - 1
