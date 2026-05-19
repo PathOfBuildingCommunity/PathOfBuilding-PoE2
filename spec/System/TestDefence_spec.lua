@@ -534,6 +534,10 @@ describe("TestDefence", function()
 		local defendersResolveNodeId = 64327
 		local adjacentBlockNodeId = 39517
 
+		local function assertClose(actual, expected)
+			assert.is_true(math.abs(actual - expected) < 0.01)
+		end
+
 		local function readFixture(path)
 			local file = assert(io.open(path, "rb"))
 			local contents = file:read("*a")
@@ -563,6 +567,7 @@ describe("TestDefence", function()
 			local result = {
 				TotalEHP = calcsOutput.TotalEHP,
 				EffectiveBlockChance = calcsOutput.EffectiveBlockChance,
+				NumberOfMitigatedDamagingHits = calcsOutput.NumberOfMitigatedDamagingHits,
 			}
 			newBuild()
 			return result
@@ -584,6 +589,15 @@ describe("TestDefence", function()
 
 		newBuild()
 
+		assertClose(baseEHP, 220458.8068172)
+		assertClose(baseBlock, 40.04)
+		assertClose(base.NumberOfMitigatedDamagingHits, 48.806236082942)
+		assertClose(defendersResolveEHP, 224844.36839123)
+		assertClose(defendersResolveBlock, 43.16)
+		assertClose(defendersResolve.NumberOfMitigatedDamagingHits, 49.77713289867)
+		assertClose(adjacentBlockEHP, 227484.13584363)
+		assertClose(adjacentBlockChance, 44.98)
+		assertClose(adjacentBlock.NumberOfMitigatedDamagingHits, 50.361537374709)
 		assert.is_true(defendersResolveAddsBlock)
 		assert.is_true(defendersResolveAddsEHP)
 		assert.is_true(adjacentNodeAddsBlock)
