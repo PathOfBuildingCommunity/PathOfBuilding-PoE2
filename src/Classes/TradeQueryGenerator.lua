@@ -201,9 +201,6 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 		-- the mod export sometimes splits stats to multiple lines. they should
 		-- still get parsed correctly if we combine them, and that makes it
 		-- simpler to process them
-		if not modLines then
-			ConPrintf("")
-		end
 		local modLine = table.concat(modLines, " ")
 		if modLine:find("Grants Level") or modLine:find("inflict Decay") then -- skip mods that grant skills / decay, as they will often be overwhelmingly powerful but don't actually fit into the build
 			goto nextModLine
@@ -235,9 +232,6 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 			local entry
 			local tradeHashStr = tostring(tradeHash)
 			for _, v in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices[modType]].entries) do
-				if _ == 33 then
-					ConPrintf("")
-				end
 				-- prefix removed
 				local ids = v.id:gsub(".+..stat_", "").."|"
 				-- split by non-integer
