@@ -541,6 +541,10 @@ return {
 ["recover_%_maximum_life_on_cull"] = {
 	mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }),
 },
+["aegis_unique_shield_max_value_from_%_armour_evasion"] = {
+	mod("ElementalAegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWardAllDamageTypes", neg = true }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+	mod("AegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWardAllDamageTypes" }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+},
 --
 -- Offensive modifiers
 --

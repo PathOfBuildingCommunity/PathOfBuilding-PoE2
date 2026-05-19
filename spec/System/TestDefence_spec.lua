@@ -30,6 +30,40 @@ describe("TestDefence", function()
 		return build.calcsTab.calcs.reducePoolsByDamage(nil, takenDamages, build.calcsTab.calcsEnv.player)
 	end
 
+	it("Sorcery Ward grants elemental aegis from armour and evasion", function()
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.customMods = "\z
+		+10000 to Armour\n\z
+		+5000 to Evasion Rating\n\z
+		50% increased effect of Sorcery Ward\n\z
+		"
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Sorcery Ward 1/0  1")
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.calcsOutput
+		local expectedAegis = math.ceil((output.Armour + output.Evasion) * 0.45)
+		assert.are.equals(expectedAegis, output.sharedElementalAegis)
+		assert.are.equals(0, output.sharedAegis)
+	end)
+
+	it("Sorcery Ward all-damage barrier uses shared aegis", function()
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.customMods = "\z
+		+10000 to Armour\n\z
+		+5000 to Evasion Rating\n\z
+		Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits\n\z
+		"
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Sorcery Ward 1/0  1")
+		runCallback("OnFrame")
+
+		local output = build.calcsTab.calcsOutput
+		local expectedAegis = math.ceil((output.Armour + output.Evasion) * 0.30)
+		assert.are.equals(0, output.sharedElementalAegis)
+		assert.are.equals(expectedAegis, output.sharedAegis)
+	end)
+
 	it("no armour max hits", function()
 		build.configTab.input.enemyIsBoss = "None"
 		build.configTab.input.customMods = ""
