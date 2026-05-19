@@ -219,8 +219,8 @@ If you are using leveling gear/tree, it will match with other leveling builds.
 ---[Auto Attribute Config]
 
 You can enable the automatic allocation of attributes via the "Auto Attribute Config" button at the bottom
-of the "Tree" menu section. Each configuration is saved per tree. So if you have multiple trees, each will
-have its configuration values.
+of the "Tree" menu section. Each configuration is saved per tree and per weapon set. So if you have multiple
+trees, each will have its own weapon set configuration values.
 
 Weights:
     If enabled, attribute travel nodes will automatically be assigned to Strength / Dexterity / Intelligence
@@ -242,5 +242,10 @@ Item Mods:
     If you want your attribute allocation to be gear-agnostic, you can tick the "Ignore Attribute Requirements"
     checkbox. Any attribute bonuses gained from equipment will then not be taken into account during allocation.
     Note: This does not affect modifiers to attribute requirements found on gear.
+
+Use for both Weapon Sets:
+    If you want the settings from one weapon set to be used for both, you can tick the "Use for both Weapon
+    Sets" checkbox. This will use the settings from the current set regardless of active weapon set.
+    Note: Attribute requirements will still be based on each respective weapon set.
 
 
