@@ -1872,19 +1872,26 @@ function calcs.initEnv(build, mode, override, specEnv)
 	-- Calculate skill gem and support gem counts
 	-- Currently PoB2 doesn't associate weapon skill supports with the actual weapon sets
 	-- so it ends up counting all support gems when it should only take into account the active weapon set
+	local function getSocketedSupportGemEffect(gem)
+		if gem.gemData and gem.gemData.grantedEffect then
+			return gem.gemData.grantedEffect.support and gem.gemData.grantedEffect
+		end
+		return gem.grantedEffect and gem.grantedEffect.support and gem.grantedEffect
+	end
 	local slotSupportGemSocketsCount = { R = 0, G = 0, B = 0 }
 	-- Loop through socket groups to calculate number of socketed gems
 	for _, socketGroup in pairs(env.build.skillsTab.socketGroupList) do
 		local socketedSupportGems = 0
 		if (socketGroup.enabled and socketGroup.gemList) then
 			for _, gem in pairs(socketGroup.gemList) do
-				if gem.supportEffect and gem.supportEffect.grantedEffect then
+				local supportGrantedEffect = getSocketedSupportGemEffect(gem)
+				if supportGrantedEffect then
 					socketedSupportGems = socketedSupportGems + 1
-					if gem.supportEffect.grantedEffect.color == 1 then
+					if supportGrantedEffect.color == 1 then
 						slotSupportGemSocketsCount.R = slotSupportGemSocketsCount.R + 1
-					elseif gem.supportEffect.grantedEffect.color == 2 then
+					elseif supportGrantedEffect.color == 2 then
 						slotSupportGemSocketsCount.G = slotSupportGemSocketsCount.G + 1
-					elseif gem.supportEffect.grantedEffect.color == 3 then
+					elseif supportGrantedEffect.color == 3 then
 						slotSupportGemSocketsCount.B = slotSupportGemSocketsCount.B + 1
 					end
 				end

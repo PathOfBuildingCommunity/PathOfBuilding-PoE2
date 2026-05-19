@@ -85,6 +85,33 @@ describe("TestSkills", function()
 		assert.are.equals(16, round(finalCost))
 	end)
 
+	it("does not count active skill internal support effects as socketed support gems", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Nettle Talisman
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Pounce 20/0  1\nBrutality I 1/0  1\nExecute I 1/0  1\nHeft 1/0  1\nClose Combat I 1/0  1\nRage I 1/0  1")
+		runCallback("OnFrame")
+
+		local socketGroup = build.skillsTab.socketGroupList[#build.skillsTab.socketGroupList]
+		assert.True(socketGroup.gemList[1].supportEffect ~= nil)
+
+		local warnings = build.calcsTab.mainEnv.itemWarnings and build.calcsTab.mainEnv.itemWarnings.socketLimitWarning
+		assert.is_nil(warnings)
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Pounce 20/0  1\nBrutality I 1/0  1\nExecute I 1/0  1\nHeft 1/0  1\nClose Combat I 1/0  1\nRage I 1/0  1\nMagnified Area I 1/0  1")
+		runCallback("OnFrame")
+
+		warnings = build.calcsTab.mainEnv.itemWarnings and build.calcsTab.mainEnv.itemWarnings.socketLimitWarning
+		assert.True(warnings ~= nil)
+		assert.are.equals(1, #warnings)
+	end)
+
 	it("Consumed Charge Effect", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
