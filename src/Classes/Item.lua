@@ -954,7 +954,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			for i, modLine in ipairs(self.runeModLines) do
 				local strippedModLine, targetValues = getRuneLineParts(modLine.line)
 				local groupedRunes = statGroupedRunes[strippedModLine]
-				if groupedRunes and not (shouldFixRunesOnItem and modLine.bonded) then -- found the rune category with the relevant stat.
+				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
 					local result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
 
 					if result then -- we have found a valid combo for that rune category

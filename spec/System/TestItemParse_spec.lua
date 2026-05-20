@@ -300,6 +300,8 @@ describe("TestItemParse", function()
 		assert.are.same({ "Greater Glacial Rune", "Greater Body Rune" }, item.runes)
 		assert.are.equals(1, item.runeModLines[1].runeCount)
 		assert.are.equals(1, item.runeModLines[2].runeCount)
+		assert.is_nil(item.runeModLines[3].runeCount)
+		assert.is_nil(item.runeModLines[4].runeCount)
 		for _, rune in ipairs(item.runes) do
 			assert.are_not.equals("Lesser Glacial Rune", rune)
 		end
