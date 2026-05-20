@@ -538,6 +538,24 @@ function calcs.offence(env, actor, activeSkill)
 			func(activeSkill, output, breakdown)
 		end
 	end
+	
+	local function modHasSkillType(mod, skillType)
+		for _, tag in ipairs(mod) do
+			if tag.type == "SkillType" then
+				if tag.skillType == skillType then
+					return true
+				end
+				if tag.skillTypeList then
+					for _, listedSkillType in ipairs(tag.skillTypeList) do
+						if listedSkillType == skillType then
+							return true
+						end
+					end
+				end
+			end
+		end
+		return false
+	end
 
 	runSkillFunc("initialFunc")
 
@@ -698,24 +716,6 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
-	local function modHasSkillType(mod, skillType)
-		for _, tag in ipairs(mod) do
-			if tag.type == "SkillType" then
-				if tag.skillType == skillType then
-					return true
-				end
-				if tag.skillTypeList then
-					for _, listedSkillType in ipairs(tag.skillTypeList) do
-						if listedSkillType == skillType then
-							return true
-						end
-					end
-				end
-			end
-		end
-		return false
-	end
-
 	if skillModList:Flag(nil, "CompanionDamageAppliesToPlayer") then
 		-- Companion Damage conversion from Inspiring Ally
 		local tempCfg = copyTable(skillCfg, true)
