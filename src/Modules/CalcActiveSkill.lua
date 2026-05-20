@@ -393,9 +393,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		-- Set weapon flags
 		local weaponTypes = { activeGrantedEffect.weaponTypes }
 		for _, skillEffect in pairs(activeSkill.effectList) do
-			local supportGrantsActiveSkill = skillEffect.gemData and skillEffect.gemData.tags
-				and skillEffect.gemData.tags.grants_active_skill
-			if skillEffect.grantedEffect.support and skillEffect.grantedEffect.weaponTypes and not supportGrantsActiveSkill then
+			if skillEffect.grantedEffect.support and skillEffect.grantedEffect.weaponTypes then
 				t_insert(weaponTypes, skillEffect.grantedEffect.weaponTypes)
 			end
 		end
