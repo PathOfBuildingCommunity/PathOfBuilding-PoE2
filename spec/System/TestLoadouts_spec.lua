@@ -21,12 +21,16 @@ describe("TestLoadouts", function()
 
 	describe("Build", function()
 		describe("NewLoadout", function()
-			it("Creates a new loadout with the correct name", function()
+			it("Creates a new loadout with the correct name and sets it as active", function()
 				local loadoutName = "Loadout Name"
 				build:NewLoadout(loadoutName)
 				build:SyncLoadouts()
 				assert.are.equals(2, #build.loadoutsList)
 				assert.are.equals(loadoutName, build.loadoutsList[2].title)
+				assert.are.equals(2, build.treeTab.activeSpec)
+				assert.are.equals(2, build.itemsTab.activeItemSetId)
+				assert.are.equals(2, build.skillsTab.activeSkillSetId)
+				assert.are.equals(2, build.configTab.activeConfigSetId)
 				assert.is_true(build.modFlag)
 			end)
 		end)
@@ -54,6 +58,7 @@ describe("TestLoadouts", function()
 				local loadoutName = "Loadout Name"
 				build:NewLoadout(loadoutName)
 				build.itemsTab:DeleteItemSet(build.itemsTab.itemSetOrderList[2], 2)
+				build.itemsTab:SetActiveItemSet(build.itemsTab.itemSetOrderList[1], true)
 				build:SyncLoadouts()
 				assert.are.equals(1, #build.itemsTab.itemSetOrderList)
 
@@ -69,6 +74,7 @@ describe("TestLoadouts", function()
 				local loadoutName = "Loadout Name"
 				build:NewLoadout(loadoutName)
 				build.skillsTab:DeleteSkillSet(build.skillsTab.skillSetOrderList[2], 2)
+				build.skillsTab:SetActiveSkillSet(build.skillsTab.skillSetOrderList[1], true)
 				build:SyncLoadouts()
 				assert.are.equals(1, #build.skillsTab.skillSetOrderList)
 
@@ -86,6 +92,7 @@ describe("TestLoadouts", function()
 				local loadoutName = "Loadout Name"
 				build:NewLoadout(loadoutName)
 				build.configTab:DeleteConfigSet(build.configTab.configSetOrderList[2], 2)
+				build.configTab:SetActiveConfigSet(build.configTab.configSetOrderList[1], true)
 				build:SyncLoadouts()
 				assert.are.equals(1, #build.configTab.configSetOrderList)
 
