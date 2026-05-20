@@ -291,14 +291,16 @@ describe("TestSkills", function()
 			return gem
 		end
 
-		build.skillsTab.socketGroupList = {
-			{ enabled = true, gemList = { fakeGem("Item Skill", { fromItem = true }) } },
-			{ enabled = true, gemList = { fakeGem("Tree Skill", { fromTree = true }) } },
-			{ enabled = true, gemList = { fakeGem("Stored Item Skill", nil, { fromItem = true }) } },
-			{ enabled = true, gemList = { fakeGem("Socketed Skill"), fakeGem("Item Support", { support = true, fromItem = true }) } },
+		local skillsTab = {
+			socketGroupList = {
+				{ enabled = true, gemList = { fakeGem("Item Skill", { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Tree Skill", { fromTree = true }) } },
+				{ enabled = true, gemList = { fakeGem("Stored Item Skill", nil, { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Socketed Skill"), fakeGem("Item Support", { support = true, fromItem = true }) } },
+			},
 		}
 
-		build.skillsTab:UpdateGlobalGemCountAssignments()
+		build.skillsTab.UpdateGlobalGemCountAssignments(skillsTab)
 
 		assert.are.equals(1, GlobalGemAssignments["GemGroupCount"])
 	end)
