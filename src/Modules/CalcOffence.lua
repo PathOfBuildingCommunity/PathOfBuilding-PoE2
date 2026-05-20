@@ -924,12 +924,7 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("AreaOfEffect", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
-	local canBarrageRepeat = skillModList:Flag(nil, "SequentialProjectiles")
-		and activeSkill.skillTypes[SkillType.Barrageable]
-		and not skillModList:Flag(nil, "OneShotProj")
-		and not skillModList:Flag(nil, "NoAdditionalProjectiles")
-		and not skillModList:Flag(nil, "TriggeredBySnipe")
-	if canBarrageRepeat then
+	if activeSkill.skillTypes[SkillType.Barrageable] and skillModList:Flag(nil, "SequentialProjectiles") and not skillModList:Flag(nil, "OneShotProj") and not skillModList:Flag(nil, "NoAdditionalProjectiles") and not skillModList:Flag(nil, "TriggeredBySnipe") then
 		-- Applies DPS multiplier based on projectile count
 		if skillModList:Sum("BASE", skillCfg, "BarrageRepeats") > 0 then
 			local dpsMulti = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * (calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage"))
