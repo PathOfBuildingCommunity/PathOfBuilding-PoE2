@@ -539,8 +539,10 @@ function ImportTabClass:BuildCharacterList(league)
 
 			classColor = colorCodes.DEFAULT
 			if charClass ~= "?" then
-				local tree = main:LoadTree(latestTreeVersion .. (char.league:match("Ruthless") and "_ruthless" or ""))
-				classColor = colorCodes[charClass:upper()] or colorCodes[tree.ascendNameMap[charClass].class.name:upper()] or "^7"
+				local tree = main:LoadTree(latestTreeVersion)
+				local ascendClass = tree and tree.ascendNameMap[charClass]
+				local baseClassName = ascendClass and ascendClass.class.name
+				classColor = colorCodes[charClass:upper()] or (baseClassName and colorCodes[baseClassName:upper()]) or "^7"
 			end
 
 			local detail
@@ -735,7 +737,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 		end
 	end
 
-	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion)
 
 	-- workaround to update the ui to last option
 	self.build.treeTab.controls.versionSelect.selIndex = #self.build.treeTab.treeVersions
