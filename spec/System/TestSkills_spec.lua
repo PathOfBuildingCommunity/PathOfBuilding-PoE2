@@ -7,6 +7,36 @@ describe("TestSkills", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 	
+
+	it("uses granted effect minion list when active skill minion list is missing", function()
+		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
+		local minionId = "RaisedSkeletonSniper"
+		local activeEffect = {
+			srcInstance = srcInstance,
+			grantedEffect = {
+				id = "TestSpectreSkill",
+				name = "Spectre: Test",
+				statSets = { { label = "Default" } },
+				minionList = { minionId },
+			},
+			statSet = { skillFlags = { } },
+		}
+		local activeSkill = {
+			activeEffect = activeEffect,
+			skillData = { },
+			-- activeSkill.minionList intentionally absent; this reproduces #1677.
+		}
+		build.skillsTab.socketGroupList[1] = {
+			displaySkillList = { activeSkill },
+			mainActiveSkill = 1,
+		}
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+
+		assert.are.equals("Skeletal Sniper", build.controls.mainSkillMinion.list[1].label)
+		assert.are.equals(minionId, build.controls.mainSkillMinion.list[1].minionId)
+	end)
+
 	it("Test blasphemy reserving Spirit", function()
 		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\n")
 		runCallback("OnFrame")
@@ -269,5 +299,34 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
+	end)
+
+	it("does not count item or tree granted active skills as gem groups", function()
+		local function fakeGem(name, grantedEffect, extra)
+			local gem = {
+				enabled = true,
+				gemData = {
+					name = name,
+					grantedEffect = grantedEffect or { },
+				},
+			}
+			for key, value in pairs(extra or { }) do
+				gem[key] = value
+			end
+			return gem
+		end
+
+		local skillsTab = {
+			socketGroupList = {
+				{ enabled = true, gemList = { fakeGem("Item Skill", { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Tree Skill", { fromTree = true }) } },
+				{ enabled = true, gemList = { fakeGem("Stored Item Skill", nil, { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Socketed Skill"), fakeGem("Item Support", { support = true, fromItem = true }) } },
+			},
+		}
+
+		build.skillsTab.UpdateGlobalGemCountAssignments(skillsTab)
+
+		assert.are.equals(1, GlobalGemAssignments["GemGroupCount"])
 	end)
 end)
