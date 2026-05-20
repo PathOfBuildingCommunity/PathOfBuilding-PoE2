@@ -356,6 +356,50 @@ describe("TestItemParse", function()
 		
 	end)
 
+
+	it("infers pasted multi-value rune lines as whole runes", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Onslaught Relic
+			Warmonger Bow
+			--------
+			Quality: +20% (augmented)
+			Physical Damage: 91-161 (augmented)
+			Elemental Damage: 57-98 (fire), 58-98 (cold)
+			Critical Hit Chance: 11.00%
+			Attacks per Second: 1.50 (augmented)
+			--------
+			Requires: Level 67, 86 Str, 65 Int
+			--------
+			Sockets: S S S
+			--------
+			Item Level: 81
+			--------
+			Adds 9 to 15 Cold Damage (rune)
+			Leeches 3% of Physical Damage as Life (rune)
+			Bonded: 5% increased maximum Life (rune)
+			Bonded: 30% increased Freeze Buildup (rune)
+			--------
+			Adds 16 to 35 Physical Damage
+			Adds 49 to 83 Cold Damage
+			20% increased Attack Speed
+			+31 to Strength
+			Adds 57 to 98 Fire Damage (desecrated)
+			--------
+			Corrupted
+		]])
+
+		assert.are.equals(3, item.itemSocketCount)
+		assert.are.same({ "Greater Glacial Rune", "Greater Body Rune" }, item.runes)
+		assert.are.equals(1, item.runeModLines[1].runeCount)
+		assert.are.equals(1, item.runeModLines[2].runeCount)
+		assert.is_nil(item.runeModLines[3].runeCount)
+		assert.is_nil(item.runeModLines[4].runeCount)
+		for _, rune in ipairs(item.runes) do
+			assert.are_not.equals("Lesser Glacial Rune", rune)
+		end
+	end)
+
 	it("multi-line rune mod", function()
 		-- Thruldana is Bow-only as well
 		local item = new("Item", [[
