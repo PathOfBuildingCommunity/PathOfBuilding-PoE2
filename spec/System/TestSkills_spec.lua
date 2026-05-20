@@ -275,4 +275,33 @@ describe("TestSkills", function()
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
 	end)
+
+	it("does not count item or tree granted active skills as gem groups", function()
+		local function fakeGem(name, grantedEffect, extra)
+			local gem = {
+				enabled = true,
+				gemData = {
+					name = name,
+					grantedEffect = grantedEffect or { },
+				},
+			}
+			for key, value in pairs(extra or { }) do
+				gem[key] = value
+			end
+			return gem
+		end
+
+		local skillsTab = {
+			socketGroupList = {
+				{ enabled = true, gemList = { fakeGem("Item Skill", { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Tree Skill", { fromTree = true }) } },
+				{ enabled = true, gemList = { fakeGem("Stored Item Skill", nil, { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Socketed Skill"), fakeGem("Item Support", { support = true, fromItem = true }) } },
+			},
+		}
+
+		build.skillsTab.UpdateGlobalGemCountAssignments(skillsTab)
+
+		assert.are.equals(1, GlobalGemAssignments["GemGroupCount"])
+	end)
 end)
