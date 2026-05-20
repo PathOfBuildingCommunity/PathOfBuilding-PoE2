@@ -21,7 +21,7 @@ describe("TetsItemMods", function()
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
 
-		assert.are.equals(62, build.calcsTab.mainOutput.EffectiveLootRarityMod)
+		assert.are.equals(62, build.calcsTab.mainEnv.modDB:Sum("INC", nil, "LootRarity"))
 	end)
 
 	it("aggregates matching ring resistance lines before applying ring bonus effect", function()
