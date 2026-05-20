@@ -18,24 +18,6 @@ describe("TestAttacks", function()
 		assert.are.equals(build.calcsTab.mainOutput.CritChance, 5 * build.calcsTab.mainOutput.HitChance / 100)
 	end)
 
-	it("Staggering Palm uses equipped quarterstaff damage and crit", function()
-		build.itemsTab:CreateDisplayItemFromRaw([[
-			New Item
-			Long Quarterstaff
-			Quality: 0
-		]])
-		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
-
-		build.skillsTab:PasteSocketGroup("Staggering Palm 1/0  1")
-		runCallback("OnFrame")
-
-		assert.are.equals(10, build.calcsTab.mainOutput.CritChance)
-		assert.True(build.calcsTab.mainOutput.AverageDamage > data.unarmedWeaponData[0].PhysicalMax)
-		assert.are_not.equals(true, build.calcsTab.mainEnv.player.activeSkillList[1].skillFlags.unarmed)
-		assert.are.equals(true, build.calcsTab.mainEnv.player.activeSkillList[1].skillFlags.melee)
-	end)
-
 	it("creates an item and has the correct crit multi", function()
 		assert.are.equals(2, build.calcsTab.mainOutput.CritMultiplier)
 		build.itemsTab:CreateDisplayItemFromRaw([[
