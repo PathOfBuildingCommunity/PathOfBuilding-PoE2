@@ -329,4 +329,21 @@ describe("TestSkills", function()
 
 		assert.are.equals(1, GlobalGemAssignments["GemGroupCount"])
 	end)
+
+	it("Test hidden meta supports do not count as connected supports", function()
+		build.skillsTab:PasteSocketGroup("Cast on Critical 20/0  1\nArc 20/0  1\nUhtred's Omen 1/0  1\nRising Tempest 1/0  1")
+		runCallback("OnFrame")
+
+		local arcSkill = nil
+		for _, activeSkill in ipairs(build.calcsTab.calcsEnv.player.activeSkillList) do
+			if activeSkill.activeEffect.grantedEffect.name == "Arc" then
+				arcSkill = activeSkill
+				break
+			end
+		end
+
+		assert.is_not_nil(arcSkill)
+		assert.are.equals(2, arcSkill.skillModList:GetMultiplier("SupportCount", arcSkill.skillCfg))
+		assert.are.equals(3, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
+	end)
 end)
