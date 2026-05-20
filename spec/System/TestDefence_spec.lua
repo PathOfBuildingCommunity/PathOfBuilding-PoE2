@@ -527,4 +527,26 @@ describe("TestDefence", function()
 		assert.are.equals(0, floor(poolsRemaining.Life))
 		assert.are.equals(0, floor(poolsRemaining.OverkillDamage))
 	end)
+
+	it("uses block chance against projectile spells", function()
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.enemyDamageType = "SpellProjectile"
+		build.configTab.input.customMods = [[
+			20% chance to block
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(20, build.calcsTab.calcsOutput.EffectiveBlockChance)
+		assert.are.equals(20, build.calcsTab.calcsOutput.EffectiveProjectileBlockChance)
+		assert.are.equals(20, build.calcsTab.calcsOutput.EffectiveSpellProjectileBlockChance)
+		assert.are.equals(80, build.calcsTab.calcsOutput.ConfiguredDamageChance)
+
+		build.configTab.input.enemyDamageType = "Average"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(15, build.calcsTab.calcsOutput.EffectiveAverageBlockChance)
+		assert.are.equals(85, build.calcsTab.calcsOutput.ConfiguredDamageChance)
+	end)
 end)

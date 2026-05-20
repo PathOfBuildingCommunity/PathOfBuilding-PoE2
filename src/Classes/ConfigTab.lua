@@ -73,21 +73,16 @@ local ConfigTabClass = newClass("ConfigTab", "UndoHandler", "ControlHost", "Cont
 		return true
 	end
 
-	-- blacklist for Show All Configurations
+	-- Show build-gated options when the user explicitly asks for all configurations.
+	-- Parent-gated and legacy options are intentionally still hidden: parent-gated
+	-- controls are not independently actionable, and legacy controls are not for
+	-- normal editing.
 	local function isShowAllConfig(varData)
-		local labelMatch = varData.label:lower()
-		local excludeKeywords = { "recently", "in the last", "in the past", "in last", "in past", "pvp" }
-
 		if not self.toggleConfigs then
 			return false
 		end
-		if varData.ifOption or varData.ifSkill or varData.ifSkillData or varData.ifSkillFlag or varData.ifGemFamily or varData.legacy then
+		if varData.ifOption or varData.legacy then
 			return false
-		end
-		for _, keyword in pairs(excludeKeywords) do
-			if labelMatch:find(keyword) then
-				return false
-			end
 		end
 		return true
 	end

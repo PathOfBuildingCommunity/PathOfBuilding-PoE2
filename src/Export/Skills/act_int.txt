@@ -276,6 +276,7 @@ statMap = {
 #skill ContagionPlayer
 #set ContagionPlayer
 #flags area duration spell
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -819,7 +820,8 @@ statMap = {
 #from item
 #skill VileDisruptionPlayer
 #set VileDisruptionPlayer
-#flags spell area
+#flags spell area duration
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -1379,6 +1381,14 @@ statMap = {
 #skill TemporalChainsPlayer
 #set TemporalChainsPlayer
 #flags area duration
+statMap = {
+	["base_skill_debuff_action_speed_+%_final_to_inflict"] = {
+		mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" })
+	},
+	["base_temporal_chains_other_buff_time_passed_+%_to_apply"] = {
+		mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 
