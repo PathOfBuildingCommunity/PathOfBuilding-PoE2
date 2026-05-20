@@ -140,6 +140,64 @@ describe("TestItemParse", function()
 		assert.are.equals(1, #item.grantedSkills)
 		assert.are.equals("SpearThrowPlayer", item.grantedSkills[1].skillId)
 		assert.are.equals("Adds 39 to 62 Fire Damage", item.explicitModLines[1].line)
+
+		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", data.itemBases["Volatile Wand"].implicit)
+
+		item = new("Item", [[
+			Item Class: Wands
+			Rarity: Rare
+			Temp Wand
+			Volatile Wand
+			--------
+			Physical Damage: 10-18
+			Critical Hit Chance: 7.00%
+			Attacks per Second: 1.45
+			--------
+			Requires: Level 45, 104 Int
+			--------
+			Item Level: 60
+			--------
+			Grants Skill: Level 11 Volatile Dead
+			--------
+			10% increased Spell Damage
+		]])
+
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Grants Skill: Level 11 Volatile Dead", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("VolatileDeadPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals("10% increased Spell Damage", item.explicitModLines[1].line)
+	end)
+
+	it("Crafted base granted skill ranges stay implicit", function()
+		local base = data.itemBases["Volatile Wand"]
+		local item = new("Item")
+		item.name = "Volatile Wand"
+		item.base = base
+		item.baseName = "Volatile Wand"
+		item.rarity = "RARE"
+		item.title = "New Item"
+		item.crafted = true
+		item.prefixes = { }
+		item.suffixes = { }
+		item.buffModLines = { }
+		item.enchantModLines = { }
+		item.runeModLines = { }
+		item.classRequirementModLines = { }
+		item.implicitModLines = {
+			{ line = base.implicit }
+		}
+		item.explicitModLines = { }
+		item.sockets = { }
+		item.runes = { }
+
+		item:NormaliseQuality()
+		item:BuildAndParseRaw()
+
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("VolatileDeadPlayer", item.grantedSkills[1].skillId)
 	end)
 
 	--TODO: POB2 Leagues?

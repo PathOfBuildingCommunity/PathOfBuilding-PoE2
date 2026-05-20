@@ -67,7 +67,7 @@ local function baseHasImplicitLine(base, line)
 		return false
 	end
 	for implicitLine in base.implicit:gmatch("[^\n]+") do
-		if implicitLine == line then
+		if implicitLine == line or line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
 			return true
 		end
 	end
@@ -617,7 +617,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				foundExplicit = true
 				gameModeStage = "EXPLICIT"
 			end
-			if not specName or foundExplicit or foundImplicit then
+			if not specName or foundExplicit or foundImplicit or lineIsBaseImplicit then
 				local modLine = { modTags = {} }
 
 				line = line:gsub("{(%a*):?([^}]*)}", function(k,val)
