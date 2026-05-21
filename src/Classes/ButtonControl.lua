@@ -3,13 +3,14 @@
 -- Class: Button Control
 -- Basic button control.
 --
-local ButtonClass = newClass("ButtonControl", "Control", "TooltipHost", function(self, anchor, rect, label, onClick, onHover, forceTooltip)
+local ButtonClass = newClass("ButtonControl", "Control", "TooltipHost", function(self, anchor, rect, label, onClick, onHover, forceTooltip, overSizeText)
 	self.Control(anchor, rect)
 	self.TooltipHost()
 	self.label = label
 	self.onClick = onClick
 	self.onHover = onHover
 	self.forceTooltip = forceTooltip
+	self.overSizeText = overSizeText
 end)
 
 function ButtonClass:Click()
