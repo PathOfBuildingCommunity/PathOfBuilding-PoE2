@@ -16,6 +16,10 @@ local PassiveSpecListClass = newClass("PassiveSpecListControl", "ListControl", f
 		newSpec.jewels = copyTable(self.selValue.jewels)
 		newSpec:RestoreUndoState(self.selValue:CreateUndoState())
 		newSpec:BuildClusterJewelGraphs()
+		if treeTab.build.spec.autoAttributeConfigs then
+			newSpec.autoAttributeConfigs = copyTable(treeTab.build.spec.autoAttributeConfigs)
+			newSpec.autoAttributeConfigsSaved = copyTable(treeTab.build.spec.autoAttributeConfigs) -- assume copied config is saved
+		end
 		self:RenameSpec(newSpec, "Copy Tree", true)
 	end)
 	self.controls.copy.enabled = function()

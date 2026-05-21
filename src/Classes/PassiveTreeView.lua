@@ -499,16 +499,18 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				end
 				if hoverNode.path and not shouldBlockGlobalNodeAllocation(hoverNode) then
+					local autoAttrIdx = spec.autoAttributeConfigs and build.treeTab:ActiveAutoAttributeSetIdx(spec.allocMode, spec.autoAttributeConfigs) or -1
 					-- Handle allocation of unallocated nodes
-					if hoverNode.isAttribute and not hotkeyPressed then
-						build.treeTab:ModifyAttributePopup(hoverNode)
+					if hoverNode.isAttribute and not hotkeyPressed and not (autoAttrIdx > 0 and spec.autoAttributeConfigs[autoAttrIdx].enabled) then
+							-- if no hotkey or automatic allocation, show selection popup
+							build.treeTab:ModifyAttributePopup(hoverNode)
 					else
 						-- the odd conditional here is so the popup only calls AllocNode inside and to avoid duplicating some code
-						-- same flow for hotkey attribute and non attribute nodes
+						-- same flow for hotkey attribute, automatic attributes, and non-attribute nodes
 						if hotkeyPressed then
 							processAttributeHotkeys(hoverNode.isAttribute)
 						end
-						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
+						spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath, hotkeyPressed)
 						spec:AddUndoState()
 						build.buildFlag = true
 					end
@@ -543,7 +545,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 					spec:SwitchAttributeNode(hoverNode.id, spec.attributeIndex or 1)
 				end
-				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath)
+				spec:AllocNode(hoverNode, self.tracePath and hoverNode == self.tracePath[#self.tracePath] and self.tracePath, true) -- passing `true` because both right-click and hotkey have priority over auto attribute allocation
 				spec:AddUndoState()
 				build.buildFlag = true
 			end
@@ -1678,6 +1680,13 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 	end
 
+	-- Attribute Allocation hints
+	if node.isAttribute then
+		tooltip:AddSeparator(14)
+		self:AddAutoAttributeConfigHintToTooltip(tooltip, node, build)
+		tooltip:AddSeparator(14)
+	end
+
 	-- Reminder text
 	if node.reminderText then
 		tooltip:AddSeparator(14)
@@ -1870,6 +1879,24 @@ function PassiveTreeViewClass:AddGlobalNodeWarningsToTooltip(tooltip, node, buil
 		tooltip:AddSeparator(14)
 		tooltip:AddLine(14, colorCodes.WARNING .. warningText)
 		tooltip:AddLine(14, colorCodes.TIP .. tipText)
+	end
+end
+
+-- Helper function to add information about currently active auto attribute allocation config
+function PassiveTreeViewClass:AddAutoAttributeConfigHintToTooltip(tooltip, node, build)
+	if not node.isAttribute then return end
+	local configs = build.spec.autoAttributeConfigs
+	local attrConfigIdx = configs and build.treeTab:ActiveAutoAttributeSetIdx(build.spec.allocMode, configs) or -1
+	local autoAttributeSet = attrConfigIdx > 0 and configs[attrConfigIdx] or nil
+
+	if autoAttributeSet and autoAttributeSet.enabled then
+		local hintTxt = colorCodes.TIP .. "Automatic Attribute Allocation is " .. colorCodes.POSITIVE .. "enabled^7"
+		local configTxt = "^7Weights: "
+		configTxt = configTxt .. colorCodes.STRENGTH .. "Str: ^7" .. (autoAttributeSet.str.weight or 0) .. (autoAttributeSet.str.useMaxVal and (" ^8[max: " .. (autoAttributeSet.str.max or "0") .. "]") or "") .. " ^7| "
+		configTxt = configTxt .. colorCodes.DEXTERITY .. "Dex: ^7" .. (autoAttributeSet.dex.weight or 0) .. (autoAttributeSet.dex.useMaxVal and (" ^8[max: " .. (autoAttributeSet.dex.max or "0") .. "]") or "") .. " ^7| "
+		configTxt = configTxt .. colorCodes.INTELLIGENCE .. "Int: ^7" .. (autoAttributeSet.int.weight or 0) .. (autoAttributeSet.int.useMaxVal and (" ^8[max: " .. (autoAttributeSet.int.max or "0") .. "]") or "") .. "^7"
+		tooltip:AddLine(14, hintTxt)
+		tooltip:AddLine(14, configTxt)
 	end
 end
 
