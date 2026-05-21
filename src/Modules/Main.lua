@@ -341,7 +341,7 @@ function main:Shutdown()
 end
 
 function main:OnFrame()
-	self.screenW, self.screenH = GetVirtualScreenSize()
+	self.screenW, self.screenH = GetScreenSize()
 
 	if self.screenH > self.screenW then
 		self.portraitMode = true

@@ -1039,8 +1039,3 @@ end
 function getHashFromString(string)
 	return common.sha1(string)
 end
-
--- Returns virtual screen size
-function GetVirtualScreenSize()
-	return GetScreenSize()
-end
