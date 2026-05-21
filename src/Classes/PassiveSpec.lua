@@ -1079,8 +1079,11 @@ function PassiveSpecClass:NodesInIntuitiveLeapLikeRadius(node)
 	local result = { }
 	if self.jewels[node.id] and self.jewels[node.id] > 0 then
 		local item = self:GetJewel(self.jewels[node.id])
-		if item and item.jewelData and item.jewelData.intuitiveLeapLike then
-			local radiusIndex = item.jewelRadiusIndex
+		if not item then
+			return result
+		end
+		local radiusIndex = item.jewelRadiusIndex
+		if item.jewelData.intuitiveLeapLike then
 			local inRadius = self.nodes[node.id].nodesInRadius and self.nodes[node.id].nodesInRadius[radiusIndex]
 			for affectedNodeId, affectedNode in pairs(inRadius or {}) do
 				if self.nodes[affectedNodeId].alloc then
