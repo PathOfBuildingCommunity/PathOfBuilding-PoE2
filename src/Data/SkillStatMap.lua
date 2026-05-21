@@ -2791,6 +2791,12 @@ return {
 	mod("Multiplier:ConsumedFrenzyChargeEffect", "BASE", nil),
 	mod("Multiplier:ConsumedPowerChargeEffect", "BASE", nil),
 },
+["cannot_consume_power_frenzy_endurance_charges"] = {
+	flag("Condition:CannotConsumeCharges"),
+},
+["cannot_consume_infusions"] = {
+	flag("Condition:CannotConsumeInfusion"),
+},
 ["set_base_heavy_stun_duration_ms"] = {
 	mod("StunDuration", "OVERRIDE", nil),
 	div = 1000,
