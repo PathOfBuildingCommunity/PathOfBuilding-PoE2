@@ -1883,7 +1883,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		local socketedSupportGems = 0
 		if (socketGroup.enabled and socketGroup.gemList) then
 			for _, gem in pairs(socketGroup.gemList) do
-				if gem.supportEffect and gem.supportEffect.grantedEffect then
+				if gem.supportEffect and gem.supportEffect.grantedEffect and not gem.supportEffect.grantedEffect.hidden then
 					socketedSupportGems = socketedSupportGems + 1
 					if gem.supportEffect.grantedEffect.color == 1 then
 						slotSupportGemSocketsCount.R = slotSupportGemSocketsCount.R + 1
