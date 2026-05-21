@@ -586,6 +586,12 @@ return {
 ["warcry_speed_+%"] = {
 	mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry),
 },
+["warcry_empowers_per_X_monster_power_mp_cap"] = {
+	mod("WarcryPowerCap", "BASE", nil),
+},
+["warcry_empowers_per_X_monster_power"] = {
+	mod("WarcryPowerPer", "BASE", nil),
+},
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
 },

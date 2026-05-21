@@ -1919,7 +1919,9 @@ function calcs.perform(env, skipEHP)
 						end
 						local full_duration = calcSkillDuration(modStore, skillCfg, activeSkill.skillData, env, enemyDB)
 						local actual_cooldown = calcSkillCooldown(modStore, skillCfg, activeSkill.skillData)
-						local uptime = modDB:Flag(nil, "Condition:WarcryMaxHit") and 1 or m_min(full_duration / actual_cooldown, 1)
+						-- need to scale warcry buffs by their actual uptime
+						local warcryOutputUptime = env.build.calcsTab.mainOutput and (env.build.calcsTab.mainOutput[warcryName.."CryUptimeRatio"] / 100) or nil
+						local uptime = modDB:Flag(nil, "Condition:WarcryMaxHit") and 1 or warcryOutputUptime or m_min(full_duration / actual_cooldown, 1)
 						local extraWarcryModList = activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and new("ModList") or {}
 						if not modDB:Flag(nil, "CannotGainWarcryBuffs") then
 							if not buff.applyNotPlayer then
