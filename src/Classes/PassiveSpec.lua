@@ -117,11 +117,14 @@ function PassiveSpecClass:Load(xml, dbFileName)
 							launch:ShowErrMsg("^1Error parsing '%s': 'Socket' element missing 'itemId' attribute", dbFileName)
 							return true
 						end
-						-- there are files which have been saved poorly and have empty jewel sockets saved as sockets with itemId zero.
-						-- this check filters them out to prevent dozens of invalid jewels
-						jewelIdNum = tonumber(child.attrib.itemId)
-						if jewelIdNum > 0 then
-							self.jewels[tonumber(child.attrib.nodeId)] = jewelIdNum
+						-- Some saved builds contain stale jewel socket item IDs after the
+						-- referenced item has been removed from the item list. Keep those
+						-- broken references out of the active tree state so later radius and
+						-- loadout code doesn't try to index a missing item.
+						local jewelIdNum = tonumber(child.attrib.itemId)
+						local nodeIdNum = tonumber(child.attrib.nodeId)
+						if nodeIdNum and jewelIdNum and jewelIdNum > 0 and self.build.itemsTab.items[jewelIdNum] then
+							self.jewels[nodeIdNum] = jewelIdNum
 						end
 					end
 				end
@@ -1075,9 +1078,12 @@ end
 function PassiveSpecClass:NodesInIntuitiveLeapLikeRadius(node)
 	local result = { }
 	if self.jewels[node.id] and self.jewels[node.id] > 0 then
-		local item = self.build.itemsTab.items[self.jewels[node.id]]
+		local item = self:GetJewel(self.jewels[node.id])
+		if not item then
+			return result
+		end
 		local radiusIndex = item.jewelRadiusIndex
-		if item and item.jewelData and item.jewelData.intuitiveLeapLike then
+		if item.jewelData.intuitiveLeapLike then
 			local inRadius = self.nodes[node.id].nodesInRadius and self.nodes[node.id].nodesInRadius[radiusIndex]
 			for affectedNodeId, affectedNode in pairs(inRadius or {}) do
 				if self.nodes[affectedNodeId].alloc then
