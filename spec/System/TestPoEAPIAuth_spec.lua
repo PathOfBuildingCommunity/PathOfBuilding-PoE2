@@ -4,21 +4,21 @@ describe("PoEAPI auth", function()
 	local originalSubScripts
 
 	before_each(function()
-		originalLaunchSubScript = LaunchSubScript
+		originalLaunchSubScript = _G.LaunchSubScript
 		originalDownloadPage = launch.DownloadPage
 		originalSubScripts = launch.subScripts
 		launch.subScripts = { }
 	end)
 
 	after_each(function()
-		LaunchSubScript = originalLaunchSubScript
+		_G.LaunchSubScript = originalLaunchSubScript
 		launch.DownloadPage = originalDownloadPage
 		launch.subScripts = originalSubScripts
 	end)
 
-	it("passes token exchange errors to the auth callback", function()
+	it("passes token exchange errors to the auth callback #auth", function()
 		local authState
-		LaunchSubScript = function(_, _, _, authUrl)
+		_G.LaunchSubScript = function(_, _, _, authUrl)
 			authState = authUrl:match("state=([^&]+)")
 			return 123
 		end
@@ -48,7 +48,7 @@ describe("PoEAPI auth", function()
 	end)
 
 	it("reports OAuth state mismatches without exchanging a token", function()
-		LaunchSubScript = function()
+		_G.LaunchSubScript = function()
 			return 123
 		end
 		launch.DownloadPage = function()
