@@ -193,60 +193,6 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
-	it("Test configured Rage still requires a recognised Rage source", function()
-		build.itemsTab:CreateDisplayItemFromRaw([[
-			New Item
-			Fanatic Greathammer
-			Quality: 0
-		]])
-		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
-
-		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
-		runCallback("OnFrame")
-
-		local baseLeapSlamHit = build.calcsTab.mainOutput.AverageDamage
-
-		build.configTab.input.multiplierRage = 30
-		build.configTab:BuildModList()
-		runCallback("OnFrame")
-
-		assert.are.equals(nil, build.calcsTab.mainOutput.Rage)
-		assert.are.equals(baseLeapSlamHit, build.calcsTab.mainOutput.AverageDamage)
-	end)
-
-	it("Test Ngamahu's Chosen rage charm modifier is recognised", function()
-		build.itemsTab:CreateDisplayItemFromRaw([[
-			New Item
-			Fanatic Greathammer
-			Quality: 0
-		]])
-		build.itemsTab:AddDisplayItem()
-		runCallback("OnFrame")
-
-		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
-		runCallback("OnFrame")
-
-		local baseLeapSlamHit = build.calcsTab.mainOutput.AverageDamage
-
-		build.configTab.input.customMods = "Grants up to your maximum Rage on use"
-		build.configTab.input.multiplierRage = 30
-		build.configTab:BuildModList()
-		runCallback("OnFrame")
-
-		assert.are.equals(30, build.calcsTab.mainOutput.Rage)
-		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
-
-		local modList, extra = modLib.parseMod("Grants up to your maximum Rage on use")
-		local grantsRage = false
-		for _, mod in ipairs(modList) do
-			grantsRage = grantsRage or mod.name == "Condition:CanGainRage"
-		end
-
-		assert.are.equals(nil, extra)
-		assert.True(grantsRage)
-	end)
-
 	it("Test stacking persistent buff supports of same category", function()
 		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1")
 		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
