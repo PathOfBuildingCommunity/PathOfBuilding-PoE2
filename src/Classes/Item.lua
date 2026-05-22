@@ -1789,6 +1789,10 @@ function ItemClass:BuildModList()
 						local line = itemLib.applyRange(strippedModeLine, modLine.range, catalystScalar, modLine.corruptedRange)
 						-- Check if we can parse it before adding the mods
 						local list, extra = modLib.parseMod(line)
+						if itemLib.isZeroValueLine(line) then
+							list = { }
+							extra = nil
+						end
 						if list and not extra then
 							modLine.modList = list
 							t_insert(self.rangeLineList, modLine)
