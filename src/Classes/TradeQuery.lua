@@ -1021,33 +1021,16 @@ end
 -- Method to update the Total Price string sum of all items
 function TradeQueryClass:GetTotalPriceString()
 	local text = ""
-	local sortedPrice = { }
-	local currencyOrder = { }
-	local priceIndexes = { }
-	for index in pairs(self.totalPrice) do
-		t_insert(priceIndexes, index)
-	end
-	t_sort(priceIndexes, function(a, b)
-		if type(a) == "number" and type(b) == "number" then
-			return a < b
-		elseif type(a) == "number" then
-			return true
-		elseif type(b) == "number" then
-			return false
-		end
-		return tostring(a) < tostring(b)
-	end)
-	for _, index in ipairs(priceIndexes) do
-		local entry = self.totalPrice[index]
-		if sortedPrice[entry.currency] then
-			sortedPrice[entry.currency] = sortedPrice[entry.currency] + entry.amount
+	local sorted_price = { }
+	for _, entry in pairs(self.totalPrice) do
+		if sorted_price[entry.currency] then
+			sorted_price[entry.currency] = sorted_price[entry.currency] + entry.amount
 		else
-			sortedPrice[entry.currency] = entry.amount
-			t_insert(currencyOrder, entry.currency)
+			sorted_price[entry.currency] = entry.amount
 		end
 	end
-	for _, currency in ipairs(currencyOrder) do
-		text = text .. tostring(sortedPrice[currency]) .. " " .. currency .. ", "
+	for currency, value in pairs(sorted_price) do
+		text = text .. tostring(value) .. " " .. currency .. ", "
 	end
 	if text ~= "" then
 		text = text:sub(1, -3)
