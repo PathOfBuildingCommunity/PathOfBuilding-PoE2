@@ -468,3 +468,10 @@ function describeScalability(fileName)
 	end
 	return out
 end
+
+function getStatDescriptors(fileName)
+	if not statDescriptors[fileName] then
+		loadStatFile(fileName)
+	end
+	return statDescriptors[fileName]
+end
