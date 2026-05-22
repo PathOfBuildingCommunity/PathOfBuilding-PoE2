@@ -328,8 +328,13 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		-- Use the node's own path and dependence list
 		hoverPath = { }
 		if #hoverNode.intuitiveLeapLikesAffecting == 0 then
-			for _, pathNode in pairs(hoverNode.path) do
+			-- Use the same effective path as allocation so weapon-set promotion previews match clicks.
+			local path = (hoverNode.alloc and hoverNode.path or spec:GetEffectiveAllocationPath(hoverNode)) or { }
+			for _, pathNode in ipairs(path) do
 				hoverPath[pathNode] = true
+			end
+			if path.root then
+				hoverPath[path.root] = true
 			end
 		end
 		hoverDep = { }
@@ -640,13 +645,33 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	local function setConnectorColor(r, g, b)
 		connectorColor[1], connectorColor[2], connectorColor[3] = r, g, b
 	end
+	local function nodeIsHoverPathEndpoint(node)
+		if node == hoverNode or hoverPath[node] then
+			return true
+		end
+		if node.alloc then
+			local mode = node.allocMode or 0
+			return mode == 0 or mode == spec.allocMode
+		end
+	end
+	local function nodeWillChangeAllocMode(node)
+		-- Hovering a normal allocation can preview weapon-set nodes being promoted back to normal.
+		return hoverNode and hoverPath and hoverPath[node] and not hoverNode.alloc and spec.allocMode == 0 and (node.allocMode or 0) > 0
+	end
+	local function nodeWillAllocateWithAllocMode(node)
+		-- Unallocated hover/trace path nodes should preview with the selected weapon-set tint.
+		return hoverPath and hoverPath[node] and (self.traceMode or hoverNode and not hoverNode.alloc) and not node.alloc and spec.allocMode > 0 and not node.ascendancyName and node.type ~= "Keystone" and node.type ~= "Socket" and not node.containJewelSocket
+	end
 	local function getState(n1, n2)
 		-- Determine the connector state
 		local state = "Normal"
-		if n1.alloc and n2.alloc then
+		local mode1, mode2 = n1.allocMode or 0, n2.allocMode or 0
+		if hoverPath and nodeIsHoverPathEndpoint(n1) and nodeIsHoverPathEndpoint(n2) and hoverPath[n1] and hoverPath[n2] and (nodeWillChangeAllocMode(n1) or nodeWillChangeAllocMode(n2)) then
+			state = "Intermediate"
+		elseif n1.alloc and n2.alloc and (mode1 == 0 or mode2 == 0 or mode1 == mode2) then
 			state = "Active"
 		elseif hoverPath then
-			if (n1.alloc or n1 == hoverNode or hoverPath[n1]) and (n2.alloc or n2 == hoverNode or hoverPath[n2]) then
+			if nodeIsHoverPathEndpoint(n1) and nodeIsHoverPathEndpoint(n2) and (not n1.alloc or not n2.alloc or hoverPath[n1] and hoverPath[n2]) then
 				state = "Intermediate"
 			end
 		end
@@ -831,6 +856,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 		local base, overlay, effect
 		local isAlloc = node.alloc or build.calcsTab.mainEnv.grantedPassives[nodeId] or (compareNode and compareNode.alloc)
+		local allocMode = nodeWillAllocateWithAllocMode(node) and spec.allocMode or node.allocMode
+		local allocModeColor = not self.showHeatMap and not launch.devModeAlt and not compareNode and allocMode and allocMode > 0 and not nodeWillChangeAllocMode(node)
 		SetDrawLayer(nil, 25)
 		if node.type == "ClassStart" then
 			overlay = nil
@@ -1000,6 +1027,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 
 		if overlay then
+			if allocModeColor then
+				SetDrawColor(unpack(hexToRGB(colorCodes[allocMode == 1 and "NEGATIVE" or "POSITIVE"]:sub(3))))
+			end
 			-- Draw overlay
 			if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
 				if hoverNode and hoverNode ~= node then
@@ -1051,6 +1081,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			if not self.showHeatMap and not launch.devModeAlt and not node.alloc and (node.type == "AscendClassStart" or node.type == "ClassStart") then
+				SetDrawColor(1, 1, 1)
+			elseif allocModeColor then
 				SetDrawColor(1, 1, 1)
 			end
 		end

@@ -3,69 +3,85 @@ describe("TestPassiveSpec", function()
 		newBuild()
 	end)
 
-	local function pathContains(path, needle)
-		if not path then
-			return false
-		end
-		for _, node in ipairs(path) do
-			if node == needle then
-				return true
-			end
-		end
-		return false
-	end
-
-	local function isAllocatableNormalNode(node)
+	local function allocNode(spec, nodeId, allocMode)
+		local node = spec.nodes[nodeId]
+		spec.allocMode = allocMode
+		spec:AllocNode(node)
+		assert.are.equals(allocMode, node.allocMode)
 		return node
-			and not node.alloc
-			and node.type == "Normal"
-			and not node.ascendancyName
-			and not node.isMultipleChoice
-			and not node.isMultipleChoiceOption
-			and #node.intuitiveLeapLikesAffecting == 0
 	end
 
-	local function findNormalPathNodeAfter(spec, throughNode)
-		for _, node in ipairs(throughNode.linked) do
-			if isAllocatableNormalNode(node) and (node.pathRoot == throughNode or pathContains(node.path, throughNode)) then
-				return node
-			end
-		end
-		for _, node in pairs(spec.nodes) do
-			if isAllocatableNormalNode(node) and (node.pathRoot == throughNode or pathContains(node.path, throughNode)) then
-				return node
-			end
-		end
-	end
-
-	it("normal passive allocation cannot continue through weapon-set-only branches", function()
+	it("normal passive allocation promotes the shortest path instead of using a longer detour", function()
 		local spec = build.spec
-		local startNode = spec.nodes[spec.curClass.startNodeId]
-		local firstNode = findNormalPathNodeAfter(spec, startNode)
-		assert.True(firstNode ~= nil)
+		allocNode(spec, 56651, 0)
+		local weaponSetNode = allocNode(spec, 38143, 1)
+		assert.are.equals("Strength", weaponSetNode.dn)
+
+		local reachableNode = spec.nodes[43923]
+		assert.are.equals("Accuracy", reachableNode.dn)
 
 		spec.allocMode = 0
-		spec:AllocNode(firstNode)
-		assert.are.equals(0, firstNode.allocMode)
+		spec:AllocNode(reachableNode)
 
-		local weaponSetNode = findNormalPathNodeAfter(spec, firstNode)
-		assert.True(weaponSetNode ~= nil)
+		assert.True(reachableNode.alloc)
+		assert.are.equals(0, reachableNode.allocMode)
+		assert.are.equals(0, weaponSetNode.allocMode)
+	end)
 
-		spec.allocMode = 1
-		spec:AllocNode(weaponSetNode)
-		assert.are.equals(1, weaponSetNode.allocMode)
+	it("normal passive allocation promotes the weapon-set chain behind the path root", function()
+		local spec = build.spec
+		allocNode(spec, 56651, 0)
+		allocNode(spec, 35324, 0)
+		allocNode(spec, 35660, 1)
+		allocNode(spec, 18548, 1)
 
-		local blockedNode = findNormalPathNodeAfter(spec, weaponSetNode)
-		assert.True(blockedNode ~= nil)
-		assert.True(blockedNode.pathRoot == weaponSetNode or pathContains(blockedNode.path, weaponSetNode))
+		local promotedNode = spec.nodes[28992]
+		assert.are.equals("Honed Instincts", promotedNode.dn)
 
 		spec.allocMode = 0
-		spec:AllocNode(blockedNode)
-		assert.are_not.equals(true, blockedNode.alloc)
+		spec:AllocNode(promotedNode)
 
-		spec.allocMode = 1
-		spec:AllocNode(blockedNode)
-		assert.True(blockedNode.alloc)
-		assert.are.equals(1, blockedNode.allocMode)
+		assert.True(promotedNode.alloc)
+		assert.are.equals(0, promotedNode.allocMode)
+		assert.are.equals(0, spec.nodes[18548].allocMode)
+		assert.are.equals(0, spec.nodes[35660].allocMode)
+	end)
+
+	it("weapon-set allocation cannot originate from another weapon set path", function()
+		local spec = build.spec
+		allocNode(spec, 56651, 0)
+		allocNode(spec, 35324, 0)
+		allocNode(spec, 35660, 1)
+		allocNode(spec, 18548, 1)
+
+		local weaponSet2Node = spec.nodes[28992]
+		assert.are.equals("Honed Instincts", weaponSet2Node.dn)
+
+		spec.allocMode = 2
+		spec:AllocNode(weaponSet2Node)
+
+		assert.True(weaponSet2Node.alloc)
+		assert.are.equals(2, weaponSet2Node.allocMode)
+		assert.are.equals(1, spec.nodes[18548].allocMode)
+		assert.are.equals(1, spec.nodes[35660].allocMode)
+	end)
+
+	it("normal passives cannot stay connected through weapon-set-only paths", function()
+		local spec = build.spec
+		allocNode(spec, 56651, 0)
+		allocNode(spec, 35234, 0)
+		allocNode(spec, 6789, 0)
+		allocNode(spec, 4313, 0)
+		allocNode(spec, 28992, 0)
+		allocNode(spec, 35660, 1)
+		allocNode(spec, 18548, 1)
+
+		spec:DeallocNode(spec.nodes[4313])
+
+		assert.are_not.equals(true, spec.nodes[28992].alloc)
+		assert.True(spec.nodes[35660].alloc)
+		assert.True(spec.nodes[18548].alloc)
+		assert.are.equals(1, spec.nodes[35660].allocMode)
+		assert.are.equals(1, spec.nodes[18548].allocMode)
 	end)
 end)
