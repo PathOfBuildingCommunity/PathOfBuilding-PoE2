@@ -45,4 +45,12 @@ describe("TestItemTools", function()
 			assert.are.equals(expected, result)
 		end)
 	end
+
+	it("keeps range sliders for lines that resolve to zero", function()
+		local item = new("Item", "Rarity: Rare\nName\nArcane Raiment\n{range:0.5}+(-1-1) to Maximum Power Charges")
+
+		assert.are.equals(1, #item.rangeLineList)
+		assert.are.equals(0.5, item.rangeLineList[1].range)
+		assert.are.equals(0, item.baseModList:Sum("BASE", nil, "PowerChargesMax"))
+	end)
 end)

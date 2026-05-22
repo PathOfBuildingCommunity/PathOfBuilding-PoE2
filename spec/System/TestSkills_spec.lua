@@ -7,6 +7,36 @@ describe("TestSkills", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 	
+
+	it("uses granted effect minion list when active skill minion list is missing", function()
+		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
+		local minionId = "RaisedSkeletonSniper"
+		local activeEffect = {
+			srcInstance = srcInstance,
+			grantedEffect = {
+				id = "TestSpectreSkill",
+				name = "Spectre: Test",
+				statSets = { { label = "Default" } },
+				minionList = { minionId },
+			},
+			statSet = { skillFlags = { } },
+		}
+		local activeSkill = {
+			activeEffect = activeEffect,
+			skillData = { },
+			-- activeSkill.minionList intentionally absent; this reproduces #1677.
+		}
+		build.skillsTab.socketGroupList[1] = {
+			displaySkillList = { activeSkill },
+			mainActiveSkill = 1,
+		}
+
+		build:RefreshSkillSelectControls(build.controls, 1, "")
+
+		assert.are.equals("Skeletal Sniper", build.controls.mainSkillMinion.list[1].label)
+		assert.are.equals(minionId, build.controls.mainSkillMinion.list[1].minionId)
+	end)
+
 	it("Test blasphemy reserving Spirit", function()
 		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\n")
 		runCallback("OnFrame")
@@ -212,6 +242,31 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
+	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Fanatic Greathammer
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		build.skillsTab:PasteSocketGroup("Leap Slam 20/0  1")
+		runCallback("OnFrame")
+
+		local baseLeapSlamHit = build.calcsTab.mainOutput.AverageDamage
+
+		build.configTab.input.customMods = "Increases and Reductions to Companion Damage also apply to you\nMinions deal 20% increased Damage"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(baseLeapSlamHit, build.calcsTab.mainOutput.AverageDamage)
+
+		build.configTab.input.customMods = "Increases and Reductions to Companion Damage also apply to you\nCompanions deal 12% increased Damage"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
+	end)
+
 	it("Test stacking persistent buff supports of same category", function()
 		build.skillsTab:PasteSocketGroup("Arctic Armour 20/0  1\nClarity I 1/0  1")
 		build.skillsTab:PasteSocketGroup("Time of Need 20/0  1\nClarity II 1/0  1")
@@ -248,6 +303,31 @@ describe("TestSkills", function()
 		assert.True(baseCorruptingCryDps == build.calcsTab.mainOutput.CorruptingBloodDPS)
 	end)
 
+	it("Flame Breath attack speed scales DPS and is not capped by its channel cooldown", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Roaring Talisman
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Flame Breath 20/0  1")
+		runCallback("OnFrame")
+
+		local baseSpeed = build.calcsTab.mainOutput.Speed
+		local baseDPS = build.calcsTab.mainOutput.TotalDPS
+
+		assert.True(baseSpeed > 1)
+		assert.True(baseDPS > 0)
+
+		build.configTab.input.customMods = "100% increased attack speed"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.mainOutput.Speed > baseSpeed * 1.9)
+		assert.True(build.calcsTab.mainOutput.TotalDPS > baseDPS * 1.9)
+	end)
+
 	it("Test Atziri's Allure - ignore curse limit", function()
 		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1\nAtziri's Allure 1/0 1")
 		build.skillsTab:PasteSocketGroup("Flammability 20/0  1\n")
@@ -263,5 +343,87 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		assert.True(build.calcsTab.calcsOutput.Cooldown == 10)
+	end)
+
+	it("does not count item or tree granted active skills as gem groups", function()
+		local function fakeGem(name, grantedEffect, extra)
+			local gem = {
+				enabled = true,
+				gemData = {
+					name = name,
+					grantedEffect = grantedEffect or { },
+				},
+			}
+			for key, value in pairs(extra or { }) do
+				gem[key] = value
+			end
+			return gem
+		end
+
+		local skillsTab = {
+			socketGroupList = {
+				{ enabled = true, gemList = { fakeGem("Item Skill", { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Tree Skill", { fromTree = true }) } },
+				{ enabled = true, gemList = { fakeGem("Stored Item Skill", nil, { fromItem = true }) } },
+				{ enabled = true, gemList = { fakeGem("Socketed Skill"), fakeGem("Item Support", { support = true, fromItem = true }) } },
+			},
+		}
+
+		build.skillsTab.UpdateGlobalGemCountAssignments(skillsTab)
+
+		assert.are.equals(1, GlobalGemAssignments["GemGroupCount"])
+	end)
+
+	it("Test hidden meta supports do not count as connected supports", function()
+		build.skillsTab:PasteSocketGroup("Cast on Critical 20/0  1\nArc 20/0  1\nUhtred's Omen 1/0  1\nRising Tempest 1/0  1")
+		runCallback("OnFrame")
+
+		local arcSkill = nil
+		for _, activeSkill in ipairs(build.calcsTab.calcsEnv.player.activeSkillList) do
+			if activeSkill.activeEffect.grantedEffect.name == "Arc" then
+				arcSkill = activeSkill
+				break
+			end
+		end
+
+		assert.is_not_nil(arcSkill)
+		assert.are.equals(2, arcSkill.skillModList:GetMultiplier("SupportCount", arcSkill.skillCfg))
+		assert.are.equals(3, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
+	end)
+
+	it("Test Barrage only repeats Barrageable skills", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Spiral Volley 20/0  1")
+		runCallback("OnFrame")
+		local spiralVolleyDPS = build.calcsTab.mainOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Barrage 20/0  1")
+		runCallback("OnFrame")
+		assert.are.equals(spiralVolleyDPS, build.calcsTab.mainOutput.TotalDPS)
+
+		newBuild()
+
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Ice Shot 20/0  1")
+		runCallback("OnFrame")
+		local iceShotDPS = build.calcsTab.mainOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Barrage 20/0  1")
+		runCallback("OnFrame")
+		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
 	end)
 end)

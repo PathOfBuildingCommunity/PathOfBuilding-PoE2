@@ -49,7 +49,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	-- Stage: Authenticate
 	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
-		self.api:FetchAuthToken(function()
+		self.api:FetchAuthToken(function(_, errMsg)
 			if self.api.authToken then
 				self.charImportMode = "GETACCOUNTNAME"
 				self.charImportStatus = "Authenticated"
@@ -59,6 +59,8 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 				main.tokenExpiry = self.api.tokenExpiry
 				main:SaveSettings()
 				self:DownloadCharacterList()
+			elseif errMsg and errMsg ~= self.api.ERROR_NO_AUTH then
+				self.charImportStatus = colorCodes.NEGATIVE.."Authentication failed: "..errMsg
 			else
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			end
@@ -539,8 +541,10 @@ function ImportTabClass:BuildCharacterList(league)
 
 			classColor = colorCodes.DEFAULT
 			if charClass ~= "?" then
-				local tree = main:LoadTree(latestTreeVersion .. (char.league:match("Ruthless") and "_ruthless" or ""))
-				classColor = colorCodes[charClass:upper()] or colorCodes[tree.ascendNameMap[charClass].class.name:upper()] or "^7"
+				local tree = main:LoadTree(latestTreeVersion)
+				local ascendClass = tree and tree.ascendNameMap[charClass]
+				local baseClassName = ascendClass and ascendClass.class.name
+				classColor = colorCodes[charClass:upper()] or (baseClassName and colorCodes[baseClassName:upper()]) or "^7"
 			end
 
 			local detail
@@ -735,7 +739,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 		end
 	end
 
-	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion)
 
 	-- workaround to update the ui to last option
 	self.build.treeTab.controls.versionSelect.selIndex = #self.build.treeTab.treeVersions

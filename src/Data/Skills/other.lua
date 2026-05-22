@@ -4095,6 +4095,12 @@ skills["InevitableAgonyPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "inevitable_agony",
 			baseFlags = {
+				area = true,
+				duration = true,
+				curse = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1500 },
@@ -5986,6 +5992,9 @@ skills["ParryPlayer"] = {
 				melee = true,
 				duration = true,
 				shieldAttack = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -50 },
