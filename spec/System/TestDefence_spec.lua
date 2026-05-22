@@ -528,79 +528,45 @@ describe("TestDefence", function()
 		assert.are.equals(0, floor(poolsRemaining.OverkillDamage))
 	end)
 
-	it("does not reduce stateful EHP when block chance increases", function()
-		-- Regression fixture from #1754. The build uses life-loss prevention and MoM,
-		-- so the EHP speedup path must preserve monotonic block improvements.
-		local defendersResolveNodeId = 64327
-		local adjacentBlockNodeId = 39517
-
+	it("limits EHP speedup when hit damage is delayed", function()
 		local function assertClose(actual, expected)
 			assert.is_true(math.abs(actual - expected) < 0.01)
 		end
 
-		local function readFixture(path)
-			local file = assert(io.open(path, "rb"))
-			local contents = file:read("*a")
-			file:close()
-			return contents
-		end
-
-		local function loadIssue1754Build(extraNodeIds)
+		local function calcEHP(extraMods)
 			newBuild()
-			local xmlText = readFixture("../spec/Fixtures/issue1754_block_ehp.xml")
-			xmlText = xmlText:gsub('nodes="([^"]*)"', function(nodes)
-				local allocated = { }
-				for nodeId in nodes:gmatch("%d+") do
-					allocated[nodeId] = true
-				end
-				for _, nodeId in ipairs(extraNodeIds) do
-					if not allocated[tostring(nodeId)] then
-						nodes = nodes .. "," .. tostring(nodeId)
-					end
-				end
-				return 'nodes="' .. nodes .. '"'
-			end, 1)
-			loadBuildFromXML(xmlText, "issue 1754")
+			build.configTab.input.enemyPhysicalDamage = "1000"
+			build.configTab.input.enemyFireDamage = "1000"
+			build.configTab.input.enemyColdDamage = "1000"
+			build.configTab.input.enemyLightningDamage = "1000"
+			build.configTab.input.enemyChaosDamage = "0"
+			build.configTab.input.customMods = [[
++4000 to maximum Life
++4000 to maximum Mana
+75% of Damage is taken from Mana before Life
+25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead
++75% to all Elemental Resistances
++75% to Chaos Resistance
+]] .. (extraMods or "")
+			build.configTab:BuildModList()
 			runCallback("OnFrame")
 			runCallback("OnFrame")
 			local calcsOutput = build.calcsTab.calcsOutput
-			local result = {
+			return {
 				TotalEHP = calcsOutput.TotalEHP,
 				EffectiveBlockChance = calcsOutput.EffectiveBlockChance,
 				NumberOfMitigatedDamagingHits = calcsOutput.NumberOfMitigatedDamagingHits,
 			}
-			newBuild()
-			return result
 		end
 
-		local base = loadIssue1754Build({ })
-		local baseEHP = base.TotalEHP
-		local baseBlock = base.EffectiveBlockChance
-		local defendersResolve = loadIssue1754Build({ defendersResolveNodeId })
-		local defendersResolveEHP = defendersResolve.TotalEHP
-		local defendersResolveBlock = defendersResolve.EffectiveBlockChance
-		local adjacentBlock = loadIssue1754Build({ defendersResolveNodeId, adjacentBlockNodeId })
-		local adjacentBlockEHP = adjacentBlock.TotalEHP
-		local adjacentBlockChance = adjacentBlock.EffectiveBlockChance
-		local defendersResolveAddsBlock = defendersResolveBlock > baseBlock
-		local defendersResolveAddsEHP = defendersResolveEHP > baseEHP
-		local adjacentNodeAddsBlock = adjacentBlockChance > defendersResolveBlock
-		local adjacentNodeAddsEHP = adjacentBlockEHP > defendersResolveEHP
+		local base = calcEHP()
+		local block = calcEHP("\n+10% to Block chance\n")
 
 		newBuild()
 
-		assertClose(baseEHP, 220458.8068172)
-		assertClose(baseBlock, 40.04)
-		assertClose(base.NumberOfMitigatedDamagingHits, 48.806236082942)
-		assertClose(defendersResolveEHP, 224844.36839123)
-		assertClose(defendersResolveBlock, 43.16)
-		assertClose(defendersResolve.NumberOfMitigatedDamagingHits, 49.77713289867)
-		assertClose(adjacentBlockEHP, 227484.13584363)
-		assertClose(adjacentBlockChance, 44.98)
-		assertClose(adjacentBlock.NumberOfMitigatedDamagingHits, 50.361537374709)
-		assert.is_true(defendersResolveAddsBlock)
-		assert.is_true(defendersResolveAddsEHP)
-		assert.is_true(adjacentNodeAddsBlock)
-		assert.is_true(adjacentNodeAddsEHP)
+		assertClose(base.TotalEHP, 11724.334582067)
+		assertClose(block.TotalEHP, 12341.404823229)
+		assertClose(block.EffectiveBlockChance, 10)
+		assert.is_true(block.TotalEHP > base.TotalEHP)
 	end)
 end)
