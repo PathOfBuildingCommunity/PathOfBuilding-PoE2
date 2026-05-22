@@ -131,10 +131,6 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 		if entry.tradeId and controls[prefix .. "Check"] and controls[prefix .. "Check"].state then
 			local filter = { id = entry.tradeId }
 			if entry.isOption then
-				filter.value = { option = entry.value }
-			-- some entries don't want to search for ranges, but aren't
-			-- implemented using options on the trade site (timeless jewels)
-			elseif entry.needsExactValue then
 				filter.value = { min = entry.value, max = entry.value }
 			elseif entry.value then
 				local minVal = tonumber(controls[prefix .. "Min"].buf)

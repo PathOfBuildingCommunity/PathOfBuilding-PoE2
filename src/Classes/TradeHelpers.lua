@@ -63,7 +63,9 @@ local function getTradeStatsLookup()
 				if tradeId and option then
 					local newEntry = { type = cat.id, text = entry.text, tradeId = entry.id }
 					if entry.text:match("#") then
-						newEntry.pattern = entry.text:gsub("#", "(.*)")
+						-- work around issue where pob splits timeless jewel
+						-- mods into separate mod lines
+						newEntry.pattern = entry.text:gsub("\n.*", ""):gsub("(%+)", "%%+"):gsub("#", "(%%d%+)")
 					end
 					table.insert(optionTradeStatMap[cat.id], newEntry)
 				end
@@ -201,7 +203,7 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 
 	for _, v in ipairs(optionTradeStatMap[modType] or {}) do
 		if v.pattern then
-			local match = v.pattern:match(modLine)
+			local match = modLine:match(v.pattern)
 			if match then
 				return nil, v.tradeId, tonumber(match)
 			end
