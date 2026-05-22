@@ -1007,11 +1007,12 @@ function buildMode:Save(xml)
 						if skillData.trigger and skillData.trigger ~= "" then
 							triggerStr = skillData.trigger
 						end
+						local skillCount = skillData.count or 1
 						local lhsString = skillData.name
-						if skillData.count >= 2 then
-							lhsString = tostring(skillData.count).."x "..skillData.name
+						if skillCount ~= 1 then
+							lhsString = s_format("%g", skillCount).."x "..skillData.name
 						end
-						t_insert(xml, { elem = "FullDPSSkill", attrib = { stat = lhsString, value = tostring(skillData.dps * skillData.count), skillPart = skillData.skillPart or "", source = skillData.source or skillData.trigger or "" } })
+						t_insert(xml, { elem = "FullDPSSkill", attrib = { stat = lhsString, value = tostring(skillData.dps * skillCount), skillPart = skillData.skillPart or "", source = skillData.source or skillData.trigger or "" } })
 					end
 					addedStatNames[statName] = true
 				else
@@ -1928,14 +1929,15 @@ function buildMode:AddDisplayStatList(statList, actor)
 							if skillData.trigger and skillData.trigger ~= "" then
 								triggerStr = colorCodes.WARNING.." ("..skillData.trigger..")"..labelColor
 							end
+							local skillCount = skillData.count or 1
 							local lhsString = labelColor..skillData.name..triggerStr..":"
-							if skillData.count >= 2 then
-								lhsString = labelColor..tostring(skillData.count).."x "..skillData.name..triggerStr..":"
+							if skillCount ~= 1 then
+								lhsString = labelColor..s_format("%g", skillCount).."x "..skillData.name..triggerStr..":"
 							end
 							t_insert(statBoxList, {
 								height = 16,
 								lhsString,
-								self:FormatStat({fmt = "1.f"}, skillData.dps * skillData.count, overCapStatVal),
+								self:FormatStat({fmt = "1.f"}, skillData.dps * skillCount, overCapStatVal),
 							})
 							if skillData.skillPart then
 								t_insert(statBoxList, {
