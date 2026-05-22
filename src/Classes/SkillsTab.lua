@@ -201,7 +201,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.controls.groupCountLabel.shown = function()
 		return self.displayGroup.source ~= nil
 	end
-	self.controls.groupCount = new("EditControl", { "LEFT", self.controls.groupCountLabel, "RIGHT" }, { 4, 0, 60, 20 }, nil, nil, "^%d.", 6, function(buf)
+	self.controls.groupCount = new("EditControl", { "LEFT", self.controls.groupCountLabel, "RIGHT" }, { 4, 0, 80, 20 }, nil, nil, "^%d.", 6, function(buf)
 		self.displayGroup.groupCount = parseSkillCount(buf)
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -262,7 +262,7 @@ will automatically apply to the skill.]]
 	self.controls.gemLevelHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].level, "TOPLEFT"}, {0, -2, 0, 16}, "^7Level:")
 	self.controls.gemQualityHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].quality, "TOPLEFT"}, {0, -2, 0, 16}, "^7Quality:")
 	self.controls.gemEnableHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].enabled, "TOPLEFT"}, {-16, -2, 0, 16}, "^7Enabled:")
-	self.controls.gemCountHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].count, "TOPLEFT"}, {8, -2, 0, 16}, "^7Count:")
+	self.controls.gemCountHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].count, "TOPLEFT"}, {18, -2, 0, 16}, "^7Count:")
 end)
 
 function SkillsTabClass:LoadSkill(node, skillSetId)
@@ -514,7 +514,7 @@ function SkillsTabClass:Draw(viewPort, inputEvents)
 	self.controls.scrollBarH.y = viewPort.y + viewPort.height - 18
 
 	do
-		local maxX = self.controls.gemCountHeader:GetPos() + self.controls.gemCountHeader:GetSize() + 15
+		local maxX = self.controls.gemCountHeader:GetPos() + self.controls.gemCountHeader:GetSize() + 25
 		local contentWidth = maxX - self.x
 		self.controls.scrollBarH:SetContentDimension(contentWidth, viewPort.width)
 	end
@@ -861,7 +861,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."Enable"] = slot.enabled
 
 	-- Count gem
-	slot.count = new("EditControl", {"LEFT",slot.enabled,"RIGHT"}, {18, 0, 60, 20}, nil, nil, "^%d.", 6, function(buf)
+	slot.count = new("EditControl", {"LEFT",slot.enabled,"RIGHT"}, {18, 0, 80, 20}, nil, nil, "^%d.", 5, function(buf)
 		local gemInstance = self.displayGroup.gemList[index]
 		if not gemInstance then
 			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, count = 1, new = true }
