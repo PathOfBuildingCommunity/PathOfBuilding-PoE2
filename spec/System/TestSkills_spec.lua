@@ -284,6 +284,31 @@ describe("TestSkills", function()
 		assert.True(baseCorruptingCryDps == build.calcsTab.mainOutput.CorruptingBloodDPS)
 	end)
 
+	it("Flame Breath attack speed scales DPS and is not capped by its channel cooldown", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Roaring Talisman
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Flame Breath 20/0  1")
+		runCallback("OnFrame")
+
+		local baseSpeed = build.calcsTab.mainOutput.Speed
+		local baseDPS = build.calcsTab.mainOutput.TotalDPS
+
+		assert.True(baseSpeed > 1)
+		assert.True(baseDPS > 0)
+
+		build.configTab.input.customMods = "100% increased attack speed"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.mainOutput.Speed > baseSpeed * 1.9)
+		assert.True(build.calcsTab.mainOutput.TotalDPS > baseDPS * 1.9)
+	end)
+
 	it("Test Atziri's Allure - ignore curse limit", function()
 		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1\nAtziri's Allure 1/0 1")
 		build.skillsTab:PasteSocketGroup("Flammability 20/0  1\n")

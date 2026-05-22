@@ -589,6 +589,9 @@ return {
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
 },
+["channelled_skill_do_not_go_on_cooldown_on_finishing_channel"] = {
+	flag("CooldownDoesNotLimitSkillSpeed"),
+},
 ["totem_skill_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast, KeywordFlag.Totem),
 },
