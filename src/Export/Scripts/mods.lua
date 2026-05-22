@@ -187,6 +187,9 @@ local function writeMods(outName, condFunc)
 						end
 					end
 
+					-- radius jewel stats are slightly unique in that they use
+					-- the same stat as regular jewel mods. this means the
+					-- description will not include the also grant: prefix
 					local stats = copyTable(statEntry.stats)
 					-- radius jewel mods:
 					-- notable
