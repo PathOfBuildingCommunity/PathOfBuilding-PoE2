@@ -489,7 +489,7 @@ function TradeQueryGeneratorClass:InitMods()
 					local matchedCategory = nil
 					for category, categoryOptions in pairs(tradeCategoryNames) do
 						for i, opt in pairs(categoryOptions) do
-							if opt:lower():match(slotType) then
+							if opt:lower():match("^"..slotType) then
 								matchedCategory = category
 								break
 							end
