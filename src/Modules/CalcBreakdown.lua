@@ -193,7 +193,7 @@ function breakdown.critDot(dotMulti, critMulti, dotChance, critChance)
 	return out
 end		
 		
-function breakdown.leech(instant, instantRate, instances, pool, rate, max, dur, instantLeechProportion, hitRate)
+function breakdown.leech(instant, instantRate, instances, pool, rate, max, dur, instantLeechProportion, hitRate, enemyLeechResistance)
 	local out = { }
 	if actor.mainSkill.skillData.showAverage then
 		if instant > 0 then
@@ -212,7 +212,8 @@ function breakdown.leech(instant, instantRate, instances, pool, rate, max, dur, 
 				t_insert(out, s_format("x %.2f ^8(leech rate modifier)", rateMod))
 			end
 			t_insert(out, s_format("x %.2fs ^8(instance duration)", dur))
-			t_insert(out, s_format("= %.1f", pool * data.misc.LeechRateBase * rateMod * dur))
+			t_insert(out, s_format("x %d%% ^8(enemy leech resistance mod)", 100 - enemyLeechResistance))
+			t_insert(out, s_format("= %.1f", pool * data.misc.LeechRateBase * rateMod * dur * (100 - enemyLeechResistance) / 100))
 		end
 	else
 		if instantRate > 0 then
