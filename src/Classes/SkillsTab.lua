@@ -70,14 +70,6 @@ local sortGemTypeList = {
 	{ label = "Effective Hit Pool", type = "TotalEHP" },
 }
 
-local function parseSkillCount(buf)
-	return tonumber(buf) or 1
-end
-
-local function formatSkillCount(count)
-	return string.format("%g", count or 1)
-end
-
 local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
 	self.UndoHandler()
 	self.ControlHost()
@@ -202,7 +194,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		return self.displayGroup.source ~= nil
 	end
 	self.controls.groupCount = new("EditControl", { "LEFT", self.controls.groupCountLabel, "RIGHT" }, { 4, 0, 80, 20 }, nil, nil, "^%d.", 6, function(buf)
-		self.displayGroup.groupCount = parseSkillCount(buf)
+		self.displayGroup.groupCount = tonumber(buf) or 1
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
@@ -576,7 +568,7 @@ function SkillsTabClass:CopySocketGroup(socketGroup)
 		skillText = skillText .. "Slot: " .. socketGroup.slot .. "\r\n"
 	end
 	for _, gemInstance in ipairs(socketGroup.gemList) do
-		skillText = skillText .. string.format("%s %d/%d %s %s\r\n", gemInstance.nameSpec, gemInstance.level, gemInstance.quality, gemInstance.enabled and "" or "DISABLED", formatSkillCount(gemInstance.count))
+		skillText = skillText .. string.format("%s %d/%d %s %s\r\n", gemInstance.nameSpec, gemInstance.level, gemInstance.quality, gemInstance.enabled and "" or "DISABLED", string.format("%g", gemInstance.count or 1))
 	end
 	Copy(skillText)
 end
@@ -599,7 +591,7 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 				level = tonumber(level) or 20,
 				quality = tonumber(quality) or 0,
 				enabled = state ~= "DISABLED",
-				count = parseSkillCount(count),
+				count = tonumber(count) or 1,
 				enableGlobal1 = true,
 				enableGlobal2 = true
 			})
@@ -871,7 +863,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
 		end
-		gemInstance.count = parseSkillCount(buf)
+		gemInstance.count = tonumber(buf) or 1
 		self:ProcessSocketGroup(self.displayGroup)
 		self:AddUndoState()
 		self.build.buildFlag = true

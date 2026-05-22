@@ -26,10 +26,6 @@ local function InsertIfNew(t, val)
 	table.insert(t, val)
 end
 
-local function formatSkillCount(count)
-	return s_format("%g", count or 1)
-end
-
 function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLink)
 	self.dbFileName = dbFileName
 	self.buildName = buildName
@@ -1014,7 +1010,7 @@ function buildMode:Save(xml)
 						local skillCount = skillData.count or 1
 						local lhsString = skillData.name
 						if skillCount ~= 1 then
-							lhsString = formatSkillCount(skillCount).."x "..skillData.name
+							lhsString = s_format("%g", skillCount).."x "..skillData.name
 						end
 						t_insert(xml, { elem = "FullDPSSkill", attrib = { stat = lhsString, value = tostring(skillData.dps * skillCount), skillPart = skillData.skillPart or "", source = skillData.source or skillData.trigger or "" } })
 					end
@@ -1936,7 +1932,7 @@ function buildMode:AddDisplayStatList(statList, actor)
 							local skillCount = skillData.count or 1
 							local lhsString = labelColor..skillData.name..triggerStr..":"
 							if skillCount ~= 1 then
-								lhsString = labelColor..formatSkillCount(skillCount).."x "..skillData.name..triggerStr..":"
+								lhsString = labelColor..s_format("%g", skillCount).."x "..skillData.name..triggerStr..":"
 							end
 							t_insert(statBoxList, {
 								height = 16,
