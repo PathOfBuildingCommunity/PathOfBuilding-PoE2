@@ -7,6 +7,39 @@ describe("TetsItemMods", function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
 
+	it("aggregates matching ring item rarity lines before applying ring bonus effect", function()
+		build.configTab.input.customMods = "30% increased bonuses gained from left Equipped Ring"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Ruby Ring
+			Implicits: 0
+			16% increased Rarity of Items found
+			16% increased Rarity of Items found
+			16% increased Rarity of Items found
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.are.equals(62, build.calcsTab.mainEnv.modDB:Sum("INC", nil, "LootRarity"))
+	end)
+
+	it("aggregates matching ring resistance lines before applying ring bonus effect", function()
+		build.configTab.input.customMods = "80% increased bonuses gained from left Equipped Ring"
+		build.configTab:BuildModList()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Amethyst Ring
+			Implicits: 0
+			+12% to Chaos Resistance
+			+26% to Chaos Resistance
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		assert.are.equals(68, build.calcsTab.mainOutput.ChaosResistTotal)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
@@ -551,5 +584,75 @@ describe("TetsItemMods", function()
 		-- added fire damage increases cold damage
 		assert.are_not.equals(baseColdAvg, round(build.calcsTab.mainOutput.ColdStoredCombinedAvg))
 		assert.equals(0, round(build.calcsTab.mainOutput.FireStoredCombinedAvg))
+	end)
+
+	it("Timeless jewels grant conquered attribute passive bonuses", function()
+		local calcs = build.calcsTab.calcs
+		local jewelSocketNodeId = 999
+		local attributeNode = {
+			id = 1,
+			type = "Normal",
+			isAttribute = true,
+			allocMode = 0,
+			modList = new("ModList"),
+		}
+		local smallNode = {
+			id = 2,
+			type = "Normal",
+			allocMode = 0,
+			modList = new("ModList"),
+		}
+		local envMode = "SPEC_TIMELESS_ATTRIBUTE"
+		GlobalCache.cachedData[envMode] = { }
+		local env = {
+			mode = envMode,
+			radiusJewelList = { },
+			allocNodes = { },
+			build = {
+				itemsTab = {
+					activeItemSet = {
+						useSecondWeaponSet = false,
+					},
+				},
+				spec = {
+					nodes = {
+						[jewelSocketNodeId] = {
+							allocMode = 0,
+						},
+					},
+				},
+			},
+		}
+		table.insert(env.radiusJewelList, {
+			type = "Other",
+			nodes = {
+				[attributeNode.id] = { type = "Normal" },
+				[smallNode.id] = { type = "Normal" },
+			},
+			item = {
+				baseName = "Timeless Jewel",
+			},
+			nodeId = jewelSocketNodeId,
+			jewelHash = "undying-hate-spec",
+			data = {
+				modSource = "Tree:" .. jewelSocketNodeId,
+			},
+			func = function(node, out, data)
+				if node and node.type == "Normal" and node.isAttribute then
+					out:NewMod("Str", "BASE", 7, data.modSource)
+				elseif node and node.type == "Normal" and not node.isAttribute then
+					out:NewMod("Dex", "BASE", 11, data.modSource)
+				end
+			end,
+		})
+
+		local attributeModList = calcs.buildModListForNode(env, attributeNode, 0, false)
+		local smallModList = calcs.buildModListForNode(env, smallNode, 0, false)
+		GlobalCache.cachedData[envMode] = nil
+
+		assert.are.equals(7, attributeModList:Sum("BASE", nil, "Str"))
+		assert.are.equals(0, attributeModList:Sum("BASE", nil, "Dex"))
+		assert.are.equals(0, smallModList:Sum("BASE", nil, "Str"))
+		assert.are.equals(11, smallModList:Sum("BASE", nil, "Dex"))
 	end)
 end)

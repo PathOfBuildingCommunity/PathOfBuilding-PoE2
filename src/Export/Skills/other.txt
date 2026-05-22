@@ -291,7 +291,8 @@ statMap = {
 #from tree
 #skill InevitableAgonyPlayer
 #set InevitableAgonyPlayer
-#flags
+#flags area duration curse
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -426,6 +427,7 @@ statMap = {
 		mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
 	},
 },
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
