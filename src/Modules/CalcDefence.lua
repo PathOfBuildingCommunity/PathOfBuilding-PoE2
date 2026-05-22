@@ -49,8 +49,8 @@ function calcs.deflectChance(deflection, accuracy)
 	if deflection < 1 then
 		return 0
 	end
-	local rawChance = ( accuracy * 0.9 ) / ( accuracy + deflection * 0.2 ) * 100
-	return 100 - m_max(m_min(round(rawChance), 100), 0)
+	local rawChance = accuracy / ( accuracy + deflection * 0.12 ) * 150
+	return 100 - m_max(m_min(round(rawChance), data.misc.DeflectionChanceCap), 0)
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
