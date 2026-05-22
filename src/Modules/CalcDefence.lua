@@ -1005,7 +1005,8 @@ function calcs.defence(env, actor)
 		local totalSpellBlockChance = modDB:Sum("BASE", nil, "SpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance")
 		output.SpellBlockChance = m_min(totalSpellBlockChance, output.SpellBlockChanceMax)
 		output.SpellBlockChanceOverCap = m_max(0, totalSpellBlockChance - output.SpellBlockChanceMax)
-		output.SpellProjectileBlockChance = m_max(m_min(output.SpellBlockChance + modDB:Sum("BASE", nil, "ProjectileSpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance"), output.SpellBlockChanceMax), 0)
+		local spellProjectileBlockChance = m_min(output.SpellBlockChance + modDB:Sum("BASE", nil, "ProjectileSpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance"), output.SpellBlockChanceMax)
+		output.SpellProjectileBlockChance = m_max(spellProjectileBlockChance, output.ProjectileBlockChance, 0)
 	end
 	if breakdown then
 		breakdown.BlockChance = {

@@ -541,13 +541,13 @@ describe("TestDefence", function()
 			build.configTab.input.enemyLightningDamage = "1000"
 			build.configTab.input.enemyChaosDamage = "0"
 			build.configTab.input.customMods = [[
-+4000 to maximum Life
-+4000 to maximum Mana
-75% of Damage is taken from Mana before Life
-25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead
-+75% to all Elemental Resistances
-+75% to Chaos Resistance
-]] .. (extraMods or "")
+				+4000 to maximum Life
+				+4000 to maximum Mana
+				75% of Damage is taken from Mana before Life
+				25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead
+				+75% to all Elemental Resistances
+				+75% to Chaos Resistance
+				]] .. (extraMods or "")
 			build.configTab:BuildModList()
 			runCallback("OnFrame")
 			runCallback("OnFrame")

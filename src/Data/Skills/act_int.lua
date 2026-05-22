@@ -11077,7 +11077,6 @@ skills["HandOfChayulaPlayer"] = {
 				attack = true,
 				melee = true,
 				area = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -13604,7 +13603,6 @@ skills["KillingPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -17020,7 +17018,6 @@ skills["ShatteringPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -20073,7 +20070,7 @@ skills["StaggeringPalmPlayer"] = {
 			baseFlags = {
 				attack = true,
 				area = true,
-				unarmed = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
