@@ -2791,6 +2791,9 @@ skills["SupportDecayingHexPlayer"] = {
 			},
 			baseFlags = {
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" }),
+			},
 			constantStats = {
 				{ "support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds", 6000 },
 			},
