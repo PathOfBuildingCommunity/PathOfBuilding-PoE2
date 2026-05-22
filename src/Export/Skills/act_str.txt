@@ -929,6 +929,12 @@ statMap = {
 	["scavenged_plating_armour_+%_final_per_stack"] = {
 		mod("Armour", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
 	},
+	["scavenged_plating_thorns_minimum_physical_damage"] = {
+		mod("PhysicalMin", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+	},
+	["scavenged_plating_thorns_maximum_physical_damage"] = {
+		mod("PhysicalMax", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+	},
 	["scavenged_plating_maximum_stacks_display"] = {
 		mod("Multiplier:ScavengedPlatingStacksLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating"}),
 	},

@@ -727,7 +727,7 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Apply thorns-derived modifiers to hits
-	if skillModList:Flag(nil, "ThornsModifiersApplyToHits") or skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
+	if skillModList:Flag(nil, "thorns") or skillModList:Flag(nil, "ThornsModifiersApplyToHits") or skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
 		-- % increased Thorns damage
 		for _, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Thorns }, "Damage")) do
 			local mod = value.mod

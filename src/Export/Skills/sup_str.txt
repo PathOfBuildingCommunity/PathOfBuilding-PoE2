@@ -1237,6 +1237,7 @@ statMap = {
 
 #skill TriggeredQuillburstPlayer
 #set TriggeredQuillburstPlayer
+#flags thorns
 #mods thorns area
 #skillEnd
 
