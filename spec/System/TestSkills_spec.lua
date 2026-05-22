@@ -426,4 +426,30 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
 	end)
+
+	it("Test Pinnacle of Power", function()
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.usePowerCharges = true
+		build.configTab.input.overridePowerCharges = 3
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		runCallback("OnFrame")
+		assert.True(build.calcsTab.calcsOutput.FreezeBuildupAvg == 0)
+		assert.True(build.calcsTab.calcsOutput.ShockEffectMod == nil)
+
+		build.skillsTab:PasteSocketGroup("Pinnacle of Power 20/0  1")
+		runCallback("OnFrame")
+		local basePinnacleDamage = build.calcsTab.calcsOutput.TotalDPS
+		assert.True(build.calcsTab.calcsOutput.FreezeBuildupAvg > 0)
+		assert.True(build.calcsTab.calcsOutput.ShockEffectMod ~= nil)
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Pinnacle of Power")
+
+
+		build.skillsTab:PasteSocketGroup("Pinnacle of Power 20/0  1\nHeightened Charges 1/0 1")
+		runCallback("OnFrame")
+		-- Heightened Charges should increased the buff effect, therefore Fireball should have more damage than base Pinnacle of Power
+		assert.True(build.calcsTab.calcsOutput.TotalDPS > basePinnacleDamage)
+	end)
 end)
