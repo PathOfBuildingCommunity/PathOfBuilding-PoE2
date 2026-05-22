@@ -556,7 +556,6 @@ describe("TestDefence", function()
 		end
 
 		local function calcEHP(extraMods)
-			newBuild()
 			build.configTab.input.enemyPhysicalDamage = "500"
 			build.configTab.input.enemyFireDamage = "500"
 			build.configTab.input.enemyColdDamage = "500"
