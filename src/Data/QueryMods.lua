@@ -7651,6 +7651,55 @@ return {
 				["type"] = "enchant", 
 			}, 
 		}, 
+		["1509134228"] = {
+			["1HMace"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["2HMace"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Bow"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Flail"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Spear"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
+				["max"] = 25, 
+				["min"] = 15, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1509134228", 
+				["text"] = "#% increased Physical Damage", 
+				["type"] = "enchant", 
+			}, 
+		}, 
 		["1515657623"] = {
 			["Belt"] = {
 				["max"] = 1, 
@@ -7863,6 +7912,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "enchant.stat_185580205", 
 				["text"] = "Charms gain # charges per Second", 
+				["type"] = "enchant", 
+			}, 
+		}, 
+		["1967051901"] = {
+			["2HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "enchant.stat_1967051901", 
+				["text"] = "Loads an additional bolt", 
 				["type"] = "enchant", 
 			}, 
 		}, 
@@ -10817,6 +10883,55 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["1509134228"] = {
+			["1HMace"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["1HWeapon"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["2HMace"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["2HWeapon"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["Bow"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["Flail"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["Quarterstaff"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["Spear"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["Talisman"] = {
+				["max"] = 179, 
+				["min"] = 15, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1509134228", 
+				["text"] = "#% increased Physical Damage", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["1514844108"] = {
 			["specialCaseData"] = {
 			}, 
@@ -11755,6 +11870,23 @@ return {
 			["tradeMod"] = {
 				["id"] = "explicit.stat_1944020877", 
 				["text"] = "Notable Passive Skills in Radius also grant #% increased Pin Buildup", 
+				["type"] = "explicit", 
+			}, 
+		}, 
+		["1967051901"] = {
+			["2HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_1967051901", 
+				["text"] = "Loads an additional bolt", 
 				["type"] = "explicit", 
 			}, 
 		}, 
@@ -15892,6 +16024,16 @@ return {
 				["type"] = "explicit", 
 			}, 
 		}, 
+		["388617051"] = {
+			["invertOnNegative"] = true, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "explicit.stat_388617051", 
+				["text"] = "#% increased Charges per use", 
+				["type"] = "explicit", 
+			}, 
+		}, 
 		["3891355829"] = {
 			["AnyJewel"] = {
 				["max"] = 1, 
@@ -18633,6 +18775,23 @@ return {
 				["type"] = "implicit", 
 			}, 
 		}, 
+		["1967051901"] = {
+			["2HWeapon"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["Crossbow"] = {
+				["max"] = 1, 
+				["min"] = 1, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_1967051901", 
+				["text"] = "Loads an additional bolt", 
+				["type"] = "implicit", 
+			}, 
+		}, 
 		["1978899297"] = {
 			["Chest"] = {
 				["max"] = 1, 
@@ -18674,6 +18833,19 @@ return {
 			["tradeMod"] = {
 				["id"] = "implicit.stat_2016937536", 
 				["text"] = "Used when you take Lightning damage from a Hit", 
+				["type"] = "implicit", 
+			}, 
+		}, 
+		["2055966527"] = {
+			["Quiver"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_2055966527", 
+				["text"] = "Attacks have #% chance to cause Bleeding", 
 				["type"] = "implicit", 
 			}, 
 		}, 
@@ -19141,6 +19313,20 @@ return {
 				["text"] = "#% increased Projectile Range", 
 				["type"] = "implicit", 
 			}, 
+		}, 
+		["3489782002"] = {
+			["Amulet"] = {
+				["max"] = 30, 
+				["min"] = 20, 
+			}, 
+			["specialCaseData"] = {
+			}, 
+			["tradeMod"] = {
+				["id"] = "implicit.stat_3489782002", 
+				["text"] = "# to maximum Energy Shield", 
+				["type"] = "implicit", 
+			}, 
+			["usePositiveSign"] = true, 
 		}, 
 		["3544800472"] = {
 			["Chest"] = {
@@ -20997,7 +21183,7 @@ return {
 			}, 
 		}, 
 		["2481353198"] = {
-			["Chest"] = {
+			["Shield"] = {
 				["max"] = 10, 
 				["min"] = 10, 
 			}, 
@@ -22483,6 +22669,10 @@ return {
 		}, 
 		["3855016469"] = {
 			["Chest"] = {
+				["max"] = 20, 
+				["min"] = 20, 
+			}, 
+			["Shield"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
