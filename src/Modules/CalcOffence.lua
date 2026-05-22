@@ -2846,7 +2846,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.Speed, s_format("= %.2f ^8(eff. attack rate)", output.Speed))
 				end
 				-- Cooldown:
-				if output.Cooldown and (1 / output.Cooldown) < output.CastRate then
+				if output.Cooldown and (1 / output.Cooldown) < output.CastRate and not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
 					t_insert(breakdown.Speed, s_format("\n"))
 					t_insert(breakdown.Speed, s_format("1 / %.2f ^8(skill cooldown)", output.Cooldown))
 					if output.Repeats > 1 then
