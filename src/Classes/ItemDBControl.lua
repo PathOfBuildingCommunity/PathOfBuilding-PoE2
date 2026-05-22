@@ -250,7 +250,7 @@ function ItemDBClass:ListBuilder()
 					item.measuredPower = item.measuredPower and m_max(item.measuredPower, measuredPower) or measuredPower
 				end
 			end
-			item.measuredPower = item.measuredPower or 0
+			item.measuredPower = item.measuredPower or -math.huge
 			local now = GetTime()
 			if now - start > 50 then
 				self.defaultText = "^7Sorting... ("..m_floor(itemIndex/#list*100).."%)"
