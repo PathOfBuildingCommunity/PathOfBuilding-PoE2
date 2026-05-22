@@ -1508,7 +1508,7 @@ function calcs.perform(env, skipEHP)
 			if item.rarity == "MAGIC" then
 				charmEffectInc = charmEffectInc + effectIncMagic
 			end
-			local effectMod = (1 + (charmEffectInc) / 100) * (1 + (item.quality or 0) / 100)
+			local effectMod = 1 + (charmEffectInc) / 100
 
 			-- same deal as flasks, go look at the comment there
 			if buffModList[1] then
