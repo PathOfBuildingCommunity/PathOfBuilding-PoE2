@@ -40,6 +40,25 @@ describe("TetsItemMods", function()
 		assert.are.equals(68, build.calcsTab.mainOutput.ChaosResistTotal)
 	end)
 
+	it("sorts defensive item stats when the best score is negative", function()
+		build.configTab.input.enemyFireDamage = "1000"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local itemDB = build.itemsTab.controls.uniqueDB
+		itemDB.db = { list = {
+			new("Item", "New Item\nRing"),
+			new("Item", "New Item\nRing\n+50% to Fire Resistance"),
+			new("Item", "New Item\nBroadhead Quiver"),
+		} }
+		itemDB:SetSortMode("FireTakenHit")
+
+		itemDB:ListBuilder()
+
+		assert.is_true(itemDB.list[1].measuredPower < 0)
+		assert.are.equals(-math.huge, itemDB.list[#itemDB.list].measuredPower)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
