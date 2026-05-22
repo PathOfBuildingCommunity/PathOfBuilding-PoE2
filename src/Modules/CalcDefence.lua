@@ -1597,7 +1597,7 @@ function calcs.defence(env, actor)
 	local enemyLeechResistance = data.monsterLeechResistanceTable[env.enemyLevel] / 100
 	local enemyLeechResMod = ((100 - enemyLeechResistance) / 100)
 	-- Leech caps
-	output.MaxLifeLeechInstance = m_min(output.Life * calcLib.val(modDB, "MaxLifeLeechInstance") / 100, data.misc.LeechMaxInstance)
+	output.MaxLifeLeechInstance = output.Life * calcLib.val(modDB, "MaxLifeLeechInstance") / 100
 	output.MaxLifeLeechRatePercent = calcLib.val(modDB, "MaxLifeLeechRate")
 	if modDB:Flag(nil, "MaximumLifeLeechIsEqualToParent") then
 		output.MaxLifeLeechRatePercent = actor.parent.output.MaxLifeLeechRatePercent
@@ -1613,7 +1613,7 @@ function calcs.defence(env, actor)
 			s_format("= %.1f", output.MaxLifeLeechRate)
 		}
 	end
-	output.MaxEnergyShieldLeechInstance = m_min(output.EnergyShield * calcLib.val(modDB, "MaxEnergyShieldLeechInstance") / 100, data.misc.LeechMaxInstance)
+	output.MaxEnergyShieldLeechInstance = output.EnergyShield * calcLib.val(modDB, "MaxEnergyShieldLeechInstance") / 100
 	output.MaxEnergyShieldLeechRate = output.EnergyShield * (calcLib.val(modDB, "MaxEnergyShieldLeechRate") / 100) * enemyLeechResMod
 	if breakdown then
 		breakdown.MaxEnergyShieldLeechRate = {
@@ -1623,7 +1623,7 @@ function calcs.defence(env, actor)
 			s_format("= %.1f", output.MaxEnergyShieldLeechRate)
 		}
 	end
-	output.MaxManaLeechInstance = m_min(output.Mana * calcLib.val(modDB, "MaxManaLeechInstance") / 100, data.misc.LeechMaxInstance)
+	output.MaxManaLeechInstance = output.Mana * calcLib.val(modDB, "MaxManaLeechInstance") / 100
 	output.MaxManaLeechRate = output.Mana * (calcLib.val(modDB, "MaxManaLeechRate") / 100) * enemyLeechResMod
 	if breakdown then
 		breakdown.MaxManaLeechRate = {

@@ -3964,13 +3964,13 @@ function calcs.offence(env, actor, activeSkill)
 					end
 
 					if lifeLeech > 0 and not noLifeLeech then
-						lifeLeechTotal = lifeLeechTotal + damageTypeHitAvg * lifeLeech / 100
+						lifeLeechTotal = lifeLeechTotal + m_min(damageTypeHitAvg * lifeLeech / 100, data.misc.LeechMaxInstance)
 					end
 					if manaLeech > 0 and not noManaLeech then
-						manaLeechTotal = manaLeechTotal + damageTypeHitAvg * manaLeech / 100
+						manaLeechTotal = manaLeechTotal + m_min(damageTypeHitAvg * manaLeech / 100, data.misc.LeechMaxInstance)
 					end
 					if energyShieldLeech > 0 and not noEnergyShieldLeech  then
-						energyShieldLeechTotal = energyShieldLeechTotal + damageTypeHitAvg * energyShieldLeech / 100
+						energyShieldLeechTotal = energyShieldLeechTotal + m_min(damageTypeHitAvg * energyShieldLeech / 100, data.misc.LeechMaxInstance)
 					end
 				else
 					if breakdown then
