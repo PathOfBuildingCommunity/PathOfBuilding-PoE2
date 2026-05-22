@@ -288,6 +288,12 @@ return {
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.WeaponMelee, ModFlag.Unarmed) }),
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.RequiresShield }),
 },
+["skill_repeat_count"] = {
+	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Multicastable }),
+},
+["disable_skill_repeats"] = {
+	flag("CannotRepeat"),
+},
 ["display_skill_minions_level_is_corpse_level"] = {
 	skill("minionLevelIsEnemyLevel", true),
 },
@@ -1650,11 +1656,14 @@ return {
 	mod("ESCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Int", percent = 100 }),
 },
 -- Projectiles
+["skill_can_fire_arrows"] = {
+	skillFlag = "arrow",
+},
 ["base_projectile_speed_+%"] = {
 	mod("ProjectileSpeed", "INC", nil),
 },
 ["base_arrow_speed_+%"] = {
-	mod("ProjectileSpeed", "INC", nil),
+	mod("ProjectileSpeed", "INC", nil, 0, KeywordFlag.Arrow),
 },
 ["active_skill_projectile_speed_+%_final"] = {
 	mod("ProjectileSpeed", "MORE", nil),
@@ -1667,7 +1676,7 @@ return {
 	mod("PierceCount", "BASE", nil),
 },
 ["arrow_base_number_of_targets_to_pierce"] = {
-	mod("PierceCount", "BASE", nil, ModFlag.Attack),
+	mod("PierceCount", "BASE", nil, 0, KeywordFlag.Arrow),
 },
 ["pierce_%"] = {
 	mod("PierceChance", "BASE", nil),
@@ -1725,11 +1734,11 @@ return {
 	flag("NoAdditionalProjectiles"),
 },
 ["base_number_of_arrows"] = {
-	mod("ProjectileCount", "BASE", nil),
+	mod("ProjectileCount", "BASE", nil, 0, KeywordFlag.Arrow),
 	base = -1,
 },
 ["number_of_additional_arrows"] = {
-	mod("ProjectileCount", "BASE", nil),
+	mod("ProjectileCount", "BASE", nil, 0, KeywordFlag.Arrow),
 },
 ["base_number_of_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),

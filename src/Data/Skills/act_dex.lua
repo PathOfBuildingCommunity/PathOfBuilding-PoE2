@@ -6109,6 +6109,14 @@ skills["RainOfArrowsPlayer"] = {
 				["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"] = {
 					mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
 				},
+				["rain_of_arrows_delay_per_arrow"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
 			},
 			baseFlags = {
 				attack = true,

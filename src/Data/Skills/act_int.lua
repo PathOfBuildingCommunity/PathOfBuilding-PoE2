@@ -4801,10 +4801,20 @@ skills["CorpseCloudPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "corpse_cloud_statset_0",
+			statMap = {
+				["corpse_explosion_monster_life_permillage_chaos"] = {
+					skill("corpseExplosionLifeMultiplier", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
-				spell = true,
 				area = true,
 				duration = true,
+			},
+			baseMods = {
+				mod("PoisonChance", "BASE", 100),
+				skill("explodeCorpse", true),
+				skill("corpseExplosionDamageType", "Chaos"),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
@@ -7603,6 +7613,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_0",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -7687,6 +7707,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_1",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -7776,6 +7806,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_2",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -12950,6 +12990,10 @@ skills["IcestormPlayer"] = {
 					skill("hitTimeOverride", nil),
 					div = 1000,
 				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
 			},
 			baseFlags = {
 				spell = true,
@@ -13032,6 +13076,12 @@ skills["IcestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "icestorm",
+			statMap = {
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,

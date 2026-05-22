@@ -428,7 +428,7 @@ Variant: Current
 {variant:2}UniqueLocalIncreasedArmourAndEnergyShield17
 UniqueLifeRegeneration10
 UniqueManaRegeneration26
-{variant:1}UniqueAlternatingDamageTaken1[30,30]
+{variant:1}UniqueAlternatingDamageTaken1[-30,-30]
 {variant:2}UniqueAlternatingDamageTaken1
 ]],[[
 Veil of the Night
