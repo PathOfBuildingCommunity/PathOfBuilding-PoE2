@@ -557,20 +557,18 @@ describe("TestDefence", function()
 
 		local function calcEHP(extraMods)
 			newBuild()
-			build.configTab.input.enemyPhysicalDamage = "1000"
-			build.configTab.input.enemyFireDamage = "1000"
-			build.configTab.input.enemyColdDamage = "1000"
-			build.configTab.input.enemyLightningDamage = "1000"
+			build.configTab.input.enemyPhysicalDamage = "500"
+			build.configTab.input.enemyFireDamage = "500"
+			build.configTab.input.enemyColdDamage = "500"
+			build.configTab.input.enemyLightningDamage = "500"
 			build.configTab.input.enemyChaosDamage = "0"
 			build.configTab.input.customMods = [[
 				+4000 to maximum Life
-				+4000 to maximum Mana
-				75% of Damage is taken from Mana before Life
-				25% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead
+				75% of Life Loss from Hits is prevented, then that much Life is lost over 4 seconds instead
 				+75% to all Elemental Resistances
 				+75% to Chaos Resistance
 				]] .. (extraMods or "")
-			build.configTab:BuildModList()
+			pob1and2Compat()
 			runCallback("OnFrame")
 			runCallback("OnFrame")
 			local calcsOutput = build.calcsTab.calcsOutput
@@ -586,8 +584,8 @@ describe("TestDefence", function()
 
 		newBuild()
 
-		assertClose(base.TotalEHP, 11724.334582067)
-		assertClose(block.TotalEHP, 12341.404823229)
+		assertClose(base.TotalEHP, 17582.417582418)
+		assertClose(block.TotalEHP, 19008.019008019)
 		assertClose(block.EffectiveBlockChance, 10)
 		assert.is_true(block.TotalEHP > base.TotalEHP)
 	end)
