@@ -32,6 +32,21 @@ function table.containsId(table, element)
 	return false
 end
 
+-- used for calculating the hash field of a stat
+local GGG_STAT_HASH32_SEED = 0xC58F1A7B
+-- used for calculating the trade hash from stat hash fields
+local GGG_TRADE_SEED = 0x02312233
+---@param stats string[]
+---@return integer
+local function hashStats(stats)
+	local statHashes = ""
+	for _, statName in ipairs(stats) do
+		local newHash = intToBytes(murmurHash2(statName, GGG_STAT_HASH32_SEED))
+		statHashes = statHashes..newHash
+	end
+	return murmurHash2(statHashes, GGG_TRADE_SEED)
+end
+
 local whiteListStat = {
 	["dummy_stat_display_nothing"] = true,
 }
@@ -126,13 +141,6 @@ local function writeMods(outName, condFunc)
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end
 
-				-- Note that some of the resulting hashes might not be correct.
-				-- Some of the trade hashes are also associated with another
-				-- value. For example the "only affects passives in # ring" is
-				-- correct here, but has a variant value appended to it like:
-				-- explicit.stat_3642528642|7. Some stats may also be handled in
-				-- a way similar to radius jewels that this script doesn't do.
-				local modIdx = 1
 				local tradeHashes = {}
 				local statsHashed = {}
 				local isTinctureMod = (mod.Domain == Domains.Tincture) and
@@ -140,29 +148,45 @@ local function writeMods(outName, condFunc)
 						or mod.GenerationType == GenTypes.Suffix)
 				for statIdx = 1, 6 do
 					local currentStats = {}
-					local stat = mod["Stat" .. modIdx]
-					currentStats[stat.Id] = {
-						min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
-					}
-					if modIdx == 6 then
+					local stat = mod["Stat" .. statIdx]
+					if not stat then
 						break
 					end
-					local bytes = intToBytes(stat.Hash)
-					-- # to # stats consist of two different stats as the min and max have different ranges
-					if stat.Id:match("minimum") then
-						local nextStat = mod["Stat" .. (modIdx + 1)]
-						if nextStat and nextStat.Id:match("maximum") then
-							modIdx = modIdx + 1
-							bytes = bytes .. intToBytes(nextStat.Hash)
-							currentStats[nextStat.Id] = {
-								min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
-							}
+					-- some stats are related to other stats, and should be
+					-- hashed with them. we don't want to hash e.g. the lower
+					-- and upper range of # to # damage modifiers separately.
+					if statsHashed[stat.Id] then
+						goto innercontinue
+					end
+
+					-- tincture stat descriptions are in a separate file
+					local statEntry
+					if isTinctureMod then
+						statEntry = tinctureStatDescriptions[stat.Id] and tinctureStatDescriptions[stat.Id]
+					else
+						statEntry = statDescriptions[stat.Id] and statDescriptions[stat.Id]
+					end
+
+					-- skip stats that are missing fields. these are most likely
+					-- hidden stats or e.g. map stats
+					if not statEntry or not statEntry.stats or not statEntry[1] then
+						goto innercontinue
+					end
+
+					-- match stats to the stat values on the mod and save them
+					-- as they're used to describe the stat
+					local currentStats = {}
+					for _, statId in ipairs(statEntry.stats) do
+						for statIdx = 1, 6 do
+							if mod["Stat" .. statIdx] and mod["Stat" .. statIdx].Id == statId then
+								currentStats[statId] = {
+									min = mod["Stat" .. statIdx .. "Value"][1],
+									max = mod["Stat" .. statIdx .. "Value"][2]
+								}
+							end
 						end
 					end
 
-					-- radius jewel stats are slightly unique in that they use
-					-- the same stat as regular jewel mods. this means the
-					-- description will not include the also grant: prefix
 					local stats = copyTable(statEntry.stats)
 					-- radius jewel mods:
 					-- notable
