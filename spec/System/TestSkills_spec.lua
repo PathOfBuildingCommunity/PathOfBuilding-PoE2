@@ -426,4 +426,29 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
 	end)
+
+	it("Test Minion Pact damage requires a minion in your presence", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Warmonger Bow
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Lightning Arrow 1/0  1\nMinion Pact I 1/0  1")
+		runCallback("OnFrame")
+
+		local activeSkill = build.calcsTab.calcsEnv.player.activeSkillList[1]
+		assert.are.equals(0, activeSkill.skillModList:Sum("MORE", activeSkill.skillCfg, "Damage"))
+		local noMinionDps = build.calcsTab.calcsOutput.TotalDPS
+
+		build.configTab.input.multiplierMinionsInPresence = 1
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		activeSkill = build.calcsTab.calcsEnv.player.activeSkillList[1]
+		assert.are.equals(30, activeSkill.skillModList:Sum("MORE", activeSkill.skillCfg, "Damage"))
+		assert.True(build.calcsTab.calcsOutput.TotalDPS > noMinionDps)
+	end)
 end)
