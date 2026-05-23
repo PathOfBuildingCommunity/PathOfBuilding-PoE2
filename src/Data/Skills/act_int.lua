@@ -8467,7 +8467,8 @@ skills["FlickerStrikePlayer"] = {
 			preDamageFunc = function(activeSkill, output, breakdown)
 				local chargeCount = output.PowerCharges
 				local strikesPerCharge = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "AdditionalFlickersPerPowerCharge")
-				activeSkill.skillData.averageBurstHits = 1 + chargeCount * strikesPerCharge
+				local doubleChance = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:ConsumedPowerChargeEffect")
+				activeSkill.skillData.averageBurstHits = 1 + chargeCount * strikesPerCharge * (1 + (doubleChance) / 100)
 			end,
 	statSets = {
 		[1] = {
@@ -8477,16 +8478,22 @@ skills["FlickerStrikePlayer"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			statMap = {
 				["flicker_strike_additional_flickers_from_power_charges"] = {
-					mod("AdditionalFlickersPerPowerCharge", "BASE", nil)
+					mod("AdditionalFlickersPerPowerCharge", "BASE", nil),
 				},
 				["cannot_gain_power_charges_during_skill"] = {
 					-- Display Only
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+					-- Override
 				},
 			},
 			baseFlags = {
 				attack = true,
 				melee = true,
 				area = true,
+			},
+			baseMods = {
+				mod("Speed", "MORE", 285, ModFlag.Attack),
 			},
 			constantStats = {
 				{ "flicker_strike_additional_flickers_from_power_charges", 2 },
