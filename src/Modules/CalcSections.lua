@@ -951,7 +951,7 @@ return {
 	}, },
 	{ label = "Effective DPS Mod", flag = "effective", skillData = "BleedToFire", { format = "x {3:output:BleedEffMult}",
 		{ breakdown = "BleedEffMult" },
-		{ label = "Enemy modifiers", modName = { "FireResist", "ElementalResist", "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime", "ElementalDamageTaken" }, enemy = true },
+		{ label = "Enemy modifiers", modName = { "FireResist", "ElementalResist", "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime", "ElementalDamageTaken" }, enemy = true, cfg = "bleed" },
 	}, },
 	{ label = "Bleed DPS", { format = "{1:output:BleedDPS}",
 		{ breakdown = "BleedDPS" },
