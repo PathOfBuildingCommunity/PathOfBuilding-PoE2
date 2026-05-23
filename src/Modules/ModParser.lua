@@ -3265,6 +3265,11 @@ local specialModList = {
 		mod("PhysicalMax", "BASE", 1, { type = "PercentStat", stat = "LifeCost", percent = num }, { type = "StatThreshold", stat = "LifeUnreserved", thresholdStat = "LifeCost", thresholdPercent = num }),
 	} end,
 	["gain maximum life instead of maximum energy shield from equipped armour items"] = { flag("ConvertArmourESToLife") },
+	-- Mercenary - Witchhunter
+	["deal up to (%d+)%% more damage to enemies based on their missing concentration"] = function(num) return {
+		flag("EnemyConcentration"),
+		flag("Condition:EnemyConcentration")
+	} end,
 	-- Mercenary - Gemling
 	["attribute requirements of gems can be satisi?fied by your highest attribute"] = { flag("GemAttributeRequirementsSatisfiedByHighestAttribute") },
 	["you can use two copies of the same support gem in different skills"] = { mod("MaxSupportGemCopies", "OVERRIDE", 2) },
@@ -3286,6 +3291,10 @@ local specialModList = {
 		mod("ManaCost", "MORE", -count, { type = "Condition", var = "MostNumerousBlueSocketedSupports" })
 	} end,
 	
+	-- Huntress - Ritualist
+	["(%d+)%% more damage against enemies affected by blood boils"] = function(num) return {
+		mod("Damage", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true }),
+	} end,
 	-- Monk - Stormweaver
 	["targets can be affected by two of your shocks at the same time"] = { flag("ShockCanStack"), mod("ShockStacksMax", "OVERRIDE", 2) },
 	["targets can be affected by two of your chills at the same time"] = { flag("ChillCanStack"), mod("ChillStacksMax", "OVERRIDE", 2) },
