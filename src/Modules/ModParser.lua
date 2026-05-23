@@ -3112,6 +3112,14 @@ local specialModList = {
 		mod("TotemPlacementSpeed", "INC", 6, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalReaver" }),
 		mod("ReloadSpeed", "INC", 6, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalReaver" }),
 	},
+	["your offerings affect you instead of your minions"] = {
+		mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffNotPlayer", value = false } )}, { type = "SkillName", skillNameList = { "Bone Offering", "Pain Offering", "Soul Offering" } }),
+		mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffMinions", value = false } )}, { type = "SkillName", skillNameList = { "Bone Offering", "Pain Offering", "Soul Offering" } }),
+	},
+	["offerings created by culling enemies have (%d+)%% increased effect per power of culled enemy"] = function(num) return {
+		flag("UnwillingOffering"),
+		mod("ExtraSkillMod", "LIST", { mod = mod("BuffEffect", "INC", num, { type = "Multiplier", var = "UnwillingOfferingPower", limit = 20 }) }, { type = "SkillName", skillNameList = { "Bone Offering", "Pain Offering", "Soul Offering" } }),
+	} end,
 	-- Mercenary
 	-- +2 Weapon Set Passive Skill Points
 	["%+(%d) weapon set passive skill points"] = function(num) return { mod("WeaponSetPassivePoints", "BASE", num) } end,

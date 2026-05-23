@@ -245,6 +245,10 @@ local configSettings = {
 		{ var = "umbralWellSkeletalReaver", type = "count", label = "# of Skeletal Reavers:", tooltip = "Each Skeletal Reaver grants 6% increased Skill Speed.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
 			modList:NewMod("Multiplier:UmbralWellSkeletalReaver", "BASE", val, "Config")
 		end },
+	{ label = "Unwilling Offering:", ifFlag = "UnwillingOffering" },
+	{ var = "unwillingOfferingPower", type = "count", label = "Power of Culled Enemy?", tooltip = "Offerings created by culling enemies gain 1% increased effect per Power.\nUnique enemies always have 20 Power.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:UnwillingOfferingPower", "BASE", val, "Config")
+	end },
 	{ label = "Aspect of the Avian:", ifSkill = "Aspect of the Avian" },
 	{ var = "aspectOfTheAvianAviansMight", type = "check", label = "Is Avian's Might active?", ifSkill = "Aspect of the Avian", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AviansMightActive", "FLAG", true, "Config")
