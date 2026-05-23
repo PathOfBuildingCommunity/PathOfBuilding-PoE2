@@ -4880,6 +4880,16 @@ function calcs.offence(env, actor, activeSkill)
 							local sourceRes = env.modDB:Flag(nil, "EnemyChaosResistEqualToYours") and "Your Chaos Resistance" or (env.partyMembers.modDB:Flag(nil, "EnemyChaosResistEqualToYours") and "Party Member Chaos Resistance" or "Chaos")
 							globalBreakdown[ailment .. "EffMult"] = breakdown.effMult("Chaos", resist, 0, takenInc, effMult, takenMore, sourceRes, true)
 						end
+					elseif skillModList:Flag(cfg, ailment .. "ToFire") then
+						local resist = calcResistForType("Fire", dotCfg)
+						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime")
+						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime")
+						effMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
+						globalOutput[ailment .. "EffMult"] = effMult
+						if breakdown and effMult ~= 1 then
+							local sourceRes = env.modDB:Flag(nil, "EnemyFireResistEqualToYours") and "Your Fire Resistance" or (env.partyMembers.modDB:Flag(nil, "EnemyFireResistEqualToYours") and "Party Member Fire Resistance" or "Fire")
+							globalBreakdown[ailment .. "EffMult"] = breakdown.effMult("Fire", resist, 0, takenInc, effMult, takenMore, sourceRes, true)
+						end
 					else
 						local resist = calcResistForType(ailmentDamageType, dotCfg)
 						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", ailmentTypeMod .. "DamageTaken")
@@ -5154,7 +5164,16 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate damaging ailment values
 		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
-			calcDamagingAilmentOutputs(damagingAilment, data.defaultAilmentDamageTypes[damagingAilment]["DamageType"], data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
+			local damageType = data.defaultAilmentDamageTypes[damagingAilment]["DamageType"]
+			if not canDeal[damageType] then
+				for _, type in ipairs(dmgTypeList) do
+					if skillModList:Flag(skillCfg, type.."Can"..damagingAilment) then -- e.g. Avatar of Fire + Blistering Bond -> DealNoPhysical + FireCanBleed
+						calcDamagingAilmentOutputs(damagingAilment, type, data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
+					end
+				end
+			else
+				calcDamagingAilmentOutputs(damagingAilment, damageType, data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
+			end
 		end
 
 		-- Calculate non-damaging ailments effect and duration modifiers
