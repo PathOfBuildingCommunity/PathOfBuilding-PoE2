@@ -373,24 +373,24 @@ local configSettings = {
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Flicker Strike", includeTransfigured = true })
 	end },
 	{ var = "elementalConfluxElement", type = "list", label = "Elemental Conflux Element:", list = { { val = 1, label = "Average" }, { val = 2, label = "Lightning" }, { val = 3, label = "Cold" }, { val = 4, label = "Fire" } }, apply = function(val, modList, enemyModList)
-			local coldCoef = 0
-			local fireCoef = 0
-			local lightningCoef = 0
+			local coldMultiplier = 0
+			local fireMultiplier = 0
+			local lightningMultiplier = 0
 			if val == 1 then
-				coldCoef = 3
-				fireCoef = 3
-				lightningCoef = 3
+				coldMultiplier = 3
+				fireMultiplier = 3
+				lightningMultiplier = 3
 			elseif val == 2 then
-				lightningCoef = 1
+				lightningMultiplier = 1
 			elseif val == 3 then
-				coldCoef = 1
+				coldMultiplier = 1
 			elseif val == 4 then
-				fireCoef = 1
+				fireMultiplier = 1
 			end
-			modList:NewMod("Multiplier:ElementalConfluxLightningEffect", "BASE", lightningCoef, "Config",
+			modList:NewMod("Multiplier:ElementalConfluxLightningEffect", "BASE", lightningMultiplier, "Config",
 				{ type = "GlobalEffect" })
-			modList:NewMod("Multiplier:ElementalConfluxColdEffect", "BASE", coldCoef, "Config", { type = "GlobalEffect" })
-			modList:NewMod("Multiplier:ElementalConfluxFireEffect", "BASE", fireCoef, "Config", { type = "GlobalEffect" })
+			modList:NewMod("Multiplier:ElementalConfluxColdEffect", "BASE", coldMultiplier, "Config", { type = "GlobalEffect" })
+			modList:NewMod("Multiplier:ElementalConfluxFireEffect", "BASE", fireMultiplier, "Config", { type = "GlobalEffect" })
 		end
 	},
 	{ label = "Fresh Meat:", ifSkill = "Fresh Meat" },
