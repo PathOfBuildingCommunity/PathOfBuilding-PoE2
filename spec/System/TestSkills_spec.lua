@@ -426,4 +426,65 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
 	end)
+
+	it("Test Unwilling Offering", function()
+		build.configTab.input.customMods = [[
+			Your Offerings affect you instead of your Minions
+			Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		runCallback("OnFrame")
+		local baseFireball = build.calcsTab.mainOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Pain Offering 20/0  1")
+		runCallback("OnFrame")
+		local fireBallPain = build.calcsTab.mainOutput.TotalDPS
+		assert.True(fireBallPain > baseFireball)
+
+		build.skillsTab:PasteSocketGroup("Soul Offering 20/0  1")
+		runCallback("OnFrame")
+		local fireBallPainSoul = build.calcsTab.mainOutput.TotalDPS
+		assert.True(fireBallPainSoul > fireBallPain)
+		assert.equals(build.calcsTab.calcsOutput.BuffList, "Pain Offering, Soul Offering")
+
+		build.configTab.input.unwillingOfferingPower = 20
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local incEffectOfferings = build.calcsTab.mainOutput.TotalDPS
+		assert.True(incEffectOfferings > fireBallPainSoul)
+
+		newBuild()
+		build.configTab.input.customMods = [[
+			Your Offerings affect you instead of your Minions
+			Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Raise Zombie 20/0  1")
+		build.skillsTab:PasteSocketGroup("Soul Offering 20/0  1")
+		runCallback("OnFrame")
+		assert.equals(build.calcsTab.calcsOutput.Minion.BuffList, "")
+	end)
+
+		it("Test Umbral Well", function()
+		build.configTab.input.customMods = [[
+			Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		runCallback("OnFrame")
+		local baseFireball = build.calcsTab.mainOutput.TotalDPS
+
+		build.configTab.input.umbralWellSkeletalStormMage = 1
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- if one works they all do, surely
+		assert.True(build.calcsTab.mainOutput.TotalDPS > baseFireball)
+	end)
 end)
