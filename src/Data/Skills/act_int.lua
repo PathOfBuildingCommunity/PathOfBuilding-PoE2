@@ -3218,12 +3218,27 @@ skills["ChargedStaffPlayer"] = {
 			statMap = {
 				["charged_staff_attack_minimum_added_lightning_damage_per_stack"] = {
 					mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "CountAnAdditionalPowerCharge" },
+						{ type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond =
+						"UsePowerCharges" }),
 				},
 				["charged_staff_attack_maximum_added_lightning_damage_per_stack"] = {
 					mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "CountAnAdditionalPowerCharge" },
+						{
+							type = "GlobalEffect",
+							effectType = "Buff",
+							effectName = "Charged Staff",
+							effectCond =
+							"UsePowerCharges"
+						}),
 				},
 				["charged_staff_buff_duration_per_stack_ms"] = {
 					mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0,
+						{ type = "Multiplier", var = "CountAnAdditionalPowerCharge" },
+						{ type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond =
+						"UsePowerCharges" }),
 				},
 			},
 			baseFlags = {
@@ -6929,15 +6944,22 @@ skills["FallingThunderPlayer"] = {
 			statDescriptionScope = "falling_thunder",
 			statMap = {
 				["lightning_strike_damage_+%_final_per_power_charge"] = {
-					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0,
+						{ type = "Multiplier", var = "RemovablePowerCharge" }),
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0,
+						{ type = "Multiplier", var = "CountAnAdditionalPowerCharge" }),
 				},
 				["lightning_strike_damage_+%_final_when_charged"] = {
 					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
 				},
 				["lightning_strike_base_number_of_projectiles_per_power_charge"] = {
-					mod("ProjectileCount", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
+					mod("ProjectileCount", "BASE", nil, 0, 0,
+						{ type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
+					mod("ProjectileCount", "BASE", nil, 0, 0,
+						{ type = "Multiplier", var = "CountAnAdditionalPowerCharge" }),
 				},
 			},
+					
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -8487,10 +8509,9 @@ skills["FlickerStrikePlayer"] = {
 		[40] = { PvPDamageMultiplier = -30, attackSpeedMultiplier = -50, baseMultiplier = 14.48, levelRequirement = 90, cost = { Mana = 332, }, },
 	},
 			preDamageFunc = function(activeSkill, output, breakdown)
-				local chargeCount = output.PowerCharges
 				local strikesPerCharge = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "AdditionalFlickersPerPowerCharge")
 				local doubleChance = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "Multiplier:ConsumedPowerChargeEffect")
-				activeSkill.skillData.averageBurstHits = 1 + chargeCount * strikesPerCharge * (1 + (doubleChance) / 100)
+				activeSkill.skillData.averageBurstHits = 1 + strikesPerCharge * (1 + (doubleChance) / 100)
 			end,
 	statSets = {
 		[1] = {
@@ -8500,7 +8521,11 @@ skills["FlickerStrikePlayer"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			statMap = {
 				["flicker_strike_additional_flickers_from_power_charges"] = {
-					mod("AdditionalFlickersPerPowerCharge", "BASE", nil),
+					mod("AdditionalFlickersPerPowerCharge", "BASE", nil, 0, 0,
+						{ type = "Multiplier", var = "RemovablePowerCharge" }),
+					mod("AdditionalFlickersPerPowerCharge", "BASE", nil, 0, 0,
+						{ type = "Multiplier", var = "CountAnAdditionalPowerCharge" }),
+					
 				},
 				["cannot_gain_power_charges_during_skill"] = {
 					-- Display Only

@@ -391,6 +391,74 @@ describe("TestSkills", function()
 		assert.are.equals(3, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
 	end)
 
+	it("Test Elemental Conflux element selection", function()
+		build.skillsTab:PasteSocketGroup("Arc 20/0  1")
+		build.skillsTab:PasteSocketGroup("Elemental Conflux 20/0  1")
+		build.configTab.input.elementalConfluxElement = 2 -- Lightning
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local lightningDPS = build.calcsTab.mainOutput.TotalDPS
+
+		-- Cold element should not boost a lightning skill
+		build.configTab.input.elementalConfluxElement = 3 -- Cold
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local coldSelectedDPS = build.calcsTab.mainOutput.TotalDPS
+
+		assert.True(lightningDPS > coldSelectedDPS)
+
+		-- Average should give an intermediate boost (1/3 per element)
+		build.configTab.input.elementalConfluxElement = 1 -- Average
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local avgDPS = build.calcsTab.mainOutput.TotalDPS
+
+		assert.True(avgDPS > coldSelectedDPS)
+		assert.True(avgDPS < lightningDPS)
+	end)
+
+	it("Test flicker strike scales with power charges", function()
+		build.skillsTab:PasteSocketGroup("Flicker Strike 20/0  1")
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Sinister Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+
+		runCallback("OnFrame")
+
+		local avgNoCharges = build.calcsTab.mainOutput.AverageDamage
+		local avgBurstNoCharges = build.calcsTab.mainOutput.AverageBurstDamage
+
+		-- Burst isn't calculated with no charges
+		assert.truthy(avgNoCharges)
+		assert.True(avgBurstNoCharges == avgNoCharges)
+
+		build.configTab.input.usePowerCharges = true
+		build.configTab.input.overridePowerCharges = 2
+		build.configTab:BuildModList()
+
+		runCallback("OnFrame")
+		-- Burst should be higher due to having multiple strikes, while average
+		-- is only slightly higher due to power charges
+		local avgCharges = build.calcsTab.mainOutput.AverageDamage
+		local avgBurstCharges = build.calcsTab.mainOutput.AverageBurstDamage
+
+		assert.True(avgNoCharges == avgCharges)
+		assert.True(avgCharges < avgBurstCharges)
+		-- Strikes 2 times per charge
+		assert.True(avgNoCharges * 4 <= avgBurstCharges)
+		assert.True(avgBurstCharges <= avgNoCharges * 6)
+
+
+		-- One with the Storm strikes 2 additional times
+		build.configTab.input.customMods = "quarterstaff skills that consume power charges count as consuming an additional power charge"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.True(avgNoCharges * 6 <= build.calcsTab.mainOutput.AverageBurstDamage)
+	end)
+
 	it("Test Barrage only repeats Barrageable skills", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item

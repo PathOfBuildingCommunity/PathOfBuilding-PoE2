@@ -6044,6 +6044,7 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
+	["quarterstaff skills that consume power charges count as consuming an additional power charge"] = { mod("Multiplier:CountAnAdditionalPowerCharge", "BASE", 1, 0, 0, { type = "SkillType", skillType = SkillType.QuarterstaffSkill }, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 } ) },
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

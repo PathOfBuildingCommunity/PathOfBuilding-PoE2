@@ -5793,7 +5793,7 @@ c["Projectiles have 50% chance for an additional Projectile when Forking"]={{[1]
 c["Projectiles have 50% chance for an additional Projectile when Forking 25% increased Critical Damage Bonus"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=50}}," for an additional  when Forking 25% increased Critical Damage Bonus "}
 c["Projectiles have 6% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=6}},nil}
 c["Projectiles have 75% chance for an additional Projectile when Forking"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=75}}," for an additional  when Forking "}
-c["Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge"]={nil,"Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge "}
+c["Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge"]={{[1]={[1]={skillType=160,type="SkillType"},[2]={threshold=1,type="MultiplierThreshold",var="RemovablePowerCharge"},flags=0,keywordFlags=0,name="Multiplier:CountAnAdditionalPowerCharge",type="BASE",value=1}},nil}
 c["Recoup 5% of damage taken by your Totems as Life"]={nil,"Recoup 5% of damage taken by your Totems as Life "}
 c["Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
 c["Recoup Effects instead occur over 4 seconds"]={{[1]={flags=0,keywordFlags=0,name="4SecondRecoup",type="FLAG",value=true}},nil}
