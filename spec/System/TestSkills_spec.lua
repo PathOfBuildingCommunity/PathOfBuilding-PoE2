@@ -426,4 +426,127 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
 	end)
+
+	describe("Combo stacking", function()
+		local CHAKRA_MOD = "Skills deal 8% increased Damage per Combo consumed, up to 40%"
+
+		local function equipQuarterstaff()
+			build.itemsTab:CreateDisplayItemFromRaw([[
+				New Item
+				Razor Quarterstaff
+				Quality: 0
+			]])
+			build.itemsTab:AddDisplayItem()
+			runCallback("OnFrame")
+		end
+
+		local function applyComboConfig(stacks, customMods)
+			build.configTab.input.multiplierCombo = stacks
+			build.configTab.input.customMods = customMods or ""
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+			build.calcsTab:BuildOutput()
+			runCallback("OnFrame")
+		end
+
+		local function findSkillIndex(skillName)
+			for index, skill in ipairs(build.calcsTab.mainEnv.player.activeSkillList) do
+				if skill.activeEffect.grantedEffect.name == skillName then
+					return index
+				end
+			end
+			error("Skill not found: " .. skillName)
+		end
+
+		local function getSkillIncDamage(skillIndex)
+			local skill = build.calcsTab.mainEnv.player.activeSkillList[skillIndex]
+			return skill.skillModList:Sum("INC", skill.skillCfg, "Damage")
+		end
+
+		local function getSkillMoreDamage(skillIndex)
+			local skill = build.calcsTab.mainEnv.player.activeSkillList[skillIndex]
+			return skill.skillModList:Sum("MORE", skill.skillCfg, "Damage")
+		end
+
+		local function getAverageHit()
+			return build.calcsTab.mainOutput.AverageHit or 0
+		end
+
+		it("does not apply damage per combo consumed to non-ComboStacking skills", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Ball Lightning 20/0  1\n")
+			build.skillsTab:PasteSocketGroup("Tempest Bell 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(10, "")
+			local ballIncBase = getSkillIncDamage(findSkillIndex("Ball Lightning"))
+			local tempestIncBase = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(10, CHAKRA_MOD)
+			local ballIncWith = getSkillIncDamage(findSkillIndex("Ball Lightning"))
+			local tempestIncWith = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			assert.are.equals(ballIncBase, ballIncWith)
+			assert.True(tempestIncWith > tempestIncBase)
+		end)
+
+		it("caps damage per combo consumed at the stated limit", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Tempest Bell 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(0, "")
+			local tempestIncBase = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(3, CHAKRA_MOD)
+			local incAt3 = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(5, CHAKRA_MOD)
+			local incAt5 = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(10, CHAKRA_MOD)
+			local incAt10 = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			assert.are.equals(24, incAt3 - tempestIncBase)
+			assert.are.equals(40, incAt5 - tempestIncBase)
+			assert.are.equals(40, incAt10 - tempestIncBase)
+			assert.are.equals(incAt5, incAt10)
+		end)
+
+		it("Culmination I caps combo damage at 10 stacks", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1\nCulmination I 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(10)
+			local moreAt10 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt10 = getAverageHit()
+
+			applyComboConfig(50)
+			local moreAt50 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt50 = getAverageHit()
+
+			assert.are.equals(30, moreAt10)
+			assert.are.equals(moreAt10, moreAt50)
+			assert.are.equals(hitAt10, hitAt50)
+		end)
+
+		it("Culmination II caps combo damage at 20 stacks", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1\nCulmination II 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(20)
+			local moreAt20 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt20 = getAverageHit()
+
+			applyComboConfig(50)
+			local moreAt50 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt50 = getAverageHit()
+
+			assert.are.equals(40, moreAt20)
+			assert.are.equals(moreAt20, moreAt50)
+			assert.are.equals(hitAt20, hitAt50)
+		end)
+	end)
 end)
