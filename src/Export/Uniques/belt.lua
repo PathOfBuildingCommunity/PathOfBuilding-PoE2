@@ -56,6 +56,7 @@ Variant: Body Armour
 Variant: Gloves
 Variant: Boots
 Variant: Shield
+Sockets: S S
 Implicits: 2
 BeltImplicitCharmSlots3
 BeltImplicitFlaskPassiveChargeGain1

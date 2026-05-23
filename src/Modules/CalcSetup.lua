@@ -134,7 +134,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	else
 		modList:AddList(node.modList)
 	end
-	
+
 	if #env.radiusJewelList > 0 and not GlobalCache.cachedData[env.mode].radiusJewelData then
 		refreshJewelStatCache(env)
 	end
@@ -178,7 +178,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 			rad.func(node, modList, rad.data)
 		end
 	end
-	
+
 	if modList:Flag(nil, "PassiveSkillHasOtherEffect") then
 		for i, mod in ipairs(modList:List(skillCfg, "NodeModifier")) do
 			if i == 1 then wipeTable(modList) end
@@ -201,7 +201,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 	if modList:Flag(nil, "CanExplode") then
 		t_insert(env.explodeSources, node)
 	end
-	
+
 	for i, mod in ipairs(modList) do
 		local added = false
 		for j = #mod, 1, -1 do
@@ -223,7 +223,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 				table.insert(mod, { type = "Condition", var = "WeaponSet".. env.build.spec.nodes[jewelSource].allocMode })
 			end
 		end
-		
+
 		local hasWSCondition = false
 		-- if the jewelMod has a WS Condition, only add the incEffect given it matches the activeWeaponSet
 		-- otherwise the mod came from a jewel that is allocMode 0, so it always applies
@@ -254,7 +254,7 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 			end
 		end
 	end
-	
+
 	-- Apply Inc Node scaling from Hulking Form
 	if (incSmallPassiveSkill + localSmallIncEffect) > 0 and node.type == "Normal" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + (incSmallPassiveSkill + localSmallIncEffect) / 100
@@ -262,14 +262,14 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
-	
+
 	if localNotableIncEffect > 0 and node.type == "Notable" and not node.isAttribute and not node.ascendancyName then
 		local scale = 1 + localNotableIncEffect / 100
 		local scaledList = new("ModList")
 		scaledList:ScaleAddList(modList, scale)
 		modList = scaledList
 	end
-	
+
 	return modList
 end
 
@@ -762,7 +762,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	end
 
 	local nodesModsList = calcs.buildModListForNodeList(env, env.allocNodes, true, true)
-	
+
 	if allocatedNotableCount and allocatedNotableCount > 0 then
 		modDB:NewMod("Multiplier:AllocatedNotable", "BASE", allocatedNotableCount)
 	end
@@ -781,7 +781,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	-- add Conditional WeaponSet# base on weapon set from item
 	modDB:NewMod("Condition:WeaponSet" .. (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) , "FLAG", true, "Weapon Set")
-	
+
 	local weaponFlagState = {
 		giantsBlood = nodesModsList:Flag(nil, "GiantsBlood") or false,
 		instrumentsOfPower = nodesModsList:Flag(nil, "InstrumentsOfPower") or false,
@@ -992,7 +992,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				items[slot] = nil
 			end
 		end
-		
+
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
 			local item = items[slotName]
@@ -1054,17 +1054,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 						mod.sourceSlotNum = slot.slotNum
 					end
 				end
-				
-				if item.requirements and not accelerate.requirementsItems then
-					t_insert(env.requirementsTableItems, {
-						source = "Item",
-						sourceItem = item,
-						sourceSlot = slotName,
-						Str = item.requirements.strMod,
-						Dex = item.requirements.dexMod,
-						Int = item.requirements.intMod,
-					})
-				end
 				-- Rune / Soul Core Sockets
 				local socketed = 0
 				for i = 1, item.itemSocketCount do
@@ -1076,16 +1065,157 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 				if item.socketedSoulCoreEffectModifier ~= 0 then
 					for _, modLine in ipairs(item.runeModLines) do
-						if modLine.soulcore then
+						if modLine.soulCore then
 							for _, mod in ipairs(modLine.modList) do
 								local modCopy = copyTable(mod)
-								modCopy.value = round(modCopy.value / modLine.runeCount)
-								for i = 1, modLine.runeCount do
-									env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+								if not modCopy.unscalable then
+									if modLine.bonded then
+										env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+									end
+									if modLine.runeCount and modLine.runeCount > 0 then
+										if type(modCopy.value) == "number" then
+											modCopy.value = round(modCopy.value / modLine.runeCount)
+										elseif type(modCopy.value) == "table" then
+											if modCopy.value.mod then
+												modCopy.value.mod.value = round(modCopy.value.mod.value / modLine.runeCount)
+											elseif modCopy.value.keyOfScaledMod then
+												local key = modCopy.value.keyOfScaledMod
+												modCopy.value[key] = round(modCopy.value[key] / modLine.runeCount)
+											end
+										end
+										for i = 1, modLine.runeCount do
+											env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
+										end
+									end
 								end
 							end
 						end
 					end
+				end
+
+				if item.socketedAugmentEffectModifier ~= 0 then
+					for _, modLine in ipairs(item.runeModLines) do
+						for _, mod in ipairs(modLine.modList) do
+							local modCopy = copyTable(mod)
+							if not modCopy.unscalable then
+								if modLine.bonded then
+									env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
+								end
+								if modLine.runeCount and modLine.runeCount > 0 then
+									if type(modCopy.value) == "number" then
+										modCopy.value = round(modCopy.value / modLine.runeCount)
+									elseif type(modCopy.value) == "table" then
+										if modCopy.value.mod then
+											modCopy.value.mod.value = round(modCopy.value.mod.value / modLine.runeCount)
+										elseif modCopy.value.keyOfScaledMod then
+											local key = modCopy.value.keyOfScaledMod
+											modCopy.value[key] = round(modCopy.value[key] / modLine.runeCount)
+										end
+									end
+
+									for i = 1, modLine.runeCount do
+										env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
+									end
+								end
+							end
+						end
+					end
+				end
+
+				-- Step 0: temporary table for collected rune mods
+				local tempRuneModLines = {}
+				local seen = {} -- avoid duplicates
+
+				-- Step 1: collect all applicable rune mods
+				for i, rune in ipairs(item.runes or {}) do
+					if rune ~= "None" then
+						local runeId = type(rune) == "table" and rune.id or rune
+						local runeData = data.itemMods.Runes[runeId]
+						if runeData then
+							local broadItemType = item.base.weapon and "weapon" or (item.base.tags.wand or item.base.tags.staff) and "caster" or "armour"
+							local specificType = item.base.type:lower()
+							local additionalType
+
+							local augmentOverride = {
+								BodyArmour = "body armour",
+								Helmet = "helmet",
+								Shield = "shield",
+								Boots = "boots",
+								Gloves = "gloves",
+							}
+							for flag, slot in pairs(augmentOverride) do
+								if item["augmentsAsIf" .. flag] then
+									ConPrintf("YES")
+									specificType = slot
+									break
+								end
+							end
+							for flag, slot in pairs(augmentOverride) do
+								if item["augmentsAsIfAlso" .. flag] then
+									additionalType = slot
+									break
+								end
+							end
+
+							for slotType, slotMod in pairs(runeData) do
+								if slotType ~= "type" and (slotType == specificType or slotType == additionalType or slotType == broadItemType) then
+									if type(slotMod) == "table" then
+										for index, modLine in ipairs(slotMod) do
+											if type(modLine) == "string" or (type(modLine) == "table" and modLine.statOrder) then
+												local key = runeId .. "|" .. slotType .. "|" .. index
+												if not seen[key] then
+													seen[key] = true
+													table.insert(tempRuneModLines, { runeId = runeId, slotType = slotType, mod = modLine })
+												end
+											end
+										end
+									end
+								end
+							end
+						else
+							ConPrintf(("Rune %d (%s) has no data in Runes table"):format(i, runeId))
+						end
+					end
+				end
+
+				---- Step 2: update the existing mod lines instead of replacing
+				--local mult = 1 + (item.socketedAugmentEffectModifier or 0)
+				--for i, modLine in ipairs(item.runeModLines) do
+				--	local temp = tempRuneModLines[i]
+				--	if temp then
+				--		if type(modLine.line) == "string" or (type(temp.mod) == "string") then
+				--			-- extract number from temp rune mod
+				--			local base = tonumber(temp.mod:match("(%d+%.?%d*)")) or 0
+				--			local scaled = round(base * mult)
+				--			modLine.line = temp.mod:gsub("(%d+%.?%d*)", tostring(scaled), 1)
+				--			-- update the value table if exists
+				--			if modLine.mods and #modLine.mods > 0 then
+				--				modLine.mods[1].value = scaled
+				--			else
+				--				modLine.mods = { { value = scaled } }
+				--			end
+				--		elseif type(temp.mod) == "table" and temp.mod.statOrder then
+				--			-- update value(s) in table
+				--			if modLine.values and #modLine.values > 0 then
+				--				modLine.values[1] = round(temp.mod.values[1] * mult)
+				--			else
+				--				modLine.values = { round(temp.mod.values[1] * mult) }
+				--			end
+				--		end
+				--		modLine.rune = true
+				--		modLine.enchant = true
+				--	end
+				--end
+
+				if item.requirements and not accelerate.requirementsItems then
+					t_insert(env.requirementsTableItems, {
+						source = "Item",
+						sourceItem = item,
+						sourceSlot = slotName,
+						Str = item.requirements.strMod,
+						Dex = item.requirements.dexMod,
+						Int = item.requirements.intMod,
+					})
 				end
 
 				if item.type == "Jewel" and item.base.subType == "Abyss" then
@@ -1235,7 +1365,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 					local combinedList = new("ModList")
 					for _, mod in ipairs(srcList) do
 						combinedList:MergeMod(mod)
-					end	
+					end
 					env.itemModDB:ScaleAddList(combinedList, scale)
 				else
 					env.itemModDB:ScaleAddList(srcList, scale)
@@ -1325,7 +1455,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 
 	-- Merge modifiers for allocated passives
 	env.modDB:AddList(calcs.buildModListForNodeList(env, env.allocNodes, true))
-	
+
 	if not override or (override and not override.extraJewelFuncs) then
 		override = override or {}
 		override.extraJewelFuncs = new("ModList")
@@ -1530,7 +1660,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		for index, group in ipairs(build.skillsTab.socketGroupList) do
 			local slot = group.slot and build.itemsTab.slots[group.slot]
 			group.slotEnabled = not slot or not slot.weaponSet or slot.weaponSet == (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1)
-			-- if group is main skill or group is enabled 
+			-- if group is main skill or group is enabled
 			if index == env.mainSocketGroup or (group.enabled and group.slotEnabled) then
 				local slotName = group.slot and group.slot:gsub(" Swap","")
 				groupCfgList[slotName or "noSlot"] = groupCfgList[slotName or "noSlot"] or {}
@@ -1690,7 +1820,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 									-- add displayGemList for tooltip to display all gems linked to active skills
 									group.displayGemList = copyTable(group.gemList, true)
 									-- if skill granted by unique item, go through all support groups in slot
-									if group.source then 
+									if group.source then
 										if supportLists[slotName] then
 											-- add socketed supports from other socketGroups
 											for _, otherSocketGroup in ipairs(build.skillsTab.socketGroupList) do
@@ -1713,8 +1843,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 									for crossLinkedSupportSlot, crossLinkedSupportGroup in pairs(env.crossLinkedSupportGroups) do
 										for _, crossLinkedSupportedSlot in ipairs(crossLinkedSupportGroup) do
 											if crossLinkedSupportedSlot == slotName and supportLists[crossLinkedSupportSlot] then
-												for _, otherSocketGroup in ipairs(build.skillsTab.socketGroupList) do 
-													if otherSocketGroup.slot and otherSocketGroup.slot == crossLinkedSupportSlot then 
+												for _, otherSocketGroup in ipairs(build.skillsTab.socketGroupList) do
+													if otherSocketGroup.slot and otherSocketGroup.slot == crossLinkedSupportSlot then
 														for _, gem in ipairs(otherSocketGroup.gemList) do
 															if gem.gemData and gem.gemData.grantedEffect and gem.gemData.grantedEffect.support then
 																t_insert(group.displayGemList, gem)
@@ -1750,7 +1880,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 					end
 				end
-				
+
 				if not slotHasActiveSkill and group.displayGemList then
 					group.displayGemList = nil
 				end
@@ -1925,7 +2055,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 	elseif (slotSupportGemSocketsCount.B > slotSupportGemSocketsCount.R) and (slotSupportGemSocketsCount.B > slotSupportGemSocketsCount.G) then
 		env.modDB.conditions["MajorityBlueSocketedSupports"] = true;
 	end
-	
+
 	-- Gem Studded, Gemling notable support
 	if (slotSupportGemSocketsCount.R >= slotSupportGemSocketsCount.G) and (slotSupportGemSocketsCount.R >= slotSupportGemSocketsCount.B) then
 		env.modDB.conditions["MostNumerousRedSocketedSupports"] = true;
@@ -1934,6 +2064,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 	elseif (slotSupportGemSocketsCount.B >= slotSupportGemSocketsCount.R) and (slotSupportGemSocketsCount.B >= slotSupportGemSocketsCount.G) then
 		env.modDB.conditions["MostNumerousBlueSocketedSupports"] = true;
 	end
-	
+
 	return env, cachedPlayerDB, cachedEnemyDB, cachedMinionDB
 end
