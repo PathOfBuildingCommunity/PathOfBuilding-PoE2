@@ -3797,6 +3797,7 @@ skills["ContagionPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Contagion" }),
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 5000 },
@@ -4680,6 +4681,10 @@ skills["DarkEffigyProjectilePlayer"] = {
 				area = true,
 				projectile = true,
 				totem = true,
+			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "ChaosDebuff", actor = "enemy" }),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Poison" }, { type = "Condition", var = "Poisoned" }),
 			},
 			constantStats = {
 				{ "skill_disabled_unless_cloned", 2 },
@@ -6288,6 +6293,9 @@ skills["EssenceDrainPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
+			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -6367,6 +6375,7 @@ skills["EssenceDrainPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -15699,6 +15708,9 @@ skills["ProfaneRitualPlayer"] = {
 				spell = true,
 				area = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Profane Ritual" }),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 2000 },
 				{ "ritual_of_power_maximum_number_of_rituals", 5 },
@@ -19297,6 +19309,9 @@ skills["SoulrendPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
+			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -19370,6 +19385,7 @@ skills["SoulrendPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
 			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },
