@@ -372,6 +372,27 @@ local configSettings = {
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Flicker Strike", includeTransfigured = true })
 	end },
+	{ var = "elementalConfluxElement", type = "list", label = "Elemental Conflux Element:", list = { { val = 1, label = "Average" }, { val = 2, label = "Lightning" }, { val = 3, label = "Cold" }, { val = 4, label = "Fire" } }, apply = function(val, modList, enemyModList)
+			local coldCoef = 0
+			local fireCoef = 0
+			local lightningCoef = 0
+			if val == 1 then
+				coldCoef = 3
+				fireCoef = 3
+				lightningCoef = 3
+			elseif val == 2 then
+				lightningCoef = 1
+			elseif val == 3 then
+				coldCoef = 1
+			elseif val == 4 then
+				fireCoef = 1
+			end
+			modList:NewMod("Multiplier:ElementalConfluxLightningEffect", "BASE", lightningCoef, "Config",
+				{ type = "GlobalEffect" })
+			modList:NewMod("Multiplier:ElementalConfluxColdEffect", "BASE", coldCoef, "Config", { type = "GlobalEffect" })
+			modList:NewMod("Multiplier:ElementalConfluxFireEffect", "BASE", fireCoef, "Config", { type = "GlobalEffect" })
+		end
+	},
 	{ label = "Fresh Meat:", ifSkill = "Fresh Meat" },
 	{ var = "freshMeatBuffs", type = "check", label = "Is Fresh Meat active?", ifSkill = "Fresh Meat", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FreshMeatActive", "FLAG", true, "Config")
