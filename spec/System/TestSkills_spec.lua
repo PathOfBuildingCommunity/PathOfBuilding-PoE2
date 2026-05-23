@@ -469,7 +469,7 @@ describe("TestSkills", function()
 		assert.equals(build.calcsTab.calcsOutput.Minion.BuffList, "")
 	end)
 
-  it("Test Umbral Well", function()
+	it("Test Umbral Well", function()
 		build.configTab.input.customMods = [[
 			Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created
 		]]
@@ -486,7 +486,7 @@ describe("TestSkills", function()
 
 		-- if one works they all do, surely
 		assert.True(build.calcsTab.mainOutput.TotalDPS > baseFireball)
-  end)
+	end)
     
 	it("Test Minion Pact damage requires a minion in your presence", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
@@ -512,3 +512,4 @@ describe("TestSkills", function()
 		assert.are.equals(30, activeSkill.skillModList:Sum("MORE", activeSkill.skillCfg, "Damage"))
 		assert.True(build.calcsTab.calcsOutput.TotalDPS > noMinionDps)
 	end)
+end)
