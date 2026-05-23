@@ -2705,8 +2705,7 @@ return {
 	mod("AdditionalCooldownUses", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
 },
 ["kill_enemy_on_hit_if_under_10%_life"] = {
-	mod("CullPercent", "MAX", nil),
-	value = 10
+	flag("CanCull"), -- none of the skills with this stat say anything about a 10% threshold
 },
 ["spell_cast_time_added_to_cooldown_if_triggered"] = {
 	flag("SpellCastTimeAddedToCooldownIfTriggered"),

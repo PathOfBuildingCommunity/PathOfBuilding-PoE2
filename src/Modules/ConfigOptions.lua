@@ -1900,7 +1900,7 @@ Huge sets the radius to 11.
 	-- Section: Enemy Stats
 	{ section = "Enemy Stats", col = 2 },
 	{ var = "enemyLevel", type = "count", label = "Enemy Level:", tooltip = "This overrides the default enemy level used to estimate your hit, ^x33FF77evade ^7chance, and damage reduction.\n\nThe maximum level for normal enemies and all bosses is 85.\n\nThe default level of normal enemies and bosses scales with player level unless manually set.\n\nThe default and minimum level for pinnacle bosses and uber pinnacle bosses is 82." },
-	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare or Unique?", ifEnemyCond = "EnemyRareOrUnique", tooltip = "The enemy will automatically be considered to be Unique if they are a Boss,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
+	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare?", ifFlag = {"CanCull","CritCanCull"}, tooltip = "The enemy will automatically be considered to be Unique if they are a Boss.\nUsed to set base Culling Strike Threshold.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "enemyIsBoss", type = "list", label = "Is the enemy a Boss?", defaultIndex = 3, tooltip = data.enemyIsBossTooltip, list = {{val="None",label="No"},{val="Boss",label="Standard Boss"},{val="Pinnacle",label="Guardian/Pinnacle Boss"},{val="Uber",label="Uber Pinnacle Boss"}}, apply = function(val, modList, enemyModList, build)

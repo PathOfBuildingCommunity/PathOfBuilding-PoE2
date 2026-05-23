@@ -3613,16 +3613,35 @@ function calcs.offence(env, actor, activeSkill)
 
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier
 
+		local enemyRarity = (enemyDB:Flag(nil, "Condition:Unique") and "Unique" or (enemyDB:Flag(nil, "Condition:RareOrUnique") and "Rare" or "Normal"))
 		-- Calculate culling DPS
-		local criticalCull = skillModList:Max(cfg, "CriticalCullPercent") or 0
+		local criticalCull = skillModList:Override(cfg, "CriticalCullPercent") or (skillModList:Flag(cfg, "CritCanCull") and data.gameConstants["CullingStrike"..enemyRarity.."Threshold"] or 0)
 		if criticalCull > 0 then
 			criticalCull = m_min(criticalCull, criticalCull * (1 - (1 - output.CritChance / 100) ^ hitRate))
 		end
-		local regularCull = skillModList:Max(cfg, "CullPercent") or 0
-		local incCullPercent = 1 + modDB:Sum("INC", cfg, "CullPercent") / 100
+		local regularCull = skillModList:Override(cfg, "CullPercent") or (skillModList:Flag(cfg, "CanCull") and data.gameConstants["CullingStrike"..enemyRarity.."Threshold"] or 0)
+		local incCullPercent = 1 + skillModList:Sum("INC", cfg, "CullPercent") / 100
 		local maxCullPercent = m_max(criticalCull, regularCull) * incCullPercent
 		globalOutput.CullPercent = maxCullPercent
 		globalOutput.CullMultiplier = 100 / (100 - globalOutput.CullPercent)
+
+		if globalBreakdown and maxCullPercent > 0 then
+			globalBreakdown.CullingStrike = { }
+			if (skillModList:Override(cfg, "CullPercent") or 0) > 0 then
+				t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(cull override)", regularCull))
+			else
+				t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(cull against %s enemy)", regularCull, enemyRarity:lower()))
+			end
+			if criticalCull > 0 then
+				if (skillModList:Override(cfg, "CriticalCullPercent") or 0) > 0 then
+					t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(critical cull override)", criticalCull))
+				else
+					t_insert(globalBreakdown.CullingStrike, s_format("%d ^8(critical cull against %s enemy)", criticalCull, enemyRarity))
+				end
+			end
+			t_insert(globalBreakdown.CullingStrike, s_format("x %.2f ^8(increased cull threshold)", incCullPercent))
+			t_insert(globalBreakdown.CullingStrike, s_format("= %.2f%%", maxCullPercent))
+		end
 
 		--Calculate reservation DPS
 		globalOutput.ReservationDpsMultiplier = 100 / (100 - enemyDB:Sum("BASE", nil, "LifeReservationPercent"))
