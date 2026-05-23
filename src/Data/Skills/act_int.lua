@@ -8464,12 +8464,25 @@ skills["FlickerStrikePlayer"] = {
 		[39] = { PvPDamageMultiplier = -30, attackSpeedMultiplier = -50, baseMultiplier = 13.44, levelRequirement = 90, cost = { Mana = 312, }, },
 		[40] = { PvPDamageMultiplier = -30, attackSpeedMultiplier = -50, baseMultiplier = 14.48, levelRequirement = 90, cost = { Mana = 332, }, },
 	},
+			preDamageFunc = function(activeSkill, output, breakdown)
+				local chargeCount = output.PowerCharges
+				local strikesPerCharge = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "AdditionalFlickersPerPowerCharge")
+				activeSkill.skillData.averageBurstHits = 1 + chargeCount * strikesPerCharge
+			end,
 	statSets = {
 		[1] = {
 			label = "Flicker Strike",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["flicker_strike_additional_flickers_from_power_charges"] = {
+					mod("AdditionalFlickersPerPowerCharge", "BASE", nil)
+				},
+				["cannot_gain_power_charges_during_skill"] = {
+					-- Display Only
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
