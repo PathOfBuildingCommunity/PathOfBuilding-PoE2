@@ -2739,6 +2739,9 @@ return {
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
+["chaos_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
 --
 -- Spectre or Minion-specific stats
 --
