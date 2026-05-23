@@ -486,6 +486,7 @@ statMap = {
 		div = 60,
 	},
 },
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" })
 #mods
 #skillEnd
 

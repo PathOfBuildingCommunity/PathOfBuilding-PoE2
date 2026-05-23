@@ -62,6 +62,18 @@ local lineFlags = {
 	["custom"] = true, ["fractured"] = true, ["desecrated"] = true, ["mutated"] = true, ["enchant"] = true, ["implicit"] = true, ["rune"] = true,
 }
 
+local function baseHasImplicitLine(base, line)
+	if not base or not base.implicit then
+		return false
+	end
+	for implicitLine in base.implicit:gmatch("[^\n]+") do
+		if implicitLine == line or implicitLine:match("^Grants Skill:") and line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
+			return true
+		end
+	end
+	return false
+end
+
 -- Special function to store unique instances of modifier on specific item slots
 -- that require special handling for ItemConditions. Only called if line #224 is
 -- uncommented
@@ -395,10 +407,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		elseif line == "Requirements:" then
 			-- nothing to do
 		else
+			local lineIsBaseImplicit = mode == "GAME" and baseHasImplicitLine(self.base, line)
 			if self.checkSection then
 				if gameModeStage == "IMPLICIT" then
-					if foundImplicit then
-						-- There were definitely implicits, so any following modifiers must be explicits
+					if foundImplicit and not lineIsBaseImplicit then
+						-- There were definitely implicits, so any following non-base-implicit modifiers must be explicits
 						gameModeStage = "EXPLICIT"
 						foundExplicit = true
 					else
@@ -595,7 +608,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					   specName == "Armour" or specName == "Energy Shield" or specName == "Evasion" or specName == "Requires" then
 					self.hidden_specs = true
 				-- Anything else is an explicit with a colon in it (Fortress Covenant, Pure Talent, etc) unless it's part of the custom name
-				elseif not (self.name:match(specName) and self.name:match(specVal)) then
+				elseif not lineIsBaseImplicit and not (self.name:match(specName) and self.name:match(specVal)) then
 					foundExplicit = true
 					gameModeStage = "EXPLICIT"
 				end
@@ -604,7 +617,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				foundExplicit = true
 				gameModeStage = "EXPLICIT"
 			end
-			if not specName or foundExplicit or foundImplicit then
+			if not specName or foundExplicit or foundImplicit or lineIsBaseImplicit then
 				local modLine = { modTags = {} }
 
 				line = line:gsub("{(%a*):?([^}]*)}", function(k,val)
@@ -644,6 +657,9 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 					modLine.enchant = true
 				end
 				if modLine.enchant then
+					modLine.implicit = true
+				end
+				if lineIsBaseImplicit then
 					modLine.implicit = true
 				end
 				if modLine.desecrated then
@@ -839,8 +855,90 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 		if self.base.weapon or self.base.armour or self.base.tags.wand or self.base.tags.staff or self.base.tags.sceptre then
 			local shouldFixRunesOnItem = #self.runes == 0
 
+			local function getRuneLineParts(modLine)
+				local values = { }
+				local strippedModLine = modLine:gsub("(%d%.?%d*)", function(val)
+					t_insert(values, tonumber(val))
+					return "#"
+				end)
+				if #values == 0 then
+					t_insert(values, 1)
+				end
+				return strippedModLine, values
+			end
+
+			local function compareRuneValueSets(a, b)
+				for i = 1, math.max(#a, #b) do
+					local aVal = a[i] or 0
+					local bVal = b[i] or 0
+					if aVal ~= bVal then
+						return aVal > bVal
+					end
+				end
+				return false
+			end
+
+			local function runeValueSetsEqual(a, b)
+				for i = 1, math.max(#a, #b) do
+					if math.abs((a[i] or 0) - (b[i] or 0)) > 1e-9 then
+						return false
+					end
+				end
+				return true
+			end
+
+			local function addRuneValueSets(a, b)
+				local out = { }
+				for i = 1, math.max(#a, #b) do
+					out[i] = (a[i] or 0) + (b[i] or 0)
+				end
+				return out
+			end
+
+			local function runeValueSetExceeds(valueSet, target)
+				for i = 1, math.max(#valueSet, #target) do
+					if (valueSet[i] or 0) > (target[i] or 0) + 1e-9 then
+						return true
+					end
+				end
+				return false
+			end
+
+			local function findRuneCombination(groupedRunes, targetValues, maxRunes)
+				local best = { }
+				local counts = { }
+
+				local function search(startIndex, count, sum)
+					if runeValueSetsEqual(sum, targetValues) then
+						if not best.count or count < best.count then
+							best.count = count
+							best.counts = { }
+							for index, value in pairs(counts) do
+								best.counts[index] = value
+							end
+						end
+						return
+					end
+					if count >= maxRunes or (best.count and count >= best.count) then
+						return
+					end
+
+					for index = startIndex, #groupedRunes do
+						local nextSum = addRuneValueSets(sum, groupedRunes[index].values)
+						if not runeValueSetExceeds(nextSum, targetValues) then
+							counts[index] = (counts[index] or 0) + 1
+							search(index, count + 1, nextSum)
+							counts[index] = counts[index] - 1
+						end
+					end
+				end
+
+				search(1, 0, { })
+				return best.counts, best.count
+			end
+
 			-- Form a key value table with the following format
-			-- { [strippedModLine] = { { runeName1, runeValue1 }, etc, }, etc}
+			-- { [strippedModLine] = { { name = runeName1, values = { low, high } }, etc, }, etc}
 			-- This will be used to more easily grab the relevant runes that combinations will need to be of.
 			-- This could be refactored to only needs to be called once.
 			local statGroupedRunes = { }
@@ -848,15 +946,11 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 			local specificItemType = self.base.type:lower()
 			for runeName, runeMods in pairs(data.itemMods.Runes) do
 				local addModToGroupedRunes = function (modLine)
-					local runeValue = 1
-					local runeStrippedModLine = modLine:gsub("(%d%.?%d*)", function(val)
-						runeValue = val
-						return "#"
-					end)
+					local runeStrippedModLine, runeValues = getRuneLineParts(modLine)
 					if statGroupedRunes[runeStrippedModLine] == nil then
 						statGroupedRunes[runeStrippedModLine] = { }
 					end
-					t_insert(statGroupedRunes[runeStrippedModLine], { runeName, runeValue });
+					t_insert(statGroupedRunes[runeStrippedModLine], { name = runeName, values = runeValues })
 				end
 				for slotType, slotMod in pairs(runeMods) do
 					if slotType == broadItemType or slotType == specificItemType then
@@ -869,129 +963,27 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 
 			-- Sort table to ensure first entries are always largest.
 			for _, runes in pairs(statGroupedRunes) do
-				table.sort(runes,  function(a, b) return a[2] > b[2] end)
+				table.sort(runes,  function(a, b) return compareRuneValueSets(a.values, b.values) end)
 			end
 
 			local remainingRunes = self.itemSocketCount
 			for i, modLine in ipairs(self.runeModLines) do
-				local value = 1
-				local strippedModLine = modLine.line:gsub("(%d%.?%d*)", function(val)
-					value = val
-					return "#"
-				end)
+				local strippedModLine, targetValues = getRuneLineParts(modLine.line)
 				local groupedRunes = statGroupedRunes[strippedModLine]
-				if groupedRunes then -- found the rune category with the relevant stat.
-					-- First a greedy base is found using the runes in the groupedRunes. If this matches the target value then that set of runes is applied.
-					-- If the greedy base isn't a solution we search all the possible combinations that could lead to a valid combination.
-					-- This done by recursing through all combinations that could lead to a valid value and pruning values that exceed the number
-					-- of runes and solutions that it would be impossible to reach the target value from. Visited combinations are recorded and are used such 
-					-- that candidates are only searched once. This makes for a fairly efficient algorithm that doesn't search unneeded values very much.
-					local function getNumberOfRunesOfEachType(values, target)
-						local function adjustCombination(values, target, result, best, visited, sum, count)
-							-- This is used to avoid unnecessary checks on decrement.
-							local function checkAndAdjustCombination(values, target, result, best, visited, sum, count)
-								-- If it's a valid solution, update best
-								if math.abs(sum-target) <  1e-9 then
-									if not best.count or count < best.count then
-										best.count = count
-										-- Copy solution to avoid side effects from continued searching.
-										local solution = {}
-										for k, v in pairs(result) do
-											solution[k] = v
-										end
-										best.solution = solution
-									end
-									return
-								end
-
-								-- Prune if we already used more runes than the best found
-								if best.count and count >= best.count then return end
-
-								return adjustCombination(values, target, result, best, visited, sum, count)
-							end
-
-							for _, v in ipairs(values) do
-								local function checkUnique(result)
-									-- Generate a unique key from the result table this prevents duplicates combinations being searched
-									local key = ""
-									for value, count in pairs(result) do
-										if count > 0 then
-											key = key .. value .. "x" .. count .. " "
-										end
-									end
-									if visited[key] then 
-										return false 
-									else
-										visited[key] = true
-										return true
-									end
-								end
-								
-								-- Incrementing is done first as to reach the target you will need to add a count as such it should be more efficient.
-								-- Try increasing (if it doesn't overshoot or exceed maximum number of remaining runes)
-								if sum + tonumber(v) <= target + 1e-9 and count < remainingRunes then
-									result[v] = (result[v] or 0) + 1
-									if checkUnique(result) then
-										checkAndAdjustCombination(values, target, result, best, visited, sum + v, count + 1)
-									end
-									result[v] = result[v] - 1
-								end
-
-								-- Try decreasing (if possible and only if target is still reachable).
-								if (result[v] or 0) > 0 and (not best.count or target - 1e-9 < sum - tonumber(v) + values[1] * (best.count - count + 1)) then
-									result[v] = result[v] - 1
-									if checkUnique(result) then
-										adjustCombination(values, target, result, best, visited, sum - v, count - 1)
-									end
-									result[v] = result[v] + 1
-								end
-							end
-						end
-						
-						-- Step 1: Perform greedy search and tests if a single rune is used as these are the most common use case.
-						local greedySolution = {}
-						local leftover = target
-
-						for _, v in ipairs(values) do
-							local count = math.floor(leftover / v)
-							greedySolution[v] = count
-							leftover = leftover - count * v
-						end
-
-						local greedyCount = 0
-						for v, c in pairs(greedySolution) do
-							greedyCount = greedyCount + c
-						end
-						if math.abs(leftover) <= 1e-9 then -- Greedy search found a solution
-							return greedySolution, greedyCount
-						end
-
-						-- Step 2. Perform search starting from the greedy base
-						local best = {count = nil, solution = nil}
-						local visited = {}
-
-						adjustCombination(values, target, greedySolution, best, visited, target - leftover, greedyCount)
-
-						return best.solution, best.count
-					end
-
-					local values = { }
-					for i, runes in ipairs(groupedRunes) do
-						t_insert(values, runes[2])
-					end
-					local result, numRunes = getNumberOfRunesOfEachType(values, tonumber(value))
+				if groupedRunes and not modLine.bonded then -- found the rune category with the relevant stat.
+					local result, numRunes = findRuneCombination(groupedRunes, targetValues, remainingRunes)
 
 					if result then -- we have found a valid combo for that rune category
 						remainingRunes = remainingRunes - numRunes
 						-- this code should probably be refactored to based off stored self.runes rather than the recomputed amounts off the runeModLines this 
 						-- is too avoid having to run the relatively expensive recomputation every time the item is parsed even if we know the runes on the item already.
-						modLine.soulCore = groupedRunes[1][1]:match("Soul Core") ~= nil
+						modLine.soulCore = groupedRunes[1].name:match("Soul Core") ~= nil
 						modLine.runeCount = numRunes
 
 						if shouldFixRunesOnItem then
-							for i, rune in ipairs(groupedRunes) do
-								for _ = 1, tonumber(result[rune[2]]) do
-									t_insert(self.runes, groupedRunes[i][1])
+							for index, rune in ipairs(groupedRunes) do
+								for _ = 1, result[index] or 0 do
+									t_insert(self.runes, rune.name)
 								end
 							end
 						end
@@ -1688,7 +1680,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		local charmData = self.charmData
 		local durationInc = calcLocal(modList, "Duration", "INC", 0)
 		local durationMore = calcLocal(modList, "Duration", "MORE", 0)
-		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * durationMore, 1)
+		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * (1 + self.quality / 100) * durationMore, 1)
 		charmData.chargesMax = (self.base.charm.chargesMax + calcLocal(modList, "FlaskCharges", "BASE", 0)) * (1 + calcLocal(modList, "FlaskCharges", "INC", 0) / 100)
 		charmData.chargesUsed = m_floor(self.base.charm.chargesUsed * (1 + calcLocal(modList, "FlaskChargesUsed", "INC", 0) / 100))
 		charmData.gainBase = calcLocal(modList, "FlaskChargesGenerated", "BASE", 0)
@@ -1797,6 +1789,10 @@ function ItemClass:BuildModList()
 						local line = itemLib.applyRange(strippedModeLine, modLine.range, catalystScalar, modLine.corruptedRange)
 						-- Check if we can parse it before adding the mods
 						local list, extra = modLib.parseMod(line)
+						if itemLib.isZeroValueLine(line) then
+							list = { }
+							extra = nil
+						end
 						if list and not extra then
 							modLine.modList = list
 							t_insert(self.rangeLineList, modLine)

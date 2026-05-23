@@ -589,6 +589,9 @@ return {
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
 },
+["channelled_skill_do_not_go_on_cooldown_on_finishing_channel"] = {
+	flag("CooldownDoesNotLimitSkillSpeed"),
+},
 ["totem_skill_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast, KeywordFlag.Totem),
 },
@@ -2413,6 +2416,12 @@ return {
 ["base_number_of_skeletons_allowed"] = {
 	mod("ActiveSkeletonLimit", "BASE", nil),
 },
+["base_number_of_animated_weapons_allowed"] = {
+	mod("ActiveAnimatedWeaponLimit", "BASE", nil),
+},
+["base_number_of_support_ghosts_allowed"] = {
+	mod("ActivePhantasmLimit", "BASE", nil),
+},
 ["base_number_of_raging_spirits_allowed"] = {
 	mod("ActiveRagingSpiritLimit", "BASE", nil),
 },
@@ -2790,6 +2799,12 @@ return {
 	mod("Multiplier:ConsumedEnduranceChargeEffect", "BASE", nil),
 	mod("Multiplier:ConsumedFrenzyChargeEffect", "BASE", nil),
 	mod("Multiplier:ConsumedPowerChargeEffect", "BASE", nil),
+},
+["cannot_consume_power_frenzy_endurance_charges"] = {
+	flag("Condition:CannotConsumeCharges"),
+},
+["cannot_consume_infusions"] = {
+	flag("Condition:CannotConsumeInfusion"),
 },
 ["set_base_heavy_stun_duration_ms"] = {
 	mod("StunDuration", "OVERRIDE", nil),
