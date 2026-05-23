@@ -1072,7 +1072,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 									if modLine.bonded then
 										env.itemModDB:ScaleAddMod(modCopy, item.socketedSoulCoreEffectModifier)
 									end
-									if modLine.runeCount > 0 then
+									if modLine.runeCount and modLine.runeCount > 0 then
 										if type(modCopy.value) == "number" then
 											modCopy.value = round(modCopy.value / modLine.runeCount)
 										elseif type(modCopy.value) == "table" then
@@ -1101,7 +1101,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 								if modLine.bonded then
 									env.itemModDB:ScaleAddMod(modCopy, item.socketedAugmentEffectModifier)
 								end
-								if modLine.runeCount > 0 then
+								if modLine.runeCount and modLine.runeCount > 0 then
 									if type(modCopy.value) == "number" then
 										modCopy.value = round(modCopy.value / modLine.runeCount)
 									elseif type(modCopy.value) == "table" then
@@ -1121,6 +1121,91 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 					end
 				end
+
+				-- Step 0: temporary table for collected rune mods
+				local tempRuneModLines = {}
+				local seen = {} -- avoid duplicates
+
+				-- Step 1: collect all applicable rune mods
+				for i, rune in ipairs(item.runes or {}) do
+					if rune ~= "None" then
+						local runeId = type(rune) == "table" and rune.id or rune
+						local runeData = data.itemMods.Runes[runeId]
+						if runeData then
+							local broadItemType = item.base.weapon and "weapon" or (item.base.tags.wand or item.base.tags.staff) and "caster" or "armour"
+							local specificType = item.base.type:lower()
+							local additionalType
+
+							local augmentOverride = {
+								BodyArmour = "body armour",
+								Helmet = "helmet",
+								Shield = "shield",
+								Boots = "boots",
+								Gloves = "gloves",
+							}
+							for flag, slot in pairs(augmentOverride) do
+								if item["augmentsAsIf" .. flag] then
+									ConPrintf("YES")
+									specificType = slot
+									break
+								end
+							end
+							for flag, slot in pairs(augmentOverride) do
+								if item["augmentsAsIfAlso" .. flag] then
+									additionalType = slot
+									break
+								end
+							end
+
+							for slotType, slotMod in pairs(runeData) do
+								if slotType ~= "type" and (slotType == specificType or slotType == additionalType or slotType == broadItemType) then
+									if type(slotMod) == "table" then
+										for index, modLine in ipairs(slotMod) do
+											if type(modLine) == "string" or (type(modLine) == "table" and modLine.statOrder) then
+												local key = runeId .. "|" .. slotType .. "|" .. index
+												if not seen[key] then
+													seen[key] = true
+													table.insert(tempRuneModLines, { runeId = runeId, slotType = slotType, mod = modLine })
+												end
+											end
+										end
+									end
+								end
+							end
+						else
+							ConPrintf(("Rune %d (%s) has no data in Runes table"):format(i, runeId))
+						end
+					end
+				end
+
+				---- Step 2: update the existing mod lines instead of replacing
+				--local mult = 1 + (item.socketedAugmentEffectModifier or 0)
+				--for i, modLine in ipairs(item.runeModLines) do
+				--	local temp = tempRuneModLines[i]
+				--	if temp then
+				--		if type(modLine.line) == "string" or (type(temp.mod) == "string") then
+				--			-- extract number from temp rune mod
+				--			local base = tonumber(temp.mod:match("(%d+%.?%d*)")) or 0
+				--			local scaled = round(base * mult)
+				--			modLine.line = temp.mod:gsub("(%d+%.?%d*)", tostring(scaled), 1)
+				--			-- update the value table if exists
+				--			if modLine.mods and #modLine.mods > 0 then
+				--				modLine.mods[1].value = scaled
+				--			else
+				--				modLine.mods = { { value = scaled } }
+				--			end
+				--		elseif type(temp.mod) == "table" and temp.mod.statOrder then
+				--			-- update value(s) in table
+				--			if modLine.values and #modLine.values > 0 then
+				--				modLine.values[1] = round(temp.mod.values[1] * mult)
+				--			else
+				--				modLine.values = { round(temp.mod.values[1] * mult) }
+				--			end
+				--		end
+				--		modLine.rune = true
+				--		modLine.enchant = true
+				--	end
+				--end
 
 				if item.requirements and not accelerate.requirementsItems then
 					t_insert(env.requirementsTableItems, {
