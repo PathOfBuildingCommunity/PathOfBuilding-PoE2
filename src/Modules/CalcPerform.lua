@@ -392,6 +392,8 @@ local function doActorAttribsConditions(env, actor)
 			condList["StrHighestAttribute"] = output.Str >= output.Dex and output.Str >= output.Int
 			condList["IntHighestAttribute"] = output.Int >= output.Str and output.Int >= output.Dex
 			condList["DexHighestAttribute"] = output.Dex >= output.Str and output.Dex >= output.Int
+			condList["IntSingleHighestAttribute"] = output.Int > output.Str and output.Int > output.Dex
+			condList["DexSingleHighestAttribute"] = output.Dex > output.Str and output.Dex > output.Int
 		end
 	end
 
@@ -1090,7 +1092,7 @@ function calcs.perform(env, skipEHP)
 	applyEnemyModifiers(env.enemy, true)
 	
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
-	local minionType, ammoType, grenadeType = { }, { }, { }
+	local minionCount, minionType, ammoType, grenadeType = { }, { }, { }, { }
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
@@ -1161,6 +1163,16 @@ function calcs.perform(env, skipEHP)
 			local limit = activeSkill.skillModList:Sum("BASE", nil, activeSkill.minion.minionData.limit)
 			output[activeSkill.minion.minionData.limit] = m_max(limit, output[activeSkill.minion.minionData.limit] or 0)
 		end
+		if activeSkill.minion and activeSkill.minion.minionData and activeSkill.minion.minionData.limit then
+			local limit = m_floor(modDB:Override(nil, activeSkill.minion.minionData.limit) or (calcLib.val(activeSkill.skillModList, activeSkill.minion.minionData.limit) * activeSkill.skillModList:More(activeSkill.skillCfg, "ActiveMinionLimit")))
+			output[activeSkill.minion.minionData.limit] = m_max(limit, output[activeSkill.minion.minionData.limit] or 0)
+			if not minionCount[activeSkill.minion.minionData.limit] then
+				env.player.modDB:NewMod("Multiplier:SummonedMinion", "BASE", output[activeSkill.minion.minionData.limit], "Config", { type = "Condition", var = "Combat" })
+				env.player.modDB:NewMod("Multiplier:MinionPresenceCount", "BASE", output[activeSkill.minion.minionData.limit], "Config", { type = "Condition", var = "Combat" })
+				minionCount[activeSkill.minion.minionData.limit] = true
+				t_insert(minionCount, activeSkill.minion.minionData.limit)
+			end
+		end
 		if activeSkill.activeEffect.grantedEffect and activeSkill.skillTypes[SkillType.Minion] and activeSkill.skillTypes[SkillType.Persistent] and not minionType[activeSkill.activeEffect.grantedEffect.id] then
 			minionTypeCount = minionTypeCount + 1
 			minionType[activeSkill.activeEffect.grantedEffect.id] = true
@@ -1209,6 +1221,10 @@ function calcs.perform(env, skipEHP)
 	-- Stat sorting category calcs
 	output.EffectiveLootRarityMod = calcLib.mod(modDB, nil, "LootRarity")
 	output.Spirit = m_floor(calcLib.val(modDB, nil, "Spirit"))
+	
+	if #minionCount == 1 then
+		modDB.conditions["OnlyMinion"] = true
+	end
 
 	-- Special Rarity / Quantity Calc for Bisco's
 	local lootQuantityNormalEnemies = modDB:Sum("INC", nil, "LootQuantityNormalEnemies")
@@ -1253,6 +1269,9 @@ function calcs.perform(env, skipEHP)
 				end
 			end
 			if item then
+				local groupedMods = { }
+				local groupedModOrder = { }
+				local slotEffectSource = "Many Sources:".. colorCodes.SOURCE .. tostring(slotEffectMod * 100) .. "% " .. slot .. " Bonus Effect"
 				for _, mod in ipairs(item.modList or item.slotModList[2]) do
 					-- Filter out SocketedIn type mods
 					for _, tag in ipairs(mod) do
@@ -1261,11 +1280,28 @@ function calcs.perform(env, skipEHP)
 						end
 					end
 
-					local modCopy = copyTable(mod)
-					modCopy.source = "Many Sources:".. colorCodes.SOURCE .. tostring(slotEffectMod * 100) .. "% " .. slot .. " Bonus Effect"
-					modDB:ScaleAddMod(modCopy, slotEffectMod)
+					if type(mod.value) == "number" and (mod.type == "BASE" or mod.type == "INC") then
+						local key = modLib.formatModParams(mod)
+						local modCopy = groupedMods[key]
+						if not modCopy then
+							modCopy = copyTable(mod)
+							modCopy.source = slotEffectSource
+							groupedMods[key] = modCopy
+							t_insert(groupedModOrder, modCopy)
+						else
+							modCopy.value = modCopy.value + mod.value
+						end
+					else
+						local modCopy = copyTable(mod)
+						modCopy.source = slotEffectSource
+						modDB:ScaleAddMod(modCopy, slotEffectMod)
+					end
 
 					::skip_mod::
+				end
+
+				for _, mod in ipairs(groupedModOrder) do
+					modDB:ScaleAddMod(mod, slotEffectMod)
 				end
 			end
 		end
@@ -1504,7 +1540,7 @@ function calcs.perform(env, skipEHP)
 			if item.rarity == "MAGIC" then
 				charmEffectInc = charmEffectInc + effectIncMagic
 			end
-			local effectMod = (1 + (charmEffectInc) / 100) * (1 + (item.quality or 0) / 100)
+			local effectMod = 1 + (charmEffectInc) / 100
 
 			-- same deal as flasks, go look at the comment there
 			if buffModList[1] then

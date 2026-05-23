@@ -517,14 +517,6 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 	addSkillTypes = { SkillType.UsedByTotem, },
 	excludeSkillTypes = { SkillType.Meta, SkillType.Triggered, SkillType.Cooldown, SkillType.Channel, SkillType.Persistent, },
 	ignoreMinionTypes = true,
-	weaponTypes = {
-		["One Hand Axe"] = true,
-		["One Hand Mace"] = true,
-		["One Hand Sword"] = true,
-		["Two Hand Axe"] = true,
-		["Two Hand Mace"] = true,
-		["Two Hand Sword"] = true,
-	},
 	qualityStats = {
 	},
 	levels = {
@@ -5292,10 +5284,6 @@ skills["SupportFerociousRoarPlayer"] = {
 	excludeSkillTypes = { SkillType.Meta, SkillType.InbuiltTrigger, SkillType.Shapeshift, },
 	isTrigger = true,
 	ignoreMinionTypes = true,
-	weaponTypes = {
-		["Bow"] = true,
-		["Spear"] = true,
-	},
 	qualityStats = {
 		{ "warcry_grant_damage_+%_to_exerted_attacks", 1.5 },
 	},

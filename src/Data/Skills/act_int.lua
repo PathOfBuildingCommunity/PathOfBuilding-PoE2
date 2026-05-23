@@ -3795,6 +3795,10 @@ skills["ContagionPlayer"] = {
 				duration = true,
 				spell = true,
 			},
+			baseMods = {
+				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Contagion" }),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 5000 },
 				{ "active_skill_base_area_of_effect_radius", 17 },
@@ -4677,6 +4681,10 @@ skills["DarkEffigyProjectilePlayer"] = {
 				area = true,
 				projectile = true,
 				totem = true,
+			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "ChaosDebuff", actor = "enemy" }),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Poison" }, { type = "Condition", var = "Poisoned" }),
 			},
 			constantStats = {
 				{ "skill_disabled_unless_cloned", 2 },
@@ -6285,6 +6293,9 @@ skills["EssenceDrainPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
+			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -6364,6 +6375,7 @@ skills["EssenceDrainPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -11074,7 +11086,6 @@ skills["HandOfChayulaPlayer"] = {
 				attack = true,
 				melee = true,
 				area = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -12090,6 +12101,10 @@ skills["VileDisruptionPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				duration = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },
@@ -13597,7 +13612,6 @@ skills["KillingPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -15694,6 +15708,9 @@ skills["ProfaneRitualPlayer"] = {
 				spell = true,
 				area = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Profane Ritual" }),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 2000 },
 				{ "ritual_of_power_maximum_number_of_rituals", 5 },
@@ -17013,7 +17030,6 @@ skills["ShatteringPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -19293,6 +19309,9 @@ skills["SoulrendPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
+			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -19366,6 +19385,7 @@ skills["SoulrendPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
 			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },
@@ -20066,7 +20086,7 @@ skills["StaggeringPalmPlayer"] = {
 			baseFlags = {
 				attack = true,
 				area = true,
-				unarmed = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -20954,6 +20974,14 @@ skills["TemporalChainsPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "temporal_chains",
+			statMap = {
+				["base_skill_debuff_action_speed_+%_final_to_inflict"] = {
+					mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" })
+				},
+				["base_temporal_chains_other_buff_time_passed_+%_to_apply"] = {
+					mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				duration = true,
