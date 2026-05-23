@@ -3093,6 +3093,25 @@ local specialModList = {
 	["%+1 ring slot"] = { flag("AdditionalRingSlot") },
 	["regenerate (%D+) equal to (%d+)%% of maximum (%D+) per second"] = function(_, resource1, num, resource2) return { mod( combineToUpper(resource1) .. "Regen", "BASE", 1, { type = "PercentStat", stat = combineToUpper(resource2), percent = num } )} end,
 	["can socket a non%-unique basic jewel into the phylactery"] = { },
+	["spells for which this sacrifice was fully made deal (%d+)%% more damage"] = function(num) return {
+		flag("EldritchEmpowerment"),
+		mod("Damage", "MORE", num, nil, ModFlag.Spell, { type = "Condition", var = "EldritchEmpowermentSacrifice"}),
+	} end,
+	["skeletal minions you would create instead grant you umbral souls for each minion you would have created"] = {
+		flag("UmbralWell"),
+		mod("Damage", "INC", 15, nil, ModFlag.Attack, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalWarrior" }),
+		mod("ProjectileSpeed", "INC", 15, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalSniper" }),
+		mod("EnergyShieldRecharge", "INC", 30, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalCleric" }),
+		mod("AreaOfEffect", "INC", 15, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalArsonist" }),
+		mod("Damage", "INC", 25, nil, ModFlag.Spell, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalStormMage" }),
+		mod("EnergyShield", "INC", 35, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalFrostMage" }),
+		mod("EnemyHeavyStunBuildup", "INC", 60, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalBrute" }),
+
+		mod("Speed", "INC", 6, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalReaver" }),
+		mod("WarcrySpeed", "INC", 6, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalReaver" }),
+		mod("TotemPlacementSpeed", "INC", 6, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalReaver" }),
+		mod("ReloadSpeed", "INC", 6, { type = "GlobalEffect", effectType = "Buff", effectName = "Umbral Well" }, { type = "Multiplier", var = "UmbralWellSkeletalReaver" }),
+	},
 	-- Mercenary
 	-- +2 Weapon Set Passive Skill Points
 	["%+(%d) weapon set passive skill points"] = function(num) return { mod("WeaponSetPassivePoints", "BASE", num) } end,

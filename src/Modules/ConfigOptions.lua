@@ -216,6 +216,35 @@ local configSettings = {
 		modList:NewMod("Multiplier:FlameEffect", "BASE", 1, "Config")
 		modList:NewMod("DamageGainAsChaos", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
 	end },
+	{ label = "Eldritch Empowerment:", ifFlag = "EldritchEmpowerment" },
+	{ var = "eldritchEmpowermentSacrifice", type = "check", label = "Are you Sacrificing?", tooltip = "Sacrifice 5% ^x88FFFFEnergy Shield^7 when you cast a Spell to give that Spell 30% more Damage.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
+	end },
+	{ label = "Umbral Well:", ifFlag = "UmbralWell" },
+		{ var = "umbralWellSkeletalWarrior", type = "count", label = "# of Skeletal Warriors:", tooltip = "Each Skeletal Warrior grants 15% increased Attack Damage.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalWarrior", "BASE", val, "Config")
+		end },
+		{ var = "umbralWellSkeletalSniper", type = "count", label = "# of Skeletal Snipers:", tooltip = "Each Skeletal Sniper grants 15% increased Projectile Speed.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalSniper", "BASE", val, "Config")
+		end },
+		{ var = "umbralWellSkeletalCleric", type = "count", label = "# of Skeletal Clerics:", tooltip = "Each Skeletal Cleric grants 30% increased ^x88FFFFEnergy Shield^7 Recharge Rate.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalCleric", "BASE", val, "Config")
+		end },
+		{ var = "umbralWellSkeletalArsonist", type = "count", label = "# of Skeletal Arsonists:", tooltip = "Each Skeletal Arsonist grants 15% increased Area of Effect.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalArsonist", "BASE", val, "Config")
+		end },
+		{ var = "umbralWellSkeletalStormMage", type = "count", label = "# of Skeletal Storm Mages:", tooltip = "Each Skeletal Storm Mage grants 25% increased Spell Damage.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalStormMage", "BASE", val, "Config")
+		end },
+		{ var = "umbralWellSkeletalFrostMage", type = "count", label = "# of Skeletal Frost Mages:", tooltip = "Each Skeletal Frost Mage grants 35% increased maximum ^x88FFFFEnergy Shield^7.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalFrostMage", "BASE", val, "Config")
+		end },
+		{ var = "umbralWellSkeletalBrute", type = "count", label = "# of Skeletal Brutes:", tooltip = "Each Skeletal Brute grants 60% increased Stun buildup.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalBrute", "BASE", val, "Config")
+		end },
+		{ var = "umbralWellSkeletalReaver", type = "count", label = "# of Skeletal Reavers:", tooltip = "Each Skeletal Reaver grants 6% increased Skill Speed.", ifFlag = "UmbralWell", includeTransfigured = true, apply = function(val, modList, enemyModList)
+			modList:NewMod("Multiplier:UmbralWellSkeletalReaver", "BASE", val, "Config")
+		end },
 	{ label = "Aspect of the Avian:", ifSkill = "Aspect of the Avian" },
 	{ var = "aspectOfTheAvianAviansMight", type = "check", label = "Is Avian's Might active?", ifSkill = "Aspect of the Avian", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AviansMightActive", "FLAG", true, "Config")
