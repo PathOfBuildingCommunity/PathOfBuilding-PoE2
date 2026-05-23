@@ -953,13 +953,13 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				Gloves = "gloves",
 			}
 			for flag, slot in pairs(augmentOverride) do
-				if self["augmentsAs" .. flag] then
+				if self["augmentsAsIf" .. flag] then
 					specificItemType = slot
 					break
 				end
 			end
 			for flag, slot in pairs(augmentOverride) do -- Atziri's Splendour
-				if self["augmentsAlsoAs" .. flag] then
+				if self["augmentsAsIfAlso" .. flag] then
 					additionalType = slot
 				end
 			end
@@ -1376,13 +1376,13 @@ function ItemClass:UpdateRunes()
 				Gloves = "gloves",
 			}
 			for flag, slot in pairs(augmentOverride) do
-				if self["augmentsAs" .. flag] then
+				if self["augmentsAsIf" .. flag] then
 					specificType = slot
 					break
 				end
 			end
 			for flag, slot in pairs(augmentOverride) do -- Atziri's Splendour
-				if self["augmentsAlsoAs" .. flag] then
+				if self["augmentsAsIfAlso" .. flag] then
 					additionalType = slot
 					break
 				end
@@ -1927,10 +1927,10 @@ function ItemClass:BuildModList()
 	end
 	for _, slot in ipairs({ "Shield", "BodyArmour", "Helmet", "Boots", "Gloves" }) do
 		if calcLocal(baseList, "AugmentsAsIf"..slot, "FLAG", 0) then
-			self["augmentsAs"..slot] = true
+			self["augmentsAsIf"..slot] = true
 		end
 		if calcLocal(baseList, "AugmentsAsIfAlso"..slot, "FLAG", 0) then
-			self["augmentsAlsoAs"..slot] = true
+			self["augmentsAsIfAlso"..slot] = true
 		end
 	end
 	if calcLocal(baseList, "NoAttributeRequirements", "FLAG", 0) then
