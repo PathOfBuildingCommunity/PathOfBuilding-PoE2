@@ -3,7 +3,7 @@
 local itemBases = ...
 
 itemBases["Dull Hatchet"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -12,7 +12,7 @@ itemBases["Dull Hatchet"] = {
 	req = { },
 }
 itemBases["Hook Axe"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -22,7 +22,7 @@ itemBases["Hook Axe"] = {
 	req = { str = 9, },
 }
 itemBases["Bearded Axe"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, ezomyte_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -31,7 +31,7 @@ itemBases["Bearded Axe"] = {
 	req = { level = 10, str = 17, dex = 9, },
 }
 itemBases["Extended Cleaver"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -41,7 +41,7 @@ itemBases["Extended Cleaver"] = {
 	req = { level = 16, str = 25, dex = 12, },
 }
 itemBases["Bandit Hatchet"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -50,7 +50,7 @@ itemBases["Bandit Hatchet"] = {
 	req = { level = 20, str = 30, dex = 14, },
 }
 itemBases["Crescent Axe"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, maraketh_basetype = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -59,7 +59,7 @@ itemBases["Crescent Axe"] = {
 	req = { level = 26, str = 38, dex = 17, },
 }
 itemBases["Carving Hatchet"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, vaal_basetype = true, weapon = true, },
@@ -68,7 +68,7 @@ itemBases["Carving Hatchet"] = {
 	req = { level = 33, str = 47, dex = 20, },
 }
 itemBases["Sacrificial Axe"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, vaal_basetype = true, weapon = true, },
@@ -78,7 +78,7 @@ itemBases["Sacrificial Axe"] = {
 	req = { level = 37, str = 52, dex = 22, },
 }
 itemBases["Boarding Hatchet"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -87,7 +87,7 @@ itemBases["Boarding Hatchet"] = {
 	req = { level = 45, str = 63, dex = 26, },
 }
 itemBases["Fury Cleaver"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -97,7 +97,7 @@ itemBases["Fury Cleaver"] = {
 	req = { level = 48, str = 67, dex = 27, },
 }
 itemBases["Battle Axe"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -106,7 +106,7 @@ itemBases["Battle Axe"] = {
 	req = { level = 52, str = 72, dex = 29, },
 }
 itemBases["Profane Cleaver"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -115,7 +115,7 @@ itemBases["Profane Cleaver"] = {
 	req = { level = 54, str = 75, dex = 30, },
 }
 itemBases["Dread Hatchet"] = {
-	type = "One Handed Axe",
+	type = "One Hand Axe",
 	quality = 20,
 	socketLimit = 3,
 	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
@@ -123,81 +123,9 @@ itemBases["Dread Hatchet"] = {
 	weapon = { PhysicalMin = 34, PhysicalMax = 79, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
 	req = { level = 65, str = 89, dex = 36, },
 }
-itemBases["[DNT] Callous Hatchet"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 35, PhysicalMax = 81, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 67, str = 89, dex = 36, },
-}
-itemBases["[DNT] Catcher Axe"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 37, PhysicalMax = 86, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 72, str = 89, dex = 36, },
-}
-itemBases["[DNT] Aged Axe"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 39, PhysicalMax = 91, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 77, str = 89, dex = 36, },
-}
-itemBases["[DNT] Towering Axe"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 39, PhysicalMax = 91, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 78, str = 89, dex = 36, },
-}
-itemBases["[DNT] Vagabond Axe"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 39, PhysicalMax = 91, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 79, str = 89, dex = 36, },
-}
-itemBases["[DNT] Moonlight Axe"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 39, PhysicalMax = 91, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 77, str = 89, dex = 36, },
-}
-itemBases["[DNT] Hacking Hatchet"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 38, PhysicalMax = 89, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 75, str = 89, dex = 36, },
-}
-itemBases["[DNT] Ritualistic Axe"] = {
-	type = "One Handed Axe",
-	quality = 20,
-	socketLimit = 3,
-	tags = { axe = true, default = true, one_hand_weapon = true, onehand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 39, PhysicalMax = 91, CritChanceBase = 5, AttackRateBase = 1.5, Range = 11, },
-	req = { level = 78, str = 89, dex = 36, },
-}
 
 itemBases["Splitting Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, ezomyte_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -206,7 +134,7 @@ itemBases["Splitting Greataxe"] = {
 	req = { },
 }
 itemBases["Light Halberd"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, ezomyte_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -215,7 +143,7 @@ itemBases["Light Halberd"] = {
 	req = { str = 9, },
 }
 itemBases["Executioner Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, ezomyte_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -225,7 +153,7 @@ itemBases["Executioner Greataxe"] = {
 	req = { level = 10, str = 17, dex = 9, },
 }
 itemBases["Arched Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, maraketh_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -234,7 +162,7 @@ itemBases["Arched Greataxe"] = {
 	req = { level = 16, str = 25, dex = 12, },
 }
 itemBases["Elegant Glaive"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, maraketh_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -243,7 +171,7 @@ itemBases["Elegant Glaive"] = {
 	req = { level = 20, str = 30, dex = 14, },
 }
 itemBases["Savage Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, maraketh_basetype = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -253,7 +181,7 @@ itemBases["Savage Greataxe"] = {
 	req = { level = 27, str = 39, dex = 17, },
 }
 itemBases["Rending Halberd"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
@@ -262,7 +190,7 @@ itemBases["Rending Halberd"] = {
 	req = { level = 33, str = 47, dex = 20, },
 }
 itemBases["Jagged Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, vaal_basetype = true, weapon = true, },
@@ -272,7 +200,7 @@ itemBases["Jagged Greataxe"] = {
 	req = { level = 40, str = 56, dex = 23, },
 }
 itemBases["Reaver Glaive"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -281,7 +209,7 @@ itemBases["Reaver Glaive"] = {
 	req = { level = 45, str = 63, dex = 26, },
 }
 itemBases["Ember Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -290,7 +218,7 @@ itemBases["Ember Greataxe"] = {
 	req = { level = 50, str = 70, dex = 28, },
 }
 itemBases["Ceremonial Halberd"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -300,7 +228,7 @@ itemBases["Ceremonial Halberd"] = {
 	req = { level = 52, str = 72, dex = 29, },
 }
 itemBases["Monument Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
@@ -309,83 +237,11 @@ itemBases["Monument Greataxe"] = {
 	req = { level = 57, str = 79, dex = 32, },
 }
 itemBases["Vile Greataxe"] = {
-	type = "Two Handed Axe",
+	type = "Two Hand Axe",
 	quality = 20,
 	socketLimit = 4,
 	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
 	implicitModTypes = { },
 	weapon = { PhysicalMin = 59, PhysicalMax = 155, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
 	req = { level = 65, str = 89, dex = 36, },
-}
-itemBases["[DNT] Dividing Greataxe"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 60, PhysicalMax = 159, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 67, str = 89, dex = 36, },
-}
-itemBases["[DNT] Feathersteel Halberd"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 64, PhysicalMax = 170, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 72, str = 89, dex = 36, },
-}
-itemBases["[DNT] Grimhold Axe"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 68, PhysicalMax = 180, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 77, str = 89, dex = 36, },
-}
-itemBases["[DNT] Notched Greataxe"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 68, PhysicalMax = 180, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 78, str = 89, dex = 36, },
-}
-itemBases["[DNT] Intricate Greataxe"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 68, PhysicalMax = 180, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 79, str = 89, dex = 36, },
-}
-itemBases["[DNT] Violent Greataxe"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 68, PhysicalMax = 180, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 77, str = 89, dex = 36, },
-}
-itemBases["[DNT] Severing Halberd"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 67, PhysicalMax = 176, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 75, str = 89, dex = 36, },
-}
-itemBases["[DNT] Clawed Greataxe"] = {
-	type = "Two Handed Axe",
-	quality = 20,
-	socketLimit = 4,
-	tags = { axe = true, default = true, two_hand_weapon = true, twohand = true, weapon = true, },
-	implicitModTypes = { },
-	weapon = { PhysicalMin = 68, PhysicalMax = 180, CritChanceBase = 5, AttackRateBase = 1.2, Range = 13, },
-	req = { level = 78, str = 89, dex = 36, },
 }

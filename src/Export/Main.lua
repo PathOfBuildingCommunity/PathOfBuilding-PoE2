@@ -67,6 +67,7 @@ local remainingScripts = { }
 function main:Init()
 	self.inputEvents = { }
 	self.popups = { }
+	self.scriptOutput = { }
 
 	self.datSpecs = LoadModule("spec")
 
@@ -98,7 +99,6 @@ function main:Init()
 			break
 		end
 	end
-	self.scriptOutput = { }
 
 	function print(text)
 		for line in text:gmatch("[^\r\n]+") do
@@ -416,7 +416,7 @@ function main:Shutdown()
 end
 
 function main:OnFrame()
-	self.screenW, self.screenH = GetScreenSize()
+	self.screenW, self.screenH = GetVirtualScreenSize()
 
 	self.viewPort = { x = 0, y = 0, width = self.screenW, height = self.screenH }
 
