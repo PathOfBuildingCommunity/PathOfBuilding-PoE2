@@ -5139,7 +5139,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Apply elemental exposure from skill
 		for _, element in ipairs({"Fire", "Cold", "Lightning"}) do
-			if skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0 then
+			if (skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0) or skillModList:Flag(cfg, "InflictExposure") then
 				skillFlags["apply"..element.."Exposure"] = true
 			end
 		end
