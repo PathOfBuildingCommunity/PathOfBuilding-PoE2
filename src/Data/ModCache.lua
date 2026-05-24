@@ -6048,7 +6048,7 @@ c["Totems have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keyword
 c["Totems have 20% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=20}},nil}
 c["Totems only use Skills when you fire an Attack Projectile"]={nil,"Totems only use Skills when you fire an Attack Projectile "}
 c["Totems reserve 75 Spirit each"]={nil,"Totems reserve 75 Spirit each "}
-c["Totems you place grant Embankment Auras"]={{[1]={[1]={skillNameList={[1]="Artillery Ballista",[2]="Siege Ballista",[3]="Mortar Cannon",[4]="Shockwave Totem",[5]="Ancestral Warrior Totem",[6]="Dark Effigy",[7]="Spell Totem"},type="SkillName"},flags=0,keywordFlags=0,name="StrategicEmbankments",type="FLAG",value=true},[2]={[1]={skillType=39,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="level",keyword="grants_active_skill"}}},nil}
+c["Totems you place grant Embankment Auras"]={{[1]={[1]={skillNameList={[1]="Artillery Ballista",[2]="Siege Ballista",[3]="Mortar Cannon",[4]="Shockwave Totem",[5]="Ancestral Warrior Totem",[6]="Dark Effigy",[7]="Spell Totem"},type="SkillName"},flags=0,keywordFlags=0,name="StrategicEmbankments",type="FLAG",value=true}},nil}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={{},nil}
 c["Trigger Decompose every 1.2 metres travelled"]={nil,"Trigger Decompose every 1.2 metres travelled "}
 c["Trigger Elemental Expression on Melee Critical Hit"]={nil,"Trigger Elemental Expression on Melee Critical Hit "}
