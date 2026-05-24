@@ -221,7 +221,7 @@ local configSettings = {
 		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
 	end },
 	{ label = "Unwilling Offering:", ifFlag = "UnwillingOffering" },
-	{ var = "unwillingOfferingPower", type = "count", label = "Power of Culled Enemy?", tooltip = "Offerings created by culling enemies gain 1% increased effect per Power.\nUnique enemies always have 20 Power.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
+	{ var = "unwillingOfferingPower", type = "count", label = "Power of Culled Enemy?", tooltip = "Offerings created by culling enemies gain 1% increased effect per Power.\nUnique enemies always have 20 Power.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:UnwillingOfferingPower", "BASE", val, "Config")
 	end },
 	{ label = "Aspect of the Avian:", ifSkill = "Aspect of the Avian" },

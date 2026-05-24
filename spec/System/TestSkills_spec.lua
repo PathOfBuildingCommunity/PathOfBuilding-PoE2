@@ -486,7 +486,7 @@ describe("TestSkills", function()
 		-- if one works they all do, surely
 		assert.True(build.calcsTab.mainOutput.TotalDPS > baseFireball)
 	end)
-    
+	
 	it("Test Minion Pact damage requires a minion in your presence", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
