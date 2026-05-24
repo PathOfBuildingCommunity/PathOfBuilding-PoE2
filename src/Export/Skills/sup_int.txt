@@ -329,11 +329,6 @@ statMap = {
 
 #skill SupportColdExposurePlayer
 #set SupportColdExposurePlayer
-statMap = {
-	["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
-		mod("ColdExposureChance", "BASE", nil),
-	},
-},
 #mods
 #skillEnd
 
@@ -1138,7 +1133,7 @@ statMap = {
 #set SupportMinionPactPlayer
 statMap = {
 	["support_minion_pact_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 	},
 },
 #mods
@@ -1148,7 +1143,7 @@ statMap = {
 #set SupportMinionPactPlayerTwo
 statMap = {
 	["support_minion_pact_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
+		mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 	},
 },
 #mods

@@ -634,12 +634,6 @@ statMap = {
 #skill FrostBombPlayer
 #set FrostBombPlayer
 #flags spell area duration
-statMap = {
-	['skill_cold_exposure_magnitude'] = {
-		mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-		mult = -1
-	},
-},
 #mods
 #skillEnd
 

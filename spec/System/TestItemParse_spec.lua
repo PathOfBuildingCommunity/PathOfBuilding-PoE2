@@ -200,6 +200,35 @@ describe("TestItemParse", function()
 		assert.are.equals("VolatileDeadPlayer", item.grantedSkills[1].skillId)
 	end)
 
+	it("Crafted affixes matching base implicit ranges stay explicit", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			New Item
+			Solar Amulet
+			Crafted: true
+			Prefix: {range:0}IncreasedSpirit4
+			Prefix: None
+			Prefix: None
+			Suffix: None
+			Suffix: None
+			Suffix: None
+			Implicits: 1
+			+(10-15) to Spirit
+		]])
+
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("+(10-15) to Spirit", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("+43 to Spirit", item.explicitModLines[1].line)
+
+		item.prefixes[1].range = 0.2
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("+44 to Spirit", item.explicitModLines[1].line)
+	end)
+
 	--TODO: POB2 Leagues?
 	--it("League", function()
 	--end)
