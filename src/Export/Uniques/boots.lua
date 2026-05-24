@@ -3,6 +3,17 @@
 return {
 -- Boots: Armour
 [[
+Atziri's Step
+Cinched Boots
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+UniqueMovementVelocity27
+UniqueLocalIncreasedEvasionRatingPercent34
+UniqueIncreasedLife55
+UniqueEvasionAppliesToDeflection4
+UniqueDeflectDamagePrevented1
+UniqueCannotBeLightStunnedByDeflectedHits1
+]],[[
 Birth of Fury
 Stone Greaves
 Variant: Pre 0.1.1
