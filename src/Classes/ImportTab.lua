@@ -52,7 +52,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	-- Stage: Authenticate
 	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
-		main.api:FetchAuthToken(function()
+		main.api:FetchAuthToken(function(_, errCode)
 			if main.api.authToken then
 				self.charImportMode = "GETACCOUNTNAME"
 				self.charImportStatus = "Authenticated"
@@ -62,8 +62,8 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 				main.tokenExpiry = main.api.tokenExpiry
 				main:SaveSettings()
 				self:DownloadCharacterList()
-			elseif errMsg and errMsg ~= main.api.ERROR_NO_AUTH then
-				self.charImportStatus = colorCodes.NEGATIVE.."Authentication failed: "..errMsg
+			elseif errCode and errCode ~= main.api.ERROR_NO_AUTH then
+				self.charImportStatus = colorCodes.NEGATIVE .. "Authentication failed: " .. errCode
 			else
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			end
