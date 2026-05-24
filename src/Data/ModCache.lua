@@ -2313,8 +2313,8 @@ c["30% chance to Chain an additional time"]={{[1]={flags=0,keywordFlags=0,name="
 c["30% chance to Impale on Spell Hit"]={{[1]={flags=2,keywordFlags=0,name="ImpaleChance",type="BASE",value=30}},nil}
 c["30% chance to Pierce an Enemy"]={{[1]={flags=0,keywordFlags=0,name="PierceChance",type="BASE",value=30}},nil}
 c["30% chance to Poison on Hit"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},nil}
-c["30% chance to Poison on Hit against Enemies that are not Poisoned"]={{[1]={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},"  against Enemies that are not Poisoned "}
-c["30% chance to Poison on Hit against Enemies that are not Poisoned 80% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},"  against Enemies that are not Poisoned 80% increased Effect of Poison you inflict  "}
+c["30% chance to Poison on Hit against Enemies that are not Poisoned"]={{[1]={[1]={actor="enemy",threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},nil}
+c["30% chance to Poison on Hit against Enemies that are not Poisoned 80% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={[1]={actor="enemy",threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=30}},"  80% increased Effect of Poison you inflict on targets that are not Poisoned"}
 c["30% chance to Poison on Hit with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="PoisonChance",type="BASE",value=30}},nil}
 c["30% chance to inflict Bleeding on Hit"]={{[1]={flags=0,keywordFlags=0,name="BleedChance",type="BASE",value=30}},nil}
 c["30% chance when you Reload a Crossbow to be immediate"]={{[1]={flags=0,keywordFlags=0,name="InstantReloadChance",type="BASE",value=30}},nil}
@@ -3070,7 +3070,7 @@ c["60% increased Attack Damage while on Low Life"]={{[1]={[1]={type="Condition",
 c["60% increased Block chance"]={{[1]={flags=0,keywordFlags=0,name="BlockChance",type="INC",value=60}},nil}
 c["60% increased Critical Damage Bonus"]={{[1]={flags=0,keywordFlags=0,name="CritMultiplier",type="INC",value=60}},nil}
 c["60% increased Damage with Hits against Enemies that are on Low Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="LowLife"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=60}},nil}
-c["60% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=2097152,name="AilmentEffect",type="INC",value=60}},nil}
+c["60% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={[1]={actor="enemy",threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=2097152,name="AilmentEffect",type="INC",value=60}},nil}
 c["60% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
 c["60% increased Energy Shield from Equipped Body Armour"]={{[1]={[1]={slotName="Body Armour",type="SlotName"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
 c["60% increased Energy Shield from Equipped Focus"]={{[1]={[1]={slotName="Weapon 2",type="SlotName"},[2]={type="Condition",var="UsingFocus"},flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=60}},nil}
@@ -3261,7 +3261,7 @@ c["80% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,
 c["80% increased Damage with Hits against Enemies that are on Full Life"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="FullLife"},flags=0,keywordFlags=262144,name="Damage",type="INC",value=80}},nil}
 c["80% increased Desecrated Modifier magnitudes"]={{[1]={flags=0,keywordFlags=0,name="Magnitude",type="INC",value=80}}," Desecrated Modifier  "}
 c["80% increased Desecrated Modifier magnitudes 160% increased Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="Magnitude",type="INC",value=80}}," Desecrated Modifier  160% increased Chaos Damage "}
-c["80% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=2097152,name="AilmentEffect",type="INC",value=80}},nil}
+c["80% increased Effect of Poison you inflict on targets that are not Poisoned"]={{[1]={[1]={actor="enemy",threshold=1,type="MultiplierThreshold",upper=true,var="PoisonStacks"},flags=0,keywordFlags=2097152,name="AilmentEffect",type="INC",value=80}},nil}
 c["80% increased Elemental Damage with Attacks"]={{[1]={flags=0,keywordFlags=65536,name="ElementalDamage",type="INC",value=80}},nil}
 c["80% increased Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="INC",value=80}},nil}
 c["80% increased Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="Evasion",type="INC",value=80}},nil}
