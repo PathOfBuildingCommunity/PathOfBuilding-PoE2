@@ -1158,30 +1158,32 @@ function calcs.perform(env, skipEHP)
 			end
 			if modDB:Flag(nil, "UmbralWell") then --todo get buffs from file
 				local variantId = activeSkill.activeEffect.gemData.variantId
-				if variantId:match("Skeletal") then
+				local buffValue = activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "UmbralWellBuffValue")
+				if buffValue > 0 then
 					activeSkill.infoMessage = "Disabled by Umbral Well"
 					activeSkill.minion.modDB:NewMod("DealNoDamage", "FLAG", 1, "Umbral Well")
 
 					local count = calcs.getActiveSkillCount(activeSkill)
+					local minionName = activeSkill.activeEffect.gemData.name
 					if variantId == "SkeletalWarrior" then
-						env.player.modDB:NewMod("Damage", "INC", 15 * count, "Umbral Well - 15% per "..activeSkill.activeEffect.gemData.name, ModFlag.Attack, nil, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("Damage", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, ModFlag.Attack, nil, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalSniper" then
-						env.player.modDB:NewMod("ProjectileSpeed", "INC", 15 * count, "Umbral Well - 15% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("ProjectileSpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalCleric" then
-						env.player.modDB:NewMod("EnergyShieldRecharge", "INC", 30 * count, "Umbral Well -  30% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("EnergyShieldRecharge", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalArsonist" then
-						env.player.modDB:NewMod("AreaOfEffect", "INC", 15 * count, "Umbral Well - 15% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("AreaOfEffect", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalStormMage" then
-						env.player.modDB:NewMod("Damage", "INC", 25 * count, "Umbral Well - 25% per "..activeSkill.activeEffect.gemData.name, ModFlag.Spell, nil, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("Damage", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, ModFlag.Spell, nil, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalFrostMage" then
-						env.player.modDB:NewMod("EnergyShield", "INC", 35 * count, "Umbral Well - 35% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff"})
+						env.player.modDB:NewMod("EnergyShield", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff"})
 					elseif variantId == "SkeletalBrute" then
-						env.player.modDB:NewMod("EnemyHeavyStunBuildup", "INC", 60 * count, "Umbral Well - 60% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("EnemyHeavyStunBuildup", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalReaver" then
-						env.player.modDB:NewMod("Speed", "INC", 6 * count, "Umbral Well - 6% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
-						env.player.modDB:NewMod("WarcrySpeed", "INC", 6 * count, "Umbral Well - 6% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
-						env.player.modDB:NewMod("TotemPlacementSpeed", "INC", 6 * count, "Umbral Well - 6% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
-						env.player.modDB:NewMod("ReloadSpeed", "INC", 6 * count, "Umbral Well - 6% per "..activeSkill.activeEffect.gemData.name, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("Speed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("WarcrySpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("TotemPlacementSpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						env.player.modDB:NewMod("ReloadSpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					end
 				end
 			end
