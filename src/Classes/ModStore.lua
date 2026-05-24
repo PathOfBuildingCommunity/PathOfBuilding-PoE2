@@ -363,13 +363,6 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 				tag.div = GetMultiplier(self, tag.divVar, cfg)
 			end
 			local mult = m_floor(base / (tag.div or 1) + 0.0001)
-			-- scale effects of Multiplier mod
-			if tag.scalar then
-				local scalar = 1 + GetMultiplier(target, tag.scalar, cfg) / 100
-				if scalar > 1 then
-					mult = mult * scalar
-				end
-			end
 			local limitTotal
 			local limitNegTotal
 			if tag.limit or tag.limitVar then
@@ -441,15 +434,8 @@ function ModStoreClass:EvalMod(mod, cfg, globalLimits)
 				mult = GetMultiplier(target, tag.var, cfg)
 			end
 			local threshold = tag.threshold or GetMultiplier(tag.thresholdActor and thresholdTarget or target, tag.thresholdVar, cfg)
-			if (tag.upper and mult > threshold) or (tag.equals and mult ~= threshold) or (not (tag.upper and tag.exact) and mult < threshold) then
+			if (tag.upper and mult > threshold) or (tag.equals and mult ~= threshold) or (not tag.upper and mult < threshold) then
 				return
-			end
-			-- scale effects of Multiplier mod
-			if tag.scalar then
-				local scalar = 1 + GetMultiplier(target, tag.scalar, cfg) / 100
-				if scalar > 1 then
-					value = value * scalar
-				end
 			end
 		elseif tag.type == "PerStat" then
 			local base

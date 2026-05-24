@@ -391,6 +391,74 @@ describe("TestSkills", function()
 		assert.are.equals(3, arcSkill.skillModList:Sum("BASE", arcSkill.skillCfg, "GemSupportLevel"))
 	end)
 
+	it("Test Elemental Conflux element selection", function()
+		build.skillsTab:PasteSocketGroup("Arc 20/0  1")
+		build.skillsTab:PasteSocketGroup("Elemental Conflux 20/0  1")
+		build.configTab.input.elementalConfluxElement = 2 -- Lightning
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local lightningDPS = build.calcsTab.mainOutput.TotalDPS
+
+		-- Cold element should not boost a lightning skill
+		build.configTab.input.elementalConfluxElement = 3 -- Cold
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local coldSelectedDPS = build.calcsTab.mainOutput.TotalDPS
+
+		assert.True(lightningDPS > coldSelectedDPS)
+
+		-- Average should give an intermediate boost (1/3 per element)
+		build.configTab.input.elementalConfluxElement = 1 -- Average
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local avgDPS = build.calcsTab.mainOutput.TotalDPS
+
+		assert.True(avgDPS > coldSelectedDPS)
+		assert.True(avgDPS < lightningDPS)
+	end)
+
+	it("Test flicker strike scales with power charges", function()
+		build.skillsTab:PasteSocketGroup("Flicker Strike 20/0  1")
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Sinister Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+
+		runCallback("OnFrame")
+
+		local avgNoCharges = build.calcsTab.mainOutput.AverageDamage
+		local avgBurstNoCharges = build.calcsTab.mainOutput.AverageBurstDamage
+
+		-- Burst isn't calculated with no charges
+		assert.truthy(avgNoCharges)
+		assert.True(avgBurstNoCharges == avgNoCharges)
+
+		build.configTab.input.usePowerCharges = true
+		build.configTab.input.overridePowerCharges = 2
+		build.configTab:BuildModList()
+
+		runCallback("OnFrame")
+		-- Burst should be higher due to having multiple strikes, while average
+		-- is only slightly higher due to power charges
+		local avgCharges = build.calcsTab.mainOutput.AverageDamage
+		local avgBurstCharges = build.calcsTab.mainOutput.AverageBurstDamage
+
+		assert.True(avgNoCharges == avgCharges)
+		assert.True(avgCharges < avgBurstCharges)
+		-- Strikes 2 times per charge
+		assert.True(avgNoCharges * 4 <= avgBurstCharges)
+		assert.True(avgBurstCharges <= avgNoCharges * 6)
+
+
+		-- One with the Storm strikes 2 additional times
+		build.configTab.input.customMods = "quarterstaff skills that consume power charges count as consuming an additional power charge"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.True(avgNoCharges * 6 <= build.calcsTab.mainOutput.AverageBurstDamage)
+	end)
+
 	it("Test Barrage only repeats Barrageable skills", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
@@ -427,6 +495,66 @@ describe("TestSkills", function()
 		assert.True(build.calcsTab.mainOutput.TotalDPS > iceShotDPS)
 	end)
 
+	it("Test Unwilling Offering", function()
+		build.configTab.input.customMods = [[
+			Your Offerings affect you instead of your Minions
+			Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		runCallback("OnFrame")
+		local baseFireball = build.calcsTab.mainOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Pain Offering 20/0  1")
+		runCallback("OnFrame")
+		local fireBallPain = build.calcsTab.mainOutput.TotalDPS
+		assert.True(fireBallPain > baseFireball)
+
+		build.skillsTab:PasteSocketGroup("Soul Offering 20/0  1")
+		runCallback("OnFrame")
+		local fireBallPainSoul = build.calcsTab.mainOutput.TotalDPS
+		assert.True(fireBallPainSoul > fireBallPain)
+		assert.equals(build.calcsTab.calcsOutput.BuffList, "Pain Offering, Soul Offering")
+
+		build.configTab.input.unwillingOfferingPower = 20
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local incEffectOfferings = build.calcsTab.mainOutput.TotalDPS
+		assert.True(incEffectOfferings > fireBallPainSoul)
+
+		newBuild()
+		build.configTab.input.customMods = [[
+			Your Offerings affect you instead of your Minions
+			Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.skillsTab:PasteSocketGroup("Raise Zombie 20/0  1")
+		build.skillsTab:PasteSocketGroup("Soul Offering 20/0  1")
+		runCallback("OnFrame")
+		assert.equals(build.calcsTab.calcsOutput.Minion.BuffList, "")
+	end)
+
+	it("Test Umbral Well", function()
+		build.configTab.input.customMods = [[
+			Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		runCallback("OnFrame")
+		local baseFireball = build.calcsTab.mainOutput.TotalDPS
+
+		build.skillsTab:PasteSocketGroup("Skeletal Storm Mage 20/0  1")
+		runCallback("OnFrame")
+
+		-- if one works they all do, surely
+		assert.True(build.calcsTab.mainOutput.TotalDPS > baseFireball)
+	end)
+	
 	it("Test Minion Pact damage requires a minion in your presence", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
@@ -450,5 +578,249 @@ describe("TestSkills", function()
 		activeSkill = build.calcsTab.calcsEnv.player.activeSkillList[1]
 		assert.are.equals(30, activeSkill.skillModList:Sum("MORE", activeSkill.skillCfg, "Damage"))
 		assert.True(build.calcsTab.calcsOutput.TotalDPS > noMinionDps)
+	end)
+
+	it("Test conditional exposure supports make exposure configurable", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Killing Palm 20/0  1\nLightning Attunement 1/0  1\nLightning Exposure 1/0  1")
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.mainEnv.player.modDB:GetCondition("CanApplyLightningExposure"))
+	end)
+
+	it("Test exposure supports on other active skills make exposure configurable", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+		build.skillsTab:PasteSocketGroup("Killing Palm 20/0  1\nLightning Attunement 1/0  1\nLightning Exposure 1/0  1")
+		runCallback("OnFrame")
+
+		assert.are.equals("Spark", build.calcsTab.mainEnv.player.mainSkill.activeEffect.grantedEffect.name)
+		assert.True(build.calcsTab.mainEnv.player.modDB:GetCondition("CanApplyLightningExposure"))
+
+		build.configTab.input.conditionEnemyLightningExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "LightningExposure"))
+	end)
+
+	it("Test Potent Exposure only scales exposure from supported skills", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1\nFire Exposure 1/0  1")
+		build.configTab.input.conditionEnemyFireExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local fireResistWithoutPotentExposure = build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1\nFire Exposure 1/0  1")
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1\nPotent Exposure 1/0  1")
+		build.configTab.input.conditionEnemyFireExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(fireResistWithoutPotentExposure, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist"))
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1\nFire Exposure 1/0  1\nPotent Exposure 1/0  1")
+		build.configTab.input.conditionEnemyFireExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireExposure"))
+		assert.True(build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist") < fireResistWithoutPotentExposure)
+	end)
+
+	it("Test granted skills with exposure stats make exposure configurable", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		local spec = build.spec
+		local brewConcoctionNode = spec.nodes[57141]
+		local shatteringConcoctionNode = spec.nodes[18940]
+		brewConcoctionNode.alloc = true
+		shatteringConcoctionNode.alloc = true
+		spec.allocNodes[brewConcoctionNode.id] = brewConcoctionNode
+		spec.allocNodes[shatteringConcoctionNode.id] = shatteringConcoctionNode
+		build.buildFlag = true
+		runCallback("OnFrame")
+		build.calcsTab.input.skill_number = 1
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		assert.are.equals("Fireball", build.calcsTab.mainEnv.player.mainSkill.activeEffect.grantedEffect.name)
+		assert.True(build.calcsTab.mainEnv.player.modDB:GetCondition("CanApplyFireExposure"))
+		assert.True(build.configTab.varControls.conditionEnemyFireExposure:shown())
+	end)
+
+	it("Test Refraction III exposure scales from player armour", function()
+		build.configTab.input.customMods = "+30000 to Armour"
+		build.configTab.input.bannerPlanted = true
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("War Banner 20/0  1\nRefraction III 1/0  1")
+		runCallback("OnFrame")
+
+		assert.are.equals(30000, build.calcsTab.mainEnv.player.output.Armour)
+		assert.are.equals(60, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireExposure"))
+		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist"))
+		assert.True(build.calcsTab.mainEnv.enemyDB:Flag(nil, "Condition:HasExposure"))
+	end)
+
+	describe("Combo stacking", function()
+		local CHAKRA_MOD = "Skills deal 8% increased Damage per Combo consumed, up to 40%"
+
+		local function equipQuarterstaff()
+			build.itemsTab:CreateDisplayItemFromRaw([[
+				New Item
+				Razor Quarterstaff
+				Quality: 0
+			]])
+			build.itemsTab:AddDisplayItem()
+			runCallback("OnFrame")
+		end
+
+		local function applyComboConfig(stacks, customMods)
+			build.configTab.input.multiplierCombo = stacks
+			build.configTab.input.customMods = customMods or ""
+			build.configTab:BuildModList()
+			runCallback("OnFrame")
+			build.calcsTab:BuildOutput()
+			runCallback("OnFrame")
+		end
+
+		local function findSkillIndex(skillName)
+			for index, skill in ipairs(build.calcsTab.mainEnv.player.activeSkillList) do
+				if skill.activeEffect.grantedEffect.name == skillName then
+					return index
+				end
+			end
+			error("Skill not found: " .. skillName)
+		end
+
+		local function getSkillIncDamage(skillIndex)
+			local skill = build.calcsTab.mainEnv.player.activeSkillList[skillIndex]
+			return skill.skillModList:Sum("INC", skill.skillCfg, "Damage")
+		end
+
+		local function getSkillMoreDamage(skillIndex)
+			local skill = build.calcsTab.mainEnv.player.activeSkillList[skillIndex]
+			return skill.skillModList:Sum("MORE", skill.skillCfg, "Damage")
+		end
+
+		local function getAverageHit()
+			return build.calcsTab.mainOutput.AverageHit or 0
+		end
+
+		it("does not apply damage per combo consumed to non-ComboStacking skills", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Ball Lightning 20/0  1\n")
+			build.skillsTab:PasteSocketGroup("Tempest Bell 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(10, "")
+			local ballIncBase = getSkillIncDamage(findSkillIndex("Ball Lightning"))
+			local tempestIncBase = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(10, CHAKRA_MOD)
+			local ballIncWith = getSkillIncDamage(findSkillIndex("Ball Lightning"))
+			local tempestIncWith = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			assert.are.equals(ballIncBase, ballIncWith)
+			assert.True(tempestIncWith > tempestIncBase)
+		end)
+
+		it("caps damage per combo consumed at the stated limit", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Tempest Bell 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(0, "")
+			local tempestIncBase = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(3, CHAKRA_MOD)
+			local incAt3 = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(5, CHAKRA_MOD)
+			local incAt5 = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			applyComboConfig(10, CHAKRA_MOD)
+			local incAt10 = getSkillIncDamage(findSkillIndex("Tempest Bell"))
+
+			assert.are.equals(24, incAt3 - tempestIncBase)
+			assert.are.equals(40, incAt5 - tempestIncBase)
+			assert.are.equals(40, incAt10 - tempestIncBase)
+			assert.are.equals(incAt5, incAt10)
+		end)
+
+		it("Culmination I caps combo damage at 10 stacks", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1\nCulmination I 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(10)
+			local moreAt10 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt10 = getAverageHit()
+
+			applyComboConfig(50)
+			local moreAt50 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt50 = getAverageHit()
+
+			assert.are.equals(30, moreAt10)
+			assert.are.equals(moreAt10, moreAt50)
+			assert.are.equals(hitAt10, hitAt50)
+		end)
+
+		it("Culmination II caps combo damage at 20 stacks", function()
+			equipQuarterstaff()
+			build.skillsTab:PasteSocketGroup("Quarterstaff Strike 20/0  1\nCulmination II 20/0  1\n")
+			runCallback("OnFrame")
+
+			applyComboConfig(20)
+			local moreAt20 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt20 = getAverageHit()
+
+			applyComboConfig(50)
+			local moreAt50 = getSkillMoreDamage(findSkillIndex("Quarterstaff Strike"))
+			local hitAt50 = getAverageHit()
+
+			assert.are.equals(40, moreAt20)
+			assert.are.equals(moreAt20, moreAt50)
+			assert.are.equals(hitAt20, hitAt50)
+		end)
+	end)
+
+	it("Test Pinnacle of Power", function()
+		build.configTab.input.enemyIsBoss = "None"
+		build.configTab.input.usePowerCharges = true
+		build.configTab.input.overridePowerCharges = 3
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		runCallback("OnFrame")
+		assert.True(build.calcsTab.calcsOutput.FreezeBuildupAvg == 0)
+		assert.True(build.calcsTab.calcsOutput.ShockEffectMod == nil)
+
+		build.skillsTab:PasteSocketGroup("Pinnacle of Power 20/0  1")
+		runCallback("OnFrame")
+		local basePinnacleDamage = build.calcsTab.calcsOutput.TotalDPS
+		assert.True(build.calcsTab.calcsOutput.FreezeBuildupAvg > 0)
+		assert.True(build.calcsTab.calcsOutput.ShockEffectMod ~= nil)
+		assert.are.equals(build.calcsTab.calcsOutput.BuffList, "Pinnacle of Power")
+
+
+		build.skillsTab:PasteSocketGroup("Pinnacle of Power 20/0  1\nHeightened Charges 1/0 1")
+		runCallback("OnFrame")
+		-- Heightened Charges should increased the buff effect, therefore Fireball should have more damage than base Pinnacle of Power
+		assert.True(build.calcsTab.calcsOutput.TotalDPS > basePinnacleDamage)
 	end)
 end)

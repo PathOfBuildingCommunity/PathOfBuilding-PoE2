@@ -844,14 +844,6 @@ statMap = {
 #mods
 #set OilGrenadeOilGroundPlayer
 #flags attack area projectile duration
-statMap = {
-	["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
-		mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-		mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-		mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-	mult = -1,
-},
-},
 #mods
 #skillEnd
 

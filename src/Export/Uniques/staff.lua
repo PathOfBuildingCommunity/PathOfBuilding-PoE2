@@ -3,6 +3,18 @@
 return {
 -- Weapon: Staff
 [[
+Atziri's Rule
+Reflecting Staff
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Implicits: 1
+Grants Skill: Level (1-20) Mirror of Refraction
+UniqueMaximumLifeIncrease8
+UniqueGlobalCorruptedSpellSkillLevel1
+UniqueIncreasedCastSpeed20
+UniqueIntelligence46
+UniqueSpellsThatCostLifeGainDamageAsExtraPhys1
+]],[[
 The Burden of Shadows
 Chiming Staff
 Source: Drops from unique{The King in the Mists} in normal{Crux of Nothingness}
