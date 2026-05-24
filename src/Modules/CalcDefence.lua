@@ -211,7 +211,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 			pool.Mana.baseFlat = activeSkill.skillData.manaReservationFlat or activeSkill.activeEffect.grantedEffectLevel.manaReservationFlat or 0
 			pool.Spirit.baseFlat = activeSkill.skillData.spiritReservationFlat or activeSkill.activeEffect.grantedEffectLevel.spiritReservationFlat or 0
 			pool.Spirit.baseFlat = pool.Spirit.baseFlat + skillModList:Sum("BASE", skillCfg, "ExtraSpirit") *
-				((activeSkill.skillTypes[SkillType.SummonsTotem] and modDB:Flag(nil, "AncestralBond")) and activeSkill.actor.modDB:Override(nil, "TotemsSummoned") or 1)
+				(activeSkill.skillTypes[SkillType.SummonsTotem] and modDB:Flag(nil, "AncestralBond") and calcs.getActiveSkillCount(activeSkill) or 1)
 			if skillModList:Flag(skillCfg, "ManaCostGainAsReservation") and activeSkill.activeEffect.grantedEffectLevel.cost then
 				pool.Spirit.baseFlat = skillModList:Sum("BASE", skillCfg, "ManaCostBase") + (activeSkill.activeEffect.grantedEffectLevel.cost.Mana or 0)
 			end
@@ -954,9 +954,6 @@ function calcs.defence(env, actor)
 	end
 	if actor == env.minion or actor == env.player then
 		calcs.doActorLifeManaSpirit(actor)
-		if modDB:Flag(nil, "AncestralBond") then -- need spirit for the perStat and need the override before reservation is calced
-			modDB:NewMod("TotemsSummoned", "OVERRIDE", 1, { type = "PerStat", stat = "Spirit", div = modDB:Sum("BASE", nil, "AncestralBondSpirit") })
-		end
 		calcs.doActorLifeManaSpiritReservation(actor)
 	end
 
