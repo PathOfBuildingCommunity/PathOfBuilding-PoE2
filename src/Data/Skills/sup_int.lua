@@ -1909,11 +1909,6 @@ skills["SupportColdExposurePlayer"] = {
 			label = "Cold Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
-					mod("ColdExposureChance", "BASE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6109,7 +6104,7 @@ skills["SupportMinionPactPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6146,7 +6141,7 @@ skills["SupportMinionPactPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
