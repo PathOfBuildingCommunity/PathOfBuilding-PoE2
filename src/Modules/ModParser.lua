@@ -4525,6 +4525,11 @@ local specialModList = {
 	["each totem applies (%d+)%% increased damage taken to enemies in their presence"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["totems gain %+(%d+)%% to (%w+) resistance"] = function(num, _, resistance) return { mod("Totem"..firstToUpper(resistance).."Resist", "BASE", num) } end,
 	["totems gain %+(%d+)%% to all elemental resistances"] = function(num) return { mod("TotemElementalResist", "BASE", num) } end,
+	["totems reserve (%d+) spirit each"] = function(num) return {
+		flag("AncestralBond"),
+		mod("AncestralBondSpirit", "BASE", num),
+		mod("ExtraSpirit", "BASE", num, { type = "SkillType", skillTypeList = { SkillType.SummonsTotem, SkillType.SummonsAttackTotem } })
+	} end,
 	-- Minions
 	["minions revive (%d+)%% faster"] = function(num) return { mod("MinionRevivalSpeed", "INC", num) } end,
 	["your strength is added to your minions"] = { flag("StrengthAddedToMinions") },
