@@ -1175,31 +1175,6 @@ function calcs.perform(env, skipEHP)
 		if activeSkill.activeEffect.grantedEffect and activeSkill.skillTypes[SkillType.CreatesCompanion] then
 			modDB:NewMod("Condition:HaveCompanion", "FLAG", true, activeSkill.activeEffect.grantedEffect.name)
 		end
-		if activeSkill.skillModList:Flag(activeSkill.skillCfg, "StrategicEmbankments") then
-			local variantId = activeSkill.activeEffect.gemData.variantId
-			local skillName = activeSkill.activeEffect.gemData.name
-			local sourceName = "Strategic Embankments"
-
-			if variantId == "ArtilleryBallista" then
-				modDB:NewMod("Speed", "INC", 20, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" })
-				modDB:NewMod("WarcrySpeed", "INC", 20, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" })
-				modDB:NewMod("TotemPlacementSpeed", "INC", 20, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" })
-				modDB:NewMod("ReloadSpeed", "INC", 20 , sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" })
-			elseif variantId == "SiegeBallista" then
-				modDB:NewMod("Damage", "MORE", 25, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" }, { type = "ActorCondition", actor = "enemy", var = "Immobilised" })
-			elseif variantId == "MortarCannon" then
-				modDB:NewMod("DamageGainAsFire", "BASE", 25, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" })
-			elseif variantId == "ShockwaveTotem" then
-				modDB:NewMod("AreaOfEffect", "INC", 30, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" })
-			elseif variantId == "AncestralWarriorTotem" then
-				-- todo glory
-				--modDB:NewMod("GloryGeneration", "INC", 40, sourceName.." - ".. skillName, ModFlag.Spell, nil, { type = "GlobalEffect", effectType = "Aura" })
-			elseif variantId == "DarkEffigy" then
-				modDB:NewMod("DamageOverTime", "INC", 40, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura"})
-			elseif variantId == "MetaSpellTotem" then
-				modDB:NewMod("CritChance", "INC", 50, sourceName.." - ".. skillName, { type = "GlobalEffect", effectType = "Aura" })
-			end
-		end
 		if env.mode_buffs and skillFlags.warcry then
 			if activeSkill.activeEffect.grantedEffect.name == "Rallying Cry" and not activeSkill.skillModList:Flag(nil, "CannotShareWarcryBuffs") and not modDB:Flag(nil, "RallyingActive") then
 				env.player.modDB:NewMod("RallyingExertMoreDamagePerAlly", "BASE", activeSkill.skillModList:Sum("BASE", env.player.mainSkill.skillCfg, "RallyingCryExertDamageBonus"))

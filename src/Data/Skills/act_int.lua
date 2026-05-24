@@ -4555,6 +4555,9 @@ skills["DarkEffigyPlayer"] = {
 				totem = true,
 				duration = true,
 			},
+			baseMods = {
+				mod("Damage", "INC", 40, ModFlag.Dot, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+			},
 			constantStats = {
 				{ "base_totem_duration", 8000 },
 				{ "base_totem_range", 120 },

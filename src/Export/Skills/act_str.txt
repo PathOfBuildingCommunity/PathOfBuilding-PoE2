@@ -26,6 +26,7 @@ local skills, mod, flag, skill = ...
 #skill AncestralWarriorTotemPlayer
 #set AncestralWarriorTotemPlayer
 #flags totem attack
+#baseMod mod("GloryGeneration", "INC", 40, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -54,6 +55,10 @@ addFlags = {
 #skill ArtilleryBallistaPlayer
 #set ArtilleryBallistaPlayer
 #flags totem duration
+#baseMod mod("Speed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
+#baseMod mod("WarcrySpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
+#baseMod mod("TotemPlacementSpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
+#baseMod mod("ReloadingSpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -799,6 +804,7 @@ statMap = {
 #skill MetaMortarCannonPlayer
 #set MetaMortarCannonPlayer
 #flags totem attack
+#baseMod mod("DamageGainAsFire", "BASE", 25, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -985,6 +991,7 @@ statMap = {
 #skill ShockwaveTotemPlayer
 #set ShockwaveTotemPlayer
 #flags totem
+#baseMod mod("AreaOfEffect", "INC", 30, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
@@ -1000,6 +1007,7 @@ statMap = {
 #skill SiegeBallistaPlayer
 #set SiegeBallistaPlayer
 #flags totem
+#baseMod mod("Damage", "MORE", 25, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}, { type = "ActorCondition", actor = "enemy", var = "Immobilised" })
 #mods
 #skillEnd
 
@@ -1015,6 +1023,7 @@ statMap = {
 #skill SummonMetaTotemSpellTotemPlayer
 #set SummonMetaTotemSpellTotemPlayer
 #flags
+#baseMod mod("CritChance", "INC", 50, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
