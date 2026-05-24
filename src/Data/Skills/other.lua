@@ -7480,9 +7480,9 @@ skills["SorceryWardPlayer"] = {
 			statDescriptionScope = "sorcery_ward",
 			statMap = {
 				["aegis_unique_shield_max_value_from_%_armour_evasion"] = {
-					mod("SorceryWardValue", "BASE", nil, 0, 0, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
-					flag("SorceryWard"),
-				}
+					mod("ElementalAegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution", neg = true }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+					mod("AegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution" }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+				},
 			},
 			baseFlags = {
 			},
