@@ -511,4 +511,99 @@ describe("TestSkills", function()
 		assert.are.equals(30, activeSkill.skillModList:Sum("MORE", activeSkill.skillCfg, "Damage"))
 		assert.True(build.calcsTab.calcsOutput.TotalDPS > noMinionDps)
 	end)
+
+	it("Test conditional exposure supports make exposure configurable", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Killing Palm 20/0  1\nLightning Attunement 1/0  1\nLightning Exposure 1/0  1")
+		runCallback("OnFrame")
+
+		assert.True(build.calcsTab.mainEnv.player.modDB:GetCondition("CanApplyLightningExposure"))
+	end)
+
+	it("Test exposure supports on other active skills make exposure configurable", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Razor Quarterstaff
+			Quality: 0
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1")
+		build.skillsTab:PasteSocketGroup("Killing Palm 20/0  1\nLightning Attunement 1/0  1\nLightning Exposure 1/0  1")
+		runCallback("OnFrame")
+
+		assert.are.equals("Spark", build.calcsTab.mainEnv.player.mainSkill.activeEffect.grantedEffect.name)
+		assert.True(build.calcsTab.mainEnv.player.modDB:GetCondition("CanApplyLightningExposure"))
+
+		build.configTab.input.conditionEnemyLightningExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "LightningExposure"))
+	end)
+
+	it("Test Potent Exposure only scales exposure from supported skills", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1\nFire Exposure 1/0  1")
+		build.configTab.input.conditionEnemyFireExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		local fireResistWithoutPotentExposure = build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist")
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1\nFire Exposure 1/0  1")
+		build.skillsTab:PasteSocketGroup("Spark 20/0  1\nPotent Exposure 1/0  1")
+		build.configTab.input.conditionEnemyFireExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(fireResistWithoutPotentExposure, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist"))
+
+		newBuild()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1\nFire Exposure 1/0  1\nPotent Exposure 1/0  1")
+		build.configTab.input.conditionEnemyFireExposure = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireExposure"))
+		assert.True(build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist") < fireResistWithoutPotentExposure)
+	end)
+
+	it("Test granted skills with exposure stats make exposure configurable", function()
+		build.skillsTab:PasteSocketGroup("Fireball 20/0  1")
+		local spec = build.spec
+		local brewConcoctionNode = spec.nodes[57141]
+		local shatteringConcoctionNode = spec.nodes[18940]
+		brewConcoctionNode.alloc = true
+		shatteringConcoctionNode.alloc = true
+		spec.allocNodes[brewConcoctionNode.id] = brewConcoctionNode
+		spec.allocNodes[shatteringConcoctionNode.id] = shatteringConcoctionNode
+		build.buildFlag = true
+		runCallback("OnFrame")
+		build.calcsTab.input.skill_number = 1
+		build.buildFlag = true
+		runCallback("OnFrame")
+
+		assert.are.equals("Fireball", build.calcsTab.mainEnv.player.mainSkill.activeEffect.grantedEffect.name)
+		assert.True(build.calcsTab.mainEnv.player.modDB:GetCondition("CanApplyFireExposure"))
+		assert.True(build.configTab.varControls.conditionEnemyFireExposure:shown())
+	end)
+
+	it("Test Refraction III exposure scales from player armour", function()
+		build.configTab.input.customMods = "+30000 to Armour"
+		build.configTab.input.bannerPlanted = true
+		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("War Banner 20/0  1\nRefraction III 1/0  1")
+		runCallback("OnFrame")
+
+		assert.are.equals(30000, build.calcsTab.mainEnv.player.output.Armour)
+		assert.are.equals(60, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireExposure"))
+		assert.are.equals(20, build.calcsTab.mainEnv.enemyDB:Sum("BASE", nil, "FireResist"))
+		assert.True(build.calcsTab.mainEnv.enemyDB:Flag(nil, "Condition:HasExposure"))
+	end)
 end)

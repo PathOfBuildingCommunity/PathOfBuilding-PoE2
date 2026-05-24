@@ -1649,11 +1649,49 @@ return {
 ["base_inflict_fire_exposure_on_hit_%_chance"] = {
 	mod("FireExposureChance", "BASE", nil),
 },
+["inflict_exposure_for_x_ms_on_shock"] = {
+	mod("ExposureDuration", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked"}),
+	flag("InflictExposure", { type = "ActorCondition", actor = "enemy", var = "Shocked"}),
+},
+["inflict_exposure_for_x_ms_on_cold_crit"] = {
+	mod("ExposureDuration", "BASE", nil, 0, 0, { type = "Condition", var = "CritInPast8Sec"}, { type = "Condition", var = "ColdHasDamage"}),
+	flag("InflictExposure", { type = "Condition", var = "CritInPast8Sec"}, { type = "Condition", var = "ColdHasDamage"}),
+},
+["inflict_exposure_for_x_ms_on_ignite"] = {
+	mod("ExposureDuration", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
+	flag("InflictExposure", { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
+},
+["inflict_exposure_on_hit_%_chance"] = {
+	mod("LightningExposureChance", "BASE", nil),
+	mod("ColdExposureChance", "BASE", nil),
+	mod("FireExposureChance", "BASE", nil),
+},
+["all_exposure_on_hit_for_duration_ms"] = {
+	mod("ExposureDuration", "BASE", nil),
+	flag("InflictExposure"),
+},
+["inflict_all_exposure_on_hit"] = {
+	flag("InflictExposure"),
+},
 ["all_exposure_on_hit_magnitude"] = {
 	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
 	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
 	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-	mult = -1,
+},
+['active_skill_all_elemental_exposure_magnitude'] = {
+	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+},
+["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
+	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+},
+["exposure_effect_+%"] = {
+	mod("FireExposureEffect", "INC", nil),
+	mod("ColdExposureEffect", "INC", nil),
+	mod("LightningExposureEffect", "INC", nil),
 },
 ["offering_spells_effect_+%"] = {
 	mod("BuffEffect", "INC", nil),
