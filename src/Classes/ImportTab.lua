@@ -23,7 +23,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	if not main.api then
 		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
 	end
-	
+
 
 	self.charImportMode = "AUTHENTICATION"
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
@@ -351,7 +351,7 @@ end)
 
 function ImportTabClass:RefreshAuthStatus()
 	main.api:ValidateAuth(function(valid, updateSettings)
-			if valid then 
+			if valid then
 				if self.charImportMode == "AUTHENTICATION" then
 					self.charImportMode = "GETACCOUNTNAME"
 					self.charImportStatus = "Authenticated"

@@ -71,7 +71,7 @@ function TradeQueryRateLimiterClass:ParseHeader(headerString)
 	return headers
 end
 
-function TradeQueryRateLimiterClass:ParsePolicy(headerString, policy) 
+function TradeQueryRateLimiterClass:ParsePolicy(headerString, policy)
 	local policies = {}
 	local headers = self:ParseHeader(headerString)
 	local policyName = headers["x-rate-limit-policy"] or policy

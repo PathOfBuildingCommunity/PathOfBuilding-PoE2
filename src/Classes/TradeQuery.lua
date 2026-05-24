@@ -248,7 +248,7 @@ function TradeQueryClass:PriceItem()
 		return #self.itemsTab.itemSetOrderList > 1
 	end
 
-	self.loginStatus = function() 
+	self.loginStatus = function()
 		if main.api.authToken then
 			self.clickTime = nil
 			return "Authenticated"
@@ -848,7 +848,7 @@ function TradeQueryClass:SortFetchResults(row_idx, mode)
 	--- @return table<integer, number>?
 	local function getPriceTable()
 		--- @type table<integer, number>
-		local divPrices = {}	
+		local divPrices = {}
 		for idx, item in ipairs(self.resultTbl[row_idx]) do
 			if item.currency and item.amount then
 				local divs = self:ConvertCurrencyToDivs(item.currency, item.amount)
