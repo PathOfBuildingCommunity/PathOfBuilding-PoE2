@@ -3201,7 +3201,7 @@ local specialModList = {
 	["life leech effects are not removed at full life"] = { flag("CanLeechLifeOnFullLife") },
 	["life leech effects are not removed when unreserved life is filled"] = { flag("CanLeechLifeOnFullLife") },
 	["energy shield leech effects from attacks are not removed at full energy shield"] = { flag("CanLeechEnergyShieldOnFullEnergyShield") },
-	["cannot take reflected physical damage"] = { mod("PhysicalReflectedDamageTaken", "MORE", -100, { type = "Globa[\"sorcery ward's barrier can also take physical and chaos damage from hits\"] = { flag(\"CeremonialAblution\") },lEffect", effectType = "Global", unscalable = true }) },
+	["cannot take reflected physical damage"] = { mod("PhysicalReflectedDamageTaken", "MORE", -100, { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
 	["gain (%d+)%% increased movement speed for 20 seconds when you kill an enemy"] = function(num) return { mod("MovementSpeed", "INC", num, { type = "Condition", var = "KilledRecently" }) } end,
 	["gain (%d+)%% increased attack speed for 20 seconds when you kill a rare or unique enemy"] = function(num) return { mod("Speed", "INC", num, nil, ModFlag.Attack, 0, { type = "Condition", var = "KilledUniqueEnemy" }) } end,
 	["kill enemies that have (%d+)%% or lower life when hit by your skills"] = function(num) return { mod("CullPercent", "MAX", num) } end,
