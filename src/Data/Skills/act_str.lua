@@ -17,15 +17,15 @@ skills["AncestralCryPlayer"] = {
 		["Dagger"] = true,
 		["Flail"] = true,
 		["None"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0.8,
 	qualityStats = {
@@ -388,8 +388,8 @@ skills["AncestralWarriorTotemPlayer"] = {
 	description = "Consume 3 Endurance Charges to Raise a Totem that uses socketed Mace Skills. Cannot use Channelling Skills or Skills with Cooldowns.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Meta] = true, [SkillType.Area] = true, [SkillType.HasUsageCondition] = true, [SkillType.RequiresCharges] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	skillTotemId = 15,
 	castTime = 0.5,
@@ -517,14 +517,6 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 	addSkillTypes = { SkillType.UsedByTotem, },
 	excludeSkillTypes = { SkillType.Meta, SkillType.Triggered, SkillType.Cooldown, SkillType.Channel, SkillType.Persistent, },
 	ignoreMinionTypes = true,
-	weaponTypes = {
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
-	},
 	qualityStats = {
 	},
 	levels = {
@@ -784,8 +776,8 @@ skills["ArmourBreakerPlayer"] = {
 	description = "Strike with a forceful blow, knocking enemies back and weakening their Armour.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -1028,7 +1020,7 @@ skills["ArtilleryBallistaPlayer"] = {
 	}
 }
 skills["ArtilleryBallistaProjectilePlayer"] = {
-	name = "",
+	name = "Ballista Bolt",
 	hidden = true,
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Sustained] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.UsedByTotem] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
@@ -1450,14 +1442,14 @@ skills["BerserkPlayer"] = {
 			statDescriptionScope = "berserk",
 			statMap = {
 				["skill_base_life_loss_%_per_minute_per_rage_while_not_losing_rage_to_apply"] = {
-					mod("LifeDegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
-					div = 60
+					mod("LifeDegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "Rage" }),
+					div = 60,
 				},
 				["life_leech_from_physical_attack_damage_permyriad_per_rage"] = {
 					mod("PhysicalDamageLifeLeech", "BASE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff" }, { type = "Multiplier", var = "RageEffect" }),
 					div = 100,
 				},
-				["rage_effect_+%"] = {
+				["skill_base_rage_effect_+%_to_apply"] = {
 					mod( "RageEffect", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff" } ),
 				}
 			},
@@ -1762,8 +1754,8 @@ skills["BoneshatterPlayer"] = {
 	description = "Attack enemies with a melee Strike. The Strike will cause a Heavy Stun on enemies that are Primed for Stun. Upon causing a Heavy Stun it will also create a Shockwave, dealing a large amount of damage in an area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -3656,7 +3648,6 @@ skills["WyvernDevourPlayer"] = {
 				"wyvern_devour_life_restoration",
 				"active_skill_show_cull_range",
 				"disable_quadruped_head_control",
-				"global_knockback",
 				"is_area_damage",
 			},
 			levels = {
@@ -3950,8 +3941,8 @@ skills["EarthquakePlayer"] = {
 	description = "Smash the ground, dealing damage in an area and leaving behind Jagged Ground that slows enemies. The Jagged Ground erupts in a powerful Aftershock after a duration. Cannot create Jagged Ground on top of an existing patch, or if you already have the maximum number of active patches.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.AttackInPlace] = true, [SkillType.Limit] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -4167,8 +4158,8 @@ skills["EarthshatterPlayer"] = {
 	description = "Slam the ground, sending out a fissure that deals area damage to enemies it passes under and thrusts a spike from the ground when it ends. Warcries performed near the spike will cause it to shatter, damaging surrounding enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.CreatesFissure] = true, [SkillType.CanCreateStoneElementals] = true, [SkillType.Limit] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -4732,6 +4723,13 @@ skills["EternalRagePlayer"] = {
 			label = "Eternal Rage",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "eternal_rage",
+			statMap = {
+				["ceaseless_rage_base_rage_regeneration_per_minute"] = {
+					mod("RageRegen", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "EternalRage" }),
+					flag("Condition:CanGainRage", { type = "GlobalEffect", effectType = "Buff", effectName = "Rage" }),
+					div = 60,
+				},
+			},
 			baseFlags = {
 			},
 			stats = {
@@ -5286,10 +5284,6 @@ skills["SupportFerociousRoarPlayer"] = {
 	excludeSkillTypes = { SkillType.Meta, SkillType.InbuiltTrigger, SkillType.Shapeshift, },
 	isTrigger = true,
 	ignoreMinionTypes = true,
-	weaponTypes = {
-		["Bow"] = true,
-		["Spear"] = true,
-	},
 	qualityStats = {
 		{ "warcry_grant_damage_+%_to_exerted_attacks", 1.5 },
 	},
@@ -5671,8 +5665,8 @@ skills["ForgeHammerPlayer"] = {
 	description = "Hurl a fiery hammer that Slams into the ground and lodges there. While the hammer is lodged in the ground, reusing this Skill recalls the hammer and resets the Skill's cooldown. Alternatively, using a Warcry near the lodged hammer causes it to shatter, releasing a number of Molten Fissures in a spiral.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Sustained] = true, [SkillType.CreatesFissure] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Cooldown] = true, [SkillType.CanCreateStoneElementals] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -6391,6 +6385,7 @@ skills["BearFuryOfTheMountainPlayer"] = {
 				{ "bear_fury_of_the_mountain_front_facing_cone_angle", 120 },
 				{ "active_skill_base_area_of_effect_radius", 10 },
 				{ "gain_x_rage_on_attack_hit", 3 },
+				{ "base_minimum_channel_time_ms", 200 },
 			},
 			stats = {
 				"is_area_damage",
@@ -6934,8 +6929,8 @@ skills["HammerOfTheGodsPlayer"] = {
 	description = "Build Glory by Heavy Stunning enemies. When you have maximum Glory you may entreat the Ancestors to crush your enemies, manifesting a massive hammer that falls from the sky onto your target, Slamming into the ground after a short duration and dealing immense damage based on your weapon.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.HasUsageCondition] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -7067,15 +7062,15 @@ skills["HeraldOfAshPlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0,
 	qualityStats = {
@@ -7257,15 +7252,15 @@ skills["HeraldOfBloodPlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -7931,8 +7926,8 @@ skills["LeapSlamPlayer"] = {
 	description = "Jump into the air, damaging and Knocking Back enemies with your mace where you land. Enemies you would land on are\npushed out of the way.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.Travel] = true, [SkillType.Jumping] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1.4,
 	qualityStats = {
@@ -12847,7 +12842,7 @@ skills["WolfLunarBlessingPlayer"] = {
 	baseTypeName = "Lunar Blessing",
 	color = 1,
 	description = "Shapeshift into a Werewolf and offer your Rage to the moon to receive a blessing, gaining bonus Cold damage for yourself and any Wolf Minions you have from Wolf Pack or Predator's Mark. Spends all Rage to extend the Buff's duration. While the Buff is active, your Werewolf Melee Attacks call down Moonbeams on Hit.",
-	skillTypes = { [SkillType.Warcry] = true, [SkillType.Shapeshift] = true, [SkillType.OngoingSkill] = true, [SkillType.Buff] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.Cold] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, },
+	skillTypes = { [SkillType.Warcry] = true, [SkillType.Shapeshift] = true, [SkillType.Buff] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.Cold] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, },
 	weaponTypes = {
 		["Talisman"] = true,
 	},
@@ -13327,8 +13322,8 @@ skills["MoltenBlastPlayer"] = {
 	description = "Gouge molten rock from the ground and fling it at the target. The Projectile explodes on collision, damaging enemies and scattering shrapnel in a cone behind it.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -14617,8 +14612,8 @@ skills["PerfectStrikePlayer"] = {
 	description = "Channel to charge up your weapon with Fire. Releasing with Perfect Timing will create a damaging wave of intense Fire.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Channel] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.PerfectTiming] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -15357,6 +15352,7 @@ skills["BearRampagePlayer"] = {
 				"skill_cannot_gain_rage_during_use",
 				"disable_quadruped_head_movement_when_turning",
 				"display_charge_speed_is_move_speed",
+				"base_skill_show_average_damage_instead_of_dps",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -15680,8 +15676,8 @@ skills["RollingSlamPlayer"] = {
 	description = "Slam the ground to Stun enemies and knock them away, then continue forward and perform a devastating second Slam.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Area] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -16705,15 +16701,15 @@ skills["ShockwaveTotemPlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	skillTotemId = 5,
 	castTime = 0.6,
@@ -16843,15 +16839,15 @@ skills["ShockwaveTotemQuakePlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0.6,
 	qualityStats = {
@@ -17601,8 +17597,8 @@ skills["StampedePlayer"] = {
 	description = "Charges forward, cracking the earth and leaving a patch of Jagged Ground with every footstep. At the end of your charge, a massive leaping Slam damages enemies and causes all nearby patches of Jagged Ground to explode, damaging enemies standing on them. Once you begin your charge, the use speed of this Skill is affected by movement speed instead of Attack speed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Slam] = true, [SkillType.Travel] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Duration] = true, [SkillType.Jumping] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -17870,8 +17866,8 @@ skills["SunderPlayer"] = {
 	description = "Slam the ground, creating a roiling fissure that damages enemies in a sequence of areas in front of you. A number of enemies hit by the wave will release a shockwave, damaging other enemies. Hitting an enemy with Fully Broken Armour applies Sundered Armour, making it take additional increased Physical damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.ConsumesFullyBrokenArmour] = true, [SkillType.CreatesFissure] = true, [SkillType.Duration] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -18071,7 +18067,7 @@ skills["SuperchargedSlamPlayer"] = {
 	description = "Channel to charge up a heavy swing, drawing earth from the ground to enlarge your mace. Release to Slam the ground, dealing damage in an area around the impact, followed by Aftershocks dealing damage in a larger area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Channel] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.NoDualWield] = true, [SkillType.GainsStages] = true, },
 	weaponTypes = {
-		["Two Handed Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -18717,6 +18713,22 @@ skills["ThunderstormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "thunderstorm",
+			statMap = {
+				["lightning_storm_hit_frequency_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["lightning_storm_hit_prevention_duration_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+				["thunderstorm_wet_debuff_shock_chance_on_+%_final"] = {
+					mod("EnemyShockChance", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thunderstorm"}),
+				},
+				["thunderstorm_wet_debuff_hit_damage_freeze_multiplier_+%_final"] = {
+					mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thunderstorm"}),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -19237,8 +19249,8 @@ skills["VolcanicFissurePlayer"] = {
 	description = "Slam the ground, creating a branching Molten Fissure that deals damage as it travels and remains for a duration. Using a different Slam on a Molten Fissure creates a spreading Aftershock.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Sustained] = true, [SkillType.CreatesFissure] = true, [SkillType.Limit] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -19500,6 +19512,12 @@ skills["VolcanoPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0074000000022352,
 			statDescriptionScope = "volcano_statset_1",
+			statMap = { 
+				["volcano_fires_projectiles_every_x_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -20027,6 +20045,8 @@ skills["WalkingCalamityMeteorPlayer"] = {
 				"is_area_damage",
 				"attack_is_not_melee_override",
 				"triggerable_in_any_set",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -20089,6 +20109,8 @@ skills["WalkingCalamityMeteorPlayer"] = {
 				"is_area_damage",
 				"attack_is_not_melee_override",
 				"triggerable_in_any_set",
+				"base_skill_show_average_damage_instead_of_dps",
+				"display_statset_hide_usage_stats",
 			},
 			levels = {
 				[1] = { baseMultiplier = 1.5, actorLevel = 1, },

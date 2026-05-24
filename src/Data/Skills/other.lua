@@ -4095,6 +4095,12 @@ skills["InevitableAgonyPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "inevitable_agony",
 			baseFlags = {
+				area = true,
+				duration = true,
+				curse = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1500 },
@@ -4869,7 +4875,7 @@ skills["Melee1HMacePlayer"] = {
 	description = "Strike with your Mace.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
+		["One Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -4986,7 +4992,7 @@ skills["Melee2HMacePlayer"] = {
 	description = "Strike with your Mace.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["Two Handed Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -5103,8 +5109,8 @@ skills["MeleeMaceMacePlayer"] = {
 	description = "Strike with your Maces.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.DualWieldOnly] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
-		["One Handed Mace"] = true,
-		["Two Handed Mace"] = true,
+		["One Hand Mace"] = true,
+		["Two Hand Mace"] = true,
 	},
 	castTime = 1,
 	qualityStats = {
@@ -5230,15 +5236,15 @@ skills["ManifestWeaponPlayer"] = {
 		["Claw"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0,
 	qualityStats = {
@@ -5307,7 +5313,6 @@ skills["ManifestWeaponPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				duration = true,
 			},
 			constantStats = {
 				{ "minion_1%_damage_+%_per_X_player_strength", 1 },
@@ -5987,6 +5992,9 @@ skills["ParryPlayer"] = {
 				melee = true,
 				duration = true,
 				shieldAttack = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -50 },
@@ -8022,7 +8030,7 @@ skills["SummonInfernalHoundPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 8 },
@@ -8151,7 +8159,7 @@ skills["SupportingFirePlayer"] = {
 			},
 			baseFlags = {
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "minion_1%_damage_+%_per_X_player_strength", 1 },
@@ -8217,15 +8225,14 @@ skills["TemperWeaponPlayer"] = {
 		["Claw"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
-		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 1.125,
 	qualityStats = {
@@ -8354,15 +8361,14 @@ skills["TemperWeaponCombustionPlayer"] = {
 		["Claw"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
-		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0,
 	qualityStats = {
@@ -8942,15 +8948,15 @@ skills["VoidIllusionPlayer"] = {
 		["Dagger"] = true,
 		["Flail"] = true,
 		["None"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0,
 	qualityStats = {

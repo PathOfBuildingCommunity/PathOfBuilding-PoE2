@@ -127,14 +127,22 @@ end
 
 function GGPKClass:AddDat64Files()
 	local datFiles = self:GetNeededFiles()
+	local missingCount = 0
 	table.sort(datFiles, function(a, b) return a:lower() < b:lower() end)
 	for _, fname in ipairs(datFiles) do
 		local record = { }
 		record.name = fname:match("([^/\\]+)$") .. "c64"
 		local rawFile = io.open(self.oozPath .. fname:gsub("/", "\\") .. "c64", 'rb')
-		record.data = rawFile:read("*all")
-		rawFile:close()
-		t_insert(self.dat, record)
+		if rawFile then
+			record.data = rawFile:read("*all")
+			rawFile:close()
+			t_insert(self.dat, record)
+		else
+			missingCount = missingCount + 1
+		end
+	end
+	if missingCount > 0 then
+		t_insert(main.scriptOutput, { "^7"..string.format("Skipped %d missing cached GGPK data files. Press Ctrl+F5 to refresh GGPK data.", missingCount), height = 14 })
 	end
 end
 
@@ -371,6 +379,8 @@ function GGPKClass:GetNeededFiles()
 	local itFiles = {
 		"Metadata/Items/Equipment.it",
 		"Metadata/Items/Item.it",
+		"Metadata/Items/Incursion2/Arm.it",
+		"Metadata/Items/Incursion2/Leg.it",
 		"Metadata/Items/Weapons/AbstractWeapon.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/AbstractTwoHandWeapon.it",
 		"Metadata/Items/Weapons/TwoHandWeapons/TwoHandSwords/StormbladeTwoHand.it",

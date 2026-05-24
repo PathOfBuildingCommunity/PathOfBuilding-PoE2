@@ -67,38 +67,6 @@ skills["SupportAftershockChancePlayerTwo"] = {
 		},
 	}
 }
-skills["SupportAftershockChancePlayerThree"] = {
-	name = "Aftershock III",
-	description = "Supports Slam Skills. Supported Skills a chance to create an Aftershock as well as increased chance to cause Aftershocks the longer their Attack time",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Slam, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, },
-	gemFamily = { "Aftershock",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Aftershock III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "chance_to_aftershock_+%_per_250_ms_attack_time", 15 },
-				{ "slam_aftershock_chance_%", 15 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportAmanamusTithePlayer"] = {
 	name = "Amanamu's Tithe",
 	description = "Supports Persistent Minion Skills, granting a chance when Supported Minions die for you to gain an Abyssal Monster Modifier.",
@@ -217,39 +185,6 @@ skills["SupportAncestralCallPlayerTwo"] = {
 			},
 			constantStats = {
 				{ "ancestral_call_spirit_strike_interval_ms", 3000 },
-			},
-			stats = {
-				"support_ancestral_call_strike_is_ancestral_boosted",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportAncestralCallPlayerThree"] = {
-	name = "Ancestral Call III",
-	description = "Supports Strikes you use yourself, providing a powerful Ancestral Boost every second, at the cost of a damage penalty. Cannot Support Channelled Skills and does not modify Skills used by Minions.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.MeleeSingleTarget, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
-	gemFamily = { "AncestralCall",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-	},
-	statSets = {
-		[1] = {
-			label = "Ancestral Call III",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "ancestral_call_spirit_strike_interval_ms", 1000 },
-				{ "support_ancestral_call_damage_+%_final", -30 },
 			},
 			stats = {
 				"support_ancestral_call_strike_is_ancestral_boosted",
@@ -1358,7 +1293,7 @@ skills["SupportCannibalismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism I" }),
 				},
 			},
 			baseFlags = {
@@ -1394,7 +1329,7 @@ skills["SupportCannibalismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism II" }),
 				},
 			},
 			baseFlags = {
@@ -1727,7 +1662,7 @@ skills["SupportCorruptingCryPlayer"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
@@ -1783,7 +1718,7 @@ skills["SupportCorruptingCryPlayerTwo"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
@@ -2193,7 +2128,7 @@ skills["SupportDirestrikePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike I" }, { type = "Condition", var = "LowLife" }),
 				},
 			},
 			baseFlags = {
@@ -2229,7 +2164,7 @@ skills["SupportDirestrikePlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike II" }, { type = "Condition", var = "LowLife" }),
 				},
 			},
 			baseFlags = {
@@ -4023,7 +3958,7 @@ skills["SupportHerbalismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism I" }),
 				},
 			},
 			baseFlags = {
@@ -4059,7 +3994,7 @@ skills["SupportHerbalismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism II" }),
 				},
 			},
 			baseFlags = {
@@ -4267,9 +4202,6 @@ skills["ImpactShockwaveSupportPlayer"] = {
 	gemFamily = { "ImpactShockwave",},
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 3, },
-		[3] = { levelRequirement = 6, },
-		[4] = { levelRequirement = 10, },
 	},
 	statSets = {
 		[1] = {
@@ -4840,6 +4772,11 @@ skills["SupportMarkForDeathPlayer"] = {
 			label = "Mark for Death",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["marked_target_%_physical_damage_taken_as_armour_break"] = {
+					flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5031,7 +4968,7 @@ skills["SupportCorruptingCryPlayerThree"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 5 },
@@ -5186,8 +5123,6 @@ skills["ProlongedDurationSupportPlayer"] = {
 	gemFamily = { "ProlongedDuration",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-		[2] = { levelRequirement = 3, manaMultiplier = 20, },
-		[3] = { levelRequirement = 6, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -5238,41 +5173,6 @@ skills["ProlongedDurationSupportPlayerTwo"] = {
 			},
 			constantStats = {
 				{ "support_more_duration_skill_effect_duration_+%_final", 35 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["ProlongedDurationSupportPlayerThree"] = {
-	name = "Prolonged Duration III",
-	description = "Supports any skill that has a duration, making that duration significantly longer while applying a cooldown. Cannot support Skills which already have a cooldown.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Duration, },
-	addSkillTypes = { SkillType.Cooldown, SkillType.SupportedByDurationThree, },
-	excludeSkillTypes = { SkillType.Cooldown, SkillType.SupportedByDurationThree, SkillType.NOT, SkillType.AND, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Persistent, SkillType.Vaal, SkillType.Triggered, },
-	gemFamily = { "ProlongedDuration",},
-	levels = {
-		[1] = { cooldown = 16, levelRequirement = 0, storedUses = 1, },
-	},
-	statSets = {
-		[1] = {
-			label = "Prolonged Duration III",
-			incrementalEffectiveness = 0.092720001935959,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_more_duration_skill_effect_duration_+%_final"] = {
-					mod("Duration", "MORE", nil),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_more_duration_skill_effect_duration_+%_final", 60 },
 			},
 			stats = {
 			},
@@ -5357,8 +5257,6 @@ skills["SupportRagePlayer"] = {
 	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 3, },
-		[3] = { levelRequirement = 6, },
 	},
 	statSets = {
 		[1] = {
@@ -5472,7 +5370,7 @@ skills["SupportRageforgedPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_rageforged_enraged_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
 				},
 			},
 			baseFlags = {
@@ -5509,7 +5407,7 @@ skills["SupportRageforgedPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_rageforged_enraged_damage_+%_final"] = {
-					mod("Damage", "MORE", nil, nil, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "Rage", threshold = 10 }),
 				},
 			},
 			baseFlags = {
@@ -6731,9 +6629,6 @@ skills["SupportStompingGroundPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "StompingGround",},
-	weaponTypes = {
-		["Two Handed Mace"] = true,
-	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -7095,7 +6990,7 @@ skills["SupportThornskinPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin I" }),
 				},
 			},
 			baseFlags = {
@@ -7131,7 +7026,7 @@ skills["SupportThornskinPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin II" }),
 				},
 			},
 			baseFlags = {
@@ -7805,7 +7700,7 @@ skills["SupportVitalityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_vitality_life_regeneration_rate_per_minute_%"] = {
-					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality I" }),
 					div = 60,
 				},
 			},
@@ -7842,7 +7737,7 @@ skills["SupportVitalityPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_vitality_life_regeneration_rate_per_minute_%"] = {
-					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality II" }),
 					div = 60,
 				},
 			},
@@ -7981,6 +7876,14 @@ skills["SupportZerphisLegacyPlayer"] = {
 			label = "Zerphi's Infamy",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_zerphis_legacy_area_of_effect_+%"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+				},
+				["support_zerphis_legacy_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

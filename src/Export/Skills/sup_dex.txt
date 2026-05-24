@@ -24,16 +24,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportAdhesiveGrenadesPlayerThree
-#set SupportAdhesiveGrenadesPlayerThree
-statMap = {
-	["support_sticky_grenade_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportAdmixturePlayer
 #set SupportAdmixturePlayer
 statMap = {
@@ -495,9 +485,9 @@ statMap = {
 #set SupportFerocityPlayer
 statMap = {
 	["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
-		mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-		mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+		mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+		mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 	},
 },
 #mods
@@ -802,16 +792,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportIncreaseLimitPlayerThree
-#set SupportIncreaseLimitPlayerThree
-statMap = {
-	["support_limit_skill_effect_duration_+%_final"] = {
-		mod("Duration", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportOverchargePlayer
 #set SupportOverchargePlayer
 #mods
@@ -930,7 +910,7 @@ statMap = {
 #set SupportPrecisionPlayer
 statMap = {
 	["support_precision_accuracy_rating_+%"] = {
-		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision I" } ),
 	},
 },
 #mods
@@ -940,7 +920,7 @@ statMap = {
 #set SupportPrecisionPlayerTwo
 statMap = {
 	["support_precision_accuracy_rating_+%"] = {
-		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+		mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision II" } ),
 	},
 },
 #mods

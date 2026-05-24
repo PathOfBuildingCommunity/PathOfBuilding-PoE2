@@ -276,6 +276,8 @@ statMap = {
 #skill ContagionPlayer
 #set ContagionPlayer
 #flags area duration spell
+#baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Contagion" })
 #mods
 #skillEnd
 
@@ -323,13 +325,24 @@ statMap = {
 #skill DarkEffigyProjectilePlayer
 #set DarkEffigyProjectilePlayer
 #flags spell area projectile totem
+#baseMod mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "ChaosDebuff", actor = "enemy" })
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Poison" }, { type = "Condition", var = "Poisoned" })
 #mods
 #skillEnd
 
 #from item
 #skill CorpseCloudPlayer
 #set CorpseCloudPlayer
-#flags spell area duration
+#flags area duration
+#baseMod mod("PoisonChance", "BASE", 100)
+#baseMod skill("explodeCorpse", true)
+#baseMod skill("corpseExplosionDamageType", "Chaos")
+statMap = {
+	["corpse_explosion_monster_life_permillage_chaos"] = {
+		skill("corpseExplosionLifeMultiplier", nil),
+		div = 1000,
+	},
+},
 #mods
 #set CorpseCloudExplosionPlayer
 #flags spell area
@@ -424,10 +437,12 @@ statMap = {
 #skill EssenceDrainPlayer
 #set EssenceDrainPlayer
 #flags spell projectile
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" })
 #mods
 #set EssenceDrainDotPlayer
 #flags spell projectile duration
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" })
 #mods
 #skillEnd
 
@@ -499,12 +514,42 @@ statMap = {
 #skill FirestormPlayer
 #set FirestormPlayer
 #flags spell area duration
+statMap = {
+	["fire_storm_fireball_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #set FirestormColdInfusionPlayer
 #flags spell area duration
+statMap = {
+	["fire_storm_fireball_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #set FirestormLightningInfusionPlayer
 #flags spell area duration
+statMap = {
+	["fire_storm_fireball_delay_ms"] = {
+		skill("hitTimeOverride", nil),
+		div = 1000,
+	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -698,6 +743,14 @@ end,
 #mods
 #set GlacialCascadeLastSpikePlayer
 #flags attack area
+statMap = {
+	["active_skill_consume_enemy_freeze_to_gain_damage_against_non_unique_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true })
+	},
+	["active_skill_consume_enemy_freeze_to_gain_damage_against_unique_+%_final"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" })
+	},
+},
 #mods
 #skillEnd
 
@@ -715,7 +768,7 @@ end,
 
 #skill HandOfChayulaPlayer
 #set HandOfChayulaPlayer
-#flags attack melee area unarmed
+#flags attack melee area
 #mods
 #skillEnd
 
@@ -772,7 +825,8 @@ statMap = {
 #from item
 #skill VileDisruptionPlayer
 #set VileDisruptionPlayer
-#flags spell area
+#flags spell area duration
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -828,10 +882,20 @@ statMap = {
 		skill("hitTimeOverride", nil),
 		div = 1000,
 	},
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
 },
 #mods
 #set IcestormEmpoweredPlayer
 #flags spell area duration
+statMap = {
+	["rain_hit_delay_ms"] = {
+		skill("maxHitRatePerEnemy", nil),
+		div = 1000,
+	},
+},
 #mods
 #skillEnd
 
@@ -873,7 +937,7 @@ statMap = {
 
 #skill KillingPalmPlayer
 #set KillingPalmPlayer
-#flags attack area melee unarmed
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -1004,6 +1068,7 @@ statMap = {
 #skill ProfaneRitualPlayer
 #set ProfaneRitualPlayer
 #flags spell area
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Profane Ritual" })
 #mods
 #skillEnd
 
@@ -1046,14 +1111,14 @@ statMap = {
 #minionList SummonedRagingSpirit
 #skill RagingSpiritsPlayer
 #set RagingSpiritsPlayer
-#flags spell minion permanentMinion
+#flags spell minion
 #mods
 #skillEnd
 
 #minionList RaisedZombie
 #skill RaiseZombiePlayer
 #set RaiseZombiePlayer
-#flags spell minion permanentMinion
+#flags spell minion
 #mods
 #skillEnd
 
@@ -1096,7 +1161,7 @@ statMap = {
 
 #skill ShatteringPalmPlayer
 #set ShatteringPalmPlayer
-#flags attack area melee unarmed
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -1139,49 +1204,49 @@ statMap = {
 #minionList RaisedSkeletonArsonist
 #skill SummonSkeletalArsonistsPlayer
 #set SummonSkeletalArsonistsPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonBrute
 #skill SummonSkeletalBrutesPlayer
 #set SummonSkeletalBrutesPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonCleric
 #skill SummonSkeletalClericsPlayer
 #set SummonSkeletalClericsPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonFrostMage
 #skill SummonSkeletalFrostMagesPlayer
 #set SummonSkeletalFrostMagesPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonReaver
 #skill SummonSkeletalReaversPlayer
 #set SummonSkeletalReaversPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonSniper
 #skill SummonSkeletalSnipersPlayer
 #set SummonSkeletalSnipersPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
 #minionList RaisedSkeletonStormMage
 #skill SummonSkeletalStormMagesPlayer
 #set SummonSkeletalStormMagesPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
@@ -1189,7 +1254,7 @@ statMap = {
 #minionList RaisedSkeletonWarriors
 #skill SummonSkeletalWarriorsPlayer
 #set SummonSkeletalWarriorsPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
@@ -1240,10 +1305,12 @@ statMap = {
 #skill SoulrendPlayer
 #set SoulrendPlayer
 #flags spell projectile
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" })
 #mods
 #set SoulrendDotPlayer
 #flags spell duration
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" })
 #mods
 #skillEnd
 
@@ -1259,7 +1326,7 @@ statMap = {
 #minionList
 #skill SummonSpectrePlayer
 #set SummonSpectrePlayer
-#flags spell minion spectre duration permanentMinion
+#flags spell minion spectre duration
 #baseMod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3
 #mods
 #skillEnd
@@ -1279,7 +1346,7 @@ statMap = {
 
 #skill StaggeringPalmPlayer
 #set StaggeringPalmPlayer
-#flags attack area unarmed
+#flags attack area melee
 #mods
 #skillEnd
 
@@ -1322,6 +1389,14 @@ statMap = {
 #skill TemporalChainsPlayer
 #set TemporalChainsPlayer
 #flags area duration
+statMap = {
+	["base_skill_debuff_action_speed_+%_final_to_inflict"] = {
+		mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" })
+	},
+	["base_temporal_chains_other_buff_time_passed_+%_to_apply"] = {
+		mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 

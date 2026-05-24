@@ -2577,12 +2577,12 @@ return {
 			},
 			[4]={
 				[1]={
-					k="canonical_stat",
-					v=1
-				},
-				[2]={
 					k="canonical_line",
 					v=true
+				},
+				[2]={
+					k="canonical_stat",
+					v=1
 				},
 				limit={
 					[1]={
@@ -10573,12 +10573,12 @@ return {
 			},
 			[2]={
 				[1]={
-					k="canonical_stat",
-					v=2
-				},
-				[2]={
 					k="canonical_line",
 					v=true
+				},
+				[2]={
+					k="canonical_stat",
+					v=2
 				},
 				limit={
 					[1]={
@@ -20086,12 +20086,12 @@ return {
 			},
 			[3]={
 				[1]={
-					k="canonical_stat",
-					v=1
-				},
-				[2]={
 					k="canonical_line",
 					v=true
+				},
+				[2]={
+					k="canonical_stat",
+					v=1
 				},
 				limit={
 					[1]={
@@ -37389,12 +37389,12 @@ return {
 			},
 			[3]={
 				[1]={
-					k="canonical_stat",
-					v=1
-				},
-				[2]={
 					k="canonical_line",
 					v=true
+				},
+				[2]={
+					k="canonical_stat",
+					v=1
 				},
 				limit={
 					[1]={
@@ -51862,12 +51862,12 @@ return {
 					v=1
 				},
 				[2]={
-					k="canonical_stat",
-					v=2
-				},
-				[3]={
 					k="canonical_line",
 					v=true
+				},
+				[3]={
+					k="canonical_stat",
+					v=2
 				},
 				limit={
 					[1]={
@@ -52967,12 +52967,12 @@ return {
 			},
 			[2]={
 				[1]={
-					k="negate",
-					v=1
-				},
-				[2]={
 					k="canonical_line",
 					v=true
+				},
+				[2]={
+					k="negate",
+					v=1
 				},
 				limit={
 					[1]={
@@ -84302,12 +84302,12 @@ return {
 					v=2
 				},
 				[2]={
-					k="canonical_stat",
-					v=1
-				},
-				[3]={
 					k="canonical_line",
 					v=true
+				},
+				[3]={
+					k="canonical_stat",
+					v=1
 				},
 				limit={
 					[1]={

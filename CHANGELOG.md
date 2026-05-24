@@ -1,5 +1,43 @@
 # Changelog
 
+## [v0.15.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.15.0) (2026/01/14)
+
+[Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.14.0...v0.15.0)
+
+
+## What's Changed
+### New to Path of Building
+- Add support for Transcendent Limbs [\#1710](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1710) ([Blitz54](https://github.com/Blitz54))
+- Add new Ancient Augment soul cores [\#1717](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1717) ([Blitz54](https://github.com/Blitz54))
+- Add support for the rare variant of The Adorned [\#1679](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1679) ([Wires77](https://github.com/Wires77))
+- Add Guatelitzi's Ablation, Expand [\#1718](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1718) ([Blitz54](https://github.com/Blitz54))
+- Add support for Rageforged support gems [\#1707](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1707) ([laFleuere2](https://github.com/laFleuere2))
+- Add support for Arakaali's Lust [\#1694](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1694) ([ain9156](https://github.com/ain9156))
+- Add support for Falling Thunder projectiles [\#1702](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1702) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Add support for count of minions in your Presence [\#1696](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1696) ([Dimencia](https://github.com/Dimencia))
+- Add Default Item Quality Value option into options [\#1662](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1662) ([mateokladaric](https://github.com/mateokladaric))
+- Add support for Bulwark and Primal Hunger Keystones [\#1644](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1644) ([MrHB212](https://github.com/MrHB212))
+### Fixed Crashes
+- Fix crash on importing build using the rare variant of The Adorned [\#1679](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1679) ([Wires77](https://github.com/Wires77))
+### User Interface
+- Show "Twice Corrupted" text on imported items [\#1674](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1674) ([Blitz54](https://github.com/Blitz54))
+### Fixed Calculations
+- Fix Qimah quest not importing when all resist was taken by the player [\#1695](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1695) ([Kenishi](https://github.com/Kenishi))
+- Fix Berserk HP loss while inactive and Rage effect mod [\#1661](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1661) ([mateokladaric](https://github.com/mateokladaric))
+### Fixed Behaviours
+- Fix being able to dual-wield Spears [\#1703](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1703) ([mauriliogenovese](https://github.com/mauriliogenovese))
+- Fix Armour Break not appearing when using Mark for Death [\#1663](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1663) ([mateokladaric](https://github.com/mateokladaric))
+### Accuracy Improvements
+- Fixed names for Ascendancy root nodes [\#1686](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1686) ([Nickomang](https://github.com/Nickomang))
+- Remove supports that aren't drop enabled [\#1718](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1718) ([Blitz54](https://github.com/Blitz54))
+- Fix Maligaro's Virtuosity variant [\#1664](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1664) ([Wires77](https://github.com/Wires77))
+- Fix Artillery Ballista missing skill part name [\#1660](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1660) ([mateokladaric](https://github.com/mateokladaric))
+### Fixed Bugs
+- Fix increased effect of notables from Time-Lost jewels breaking notable tooltip [\#1712](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1712) ([paul-rl](https://github.com/paul-rl))
+### Other changes
+- Fix HTTP/2 response headers parsing [\#1668](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1668) ([meehl](https://github.com/meehl))
+
+
 ## [v0.14.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.14.0) (2025/12/19)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.13.0...v0.14.0)

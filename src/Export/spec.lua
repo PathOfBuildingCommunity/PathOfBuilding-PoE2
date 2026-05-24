@@ -13150,7 +13150,7 @@ return {
 			width=50
 		},
 		[109]={
-			list=false,
+			list=true,
 			name="",
 			refTo="",
 			type="Key",
@@ -14573,7 +14573,7 @@ return {
 		},
 		[25]={
 			list=false,
-			name="AnnointOnly",
+			name="AnointOnly",
 			refTo="",
 			type="Bool",
 			width=50

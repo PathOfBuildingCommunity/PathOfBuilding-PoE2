@@ -206,6 +206,30 @@ itemBases["Ulaman's Gaze"] = {
 	implicitModTypes = { },
 	req = { level = 65, },
 }
+itemBases["Jiquani's Thesis"] = {
+	type = "SoulCore",
+	tags = { default = true, soul_core = true, soul_core_vaal = true },
+	implicitModTypes = { },
+	req = { level = 65, },
+}
+itemBases["Quipolatl's Thesis"] = {
+	type = "SoulCore",
+	tags = { default = true, soul_core = true, soul_core_vaal = true },
+	implicitModTypes = { },
+	req = { level = 65, },
+}
+itemBases["Guatelitzi's Thesis"] = {
+	type = "SoulCore",
+	tags = { default = true, soul_core = true, soul_core_vaal = true },
+	implicitModTypes = { },
+	req = { level = 65, },
+}
+itemBases["Citaqualotl's Thesis"] = {
+	type = "SoulCore",
+	tags = { default = true, soul_core = true, soul_core_vaal = true },
+	implicitModTypes = { },
+	req = { level = 65, },
+}
 
 itemBases["Desert Rune"] = {
 	type = "Rune",

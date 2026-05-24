@@ -50,6 +50,7 @@ local itemTypes = {
 	"belt",
 	"jewel",
 	"flask",
+	"incursionlimb"
 }
 
 local function makeSkillMod(modName, modType, modVal, flags, keywordFlags, ...)
@@ -537,14 +538,14 @@ data.weaponTypeInfo = {
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff" },
 	["Warstaff"] = { oneHand = false, melee = true, flag = "Warstaff" },
 	["Wand"] = { oneHand = true, melee = false, flag = "Wand" },
-	["One Handed Axe"] = { oneHand = true, melee = true, flag = "Axe" },
-	["One Handed Mace"] = { oneHand = true, melee = true, flag = "Mace" },
-	["One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword" },
-	["Thrusting One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Handed Sword" },
+	["One Hand Axe"] = { oneHand = true, melee = true, flag = "Axe" },
+	["One Hand Mace"] = { oneHand = true, melee = true, flag = "Mace" },
+	["One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword" },
+	["Thrusting One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Hand Sword" },
 	["Fishing Rod"] = { oneHand = false, melee = true, flag = "Fishing" },
-	["Two Handed Axe"] = { oneHand = false, melee = true, flag = "Axe" },
-	["Two Handed Mace"] = { oneHand = false, melee = true, flag = "Mace" },
-	["Two Handed Sword"] = { oneHand = false, melee = true, flag = "Sword" },
+	["Two Hand Axe"] = { oneHand = false, melee = true, flag = "Axe" },
+	["Two Hand Mace"] = { oneHand = false, melee = true, flag = "Mace" },
+	["Two Hand Sword"] = { oneHand = false, melee = true, flag = "Sword" },
 	["Talisman"] = { oneHand = false, melee = true, flag = "Talisman" },
 }
 data.unarmedWeaponData = {
@@ -617,10 +618,12 @@ data.itemMods = {
 	Item = LoadModule("Data/ModItem"),
 	Flask = LoadModule("Data/ModFlask"),
 	Charm = LoadModule("Data/ModCharm"),
+	IncursionLimb = LoadModule("Data/ModIncursionLimb"),
 	Jewel = LoadModule("Data/ModJewel"),
 	Corruption = LoadModule("Data/ModCorrupted"),
 	Runes = LoadModule("Data/ModRunes"),
-	Exclusive = LoadModule("Data/ModItemExclusive")
+	Exclusive = LoadModule("Data/ModItemExclusive"),
+	Desecrated = LoadModule("Data/ModVeiled")
 }
 
 -- update JewelRadius affixes for Time-Lost jewels

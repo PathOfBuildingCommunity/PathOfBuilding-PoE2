@@ -27,7 +27,7 @@ local socketDropList = {
 	{ label = colorCodes.SCION.."S", color = "W" }
 }
 
-local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2" }
+local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "Boots", "Amulet", "Ring 1", "Ring 2", "Ring 3","Belt", "Charm 1", "Charm 2", "Charm 3", "Flask 1", "Flask 2", "Arm 1", "Arm 2", "Leg 1", "Leg 2" }
 
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Life Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -53,6 +53,10 @@ for _, entry in pairs(data.flavourText) do
     end
 end
 
+local function isAnointable(item)
+	return (item.canBeAnointed or item.base.type == "Amulet") and not item.sanctified
+		and not item.corrupted and not item.mirrored
+end
 
 local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
 	self.UndoHandler()
@@ -403,9 +407,30 @@ holding Shift will put it in the second.]])
 		self:AnointDisplayItem(1)
 	end)
 	self.controls.displayItemAnoint.shown = function()
-		return self.displayItem and (self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed)
+		return self.displayItem and isAnointable(self.displayItem)
 	end
-	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
+	self.controls.displayItemAnoint2 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 2...", function()
+		self:AnointDisplayItem(2)
+	end)
+	self.controls.displayItemAnoint2.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveTwoEnchants and #self.displayItem.enchantModLines > 0
+	end
+	self.controls.displayItemAnoint3 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint2,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 3...", function()
+		self:AnointDisplayItem(3)
+	end)
+	self.controls.displayItemAnoint3.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveThreeEnchants and #self.displayItem.enchantModLines > 1
+	end
+	self.controls.displayItemAnoint4 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint3,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 4...", function()
+		self:AnointDisplayItem(4)
+	end)
+	self.controls.displayItemAnoint4.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveFourEnchants and #self.displayItem.enchantModLines > 2
+	end
+	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint4,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
 		self:CorruptDisplayItem()
 	end)
 	self.controls.displayItemCorrupt.shown = function()
@@ -1479,18 +1504,80 @@ function ItemsTabClass:DeleteItem(item, deferUndoState)
 	end
 end
 
+local function isAnointable(item)
+	return (item.canBeAnointed or item.base.type == "Amulet")
+end
+
+local function isAugmentable(item)
+	return (item.sockets and #item.sockets > 0) or (item.base.socketLimit and item.base.socketLimit > 0)
+end
+
+function ItemsTabClass:copyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
+	local isWeapon = newItem.base.tags and (newItem.base.tags.onehand or newItem.base.tags.twohand)
+	local isShield = newItem.base.tags and (newItem.base.tags.shield or newItem.base.tags.focus)
+	local newItemType = sourceSlotName or (isWeapon and "Weapon 1") or (isShield and "Weapon 2") or newItem.base.type
+	-- tabula rasa has jewel sockets which don't apply here
+	if newItem.name == "Tabula Rasa, Garment" then return end
+	if self.activeItemSet[newItemType] then
+		local currentItem = self.activeItemSet[newItemType].selItemId and self.items[self.activeItemSet[newItemType].selItemId]
+		-- if you don't have an equipped item that matches the type of the newItem, no need to do anything
+		if currentItem then
+			local modifiableItem = not (newItem.corrupted or newItem.mirrored or newItem.sanctified)
+			-- if the new item is anointable and does not have an anoint and your current respective item does, apply that anoint to the new item
+			if isAnointable(newItem) and (#newItem.enchantModLines == 0 or overwrite) and self.activeItemSet[newItemType].selItemId > 0 and modifiableItem then
+				local currentAnoint = currentItem.enchantModLines
+				newItem.enchantModLines = currentAnoint
+			end
+			
+			--https://www.poe2wiki.net/wiki/Augment_socket
+			-- augments, given there are enough sockets
+
+			local hasEmptySockets = true
+			for i = 1, #newItem.runes do
+				if newItem.runes[i] ~= "None" then
+					hasEmptySockets = false
+					break
+				end
+			end
+			local shouldChangeAugments = copyAugments and isAugmentable(newItem) and
+			(#newItem.runes == 0 or hasEmptySockets or overwrite)
+
+			-- current runes sans "None"
+			local currentRunes = {}
+			for i = 1, #currentItem.runes do
+				if currentItem.runes[i] ~= "None" then
+					table.insert(currentRunes, currentItem.runes[i])
+				end
+			end
+			-- add sockets, if necessary and possible
+			if shouldChangeAugments and isAugmentable(newItem) and modifiableItem and #newItem.sockets < #currentItem.sockets then
+				local maxSockets = modifiableItem and math.min(#currentItem.sockets, newItem.base.socketLimit)
+				local neededSockets = math.max(0, maxSockets - #newItem.sockets)
+				for i = 1, neededSockets do
+					table.insert(newItem.runes, "None")
+					table.insert(newItem.sockets, { group = #newItem.sockets + 1})
+				end
+				newItem.itemSocketCount = #newItem.sockets
+				newItem:UpdateRunes()
+			end
+			-- replace runes with current ones, or set to none
+			if shouldChangeAugments then
+				for i = 1, #newItem.sockets do
+					newItem.runes[i] = currentRunes[i] or "None"
+				end
+				newItem:UpdateRunes()
+			end
+
+			newItem:BuildAndParseRaw()
+		end
+	end
+end
+
 -- Attempt to create a new item from the given item raw text and sets it as the new display item
 function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 	local newItem = new("Item", itemRaw)
 	if newItem.base then
-		-- if the new item is an amulet and does not have an anoint and your current amulet does, apply that anoint to the new item
-		if newItem.base.type == "Amulet" and #newItem.enchantModLines == 0 and self.activeItemSet["Amulet"].selItemId > 0 then
-			local currentAnoint = self.items[self.activeItemSet["Amulet"].selItemId].enchantModLines
-			if currentAnoint and #currentAnoint == 1 then -- skip if amulet has more than one anoint e.g. Stranglegasp
-				newItem.enchantModLines = currentAnoint
-				newItem:BuildAndParseRaw()
-			end
-		end
+		self:copyAnointsAndAugments(newItem, main.migrateAugments, false)
 		if normalise then
 			newItem:NormaliseQuality()
 			newItem:BuildModList()
@@ -1932,6 +2019,10 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 		elseif item.baseName:match("Mana Flask") and slotName:match("Flask 2") then
 			return true
 		end
+	elseif item.base.subType == "Transcendent Arm" and slotType == "Arm" then
+		return true
+	elseif item.base.subType == "Transcendent Leg" and slotType == "Leg" then
+		return true
 	elseif item.type == slotType then
 		return true
 	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
@@ -1958,7 +2049,7 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 			return item.type == "Focus"
 		elseif weapon1Base == "Unarmed" or weapon1Base.tags.onehand or (giantsBlood and (weapon1Base.tags.axe or weapon1Base.tags.mace or weapon1Base.tags.sword)) then
 			return item.type == "Shield" or item.type == "Focus" or item.type == "Sceptre"
-					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre")
+					or (item.base.tags.one_hand_weapon and weapon1Base.type ~= "Wand" and weapon1Base.type ~= "Sceptre" and item.type ~= "Spear")
 					or (giantsBlood and (item.base.tags.axe or item.base.tags.mace or item.base.tags.sword))
 		end
 	end
@@ -2044,6 +2135,9 @@ function ItemsTabClass:CraftItem()
 				raritySel = 1
 			end
 		end
+		if base.base.type == "Transcendent Limb" then
+			raritySel = 1
+		end
 		if raritySel == 2 or raritySel == 3 then
 			item.crafted = true
 		end
@@ -2066,14 +2160,14 @@ function ItemsTabClass:CraftItem()
 		item:BuildAndParseRaw()
 		return item
 	end
-	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 20, 0, 16}, "Rarity:")
+	controls.rarityLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 20, 0, 16}, "^7Rarity:")
 	controls.rarity = new("DropDownControl", nil, {-80, 20, 100, 18}, rarityDropList)
 	controls.rarity.selIndex = self.lastCraftRaritySel or 3
 	controls.title = new("EditControl", nil, {70, 20, 190, 18}, "", "Name")
 	controls.title.shown = function()
 		return controls.rarity.selIndex >= 3
 	end
-	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 45, 0, 16}, "Type:")
+	controls.typeLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {50, 45, 0, 16}, "^7Type:")
 	controls.type = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {55, 45, 295, 18}, self.build.data.itemBaseTypeList, function(index, value)
 		controls.base.list = self.build.data.itemBaseLists[self.build.data.itemBaseTypeList[index]]
 		controls.base.selIndex = 1
@@ -2736,12 +2830,12 @@ function ItemsTabClass:FormatItemSource(text)
 			   :gsub("prophecy{([^}]+)}",colorCodes.PROPHECY.."%1"..colorCodes.SOURCE)
 end
 
-function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
+function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	local fontSizeSmall = main.showFlavourText and 16 or 14
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	local fontSizeTitle = main.showFlavourText and 22 or 20
 	local rarityCode = colorCodes[item.rarity]
-	tooltip.maxWidth = 600 -- Should instead get the longest mod and set the width to that. Some flavour text is way too long so we need a cap of sorts.
+	tooltip.maxWidth = m_min(maxWidth or 600, 600) -- Cap very long lines. Can use a narrower width for small viewports
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
@@ -3054,12 +3148,15 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Corrupted item label
-	if item.corrupted or item.mirrored or item.doubleCorrupted then
+	if item.corrupted or item.mirrored or item.doubleCorrupted or item.sanctified then
 		if #item.explicitModLines == 0 then
 			tooltip:AddSeparator(10)
 		end
 		if item.mirrored then
 			tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE.."Mirrored", "FONTIN SC")
+		end
+		if item.sanctified then
+			tooltip:AddLine(fontSizeBig, colorCodes.FRACTURED.."Sanctified", "FONTIN SC")
 		end
 		if item.doubleCorrupted then
 			tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE.."Twice Corrupted", "FONTIN SC")
@@ -3070,8 +3167,13 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 	end
 
 	-- Show flavour text:
-	if item.rarity == "UNIQUE" or item.rarity == "RELIC" then
-		local flavourTable = flavourLookup[item.title]
+	if item.rarity == "UNIQUE" or item.rarity == "RELIC" or item.base.type =="Transcendent Limb" and main.showFlavourText then
+		local flavourTable
+		if item.base.type =="Transcendent Limb" then
+			flavourTable = flavourLookup["Transcendent Limb"]
+		else
+			flavourTable = flavourLookup[item.title]
+		end
 		if flavourTable then
 			local flavour = nil
 
@@ -3366,49 +3468,108 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 				t_insert(compareSlots, slot)
 			end
 		end
-		table.sort(compareSlots, function(a, b)
-			if a ~= b then
-				if slot == a then
-					return true
-				end
-				if slot == b then
-					return false
-				end
-			end
-			if a.selItemId ~= b.selItemId then
-				if item == self.items[a.selItemId] then
-					return true
-				end
-				if item == self.items[b.selItemId] then
-					return false
-				end
-			end
-			local aNum = tonumber(a.slotName:match("%d+"))
-			local bNum = tonumber(b.slotName:match("%d+"))
-			if aNum and bNum then
-				return aNum < bNum
-			else
-				return a.slotName < b.slotName
-			end
-		end)
 
-		-- Add comparisons for each slot
-		for _, compareSlot in pairs(compareSlots) do
-			if not main.slotOnlyTooltips or (slot and (slot.nodeId == compareSlot.nodeId or slot.slotName == compareSlot.slotName)) or not slot or slot == compareSlot then
-				local selItem = self.items[compareSlot.selItemId]
-				local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil})
-				local header
-				if item == selItem then
-					header = "^7Removing this item from "..compareSlot.label.." will give you:"
-				else
-					header = string.format("^7Equipping this item in %s will give you:%s", compareSlot.label, selItem and "\n(replacing "..colorCodes[selItem.rarity]..selItem.name.."^7)" or "")
+		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+
+		local function getReplacedItemAndOutput(compareSlot)
+			local selItem = self.items[compareSlot.selItemId]
+			local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil })
+			return selItem, output
+		end
+		local function addCompareForSlot(compareSlot, selItem, output)
+			if not selItem or not output then
+				selItem, output = getReplacedItemAndOutput(compareSlot)
+			end
+			local header
+			if item == selItem then
+				header = "^7Removing this item from " .. compareSlot.label .. " will give you:"
+			else
+				header = string.format("^7Equipping this item in %s will give you:%s",
+					compareSlot.label or compareSlot.slotName,
+					selItem and "\n(replacing " .. colorCodes[selItem.rarity] .. selItem.name .. "^7)" or "")
+			end
+			self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
+		end
+
+		-- if we have a specific slot to compare to, and the user has "Show
+		-- tooltips only for affected slots" checked, we can just compare that
+		-- one slot
+		if main.slotOnlyTooltips and slot then
+			slot = type(slot) ~= "string" and slot or self.slots[slot]
+			if slot then addCompareForSlot(slot) end
+			return
+		end
+
+
+		local slots = {}
+		local isUnique = item.rarity == "UNIQUE" or item.rarity == "RELIC"
+		local currentSameUniqueCount = 0
+		for _, compareSlot in ipairs(compareSlots) do
+			local selItem, output = getReplacedItemAndOutput(compareSlot)
+			local isSameUnique = isUnique and selItem and item.name == selItem.name
+			if isUnique and isSameUnique and item.limit then
+				currentSameUniqueCount = currentSameUniqueCount + 1
+			end
+			table.insert(slots,
+				{ selItem = selItem, output = output, compareSlot = compareSlot, isSameUnique = isSameUnique })
+		end
+
+		-- limited uniques: only compare to slots with the same item if more don't fit
+		if currentSameUniqueCount == item.limit then
+			for _, slotEntry in ipairs(slots) do
+				if slotEntry.isSameUnique then
+					addCompareForSlot(slotEntry.compareSlot, slotEntry.selItem, slotEntry.output)
 				end
-				self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
+			end
+			return
+		end
+
+
+		-- either the same unique or same base type
+		local function similar(compareItem, sameUnique)
+			-- empty slot
+			if not compareItem then return 0 end
+
+			local sameBaseType = not isUnique
+				and compareItem.rarity ~= "UNIQUE" and compareItem.rarity ~= "RELIC"
+				and item.base.type == compareItem.base.type
+				and item.base.subType == compareItem.base.subType
+			if sameBaseType or sameUnique then
+				return 1
+			else
+				return 0
 			end
 		end
-	end
-	tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+		-- sort by:
+		-- 1. empty sockets
+		-- 2. same base group jewel or unique
+		-- 3. DPS
+		-- 4. EHP
+		local function sortFunc(a, b)
+			if a == b then return end
 
+			local aParams = { a.compareSlot.selItemId == 0 and 1 or 0, similar(a.selItem, a.isSameUnique), a.output
+				.FullDPS, a.output.CombinedDPS, a.output.TotalEHP, a.compareSlot.label, a.compareSlot.slotName }
+			local bParams = { b.compareSlot.selItemId == 0 and 1 or 0, similar(b.selItem, b.isSameUnique), b.output
+				.FullDPS, b
+				.output.CombinedDPS, b.output.TotalEHP, b.compareSlot.label, b.compareSlot.slotName }
+			for i = 1, #aParams do
+				if aParams[i] == nil or bParams[i] == nil then
+					-- continue
+				elseif aParams[i] > bParams[i] then
+					return true
+				elseif aParams[i] < bParams[i] then
+					return false
+				end
+			end
+			return false
+		end
+		table.sort(slots, sortFunc)
+
+		for _, slotEntry in ipairs(slots) do
+			addCompareForSlot(slotEntry.compareSlot, slotEntry.selItem, slotEntry.output)
+		end
+	end
 	if launch.devModeAlt then
 		-- Modifier debugging info
 		tooltip:AddSeparator(10)

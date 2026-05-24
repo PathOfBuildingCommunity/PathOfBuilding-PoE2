@@ -16,6 +16,7 @@ local m_pi = math.pi
 
 LoadModule("GameVersions")
 LoadModule("Modules/Common")
+LoadModule("Modules/CalcFormat")
 LoadModule("Modules/Data")
 LoadModule("Modules/ModTools")
 LoadModule("Modules/ItemTools")
@@ -102,10 +103,12 @@ function main:Init()
 	self.thousandsSeparator = ","
 	self.decimalSeparator = "."
 	self.defaultItemAffixQuality = 0.5
+	self.defaultItemQuality = 20
 	self.showTitlebarName = true
 	self.dpiScaleOverridePercent = GetDPIScaleOverridePercent and GetDPIScaleOverridePercent() or 0
 	self.showWarnings = true
 	self.slotOnlyTooltips = true
+	self.migrateAugments = true
 	self.notSupportedModTooltips = true
 	self.notSupportedTooltipText = " ^8(Not supported in PoB yet)"
 	self.POESESSID = ""
@@ -338,12 +341,7 @@ function main:Shutdown()
 end
 
 function main:OnFrame()
-	self.screenW, self.screenH = GetScreenSize()
-	self.screenScale = GetScreenScale and GetScreenScale() or 1
-	if self.screenScale ~= 1.0 then
-		self.screenW = math.floor(self.screenW / self.screenScale)
-		self.screenH = math.floor(self.screenH / self.screenScale)
-	end
+	self.screenW, self.screenH = GetVirtualScreenSize()
 
 	if self.screenH > self.screenW then
 		self.portraitMode = true
@@ -623,6 +621,9 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.defaultGemQuality then
 					self.defaultGemQuality = m_min(tonumber(node.attrib.defaultGemQuality) or 0, 23)
 				end
+				if node.attrib.defaultItemQuality then
+					self.defaultItemQuality = m_min(tonumber(node.attrib.defaultItemQuality) or 20, 30)
+				end
 				if node.attrib.defaultCharLevel then
 					self.defaultCharLevel = m_min(m_max(tonumber(node.attrib.defaultCharLevel) or 1, 1), 100)
 				end
@@ -783,11 +784,13 @@ function main:SaveSettings()
 		betaTest = tostring(self.betaTest),
 		edgeSearchHighlight = tostring(self.edgeSearchHighlight),
 		defaultGemQuality = tostring(self.defaultGemQuality or 0),
+		defaultItemQuality = tostring(self.defaultItemQuality or 20),
 		defaultCharLevel = tostring(self.defaultCharLevel or 1),
 		defaultItemAffixQuality = tostring(self.defaultItemAffixQuality or 0.5),
 		lastExportWebsite = self.lastExportWebsite,
 		showWarnings = tostring(self.showWarnings),
 		slotOnlyTooltips = tostring(self.slotOnlyTooltips),
+		migrateAugments = tostring(self.migrateAugments),
 		notSupportedModTooltips = tostring(self.notSupportedModTooltips),
 		POESESSID = self.POESESSID,
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
@@ -873,7 +876,7 @@ function main:OpenOptionsPopup()
 	end
 
 	local defaultLabelSpacingPx = -4
-	local defaultLabelPlacementX = 240
+	local defaultLabelPlacementX = popupWidth*0.45
 
 	drawSectionHeader("app", "Application options")
 
@@ -1043,6 +1046,13 @@ function main:OpenOptionsPopup()
 	controls.defaultGemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultGemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default gem quality:")
 
 	nextRow()
+	controls.defaultItemQuality = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultItemQuality, nil, "%D", 2, function(itemQuality)
+		self.defaultItemQuality = m_min(tonumber(itemQuality) or 0, 20)
+	end)
+	controls.defaultItemQuality.tooltipText = "Set the default quality that will be applied to newly created or pasted items."
+	controls.defaultItemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultItemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default item quality:")
+
+	nextRow()
 	controls.defaultCharLevel = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultCharLevel, nil, "%D", 3, function(charLevel)
 		self.defaultCharLevel = m_min(m_max(tonumber(charLevel) or 1, 1), 100)
 	end)
@@ -1068,8 +1078,15 @@ function main:OpenOptionsPopup()
 	nextRow()
 	controls.slotOnlyTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show tooltips only for affected slots:", function(state)
 		self.slotOnlyTooltips = state
-	end)
+	end, "Shows comparisons in tooltips only for the slot you are currently placing the item in, instead of all slots.")
 	controls.slotOnlyTooltips.state = self.slotOnlyTooltips
+
+	nextRow()
+	controls.migrateAugments = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Copy augments onto display item:", function(state)
+		self.migrateAugments = state
+	end)
+	controls.migrateAugments.tooltipText = "Apply augments and anoints from current gear when comparing new gear, given they are possible to add to the new item."
+	controls.migrateAugments.state = self.migrateAugments
 	
 	nextRow()
 	controls.notSupportedModTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show tooltip for unsupported mods :", function(state)
@@ -1112,10 +1129,12 @@ function main:OpenOptionsPopup()
 	local initialBetaTest = self.betaTest
 	local initialEdgeSearchHighlight = self.edgeSearchHighlight
 	local initialDefaultGemQuality = self.defaultGemQuality or 0
+	local initialDefaultItemQuality = self.defaultGemQuality or 20
 	local initialDefaultCharLevel = self.defaultCharLevel or 1
 	local initialDefaultItemAffixQuality = self.defaultItemAffixQuality or 0.5
 	local initialShowWarnings = self.showWarnings
 	local initialSlotOnlyTooltips = self.slotOnlyTooltips
+	local initialMigrateAugments = self.migrateAugments
 	local initialNotSupportedModTooltips = self.notSupportedModTooltips
 	local initialInvertSliderScrollDirection = self.invertSliderScrollDirection
 	local initialDisableDevAutoSave = self.disableDevAutoSave
@@ -1168,10 +1187,12 @@ function main:OpenOptionsPopup()
 		self.betaTest = initialBetaTest
 		self.edgeSearchHighlight = initialEdgeSearchHighlight
 		self.defaultGemQuality = initialDefaultGemQuality
+		self.defaultItemQuality = initialDefaultItemQuality
 		self.defaultCharLevel = initialDefaultCharLevel
 		self.defaultItemAffixQuality = initialDefaultItemAffixQuality
 		self.showWarnings = initialShowWarnings
 		self.slotOnlyTooltips = initialSlotOnlyTooltips
+		self.migrateAugments = initialMigrateAugments
 		self.notSupportedModTooltips = initialNotSupportedModTooltips
 		self.invertSliderScrollDirection = initialInvertSliderScrollDirection
 		self.disableDevAutoSave = initialDisableDevAutoSave

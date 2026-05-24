@@ -836,6 +836,9 @@ skills["SupportBitingFrostPlayer"] = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
 				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -872,6 +875,9 @@ skills["SupportBitingFrostPlayerTwo"] = {
 			statMap = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
 				},
 			},
 			baseFlags = {
@@ -1680,45 +1686,6 @@ skills["SupportAddedChaosDamagePlayer"] = {
 	gemFamily = { "ChaosAttunement",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-		[2] = { levelRequirement = 3, manaMultiplier = 20, },
-		[3] = { levelRequirement = 6, manaMultiplier = 20, },
-		[4] = { levelRequirement = 10, manaMultiplier = 20, },
-		[5] = { levelRequirement = 14, manaMultiplier = 20, },
-		[6] = { levelRequirement = 18, manaMultiplier = 20, },
-		[7] = { levelRequirement = 22, manaMultiplier = 20, },
-		[8] = { levelRequirement = 26, manaMultiplier = 20, },
-		[9] = { levelRequirement = 31, manaMultiplier = 20, },
-		[10] = { levelRequirement = 36, manaMultiplier = 20, },
-		[11] = { levelRequirement = 41, manaMultiplier = 20, },
-		[12] = { levelRequirement = 46, manaMultiplier = 20, },
-		[13] = { levelRequirement = 52, manaMultiplier = 20, },
-		[14] = { levelRequirement = 58, manaMultiplier = 20, },
-		[15] = { levelRequirement = 64, manaMultiplier = 20, },
-		[16] = { levelRequirement = 66, manaMultiplier = 20, },
-		[17] = { levelRequirement = 72, manaMultiplier = 20, },
-		[18] = { levelRequirement = 78, manaMultiplier = 20, },
-		[19] = { levelRequirement = 84, manaMultiplier = 20, },
-		[20] = { levelRequirement = 90, manaMultiplier = 20, },
-		[21] = { levelRequirement = 90, manaMultiplier = 20, },
-		[22] = { levelRequirement = 90, manaMultiplier = 20, },
-		[23] = { levelRequirement = 90, manaMultiplier = 20, },
-		[24] = { levelRequirement = 90, manaMultiplier = 20, },
-		[25] = { levelRequirement = 90, manaMultiplier = 20, },
-		[26] = { levelRequirement = 90, manaMultiplier = 20, },
-		[27] = { levelRequirement = 90, manaMultiplier = 20, },
-		[28] = { levelRequirement = 90, manaMultiplier = 20, },
-		[29] = { levelRequirement = 90, manaMultiplier = 20, },
-		[30] = { levelRequirement = 90, manaMultiplier = 20, },
-		[31] = { levelRequirement = 90, manaMultiplier = 20, },
-		[32] = { levelRequirement = 90, manaMultiplier = 20, },
-		[33] = { levelRequirement = 90, manaMultiplier = 20, },
-		[34] = { levelRequirement = 90, manaMultiplier = 20, },
-		[35] = { levelRequirement = 90, manaMultiplier = 20, },
-		[36] = { levelRequirement = 90, manaMultiplier = 20, },
-		[37] = { levelRequirement = 90, manaMultiplier = 20, },
-		[38] = { levelRequirement = 90, manaMultiplier = 20, },
-		[39] = { levelRequirement = 90, manaMultiplier = 20, },
-		[40] = { levelRequirement = 90, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -1832,7 +1799,7 @@ skills["SupportClarityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity I" }),
 				},
 			},
 			baseFlags = {
@@ -1868,7 +1835,7 @@ skills["SupportClarityPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity II" }),
 				},
 			},
 			baseFlags = {
@@ -2824,6 +2791,9 @@ skills["SupportDecayingHexPlayer"] = {
 			},
 			baseFlags = {
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" }),
+			},
 			constantStats = {
 				{ "support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds", 6000 },
 			},
@@ -3725,6 +3695,34 @@ skills["SupportEssenceHarvestPlayer"] = {
 		},
 	}
 }
+skills["SupportEternalMarkPlayer"] = {
+	name = "Eternal Mark",
+	description = "Supports Mark Skills, causing them to not be Consumed the first time they are Activated.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "EternalMark",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Eternal Mark",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"marks_avoid_consumption_when_first_activated",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportExcisePlayer"] = {
 	name = "Excise",
 	description = "Supports any damaging Skill that you use yourself, granting it significantly higher chance to Critically Hit, but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
@@ -3791,6 +3789,39 @@ skills["SupportExecratePlayer"] = {
 			constantStats = {
 				{ "support_hourglass_display_cooldown_time_ms", 8000 },
 				{ "support_ailment_cooldown_ailment_chance_+%_final", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportExpandPlayer"] = {
+	name = "Expand",
+	description = "Supports Spells you cast yourself, increasing their area of effect when cast. Cannot support Channelling Skills or Skills with a Cooldown.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.Area, SkillType.AND, },
+	addSkillTypes = { SkillType.HasSeals, SkillType.SupportedByExpand, },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, SkillType.HasReservation, SkillType.Vaal, SkillType.Instant, SkillType.Channel, SkillType.Cooldown, SkillType.ComboStacking, SkillType.HasSeals, SkillType.SupportedByExpand, SkillType.NOT, SkillType.AND, },
+	gemFamily = { "Seal","IncreasedAreaOfEffect",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Expand",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_expand_max_seals", 3 },
+				{ "support_expand_charge_gain_interval_ms", 0 },
+				{ "expand_support_seal_gain_frequency_as_%_of_total_cast_time", 200 },
+				{ "skill_area_of_effect_+%_per_expand_seal", 30 },
 			},
 			stats = {
 			},
@@ -4485,6 +4516,40 @@ skills["SupportGambleshotPlayer"] = {
 		},
 	}
 }
+skills["SupportGuatelitzisAblationPlayer"] = {
+	name = "Guatelitzi's Ablation",
+	description = "Supports Offering Skills. Supported Skills Sacrifice a portion of your life on use. While Offering spikes from Supported Skills persist, you are periodically granted a Power Charge. When spikes from Supported Skills die, Regenerate a percentage of your maximum Life and Mana per second based on the duration the Offering persisted.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Offering, },
+	addSkillTypes = { SkillType.GeneratesCharges, },
+	excludeSkillTypes = { },
+	gemFamily = { "SacrificalOffering",},
+	isLineage = true,
+	flavourText = {"Young Guatelitzi was found moving among the prisoners,", "preparing their living bodies for sacrifice. The High Priests", "recognised his inclinations, and gave him a higher calling.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Guatelitzi's Ablation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "sacrifice_%_life_on_skill_use", 25 },
+				{ "recover_%_life_and_mana_per_minute_for_supported_offering_lifetime", 300 },
+				{ "supported_offerings_grant_you_a_powercharge_every_x_ms", 4000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportHayoxisBindingPlayer"] = {
 	name = "Hayoxi's Fulmination",
 	description = "Supports Curse Skills. Supported Curse Skills create areas which Curse enemies so long as they are within them. Cursed areas from Supported Skills gather power before erupting in a column of annihilating light after a moderate delay.",
@@ -5122,7 +5187,7 @@ skills["SupportInevitableCriticalsPlayerTwo"] = {
 					mod("Multiplier:InevitableCritCap", "BASE", nil),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second"] = {
-					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+					mod("CritMultiplier", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitNegTotal = true }),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_cap"] = {
 					mod("Multiplier:InevitableCritMultCap", "BASE", nil),
@@ -6114,6 +6179,14 @@ skills["SupportMorganasTempestPlayer"] = {
 			label = "Morgana's Tempest",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_approaching_storms_area_of_effect_+%_final"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+				["support_approaching_storms_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6188,7 +6261,7 @@ skills["SupportMysticismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism I" }),
 				},
 			},
 			baseFlags = {
@@ -6224,7 +6297,7 @@ skills["SupportMysticismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism II" }),
 				},
 			},
 			baseFlags = {
@@ -6318,8 +6391,6 @@ skills["SupportPerpetualChargePlayer"] = {
 	gemFamily = { "PerpetualCharge",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 30, },
-		[2] = { levelRequirement = 0, },
-		[3] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -6380,8 +6451,6 @@ skills["SupportPinpointCriticalPlayer"] = {
 	gemFamily = { "PinpointCritical",},
 	levels = {
 		[1] = { levelRequirement = 0, },
-		[2] = { levelRequirement = 0, },
-		[3] = { levelRequirement = 0, },
 	},
 	statSets = {
 		[1] = {
@@ -6788,6 +6857,11 @@ skills["SupportRitualisticCursePlayer"] = {
 			label = "Ritualistic Curse",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ritual_curse_curse_delay_+%_final"] = {
+					mod("CurseDelay", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -7517,17 +7591,6 @@ skills["SupportUnleashPlayer"] = {
 			label = "Unleash",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_anticipation_rapid_fire_count"] = {
-					mod("SealCount", "BASE", nil),
-				},
-				["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
-					mod("SealGainFrequency", "BASE", nil),
-				},
-				["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
-					mod("SealRepeatPenalty", "MORE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			baseMods = {
@@ -7776,45 +7839,6 @@ skills["SupportWildfirePlayer"] = {
 	gemFamily = { "Wildfire",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-		[2] = { levelRequirement = 3, manaMultiplier = 20, },
-		[3] = { levelRequirement = 6, manaMultiplier = 20, },
-		[4] = { levelRequirement = 10, manaMultiplier = 20, },
-		[5] = { levelRequirement = 14, manaMultiplier = 20, },
-		[6] = { levelRequirement = 18, manaMultiplier = 20, },
-		[7] = { levelRequirement = 22, manaMultiplier = 20, },
-		[8] = { levelRequirement = 26, manaMultiplier = 20, },
-		[9] = { levelRequirement = 31, manaMultiplier = 20, },
-		[10] = { levelRequirement = 36, manaMultiplier = 20, },
-		[11] = { levelRequirement = 41, manaMultiplier = 20, },
-		[12] = { levelRequirement = 46, manaMultiplier = 20, },
-		[13] = { levelRequirement = 52, manaMultiplier = 20, },
-		[14] = { levelRequirement = 58, manaMultiplier = 20, },
-		[15] = { levelRequirement = 64, manaMultiplier = 20, },
-		[16] = { levelRequirement = 66, manaMultiplier = 20, },
-		[17] = { levelRequirement = 72, manaMultiplier = 20, },
-		[18] = { levelRequirement = 78, manaMultiplier = 20, },
-		[19] = { levelRequirement = 84, manaMultiplier = 20, },
-		[20] = { levelRequirement = 90, manaMultiplier = 20, },
-		[21] = { levelRequirement = 90, manaMultiplier = 20, },
-		[22] = { levelRequirement = 90, manaMultiplier = 20, },
-		[23] = { levelRequirement = 90, manaMultiplier = 20, },
-		[24] = { levelRequirement = 90, manaMultiplier = 20, },
-		[25] = { levelRequirement = 90, manaMultiplier = 20, },
-		[26] = { levelRequirement = 90, manaMultiplier = 20, },
-		[27] = { levelRequirement = 90, manaMultiplier = 20, },
-		[28] = { levelRequirement = 90, manaMultiplier = 20, },
-		[29] = { levelRequirement = 90, manaMultiplier = 20, },
-		[30] = { levelRequirement = 90, manaMultiplier = 20, },
-		[31] = { levelRequirement = 90, manaMultiplier = 20, },
-		[32] = { levelRequirement = 90, manaMultiplier = 20, },
-		[33] = { levelRequirement = 90, manaMultiplier = 20, },
-		[34] = { levelRequirement = 90, manaMultiplier = 20, },
-		[35] = { levelRequirement = 90, manaMultiplier = 20, },
-		[36] = { levelRequirement = 90, manaMultiplier = 20, },
-		[37] = { levelRequirement = 90, manaMultiplier = 20, },
-		[38] = { levelRequirement = 90, manaMultiplier = 20, },
-		[39] = { levelRequirement = 90, manaMultiplier = 20, },
-		[40] = { levelRequirement = 90, manaMultiplier = 20, },
 	},
 	statSets = {
 		[1] = {
@@ -8052,6 +8076,9 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
+			baseMods = {
+				flag("HasSeals"),
+			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },
 				{ "unleash_support_seal_gain_frequency_as_%_of_total_cast_time", 50 },
@@ -8065,7 +8092,6 @@ skills["SupportZarokhsRevoltPlayer"] = {
 		},
 	}
 }
-
 skills["SupportZenithPlayer"] = {
 	name = "Zenith I",
 	description = "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana. Does not modify Skills used by Minions.",

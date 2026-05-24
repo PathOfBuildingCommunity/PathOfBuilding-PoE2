@@ -291,7 +291,8 @@ statMap = {
 #from tree
 #skill InevitableAgonyPlayer
 #set InevitableAgonyPlayer
-#flags
+#flags area duration curse
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -368,7 +369,7 @@ minionUses = {
 	["Weapon 1"] = true,
 },
 #set ManifestWeaponPlayer
-#flags spell minion duration
+#flags spell minion
 statMap = {
 	["minion_1%_damage_+%_per_X_player_strength"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
@@ -426,6 +427,7 @@ statMap = {
 		mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
 	},
 },
+#baseMod skill("debuff", true)
 #mods
 #skillEnd
 
@@ -556,7 +558,7 @@ statMap = {
 #minionList SummonedHellhound
 #skill SummonInfernalHoundPlayer
 #set SummonInfernalHoundPlayer
-#flags spell minion permanentMinion
+#flags spell minion duration
 #mods
 #skillEnd
 
@@ -564,7 +566,7 @@ statMap = {
 #minionList TacticianMinion
 #skill SupportingFirePlayer
 #set SupportingFirePlayer
-#flags minion permanentMinion
+#flags minion duration
 statMap = {
 	["minion_1%_damage_+%_per_X_player_strength"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),

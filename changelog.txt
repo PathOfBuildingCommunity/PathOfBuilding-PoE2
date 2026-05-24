@@ -1,3 +1,41 @@
+VERSION[0.15.0][2026/01/14]
+
+--- New to Path of Building ---
+* Add support for Transcendent Limbs (Blitz54)
+* Add new Ancient Augment soul cores (Blitz54)
+* Add support for the rare variant of The Adorned (Wires77)
+* Add Guatelitzi's Ablation, Expand (Blitz54)
+* Add support for Rageforged support gems (laFleuere2)
+* Add support for Arakaali's Lust (ain9156)
+* Add support for Falling Thunder projectiles (mauriliogenovese)
+* Add support for count of minions in your Presence (Dimencia)
+* Add Default Item Quality Value option into options (mateokladaric)
+* Add support for Bulwark and Primal Hunger Keystones (MrHB212)
+
+--- Fixed Crashes ---
+* Fix crash on importing build using the rare variant of The Adorned (Wires77)
+
+--- User Interface ---
+* Show "Twice Corrupted" text on imported items (Blitz54)
+
+--- Fixed Calculations ---
+* Fix Qimah quest not importing when all resist was taken by the player (Kenishi)
+* Fix Berserk HP loss while inactive and Rage effect mod (mateokladaric)
+
+--- Fixed Behaviours ---
+* Fix being able to dual-wield Spears (mauriliogenovese)
+* Fix Armour Break not appearing when using Mark for Death (mateokladaric)
+
+--- Accuracy Improvements ---
+* Fixed names for Ascendancy root nodes (Nickomang)
+* Remove supports that aren't drop enabled (Blitz54)
+* Fix Maligaro's Virtuosity variant (Wires77)
+* Fix Artillery Ballista missing skill part name (mateokladaric)
+
+--- Fixed Bugs ---
+* Fix increased effect of notables from Time-Lost jewels breaking notable tooltip (paul-rl)
+
+
 VERSION[0.14.0][2025/12/19]
 
 --- New to Path of Building ---

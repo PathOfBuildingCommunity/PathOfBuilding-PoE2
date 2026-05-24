@@ -288,6 +288,12 @@ return {
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "ModFlagOr", modFlags = bit.bor(ModFlag.WeaponMelee, ModFlag.Unarmed) }),
 	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.RequiresShield }),
 },
+["skill_repeat_count"] = {
+	mod("RepeatCount", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Multicastable }),
+},
+["disable_skill_repeats"] = {
+	flag("CannotRepeat"),
+},
 ["display_skill_minions_level_is_corpse_level"] = {
 	skill("minionLevelIsEnemyLevel", true),
 },
@@ -408,7 +414,7 @@ return {
 	mod("Cost", "MORE", nil),
 	value = -100,
 },
-["base_mana_cost_efficiency_"] = {
+["base_mana_cost_efficiency_+%"] = {
 	mod("ManaCostEfficiency", "INC", nil),
 },
 ["base_life_cost_+%"] = {
@@ -570,6 +576,9 @@ return {
 ["base_cooldown_speed_+%_final"] = {
 	mod("CooldownRecovery", "MORE", nil),
 },
+["support_cooldown_reduction_cooldown_recovery_+%"] = {
+	mod("CooldownRecovery", "MORE", nil),
+},
 ["additional_weapon_base_attack_time_ms"] = {
 	mod("Speed", "BASE", nil, ModFlag.Attack),
 	div = 1000,
@@ -579,6 +588,9 @@ return {
 },
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
+},
+["channelled_skill_do_not_go_on_cooldown_on_finishing_channel"] = {
+	flag("CooldownDoesNotLimitSkillSpeed"),
 },
 ["totem_skill_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast, KeywordFlag.Totem),
@@ -1616,6 +1628,9 @@ return {
 ["number_of_additional_curses_allowed"] = {
 	mod("EnemyCurseLimit", "BASE", nil),
 },
+["curse_ignores_curse_limit"] = {
+	flag("CursesIgnoreCurseLimit")
+},
 ["consecrated_ground_enemy_damage_taken_+%"] = {
 	mod("DamageTakenConsecratedGround", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "OnConsecratedGround" }),
 },
@@ -1650,11 +1665,14 @@ return {
 	mod("ESCostNoMult", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Int", percent = 100 }),
 },
 -- Projectiles
+["skill_can_fire_arrows"] = {
+	skillFlag = "arrow",
+},
 ["base_projectile_speed_+%"] = {
 	mod("ProjectileSpeed", "INC", nil),
 },
 ["base_arrow_speed_+%"] = {
-	mod("ProjectileSpeed", "INC", nil),
+	mod("ProjectileSpeed", "INC", nil, 0, KeywordFlag.Arrow),
 },
 ["active_skill_projectile_speed_+%_final"] = {
 	mod("ProjectileSpeed", "MORE", nil),
@@ -1667,7 +1685,7 @@ return {
 	mod("PierceCount", "BASE", nil),
 },
 ["arrow_base_number_of_targets_to_pierce"] = {
-	mod("PierceCount", "BASE", nil, ModFlag.Attack),
+	mod("PierceCount", "BASE", nil, 0, KeywordFlag.Arrow),
 },
 ["pierce_%"] = {
 	mod("PierceChance", "BASE", nil),
@@ -1725,11 +1743,11 @@ return {
 	flag("NoAdditionalProjectiles"),
 },
 ["base_number_of_arrows"] = {
-	mod("ProjectileCount", "BASE", nil),
+	mod("ProjectileCount", "BASE", nil, 0, KeywordFlag.Arrow),
 	base = -1,
 },
 ["number_of_additional_arrows"] = {
-	mod("ProjectileCount", "BASE", nil),
+	mod("ProjectileCount", "BASE", nil, 0, KeywordFlag.Arrow),
 },
 ["base_number_of_projectiles"] = {
 	mod("ProjectileCount", "BASE", nil),
@@ -2164,6 +2182,18 @@ return {
 },
 ["spell_maximum_added_chaos_damage"] = {
 	mod("ChaosMax", "BASE", nil, 0, KeywordFlag.Spell),
+},
+["support_spell_damage_+%_final_while_above_90%_maximum_mana"] = {
+	mod("Damage", "MORE", nil, 0, KeywordFlag.Spell, { type = "Condition", var = "FullMana"}),
+},
+["support_anticipation_rapid_fire_count"] = {
+	mod("SealCount", "BASE", nil),
+},
+["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+	mod("SealGainFrequency", "BASE", nil),
+},
+["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
+	mod("SealRepeatPenalty", "MORE", nil),
 },
 
 --
@@ -2671,6 +2701,9 @@ return {
 ["base_limit_+"] = {
 	mod("AdditionalCooldownUses", "BASE", nil),
 },
+["support_storm_skill_limit_+"] = {
+	mod("AdditionalCooldownUses", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+},
 ["kill_enemy_on_hit_if_under_10%_life"] = {
 	mod("CullPercent", "MAX", nil),
 	value = 10
@@ -2755,6 +2788,17 @@ return {
 },
 ["set_max_power_charges"] = {
 	mod("PowerChargesMax", "OVERRIDE", nil),
+},
+["chance_%_to_double_effect_of_removing_charges"] = {
+	mod("Multiplier:ConsumedEnduranceChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedFrenzyChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedPowerChargeEffect", "BASE", nil),
+},
+["cannot_consume_power_frenzy_endurance_charges"] = {
+	flag("Condition:CannotConsumeCharges"),
+},
+["cannot_consume_infusions"] = {
+	flag("Condition:CannotConsumeInfusion"),
 },
 ["set_base_heavy_stun_duration_ms"] = {
 	mod("StunDuration", "OVERRIDE", nil),
