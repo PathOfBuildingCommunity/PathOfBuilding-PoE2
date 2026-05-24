@@ -688,7 +688,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	effectiveRange = env.configInput.enemyDistance or env.configPlaceholder.enemyDistance
 
 	-- Build config structure for modifier searches
-	---@class ModCfg
+	---@type ModCfg
 	activeSkill.skillCfg = {
 		flags = bor(skillModFlags, activeSkill.weapon1Flags or activeSkill.weapon2Flags or 0),
 		keywordFlags = skillKeywordFlags,

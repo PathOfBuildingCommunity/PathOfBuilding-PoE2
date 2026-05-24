@@ -128,6 +128,29 @@ return calcs
 ---@field uncancellable_ManaReservation number?
 ---@field uncancellable_SpiritReservation number?
 
+---@class ModCfg
+---@field flags number?
+---@field keywordFlags number?
+---@field source string?
+---@field actor string?
+---@field skillName string?
+---@field summonSkillName string?
+---@field skillGem table?
+---@field skillGrantedEffect table?
+---@field skillPart string?
+---@field skillTypes table?
+---@field skillCond table<string, boolean>?
+---@field skillDist number?
+---@field slotName string?
+---@field item table?
+---@field socketColor string?
+---@field socketNum number?
+---@field intelligenceGems number?
+---@field dexterityGems number?
+---@field strengthGems number?
+---@field skillStats table<string, number>?
+---@field overrideCond table<string, boolean>?
+
 ---@class ActiveSkill
 ---@field activeEffect table
 ---@field supportList table[]

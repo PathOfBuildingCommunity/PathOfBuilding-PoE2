@@ -20,13 +20,35 @@ modLib = { }
 --- "Flag" is only used with CanNotUseItem
 ---@alias NumericModTypes "INC"|"MORE"|"BASE"|"OVERRIDE"|"MAX"|"CHANCE"|"DUMMY"|"Flag"|"MIN"
 
----@alias OtherModTagType "ActorCondition"|"BaseFlag"|"DisablesItem"|"DistanceRamp"|"GemTag"|"Global"|"GlobalEffect"|"IgnoreCond"|"InSlot"|"ItemCondition"|"KeywordFlagAnd"|"Limit"|"ModFlagOr"|"MonsterTag"|"Multiplier"|"MultiplierThreshold"|"PercentStat"|"SkillId"|"SkillName"|"SkillPart"|"SkillType"|"SlotName"|"SlotNumber"|"SocketedIn"|"StatThreshold"
+---@alias ModValue number|boolean|table
 
----@class ConditionModTag
----@field type "Condition"
+---@alias OtherModTagType "DisablesItem"|"Global"|"GlobalEffect"|"IgnoreCond"|"InSlot"|"SlotNumber"
+
+---@class MultiplierModTag
+---@field type "Multiplier"
+---@field actor? string
+---@field limitActor? string
 ---@field var? string
 ---@field varList? string[]
----@field neg? boolean
+---@field div? number
+---@field divVar? string
+---@field limit? number
+---@field limitVar? string
+---@field limitTotal? boolean
+---@field limitNegTotal? boolean
+---@field invert? boolean
+---@field base? number
+
+---@class MultiplierThresholdModTag
+---@field type "MultiplierThreshold"
+---@field actor? string
+---@field thresholdActor? string
+---@field var? string
+---@field varList? string[]
+---@field threshold? number
+---@field thresholdVar? string
+---@field upper? boolean
+---@field equals? boolean
 
 ---@class PerStatModTag
 ---@field type "PerStat"
@@ -42,11 +64,134 @@ modLib = { }
 ---@field globalLimit? number
 ---@field globalLimitKey? string
 
+---@class PercentStatModTag
+---@field type "PercentStat"
+---@field stat? string
+---@field statList? string[]
+---@field actor? string
+---@field percent? string
+---@field percentVar? string
+---@field floor? boolean
+---@field limit? number
+---@field limitVar? string
+---@field limitTotal? boolean
+---@field base? number
+
+---@class StatThresholdModTag
+---@field type "StatThreshold"
+---@field stat? string
+---@field statList? string[]
+---@field threshold? number
+---@field thresholdStat? string
+---@field thresholdPercent? number
+---@field thresholdPercentVar? string
+---@field upper? boolean
+
+---@class DistanceRampModTag
+---@field type "DistanceRamp"
+---@field ramp number[][]
+
+---@class LimitModTag
+---@field type "Limit"
+---@field limit? number
+---@field limitVar? string
+---@field neg? boolean
+
+---@class ConditionModTag
+---@field type "Condition"
+---@field var? string
+---@field varList? string[]
+---@field neg? boolean
+
+---@class ActorConditionModTag
+---@field type "ActorCondition"
+---@field actor? string
+---@field var? string
+---@field varList? string[]
+---@field neg? boolean
+
+---@class ItemConditionModTag
+---@field type "ItemCondition"
+---@field itemSlot? string
+---@field allSlots? boolean
+---@field bothSlots? boolean
+---@field searchCond? string
+---@field excludeSelf? boolean
+---@field rarityCond? ItemRarity
+---@field corruptedCond? boolean
+---@field neg? boolean
+
+---@class SocketedInModTag
+---@field type "SocketedIn"
+---@field slotName? string
+---@field keyword? string
+---@field socketColor? string
+---@field slotType? string
+---@field sockets? string|number[]|number
+---@field neg? boolean
+
+---@class SkillNameModTag
+---@field type "SkillName"
+---@field includeTransfigured? boolean
+---@field summonSkill? boolean
+---@field skillName? string
+---@field skillNameList? string[]
+---@field partialMatch? boolean
+---@field neg? boolean
+
+---@class SkillIdModTag
+---@field type "SkillId"
+---@field skillId string
+---@field neg? boolean
+
+---@class SkillPartModTag
+---@field type "SkillPart"
+---@field skillPart? string
+---@field skillPartList? string[]
+---@field neg? boolean
+
+---@class SkillTypeModTag
+---@field type "SkillType"
+---@field skillType? string
+---@field skillTypeList? string[]
+---@field neg? boolean
+
+---@class GemTagModTag
+---@field type "GemTag"
+---@field gemTag? string
+---@field gemTagList? string[]
+---@field neg? boolean
+
+---@class BaseFlagModTag
+---@field type "BaseFlag"
+---@field baseFlag number
+---@field neg? boolean
+
+---@class SlotNameModTag
+---@field type "SlotName"
+---@field slotName? string
+---@field slotNameList? string[]
+---@field neg? boolean
+
+---@class ModFlagOrModTag
+---@field type "ModFlagOr"
+---@field modFlags number
+
+---@class KeywordFlagAndModTag
+---@field type "KeywordFlagAnd"
+---@field keywordFlags number
+
+---@class MonsterTagModTag
+---@field type "MonsterTag"
+---@field monsterTag? string
+---@field monsterTagList? string[]
+---@field neg? boolean
+
 ---@class OtherModTag
 ---@field type OtherModTagType
 ---@field [string] any
 
----@alias ModTag ConditionModTag|PerStatModTag|OtherModTag
+---@alias ModTag MultiplierModTag|MultiplierThresholdModTag|PerStatModTag|PercentStatModTag|StatThresholdModTag|DistanceRampModTag|LimitModTag|ConditionModTag|ActorConditionModTag|ItemConditionModTag|SocketedInModTag|SkillNameModTag|SkillIdModTag|SkillPartModTag|SkillTypeModTag|GemTagModTag|BaseFlagModTag|SlotNameModTag|ModFlagOrModTag|KeywordFlagAndModTag|MonsterTagModTag|OtherModTag
 ---@alias SkillModFunction fun(modName: string, modType: NumericModTypes|"FLAG"|"LIST", modVal?: any, flags?: number, keywordFlags?: number, ...: ModTag): Mod
 ---@alias CreateModFunction fun(modName: string, modType: NumericModTypes|"FLAG"|"LIST", modVal?: any, sourceOrTag?: string|number|ModTag, flagsOrModTag?: number|ModTag, keywordFlagsOrModTag?: number|ModTag, ...: ModTag): Mod
 
@@ -71,10 +216,11 @@ function modLib.createMod(modName, modType, modVal, ...)
 		keywordFlags = select(3, ...)
 		tagStart = 4
 	end
+
 	---@class Mod
 	---@field name string
 	---@field type NumericModTypes|"FLAG"|"LIST"
-	---@field value number|boolean|any Number for numeric mod types, boolean for FLAG, any for LIST
+	---@field value ModValue Number for numeric mod types, boolean for FLAG, any for LIST
 	---@field flags number
 	---@field keywordFlags number
 	---@field source? string
