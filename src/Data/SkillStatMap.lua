@@ -655,6 +655,9 @@ return {
 ["critical_strike_chance_+%"] = {
 	mod("CritChance", "INC", nil),
 },
+["active_skill_critical_strike_chance_+%_final"] = {
+	mod("CritChance", "MORE", nil)
+},
 ["spell_critical_strike_chance_+%"] = {
 	mod("CritChance", "INC", nil, ModFlag.Spell),
 },
@@ -2593,6 +2596,9 @@ return {
 ["mark_skills_curse_effect_+%"] = {
 	mod("CurseEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Mark }),
 },
+["mark_effect_+%"] = {
+	mod("CurseEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Mark }),
+},
 ["curse_area_of_effect_+%"] = {
 	mod("AreaOfEffect", "INC", nil, 0, KeywordFlag.Curse),
 },
@@ -2784,6 +2790,9 @@ return {
 	flag("Condition:CanInflictIncision", { type = "GlobalEffect", effectType = "Buff", effectName = "Incision" }),
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
+["chaos_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
 --

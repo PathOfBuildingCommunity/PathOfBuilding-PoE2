@@ -828,7 +828,9 @@ local function doActorCharges(env, actor)
 	else
 		output.PowerCharges = m_max(output.PowerCharges, m_min(output.PowerChargesMax, output.PowerChargesMin))
 	end
-	output.RemovablePowerCharges = m_max(output.PowerCharges - output.PowerChargesMin, 0)
+	local removablePowerCharges = m_max(output.PowerCharges - output.PowerChargesMin, 0)
+	local extraConsumablePowerCharges = removablePowerCharges > 0 and modDB:Sum("BASE", actor.mainSkill.skillCfg, "Multiplier:ExtraConsumablePowerCharges") or 0
+	output.RemovablePowerCharges = removablePowerCharges + extraConsumablePowerCharges
 	if modDB:Flag(nil, "Condition:UseFrenzyCharges") then
 		output.FrenzyCharges = modDB:Override(nil, "FrenzyCharges") or output.FrenzyChargesMax
 	end
