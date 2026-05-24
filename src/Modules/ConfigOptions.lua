@@ -380,7 +380,7 @@ local configSettings = {
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Flicker Strike", includeTransfigured = true })
 	end },
-	{ var = "elementalConfluxElement", type = "list", label = "Elemental Conflux Element:", ifSkill = "Elemental Conflux", list = { { val = 1, label = "Average" }, { val = 2, label = "Lightning" }, { val = 3, label = "Cold" }, { val = 4, label = "Fire" } }, apply = function(val, modList, enemyModList)
+	{ var = "elementalConfluxElement", type = "list", label = "Elemental Conflux Element:", ifSkill = "Elemental Conflux", list = { { val = 1, label = "Average" }, { val = 2, label = "Lightning" }, { val = 3, label = "Cold" }, { val = 4, label = "Fire" } }, defaultIndex = 1, apply = function(val, modList, enemyModList)
 			local coldMultiplier = 0
 			local fireMultiplier = 0
 			local lightningMultiplier = 0
