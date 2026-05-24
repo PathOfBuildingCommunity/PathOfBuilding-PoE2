@@ -342,11 +342,13 @@ local function doActorAttribsConditions(env, actor)
 	if env.mode_effective then
 		local function hasActiveSkillExposureSource(activeSkill, modName)
 			return activeSkill.skillModList and activeSkill.skillCfg
-				and activeSkill.skillModList:HasMod("BASE", activeSkill.skillCfg, modName)
+				and (activeSkill.skillModList:HasMod("BASE", activeSkill.skillCfg, modName) or activeSkill.skillModList:HasMod("FLAG", activeSkill.skillCfg, "InflictExposure"))
+				or activeSkill.baseSkillModList
+				and (activeSkill.baseSkillModList:HasMod("BASE", nil, modName) or activeSkill.baseSkillModList:HasMod("FLAG", nil, "InflictExposure"))
 		end
 		local function hasExposureSource(element)
 			local modName = element .. "ExposureChance"
-			if modDB:Sum("BASE", nil, modName) > 0 then
+			if modDB:Sum("BASE", nil, modName) > 0 or modDB:HasMod("FLAG", nil, "InflictExposure") then
 				return true
 			end
 			for _, activeSkill in ipairs(env.player.activeSkillList) do
@@ -358,12 +360,15 @@ local function doActorAttribsConditions(env, actor)
 		end
 		if hasExposureSource("Fire") then
 			condList["CanApplyFireExposure"] = true
+			modDB:NewMod("Condition:CanApplyFireExposure", "FLAG", true, "Exposure")
 		end
 		if hasExposureSource("Cold") then
 			condList["CanApplyColdExposure"] = true
+			modDB:NewMod("Condition:CanApplyColdExposure", "FLAG", true, "Exposure")
 		end
 		if hasExposureSource("Lightning") then
 			condList["CanApplyLightningExposure"] = true
+			modDB:NewMod("Condition:CanApplyLightningExposure", "FLAG", true, "Exposure")
 		end
 	end
 
@@ -3107,37 +3112,6 @@ function calcs.perform(env, skipEHP)
 	doActorCharges(env, env.enemy)
 	doActorMisc(env, env.enemy)
 
-	local major, minor = env.spec.treeVersion:match("(%d+)_(%d+)")
-
-	-- Apply exposures
-	for _, element in ipairs({"Fire", "Cold", "Lightning"}) do
-		if tonumber(major) <= 3 and tonumber(minor) <= 15 -- Elemental Equilibrium pre-3.16 does not remove Exposure effects
-			or not modDB:Flag(nil, "ElementalEquilibrium") -- if Elemental Equilibrium isn't active we just process Exposure normally
-			or element == "Fire" and not enemyDB:Flag(nil, "Condition:HitByFireDamage")
-			or element == "Cold" and not enemyDB:Flag(nil, "Condition:HitByColdDamage")
-			or element == "Lightning" and not enemyDB:Flag(nil, "Condition:HitByLightningDamage") then
-			local min = math.huge
-			local source = ""
-			for _, mod in ipairs(enemyDB:Tabulate("BASE", nil, element.."Exposure")) do
-				if mod.value < min then
-					min = mod.value
-					source = mod.mod.source
-				end
-			end
-			if min ~= math.huge then
-				-- Modify the magnitude of all exposures
-				for _, mod in ipairs(modDB:Tabulate("BASE", nil, "ExtraExposure", "Extra"..element.."Exposure")) do
-					min = min + mod.value
-				end
-				min = min * (modDB:Sum("INC", nil, element.."ExposureEffect") / 100 + 1) * enemyDB:More(nil, "ExposureEffectOnSelf")
-				enemyDB:NewMod("Condition:Has"..element.."Exposure", "FLAG", true, "")
-				enemyDB:NewMod("Condition:HasExposure", "FLAG", true, "")
-				enemyDB:NewMod(element.."Resist", "BASE", m_min(min, modDB:Override(nil, "ExposureMin")), source)
-				modDB:NewMod("Condition:AppliedExposureRecently", "FLAG", true, "")
-			end
-		end
-	end
-
 	-- Handle consecrated ground effects on enemies
 	if enemyDB:Flag(nil, "Condition:OnConsecratedGround") then
 		local effect = 1 + modDB:Sum("INC", nil, "ConsecratedGroundEffect") / 100
@@ -3146,6 +3120,61 @@ function calcs.perform(env, skipEHP)
 
 	-- Defence/offence calculations
 	calcs.defence(env, env.player)
+	local function getSkillExposureEffect(source, element)
+		local effect = 0
+		for _, activeSkill in ipairs(env.player.activeSkillList) do
+			if source == "Config" then
+				-- Config exposure is a generic 20% exposure, so use any active skill that can apply this exposure as the source for skill-specific exposure effect.
+				if activeSkill.skillModList:HasMod("BASE", activeSkill.skillCfg, element.."ExposureChance") or activeSkill.skillModList:HasMod("FLAG", activeSkill.skillCfg, "InflictExposure") then
+					effect = m_max(effect, activeSkill.skillModList:Sum("INC", { source = "Skill" }, element.."ExposureEffect"))
+				end
+			else
+				-- Direct skill exposure keeps the source from the active/support skill that created the exposure mod.
+				for _, skillEffect in ipairs(activeSkill.effectList or { }) do
+					if skillEffect.grantedEffect.modSource == source then
+						effect = m_max(effect, activeSkill.skillModList:Sum("INC", { source = "Skill" }, element.."ExposureEffect"))
+						break
+					end
+				end
+			end
+		end
+		return effect
+	end
+
+	-- Apply exposures
+	for _, element in ipairs({ "Fire", "Cold", "Lightning" }) do
+		if not modDB:Flag(nil, "ElementalEquilibrium") -- if Elemental Equilibrium isn't active we just process Exposure normally
+			or element == "Fire" and not enemyDB:Flag(nil, "Condition:HitByFireDamage")
+			or element == "Cold" and not enemyDB:Flag(nil, "Condition:HitByColdDamage")
+			or element == "Lightning" and not enemyDB:Flag(nil, "Condition:HitByLightningDamage") then
+			local magnitude = 0
+			local source = ""
+			local extraExposure = modDB:Sum("BASE", nil, "ExtraExposure", "Extra"..element.."Exposure")
+			local globalExposureEffect = modDB:Sum("INC", nil, element.."ExposureEffect")
+			local exposureEffectOnSelf = enemyDB:More(nil, "ExposureEffectOnSelf")
+			local function checkExposure(value, modSource, skillExposureEffect)
+				-- Resolve each exposure source independently so skill-specific effect only scales the exposure from that skill.
+				value = m_floor((value + extraExposure) * ((globalExposureEffect + skillExposureEffect) / 100 + 1) * exposureEffectOnSelf)
+				if value > magnitude then
+					magnitude = value
+					source = modSource
+				end
+			end
+			for _, mod in ipairs(enemyDB:Tabulate("BASE", nil, element.."Exposure")) do
+				checkExposure(mod.value, mod.mod.source, getSkillExposureEffect(mod.mod.source, element))
+			end
+			if magnitude > 0 then
+				local exposureMin = modDB:Override(nil, "ExposureMin")
+				if exposureMin then
+					magnitude = m_max(magnitude, exposureMin)
+				end
+				enemyDB:NewMod("Condition:Has"..element.."Exposure", "FLAG", true, "")
+				enemyDB:NewMod("Condition:HasExposure", "FLAG", true, "")
+				enemyDB:NewMod(element.."Resist", "BASE", -magnitude, source)
+				modDB:NewMod("Condition:AppliedExposureRecently", "FLAG", true, "")
+			end
+		end
+	end
 	if not skipEHP then
 		calcs.buildDefenceEstimations(env, env.player)
 	end

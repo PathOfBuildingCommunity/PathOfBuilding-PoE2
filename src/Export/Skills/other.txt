@@ -245,12 +245,6 @@ statMap = {
 #skill ExplosiveConcoctionPlayer
 #set ExplosiveConcoctionPlayer
 #flags attack projectile duration unarmed area
-statMap = {
-	["flask_throw_fire_exposure_ms"] = {
-		mod("FireExposureChance", "BASE", nil),
-		value = 100,
-	},
-},
 #mods
 #skillEnd
 
@@ -272,12 +266,6 @@ statMap = {
 #skill FulminatingConcoctionPlayer
 #set FulminatingConcoctionPlayer
 #flags attack projectile duration unarmed area
-statMap = {
-	["flask_throw_lightning_exposure_ms"] = {
-		mod("LightningExposureChance", "BASE", nil),
-		value = 100,
-	},
-},
 #mods
 #skillEnd
 
@@ -494,12 +482,6 @@ statMap = {
 #skill ShatteringConcoctionPlayer
 #set ShatteringConcoctionPlayer
 #flags attack projectile duration unarmed area
-statMap = {
-	["flask_throw_cold_exposure_ms"] = {
-		mod("ColdExposureChance", "BASE", nil),
-		value = 100,
-	},
-},
 #mods
 #skillEnd
 
