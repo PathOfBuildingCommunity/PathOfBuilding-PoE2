@@ -5745,7 +5745,8 @@ c["On Hitting an Enemy while a Life Flask is at full Charges, 40% of its Charges
 c["On Hitting an enemy, gains maximum added Lightning damage equal to"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to "}
 c["On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of 500"]={nil,"On Hitting an enemy, gains maximum added Lightning damage equal to the enemy's Power for 20 seconds, up to a total of 500 "}
 c["On-Kill Effects happen twice"]={nil,"On-Kill Effects happen twice "}
-c["Only Soul Cores can be Socketed in this item"]={{},nil}
+c["Only Soul Cores can be Socketed in this item"]={nil,"Only Soul Cores can be Socketed in this item "}
+c["Only Soul Cores can be Socketed in this item This item gains bonuses from Socketed Soul Cores as though it was also Boots"]={nil,"Only Soul Cores can be Socketed in this item This item gains bonuses from Socketed Soul Cores as though it was also Boots "}
 c["Only affects Passives in Large Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=10}}},nil}
 c["Only affects Passives in Massive Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=12}}},nil}
 c["Only affects Passives in Medium Ring"]={{[1]={flags=0,keywordFlags=0,name="JewelData",type="LIST",value={key="radiusIndex",value=8}}},nil}
@@ -6331,11 +6332,9 @@ c["gain 6 Cold Surges or 6 Fire Surges"]={{}," Cold Surges or 6 Fire Surges "}
 c["the enemy's Power for 20 seconds, up to a total of 500"]={nil,"the enemy's Power for 20 seconds, up to a total of 500 "}
 c["until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 3 seconds "}
 c["until you take no Damage to Life for 5 seconds"]={nil,"until you take no Damage to Life for 5 seconds "}
-c["until you take no Damage to Life for 5 seconds until you take no Damage to Life for 3 seconds"]={nil,"until you take no Damage to Life for 5 seconds until you take no Damage to Life for 3 seconds "}
+c["until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved"]={nil,"until you take no Damage to Life for 5 seconds Life that would be lost by taking Damage is instead Reserved "}
 c["you Shapeshift to an Animal form"]={nil,"you Shapeshift to an Animal form "}
 c["you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift"]={nil,"you Shapeshift to an Animal form Modifiers gained this way are lost after 30 seconds or when you next Shapeshift "}
-c["your Ailments on them"]={nil,"your Ailments on them "}
-c["your Ailments on them 30% reduced Duration of Ignite, Shock and Chill on Enemies"]={nil,"your Ailments on them 30% reduced Duration of Ignite, Shock and Chill on Enemies "}
 c["your maximum Life as Physical damage per second"]={nil,"your maximum Life as Physical damage per second "}
 c["your maximum number of Power Charges"]={nil,"your maximum number of Power Charges "}
 c["your maximum number of Power Charges +1 to Maximum Power Charges"]={nil,"your maximum number of Power Charges +1 to Maximum Power Charges "}
