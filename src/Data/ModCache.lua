@@ -6047,7 +6047,7 @@ c["Totems gain +3% to all Maximum Elemental Resistances 20% increased Area of Ef
 c["Totems have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=12}},nil}
 c["Totems have 20% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=20}},nil}
 c["Totems only use Skills when you fire an Attack Projectile"]={nil,"Totems only use Skills when you fire an Attack Projectile "}
-c["Totems reserve 75 Spirit each"]={nil,"Totems reserve 75 Spirit each "}
+c["Totems reserve 75 Spirit each"]={{[1]={flags=0,keywordFlags=0,name="AncestralBond",type="FLAG",value=true},[2]={[1]={skillType=25,type="SkillType"},flags=0,keywordFlags=0,name="ExtraSpirit",type="BASE",value=75}},nil}
 c["Totems you place grant Embankment Auras"]={nil,"Totems you place grant Embankment Auras "}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={{},nil}
 c["Trigger Decompose every 1.2 metres travelled"]={nil,"Trigger Decompose every 1.2 metres travelled "}
