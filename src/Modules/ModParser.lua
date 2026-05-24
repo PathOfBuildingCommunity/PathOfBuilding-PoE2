@@ -3093,6 +3093,21 @@ local specialModList = {
 	["%+1 ring slot"] = { flag("AdditionalRingSlot") },
 	["regenerate (%D+) equal to (%d+)%% of maximum (%D+) per second"] = function(_, resource1, num, resource2) return { mod( combineToUpper(resource1) .. "Regen", "BASE", 1, { type = "PercentStat", stat = combineToUpper(resource2), percent = num } )} end,
 	["can socket a non%-unique basic jewel into the phylactery"] = { },
+	["spells for which this sacrifice was fully made deal (%d+)%% more damage"] = function(num) return {
+		flag("EldritchEmpowerment"),
+		mod("Damage", "MORE", num, nil, ModFlag.Spell, { type = "Condition", var = "EldritchEmpowermentSacrifice"}),
+	} end,
+	["skeletal minions you would create instead grant you umbral souls for each minion you would have created"] = {
+		flag("UmbralWell"),
+	},
+	["your offerings affect you instead of your minions"] = {
+		mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffNotPlayer", value = false } )}, { type = "SkillName", skillNameList = { "Bone Offering", "Pain Offering", "Soul Offering" } }),
+		mod("ExtraSkillMod", "LIST", { mod = mod("SkillData", "LIST", { key = "buffMinions", value = false } )}, { type = "SkillName", skillNameList = { "Bone Offering", "Pain Offering", "Soul Offering" } }),
+	},
+	["offerings created by culling enemies have (%d+)%% increased effect per power of culled enemy"] = function(num) return {
+		flag("UnwillingOffering"),
+		mod("ExtraSkillMod", "LIST", { mod = mod("BuffEffect", "INC", num, { type = "Multiplier", var = "UnwillingOfferingPower", limit = 20 }) }, { type = "SkillName", skillNameList = { "Bone Offering", "Pain Offering", "Soul Offering" } }),
+	} end,
 	-- Mercenary
 	-- +2 Weapon Set Passive Skill Points
 	["%+(%d) weapon set passive skill points"] = function(num) return { mod("WeaponSetPassivePoints", "BASE", num) } end,

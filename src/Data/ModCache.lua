@@ -5656,7 +5656,7 @@ c["Offering Skills have 20% increased Duration"]={{[1]={[1]={skillType=154,type=
 c["Offering Skills have 30% increased Duration"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=30}},nil}
 c["Offering Skills have 30% reduced Duration"]={{[1]={[1]={skillType=154,type="SkillType"},flags=0,keywordFlags=0,name="Duration",type="INC",value=-30}},nil}
 c["Offerings cannot be damaged if they have been created Recently"]={nil,"Offerings cannot be damaged if they have been created Recently "}
-c["Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy"]={nil,"Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy "}
+c["Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy"]={{[1]={flags=0,keywordFlags=0,name="UnwillingOffering",type="FLAG",value=true},[2]={[1]={skillNameList={[1]="Bone Offering",[2]="Pain Offering",[3]="Soul Offering"},type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={[1]={limit=20,type="Multiplier",var="UnwillingOfferingPower"},flags=0,keywordFlags=0,name="BuffEffect",type="INC",value=1}}}},nil}
 c["Offerings have 15% increased Maximum Life"]={nil,"Offerings have 15% increased Maximum Life "}
 c["Offerings have 30% increased Maximum Life"]={nil,"Offerings have 30% increased Maximum Life "}
 c["Offerings have 30% increased Maximum Life Recover 3% of maximum Life when you create an Offering"]={nil,"Offerings have 30% increased Maximum Life Recover 3% of maximum Life when you create an Offering "}
@@ -5923,7 +5923,7 @@ c["Shapeshift Skills have 30% increased Skill Effect Duration"]={{[1]={[1]={skil
 c["Share Charges with Allies in your Presence"]={nil,"Share Charges with "}
 c["Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius"]={nil,"Shocking Hits have a 50% chance to also Shock enemies in a 1.5 metre radius "}
 c["Shocks you when you reach maximum Power Charges"]={nil,"Shocks you when you reach maximum Power Charges "}
-c["Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created"]={nil,"Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created "}
+c["Skeletal Minions you would create instead grant you Umbral Souls for each Minion you would have created"]={{[1]={flags=0,keywordFlags=0,name="UmbralWell",type="FLAG",value=true}},nil}
 c["Skill Gems have no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="GlobalGemAttributeRequirements",type="MORE",value=-100}},nil}
 c["Skill Mana Costs Converted to Life Costs"]={{[1]={flags=0,keywordFlags=0,name="HybridManaAndLifeCost_Life",type="BASE",value=100}},nil}
 c["Skills Cost +3 Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type="BASE",value=3}},nil}
@@ -5975,7 +5975,7 @@ c["Spells Gain 5% of Damage as extra Chaos Damage"]={{[1]={flags=2,keywordFlags=
 c["Spells consume a Power Charge if able to deal 40% more Damage"]={{[1]={[1]={threshold=1,type="MultiplierThreshold",var="RemovablePowerCharge"},flags=0,keywordFlags=131072,name="Damage",type="MORE",value=40}},nil}
 c["Spells fire 4 additional Projectiles"]={{[1]={flags=2,keywordFlags=0,name="ProjectileCount",type="BASE",value=4}},nil}
 c["Spells fire Projectiles in a circle"]={nil,"Projectiles in a circle "}
-c["Spells for which this Sacrifice was fully made deal 30% more Damage"]={nil,"Spells for which this Sacrifice was fully made deal 30% more Damage "}
+c["Spells for which this Sacrifice was fully made deal 30% more Damage"]={{[1]={flags=0,keywordFlags=0,name="EldritchEmpowerment",type="FLAG",value=true},[2]={[1]={type="Condition",var="EldritchEmpowermentSacrifice"},flags=2,keywordFlags=0,name="Damage",type="MORE",value=30}},nil}
 c["Spells have a 25% chance to inflict Withered for 4 seconds on Hit"]={{}," to inflict Withered   "}
 c["Storm and Plant Spells:"]={nil,"Storm and Plant Spells: "}
 c["Storm and Plant Spells: deal 50% more damage"]={nil,"Storm and Plant Spells: deal 50% more damage "}
@@ -6212,8 +6212,7 @@ c["Your Life Flask also applies to your Minions"]={nil,"Your Life Flask also app
 c["Your Life Flask also applies to your Minions Minions cannot Die while affected by a Life Flask"]={nil,"Your Life Flask also applies to your Minions Minions cannot Die while affected by a Life Flask "}
 c["Your Life cannot change while you have Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EternalLife",type="FLAG",value=true}},nil}
 c["Your Minions are Gigantic"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Gigantic",type="FLAG",value=true}}}},nil}
-c["Your Offerings affect you instead of your Minions"]={nil,"Your Offerings affect you instead of your Minions "}
-c["Your Offerings affect you instead of your Minions Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy"]={nil,"Your Offerings affect you instead of your Minions Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy "}
+c["Your Offerings affect you instead of your Minions"]={{[1]={[1]={skillNameList={[1]="Bone Offering",[2]="Pain Offering",[3]="Soul Offering"},type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="buffNotPlayer",value=false}}}},[2]={[1]={skillNameList={[1]="Bone Offering",[2]="Pain Offering",[3]="Soul Offering"},type="SkillName"},flags=0,keywordFlags=0,name="ExtraSkillMod",type="LIST",value={mod={flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="buffMinions",value=false}}}}},nil}
 c["Your Offerings can target Enemies in Culling range"]={nil,"Your Offerings can target Enemies in Culling range "}
 c["Your Offerings can target Enemies in Culling range Your Offerings affect you instead of your Minions"]={nil,"Your Offerings can target Enemies in Culling range Your Offerings affect you instead of your Minions "}
 c["Your Offerings can target Enemies in Culling range Your Offerings affect you instead of your Minions Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy"]={nil,"Your Offerings can target Enemies in Culling range Your Offerings affect you instead of your Minions Offerings created by Culling Enemies have 1% increased Effect per Power of Culled Enemy "}

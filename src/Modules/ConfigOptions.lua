@@ -216,6 +216,14 @@ local configSettings = {
 		modList:NewMod("Multiplier:FlameEffect", "BASE", 1, "Config")
 		modList:NewMod("DamageGainAsChaos", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
 	end },
+	{ label = "Eldritch Empowerment:", ifFlag = "EldritchEmpowerment" },
+	{ var = "eldritchEmpowermentSacrifice", type = "check", label = "Are you Sacrificing?", tooltip = "Sacrifice 5% ^x88FFFFEnergy Shield^7 when you cast a Spell to give that Spell 30% more Damage.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
+	end },
+	{ label = "Unwilling Offering:", ifFlag = "UnwillingOffering" },
+	{ var = "unwillingOfferingPower", type = "count", label = "Power of Culled Enemy?", tooltip = "Offerings created by culling enemies gain 1% increased effect per Power.\nUnique enemies always have 20 Power.", ifFlag = "UnwillingOffering", apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:UnwillingOfferingPower", "BASE", val, "Config")
+	end },
 	{ label = "Aspect of the Avian:", ifSkill = "Aspect of the Avian" },
 	{ var = "aspectOfTheAvianAviansMight", type = "check", label = "Is Avian's Might active?", ifSkill = "Aspect of the Avian", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:AviansMightActive", "FLAG", true, "Config")

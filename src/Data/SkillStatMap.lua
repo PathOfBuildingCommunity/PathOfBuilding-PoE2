@@ -2783,6 +2783,9 @@ return {
 --
 -- Spectre or Minion-specific stats
 --
+["skeletal_graft_buff_effect_magnitude"] = {
+	mod("UmbralWellBuffValue", "BASE", nil),
+},
 ["physical_damage_reduction_rating_+%"] = {
 	mod("Armour", "INC", nil),
 },
