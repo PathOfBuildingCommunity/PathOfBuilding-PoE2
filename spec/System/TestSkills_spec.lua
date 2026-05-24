@@ -480,8 +480,7 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		local baseFireball = build.calcsTab.mainOutput.TotalDPS
 
-		build.configTab.input.umbralWellSkeletalStormMage = 1
-		build.configTab:BuildModList()
+		build.skillsTab:PasteSocketGroup("Skeletal Storm Mage 20/0  1")
 		runCallback("OnFrame")
 
 		-- if one works they all do, surely
