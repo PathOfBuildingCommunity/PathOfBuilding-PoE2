@@ -3193,6 +3193,11 @@ local specialModList = {
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
+	["totems you place grant embankment auras"] = {
+		flag("StrategicEmbankments",
+			{ type = "SkillName", skillNameList = { "Artillery Ballista", "Siege Ballista", "Mortar Cannon", "Shockwave Totem", "Ancestral Warrior Totem", "Dark Effigy", "Spell Totem" }
+		}),
+	},
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })
