@@ -1440,6 +1440,7 @@ local modTagList = {
 	["per crab barrier"] = { tag = { type = "Multiplier", var = "CrabBarrier" } },
 	["per rage"] = { tag = { type = "Multiplier", var = "Rage" } },
 	["per rage while you are not losing rage"] = { tag = { type = "Multiplier", var = "Rage" } },
+	["per combo consumed, up to (%d+)%%"] = function(num) return { tagList = { { type = "Multiplier", var = "ComboStacks", limit = tonumber(num), limitTotal = true }, { type = "SkillType", skillType = SkillType.ComboStacking } } } end,
 	["per (%d+) rage"] = function(num) return { tag = { type = "Multiplier", var = "Rage", div = num } } end,
 	["per mana burn"] = { tag = { type = "Multiplier", var = "ManaBurnStacks" } },
 	["per mana burn on you"] = { tag = { type = "Multiplier", var = "ManaBurnStacks" } },

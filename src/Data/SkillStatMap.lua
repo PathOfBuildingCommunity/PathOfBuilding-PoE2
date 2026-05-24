@@ -824,6 +824,12 @@ return {
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
 },
+["support_damage_+%_final_per_combo_stack"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ComboStacks", limitVar = "ComboStacksMax" }),
+},
+["skill_maximum_number_of_combo_stacks"] = {
+	mod("Multiplier:ComboStacksMax", "BASE", nil),
+},
 ["support_no_fear_damage_+%_final_per_second_up_to_30%"] = {
 	mod("Damage", "MORE", nil, 0, 0,
 		{ type = "Condition", var = "UsingStoicism" },

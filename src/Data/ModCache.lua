@@ -6014,7 +6014,7 @@ c["Skills Cost +3 Rage"]={{[1]={flags=0,keywordFlags=0,name="RageCostBase",type=
 c["Skills Supported by Unleash have 10% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=10}},nil}
 c["Skills Supported by Unleash have 25% increased Seal gain frequency"]={{[1]={flags=0,keywordFlags=0,name="SealGainFrequency",type="INC",value=25}},nil}
 c["Skills deal 20% increased Damage per Connected Red Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillDamageIncreasedPerRedSupport",type="FLAG",value=20}},nil}
-c["Skills deal 8% increased Damage per Combo consumed, up to 40%"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},"  per Combo consumed, up to 40% "}
+c["Skills deal 8% increased Damage per Combo consumed, up to 40%"]={{[1]={[1]={limit=40,limitTotal=true,type="Multiplier",var="ComboStacks"},[2]={skillType=152,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
 c["Skills fire an additional Projectile"]={{[1]={flags=0,keywordFlags=0,name="ProjectileCount",type="BASE",value=1}},nil}
 c["Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs"]={nil,"Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs "}
 c["Skills gain 1 Glory every 2 seconds for each Rare or Unique monster in your Presence"]={{}," Glory every 2 seconds for each Rare or Unique monster in your Presence "}
