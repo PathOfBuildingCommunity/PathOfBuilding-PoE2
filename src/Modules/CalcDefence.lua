@@ -1587,6 +1587,23 @@ function calcs.defence(env, actor)
 		if arcaneSurgeDamage ~= 0 then modDB:NewMod("Damage", "MORE", arcaneSurgeDamage * effect, "Arcane Surge", ModFlag.Spell) end
 	end
 
+	-- set Sorcery Ward value, can probably be done somewhere better, just need Armour and Evasion calculated beforehand
+	-- it would be nice to require the ascendancy node here so any Witchhunter can't just add Sorcery Ward manually and get the buff
+	-- but I don't want to hardcode the nodeId
+	for _, activeSkill in ipairs(actor.activeSkillList) do
+		local group = activeSkill.socketGroup
+		local skillModList = activeSkill.skillModList
+		if group and group.slotEnabled and group.enabled and skillModList:Flag(activeSkill.skillCfg, "SorceryWard")
+				and env.build.spec.curAscendClassName == "Witchhunter" then
+			local value = skillModList:Sum("BASE", activeSkill.skillCfg, "SorceryWardValue")
+			if modDB:Flag(nil, "CeremonialAblution") then
+				output["sharedAegis"] = value
+			else
+				output["sharedElementalAegis"] = value
+			end
+		end
+	end
+
 	-- Recovery modifiers
 	output.LifeRecoveryRateMod = 1
 	if not modDB:Flag(nil, "CannotRecoverLifeOutsideLeech") then
@@ -2846,10 +2863,10 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 
-	--aegis
+	--aegis // Sorcery Ward
 	output.AnyAegis = false
-	output["sharedAegis"] = modDB:Max(nil, "AegisValue") or 0
-	output["sharedElementalAegis"] = modDB:Max(nil, "ElementalAegisValue") or 0
+	output["sharedAegis"] = output["sharedAegis"] or modDB:Max(nil, "AegisValue") or 0
+	output["sharedElementalAegis"] = output["sharedElementalAegis"] or modDB:Max(nil, "ElementalAegisValue") or 0
 	if output["sharedAegis"] > 0 then
 		output.AnyAegis = true
 	end
