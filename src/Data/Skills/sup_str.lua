@@ -3285,11 +3285,6 @@ skills["SupportFireExposurePlayer"] = {
 			label = "Fire Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_fire_exposure_for_x_ms_on_ignite"] = {
-					mod("FireExposureChance", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5577,6 +5572,13 @@ skills["SupportRefractionPlayerThree"] = {
 			label = "Refraction III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_tempered_valour_banner_applies_%_elemental_exposure_per_1000_armour"] = {
+					mod("FireExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+					mod("ColdExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+					mod("LightningExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

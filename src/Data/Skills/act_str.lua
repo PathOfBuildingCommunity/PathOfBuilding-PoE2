@@ -14407,14 +14407,6 @@ skills["OilGrenadePlayer"] = {
 			baseEffectiveness = 16,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "oil_grenade_statset_1",
-			statMap = {
-				["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
-					mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-					mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-					mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-				mult = -1,
-			},
-			},
 			baseFlags = {
 				attack = true,
 				area = true,

@@ -41,7 +41,7 @@ UniqueLocalIncreasedEnergyShield14
 UniqueIntelligence41
 UniqueChaosResist16
 {variant:1}UniqueCriticalWeaknessOnSpellCrit1[3,5]
-{variant:2}UniqueCriticalWeaknessOnSpellCrit1
+{variant:2,3}UniqueCriticalWeaknessOnSpellCrit1
 ]],[[
 The Eternal Spark
 Crystal Focus
