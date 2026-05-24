@@ -4527,7 +4527,7 @@ local specialModList = {
 	["totems gain %+(%d+)%% to all elemental resistances"] = function(num) return { mod("TotemElementalResist", "BASE", num) } end,
 	["totems reserve (%d+) spirit each"] = function(num) return {
 		flag("AncestralBond"),
-		mod("ExtraSpirit", "BASE", num, { type = "SkillType", skillTypeList = { SkillType.SummonsTotem, SkillType.SummonsAttackTotem } })
+		mod("ExtraSpirit", "BASE", num, { type = "SkillType", skillType = SkillType.SummonsTotem })
 	} end,
 	-- Minions
 	["minions revive (%d+)%% faster"] = function(num) return { mod("MinionRevivalSpeed", "INC", num) } end,
