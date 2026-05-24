@@ -3472,12 +3472,6 @@ skills["ExplosiveConcoctionPlayer"] = {
 			baseEffectiveness = 4.5,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "explosive_concoction",
-			statMap = {
-				["flask_throw_fire_exposure_ms"] = {
-					mod("FireExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -3840,12 +3834,6 @@ skills["FulminatingConcoctionPlayer"] = {
 			baseEffectiveness = 4.1999998092651,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "fulminating_concoction",
-			statMap = {
-				["flask_throw_lightning_exposure_ms"] = {
-					mod("LightningExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -6968,12 +6956,6 @@ skills["ShatteringConcoctionPlayer"] = {
 			baseEffectiveness = 3.9000000953674,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "shattering_concoction",
-			statMap = {
-				["flask_throw_cold_exposure_ms"] = {
-					mod("ColdExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
