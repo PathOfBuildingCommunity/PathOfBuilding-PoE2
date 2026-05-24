@@ -41,7 +41,7 @@ League: Dawn of the Hunt
 +10 to Intelligence
 +(7-13)% to Chaos Resistance
 {variant:1}Critical Hits with Spells apply (3-5) Stacks of Critical Weakness
-{variant:2}Critical Hits with Spells apply (1-3) Stack of Critical Weakness
+{variant:2,3}Critical Hits with Spells apply (1-3) Stack of Critical Weakness
 ]],[[
 The Eternal Spark
 Crystal Focus
