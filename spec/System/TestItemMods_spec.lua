@@ -677,14 +677,14 @@ describe("TetsItemMods", function()
 
 	it("Blistering Bond with Avatar of Fire", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
-		Rarity: UNIQUE
-		The Blood Thorn
-		Wrapped Quarterstaff
-		{variant:1}{range:0.5}Adds (3-5) to (9-11) Physical Damage
-		{variant:2}{range:0.5}Adds (8-12) to (16-18) Physical Damage
-		{range:0.5}+(10-15) to Strength
-		Causes Bleeding on Hit
-		{range:0.5}(4-5) to (8-10) Physical Thorns damage
+			Rarity: UNIQUE
+			The Blood Thorn
+			Wrapped Quarterstaff
+			{variant:1}{range:0.5}Adds (3-5) to (9-11) Physical Damage
+			{variant:2}{range:0.5}Adds (8-12) to (16-18) Physical Damage
+			{range:0.5}+(10-15) to Strength
+			Causes Bleeding on Hit
+			{range:0.5}(4-5) to (8-10) Physical Thorns damage
 		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
