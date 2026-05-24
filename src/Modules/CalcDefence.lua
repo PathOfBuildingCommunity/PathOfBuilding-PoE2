@@ -2846,10 +2846,10 @@ function calcs.buildDefenceEstimations(env, actor)
 		end
 	end
 
-	--aegis // Sorcery Ward
+	--aegis
 	output.AnyAegis = false
-	output["sharedAegis"] = output["sharedAegis"] or modDB:Max(nil, "AegisValue") or 0
-	output["sharedElementalAegis"] = output["sharedElementalAegis"] or modDB:Max(nil, "ElementalAegisValue") or 0
+	output["sharedAegis"] = modDB:Max(nil, "AegisValue") or 0
+	output["sharedElementalAegis"] = modDB:Max(nil, "ElementalAegisValue") or 0
 	if output["sharedAegis"] > 0 then
 		output.AnyAegis = true
 	end
