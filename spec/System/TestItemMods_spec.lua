@@ -675,23 +675,17 @@ describe("TetsItemMods", function()
 		assert.are.equals(11, smallModList:Sum("BASE", nil, "Dex"))
 	end)
 
-	it("ancestral bond", function()
+	it("Blistering Bond with Avatar of Fire", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
-			Rarity: UNIQUE
-			Hoghunt
-			Felled Greatclub
-			Variant: Pre 0.1.1
-			Variant: Current
-			Selected Variant: 2
-			Quality: 20
-			LevelReq: 0
-			Implicits: 0
-			{variant:1}{range:0.5}Adds (3-5) to (9-11) Physical Damage
-			{variant:2}{range:0.5}Adds (8-12) to (16-18) Physical Damage
-			{range:0.5}+(10-15) to Strength
-			Causes Bleeding on Hit
-			{range:0.5}(4-5) to (8-10) Physical Thorns damage
-			]])
+		Rarity: UNIQUE
+		The Blood Thorn
+		Wrapped Quarterstaff
+		{variant:1}{range:0.5}Adds (3-5) to (9-11) Physical Damage
+		{variant:2}{range:0.5}Adds (8-12) to (16-18) Physical Damage
+		{range:0.5}+(10-15) to Strength
+		Causes Bleeding on Hit
+		{range:0.5}(4-5) to (8-10) Physical Thorns damage
+		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
 
@@ -709,18 +703,18 @@ describe("TetsItemMods", function()
 		assert.True(baseBleedPlusAvatarWithoutBlistering == nil) -- fire cannot bleed, deal no physical = no bleed
 
 		build.itemsTab:CreateDisplayItemFromRaw([[
-			Rarity: UNIQUE
-			0.5 Blistering Bond Test
-			Ruby Ring
-			LevelReq: 8
-			Implicits: 1
-			{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
-			{tags:life}{range:0.5}+(40-60) to maximum Life
-			{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
-			{tags:cold}{range:0.5}-(15-10)% to Cold Resistance
-			You take Fire Damage instead of Physical Damage from Bleeding
-			Fire Damage also Contributes to Bleeding Magnitude
-			Bleeding you Inflict deals Fire damage instead of Physical damage
+		Rarity: UNIQUE
+		0.5 Blistering Bond Test
+		Ruby Ring
+		LevelReq: 8
+		Implicits: 1
+		{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
+		{tags:life}{range:0.5}+(40-60) to maximum Life
+		{tags:fire}{range:0.5}+(20-30)% to Fire Resistance
+		{tags:cold}{range:0.5}-(15-10)% to Cold Resistance
+		You take Fire Damage instead of Physical Damage from Bleeding
+		Fire Damage also Contributes to Bleeding Magnitude
+		Bleeding you Inflict deals Fire damage instead of Physical damage
 		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
@@ -742,18 +736,25 @@ describe("TetsItemMods", function()
 		runCallback("OnFrame")
 		local baseBleedPlusAvatar = build.calcsTab.mainOutput.BleedDPS
 		assert.True(baseBleedPlusAvatar > 0) -- fire can bleed, deal no physical = can bleed
-  end)
-  it("Blistering Bond with Avatar of Fire", function()
+	end)
+
+	it("ancestral bond", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
-			Rarity: UNIQUE
-			The Blood Thorn
-			Wrapped Quarterstaff
-			{variant:1}{range:0.5}(100-150)% increased Physical Damage
-			{variant:2}{range:0.5}Adds (16-20) to (23-27) Physical Damage
-			+15% to Critical Hit Chance
-			10% reduced Attack Speed
-			+10 to Strength
-			Maim on Critical Hit
+		Rarity: UNIQUE
+		Hoghunt
+		Felled Greatclub
+		Variant: Pre 0.1.1
+		Variant: Current
+		Selected Variant: 2
+		Quality: 20
+		LevelReq: 0
+		Implicits: 0
+		{variant:1}{range:0.5}(100-150)% increased Physical Damage
+		{variant:2}{range:0.5}Adds (16-20) to (23-27) Physical Damage
+		+15% to Critical Hit Chance
+		10% reduced Attack Speed
+		+10 to Strength
+		Maim on Critical Hit
 		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")
