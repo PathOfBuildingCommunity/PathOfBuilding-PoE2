@@ -395,8 +395,7 @@ local configSettings = {
 			elseif val == 4 then
 				fireMultiplier = 1
 			end
-			modList:NewMod("Multiplier:ElementalConfluxLightningEffect", "BASE", lightningMultiplier, "Config",
-				{ type = "GlobalEffect" })
+			modList:NewMod("Multiplier:ElementalConfluxLightningEffect", "BASE", lightningMultiplier, "Config",	{ type = "GlobalEffect" })
 			modList:NewMod("Multiplier:ElementalConfluxColdEffect", "BASE", coldMultiplier, "Config", { type = "GlobalEffect" })
 			modList:NewMod("Multiplier:ElementalConfluxFireEffect", "BASE", fireMultiplier, "Config", { type = "GlobalEffect" })
 		end

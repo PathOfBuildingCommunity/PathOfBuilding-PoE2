@@ -5397,24 +5397,9 @@ skills["ElementalConfluxPlayer"] = {
 			statDescriptionScope = "elemental_conflux",
 			statMap = {
 				["skill_elemental_conflux_active_element_damage_+%_final"] = {
-					mod("LightningDamage", "MORE", nil, 0, 0,
-						{
-							type = "GlobalEffect",
-							effectType = "Buff",
-							effectName = "Elemental Conflux",
-						}, { type = "Multiplier", var = "ElementalConfluxLightningEffect", invert = true }),
-					mod("ColdDamage", "MORE", nil, 0, 0,
-						{
-							type = "GlobalEffect",
-							effectType = "Buff",
-							effectName = "Elemental Conflux",
-						}, { type = "Multiplier", var = "ElementalConfluxColdEffect", invert = true }),
-					mod("FireDamage", "MORE", nil, 0, 0,
-						{
-							type = "GlobalEffect",
-							effectType = "Buff",
-							effectName = "Elemental Conflux",
-						}, { type = "Multiplier", var = "ElementalConfluxFireEffect", invert = true }),
+					mod("LightningDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxLightningEffect", invert = true }),
+					mod("ColdDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxColdEffect", invert = true }),
+					mod("FireDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxFireEffect", invert = true }),
 				},
 			},
 			baseFlags = {
@@ -6938,7 +6923,6 @@ skills["FallingThunderPlayer"] = {
 					mod("ProjectileCount", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", base = -1 }),
 				},
 			},
-					
 			baseFlags = {
 				attack = true,
 				projectile = true,
