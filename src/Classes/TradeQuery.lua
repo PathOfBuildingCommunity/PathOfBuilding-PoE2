@@ -1163,15 +1163,32 @@ end
 -- Method to update the Total Price string sum of all items
 function TradeQueryClass:GetTotalPriceString()
 	local text = ""
-	local sorted_price = { }
+	-- sum up prices
+	local prices = { }
 	for _, entry in pairs(self.totalPrice) do
-		if sorted_price[entry.currency] then
-			sorted_price[entry.currency] = sorted_price[entry.currency] + entry.amount
+		if prices[entry.currency] then
+			prices[entry.currency] = prices[entry.currency] + entry.amount
 		else
-			sorted_price[entry.currency] = entry.amount
+			prices[entry.currency] = entry.amount
 		end
 	end
-	for currency, value in pairs(sorted_price) do
+
+	-- try to sort by the value of each currency, i.e. 1 mirror > 9999 div, 1 chaos > 123 ex
+	-- if currency data isn't available, just sort by currency name
+	local currencies = {}
+	for currency, _ in pairs(prices) do
+		table.insert(currencies, currency)
+	end
+	local currencyMap = self.pbCurrencyConversion[self.pbLeague] or {}
+	table.sort(currencies, function (a, b)
+		if currencyMap[a] and currencyMap[b] then
+			return currencyMap[a] > currencyMap[b]
+		else
+			return a > b
+		end
+	end)
+	for _, currency in ipairs(currencies) do
+		local value = prices[currency]
 		text = text .. tostring(value) .. " " .. currency .. ", "
 	end
 	if text ~= "" then

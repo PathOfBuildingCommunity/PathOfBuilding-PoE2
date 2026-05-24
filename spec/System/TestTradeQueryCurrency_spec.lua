@@ -58,12 +58,25 @@ describe("TradeQuery Currency Conversion", function()
 	end)
 
 	describe("GetTotalPriceString", function()
-		-- Pass: Sums and formats correctly (e.g., "5 chaos, 10 div")
+		-- Pass: Sums and formats correctly (e.g., "5 chaos, 10 div", should be most valuable currency first)
 		-- Fail: Wrong string (e.g., unsorted/missing sums), indicating aggregation bug, misleading users on totals
 		it("aggregates prices", function()
-			mock_tradeQuery.totalPrice = { { currency = "chaos", amount = 5 }, { currency = "div", amount = 10 } }
+			-- check alphabetical sorting
+			mock_tradeQuery.totalPrice = { { currency = "chaos", amount = 5 }, { currency = "div", amount = 10 }, {currency = "exalted", amount = 1} }
 			local result = mock_tradeQuery:GetTotalPriceString()
-			assert.are.equal(result, "5 chaos, 10 div")
+			assert.are.equal(result, "1 exalted, 10 div, 5 chaos")
+
+			-- check if they're sorted according to currency value
+			mock_tradeQuery.pbLeague = "league"
+			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1, exalted = 0.05, div = 1, mirror = 700} }
+			local result = mock_tradeQuery:GetTotalPriceString()
+			assert.are.equal(result, "10 div, 5 chaos, 1 exalted")
+
+			-- check that missing currency values don't crash
+			mock_tradeQuery.pbLeague = "league"
+			mock_tradeQuery.pbCurrencyConversion = { league = { chaos = 0.1, exalted = 0.05, mirror = 700 } }
+			local result = mock_tradeQuery:GetTotalPriceString()
+			assert.True(true)
 		end)
 	end)
 end)
