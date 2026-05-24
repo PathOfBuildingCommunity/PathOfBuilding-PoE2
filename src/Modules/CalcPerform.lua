@@ -1165,25 +1165,26 @@ function calcs.perform(env, skipEHP)
 
 					local count = calcs.getActiveSkillCount(activeSkill)
 					local minionName = activeSkill.activeEffect.gemData.name
+					local sourceName = "Umbral Well"
 					if variantId == "SkeletalWarrior" then
-						env.player.modDB:NewMod("Damage", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, ModFlag.Attack, nil, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("Damage", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, ModFlag.Attack, nil, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalSniper" then
-						env.player.modDB:NewMod("ProjectileSpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("ProjectileSpeed", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalCleric" then
-						env.player.modDB:NewMod("EnergyShieldRecharge", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("EnergyShieldRecharge", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalArsonist" then
-						env.player.modDB:NewMod("AreaOfEffect", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("AreaOfEffect", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalStormMage" then
-						env.player.modDB:NewMod("Damage", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, ModFlag.Spell, nil, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("Damage", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, ModFlag.Spell, nil, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalFrostMage" then
-						env.player.modDB:NewMod("EnergyShield", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff"})
+						modDB:NewMod("EnergyShield", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff"})
 					elseif variantId == "SkeletalBrute" then
-						env.player.modDB:NewMod("EnemyHeavyStunBuildup", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("EnemyHeavyStunBuildup", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					elseif variantId == "SkeletalReaver" then
-						env.player.modDB:NewMod("Speed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
-						env.player.modDB:NewMod("WarcrySpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
-						env.player.modDB:NewMod("TotemPlacementSpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
-						env.player.modDB:NewMod("ReloadSpeed", "INC", buffValue * count, "Umbral Well - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("Speed", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("WarcrySpeed", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("TotemPlacementSpeed", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
+						modDB:NewMod("ReloadSpeed", "INC", buffValue * count, sourceName.." - ".. buffValue .."% per "..minionName, { type = "GlobalEffect", effectType = "Buff" })
 					end
 				end
 			end
