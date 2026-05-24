@@ -277,6 +277,7 @@ statMap = {
 #set ContagionPlayer
 #flags area duration spell
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Contagion" })
 #mods
 #skillEnd
 
@@ -324,6 +325,8 @@ statMap = {
 #skill DarkEffigyProjectilePlayer
 #set DarkEffigyProjectilePlayer
 #flags spell area projectile totem
+#baseMod mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "ChaosDebuff", actor = "enemy" })
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Poison" }, { type = "Condition", var = "Poisoned" })
 #mods
 #skillEnd
 
@@ -434,10 +437,12 @@ statMap = {
 #skill EssenceDrainPlayer
 #set EssenceDrainPlayer
 #flags spell projectile
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" })
 #mods
 #set EssenceDrainDotPlayer
 #flags spell projectile duration
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" })
 #mods
 #skillEnd
 
@@ -629,12 +634,6 @@ statMap = {
 #skill FrostBombPlayer
 #set FrostBombPlayer
 #flags spell area duration
-statMap = {
-	['skill_cold_exposure_magnitude'] = {
-		mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-		mult = -1
-	},
-},
 #mods
 #skillEnd
 
@@ -1063,6 +1062,7 @@ statMap = {
 #skill ProfaneRitualPlayer
 #set ProfaneRitualPlayer
 #flags spell area
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Profane Ritual" })
 #mods
 #skillEnd
 
@@ -1299,10 +1299,12 @@ statMap = {
 #skill SoulrendPlayer
 #set SoulrendPlayer
 #flags spell projectile
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" })
 #mods
 #set SoulrendDotPlayer
 #flags spell duration
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" })
 #mods
 #skillEnd
 

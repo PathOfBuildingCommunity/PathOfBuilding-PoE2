@@ -67,7 +67,7 @@ local function baseHasImplicitLine(base, line)
 		return false
 	end
 	for implicitLine in base.implicit:gmatch("[^\n]+") do
-		if implicitLine == line or line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
+		if implicitLine == line or implicitLine:match("^Grants Skill:") and line:match("^" .. implicitLine:gsub("%(%d+%-%d+%)", "%%d+") .. "$") then
 			return true
 		end
 	end
@@ -1680,7 +1680,7 @@ function ItemClass:BuildModListForSlotNum(baseList, slotNum)
 		local charmData = self.charmData
 		local durationInc = calcLocal(modList, "Duration", "INC", 0)
 		local durationMore = calcLocal(modList, "Duration", "MORE", 0)
-		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * durationMore, 1)
+		charmData.duration = round(self.base.charm.duration * (1 + durationInc / 100) * (1 + self.quality / 100) * durationMore, 1)
 		charmData.chargesMax = (self.base.charm.chargesMax + calcLocal(modList, "FlaskCharges", "BASE", 0)) * (1 + calcLocal(modList, "FlaskCharges", "INC", 0) / 100)
 		charmData.chargesUsed = m_floor(self.base.charm.chargesUsed * (1 + calcLocal(modList, "FlaskChargesUsed", "INC", 0) / 100))
 		charmData.gainBase = calcLocal(modList, "FlaskChargesGenerated", "BASE", 0)
