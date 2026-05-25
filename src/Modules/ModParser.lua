@@ -3212,7 +3212,13 @@ local specialModList = {
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
-	["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
+  ["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
+	-- Witchhunter
+	["grants skill: sorcery ward"] = {
+		flag("Condition:SorceryWard"),
+		mod("ExtraSkill", "LIST", { skillId = "SorceryWardPlayer", level = 1 }),
+	},
+	["sorcery ward's barrier can also take physical and chaos damage from hits"] = { flag("Condition:CeremonialAblution") },
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })

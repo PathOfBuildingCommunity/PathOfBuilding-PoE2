@@ -5320,7 +5320,7 @@ c["Grants Skill: Ruzhan's Reckoning"]={nil,nil}
 c["Grants Skill: Ruzhan's Trap"]={nil,nil}
 c["Grants Skill: Ruzhan, the Blazing Sword"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonFireDjinnPlayer"}}},nil}
 c["Grants Skill: Shattering Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ShatteringConcoctionPlayer"}}},nil}
-c["Grants Skill: Sorcery Ward"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SorceryWardPlayer"}}},nil}
+c["Grants Skill: Sorcery Ward"]={{[1]={flags=0,keywordFlags=0,name="Condition:SorceryWard",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SorceryWardPlayer"}}},nil}
 c["Grants Skill: Spear Throw"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SpearThrowPlayer"}}},nil}
 c["Grants Skill: Summon Infernal Hound"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonInfernalHoundPlayer"}}},nil}
 c["Grants Skill: Supporting Fire"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SupportingFirePlayer"}}},nil}
@@ -6044,7 +6044,7 @@ c["Skills which require Glory generate 5 Glory every 2 seconds Enemies in your P
 c["Slam Skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=93,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
 c["Slam Skills you use yourself cause an additional Aftershock"]={nil,"Slam Skills you use yourself cause an additional Aftershock "}
 c["Slam Skills you use yourself have 30% increased Aftershock Area of Effect"]={nil,"Slam Skills you use yourself have 30% increased Aftershock Area of Effect "}
-c["Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits"]={nil,"Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits "}
+c["Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="Condition:CeremonialAblution",type="FLAG",value=true}},nil}
 c["Soul Eater"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanHaveSoulEater",type="FLAG",value=true}},nil}
 c["Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target"]={nil,"Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target "}
 c["Spell Skills have 10% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=-10}},nil}
