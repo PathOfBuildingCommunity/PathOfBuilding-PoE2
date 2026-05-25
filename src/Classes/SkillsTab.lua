@@ -674,6 +674,18 @@ function SkillsTabClass:CreateGemSlot(index)
 
 	-- Delete gem
 	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+		if index == 1 then
+			-- Slot 1 (main active skill) cannot be removed; instead open the
+			-- gem selector so the user can change which active skill is here.
+			local ns = slot.nameSpec
+			if ns then
+				self:SelectControl(ns)
+				ns.dropped = true
+				ns:BuildList(ns.buf or "")
+				ns:SelectAll()
+			end
+			return
+		end
 		t_remove(self.displayGroup.gemList, index)
 		for index2 = index, #self.displayGroup.gemList do
 			-- Update the other gem slot controls
@@ -708,7 +720,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	slot.delete.enabled = function()
 		return index <= #self.displayGroup.gemList
 	end
-	slot.delete.tooltipText = "Remove this gem."
+	slot.delete.tooltipText = index == 1 and "Change the main skill gem." or "Remove this gem."
 	self.controls["gemSlot"..index.."Delete"] = slot.delete
 
 	-- Drag handle (reorder gems within the socket group). Anchored 14px left of
@@ -777,7 +789,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."DragHandle"] = slot.dragHandle
 
 	-- Gem name specification
-	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo)
+	-- Row 1 widens by indentOffset (12px) so Level/Quality columns align with the indented rows 2+
+	local indentOffset = 12
+	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, index == 1 and (300 + indentOffset) or 300, 20 }, self, index, function(gemId, addUndo)
 		if not self.displayGroup then
 			return
 		end
@@ -845,7 +859,13 @@ function SkillsTabClass:CreateGemSlot(index)
 	end)
 	slot.level:AddToTabGroup(self.controls.groupLabel)
 	slot.level.enabled = function()
-		return index <= #self.displayGroup.gemList
+		if index > #self.displayGroup.gemList then return false end
+		local gemInstance = self.displayGroup.gemList[index]
+		local gemData = gemInstance and gemInstance.gemData
+		if gemData and gemData.grantedEffect and gemData.grantedEffect.support then
+			return false
+		end
+		return true
 	end
 	self.controls["gemSlot"..index.."Level"] = slot.level
 
@@ -940,7 +960,13 @@ function SkillsTabClass:CreateGemSlot(index)
 	end
 	slot.quality:AddToTabGroup(self.controls.groupLabel)
 	slot.quality.enabled = function()
-		return index <= #self.displayGroup.gemList
+		if index > #self.displayGroup.gemList then return false end
+		local gemInstance = self.displayGroup.gemList[index]
+		local gemData = gemInstance and gemInstance.gemData
+		if gemData and gemData.grantedEffect and gemData.grantedEffect.support then
+			return false
+		end
+		return true
 	end
 	self.controls["gemSlot"..index.."Quality"] = slot.quality
 
