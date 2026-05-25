@@ -1005,23 +1005,19 @@ function calcs.createMinionSkills(env, activeSkill)
 		-- Not ideal, but let's avoid horrible crashes if a spectre has no skills for some reason
 		t_insert(skillIdList, "MeleeAtAnimationSpeed")
 	end
-	for _, skillId in ipairs(skillIdList) do
+	local minionStatSetLookup = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id]
+	local minionStatSetLookupCalcs = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id]
+	for skillIndex, skillId in ipairs(skillIdList) do
 		local activeEffect = {
 			grantedEffect = env.data.skills[skillId],
 			level = 1,
 			quality = 0,
 		}
-		local minionSkillIndex = activeSkill.activeEffect.srcInstance.skillMinionSkill
-		local minionSkillIndexCalcs = activeSkill.activeEffect.srcInstance.skillMinionSkillCalcs
-		local minionStatSetIndex = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id]
-			and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id][minionSkillIndex] or 1
-		local minionStatSetCalcsIndex = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id]
-			and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id][minionSkillIndexCalcs] or 1
 		activeEffect.statSet = {
-			index = minionStatSetIndex,
+			index = minionStatSetLookup and minionStatSetLookup[skillIndex] or 1,
 		}
 		activeEffect.statSetCalcs = {
-			index = minionStatSetCalcsIndex,
+			index = minionStatSetLookupCalcs and minionStatSetLookupCalcs[skillIndex] or 1,
 		}
 		if #activeEffect.grantedEffect.levels > 1 then
 			for level, levelData in ipairs(activeEffect.grantedEffect.levels) do

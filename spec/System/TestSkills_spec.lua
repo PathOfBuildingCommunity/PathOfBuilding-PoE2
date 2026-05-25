@@ -37,6 +37,27 @@ describe("TestSkills", function()
 		assert.are.equals(minionId, build.controls.mainSkillMinion.list[1].minionId)
 	end)
 
+	it("applies minion skill stat set selections to the selected minion skill only", function()
+		build.skillsTab:PasteSocketGroup("Skeletal Sniper 20/0  1")
+		runCallback("OnFrame")
+
+		local srcInstance = build.skillsTab.socketGroupList[1].gemList[1]
+		srcInstance.skillMinionSkill = 2
+		srcInstance.skillMinionSkillCalcs = 2
+		srcInstance.skillMinionSkillStatSetIndexLookup = { SummonSkeletalSnipersPlayer = { [2] = 3 } }
+		srcInstance.skillMinionSkillStatSetIndexLookupCalcs = { SummonSkeletalSnipersPlayer = { [2] = 3 } }
+		build.buildFlag = true
+		build.modFlag = true
+
+		assert.has_no.errors(function()
+			runCallback("OnFrame")
+		end)
+
+		local minionSkills = build.calcsTab.mainEnv.minion.activeSkillList
+		assert.are.equals("Basic Attack", minionSkills[1].activeEffect.statSet.statSet.label)
+		assert.are.equals("Explosion", minionSkills[2].activeEffect.statSet.statSet.label)
+	end)
+
 	it("Test blasphemy reserving Spirit", function()
 		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\n")
 		runCallback("OnFrame")
