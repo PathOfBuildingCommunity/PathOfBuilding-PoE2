@@ -1,9 +1,0 @@
-diff a/src/Classes/ItemsTab.lua b/src/Classes/ItemsTab.lua	(rejected hunks)
-@@ -2846,6 +2927,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
- 				end
- 			end)
- 		end
-+		setDefaultSortOrder()
- 	end
- 	if self.displayItem.type ~= "Tincture" and self.displayItem.type ~= "Graft" then
- 		if self.displayItem.type ~= "Jewel" then

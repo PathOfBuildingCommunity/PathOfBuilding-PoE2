@@ -2773,6 +2773,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 			end)
 		end
+		setDefaultSortOrder()
 	end
 	if not self.displayItem.crafted then
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
