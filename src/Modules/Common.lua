@@ -112,6 +112,31 @@ function newClass(className, ...)
 	end
 	return class
 end
+
+local parentCall = function(proxy, ...)
+	local parent = proxy._parent
+	local object = proxy._object
+
+	if not parent._constructor then
+		error("Parent class '"..parent._className.."' has no constructor")
+	end
+	if object._parentInit[parent] then
+		error("Parent class '"..parent._className.."' has already been initialised")
+	end
+
+	parent._constructor(object, ...)
+	object._parentInit[parent] = true
+end
+
+local parentIndex = function(self, key)
+	local v = rawget(self._object, key)
+	if v ~= nil then
+		return v
+	else
+		return self._parent[key]
+	end
+end
+
 function new(className, ...)
 	local class = getClass(className)
 	local object = setmetatable({ }, class)
@@ -121,25 +146,11 @@ function new(className, ...)
 		object._parentInit = { }
 		for parent in pairs(class._superParents) do
 			local proxyMeta = {
-				__index = function(self, key)
-					local v = rawget(object, key)
-					if v ~= nil then
-						return v
-					else
-						return parent[key]
-					end
-				end,
+				_parent = parent,
+				_object = object,
+				__index = parentIndex,
 				__newindex = object,
-				__call = function(...)
-					if not parent._constructor then
-						error("Parent class '"..parent._className.."' of class '"..class._className.."' has no constructor")
-					end
-					if object._parentInit[parent] then
-						error("Parent class '"..parent._className.."' of class '"..class._className.."' has already been initialised")
-					end
-					parent._constructor(...)
-					object._parentInit[parent] = true
-				end,
+				__call = parentCall,
 			}
 			object[parent._className] = setmetatable(proxyMeta, proxyMeta)
 		end
