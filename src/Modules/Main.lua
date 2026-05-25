@@ -424,11 +424,13 @@ function main:OnFrame()
 	end
 
 	-- Draw main controls
-	SetDrawColor(0.85, 0.85, 0.85)
-	DrawImage(nil, 0, self.screenH - 58, 312, 58)
-	SetDrawColor(0.1, 0.1, 0.1)
-	DrawImage(nil, 0, self.screenH - 54, 308, 54)
-	self:DrawControls(self.viewPort)
+	if self.anchorMain.shown then
+		SetDrawColor(0.85, 0.85, 0.85)
+		DrawImage(nil, 0, self.screenH - 58, 312, 58)
+		SetDrawColor(0.1, 0.1, 0.1)
+		DrawImage(nil, 0, self.screenH - 54, 308, 54)
+		self:DrawControls(self.viewPort)
+	end
 
 	if self.popups[1] then
 		SetDrawLayer(10)

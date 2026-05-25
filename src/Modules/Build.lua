@@ -17,6 +17,8 @@ local function firstToUpper(str)
 end
 
 local buildMode = new("ControlHost")
+local sideBarWidth = 312
+local collapsedHeight = 0
 
 local function InsertIfNew(t, val)
 	if (not t) then return end
@@ -97,8 +99,46 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 
 	local miscTooltip = new("Tooltip")
 
+	-- conditional for smaller screens to move "Current build" to the side bar
+	local function buildNameConditional()
+		return self.anchorTopBarRight:GetPos() < 900
+	end
+
 	-- Controls: top bar, left side
 	self.anchorTopBarLeft = new("Control", nil, {4, 4, 0, 20})
+
+	local collapseSideBarX = 302
+	local collapseSideBarTooltip = "Close"
+	self.controls.collapseSideBar = new("ButtonControl", {"LEFT",self.anchorTopBarLeft,"RIGHT"}, {collapseSideBarX, 0, 8, 100}, "<", function()
+		self.anchorSideBar.shown = not self.anchorSideBar.shown
+		self.statBoxAnchor.shown = not self.statBoxAnchor.shown
+		main.anchorMain.shown = not main.anchorMain.shown
+
+		sideBarWidth = sideBarWidth == 2 and 312 or 2
+		collapsedHeight = collapsedHeight == 0 and 32 or 0
+
+		-- updates to the collapse button
+		self.controls.collapseSideBar.label = self.controls.collapseSideBar.label == "<" and ">" or "<"
+		self.controls.collapseSideBar.x = self.controls.collapseSideBar.x == collapseSideBarX and 0 or collapseSideBarX
+		collapseSideBarTooltip = collapseSideBarTooltip == "Close" and "Open" or "Close"
+
+		-- move Tree button to after Config
+		local modeTreeWidth = self.controls.modeImport.width + self.controls.modeNotes.width + self.controls.modeConfig.width + 12
+		self.controls.modeTree.x = self.controls.modeTree.x == modeTreeWidth and 0 or modeTreeWidth
+		self.controls.modeTree.y = self.controls.modeTree.y == 26 and 0 or 26
+
+		-- move Party button to after Calcs
+		local modePartyWidth = self.controls.modeTree.width + self.controls.modeSkills.width + self.controls.modeItems.width + self.controls.modeCalcs.width + 16
+		self.controls.modeParty.x = self.controls.modeParty.x == modePartyWidth and 0 or modePartyWidth
+		self.controls.modeParty.y = self.controls.modeParty.y == 26 and 0 or 26
+	end, nil, nil, -39)
+	self.controls.collapseSideBar.y = function() return main.screenH/2 - 32 end
+	self.controls.collapseSideBar.tooltipFunc = function(tooltip)
+		if tooltip:CheckForUpdate(collapseSideBarTooltip) then
+			tooltip:AddLine(16, collapseSideBarTooltip.." Sidebar")
+		end
+	end
+
 	self.controls.back = new("ButtonControl", {"LEFT",self.anchorTopBarLeft,"RIGHT"}, {0, 0, 60, 20}, "<< Back", function()
 		if self.unsaved then
 			self:OpenSavePopup("LIST")
@@ -119,10 +159,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		return self.dbFileName
 	end
 
-	-- conditional for smaller screens to move "Current build" to the side bar
-	local function buildNameConditional()
-		return self.anchorTopBarRight:GetPos() < 900
-	end
 	self.controls.buildName = new("Control", {"LEFT",self.controls.saveAs,"RIGHT"}, {4, 36, 0, 20})
 	self.controls.buildName.width = function(control)
 		local limit = buildNameConditional() and 203 or
@@ -227,7 +263,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 				end
 				if mult > 0.01 then
 					local line = level
-					if level >= 68 then 
+					if level >= 68 then
 						line = line .. string.format(" (Tier %d)", level - 67)
 					end
 					line = line .. string.format(": %.1f%%", mult * 100)
@@ -384,7 +420,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 
 		self.controls.buildLoadouts:SelByValue(value)
 	end)
-	
+
 	if buildName == "~~temp~~" then
 		-- Remove temporary build file
 		os.remove(self.dbFileName)
@@ -403,20 +439,26 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		return buildNameConditional() and 60 or 36
 	end
 
-	self.controls.modeImport = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 0, 134, 20}, "Import/Export Build", function()
+	self.controls.modeImport = new("ButtonControl", nil, {4, 36, 134, 20}, "Import/Export Build", function()
 		self.viewMode = "IMPORT"
 		self.importTab:RefreshAuthStatus()
 	end)
 	self.controls.modeImport.locked = function() return self.viewMode == "IMPORT" end
+	self.controls.modeImport.x = function()
+		return buildNameConditional() and (sideBarWidth == 2 and 318 or 4) or 4
+	end
+	self.controls.modeImport.y = function()
+		return buildNameConditional() and (sideBarWidth == 2 and 36 or 60) or 36
+	end
 	self.controls.modeNotes = new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"}, {4, 0, 58, 20}, "Notes", function()
 		self.viewMode = "NOTES"
 	end)
 	self.controls.modeNotes.locked = function() return self.viewMode == "NOTES" end
-	self.controls.modeConfig = new("ButtonControl", {"TOPRIGHT",self.anchorSideBar,"TOPLEFT"}, {300, 0, 100, 20}, "Configuration", function()
+	self.controls.modeConfig = new("ButtonControl", {"LEFT",self.controls.modeNotes,"RIGHT"}, {4, 0, 100, 20}, "Configuration", function()
 		self.viewMode = "CONFIG"
 	end)
 	self.controls.modeConfig.locked = function() return self.viewMode == "CONFIG" end
-	self.controls.modeTree = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 26, 72, 20}, "Tree", function()
+	self.controls.modeTree = new("ButtonControl", {"TOPLEFT",self.controls.modeImport,"TOPLEFT"}, {0, 26, 72, 20}, "Tree", function()
 		self.viewMode = "TREE"
 	end)
 	self.controls.modeTree.locked = function() return self.viewMode == "TREE" end
@@ -432,7 +474,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.viewMode = "CALCS"
 	end)
 	self.controls.modeCalcs.locked = function() return self.viewMode == "CALCS" end
-	self.controls.modeParty = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 52, 72, 20}, "Party", function()
+	self.controls.modeParty = new("ButtonControl", {"TOPLEFT",self.controls.modeTree,"TOPLEFT"}, {0, 26, 72, 20}, "Party", function()
 		self.viewMode = "PARTY"
 	end)
 	self.controls.modeParty.locked = function() return self.viewMode == "PARTY" end
@@ -562,8 +604,8 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		self.modFlag = true
 		self.buildFlag = true
 	end)
-	self.controls.statBoxAnchor = new("Control", {"TOPLEFT",self.controls.mainSkillMinionSkillStatSet,"BOTTOMLEFT",true}, {0, 2, 0, 0})
-	self.controls.statBox = new("TextListControl", {"TOPLEFT",self.controls.statBoxAnchor,"BOTTOMLEFT"}, {0, 2, 300, 0}, {{x=170,align="RIGHT_X"},{x=174,align="LEFT"}})
+	self.statBoxAnchor = new("Control", {"TOPLEFT",self.controls.mainSkillMinionSkillStatSet,"BOTTOMLEFT",true}, {0, 2, 0, 0})
+	self.controls.statBox = new("TextListControl", {"TOPLEFT",self.statBoxAnchor,"BOTTOMLEFT"}, {0, 2, 300, 0}, {{x=170,align="RIGHT_X"},{x=174,align="LEFT"}})
 	self.controls.statBox.height = function(control)
 		local x, y = control:GetPos()
 		local warnHeight = main.showWarnings and #self.controls.warnings.lines > 0 and 18 or 0
@@ -575,7 +617,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 		return control.str and DrawStringWidth(16, "FIXED", control.str) + 8 or 0
 	end
 	self.controls.warnings.Draw = function(control)
-		if #self.controls.warnings.lines > 0 then
+		if #self.controls.warnings.lines > 0 and self.statBoxAnchor.shown then
 			local count = 0
 			for _ in pairs(self.controls.warnings.lines) do count = count + 1 end
 			control.str = string.format(colorCodes.NEGATIVE.."%d Warnings", count)
@@ -623,7 +665,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.legacyLoaders = { -- Special loaders for legacy sections
 		["Spec"] = self.treeTab,
 	}
-	
+
 	--special rebuild to properly initialise boss placeholders
 	self.configTab:BuildModList()
 
@@ -841,7 +883,7 @@ function buildMode:EstimatePlayerProgress()
 		act = act + 1
 		level = m_min(m_max(PointsUsed + 1 -  self.acts[act].questPoints - extra - m_min(weaponSet1Used, weaponSet2Used), self.acts[act].level), 100)
 	until act == self.maxActs or level <= self.acts[act + 1].level
-	
+
 	if self.characterLevelAutoMode and self.characterLevel ~= level then
 		self.characterLevel = level
 		self.controls.characterLevel:SetText(self.characterLevel)
@@ -856,7 +898,7 @@ function buildMode:EstimatePlayerProgress()
 		or level < 75 and "\nLabyrinth: Merciless Lab"
 		or level < 90 and "\nLabyrinth: Uber Lab"
 		or ""
-	
+
 	local normalPassives = PointsUsed - m_min(weaponSet1Used, weaponSet2Used)
 	if normalPassives > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
 	if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, "You have too many ascendancy points allocated") end
@@ -885,9 +927,9 @@ function buildMode:EstimatePlayerProgress()
 			math.abs(weaponSet2Used - weaponSet1Used)
 		))
 	end
-	
+
 	self.Act = act == self.maxActs and "Endgame" or "Act " .. act
-	
+
 	return string.format(
 		"%s%3d / %3d %s%2d / %2d %s%2d / %2d   %s%d / %d",
 		normalPassives > usedMax and colorCodes.NEGATIVE or "^7",
@@ -898,7 +940,7 @@ function buildMode:EstimatePlayerProgress()
 		weaponSet2Used, maxWeaponSets + extraWeaponSets,
 		AscUsed > ascMax and colorCodes.NEGATIVE or "^7",
 		AscUsed, ascMax
-		), 
+		),
 		string.format(
 			"Required Level: %d\nEstimated Progress:\nAct: %s\nExtra Skillpoints: %d%s",
 			level, self.Act, extra, labSuggest
@@ -917,7 +959,7 @@ function buildMode:Shutdown()
 	if launch.devMode and (not main.disableDevAutoSave) and self.targetVersion and not self.abortSave then
 		if self.dbFileName then
 			self:SaveDBFile()
-		elseif self.unsaved then		
+		elseif self.unsaved then
 			self.dbFileName = main.buildPath.."~~temp~~.xml"
 			self.buildName = "~~temp~~"
 			self.dbFileSubPath = ""
@@ -1174,15 +1216,15 @@ function buildMode:OnFrame(inputEvents)
 	self:RefreshSkillSelectControls(self.controls, self.mainSocketGroup, "")
 
 	-- Draw contents of current tab
-	local sideBarWidth = 312
+	-- with the collapseSideBar, we slightly move the viewPort down to fit a second line at the top for the buttons
 	local tabViewPort = {
 		x = sideBarWidth,
-		y = 32,
+		y = 32 + collapsedHeight,
 		width = main.screenW - sideBarWidth,
-		height = main.screenH - 32
+		height = main.screenH - 32 - collapsedHeight
 	}
 	if self.viewMode == "IMPORT" then
-		self.importTab:Draw(tabViewPort, inputEvents)  
+		self.importTab:Draw(tabViewPort, inputEvents)
 	elseif self.viewMode == "NOTES" then
 		self.notesTab:Draw(tabViewPort, inputEvents)
 	elseif self.viewMode == "PARTY" then
@@ -1207,10 +1249,13 @@ function buildMode:OnFrame(inputEvents)
 
 	-- Draw top bar background
 	SetDrawColor(0.2, 0.2, 0.2)
-	DrawImage(nil, 0, 0, main.screenW, 28)
+	DrawImage(nil, 0, 0, main.screenW, 28 + collapsedHeight)
 	SetDrawColor(0.85, 0.85, 0.85)
 	DrawImage(nil, 0, 28, main.screenW, 4)
 	DrawImage(nil, main.screenW/2 - 2, 0, 4, 28)
+	if collapsedHeight ~= 0 then
+		DrawImage(nil, 0, 28 + collapsedHeight, main.screenW, 4)
+	end
 
 	-- Draw side bar background
 	SetDrawColor(0.1, 0.1, 0.1)
