@@ -20,7 +20,10 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.Control()
 
 	self.build = build
-	self.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
+	if not main.api then
+		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
+	end
+
 
 	self.charImportMode = "AUTHENTICATION"
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
@@ -31,17 +34,17 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
 		main.lastToken = nil
-		self.api.authToken = nil
+		main.api.authToken = nil
 		main.lastRefreshToken = nil
-		self.api.refreshToken = nil
+		main.api.refreshToken = nil
 		main.tokenExpiry = nil
-		self.api.tokenExpiry = nil
+		main.api.tokenExpiry = nil
 		main:SaveSettings()
 		self.charImportMode = "AUTHENTICATION"
 		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 	end)
 	self.controls.logoutApiButton.shown = function()
-		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and self.api.authToken ~= nil
+		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and main.api.authToken ~= nil
 	end
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
@@ -49,18 +52,18 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	-- Stage: Authenticate
 	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
-		self.api:FetchAuthToken(function(_, errMsg)
-			if self.api.authToken then
+		main.api:FetchAuthToken(function(_, errCode)
+			if main.api.authToken then
 				self.charImportMode = "GETACCOUNTNAME"
 				self.charImportStatus = "Authenticated"
 
-				main.lastToken = self.api.authToken
-				main.lastRefreshToken = self.api.refreshToken
-				main.tokenExpiry = self.api.tokenExpiry
+				main.lastToken = main.api.authToken
+				main.lastRefreshToken = main.api.refreshToken
+				main.tokenExpiry = main.api.tokenExpiry
 				main:SaveSettings()
 				self:DownloadCharacterList()
-			elseif errMsg and errMsg ~= self.api.ERROR_NO_AUTH then
-				self.charImportStatus = colorCodes.NEGATIVE.."Authentication failed: "..errMsg
+			elseif errCode and errCode ~= main.api.ERROR_NO_AUTH then
+				self.charImportStatus = colorCodes.NEGATIVE .. "Authentication failed: " .. errCode
 			else
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			end
@@ -343,26 +346,30 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 
 	-- validate the status of the api the first time
-	self.api:ValidateAuth(function(valid, updateSettings)
-		if valid then 
-			if self.charImportMode == "AUTHENTICATION" then
-				self.charImportMode = "GETACCOUNTNAME"
-				self.charImportStatus = "Authenticated"
-			end
-			if updateSettings then
-				self:SaveApiSettings()
-			end
-		else
-			self.charImportMode = "AUTHENTICATION"
-			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
-		end
-	end)
+	self:RefreshAuthStatus()
 end)
 
+function ImportTabClass:RefreshAuthStatus()
+	main.api:ValidateAuth(function(valid, updateSettings)
+			if valid then
+				if self.charImportMode == "AUTHENTICATION" then
+					self.charImportMode = "GETACCOUNTNAME"
+					self.charImportStatus = "Authenticated"
+				end
+				if updateSettings then
+					self:SaveApiSettings()
+				end
+			else
+				self.charImportMode = "AUTHENTICATION"
+				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+			end
+		end)
+end
+
 function ImportTabClass:SaveApiSettings()
-	main.lastToken = self.api.authToken
-	main.lastRefreshToken = self.api.refreshToken
-	main.tokenExpiry = self.api.tokenExpiry
+	main.lastToken = main.api.authToken
+	main.lastRefreshToken = main.api.refreshToken
+	main.tokenExpiry = main.api.tokenExpiry
 	main:SaveSettings()
 end
 
@@ -436,11 +443,11 @@ function ImportTabClass:DownloadCharacterList()
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
-	self.api:DownloadCharacterList(realm.realmCode, function(body, errMsg, updateSettings)
+	main.api:DownloadCharacterList(realm.realmCode, function(body, errMsg, updateSettings)
 		if updateSettings then
 			self:SaveApiSettings()
 		end
-		if errMsg == self.api.ERROR_NO_AUTH then
+		if errMsg == main.api.ERROR_NO_AUTH then
 			self.charImportMode = "AUTHENTICATION"
 			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			return
@@ -581,13 +588,13 @@ function ImportTabClass:DownloadCharacter(callback)
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-	self.api:DownloadCharacter(realm.realmCode, charData.name, function(body, errMsg, updateSettings)
+	main.api:DownloadCharacter(realm.realmCode, charData.name, function(body, errMsg, updateSettings)
 		self.charImportMode = "SELECTCHAR"
 		if updateSettings then
 			self:SaveApiSettings()
 		end
 		if errMsg then
-			if errMsg == self.api.ERROR_NO_AUTH then
+			if errMsg == main.api.ERROR_NO_AUTH then
 				self.charImportMode = "AUTHENTICATION"
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 				return

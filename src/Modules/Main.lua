@@ -111,7 +111,6 @@ function main:Init()
 	self.migrateAugments = true
 	self.notSupportedModTooltips = true
 	self.notSupportedTooltipText = " ^8(Not supported in PoB yet)"
-	self.POESESSID = ""
 	--self.showPublicBuilds = true
 	self.showFlavourText = true
 	self.showAnimations = true
@@ -642,9 +641,6 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.notSupportedModTooltips then
 					self.notSupportedModTooltips = node.attrib.notSupportedModTooltips == "true"
 				end
-				if node.attrib.POESESSID then
-					self.POESESSID = node.attrib.POESESSID or ""
-				end
 				if node.attrib.invertSliderScrollDirection then
 					self.invertSliderScrollDirection = node.attrib.invertSliderScrollDirection == "true"
 				end
@@ -792,7 +788,6 @@ function main:SaveSettings()
 		slotOnlyTooltips = tostring(self.slotOnlyTooltips),
 		migrateAugments = tostring(self.migrateAugments),
 		notSupportedModTooltips = tostring(self.notSupportedModTooltips),
-		POESESSID = self.POESESSID,
 		invertSliderScrollDirection = tostring(self.invertSliderScrollDirection),
 		disableDevAutoSave = tostring(self.disableDevAutoSave),
 		--showPublicBuilds = tostring(self.showPublicBuilds),
