@@ -319,6 +319,7 @@ statMap = {
 #skill DarkEffigyPlayer
 #set DarkEffigyPlayer
 #flags area spell totem duration
+#baseMod mod("Damage", "INC", 40, ModFlag.Dot, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
