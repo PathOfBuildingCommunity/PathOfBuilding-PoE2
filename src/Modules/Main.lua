@@ -866,15 +866,15 @@ function main:OpenOptionsPopup(savedState)
 		betaTest = self.betaTest,
 		edgeSearchHighlight = self.edgeSearchHighlight,
 		defaultGemQuality = self.defaultGemQuality or 0,
+		initialDefaultItemQuality = self.defaultGemQuality or 20,
 		defaultCharLevel = self.defaultCharLevel or 1,
 		defaultItemAffixQuality = self.defaultItemAffixQuality or 0.5,
 		showWarnings = self.showWarnings,
 		slotOnlyTooltips = self.slotOnlyTooltips,
-		migrateEldritchImplicits = self.migrateEldritchImplicits,
+		initialMigrateAugments = self.migrateAugments,
 		notSupportedModTooltips = self.notSupportedModTooltips,
 		invertSliderScrollDirection = self.invertSliderScrollDirection,
 		disableDevAutoSave = self.disableDevAutoSave,
-		showPublicBuilds = self.showPublicBuilds,
 		showFlavourText = self.showFlavourText,
 		showAnimations = self.showAnimations,
 		showAllItemAffixes = self.showAllItemAffixes,
@@ -1025,85 +1025,90 @@ function main:OpenOptionsPopup(savedState)
 		"The default value is " .. tostring(defaultColorCodes.HIGHLIGHT:gsub('^(^)', '0')) .."\nIf updating while inside a build, please re-load the build after saving."
 
 	nextRow()
-	controls.betaTest = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Opt-in to weekly beta test builds:", function(state)
+	controls.betaTest = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Opt-in to weekly beta test builds:", function(state)
 		self.betaTest = state
 	end)
 
 	nextRow()
-	controls.edgeSearchHighlight = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20}, "^7Show search circles at viewport edge", function(state)
+	controls.edgeSearchHighlight = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20}, "^7Show search circles at viewport edge", function(state)
 		self.edgeSearchHighlight = state
 	end)
-	
-	--nextRow()
-	--controls.showPublicBuilds = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Latest/Trending builds:", function(state)
-		--self.showPublicBuilds = state
-	--end)
 
 	nextRow()
-	controls.showFlavourText = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Styled Tooltips with Flavour Text:", function(state)
+	controls.showFlavourText = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Styled Tooltips with Flavour Text:", function(state)
 		self.showFlavourText = state
 	end)
 	controls.showFlavourText.tooltipText = "If updating while inside a build, please re-load the build after saving."
 
 	nextRow()
-	controls.showAnimations = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
+	controls.showAnimations = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show Animations:", function(state)
 		self.showAnimations = state
 	end)
 	
 	nextRow()
-	controls.showAllItemAffixes = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show all item affixes sliders:", function(state)
+	controls.showAllItemAffixes = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show all item affixes sliders:", function(state)
 		self.showAllItemAffixes = state
 	end)
 	controls.showAllItemAffixes.tooltipText = "Display all item affix slots as a stacked list instead of hiding them in dropdowns"
 
 	nextRow()
+	
+	local leftColumnMaxY = currentY -- store left column height
+
+	-- Check for two column layout
+	if useTwoColumns then
+		currentY = startingY -- reset height back to top
+		currentX = columnWidth
+	end
+
+	-- Build-related Option Section starts
 	drawSectionHeader("build", "Build-related options")
 
-	controls.showThousandsSeparators = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT"}, { defaultLabelPlacementX, currentY, 20 }, "^7Show thousands separators:", function(state)
+	controls.showThousandsSeparators = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT"}, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show thousands separators:", function(state)
 	self.showThousandsSeparators = state
 	end)
 	controls.showThousandsSeparators.state = self.showThousandsSeparators
 
 	nextRow()
-	controls.thousandsSeparator = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 30, 20 }, self.thousandsSeparator, nil, "%w", 1, function(buf)
+	controls.thousandsSeparator = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 30, 20 }, self.thousandsSeparator, nil, "%w", 1, function(buf)
 		self.thousandsSeparator = buf
 	end)
 	controls.thousandsSeparatorLabel = new("LabelControl", { "RIGHT", controls.thousandsSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Thousands separator:")
 
 	nextRow()
-	controls.decimalSeparator = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 30, 20 }, self.decimalSeparator, nil, "%w", 1, function(buf)
+	controls.decimalSeparator = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 30, 20 }, self.decimalSeparator, nil, "%w", 1, function(buf)
 		self.decimalSeparator = buf
 	end)
 	controls.decimalSeparatorLabel = new("LabelControl", { "RIGHT", controls.decimalSeparator, "LEFT" }, { defaultLabelSpacingPx, 0, 92, 16 }, "^7Decimal separator:")
 
 	nextRow()
-	controls.titlebarName = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show build name in window title:", function(state)
+	controls.titlebarName = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show build name in window title:", function(state)
 		self.showTitlebarName = state
 	end)
 
 	nextRow()
-	controls.defaultGemQuality = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultGemQuality, nil, "%D", 2, function(gemQuality)
+	controls.defaultGemQuality = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 20 }, self.defaultGemQuality, nil, "%D", 2, function(gemQuality)
 		self.defaultGemQuality = m_min(tonumber(gemQuality) or 0, 23)
 	end)
 	controls.defaultGemQuality.tooltipText = "Set the default quality that can be overwritten by build-related quality settings in the skill panel."
 	controls.defaultGemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultGemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default gem quality:")
 
 	nextRow()
-	controls.defaultItemQuality = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultItemQuality, nil, "%D", 2, function(itemQuality)
+	controls.defaultItemQuality = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 20 }, self.defaultItemQuality, nil, "%D", 2, function(itemQuality)
 		self.defaultItemQuality = m_min(tonumber(itemQuality) or 0, 20)
 	end)
 	controls.defaultItemQuality.tooltipText = "Set the default quality that will be applied to newly created or pasted items."
 	controls.defaultItemQualityLabel = new("LabelControl", { "RIGHT", controls.defaultItemQuality, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default item quality:")
 
 	nextRow()
-	controls.defaultCharLevel = new("EditControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 80, 20 }, self.defaultCharLevel, nil, "%D", 3, function(charLevel)
+	controls.defaultCharLevel = new("EditControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 80, 20 }, self.defaultCharLevel, nil, "%D", 3, function(charLevel)
 		self.defaultCharLevel = m_min(m_max(tonumber(charLevel) or 1, 1), 100)
 	end)
 	controls.defaultCharLevel.tooltipText = "Set the default level of your builds. If this is higher than 1, manual level mode will be enabled by default in new builds."
 	controls.defaultCharLevelLabel = new("LabelControl", { "RIGHT", controls.defaultCharLevel, "LEFT" }, { defaultLabelSpacingPx, 0, 0, 16 }, "^7Default character level:")
 
 	nextRow()
-	controls.defaultItemAffixQualitySlider = new("SliderControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 200, 20 }, function(value)
+	controls.defaultItemAffixQualitySlider = new("SliderControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 200, 20 }, function(value)
 		self.defaultItemAffixQuality = round(value, 2)
 		controls.defaultItemAffixQualityValue.label = (self.defaultItemAffixQuality * 100) .. "%"
 	end)
@@ -1113,33 +1118,33 @@ function main:OpenOptionsPopup(savedState)
 	controls.defaultItemAffixQualityValue.label = (self.defaultItemAffixQuality * 100) .. "%"
 
 	nextRow()
-	controls.showWarnings = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show build warnings:", function(state)
+	controls.showWarnings = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show build warnings:", function(state)
 		self.showWarnings = state
 	end)
 	controls.showWarnings.state = self.showWarnings
 
 	nextRow()
-	controls.slotOnlyTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show tooltips only for affected slots:", function(state)
+	controls.slotOnlyTooltips = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show tooltips only for affected slots:", function(state)
 		self.slotOnlyTooltips = state
 	end, "Shows comparisons in tooltips only for the slot you are currently placing the item in, instead of all slots.")
 	controls.slotOnlyTooltips.state = self.slotOnlyTooltips
 
 	nextRow()
-	controls.migrateAugments = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Copy augments onto display item:", function(state)
+	controls.migrateAugments = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Copy augments onto display item:", function(state)
 		self.migrateAugments = state
 	end)
 	controls.migrateAugments.tooltipText = "Apply augments and anoints from current gear when comparing new gear, given they are possible to add to the new item."
 	controls.migrateAugments.state = self.migrateAugments
 	
 	nextRow()
-	controls.notSupportedModTooltips = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Show tooltip for unsupported mods :", function(state)
+	controls.notSupportedModTooltips = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Show tooltip for unsupported mods :", function(state)
 		self.notSupportedModTooltips = state
 	end)
 	controls.notSupportedModTooltips.tooltipText = "Show ^8(Not supported in PoB yet) ^7next to unsupported mods\nRequires PoB to restart for it to take effect"
 	controls.notSupportedModTooltips.state = self.notSupportedModTooltips
 	
 	nextRow()
-	controls.invertSliderScrollDirection = new("CheckBoxControl", { "TOPLEFT", nil, "TOPLEFT" }, { defaultLabelPlacementX, currentY, 20 }, "^7Invert slider scroll direction:", function(state)
+	controls.invertSliderScrollDirection = new("CheckBoxControl", { "TOPLEFT", controls.sectionAnchor, "TOPLEFT" }, { currentX + defaultLabelPlacementX, currentY, 20 }, "^7Invert slider scroll direction:", function(state)
 		self.invertSliderScrollDirection = state
 	end)
 	controls.invertSliderScrollDirection.tooltipText = "Default scroll direction is:\nScroll Up = Move right\nScroll Down = Move left"
@@ -1161,31 +1166,6 @@ function main:OpenOptionsPopup(savedState)
 	controls.showFlavourText.state = self.showFlavourText
 	controls.showAnimations.state = self.showAnimations
 	controls.showAllItemAffixes.state = self.showAllItemAffixes
-	local initialNodePowerTheme = self.nodePowerTheme
-	local initialColorPositive = self.colorPositive
-	local initialColorNegative = self.colorNegative
-	local initialColorHighlight = self.colorHighlight
-	local initialThousandsSeparatorDisplay = self.showThousandsSeparators
-	local initialTitlebarName = self.showTitlebarName
-	local initialThousandsSeparator = self.thousandsSeparator
-	local initialDecimalSeparator = self.decimalSeparator
-	local initialBetaTest = self.betaTest
-	local initialEdgeSearchHighlight = self.edgeSearchHighlight
-	local initialDefaultGemQuality = self.defaultGemQuality or 0
-	local initialDefaultItemQuality = self.defaultGemQuality or 20
-	local initialDefaultCharLevel = self.defaultCharLevel or 1
-	local initialDefaultItemAffixQuality = self.defaultItemAffixQuality or 0.5
-	local initialShowWarnings = self.showWarnings
-	local initialSlotOnlyTooltips = self.slotOnlyTooltips
-	local initialMigrateAugments = self.migrateAugments
-	local initialNotSupportedModTooltips = self.notSupportedModTooltips
-	local initialInvertSliderScrollDirection = self.invertSliderScrollDirection
-	local initialDisableDevAutoSave = self.disableDevAutoSave
-	--local initialShowPublicBuilds = self.showPublicBuilds
-	local initialShowFlavourText = self.showFlavourText
-	local initialShowAnimations = self.showAnimations
-	local initialShowAllItemAffixes = self.showAllItemAffixes
-	local initialDpiScaleOverridePercent = self.dpiScaleOverridePercent
 
 	-- Adjust height in case of two-column layout
 	currentY = m_max(leftColumnMaxY, currentY)
@@ -1220,34 +1200,34 @@ function main:OpenOptionsPopup(savedState)
 		main:SaveSettings()
 	end)
 	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {45, -10, 80, 20}, "Cancel", function()
-		self.nodePowerTheme = initialNodePowerTheme
-		self.colorPositive = initialColorPositive
+		self.nodePowerTheme = savedState.initialNodePowerTheme
+		self.colorPositive = savedState.initialColorPositive
 		updateColorCode("POSITIVE", self.colorPositive)
-		self.colorNegative = initialColorNegative
+		self.colorNegative = savedState.initialColorNegative
 		updateColorCode("NEGATIVE", self.colorNegative)
-		self.colorHighlight = initialColorHighlight
+		self.colorHighlight = savedState.initialColorHighlight
 		updateColorCode("HIGHLIGHT", self.colorHighlight)
-		self.showThousandsSeparators = initialThousandsSeparatorDisplay
-		self.thousandsSeparator = initialThousandsSeparator
-		self.decimalSeparator = initialDecimalSeparator
-		self.showTitlebarName = initialTitlebarName
-		self.betaTest = initialBetaTest
-		self.edgeSearchHighlight = initialEdgeSearchHighlight
-		self.defaultGemQuality = initialDefaultGemQuality
-		self.defaultItemQuality = initialDefaultItemQuality
-		self.defaultCharLevel = initialDefaultCharLevel
-		self.defaultItemAffixQuality = initialDefaultItemAffixQuality
-		self.showWarnings = initialShowWarnings
-		self.slotOnlyTooltips = initialSlotOnlyTooltips
-		self.migrateAugments = initialMigrateAugments
-		self.notSupportedModTooltips = initialNotSupportedModTooltips
-		self.invertSliderScrollDirection = initialInvertSliderScrollDirection
-		self.disableDevAutoSave = initialDisableDevAutoSave
-		self.showPublicBuilds = initialShowPublicBuilds
-		self.showFlavourText = initialShowFlavourText
-		self.showAnimations = initialShowAnimations
-		self.showAllItemAffixes = initialShowAllItemAffixes
-		self.dpiScaleOverridePercent = initialDpiScaleOverridePercent
+		self.showThousandsSeparators = savedState.initialThousandsSeparatorDisplay
+		self.thousandsSeparator = savedState.initialThousandsSeparator
+		self.decimalSeparator = savedState.initialDecimalSeparator
+		self.showTitlebarName = savedState.initialTitlebarName
+		self.betaTest = savedState.initialBetaTest
+		self.edgeSearchHighlight = savedState.initialEdgeSearchHighlight
+		self.defaultGemQuality = savedState.initialDefaultGemQuality
+		self.defaultItemQuality = savedState.initialDefaultItemQuality
+		self.defaultCharLevel = savedState.initialDefaultCharLevel
+		self.defaultItemAffixQuality = savedState.initialDefaultItemAffixQuality
+		self.showWarnings = savedState.initialShowWarnings
+		self.slotOnlyTooltips = savedState.initialSlotOnlyTooltips
+		self.migrateAugments = savedState.initialMigrateAugments
+		self.notSupportedModTooltips = savedState.initialNotSupportedModTooltips
+		self.invertSliderScrollDirection = savedState.initialInvertSliderScrollDirection
+		self.disableDevAutoSave = savedState.initialDisableDevAutoSave
+		self.showPublicBuilds = savedState.initialShowPublicBuilds
+		self.showFlavourText = savedState.initialShowFlavourText
+		self.showAnimations = savedState.initialShowAnimations
+		self.showAllItemAffixes = savedState.initialShowAllItemAffixes
+		self.dpiScaleOverridePercent = savedState.initialDpiScaleOverridePercent
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 	end)
