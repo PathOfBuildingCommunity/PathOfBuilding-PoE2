@@ -84,6 +84,31 @@ function launch:OnInit()
 		-- Run a background update check if developer mode is off
 		self:CheckForUpdate(true)
 	end
+
+	-- pob-mcp: load GUI bridge if present (optional, no-op if missing)
+	do
+		local log = io.open("pob-mcp-debug.txt", "w")
+		local function logw(s) if log then log:write(s.."\n"); log:flush() end end
+		logw("cwd probe: "..tostring(io.open("pob-mcp/gui_bridge.lua","r") ~= nil)
+			.." / "..tostring(io.open("../pob-mcp/gui_bridge.lua","r") ~= nil))
+		local candidates = { "pob-mcp/gui_bridge.lua", "../pob-mcp/gui_bridge.lua" }
+		local loaded, loadErr = false, nil
+		for _, path in ipairs(candidates) do
+			local f = io.open(path, "r")
+			if f then
+				f:close()
+				logw("loading: "..path)
+				local ok, err = pcall(dofile, path)
+				logw("result: "..tostring(ok).." "..tostring(err))
+				loaded = ok
+				loadErr = err
+				break
+			end
+		end
+		if not loaded then logw("bridge not loaded: "..tostring(loadErr)) end
+		logw("pobMcpTick defined: "..tostring(_G.pobMcpTick ~= nil))
+		if log then log:close() end
+	end
 end
 
 function launch:CanExit()
@@ -114,6 +139,8 @@ function launch:OnFrame()
 			end
 		end
 	end
+	-- pob-mcp: tick the GUI bridge (non-blocking, no-op if bridge not loaded)
+	if _G.pobMcpTick then pcall(_G.pobMcpTick) end
 	self.devModeAlt = self.devMode and IsKeyDown("ALT")
 	SetDrawLayer(1000)
 	SetViewport()
