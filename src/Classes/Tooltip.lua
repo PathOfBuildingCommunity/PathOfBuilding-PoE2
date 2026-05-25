@@ -14,6 +14,24 @@ local s_gmatch = string.gmatch
 local BORDER_WIDTH = 3
 local H_PAD	= 12
 local V_PAD = 10
+-- spell-checker: disable
+local headerConfigs = {
+	RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
+	MAGIC = {left="Assets/itemsheadermagicleft.png", middle="Assets/itemsheadermagicmiddle.png", right="Assets/itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	NORMAL = {left="Assets/itemsheaderwhiteleft.png", middle="Assets/itemsheaderwhitemiddle.png", right="Assets/itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
+	GEM = {left="Assets/itemsheadergemleft.png", middle="Assets/itemsheadergemmiddle.png", right="Assets/itemsheadergemright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	JEWEL = {left="Assets/jewelpassiveheaderleft.png", middle="Assets/jewelpassiveheadermiddle.png", right="Assets/jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	NOTABLE = {left="Assets/notablepassiveheaderleft.png", middle="Assets/notablepassiveheadermiddle.png", right="Assets/notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	PASSIVE = {left="Assets/normalpassiveheaderleft.png", middle="Assets/normalpassiveheadermiddle.png", right="Assets/normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	KEYSTONE = {left="Assets/keystonepassiveheaderleft.png", middle="Assets/keystonepassiveheadermiddle.png", right="Assets/keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ASCENDANCY = {left="Assets/ascendancypassiveheaderleft.png", middle="Assets/ascendancypassiveheadermiddle.png", right="Assets/ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_PASSIVE = {left="Assets/oraclenormalpassiveheaderleft.png", middle="Assets/oraclenormalpassiveheadermiddle.png", right="Assets/oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+	ORACLE_NOTABLE = {left="Assets/oraclenotablepassiveheaderleft.png", middle="Assets/oraclenotablepassiveheadermiddle.png", right="Assets/oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
+	ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="Assets/oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
+}
+-- spell-checker: enable
 
 local TooltipClass = newClass("Tooltip", function(self)
 	self.lines = { }
@@ -310,22 +328,6 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 		Fractured = "Assets/fractureditemsymbol.png",
 		Desecrated = "Assets/veileditemsymbol.png",
 		Mutated = "Assets/vaalitemicon.png",
-	}
-	local headerConfigs = {
-		RELIC = {left="Assets/itemsheaderfoilleft.png", middle="Assets/itemsheaderfoilmiddle.png", right="Assets/itemsheaderfoilright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-		UNIQUE = {left="Assets/itemsheaderuniqueleft.png", middle="Assets/itemsheaderuniquemiddle.png", right="Assets/itemsheaderuniqueright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-		RARE = {left="Assets/itemsheaderrareleft.png", middle="Assets/itemsheaderraremiddle.png", right="Assets/itemsheaderrareright.png", height=58, sideWidth=47, middleWidth=47, textYOffset=2, allowInfluenceIcon=true},
-		MAGIC = {left="Assets/itemsheadermagicleft.png", middle="Assets/itemsheadermagicmiddle.png", right="Assets/itemsheadermagicright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-		NORMAL = {left="Assets/itemsheaderwhiteleft.png", middle="Assets/itemsheaderwhitemiddle.png", right="Assets/itemsheaderwhiteright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4, allowInfluenceIcon=true},
-		GEM = {left="Assets/itemsheadergemleft.png", middle="Assets/itemsheadergemmiddle.png", right="Assets/itemsheadergemright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		JEWEL = {left="Assets/jewelpassiveheaderleft.png", middle="Assets/jewelpassiveheadermiddle.png", right="Assets/jewelpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		NOTABLE = {left="Assets/notablepassiveheaderleft.png", middle="Assets/notablepassiveheadermiddle.png", right="Assets/notablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-		PASSIVE = {left="Assets/normalpassiveheaderleft.png", middle="Assets/normalpassiveheadermiddle.png", right="Assets/normalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		KEYSTONE = {left="Assets/keystonepassiveheaderleft.png", middle="Assets/keystonepassiveheadermiddle.png", right="Assets/keystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		ASCENDANCY = {left="Assets/ascendancypassiveheaderleft.png", middle="Assets/ascendancypassiveheadermiddle.png", right="Assets/ascendancypassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		ORACLE_PASSIVE = {left="Assets/oraclenormalpassiveheaderleft.png", middle="Assets/oraclenormalpassiveheadermiddle.png", right="Assets/oraclenormalpassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
-		ORACLE_NOTABLE = {left="Assets/oraclenotablepassiveheaderleft.png", middle="Assets/oraclenotablepassiveheadermiddle.png", right="Assets/oraclenotablepassiveheaderright.png", height=38, sideWidth=38, middleWidth=32, textYOffset=4},
-		ORACLE_KEYSTONE = {left="Assets/oraclekeystonepassiveheaderleft.png", middle="Assets/oraclekeystonepassiveheadermiddle.png", right="Assets/oraclekeystonepassiveheaderright.png", height=38, sideWidth=32, middleWidth=32, textYOffset=4},
 	}
 	-- spell-checker: enable
 	local config
