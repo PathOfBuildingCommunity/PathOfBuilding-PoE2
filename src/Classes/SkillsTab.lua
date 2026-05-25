@@ -184,6 +184,19 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
+	self.controls.groupEnabled.tooltipFunc = function(tooltip)
+		if tooltip:CheckForUpdate(self.build.outputRevision, self.displayGroup) then
+			if self.displayGroup then
+				local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator(self.build)
+				if calcFunc then
+					self.displayGroup.enabled = not self.displayGroup.enabled
+					local output = calcFunc()
+					self.displayGroup.enabled = not self.displayGroup.enabled
+					self.build:AddStatComparesToTooltip(tooltip, calcBase, output, self.displayGroup.enabled and "^7Disabling this group will give you:" or "^7Enabling this group will give you:")
+				end
+			end
+		end
+	end
 	self.controls.includeInFullDPS = new("CheckBoxControl", { "LEFT", self.controls.groupEnabled, "RIGHT" }, { 145, 0, 20 }, "Include in Full DPS:", function(state)
 		self.displayGroup.includeInFullDPS = state
 		self:AddUndoState()

@@ -6,6 +6,7 @@ local scopesOAuth = {
 	"account:profile",
 	"account:leagues",
 	"account:characters",
+	"account:trade"
 }
 
 local filename = "poe_api_response.json"
@@ -21,12 +22,13 @@ local PoEAPIClass = newClass("PoEAPI", function(self, authToken, refreshToken, t
 	self.ERROR_NO_AUTH = "No auth token"
 end)
 
--- func callback(valid, updateSettings)
+
+--- @param callback fun(valid: bool, updateSettings: bool)
 function PoEAPIClass:ValidateAuth(callback)
-	ConPrintf("Validating auth token")
 	-- make a call for profile if not error we are good
 	-- if error 401 then try to recreate the token with 
 	if self.authToken and self.refreshToken and self.tokenExpiry then
+		ConPrintf("Validating auth token")
 		if self.tokenExpiry < os.time() then
 			ConPrintf("Auth token expired")
 			-- here recreate the token with the refresh_token
@@ -53,11 +55,29 @@ function PoEAPIClass:ValidateAuth(callback)
 	end
 end
 
+
+--- @param secret string
 local function base64_encode(secret)
 	return base64.encode(secret):gsub("+","-"):gsub("/","_"):gsub("=$", "")
 end
 
--- func callback(response, errorMsg, updateSettings)
+--- resets current authorization details
+function PoEAPIClass:ResetDetails()
+	self.authToken = nil
+	self.refreshToken = nil
+	self.tokenExpiry = nil
+	self:UpdateMain()
+end
+
+--- updates main so that API details are saved across restarts
+function PoEAPIClass:UpdateMain()
+	main.lastToken = self.authToken
+	main.lastRefreshToken = self.refreshToken
+	main.tokenExpiry = self.tokenExpiry
+	main:SaveSettings()
+end
+
+--- @param callback fun(response: table?, errCode: string?, updateSettings: boolean)
 function PoEAPIClass:FetchAuthToken(callback)
 	math.randomseed(os.time())
 	local secret = math.random(2^32-1)
@@ -84,9 +104,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 			callback = function(code, errMsg, state, port)
 				if not code then
 					ConPrintf("Failed to get code from server: %s", errMsg)
-					self.authToken = nil
-					self.refreshToken = nil
-					self.tokenExpiry = nil
+					self:ResetDetails()
 					callback(nil, errMsg or self.ERROR_NO_AUTH, true)
 					return
 				end
@@ -103,9 +121,7 @@ function PoEAPIClass:FetchAuthToken(callback)
 				launch:DownloadPage("https://www.pathofexile.com/oauth/token", function (response, errMsg)
 					if errMsg then
 						ConPrintf("Failed to get token from server: " .. errMsg)
-						self.authToken = nil
-						self.refreshToken = nil
-						self.tokenExpiry = nil
+						self:ResetDetails()
 						callback(nil, errMsg, true)
 						return
 					end
@@ -122,14 +138,13 @@ function PoEAPIClass:FetchAuthToken(callback)
 	end
 end
 
--- func callback(response, errorMsg, updateSettings)
+--- @param endpoint string
+--- @param callback fun(response: table, errorMsg: string, updateSettings: bool)
 function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 	self:ValidateAuth(function(valid, updateSettings)
 		if not valid then
 			-- Clean info about token and refresh token
-			self.authToken = nil
-			self.refreshToken = nil
-			self.tokenExpiry = nil
+			self:ResetDetails()
 			callback(nil, self.ERROR_NO_AUTH, true)
 			return
 		end
@@ -159,6 +174,10 @@ function PoEAPIClass:DownloadWithRefresh(endpoint, callback)
 	end)
 end
 
+--- @alias DownloadCallback fun(timeOrBody: table|integer, err: string?)
+--- @param policy string
+--- @param url string
+--- @param callback DownloadCallback
 function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
 	local now = os.time()
 	local timeNext = self.rateLimiter:NextRequestTime(policy, now)
@@ -166,7 +185,7 @@ function PoEAPIClass:DownloadWithRateLimit(policy, url, callback)
 		local requestId = self.rateLimiter:InsertRequest(policy)
 		local onComplete = function(response, errMsg)
 			self.rateLimiter:FinishRequest(policy, requestId)
-			self.rateLimiter:UpdateFromHeader(response.header)
+			self.rateLimiter:UpdateFromHeader(response.header, policy)
 			if response.header:match("HTTP/[%d%.]+ (%d+)") == "429" then
 				timeNext = self.rateLimiter:NextRequestTime(policy, now)
 				callback(timeNext, "Response code: 429")
@@ -182,7 +201,7 @@ end
 
 ---Fetches character list from PoE's OAuth api
 ---@param realm string Realm to fetch the list from (always poe2)
----@param callback function callback(response, errorMsg, updateSettings)
+---@param callback DownloadCallback
 function PoEAPIClass:DownloadCharacterList(realm, callback)
 	self:DownloadWithRateLimit("character-list-request-limit-poe2", "/character" .. (realm == "pc" and "" or "/" .. realm), callback)
 end
@@ -191,7 +210,7 @@ end
 ---Fetches character from PoE's OAuth api
 ---@param realm string Realm to fetch the character from (always poe2)
 ---@param name string Character name to fetch
----@param callback function callback(response, errorMsg, updateSettings)
+---@param callback DownloadCallback
 function PoEAPIClass:DownloadCharacter(realm, name, callback)
 	self:DownloadWithRateLimit("character-request-limit-poe2", "/character" .. (realm == "pc" and "" or "/" .. realm) .. "/" .. name, callback)
 end
