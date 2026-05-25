@@ -2326,7 +2326,7 @@ function ItemsTabClass:AppendAnointTooltip(tooltip, node, actionText)
 		header = "^7"..actionText.." nothing will give you: "
 	end
 	local calcFunc = self.build.calcsTab:GetMiscCalculator()
-	local repSlotName = self.displayItem.base and self.displayItem.base.type or "Amulet"
+	local repSlotName = self.displayItem:GetPrimarySlot()
 	local outputBase = calcFunc({ repSlotName = repSlotName, repItem = self.displayItem })
 	local outputNew = calcFunc({ repSlotName = repSlotName, repItem = self:anointItem(node) })
 	local numChanges = self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, header)

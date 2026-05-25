@@ -58,37 +58,48 @@ describe("TestItemTools", function()
 		if not common.classes.ItemsTab then
 			LoadModule("Classes/ItemsTab")
 		end
-		local item = new("Item", [[
+
+		local function assertAnointUsesSlot(rawItem, expectedSlot)
+			local item = new("Item", rawItem)
+			local overrides = { }
+			local fakeItemsTab = setmetatable({
+				displayItem = item,
+				build = {
+					spec = { allocNodes = { } },
+					calcsTab = {
+						GetMiscCalculator = function()
+							return function(override)
+								table.insert(overrides, override)
+								return { }
+							end
+						end,
+					},
+					AddStatComparesToTooltip = function()
+						return 1
+					end,
+				},
+			}, common.classes.ItemsTab)
+			local tooltip = {
+				AddLine = function() end,
+			}
+
+			fakeItemsTab:AppendAnointTooltip(tooltip, { id = 1, dn = "Abasement" })
+
+			assert.are.equals(expectedSlot, overrides[1].repSlotName)
+			assert.are.equals(expectedSlot, overrides[2].repSlotName)
+		end
+
+		assertAnointUsesSlot([[
 			Rarity: Rare
 			Dire Thread
 			Plate Belt
 			Can be Anointed
-			]])
-		local overrides = { }
-		local fakeItemsTab = setmetatable({
-			displayItem = item,
-			build = {
-				spec = { allocNodes = { } },
-				calcsTab = {
-					GetMiscCalculator = function()
-						return function(override)
-							table.insert(overrides, override)
-							return { }
-						end
-					end,
-				},
-				AddStatComparesToTooltip = function()
-					return 1
-				end,
-			},
-		}, common.classes.ItemsTab)
-		local tooltip = {
-			AddLine = function() end,
-		}
-
-		fakeItemsTab:AppendAnointTooltip(tooltip, { id = 1, dn = "Abasement" })
-
-		assert.are.equals("Belt", overrides[1].repSlotName)
-		assert.are.equals("Belt", overrides[2].repSlotName)
+			]], "Belt")
+		assertAnointUsesSlot([[
+			Rarity: Rare
+			Spark Loop
+			Ruby Ring
+			Can be Anointed
+			]], "Ring 1")
 	end)
 end)
