@@ -638,6 +638,9 @@ function main:LoadSettings(ignoreBuild)
 				if node.attrib.slotOnlyTooltips then
 					self.slotOnlyTooltips = node.attrib.slotOnlyTooltips == "true"
 				end
+				if node.attrib.migrateAugments then
+					self.migrateAugments = node.attrib.migrateAugments == "true"
+				end
 				if node.attrib.notSupportedModTooltips then
 					self.notSupportedModTooltips = node.attrib.notSupportedModTooltips == "true"
 				end
@@ -871,7 +874,7 @@ function main:OpenOptionsPopup(savedState)
 		defaultItemAffixQuality = self.defaultItemAffixQuality or 0.5,
 		showWarnings = self.showWarnings,
 		slotOnlyTooltips = self.slotOnlyTooltips,
-		initialMigrateAugments = self.migrateAugments,
+		migrateAugments = self.migrateAugments,
 		notSupportedModTooltips = self.notSupportedModTooltips,
 		invertSliderScrollDirection = self.invertSliderScrollDirection,
 		disableDevAutoSave = self.disableDevAutoSave,
