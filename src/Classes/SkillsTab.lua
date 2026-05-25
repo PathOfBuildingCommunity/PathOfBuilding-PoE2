@@ -625,8 +625,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	local slot = { }
 	self.gemSlots[index] = slot
 
-	-- Delete gem
-	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+	local function deleteGem()
 		t_remove(self.displayGroup.gemList, index)
 		for index2 = index, #self.displayGroup.gemList do
 			-- Update the other gem slot controls
@@ -641,6 +640,10 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 		self:AddUndoState()
 		self.build.buildFlag = true
+	end
+	-- Delete gem
+	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+		return deleteGem()
 	end)
 	if index == 1 then
 		slot.delete:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 0, 0)
@@ -660,7 +663,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."Delete"] = slot.delete
 
 	-- Gem name specification
-	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo)
+	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo, focusLost, bufMatchesGem)
 		if not self.displayGroup then
 			return
 		end
@@ -686,9 +689,14 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enableGlobal1.state = true
 			slot.enableGlobal2.state = true
 			slot.count:SetText(gemInstance.count)
+		elseif focusLost and not bufMatchesGem then
+			return deleteGem()
 		elseif gemId == gemInstance.gemId then
 			if addUndo then
 				self:AddUndoState()
+			end
+			if bufMatchesGem then
+				self.build.buildFlag = true
 			end
 			return
 		end
@@ -704,7 +712,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		if addUndo then
 			self:AddUndoState()
 		end
-		self.build.buildFlag = true
+		if bufMatchesGem then
+			self.build.buildFlag = true
+		end
 	end, true)
 	slot.nameSpec:AddToTabGroup(self.controls.groupLabel)
 	self.controls["gemSlot"..index.."Name"] = slot.nameSpec
