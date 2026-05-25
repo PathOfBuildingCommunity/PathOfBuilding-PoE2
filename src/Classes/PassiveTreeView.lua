@@ -1158,17 +1158,19 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				ttY = ttY - btmOverBy
 			end
 
-			ConPrintf("%d, %d", ttY, viewPort.y)
-
-			-- main tooltip should not go outside the top or left side
+			SetDrawLayer(nil, 100)
+			-- main tooltip is attached to node, unless it is pushed
 			if fatSkill then
-				self.tooltip:Draw(nodeX, m_max(ttY, viewPort.y), nil, nil, viewPort)
+				self.tooltip:Draw(m_min(nodeX, viewPort.width - ttWidth + viewPort.x), m_max(ttY, viewPort.y), nil, nil, viewPort)
 			else
-				self.tooltip:Draw(m_max(ttX, viewPort.x), nodeY, nil, nil, viewPort)
+				self.tooltip:Draw(m_max(ttX, viewPort.x), m_min(nodeY, viewPort.height - ttHeight + viewPort.y), nil, nil, viewPort)
 			end
+			SetDrawLayer(nil, 99)
+			-- draw below main tooltip
 			if fatSkill then
 				self.skillTooltip:Draw(ttX, ttY + ttHeight + 5, nil, nil,
 					viewPort)
+			-- draw to the right of main tooltip
 			else
 				self.skillTooltip:Draw(ttX + ttWidth + 5, ttY, nil, nil,
 					viewPort)
