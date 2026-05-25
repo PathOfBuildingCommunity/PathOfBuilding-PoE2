@@ -165,7 +165,7 @@ end
 --- @param modLine string
 --- @param modType string
 --- @param isDesecrated boolean
---- the 
+--- the
 --- @return number? hash returned for most mods
 --- @return string? optionTradeId returned if the mod is an option. e.g. Allocates X
 --- @return number value returned if the mod is an option and uses values. e.g. timeless jewel

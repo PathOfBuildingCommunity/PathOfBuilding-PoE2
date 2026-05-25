@@ -183,7 +183,7 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 	return meanStatDiff
 end
 
- 
+
 function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
 -- processes mods from the data exports to a format that is more useful for
 -- generating weights.
@@ -236,7 +236,7 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 				local ids = v.id:gsub(".+..stat_", "").."|"
 				-- split by non-integer
 				for id in ids:gmatch("%d+") do
-					if tradeHashStr == id then 
+					if tradeHashStr == id then
 						entry = v
 						goto finish
 					end
@@ -702,7 +702,7 @@ Stat Tester
 Time-Lost Sapphire
 Radius: Small
 Implicits: 0]]
-	end	
+	end
 	local testItem = new("Item", itemRawStr)
 
 	-- Calculate base output with a blank item

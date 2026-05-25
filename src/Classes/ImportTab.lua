@@ -23,7 +23,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	if not main.api then
 		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
 	end
-	
+
 
 	self.charImportMode = "AUTHENTICATION"
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
@@ -132,7 +132,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end)
 	self.controls.enablePartyExportBuffs = new("CheckBoxControl", {"LEFT",self.controls.generateCode,"RIGHT"}, {100, 0, 18}, "Export Support", function(state)
 		self.build.partyTab.enableExportBuffs = state
-		self.build.buildFlag = true 
+		self.build.buildFlag = true
 	end, "This is for party play, to export support character, it enables the exporting of auras, curses and modifiers to the enemy", false)
 	self.controls.generateCodeOut = new("EditControl", {"TOPLEFT",self.controls.generateCodeLabel,"BOTTOMLEFT"}, {0, 8, 250, 20}, "", "Code", "%Z")
 	self.controls.generateCodeOut.enabled = function()
@@ -351,7 +351,7 @@ end)
 
 function ImportTabClass:RefreshAuthStatus()
 	main.api:ValidateAuth(function(valid, updateSettings)
-			if valid then 
+			if valid then
 				if self.charImportMode == "AUTHENTICATION" then
 					self.charImportMode = "GETACCOUNTNAME"
 					self.charImportStatus = "Authenticated"
@@ -406,7 +406,7 @@ function ImportTabClass:Save(xml)
 		xml.attrib.importLink = self.build.importLink
 	end
 	-- Gets rid of erroneous, potentially infinitely nested full base64 XML stored as an import link
-	xml.attrib.importLink = (xml.attrib.importLink and xml.attrib.importLink:len() < 100) and xml.attrib.importLink or nil 
+	xml.attrib.importLink = (xml.attrib.importLink and xml.attrib.importLink:len() < 100) and xml.attrib.importLink or nil
 end
 
 function ImportTabClass:Draw(viewPort, inputEvents)
@@ -438,7 +438,7 @@ function ImportTabClass:DownloadCharacterList()
 			-- normal league and ruthless league (Sanctum, Ruthless Sanctum)
 			return "Standard"
 		end
-	end	
+	end
 	
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
@@ -785,7 +785,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	local resistancePenaltyIndex = 7
 	if self.build.Act then -- Estimate resistance penalty setting based on act progression estimate
 		if type(self.build.Act) == "string" and self.build.Act == "Endgame" then resistancePenaltyIndex = 7
-		elseif type(self.build.Act) == "number" then 
+		elseif type(self.build.Act) == "number" then
 			if self.build.Act > 6 then resistancePenaltyIndex = 7
 			elseif self.build.Act < 1 then resistancePenaltyIndex = 1
 			else resistancePenaltyIndex = self.build.Act end
