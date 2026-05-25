@@ -12,20 +12,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build test image
-        run: docker compose build tests
-
       - name: Run Busted unit tests
-        run: docker compose run --rm tests
+        run: docker compose run --rm busted-tests
 
       - name: Run build snapshot tests
-        run: docker compose run --rm tests --tags builds
+        run: docker compose run --rm busted-tests --tags builds
 
       - name: Run data validation tests
-        run: docker compose run --rm tests --tags data
+        run: docker compose run --rm busted-tests --tags data
 
       - name: Coverage report
-        run: docker compose run --rm tests --coverage
+        run: docker compose run --rm busted-tests --coverage
 
       - name: Coverage threshold check
         run: |
