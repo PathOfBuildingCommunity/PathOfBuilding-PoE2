@@ -866,7 +866,7 @@ function main:OpenOptionsPopup(savedState)
 		betaTest = self.betaTest,
 		edgeSearchHighlight = self.edgeSearchHighlight,
 		defaultGemQuality = self.defaultGemQuality or 0,
-		initialDefaultItemQuality = self.defaultGemQuality or 20,
+		defaultItemQuality = self.defaultItemQuality or 20,
 		defaultCharLevel = self.defaultCharLevel or 1,
 		defaultItemAffixQuality = self.defaultItemAffixQuality or 0.5,
 		showWarnings = self.showWarnings,
