@@ -1123,13 +1123,58 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
 			end
 			self.tooltip.center = true
-			self.tooltip:Draw(m_floor(scrX - size), m_floor(scrY - size), size * 2, size * 2, viewPort)
-			local ttWidth, ttHeight = self.tooltip:GetSize()
-			if self.skillTooltip then
-				local offsetX = ttWidth + size * 2 + 5
-				self.skillTooltip:Draw(m_floor(scrX - size) + offsetX, m_floor(scrY - size), nil, nil,
+			local ttWidth, ttHeight = self.tooltip:GetDynamicSize()
+			local skillWidth, skillHeight = self.skillTooltip:GetDynamicSize()
+
+			local fatSkill = skillWidth > skillHeight*1.5 
+
+			local totalWidth, totalHeight
+			if fatSkill then
+				totalWidth = m_max(ttWidth, (#self.skillTooltip.lines > 0 and skillWidth or 0))
+				totalHeight = ttHeight + (#self.skillTooltip.lines > 0 and skillHeight or 0)
+			else
+				totalWidth = ttWidth + (#self.skillTooltip.lines > 0 and skillWidth or 0)
+				totalHeight = m_max(ttHeight, (#self.skillTooltip.lines > 0 and skillHeight or 0))
+			end
+
+			-- main tooltip is anchored from top left to the node
+			local nodeX = m_floor(scrX + size)
+			local ttX = m_floor(scrX + size)
+			local nodeY = m_floor(scrY - size)
+			local ttY = m_floor(scrY - size)
+
+			
+			-- if the right side goes outside the viewport, we adjust by moving to the left
+			local rEdgeX = ttX + totalWidth - viewPort.x
+			local rOverBy = rEdgeX - viewPort.width
+			if rOverBy > 0 then
+				ttX = ttX - rOverBy
+			end
+
+			-- same for bottom edge
+			local btmEdgeY = ttY + totalHeight - viewPort.y
+			local btmOverBy = btmEdgeY - viewPort.height
+			if btmOverBy > 0 then
+				ttY = ttY - btmOverBy
+			end
+
+			ConPrintf("%d, %d", ttY, viewPort.y)
+
+			-- main tooltip should not go outside the top or left side
+			if fatSkill then
+				self.tooltip:Draw(nodeX, m_max(ttY, viewPort.y), nil, nil, viewPort)
+			else
+				self.tooltip:Draw(m_max(ttX, viewPort.x), nodeY, nil, nil, viewPort)
+			end
+			if fatSkill then
+				self.skillTooltip:Draw(ttX, ttY + ttHeight + 5, nil, nil,
+					viewPort)
+			else
+				self.skillTooltip:Draw(ttX + ttWidth + 5, ttY, nil, nil,
 					viewPort)
 			end
+			
+
 		end
 	end
 	
