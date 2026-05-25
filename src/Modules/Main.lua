@@ -1200,34 +1200,34 @@ function main:OpenOptionsPopup(savedState)
 		main:SaveSettings()
 	end)
 	controls.cancel = new("ButtonControl", { "BOTTOM", nil, "BOTTOM" }, {45, -10, 80, 20}, "Cancel", function()
-		self.nodePowerTheme = savedState.initialNodePowerTheme
-		self.colorPositive = savedState.initialColorPositive
+		self.nodePowerTheme = savedState.nodePowerTheme
+		self.colorPositive = savedState.colorPositive
 		updateColorCode("POSITIVE", self.colorPositive)
-		self.colorNegative = savedState.initialColorNegative
+		self.colorNegative = savedState.colorNegative
 		updateColorCode("NEGATIVE", self.colorNegative)
-		self.colorHighlight = savedState.initialColorHighlight
+		self.colorHighlight = savedState.colorHighlight
 		updateColorCode("HIGHLIGHT", self.colorHighlight)
-		self.showThousandsSeparators = savedState.initialThousandsSeparatorDisplay
-		self.thousandsSeparator = savedState.initialThousandsSeparator
-		self.decimalSeparator = savedState.initialDecimalSeparator
-		self.showTitlebarName = savedState.initialTitlebarName
-		self.betaTest = savedState.initialBetaTest
-		self.edgeSearchHighlight = savedState.initialEdgeSearchHighlight
-		self.defaultGemQuality = savedState.initialDefaultGemQuality
-		self.defaultItemQuality = savedState.initialDefaultItemQuality
-		self.defaultCharLevel = savedState.initialDefaultCharLevel
-		self.defaultItemAffixQuality = savedState.initialDefaultItemAffixQuality
-		self.showWarnings = savedState.initialShowWarnings
-		self.slotOnlyTooltips = savedState.initialSlotOnlyTooltips
-		self.migrateAugments = savedState.initialMigrateAugments
-		self.notSupportedModTooltips = savedState.initialNotSupportedModTooltips
-		self.invertSliderScrollDirection = savedState.initialInvertSliderScrollDirection
-		self.disableDevAutoSave = savedState.initialDisableDevAutoSave
-		self.showPublicBuilds = savedState.initialShowPublicBuilds
-		self.showFlavourText = savedState.initialShowFlavourText
-		self.showAnimations = savedState.initialShowAnimations
-		self.showAllItemAffixes = savedState.initialShowAllItemAffixes
-		self.dpiScaleOverridePercent = savedState.initialDpiScaleOverridePercent
+		self.showThousandsSeparators = savedState.showThousandsSeparators
+		self.thousandsSeparator = savedState.thousandsSeparator
+		self.decimalSeparator = savedState.decimalSeparator
+		self.showTitlebarName = savedState.showTitlebarName
+		self.betaTest = savedState.betaTest
+		self.edgeSearchHighlight = savedState.edgeSearchHighlight
+		self.defaultGemQuality = savedState.defaultGemQuality
+		self.defaultItemQuality = savedState.defaultItemQuality
+		self.defaultCharLevel = savedState.defaultCharLevel
+		self.defaultItemAffixQuality = savedState.defaultItemAffixQuality
+		self.showWarnings = savedState.showWarnings
+		self.slotOnlyTooltips = savedState.slotOnlyTooltips
+		self.migrateAugments = savedState.migrateAugments
+		self.notSupportedModTooltips = savedState.notSupportedModTooltips
+		self.invertSliderScrollDirection = savedState.invertSliderScrollDirection
+		self.disableDevAutoSave = savedState.disableDevAutoSave
+		self.showPublicBuilds = savedState.showPublicBuilds
+		self.showFlavourText = savedState.showFlavourText
+		self.showAnimations = savedState.showAnimations
+		self.showAllItemAffixes = savedState.showAllItemAffixes
+		self.dpiScaleOverridePercent = savedState.dpiScaleOverridePercent
 		SetDPIScaleOverridePercent(self.dpiScaleOverridePercent)
 		main:ClosePopup()
 	end)
