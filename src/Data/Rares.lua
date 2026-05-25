@@ -933,14 +933,17 @@ Crafted: true
 [[
 Radius Jewel
 Time-Lost Ruby
+Radius: Small
 Crafted: true
 ]],[[
 Radius Jewel
 Time-Lost Emerald
+Radius: Small
 Crafted: true
 ]],[[
 Radius Jewel
 Time-Lost Sapphire
+Radius: Small
 Crafted: true
 ]],
 -- Flasks
