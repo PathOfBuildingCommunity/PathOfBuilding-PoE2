@@ -1,0 +1,74 @@
+name: AI Review
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  review:
+    name: ai-review
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+      contents: read
+    env:
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify ANTHROPIC_API_KEY is NOT set
+        run: |
+          if [[ -n "${ANTHROPIC_API_KEY:-}" ]]; then
+            echo "::error::ANTHROPIC_API_KEY is set; would override Pro subscription auth and incur PAYG charges"
+            exit 1
+          fi
+
+      - name: Install agent tooling if missing
+        run: |
+          command -v claude || npm install -g @anthropic-ai/claude-code
+          command -v opencode || curl -fsSL https://opencode.ai/install | bash
+
+      - name: Generate diff
+        run: |
+          git diff "origin/${{ github.base_ref }}...HEAD" > /tmp/pr.diff
+          git diff --stat "origin/${{ github.base_ref }}...HEAD" > /tmp/pr.summary
+
+      - name: Run AI review
+        run: |
+          PROMPT=$(cat <<EOF
+          You are a senior Lua developer performing a thorough code review on a
+          Path of Building 2 PR. Follow CLAUDE.md.
+
+          Diff summary:
+          $(cat /tmp/pr.summary)
+
+          Full diff:
+          $(cat /tmp/pr.diff)
+
+          Review checklist — address each item explicitly:
+          1. Calculation correctness: does the math match PoE2 mechanics?
+             Cite the relevant calc module and line numbers.
+          2. Modifier parsing: any changes to ModParser.lua need new test cases.
+             Are they present?
+          3. Nil safety: list any unguarded table accesses introduced.
+          4. Data integrity: any data file changes — do they parse cleanly?
+          5. Performance: any new allocations in hot loops?
+          6. Test coverage: which new code paths lack test coverage?
+          7. Style: matches surrounding code conventions?
+
+          Be specific. Cite line numbers. Flag anything wrong. Format output as
+          a Markdown review with sections matching the checklist above.
+          Conclude with a one-line verdict: APPROVE, REQUEST_CHANGES, or COMMENT.
+          EOF
+          )
+
+          ./scripts/ai-agent.sh "$PROMPT" --mode review --max-turns 20 > /tmp/review.md
+
+      - name: Post review comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr comment ${{ github.event.pull_request.number }} \
+            --body-file /tmp/review.md
