@@ -53,6 +53,10 @@ for _, entry in pairs(data.flavourText) do
     end
 end
 
+local function isAnointable(item)
+	return (item.canBeAnointed or item.base.type == "Amulet") and not item.sanctified
+		and not item.corrupted and not item.mirrored
+end
 
 local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
 	self.UndoHandler()
@@ -403,9 +407,30 @@ holding Shift will put it in the second.]])
 		self:AnointDisplayItem(1)
 	end)
 	self.controls.displayItemAnoint.shown = function()
-		return self.displayItem and ((self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed) and not self.displayItem.sanctified)
+		return self.displayItem and isAnointable(self.displayItem)
 	end
-	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
+	self.controls.displayItemAnoint2 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 2...", function()
+		self:AnointDisplayItem(2)
+	end)
+	self.controls.displayItemAnoint2.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveTwoEnchants and #self.displayItem.enchantModLines > 0
+	end
+	self.controls.displayItemAnoint3 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint2,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 3...", function()
+		self:AnointDisplayItem(3)
+	end)
+	self.controls.displayItemAnoint3.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveThreeEnchants and #self.displayItem.enchantModLines > 1
+	end
+	self.controls.displayItemAnoint4 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint3,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 4...", function()
+		self:AnointDisplayItem(4)
+	end)
+	self.controls.displayItemAnoint4.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveFourEnchants and #self.displayItem.enchantModLines > 2
+	end
+	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint4,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
 		self:CorruptDisplayItem()
 	end)
 	self.controls.displayItemCorrupt.shown = function()
@@ -1487,7 +1512,7 @@ local function isAugmentable(item)
 	return (item.sockets and #item.sockets > 0) or (item.base.socketLimit and item.base.socketLimit > 0)
 end
 
-function ItemsTabClass:copyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
+function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
 	local isWeapon = newItem.base.tags and (newItem.base.tags.onehand or newItem.base.tags.twohand)
 	local isShield = newItem.base.tags and (newItem.base.tags.shield or newItem.base.tags.focus)
 	local newItemType = sourceSlotName or (isWeapon and "Weapon 1") or (isShield and "Weapon 2") or newItem.base.type
@@ -1552,7 +1577,7 @@ end
 function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 	local newItem = new("Item", itemRaw)
 	if newItem.base then
-		self:copyAnointsAndAugments(newItem, main.migrateAugments, false)
+		self:CopyAnointsAndAugments(newItem, main.migrateAugments, false)
 		if normalise then
 			newItem:NormaliseQuality()
 			newItem:BuildModList()
@@ -1693,7 +1718,7 @@ local runeModLines = { { name = "None", label = "None", lines = { "None" }, orde
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod })
 	end
 end
 table.sort(runeModLines, function(a, b)
@@ -1717,7 +1742,13 @@ function ItemsTabClass:UpdateRuneControls()
 			item.base.weapon and rune.slot == "weapon" or
 			item.base.armour and rune.slot == "armour" or
 			(item.base.tags.wand or item.base.tags.staff) and rune.slot == "caster" then
-			table.insert(runes, rune)
+				if item.title == "Atziri's Splendour" then
+					if rune.slot == "None" or rune.type == "SoulCore" then
+						table.insert(runes, rune)
+					end
+				else
+					table.insert(runes, rune)
+				end
 		end
 	end
 
@@ -2800,12 +2831,12 @@ function ItemsTabClass:FormatItemSource(text)
 			   :gsub("prophecy{([^}]+)}",colorCodes.PROPHECY.."%1"..colorCodes.SOURCE)
 end
 
-function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
+function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	local fontSizeSmall = main.showFlavourText and 16 or 14
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	local fontSizeTitle = main.showFlavourText and 22 or 20
 	local rarityCode = colorCodes[item.rarity]
-	tooltip.maxWidth = 600 -- Should instead get the longest mod and set the width to that. Some flavour text is way too long so we need a cap of sorts.
+	tooltip.maxWidth = m_min(maxWidth or 600, 600) -- Cap very long lines. Can use a narrower width for small viewports
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode

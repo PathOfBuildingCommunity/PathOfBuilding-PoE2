@@ -46,16 +46,24 @@ describe("TestItemTools", function()
 		end)
 	end
 
+	it("keeps range sliders for lines that resolve to zero", function()
+		local item = new("Item", "Rarity: Rare\nName\nArcane Raiment\n{range:0.5}+(-1-1) to Maximum Power Charges")
+
+		assert.are.equals(1, #item.rangeLineList)
+		assert.are.equals(0.5, item.rangeLineList[1].range)
+		assert.are.equals(0, item.baseModList:Sum("BASE", nil, "PowerChargesMax"))
+	end)
+
 	it("uses the displayed item slot for anoint comparison tooltips", function()
 		if not common.classes.ItemsTab then
 			LoadModule("Classes/ItemsTab")
 		end
 		local item = new("Item", [[
-Rarity: Rare
-Dire Thread
-Cord Belt
-Can be Anointed
-]])
+			Rarity: Rare
+			Dire Thread
+			Plate Belt
+			Can be Anointed
+			]])
 		local overrides = { }
 		local fakeItemsTab = setmetatable({
 			displayItem = item,
@@ -78,7 +86,7 @@ Can be Anointed
 			AddLine = function() end,
 		}
 
-		fakeItemsTab:AppendAnointTooltip(tooltip, { id = 1, dn = "Acrimony" })
+		fakeItemsTab:AppendAnointTooltip(tooltip, { id = 1, dn = "Abasement" })
 
 		assert.are.equals("Belt", overrides[1].repSlotName)
 		assert.are.equals("Belt", overrides[2].repSlotName)
