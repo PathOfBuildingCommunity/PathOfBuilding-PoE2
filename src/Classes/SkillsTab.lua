@@ -910,7 +910,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	-- Drag handle (reorder gems within the socket group). Sits between quality
 	-- and the enable checkbox, sized to fit inside the original 18 px gap
 	-- (3 + 12 + 3 = 18) so the Enabled:/Count: column titles stay put.
-	slot.dragHandle = new("ButtonControl", {"LEFT", slot.quality, "RIGHT"}, {3, 0, 12, 20}, "::", nil)
+	slot.dragHandle = new("ButtonControl", {"LEFT", slot.quality, "RIGHT"}, {3, 0, 12, 20}, ":::", nil)
 	slot.dragHandle.shown = function()
 		return index > 1
 		   and index <= #skillsTab.displayGroup.gemList
