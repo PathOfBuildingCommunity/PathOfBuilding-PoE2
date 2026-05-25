@@ -29,6 +29,7 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.jewelShadedInnerRingFlipped:Load("Assets/ShadedInnerRingFlipped.png", "CLAMP")
 
 	self.tooltip = new("Tooltip")
+	self.skillTooltip = new("Tooltip")
 
 	self.zoomLevel = 3
 	self.zoom = 1.2 ^ self.zoomLevel
@@ -1124,9 +1125,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			self.tooltip.center = true
 			self.tooltip:Draw(m_floor(scrX - size), m_floor(scrY - size), size * 2, size * 2, viewPort)
 			local ttWidth, ttHeight = self.tooltip:GetSize()
-			if self.tooltip2 then
+			if self.skillTooltip then
 				local offsetX = ttWidth + size * 2 + 5
-				self.tooltip2:Draw(m_floor(scrX - size) + offsetX, m_floor(scrY - size), nil, nil,
+				self.skillTooltip:Draw(m_floor(scrX - size) + offsetX, m_floor(scrY - size), nil, nil,
 					viewPort)
 			end
 		end
@@ -1705,14 +1706,14 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 					end
 					line = line .. " ^2" .. devText
 				end
-				self.tooltip2:AddLine(fontSizeBig, colorCodes.MAGIC .. (prefix or "") .. line, "FONTIN SC", bg)
+				self.skillTooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. (prefix or "") .. line, "FONTIN SC", bg)
 			else
 				if launch.devModeAlt then
 					line = line .. " ^1" .. lineMap[line]
 				end
 				local line = colorCodes.UNSUPPORTED .. (prefix or "") .. line
 				line = main.notSupportedModTooltips and (line .. main.notSupportedTooltipText) or line
-				self.tooltip2:AddLine(fontSizeBig, line, "FONTIN SC", bg)
+				self.skillTooltip:AddLine(fontSizeBig, line, "FONTIN SC", bg)
 			end
 		end
 	end
@@ -1722,19 +1723,19 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		local fontSizeTitle = main.showFlavourText and 24 or 20
 		local statSetLevel = statSet.levels[gemInstance.level] or statSet.levels[1] or {}
 		if not (index == 1 and statSet.label == grantedEffect.name) and statSet.label ~= "" and not noLabel then
-			self.tooltip2:AddSeparator(10)
-			self.tooltip2:AddLine(fontSizeTitle, colorCodes.GEM .. statSet.label, "FONTIN SC")
-			self.tooltip2:AddSeparator(10)
+			self.skillTooltip:AddSeparator(10)
+			self.skillTooltip:AddLine(fontSizeTitle, colorCodes.GEM .. statSet.label, "FONTIN SC")
+			self.skillTooltip:AddSeparator(10)
 		end
 		if statSetLevel.critChance then
-			self.tooltip2:AddLine(fontSizeBig,
+			self.skillTooltip:AddLine(fontSizeBig,
 				string.format("^x7F7F7FCritical Hit Chance: ^7%.2f%%", statSetLevel.critChance), "FONTIN SC")
 		end
 		if statSetLevel.baseMultiplier then
-			self.tooltip2:AddLine(fontSizeBig,
+			self.skillTooltip:AddLine(fontSizeBig,
 				string.format("^x7F7F7FAttack Damage: ^7%d%%", statSetLevel.baseMultiplier * 100), "FONTIN SC")
 		end
-		if not noLabel then self.tooltip2:AddSeparator(10) end
+		if not noLabel then self.skillTooltip:AddSeparator(10) end
 		gemInstance.quality = 0
 
 		-- calculate two sets of stat values so we can show ranges from leveling
@@ -1784,11 +1785,11 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 		end
 		if lv1Stats.spiritReservationFlat then
-			self.tooltip2:AddLine(fontSizeBig,
+			self.skillTooltip:AddLine(fontSizeBig,
 				string.format("^x7F7F7FReservation: ^7%s Spirit", formatRangeOrValue("spiritReservationFlat")), "FONTIN SC")
 		end
 		if lv1Stats.spiritReservationPercent then
-			self.tooltip2:AddLine(fontSizeBig,
+			self.skillTooltip:AddLine(fontSizeBig,
 				string.format("^x7F7F7FReservation: ^7%s%% Spirit", formatRangeOrValue("spiritReservationPercent", "%.1f")),
 				"FONTIN SC")
 		end
@@ -1818,64 +1819,64 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			end
 		end
 		if cost then
-			self.tooltip2:AddLine(fontSizeBig, "^x7F7F7FCost: ^7" .. cost, "FONTIN SC")
+			self.skillTooltip:AddLine(fontSizeBig, "^x7F7F7FCost: ^7" .. cost, "FONTIN SC")
 		end
 		if lv1Stats.cooldown then
 			local line = string.format("^x7F7F7FCooldown Time: ^7%s sec", formatRangeOrValue("cooldown", "%.2f"))
 			if lv1Stats.storedUses and lv1Stats.storedUses > 1 then
 				line = line .. string.format(" (%s uses)", formatRangeOrValue("storedUses"))
 			end
-			self.tooltip2:AddLine(fontSizeBig, line, "FONTIN SC")
+			self.skillTooltip:AddLine(fontSizeBig, line, "FONTIN SC")
 		end
 		if lv1Stats.vaalStoredUses then
-			self.tooltip2:AddLine(fontSizeBig,
+			self.skillTooltip:AddLine(fontSizeBig,
 				string.format("^x7F7F7FCan Store ^7%d ^x7F7F7FUse (%d Souls)", grantedEffectLevel.vaalStoredUses,
 					grantedEffectLevel.vaalStoredUses * grantedEffectLevel.cost.Soul), "FONTIN SC")
 		end
 		if lv1Stats.soulPreventionDuration then
-			self.tooltip2:AddLine(fontSizeBig,
+			self.skillTooltip:AddLine(fontSizeBig,
 				string.format("^x7F7F7FSoul Gain Prevention: ^7%s sec", formatRangeOrValue("soulPreventionDuration")),
 				"FONTIN SC")
 		end
 		if gemInstance.gemData.tags.attack then
 			if lv1Stats.attackSpeedMultiplier then
-				self.tooltip2:AddLine(fontSizeBig,
+				self.skillTooltip:AddLine(fontSizeBig,
 					string.format("^x7F7F7FAttack Speed: ^7%s%% of base", formatRangeOrValue("attackSpeedMultiplier", nil, 100)),
 					"FONTIN SC")
 			end
 			if lv1Stats.attackTime then
-				self.tooltip2:AddLine(fontSizeBig,
+				self.skillTooltip:AddLine(fontSizeBig,
 					string.format("^x7F7F7FAttack Time: ^7%s sec", formatRangeOrValue("attackTime", "%.2f", nil, 1000)),
 					"FONTIN SC")
 			end
 			if lv1Stats.baseMultiplier then
-				self.tooltip2:AddLine(fontSizeBig,
+				self.skillTooltip:AddLine(fontSizeBig,
 					string.format("^x7F7F7FAttack Damage: ^7%s%% of base", formatRangeOrValue("baseMultiplier", nil, nil, nil, 100)),
 					"FONTIN SC")
 			end
 		elseif not grantedEffect.hidden then
 			if grantedEffect.castTime > 0 then
-				self.tooltip2:AddLine(fontSizeBig, string.format("^x7F7F7FCast Time: ^7%.2f sec", grantedEffect.castTime),
+				self.skillTooltip:AddLine(fontSizeBig, string.format("^x7F7F7FCast Time: ^7%.2f sec", grantedEffect.castTime),
 					"FONTIN SC")
 			else
-				self.tooltip2:AddLine(fontSizeBig, "^x7F7F7FCast Time: ^7Instant", "FONTIN SC")
+				self.skillTooltip:AddLine(fontSizeBig, "^x7F7F7FCast Time: ^7Instant", "FONTIN SC")
 			end
 		end
 		if lv1Stats.critChance then
-			self.tooltip2:AddLine(fontSizeBig,
+			self.skillTooltip:AddLine(fontSizeBig,
 				string.format("^x7F7F7FCritical Hit Chance: ^7%s%%", formatRangeOrValue("critChance", "%.2f")), "FONTIN SC")
 		end
 		if gemInstance.gemData.weaponRequirements and not grantedEffect.hidden then
-			self.tooltip2:AddLine(fontSizeBig, "^x7F7F7F Requires: ^7" .. gemInstance.gemData.weaponRequirements,
+			self.skillTooltip:AddLine(fontSizeBig, "^x7F7F7F Requires: ^7" .. gemInstance.gemData.weaponRequirements,
 				"FONTIN SC")
 		end
 
-		self.tooltip2:AddSeparator(10)
+		self.skillTooltip:AddSeparator(10)
 		if grantedEffect.description then
 			local wrap = main:WrapString(grantedEffect.description, 16,
 				m_max(DrawStringWidth(fontSizeBig, "VAR", gemInstance.gemData.tagString), 400))
 			for _, line in ipairs(wrap) do
-				self.tooltip2:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. line, "FONTIN ITALIC")
+				self.skillTooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. line, "FONTIN ITALIC")
 			end
 		end
 	end
@@ -1883,26 +1884,26 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	function addGemTooltip(gemInstance)
 		local fontSizeBig = main.showFlavourText and 18 or 16
 		local fontSizeTitle = main.showFlavourText and 24 or 20
-		self.tooltip2.center = true
-		self.tooltip2.color = colorCodes.GEM
+		self.skillTooltip.center = true
+		self.skillTooltip.color = colorCodes.GEM
 		local grantedEffect = gemInstance.gemData.grantedEffect
 		local additionalEffects = gemInstance.gemData.additionalGrantedEffects
-		self.tooltip2.tooltipHeader = "GEM"
+		self.skillTooltip.tooltipHeader = "GEM"
 		if grantedEffect.name:match("^Spectre:") or grantedEffect.name:match("^Companion:") then
-			self.tooltip2:AddLine(fontSizeTitle,
+			self.skillTooltip:AddLine(fontSizeTitle,
 				colorCodes.GEM ..
 				(gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name),
 				"FONTIN SC")
 		else
-			self.tooltip2:AddLine(fontSizeTitle, colorCodes.GEM .. gemInstance.gemData.name, "FONTIN SC")
+			self.skillTooltip:AddLine(fontSizeTitle, colorCodes.GEM .. gemInstance.gemData.name, "FONTIN SC")
 		end
-		self.tooltip2:AddSeparator(10)
-		self.tooltip2:AddLine(fontSizeBig, colorCodes.NORMAL .. gemInstance.gemData.gemType, "FONTIN SC")
+		self.skillTooltip:AddSeparator(10)
+		self.skillTooltip:AddLine(fontSizeBig, colorCodes.NORMAL .. gemInstance.gemData.gemType, "FONTIN SC")
 		if gemInstance.gemData.tagString ~= "" then
-			self.tooltip2:AddLine(fontSizeBig, "^x7F7F7F" .. gemInstance.gemData.tagString, "FONTIN SC")
+			self.skillTooltip:AddLine(fontSizeBig, "^x7F7F7F" .. gemInstance.gemData.tagString, "FONTIN SC")
 		end
 		if gemInstance.gemData.gemFamily then
-			self.tooltip2:AddLine(fontSizeBig, "^x7F7F7FCategory: ^7" .. gemInstance.gemData.gemFamily, "FONTIN SC")
+			self.skillTooltip:AddLine(fontSizeBig, "^x7F7F7FCategory: ^7" .. gemInstance.gemData.gemFamily, "FONTIN SC")
 		end
 
 		addGrantedEffectInfo(gemInstance, grantedEffect, true)
@@ -1913,10 +1914,10 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		for idx, additional in ipairs(additionalEffects or {}) do
 			if not additional.support then
 				if additional.name ~= "" then
-					self.tooltip2:AddSeparator(10)
-					self.tooltip2:AddLine(fontSizeTitle, colorCodes.GEM .. additional.name, "FONTIN SC")
+					self.skillTooltip:AddSeparator(10)
+					self.skillTooltip:AddLine(fontSizeTitle, colorCodes.GEM .. additional.name, "FONTIN SC")
 				end
-				self.tooltip2:AddSeparator(10)
+				self.skillTooltip:AddSeparator(10)
 				addGrantedEffectInfo(gemInstance, additional)
 				for _, statSet in ipairs(additional.statSets) do
 					addStatSetInfo(gemInstance, additional, statSet, nil, idx)
@@ -1929,7 +1930,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 
 		if grantedEffect.qualityStats then
-			self.tooltip2:AddSeparator(10)
+			self.skillTooltip:AddSeparator(10)
 			local qualityStats = {}
 			for _, stat in ipairs(grantedEffect.qualityStats) do
 				if stat[1] and stat[2] then
@@ -1945,9 +1946,9 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 
 		if grantedEffect.flavourText and main.showFlavourText then
-			self.tooltip2:AddSeparator(10)
+			self.skillTooltip:AddSeparator(10)
 			for _, line in ipairs(grantedEffect.flavourText) do
-				self.tooltip2:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
+				self.skillTooltip:AddLine(fontSizeBig, colorCodes.UNIQUE .. line, "FONTIN SC ITALIC")
 			end
 		end
 	end
@@ -1966,15 +1967,14 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 			addModInfoToTooltip(mNode, i, line, localIncEffect)
 		end
 		-- add child tooltip for skills
+		self.skillTooltip:Clear()
 		for _, mod in ipairs(mNode.finalModList or mNode.modList or {}) do
 			if mod.name == "ExtraSkill" then
-				ConPrintf("%s", mod.value and mod.value.skillId)
 				for grantedEffect, gemId in pairs(data.gemForSkill) do
 					if grantedEffect.id == mod.value.skillId then
 						local gem = data.gems[gemId]
-						self.tooltip2 = new("Tooltip")
-						local geminst = { gemData = gem, level = 1, grantedEffect = grantedEffect}
-						addGemTooltip(geminst)
+						local gemInst = { gemData = gem, level = 1, grantedEffect = grantedEffect}
+						addGemTooltip(gemInst)
 						break
 					end
 				end
