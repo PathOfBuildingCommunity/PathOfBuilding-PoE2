@@ -43,7 +43,7 @@ function TradeQueryRequestsClass:ProcessQueue(onRateLimit)
 							local retryAfter = response.header:match("Retry%-After:%s+(%d+)")
 							retryAfter = retryAfter and tonumber(retryAfter) or 0
 							request.attempts = (request.attempts or 0) + 1
-
+							
 							local backoff = math.max(math.min(2 ^ request.attempts, 60), retryAfter)
 							request.retryTime = os.time() + backoff
 							table.insert(queue, 1, request)
@@ -198,7 +198,7 @@ function TradeQueryRequestsClass:SearchWithQueryWeightAdjusted(realm, league, qu
 end
 
 ---Perform search and run callback function on returned item hashes.
----Item info has to be fetched separately 
+---Item info has to be fetched separately
 ---@param league string
 ---@param query string
 ---@param callback fun(response:table, errMsg:string)
@@ -309,7 +309,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 						elseif name == "Energy Shield" then
 							es = property.values[1][1]
 						elseif name == "Quality" then
-							quality = property.values[1][1]:sub(2, -2) -- remove + and % on quality value	
+							quality = property.values[1][1]:sub(2, -2) -- remove + and % on quality value
 						elseif name == "Spirit" then
 							spirit = property.values[1][1]
 						elseif name == "Charm Slots" then
@@ -328,7 +328,7 @@ function TradeQueryRequestsClass:FetchResultBlock(url, callback)
 				t_insert(rawLines, "Rarity: " .. item.rarity)
 				-- item.name is empty when magic and full magic name is in typeLine but typeLine == baseType when rare.
 				if item.name ~= "" then
-					t_insert(rawLines, item.name) 
+					t_insert(rawLines, item.name)
 				end
 				t_insert(rawLines, item.typeLine)
 
@@ -539,7 +539,7 @@ function TradeQueryRequestsClass:buildUrl(root, realm, league, queryId)
 	local result = root
 	if realm and realm ~='pc' then
 		result = result .. "/" .. realm
-	end	
+	end
 	local encodedLeague = league:gsub("[^%w%-%.%_%~]", function(c)
 		return string.format("%%%02X", string.byte(c))
 	end):gsub(" ", "+")
@@ -547,5 +547,5 @@ function TradeQueryRequestsClass:buildUrl(root, realm, league, queryId)
 	if queryId then
 		result = result .. "/" .. queryId
 	end
-	return result	
+	return result
 end

@@ -46,7 +46,7 @@ local TradeQueryRateLimiterClass = newClass("TradeQueryRateLimiter", function(se
 	}
 	self.delayCache = {}
 	self.requestId = 0
-	-- we are tracking ongoing requests to update the rate limits state when 
+	-- we are tracking ongoing requests to update the rate limits state when
 	-- the last request is finished since this is a reliable sync point. (no pending modifications on state)
 	-- Otherwise we are managing our local state and updating only if the response
 	-- state shows more requests than expected (external requests)
@@ -184,7 +184,7 @@ function TradeQueryRateLimiterClass:NextRequestTime(policy, time)
 						break
 					end
 				end
-				if oldestRequestIdx == 0 then 
+				if oldestRequestIdx == 0 then
 					-- state reached limit but we don't have any recent timestamps (external factors)
 					nextTime = math.max(nextTime, self.lastUpdate[policy] + rule.limits[window].timeout + 1)
 				else
@@ -223,7 +223,7 @@ function TradeQueryRateLimiterClass:InsertRequest(policy, timestamp, time)
 	local requestId = self.requestId
 	self.requestId = self.requestId + 1
 	table.insert(self.pendingRequests[policy], requestId)
-	return requestId 
+	return requestId
 end
 
 function TradeQueryRateLimiterClass:FinishRequest(policy, requestId)

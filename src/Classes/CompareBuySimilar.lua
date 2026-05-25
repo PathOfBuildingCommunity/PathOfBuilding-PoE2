@@ -30,17 +30,7 @@ for i, entry in ipairs(LISTED_STATUS_OPTIONS) do
 	LISTED_STATUS_LABELS[i] = entry.label
 end
 
--- Helper: create a numeric EditControl without +/- spinner buttons
-local function newPlainNumericEdit(anchor, rect, init, prompt, limit)
-	local ctrl = new("EditControl", anchor, rect, init, prompt, "%D", limit)
-	-- Remove the +/- spinner buttons that "%D" filter triggers
-	ctrl.isNumeric = false
-	if ctrl.controls then
-		if ctrl.controls.buttonDown then ctrl.controls.buttonDown.shown = false end
-		if ctrl.controls.buttonUp then ctrl.controls.buttonUp.shown = false end
-	end
-	return ctrl
-end
+
 
 -- Build the trade search URL based on popup selections
 local function buildURL(item, slotName, controls, modEntries, defenceEntries, isUnique)
@@ -139,24 +129,30 @@ local function buildURL(item, slotName, controls, modEntries, defenceEntries, is
 	for i, entry in ipairs(modEntries) do
 		local prefix = "mod" .. i
 		if entry.tradeId and controls[prefix .. "Check"] and controls[prefix .. "Check"].state then
-			local minVal = tonumber(controls[prefix .. "Min"].buf)
-			local maxVal = tonumber(controls[prefix .. "Max"].buf)
 			local filter = { id = entry.tradeId }
-			local value = {}
-			if minVal then
-				value.min = minVal
+			if entry.isOption then
+				filter.value = { min = entry.value, max = entry.value }
+			elseif entry.value then
+				local minVal = tonumber(controls[prefix .. "Min"].buf)
+				
+				local maxVal = tonumber(controls[prefix .. "Max"].buf)
+				local value = {}
+				if minVal then
+					value.min = minVal
+				end
+				if maxVal then
+					value.max = maxVal
+				end
+				if entry.invert then
+					value.min, value.max = value.max, value.min
+					value.min = value.min and -value.min
+					value.max = value.max and -value.max
+				end
+				if next(value) then
+					filter.value = value
+				end
 			end
-			if maxVal then
-				value.max = maxVal
-			end
-			if entry.invert then
-				value.min, value.max = value.max, value.min
-				value.min = value.min and -value.min
-				value.max = value.max and -value.max
-			end
-			if next(value) then
-				filter.value = value
-			end
+			
 			t_insert(queryTable.query.stats[1].filters, filter)
 		end
 	end
@@ -187,6 +183,7 @@ function M.openPopup(item, slotName, primaryBuild)
 
 	local isUnique = item.rarity == "UNIQUE" or item.rarity == "RELIC"
 	local controls = {}
+	local uri = ""
 	local rowHeight = 24
 	local popupWidth = 700
 	local leftMargin = 20
@@ -199,7 +196,7 @@ function M.openPopup(item, slotName, primaryBuild)
 	-- Collect mod entries with trade IDs
 	local modEntries = {}
 	local modTypeSources = {
-		{ list = item.enchantModLines, type = "enchant" },
+		{ list = item.enchantModLines,  type = "enchant" },
 		{ list = item.implicitModLines, type = "implicit" },
 		{ list = item.explicitModLines, type = "explicit" },
 	}
@@ -207,21 +204,30 @@ function M.openPopup(item, slotName, primaryBuild)
 		if source.list then
 			for _, modLine in ipairs(source.list) do
 				if item:CheckModLineVariant(modLine) then
+					local modLine = copyTable(modLine)
+					-- remove unsupported data. the formatting of unsupported
+					-- mods is confusing here
+					modLine.extra = nil
 					local formatted = itemLib.formatModLine(modLine)
-					formatted = formatted and formatted:gsub(" %^8%(Not supported in PoB yet%)", "")
 					if formatted then
 						-- Use range-resolved text for matching
-						local resolvedLine = (modLine.range and itemLib.applyRange(modLine.line, modLine.range, modLine.valueScalar)) or modLine.line
-						local tradeHash = tradeHelpers.findTradeHash(item, resolvedLine, source.type, modLine.desecrated)
-						local identifier = tradeHash and string.format("%s.stat_%s", source.type, tradeHash)
-						local value = tradeHelpers.modLineValue(resolvedLine)
+						local resolvedLine = (modLine.range and itemLib.applyRange(modLine.line, modLine.range, modLine.valueScalar)) or
+							modLine.line
+						local tradeHash, identifier, value = tradeHelpers.findTradeHash(item, resolvedLine, source.type, modLine.desecrated)
+						local isOption = not not identifier
+						if not identifier then
+							identifier = tradeHash and string.format("%s.stat_%s", source.type, tradeHash)
+							value = tradeHelpers.modLineValue(resolvedLine)
+						end
+						local invert = (not isOption) and tradeHelpers.shouldBeInverted(identifier, resolvedLine, source.type)
 						t_insert(modEntries, {
 							line = modLine.line,
-							formatted = formatted:gsub("%^x%x%x%x%x%x%x", ""):gsub("%^%x", ""), -- strip color codes
+							formatted = formatted,
 							tradeId = identifier,
 							value = value,
-							modType = source.type,
-							invert = tradeHelpers.shouldBeInverted(identifier, resolvedLine, source.type)
+							isOption = isOption,
+							type = source.type,
+							invert = invert,
 						})
 					end
 				end
@@ -319,6 +325,23 @@ function M.openPopup(item, slotName, primaryBuild)
 	fetchLeaguesForRealm("poe2")
 	ctrlY = ctrlY + rowHeight + 4
 
+	local function rebuildUrl()
+		local result = buildURL(item, slotName, controls, modEntries, defenceEntries, isUnique)
+		uri = result
+	end
+
+	-- Helper: create a numeric EditControl without +/- spinner buttons, and
+	-- with a preset changeFunc
+	local function newPlainNumericEdit(anchor, rect, init, prompt, limit)
+		local ctrl = new("EditControl", anchor, rect, init, prompt, "%D", limit, rebuildUrl)
+		-- Remove the +/- spinner buttons that "%D" filter triggers
+		ctrl.isNumeric = false
+		if ctrl.controls then
+			if ctrl.controls.buttonDown then ctrl.controls.buttonDown.shown = false end
+			if ctrl.controls.buttonUp then ctrl.controls.buttonUp.shown = false end
+		end
+		return ctrl
+	end
 	if isUnique then
 		-- Unique item name label
 		controls.nameLabel = new("LabelControl", nil, {0, ctrlY, 0, 16}, "^x" .. (colorCodes[item.rarity] or "FFFFFF"):gsub("%^x","") .. item.name)
@@ -330,7 +353,7 @@ function M.openPopup(item, slotName, primaryBuild)
 		ctrlY = ctrlY + rowHeight
 
 		-- Base type checkbox
-		controls.baseTypeCheck = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", nil, nil)
+		controls.baseTypeCheck = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", rebuildUrl)
 		controls.baseTypeLabel = new("LabelControl", {"LEFT", controls.baseTypeCheck, "RIGHT"}, {4, 0, 0, 16}, "^7Use specific base: " .. (item.baseName or "Unknown"))
 		ctrlY = ctrlY + rowHeight
 
@@ -344,7 +367,7 @@ function M.openPopup(item, slotName, primaryBuild)
 		-- Defence stat rows
 		for i, def in ipairs(defenceEntries) do
 			local prefix = "def" .. i
-			controls[prefix .. "Check"] = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", nil, nil)
+			controls[prefix .. "Check"] = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", rebuildUrl)
 			controls[prefix .. "Label"] = new("LabelControl", {"LEFT", controls[prefix .. "Check"], "RIGHT"}, {4, 0, 0, 16}, "^7" .. def.label)
 			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, tostring(m_floor(def.value)), "Min", 6)
 			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 6)
@@ -358,51 +381,55 @@ function M.openPopup(item, slotName, primaryBuild)
 	end
 
 	-- Mod rows
+	local prevType
 	for i, entry in ipairs(modEntries) do
+		-- add extra row to separate e.g. implicits
+		if prevType and prevType ~= entry.type then
+			ctrlY = ctrlY + rowHeight
+		end
+		prevType = entry.type
 		local prefix = "mod" .. i
 		local canSearch = entry.tradeId ~= nil
-		controls[prefix .. "Check"] = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", nil, nil)
+		controls[prefix .. "Check"] = new("CheckBoxControl", nil, {-popupWidth/2 + leftMargin + checkboxSize/2, ctrlY, checkboxSize}, "", rebuildUrl)
 		controls[prefix .. "Check"].enabled = function() return canSearch end
 		-- Truncate long mod text to fit
+		--- @type string
 		local displayText = entry.formatted
-		if #displayText > 45 then
-			displayText = displayText:sub(1, 42) .. "..."
-		end
-		controls[prefix .. "Label"] = new("LabelControl", {"LEFT", controls[prefix .. "Check"], "RIGHT"}, {4, 0, 0, 16}, (canSearch and "^7" or "^8") .. displayText)
-		controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, entry.value ~= 0 and tostring(m_floor(entry.value)) or "", "Min", 8)
-		controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 8)
+		local colorCodeLength = displayText:match("(%^x%x%x%x%x%x%x)") or displayText:gsub("(%^%x)", "") or ""
 		if not canSearch then
-			controls[prefix .. "Min"].enabled = function() return false end
-			controls[prefix .. "Max"].enabled = function() return false end
+			-- strip color codes and replace with gray
+			displayText = "^8" .. displayText:gsub("%^x%x%x%x%x%x%x", ""):gsub("%^%x", "")
+		end
+		if #displayText > (#colorCodeLength + 60) then
+			displayText = displayText:sub(1, #colorCodeLength + 54) .. "..."
+		end
+		
+		controls[prefix .. "Label"] = new("LabelControl", { "LEFT", controls[prefix .. "Check"], "RIGHT" }, { 4, 0, 0, 16 },
+			displayText)
+		-- when the trade site has a dropdown for the value, we opt to disable
+		-- the inputs as they are numeric
+		if not (entry.isOption or entry.needsExactValue) and entry.value then
+			controls[prefix .. "Min"] = newPlainNumericEdit(nil, {minFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, entry.value ~= 0 and tostring(m_floor(entry.value)) or "", "Min", 8)
+			controls[prefix .. "Max"] = newPlainNumericEdit(nil, {maxFieldX - popupWidth/2, ctrlY, fieldW, fieldH}, "", "Max", 8)
+			if not canSearch then
+				controls[prefix .. "Min"].enabled = function() return false end
+				controls[prefix .. "Max"].enabled = function() return false end
+			end
 		end
 		ctrlY = ctrlY + rowHeight
 	end
 
 	-- Search button
 	ctrlY = ctrlY + 8
-	controls.search = new("ButtonControl", nil, {0, ctrlY, 110, 20}, "Generate URL", function()
-		local success, result = pcall(function()
-			return buildURL(item, slotName, controls, modEntries, defenceEntries, isUnique)
-		end)
-		if success and result then
-			controls.uri:SetText(result, true)
-		elseif not success then
-			controls.uri:SetText("Error: " .. tostring(result), true)
-		else
-			controls.uri:SetText("Error: could not determine league", true)
-		end
-	end)
-	ctrlY = ctrlY + rowHeight + 4
-
-	-- URL field
-	controls.uri = new("EditControl", nil, {-30, ctrlY, popupWidth - 100, fieldH}, "", nil, "^%C\t\n")
-	controls.uri:SetPlaceholder("Press 'Generate URL' then Ctrl+Click to open")
-	controls.uri.tooltipFunc = function(tooltip)
-		tooltip:Clear()
-		if controls.uri.buf and controls.uri.buf ~= "" then
-			tooltip:AddLine(16, "^7Ctrl + Click to open in web browser")
-		end
+	controls.search = new("ButtonControl", nil, {0, ctrlY, 110, 20}, "Open URL", function()
+		Copy(uri)
+		OpenURL(uri)
+	end, nil)
+	controls.search.tooltipText = "The URL is also copied to the clipboard."
+	controls.search.enabled = function()
+		return uri and uri ~= ""
 	end
+
 	controls.close = new("ButtonControl", nil, {popupWidth/2 - 50, ctrlY, 60, 20}, "Close", function()
 		main:ClosePopup()
 	end)
