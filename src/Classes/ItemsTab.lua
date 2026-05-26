@@ -2817,8 +2817,10 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				return modA.level > modB.level
 			end)
 		elseif sourceId == "ESSENCE" then
+			local itemType = (self.displayItem.type == "Staff" and self.displayItem.base.subType) or
+			self.displayItem.type
 			for _, essence in pairs(self.build.data.essences) do
-				local modId = essence.mods[self.displayItem.type]
+				local modId = essence.mods[itemType]
 				if modId then
 					local mod = self.displayItem.affixes[modId] or data.itemMods.Exclusive[modId]
 					if mod then -- passive_hash mods don't get described
