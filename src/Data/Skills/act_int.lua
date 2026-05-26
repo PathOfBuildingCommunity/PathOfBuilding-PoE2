@@ -6303,9 +6303,6 @@ skills["EssenceDrainPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
-			baseMods = {
-				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
-			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -7984,9 +7981,6 @@ skills["FlameWallPlayer"] = {
 			statDescriptionScope = "flame_wall",
 			baseFlags = {
 			},
-			baseMods = {
-				flag("applyBuffsFromAllStatSets"),
-			},
 			constantStats = {
 				{ "number_of_allowed_firewalls", 3 },
 				{ "firewall_attached_projectile_effect_mtx", 1 },
@@ -8070,10 +8064,10 @@ skills["FlameWallPlayer"] = {
 					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
 				},
 				["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
-					mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond ="FlameWallInfused" }),
+					mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
 				},
 				["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
-					mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond ="FlameWallInfused" }),
+					mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
 				},
 			},
 			baseFlags = {
@@ -19339,9 +19333,6 @@ skills["SoulrendPlayer"] = {
 			baseFlags = {
 				spell = true,
 				projectile = true,
-			},
-			baseMods = {
-				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
 			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },

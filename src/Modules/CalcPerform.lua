@@ -1904,7 +1904,7 @@ function calcs.perform(env, skipEHP)
 			end
 		end
 	end
-	
+
 	local appliedCombustion = false
 	local warcryList = { }
 	for _, activeSkill in ipairs(env.player.activeSkillList) do

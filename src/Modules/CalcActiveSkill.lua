@@ -65,18 +65,20 @@ local function checkForScalarMultiplier(modOrGroup, modList)
 	return 1 + scale / 100
 end
 
-local function getFlagFromBaseMods(baseMods, flag)
-	if baseMods then
-		for _, baseMod in ipairs(baseMods) do
-			if baseMod.type == "FLAG" and baseMod.name == flag then
+local function isGlobalEffect(modOrGroup)
+	local modList = modOrGroup.name and { modOrGroup } or modOrGroup
+	for _, mod in ipairs(modList) do
+		for _, tag in ipairs(mod) do
+			if tag.type == "GlobalEffect" then
 				return true
 			end
 		end
 	end
 	return false
 end
+
 -- Merge skill effect modifiers with given mod list
--- If a stat set is provided, only merge modifiers from that statset
+-- If a stat set is provided, merge it and global effects from the other stat sets
 function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
 	calcLib.validateGemLevel(skillEffect)
 	-- Verify that statSet provided is from skillEffect
@@ -84,10 +86,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 		return
 	end
 	local grantedEffect = skillEffect.grantedEffect
-	-- for some skills like Flame Wall, the Projectile Buff is on a separate statSet and we want to add it regardless of which statSet is active
-	-- enabled by adding '#baseMod flag("applyBuffsFromAllStatSets)' to the main/first skill txt
-	local applyBuffsFromAllStatSets = getFlagFromBaseMods(statSet and statSet.baseMods, "applyBuffsFromAllStatSets")
-	for _, set in ipairs((applyBuffsFromAllStatSets and grantedEffect.statSets or (statSet and {statSet} or grantedEffect.statSets))) do
+	local function mergeStatSet(set, onlyGlobals)
 		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
@@ -99,8 +98,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 			if map then
 				-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 				for _, modOrGroup in ipairs(map) do
-					-- either we are adding the mods of the activeSkill like usual or we are adding only the Buffs from the other statSets
-					if not applyBuffsFromAllStatSets or (applyBuffsFromAllStatSets and modOrGroup[1] and modOrGroup[1].effectType == "Buff") then
+					if not onlyGlobals or isGlobalEffect(modOrGroup) then
 						local scalar = checkForScalarMultiplier(modOrGroup, modList)
 						-- Found a mod, since all mods have names
 						if modOrGroup.name then
@@ -108,7 +106,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 							mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) * scalar / (map.div or 1) + (map.base or 0))
 						else
 							for _, mod in ipairs(modOrGroup) do
-								local scalar = checkForScalarMultiplier(mod)
+								local scalar = checkForScalarMultiplier(mod, modList)
 								mod.source = string.format("Skill:%s", grantedEffect.id)
 								mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) * scalar / (modOrGroup.div or 1) + (modOrGroup.base or 0))
 							end
@@ -117,7 +115,22 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 				end
 			end
 		end
+	end
+	for _, set in ipairs(statSet and {statSet} or grantedEffect.statSets) do
+		mergeStatSet(set)
 		modList:AddList(set.baseMods)
+	end
+	if statSet then
+		for _, set in ipairs(grantedEffect.statSets) do
+			if set ~= statSet then
+				mergeStatSet(set, true)
+				for _, baseMod in ipairs(set.baseMods or { }) do
+					if isGlobalEffect(baseMod) then
+						modList:AddMod(baseMod)
+					end
+				end
+			end
+		end
 	end
 end
 

@@ -445,7 +445,6 @@ statMap = {
 #skill EssenceDrainPlayer
 #set EssenceDrainPlayer
 #flags spell projectile
-#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" })
 #mods
 #set EssenceDrainDotPlayer
 #flags spell projectile duration
@@ -564,7 +563,6 @@ statMap = {
 #skill FlameWallPlayer
 #set FlameWallPlayer
 #flags
-#baseMod flag("applyBuffsFromAllStatSets")
 #mods
 #set FlameWallProjectileBuffPlayer
 #flags
@@ -576,10 +574,10 @@ statMap = {
 		mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
 	},
 	["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
-		mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond ="FlameWallInfused" }),
+		mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
 	},
 	["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
-		mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond ="FlameWallInfused" }),
+		mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
 	},
 },
 #mods
@@ -1330,7 +1328,6 @@ statMap = {
 #skill SoulrendPlayer
 #set SoulrendPlayer
 #flags spell projectile
-#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" })
 #mods
 #set SoulrendDotPlayer
 #flags spell duration
