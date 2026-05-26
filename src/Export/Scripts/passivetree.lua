@@ -12,6 +12,30 @@ if not loadStatFile then
 end
 loadStatFile("passive_skill_stat_descriptions.csd")
 
+local function isValidSkillDisplayName(name)
+    if not name then
+        return false
+    end
+
+    if name == "" then
+        return false
+    end
+
+    if name:find("DNT") then
+        return false
+    end
+
+    if name:find("UNUSED") then
+        return false
+    end
+
+    if name:find("%?%?%?") then
+        return false
+    end
+
+    return true
+end
+
 local function CalcOrbitAngles(nodesInOrbit)
 	local orbitAngles = {}
 
@@ -217,9 +241,9 @@ local function parseUIImages(file)
 		text = convertUTF16to8(getFile(file))
 		main.ggpk.txt[file] = text
 	end
-	
+
 	local images = {}
-	
+
 	for line in text:gmatch("[^\r\n]+") do
 		local index = 0
 		local name = ""
@@ -300,7 +324,7 @@ end
 
 f:read(11)
 
-local psg = { 
+local psg = {
 	passives = { },
 	groups = { },
 }
@@ -318,7 +342,7 @@ local groupCount = getInt(f)
 
 --printf("Group count: " .. groupCount)
 for i = 1 , groupCount do
-	local group = { 
+	local group = {
 		x = getFloat(f),
 		y = getFloat(f),
 		flags = getInt(f),
@@ -391,6 +415,7 @@ local sheets = {
 	newSheet("jewel-sockets", defaultMaxWidth, 100),
 	newSheet("legion", defaultMaxWidth, 100),
 	newSheet("monster-categories", defaultMaxWidth, 100),
+	newSheet("player-skills", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -404,6 +429,7 @@ local sheetLocations = {
 	["jewel-sockets"] = 9,
 	["legion"] = 10,
 	["monster-categories"] = 11,
+	["player-skills"] = 12,
 }
 local connectionArtToDecompose = {
 	Character = true,
@@ -580,6 +606,27 @@ for category in monsterCategories:Rows() do
 	:: nexttogo	::
 end
 
+-- adding skill images
+local skills = dat("ActiveSkills")
+for skill in skills:Rows() do
+	if skill.Icon ~= "" and isValidSkillDisplayName(skill.DisplayName) then
+		local asset = string.lower(skill.Icon)
+		local name = skill.DisplayName
+		addToSheet(getSheet("player-skills"), asset, "active-skills", commonMetadata(nil))
+	end
+end
+
+local skills = dat("SupportGems")
+for skill in skills:Rows() do
+	if skill.DDS ~= "" then
+		local asset = string.lower(skill.DDS)
+		local name = skill.SkillGem.BaseItemType.Name
+		if not isValidSkillDisplayName(name) then
+			addToSheet(getSheet("player-skills"), asset, "support-gems", commonMetadata(nil))
+		end
+	end
+end
+
 -- adding legion assets
 for legion in dat("AlternatePassiveSkills"):Rows() do
 	addToSheet(getSheet("legion"), legion.DDSIcon, "legion", commonMetadata(legion.DDSIcon))
@@ -684,7 +731,7 @@ for i, classId in ipairs(psg.passives) do
 	end
 
 	local listCharacters = passiveRow.ClassStart
-	
+
 	if listCharacters == nil then
 		printf("Characters not found")
 		goto continue
@@ -783,7 +830,7 @@ end
 local base_attributes = {
 	[26297] = {}, -- str
 	[14927] = {}, -- dex
-	[57022] = {}--int
+	[57022] = {}  --int
 }
 
 for id, _ in pairs(base_attributes) do
@@ -842,7 +889,7 @@ for i, group in ipairs(psg.groups) do
 			["group"] = i,
 			["orbit"] = passive.radius,
 			["orbitIndex"] = passive.position,
-			["connections"] = {},	
+			["connections"] = {},
 		}
 
 		-- Get Information from passive Skill
@@ -916,7 +963,7 @@ for i, group in ipairs(psg.groups) do
 							path = uiSocketCanAllocate.path,
 							unalloc = uiSocketNormal.path,
 						}
-						
+
 					else
 						--printf("Jewel socket not found for ascendancy " .. passiveRow.Ascendancy.Name)
 					end
@@ -1037,7 +1084,7 @@ for i, group in ipairs(psg.groups) do
 					table.insert(node["stats"], "Grants Skill: " .. skillName)
 
 					-- -- include the stat description
-					local statDescription =string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -5)
+					local statDescription = string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -5)
 					local handle = NewFileSearch("ggpk/" .. statDescription ..".csd")
 					local almostOnce = false
 					while handle do
@@ -1149,7 +1196,7 @@ for i, group in ipairs(psg.groups) do
 				if passiveRow.JewelSocket and ascendancyRow.UIArt.JewelFrame then
 					-- override the jewel socket assets if any
 					local uioverride = ascendancyRow.UIArt.JewelFrame
-					
+
 					local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
 					addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
 
@@ -1207,7 +1254,7 @@ for i, group in ipairs(psg.groups) do
 				node["applyToArmour"] = true
 			end
 		end
-		
+
 		for k, connection in ipairs(passive.connections) do
 			table.insert(node.connections, {
 				id = connection.id,
@@ -1270,7 +1317,7 @@ for orbit, skillsInOrbit in ipairs(tree.constants.skillsPerOrbit) do
 	tree.constants.orbitAnglesByOrbit[orbit] = CalcOrbitAngles(skillsInOrbit)
 end
 
--- Update position of ascendancy base on min / max 
+-- Update position of ascendancy base on min / max
 -- get the orbit radius + hard-coded value, calculate the angle of the class start
 -- translate the ascendancy to the new position in arc position
 local widthTree, heightTree = tree.max_x - tree.min_x, tree.max_y - tree.min_y
@@ -1301,7 +1348,7 @@ for i, classId in ipairs(psg.passives) do
 	for _, class in ipairs(classes) do
 		for _, ascendancy in ipairs(class.ascendancies) do
 			--printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
-			
+
 			local angle = startAngle + (j - 1) * angleStep
 			local cX = hardCoded * math.cos(angle)
 			local cY = hardCoded * math.sin(angle)
