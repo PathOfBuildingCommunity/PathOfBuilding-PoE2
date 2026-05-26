@@ -12,6 +12,8 @@ from __future__ import annotations
 
 import asyncio
 import os
+import socket as _socket
+import traceback
 from typing import Any, Optional
 
 from mcp.server.fastmcp import FastMCP
@@ -25,6 +27,49 @@ engine = EngineClient()
 
 async def _call(cmd: str, **args: Any) -> Any:
     return await asyncio.to_thread(engine.request, cmd, **args)
+
+
+@mcp.tool()
+async def diagnose_connection() -> dict:
+    """Diagnose the connection to the PoB GUI bridge (port 12321).
+
+    Returns detailed info about what's happening when connecting — use this
+    if get_summary / other tools fail with 'not running' errors.
+    """
+    result: dict = {}
+    # Raw TCP test
+    try:
+        s = _socket.socket(_socket.AF_INET, _socket.SOCK_STREAM)
+        s.settimeout(1.0)
+        s.connect(("127.0.0.1", 12321))
+        s.settimeout(3.0)
+        data = b""
+        while b"\n" not in data:
+            chunk = s.recv(4096)
+            if not chunk:
+                break
+            data += chunk
+        s.close()
+        result["raw_tcp"] = "ok"
+        result["raw_response"] = data.decode("utf-8", errors="replace").strip()
+    except Exception as e:
+        result["raw_tcp"] = f"FAILED: {e!r}"
+        result["raw_traceback"] = traceback.format_exc()
+    # EngineClient test
+    from engine_client import _try_connect_gui
+    try:
+        t = _try_connect_gui()
+        if t is not None:
+            summary = t.request("list_state", what="summary")
+            t.close()
+            result["engine_client"] = "ok"
+            result["summary"] = summary
+        else:
+            result["engine_client"] = "returned None (connect failed silently)"
+    except Exception as e:
+        result["engine_client"] = f"FAILED: {e!r}"
+        result["engine_traceback"] = traceback.format_exc()
+    return result
 
 
 @mcp.tool()
@@ -237,10 +282,12 @@ async def optimize_tree(
     """Greedily allocate the best passive nodes one by one to maximise `metric`.
 
     Each step evaluates all reachable unallocated nodes within `max_depth` distance
-    and picks the one with the highest gain to `metric` (e.g. "CombinedDPS",
-    "FullDPS", "Life", "EnergyShield"). Repeats up to `budget` times. The entire
-    run is saved as a single undo state so `undo_passive_changes` reverts all steps
-    at once. Returns the sequence of allocations and final stats.
+    and picks the one with the highest combined gain to `metric` (e.g. "CombinedDPS",
+    "FullDPS", "Life", "EnergyShield"). Crucially, the gain is measured for the
+    ENTIRE PATH to the candidate node (all intermediate nodes included), so the
+    algorithm naturally avoids paths through useless nodes. Repeats up to `budget`
+    times. The entire run is saved as a single undo state so `undo_passive_changes`
+    reverts all steps at once. Returns the sequence of allocations and final stats.
     """
     return await _call("optimize_tree", metric=metric, budget=budget, maxDepth=max_depth)
 

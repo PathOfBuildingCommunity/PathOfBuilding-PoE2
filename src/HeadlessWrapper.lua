@@ -2,6 +2,7 @@
 -- This wrapper allows the program to run headless on any OS (in theory)
 -- It can be run using a standard lua interpreter, although LuaJIT is preferable
 
+_G.HEADLESS = true  -- pob-mcp: signal to Launch.lua to skip GUI-only code
 
 -- Callbacks
 local callbackTable = { }

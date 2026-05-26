@@ -27,13 +27,7 @@ local PORT = 12321
 local srv, bindErr = socket.bind("*", PORT)
 if not srv then
     ConPrintf("pob-mcp: could not bind port %d: %s", PORT, tostring(bindErr))
-    local f = io.open("pob-mcp-debug.txt", "a")
-    if f then f:write("bind error: "..tostring(bindErr).."\n"); f:close() end
     return
-end
-do
-    local f = io.open("pob-mcp-debug.txt", "a")
-    if f then f:write("bind ok on port "..PORT.."\n"); f:close() end
 end
 srv:settimeout(0)  -- non-blocking accept
 
@@ -301,6 +295,20 @@ function handlers.deallocate_nodes(req)
     }
 end
 
+local function getSkillGroupDiag(build)
+    local groups = {}
+    for i, sg in ipairs(build.skillsTab.socketGroupList or {}) do
+        local gems = {}
+        for _, g in ipairs(sg.gemList or {}) do gems[#gems+1] = g.nameSpec end
+        groups[#groups+1] = {
+            index = i, label = sg.label, enabled = sg.enabled,
+            includeInFullDPS = sg.includeInFullDPS,
+            isMain = (i == build.mainSocketGroup), gems = gems,
+        }
+    end
+    return groups
+end
+
 function handlers.optimize_tree(req)
     local build = getActiveBuild()
     if not build then error("no build open in the PoB GUI") end
@@ -308,42 +316,156 @@ function handlers.optimize_tree(req)
     local budget   = req.budget   or 10
     local maxDepth = req.maxDepth or 3
 
-    build.spec:AddUndoState()
     build.spec:BuildAllDependsAndPaths()
 
-    local steps = {}
-    for step = 1, budget do
-        local calcFunc, baseOutput = build.calcsTab.calcs.getMiscCalculator(build)
-        local base = tonumber(baseOutput[metric]) or 0
-        local bestNode, bestDelta, bestName = nil, 0, nil
-        local cache = {}
-        for nodeId, node in pairs(build.spec.nodes) do
-            if not node.alloc and node.modKey and node.modKey ~= ""
-                and node.path and (node.pathDist or 999) <= maxDepth
-                and not node.ascendancyName
-                and not (build.calcsTab.mainEnv and build.calcsTab.mainEnv.grantedPassives[nodeId]) then
-                local val = cache[node.modKey]
-                if val == nil then
-                    local out = calcFunc({ addNodes = { [node] = true } }, true)
-                    val = tonumber(out[metric]) or 0
-                    cache[node.modKey] = val
-                end
-                local delta = val - base
-                if delta > bestDelta then
-                    bestDelta, bestNode, bestName = delta, node, node.dn or node.name
+    local calcFunc, baseOutput = build.calcsTab.calcs.getMiscCalculator(build)
+    local base = tonumber(baseOutput[metric]) or 0
+    if base == 0 then
+        local diag = getSkillGroupDiag(build)
+        error(string.format(
+            "Base %s = 0, cannot optimize. mainSocketGroup=%s. Skill groups: %s",
+            metric, tostring(build.mainSocketGroup), dkjson.encode(diag)
+        ))
+    end
+
+    build.spec:AddUndoState()
+
+    local deadline = GetTime() + 25000
+
+    -- BFS from every node adjacent to the allocated tree.
+    -- Finds ALL paths (not just PoB's single shortest path) up to depthLimit steps.
+    -- Returns a flat list of candidates: {node, pathList, cost, addSet}.
+    -- Each unique path to each reachable notable/normal node is a separate candidate.
+    -- Deduplication is by sorted node-id set so the same allocation isn't evaluated twice.
+    local function gatherCandidates(depthLimit)
+        local candidates = {}
+        local seenKeys   = {}
+        local grantedPassives = build.calcsTab.mainEnv and build.calcsTab.mainEnv.grantedPassives
+
+        -- BFS queue entries: {front=node, pathList={...}, pathSet={id=true}}
+        local queue   = {}
+        local qHead   = 1
+        local seenStart = {}
+        for _, node in pairs(build.spec.nodes) do
+            if not node.alloc and not node.ascendancyName then
+                for _, nb in ipairs(node.linked or {}) do
+                    if nb.alloc and not seenStart[node.id] then
+                        seenStart[node.id] = true
+                        queue[#queue + 1] = {
+                            front    = node,
+                            pathList = { node },
+                            pathSet  = { [node.id] = true },
+                        }
+                        break
+                    end
                 end
             end
         end
+
+        while qHead <= #queue do
+            local item  = queue[qHead]; qHead = qHead + 1
+            local depth = #item.pathList
+            local node  = item.front
+
+            -- Add as candidate if this node contributes mods and fits in budget
+            if node.modKey and node.modKey ~= ""
+                and not (grantedPassives and grantedPassives[node.id]) then
+
+                -- Key = endNodeId + sorted path ids (same allocation = same key)
+                local ids = {}
+                for id in pairs(item.pathSet) do ids[#ids + 1] = id end
+                table.sort(ids)
+                local key = table.concat(ids, ",")
+
+                if not seenKeys[key] then
+                    seenKeys[key] = true
+                    local addSet = {}
+                    for _, n in ipairs(item.pathList) do addSet[n] = true end
+                    candidates[#candidates + 1] = {
+                        node     = node,
+                        pathList = item.pathList,
+                        cost     = depth,
+                        addSet   = addSet,
+                    }
+                end
+            end
+
+            -- Expand deeper
+            if depth < depthLimit then
+                for _, nb in ipairs(node.linked or {}) do
+                    if not nb.alloc and not nb.ascendancyName
+                        and not item.pathSet[nb.id] then
+                        local newList = {}
+                        for _, n in ipairs(item.pathList) do newList[#newList + 1] = n end
+                        newList[#newList + 1] = nb
+                        local newSet = {}
+                        for k in pairs(item.pathSet) do newSet[k] = true end
+                        newSet[nb.id] = true
+                        queue[#queue + 1] = {
+                            front    = nb,
+                            pathList = newList,
+                            pathSet  = newSet,
+                        }
+                    end
+                end
+            end
+        end
+        return candidates
+    end
+
+    local remaining = budget
+    local steps = {}
+    while remaining > 0 do
+        if GetTime() > deadline then
+            steps[#steps + 1] = { timedOut = true, remainingPoints = remaining }
+            break
+        end
+
+        local depthLimit = math.min(maxDepth, remaining)
+        local candidates = gatherCandidates(depthLimit)
+
+        local bestNode, bestPath, bestEfficiency, bestDelta = nil, nil, 0, 0
+        for _, cand in ipairs(candidates) do
+            if GetTime() > deadline then break end
+            local out = calcFunc({ addNodes = cand.addSet }, true)
+            local val = tonumber(out[metric]) or 0
+            local delta = val - base
+            local efficiency = delta / cand.cost
+            if efficiency > bestEfficiency then
+                bestEfficiency = efficiency
+                bestDelta      = delta
+                bestNode       = cand.node
+                bestPath       = cand.pathList
+            end
+        end
         if not bestNode then break end
-        build.spec:AllocNode(bestNode)
+
+        -- Allocate via our BFS-chosen path so PoB doesn't pick an arbitrary one
+        local before = 0
+        for _ in pairs(build.spec.allocNodes) do before = before + 1 end
+        build.spec:AllocNode(bestNode, bestPath)
+        local after = 0
+        for _ in pairs(build.spec.allocNodes) do after = after + 1 end
+        local actualCost = after - before
+
+        remaining = remaining - actualCost
         build.spec:BuildAllDependsAndPaths()
-        steps[#steps + 1] = { step = step, id = bestNode.id, name = bestName, delta = cleanNumber(bestDelta) }
+        steps[#steps + 1] = {
+            step = #steps + 1, id = bestNode.id, name = bestNode.dn or bestNode.name,
+            delta = cleanNumber(bestDelta), cost = actualCost,
+            remainingPoints = remaining,
+        }
+
+        calcFunc, baseOutput = build.calcsTab.calcs.getMiscCalculator(build)
+        base = tonumber(baseOutput[metric]) or 0
     end
 
     guiRecalc(build)
     local o = build.calcsTab.mainOutput
     return {
-        metric = metric, steps = steps, pointsUsed = #steps,
+        metric = metric, steps = steps,
+        pointsUsed = budget - remaining,
+        stepsCount = #steps,
         finalValue   = cleanNumber(tonumber(o[metric]) or 0),
         CombinedDPS  = o and cleanNumber(o.CombinedDPS),
         Life         = o and cleanNumber(o.Life),

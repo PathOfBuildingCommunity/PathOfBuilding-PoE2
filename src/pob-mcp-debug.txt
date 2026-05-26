@@ -1,0 +1,5 @@
+cwd probe: false / true
+loading: ../pob-mcp/gui_bridge.lua
+result: true nil
+pobMcpTick defined: true
+bind ok on port 12321

@@ -46,5 +46,4 @@ runtime/imgui.ini
 
 src/poe_api_response.json
 /.claude/
-.gitignore
 .mcp.json
