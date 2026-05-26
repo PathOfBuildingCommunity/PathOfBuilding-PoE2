@@ -3813,7 +3813,22 @@ skills["SupportExpandPlayer"] = {
 			label = "Expand",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_expand_max_seals"] = {
+					mod("SealCount", "BASE", nil),
+				},
+				["skill_area_of_effect_+%_per_expand_seal"] = {
+					mod("SealRepeatPenalty", "MORE", nil),
+				},
+				["expand_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+					mod("SealGainFrequency", "BASE", nil),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				flag("HasSeals"),
+				flag("AreaSeal"),
 			},
 			constantStats = {
 				{ "support_expand_max_seals", 3 },
@@ -7593,6 +7608,7 @@ skills["SupportUnleashPlayer"] = {
 			},
 			baseMods = {
 				flag("HasSeals"),
+				flag("DamageSeal"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -50 },
@@ -8076,6 +8092,7 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			},
 			baseMods = {
 				flag("HasSeals"),
+				flag("DamageSeal"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },

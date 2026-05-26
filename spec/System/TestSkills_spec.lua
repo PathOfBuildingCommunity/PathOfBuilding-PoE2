@@ -844,4 +844,15 @@ describe("TestSkills", function()
 		-- Heightened Charges should increased the buff effect, therefore Fireball should have more damage than base Pinnacle of Power
 		assert.True(build.calcsTab.calcsOutput.TotalDPS > basePinnacleDamage)
 	end)
+
+	it("Flame Wall Projectile Buff", function()
+		build.skillsTab:PasteSocketGroup("Flame Wall 20/0  1")
+
+		build.configTab.input.flameWallAddedDamage = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- validate Flame Wall buff appears even when the Wall/default skillPart is active
+		assert.are.equals("Flame Wall", build.calcsTab.calcsOutput.BuffList)
+	end)
 end)
