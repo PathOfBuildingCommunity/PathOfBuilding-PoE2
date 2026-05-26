@@ -409,15 +409,6 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
-		-- Applies increased AoE based on seals count
-		if skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "AreaSeal") and not skillModList:Flag(nil, "NoRepeatBonuses") then
-			output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
-			output.SealMax = skillModList:Sum("BASE", skillCfg, "SealCount")
-			output.TimeMaxSeals = output.SealCooldown * output.SealMax
-			local skillName = getSkillNameFromFlag(skillModList, "AreaSeal") or "Support"
-			env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", (output.SealMax * (calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") - 1) * 100), skillName)
-		end
-
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
 		output.AreaOfEffectMod = round(round(incArea * moreArea, 10), 2)
 		if skillData.radiusIsWeaponRange then
@@ -1130,15 +1121,17 @@ function calcs.offence(env, actor, activeSkill)
 		modDB:NewMod("DPS", "MORE", detonateTwice, "Grenade Activate Twice")
 	end
 
-	if skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "DamageSeal") and not skillModList:Flag(nil, "NoRepeatBonuses") then
-		-- Applies DPS multiplier based on seals count
+	if skillModList:Flag(nil, "HasSeals") and not skillModList:Flag(nil, "NoRepeatBonuses") then
+		-- Applies seal bonuses based on seal count
 		local totalCastSpeed = 1 / activeSkill.activeEffect.grantedEffect.castTime * calcLib.mod(skillModList, skillCfg, "Speed")
 		output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
 		output.SealMax = skillModList:Sum("BASE", skillCfg, "SealCount")
-		output.AverageBurstHits = output.SealMax
 		output.TimeMaxSeals = output.SealCooldown * output.SealMax
 
-		if not skillData.hitTimeOverride then
+		if skillModList:Flag(nil, "DamageSeal") then
+			output.AverageBurstHits = output.SealMax
+		end
+		if skillModList:Flag(nil, "DamageSeal") and not skillData.hitTimeOverride then
 			local skillName = getSkillNameFromFlag(skillModList, "DamageSeal") or "Support"
 			if skillModList:Flag(nil, "UseMaxUnleash") then
 				for i, value in ipairs(skillModList:Tabulate("INC",  { }, "MaxSealCrit")) do
@@ -1149,6 +1142,16 @@ function calcs.offence(env, actor, activeSkill)
 				env.player.mainSkill.skillData.hitTimeOverride = m_max(output.TimeMaxSeals, totalCastSpeed * 1.1)
 			else
 				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", round(1 / output.SealCooldown / (totalCastSpeed * 1.1) * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") * 100, 2), skillName)
+			end
+		end
+		if skillModList:Flag(nil, "AreaSeal") then
+			local skillName = getSkillNameFromFlag(skillModList, "AreaSeal") or "Support"
+			local sealArea = (calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") - 1) * 100
+			if skillModList:Flag(nil, "UseMaxUnleash") then
+				env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", output.SealMax * sealArea, skillName)
+				env.player.mainSkill.skillData.hitTimeOverride = m_max(output.TimeMaxSeals, totalCastSpeed * 1.1)
+			else
+				env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", round(1 / output.SealCooldown / totalCastSpeed * sealArea, 2), skillName)
 			end
 		end
 
@@ -4136,7 +4139,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		output.AverageDamage = output.AverageHit * output.HitChance / 100
 		globalOutput.AverageBurstHits = output.AverageBurstHits or 1
-		local repeatPenalty = skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable]  and not skillModList:Flag(nil, "NoRepeatBonuses") and calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") or 1
+		local repeatPenalty = skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "DamageSeal") and not skillModList:Flag(nil, "NoRepeatBonuses") and calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") or 1
 		globalOutput.AverageBurstDamage = output.AverageDamage + output.AverageDamage * (globalOutput.AverageBurstHits - 1) * repeatPenalty or 0
 		globalOutput.ShowBurst = globalOutput.AverageBurstHits > 1
 		output.TotalDPS = output.AverageDamage * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier * quantityMultiplier
