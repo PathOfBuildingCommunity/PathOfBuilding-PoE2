@@ -954,7 +954,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 					name = effectName,
 					allowTotemBuff = effectTag.allowTotemBuff,
 					cond = effectTag.effectCond,
-					condList = effectTag.effectCondList,
 					enemyCond = effectTag.effectEnemyCond,
 					stackVar = effectTag.effectStackVar,
 					stackLimit = effectTag.effectStackLimit,

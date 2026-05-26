@@ -376,8 +376,8 @@ local configSettings = {
 	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FlameWallAddedDamage", "FLAG", true, "Config")
 	end },
-	{ var = "flameWallInfused", type = "check", label = "Lightning Infused?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
-		modList:NewMod("Condition:FlameWallInfused", "FLAG", true, "Config")
+	{ var = "flameWallInfused", type = "check", label = "Lightning Infused?", ifOption = "flameWallAddedDamage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FlameWallInfused", "FLAG", true, "Config", { type = "Condition", var = "FlameWallAddedDamage" })
 	end },
 	{ label = "Flicker Strike:", ifSkill = "Flicker Strike", includeTransfigured = true },
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)

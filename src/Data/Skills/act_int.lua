@@ -8070,10 +8070,10 @@ skills["FlameWallPlayer"] = {
 					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
 				},
 				["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
-					mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCondList = { "FlameWallAddedDamage", "FlameWallInfused" } }),
+					mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond ="FlameWallInfused" }),
 				},
 				["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
-					mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCondList = { "FlameWallAddedDamage", "FlameWallInfused" } }),
+					mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond ="FlameWallInfused" }),
 				},
 			},
 			baseFlags = {
