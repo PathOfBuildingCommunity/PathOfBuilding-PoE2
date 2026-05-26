@@ -1251,7 +1251,7 @@ function calcs.perform(env, skipEHP)
 			activeSkill.skillData.triggerTime = 60 * 1000
 		end
 		-- Into the Breach: only purple flames get calculated
-		if activeSkill.activeEffect.grantedEffect.name == "Into the Breach" then
+		if activeSkill.activeEffect.grantedEffect.name == "Into the Breach" and not modDB:Flag(nil, "BreachFlameOnlyRed") and not modDB:Flag(nil, "BreachFlameOnlyBlue") then
 			local purpleFlameCount = modDB:Sum("BASE", nil, "Multiplier:PurpleFlamesCount")
 			local baseChaosGain = activeSkill.skillModList:Sum("BASE", nil, "BreachFlameChaosGain")
 			if purpleFlameCount > 0 and baseChaosGain > 0 then

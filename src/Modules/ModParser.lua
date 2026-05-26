@@ -3327,6 +3327,9 @@ local specialModList = {
 		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
 	["effect and duration of flames of chayula on you is doubled"] = { flag("BreachFlameEffectDoubled") },
+	["all flames of chayula that you manifest are red"] = { flag("BreachFlameOnlyRed") },
+	["all flames of chayula that you manifest are blue"] = { flag("BreachFlameOnlyBlue") },
+	["all flames of chayula that you manifest are purple"] = { flag("BreachFlameOnlyPurple") },
 	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
 		flag("ManaLeechBasedOnElementalDamage"),
 		flag("ManaLeechBasedOnChaosDamage"),
