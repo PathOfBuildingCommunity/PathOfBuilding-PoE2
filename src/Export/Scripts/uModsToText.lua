@@ -28,6 +28,7 @@ local itemTypes = {
 	"spear",
 	"staff",
 	"sword",
+	"talisman",
 	"wand",
 	"helmet",
 	"body",
@@ -124,7 +125,7 @@ for _, name in ipairs(itemTypes) do
 					legacyMod = describeStats(stats)
 				end 
 				for i, line in ipairs(legacyMod or mod) do
-					local order = mod.statOrder[i]
+					local order = math.floor(mod.statOrder[i])
 					if statOrder[order] then
 						table.insert(statOrder[order], prefix..line)
 					else

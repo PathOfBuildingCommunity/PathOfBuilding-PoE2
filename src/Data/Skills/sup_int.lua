@@ -836,6 +836,9 @@ skills["SupportBitingFrostPlayer"] = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
 				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -872,6 +875,9 @@ skills["SupportBitingFrostPlayerTwo"] = {
 			statMap = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
 				},
 			},
 			baseFlags = {
@@ -910,7 +916,10 @@ skills["SupportBlazingCriticalPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-					mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+				},
+				["support_blazing_crits_base_duration_ms"] = {
+					-- Display only
 				},
 			},
 			baseFlags = {
@@ -1793,7 +1802,7 @@ skills["SupportClarityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity I" }),
 				},
 			},
 			baseFlags = {
@@ -1829,7 +1838,7 @@ skills["SupportClarityPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity II" }),
 				},
 			},
 			baseFlags = {
@@ -1900,11 +1909,6 @@ skills["SupportColdExposurePlayer"] = {
 			label = "Cold Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
-					mod("ColdExposureChance", "BASE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2784,6 +2788,9 @@ skills["SupportDecayingHexPlayer"] = {
 				},
 			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" }),
 			},
 			constantStats = {
 				{ "support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds", 6000 },
@@ -3686,6 +3693,34 @@ skills["SupportEssenceHarvestPlayer"] = {
 		},
 	}
 }
+skills["SupportEternalMarkPlayer"] = {
+	name = "Eternal Mark",
+	description = "Supports Mark Skills, causing them to not be Consumed the first time they are Activated.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "EternalMark",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Eternal Mark",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"marks_avoid_consumption_when_first_activated",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportExcisePlayer"] = {
 	name = "Excise",
 	description = "Supports any damaging Skill that you use yourself, granting it significantly higher chance to Critically Hit, but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
@@ -3778,7 +3813,22 @@ skills["SupportExpandPlayer"] = {
 			label = "Expand",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_expand_max_seals"] = {
+					mod("SealCount", "BASE", nil),
+				},
+				["skill_area_of_effect_+%_per_expand_seal"] = {
+					mod("SealRepeatPenalty", "MORE", nil),
+				},
+				["expand_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+					mod("SealGainFrequency", "BASE", nil),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				flag("HasSeals"),
+				flag("AreaSeal"),
 			},
 			constantStats = {
 				{ "support_expand_max_seals", 3 },
@@ -5150,7 +5200,7 @@ skills["SupportInevitableCriticalsPlayerTwo"] = {
 					mod("Multiplier:InevitableCritCap", "BASE", nil),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second"] = {
-					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+					mod("CritMultiplier", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitNegTotal = true }),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_cap"] = {
 					mod("Multiplier:InevitableCritMultCap", "BASE", nil),
@@ -6069,7 +6119,7 @@ skills["SupportMinionPactPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6106,7 +6156,7 @@ skills["SupportMinionPactPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6142,6 +6192,14 @@ skills["SupportMorganasTempestPlayer"] = {
 			label = "Morgana's Tempest",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_approaching_storms_area_of_effect_+%_final"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+				["support_approaching_storms_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6216,7 +6274,7 @@ skills["SupportMysticismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism I" }),
 				},
 			},
 			baseFlags = {
@@ -6252,7 +6310,7 @@ skills["SupportMysticismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism II" }),
 				},
 			},
 			baseFlags = {
@@ -6812,6 +6870,11 @@ skills["SupportRitualisticCursePlayer"] = {
 			label = "Ritualistic Curse",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ritual_curse_curse_delay_+%_final"] = {
+					mod("CurseDelay", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -7541,21 +7604,11 @@ skills["SupportUnleashPlayer"] = {
 			label = "Unleash",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_anticipation_rapid_fire_count"] = {
-					mod("SealCount", "BASE", nil),
-				},
-				["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
-					mod("SealGainFrequency", "BASE", nil),
-				},
-				["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
-					mod("SealRepeatPenalty", "MORE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			baseMods = {
 				flag("HasSeals"),
+				flag("DamageSeal"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -50 },
@@ -8037,6 +8090,10 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
+			baseMods = {
+				flag("HasSeals"),
+				flag("DamageSeal"),
+			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },
 				{ "unleash_support_seal_gain_frequency_as_%_of_total_cast_time", 50 },
@@ -8050,7 +8107,6 @@ skills["SupportZarokhsRevoltPlayer"] = {
 		},
 	}
 }
-
 skills["SupportZenithPlayer"] = {
 	name = "Zenith I",
 	description = "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana. Does not modify Skills used by Minions.",

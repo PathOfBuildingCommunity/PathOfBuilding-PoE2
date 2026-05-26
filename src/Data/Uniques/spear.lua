@@ -3,6 +3,20 @@
 return {
 -- Weapon: Spear
 [[
+Atziri's Contempt
+Pronged Spear
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Implicits: 2
+Grants Skill: Spear Throw
+Grants Skill: Level (1-20) Shattering Spite
+(100-120)% increased Physical Damage
+Adds (83-97) to (123-153) Fire Damage
+Adds 1 to (133-247) Lightning Damage
+(10-16)% increased Attack Speed
+(60-80)% increased Presence Area of Effect
+Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target
+]],[[
 Chainsting
 Hunting Spear
 League: Dawn of the Hunt
