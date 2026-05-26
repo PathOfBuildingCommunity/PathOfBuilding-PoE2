@@ -19,7 +19,7 @@ local groupSlotDropList = {
 	{ label = "Helmet", slotName = "Helmet" },
 	{ label = "Body Armour", slotName = "Body Armour" },
 	{ label = "Gloves", slotName = "Gloves" },
-	{ label = "Boots", slotName = "Boots" }, 
+	{ label = "Boots", slotName = "Boots" },
 	{ label = "Amulet", slotName = "Amulet" },
 	{ label = "Ring 1", slotName = "Ring 1" },
 	{ label = "Ring 2", slotName = "Ring 2" },
@@ -110,7 +110,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 
 	-- Socket group list
 	self.controls.groupList = new("SkillListControl", { "TOPLEFT", self, "TOPLEFT" }, { 20, 54, 360, 300 }, self)
-	self.controls.groupTip = new("LabelControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { 0, 8, 0, 14 }, 
+	self.controls.groupTip = new("LabelControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { 0, 8, 0, 14 },
 [[
 ^7Usage Tips:
 - You can copy/paste socket groups using Ctrl+C and Ctrl+V.
@@ -193,6 +193,19 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
+	self.controls.groupEnabled.tooltipFunc = function(tooltip)
+		if tooltip:CheckForUpdate(self.build.outputRevision, self.displayGroup) then
+			if self.displayGroup then
+				local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator(self.build)
+				if calcFunc then
+					self.displayGroup.enabled = not self.displayGroup.enabled
+					local output = calcFunc()
+					self.displayGroup.enabled = not self.displayGroup.enabled
+					self.build:AddStatComparesToTooltip(tooltip, calcBase, output, self.displayGroup.enabled and "^7Disabling this group will give you:" or "^7Enabling this group will give you:")
+				end
+			end
+		end
+	end
 	self.controls.includeInFullDPS = new("CheckBoxControl", { "LEFT", self.controls.groupEnabled, "RIGHT" }, { 145, 0, 20 }, "Include in Full DPS:", function(state)
 		self.displayGroup.includeInFullDPS = state
 		self:AddUndoState()
@@ -202,7 +215,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.controls.groupCountLabel.shown = function()
 		return self.displayGroup.source ~= nil
 	end
-	self.controls.groupCount = new("EditControl", { "LEFT", self.controls.groupCountLabel, "RIGHT" }, { 4, 0, 60, 20 }, nil, nil, "%D", 2, function(buf)
+	self.controls.groupCount = new("EditControl", { "LEFT", self.controls.groupCountLabel, "RIGHT" }, { 4, 0, 80, 20 }, nil, nil, "^%d.", 6, function(buf)
 		self.displayGroup.groupCount = tonumber(buf) or 1
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -264,7 +277,7 @@ will automatically apply to the skill.]]
 	self.controls.gemQualityHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].quality, "TOPLEFT"}, {0, -2, 0, 16}, "^7Quality:")
 	self.controls.gemCorruptHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].corruptLevel, "TOPLEFT"}, {0, -2, 0, 16}, "^7Corrupt:")
 	self.controls.gemEnableHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].enabled, "TOPLEFT"}, {-16, -2, 0, 16}, "^7Enabled:")
-	self.controls.gemCountHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].count, "TOPLEFT"}, {8, -2, 0, 16}, "^7Count:")
+	self.controls.gemCountHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].count, "TOPLEFT"}, {18, -2, 0, 16}, "^7Count:")
 end)
 
 function SkillsTabClass:GetCorruptIndex(gemInstance)
@@ -355,7 +368,7 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		gemInstance.skillMinionSkillStatSetIndexLookup = { }
 		gemInstance.skillMinionSkillStatSetIndexLookupCalcs = { }
 		for _, child in ipairs(child) do
-			if child.elem == "StatSetIndex" and child.attrib.grantedEffect then 
+			if child.elem == "StatSetIndex" and child.attrib.grantedEffect then
 				gemInstance.statSet[child.attrib.grantedEffect] = tonumber(child.attrib.index)
 			elseif child.elem == "StatSetCalcsIndex" and child.attrib.grantedEffect then
 				gemInstance.statSetCalcs[child.attrib.grantedEffect] = tonumber(child.attrib.index)
@@ -401,7 +414,7 @@ function SkillsTabClass:Load(xml, fileName)
 	end
 	self.controls.sortGemsByDPS.state = self.sortGemsByDPS
 	self.controls.showSupportGemTypes:SelByValue(xml.attrib.showSupportGemTypes or "ALL", "show")
-	self.controls.sortGemsByDPSFieldControl:SelByValue(xml.attrib.sortGemsByDPSField or "CombinedDPS", "type") 
+	self.controls.sortGemsByDPSFieldControl:SelByValue(xml.attrib.sortGemsByDPSField or "CombinedDPS", "type")
 	self.showSupportGemTypes = self.controls.showSupportGemTypes:GetSelValueByKey("show")
 	self.sortGemsByDPSField = self.controls.sortGemsByDPSFieldControl:GetSelValueByKey("type")
 	for _, node in ipairs(xml) do
@@ -491,8 +504,8 @@ function SkillsTabClass:Save(xml)
 						t_insert(gemInfo, { elem = "StatSetCalcsIndex", attrib = { grantedEffect = grantedEffect, index = tostring(index)}})
 					end
 				end
-				if gemInstance.skillMinionSkillStatSetIndexLookup then 
-					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookup) do 
+				if gemInstance.skillMinionSkillStatSetIndexLookup then
+					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookup) do
 						local minionSkillStatSetIndexLookup = { elem = "MinionSkillIndexLookup", attrib = { grantedEffect = grantedEffect }}
 						for k,v in pairs(map) do
 							t_insert(minionSkillStatSetIndexLookup, { elem = "MinionSkillIndexMap",  attrib = {
@@ -503,8 +516,8 @@ function SkillsTabClass:Save(xml)
 						t_insert(gemInfo, minionSkillStatSetIndexLookup)
 					end
 				end
-				if gemInstance.skillMinionSkillStatSetIndexLookupCalcs then 
-					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookupCalcs) do 
+				if gemInstance.skillMinionSkillStatSetIndexLookupCalcs then
+					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookupCalcs) do
 						local minionSkillStatSetIndexLookupCalcs = { elem = "MinionSkillIndexLookupCalcs", attrib = { grantedEffect = grantedEffect } }
 						for k,v in pairs(map) do
 							t_insert(minionSkillStatSetIndexLookupCalcs, { elem = "MinionSkillIndexMap",  attrib = {
@@ -532,7 +545,7 @@ function SkillsTabClass:Draw(viewPort, inputEvents)
 	self.controls.scrollBarH.y = viewPort.y + viewPort.height - 18
 
 	do
-		local maxX = self.controls.gemCountHeader:GetPos() + self.controls.gemCountHeader:GetSize() + 15
+		local maxX = self.controls.gemCountHeader:GetPos() + self.controls.gemCountHeader:GetSize() + 25
 		local contentWidth = maxX - self.x
 		self.controls.scrollBarH:SetContentDimension(contentWidth, viewPort.width)
 	end
@@ -619,13 +632,13 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 			newGroup.slot = slot
 		end
 		for nameSpec, level, quality, state, count, cFlag, cLevel in
-			skillText:gmatch("([ %a':]+) (%d+)/(%d+) ?(%a*) (%d+) ?(C?)([+-]?%d*)")
+			skillText:gmatch("([ %a':]+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+-]?%d*)")
 		do
 			local skillMinion = nil
 			local skillMinionCalcs = nil
 			local minionName = nil
 			local minionList = nil
-			
+
 			if nameSpec:find("Spectre") then
 				minionName = nameSpec:match(": (.+)")
 				nameSpec = "Summon Spectre"
@@ -635,7 +648,7 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 				nameSpec = "Tamed Companion"
 				minionList = self.build.beastList
 			end
-			
+
 			-- Search for the minion if we found a spectre or companion
 			if minionName then
 				for id, spectre in pairs(data.spectres) do
@@ -649,7 +662,7 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 					end
 				end
 			end
-			
+
 			t_insert(newGroup.gemList, {
 				nameSpec = nameSpec,
 				level = tonumber(level) or 20,
@@ -680,8 +693,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	local slot = { }
 	self.gemSlots[index] = slot
 
-	-- Delete gem
-	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+	local function deleteGem()
 		t_remove(self.displayGroup.gemList, index)
 		for index2 = index, #self.displayGroup.gemList do
 			-- Update the other gem slot controls
@@ -697,6 +709,10 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 		self:AddUndoState()
 		self.build.buildFlag = true
+	end
+	-- Delete gem
+	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+		return deleteGem()
 	end)
 	if index == 1 then
 		slot.delete:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 0, 0)
@@ -716,7 +732,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."Delete"] = slot.delete
 
 	-- Gem name specification
-	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo)
+	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, 300, 20 }, self, index, function(gemId, addUndo, focusLost, bufMatchesGem)
 		if not self.displayGroup then
 			return
 		end
@@ -745,9 +761,14 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enableGlobal1.state = true
 			slot.enableGlobal2.state = true
 			slot.count:SetText(gemInstance.count)
+		elseif focusLost and not bufMatchesGem then
+			return deleteGem()
 		elseif gemId == gemInstance.gemId then
 			if addUndo then
 				self:AddUndoState()
+			end
+			if bufMatchesGem then
+				self.build.buildFlag = true
 			end
 			return
 		end
@@ -768,7 +789,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		if addUndo then
 			self:AddUndoState()
 		end
-		self.build.buildFlag = true
+		if bufMatchesGem then
+			self.build.buildFlag = true
+		end
 	end, true)
 	slot.nameSpec:AddToTabGroup(self.controls.groupLabel)
 	self.controls["gemSlot"..index.."Name"] = slot.nameSpec
@@ -933,7 +956,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	self.controls["gemSlot"..index.."Enable"] = slot.enabled
 
 	-- Count gem
-	slot.count = new("EditControl", {"LEFT",slot.enabled,"RIGHT"}, {18, 0, 60, 20}, nil, nil, "%D", 2, function(buf)
+	slot.count = new("EditControl", {"LEFT",slot.enabled,"RIGHT"}, {18, 0, 80, 20}, nil, nil, "^%d.", 5, function(buf)
 		local gemInstance = self.displayGroup.gemList[index]
 		if not gemInstance then
 			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, count = 1, new = true, corruptLevel = 0, corrupted = false }
@@ -945,7 +968,6 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		gemInstance.count = tonumber(buf) or 1
-		slot.count.buf = tostring(gemInstance.count)
 		self:ProcessSocketGroup(self.displayGroup)
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -964,7 +986,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	end
 	slot.count.tooltipFunc = function(tooltip)
 		if tooltip:CheckForUpdate(self.build.outputRevision, self.displayGroup) then
-			tooltip:AddLine(16, "^8Note: `count` integer value scales the DPS of associated skill by a scalar.")
+			tooltip:AddLine(16, "^8Note: `count` numeric value scales the DPS of associated skill by a scalar.")
 			tooltip:AddLine(16, "^8To be used with totems, minions, shot-gunning of projectiles (e.g., VD, magma-orbs),")
 			tooltip:AddLine(16, "^8multi-hit projectiles (e.g. ball-lightning), traps, mines.")
 		end
@@ -1441,10 +1463,12 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 	for _, socketGroup in ipairs(self.socketGroupList) do
 		local countGroup = true
 		if socketGroup.enabled then
+			local activeGem = socketGroup.gemList[1]
+			local activeGrantedEffect = activeGem and (activeGem.grantedEffect or activeGem.gemData and activeGem.gemData.grantedEffect)
+			if activeGem and (activeGem.fromItem or activeGem.fromTree or activeGrantedEffect and (activeGrantedEffect.fromItem or activeGrantedEffect.fromTree)) then
+				countGroup = false
+			end
 			for _, gemInstance in ipairs(socketGroup.gemList) do
-				if gemInstance.fromItem or (gemInstance.gemData and gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.fromTree) then
-					countGroup = false
-				end
 				if gemInstance.gemData and gemInstance.enabled then
 					if GlobalGemAssignments[gemInstance.gemData.name] then
 						GlobalGemAssignments[gemInstance.gemData.name].count = GlobalGemAssignments[gemInstance.gemData.name].count + 1
@@ -1452,11 +1476,11 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 							t_insert(GlobalGemAssignments[gemInstance.gemData.name].groups, socketGroup.displayLabel)
 						end
 					else
-						GlobalGemAssignments[gemInstance.gemData.name] = { 
+						GlobalGemAssignments[gemInstance.gemData.name] = {
 							count = 1,
 							support = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.support or false,
 							lineage = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.isLineage or false,
-							groups = { } 
+							groups = { }
 						}
 						if socketGroup.displayLabel then
 							t_insert(GlobalGemAssignments[gemInstance.gemData.name].groups, socketGroup.displayLabel)

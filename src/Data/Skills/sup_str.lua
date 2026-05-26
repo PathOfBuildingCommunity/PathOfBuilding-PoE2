@@ -1292,7 +1292,7 @@ skills["SupportCannibalismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism I" }),
 				},
 			},
 			baseFlags = {
@@ -1327,7 +1327,7 @@ skills["SupportCannibalismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_cannibalism_recover_%_maximum_life_on_kill"] = {
-					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism" }),
+					mod("LifeOnKill", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Cannibalism II" }),
 				},
 			},
 			baseFlags = {
@@ -1659,7 +1659,7 @@ skills["SupportCorruptingCryPlayer"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
@@ -1715,7 +1715,7 @@ skills["SupportCorruptingCryPlayerTwo"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
@@ -2124,7 +2124,7 @@ skills["SupportDirestrikePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike I" }, { type = "Condition", var = "LowLife" }),
 				},
 			},
 			baseFlags = {
@@ -2159,7 +2159,7 @@ skills["SupportDirestrikePlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_attack_damage_spirit_cost_attack_damage_+%_on_low_life"] = {
-					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike" }),
+					mod("Damage", "INC", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Direstrike II" }, { type = "Condition", var = "LowLife" }),
 				},
 			},
 			baseFlags = {
@@ -3280,11 +3280,6 @@ skills["SupportFireExposurePlayer"] = {
 			label = "Fire Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_fire_exposure_for_x_ms_on_ignite"] = {
-					mod("FireExposureChance", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3952,7 +3947,7 @@ skills["SupportHerbalismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism I" }),
 				},
 			},
 			baseFlags = {
@@ -3987,7 +3982,7 @@ skills["SupportHerbalismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_herbalism_life_recovery_+%_from_life_flasks"] = {
-					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism" }),
+					mod("FlaskLifeRecovery", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Herbalism II" }),
 				},
 			},
 			baseFlags = {
@@ -4961,7 +4956,7 @@ skills["SupportCorruptingCryPlayerThree"] = {
 				skill("debuff", true),
 				flag("dotIsCorruptingBlood"),
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
-				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst"}),
+				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
 				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 5 },
@@ -5570,6 +5565,13 @@ skills["SupportRefractionPlayerThree"] = {
 			label = "Refraction III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_tempered_valour_banner_applies_%_elemental_exposure_per_1000_armour"] = {
+					mod("FireExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+					mod("ColdExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+					mod("LightningExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6622,9 +6624,6 @@ skills["SupportStompingGroundPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "StompingGround",},
-	weaponTypes = {
-		["Two Hand Mace"] = true,
-	},
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -6985,7 +6984,7 @@ skills["SupportThornskinPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin I" }),
 				},
 			},
 			baseFlags = {
@@ -7020,7 +7019,7 @@ skills["SupportThornskinPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin" }),
+					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin II" }),
 				},
 			},
 			baseFlags = {
@@ -7693,7 +7692,7 @@ skills["SupportVitalityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_vitality_life_regeneration_rate_per_minute_%"] = {
-					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality I" }),
 					div = 60,
 				},
 			},
@@ -7729,7 +7728,7 @@ skills["SupportVitalityPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_vitality_life_regeneration_rate_per_minute_%"] = {
-					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality" }),
+					mod("LifeRegenPercent", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Vitality II" }),
 					div = 60,
 				},
 			},
@@ -7868,6 +7867,14 @@ skills["SupportZerphisLegacyPlayer"] = {
 			label = "Zerphi's Infamy",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_zerphis_legacy_area_of_effect_+%"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+				},
+				["support_zerphis_legacy_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Warcry, SkillType.Area } })
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

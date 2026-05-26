@@ -2160,9 +2160,9 @@ skills["SupportFerocityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
-					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 			},
 			baseFlags = {
@@ -2513,6 +2513,11 @@ skills["SupportHitAndRunPlayer"] = {
 			label = "Hit and Run",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_mobile_assault_skill_speed_+%_final"] = {
+					mod("Speed", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -4242,7 +4247,7 @@ skills["SupportPrecisionPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_precision_accuracy_rating_+%"] = {
-					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision I" } ),
 				},
 			},
 			baseFlags = {
@@ -4277,7 +4282,7 @@ skills["SupportPrecisionPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_precision_accuracy_rating_+%"] = {
-					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision" } ),
+					mod("Accuracy", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Precision II" } ),
 				},
 			},
 			baseFlags = {

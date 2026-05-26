@@ -357,7 +357,7 @@ directiveTable.skill = function(state, args, out)
 			out:write('\tignoreMinionTypes = true,\n')
 		end
 		local weaponTypes = { }
-		if granted.WeaponRestrictions[1] then
+		if granted.WeaponRestrictions[1] and not granted.IsSupport then
 			for _, class in ipairs(granted.WeaponRestrictions[1].WeaponClass) do
 				if weaponClassMap[class.ItemClass.Id] then
 					weaponTypes[weaponClassMap[class.ItemClass.Id]] = true
