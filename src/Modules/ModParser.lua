@@ -4552,8 +4552,8 @@ local specialModList = {
 	["you can cast (%d+) additional brands"] = function(num) return { mod("ActiveBrandLimit", "BASE", num) } end,
 	["(%d+)%% increased damage while you are wielding a bow and have a totem"] = function(num) return { mod("Damage", "INC", num, { type = "Condition", var = "HaveTotem" }, { type = "Condition", var = "UsingBow" }) } end,
 	["bow attacks consume (%d+)%% of your maximum life flask charges if possible to deal added physical damage equal to (%d+)%% of flask's life recovery amount"] = function(num, _, percent) return {
-		mod("PhysicalMin", "BASE", 1, nil, ModFlag.Bow, { type = "Multiplier", var = "LifeFlaskRecovery", div = 100/percent }),
-		mod("PhysicalMax", "BASE", 1, nil, ModFlag.Bow, { type = "Multiplier", var = "LifeFlaskRecovery", div = 100/percent }),
+		mod("PhysicalMin", "BASE", 1, nil, bor(ModFlag.Attack, ModFlag.Bow), { type = "Multiplier", var = "LifeFlaskRecovery", div = 100/percent }),
+		mod("PhysicalMax", "BASE", 1, nil, bor(ModFlag.Attack, ModFlag.Bow), { type = "Multiplier", var = "LifeFlaskRecovery", div = 100/percent }),
 	} end,
 	["each totem applies (%d+)%% increased damage taken to enemies near it"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["each totem applies (%d+)%% increased damage taken to enemies in their presence"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
