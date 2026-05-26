@@ -772,6 +772,10 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enableGlobal2.state = true
 			slot.count:SetText(gemInstance.count)
 		elseif focusLost and not bufMatchesGem then
+			if index == 1 then
+				-- Slot 1 (main active skill) must never auto-delete on focus loss
+				return
+			end
 			return deleteGem()
 		elseif gemId == gemInstance.gemId then
 			if addUndo then
