@@ -2808,7 +2808,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		buildMods(value.sourceId)
 		controls.modSelect:SetSel(1)
 		if controls.sort then
-			applySort(controls.sort.list[controls.sort.selIndex].stat)
+			applySort(controls.sort.list[controls.sort.selIndex].stat, true)
 		end
 	end)
 	controls.source.enabled = #sourceList > 1
