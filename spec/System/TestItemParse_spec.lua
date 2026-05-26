@@ -107,6 +107,128 @@ describe("TestItemParse", function()
 		assert.are.equals("+12 to Dexterity", item.explicitModLines[1].line)
 	end)
 
+	it("Pasted separated base granted skills stay implicit", function()
+		local item = new("Item", [[
+			Item Class: Spears
+			Rarity: Rare
+			Brood Edge
+			Jagged Spear
+			--------
+			Physical Damage: 33-61
+			Elemental Damage: 39-62 (fire), 9-14 (cold)
+			Critical Hit Chance: 8.70% (augmented)
+			Attacks per Second: 1.74 (augmented)
+			--------
+			Requires: Level 59, 33 Str, 81 (unmet) Dex
+			--------
+			Item Level: 76
+			--------
+			Bleeding you inflict deals Damage 11% faster (implicit)
+			--------
+			Grants Skill: Spear Throw
+			--------
+			Adds 39 to 62 Fire Damage
+			Adds 9 to 14 Cold Damage
+			+2.7% to Critical Hit Chance
+			16% increased Attack Speed
+			+22 to Dexterity
+		]])
+
+		assert.are.equals(2, #item.implicitModLines)
+		assert.are.equals("Bleeding you inflict deals Damage 11% faster", item.implicitModLines[1].line)
+		assert.are.equals("Grants Skill: Spear Throw", item.implicitModLines[2].line)
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("SpearThrowPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals("Adds 39 to 62 Fire Damage", item.explicitModLines[1].line)
+
+		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", data.itemBases["Volatile Wand"].implicit)
+
+		item = new("Item", [[
+			Item Class: Wands
+			Rarity: Rare
+			Temp Wand
+			Volatile Wand
+			--------
+			Physical Damage: 10-18
+			Critical Hit Chance: 7.00%
+			Attacks per Second: 1.45
+			--------
+			Requires: Level 45, 104 Int
+			--------
+			Item Level: 60
+			--------
+			Grants Skill: Level 11 Volatile Dead
+			--------
+			10% increased Spell Damage
+		]])
+
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Grants Skill: Level 11 Volatile Dead", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("VolatileDeadPlayer", item.grantedSkills[1].skillId)
+		assert.are.equals("10% increased Spell Damage", item.explicitModLines[1].line)
+	end)
+
+	it("Crafted base granted skill ranges stay implicit", function()
+		local base = data.itemBases["Volatile Wand"]
+		local item = new("Item")
+		item.name = "Volatile Wand"
+		item.base = base
+		item.baseName = "Volatile Wand"
+		item.rarity = "RARE"
+		item.title = "New Item"
+		item.crafted = true
+		item.prefixes = { }
+		item.suffixes = { }
+		item.buffModLines = { }
+		item.enchantModLines = { }
+		item.runeModLines = { }
+		item.classRequirementModLines = { }
+		item.implicitModLines = {
+			{ line = base.implicit }
+		}
+		item.explicitModLines = { }
+		item.sockets = { }
+		item.runes = { }
+
+		item:NormaliseQuality()
+		item:BuildAndParseRaw()
+
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("Grants Skill: Level (1-20) Volatile Dead", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.grantedSkills)
+		assert.are.equals("VolatileDeadPlayer", item.grantedSkills[1].skillId)
+	end)
+
+	it("Crafted affixes matching base implicit ranges stay explicit", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			New Item
+			Solar Amulet
+			Crafted: true
+			Prefix: {range:0}IncreasedSpirit4
+			Prefix: None
+			Prefix: None
+			Suffix: None
+			Suffix: None
+			Suffix: None
+			Implicits: 1
+			+(10-15) to Spirit
+		]])
+
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals("+(10-15) to Spirit", item.implicitModLines[1].line)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("+43 to Spirit", item.explicitModLines[1].line)
+
+		item.prefixes[1].range = 0.2
+		item:Craft()
+		assert.are.equals(1, #item.implicitModLines)
+		assert.are.equals(1, #item.explicitModLines)
+		assert.are.equals("+44 to Spirit", item.explicitModLines[1].line)
+	end)
+
 	--TODO: POB2 Leagues?
 	--it("League", function()
 	--end)
@@ -261,6 +383,50 @@ describe("TestItemParse", function()
 		assert.are.equals(86, item.requirements.dexMod)
 		assert.are.equals(55, item.requirements.intMod)	
 		
+	end)
+
+
+	it("infers pasted multi-value rune lines as whole runes", function()
+		local item = new("Item", [[
+			Rarity: Rare
+			Onslaught Relic
+			Warmonger Bow
+			--------
+			Quality: +20% (augmented)
+			Physical Damage: 91-161 (augmented)
+			Elemental Damage: 57-98 (fire), 58-98 (cold)
+			Critical Hit Chance: 11.00%
+			Attacks per Second: 1.50 (augmented)
+			--------
+			Requires: Level 67, 86 Str, 65 Int
+			--------
+			Sockets: S S S
+			--------
+			Item Level: 81
+			--------
+			Adds 9 to 15 Cold Damage (rune)
+			Leeches 3% of Physical Damage as Life (rune)
+			Bonded: 5% increased maximum Life (rune)
+			Bonded: 30% increased Freeze Buildup (rune)
+			--------
+			Adds 16 to 35 Physical Damage
+			Adds 49 to 83 Cold Damage
+			20% increased Attack Speed
+			+31 to Strength
+			Adds 57 to 98 Fire Damage (desecrated)
+			--------
+			Corrupted
+		]])
+
+		assert.are.equals(3, item.itemSocketCount)
+		assert.are.same({ "Greater Glacial Rune", "Greater Body Rune" }, item.runes)
+		assert.are.equals(1, item.runeModLines[1].runeCount)
+		assert.are.equals(1, item.runeModLines[2].runeCount)
+		assert.is_nil(item.runeModLines[3].runeCount)
+		assert.is_nil(item.runeModLines[4].runeCount)
+		for _, rune in ipairs(item.runes) do
+			assert.are_not.equals("Lesser Glacial Rune", rune)
+		end
 	end)
 
 	it("multi-line rune mod", function()

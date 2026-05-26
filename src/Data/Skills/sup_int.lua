@@ -916,7 +916,10 @@ skills["SupportBlazingCriticalPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-					mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+				},
+				["support_blazing_crits_base_duration_ms"] = {
+					-- Display only
 				},
 			},
 			baseFlags = {
@@ -1906,11 +1909,6 @@ skills["SupportColdExposurePlayer"] = {
 			label = "Cold Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
-					mod("ColdExposureChance", "BASE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2790,6 +2788,9 @@ skills["SupportDecayingHexPlayer"] = {
 				},
 			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" }),
 			},
 			constantStats = {
 				{ "support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds", 6000 },
@@ -6118,7 +6119,7 @@ skills["SupportMinionPactPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6155,7 +6156,7 @@ skills["SupportMinionPactPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {

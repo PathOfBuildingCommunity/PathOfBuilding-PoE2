@@ -554,6 +554,24 @@ function calcs.offence(env, actor, activeSkill)
 			func(activeSkill, output, breakdown)
 		end
 	end
+	
+	local function modHasSkillType(mod, skillType)
+		for _, tag in ipairs(mod) do
+			if tag.type == "SkillType" then
+				if tag.skillType == skillType then
+					return true
+				end
+				if tag.skillTypeList then
+					for _, listedSkillType in ipairs(tag.skillTypeList) do
+						if listedSkillType == skillType then
+							return true
+						end
+					end
+				end
+			end
+		end
+		return false
+	end
 
 	runSkillFunc("initialFunc")
 
@@ -718,9 +736,9 @@ function calcs.offence(env, actor, activeSkill)
 		-- Companion Damage conversion from Inspiring Ally
 		local tempCfg = copyTable(skillCfg, true)
 		tempCfg.skillTypes[SkillType.CreatesCompanion] = true -- Add companion skill tag to cfg so it doesn't fail
-		for _, value in ipairs(skillModList:List(tempCfg, "MinionModifier")) do
-			if value.mod.name == "Damage" and value.mod.type == "INC" then
-				local mod = value.mod
+		for _, value in ipairs(skillModList:Tabulate("LIST", tempCfg, "MinionModifier")) do
+			local mod = value.value and value.value.mod
+			if modHasSkillType(value.mod, SkillType.CreatesCompanion) and mod and mod.name == "Damage" and mod.type == "INC" then
 				skillModList:NewMod("Damage", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 			end
 		end
@@ -940,7 +958,7 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("AreaOfEffect", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
 	end
-	if skillModList:Flag(nil, "SequentialProjectiles") and not skillModList:Flag(nil, "OneShotProj") and not skillModList:Flag(nil,"NoAdditionalProjectiles") and not skillModList:Flag(nil, "TriggeredBySnipe") then
+	if activeSkill.skillTypes[SkillType.Barrageable] and skillModList:Flag(nil, "SequentialProjectiles") and not skillModList:Flag(nil, "OneShotProj") and not skillModList:Flag(nil, "NoAdditionalProjectiles") and not skillModList:Flag(nil, "TriggeredBySnipe") then
 		-- Applies DPS multiplier based on projectile count
 		if skillModList:Sum("BASE", skillCfg, "BarrageRepeats") > 0 then
 			local dpsMulti = (1 + skillModList:Sum("BASE", skillCfg, "BarrageRepeats")) * (calcLib.mod(skillModList, skillCfg, "BarrageRepeatDamage"))
@@ -2138,7 +2156,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Cache global damage disabling flags
 	local canDeal = { }
 	for _, damageType in ipairs(dmgTypeList) do
-		canDeal[damageType] = not skillModList:Flag(skillCfg, "DealNo"..damageType)
+		canDeal[damageType] = not skillModList:Flag(skillCfg, "DealNo"..damageType, "DealNoDamage")
 	end
 
 	-- Calculate damage conversion percentages
@@ -2758,7 +2776,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if globalOutput.Cooldown then
 				output.Cooldown = globalOutput.Cooldown
-				output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				if not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
+					output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				end
 			end
 			if output.Cooldown and skillFlags.selfCast or skillData.maxHitRatePerEnemy or skillData.hitTimeOverride then
 				skillFlags.notAverage = true
@@ -2861,7 +2881,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.Speed, s_format("= %.2f ^8(eff. attack rate)", output.Speed))
 				end
 				-- Cooldown:
-				if output.Cooldown and (1 / output.Cooldown) < output.CastRate then
+				if output.Cooldown and (1 / output.Cooldown) < output.CastRate and not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
 					t_insert(breakdown.Speed, s_format("\n"))
 					t_insert(breakdown.Speed, s_format("1 / %.2f ^8(skill cooldown)", output.Cooldown))
 					if output.Repeats > 1 then
@@ -4879,8 +4899,9 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					else
 						local resist = calcResistForType(ailmentDamageType, dotCfg)
-						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", ailmentTypeMod .. "DamageTaken")
-						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", ailmentTypeMod .. "DamageTaken")
+						local elementalDamageTaken = isElemental[ailmentDamageType] and "ElementalDamageTaken" or nil
+						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", elementalDamageTaken)
+						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", elementalDamageTaken)
 						effMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
 						globalOutput[ailment .. "EffMult"] = effMult
 						if breakdown and effMult ~= 1 then
@@ -5136,7 +5157,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Apply elemental exposure from skill
 		for _, element in ipairs({"Fire", "Cold", "Lightning"}) do
-			if skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0 then
+			if (skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0) or skillModList:Flag(cfg, "InflictExposure") then
 				skillFlags["apply"..element.."Exposure"] = true
 			end
 		end

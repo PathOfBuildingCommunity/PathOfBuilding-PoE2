@@ -28,6 +28,7 @@ local itemTypes = {
 	"spear",
 	"staff",
 	"sword",
+	"talisman",
 	"wand",
 	"helmet",
 	"body",

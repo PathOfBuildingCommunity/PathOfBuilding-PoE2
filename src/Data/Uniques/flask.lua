@@ -25,6 +25,13 @@ Instant Recovery
 ]],
 -- Flask: Mana
 [[
+Lavianga's Spirits
+Gargantuan Mana Flask
+Requires Level 49
+League: Fate of the Vaal
+This Flask cannot be Used but applies its Effect constantly
+(70-80)% reduced Amount Recovered
+]],[[
 Melting Maelstrom
 Ultimate Mana Flask
 Source: Drops from unique{Kosis, The Revelation}

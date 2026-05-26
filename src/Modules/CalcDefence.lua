@@ -190,7 +190,8 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 		breakdown.SpiritReserved = { reservations = { } }
 	end
 	for _, activeSkill in ipairs(actor.activeSkillList) do
-		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
+		local isTotemAndAncestralBond = activeSkill.skillTypes[SkillType.SummonsTotem] and modDB:Flag(nil, "AncestralBond")
+		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] or isTotemAndAncestralBond then
 			local skillModList = activeSkill.skillModList
 			local skillCfg = activeSkill.skillCfg
 			local mult = floor(skillModList:More(skillCfg, "ReservationMultiplier"), 4)
@@ -259,7 +260,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
 					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
 				end
-				if activeSkill.skillTypes[SkillType.MultipleReservation] then
+				if activeSkill.skillTypes[SkillType.MultipleReservation] or isTotemAndAncestralBond then
 					local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
 					values.count = activeSkillCount
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")
@@ -1005,7 +1006,8 @@ function calcs.defence(env, actor)
 		local totalSpellBlockChance = modDB:Sum("BASE", nil, "SpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance")
 		output.SpellBlockChance = m_min(totalSpellBlockChance, output.SpellBlockChanceMax)
 		output.SpellBlockChanceOverCap = m_max(0, totalSpellBlockChance - output.SpellBlockChanceMax)
-		output.SpellProjectileBlockChance = m_max(m_min(output.SpellBlockChance + modDB:Sum("BASE", nil, "ProjectileSpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance"), output.SpellBlockChanceMax), 0)
+		local spellProjectileBlockChance = m_min(output.SpellBlockChance + modDB:Sum("BASE", nil, "ProjectileSpellBlockChance") * calcLib.mod(modDB, nil, "SpellBlockChance"), output.SpellBlockChanceMax)
+		output.SpellProjectileBlockChance = m_max(spellProjectileBlockChance, output.ProjectileBlockChance, 0)
 	end
 	if breakdown then
 		breakdown.BlockChance = {
@@ -3077,13 +3079,16 @@ function calcs.buildDefenceEstimations(env, actor)
 			end
 			iterationMultiplier = 1
 			-- to speed it up, run recursively but accelerated
-			local speedUp = data.misc.ehpCalcSpeedUp
+			-- MoM/life-loss-prevention mechanics can collapse too many hits into one
+			-- resulting in eHP jumps so we slow the acceleration.
+			local speedUp = DamageIn["LimitEHPSpeedup"] and 4 or data.misc.ehpCalcSpeedUp
 			DamageIn["cyclesRan"] = DamageIn["cyclesRan"] or false
 			if not DamageIn["cyclesRan"] and poolTable.Life > 0 and DamageIn["iterations"] < maxIterations then
 				Damage = { }
 				for _, damageType in ipairs(dmgTypeList) do
 					Damage[damageType] = DamageIn[damageType] * speedUp
 				end
+				Damage["LimitEHPSpeedup"] = DamageIn["LimitEHPSpeedup"]
 				if DamageIn.GainWhenHit then
 					Damage.GainWhenHit = true
 					Damage.LifeWhenHit = DamageIn.LifeWhenHit
@@ -3135,6 +3140,7 @@ function calcs.buildDefenceEstimations(env, actor)
 			for _, damageType in ipairs(dmgTypeList) do
 				DamageIn[damageType] = output[damageType.."TakenHit"]
 			end
+			DamageIn["LimitEHPSpeedup"] = output["preventedLifeLossTotal"] > 0
 			output["NumberOfDamagingHits"] = numberOfHitsToDie(DamageIn)
 		end
 
@@ -3226,6 +3232,7 @@ function calcs.buildDefenceEstimations(env, actor)
 				output["LifeLossLostOverTime"] = 0
 				output["LifeBelowHalfLossLostOverTime"] = 0
 			end
+			DamageIn["LimitEHPSpeedup"] = DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit
 			averageAvoidChance = averageAvoidChance / 5
 			output["ConfiguredDamageChance"] = 100 * (blockEffect * suppressionEffect * effectiveDeflectMulti * (1 - averageAvoidChance / 100))
 			output["NumberOfMitigatedDamagingHits"] = (output["ConfiguredDamageChance"] ~= 100 or DamageIn["TrackRecoupable"] or DamageIn["TrackLifeLossOverTime"] or DamageIn.GainWhenHit) and numberOfHitsToDie(DamageIn) or output["NumberOfDamagingHits"]

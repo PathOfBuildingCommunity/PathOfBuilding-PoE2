@@ -9,28 +9,35 @@ local dkjson = require "dkjson"
 local M = {}
 
 -- Helper: get rarity color code for an item
+--- @param item table
 function M.getRarityColor(item)
 	if not item then return "^7" end
-	if item.rarity == "UNIQUE" then return colorCodes.UNIQUE
-	elseif item.rarity == "RARE" then return colorCodes.RARE
-	elseif item.rarity == "MAGIC" then return colorCodes.MAGIC
-	else return colorCodes.NORMAL end
+	if item.rarity and colorCodes[item.rarity] then
+		return colorCodes[item.rarity]
+	else
+		return "^7"
+	end
 end
 
 -- Helper: normalize a mod line by replacing numbers with "#" for template matching
+--- @param line string
 function M.modLineTemplate(line)
 	-- Replace decimal numbers first (e.g. "1.5"), then integers
-	return line:gsub("[%d]+%.?[%d]*", "#")
+	return line:gsub("%-?[%d]+%.?[%d]*", "#")
 end
 
 -- Helper: extract the first number from a mod line for value comparison
+--- @param line string
 function M.modLineValue(line)
-	return tonumber(line:match("[%d]+%.?[%d]*")) or 0
+	return tonumber(line:match("%-?[%d]+%.?[%d]*"))
 end
 
 -- Helper: fetch and cache the trade API stats
 local _tradeStats = nil
 local _tradeStatsFetched = false
+-- contains data for stats which have options, like allocates #
+local optionTradeStatMap = {}
+--- @return table
 local function getTradeStatsLookup()
 	if _tradeStats then return _tradeStats end
 	local tradeStats = ""
@@ -47,6 +54,24 @@ local function getTradeStatsLookup()
 	if not ok or tradeStats == "" then return {} end
 	local parsed = dkjson.decode(tradeStats)
 	_tradeStats = parsed.result
+
+	for _, cat in ipairs(_tradeStats) do
+		if cat.id == "enchant" or cat.id == "explicit" or cat.id == "implicit" then
+			optionTradeStatMap[cat.id] = {}
+			for _, entry in ipairs(cat.entries) do
+				local tradeId, option = entry.id:match("(.*)|(.*)")
+				if tradeId and option then
+					local newEntry = { type = cat.id, text = entry.text, tradeId = entry.id }
+					if entry.text:match("#") then
+						-- work around issue where pob splits timeless jewel
+						-- mods into separate mod lines
+						newEntry.pattern = entry.text:gsub("\n.*", ""):gsub("(%+)", "%%+"):gsub("#", "(%%d%+)")
+					end
+					table.insert(optionTradeStatMap[cat.id], newEntry)
+				end
+			end
+		end
+	end
 	return _tradeStats
 end
 
@@ -57,28 +82,71 @@ M.sourceTypeToCategory = {
 	["enchant"] = "Enchant",
 }
 
+-- inverses a mod. e.g. more x -> less x
+--- @param modLine string
+function M.swapInverse(modLine)
+	local priorStr = modLine
+	local inverseKey
+	if modLine:match("increased") then
+		modLine = modLine:gsub("([^ ]+) increased", "-%1 reduced")
+		if modLine ~= priorStr then inverseKey = "increased" end
+	elseif modLine:match("reduced") then
+		modLine = modLine:gsub("([^ ]+) reduced", "-%1 increased")
+		if modLine ~= priorStr then inverseKey = "reduced" end
+	elseif modLine:match("more") then
+		modLine = modLine:gsub("([^ ]+) more", "-%1 less")
+		if modLine ~= priorStr then inverseKey = "more" end
+	elseif modLine:match("less") then
+		modLine = modLine:gsub("([^ ]+) less", "-%1 more")
+		if modLine ~= priorStr then inverseKey = "less" end
+	elseif modLine:match("expires ([^ ]+) slower") then
+		modLine = modLine:gsub("([^ ]+) slower", "-%1 faster")
+		if modLine ~= priorStr then inverseKey = "slower" end
+	elseif modLine:match("expires ([^ ]+) faster") then
+		modLine = modLine:gsub("([^ ]+) faster", "-%1 slower")
+		if modLine ~= priorStr then inverseKey = "faster" end
+	end
+	return modLine, inverseKey
+end
+
+-- checks if the mod should be inverted before query
+--- @param tradeId string
+--- @param modLine string
+--- @param modType string
 function M.shouldBeInverted(tradeId, modLine, modType)
 	local formattedLine = M.formatDatabaseText(M.formatDatabaseText(modLine))
+	local invertedLine, inverseKey = M.swapInverse(formattedLine)
+	invertedLine = invertedLine:gsub("^%-", "")
+	if not inverseKey then
+		return false
+	end
 	for _, category in ipairs(getTradeStatsLookup()) do
 		if category.id == modType then
 			for _, stat in ipairs(category.entries) do
 				if tradeId == stat.id then
 					-- remove radius jewel extra text
 					local formattedTradeSiteText = M.formatDatabaseText(stat.text)
-					-- local modifiers don't seem to be inverted. same goes for
-					-- the single stat that has (charm) in it
-					if formattedTradeSiteText:match("(Local)") or formattedTradeSiteText:match(" %(Charm%)$") then
+					-- there are multiple stat variants on the trade site which are marked with e.g. (Local). None of these seem to be inverted, so we can check for those and return early
+					if formattedTradeSiteText:match(" %(%w+%)$") then
 						return false
 					end
-					-- trade site sometimes has a + sign, sometimes not
-					return not (formattedLine == formattedTradeSiteText or formattedLine:gsub("^%+", "") == formattedTradeSiteText)
+
+					-- test for inverted mod
+					if inverseKey and ((invertedLine == formattedTradeSiteText) or (invertedLine:gsub("^%+", "") == formattedTradeSiteText)) then
+						return true
+					end
+
+					-- otherwise it's probably not inverted
+					return false
 				end
 			end
 		end
 	end
+	return false
 end
 
 -- Helper: normalise data texts to # format
+--- @param text string
 function M.formatDatabaseText(text)
 	-- decimal -> integer
 	text = text:gsub("%d+%.%d+", "1")
@@ -93,25 +161,67 @@ function M.formatDatabaseText(text)
 end
 
 -- Helper: find the trade stat ID for a mod line
+--- @param item table
+--- @param modLine string
+--- @param modType string
+--- @param isDesecrated boolean
+--- the
+--- @return number? hash returned for most mods
+--- @return string? optionTradeId returned if the mod is an option. e.g. Allocates X
+--- @return number value returned if the mod is an option and uses values. e.g. timeless jewel
 function M.findTradeHash(item, modLine, modType, isDesecrated)
 	local formattedLine = M.formatDatabaseText(modLine)
 	-- the data export splits some mods into different parts, even though they
 	-- are technically just one stat. we handle that here
-	function findStat(dbMod, allowDefault)
-		local excludeTags = (not allowDefault) and { default = true } or nil
-		if #dbMod.weightKey > 0 and not (item:GetModSpawnWeight(dbMod, nil, excludeTags) > 0) then
+	local isUnique = item.rarity == "UNIQUE" or item.rarity == "RELIC"
+	local function findStat(dbMod, ignoreWeights)
+		local excludeTags = (not isUnique) and { default = true } or nil
+		if not ignoreWeights and #(dbMod.weightKey or {}) > 0 and not (item:GetModSpawnWeight(dbMod, nil, excludeTags) > 0) then
 			return nil
 		end
 		for tradeHash, description in pairs(dbMod.tradeHashes) do
-			for _, line in ipairs(description) do
-				local dbFormatted = M.formatDatabaseText(line)
-				if formattedLine == dbFormatted then
+			local tradeLine = table.concat(description, "\n")
+			if formattedLine == M.formatDatabaseText(tradeLine) then
+				return tradeHash
+			end
+
+			-- the mod line splitting between the stat export and item parsing
+			-- can be different. hence we test both a combined line and separate
+			-- lines
+			for _, descLine in ipairs(description) do
+				if formattedLine == M.formatDatabaseText(descLine) then
 					return tradeHash
 				end
 			end
 		end
 	end
 
+	-- initialise optionTradeStatMap
+	if not _tradeStats then
+		getTradeStatsLookup()
+	end
+
+	for _, v in ipairs(optionTradeStatMap[modType] or {}) do
+		if v.pattern then
+			local match = modLine:match(v.pattern)
+			if match then
+				return nil, v.tradeId, tonumber(match)
+			end
+		elseif v.text == modLine then
+			return nil, v.tradeId
+		end
+	end
+	
+
+	-- desecrate-only mods
+	if isDesecrated then
+		for _, dbMod in pairs(data.itemMods.Desecrated) do
+			local tradeHashMaybe = findStat(dbMod, isUnique)
+			if tradeHashMaybe then
+				return tradeHashMaybe
+			end
+		end
+	end
 	-- corruptions
 	if modType == "enchant" then
 		for _, dbMod in pairs(data.itemMods.Corruption) do
@@ -120,31 +230,20 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 				return tradeHashMaybe
 			end
 		end
-		-- explicit
-	elseif modType ~= "implicit" then
-		local modList = (item.base and item.base.type == "Jewel" and data.itemMods.Jewel)
-			or data.itemMods.Item
-		for _, dbMod in pairs(modList) do
+	-- most implicit and explicit applicable to the type
+	elseif modType ~= "implicit" or modType ~= "explicit" then
+		for _, dbMod in pairs(item.affixes) do
 			local tradeHashMaybe = findStat(dbMod)
 			if tradeHashMaybe then
 				return tradeHashMaybe
 			end
 		end
 	end
-	-- implicit, and special explicit (e.g. unique and essence)
+	-- special mods with weird weights
 	for _, dbMod in pairs(data.itemMods.Exclusive) do
 		local tradeHashMaybe = findStat(dbMod, true)
 		if tradeHashMaybe then
 			return tradeHashMaybe
-		end
-	end
-	-- desecrated mods (some of these are unique)
-	if isDesecrated then
-		for _, dbMod in pairs(data.itemMods.Desecrated) do
-			local tradeHashMaybe = findStat(dbMod)
-			if tradeHashMaybe then
-				return tradeHashMaybe
-			end
 		end
 	end
 	-- charm mods
@@ -157,9 +256,71 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 			end
 		end
 	end
+	-- essence mods don't seem to have spawn weights and are tested last
+	for _, dbMod in pairs(data.itemMods.Item) do
+		local tradeHashMaybe = findStat(dbMod, true)
+		if tradeHashMaybe then
+			return tradeHashMaybe
+		end
+	end
 end
 
+-- Map slot name + item type to (trade API category string, itemCategoryTags key).
+-- queryStr:      e.g. "armour.shield", "weapon.onemace"
+-- categoryLabel: e.g. "Shield", "1HMace", "1HWeapon" (nil for flask / generic jewel / unsupported)
+--- @param slotName string
+--- @param item table
+function M.getTradeCategory(slotName, item)
+	if not slotName then return nil, nil end
+	local itemType = item and (item.type or (item.base and item.base.type))
+	if slotName:find("^Weapon %d") then
+		if not itemType then return "weapon.one", "1HWeapon" end
+		if itemType == "Shield" then return "armour.shield", "Shield"
+		elseif itemType == "Focus" then return "armour.focus", "Focus"
+		elseif itemType == "Buckler" then return "armour.buckler", "Buckler"
+		elseif itemType == "Quiver" then return "armour.quiver", "Quiver"
+		elseif itemType == "Bow" then return "weapon.bow", "Bow"
+		elseif itemType == "Crossbow" then return "weapon.crossbow", "Crossbow"
+		elseif itemType == "Talisman" then return "weapon.talisman", "Talisman"
+		elseif itemType == "Staff" and item.base.subType == "Warstaff" then return "weapon.warstaff", "Quarterstaff"
+		elseif itemType == "Staff" then return "weapon.staff", "Staff"
+		elseif itemType == "Two Hand Sword" then return "weapon.twosword", "2HSword"
+		elseif itemType == "Two Hand Axe" then return "weapon.twoaxe", "2HAxe"
+		elseif itemType == "Two Hand Mace" then return "weapon.twomace", "2HMace"
+		elseif itemType == "Fishing Rod" then return "weapon.rod", "FishingRod"
+		elseif itemType == "One Hand Sword" then return "weapon.onesword", "1HSword"
+		elseif itemType == "Spear" then return "weapon.spear", "Spear"
+		elseif itemType == "Flail" then return "weapon.flail", "weapon.flail"
+		elseif itemType == "One Hand Axe" then return "weapon.oneaxe", "1HAxe"
+		elseif itemType == "One Hand Mace" then return "weapon.onemace", "1HMace"
+		elseif itemType == "Sceptre" then return "weapon.sceptre", "Sceptre"
+		elseif itemType == "Wand" then return "weapon.wand", "Wand"
+		elseif itemType == "Dagger" then return "weapon.dagger", "Dagger"
+		elseif itemType == "Claw" then return "weapon.claw", "Claw"
+		elseif itemType:find("Two Hand") then return "weapon.twomelee", "2HWeapon"
+		elseif itemType:find("One Hand") then return "weapon.one", "1HWeapon"
+		else
+			return nil, nil
+		end
+	elseif slotName == "Body Armour" then return "armour.chest", "Chest"
+	elseif slotName == "Helmet" then return "armour.helmet", "Helmet"
+	elseif slotName == "Gloves" then return "armour.gloves", "Gloves"
+	elseif slotName == "Boots" then return "armour.boots", "Boots"
+	elseif slotName == "Amulet" then return "accessory.amulet", "Amulet"
+	elseif slotName == "Ring 1" or slotName == "Ring 2" or slotName == "Ring 3" then return "accessory.ring", "Ring"
+	elseif slotName == "Belt" then return "accessory.belt", "Belt"
+	elseif slotName:find("Jewel") then return "jewel", "Jewel"
+	elseif slotName:find("Flask 1") then return "flask.life", "Life Flask"
+	elseif slotName:find("Flask 2") then return "flask.mana", "Mana Flask"
+	-- these don't have a unique string so overlapping mods of the same benefit could interfere. , "Charm"
+	elseif slotName:find("Charm") ~= nil then return "flask"
+	else return nil, nil
+	end
+end
+
+
 -- Helper: get a display-friendly category name from slot name
+--- @param item table
 function M.getTradeCategoryLabel(slotName, item)
 	if not item or not item.base then return "Item" end
 	local baseType = item.base.type or item.type
@@ -168,6 +329,7 @@ end
 
 -- Helper: build a mod comparison map from an item.
 -- Returns a table keyed by template string → { line = original text, value = first number }
+--- @param item table
 function M.buildModMap(item)
 	local modMap = {}
 	if not item then return modMap end
@@ -186,6 +348,8 @@ function M.buildModMap(item)
 end
 
 -- Helper: get diff label string for an item slot comparison
+--- @param pItem table
+--- @param cItem table
 function M.getSlotDiffLabel(pItem, cItem)
 	if not pItem and not cItem then
 		return "^8(both empty)"
@@ -281,23 +445,6 @@ local function fitItemName(colorCode, name, maxW)
 	return colorCode .. name:sub(1, lo) .. "..."
 end
 
-local function fitSlotLabel(label, maxW)
-	local display = "^7" .. label .. ":"
-	if DrawStringWidth(16, "VAR", display) <= maxW then
-		return display
-	end
-	local lo, hi = 0, #label
-	while lo < hi do
-		local mid = m_floor((lo + hi + 1) / 2)
-		if DrawStringWidth(16, "VAR", "^7" .. label:sub(1, mid) .. "...:") <= maxW then
-			lo = mid
-		else
-			hi = mid - 1
-		end
-	end
-	return "^7" .. label:sub(1, lo) .. "...:"
-end
-
 -- Helper: draw a single compact-mode item row.
 -- Returns: pHover, cHover, b1Hover, b2Hover, b3Hover, b2X, b2Y, b2W, b2H, hoverItem, hoverItemsTab
 -- copyBtnW, copyBtnH, buyBtnW are button dimensions (passed from LAYOUT by caller).
@@ -319,11 +466,11 @@ function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 	local diffLabel = M.getSlotDiffLabel(pItem, cItem)
 
 	-- Layout positions (fixed 310px box width matching regular Items tab)
-	local labelX = xOffset + 10
+	local labelX = 10 + xOffset
 	local pBoxX = labelX + maxLabelW + 4
 	local pBoxW = ITEM_BOX_W
 
-	local cBoxX = xOffset + colWidth + 10
+	local cBoxX = colWidth + 10 + xOffset
 	local cBoxW = ITEM_BOX_W
 
 	-- Diff indicator position
@@ -337,7 +484,7 @@ function M.drawCompactSlotRow(drawY, slotLabel, pItem, cItem,
 
 	-- Draw slot label
 	SetDrawColor(1, 1, 1)
-	DrawString(labelX, drawY + 2, "LEFT", 16, "VAR", fitSlotLabel(slotLabel, maxLabelW))
+	DrawString(labelX, drawY + 2, "LEFT", 16, "VAR", "^7" .. slotLabel .. ":")
 
 	-- Draw primary item box
 	local pBorderGray = pHover and 0.5 or 0.33

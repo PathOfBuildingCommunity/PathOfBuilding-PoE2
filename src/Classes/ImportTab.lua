@@ -20,7 +20,10 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	self.Control()
 
 	self.build = build
-	self.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
+	if not main.api then
+		main.api = new("PoEAPI", main.lastToken, main.lastRefreshToken, main.tokenExpiry)
+	end
+
 
 	self.charImportMode = "AUTHENTICATION"
 	self.charImportStatus = colorCodes.WARNING.."Not authenticated"
@@ -31,17 +34,17 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	self.controls.logoutApiButton = new("ButtonControl", {"TOPLEFT",self.controls.charImportStatusLabel,"TOPRIGHT"}, {4, 0, 180, 16}, "^7Logout from Path of Exile API", function()
 		main.lastToken = nil
-		self.api.authToken = nil
+		main.api.authToken = nil
 		main.lastRefreshToken = nil
-		self.api.refreshToken = nil
+		main.api.refreshToken = nil
 		main.tokenExpiry = nil
-		self.api.tokenExpiry = nil
+		main.api.tokenExpiry = nil
 		main:SaveSettings()
 		self.charImportMode = "AUTHENTICATION"
 		self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 	end)
 	self.controls.logoutApiButton.shown = function()
-		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and self.api.authToken ~= nil
+		return (self.charImportMode == "SELECTCHAR" or self.charImportMode == "GETACCOUNTNAME") and main.api.authToken ~= nil
 	end
 	
 	self.controls.characterImportAnchor = new("Control", {"TOPLEFT",self.controls.sectionCharImport,"TOPLEFT"}, {6, 40, 200, 16})
@@ -49,16 +52,18 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 
 	-- Stage: Authenticate
 	self.controls.authenticateButton = new("ButtonControl", {"TOPLEFT",self.controls.characterImportAnchor,"TOPLEFT"}, {0, 0, 200, 16}, "^7Authorize with Path of Exile", function()
-		self.api:FetchAuthToken(function()
-			if self.api.authToken then
+		main.api:FetchAuthToken(function(_, errCode)
+			if main.api.authToken then
 				self.charImportMode = "GETACCOUNTNAME"
 				self.charImportStatus = "Authenticated"
 
-				main.lastToken = self.api.authToken
-				main.lastRefreshToken = self.api.refreshToken
-				main.tokenExpiry = self.api.tokenExpiry
+				main.lastToken = main.api.authToken
+				main.lastRefreshToken = main.api.refreshToken
+				main.tokenExpiry = main.api.tokenExpiry
 				main:SaveSettings()
 				self:DownloadCharacterList()
+			elseif errCode and errCode ~= main.api.ERROR_NO_AUTH then
+				self.charImportStatus = colorCodes.NEGATIVE .. "Authentication failed: " .. errCode
 			else
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			end
@@ -127,7 +132,7 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end)
 	self.controls.enablePartyExportBuffs = new("CheckBoxControl", {"LEFT",self.controls.generateCode,"RIGHT"}, {100, 0, 18}, "Export Support", function(state)
 		self.build.partyTab.enableExportBuffs = state
-		self.build.buildFlag = true 
+		self.build.buildFlag = true
 	end, "This is for party play, to export support character, it enables the exporting of auras, curses and modifiers to the enemy", false)
 	self.controls.generateCodeOut = new("EditControl", {"TOPLEFT",self.controls.generateCodeLabel,"BOTTOMLEFT"}, {0, 8, 250, 20}, "", "Code", "%Z")
 	self.controls.generateCodeOut.enabled = function()
@@ -341,26 +346,30 @@ local ImportTabClass = newClass("ImportTab", "ControlHost", "Control", function(
 	end
 
 	-- validate the status of the api the first time
-	self.api:ValidateAuth(function(valid, updateSettings)
-		if valid then 
-			if self.charImportMode == "AUTHENTICATION" then
-				self.charImportMode = "GETACCOUNTNAME"
-				self.charImportStatus = "Authenticated"
-			end
-			if updateSettings then
-				self:SaveApiSettings()
-			end
-		else
-			self.charImportMode = "AUTHENTICATION"
-			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
-		end
-	end)
+	self:RefreshAuthStatus()
 end)
 
+function ImportTabClass:RefreshAuthStatus()
+	main.api:ValidateAuth(function(valid, updateSettings)
+			if valid then
+				if self.charImportMode == "AUTHENTICATION" then
+					self.charImportMode = "GETACCOUNTNAME"
+					self.charImportStatus = "Authenticated"
+				end
+				if updateSettings then
+					self:SaveApiSettings()
+				end
+			else
+				self.charImportMode = "AUTHENTICATION"
+				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
+			end
+		end)
+end
+
 function ImportTabClass:SaveApiSettings()
-	main.lastToken = self.api.authToken
-	main.lastRefreshToken = self.api.refreshToken
-	main.tokenExpiry = self.api.tokenExpiry
+	main.lastToken = main.api.authToken
+	main.lastRefreshToken = main.api.refreshToken
+	main.tokenExpiry = main.api.tokenExpiry
 	main:SaveSettings()
 end
 
@@ -397,7 +406,7 @@ function ImportTabClass:Save(xml)
 		xml.attrib.importLink = self.build.importLink
 	end
 	-- Gets rid of erroneous, potentially infinitely nested full base64 XML stored as an import link
-	xml.attrib.importLink = (xml.attrib.importLink and xml.attrib.importLink:len() < 100) and xml.attrib.importLink or nil 
+	xml.attrib.importLink = (xml.attrib.importLink and xml.attrib.importLink:len() < 100) and xml.attrib.importLink or nil
 end
 
 function ImportTabClass:Draw(viewPort, inputEvents)
@@ -429,16 +438,16 @@ function ImportTabClass:DownloadCharacterList()
 			-- normal league and ruthless league (Sanctum, Ruthless Sanctum)
 			return "Standard"
 		end
-	end	
+	end
 	
 	self.charImportMode = "DOWNLOADCHARLIST"
 	self.charImportStatus = "Retrieving character list..."
 	local realm = realmList[self.controls.accountRealm.selIndex]
-	self.api:DownloadCharacterList(realm.realmCode, function(body, errMsg, updateSettings)
+	main.api:DownloadCharacterList(realm.realmCode, function(body, errMsg, updateSettings)
 		if updateSettings then
 			self:SaveApiSettings()
 		end
-		if errMsg == self.api.ERROR_NO_AUTH then
+		if errMsg == main.api.ERROR_NO_AUTH then
 			self.charImportMode = "AUTHENTICATION"
 			self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 			return
@@ -539,8 +548,10 @@ function ImportTabClass:BuildCharacterList(league)
 
 			classColor = colorCodes.DEFAULT
 			if charClass ~= "?" then
-				local tree = main:LoadTree(latestTreeVersion .. (char.league:match("Ruthless") and "_ruthless" or ""))
-				classColor = colorCodes[charClass:upper()] or colorCodes[tree.ascendNameMap[charClass].class.name:upper()] or "^7"
+				local tree = main:LoadTree(latestTreeVersion)
+				local ascendClass = tree and tree.ascendNameMap[charClass]
+				local baseClassName = ascendClass and ascendClass.class.name
+				classColor = colorCodes[charClass:upper()] or (baseClassName and colorCodes[baseClassName:upper()]) or "^7"
 			end
 
 			local detail
@@ -577,13 +588,13 @@ function ImportTabClass:DownloadCharacter(callback)
 	local realm = realmList[self.controls.accountRealm.selIndex]
 	local charSelect = self.controls.charSelect
 	local charData = charSelect.list[charSelect.selIndex].char
-	self.api:DownloadCharacter(realm.realmCode, charData.name, function(body, errMsg, updateSettings)
+	main.api:DownloadCharacter(realm.realmCode, charData.name, function(body, errMsg, updateSettings)
 		self.charImportMode = "SELECTCHAR"
 		if updateSettings then
 			self:SaveApiSettings()
 		end
 		if errMsg then
-			if errMsg == self.api.ERROR_NO_AUTH then
+			if errMsg == main.api.ERROR_NO_AUTH then
 				self.charImportMode = "AUTHENTICATION"
 				self.charImportStatus = colorCodes.WARNING.."Not authenticated"
 				return
@@ -735,7 +746,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 		end
 	end
 
-	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion .. (charData.league:match("Ruthless") and "_ruthless" or ""))
+	self.build.spec:ImportFromNodeList(charData.class, nil, nil, charPassiveData.alternate_ascendancy or 0, hashes, weaponSets, {}, charPassiveData.mastery_effects or {}, latestTreeVersion)
 
 	-- workaround to update the ui to last option
 	self.build.treeTab.controls.versionSelect.selIndex = #self.build.treeTab.treeVersions
@@ -774,7 +785,7 @@ function ImportTabClass:ImportPassiveTreeAndJewels(charData)
 	local resistancePenaltyIndex = 7
 	if self.build.Act then -- Estimate resistance penalty setting based on act progression estimate
 		if type(self.build.Act) == "string" and self.build.Act == "Endgame" then resistancePenaltyIndex = 7
-		elseif type(self.build.Act) == "number" then 
+		elseif type(self.build.Act) == "number" then
 			if self.build.Act > 6 then resistancePenaltyIndex = 7
 			elseif self.build.Act < 1 then resistancePenaltyIndex = 1
 			else resistancePenaltyIndex = self.build.Act end

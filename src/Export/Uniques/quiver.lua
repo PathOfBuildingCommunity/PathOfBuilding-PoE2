@@ -40,8 +40,22 @@ UniqueDamageAddedAsFireAttacks1
 Cadiro's Gambit
 Primed Quiver
 League: Dawn of the Hunt
+Implicits: 1
 QuiverImplicitIncreasedAttackSpeed1
 UniquePerandusArrows1
+]],[[
+Drillneck
+Penetrating Quiver
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Implicits: 1
+QuiverImplicitArrowAdditionalPierce1
+UniqueIncreasedLife56
+UniqueIncreasedAttackSpeed15
+UniqueEvasionAppliesToDeflection5
+UniqueArrowsReturnAfterPiercingXTimes1
+UniqueProjectileIncreasedCriticalHitChancePerPierce1
+UniqueProjectileIncreasedDamagePerPierce1
 ]],[[
 The Lethal Draw
 Sacral Quiver

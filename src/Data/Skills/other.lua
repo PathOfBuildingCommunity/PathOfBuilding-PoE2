@@ -3472,12 +3472,6 @@ skills["ExplosiveConcoctionPlayer"] = {
 			baseEffectiveness = 4.5,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "explosive_concoction",
-			statMap = {
-				["flask_throw_fire_exposure_ms"] = {
-					mod("FireExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -3840,12 +3834,6 @@ skills["FulminatingConcoctionPlayer"] = {
 			baseEffectiveness = 4.1999998092651,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "fulminating_concoction",
-			statMap = {
-				["flask_throw_lightning_exposure_ms"] = {
-					mod("LightningExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -4095,6 +4083,12 @@ skills["InevitableAgonyPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "inevitable_agony",
 			baseFlags = {
+				area = true,
+				duration = true,
+				curse = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1500 },
@@ -5987,6 +5981,9 @@ skills["ParryPlayer"] = {
 				duration = true,
 				shieldAttack = true,
 			},
+			baseMods = {
+				skill("debuff", true),
+			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -50 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -6039,6 +6036,21 @@ skills["PinnacleOfPowerPlayer"] = {
 			label = "Pinnacle of Power",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "pinnacle_of_power",
+			statMap = {
+				["elemental_power_elemental_damage_+%_final_per_power_charge"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Cold, SkillType.Fire, SkillType.Lightning } }, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff" }),
+					flag("ColdCanIgnite", { type = "GlobalEffect", effectType = "Buff" }), flag("ColdCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+					flag("FireCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("FireCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+					flag("LightningCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("LightningCanIgnite", { type = "GlobalEffect", effectType = "Buff" }),
+				},
+				["elemental_power_buff_duration_per_power_charge_ms"] = {
+					mod("Duration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
+					div = 1000,
+				},
+				["quality_stat_elemental_power_elemental_damage_+%_final_per_power_charge_is_gem"] = {
+					-- display only
+				},
+			},
 			baseFlags = {
 				buff = true,
 				duration = true,
@@ -6944,12 +6956,6 @@ skills["ShatteringConcoctionPlayer"] = {
 			baseEffectiveness = 3.9000000953674,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "shattering_concoction",
-			statMap = {
-				["flask_throw_cold_exposure_ms"] = {
-					mod("ColdExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7472,6 +7478,12 @@ skills["SorceryWardPlayer"] = {
 			label = "Sorcery Ward",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "sorcery_ward",
+			statMap = {
+				["aegis_unique_shield_max_value_from_%_armour_evasion"] = {
+					mod("ElementalAegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution", neg = true }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+					mod("AegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution" }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

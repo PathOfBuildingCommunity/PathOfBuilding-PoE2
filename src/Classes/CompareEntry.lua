@@ -379,12 +379,14 @@ function CompareEntryClass:RefreshSkillSelectControls(controls, mainGroup, suffi
 
 	-- Minion controls
 	local disabled = activeSkill.activeEffect and activeSkill.activeEffect.statSet and activeSkill.activeEffect.statSet.skillFlags.disable
-	if not disabled and activeSkill.minion and (activeEffect.grantedEffect.minionList or (activeSkill.minionList and activeSkill.minionList[1])) then
-		self:RefreshMinionControls(controls, activeSkill, activeEffect, suffix)
+	local minionList = activeSkill.minionList or activeEffect.grantedEffect.minionList
+	if not disabled and activeSkill.minion and (activeEffect.grantedEffect.minionList or (minionList and minionList[1])) then
+		self:RefreshMinionControls(controls, activeSkill, activeEffect, suffix, minionList)
 	end
 end
 
-function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEffect, suffix)
+function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEffect, suffix, minionList)
+	minionList = minionList or activeSkill.minionList or activeEffect.grantedEffect.minionList or { }
 	wipeTable(controls.mainSkillMinion.list)
 	if activeEffect.grantedEffect.minionHasItemSet then
 		for _, itemSetId in ipairs(self.itemsTab.itemSetOrderList) do
@@ -396,11 +398,14 @@ function CompareEntryClass:RefreshMinionControls(controls, activeSkill, activeEf
 		end
 		controls.mainSkillMinion:SelByValue(activeEffect.srcInstance["skillMinionItemSet" .. suffix] or 1, "itemSetId")
 	else
-		for _, minionId in ipairs(activeSkill.minionList) do
-			t_insert(controls.mainSkillMinion.list, {
-				label = self.data.minions[minionId].name,
-				minionId = minionId,
-			})
+		for _, minionId in ipairs(minionList) do
+			local minion = self.data.minions[minionId]
+			if minion then
+				t_insert(controls.mainSkillMinion.list, {
+					label = minion.name,
+					minionId = minionId,
+				})
+			end
 		end
 		controls.mainSkillMinion:SelByValue(
 		activeEffect.srcInstance["skillMinion" .. suffix] or controls.mainSkillMinion.list[1], "minionId")
