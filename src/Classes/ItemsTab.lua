@@ -2838,6 +2838,56 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 					return a.essence.tierLevel > b.essence.tierLevel
 				end
 			end)
+		elseif sourceId == "DESECRATED" then
+			local function isDesecratedMod(mod)
+				for _, tag in ipairs(mod.modTags or { }) do
+					if tag == "ulaman_mod" or tag == "amanamu_mod" or tag == "kurgal_mod" then
+						return true
+					end
+				end
+			end
+			for _, mod in pairs(self.displayItem.affixes) do -- Normal mods for the item can be desecrated as well.
+				if (mod.type == "Prefix" or mod.type == "Suffix") and self.displayItem:GetModSpawnWeight(mod) > 0 then
+					t_insert(modList, {
+						label = mod.affix .. "   ^8[" .. table.concat(mod, "/") .. "]",
+						mod = mod,
+						type = "desecrated",
+					})
+				end
+			end
+			for _, mod in pairs(self.build.data.itemMods.Desecrated) do
+				if isDesecratedMod(mod) and self.displayItem:GetModSpawnWeight(mod) > 0 then
+					t_insert(modList, {
+						label = mod.affix .. "   " .. "^8[" .. table.concat(mod, "/") .. "]" .. " (" .. (mod.type or "Suffix") .. ") (Desecrated)",
+						mod = mod,
+						type = "desecrated",
+						desecratedSpecific = true,
+					})
+				end
+			end
+			table.sort(modList, function(a, b)
+				local modA = a.mod
+				local modB = b.mod
+
+				-- Desecrated specific mods always come first
+				if a.desecratedSpecific ~= b.desecratedSpecific then
+					return a.desecratedSpecific == true
+				end
+
+				for i = 1, m_max(#modA.statOrder or 0, #modB.statOrder or 0) do
+					local statA = modA.statOrder and modA.statOrder[i]
+					local statB = modB.statOrder and modB.statOrder[i]
+
+					if not statA then
+						return true
+					elseif not statB then
+						return false
+					elseif statA ~= statB then
+						return statA < statB
+					end
+				end
+				return (modA.level or 0) > (modB.level or 0)
+			end)
 		end
 		setDefaultSortOrder(modList)
 	end
@@ -2845,10 +2895,15 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
 		t_insert(sourceList, { label = "Suffix", sourceId = "SUFFIX" })
 	end
-	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods, 
+	buildMods("DESECRATED")
+	local hasDesecratedMods = #modList > 0
+	buildMods("ESSENCE") 	-- This is technically a waste if there aren't any essence mods,
 									-- but it makes it so we don't have to maintain a list of applicable essence-able base types
 	if #modList > 0 then
 		t_insert(sourceList, { label = "Essence", sourceId = "ESSENCE" })
+	end
+	if hasDesecratedMods then
+		t_insert(sourceList, { label = "Desecrated", sourceId = "DESECRATED" })
 	end
 	t_insert(sourceList, { label = "Custom", sourceId = "CUSTOM" })
 	buildMods(sourceList[1].sourceId)
@@ -2859,6 +2914,11 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 		if sourceId == "CUSTOM" then
 			if controls.custom.buf:match("%S") then
 				t_insert(item.explicitModLines, { line = controls.custom.buf, custom = true })
+			end
+		elseif sourceId == "DESECRATED" then
+			local listMod = modList[controls.modSelect.selIndex]
+			for _, line in ipairs(listMod.mod) do
+				t_insert(item.explicitModLines, { line = line, modTags = listMod.mod.modTags, [listMod.type] = true, custom = true })
 			end
 		else
 			local listMod = modList[controls.modSelect.selIndex]
