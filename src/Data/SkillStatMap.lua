@@ -2733,6 +2733,9 @@ return {
 ["withered_on_hit_chance_%"] = {
 	flag("Condition:CanWither"),
 },
+["apply_x_wither_on_hit"] = {
+	flag("Condition:CanWither"),
+},
 ["minions_have_%_chance_to_inflict_wither_on_hit"] = {
 	mod("MinionModifier", "LIST", { mod = flag("Condition:CanWither") }),
 },
@@ -2743,6 +2746,9 @@ return {
 	flag("Condition:CanWither"),
 },
 ["withered_on_hit_chance_%_for_every_100%_target_ailment_threshold_dealt_as_chaos_damage"] = {
+	flag("Condition:CanWither"),
+},
+["wither_on_hit_chance_rollovercapped"] = {
 	flag("Condition:CanWither"),
 },
 ["discharge_damage_+%_if_3_charge_types_removed"] = {

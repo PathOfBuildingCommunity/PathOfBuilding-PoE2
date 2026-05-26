@@ -832,6 +832,11 @@ statMap = {
 #skill HisFoulEmergencePlayer
 #set HisFoulEmergencePlayer
 #flags spell area duration
+statMap = {
+	["active_skill_withered_base_duration_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd
 
@@ -1516,11 +1521,17 @@ statMap = {
 #skill WitherPlayer
 #set WitherPlayer
 #flags spell area duration
+#baseMod flag("Condition:CanWither")
 #mods
 #skillEnd
 
 #skill WitheringPresencePlayer
 #set WitheringPresencePlayer
 #flags duration
+statMap = {
+	["skill_withering_presence_frequency_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd
