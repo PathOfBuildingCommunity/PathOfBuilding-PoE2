@@ -40,8 +40,22 @@ Attacks Gain (5-10)% of Damage as Extra Fire Damage
 Cadiro's Gambit
 Primed Quiver
 League: Dawn of the Hunt
+Implicits: 1
 (7-10)% increased Attack Speed
 Each Arrow fired is a Crescendo, Splinter, Reversing, Diamond, Covetous, or Blunt Arrow
+]],[[
+Drillneck
+Penetrating Quiver
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Implicits: 1
+100% chance to Pierce an Enemy
++(60-90) to maximum Life
+(8-12)% increased Attack Speed
+Gain Deflection Rating equal to (24-32)% of Evasion Rating
+Attack Projectiles Return if they Pierced at least (2-4) times
+Projectiles deal (42-64)% increased Damage with Hits for each time they have Pierced
+Projectiles have (42-64)% increased Critical Hit chance for each time they have Pierced
 ]],[[
 The Lethal Draw
 Sacral Quiver

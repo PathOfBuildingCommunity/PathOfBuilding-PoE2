@@ -64,6 +64,7 @@ colorCodes = {
 	SCOURGE = "^xFF6E25",
 	CRUCIBLE = "^xFFA500",
 	GEMDESCRIPTION = "^xBAAD85",
+	SPLITPERSONALITY = "^xFFD62A"
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER

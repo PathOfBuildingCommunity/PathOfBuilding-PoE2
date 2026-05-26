@@ -204,7 +204,7 @@ skills["BarragePlayer"] = {
 					flag("SequentialProjectiles", { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }),
 				},
 				["empower_barrage_number_of_barrage_repeats_per_frenzy_charge"] = {
-					mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }, { type = "Multiplier", var = "RemovableFrenzyCharge"}),
+					mod("BarrageRepeats", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Barrage" }, { type = "Multiplier", var = "RemovableFrenzyCharge", scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 				["empower_barrage_cooldown_%of_attack_time"] = {
 					-- how to set attack time for this cooldown?
@@ -897,7 +897,6 @@ skills["SummonBeastPlayer"] = {
 				minion = true,
 				summonBeast = true,
 				duration = true,
-				permanentMinion = true,
 			},
 			baseMods = {
 				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
@@ -4428,11 +4427,8 @@ skills["LightningSpearPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "lightning_spear_statset_0",
 			statMap = {
-				["lightning_spear_damage_+%_final_when_charged"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
-				},
 				["lightning_spear_additional_number_to_split_when_charged"] = {
-					mod("SplitCount", "BASE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("SplitCount", "BASE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 				["lightning_burst_display"] = {
 					-- Display Only
@@ -6107,7 +6103,7 @@ skills["RainOfArrowsPlayer"] = {
 			statDescriptionScope = "rain_of_arrows_new",
 			statMap = {
 				["rain_of_arrows_projectile_count_multiplier_per_frenzy_charge"] = {
-					mod("ProjectileNumber", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+					mod("ProjectileCount", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 				["rain_of_arrows_delay_per_arrow"] = {
 					skill("hitTimeOverride", nil),
@@ -7988,13 +7984,13 @@ skills["SpiralVolleyPlayer"] = {
 			statDescriptionScope = "spiral_volley",
 			statMap = {
 				["spiral_volley_damage_+%_final_when_frenzy_charges_consumed"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1 }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 				["spiral_volley_damage_+%_final_per_frenzy_charge_consumed"] = {
-					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+					mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 				["spiral_volley_X_chains_per_frenzy_charge_consumed"] = {
-					mod("ChainCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge" }),
+					mod("ChainCountMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovableFrenzyCharge", scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 			},
 			baseFlags = {
