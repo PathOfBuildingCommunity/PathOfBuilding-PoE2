@@ -3,10 +3,17 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
+# Cancel any in-progress review for this PR when a new push arrives.
+# Prevents duplicate comments and wasted runner time.
+concurrency:
+  group: ai-review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   review:
     name: ai-review
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     permissions:
       pull-requests: write
       contents: read
@@ -16,7 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          # Only need enough history to compute the base..HEAD diff
           fetch-depth: 0
+          filter: blob:none  # blobless clone — history without file contents
 
       - name: Verify ANTHROPIC_API_KEY is NOT set
         run: |
@@ -25,8 +34,18 @@ jobs:
             exit 1
           fi
 
+      - name: Cache agent tooling
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.npm-global
+            ~/.local/bin/opencode
+          key: agent-tools-${{ runner.os }}-v1
+
       - name: Install agent tooling if missing
         run: |
+          export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:$PATH"
+          npm config set prefix "$HOME/.npm-global"
           command -v claude || npm install -g @anthropic-ai/claude-code
           command -v opencode || curl -fsSL https://opencode.ai/install | bash
 
@@ -35,17 +54,38 @@ jobs:
           git diff "origin/${{ github.base_ref }}...HEAD" > /tmp/pr.diff
           git diff --stat "origin/${{ github.base_ref }}...HEAD" > /tmp/pr.summary
 
+      # Bail early on massive diffs rather than silently producing a degraded review.
+      - name: Guard against oversized diff
+        run: |
+          LINES=$(wc -l < /tmp/pr.diff)
+          echo "Diff size: ${LINES} lines"
+          if [[ "$LINES" -gt 3000 ]]; then
+            echo "::warning::Diff exceeds 3000 lines (${LINES}). Skipping AI review — please request a manual review."
+            exit 0
+          fi
+
       - name: Run AI review
         run: |
-          PROMPT=$(cat <<EOF
+          export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:$PATH"
+
+          # Write the prompt to a file to avoid shell injection from diff content
+          cat > /tmp/prompt.txt << 'PROMPT_EOF'
           You are a senior Lua developer performing a thorough code review on a
           Path of Building 2 PR. Follow CLAUDE.md.
+          PROMPT_EOF
+
+          cat >> /tmp/prompt.txt << PROMPT_EOF
 
           Diff summary:
           $(cat /tmp/pr.summary)
+          PROMPT_EOF
 
-          Full diff:
-          $(cat /tmp/pr.diff)
+          # Append the diff content safely, outside of the heredoc expansion
+          echo "" >> /tmp/prompt.txt
+          echo "Full diff:" >> /tmp/prompt.txt
+          cat /tmp/pr.diff >> /tmp/prompt.txt
+
+          cat >> /tmp/prompt.txt << 'PROMPT_EOF'
 
           Review checklist — address each item explicitly:
           1. Calculation correctness: does the math match PoE2 mechanics?
@@ -60,15 +100,66 @@ jobs:
 
           Be specific. Cite line numbers. Flag anything wrong. Format output as
           a Markdown review with sections matching the checklist above.
-          Conclude with a one-line verdict: APPROVE, REQUEST_CHANGES, or COMMENT.
-          EOF
-          )
+          On the very last line, output exactly one of these tokens and nothing else:
+          VERDICT:APPROVE
+          VERDICT:REQUEST_CHANGES
+          VERDICT:COMMENT
+          PROMPT_EOF
 
-          ./scripts/ai-agent.sh "$PROMPT" --mode review --max-turns 20 > /tmp/review.md
+          ./scripts/ai-agent.sh --prompt-file /tmp/prompt.txt --mode review --max-turns 20 > /tmp/review.md
 
-      - name: Post review comment
+      # Upload the raw review as an artifact so it's recoverable if the post step fails
+      - name: Save review artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ai-review-${{ github.event.pull_request.number }}-${{ github.run_attempt }}
+          path: /tmp/review.md
+          retention-days: 7
+
+      - name: Parse verdict
+        id: verdict
+        run: |
+          VERDICT=$(grep '^VERDICT:' /tmp/review.md | tail -1 | cut -d: -f2 || echo "COMMENT")
+          # Strip the verdict line from the comment body
+          sed -i '/^VERDICT:/d' /tmp/review.md
+          echo "result=${VERDICT}" >> "$GITHUB_OUTPUT"
+
+      # Edit the existing bot comment if one exists, otherwise create a new one.
+      # Prevents a wall of review comments on active branches.
+      - name: Post or update review comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+        run: |
+          EXISTING_ID=$(gh pr view "$PR_NUM" --json comments \
+            --jq '.comments[] | select(.author.login == "github-actions[bot]") | select(.body | startswith("<!-- ai-review -->")) | .id' \
+            | head -1)
+
+          REVIEW_BODY=$(cat /tmp/review.md)
+          FULL_BODY="<!-- ai-review -->
+          ${REVIEW_BODY}"
+
+          if [[ -n "$EXISTING_ID" ]]; then
+            gh api \
+              --method PATCH \
+              "/repos/${{ github.repository }}/issues/comments/${EXISTING_ID}" \
+              -f body="$FULL_BODY"
+          else
+            gh pr comment "$PR_NUM" --body "$FULL_BODY"
+          fi
+
+      # Actually apply the verdict as a formal GitHub review, not just a comment.
+      - name: Submit formal review
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr comment ${{ github.event.pull_request.number }} \
-            --body-file /tmp/review.md
+          VERDICT="${{ steps.verdict.outputs.result }}"
+          case "$VERDICT" in
+            APPROVE)         EVENT="APPROVE" ;;
+            REQUEST_CHANGES) EVENT="REQUEST_CHANGES" ;;
+            *)               EVENT="COMMENT" ;;
+          esac
+          gh pr review ${{ github.event.pull_request.number }} \
+            --event "$EVENT" \
+            --body "Verdict from AI review: **${VERDICT}**. See the review comment above for details."
