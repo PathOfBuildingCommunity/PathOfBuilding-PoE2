@@ -53,6 +53,84 @@ for _, entry in pairs(data.flavourText) do
     end
 end
 
+local function isAnointable(item)
+	return (item.canBeAnointed or item.base.type == "Amulet") and not item.sanctified
+		and not item.corrupted and not item.mirrored
+end
+
+local function buildModSortList()
+	local sortList = { { label = "Default", stat = nil } }
+	local sortTransforms = { }
+	for _, entry in ipairs(data.powerStatList) do
+		if entry.stat and not entry.ignoreForNodes then
+			t_insert(sortList, { label = entry.label, stat = entry.stat })
+			sortTransforms[entry.stat] = entry.transform
+		end
+	end
+	return sortList, sortTransforms
+end
+
+local function getOutputStatValue(output, stat)
+	if stat == "FullDPS" then
+		if output[stat] ~= nil then
+			return output[stat]
+		end
+		if output.Minion and output.Minion.CombinedDPS ~= nil then
+			return output.Minion.CombinedDPS
+		end
+	end
+	if output.Minion and output.Minion[stat] ~= nil then
+		return output.Minion[stat]
+	end
+	if output[stat] ~= nil then
+		return output[stat]
+	end
+	return 0
+end
+
+local function setDefaultSortOrder(modList)
+	for index, listMod in ipairs(modList) do
+		listMod.defaultSortOrder = index
+		listMod.sortValue = nil
+		listMod.sortValues = nil
+	end
+end
+
+local function getSortedModValue(item, listMod, stat, sortTransforms, calcFunc, slotName, useFullDPS, addModToItem)
+	listMod.sortValues = listMod.sortValues or { }
+	if listMod.sortValues[stat] ~= nil then
+		return listMod.sortValues[stat]
+	end
+	local testItem = new("Item", item:BuildRaw())
+	testItem.id = item.id
+	addModToItem(testItem, listMod)
+	testItem:BuildAndParseRaw()
+	local output = calcFunc({ repSlotName = slotName, repItem = testItem }, useFullDPS)
+	local value = getOutputStatValue(output, stat)
+	if sortTransforms[stat] then
+		value = sortTransforms[stat](value)
+	end
+	listMod.sortValues[stat] = value
+	return value
+end
+
+local function sortModList(modList, stat, getSortValue)
+	if stat then
+		for _, listMod in ipairs(modList) do
+			listMod.sortValue = getSortValue(listMod)
+		end
+		table.sort(modList, function(a, b)
+			if a.sortValue ~= b.sortValue then
+				return a.sortValue > b.sortValue
+			end
+			return (a.defaultSortOrder or 0) < (b.defaultSortOrder or 0)
+		end)
+	else
+		table.sort(modList, function(a, b)
+			return (a.defaultSortOrder or 0) < (b.defaultSortOrder or 0)
+		end)
+	end
+end
 
 local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Control", function(self, build)
 	self.UndoHandler()
@@ -403,9 +481,30 @@ holding Shift will put it in the second.]])
 		self:AnointDisplayItem(1)
 	end)
 	self.controls.displayItemAnoint.shown = function()
-		return self.displayItem and ((self.displayItem.base.type == "Amulet" or self.displayItem.canBeAnointed) and not self.displayItem.sanctified)
+		return self.displayItem and isAnointable(self.displayItem)
 	end
-	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
+	self.controls.displayItemAnoint2 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 2...", function()
+		self:AnointDisplayItem(2)
+	end)
+	self.controls.displayItemAnoint2.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveTwoEnchants and #self.displayItem.enchantModLines > 0
+	end
+	self.controls.displayItemAnoint3 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint2,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 3...", function()
+		self:AnointDisplayItem(3)
+	end)
+	self.controls.displayItemAnoint3.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveThreeEnchants and #self.displayItem.enchantModLines > 1
+	end
+	self.controls.displayItemAnoint4 = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint3,"TOPRIGHT",true}, {8, 0, 100, 20}, "Anoint 4...", function()
+		self:AnointDisplayItem(4)
+	end)
+	self.controls.displayItemAnoint4.shown = function()
+		return self.displayItem and isAnointable(self.displayItem) and
+			self.displayItem.canHaveFourEnchants and #self.displayItem.enchantModLines > 2
+	end
+	self.controls.displayItemCorrupt = new("ButtonControl", {"TOPLEFT",self.controls.displayItemAnoint4,"TOPRIGHT",true}, {8, 0, 100, 20}, "Corrupt...", function()
 		self:CorruptDisplayItem()
 	end)
 	self.controls.displayItemCorrupt.shown = function()
@@ -1479,18 +1578,80 @@ function ItemsTabClass:DeleteItem(item, deferUndoState)
 	end
 end
 
+local function isAnointable(item)
+	return (item.canBeAnointed or item.base.type == "Amulet")
+end
+
+local function isAugmentable(item)
+	return (item.sockets and #item.sockets > 0) or (item.base.socketLimit and item.base.socketLimit > 0)
+end
+
+function ItemsTabClass:CopyAnointsAndAugments(newItem, copyAugments, overwrite, sourceSlotName)
+	local isWeapon = newItem.base.tags and (newItem.base.tags.onehand or newItem.base.tags.twohand)
+	local isShield = newItem.base.tags and (newItem.base.tags.shield or newItem.base.tags.focus)
+	local newItemType = sourceSlotName or (isWeapon and "Weapon 1") or (isShield and "Weapon 2") or newItem.base.type
+	-- tabula rasa has jewel sockets which don't apply here
+	if newItem.name == "Tabula Rasa, Garment" then return end
+	if self.activeItemSet[newItemType] then
+		local currentItem = self.activeItemSet[newItemType].selItemId and self.items[self.activeItemSet[newItemType].selItemId]
+		-- if you don't have an equipped item that matches the type of the newItem, no need to do anything
+		if currentItem then
+			local modifiableItem = not (newItem.corrupted or newItem.mirrored or newItem.sanctified)
+			-- if the new item is anointable and does not have an anoint and your current respective item does, apply that anoint to the new item
+			if isAnointable(newItem) and (#newItem.enchantModLines == 0 or overwrite) and self.activeItemSet[newItemType].selItemId > 0 and modifiableItem then
+				local currentAnoint = currentItem.enchantModLines
+				newItem.enchantModLines = currentAnoint
+			end
+			
+			--https://www.poe2wiki.net/wiki/Augment_socket
+			-- augments, given there are enough sockets
+
+			local hasEmptySockets = true
+			for i = 1, #newItem.runes do
+				if newItem.runes[i] ~= "None" then
+					hasEmptySockets = false
+					break
+				end
+			end
+			local shouldChangeAugments = copyAugments and isAugmentable(newItem) and
+			(#newItem.runes == 0 or hasEmptySockets or overwrite)
+
+			-- current runes sans "None"
+			local currentRunes = {}
+			for i = 1, #currentItem.runes do
+				if currentItem.runes[i] ~= "None" then
+					table.insert(currentRunes, currentItem.runes[i])
+				end
+			end
+			-- add sockets, if necessary and possible
+			if shouldChangeAugments and isAugmentable(newItem) and modifiableItem and #newItem.sockets < #currentItem.sockets then
+				local maxSockets = modifiableItem and math.min(#currentItem.sockets, newItem.base.socketLimit)
+				local neededSockets = math.max(0, maxSockets - #newItem.sockets)
+				for i = 1, neededSockets do
+					table.insert(newItem.runes, "None")
+					table.insert(newItem.sockets, { group = #newItem.sockets + 1})
+				end
+				newItem.itemSocketCount = #newItem.sockets
+				newItem:UpdateRunes()
+			end
+			-- replace runes with current ones, or set to none
+			if shouldChangeAugments then
+				for i = 1, #newItem.sockets do
+					newItem.runes[i] = currentRunes[i] or "None"
+				end
+				newItem:UpdateRunes()
+			end
+
+			newItem:BuildAndParseRaw()
+		end
+	end
+end
+
 -- Attempt to create a new item from the given item raw text and sets it as the new display item
 function ItemsTabClass:CreateDisplayItemFromRaw(itemRaw, normalise)
 	local newItem = new("Item", itemRaw)
 	if newItem.base then
-		-- if the new item is an amulet and does not have an anoint and your current amulet does, apply that anoint to the new item
-		if newItem.base.type == "Amulet" and #newItem.enchantModLines == 0 and self.activeItemSet["Amulet"].selItemId > 0 then
-			local currentAnoint = self.items[self.activeItemSet["Amulet"].selItemId].enchantModLines
-			if currentAnoint and #currentAnoint == 1 then -- skip if amulet has more than one anoint e.g. Stranglegasp
-				newItem.enchantModLines = currentAnoint
-				newItem:BuildAndParseRaw()
-			end
-		end
+		self:CopyAnointsAndAugments(newItem, main.migrateAugments, false)
 		if normalise then
 			newItem:NormaliseQuality()
 			newItem:BuildModList()
@@ -1631,7 +1792,7 @@ local runeModLines = { { name = "None", label = "None", lines = { "None" }, orde
 for name, runeMods in pairs(data.itemMods.Runes) do
 	-- Some runes have multiple mod lines; insert each as separate entry
 	for slotType, runeMod in pairs(runeMods) do
-		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, group = #runeMod })
+		t_insert(runeModLines, { name = name, label = runeMod[1], lines = runeMod, req = runeMod.rank[1], order = runeMod.statOrder[1], slot = slotType, type = runeMod.type, group = #runeMod })
 	end
 end
 table.sort(runeModLines, function(a, b)
@@ -1655,7 +1816,13 @@ function ItemsTabClass:UpdateRuneControls()
 			item.base.weapon and rune.slot == "weapon" or
 			item.base.armour and rune.slot == "armour" or
 			(item.base.tags.wand or item.base.tags.staff) and rune.slot == "caster" then
-			table.insert(runes, rune)
+				if item.title == "Atziri's Splendour" then
+					if rune.slot == "None" or rune.type == "SoulCore" then
+						table.insert(runes, rune)
+					end
+				else
+					table.insert(runes, rune)
+				end
 		end
 	end
 
@@ -2199,7 +2366,7 @@ function ItemsTabClass:anointItem(node)
 	return item
 end
 
----Appends tooltip information for anointing a new passive tree node onto the currently editing amulet
+---Appends tooltip information for anointing a new passive tree node onto the currently editing item
 ---@param tooltip table @The tooltip to append into
 ---@param node table @The passive tree node that will be anointed, or nil to remove the current anoint.
 function ItemsTabClass:AppendAnointTooltip(tooltip, node, actionText)
@@ -2233,8 +2400,9 @@ function ItemsTabClass:AppendAnointTooltip(tooltip, node, actionText)
 		header = "^7"..actionText.." nothing will give you: "
 	end
 	local calcFunc = self.build.calcsTab:GetMiscCalculator()
-	local outputBase = calcFunc({ repSlotName = "Amulet", repItem = self.displayItem })
-	local outputNew = calcFunc({ repSlotName = "Amulet", repItem = self:anointItem(node) })
+	local repSlotName = self.displayItem:GetPrimarySlot()
+	local outputBase = calcFunc({ repSlotName = repSlotName, repItem = self.displayItem })
+	local outputNew = calcFunc({ repSlotName = repSlotName, repItem = self:anointItem(node) })
 	local numChanges = self.build:AddStatComparesToTooltip(tooltip, outputBase, outputNew, header)
 	if node and numChanges == 0 then
 		tooltip:AddLine(14, "^7"..actionText.." "..node.dn.." changes nothing.")
@@ -2295,7 +2463,7 @@ end
 
 -- Opens the item corrupting popup
 function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outcomes this code is for poe 1
-	local controls = { } 
+	local controls = { }
 	local enchantList = { }
 	local enchantNum = 1
 	local shownExplicits = {}
@@ -2303,6 +2471,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	local corruptedRanges = {}
 	local currentModType = "Corrupted"
 	local sourceList = { "Corrupted" }
+	local sortList, sortTransforms = buildModSortList()
 	if self.displayItem.base.type == "Helmet" then
 		t_insert(sourceList, "Glimpse of Chaos")
 	end
@@ -2313,18 +2482,19 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		enchantList[modType] = {}
 		for modId, mod in pairs(data.itemMods.Corruption) do
 			if mod.type == modType and self.displayItem:GetModSpawnWeight(mod) > 0 then
-				t_insert(enchantList[modType], mod)
+				t_insert(enchantList[modType], { mod = mod })
 			end
 		end
 		table.sort(enchantList[modType], function(a, b)
-			local an = a[1]:lower():gsub("%(.-%)","$"):gsub("[%+%-%%]",""):gsub("%d+","$")
-			local bn = b[1]:lower():gsub("%(.-%)","$"):gsub("[%+%-%%]",""):gsub("%d+","$")
+			local an = a.mod[1]:lower():gsub("%(.-%)","$"):gsub("[%+%-%%]",""):gsub("%d+","$")
+			local bn = b.mod[1]:lower():gsub("%(.-%)","$"):gsub("[%+%-%%]",""):gsub("%d+","$")
 			if an ~= bn then
 				return an < bn
 			else
-				return a.level < b.level
+				return a.mod.level < b.mod.level
 			end
 		end)
+		setDefaultSortOrder(enchantList[modType])
 	end
 	buildEnchantList("Corrupted")
 	buildEnchantList("SpecialCorrupted")
@@ -2332,7 +2502,8 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		local selfMod = control.selIndex and control.selIndex > 1 and control.list[control.selIndex].mod
 		wipeTable(control.list)
 		t_insert(control.list, { label = "None" })
-		for _, mod in ipairs(enchantList[modType]) do
+		for _, listMod in ipairs(enchantList[modType]) do
+			local mod = listMod.mod
 			local alreadySelected = false
 			for _, other in ipairs(others) do
 				local otherMod = other and other.selIndex and other.selIndex > 1 and other.list[other.selIndex].mod
@@ -2346,21 +2517,14 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		end
 		control:SelByValue(selfMod, "mod")
 	end
-	local function corruptItem() 
-		local item = new("Item", self.displayItem:BuildRaw())
-		item.id = self.displayItem.id
-		item.corrupted = true
+	local function applyCorruptionMods(item, mods)
 		local newEnchant = { }
-		for i = 1, enchantNum do
-			local control = controls["enchant"..i]
-			if control.selIndex > 1 then
-				local mod = control.list[control.selIndex].mod
-				for i, modLine in ipairs(mod) do
-					if mod.modTags[1] then
-						t_insert(newEnchant, { line = "{tags:" .. table.concat(mod.modTags, ",") .. "}" .. modLine, enchant = true, order = mod.statOrder[i] })
-					else
-						t_insert(newEnchant, { line = modLine, enchant = true, order = mod.statOrder[i] })
-					end
+		for _, mod in ipairs(mods) do
+			for i, modLine in ipairs(mod) do
+				if mod.modTags[1] then
+					t_insert(newEnchant, { line = "{tags:" .. table.concat(mod.modTags, ",") .. "}" .. modLine, enchant = true, order = mod.statOrder[i] })
+				else
+					t_insert(newEnchant, { line = modLine, enchant = true, order = mod.statOrder[i] })
 				end
 			end
 		end
@@ -2374,6 +2538,52 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 				t_insert( item.enchantModLines, i, enchant)
 			end
 		end
+	end
+	local function sortEnchantList(stat)
+		if stat then
+			local slotName = self.displayItem:GetPrimarySlot()
+			local calcFunc = self.build.calcsTab:GetMiscCalculator()
+			local useFullDPS = stat == "FullDPS"
+			sortModList(enchantList[currentModType], stat, function(listMod)
+				return getSortedModValue(self.displayItem, listMod, stat, sortTransforms, calcFunc, slotName, useFullDPS, function(item, sortedMod)
+					applyCorruptionMods(item, { sortedMod.mod })
+				end)
+			end)
+		else
+			sortModList(enchantList[currentModType])
+		end
+	end
+	local function rebuildEnchantControls(resetSelection)
+		for i = 1, 8 do
+			local shown = i <= enchantNum
+			controls["enchant"..i].shown = shown
+			controls["enchant"..i.."Label"].shown = shown
+			if shown then
+				if resetSelection then
+					controls["enchant"..i]:SetSel(1)
+				end
+				local others = { }
+				for j = 1, enchantNum do
+					if i ~= j then
+						t_insert(others, controls["enchant"..j])
+					end
+				end
+				buildList(controls["enchant"..i], others, currentModType)
+			end
+		end
+	end
+	local function corruptItem()
+		local item = new("Item", self.displayItem:BuildRaw())
+		item.id = self.displayItem.id
+		item.corrupted = true
+		local mods = { }
+		for i = 1, enchantNum do
+			local control = controls["enchant"..i]
+			if control.selIndex > 1 then
+				t_insert(mods, control.list[control.selIndex].mod)
+			end
+		end
+		applyCorruptionMods(item, mods)
 		for i, modLine in ipairs(item.explicitModLines) do
 			if corruptedRanges[i] ~= 1 then modLine.corruptedRange = corruptedRanges[i] end
 		end
@@ -2444,6 +2654,8 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		end
 		controls.source.shown = true
 		controls.sourceLabel.shown = true
+		controls.sort.shown = true
+		controls.sortLabel.shown = true
 		main.popups[1].height = 103 + 20 * enchantNum
 		controls.close.y = 73 + 20 * enchantNum
 		controls.save.y = 73 + 20 * enchantNum
@@ -2463,6 +2675,8 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		end
 		controls.source.shown = false
 		controls.sourceLabel.shown = false
+		controls.sort.shown = false
+		controls.sortLabel.shown = false
 		main.popups[1].height = 55 + explicitOffset
 		controls.close.y = 25 + explicitOffset
 		controls.save.y = 25 + explicitOffset
@@ -2484,26 +2698,18 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 			end
 		end
 
-		for i = 1, 8 do
-			if i <= enchantNum then
-				controls["enchant"..i].shown = true
-				controls["enchant"..i.."Label"].shown = true
-				local others = { }
-				for j = 1, enchantNum do
-					if i ~= j then
-						t_insert(others, controls["enchant"..j])
-					end
-				end
-				buildList(controls["enchant"..i], others,  currentModType)
-			else
-				controls["enchant"..i].shown = false
-				controls["enchant"..i.."Label"].shown = false
-			end
-			controls["enchant"..i]:SetSel(1)
+		if controls.sort then
+			sortEnchantList(controls.sort.list[controls.sort.selIndex].stat)
 		end
+		rebuildEnchantControls(true)
 		main.popups[1].height = 103 + 20 * enchantNum
 		controls.close.y = 73 + 20 * enchantNum
 		controls.save.y = 73 + 20 * enchantNum
+	end)
+	controls.sortLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {350, 30, 0, 16}, "^7Sort by:")
+	controls.sort = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {355, 30, 240, 18}, sortList, function(index, value)
+		sortEnchantList(value.stat)
+		rebuildEnchantControls()
 	end)
 	for i = 1, 8 do
 		if i == 1 then
@@ -2518,15 +2724,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 			controls["enchant"..i.."Label"] = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 35 + i * 20 , 0, 16}, "^7Enchant #"..i..":")
 		end
 		controls["enchant"..i] = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 35 + i * 20, 440, 18}, nil, function()
-			for i = 1, enchantNum do
-				local others = { }
-				for j = 1, enchantNum do
-					if i ~= j then
-						t_insert(others, controls["enchant"..j])
-					end
-				end
-				buildList(controls["enchant"..i], others,  currentModType)
-			end
+			rebuildEnchantControls()
 		end)
 		controls["enchant"..i].tooltipFunc = function(tooltip, mode, index, value)
 			tooltip:Clear()
@@ -2537,24 +2735,8 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 				self:AddModComparisonTooltip(tooltip, value.mod)
 			end
 		end
-		if i == 1 then
-			controls["enchant"..i].shown = true
-			controls["enchant"..i.."Label"].shown = true
-		else
-			controls["enchant"..i].shown = false
-			controls["enchant"..i.."Label"].shown = false
-		end
-
-		if i <= enchantNum then
-			local others = { }
-			for j = 1, enchantNum do
-				if i ~= j then
-					t_insert(others, controls["enchant"..j])
-				end
-			end
-			buildList(controls["enchant"..i], others,  currentModType)
-		end
 	end
+	rebuildEnchantControls()
 	controls.save = new("ButtonControl", nil, {-45, 69 + enchantNum * 20, 80, 20}, "Corrupted", function()
 		self:SetDisplayItem(corruptItem())
 		main:ClosePopup()
@@ -2574,6 +2756,38 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	local controls = { }
 	local sourceList = { }
 	local modList = { }
+	local sortList, sortTransforms = buildModSortList()
+	local function applySort(stat, selectFirst)
+		if not controls.modSelect or not controls.modSelect:IsShown() then
+			return
+		end
+		local selected = not selectFirst and modList[controls.modSelect.selIndex] or nil
+		if stat then
+			local slotName = self.displayItem:GetPrimarySlot()
+			local calcFunc = self.build.calcsTab:GetMiscCalculator()
+			local useFullDPS = stat == "FullDPS"
+			sortModList(modList, stat, function(listMod)
+				return getSortedModValue(self.displayItem, listMod, stat, sortTransforms, calcFunc, slotName, useFullDPS, function(item, sortedMod)
+					for _, line in ipairs(sortedMod.mod) do
+						t_insert(item.explicitModLines, { line = checkLineForAllocates(line, self.build.spec.nodes), modTags = sortedMod.mod.modTags, [sortedMod.type] = true })
+					end
+				end)
+			end)
+		else
+			sortModList(modList)
+		end
+		controls.modSelect:UpdateSearch()
+		if selected then
+			for index, listMod in ipairs(modList) do
+				if listMod == selected then
+					controls.modSelect.selIndex = index
+					break
+				end
+			end
+		else
+			controls.modSelect:SetSel(1, true)
+		end
+	end
 	---Mutates modList to contain mods from the specified source
 	---@param sourceId string @The crafting source id to build the list of mods for
 	local function buildMods(sourceId)
@@ -2625,6 +2839,7 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 				end
 			end)
 		end
+		setDefaultSortOrder(modList)
 	end
 	if not self.displayItem.crafted then
 		t_insert(sourceList, { label = "Prefix", sourceId = "PREFIX" })
@@ -2658,8 +2873,21 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 20, 150, 18}, sourceList, function(index, value)
 		buildMods(value.sourceId)
 		controls.modSelect:SetSel(1)
+		if controls.sort then
+			applySort(controls.sort.list[controls.sort.selIndex].stat, true)
+		end
 	end)
 	controls.source.enabled = #sourceList > 1
+	controls.sortLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {350, 20, 0, 16}, "^7Sort by:")
+	controls.sortLabel.shown = function()
+		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
+	end
+	controls.sort = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {355, 20, 240, 18}, sortList, function(index, value)
+		applySort(value.stat, true)
+	end)
+	controls.sort.shown = function()
+		return sourceList[controls.source.selIndex].sourceId ~= "CUSTOM"
+	end
 	controls.modSelectLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 45, 0, 16}, "^7Modifier:")
 	controls.modSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 45, 600, 18}, modList)
 	controls.modSelect.shown = function()
@@ -2737,12 +2965,12 @@ function ItemsTabClass:FormatItemSource(text)
 			   :gsub("prophecy{([^}]+)}",colorCodes.PROPHECY.."%1"..colorCodes.SOURCE)
 end
 
-function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
+function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 	local fontSizeSmall = main.showFlavourText and 16 or 14
 	local fontSizeBig = main.showFlavourText and 18 or 16
 	local fontSizeTitle = main.showFlavourText and 22 or 20
 	local rarityCode = colorCodes[item.rarity]
-	tooltip.maxWidth = 600 -- Should instead get the longest mod and set the width to that. Some flavour text is way too long so we need a cap of sorts.
+	tooltip.maxWidth = m_min(maxWidth or 600, 600) -- Cap very long lines. Can use a narrower width for small viewports
 	tooltip.tooltipHeader = item.rarity
 	tooltip.center = true
 	tooltip.color = rarityCode
@@ -3375,49 +3603,108 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode)
 				t_insert(compareSlots, slot)
 			end
 		end
-		table.sort(compareSlots, function(a, b)
-			if a ~= b then
-				if slot == a then
-					return true
-				end
-				if slot == b then
-					return false
-				end
-			end
-			if a.selItemId ~= b.selItemId then
-				if item == self.items[a.selItemId] then
-					return true
-				end
-				if item == self.items[b.selItemId] then
-					return false
-				end
-			end
-			local aNum = tonumber(a.slotName:match("%d+"))
-			local bNum = tonumber(b.slotName:match("%d+"))
-			if aNum and bNum then
-				return aNum < bNum
-			else
-				return a.slotName < b.slotName
-			end
-		end)
 
-		-- Add comparisons for each slot
-		for _, compareSlot in pairs(compareSlots) do
-			if not main.slotOnlyTooltips or (slot and (slot.nodeId == compareSlot.nodeId or slot.slotName == compareSlot.slotName)) or not slot or slot == compareSlot then
-				local selItem = self.items[compareSlot.selItemId]
-				local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil})
-				local header
-				if item == selItem then
-					header = "^7Removing this item from "..compareSlot.label.." will give you:"
-				else
-					header = string.format("^7Equipping this item in %s will give you:%s", compareSlot.label, selItem and "\n(replacing "..colorCodes[selItem.rarity]..selItem.name.."^7)" or "")
+		tooltip:AddLine(14, colorCodes.TIP .. "Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+
+		local function getReplacedItemAndOutput(compareSlot)
+			local selItem = self.items[compareSlot.selItemId]
+			local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil })
+			return selItem, output
+		end
+		local function addCompareForSlot(compareSlot, selItem, output)
+			if not selItem or not output then
+				selItem, output = getReplacedItemAndOutput(compareSlot)
+			end
+			local header
+			if item == selItem then
+				header = "^7Removing this item from " .. compareSlot.label .. " will give you:"
+			else
+				header = string.format("^7Equipping this item in %s will give you:%s",
+					compareSlot.label or compareSlot.slotName,
+					selItem and "\n(replacing " .. colorCodes[selItem.rarity] .. selItem.name .. "^7)" or "")
+			end
+			self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
+		end
+
+		-- if we have a specific slot to compare to, and the user has "Show
+		-- tooltips only for affected slots" checked, we can just compare that
+		-- one slot
+		if main.slotOnlyTooltips and slot then
+			slot = type(slot) ~= "string" and slot or self.slots[slot]
+			if slot then addCompareForSlot(slot) end
+			return
+		end
+
+
+		local slots = {}
+		local isUnique = item.rarity == "UNIQUE" or item.rarity == "RELIC"
+		local currentSameUniqueCount = 0
+		for _, compareSlot in ipairs(compareSlots) do
+			local selItem, output = getReplacedItemAndOutput(compareSlot)
+			local isSameUnique = isUnique and selItem and item.name == selItem.name
+			if isUnique and isSameUnique and item.limit then
+				currentSameUniqueCount = currentSameUniqueCount + 1
+			end
+			table.insert(slots,
+				{ selItem = selItem, output = output, compareSlot = compareSlot, isSameUnique = isSameUnique })
+		end
+
+		-- limited uniques: only compare to slots with the same item if more don't fit
+		if currentSameUniqueCount == item.limit then
+			for _, slotEntry in ipairs(slots) do
+				if slotEntry.isSameUnique then
+					addCompareForSlot(slotEntry.compareSlot, slotEntry.selItem, slotEntry.output)
 				end
-				self.build:AddStatComparesToTooltip(tooltip, calcBase, output, header)
+			end
+			return
+		end
+
+
+		-- either the same unique or same base type
+		local function similar(compareItem, sameUnique)
+			-- empty slot
+			if not compareItem then return 0 end
+
+			local sameBaseType = not isUnique
+				and compareItem.rarity ~= "UNIQUE" and compareItem.rarity ~= "RELIC"
+				and item.base.type == compareItem.base.type
+				and item.base.subType == compareItem.base.subType
+			if sameBaseType or sameUnique then
+				return 1
+			else
+				return 0
 			end
 		end
-	end
-	tooltip:AddLine(14, colorCodes.TIP.."Tip: Press Ctrl+D to disable the display of stat differences.", "VAR")
+		-- sort by:
+		-- 1. empty sockets
+		-- 2. same base group jewel or unique
+		-- 3. DPS
+		-- 4. EHP
+		local function sortFunc(a, b)
+			if a == b then return end
 
+			local aParams = { a.compareSlot.selItemId == 0 and 1 or 0, similar(a.selItem, a.isSameUnique), a.output
+				.FullDPS, a.output.CombinedDPS, a.output.TotalEHP, a.compareSlot.label, a.compareSlot.slotName }
+			local bParams = { b.compareSlot.selItemId == 0 and 1 or 0, similar(b.selItem, b.isSameUnique), b.output
+				.FullDPS, b
+				.output.CombinedDPS, b.output.TotalEHP, b.compareSlot.label, b.compareSlot.slotName }
+			for i = 1, #aParams do
+				if aParams[i] == nil or bParams[i] == nil then
+					-- continue
+				elseif aParams[i] > bParams[i] then
+					return true
+				elseif aParams[i] < bParams[i] then
+					return false
+				end
+			end
+			return false
+		end
+		table.sort(slots, sortFunc)
+
+		for _, slotEntry in ipairs(slots) do
+			addCompareForSlot(slotEntry.compareSlot, slotEntry.selItem, slotEntry.output)
+		end
+	end
 	if launch.devModeAlt then
 		-- Modifier debugging info
 		tooltip:AddSeparator(10)
