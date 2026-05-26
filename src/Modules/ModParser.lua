@@ -3212,6 +3212,13 @@ local specialModList = {
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
+  ["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
+	-- Witchhunter
+	["grants skill: sorcery ward"] = {
+		flag("Condition:SorceryWard"),
+		mod("ExtraSkill", "LIST", { skillId = "SorceryWardPlayer", level = 1 }),
+	},
+	["sorcery ward's barrier can also take physical and chaos damage from hits"] = { flag("Condition:CeremonialAblution") },
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })
@@ -4544,10 +4551,15 @@ local specialModList = {
 	["you can cast an additional brand"] = { mod("ActiveBrandLimit", "BASE", 1) },
 	["you can cast (%d+) additional brands"] = function(num) return { mod("ActiveBrandLimit", "BASE", num) } end,
 	["(%d+)%% increased damage while you are wielding a bow and have a totem"] = function(num) return { mod("Damage", "INC", num, { type = "Condition", var = "HaveTotem" }, { type = "Condition", var = "UsingBow" }) } end,
+	["bow attacks consume (%d+)%% of your maximum life flask charges if possible to deal added physical damage equal to (%d+)%% of flask's life recovery amount"] = function(num, _, percent) return {
+		mod("PhysicalMin", "BASE", 1, nil, bor(ModFlag.Attack, ModFlag.Bow), { type = "PercentStat", stat = "LifeFlaskRecovery", percent = percent }),
+		mod("PhysicalMax", "BASE", 1, nil, bor(ModFlag.Attack, ModFlag.Bow), { type = "PercentStat", stat = "LifeFlaskRecovery", percent = percent }),
+	} end,
 	["each totem applies (%d+)%% increased damage taken to enemies near it"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["each totem applies (%d+)%% increased damage taken to enemies in their presence"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["totems gain %+(%d+)%% to (%w+) resistance"] = function(num, _, resistance) return { mod("Totem"..firstToUpper(resistance).."Resist", "BASE", num) } end,
 	["totems gain %+(%d+)%% to all elemental resistances"] = function(num) return { mod("TotemElementalResist", "BASE", num) } end,
+	["totems gain %+(%d+)%% to all maximum elemental resistances"] = function(num) return { mod("TotemElementalResistMax", "BASE", num) } end,
 	["totems reserve (%d+) spirit each"] = function(num) return {
 		flag("AncestralBond"),
 		mod("ExtraSpirit", "BASE", num, { type = "SkillType", skillType = SkillType.SummonsTotem })

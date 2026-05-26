@@ -4515,9 +4515,9 @@ c["Bolts fired by Crossbow Attacks have 100% chance to not"]={{}," to not "}
 c["Bolts fired by Crossbow Attacks have 100% chance to not expend Ammunition if you've Reloaded Recently"]={{[1]={[1]={skillType=116,type="SkillType"},[2]={type="Condition",var="ReloadedRecently"},flags=67108864,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=100}},nil}
 c["Bolts fired by Crossbow Attacks have 30% chance to not"]={{}," to not "}
 c["Bolts fired by Crossbow Attacks have 30% chance to not expend Ammunition if you've Reloaded Recently"]={{[1]={[1]={skillType=116,type="SkillType"},[2]={type="Condition",var="ReloadedRecently"},flags=67108864,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=30}},nil}
-c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount "}
-c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount "}
-c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount "}
+c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount"]={{[1]={[1]={percent="10",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="10",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
+c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount"]={{[1]={[1]={percent="5",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="5",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
+c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 8% of Flask's Life Recovery amount"]={{[1]={[1]={percent="8",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="8",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
 c["Bow Attacks fire 3 additional Arrows"]={{[1]={flags=0,keywordFlags=2048,name="ProjectileCount",type="BASE",value=3}},nil}
 c["Bow Attacks have Culling Strike"]={{[1]={flags=131073,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["Break 10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=10}},nil}
@@ -5320,7 +5320,7 @@ c["Grants Skill: Ruzhan's Reckoning"]={nil,nil}
 c["Grants Skill: Ruzhan's Trap"]={nil,nil}
 c["Grants Skill: Ruzhan, the Blazing Sword"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonFireDjinnPlayer"}}},nil}
 c["Grants Skill: Shattering Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ShatteringConcoctionPlayer"}}},nil}
-c["Grants Skill: Sorcery Ward"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SorceryWardPlayer"}}},nil}
+c["Grants Skill: Sorcery Ward"]={{[1]={flags=0,keywordFlags=0,name="Condition:SorceryWard",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SorceryWardPlayer"}}},nil}
 c["Grants Skill: Spear Throw"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SpearThrowPlayer"}}},nil}
 c["Grants Skill: Summon Infernal Hound"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonInfernalHoundPlayer"}}},nil}
 c["Grants Skill: Supporting Fire"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SupportingFirePlayer"}}},nil}
@@ -6044,7 +6044,7 @@ c["Skills which require Glory generate 5 Glory every 2 seconds Enemies in your P
 c["Slam Skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=93,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
 c["Slam Skills you use yourself cause an additional Aftershock"]={nil,"Slam Skills you use yourself cause an additional Aftershock "}
 c["Slam Skills you use yourself have 30% increased Aftershock Area of Effect"]={nil,"Slam Skills you use yourself have 30% increased Aftershock Area of Effect "}
-c["Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits"]={nil,"Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits "}
+c["Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="Condition:CeremonialAblution",type="FLAG",value=true}},nil}
 c["Soul Eater"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanHaveSoulEater",type="FLAG",value=true}},nil}
 c["Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target"]={nil,"Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target "}
 c["Spell Skills have 10% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=-10}},nil}
@@ -6135,19 +6135,16 @@ c["Thorns Damage has 50% chance to ignore Enemy Armour"]={nil,"Thorns Damage has
 c["Thorns can Retaliate against all Hits"]={nil,"Thorns can Retaliate against all Hits "}
 c["Totems Regenerate 3% of maximum Life per second"]={nil,"Totems Regenerate 3% of maximum Life per second "}
 c["Totems die 6 seconds after their Life is reduced to 0"]={nil,"Totems die 6 seconds after their Life is reduced to 0 "}
-c["Totems gain +1% to all Maximum Elemental Resistances"]={nil,"Totems gain +1% to all Maximum Elemental Resistances "}
-c["Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed"]={nil,"Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed "}
-c["Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed Attacks used by Totems have 2% increased Attack Speed"]={nil,"Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed Attacks used by Totems have 2% increased Attack Speed "}
+c["Totems gain +1% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResistMax",type="BASE",value=1}},nil}
 c["Totems gain +12% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=12}},nil}
-c["Totems gain +2% to all Maximum Elemental Resistances"]={nil,"Totems gain +2% to all Maximum Elemental Resistances "}
+c["Totems gain +2% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResistMax",type="BASE",value=2}},nil}
 c["Totems gain +20% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=20}},nil}
-c["Totems gain +3% to all Maximum Elemental Resistances"]={nil,"Totems gain +3% to all Maximum Elemental Resistances "}
-c["Totems gain +3% to all Maximum Elemental Resistances 20% increased Area of Effect for Skills used by Totems"]={nil,"Totems gain +3% to all Maximum Elemental Resistances 20% increased Area of Effect for Skills used by Totems "}
+c["Totems gain +3% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResistMax",type="BASE",value=3}},nil}
 c["Totems have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=12}},nil}
 c["Totems have 20% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=20}},nil}
 c["Totems only use Skills when you fire an Attack Projectile"]={nil,"Totems only use Skills when you fire an Attack Projectile "}
 c["Totems reserve 75 Spirit each"]={{[1]={flags=0,keywordFlags=0,name="AncestralBond",type="FLAG",value=true},[2]={[1]={skillType=25,type="SkillType"},flags=0,keywordFlags=0,name="ExtraSpirit",type="BASE",value=75}},nil}
-c["Totems you place grant Embankment Auras"]={nil,"Totems you place grant Embankment Auras "}
+c["Totems you place grant Embankment Auras"]={{[1]={flags=0,keywordFlags=0,name="Condition:StrategicEmbankments",type="FLAG",value=true}},nil}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={{},nil}
 c["Trigger Decompose every 1.2 metres travelled"]={nil,"Trigger Decompose every 1.2 metres travelled "}
 c["Trigger Elemental Expression on Melee Critical Hit"]={nil,"Trigger Elemental Expression on Melee Critical Hit "}
