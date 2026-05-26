@@ -184,6 +184,19 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self:AddUndoState()
 		self.build.buildFlag = true
 	end)
+	self.controls.groupEnabled.tooltipFunc = function(tooltip)
+		if tooltip:CheckForUpdate(self.build.outputRevision, self.displayGroup) then
+			if self.displayGroup then
+				local calcFunc, calcBase = self.build.calcsTab:GetMiscCalculator(self.build)
+				if calcFunc then
+					self.displayGroup.enabled = not self.displayGroup.enabled
+					local output = calcFunc()
+					self.displayGroup.enabled = not self.displayGroup.enabled
+					self.build:AddStatComparesToTooltip(tooltip, calcBase, output, self.displayGroup.enabled and "^7Disabling this group will give you:" or "^7Enabling this group will give you:")
+				end
+			end
+		end
+	end
 	self.controls.includeInFullDPS = new("CheckBoxControl", { "LEFT", self.controls.groupEnabled, "RIGHT" }, { 145, 0, 20 }, "Include in Full DPS:", function(state)
 		self.displayGroup.includeInFullDPS = state
 		self:AddUndoState()
@@ -673,20 +686,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	local slot = { }
 	self.gemSlots[index] = slot
 
-	-- Delete gem
-	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
-		if index == 1 then
-			-- Slot 1 (main active skill) cannot be removed; instead open the
-			-- gem selector so the user can change which active skill is here.
-			local ns = slot.nameSpec
-			if ns then
-				self:SelectControl(ns)
-				ns.dropped = true
-				ns:BuildList(ns.buf or "")
-				ns:SelectAll()
-			end
-			return
-		end
+	local function deleteGem()
 		t_remove(self.displayGroup.gemList, index)
 		for index2 = index, #self.displayGroup.gemList do
 			-- Update the other gem slot controls
@@ -701,6 +701,22 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 		self:AddUndoState()
 		self.build.buildFlag = true
+	end
+	-- Delete gem
+	slot.delete = new("ButtonControl", nil, {0, 0, 20, 20}, "x", function()
+		if index == 1 then
+			-- Slot 1 (main active skill) cannot be removed; instead open the
+			-- gem selector so the user can change which active skill is here.
+			local ns = slot.nameSpec
+			if ns then
+				self:SelectControl(ns)
+				ns.dropped = true
+				ns:BuildList(ns.buf or "")
+				ns:SelectAll()
+			end
+			return
+		end
+		return deleteGem()
 	end)
 	if index == 1 then
 		slot.delete:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 14, 0)
@@ -729,7 +745,7 @@ function SkillsTabClass:CreateGemSlot(index)
 	-- Gem name specification
 	-- Row 1 widens by indentOffset (22px) so Level/Quality columns align with the indented rows 2+
 	local indentOffset = 22
-	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, index == 1 and (290 + indentOffset) or 290, 20 }, self, index, function(gemId, addUndo)
+	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, index == 1 and (290 + indentOffset) or 290, 20 }, self, index, function(gemId, addUndo, focusLost, bufMatchesGem)
 		if not self.displayGroup then
 			return
 		end
@@ -755,9 +771,14 @@ function SkillsTabClass:CreateGemSlot(index)
 			slot.enableGlobal1.state = true
 			slot.enableGlobal2.state = true
 			slot.count:SetText(gemInstance.count)
+		elseif focusLost and not bufMatchesGem then
+			return deleteGem()
 		elseif gemId == gemInstance.gemId then
 			if addUndo then
 				self:AddUndoState()
+			end
+			if bufMatchesGem then
+				self.build.buildFlag = true
 			end
 			return
 		end
@@ -773,7 +794,9 @@ function SkillsTabClass:CreateGemSlot(index)
 		if addUndo then
 			self:AddUndoState()
 		end
-		self.build.buildFlag = true
+		if bufMatchesGem then
+			self.build.buildFlag = true
+		end
 	end, true)
 	slot.nameSpec:AddToTabGroup(self.controls.groupLabel)
 	slot.nameSpec.activeOnly = (index == 1)

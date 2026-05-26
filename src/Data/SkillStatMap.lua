@@ -655,6 +655,9 @@ return {
 ["critical_strike_chance_+%"] = {
 	mod("CritChance", "INC", nil),
 },
+["active_skill_critical_strike_chance_+%_final"] = {
+	mod("CritChance", "MORE", nil)
+},
 ["spell_critical_strike_chance_+%"] = {
 	mod("CritChance", "INC", nil, ModFlag.Spell),
 },
@@ -2593,6 +2596,9 @@ return {
 ["mark_skills_curse_effect_+%"] = {
 	mod("CurseEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Mark }),
 },
+["mark_effect_+%"] = {
+	mod("CurseEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Mark }),
+},
 ["curse_area_of_effect_+%"] = {
 	mod("AreaOfEffect", "INC", nil, 0, KeywordFlag.Curse),
 },
@@ -2727,6 +2733,9 @@ return {
 ["withered_on_hit_chance_%"] = {
 	flag("Condition:CanWither"),
 },
+["apply_x_wither_on_hit"] = {
+	flag("Condition:CanWither"),
+},
 ["minions_have_%_chance_to_inflict_wither_on_hit"] = {
 	mod("MinionModifier", "LIST", { mod = flag("Condition:CanWither") }),
 },
@@ -2737,6 +2746,9 @@ return {
 	flag("Condition:CanWither"),
 },
 ["withered_on_hit_chance_%_for_every_100%_target_ailment_threshold_dealt_as_chaos_damage"] = {
+	flag("Condition:CanWither"),
+},
+["wither_on_hit_chance_rollovercapped"] = {
 	flag("Condition:CanWither"),
 },
 ["discharge_damage_+%_if_3_charge_types_removed"] = {
@@ -2784,6 +2796,9 @@ return {
 	flag("Condition:CanInflictIncision", { type = "GlobalEffect", effectType = "Buff", effectName = "Incision" }),
 },
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
+["chaos_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
 --
@@ -2913,6 +2928,25 @@ return {
 --Minion
 ["supported_minion_skill_gem_level_+"] = {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Minion }),
+},
+-- Remnant stats
+["remnant_effect_+%"] = {
+	mod("RemnantEffect", "INC", nil),
+},
+["life_remnants_gain_per_globe"] = {
+	mod("LifeGainPerRemnant", "BASE", nil),
+},
+["mana_remnants_mana_gain_per_globe"] = {
+	mod("ManaGainPerRemnant", "BASE", nil),
+},
+["breach_flame_life_leech_%"] = {
+	mod("BreachFlameLifeLeech", "BASE", nil),
+},
+["breach_flame_mana_leech_%"] = {
+	mod("BreachFlameManaLeech", "BASE", nil),
+},
+["breach_flame_chaos_addition_%"] = {
+	mod("BreachFlameChaosGain", "BASE", nil),
 },
 -- Display only
 ["quality_display_base_additional_arrows_is_gem"] = {

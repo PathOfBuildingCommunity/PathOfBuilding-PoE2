@@ -50,6 +50,12 @@ directiveTable.base = function(state, args, out)
 				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
 				local statOrder = modLine.statOrder or {}
 				out:write('\t\t\t\tstatOrder = { '..table.concat(statOrder, ', ')..' },\n')
+				out:write('\t\t\t\ttradeHashes = { ')
+				for hash, desc in pairs(modLine.tradeHashes) do
+					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
+				end
+				out:write(' },\n')
 			end
 			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
 			out:write('\t\t},\n')
@@ -66,8 +72,10 @@ directiveTable.base = function(state, args, out)
 		rank = soulCores.LevelReq or 0
 
 		local stats = { }
+		local statHashes = {}
 		for i, statKey in ipairs(soulCoreStat.Stats) do
 			local statValue = soulCoreStat["StatValue"][i]
+			table.insert(statHashes, intToBytes(statKey.Hash))
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
 		local bondedStats = { }
@@ -89,12 +97,38 @@ directiveTable.base = function(state, args, out)
 					table.insert(orders, order)
 				end
 				if #orders > 0 then
+				local modIdx = 1
+				local tradeHashes = {}
+				while soulCoreStat.Stats[modIdx] do
+					local currentStats = {}
+					local stat = soulCoreStat.Stats[modIdx]
+					currentStats[stat.Id] = {
+						min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+					}
+					local bytes = intToBytes(stat.Hash)
+					-- # to # stats consist of two different stats as the min and max have different ranges
+					if stat.Id:match("minimum") then
+						local nextStat = soulCoreStat.Stats[modIdx + 1]
+						if nextStat and nextStat.Id:match("maximum") then
+							modIdx = modIdx + 1
+							bytes = bytes .. intToBytes(nextStat.Hash)
+							currentStats[nextStat.Id] = {
+								min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+							}
+						end
+					end
+
+					local description, _, _ = describeStats(currentStats)
+					tradeHashes[murmurHash2(bytes, 0x02312233)] = description
+					modIdx = modIdx + 1
+				end
 					local out = {
 						type = soulCores.Type.Id,
 						slotType = class,
 						label = stats,
 						statOrder = orders,
 						rank = rank,
+						tradeHashes = tradeHashes
 					}
 					table.insert(modLines, out)
 				end

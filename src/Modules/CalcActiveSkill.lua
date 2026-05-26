@@ -65,8 +65,20 @@ local function checkForScalarMultiplier(modOrGroup, modList)
 	return 1 + scale / 100
 end
 
+local function isGlobalEffect(modOrGroup)
+	local modList = modOrGroup.name and { modOrGroup } or modOrGroup
+	for _, mod in ipairs(modList) do
+		for _, tag in ipairs(mod) do
+			if tag.type == "GlobalEffect" then
+				return true
+			end
+		end
+	end
+	return false
+end
+
 -- Merge skill effect modifiers with given mod list
--- If a stat set is provided, only merge modifiers from that statset
+-- If a stat set is provided, merge it and global effects from the other stat sets
 function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraStats)
 	calcLib.validateGemLevel(skillEffect)
 	-- Verify that statSet provided is from skillEffect
@@ -74,34 +86,56 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 		return
 	end
 	local grantedEffect = skillEffect.grantedEffect
-	for _, statSet in ipairs(statSet and {statSet} or grantedEffect.statSets) do
-		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, statSet)
+	local selectedGlobalStats = { }
+	local function mergeStatSet(set, onlyGlobals)
+		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
 		if extraStats and extraStats[1] then
 			for _, stat in pairs(extraStats) do
 				stats[stat.key] = (stats[stat.key] or 0) + stat.value
 			end
 		end
 		for stat, statValue in pairs(stats) do
-			local map = statSet.statMap[stat]
+			local map = set.statMap[stat]
 			if map then
 				-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 				for _, modOrGroup in ipairs(map) do
-					local scalar = checkForScalarMultiplier(modOrGroup, modList)
-					-- Found a mod, since all mods have names
-					if modOrGroup.name then
-						modOrGroup.source = string.format("Skill:%s", grantedEffect.id)
-						mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) * scalar / (map.div or 1) + (map.base or 0))
-					else
-						for _, mod in ipairs(modOrGroup) do
-							local scalar = checkForScalarMultiplier(mod)
-							mod.source = string.format("Skill:%s", grantedEffect.id)
-							mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) * scalar / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+					local isGlobal = isGlobalEffect(modOrGroup)
+					if isGlobal and not onlyGlobals then
+						selectedGlobalStats[stat] = true
+					end
+					if (not onlyGlobals or isGlobal) and not (onlyGlobals and selectedGlobalStats[stat]) then
+						local scalar = checkForScalarMultiplier(modOrGroup, modList)
+						-- Found a mod, since all mods have names
+						if modOrGroup.name then
+							modOrGroup.source = string.format("Skill:%s", grantedEffect.id)
+							mergeLevelMod(modList, modOrGroup, map.value or statValue * (map.mult or 1) * scalar / (map.div or 1) + (map.base or 0))
+						else
+							for _, mod in ipairs(modOrGroup) do
+								local scalar = checkForScalarMultiplier(mod, modList)
+								mod.source = string.format("Skill:%s", grantedEffect.id)
+								mergeLevelMod(modList, mod, modOrGroup.value or statValue * (modOrGroup.mult or 1) * scalar / (modOrGroup.div or 1) + (modOrGroup.base or 0))
+							end
 						end
 					end
 				end
 			end
 		end
-		modList:AddList(statSet.baseMods)
+	end
+	for _, set in ipairs(statSet and {statSet} or grantedEffect.statSets) do
+		mergeStatSet(set)
+		modList:AddList(set.baseMods)
+	end
+	if statSet then
+		for _, set in ipairs(grantedEffect.statSets) do
+			if set ~= statSet then
+				mergeStatSet(set, true)
+				for _, baseMod in ipairs(set.baseMods or { }) do
+					if isGlobalEffect(baseMod) then
+						modList:AddMod(baseMod)
+					end
+				end
+			end
+		end
 	end
 end
 
@@ -1005,23 +1039,19 @@ function calcs.createMinionSkills(env, activeSkill)
 		-- Not ideal, but let's avoid horrible crashes if a spectre has no skills for some reason
 		t_insert(skillIdList, "MeleeAtAnimationSpeed")
 	end
-	for _, skillId in ipairs(skillIdList) do
+	local minionStatSetLookup = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id]
+	local minionStatSetLookupCalcs = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id]
+	for skillIndex, skillId in ipairs(skillIdList) do
 		local activeEffect = {
 			grantedEffect = env.data.skills[skillId],
 			level = 1,
 			quality = 0,
 		}
-		local minionSkillIndex = activeSkill.activeEffect.srcInstance.skillMinionSkill
-		local minionSkillIndexCalcs = activeSkill.activeEffect.srcInstance.skillMinionSkillCalcs
-		local minionStatSetIndex = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id]
-			and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookup[activeSkill.activeEffect.grantedEffect.id][minionSkillIndex] or 1
-		local minionStatSetCalcsIndex = activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id]
-			and activeSkill.activeEffect.srcInstance.skillMinionSkillStatSetIndexLookupCalcs[activeSkill.activeEffect.grantedEffect.id][minionSkillIndexCalcs] or 1
 		activeEffect.statSet = {
-			index = minionStatSetIndex,
+			index = minionStatSetLookup and minionStatSetLookup[skillIndex] or 1,
 		}
 		activeEffect.statSetCalcs = {
-			index = minionStatSetCalcsIndex,
+			index = minionStatSetLookupCalcs and minionStatSetLookupCalcs[skillIndex] or 1,
 		}
 		if #activeEffect.grantedEffect.levels > 1 then
 			for level, levelData in ipairs(activeEffect.grantedEffect.levels) do

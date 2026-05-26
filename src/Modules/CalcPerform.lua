@@ -828,7 +828,9 @@ local function doActorCharges(env, actor)
 	else
 		output.PowerCharges = m_max(output.PowerCharges, m_min(output.PowerChargesMax, output.PowerChargesMin))
 	end
-	output.RemovablePowerCharges = m_max(output.PowerCharges - output.PowerChargesMin, 0)
+	local removablePowerCharges = m_max(output.PowerCharges - output.PowerChargesMin, 0)
+	local extraConsumablePowerCharges = removablePowerCharges > 0 and modDB:Sum("BASE", actor.mainSkill.skillCfg, "Multiplier:ExtraConsumablePowerCharges") or 0
+	output.RemovablePowerCharges = removablePowerCharges + extraConsumablePowerCharges
 	if modDB:Flag(nil, "Condition:UseFrenzyCharges") then
 		output.FrenzyCharges = modDB:Override(nil, "FrenzyCharges") or output.FrenzyChargesMax
 	end
@@ -1098,6 +1100,7 @@ function calcs.perform(env, skipEHP)
 	
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionCount, minionType, ammoType, grenadeType = { }, { }, { }, { }
+	local maxPurpleFlameChaosGain = 0
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
@@ -1248,11 +1251,25 @@ function calcs.perform(env, skipEHP)
 			-- Set trigger time to 1 min in ms ( == 6000 ). Technically any large value would do.
 			activeSkill.skillData.triggerTime = 60 * 1000
 		end
+		-- Into the Breach: only purple flames get calculated
+		if activeSkill.activeEffect.grantedEffect.name == "Into the Breach" and not modDB:Flag(nil, "BreachFlameOnlyRed") and not modDB:Flag(nil, "BreachFlameOnlyBlue") then
+			local baseChaosGain = activeSkill.skillModList:Sum("BASE", nil, "BreachFlameChaosGain")
+			if baseChaosGain > 0 then
+				local remnantEffectMod = calcLib.mod(activeSkill.skillModList, nil, "RemnantEffect")
+				local doubled = modDB:Flag(nil, "BreachFlameEffectDoubled") and 2 or 1
+				local chaosGainPerFlame = m_floor(baseChaosGain * remnantEffectMod * doubled)
+				maxPurpleFlameChaosGain = m_max(maxPurpleFlameChaosGain, chaosGainPerFlame)
+			end
+		end
 		-- The Saviour
 		if activeSkill.activeEffect.grantedEffect.name == "Reflection" or activeSkill.skillData.triggeredBySaviour then
 			activeSkill.infoMessage = "Triggered by a Crit from The Saviour"
 			activeSkill.infoTrigger = "Saviour"
 		end
+	end
+	local purpleFlameCount = modDB:Sum("BASE", nil, "Multiplier:PurpleFlamesCount")
+	if purpleFlameCount > 0 and maxPurpleFlameChaosGain > 0 then
+		modDB:NewMod("DamageGainAsChaos", "BASE", maxPurpleFlameChaosGain * purpleFlameCount, "Into the Breach", { type = "GlobalEffect", effectType = "Buff", effectName = "Into the Breach" })
 	end
 
 	-- Stat sorting category calcs

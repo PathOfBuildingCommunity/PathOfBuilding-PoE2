@@ -3147,6 +3147,7 @@ local specialModList = {
 	} end,
 	["cannot be stunned while you have energy shield"] = { flag("StunImmune", { type = "Condition", var = "HaveEnergyShield" }) },
 	["every second, inflict withered on nearby enemies for (%d+) seconds"] = { flag("Condition:CanWither") },
+	["unwithered enemies are withered for 8 seconds when they enter your presence"] = { flag("Condition:CanWither") },
 	["nearby hindered enemies deal (%d+)%% reduced damage over time"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageOverTime", "INC", -num) }, { type = "ActorCondition", actor = "enemy", var = "Hindered" }) } end,
 	["nearby chilled enemies deal (%d+)%% reduced damage with hits"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Damage", "INC", -num) }, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) } end,
 	-- Pathfinder
@@ -3212,6 +3213,13 @@ local specialModList = {
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
+  ["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
+	-- Witchhunter
+	["grants skill: sorcery ward"] = {
+		flag("Condition:SorceryWard"),
+		mod("ExtraSkill", "LIST", { skillId = "SorceryWardPlayer", level = 1 }),
+	},
+	["sorcery ward's barrier can also take physical and chaos damage from hits"] = { flag("Condition:CeremonialAblution") },
 	-- Warrior - Smith of Kitava
 	["body armour grants armour also applies to (%a+) damage taken from hits"] = function(_, dmgType) return {
 		mod("ArmourAppliesTo"..firstToUpper(dmgType).."DamageTaken", "BASE", 100, { type = "ItemCondition", itemSlot = "Body Armour", rarityCond = "NORMAL" })
@@ -3318,8 +3326,11 @@ local specialModList = {
 	["(%d+)%% chance to gain (%d+)%% of damage with hits as extra (%a+) damage"] = function(num, _, num2, strType) return {
 		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
-	["effect and duration of flames of chayula on you is doubled"] = { mod("Multiplier:FlameEffect", "BASE", 1) } ,
-	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording
+	["effect and duration of flames of chayula on you is doubled"] = { flag("BreachFlameEffectDoubled") },
+	["all flames of chayula that you manifest are red"] = { flag("BreachFlameOnlyRed") },
+	["all flames of chayula that you manifest are blue"] = { flag("BreachFlameOnlyBlue") },
+	["all flames of chayula that you manifest are purple"] = { flag("BreachFlameOnlyPurple") },
+	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
 		flag("ManaLeechBasedOnElementalDamage"),
 		flag("ManaLeechBasedOnChaosDamage"),
 	},
@@ -4328,7 +4339,7 @@ local specialModList = {
 	["(%d+)%% chance to inflict withered for (%d+) seconds on hit with this weapon"] = { flag("Condition:CanWither") },
 	["(%d+)%% chance to inflict withered for two seconds on hit if there are (%d+) or fewer withered debuffs on enemy"] = { flag("Condition:CanWither") },
 	["inflict withered for (%d+) seconds on hit with this weapon"] = { flag("Condition:CanWither") },
-	["minions have (%d+)%% chance to inflict withered on hit"] = { mod("MinionModifier", "LIST", { mod = flag("Condition:CanWither") }) },
+	["minions have (%d+)%% chance to inflict withered on hit"] = { flag("Condition:CanWither") },
 	["enemies take (%d+)%% increased elemental damage from your hits for each withered you have inflicted on them"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ElementalDamageTaken", "INC", num, { type = "Multiplier", var = "WitheredStack", limit = 15 }) }) } end,
 	["enemies you apply incision to take (%d+)%% increased physical damage per incision"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("PhysicalDamageTaken", "INC", num, { type = "Multiplier", var = "IncisionStack" }) }) } end,
 	["your hits cannot penetrate or ignore elemental resistances"] = { flag("CannotElePenIgnore") },
@@ -4544,10 +4555,15 @@ local specialModList = {
 	["you can cast an additional brand"] = { mod("ActiveBrandLimit", "BASE", 1) },
 	["you can cast (%d+) additional brands"] = function(num) return { mod("ActiveBrandLimit", "BASE", num) } end,
 	["(%d+)%% increased damage while you are wielding a bow and have a totem"] = function(num) return { mod("Damage", "INC", num, { type = "Condition", var = "HaveTotem" }, { type = "Condition", var = "UsingBow" }) } end,
+	["bow attacks consume (%d+)%% of your maximum life flask charges if possible to deal added physical damage equal to (%d+)%% of flask's life recovery amount"] = function(num, _, percent) return {
+		mod("PhysicalMin", "BASE", 1, nil, bor(ModFlag.Attack, ModFlag.Bow), { type = "PercentStat", stat = "LifeFlaskRecovery", percent = percent }),
+		mod("PhysicalMax", "BASE", 1, nil, bor(ModFlag.Attack, ModFlag.Bow), { type = "PercentStat", stat = "LifeFlaskRecovery", percent = percent }),
+	} end,
 	["each totem applies (%d+)%% increased damage taken to enemies near it"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["each totem applies (%d+)%% increased damage taken to enemies in their presence"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "Multiplier", var = "TotemsSummoned" }) }) } end,
 	["totems gain %+(%d+)%% to (%w+) resistance"] = function(num, _, resistance) return { mod("Totem"..firstToUpper(resistance).."Resist", "BASE", num) } end,
 	["totems gain %+(%d+)%% to all elemental resistances"] = function(num) return { mod("TotemElementalResist", "BASE", num) } end,
+	["totems gain %+(%d+)%% to all maximum elemental resistances"] = function(num) return { mod("TotemElementalResistMax", "BASE", num) } end,
 	["totems reserve (%d+) spirit each"] = function(num) return {
 		flag("AncestralBond"),
 		mod("ExtraSpirit", "BASE", num, { type = "SkillType", skillType = SkillType.SummonsTotem })
@@ -5429,6 +5445,7 @@ local specialModList = {
 	["while a pinnacle atlas boss is in your presence, flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("FlaskEffect", "INC", num, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }, { type = "ActorCondition", actor = "player"}) } end,
 	["magic utility flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("MagicUtilityFlaskEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
 	["flasks applied to you have (%d+)%% reduced effect"] = function(num) return { mod("FlaskEffect", "INC", -num, { type = "ActorCondition", actor = "player"}) } end,
+	["remnants have (%d+)%% increased effect"] = function(num) return { mod("RemnantEffect", "INC", num) } end,
 	["(%d+)%% increased charm cooldown recovery rate"] = function(num) return { mod("CharmCooldownRecovery", "INC", num) } end,
 	["adds (%d+) passive skills"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelNodeCount", value = num }) } end,
 	["1 added passive skill is a jewel socket"] = { mod("JewelData", "LIST", { key = "clusterJewelSocketCount", value = 1 }) },
@@ -5462,6 +5479,9 @@ local specialModList = {
 	["count as having maximum number of power charges"] = { flag("HaveMaximumPowerCharges") },
 	["count as having maximum number of frenzy charges"] = { flag("HaveMaximumFrenzyCharges") },
 	["count as having maximum number of endurance charges"] = { flag("HaveMaximumEnduranceCharges") },
+	["quarterstaff skills that consume power charges count as consuming an additional power charge"] = {
+		mod("Multiplier:ExtraConsumablePowerCharges", "BASE", 1, 0, 0, { type = "SkillType", skillType = SkillType.QuarterstaffSkill })
+	},
 	["leftmost (%d+) magic utility flasks constantly apply their flask effects to you"] = function(num) return { mod("ActiveMagicUtilityFlasks", "BASE", num) } end,
 	["marauder: melee skills have (%d+)%% increased area of effect"] = function(num) return { mod("AreaOfEffect", "INC", num, { type = "Condition", var = "ConnectedToMarauderStart" }, { type = "SkillType", skillType = SkillType.Melee }) } end,
 	["intelligence provides no bonus to energy shield"] = { flag("NoIntBonusToES") },

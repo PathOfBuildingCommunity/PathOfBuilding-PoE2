@@ -210,12 +210,6 @@ local configSettings = {
 	{ var = "arcaneCloakUsedRecentlyCheck", type = "check", label = "Include in ^x7070FFMana ^7spent Recently?", ifSkill = "Arcane Cloak", tooltip = "When enabled, the mana spent by Arcane Cloak used at full mana \nwill be added to the value provided in # of ^x7070FFMana ^7spent Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneCloakUsedRecently", "FLAG", true, "Config")
 	end },
-	{ label = "Flame of Chayula Breaches:", ifSkill = "Into the Breach" },
-	{ var = "flameStacks", type = "count", label = "Chayula Breach Flames:", tooltip = "Amount of Red, Blue & Purple Flames consumed during duration (max 10)", ifSkill = { "Into the Breach" }, apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:BreachFlamesCount", "BASE", m_min(val, 10), "Config")
-		modList:NewMod("Multiplier:FlameEffect", "BASE", 1, "Config")
-		modList:NewMod("DamageGainAsChaos", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
-	end },
 	{ label = "Eldritch Empowerment:", ifFlag = "EldritchEmpowerment" },
 	{ var = "eldritchEmpowermentSacrifice", type = "check", label = "Are you Sacrificing?", tooltip = "Sacrifice 5% ^x88FFFFEnergy Shield^7 when you cast a Spell to give that Spell 30% more Damage.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
@@ -373,13 +367,36 @@ local configSettings = {
 		modList:NewMod("EnergyShieldRecoveryRate", "INC", -val * 9, val.." Wasting Touch Stacks", { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "AffectedByGloriousMadness" })
 	end },
 	{ label = "Flame Wall:", ifSkill = "Flame Wall" },
-	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through Flame Wall?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
+	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FlameWallAddedDamage", "FLAG", true, "Config")
+	end },
+	{ var = "flameWallInfused", type = "check", label = "Lightning Infused?", ifOption = "flameWallAddedDamage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FlameWallInfused", "FLAG", true, "Config", { type = "Condition", var = "FlameWallAddedDamage" })
 	end },
 	{ label = "Flicker Strike:", ifSkill = "Flicker Strike", includeTransfigured = true },
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)
 		modList:NewMod("CooldownRecovery", "OVERRIDE", 0, "Config", { type = "SkillName", skillName = "Flicker Strike", includeTransfigured = true })
 	end },
+	{ var = "elementalConfluxElement", type = "list", label = "Elemental Conflux Element:", ifSkill = "Elemental Conflux", list = { { val = 1, label = "Average" }, { val = 2, label = "Lightning" }, { val = 3, label = "Cold" }, { val = 4, label = "Fire" } }, defaultIndex = 1, apply = function(val, modList, enemyModList)
+			local coldMultiplier = 0
+			local fireMultiplier = 0
+			local lightningMultiplier = 0
+			if val == 1 then
+				coldMultiplier = 3
+				fireMultiplier = 3
+				lightningMultiplier = 3
+			elseif val == 2 then
+				lightningMultiplier = 1
+			elseif val == 3 then
+				coldMultiplier = 1
+			elseif val == 4 then
+				fireMultiplier = 1
+			end
+			modList:NewMod("Multiplier:ElementalConfluxLightningEffect", "BASE", lightningMultiplier, "Config",	{ type = "GlobalEffect" })
+			modList:NewMod("Multiplier:ElementalConfluxColdEffect", "BASE", coldMultiplier, "Config", { type = "GlobalEffect" })
+			modList:NewMod("Multiplier:ElementalConfluxFireEffect", "BASE", fireMultiplier, "Config", { type = "GlobalEffect" })
+		end
+	},
 	{ label = "Fresh Meat:", ifSkill = "Fresh Meat" },
 	{ var = "freshMeatBuffs", type = "check", label = "Is Fresh Meat active?", ifSkill = "Fresh Meat", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FreshMeatActive", "FLAG", true, "Config")
@@ -431,6 +448,10 @@ local configSettings = {
 	{ label = "Intensify:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" } },
 	{ var = "intensifyIntensity", type = "count", label = "# of Intensity:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Intensity", "BASE", val, "Config")
+	end },
+	{ label = "Into the Breach:", ifSkill = "Into the Breach" },
+	{ var = "purpleFlameStacks", type = "count", label = "Purple Flames collected:", tooltip = "Number of Purple Flames of Chayula collected (max 10).", ifSkill = "Into the Breach", defaultState = 10, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:PurpleFlamesCount", "BASE", m_min(val, 10), "Config")
 	end },
 	{ label = "Link Skills:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" } },
 	{ var = "multiplierLinkedTargets", type = "count", label = "# of linked Targets:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" }, apply = function(val, modList, enemyModList)
@@ -804,7 +825,7 @@ Huge sets the radius to 11.
 	{ var = "overrideGhostShrouds", type = "count", label = "# of Ghost Shrouds (if not maximum):", ifOption = "useGhostShrouds", apply = function(val, modList, enemyModList)
 		modList:NewMod("GhostShrouds", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
-	{ var = "waitForMaxSeals", type = "check", label = "Do you wait for Max Unleash Seals?", ifFlag = "HasSeals", apply = function(val, modList, enemyModList)
+	{ var = "waitForMaxSeals", type = "check", label = "Do you wait for Max Seals?", ifFlag = "HasSeals", apply = function(val, modList, enemyModList)
 		modList:NewMod("UseMaxUnleash", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
 	{ var = "repeatMode", type = "list", label = "Repeat Mode:", ifCond = "alwaysFinalRepeat", list = {

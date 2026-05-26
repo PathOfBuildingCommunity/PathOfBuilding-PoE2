@@ -515,6 +515,7 @@ c["+3 to Level of all Mantra of Destruction Skills"]={{[1]={flags=0,keywordFlags
 c["+3 to Level of all Melee Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="melee",value=3}}},nil}
 c["+3 to Level of all Minion Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="minion",value=3}}},nil}
 c["+3 to Level of all Mirage Archer Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="mirage archer",value=3}}},nil}
+c["+3 to Level of all Mirage Deadeye Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="mirage deadeye",value=3}}},nil}
 c["+3 to Level of all Molten Blast Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="molten blast",value=3}}},nil}
 c["+3 to Level of all Mortar Cannon Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="mortar cannon",value=3}}},nil}
 c["+3 to Level of all Oil Barrage Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="oil barrage",value=3}}},nil}
@@ -3501,9 +3502,9 @@ c["All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill o
 c["All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you All Damage from Hits against Bleeding targets Contributes to Chill Magnitude"]={nil,"All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you All Damage from Hits against Bleeding targets Contributes to Chill Magnitude "}
 c["All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you"]={nil,"All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you "}
 c["All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you All Damage from Hits against Poisoned targets Contributes to Chill Magnitude"]={nil,"All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you All Damage from Hits against Poisoned targets Contributes to Chill Magnitude "}
-c["All Flames of Chayula that you manifest are Blue"]={nil,"All Flames of Chayula that you manifest are Blue "}
-c["All Flames of Chayula that you manifest are Purple"]={nil,"All Flames of Chayula that you manifest are Purple "}
-c["All Flames of Chayula that you manifest are Red"]={nil,"All Flames of Chayula that you manifest are Red "}
+c["All Flames of Chayula that you manifest are Blue"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyBlue",type="FLAG",value=true}},nil}
+c["All Flames of Chayula that you manifest are Purple"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyPurple",type="FLAG",value=true}},nil}
+c["All Flames of Chayula that you manifest are Red"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyRed",type="FLAG",value=true}},nil}
 c["All bonuses from Equipped Amulet apply to your Minions instead of you"]={{},nil}
 c["All damage with this Weapon causes Electrocution buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanElectrocution",type="FLAG",value=true}},nil}
 c["Allies in your Presence Gain 20% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=20},onlyAllies=true}}},nil}
@@ -4515,9 +4516,9 @@ c["Bolts fired by Crossbow Attacks have 100% chance to not"]={{}," to not "}
 c["Bolts fired by Crossbow Attacks have 100% chance to not expend Ammunition if you've Reloaded Recently"]={{[1]={[1]={skillType=116,type="SkillType"},[2]={type="Condition",var="ReloadedRecently"},flags=67108864,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=100}},nil}
 c["Bolts fired by Crossbow Attacks have 30% chance to not"]={{}," to not "}
 c["Bolts fired by Crossbow Attacks have 30% chance to not expend Ammunition if you've Reloaded Recently"]={{[1]={[1]={skillType=116,type="SkillType"},[2]={type="Condition",var="ReloadedRecently"},flags=67108864,keywordFlags=0,name="ChanceToNotConsumeAmmo",type="BASE",value=30}},nil}
-c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount "}
-c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount "}
-c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount"]={nil,"Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount "}
+c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 10% of Flask's Life Recovery amount"]={{[1]={[1]={percent="10",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="10",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
+c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount"]={{[1]={[1]={percent="5",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="5",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
+c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 8% of Flask's Life Recovery amount"]={{[1]={[1]={percent="8",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="8",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
 c["Bow Attacks fire 3 additional Arrows"]={{[1]={flags=0,keywordFlags=2048,name="ProjectileCount",type="BASE",value=3}},nil}
 c["Bow Attacks have Culling Strike"]={{[1]={flags=131073,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
 c["Break 10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=10}},nil}
@@ -5306,7 +5307,7 @@ c["Grants Skill: Level 20 Withering Presence"]={{[1]={flags=0,keywordFlags=0,nam
 c["Grants Skill: Life Remnants"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="LifeRemnantsPlayer"}}},nil}
 c["Grants Skill: Manifest Weapon"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ManifestWeaponPlayer"}}},nil}
 c["Grants Skill: Meditate"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MeditatePlayer"}}},nil}
-c["Grants Skill: Mirage Deadeye"]={nil,nil}
+c["Grants Skill: Mirage Deadeye"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MetaMirageDeadeyePlayer"}}},nil}
 c["Grants Skill: Moment of Vulnerability"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MomentOfVulnerabilityPlayer"}}},nil}
 c["Grants Skill: Navira's Fracturing"]={nil,nil}
 c["Grants Skill: Navira's Oasis"]={nil,nil}
@@ -5320,7 +5321,7 @@ c["Grants Skill: Ruzhan's Reckoning"]={nil,nil}
 c["Grants Skill: Ruzhan's Trap"]={nil,nil}
 c["Grants Skill: Ruzhan, the Blazing Sword"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonFireDjinnPlayer"}}},nil}
 c["Grants Skill: Shattering Concoction"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ShatteringConcoctionPlayer"}}},nil}
-c["Grants Skill: Sorcery Ward"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SorceryWardPlayer"}}},nil}
+c["Grants Skill: Sorcery Ward"]={{[1]={flags=0,keywordFlags=0,name="Condition:SorceryWard",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SorceryWardPlayer"}}},nil}
 c["Grants Skill: Spear Throw"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SpearThrowPlayer"}}},nil}
 c["Grants Skill: Summon Infernal Hound"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SummonInfernalHoundPlayer"}}},nil}
 c["Grants Skill: Supporting Fire"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="SupportingFirePlayer"}}},nil}
@@ -5652,7 +5653,7 @@ c["Minions have +4% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0
 c["Minions have +5% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResistMax",type="BASE",value=5}}}},nil}
 c["Minions have +7% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=7}}}},nil}
 c["Minions have +8% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=8}}}},nil}
-c["Minions have 10% chance to inflict Withered on Hit"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}}}},nil}
+c["Minions have 10% chance to inflict Withered on Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["Minions have 10% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}}}},nil}
 c["Minions have 10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=10}}}},nil}
 c["Minions have 10% reduced Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=-10}}}},nil}
@@ -5872,7 +5873,7 @@ c["Projectiles have 50% chance for an additional Projectile when Forking 25% inc
 c["Projectiles have 6% chance to Chain an additional time from terrain"]={{[1]={flags=1024,keywordFlags=0,name="TerrainChainChance",type="BASE",value=6}},nil}
 c["Projectiles have 64% increased Critical Hit chance for each time they have Pierced"]={{[1]={flags=1024,keywordFlags=0,name="CritChance",type="INC",value=64}},"  for each time they have Pierced "}
 c["Projectiles have 75% chance for an additional Projectile when Forking"]={{[1]={flags=1024,keywordFlags=0,name="ProjectileCount",type="BASE",value=75}}," for an additional  when Forking "}
-c["Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge"]={nil,"Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge "}
+c["Quarterstaff Skills that consume Power Charges count as consuming an additional Power Charge"]={{[1]={[1]={skillType=160,type="SkillType"},flags=0,keywordFlags=0,name="Multiplier:ExtraConsumablePowerCharges",type="BASE",value=1}},nil}
 c["Recoup 5% of damage taken by your Totems as Life"]={nil,"Recoup 5% of damage taken by your Totems as Life "}
 c["Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence"]={nil,"Recoup 5% of damage taken by your Totems as Life Each Totem applies 2% increased Damage taken to Enemies in their Presence "}
 c["Recoup Effects instead occur over 4 seconds"]={{[1]={flags=0,keywordFlags=0,name="4SecondRecoup",type="FLAG",value=true}},nil}
@@ -5967,13 +5968,9 @@ c["Remnants can be collected from 50% further away All Flames of Chayula that yo
 c["Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple"]={nil,"Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple "}
 c["Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red"]={nil,"Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red "}
 c["Remnants can be collected from 50% further away Remnants you create reappear once, 3 seconds after being collected"]={nil,"Remnants can be collected from 50% further away Remnants you create reappear once, 3 seconds after being collected "}
-c["Remnants have 10% increased effect"]={nil,"Remnants have 10% increased effect "}
+c["Remnants have 10% increased effect"]={{[1]={flags=0,keywordFlags=0,name="RemnantEffect",type="INC",value=10}},nil}
 c["Remnants have 2% increased effect per 10 Tribute"]={nil,"Remnants have 2% increased effect per 10 Tribute "}
-c["Remnants have 50% increased effect"]={nil,"Remnants have 50% increased effect "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Blue"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Blue "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red "}
+c["Remnants have 50% increased effect"]={{[1]={flags=0,keywordFlags=0,name="RemnantEffect",type="INC",value=50}},nil}
 c["Remnants you create reappear once, 3 seconds after being collected"]={nil,"Remnants you create reappear once, 3 seconds after being collected "}
 c["Remove Ignite when you Warcry"]={nil,"Remove Ignite when you Warcry "}
 c["Remove a Curse after Channelling for 2 seconds"]={nil,"Remove a Curse after Channelling for 2 seconds "}
@@ -6044,7 +6041,7 @@ c["Skills which require Glory generate 5 Glory every 2 seconds Enemies in your P
 c["Slam Skills have 8% increased Area of Effect"]={{[1]={[1]={skillType=93,type="SkillType"},flags=0,keywordFlags=0,name="AreaOfEffect",type="INC",value=8}},nil}
 c["Slam Skills you use yourself cause an additional Aftershock"]={nil,"Slam Skills you use yourself cause an additional Aftershock "}
 c["Slam Skills you use yourself have 30% increased Aftershock Area of Effect"]={nil,"Slam Skills you use yourself have 30% increased Aftershock Area of Effect "}
-c["Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits"]={nil,"Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits "}
+c["Sorcery Ward's Barrier can also take Physical and Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="Condition:CeremonialAblution",type="FLAG",value=true}},nil}
 c["Soul Eater"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanHaveSoulEater",type="FLAG",value=true}},nil}
 c["Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target"]={nil,"Spear Skills inflict a Bloodstone Lance on Hit, up to a maximum of 30 on each target "}
 c["Spell Skills have 10% reduced Area of Effect"]={{[1]={flags=0,keywordFlags=131072,name="AreaOfEffect",type="INC",value=-10}},nil}
@@ -6135,19 +6132,16 @@ c["Thorns Damage has 50% chance to ignore Enemy Armour"]={nil,"Thorns Damage has
 c["Thorns can Retaliate against all Hits"]={nil,"Thorns can Retaliate against all Hits "}
 c["Totems Regenerate 3% of maximum Life per second"]={nil,"Totems Regenerate 3% of maximum Life per second "}
 c["Totems die 6 seconds after their Life is reduced to 0"]={nil,"Totems die 6 seconds after their Life is reduced to 0 "}
-c["Totems gain +1% to all Maximum Elemental Resistances"]={nil,"Totems gain +1% to all Maximum Elemental Resistances "}
-c["Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed"]={nil,"Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed "}
-c["Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed Attacks used by Totems have 2% increased Attack Speed"]={nil,"Totems gain +1% to all Maximum Elemental Resistances Spells Cast by Totems have 2% increased Cast Speed Attacks used by Totems have 2% increased Attack Speed "}
+c["Totems gain +1% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResistMax",type="BASE",value=1}},nil}
 c["Totems gain +12% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=12}},nil}
-c["Totems gain +2% to all Maximum Elemental Resistances"]={nil,"Totems gain +2% to all Maximum Elemental Resistances "}
+c["Totems gain +2% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResistMax",type="BASE",value=2}},nil}
 c["Totems gain +20% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResist",type="BASE",value=20}},nil}
-c["Totems gain +3% to all Maximum Elemental Resistances"]={nil,"Totems gain +3% to all Maximum Elemental Resistances "}
-c["Totems gain +3% to all Maximum Elemental Resistances 20% increased Area of Effect for Skills used by Totems"]={nil,"Totems gain +3% to all Maximum Elemental Resistances 20% increased Area of Effect for Skills used by Totems "}
+c["Totems gain +3% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="TotemElementalResistMax",type="BASE",value=3}},nil}
 c["Totems have 12% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=12}},nil}
 c["Totems have 20% additional Physical Damage Reduction"]={{[1]={flags=0,keywordFlags=16384,name="PhysicalDamageReduction",type="BASE",value=20}},nil}
 c["Totems only use Skills when you fire an Attack Projectile"]={nil,"Totems only use Skills when you fire an Attack Projectile "}
 c["Totems reserve 75 Spirit each"]={{[1]={flags=0,keywordFlags=0,name="AncestralBond",type="FLAG",value=true},[2]={[1]={skillType=25,type="SkillType"},flags=0,keywordFlags=0,name="ExtraSpirit",type="BASE",value=75}},nil}
-c["Totems you place grant Embankment Auras"]={nil,"Totems you place grant Embankment Auras "}
+c["Totems you place grant Embankment Auras"]={{[1]={flags=0,keywordFlags=0,name="Condition:StrategicEmbankments",type="FLAG",value=true}},nil}
 c["Trigger Ancestral Spirits when you Summon a Totem"]={{},nil}
 c["Trigger Decompose every 1.2 metres travelled"]={nil,"Trigger Decompose every 1.2 metres travelled "}
 c["Trigger Elemental Expression on Melee Critical Hit"]={nil,"Trigger Elemental Expression on Melee Critical Hit "}
@@ -6169,8 +6163,7 @@ c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="S
 c["Unlimited number of Summoned Totems"]={nil,"Unlimited number of Summoned Totems "}
 c["Unlimited number of Summoned Totems Totems reserve 75 Spirit each"]={nil,"Unlimited number of Summoned Totems Totems reserve 75 Spirit each "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
-c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence "}
-c["Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Withered Magnitude"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Withered Magnitude "}
+c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["Used when you are affected by a Slow"]={nil,"Used when you are affected by a Slow "}
 c["Used when you are affected by a Slow Grants Onslaught during effect"]={nil,"Used when you are affected by a Slow Grants Onslaught during effect "}
 c["Used when you become Frozen"]={nil,"Used when you become Frozen "}
