@@ -1100,6 +1100,7 @@ function calcs.perform(env, skipEHP)
 	
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionCount, minionType, ammoType, grenadeType = { }, { }, { }, { }
+	local maxPurpleFlameChaosGain = 0
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
@@ -1252,13 +1253,12 @@ function calcs.perform(env, skipEHP)
 		end
 		-- Into the Breach: only purple flames get calculated
 		if activeSkill.activeEffect.grantedEffect.name == "Into the Breach" and not modDB:Flag(nil, "BreachFlameOnlyRed") and not modDB:Flag(nil, "BreachFlameOnlyBlue") then
-			local purpleFlameCount = modDB:Sum("BASE", nil, "Multiplier:PurpleFlamesCount")
 			local baseChaosGain = activeSkill.skillModList:Sum("BASE", nil, "BreachFlameChaosGain")
-			if purpleFlameCount > 0 and baseChaosGain > 0 then
+			if baseChaosGain > 0 then
 				local remnantEffectMod = calcLib.mod(activeSkill.skillModList, nil, "RemnantEffect")
 				local doubled = modDB:Flag(nil, "BreachFlameEffectDoubled") and 2 or 1
 				local chaosGainPerFlame = m_floor(baseChaosGain * remnantEffectMod * doubled)
-				modDB:NewMod("DamageGainAsChaos", "BASE", chaosGainPerFlame * purpleFlameCount, "Into the Breach", { type = "GlobalEffect", effectType = "Buff" })
+				maxPurpleFlameChaosGain = m_max(maxPurpleFlameChaosGain, chaosGainPerFlame)
 			end
 		end
 		-- The Saviour
@@ -1266,6 +1266,10 @@ function calcs.perform(env, skipEHP)
 			activeSkill.infoMessage = "Triggered by a Crit from The Saviour"
 			activeSkill.infoTrigger = "Saviour"
 		end
+	end
+	local purpleFlameCount = modDB:Sum("BASE", nil, "Multiplier:PurpleFlamesCount")
+	if purpleFlameCount > 0 and maxPurpleFlameChaosGain > 0 then
+		modDB:NewMod("DamageGainAsChaos", "BASE", maxPurpleFlameChaosGain * purpleFlameCount, "Into the Breach", { type = "GlobalEffect", effectType = "Buff", effectName = "Into the Breach" })
 	end
 
 	-- Stat sorting category calcs

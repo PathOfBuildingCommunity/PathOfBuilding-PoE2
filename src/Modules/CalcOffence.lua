@@ -1519,8 +1519,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 		local baseChaosGainPerFlame = skillModList:Sum("BASE", skillCfg, "BreachFlameChaosGain")
+		local doubled = modDB:Flag(nil, "BreachFlameEffectDoubled") and 2 or 1
 		if baseChaosGainPerFlame > 0 then
-			output.ChaosGainPerFlame = m_floor(baseChaosGainPerFlame * remnantEffectMod)
+			output.ChaosGainPerFlame = m_floor(baseChaosGainPerFlame * remnantEffectMod * doubled)
 			if breakdown then
 				breakdown.ChaosGainPerFlame = {
 					s_format("%d%% ^8(base chaos gain per flame)", baseChaosGainPerFlame),
