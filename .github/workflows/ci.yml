@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run Busted unit tests
-        run: docker compose run --rm busted-tests
+        run: docker compose run --rm busted-tests --exclude-tags builds,data
 
       - name: Run build snapshot tests
         run: docker compose run --rm busted-tests --tags builds
