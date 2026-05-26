@@ -606,6 +606,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	self.skillsTab = new("SkillsTab", self)
 	self.calcsTab = new("CalcsTab", self)
 	self.compareTab = new("CompareTab", self)
+	self.aiPanel = new("AIChatPanel", self)
 
 	-- Load sections from the build file
 	self.savers = {
@@ -1138,6 +1139,9 @@ function buildMode:OnFrame(inputEvents)
 			self.spec.allocMode = (self.spec.allocMode + 1) % 3
 		end
 	end
+	if self.aiPanel then
+		self.aiPanel:ProcessInput(inputEvents)
+	end
 	self:ProcessControlsInput(inputEvents, main.viewPort)
 
 	self.controls.classDrop:SelByValue(self.spec.curClassId, "classId")
@@ -1176,10 +1180,11 @@ function buildMode:OnFrame(inputEvents)
 
 	-- Draw contents of current tab
 	local sideBarWidth = 312
+	local aiPanelWidth = self.aiPanel and self.aiPanel:GetWidth() or 0
 	local tabViewPort = {
 		x = sideBarWidth,
 		y = 32,
-		width = main.screenW - sideBarWidth,
+		width = m_max(0, main.screenW - sideBarWidth - aiPanelWidth),
 		height = main.screenH - 32
 	}
 	if self.viewMode == "IMPORT" then
@@ -1220,6 +1225,9 @@ function buildMode:OnFrame(inputEvents)
 	DrawImage(nil, sideBarWidth - 4, 32, 4, main.screenH - 32)
 
 
+	if self.aiPanel then
+		self.aiPanel:Draw()
+	end
 	self:DrawControls(main.viewPort)
 end
 
