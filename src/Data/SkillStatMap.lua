@@ -2929,6 +2929,25 @@ return {
 ["supported_minion_skill_gem_level_+"] = {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Minion }),
 },
+-- Remnant stats
+["remnant_effect_+%"] = {
+	mod("RemnantEffect", "INC", nil),
+},
+["life_remnants_gain_per_globe"] = {
+	mod("LifeGainPerRemnant", "BASE", nil),
+},
+["mana_remnants_mana_gain_per_globe"] = {
+	mod("ManaGainPerRemnant", "BASE", nil),
+},
+["breach_flame_life_leech_%"] = {
+	mod("BreachFlameLifeLeech", "BASE", nil),
+},
+["breach_flame_mana_leech_%"] = {
+	mod("BreachFlameManaLeech", "BASE", nil),
+},
+["breach_flame_chaos_addition_%"] = {
+	mod("BreachFlameChaosGain", "BASE", nil),
+},
 -- Display only
 ["quality_display_base_additional_arrows_is_gem"] = {
 	-- Display only
