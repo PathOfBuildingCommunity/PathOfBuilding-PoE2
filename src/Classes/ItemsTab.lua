@@ -2334,7 +2334,7 @@ end
 function ItemsTabClass:getAnoint(item)
 	local result = { }
 	if item then
-		for _, modList in ipairs{item.enchantModLines, item.implicitModLines, item.explicitModLines} do
+		for _, modList in ipairs{item.enchantModLines} do
 			for _, mod in ipairs(modList) do
 				local line = mod.line
 				local anoint = line:find("Allocates ([a-zA-Z ]+)")
@@ -2532,7 +2532,6 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 			table.sort(newEnchant, function(a, b)
 				return a.order < b.order
 			end)
-			wipeTable(item.enchantModLines)
 			for i, enchant in ipairs(newEnchant) do
 				enchant.order = nil
 				t_insert( item.enchantModLines, i, enchant)
