@@ -14,6 +14,7 @@ local m_floor = math.floor
 local band = AND64 -- bit.band
 local b_rshift = bit.rshift
 
+local gemTooltip = LoadModule("Classes/GemTooltip")
 local JEWEL_RADIUS_TINT_NEUTRAL = { 1, 1, 1, 0.7 }
 local JEWEL_RADIUS_TINT_PRIMARY_ONLY = { 1, 0, 0, 0.7 }
 local JEWEL_RADIUS_TINT_COMPARE_ONLY = { 0, 1, 0, 0.7 }
@@ -33,6 +34,7 @@ local PassiveTreeViewClass = newClass("PassiveTreeView", function(self)
 	self.jewelShadedInnerRingFlipped:Load("Assets/ShadedInnerRingFlipped.png", "CLAMP")
 
 	self.tooltip = new("Tooltip")
+	self.skillTooltip = new("Tooltip")
 
 	self.zoomLevel = 3
 	self.zoom = 1.2 ^ self.zoomLevel
@@ -264,7 +266,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		-- Cursor is over the tree, check if it is over a node
 		local curTreeX, curTreeY = screenToTree(cursorX, cursorY)
 		for nodeId, node in pairs(spec.nodes) do
-			if node.rsq and node.group and not node.isProxy and not node.group.isProxy then
+			if node.rsq and node.group and not node.isProxy and not node.group.isProxy and not node.isAscendancyStart then
 				-- Node has a defined size (i.e. has artwork)
 				local vX = curTreeX - node.x
 				local vY = curTreeY - node.y
@@ -332,8 +334,13 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		-- Use the node's own path and dependence list
 		hoverPath = { }
 		if #hoverNode.intuitiveLeapLikesAffecting == 0 then
-			for _, pathNode in pairs(hoverNode.path) do
+			-- Use the same effective path as allocation so weapon-set promotion previews match clicks.
+			local path = (hoverNode.alloc and hoverNode.path or spec:GetEffectiveAllocationPath(hoverNode)) or { }
+			for _, pathNode in ipairs(path) do
 				hoverPath[pathNode] = true
+			end
+			if path.root then
+				hoverPath[path.root] = true
 			end
 		end
 		hoverDep = { }
@@ -421,7 +428,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					local targetBaseClass = nil
 					
 					-- Check if it's different from current primary or secondary ascendancy
-					if spec.curAscendClassId == 0 or hoverNode.ascendancyName ~= spec.curAscendClassBaseName then
+					-- always check for alternate ascendancy class first
+					if spec.curAscendClassId == 0 or (hoverNode.ascendancyName ~= (spec.curAscendClass.replace or spec.curAscendClassBaseName)) then
 						if not (spec.curSecondaryAscendClass and hoverNode.ascendancyName == spec.curSecondaryAscendClass.id) then
 							isDifferentAscendancy = true
 						end
@@ -644,13 +652,33 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	local function setConnectorColor(r, g, b)
 		connectorColor[1], connectorColor[2], connectorColor[3] = r, g, b
 	end
+	local function nodeIsHoverPathEndpoint(node)
+		if node == hoverNode or hoverPath[node] then
+			return true
+		end
+		if node.alloc then
+			local mode = node.allocMode or 0
+			return mode == 0 or mode == spec.allocMode
+		end
+	end
+	local function nodeWillChangeAllocMode(node)
+		-- Hovering a normal allocation can preview weapon-set nodes being promoted back to normal.
+		return hoverNode and hoverPath and hoverPath[node] and not hoverNode.alloc and spec.allocMode == 0 and (node.allocMode or 0) > 0
+	end
+	local function nodeWillAllocateWithAllocMode(node)
+		-- Unallocated hover/trace path nodes should preview with the selected weapon-set tint.
+		return hoverPath and hoverPath[node] and (self.traceMode or hoverNode and not hoverNode.alloc) and not node.alloc and spec.allocMode > 0 and not node.ascendancyName and node.type ~= "Keystone" and node.type ~= "Socket" and not node.containJewelSocket
+	end
 	local function getState(n1, n2)
 		-- Determine the connector state
 		local state = "Normal"
-		if n1.alloc and n2.alloc then
+		local mode1, mode2 = n1.allocMode or 0, n2.allocMode or 0
+		if hoverPath and nodeIsHoverPathEndpoint(n1) and nodeIsHoverPathEndpoint(n2) and hoverPath[n1] and hoverPath[n2] and (nodeWillChangeAllocMode(n1) or nodeWillChangeAllocMode(n2)) then
+			state = "Intermediate"
+		elseif n1.alloc and n2.alloc and (mode1 == 0 or mode2 == 0 or mode1 == mode2) then
 			state = "Active"
 		elseif hoverPath then
-			if (n1.alloc or n1 == hoverNode or hoverPath[n1]) and (n2.alloc or n2 == hoverNode or hoverPath[n2]) then
+			if nodeIsHoverPathEndpoint(n1) and nodeIsHoverPathEndpoint(n2) and (not n1.alloc or not n2.alloc or hoverPath[n1] and hoverPath[n2]) then
 				state = "Intermediate"
 			end
 		end
@@ -835,6 +863,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 
 		local base, overlay, effect
 		local isAlloc = node.alloc or build.calcsTab.mainEnv.grantedPassives[nodeId] or (compareNode and compareNode.alloc)
+		local allocMode = nodeWillAllocateWithAllocMode(node) and spec.allocMode or node.allocMode
+		local allocModeColor = not self.showHeatMap and not launch.devModeAlt and not compareNode and allocMode and allocMode > 0 and not nodeWillChangeAllocMode(node)
 		SetDrawLayer(nil, 25)
 		if node.type == "ClassStart" then
 			overlay = nil
@@ -1004,6 +1034,9 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		end
 
 		if overlay then
+			if allocModeColor then
+				SetDrawColor(unpack(hexToRGB(colorCodes[allocMode == 1 and "NEGATIVE" or "POSITIVE"]:sub(3))))
+			end
 			-- Draw overlay
 			if node.type ~= "ClassStart" and node.type ~= "AscendClassStart" then
 				if hoverNode and hoverNode ~= node then
@@ -1056,6 +1089,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			self:DrawAsset(overlayImage, scrX, scrY, scale)
 			if not self.showHeatMap and not launch.devModeAlt and not node.alloc and (node.type == "AscendClassStart" or node.type == "ClassStart") then
 				SetDrawColor(1, 1, 1)
+			elseif allocModeColor then
+				SetDrawColor(1, 1, 1)
 			end
 		end
 		if self.searchStrResults[nodeId] then
@@ -1093,7 +1128,60 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
 			end
 			self.tooltip.center = true
-			self.tooltip:Draw(m_floor(scrX - size), m_floor(scrY - size), size * 2, size * 2, viewPort)
+			local ttWidth, ttHeight = self.tooltip:GetDynamicSize()
+			local skillWidth, skillHeight = self.skillTooltip:GetDynamicSize()
+
+			local fatSkill = skillWidth > skillHeight*1.5 
+
+			local totalWidth, totalHeight
+			if fatSkill then
+				totalWidth = m_max(ttWidth, (#self.skillTooltip.lines > 0 and skillWidth or 0))
+				totalHeight = ttHeight + (#self.skillTooltip.lines > 0 and skillHeight or 0)
+			else
+				totalWidth = ttWidth + (#self.skillTooltip.lines > 0 and skillWidth or 0)
+				totalHeight = m_max(ttHeight, (#self.skillTooltip.lines > 0 and skillHeight or 0))
+			end
+
+			-- main tooltip is anchored from top left to the node
+			local nodeX = m_floor(scrX + size)
+			local ttX = m_floor(scrX + size)
+			local nodeY = m_floor(scrY - size)
+			local ttY = m_floor(scrY - size)
+
+			
+			-- if the right side goes outside the viewport, we adjust by moving to the left
+			local rEdgeX = ttX + totalWidth - viewPort.x
+			local rOverBy = rEdgeX - viewPort.width
+			if rOverBy > 0 then
+				ttX = ttX - rOverBy
+			end
+
+			-- same for bottom edge
+			local btmEdgeY = ttY + totalHeight - viewPort.y
+			local btmOverBy = btmEdgeY - viewPort.height
+			if btmOverBy > 0 then
+				ttY = ttY - btmOverBy
+			end
+
+			SetDrawLayer(nil, 100)
+			-- main tooltip is attached to node, unless it is pushed
+			if fatSkill then
+				self.tooltip:Draw(m_min(nodeX, viewPort.width - ttWidth + viewPort.x), m_max(ttY, viewPort.y), nil, nil, viewPort)
+			else
+				self.tooltip:Draw(m_max(ttX, viewPort.x), m_min(nodeY, viewPort.height - ttHeight + viewPort.y), nil, nil, viewPort)
+			end
+			SetDrawLayer(nil, 99)
+			-- draw below main tooltip
+			if fatSkill then
+				self.skillTooltip:Draw(ttX, ttY + ttHeight + 5, nil, nil,
+					viewPort)
+			-- draw to the right of main tooltip
+			else
+				self.skillTooltip:Draw(ttX + ttWidth + 5, ttY, nil, nil,
+					viewPort)
+			end
+			
+
 		end
 	end
 	
@@ -1668,7 +1756,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 	end
 	
 	-- If so, check if the left hand tree is unallocated, but the right hand tree is allocated.
-	-- Then continue processing as normal
+	-- Then continue processing as normal<
 	local mNode = copyTableSafe(node, true, true)
 
 	-- This stanza actives for both Mastery and non Mastery tooltips. Proof: add '"Blah "..' to addModInfoToTooltip
@@ -1683,6 +1771,23 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		end
 		for i, line in ipairs(mNode.sd) do
 			addModInfoToTooltip(mNode, i, line, localIncEffect)
+		end
+		-- add child tooltip for skills
+		self.skillTooltip:Clear()
+		for _, mod in ipairs(mNode.finalModList or mNode.modList or {}) do
+			if mod.name == "ExtraSkill" then
+				for grantedEffect, gemId in pairs(data.gemForSkill) do
+					if grantedEffect.id == mod.value.skillId then
+						local gem = data.gems[gemId]
+						local gemInst = { gemData = gem, level = 1, quality = 0, grantedEffect = grantedEffect }
+						gemTooltip.AddGemTooltip(self.skillTooltip, build, gemInst, {
+							levelRange = true,
+							includeQualityRange = true,
+						})
+						break
+					end
+				end
+			end
 		end
 	end
 

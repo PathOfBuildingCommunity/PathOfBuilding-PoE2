@@ -3217,13 +3217,13 @@ skills["ChargedStaffPlayer"] = {
 			statDescriptionScope = "charged_staff",
 			statMap = {
 				["charged_staff_attack_minimum_added_lightning_damage_per_stack"] = {
-					mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 				},
 				["charged_staff_attack_maximum_added_lightning_damage_per_stack"] = {
-					mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 				},
 				["charged_staff_buff_duration_per_stack_ms"] = {
-					mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 				},
 			},
 			baseFlags = {
@@ -3797,6 +3797,7 @@ skills["ContagionPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Contagion" }),
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 5000 },
@@ -4554,6 +4555,9 @@ skills["DarkEffigyPlayer"] = {
 				totem = true,
 				duration = true,
 			},
+			baseMods = {
+				mod("Damage", "INC", 40, ModFlag.Dot, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+			},
 			constantStats = {
 				{ "base_totem_duration", 8000 },
 				{ "base_totem_range", 120 },
@@ -4680,6 +4684,10 @@ skills["DarkEffigyProjectilePlayer"] = {
 				area = true,
 				projectile = true,
 				totem = true,
+			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "ChaosDebuff", actor = "enemy" }),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Poison" }, { type = "Condition", var = "Poisoned" }),
 			},
 			constantStats = {
 				{ "skill_disabled_unless_cloned", 2 },
@@ -5390,6 +5398,13 @@ skills["ElementalConfluxPlayer"] = {
 			label = "Elemental Conflux",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "elemental_conflux",
+			statMap = {
+				["skill_elemental_conflux_active_element_damage_+%_final"] = {
+					mod("LightningDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxLightningEffect", invert = true }),
+					mod("ColdDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxColdEffect", invert = true }),
+					mod("FireDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxFireEffect", invert = true }),
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},
@@ -6288,6 +6303,9 @@ skills["EssenceDrainPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
+			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -6367,6 +6385,7 @@ skills["EssenceDrainPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -6898,7 +6917,7 @@ skills["FallingThunderPlayer"] = {
 			statDescriptionScope = "falling_thunder",
 			statMap = {
 				["lightning_strike_damage_+%_final_per_power_charge"] = {
-					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
 				},
 				["lightning_strike_damage_+%_final_when_charged"] = {
 					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
@@ -8455,16 +8474,34 @@ skills["FlickerStrikePlayer"] = {
 		[39] = { PvPDamageMultiplier = -30, attackSpeedMultiplier = -50, baseMultiplier = 13.44, levelRequirement = 90, cost = { Mana = 312, }, },
 		[40] = { PvPDamageMultiplier = -30, attackSpeedMultiplier = -50, baseMultiplier = 14.48, levelRequirement = 90, cost = { Mana = 332, }, },
 	},
+			preDamageFunc = function(activeSkill, output, breakdown)
+				local strikesPerCharge = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "AdditionalFlickersPerPowerCharge")
+				activeSkill.skillData.averageBurstHits = 1 + strikesPerCharge
+			end,
 	statSets = {
 		[1] = {
 			label = "Flicker Strike",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["flicker_strike_additional_flickers_from_power_charges"] = {
+					mod("AdditionalFlickersPerPowerCharge", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
+				},
+				["cannot_gain_power_charges_during_skill"] = {
+					-- Display Only
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+					-- Override
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
 				area = true,
+			},
+			baseMods = {
+				mod("Speed", "MORE", 285, ModFlag.Attack),
 			},
 			constantStats = {
 				{ "flicker_strike_additional_flickers_from_power_charges", 2 },
@@ -8842,12 +8879,6 @@ skills["FrostBombPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "frost_bomb",
-			statMap = {
-				['skill_cold_exposure_magnitude'] = {
-					mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-					mult = -1
-				},
-			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -15699,6 +15730,9 @@ skills["ProfaneRitualPlayer"] = {
 				spell = true,
 				area = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Profane Ritual" }),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 2000 },
 				{ "ritual_of_power_maximum_number_of_rituals", 5 },
@@ -19297,6 +19331,9 @@ skills["SoulrendPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
+			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -19370,6 +19407,7 @@ skills["SoulrendPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
 			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },

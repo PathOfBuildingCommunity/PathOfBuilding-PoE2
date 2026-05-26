@@ -2139,7 +2139,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Cache global damage disabling flags
 	local canDeal = { }
 	for _, damageType in ipairs(dmgTypeList) do
-		canDeal[damageType] = not skillModList:Flag(skillCfg, "DealNo"..damageType)
+		canDeal[damageType] = not skillModList:Flag(skillCfg, "DealNo"..damageType, "DealNoDamage")
 	end
 
 	-- Calculate damage conversion percentages
@@ -2759,7 +2759,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if globalOutput.Cooldown then
 				output.Cooldown = globalOutput.Cooldown
-				output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				if not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
+					output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				end
 			end
 			if output.Cooldown and skillFlags.selfCast or skillData.maxHitRatePerEnemy or skillData.hitTimeOverride then
 				skillFlags.notAverage = true
@@ -2862,7 +2864,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.Speed, s_format("= %.2f ^8(eff. attack rate)", output.Speed))
 				end
 				-- Cooldown:
-				if output.Cooldown and (1 / output.Cooldown) < output.CastRate then
+				if output.Cooldown and (1 / output.Cooldown) < output.CastRate and not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
 					t_insert(breakdown.Speed, s_format("\n"))
 					t_insert(breakdown.Speed, s_format("1 / %.2f ^8(skill cooldown)", output.Cooldown))
 					if output.Repeats > 1 then
@@ -5137,7 +5139,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Apply elemental exposure from skill
 		for _, element in ipairs({"Fire", "Cold", "Lightning"}) do
-			if skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0 then
+			if (skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0) or skillModList:Flag(cfg, "InflictExposure") then
 				skillFlags["apply"..element.."Exposure"] = true
 			end
 		end
