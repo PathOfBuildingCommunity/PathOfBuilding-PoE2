@@ -631,51 +631,53 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 		if slot then
 			newGroup.slot = slot
 		end
-		for nameSpec, level, quality, state, count, cFlag, cLevel in
-			skillText:gmatch("([ %a':]+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+-]?%d*)")
-		do
-			local skillMinion = nil
-			local skillMinionCalcs = nil
-			local minionName = nil
-			local minionList = nil
+		for line in skillText:gmatch("([^\r\n]+)") do
+			local nameSpec, level, quality, state, count, cFlag, cLevel =
+				line:match("^([ %a':]+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+%-]?%d*)%s*$")
+			if nameSpec then
+				local skillMinion = nil
+				local skillMinionCalcs = nil
+				local minionName = nil
+				local minionList = nil
 
-			if nameSpec:find("Spectre") then
-				minionName = nameSpec:match(": (.+)")
-				nameSpec = "Summon Spectre"
-				minionList = self.build.spectreList
-			elseif nameSpec:find("Companion") then
-				minionName = nameSpec:match(": (.+)")
-				nameSpec = "Tamed Companion"
-				minionList = self.build.beastList
-			end
+				if nameSpec:find("Spectre") then
+					minionName = nameSpec:match(": (.+)")
+					nameSpec = "Summon Spectre"
+					minionList = self.build.spectreList
+				elseif nameSpec:find("Companion") then
+					minionName = nameSpec:match(": (.+)")
+					nameSpec = "Tamed Companion"
+					minionList = self.build.beastList
+				end
 
-			-- Search for the minion if we found a spectre or companion
-			if minionName then
-				for id, spectre in pairs(data.spectres) do
-					if spectre.name == minionName then
-						if not isValueInArray(minionList, id) then
-							t_insert(minionList, id)
+				-- Search for the minion if we found a spectre or companion
+				if minionName then
+					for id, spectre in pairs(data.spectres) do
+						if spectre.name == minionName then
+							if not isValueInArray(minionList, id) then
+								t_insert(minionList, id)
+							end
+							skillMinion = id
+							skillMinionCalcs = id
+							break
 						end
-						skillMinion = id
-						skillMinionCalcs = id
-						break
 					end
 				end
-			end
 
-			t_insert(newGroup.gemList, {
-				nameSpec = nameSpec,
-				level = tonumber(level) or 20,
-				quality = tonumber(quality) or 0,
-				enabled = state ~= "DISABLED",
-				count = tonumber(count) or 1,
-				corrupted = cFlag == "C",
-				corruptLevel = tonumber(cLevel) or 0,
-				enableGlobal1 = true,
-				enableGlobal2 = true,
-				skillMinion = skillMinion,
-				skillMinionCalcs = skillMinionCalcs
-			})
+				t_insert(newGroup.gemList, {
+					nameSpec = nameSpec,
+					level = tonumber(level) or 20,
+					quality = tonumber(quality) or 0,
+					enabled = state ~= "DISABLED",
+					count = tonumber(count) or 1,
+					corrupted = cFlag == "C",
+					corruptLevel = tonumber(cLevel) or 0,
+					enableGlobal1 = true,
+					enableGlobal2 = true,
+					skillMinion = skillMinion,
+					skillMinionCalcs = skillMinionCalcs
+				})
+			end
 		end
 		if #newGroup.gemList > 0 then
 			t_insert(self.socketGroupList, newGroup)
