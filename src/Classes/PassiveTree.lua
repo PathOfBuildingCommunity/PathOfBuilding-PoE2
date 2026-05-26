@@ -78,7 +78,9 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 	self.size = m_min(self.max_x - self.min_x, self.max_y - self.min_y) * self.scaleImage * 1.1
 	
-	for i = 0, 6 do
+	-- Shift classes from 1-indexed (JSON/Lua) to 0-indexed
+	local classCount = #self.classes
+	for i = 0, classCount - 1 do
 		self.classes[i] = self.classes[i + 1]
 		self.classes[i + 1] = nil
 	end
@@ -94,7 +96,9 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		class.classes = class.ascendancies
 		class.classes[0] = { name = "None" }
 		self.classNameMap[class.name] = classId
-		self.classIntegerIdMap[class.integerId] = classId
+		if class.integerId then
+			self.classIntegerIdMap[class.integerId] = classId
+		end
 		for ascendClassId, ascendClass in pairs(class.classes) do
 			self.ascendNameMap[ascendClass.id or ascendClass.name] = {
 				classId = classId,
@@ -121,6 +125,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	ConPrintf("Loading passive tree assets...")
 	for name, data in pairs(self.assets) do
 		self:LoadImage(data[1], data, "MIPMAP")
+		data.found = data.width > 0
 	end
 
 	self.ddsMap = { }
@@ -189,12 +194,14 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			end
 		elseif node.isAscendancyStart then
 			node.type = "AscendClassStart"
-			local ascendClass = self.ascendNameMap[node.ascendancyName].ascendClass
-			ascendClass.startNodeId = node.id
-			if node.isSwitchable then
-				for ascName, _ in pairs(node.options) do
-					local option = self.ascendNameMap[ascName].ascendClass
-					option.startNodeId = node.id
+			if self.ascendNameMap[node.ascendancyName] then
+				local ascendClass = self.ascendNameMap[node.ascendancyName].ascendClass
+				ascendClass.startNodeId = node.id
+				if node.isSwitchable then
+					for ascName, _ in pairs(node.options) do
+						local option = self.ascendNameMap[ascName].ascendClass
+						option.startNodeId = node.id
+					end
 				end
 			end
 		elseif node.isOnlyImage then

@@ -549,15 +549,18 @@ data.weaponTypeInfo = {
 	["Talisman"] = { oneHand = false, melee = true, flag = "Talisman" },
 }
 data.unarmedWeaponData = {
-	[0] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
-	[1] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
-	[2] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Huntress
-	[3] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Warrior
-	[4] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Mercenary
-	[5] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Druid
-	[6] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[0] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Marauder (0.5 class 0)
+	[1] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[2] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
+	[3] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 7 }, -- Duelist (0.5 class 3)
+	[4] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Shadow (0.5 class 4)
+	[5] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Templar (0.5 class 5)
+	[6] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Warrior
 	[7] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Sorceress
-	[8] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Monk
+	[8] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Huntress
+	[9] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Mercenary
+	[10] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Monk
+	[11] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Druid
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)

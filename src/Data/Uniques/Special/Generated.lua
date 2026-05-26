@@ -104,8 +104,15 @@ do
 	table.insert(data.uniques.generated, table.concat(prism, "\n"))
 end
 
-local treedata = LoadModule("TreeData/" .. latestTreeVersion .. "/tree.lua")
-local nodes = treedata.nodes
+local ok, treedata = pcall(LoadModule, "TreeData/" .. latestTreeVersion .. "/tree.lua")
+if not ok or not treedata then
+	-- Fall back to previous tree version if latest tree.lua hasn't been generated yet
+	for i = #treeVersionList - 1, 1, -1 do
+		ok, treedata = pcall(LoadModule, "TreeData/" .. treeVersionList[i] .. "/tree.lua")
+		if ok and treedata then break end
+	end
+end
+local nodes = treedata and treedata.nodes or {}
 
 do
     local megalomaniac = {

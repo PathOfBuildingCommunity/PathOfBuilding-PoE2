@@ -1308,8 +1308,12 @@ function PassiveTreeViewClass:DrawAsset(data, x, y, scale, isHalf)
 	if isHalf then
 		DrawImage(data.handle, x - width, y - height * 2, width * 2, height * 2)
 		DrawImage(data.handle, x - width, y, width * 2, height * 2, 0, 1, 1, 0)
-	else
+	elseif type(data[1]) == "number" then
+		-- Grid-tiled spritesheet: data[1] is the 1-based tile index the engine slices
 		DrawImage(data.handle, x - width, y - height, width * 2, height * 2, unpack(data))
+	else
+		-- Single-image asset (e.g. an extracted 0.5 node icon): draw the whole image
+		DrawImage(data.handle, x - width, y - height, width * 2, height * 2)
 	end
 end
 
@@ -1469,7 +1473,7 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
 	end
 
 	-- Check unlock ascendancy
-	if node.unlockConstraint then
+	if node.unlockConstraint and node.unlockConstraint.ascendancy then
 		err, needMatches = PCall(search, node.unlockConstraint.ascendancy:lower(), needMatches)
 		if err then return false end
 		if #needMatches == 0 then

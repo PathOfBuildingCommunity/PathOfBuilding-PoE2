@@ -2380,8 +2380,11 @@ local specialModList = {
 	["removes all mana"] = { mod("Mana", "OVERRIDE", 0 ) },
 	["you have no mana"] = { mod("Mana", "OVERRIDE", 0 ) },
 	["doubles mana costs"] = { mod("ManaCost", "MORE", 100) },
+	["mana costs are doubled"] = { mod("ManaCost", "MORE", 100) },
 	["removes all energy shield"] = { mod("EnergyShield", "OVERRIDE", 0 ) },
 	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
+	["convert (%d+)%% of maximum energy shield to maximum mana"] = function(num) return { mod("EnergyShieldConvertToMana", "BASE", num) } end,
+	["leech life (%d+)%% less quickly"] = function(num) return { mod("LifeLeechRate", "MORE", -num) } end,
 	["skills cost life instead of mana"] = { flag("CostLifeInsteadOfMana") },
 	["skills reserve life instead of mana"] = { flag("BloodMagicReserved") },
 	["non%-aura skills cost no mana or life while focus?sed"] = {
@@ -4981,6 +4984,7 @@ local specialModList = {
 	["y?o?u? ?cannot recharge energy shield"] = { flag("NoEnergyShieldRecharge") },
 	["energy shield does not recharge"] = { flag("NoEnergyShieldRecharge") },
 	["you cannot regenerate energy shield" ] = { flag("NoEnergyShieldRegen") },
+	["you cannot recover energy shield from regeneration"] = { flag("NoEnergyShieldRegen") },
 	["cannot recharge or regenerate energy shield"] = { flag("NoEnergyShieldRecharge"), flag("NoEnergyShieldRegen") },
 	["enemies you (%a+) cannot recharge energy shield"] = function(_, cond) return {
 		mod("EnemyModifier", "LIST", { mod = flag("NoEnergyShieldRecharge" )}, { type = "Condition", var = cond:gsub("^%a", string.upper) })
@@ -5488,6 +5492,7 @@ local specialModList = {
 	["(%d+)%% more accuracy rating against enemies you mark"] = function(num) return { mod("AccuracyVsEnemy", "MORE", num, { type = "ActorCondition", actor = "enemy", var = "Marked" } ) } end,
 	["%+(%d+) to accuracy against bleeding enemies"] = function(num) return { mod("AccuracyVsEnemy", "BASE", num, { type = "ActorCondition", actor = "enemy", var = "Bleeding" } ) } end,
 	["cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
+	["you cannot recover energy shield to above armour"] = { flag("ArmourESRecoveryCap") },
 	["cannot recover energy shield to above evasion rating"] = { flag("EvasionESRecoveryCap") },
 	["warcries exert (%d+) additional attacks?"] = function(num) return { mod("ExtraExertedAttacks", "BASE", num) } end,
 	["warcries have (%d+)%% chance to exert (%d+) additional attacks?"] = function(num, _, var) return { mod("ExtraExertedAttacks", "BASE", (num*var/100)) } end,
