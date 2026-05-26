@@ -86,6 +86,7 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 		return
 	end
 	local grantedEffect = skillEffect.grantedEffect
+	local selectedGlobalStats = { }
 	local function mergeStatSet(set, onlyGlobals)
 		local stats = calcLib.buildSkillInstanceStats(skillEffect, grantedEffect, set)
 		if extraStats and extraStats[1] then
@@ -98,7 +99,11 @@ function calcs.mergeSkillInstanceMods(env, modList, skillEffect, statSet, extraS
 			if map then
 				-- Some mods need different scalars for different stats, but the same value.  Putting them in a group allows this
 				for _, modOrGroup in ipairs(map) do
-					if not onlyGlobals or isGlobalEffect(modOrGroup) then
+					local isGlobal = isGlobalEffect(modOrGroup)
+					if isGlobal and not onlyGlobals then
+						selectedGlobalStats[stat] = true
+					end
+					if (not onlyGlobals or isGlobal) and not (onlyGlobals and selectedGlobalStats[stat]) then
 						local scalar = checkForScalarMultiplier(modOrGroup, modList)
 						-- Found a mod, since all mods have names
 						if modOrGroup.name then
