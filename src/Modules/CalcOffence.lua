@@ -401,6 +401,13 @@ function calcs.offence(env, actor, activeSkill)
 	-- Calculate armour break
 	output.ArmourBreakPerHit = calcLib.val(skillModList, "ArmourBreakPerHit", skillCfg)
 
+	local function getSkillNameFromFlag(skillModList, flag)
+		local sourceMod = skillModList:Tabulate("FLAG", nil, flag)
+		local sourceName = sourceMod[1] and sourceMod[1].mod and sourceMod[1].mod.source -- e.g. Skill:SupportExpandPlayer
+		local dataSkill = env.data.skills[(sourceName:gsub("Skill:", ""))]
+		return dataSkill and dataSkill.name
+	end
+
 	local function calcAreaOfEffect(skillModList, skillCfg, skillData, skillFlags, output, breakdown)
 		local incArea, moreArea = calcLib.mods(skillModList, skillCfg, "AreaOfEffect", "AreaOfEffectPrimary")
 		output.AreaOfEffectMod = round(round(incArea * moreArea, 10), 2)
@@ -1114,24 +1121,37 @@ function calcs.offence(env, actor, activeSkill)
 		modDB:NewMod("DPS", "MORE", detonateTwice, "Grenade Activate Twice")
 	end
 
-	if skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable] and not skillModList:Flag(nil, "NoRepeatBonuses") then
-		-- Applies DPS multiplier based on seals count
+	if skillModList:Flag(nil, "HasSeals") and not skillModList:Flag(nil, "NoRepeatBonuses") then
+		-- Applies seal bonuses based on seal count
 		local totalCastSpeed = 1 / activeSkill.activeEffect.grantedEffect.castTime * calcLib.mod(skillModList, skillCfg, "Speed")
 		output.SealCooldown = activeSkill.activeEffect.grantedEffect.castTime * skillModList:Sum("BASE", skillCfg, "SealGainFrequency") / calcLib.mod(skillModList, skillCfg, "SealGainFrequency") / 100
 		output.SealMax = skillModList:Sum("BASE", skillCfg, "SealCount")
-		output.AverageBurstHits = output.SealMax
 		output.TimeMaxSeals = output.SealCooldown * output.SealMax
 
-		if not skillData.hitTimeOverride then
+		if skillModList:Flag(nil, "DamageSeal") then
+			output.AverageBurstHits = output.SealMax
+		end
+		if skillModList:Flag(nil, "DamageSeal") and not skillData.hitTimeOverride then
+			local skillName = getSkillNameFromFlag(skillModList, "DamageSeal") or "Support"
 			if skillModList:Flag(nil, "UseMaxUnleash") then
 				for i, value in ipairs(skillModList:Tabulate("INC",  { }, "MaxSealCrit")) do
 					local mod = value.mod
 					skillModList:NewMod("CritChance", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 				end
-				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", (output.SealMax * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty")) * 100, "Unleash")
+				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", (output.SealMax * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty")) * 100, skillName)
 				env.player.mainSkill.skillData.hitTimeOverride = m_max(output.TimeMaxSeals, totalCastSpeed * 1.1)
 			else
-				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", round(1 / output.SealCooldown / (totalCastSpeed * 1.1) * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") * 100, 2), "Unleash")
+				env.player.mainSkill.skillModList:NewMod("DPS", "MORE", round(1 / output.SealCooldown / (totalCastSpeed * 1.1) * calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") * 100, 2), skillName)
+			end
+		end
+		if skillModList:Flag(nil, "AreaSeal") then
+			local skillName = getSkillNameFromFlag(skillModList, "AreaSeal") or "Support"
+			local sealArea = (calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") - 1) * 100
+			if skillModList:Flag(nil, "UseMaxUnleash") then
+				env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", output.SealMax * sealArea, skillName)
+				env.player.mainSkill.skillData.hitTimeOverride = m_max(output.TimeMaxSeals, totalCastSpeed * 1.1)
+			else
+				env.player.mainSkill.skillModList:NewMod("AreaOfEffect", "INC", round(1 / output.SealCooldown / totalCastSpeed * sealArea, 2), skillName)
 			end
 		end
 
@@ -2139,7 +2159,7 @@ function calcs.offence(env, actor, activeSkill)
 	-- Cache global damage disabling flags
 	local canDeal = { }
 	for _, damageType in ipairs(dmgTypeList) do
-		canDeal[damageType] = not skillModList:Flag(skillCfg, "DealNo"..damageType)
+		canDeal[damageType] = not skillModList:Flag(skillCfg, "DealNo"..damageType, "DealNoDamage")
 	end
 
 	-- Calculate damage conversion percentages
@@ -2759,7 +2779,9 @@ function calcs.offence(env, actor, activeSkill)
 			end
 			if globalOutput.Cooldown then
 				output.Cooldown = globalOutput.Cooldown
-				output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				if not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
+					output.Speed = m_min(output.Speed, 1 / output.Cooldown * output.Repeats)
+				end
 			end
 			if output.Cooldown and skillFlags.selfCast or skillData.maxHitRatePerEnemy or skillData.hitTimeOverride then
 				skillFlags.notAverage = true
@@ -2862,7 +2884,7 @@ function calcs.offence(env, actor, activeSkill)
 					t_insert(breakdown.Speed, s_format("= %.2f ^8(eff. attack rate)", output.Speed))
 				end
 				-- Cooldown:
-				if output.Cooldown and (1 / output.Cooldown) < output.CastRate then
+				if output.Cooldown and (1 / output.Cooldown) < output.CastRate and not skillModList:Flag(skillCfg, "CooldownDoesNotLimitSkillSpeed") then
 					t_insert(breakdown.Speed, s_format("\n"))
 					t_insert(breakdown.Speed, s_format("1 / %.2f ^8(skill cooldown)", output.Cooldown))
 					if output.Repeats > 1 then
@@ -4237,7 +4259,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 		output.AverageDamage = output.AverageHit * output.HitChance / 100
 		globalOutput.AverageBurstHits = output.AverageBurstHits or 1
-		local repeatPenalty = skillModList:Flag(nil, "HasSeals") and activeSkill.skillTypes[SkillType.Unleashable]  and not skillModList:Flag(nil, "NoRepeatBonuses") and calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") or 1
+		local repeatPenalty = skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "DamageSeal") and not skillModList:Flag(nil, "NoRepeatBonuses") and calcLib.mod(skillModList, skillCfg, "SealRepeatPenalty") or 1
 		globalOutput.AverageBurstDamage = output.AverageDamage + output.AverageDamage * (globalOutput.AverageBurstHits - 1) * repeatPenalty or 0
 		globalOutput.ShowBurst = globalOutput.AverageBurstHits > 1
 		output.TotalDPS = output.AverageDamage * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier * quantityMultiplier
@@ -5000,8 +5022,9 @@ function calcs.offence(env, actor, activeSkill)
 						end
 					else
 						local resist = calcResistForType(ailmentDamageType, dotCfg)
-						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", ailmentTypeMod .. "DamageTaken")
-						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", ailmentTypeMod .. "DamageTaken")
+						local elementalDamageTaken = isElemental[ailmentDamageType] and "ElementalDamageTaken" or nil
+						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", elementalDamageTaken)
+						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", ailmentDamageType .. "DamageTaken", ailmentDamageType .. "DamageTakenOverTime", elementalDamageTaken)
 						effMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
 						globalOutput[ailment .. "EffMult"] = effMult
 						if breakdown and effMult ~= 1 then
@@ -5257,7 +5280,7 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Apply elemental exposure from skill
 		for _, element in ipairs({"Fire", "Cold", "Lightning"}) do
-			if skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0 then
+			if (skillModList:Sum("BASE", cfg, element.."ExposureChance") > 0) or skillModList:Flag(cfg, "InflictExposure") then
 				skillFlags["apply"..element.."Exposure"] = true
 			end
 		end
@@ -5810,7 +5833,7 @@ function calcs.offence(env, actor, activeSkill)
 			elseif skillFlags.totem then
 				useSpeed = (output.Cooldown and output.Cooldown > 0 and (output.TotemPlacementSpeed > 0 and output.TotemPlacementSpeed or 1 / output.Cooldown) or output.TotemPlacementSpeed) / repeats
 				timeType = "totem placement"
-			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "UseMaxUnleash") then
+			elseif skillModList:Flag(nil, "HasSeals") and skillModList:Flag(nil, "DamageSeal") and skillModList:Flag(nil, "UseMaxUnleash") then
 				useSpeed = env.player.mainSkill.skillData.hitTimeOverride / repeats
 				timeType = "full unleash"
 			elseif output.EffectiveReloadTime then -- Crossbows: Account for mana cost only happening on reload (once all bolts are fired)

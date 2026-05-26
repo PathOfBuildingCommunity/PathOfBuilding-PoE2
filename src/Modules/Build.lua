@@ -172,7 +172,6 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 	end
 	self.controls.pointDisplay = new("Control", {"LEFT",self.anchorTopBarRight,"RIGHT"}, {function() return getPointDisplayX() end, 0, 0, 20})
 	self.controls.pointDisplay.width = function(control)
-		control.str, control.req = self:EstimatePlayerProgress()
 		return DrawStringWidth(16, "FIXED", control.str) + 8
 	end
 	self.controls.pointDisplay.Draw = function(control)
@@ -405,6 +404,7 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 
 	self.controls.modeImport = new("ButtonControl", {"TOPLEFT",self.anchorSideBar,"TOPLEFT"}, {0, 0, 134, 20}, "Import/Export Build", function()
 		self.viewMode = "IMPORT"
+		self.importTab:RefreshAuthStatus()
 	end)
 	self.controls.modeImport.locked = function() return self.viewMode == "IMPORT" end
 	self.controls.modeNotes = new("ButtonControl", {"LEFT",self.controls.modeImport,"RIGHT"}, {4, 0, 58, 20}, "Notes", function()
@@ -830,78 +830,80 @@ function buildMode:SyncLoadouts()
 end
 
 function buildMode:EstimatePlayerProgress()
-	local PointsUsed, AscUsed, SecondaryAscUsed, socketsUsed, weaponSet1Used, weaponSet2Used = self.spec:CountAllocNodes()
-	local extra = self.calcsTab.mainOutput and self.calcsTab.mainOutput.ExtraPoints or 0
-	local maxWeaponSets = self.maxWeaponSets
-	local extraWeaponSets = self.calcsTab.mainOutput and self.calcsTab.mainOutput.PassivePointsToWeaponSetPoints or 0
-	local usedMax, ascMax, secondaryAscMax, level, act = 99 + maxWeaponSets + extra, 8, 8, 1, 0
+	if self.spec then
+		local PointsUsed, AscUsed, SecondaryAscUsed, socketsUsed, weaponSet1Used, weaponSet2Used = self.spec:CountAllocNodes()
+		local extra = self.calcsTab.mainOutput and self.calcsTab.mainOutput.ExtraPoints or 0
+		local maxWeaponSets = self.maxWeaponSets
+		local extraWeaponSets = self.calcsTab.mainOutput and self.calcsTab.mainOutput.PassivePointsToWeaponSetPoints or 0
+		local usedMax, ascMax, secondaryAscMax, level, act = 99 + maxWeaponSets + extra, 8, 8, 1, 0
 
-	repeat
-		act = act + 1
-		level = m_min(m_max(PointsUsed + 1 -  self.acts[act].questPoints - extra - m_min(weaponSet1Used, weaponSet2Used), self.acts[act].level), 100)
-	until act == self.maxActs or level <= self.acts[act + 1].level
-	
-	if self.characterLevelAutoMode and self.characterLevel ~= level then
-		self.characterLevel = level
-		self.controls.characterLevel:SetText(self.characterLevel)
-		self.configTab:BuildModList()
-	end
+		repeat
+			act = act + 1
+			level = m_min(m_max(PointsUsed + 1 -  self.acts[act].questPoints - extra - m_min(weaponSet1Used, weaponSet2Used), self.acts[act].level), 100)
+		until act == self.maxActs or level <= self.acts[act + 1].level
 
-	-- Ascendancy points for lab
-	-- this is a recommendation for beginners who are using Path of Building for the first time and trying to map out progress in PoB
-	local labSuggest = level < 33 and ""
-		or level < 55 and "\nLabyrinth: Normal Lab"
-		or level < 68 and "\nLabyrinth: Cruel Lab"
-		or level < 75 and "\nLabyrinth: Merciless Lab"
-		or level < 90 and "\nLabyrinth: Uber Lab"
-		or ""
-	
-	local normalPassives = PointsUsed - m_min(weaponSet1Used, weaponSet2Used)
-	if normalPassives > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
-	if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, "You have too many ascendancy points allocated") end
-	if SecondaryAscUsed > secondaryAscMax then InsertIfNew(self.controls.warnings.lines, "You have too many secondary ascendancy points allocated") end
+		if self.characterLevelAutoMode and self.characterLevel ~= level then
+			self.characterLevel = level
+			self.controls.characterLevel:SetText(self.characterLevel)
+			self.configTab:BuildModList()
+		end
 
-	-- if you are using more than maxWeaponSets + extraWeaponSets, you are using too many weapon sets
-	local warningsWeaponSet = false
-	if weaponSet1Used > (maxWeaponSets + extraWeaponSets) then
-		warningsWeaponSet = true
-		InsertIfNew(self.controls.warnings.lines, string.format(
-			"You have allocated %d too many weapon set 1 passives",
-			math.abs((maxWeaponSets + extraWeaponSets) - weaponSet1Used)
-		))
-	end
-	if weaponSet2Used > (maxWeaponSets + extraWeaponSets) then
-		warningsWeaponSet = true
-		InsertIfNew(self.controls.warnings.lines, string.format(
-			"You have allocated %d too many weapon set 2 passives",
-			math.abs((maxWeaponSets + extraWeaponSets) - weaponSet2Used)
-		))
-	end
+		-- Ascendancy points for lab
+		-- this is a recommendation for beginners who are using Path of Building for the first time and trying to map out progress in PoB
+		local labSuggest = level < 33 and ""
+			or level < 55 and "\nLabyrinth: Normal Lab"
+			or level < 68 and "\nLabyrinth: Cruel Lab"
+			or level < 75 and "\nLabyrinth: Merciless Lab"
+			or level < 90 and "\nLabyrinth: Uber Lab"
+			or ""
 
-	if not warningsWeaponSet and weaponSet1Used ~= weaponSet2Used then
-		InsertIfNew(self.controls.warnings.lines, string.format(
-			"You have %d Weapon set 2 passives available",
-			math.abs(weaponSet2Used - weaponSet1Used)
-		))
-	end
-	
-	self.Act = act == self.maxActs and "Endgame" or "Act " .. act
-	
-	return string.format(
-		"%s%3d / %3d %s%2d / %2d %s%2d / %2d   %s%d / %d",
-		normalPassives > usedMax and colorCodes.NEGATIVE or "^7",
-		normalPassives, usedMax,
-		colorCodes.NEGATIVE,
-		weaponSet1Used, maxWeaponSets + extraWeaponSets,
-		colorCodes.POSITIVE,
-		weaponSet2Used, maxWeaponSets + extraWeaponSets,
-		AscUsed > ascMax and colorCodes.NEGATIVE or "^7",
-		AscUsed, ascMax
-		), 
-		string.format(
+		local normalPassives = PointsUsed - m_min(weaponSet1Used, weaponSet2Used)
+		if normalPassives > usedMax then InsertIfNew(self.controls.warnings.lines, "You have too many passive points allocated") end
+		if AscUsed > ascMax then InsertIfNew(self.controls.warnings.lines, "You have too many ascendancy points allocated") end
+		if SecondaryAscUsed > secondaryAscMax then InsertIfNew(self.controls.warnings.lines, "You have too many secondary ascendancy points allocated") end
+
+		-- if you are using more than maxWeaponSets + extraWeaponSets, you are using too many weapon sets
+		local warningsWeaponSet = false
+		if weaponSet1Used > (maxWeaponSets + extraWeaponSets) then
+			warningsWeaponSet = true
+			InsertIfNew(self.controls.warnings.lines, string.format(
+				"You have allocated %d too many weapon set 1 passives",
+				math.abs((maxWeaponSets + extraWeaponSets) - weaponSet1Used)
+			))
+		end
+		if weaponSet2Used > (maxWeaponSets + extraWeaponSets) then
+			warningsWeaponSet = true
+			InsertIfNew(self.controls.warnings.lines, string.format(
+				"You have allocated %d too many weapon set 2 passives",
+				math.abs((maxWeaponSets + extraWeaponSets) - weaponSet2Used)
+			))
+		end
+
+		if not warningsWeaponSet and weaponSet1Used ~= weaponSet2Used then
+			InsertIfNew(self.controls.warnings.lines, string.format(
+				"You have %d Weapon set 2 passives available",
+				math.abs(weaponSet2Used - weaponSet1Used)
+			))
+		end
+
+		self.Act = act == self.maxActs and "Endgame" or "Act " .. act
+
+		self.controls.pointDisplay.str = string.format(
+			"%s%3d / %3d %s%2d / %2d %s%2d / %2d   %s%d / %d",
+			normalPassives > usedMax and colorCodes.NEGATIVE or "^7",
+			normalPassives, usedMax,
+			colorCodes.NEGATIVE,
+			weaponSet1Used, maxWeaponSets + extraWeaponSets,
+			colorCodes.POSITIVE,
+			weaponSet2Used, maxWeaponSets + extraWeaponSets,
+			AscUsed > ascMax and colorCodes.NEGATIVE or "^7",
+			AscUsed, ascMax
+		)
+		self.controls.pointDisplay.req = string.format(
 			"Required Level: %d\nEstimated Progress:\nAct: %s\nExtra Skillpoints: %d%s",
 			level, self.Act, extra, labSuggest
 		)
+	end
 end
 
 function buildMode:CanExit(mode)
@@ -1007,11 +1009,12 @@ function buildMode:Save(xml)
 						if skillData.trigger and skillData.trigger ~= "" then
 							triggerStr = skillData.trigger
 						end
+						local skillCount = skillData.count or 1
 						local lhsString = skillData.name
-						if skillData.count >= 2 then
-							lhsString = tostring(skillData.count).."x "..skillData.name
+						if skillCount ~= 1 then
+							lhsString = s_format("%g", skillCount).."x "..skillData.name
 						end
-						t_insert(xml, { elem = "FullDPSSkill", attrib = { stat = lhsString, value = tostring(skillData.dps * skillData.count), skillPart = skillData.skillPart or "", source = skillData.source or skillData.trigger or "" } })
+						t_insert(xml, { elem = "FullDPSSkill", attrib = { stat = lhsString, value = tostring(skillData.dps * skillCount), skillPart = skillData.skillPart or "", source = skillData.source or skillData.trigger or "" } })
 					end
 					addedStatNames[statName] = true
 				else
@@ -1928,14 +1931,15 @@ function buildMode:AddDisplayStatList(statList, actor)
 							if skillData.trigger and skillData.trigger ~= "" then
 								triggerStr = colorCodes.WARNING.." ("..skillData.trigger..")"..labelColor
 							end
+							local skillCount = skillData.count or 1
 							local lhsString = labelColor..skillData.name..triggerStr..":"
-							if skillData.count >= 2 then
-								lhsString = labelColor..tostring(skillData.count).."x "..skillData.name..triggerStr..":"
+							if skillCount ~= 1 then
+								lhsString = labelColor..s_format("%g", skillCount).."x "..skillData.name..triggerStr..":"
 							end
 							t_insert(statBoxList, {
 								height = 16,
 								lhsString,
-								self:FormatStat({fmt = "1.f"}, skillData.dps * skillData.count, overCapStatVal),
+								self:FormatStat({fmt = "1.f"}, skillData.dps * skillCount, overCapStatVal),
 							})
 							if skillData.skillPart then
 								t_insert(statBoxList, {
@@ -2075,6 +2079,7 @@ function buildMode:RefreshStatList()
 	end
 	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player)
 	self:InsertItemWarnings()
+	self:EstimatePlayerProgress()
 end
 
 function buildMode:CompareStatList(tooltip, statList, actor, baseOutput, compareOutput, header, nodeCount)

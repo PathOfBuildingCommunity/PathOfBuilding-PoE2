@@ -40,6 +40,25 @@ describe("TetsItemMods", function()
 		assert.are.equals(68, build.calcsTab.mainOutput.ChaosResistTotal)
 	end)
 
+	it("sorts defensive item stats when the best score is negative", function()
+		build.configTab.input.enemyFireDamage = "1000"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		local itemDB = build.itemsTab.controls.uniqueDB
+		itemDB.db = { list = {
+			new("Item", "New Item\nRing"),
+			new("Item", "New Item\nRing\n+50% to Fire Resistance"),
+			new("Item", "New Item\nBroadhead Quiver"),
+		} }
+		itemDB:SetSortMode("FireTakenHit")
+
+		itemDB:ListBuilder()
+
+		assert.is_true(itemDB.list[1].measuredPower < 0)
+		assert.are.equals(-math.huge, itemDB.list[#itemDB.list].measuredPower)
+	end)
+
 	it("Both slots mod (evasion and es mastery)", function()
 
 		build.configTab.input.customMods = "\z
@@ -654,5 +673,46 @@ describe("TetsItemMods", function()
 		assert.are.equals(0, attributeModList:Sum("BASE", nil, "Dex"))
 		assert.are.equals(0, smallModList:Sum("BASE", nil, "Str"))
 		assert.are.equals(11, smallModList:Sum("BASE", nil, "Dex"))
+	end)
+
+	it("ancestral bond", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			Rarity: UNIQUE
+			Hoghunt
+			Felled Greatclub
+			Variant: Pre 0.1.1
+			Variant: Current
+			Selected Variant: 2
+			Quality: 20
+			LevelReq: 0
+			Implicits: 0
+			{variant:1}{range:0.5}(100-150)% increased Physical Damage
+			{variant:2}{range:0.5}Adds (16-20) to (23-27) Physical Damage
+			+15% to Critical Hit Chance
+			10% reduced Attack Speed
+			+10 to Strength
+			Maim on Critical Hit
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.skillsTab:PasteSocketGroup("Ancestral Warrior Totem 20/0 2")
+		runCallback("OnFrame")
+
+		build.configTab.input.customMods = [[
+		Totems reserve 75 spirit each
+		+100 spirit
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(150, build.calcsTab.mainOutput.SpiritReserved)
+
+		build.configTab.input.customMods = [[
+		Totems reserve 75 spirit each
+		100% increased spirit reservation efficiency
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		assert.are.equals(76, build.calcsTab.mainOutput.SpiritReserved)
 	end)
 end)

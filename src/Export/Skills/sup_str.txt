@@ -737,11 +737,6 @@ statMap = {
 
 #skill SupportFireExposurePlayer
 #set SupportFireExposurePlayer
-statMap = {
-	["inflict_fire_exposure_for_x_ms_on_ignite"] = {
-		mod("FireExposureChance", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
-	},
-},
 #mods
 #skillEnd
 
@@ -1309,6 +1304,13 @@ statMap = {
 
 #skill SupportRefractionPlayerThree
 #set SupportRefractionPlayerThree
+statMap = {
+	["support_tempered_valour_banner_applies_%_elemental_exposure_per_1000_armour"] = {
+		mod("FireExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+		mod("ColdExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+		mod("LightningExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+	},
+},
 #mods
 #skillEnd
 
