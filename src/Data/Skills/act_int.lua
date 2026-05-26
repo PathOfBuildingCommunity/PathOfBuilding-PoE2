@@ -6303,9 +6303,6 @@ skills["EssenceDrainPlayer"] = {
 				spell = true,
 				projectile = true,
 			},
-			baseMods = {
-				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
-			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
@@ -7982,14 +7979,6 @@ skills["FlameWallPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "flame_wall",
-			statMap = {
-				["flame_wall_minimum_added_fire_damage"] = {
-					mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
-				},
-				["flame_wall_maximum_added_fire_damage"] = {
-					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -8067,6 +8056,20 @@ skills["FlameWallPlayer"] = {
 			incrementalEffectiveness = 0.11999999731779,
 			damageIncrementalEffectiveness = 0.0015000000130385,
 			statDescriptionScope = "flame_wall",
+			statMap = {
+				["flame_wall_minimum_added_fire_damage"] = {
+					mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+				},
+				["flame_wall_maximum_added_fire_damage"] = {
+					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+				},
+				["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
+					mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+				},
+				["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
+					mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -19330,9 +19333,6 @@ skills["SoulrendPlayer"] = {
 			baseFlags = {
 				spell = true,
 				projectile = true,
-			},
-			baseMods = {
-				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
 			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },
