@@ -123,6 +123,13 @@ function PassiveTreeViewClass:GetJewelSocketOverlay(jewel, isExpansion)
 	end
 end
 
+local function compareJewelsEqual(a, b)
+	if not a or not b then
+		return a == b
+	end
+	return a:BuildRaw() == b:BuildRaw()
+end
+
 -- Returns the draw color for a node when compare overlay is active.
 -- Handles diff coloring for allocated/unallocated, mastery changes, and jewel socket differences.
 function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build, nodeDefaultColor)
@@ -139,9 +146,7 @@ function PassiveTreeViewClass:GetCompareNodeColor(node, compareNode, spec, build
 		local pJewelId = spec.jewels[node.id]
 		local pJewel = pJewelId and build.itemsTab.items[pJewelId]
 		local cJewel = self:GetCompareJewel(node.id)
-		local pName = pJewel and pJewel.name or ""
-		local cName = cJewel and cJewel.name or ""
-		if pName ~= cName then
+		if not compareJewelsEqual(pJewel, cJewel) then
 			return 0, 0, 1
 		end
 	end
@@ -1128,8 +1133,8 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
 			end
 			self.tooltip.center = true
-			local ttWidth, ttHeight = self.tooltip:GetDynamicSize()
-			local skillWidth, skillHeight = self.skillTooltip:GetDynamicSize()
+			local ttWidth, ttHeight = self.tooltip:GetDynamicSize(viewPort)
+			local skillWidth, skillHeight = self.skillTooltip:GetDynamicSize(viewPort)
 
 			local fatSkill = skillWidth > skillHeight*1.5 
 
@@ -1257,7 +1262,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			if node.alloc or (compareNode and compareNode.alloc) then
 				local pHasRadius = jewel and jewel.jewelRadiusIndex
 				local cHasRadius = cJewel and cJewel.jewelRadiusIndex
-				local sameJewel = jewel and cJewel and jewel.name == cJewel.name
+				local sameJewel = compareJewelsEqual(jewel, cJewel)
 				if pHasRadius then
 					local tint = (not self.compareSpec or sameJewel) and JEWEL_RADIUS_TINT_NEUTRAL or JEWEL_RADIUS_TINT_PRIMARY_ONLY
 					drawJewelRadius(jewel, scrX, scrY, tint)
@@ -1564,7 +1569,7 @@ function PassiveTreeViewClass:AddNodeTooltip(tooltip, node, build, incSmallPassi
 		local cJewel = self.compareSpec and self:GetCompareJewel(node.id) or nil
 		if jewel then
 			build.itemsTab:AddItemTooltip(tooltip, jewel, socket)
-			if cJewel and cJewel.name ~= jewel.name then
+			if not compareJewelsEqual(jewel, cJewel) then
 				addCompareJewelSection(socket, true)
 			end
 			if node.distanceToClassStart and node.distanceToClassStart > 0 then
