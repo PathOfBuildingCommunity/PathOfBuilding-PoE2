@@ -32,7 +32,7 @@ statMap = {
 		div = 1000,
 	},
 },
-#baseMod mod("AdditionalStrikeTarget", "BASE", 2)
+#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
@@ -44,7 +44,7 @@ statMap = {
 		div = 1000,
 	},
 },
-#baseMod mod("AdditionalStrikeTarget", "BASE", 2)
+#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
@@ -763,8 +763,7 @@ statMap = {
 		div = 1000,
 	},
 },
-#baseMod mod("FistOfWarDamageMultiplier", "BASE", 30)
-#baseMod mod("FistOfWarIncAoE", "BASE", 25)
+#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
@@ -776,8 +775,7 @@ statMap = {
 		div = 1000,
 	},
 },
-#baseMod mod("FistOfWarDamageMultiplier", "BASE", 30)
-#baseMod mod("FistOfWarIncAoE", "BASE", 25)
+#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
@@ -792,8 +790,7 @@ statMap = {
 		-- Accounted for in base mod
 	},
 },
-#baseMod mod("FistOfWarDamageMultiplier", "BASE", 60)
-#baseMod mod("FistOfWarIncAoE", "BASE", 50)
+#baseMod flag("Condition:AncestrallyBoostedDouble")
 #mods
 #skillEnd
 

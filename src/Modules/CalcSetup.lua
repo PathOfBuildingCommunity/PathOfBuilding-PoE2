@@ -668,6 +668,13 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Evasion", "INC", 10, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("SkillSlots", "BASE", 9, "Base")
 		modDB:NewMod("MaxLineageCount", "BASE", 1, "Base")
+		modDB:NewMod("AncestralBoostMoreDamage", "BASE", 30, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoosted" }, { type = "Condition", var = "AncestrallyBoostedDouble", neg = true })
+		modDB:NewMod("AncestralBoostMoreDamage", "BASE", 60, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoostedDouble" })
+		modDB:NewMod("AncestralBoostAreaOfEffect", "INC", 25, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoosted" }, { type = "Condition", var = "AncestrallyBoostedDouble", neg = true })
+		modDB:NewMod("AncestralBoostAreaOfEffect", "INC", 50, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoostedDouble" })
+
+		modDB:NewMod("AdditionalStrikeTarget", "BASE", 2, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam, neg = true }, { type = "Condition", var = "AncestrallyBoosted" })
+
 
 		-- Initialise enemy modifier database
 		calcs.initModDB(env, enemyDB)

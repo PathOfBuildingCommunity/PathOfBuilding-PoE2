@@ -158,7 +158,7 @@ skills["SupportAncestralCallPlayer"] = {
 			baseFlags = {
 			},
 			baseMods = {
-				mod("AdditionalStrikeTarget", "BASE", 2),
+				flag("Condition:AncestrallyBoosted"),
 			},
 			constantStats = {
 				{ "ancestral_call_spirit_strike_interval_ms", 5000 },
@@ -199,7 +199,7 @@ skills["SupportAncestralCallPlayerTwo"] = {
 			baseFlags = {
 			},
 			baseMods = {
-				mod("AdditionalStrikeTarget", "BASE", 2),
+				flag("Condition:AncestrallyBoosted"),
 			},
 			constantStats = {
 				{ "ancestral_call_spirit_strike_interval_ms", 3000 },
@@ -3430,8 +3430,7 @@ skills["FistOfWarSupportPlayer"] = {
 			baseFlags = {
 			},
 			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarIncAoE", "BASE", 25),
+				flag("Condition:AncestrallyBoosted"),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3471,8 +3470,7 @@ skills["FistOfWarSupportPlayerTwo"] = {
 			baseFlags = {
 			},
 			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarIncAoE", "BASE", 25),
+				flag("Condition:AncestrallyBoosted"),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3515,8 +3513,7 @@ skills["FistOfWarSupportPlayerThree"] = {
 			baseFlags = {
 			},
 			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 60),
-				mod("FistOfWarIncAoE", "BASE", 50),
+				flag("Condition:AncestrallyBoostedDouble"),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
