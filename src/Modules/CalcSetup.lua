@@ -102,6 +102,7 @@ end
 
 local function refreshJewelStatCache(env)
 	local normalNode = { type = "Normal" }
+	local attributeNode = { type = "Normal", isAttribute = true }
 	local notableNode = { type = "Notable" }
 	GlobalCache.cachedData[env.mode].radiusJewelData = { }
 
@@ -110,9 +111,11 @@ local function refreshJewelStatCache(env)
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId] = { }
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].hash = rad.jewelHash
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList = new("ModList")
+			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList = new("ModList")
 			GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList = new("ModList")
 		end
 		rad.func(normalNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].smallModList, rad.data)
+		rad.func(attributeNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].attributeModList, rad.data)
 		rad.func(notableNode, GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId].notableModList, rad.data)
 	end
 end
@@ -140,12 +143,14 @@ function calcs.buildModListForNode(env, node, incSmallPassiveSkill, includeKeyst
 		if rad.type == "Other" and rad.nodes[node.id] and rad.nodes[node.id].type ~= "Mastery" then
 			if rad.item.baseName:find("Time%-Lost") == nil and rad.item.baseName:find("Timeless Jewel") == nil then
 				rad.func(node, modList, rad.data)
-			elseif not node.isAttribute and (node.type == "Normal" or node.type == "Notable") then
+			elseif node.type == "Normal" or node.type == "Notable" then
 				local cache = GlobalCache.cachedData[env.mode].radiusJewelData[rad.nodeId]
 				if not cache or (cache.hash ~= rad.jewelHash) then
 					refreshJewelStatCache(env)
 				end
-				if node.type == "Normal" and cache and #cache.smallModList > 0 then
+				if node.type == "Normal" and node.isAttribute and cache and #cache.attributeModList > 0 then
+					modList:AddList(cache.attributeModList)
+				elseif node.type == "Normal" and not node.isAttribute and cache and #cache.smallModList > 0 then
 					modList:AddList(cache.smallModList)
 				elseif node.type == "Notable" and cache and #cache.notableModList > 0 then
 					modList:AddList(cache.notableModList)
@@ -662,6 +667,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("DeflectEffect", "INC", 1, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("Evasion", "INC", 10, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("SkillSlots", "BASE", 9, "Base")
+		modDB:NewMod("MaxLineageCount", "BASE", 1, "Base")
 
 		-- Initialise enemy modifier database
 		calcs.initModDB(env, enemyDB)
@@ -781,14 +787,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 		instrumentsOfPower = nodesModsList:Flag(nil, "InstrumentsOfPower") or false,
 		lordOfTheWilds = nodesModsList:Flag(nil, "LordOfTheWilds") or false,
 	}
-	local cache = build.itemsTab.lastWeaponFlagState
-	local losingGiantsBlood = cache and cache.giantsBlood and not weaponFlagState.giantsBlood
-	local losingInstrumentsOfPower = cache and cache.instrumentsOfPower and not weaponFlagState.instrumentsOfPower
-	local losingLordOfTheWilds = cache and cache.lordOfTheWilds and not weaponFlagState.lordOfTheWilds
-	if losingGiantsBlood or losingInstrumentsOfPower or losingLordOfTheWilds then -- Only validate socket when losing Keystone / Ascendancy
-		build.itemsTab:ValidateWeaponSlots(weaponFlagState)
+	-- Only mutate equipped items in the real build pass; calculator overrides (e.g. node power) are transient.
+	if mode == "MAIN" then
+		local cache = build.itemsTab.lastWeaponFlagState
+		local losingGiantsBlood = cache and cache.giantsBlood and not weaponFlagState.giantsBlood
+		local losingInstrumentsOfPower = cache and cache.instrumentsOfPower and not weaponFlagState.instrumentsOfPower
+		local losingLordOfTheWilds = cache and cache.lordOfTheWilds and not weaponFlagState.lordOfTheWilds
+		if losingGiantsBlood or losingInstrumentsOfPower or losingLordOfTheWilds then -- Only validate socket when losing Keystone / Ascendancy
+			build.itemsTab:ValidateWeaponSlots(weaponFlagState)
+		end
+		build.itemsTab.lastWeaponFlagState = { giantsBlood = weaponFlagState.giantsBlood, instrumentsOfPower = weaponFlagState.instrumentsOfPower, lordOfTheWilds = weaponFlagState.lordOfTheWilds }
 	end
-	build.itemsTab.lastWeaponFlagState = { giantsBlood = weaponFlagState.giantsBlood, instrumentsOfPower = weaponFlagState.instrumentsOfPower, lordOfTheWilds = weaponFlagState.lordOfTheWilds }
 
 	-- Build and merge item modifiers, and create list of radius jewels
 	if not accelerate.requirementsItems then
@@ -806,7 +815,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			(
 				(not lordOfTheWilds and override.repItem.base.type == "Talisman" and item and item.base.type ~= "Sceptre" and item.rarity ~= "UNIQUE" and item.rarity ~= "RELIC")
 				or (not instrumentsOfPower and override.repItem.base.type == "Staff" and item and item.base.type ~= "Focus")
-				or (not giantsBlood and (override.repItem.base.type == "Two Handed Sword" or override.repItem.base.type == "Two Handed Axe" or override.repItem.base.type == "Two Handed Mace"))
+				or (not giantsBlood and (override.repItem.base.type == "Two Hand Sword" or override.repItem.base.type == "Two Hand Axe" or override.repItem.base.type == "Two Hand Mace"))
 				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
 			) then
 				goto continue
@@ -1582,7 +1591,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 								grantedEffect = grantedEffect,
 								level = gemInstance.level,
 								quality = gemInstance.quality,
-								qualityId = gemInstance.qualityId,
 								srcInstance = gemInstance,
 								gemData = gemInstance.gemData,
 								superseded = false,
@@ -1652,7 +1660,6 @@ function calcs.initEnv(build, mode, override, specEnv)
 									grantedEffect = grantedEffect,
 									level = gemInstance.level,
 									quality = gemInstance.quality,
-									qualityId = gemInstance.qualityId,
 									srcInstance = gemInstance,
 									gemData = gemInstance.gemData,
 								}
@@ -1876,7 +1883,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 		local socketedSupportGems = 0
 		if (socketGroup.enabled and socketGroup.gemList) then
 			for _, gem in pairs(socketGroup.gemList) do
-				if gem.supportEffect and gem.supportEffect.grantedEffect then
+				if gem.supportEffect and gem.supportEffect.grantedEffect and not gem.supportEffect.grantedEffect.hidden then
 					socketedSupportGems = socketedSupportGems + 1
 					if gem.supportEffect.grantedEffect.color == 1 then
 						slotSupportGemSocketsCount.R = slotSupportGemSocketsCount.R + 1

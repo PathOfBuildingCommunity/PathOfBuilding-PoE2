@@ -538,14 +538,14 @@ data.weaponTypeInfo = {
 	["Staff"] = { oneHand = false, melee = true, flag = "Staff", label = "Quarterstaff" },
 	["Warstaff"] = { oneHand = false, melee = true, flag = "Warstaff" },
 	["Wand"] = { oneHand = true, melee = false, flag = "Wand" },
-	["One Handed Axe"] = { oneHand = true, melee = true, flag = "Axe" },
-	["One Handed Mace"] = { oneHand = true, melee = true, flag = "Mace" },
-	["One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword" },
-	["Thrusting One Handed Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Handed Sword" },
+	["One Hand Axe"] = { oneHand = true, melee = true, flag = "Axe" },
+	["One Hand Mace"] = { oneHand = true, melee = true, flag = "Mace" },
+	["One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword" },
+	["Thrusting One Hand Sword"] = { oneHand = true, melee = true, flag = "Sword", label = "One Hand Sword" },
 	["Fishing Rod"] = { oneHand = false, melee = true, flag = "Fishing" },
-	["Two Handed Axe"] = { oneHand = false, melee = true, flag = "Axe" },
-	["Two Handed Mace"] = { oneHand = false, melee = true, flag = "Mace" },
-	["Two Handed Sword"] = { oneHand = false, melee = true, flag = "Sword" },
+	["Two Hand Axe"] = { oneHand = false, melee = true, flag = "Axe" },
+	["Two Hand Mace"] = { oneHand = false, melee = true, flag = "Mace" },
+	["Two Hand Sword"] = { oneHand = false, melee = true, flag = "Sword" },
 	["Talisman"] = { oneHand = false, melee = true, flag = "Talisman" },
 }
 data.unarmedWeaponData = {
@@ -622,7 +622,8 @@ data.itemMods = {
 	Jewel = LoadModule("Data/ModJewel"),
 	Corruption = LoadModule("Data/ModCorrupted"),
 	Runes = LoadModule("Data/ModRunes"),
-	Exclusive = LoadModule("Data/ModItemExclusive")
+	Exclusive = LoadModule("Data/ModItemExclusive"),
+	Desecrated = LoadModule("Data/ModVeiled")
 }
 
 -- update JewelRadius affixes for Time-Lost jewels
@@ -913,8 +914,17 @@ local function setupGem(gem, gemId)
 	}
 	local i = 1
 	while gem["additionalGrantedEffectId"..i] do
-		table.insert(gem.grantedEffectList, data.skills[gem["additionalGrantedEffectId"..i]])
-		table.insert(gem.additionalGrantedEffects, data.skills[gem["additionalGrantedEffectId"..i]])
+		local abilityId = gem["additionalGrantedEffectId"..i]
+		local skill = data.skills[abilityId]
+
+		-- temporary fix. should actually have the command ability name, but it
+		-- is difficult to match currently
+		if skill and skill.name == "Command: {0} " then
+			skill.name = "Command"
+		end
+
+		table.insert(gem.grantedEffectList, skill)
+		table.insert(gem.additionalGrantedEffects, skill)
 		i = i + 1
 	end
 	if gem.grantedEffectDisplayOrder then

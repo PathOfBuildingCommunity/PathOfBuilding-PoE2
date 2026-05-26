@@ -3217,13 +3217,13 @@ skills["ChargedStaffPlayer"] = {
 			statDescriptionScope = "charged_staff",
 			statMap = {
 				["charged_staff_attack_minimum_added_lightning_damage_per_stack"] = {
-					mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 				},
 				["charged_staff_attack_maximum_added_lightning_damage_per_stack"] = {
-					mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 				},
 				["charged_staff_buff_duration_per_stack_ms"] = {
-					mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+					mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 				},
 			},
 			baseFlags = {
@@ -3794,6 +3794,10 @@ skills["ContagionPlayer"] = {
 				area = true,
 				duration = true,
 				spell = true,
+			},
+			baseMods = {
+				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Contagion" }),
 			},
 			constantStats = {
 				{ "base_skill_effect_duration", 5000 },
@@ -4551,6 +4555,9 @@ skills["DarkEffigyPlayer"] = {
 				totem = true,
 				duration = true,
 			},
+			baseMods = {
+				mod("Damage", "INC", 40, ModFlag.Dot, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+			},
 			constantStats = {
 				{ "base_totem_duration", 8000 },
 				{ "base_totem_range", 120 },
@@ -4678,6 +4685,10 @@ skills["DarkEffigyProjectilePlayer"] = {
 				projectile = true,
 				totem = true,
 			},
+			baseMods = {
+				mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "ChaosDebuff", actor = "enemy" }),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Poison" }, { type = "Condition", var = "Poisoned" }),
+			},
 			constantStats = {
 				{ "skill_disabled_unless_cloned", 2 },
 				{ "active_skill_base_area_of_effect_radius", 120 },
@@ -4801,10 +4812,20 @@ skills["CorpseCloudPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "corpse_cloud_statset_0",
+			statMap = {
+				["corpse_explosion_monster_life_permillage_chaos"] = {
+					skill("corpseExplosionLifeMultiplier", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
-				spell = true,
 				area = true,
 				duration = true,
+			},
+			baseMods = {
+				mod("PoisonChance", "BASE", 100),
+				skill("explodeCorpse", true),
+				skill("corpseExplosionDamageType", "Chaos"),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 16 },
@@ -5377,6 +5398,13 @@ skills["ElementalConfluxPlayer"] = {
 			label = "Elemental Conflux",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "elemental_conflux",
+			statMap = {
+				["skill_elemental_conflux_active_element_damage_+%_final"] = {
+					mod("LightningDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxLightningEffect", invert = true }),
+					mod("ColdDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxColdEffect", invert = true }),
+					mod("FireDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxFireEffect", invert = true }),
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},
@@ -6354,6 +6382,7 @@ skills["EssenceDrainPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" }),
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -6885,7 +6914,7 @@ skills["FallingThunderPlayer"] = {
 			statDescriptionScope = "falling_thunder",
 			statMap = {
 				["lightning_strike_damage_+%_final_per_power_charge"] = {
-					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
 				},
 				["lightning_strike_damage_+%_final_when_charged"] = {
 					mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
@@ -7603,6 +7632,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_0",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -7687,6 +7726,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_1",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -7776,6 +7825,16 @@ skills["FirestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "firestorm_statset_2",
+			statMap = {
+				["fire_storm_fireball_delay_ms"] = {
+					skill("hitTimeOverride", nil),
+					div = 1000,
+				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -7920,14 +7979,6 @@ skills["FlameWallPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "flame_wall",
-			statMap = {
-				["flame_wall_minimum_added_fire_damage"] = {
-					mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
-				},
-				["flame_wall_maximum_added_fire_damage"] = {
-					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -8005,6 +8056,20 @@ skills["FlameWallPlayer"] = {
 			incrementalEffectiveness = 0.11999999731779,
 			damageIncrementalEffectiveness = 0.0015000000130385,
 			statDescriptionScope = "flame_wall",
+			statMap = {
+				["flame_wall_minimum_added_fire_damage"] = {
+					mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+				},
+				["flame_wall_maximum_added_fire_damage"] = {
+					mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
+				},
+				["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
+					mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+				},
+				["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
+					mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -8412,16 +8477,34 @@ skills["FlickerStrikePlayer"] = {
 		[39] = { PvPDamageMultiplier = -30, attackSpeedMultiplier = -50, baseMultiplier = 13.44, levelRequirement = 90, cost = { Mana = 312, }, },
 		[40] = { PvPDamageMultiplier = -30, attackSpeedMultiplier = -50, baseMultiplier = 14.48, levelRequirement = 90, cost = { Mana = 332, }, },
 	},
+			preDamageFunc = function(activeSkill, output, breakdown)
+				local strikesPerCharge = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "AdditionalFlickersPerPowerCharge")
+				activeSkill.skillData.averageBurstHits = 1 + strikesPerCharge
+			end,
 	statSets = {
 		[1] = {
 			label = "Flicker Strike",
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "skill_stat_descriptions",
+			statMap = {
+				["flicker_strike_additional_flickers_from_power_charges"] = {
+					mod("AdditionalFlickersPerPowerCharge", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
+				},
+				["cannot_gain_power_charges_during_skill"] = {
+					-- Display Only
+				},
+				["base_skill_show_average_damage_instead_of_dps"] = {
+					-- Override
+				},
+			},
 			baseFlags = {
 				attack = true,
 				melee = true,
 				area = true,
+			},
+			baseMods = {
+				mod("Speed", "MORE", 285, ModFlag.Attack),
 			},
 			constantStats = {
 				{ "flicker_strike_additional_flickers_from_power_charges", 2 },
@@ -8799,12 +8882,6 @@ skills["FrostBombPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.008899999782443,
 			statDescriptionScope = "frost_bomb",
-			statMap = {
-				['skill_cold_exposure_magnitude'] = {
-					mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-					mult = -1
-				},
-			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -10665,6 +10742,14 @@ skills["GlacialCascadePlayer"] = {
 			label = "Final Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "glacial_cascade_attack",
+			statMap = {
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_non_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique", neg = true })
+				},
+				["active_skill_consume_enemy_freeze_to_gain_damage_against_unique_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" })
+				},
+			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -11026,7 +11111,6 @@ skills["HandOfChayulaPlayer"] = {
 				attack = true,
 				melee = true,
 				area = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -11329,15 +11413,15 @@ skills["HeraldOfIcePlayer"] = {
 		["Crossbow"] = true,
 		["Dagger"] = true,
 		["Flail"] = true,
-		["One Handed Axe"] = true,
-		["One Handed Mace"] = true,
-		["One Handed Sword"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
 		["Spear"] = true,
 		["Staff"] = true,
 		["Talisman"] = true,
-		["Two Handed Axe"] = true,
-		["Two Handed Mace"] = true,
-		["Two Handed Sword"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
 	},
 	castTime = 0,
 	qualityStats = {
@@ -11697,6 +11781,11 @@ skills["HisFoulEmergencePlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0096000004559755,
 			statDescriptionScope = "his_foul_emergence",
+			statMap = {
+				["active_skill_withered_base_duration_ms"] = {
+					flag("Condition:CanWither"),
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -12042,6 +12131,10 @@ skills["VileDisruptionPlayer"] = {
 			baseFlags = {
 				spell = true,
 				area = true,
+				duration = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "active_skill_base_area_of_effect_radius", 40 },
@@ -12950,6 +13043,10 @@ skills["IcestormPlayer"] = {
 					skill("hitTimeOverride", nil),
 					div = 1000,
 				},
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
 			},
 			baseFlags = {
 				spell = true,
@@ -13032,6 +13129,12 @@ skills["IcestormPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "icestorm",
+			statMap = {
+				["rain_hit_delay_ms"] = {
+					skill("maxHitRatePerEnemy", nil),
+					div = 1000,
+				},
+			},
 			baseFlags = {
 				spell = true,
 				area = true,
@@ -13539,7 +13642,6 @@ skills["KillingPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -15636,6 +15738,9 @@ skills["ProfaneRitualPlayer"] = {
 				spell = true,
 				area = true,
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Profane Ritual" }),
+			},
 			constantStats = {
 				{ "base_skill_effect_duration", 2000 },
 				{ "ritual_of_power_maximum_number_of_rituals", 5 },
@@ -16118,7 +16223,6 @@ skills["RagingSpiritsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
 			},
 			constantStats = {
 				{ "base_number_of_raging_spirits_allowed", 10 },
@@ -16241,7 +16345,6 @@ skills["RaiseZombiePlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 1 },
@@ -16957,7 +17060,6 @@ skills["ShatteringPalmPlayer"] = {
 				attack = true,
 				area = true,
 				melee = true,
-				unarmed = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -17640,7 +17742,7 @@ skills["SummonSkeletalArsonistsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -17760,7 +17862,7 @@ skills["SummonSkeletalBrutesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -17880,7 +17982,7 @@ skills["SummonSkeletalClericsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18000,7 +18102,7 @@ skills["SummonSkeletalFrostMagesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18121,7 +18223,7 @@ skills["SummonSkeletalReaversPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18242,7 +18344,7 @@ skills["SummonSkeletalSnipersPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18362,7 +18464,7 @@ skills["SummonSkeletalStormMagesPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -18484,7 +18586,7 @@ skills["SummonSkeletalWarriorsPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 2 },
@@ -19310,6 +19412,7 @@ skills["SoulrendPlayer"] = {
 			},
 			baseMods = {
 				skill("debuff", true),
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" }),
 			},
 			constantStats = {
 				{ "active_skill_projectile_speed_+%_variation_final", 25 },
@@ -19663,7 +19766,6 @@ skills["SummonSpectrePlayer"] = {
 				minion = true,
 				spectre = true,
 				duration = true,
-				permanentMinion = true,
 			},
 			baseMods = {
 				mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3,
@@ -20011,7 +20113,7 @@ skills["StaggeringPalmPlayer"] = {
 			baseFlags = {
 				attack = true,
 				area = true,
-				unarmed = true,
+				melee = true,
 			},
 			constantStats = {
 				{ "melee_conditional_step_distance", 10 },
@@ -20899,6 +21001,14 @@ skills["TemporalChainsPlayer"] = {
 			baseEffectiveness = 0,
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "temporal_chains",
+			statMap = {
+				["base_skill_debuff_action_speed_+%_final_to_inflict"] = {
+					mod("TemporalChainsActionSpeed", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" })
+				},
+				["base_temporal_chains_other_buff_time_passed_+%_to_apply"] = {
+					mod("BuffExpireFaster", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+				},
+			},
 			baseFlags = {
 				area = true,
 				duration = true,
@@ -22277,6 +22387,9 @@ skills["WitherPlayer"] = {
 				area = true,
 				duration = true,
 			},
+			baseMods = {
+				flag("Condition:CanWither"),
+			},
 			constantStats = {
 				{ "chaos_damage_taken_+%", 6 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
@@ -22393,6 +22506,11 @@ skills["WitheringPresencePlayer"] = {
 			label = "Withering Presence",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "withering_presence",
+			statMap = {
+				["skill_withering_presence_frequency_ms"] = {
+					flag("Condition:CanWither"),
+				},
+			},
 			baseFlags = {
 				duration = true,
 			},

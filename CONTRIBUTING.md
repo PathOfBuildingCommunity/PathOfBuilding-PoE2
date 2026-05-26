@@ -66,9 +66,10 @@ The easiest way to make and test changes is by setting up a development installa
 
        cd PathOfBuilding-PoE2
 
-3. Start Path of Building from the repository by running `./runtime/Path{space}of{space}Building-PoE2.exe`.
-
-   * <ins>Note for Linux users:</ins> The executable files should automatically have the correct permissions when cloned fresh. If you still encounter permission issues, run once: `chmod +x ./runtime/Path{space}of{space}Building-PoE2.exe`
+3. Start Path of Building from the repository.
+       * On Windows, run `./runtime/Path{space}of{space}Building-PoE2.exe`
+       * On Linux, run `wine ./runtime/Path{space}of{space}Building-PoE2.exe`
+       * <ins>Note for Linux users:</ins> `chmod +x` only fixes the execute bit. The file is still a Windows executable, so Wine is required to run it.
 
 You can now use the shortcut to run the program from the repository. Running the program in this manner automatically enables "Dev Mode", which has some handy debugging feature:
 * `F5` restarts the program in-place (this is what usually happens when an update is applied).
@@ -97,7 +98,7 @@ To do so [comment out Line 54 to line 58](./src/Launch.lua#L54-L58) of the [Laun
 	--end
 ```
 
-and create a valid manifest.xml file in the ./src directory. Then run the `./runtime/Path{space}of{space}Building.exe` as usual. You should get the typical update popup in the bottom left corner.
+and create a valid manifest.xml file in the ./src directory. Then run the `./runtime/Path{space}of{space}Building-PoE2.exe` as usual. You should get the typical update popup in the bottom left corner.
 
 The manifest.xml file deserves its own in depth document, but usually copying from release and editing accordingly works well enough.
 
@@ -179,11 +180,14 @@ Files in `/Data` `/Export` and `/TreeData` can be massive and cause the EmmyLua 
 ```json
 {
     "$schema": "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
+    "runtime": {
+        "version": "LuaJIT"
+    },
     "workspace": {
         "ignoreGlobs": [
-            "src/Data/**.lua",
-            "src/TreeData/**.lua",
-            "src/Modules/ModParser.lua"
+            "**/src/Data/**/*.lua",
+            "**/src/TreeData/**/*.lua",
+            "**/src/Modules/ModParser.lua"
         ]
     }
 }
@@ -202,7 +206,7 @@ Files in `/Data` `/Export` and `/TreeData` can be massive and cause the EmmyLua 
 
 If you're on windows, consider downloading [git for windows](https://git-scm.com/downloads) and installing git bash. Git bash comes with a variety of typical linux tools such as grep that can make navigating the code base much easier.
 
-If you're using linux you can run the ./runtime/Path{space}of{space}Building.exe executable with wine. You will need to provide a valid wine path to the emmy lua debugger directory.
+If you're using linux you can run the `./runtime/Path{space}of{space}Building-PoE2.exe` executable with wine. You will need to provide a valid wine path to the emmy lua debugger directory.
 
 ```bash
 # winepath -w ~/.vscode/extensions/tangzx.emmylua-0.8.20-linux-x64/debugger/emmy/windows/x64/
@@ -223,9 +227,15 @@ More tests can be added to this folder to test specific functionality, or new te
 Please try to include tests for your new features in your pull request. Additionally, if your pr breaks a test that should be passing please update it accordingly.
 
 ### Debugging tests
-When running tests with a docker container it is possible to use EmmyLua for debugging. Follow the instructions for inserting the debugger snippet as shown above in [Visual Studio Code](#Visual-Studio-Code), then uncomment the `dbg.waitIDE()` line.  
-
-After running `docker-compose up` the code will wait at that line until a debugger is attached. This will allow stepping through any code that is internal to POB but will not work for busted related code. Note that this only works for unit tests described above.
+When running tests with a docker container it is possible to use EmmyLua for debugging. Paste in the following right under `function launch:OnInit()` in `./src/Launch.lua`:
+```lua
+	package.cpath = package.cpath .. ";/usr/local/bin/?.so"
+	local dbg = require("emmy_core")
+	-- This port must match the IDE Code configuration. Default is 9966.
+	dbg.tcpListen("localhost", 9966)
+	dbg.waitIDE()
+```
+After running `docker-compose up` the code will wait at the `dbg.waitIDE()` line until a debugger is attached. This will allow stepping through any code that is internal to POB but will not work for busted related code. Note that this only works for unit tests described above.
 
 ## Path of Building development tutorials
 
@@ -257,9 +267,9 @@ as well as some familiarity with build tools such as [CMake](https://cmake.org).
 
 ### Set up the exporter
 1. Copy `bun_extract_file.exe`, `libbun.dll` and `libooz.dll` to `.\src\Export\ggpk\`.
-2. Create a shortcut to `.\runtime\Path{space}of{space}Building.exe` with the path to `.\src\Export\Launch.lua` as the first argument. You should end up with something like: 
+2. Create a shortcut to `.\runtime\Path{space}of{space}Building-PoE2.exe` with the path to `.\src\Export\Launch.lua` as the first argument. You should end up with something like: 
 
-       "<path to repo>\runtime\Path{space}of{space}Building.exe" "<path to repo>\src\Export\Launch.lua"
+       "<path to repo>\runtime\Path{space}of{space}Building-PoE2.exe" "<path to repo>\src\Export\Launch.lua"
 3. Run the shortcut.  "Dat View", the GGPK data viewer UI, should appear.  If you get an error, be sure you're using the latest release of Path of Building Community.
 4. Click `Edit Sources...` to display the "New DAT Source" popup.  Click `New` and enter a name.
 5. Paste the full path to `Content.ggpk` into the "Source from GGPK/Steam PoE path" box and hit `Enter`.  For the stand-alone client, the path must include the file-name.  (Do not put anything in the "Source from DAT files" box unless you have already manually unpacked the relevant files.)  

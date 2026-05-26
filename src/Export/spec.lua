@@ -7343,24 +7343,24 @@ return {
 		},
 		[3]={
 			list=false,
-			name="",
+			name="Show",
 			refTo="",
 			type="Bool",
-			width=150
+			width=60
 		},
 		[4]={
 			list=false,
-			name="",
+			name="PrimaryStatSetStats",
 			refTo="",
 			type="Bool",
-			width=150
+			width=140
 		},
 		[5]={
 			list=false,
-			name="",
+			name="SkillDescription",
 			refTo="",
 			type="Bool",
-			width=150
+			width=100
 		}
 	},
 	grantedeffectqualitystats={
@@ -13150,7 +13150,7 @@ return {
 			width=50
 		},
 		[109]={
-			list=false,
+			list=true,
 			name="",
 			refTo="",
 			type="Key",
@@ -14573,7 +14573,7 @@ return {
 		},
 		[25]={
 			list=false,
-			name="AnnointOnly",
+			name="AnointOnly",
 			refTo="",
 			type="Bool",
 			width=50
