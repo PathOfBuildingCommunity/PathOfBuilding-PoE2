@@ -604,7 +604,8 @@ function SkillsTabClass:Draw(viewPort, inputEvents)
 		local refIndex = m_min(self.gemDropIndex, gemCount)
 		local refSlot = self.gemSlots[refIndex]
 		if refSlot then
-			local hx = refSlot.delete:GetPos()
+			local lineStart = (refSlot.dragHandle and refSlot.dragHandle:IsShown()) and refSlot.dragHandle or refSlot.delete
+			local hx = lineStart:GetPos()
 			local _, ry = refSlot.delete:GetPos()
 			local _, rh = refSlot.delete:GetSize()
 			local cxEnd = refSlot.count:GetPos()
@@ -705,7 +706,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		slot.delete:SetAnchor("TOPLEFT", self.anchorGemSlots, "TOPLEFT", 14, 0)
 	elseif index == 2 then
 		local prevSlot = self.gemSlots[index-1]
-		slot.delete:SetAnchor("TOPLEFT", prevSlot.delete, "BOTTOMLEFT", 12, function()
+		slot.delete:SetAnchor("TOPLEFT", prevSlot.delete, "BOTTOMLEFT", 22, function()
 			return (prevSlot.enableGlobal1:IsShown() or prevSlot.enableGlobal2:IsShown()) and 24 or 2
 		end)
 	else
@@ -726,9 +727,9 @@ function SkillsTabClass:CreateGemSlot(index)
 	local skillsTab = self
 
 	-- Gem name specification
-	-- Row 1 widens by indentOffset (12px) so Level/Quality columns align with the indented rows 2+
-	local indentOffset = 12
-	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, index == 1 and (300 + indentOffset) or 300, 20 }, self, index, function(gemId, addUndo)
+	-- Row 1 widens by indentOffset (22px) so Level/Quality columns align with the indented rows 2+
+	local indentOffset = 22
+	slot.nameSpec = new("GemSelectControl", { "LEFT", slot.delete, "RIGHT" }, { 2, 0, index == 1 and (290 + indentOffset) or 290, 20 }, self, index, function(gemId, addUndo)
 		if not self.displayGroup then
 			return
 		end
@@ -804,6 +805,7 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 		return true
 	end
+	slot.level.hideWhenDisabled = true
 	self.controls["gemSlot"..index.."Level"] = slot.level
 
 	-- Gem quality
@@ -905,12 +907,12 @@ function SkillsTabClass:CreateGemSlot(index)
 		end
 		return true
 	end
+	slot.quality.hideWhenDisabled = true
 	self.controls["gemSlot"..index.."Quality"] = slot.quality
 
-	-- Drag handle (reorder gems within the socket group). Sits between quality
-	-- and the enable checkbox, sized to fit inside the original 18 px gap
-	-- (3 + 12 + 3 = 18) so the Enabled:/Count: column titles stay put.
-	slot.dragHandle = new("ButtonControl", {"LEFT", slot.quality, "RIGHT"}, {3, 0, 12, 20}, ":::", nil)
+	-- Drag handle (reorder gems within the socket group). Sits to the left of
+	-- the delete button so its right edge aligns with the x button on row 1.
+	slot.dragHandle = new("ButtonControl", {"RIGHT", slot.delete, "LEFT"}, {-2, 0, 12, 20}, ":::", nil)
 	slot.dragHandle.shown = function()
 		return index > 1
 		   and index <= #skillsTab.displayGroup.gemList

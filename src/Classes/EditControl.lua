@@ -243,6 +243,9 @@ function EditClass:Draw(viewPort, noTooltip)
 	local width, height = self:GetSize()
 	local enabled = self:IsEnabled()
 	local mOver = self:IsMouseOver()
+	if not enabled and self.hideWhenDisabled then
+		return
+	end
 	if not enabled then
 		SetDrawColor(0.33, 0.33, 0.33)
 	elseif mOver then
