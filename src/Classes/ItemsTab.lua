@@ -2668,37 +2668,13 @@ function ItemsTabClass:AddCustomModifierToDisplayItem()
 	local controls = { }
 	local sourceList = { }
 	local modList = { }
-	local sortList = { { label = "Default", stat = nil } }
-	local sortTransforms = { }
-	for _, entry in ipairs(data.powerStatList) do
-		if entry.stat and not entry.ignoreForNodes then
-			t_insert(sortList, { label = entry.label, stat = entry.stat })
-			sortTransforms[entry.stat] = entry.transform
-		end
-	end
+	local sortList, sortTransforms = buildModSortList()
 	local function setDefaultSortOrder()
 		for index, listMod in ipairs(modList) do
 			listMod.defaultSortOrder = index
 			listMod.sortValue = nil
 			listMod.sortValues = nil
 		end
-	end
-	local function getOutputStatValue(output, stat)
-		if stat == "FullDPS" then
-			if output[stat] ~= nil then
-				return output[stat]
-			end
-			if output.Minion and output.Minion.CombinedDPS ~= nil then
-				return output.Minion.CombinedDPS
-			end
-		end
-		if output.Minion and output.Minion[stat] ~= nil then
-			return output.Minion[stat]
-		end
-		if output[stat] ~= nil then
-			return output[stat]
-		end
-		return 0
 	end
 	local function getSortValue(listMod, stat, calcFunc, slotName, useFullDPS)
 		listMod.sortValues = listMod.sortValues or { }
