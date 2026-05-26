@@ -2957,11 +2957,6 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 			incrementalEffectiveness = 0.12999999523163,
 			damageIncrementalEffectiveness = 0.0082000000402331,
 			statDescriptionScope = "skill_stat_descriptions",
-			statMap = {
-				["apply_x_wither_on_hit"] = {
-					flag("Condition:CanWither"),
-				},
-			},
 			baseFlags = {
 				spell = true,
 				projectile = true,
@@ -22336,6 +22331,9 @@ skills["WitherPlayer"] = {
 				spell = true,
 				area = true,
 				duration = true,
+			},
+			baseMods = {
+				flag("Condition:CanWither"),
 			},
 			constantStats = {
 				{ "chaos_damage_taken_+%", 6 },

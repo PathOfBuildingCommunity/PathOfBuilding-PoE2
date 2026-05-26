@@ -7897,9 +7897,6 @@ skills["SupportWitheringTouchPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
-				["wither_on_hit_chance_rollovercapped"] = {
-					flag("Condition:CanWither"),
-				},
 				["support_withering_touch_damage_+%_final"] = {
 					mod("Damage", "MORE", nil),
 				},

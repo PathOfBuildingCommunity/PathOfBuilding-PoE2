@@ -208,11 +208,6 @@ statMap = {
 #skill WeaponGrantedChaosboltPlayer
 #set WeaponGrantedChaosboltPlayer
 #flags spell projectile
-statMap = {
-	["apply_x_wither_on_hit"] = {
-		flag("Condition:CanWither"),
-	},
-},
 #mods
 #skillEnd
 
@@ -1478,6 +1473,7 @@ statMap = {
 #skill WitherPlayer
 #set WitherPlayer
 #flags spell area duration
+#baseMod flag("Condition:CanWither")
 #mods
 #skillEnd
 

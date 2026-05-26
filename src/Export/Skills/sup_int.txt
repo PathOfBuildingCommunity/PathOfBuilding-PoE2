@@ -1488,9 +1488,6 @@ statMap = {
 #skill SupportWitheringTouchPlayer
 #set SupportWitheringTouchPlayer
 statMap = {
-	["wither_on_hit_chance_rollovercapped"] = {
-		flag("Condition:CanWither"),
-	},
 	["support_withering_touch_damage_+%_final"] = {
 		mod("Damage", "MORE", nil),
 	},
