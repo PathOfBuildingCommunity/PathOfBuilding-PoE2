@@ -1242,7 +1242,7 @@ c["100% increased Parried Debuff Duration"]={{[1]={flags=0,keywordFlags=0,name="
 c["100% increased Parry Damage"]={{[1]={[1]={includeTransfigured=true,skillName="Parry",type="SkillName"},flags=0,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
 c["100% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=100}},nil}
 c["100% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type="INC",value=100}},nil}
-c["100% increased Stun Threshold during Empowered Attacks"]={{[1]={[1]={type="Condition",var="Empowered"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},nil}
+c["100% increased Stun Threshold during Empowered Attacks"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},"  during Empowered Attacks "}
 c["100% increased Stun Threshold for each time you've been Stunned Recently"]={{[1]={[1]={type="Multiplier",var="StunnedRecently"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=100}},nil}
 c["100% increased Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=100}},nil}
 c["100% increased amount of Life Leeched"]={{[1]={flags=0,keywordFlags=0,name="MaxLifeLeechRate",type="INC",value=100}},nil}
@@ -1764,8 +1764,8 @@ c["20% chance for Energy Shield Recharge to start when you Kill an Enemy"]={{[1]
 c["20% chance for Flasks you use to not consume Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskChanceNotConsumeCharges",type="BASE",value=20}},nil}
 c["20% chance for Lightning Skills to Chain an additional time"]={{[1]={flags=0,keywordFlags=128,name="ChainChance",type="BASE",value=20}},nil}
 c["20% chance to Aggravate Bleeding on targets you Critically Hit with Attacks"]={{}," to Aggravate Bleeding on targets you Critically Hit  "}
-c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks"]={{}," to Aggravate Bleeding on targets you Hit  "}
-c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=0,keywordFlags=0,name="Damage",type="BASE",value=20}}," to Aggravate Bleeding on targets you Hit  Empowered Attacks deal 30% increased  "}
+c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks"]={{}," to Aggravate Bleeding on targets you Hit with Empowered Attacks "}
+c["20% chance to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="BASE",value=20}}," to Aggravate Bleeding on targets you Hit with Empowered Attacks Empowered Attacks deal 30% increased  "}
 c["20% chance to Avoid Chaos Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidChaosDamageChance",type="BASE",value=20}},nil}
 c["20% chance to Avoid Cold Damage from Hits"]={{[1]={flags=0,keywordFlags=0,name="AvoidColdDamageChance",type="BASE",value=20}},nil}
 c["20% chance to Avoid Elemental Ailments"]={{[1]={flags=0,keywordFlags=0,name="AvoidElementalAilments",type="BASE",value=20}},nil}
@@ -1872,7 +1872,7 @@ c["20% increased Flammability Magnitude"]={{[1]={flags=0,keywordFlags=0,name="En
 c["20% increased Flask Effect Duration"]={{[1]={flags=0,keywordFlags=0,name="FlaskDuration",type="INC",value=20}},nil}
 c["20% increased Flask and Charm Charges gained"]={{[1]={flags=0,keywordFlags=0,name="CharmChargesGained",type="INC",value=20},[2]={flags=0,keywordFlags=0,name="FlaskChargesGained",type="INC",value=20}},nil}
 c["20% increased Freeze Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=20}},nil}
-c["20% increased Freeze Buildup with Empowered Attacks"]={{[1]={[1]={type="Condition",var="Empowered"},flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=20}},nil}
+c["20% increased Freeze Buildup with Empowered Attacks"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=20}},"  with Empowered Attacks "}
 c["20% increased Freeze Buildup with Quarterstaves"]={{[1]={flags=2097156,keywordFlags=0,name="EnemyFreezeBuildup",type="INC",value=20}},nil}
 c["20% increased Freeze Duration on Enemies"]={{[1]={flags=0,keywordFlags=0,name="EnemyFreezeDuration",type="INC",value=20}},nil}
 c["20% increased Frenzy Charge Duration"]={{[1]={flags=0,keywordFlags=0,name="FrenzyChargesDuration",type="INC",value=20}},nil}
@@ -4800,16 +4800,18 @@ c["Elemental Archon does not expire while on High Infernal Flame"]={nil,"Element
 c["Elemental Archon does not expire while on High Infernal Flame Lose Elemental Archon on reaching maximum Infernal Flame"]={nil,"Elemental Archon does not expire while on High Infernal Flame Lose Elemental Archon on reaching maximum Infernal Flame "}
 c["Elemental Damage also Contributes to Bleeding Magnitude"]={{[1]={flags=0,keywordFlags=0,name="FireCanBleed",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ColdCanBleed",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="LightningCanBleed",type="FLAG",value=true}},nil}
 c["Elemental Equilibrium"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Elemental Equilibrium"}},nil}
-c["Empowered Attacks Gain 15% of Physical Damage as Extra Fire damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="PhysicalDamageGainAsFire",type="BASE",value=15}},nil}
-c["Empowered Attacks Gain 16% of Damage as Extra Cold Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=16}},nil}
-c["Empowered Attacks deal 10% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=10}},nil}
-c["Empowered Attacks deal 16% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=16}},nil}
-c["Empowered Attacks deal 2% increased damage per 10 Tribute"]={{[1]={[1]={type="Condition",var="Empowered"},[2]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=1,keywordFlags=0,name="Damage",type="INC",value=2}},nil}
-c["Empowered Attacks deal 20% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
-c["Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=30}},nil}
-c["Empowered Attacks deal 50% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
-c["Empowered Attacks deal 8% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="Damage",type="INC",value=8}},nil}
-c["Empowered Attacks have 50% increased Stun Buildup"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=50}},nil}
+c["Empowered Attacks Gain 15% of Physical Damage as Extra Fire damage"]={nil,"Empowered Attacks Gain 15% of Physical Damage as Extra Fire damage "}
+c["Empowered Attacks Gain 16% of Damage as Extra Cold Damage"]={nil,"Empowered Attacks Gain 16% of Damage as Extra Cold Damage "}
+c["Empowered Attacks deal 10% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EmpoweredIncrease",type="INC",value=10}},nil}
+c["Empowered Attacks deal 16% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EmpoweredIncrease",type="INC",value=16}},nil}
+c["Empowered Attacks deal 2% increased damage per 10 Tribute"]={nil,"Empowered Attacks deal 2% increased damage per 10 Tribute "}
+c["Empowered Attacks deal 2% increased damage per 10 Tribute 4% increased Warcry Speed per 25 Tribute"]={nil,"Empowered Attacks deal 2% increased damage per 10 Tribute 4% increased Warcry Speed per 25 Tribute "}
+c["Empowered Attacks deal 20% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EmpoweredIncrease",type="INC",value=20}},nil}
+c["Empowered Attacks deal 30% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EmpoweredIncrease",type="INC",value=30}},nil}
+c["Empowered Attacks deal 50% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EmpoweredIncrease",type="INC",value=50}},nil}
+c["Empowered Attacks deal 8% increased Damage"]={{[1]={[1]={type="Condition",var="Empowered"},flags=1,keywordFlags=0,name="EmpoweredIncrease",type="INC",value=8}},nil}
+c["Empowered Attacks have 50% increased Stun Buildup"]={nil,"Empowered Attacks have 50% increased Stun Buildup "}
+c["Empowered Attacks have 50% increased Stun Buildup 100% increased Stun Threshold during Empowered Attacks"]={nil,"Empowered Attacks have 50% increased Stun Buildup 100% increased Stun Threshold during Empowered Attacks "}
 c["Enemies Blinded by you have 15% reduced Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=-15}}}},nil}
 c["Enemies Blinded by you have 50% reduced Critical Hit Chance"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={[1]={type="Condition",var="Blinded"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=-50}}}},nil}
 c["Enemies Chilled by your Hits can be Shattered as though Frozen"]={nil,"your Hits can be Shattered as though Frozen "}
@@ -4921,7 +4923,7 @@ c["Every Rage also grants 2% increased Stun Threshold"]={{[1]={[1]={type="Multip
 c["Every Rage also grants you 1% increased Minion Attack Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="player",type="Multiplier",var="RageEffect"},flags=1,keywordFlags=0,name="Speed",type="INC",value=1}}}},nil}
 c["Every Rage also grants you 1% increased Minion Damage"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="player",type="Multiplier",var="RageEffect"},flags=0,keywordFlags=0,name="Damage",type="INC",value=1}}}},nil}
 c["Every Third Slam skill that doesn't create Fissures which you use yourself causes 3 additional Aftershocks ahead and to each side of the initial area"]={nil,"Every Third Slam skill that doesn't create Fissures which you use yourself causes 3 additional Aftershocks ahead and to each side of the initial area "}
-c["Every second Slam Skill you use yourself is Ancestrally Boosted"]={{[1]={[1]={skillType=93,type="SkillType"},flags=0,keywordFlags=0,name="AncestralEmpowerment",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="Condition:AncestrallyBoosted",type="FLAG",value=true}},nil}
+c["Every second Slam Skill you use yourself is Ancestrally Boosted"]={{[1]={[1]={skillType=93,type="SkillType"},flags=0,keywordFlags=0,name="AncestralEmpowerment",type="FLAG",value=true},[2]={[1]={skillType=93,type="SkillType"},flags=0,keywordFlags=0,name="Condition:AncestrallyBoosted",type="FLAG",value=true}},nil}
 c["Every second, inflicts Critical Weakness on enemies in your Presence for 1 second"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}
 c["Every second, inflicts Critical Weakness on enemies in your Presence for 15 seconds"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}
 c["Every second, inflicts Critical Weakness on enemies in your Presence for 18 seconds"]={{[1]={flags=0,keywordFlags=0,name="ApplyCriticalWeakness",type="FLAG",value=true}},nil}

@@ -2594,10 +2594,25 @@ return {
 },
 -- Final Strike
 ["final_strike_is_ancestrally_boosted"] = {
-	flag("FinalStrikeAncestrallyBoosted"),
+	flag("Condition:AncestrallyBoosted", { type = "Condition", var = "FinalStrike" }),
+	flag("MaxBoostedUptimeRatio", { type = "Condition", var = "FinalStrike"}),
 },
 ["is_final_strike"] = {
 	flag("Condition:FinalStrike"),
+},
+["ancestral_slam_interval_duration"] = {
+	{
+		mod("FistOfWarCooldown", "BASE", nil),
+		div = 1000,
+	},
+	flag("Condition:AncestrallyBoosted"),
+},
+["ancestral_call_spirit_strike_interval_ms"] = {
+	{
+		mod("AncestralCallCooldown", "BASE", nil),
+		div = 1000,
+	},
+	flag("Condition:AncestrallyBoosted"),
 },
 ["double_ancestral_boost_effect"] = {
 	mod("Multiplier:AncestralBoostEffect", "BASE", nil),

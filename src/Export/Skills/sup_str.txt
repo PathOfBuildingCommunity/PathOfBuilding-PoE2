@@ -26,25 +26,11 @@ local skills, mod, flag, skill = ...
 
 #skill SupportAncestralCallPlayer
 #set SupportAncestralCallPlayer
-statMap = {
-	["ancestral_call_spirit_strike_interval_ms"] = {
-		mod("AncestralCallCooldown", "BASE", nil),
-		div = 1000,
-	},
-},
-#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
 #skill SupportAncestralCallPlayerTwo
 #set SupportAncestralCallPlayerTwo
-statMap = {
-	["ancestral_call_spirit_strike_interval_ms"] = {
-		mod("AncestralCallCooldown", "BASE", nil),
-		div = 1000,
-	},
-},
-#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
@@ -757,37 +743,16 @@ statMap = {
 
 #skill FistOfWarSupportPlayer
 #set FistOfWarSupportPlayer
-statMap = {
-	["ancestral_slam_interval_duration"] = {
-		mod("FistOfWarCooldown", "BASE", nil),
-		div = 1000,
-	},
-},
-#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
 #skill FistOfWarSupportPlayerTwo
 #set FistOfWarSupportPlayerTwo
-statMap = {
-	["ancestral_slam_interval_duration"] = {
-		mod("FistOfWarCooldown", "BASE", nil),
-		div = 1000,
-	},
-},
-#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
 #skill FistOfWarSupportPlayerThree
 #set FistOfWarSupportPlayerThree
-statMap = {
-	["ancestral_slam_interval_duration"] = {
-		mod("FistOfWarCooldown", "BASE", nil),
-		div = 1000,
-	},
-},
-#baseMod flag("Condition:AncestrallyBoosted")
 #mods
 #skillEnd
 
