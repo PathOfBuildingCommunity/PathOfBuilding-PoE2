@@ -454,9 +454,9 @@ for _, classData in ipairs(data.classes) do
 			end
 
 			sourceNode.options[classData.name] = replaceNodeData
+			:: nextReplacement ::
 		end
 	end
-	:: nextReplacement ::
 end
 
 -- updating skillsPerOrbit
