@@ -6,13 +6,12 @@ on:
     branches: [dev]
 
 jobs:
-  # ── Tests run in parallel ───────────────────────────────────────────────────
   test:
     name: test (${{ matrix.suite.name }})
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
-      fail-fast: false   # don't cancel sibling suites if one fails
+      fail-fast: false
       matrix:
         suite:
           - name: unit
@@ -24,32 +23,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache Docker layers
+      - name: Cache test image
+        id: image-cache
         uses: actions/cache@v4
         with:
-          path: /tmp/docker-cache
-          key: docker-${{ runner.os }}-${{ hashFiles('Dockerfile', 'docker-compose.yml') }}
-          restore-keys: docker-${{ runner.os }}-
+          path: /tmp/pob-test-image.tar
+          # Key on the compose file — if the image tag/ref changes, cache invalidates
+          key: pob-test-image-${{ hashFiles('docker-compose.yml') }}
+          restore-keys: pob-test-image-
 
-      - name: Load cached Docker image
+      - name: Pull or restore image
         run: |
-          if [ -f /tmp/docker-cache/image.tar ]; then
-            docker load < /tmp/docker-cache/image.tar
+          if [[ "${{ steps.image-cache.outputs.cache-hit }}" == "true" ]]; then
+            echo "Restoring image from cache"
+            docker load < /tmp/pob-test-image.tar
+          else
+            echo "Cache miss — pulling from GHCR"
+            docker pull ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest
+            docker save ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+              -o /tmp/pob-test-image.tar
           fi
-
-      - name: Build Docker image
-        run: docker compose build busted-tests
-
-      - name: Save Docker image to cache
-        run: |
-          mkdir -p /tmp/docker-cache
-          docker save $(docker compose config --images busted-tests) \
-            -o /tmp/docker-cache/image.tar
 
       - name: Run ${{ matrix.suite.name }} tests
         run: docker compose run --rm busted-tests ${{ matrix.suite.args }}
 
-  # ── Coverage runs after all test suites pass ────────────────────────────────
   coverage:
     name: coverage
     runs-on: ubuntu-latest
@@ -58,34 +55,45 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache Docker layers
+      - name: Cache test image
+        id: image-cache
         uses: actions/cache@v4
         with:
-          path: /tmp/docker-cache
-          key: docker-${{ runner.os }}-${{ hashFiles('Dockerfile', 'docker-compose.yml') }}
-          restore-keys: docker-${{ runner.os }}-
+          path: /tmp/pob-test-image.tar
+          key: pob-test-image-${{ hashFiles('docker-compose.yml') }}
+          restore-keys: pob-test-image-
 
-      - name: Load cached Docker image
+      - name: Pull or restore image
         run: |
-          if [ -f /tmp/docker-cache/image.tar ]; then
-            docker load < /tmp/docker-cache/image.tar
+          if [[ "${{ steps.image-cache.outputs.cache-hit }}" == "true" ]]; then
+            docker load < /tmp/pob-test-image.tar
+          else
+            docker pull ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest
+            docker save ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+              -o /tmp/pob-test-image.tar
           fi
 
       - name: Generate coverage report
-        # Mount the workspace so luacov.report.out lands on the host, not inside the container
         run: |
-          docker compose run --rm \
-            -v "${{ github.workspace }}:/workspace" \
-            busted-tests --coverage
+          # The compose volume is :ro so luacov can't write back to the workspace.
+          # Run the container with a writable bind mount for the output file only,
+          # keeping the source tree read-only.
+          docker run --rm \
+            -e HOME=/tmp \
+            --security-opt no-new-privileges:true \
+            -w /workdir \
+            -v "${{ github.workspace }}:/workdir:ro" \
+            -v "${{ github.workspace }}/luacov.report.out:/workdir/luacov.report.out" \
+            ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+            busted --lua=luajit --coverage
 
-      - name: Verify coverage file exists on host
+      - name: Verify coverage file exists
         run: |
           if [ ! -f luacov.report.out ]; then
-            echo "::warning::luacov.report.out not found on host — coverage report may not be mounted correctly"
+            echo "::warning::luacov.report.out not found — check luacov config inside the container"
           fi
 
       - name: Upload coverage report
-        # always() ensures the artifact is uploaded even if the threshold check fails
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -97,7 +105,7 @@ jobs:
         run: |
           THRESHOLD=${COVERAGE_THRESHOLD:-0}
           if [ "$THRESHOLD" -eq 0 ]; then
-            echo "Coverage threshold not yet set — skipping enforcement (baseline measurement pending)"
+            echo "Coverage threshold not yet set — skipping enforcement"
             exit 0
           fi
           if [ ! -f luacov.report.out ]; then
@@ -115,21 +123,19 @@ jobs:
             exit 1
           fi
 
-  # ── Secret scanning runs independently ─────────────────────────────────────
   secrets:
     name: secret-scan
     runs-on: ubuntu-latest
     timeout-minutes: 5
     permissions:
       contents: read
-      security-events: write  # required to upload SARIF results
+      security-events: write
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # gitleaks needs full history for --log-opts=-1
+          fetch-depth: 0
 
       - name: Scan for secrets
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        # .gitleaks.toml in the repo root handles the src/Data/ false positives
