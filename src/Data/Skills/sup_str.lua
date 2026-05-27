@@ -1050,6 +1050,7 @@ skills["SupportEnduranceChargeOnArmourBreak"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Break Endurance",
@@ -1892,6 +1893,7 @@ skills["SupportDazingCryPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Dazing Cry",
@@ -2059,6 +2061,7 @@ skills["SupportDesperationPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Desperation",
@@ -2087,6 +2090,7 @@ skills["SupportDevastatePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Devastate",
@@ -3373,6 +3377,7 @@ skills["SupportFirstBloodPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "First Blood",
@@ -4356,6 +4361,7 @@ skills["SupportInfernalLegionPlayerThree"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Infernal Legion III",
@@ -5089,6 +5095,7 @@ skills["SupportEmpoweredDamagePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 30, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Premeditation",
@@ -5467,6 +5474,7 @@ skills["SupportRallyPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Rally",
@@ -6121,6 +6129,7 @@ skills["SupportSeeRedPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "See Red",
@@ -7085,6 +7094,7 @@ skills["SupportTremorsPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Tremors",
@@ -7235,6 +7245,7 @@ skills["SupportUnabatingPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Unabating",
@@ -7265,6 +7276,7 @@ skills["UnbreakableSupportPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Unbreakable",
@@ -7333,6 +7345,7 @@ skills["SupportUnsteadyTempoPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 10, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Unsteady Tempo",
@@ -7360,6 +7373,7 @@ skills["SupportUnyieldingPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Unyielding",

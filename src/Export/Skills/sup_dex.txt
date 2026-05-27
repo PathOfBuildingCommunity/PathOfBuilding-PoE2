@@ -147,6 +147,7 @@ statMap = {
 #skillEnd
 
 #skill SupportDazedBreakPlayer
+legacy = true
 #set SupportDazedBreakPlayer
 #mods
 #skillEnd
@@ -370,6 +371,7 @@ statMap = {
 #skillEnd
 
 #skill SupportDazzlePlayer
+legacy = true
 #set SupportDazzlePlayer
 #mods
 #skillEnd
@@ -468,6 +470,7 @@ statMap = {
 #skillEnd
 
 #skill SupportExcoriatePlayer
+legacy = true
 #set SupportExcoriatePlayer
 statMap = {
 	["support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target"] = {
@@ -494,6 +497,7 @@ statMap = {
 #skillEnd
 
 #skill SupportFlowPlayer
+legacy = true
 #set SupportFlowPlayer
 #mods
 #skillEnd
@@ -565,6 +569,7 @@ statMap = {
 #skillEnd
 
 #skill SupportHobblePlayer
+legacy = true
 #set SupportHobblePlayer
 #mods
 #skillEnd
@@ -611,6 +616,7 @@ statMap = {
 #skillEnd
 
 #skill SupportLeveragePlayer
+legacy = true
 #set SupportLeveragePlayer
 #mods
 #skillEnd
@@ -768,6 +774,7 @@ statMap = {
 #skillEnd
 
 #skill SupportOutmaneuverPlayer
+legacy = true
 #set SupportOutmaneuverPlayer
 #mods
 #skillEnd
@@ -798,6 +805,7 @@ statMap = {
 #skillEnd
 
 #skill SupportOverextendPlayer
+legacy = true
 #set SupportOverextendPlayer
 statMap = {
 	["support_overextend_critical_strike_multiplier_+%_final"] = {
@@ -1253,6 +1261,7 @@ statMap = {
 #skillEnd
 
 #skill SupportTumultPlayer
+legacy = true
 #set SupportTumultPlayer
 #mods
 #skillEnd

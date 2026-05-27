@@ -3550,6 +3550,7 @@ skills["SupportEnergyBarrierPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Energy Barrier",
@@ -4773,6 +4774,7 @@ skills["SupportHinderPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Hinder",
@@ -6518,6 +6520,7 @@ skills["SupportPotentialPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Potential",
@@ -6775,6 +6778,7 @@ skills["SupportRimePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Rime",
@@ -7016,6 +7020,7 @@ skills["SupportShockConductionPlayerTwo"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Shock Conduction II",
@@ -7553,6 +7558,7 @@ skills["SupportUnbendingPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Unbending",
@@ -7776,6 +7782,7 @@ skills["SupportVolatilePowerPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Volatile Power",

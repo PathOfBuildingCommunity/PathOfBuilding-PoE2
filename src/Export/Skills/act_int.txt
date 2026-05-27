@@ -263,6 +263,7 @@ statMap = {
 #skillEnd
 
 #skill ConductivityPlayer
+legacy = true
 #set ConductivityPlayer
 #flags spell curse area duration
 statMap = {
@@ -586,6 +587,7 @@ statMap = {
 #skillEnd
 
 #skill FlammabilityPlayer
+legacy = true
 #set FlammabilityPlayer
 #flags spell curse area duration
 statMap = {
@@ -840,6 +842,7 @@ statMap = {
 #skillEnd
 
 #skill HypothermiaPlayer
+legacy = true
 #set HypothermiaPlayer
 #flags spell curse area duration
 statMap = {

@@ -3654,6 +3654,7 @@ skills["ConductivityPlayer"] = {
 		[39] = { levelRequirement = 90, cost = { Mana = 420, }, },
 		[40] = { levelRequirement = 90, cost = { Mana = 437, }, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Conductivity",
@@ -8323,6 +8324,7 @@ skills["FlammabilityPlayer"] = {
 		[39] = { levelRequirement = 90, cost = { Mana = 420, }, },
 		[40] = { levelRequirement = 90, cost = { Mana = 437, }, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Flammability",
@@ -12462,6 +12464,7 @@ skills["HypothermiaPlayer"] = {
 		[39] = { levelRequirement = 90, cost = { Mana = 420, }, },
 		[40] = { levelRequirement = 90, cost = { Mana = 437, }, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Hypothermia",

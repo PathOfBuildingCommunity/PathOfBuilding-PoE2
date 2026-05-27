@@ -197,6 +197,7 @@ statMap = {
 #skillEnd
 
 #skill SupportEnduranceChargeOnArmourBreak
+legacy = true
 #set SupportEnduranceChargeOnArmourBreak
 #mods
 #skillEnd
@@ -428,6 +429,7 @@ statMap = {
 #skillEnd
 
 #skill SupportDazingCryPlayer
+legacy = true
 #set SupportDazingCryPlayer
 #mods
 #skillEnd
@@ -469,11 +471,13 @@ statMap = {
 #skillEnd
 
 #skill SupportDesperationPlayer
+legacy = true
 #set SupportDesperationPlayer
 #mods
 #skillEnd
 
 #skill SupportDevastatePlayer
+legacy = true
 #set SupportDevastatePlayer
 statMap = {
 	["fully_break_enemies_armour_on_heavy_stun"] = {
@@ -742,6 +746,7 @@ statMap = {
 #skillEnd
 
 #skill SupportFirstBloodPlayer
+legacy = true
 #set SupportFirstBloodPlayer
 #mods
 #skillEnd
@@ -1007,6 +1012,7 @@ statMap = {
 #skillEnd
 
 #skill SupportInfernalLegionPlayerThree
+legacy = true
 #set SupportInfernalLegionPlayerThree
 statMap = {
 	["minion_fire_damage_%_of_maximum_life_taken_per_minute"] = {
@@ -1180,6 +1186,7 @@ statMap = {
 #skillEnd
 
 #skill SupportEmpoweredDamagePlayer
+legacy = true
 #set SupportEmpoweredDamagePlayer
 statMap = {
 	["support_empowered_damage_+%_final"] = {
@@ -1265,6 +1272,7 @@ statMap = {
 #skillEnd
 
 #skill SupportRallyPlayer
+legacy = true
 #set SupportRallyPlayer
 #mods
 #skillEnd
@@ -1403,6 +1411,7 @@ statMap = {
 #skillEnd
 
 #skill SupportSeeRedPlayer
+legacy = true
 #set SupportSeeRedPlayer
 #mods
 #skillEnd
@@ -1612,6 +1621,7 @@ statMap = {
 #skillEnd
 
 #skill SupportTremorsPlayer
+legacy = true
 #set SupportTremorsPlayer
 statMap = {
 	["support_unstable_earth_damage_+%_final"] = {
@@ -1652,11 +1662,13 @@ statMap = {
 #skillEnd
 
 #skill SupportUnabatingPlayer
+legacy = true
 #set SupportUnabatingPlayer
 #mods
 #skillEnd
 
 #skill UnbreakableSupportPlayer
+legacy = true
 #set UnbreakableSupportPlayer
 statMap = {
 	["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
@@ -1672,11 +1684,13 @@ statMap = {
 #skillEnd
 
 #skill SupportUnsteadyTempoPlayer
+legacy = true
 #set SupportUnsteadyTempoPlayer
 #mods
 #skillEnd
 
 #skill SupportUnyieldingPlayer
+legacy = true
 #set SupportUnyieldingPlayer
 #mods
 #skillEnd

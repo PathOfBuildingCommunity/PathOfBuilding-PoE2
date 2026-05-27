@@ -638,6 +638,7 @@ skills["SupportDazedBreakPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Break Posture",
@@ -1731,6 +1732,7 @@ skills["SupportDazzlePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Dazzle",
@@ -2113,6 +2115,7 @@ skills["SupportExcoriatePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Excoriate",
@@ -2191,6 +2194,7 @@ skills["SupportFlowPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Flow",
@@ -2539,6 +2543,7 @@ skills["SupportHobblePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Hobble",
@@ -2713,6 +2718,7 @@ skills["SupportLeveragePlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Leverage",
@@ -3406,6 +3412,7 @@ skills["SupportOutmaneuverPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Outmaneuver",
@@ -3539,6 +3546,7 @@ skills["SupportOverextendPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Overextend",
@@ -5668,6 +5676,7 @@ skills["SupportTumultPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Tumult",
