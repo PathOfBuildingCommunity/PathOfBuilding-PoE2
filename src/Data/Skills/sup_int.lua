@@ -3538,6 +3538,36 @@ skills["SupportEncroachingGroundPlayer"] = {
 		},
 	}
 }
+skills["SupportEnergyBarrierPlayer"] = {
+	name = "Energy Barrier",
+	description = "Supports any skill that you can use, causing Energy Shield recharge to begin immediately if you are Stunned while using it.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
+	gemFamily = { "EnergyBarrier",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Energy Barrier",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_no_energy_shield_recharge_delay_for_duration_ms_on_stunned", 2000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportEnergyCapacitorPlayer"] = {
 	name = "Energy Capacitor",
 	description = "Supports Invocation Skills which Trigger other Skills. Supported Skills have significantly higher Maximum Energy.",
@@ -4723,6 +4753,35 @@ skills["SupportHexBloomPlayer"] = {
 				{ "transfer_hexes_to_X_nearby_enemies_on_kill", 1 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportHinderPlayer"] = {
+	name = "Hinder",
+	description = "Supports Spells that deal non-Ailment Chaos damage over time, causing damage over time they inflict to also Hinder enemies. Does not Support Skills used by Minions.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, SkillType.DamageOverTime, SkillType.Chaos, SkillType.AND, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Hinder",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Hinder",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_hinder_dots_also_apply_hinder",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6447,6 +6506,42 @@ skills["SupportPotentExposurePlayer"] = {
 		},
 	}
 }
+skills["SupportPotentialPlayer"] = {
+	name = "Potential",
+	description = "Supports Skills that you use yourself. Supported Skills will consume a Power Charge on use if possible, and will be much more likely to Critically Hit if they do. Supported Skills cannot generate Power Charges.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
+	addSkillTypes = { SkillType.SupportedByPotential, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByPotential, SkillType.NOT, SkillType.AND, },
+	gemFamily = { "Potential",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Potential",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["skill_consume_power_charge_to_gain_critical_strike_chance_+%_final"] = {
+					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", limit = 1 }),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "skill_consume_power_charge_to_gain_critical_strike_chance_+%_final", 40 },
+			},
+			stats = {
+				"skill_cannot_generate_power_charges",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportPracticalMagicPlayer"] = {
 	name = "Practical Magic I",
 	description = "Supports Skills which Hit enemies. Heavy Stunning an enemy with Supported Skills increases your Spell damage for a duration.",
@@ -6668,6 +6763,45 @@ skills["SupportRapidCastingPlayerThree"] = {
 		},
 	}
 }
+skills["SupportRimePlayer"] = {
+	name = "Rime",
+	description = "Supports Skills which create Ground Surfaces, causing Enemies Chilled by those Surfaces to be more easily Frozen, but at the cost of some Chill magnitude.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.CreatesGroundEffect, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Rime",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Rime",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["chilled_ground_applies_%_freeze_multiplier_taken"] = {
+					mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Rime" }, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }),
+				},
+				["support_winterblast_chill_effect_+%_final"] = {
+					mod("EnemyChillMagnitude", "MORE", nil),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "chilled_ground_applies_%_freeze_multiplier_taken", -20 },
+				{ "support_winterblast_chill_effect_+%_final", -30 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportTempestuousTempoPlayer"] = {
 	name = "Rising Tempest",
 	description = "Supports Skills which deal Damage, raising Elemental Damage dealt for each Skill used Recently of a different Elemental type. Cannot support Minion Skills.",
@@ -6863,6 +6997,38 @@ skills["SupportShockConductionPlayer"] = {
 				{ "shock_nearby_enemy_base_area_of_effect_radius", 25 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportShockConductionPlayerTwo"] = {
+	name = "Shock Conduction II",
+	description = "Supports any skill that Hits enemies, giving it a chance to also Shock nearby enemies when you Shock an enemy. Always Shocks enemies which are Drenched.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ShockConduction",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Shock Conduction II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_%_chance_to_shock_nearby_enemy_on_shock", 50 },
+				{ "shock_nearby_enemy_base_area_of_effect_radius", 25 },
+			},
+			stats = {
+				"always_shock_wet_enemies",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -7375,6 +7541,36 @@ skills["SupportThrillOfTheKillPlayerTwo"] = {
 		},
 	}
 }
+skills["SupportUnbendingPlayer"] = {
+	name = "Unbending",
+	description = "Supports Spell Skills you use yourself. While using Supported Skills, a percentage of Damage taken is Recouped as Mana, with the percentage scaling higher the longer the Cast time of the Supported Skill. Cannot Support Channelling Skills.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, SkillType.Triggered, },
+	gemFamily = { "Unbending",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Unbending",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "damage_taken_%_recouped_as_mana_while_performing_spell_per_250_ms_cast_time", 8 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportUnleashPlayer"] = {
 	name = "Unleash",
 	description = "Supports Spells you cast yourself, making their effect reoccur when cast. Cannot support Channelling Skills or Skills with a Cooldown.",
@@ -7558,6 +7754,37 @@ skills["SupportVilentasPropulsionPlayer"] = {
 			},
 			constantStats = {
 				{ "cast_speed_additive_modifiers_also_apply_to_projectile_speed_at_%_value", 75 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportVolatilePowerPlayer"] = {
+	name = "Volatile Power",
+	description = "Supports Skills which you use yourself. On using Supported Skills while they are Empowered, you gain Volatility.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.Triggered, SkillType.Meta, SkillType.Persistent, SkillType.Triggered, },
+	gemFamily = { "VolatilePower",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Volatile Power",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "gain_X_volatility_on_empowered_skill_use", 5 },
 			},
 			stats = {
 			},

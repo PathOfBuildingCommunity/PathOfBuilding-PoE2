@@ -262,6 +262,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ConductivityPlayer
+#set ConductivityPlayer
+#flags spell curse area duration
+statMap = {
+	["base_skill_buff_lightning_damage_resistance_%_to_apply"] = {
+		mod("LightningResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
 #skill ContagionPlayer
 #set ContagionPlayer
 #flags area duration spell
@@ -574,6 +585,17 @@ statMap = {
 #mods
 #skillEnd
 
+#skill FlammabilityPlayer
+#set FlammabilityPlayer
+#flags spell curse area duration
+statMap = {
+	["base_skill_buff_fire_damage_resistance_%_to_apply"] = {
+		mod("FireResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
+#mods
+#skillEnd
+
 #skill FlickerStrikePlayer
 #set FlickerStrikePlayer
 #flags attack melee area
@@ -814,6 +836,17 @@ statMap = {
 #skill TriggeredHisWinnowingFlamePillarPlayer
 #set TriggeredHisWinnowingFlamePillarPlayer
 #flags hit area
+#mods
+#skillEnd
+
+#skill HypothermiaPlayer
+#set HypothermiaPlayer
+#flags spell curse area duration
+statMap = {
+	["base_skill_buff_cold_damage_resistance_%_to_apply"] = {
+		mod("ColdResist", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Curse" }),
+	},
+},
 #mods
 #skillEnd
 

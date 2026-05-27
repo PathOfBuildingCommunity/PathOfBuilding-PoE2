@@ -1038,6 +1038,36 @@ skills["SupportBranchingFissuresPlayerTwo"] = {
 		},
 	}
 }
+skills["SupportEnduranceChargeOnArmourBreak"] = {
+	name = "Break Endurance",
+	description = "Supports any skill that Hits enemies, giving it a chance to gain an Endurance Charge when it Fully Breaks an enemy's Armour.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "BreakEndurance",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Break Endurance",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "chance_to_gain_endurance_charge_on_armour_break_%", 40 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportBrinkPlayer"] = {
 	name = "Brink I",
 	description = "Supports Melee Attack Skills. Supported Skills build up Heavy Stun more quickly, but cannot themselves Heavy Stun.",
@@ -1850,6 +1880,37 @@ skills["SupportDauntlessPlayer"] = {
 		},
 	}
 }
+skills["SupportDazingCryPlayer"] = {
+	name = "Dazing Cry",
+	description = "Supports Warcries, causing them to Daze Enemies on use.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Warcry, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "DazingCry",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Dazing Cry",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_dazed_cry_duration_ms", 4000 },
+			},
+			stats = {
+				"support_apply_daze_on_warcry",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportDeepCutsPlayer"] = {
 	name = "Deep Cuts I",
 	description = "Supports any skill that Hits enemies, causing it to deal less damage but inflict more potent Bleeding.",
@@ -1978,6 +2039,68 @@ skills["SupportDefyPlayerTwo"] = {
 			stats = {
 				"attack_damage_is_lucky_if_surrounded",
 				"skills_are_usable_without_mana_cost_while_surrounded",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportDesperationPlayer"] = {
+	name = "Desperation",
+	description = "Supports Melee Attack Skills you use yourself. Insufficient Mana doesn't prevent Supported Skills from being used while Surrounded.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Minion, SkillType.Triggered, },
+	gemFamily = { "Desperation",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Desperation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"skills_are_usable_without_mana_cost_while_surrounded",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportDevastatePlayer"] = {
+	name = "Devastate",
+	description = "Supports any skill that Hits enemies, causing them to apply Broken Armour to enemies when causing a Heavy Stun to enemies.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Devastate",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Devastate",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["fully_break_enemies_armour_on_heavy_stun"] = {
+					flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
+				},
+			},
+			baseFlags = {
+			},
+			stats = {
+				"fully_break_enemies_armour_on_heavy_stun",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -3238,6 +3361,36 @@ skills["SupportFirePenetrationPlayerTwo"] = {
 		},
 	}
 }
+skills["SupportFirstBloodPlayer"] = {
+	name = "First Blood",
+	description = "Supports Attacks. Supported Skills are far more likely to inflict Bleeding on Hitting full Life Enemies.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "FirstBlood",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "First Blood",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "bleed_chance_+%_vs_full_life_enemy", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["FistOfWarSupportPlayer"] = {
 	name = "Fist of War I",
 	description = "Supports Slams you use yourself, providing a powerful Ancestral Boost every few seconds.",
@@ -4191,6 +4344,49 @@ skills["SupportInfernalLegionPlayerTwo"] = {
 		},
 	}
 }
+skills["SupportInfernalLegionPlayerThree"] = {
+	name = "Infernal Legion III",
+	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Burn. Damage dealt by the Burning is based off the Life of the supported Minion.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.CreatesMinion, },
+	addSkillTypes = { SkillType.CausesBurning, },
+	excludeSkillTypes = { SkillType.MinionsAreUndamagable, },
+	gemFamily = { "InfernalLegion",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Infernal Legion III",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["minion_fire_damage_%_of_maximum_life_taken_per_minute"] = {
+					mod("MinionModifier", "LIST", { mod = mod("FireDegen", "BASE", nil, 0, 0, { type = "PerStat", stat = "Life" }, { type = "GlobalEffect", effectType = "Buff" }) }),
+					div = 6000,
+				},
+				["support_minion_instability_minion_base_fire_area_damage_per_minute"] = {
+					mod("MinionModifier", "LIST", { mod = mod("Multiplier:InfernalLegionBaseDamage", "BASE", nil, 0, 0, { type = "PercentStat", stat = "Life", percent = 1 }) }),
+					div = 60,
+					mod("ExtraMinionSkill", "LIST", { skillId = "InfernalLegion" }),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 1800 },
+				{ "support_minions_ignite_for_%_max_life", 25 },
+				{ "infernal_legion_minion_burning_effect_radius", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportJaggedGroundPlayer"] = {
 	name = "Jagged Ground I",
 	description = "Supports Slam skills. Supported Skills will consume Endurance Charges on use to create Jagged Ground.",
@@ -4881,6 +5077,41 @@ skills["SupportPersistentGroundPlayerThree"] = {
 		},
 	}
 }
+skills["SupportEmpoweredDamagePlayer"] = {
+	name = "Premeditation",
+	description = "Supports skills that can Empower skills other than themselves, causing skills they Empower to deal more damage.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.EmpowersOtherSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Premeditation",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 30, },
+	},
+	statSets = {
+		[1] = {
+			label = "Premeditation",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_empowered_damage_+%_final"] = {
+					mod("ExtraEmpowerMod", "LIST", { mod = mod("Damage", "MORE", nil) }),
+				}
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_empowered_damage_+%_final", 15 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["ProlongedDurationSupportPlayer"] = {
 	name = "Prolonged Duration I",
 	description = "Supports any skill that has a duration, making that duration longer.",
@@ -5217,6 +5448,37 @@ skills["SupportRagingCryPlayer"] = {
 				{ "warcry_grant_X_rage_per_5_power", 4 },
 			},
 			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRallyPlayer"] = {
+	name = "Rally",
+	description = "Supports Melee Attacks you use yourself. Supported Skills Consume all Endurance Charge on use, causing you to restore a percentage of your maximum Life for each Charge Consumed.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Melee, },
+	addSkillTypes = { SkillType.ConsumesCharges, SkillType.SupportedByRally, },
+	excludeSkillTypes = { SkillType.Triggered, SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesEnduranceChargesOnUse, SkillType.SupportedByRally, SkillType.NOT, SkillType.AND, },
+	gemFamily = { "Rally",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Rally",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "consume_endurance_charges_on_use_to_recover_%_maximum_life_per_charge", 10 },
+			},
+			stats = {
+				"skill_cannot_generate_endurance_charges",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5607,6 +5869,36 @@ skills["SupportRetaliatePlayerTwo"] = {
 		},
 	}
 }
+skills["SupportReveberatePlayer"] = {
+	name = "Reverberate",
+	description = "Supports Slam Skills. Supported Skills that have a chance to Aftershock have increased chance to cause Aftershocks the longer their Attack time.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Slam, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Reverberate",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Reverberate",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "chance_to_aftershock_+%_per_250_ms_attack_time", 15 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportRipPlayer"] = {
 	name = "Rip",
 	description = "Supports Melee Attack Skills you use yourself or that you Trigger. Killing Blows with Supported Skills on Bleeding enemies create a Blood Remnant. Blood Remnants increase your Life regeneration rate for a short while after being collected.",
@@ -5700,6 +5992,45 @@ skills["SupportRustedSpikesPlayer"] = {
 		},
 	}
 }
+skills["RuthlessSupportPlayer"] = {
+	name = "Ruthless",
+	description = "Supports Attacks, causing repeated uses to be more effective at Stunning enemies.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Ruthless",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Ruthless",
+			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ruthless_big_hit_max_count"] = {
+					mod("RuthlessBlowMaxCount", "BASE", nil),
+				},
+				["support_ruthless_big_hit_stun_damage_+%_final"] = {
+					mod("RuthlessBlowStunMultiplier", "BASE", nil),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_ruthless_big_hit_max_count", 5 },
+				{ "support_ruthless_big_hit_stun_damage_+%_final", 500 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportDeadlyIgnitesPlayer"] = {
 	name = "Searing Flame I",
 	description = "Supports any skill that Hits enemies, causing inflicted Ignites to deal more damage but its Hits to deal less damage.",
@@ -5769,6 +6100,38 @@ skills["SupportDeadlyIgnitesPlayerTwo"] = {
 			constantStats = {
 				{ "support_stronger_ignites_hit_damage_+%_final", -30 },
 				{ "support_stronger_ignites_ignite_effect_+%_final", 100 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportSeeRedPlayer"] = {
+	name = "See Red",
+	description = "Supports Attack Skills. Bleeding inflicted with Supported Skills lasts significantly longer, but enemies you inflict Bleeding onto with Supported Skills will move and Attack faster.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "SeeRed",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "See Red",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "bleeding_monsters_movement_velocity_+%", 15 },
+				{ "base_bleed_duration_+%", 50 },
+				{ "bleeding_monsters_attack_speed_+%", 15 },
 			},
 			stats = {
 			},
@@ -6710,6 +7073,44 @@ skills["SupportTirelessPlayer"] = {
 		},
 	}
 }
+skills["SupportTremorsPlayer"] = {
+	name = "Tremors",
+	description = "Supports Slam Skills you use yourself. Supported Skills gain multiple independent chances to cause Aftershocks, but deal less Damage.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Slam, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.Triggered, },
+	gemFamily = { "Tremors",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Tremors",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_unstable_earth_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_slam_chance_for_one_additional_aftershock_%", 30 },
+				{ "support_slam_chance_for_two_additional_aftershocks_%", 15 },
+				{ "support_slam_chance_for_three_additional_aftershocks_%", 10 },
+				{ "support_unstable_earth_damage_+%_final", -35 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportUhtredAuguryPlayer"] = {
 	name = "Uhtred's Augury",
 	description = "Supports Skills which can gain levels, granting them many additional levels provided exactly two other supports are used with the supported Skill. Does not support skills which do not have levels.",
@@ -6821,6 +7222,73 @@ skills["SupportUhtredOmenPlayer"] = {
 		},
 	}
 }
+skills["SupportUnabatingPlayer"] = {
+	name = "Unabating",
+	description = "Supports Attack Skills you use yourself. While using Supported Skills, you gain increased Armour, with the increase scaling higher the longer the Attack time of the supported Skill. Cannot Support Channelling Skills.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, SkillType.Triggered, },
+	gemFamily = { "Unabating",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Unabating",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "armour_+%_while_performing_action_per_250_ms_attack_time", 25 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["UnbreakableSupportPlayer"] = {
+	name = "Unbreakable",
+	description = "Supports any skill that you can use, making you harder to Stun while using it.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
+	gemFamily = { "Unbreakable",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Unbreakable",
+			incrementalEffectiveness = 0.092720001935959,
+			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
+					mod("StunThreshold", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_unbreakable_light_stun_threshold_+%_final_while_performing_action", 200 },
+				{ "support_stability_heavy_stun_threshold_+%_final_while_performing_action", 30 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportUnderminePlayer"] = {
 	name = "Undermine",
 	description = "Supports Attack Skills. Supported Skills Consume Maim on hit, Breaking a percentage of the Maimed target's Armour in doing so. Supported Skills cannot themselves inflict Maim.",
@@ -6845,6 +7313,64 @@ skills["SupportUnderminePlayer"] = {
 			},
 			stats = {
 				"cannot_inflict_maim",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportUnsteadyTempoPlayer"] = {
+	name = "Unsteady Tempo",
+	description = "Supports Melee Attack Skills you use yourself. Attacking with Supported Skills will cycle through various effects, with the first Attack in sequence inflicting Hobble on you. The second and third Attacks in sequence will powerfully scale chance to Critically Hit and overall damage, respectively, at which point the cycle will reset. Cannot Support Channelling Skills.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Melee, SkillType.Attack, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Channel, },
+	gemFamily = { "UnsteadyTempo",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Unsteady Tempo",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportUnyieldingPlayer"] = {
+	name = "Unyielding",
+	description = "Supports Melee Attack Skills you use yourself. While using Supported Skills, a percentage of Damage taken is Recouped as Life, with the percentage scaling higher the longer the Attack time of the Supported Skill. Cannot Support Channelling Skills.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, SkillType.Triggered, },
+	gemFamily = { "Unyielding",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 20, },
+	},
+	statSets = {
+		[1] = {
+			label = "Unyielding",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "damage_taken_%_recouped_as_life_while_performing_attack_per_250_ms_attack_time", 8 },
+			},
+			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
