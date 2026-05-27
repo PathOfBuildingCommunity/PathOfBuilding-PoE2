@@ -92,13 +92,38 @@ jobs:
   verify:
     needs: apply-fix
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
         with:
           ref: ${{ needs.apply-fix.outputs.branch }}
 
-      - name: Run test suite
-        run: docker compose run --rm tests
+      - name: Cache test image
+        id: image-cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/pob-test-image.tar
+          key: pob-test-image-${{ hashFiles('docker-compose.yml') }}
+          restore-keys: pob-test-image-
+
+      - name: Pull or restore image
+        run: |
+          if [[ "${{ steps.image-cache.outputs.cache-hit }}" == "true" ]]; then
+            docker load < /tmp/pob-test-image.tar
+          else
+            docker pull ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest
+            docker save ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+              -o /tmp/pob-test-image.tar
+          fi
+
+      - name: Run unit tests
+        run: docker compose run --rm busted-tests --exclude-tags builds,data
+
+      - name: Run build snapshot tests
+        run: docker compose run --rm busted-tests --tags builds
+
+      - name: Run data validation tests
+        run: docker compose run --rm busted-tests --tags data
 
   # ── Job 3 ──────────────────────────────────────────────────────────────────
   # Opens the PR only after tests pass.
