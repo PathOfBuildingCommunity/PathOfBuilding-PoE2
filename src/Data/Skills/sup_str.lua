@@ -3506,15 +3506,11 @@ skills["FistOfWarSupportPlayerThree"] = {
 					mod("FistOfWarCooldown", "BASE", nil),
 					div = 1000,
 				},
-				["double_ancestral_boost_effect"] = {
-					-- Accounted for in base mod
-				},
 			},
 			baseFlags = {
 			},
 			baseMods = {
 				flag("Condition:AncestrallyBoosted"),
-				flag("Condition:AncestrallyBoostedDouble"),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },

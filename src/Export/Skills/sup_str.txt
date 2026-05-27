@@ -786,12 +786,8 @@ statMap = {
 		mod("FistOfWarCooldown", "BASE", nil),
 		div = 1000,
 	},
-	["double_ancestral_boost_effect"] = {
-		-- Accounted for in base mod
-	},
 },
 #baseMod flag("Condition:AncestrallyBoosted")
-#baseMod flag("Condition:AncestrallyBoostedDouble")
 #mods
 #skillEnd
 

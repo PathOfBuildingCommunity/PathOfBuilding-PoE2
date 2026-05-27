@@ -2599,6 +2599,10 @@ return {
 ["is_final_strike"] = {
 	flag("Condition:FinalStrike"),
 },
+["double_ancestral_boost_effect"] = {
+	mod("AncestralBoostEffect", "MORE", nil),
+	value = 100,
+},
 -- Curse
 ["curse_effect_+%"] = {
 	mod("CurseEffect", "INC", nil),
