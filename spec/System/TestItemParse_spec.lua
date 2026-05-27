@@ -513,10 +513,10 @@ describe("TestAdvancedItemParse #item", function()
 			{ Unique Modifier — Attribute  — 19% Increased }
 			+120(80-100) to all Attributes
 			(Attributes are Strength, Dexterity, and Intelligence)
-		]], "Onyx Amulet"))
+		]], "Stellar Amulet"))
 		assert.are.equals(142, item.baseModList[1].value)
 		-- assert.falsy(item.explicitModLines[1].range) -- Not sure why this is returning 0.5
-		assert.are.equals(6, item.catalyst)
+		assert.are.equals(12, item.catalyst)
 		assert.are.equals(19, item.catalystQuality)
 	end)
 
@@ -526,10 +526,10 @@ describe("TestAdvancedItemParse #item", function()
 			{ Unique Modifier — Attribute  — 19% Increased }
 			+95(80-100) to all Attributes
 			(Attributes are Strength, Dexterity, and Intelligence)
-		]], "Onyx Amulet"))
+		]], "Stellar Amulet"))
 		assert.are.equals(113, item.baseModList[1].value)
 		assert.are.equals(0.75, item.explicitModLines[1].range)
-		assert.are.equals(6, item.catalyst)
+		assert.are.equals(12, item.catalyst)
 		assert.are.equals(19, item.catalystQuality)
 	end)
 
