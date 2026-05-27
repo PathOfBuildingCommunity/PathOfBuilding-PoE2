@@ -2257,6 +2257,16 @@ function buildMode:RefreshStatList()
 		t_insert(statBoxList, { height = 14, align = "CENTER_X", x = 140, self.calcsTab.mainEnv.player.mainSkill.disableReason })
 	end
 	self:AddDisplayStatList(self.displayStats, self.calcsTab.mainEnv.player)
+	if self.calcsTab.sidebarPinnedStats and #self.calcsTab.sidebarPinnedStats > 0 then
+		local actor = self.calcsTab.mainEnv.player
+		t_insert(statBoxList, { height = 10 })
+		t_insert(statBoxList, { height = 18, "^7Pinned:" })
+		for i, pinned in ipairs(self.calcsTab.sidebarPinnedStats) do
+			local label = pinned.pinnedLabel or ("Pinned " .. tostring(i))
+			local value = formatCalcStr(pinned.format, actor, pinned)
+			t_insert(statBoxList, { height = 16, "^7" .. label, "^7" .. tostring(value) })
+		end
+	end
 	self:InsertItemWarnings()
 	self:EstimatePlayerProgress()
 end

@@ -411,6 +411,31 @@ function CalcsTabClass:SetDisplayStat(displayData, pin)
 	self.controls.breakdown:SetBreakdownData(displayData, pin)
 end
 
+function CalcsTabClass:AddSidebarPinnedStat(displayData)
+	if not displayData or not displayData.format then
+		return
+	end
+
+	self.sidebarPinnedStats = self.sidebarPinnedStats or { }
+
+	local displayLabel = displayData.pinnedLabel or ""
+	local displayFormat = displayData.format or ""
+
+	for index, pinned in ipairs(self.sidebarPinnedStats) do
+		local pinnedLabel = pinned.pinnedLabel or ""
+		local pinnedFormat = pinned.format or ""
+
+		if pinnedLabel == displayLabel and pinnedFormat == displayFormat then
+			table.remove(self.sidebarPinnedStats, index)
+			self.build:RefreshStatList()
+			return
+		end
+	end
+
+	table.insert(self.sidebarPinnedStats, displayData)
+
+	self.build:RefreshStatList()
+end
 function CalcsTabClass:CheckFlag(obj)
 	local actor = self.input.showMinion and self.calcsEnv.minion or self.calcsEnv.player
 	local skillFlags = actor.mainSkill.activeEffect.statSetCalcs.skillFlags

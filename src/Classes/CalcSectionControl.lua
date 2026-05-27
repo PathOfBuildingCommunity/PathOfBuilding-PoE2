@@ -74,6 +74,7 @@ function CalcSectionClass:IsMouseOver()
 							return mOver, colData
 						end
 					elseif cursorX >= colData.x and cursorY >= colData.y and cursorX < colData.x + colData.width and cursorY < colData.y + colData.height then
+							colData.pinnedLabel = data.label
 						return mOver, colData
 					end
 				end
@@ -330,11 +331,19 @@ function CalcSectionClass:OnKeyDown(key, doubleClick)
 			return
 		end
 		if mOverComp then
+			--Add the stat to siderbar under "Pinned:"
+			if key == "RIGHTBUTTON" then
+				self.calcsTab:AddSidebarPinnedStat(mOverComp)
+				return
+			end
 			-- Pin the stat breakdown
-			self.calcsTab:SetDisplayStat(mOverComp, true)
-			return self.calcsTab.controls.breakdown
+			if key == "LEFTBUTTON" then
+				self.calcsTab:SetDisplayStat(mOverComp, true)
+				return self.calcsTab.controls.breakdown
+			end
 		end
 	end
+
 	return
 end
 
