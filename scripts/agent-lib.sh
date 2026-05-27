@@ -1,13 +1,18 @@
 #!/usr/bin/env bash
-# Agent execution library — retry logic, tier fallback, infrastructure retries.
+# Agent execution library — retry logic for ai-agent.sh and infrastructure ops.
 # Source this file; do not execute it directly.
+#
+# ai-agent.sh exit codes:
+#   0 = success
+#   1 = all tiers exhausted (quota, rate limit, transient) → retry with backoff
+#   2 = missing CLI or credentials → fail fast, no retry
+#   3 = ANTHROPIC_API_KEY set (config error) → fail fast, no retry
+
 set -euo pipefail
 
 # ---------------------------------------------------------------------------
 # retry_op <max_attempts> <base_delay_seconds> <command...>
-#
-# Generic retry with exponential backoff for infrastructure operations
-# (git push, gh pr create, gh pr comment, etc.)
+# Generic retry with exponential backoff for infrastructure operations.
 # ---------------------------------------------------------------------------
 retry_op() {
   local max_attempts="$1"
@@ -36,36 +41,29 @@ retry_op() {
 # ---------------------------------------------------------------------------
 # run_agent_with_fallback <prompt_file> <mode> <max_turns>
 #
-# Tries each configured agent tier in order. Within each tier, retries up to
-# MAX_TIER_RETRIES times with exponential backoff. If all tiers fail, waits
-# and cycles through all tiers again up to MAX_CYCLES times.
+# Calls ai-agent.sh which handles its own tier cascade internally.
+# This function adds an outer retry loop for when all tiers are exhausted
+# (typically an API outage or quota reset window).
 #
-# Exit codes from ai-agent.sh are classified as:
-#   0  = success
-#   2  = auth/credentials failure → skip to next tier immediately
-#   *  = transient failure (rate limit, timeout, 5xx) → retry with backoff
+# Retry strategy:
+#   Within a cycle: up to MAX_RETRIES attempts, 30s → 60s → 120s backoff
+#   Between cycles: 5min → 10min wait before cycling through tiers again
+#   Max cycles: MAX_CYCLES
 # ---------------------------------------------------------------------------
 run_agent_with_fallback() {
   local prompt_file="$1"
   local mode="$2"
   local max_turns="$3"
 
-  local MAX_TIER_RETRIES=3
-  local TIER_BASE_DELAY=30      # seconds; doubles each retry: 30 → 60 → 120
+  local MAX_RETRIES=3
+  local BASE_DELAY=30        # doubles each retry within a cycle
   local MAX_CYCLES=3
-  local CYCLE_BASE_DELAY=300    # seconds between full cycles: 5min → 10min → 20min
+  local CYCLE_BASE_DELAY=300 # 5min; doubles between cycles
 
-  # Tier registry — each entry: "name|credential_var|extra_flags"
-  # Add or reorder tiers here as your setup changes.
-  local -a TIERS=(
-    "claude-code-oauth|CLAUDE_CODE_OAUTH_TOKEN|"
-    "opencode|OPENCODE_API_KEY|--agent opencode"
-    # Opt-in emergency tiers: set EMERGENCY_ANTHROPIC_API_KEY in repo secrets.
-    # Intentionally separate from ANTHROPIC_API_KEY to avoid accidental PAYG
-    # on normal runs (the existing guard in the workflow protects that).
-    "claude-sonnet|EMERGENCY_ANTHROPIC_API_KEY|--model claude-sonnet-4-5"
-    "claude-haiku|EMERGENCY_ANTHROPIC_API_KEY|--model claude-haiku-3-5"
-  )
+  # Read prompt into a variable to pass to ai-agent.sh.
+  # The 3000-line diff guard in the review workflow keeps this within safe limits.
+  local task
+  task=$(cat "$prompt_file")
 
   local cycle=0
   while [ $cycle -lt $MAX_CYCLES ]; do
@@ -77,85 +75,55 @@ run_agent_with_fallback() {
       sleep "$cycle_wait"
     fi
 
-    local any_tier_available=false
+    local attempt=0
+    local delay="$BASE_DELAY"
 
-    for tier_entry in "${TIERS[@]}"; do
-      local tier_name
-      local cred_var
-      local extra_flags
-      IFS='|' read -r tier_name cred_var extra_flags <<< "$tier_entry"
+    while [ $attempt -lt $MAX_RETRIES ]; do
+      attempt=$((attempt + 1))
+      echo "🔄 Cycle $cycle, attempt $attempt/$MAX_RETRIES"
 
-      # Resolve the credential variable
-      local cred_value="${!cred_var:-}"
-      if [[ -z "$cred_value" ]]; then
-        echo "⏭ Tier '$tier_name': no credentials ($cred_var unset), skipping"
-        continue
-      fi
-      any_tier_available=true
+      local exit_code=0
+      ./scripts/ai-agent.sh "$task" \
+        --mode "$mode" \
+        --max-turns "$max_turns" || exit_code=$?
 
-      echo "🔄 Cycle $cycle — Tier: $tier_name"
-      local attempt=0
-      local delay="$TIER_BASE_DELAY"
-      local tier_succeeded=false
-
-      while [ $attempt -lt $MAX_TIER_RETRIES ]; do
-        attempt=$((attempt + 1))
-        echo "  ↳ Attempt $attempt/$MAX_TIER_RETRIES"
-
-        # Set the appropriate credential for this tier
-        local agent_exit=0
-        if [[ "$tier_name" == "claude-code-oauth" ]]; then
-          CLAUDE_CODE_OAUTH_TOKEN="$cred_value" \
-            ./scripts/ai-agent.sh \
-              --prompt-file "$prompt_file" \
-              --mode "$mode" \
-              --max-turns "$max_turns" || agent_exit=$?
-        elif [[ "$tier_name" == "opencode" ]]; then
-          OPENCODE_API_KEY="$cred_value" \
-            ./scripts/ai-agent.sh \
-              --prompt-file "$prompt_file" \
-              --mode "$mode" \
-              --max-turns "$max_turns" \
-              $extra_flags || agent_exit=$?
-        else
-          # Emergency API tiers — explicitly set the key under its real name
-          ANTHROPIC_API_KEY="$cred_value" \
-            ./scripts/ai-agent.sh \
-              --prompt-file "$prompt_file" \
-              --mode "$mode" \
-              --max-turns "$max_turns" \
-              $extra_flags || agent_exit=$?
-        fi
-
-        if [ $agent_exit -eq 0 ]; then
-          echo "✅ Agent succeeded — Tier: $tier_name, Cycle: $cycle, Attempt: $attempt"
+      case $exit_code in
+        0)
+          echo "✅ Agent succeeded (cycle $cycle, attempt $attempt)"
           return 0
-        fi
-
-        # Exit code 2 = auth/credential failure — no point retrying this tier
-        if [ $agent_exit -eq 2 ]; then
-          echo "⚠️ Auth failure on tier '$tier_name' (exit 2) — moving to next tier"
-          break
-        fi
-
-        if [ $attempt -lt $MAX_TIER_RETRIES ]; then
-          echo "  ⏳ Transient failure (exit $agent_exit) — retrying in ${delay}s..."
-          sleep "$delay"
-          delay=$((delay * 2))
-        fi
-      done
-
-      echo "❌ Tier '$tier_name' exhausted after $attempt attempt(s)"
+          ;;
+        2)
+          # Missing CLI or credentials — retrying won't help
+          echo "::error::Agent exited 2: CLI not found or credentials missing."
+          echo "::error::Check CLAUDE_CODE_OAUTH_TOKEN and OPENCODE_API_KEY secrets."
+          return 2
+          ;;
+        3)
+          # ANTHROPIC_API_KEY is set — configuration error, not transient
+          echo "::error::Agent exited 3: ANTHROPIC_API_KEY must not be set."
+          return 3
+          ;;
+        1)
+          # All internal tiers exhausted — quota, rate limit, or outage
+          if [ $attempt -lt $MAX_RETRIES ]; then
+            echo "⏳ All tiers exhausted — retrying in ${delay}s..."
+            sleep "$delay"
+            delay=$((delay * 2))
+          fi
+          ;;
+        *)
+          echo "::warning::Unexpected exit code $exit_code — treating as transient"
+          if [ $attempt -lt $MAX_RETRIES ]; then
+            sleep "$delay"
+            delay=$((delay * 2))
+          fi
+          ;;
+      esac
     done
 
-    if [ "$any_tier_available" = false ]; then
-      echo "::error::No agent tiers have credentials configured. Check your repository secrets."
-      return 1
-    fi
-
-    echo "::warning::All available tiers failed on cycle $cycle"
+    echo "❌ Cycle $cycle exhausted"
   done
 
-  echo "::error::Agent failed across all tiers and all $MAX_CYCLES retry cycles. Manual intervention required."
+  echo "::error::Agent failed across all $MAX_CYCLES retry cycles. Manual intervention required."
   return 1
 }
