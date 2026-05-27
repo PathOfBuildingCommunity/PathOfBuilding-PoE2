@@ -1501,7 +1501,7 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
 	end
 
 	-- Check unlock ascendancy
-	if node.unlockConstraint then
+	if node.unlockConstraint and node.unlockConstraint.ascendancy then
 		err, needMatches = PCall(search, node.unlockConstraint.ascendancy:lower(), needMatches)
 		if err then return false end
 		if #needMatches == 0 then
