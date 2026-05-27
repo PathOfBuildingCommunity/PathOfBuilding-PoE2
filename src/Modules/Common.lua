@@ -264,6 +264,7 @@ function sanitiseText(text)
 		:gsub("\226\128\162 ?", "") -- U+2022 BULLET
 		:gsub("\195\164", "a") -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
 		:gsub("\195\182", "o") -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
+		:gsub("\195\173", "i") -- U+00ED LATIN SMALL LETTER I WITH ACUTE
 		-- single-byte: Windows-1252 and similar
 		:gsub("\150", "-") -- U+2013 EN DASH
 		:gsub("\151", "-") -- U+2014 EM DASH
