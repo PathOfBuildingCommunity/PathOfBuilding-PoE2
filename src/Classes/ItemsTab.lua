@@ -32,7 +32,7 @@ local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Life Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Mana Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
-	"^x7F7F7FQuality (Defense Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
+	"^x7F7F7FQuality (Defence Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Physical): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Fire Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Cold Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -1286,11 +1286,6 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 			if event.key == "v" and IsKeyDown("CTRL") then
 				local newItem = Paste()
 				if newItem then
-					if newItem:find("{ ", 0, true) then
-						main:OpenConfirmPopup("Warning", "\"Advanced Item Descriptions\" (Ctrl+Alt+c) are unsupported.\n\nAbort paste?", "OK", function()
-							self:SetDisplayItem()
-						end)
-					end
 					self:CreateDisplayItemFromRaw(newItem, true)
 				end
 				if self.displayItem and IsKeyDown("SHIFT") then
@@ -1995,7 +1990,13 @@ function ItemsTabClass:UpdateAffixControl(control, item, type, outputTable, outp
 	end
 	if control.list[control.selIndex].haveRange then
 		control.slider.divCount = #control.list[control.selIndex].modList
-		control.slider.val = (isValueInArray(control.list[control.selIndex].modList, selAffix) - 1 + (item[outputTable][outputIndex].range or 0.5)) / control.slider.divCount
+		local index = isValueInArray(control.list[control.selIndex].modList, selAffix)
+		local range = item[outputTable][outputIndex].range or 0.5
+		-- Avoid exact integer boundary that slider:GetDivVal's ceil would assign to the previous segment
+		if range == 0 and index > 1 then
+			range = 1e-4
+		end
+		control.slider.val = (index - 1 + range) / control.slider.divCount
 		if control.slider.divCount == 1 then
 			control.slider.divCount = nil
 		end
