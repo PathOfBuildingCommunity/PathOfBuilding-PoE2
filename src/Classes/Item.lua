@@ -383,6 +383,8 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 	local deferJewelRadiusIndexAssignment
 	local gameModeStage = "FINDIMPLICIT"
 	local foundExplicit, foundImplicit
+	local linePrefix = ""
+	local linePostfix = ""
 
 	while self.rawLines[l] do	
 		local line = self.rawLines[l]
@@ -426,7 +428,7 @@ function ItemClass:ParseRaw(raw, rarity, highQuality)
 				end
 				self.checkSection = false
 			end
-			local specName, specVal = line:match("^([%a ]+:?): (.+)$")
+			local specName, specVal = line:match("^([%a %(%)]+:?): (.+)$")
 			if specName then
 				if specName == "Class:" then
 					specName = "Requires Class"
