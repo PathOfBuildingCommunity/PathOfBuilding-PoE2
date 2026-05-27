@@ -54,8 +54,8 @@ for _, entry in pairs(data.flavourText) do
 end
 
 local function isAnointable(item)
-	return (item.canBeAnointed or item.base.type == "Amulet") and not item.sanctified
-		and not item.corrupted and not item.mirrored
+	return (item.canBeAnointed or item.base.type == "Amulet")
+		-- and not item.sanctified and not item.corrupted and not item.mirrored
 end
 
 local function buildModSortList()
@@ -958,7 +958,7 @@ holding Shift will put it in the second.]])
 		if not self.displayItem or not self.displayItem.rangeLineList[1] then
 			return 0
 		end
-		if main.showAllItemAffixes and self.displayItem.rarity == "UNIQUE" then
+		if main.showAllItemAffixes and (self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC") then
 			local count = #self.displayItem.rangeLineList
 			return count * 22 + 4
 		else
@@ -969,7 +969,8 @@ holding Shift will put it in the second.]])
 		self.controls.displayItemRangeSlider.val = self.displayItem.rangeLineList[index].range
 	end)
 	self.controls.displayItemRangeLine.shown = function()
-		return self.displayItem and self.displayItem.rangeLineList[1] ~= nil and not (main.showAllItemAffixes and self.displayItem.rarity == "UNIQUE")
+		return self.displayItem and self.displayItem.rangeLineList[1] ~= nil and
+		not (main.showAllItemAffixes and (self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC"))
 	end
 	self.controls.displayItemRangeSlider = new("SliderControl", {"LEFT",self.controls.displayItemRangeLine,"RIGHT"}, {8, 0, 100, 18}, function(val)
 		self.displayItem.rangeLineList[self.controls.displayItemRangeLine.selIndex].range = val
@@ -998,7 +999,9 @@ holding Shift will put it in the second.]])
 			return ""
 		end)
 		self.controls["displayItemStackedRangeSlider"..i].shown = function()
-			return main.showAllItemAffixes and self.displayItem and self.displayItem.rarity == "UNIQUE" and self.displayItem.rangeLineList[i] ~= nil
+			return main.showAllItemAffixes and self.displayItem and
+			(self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC") and
+			self.displayItem.rangeLineList[i] ~= nil
 		end
 
 		self.controls["displayItemStackedRangeLine"..i].shown = function()
@@ -2067,6 +2070,7 @@ function ItemsTabClass:UpdateDisplayItemRangeLines()
 	end
 end
 
+---@param line string
 local function checkLineForAllocates(line, nodes)
 	if nodes and string.match(line, "Allocates") then
 		local nodeId = tonumber(string.match(line, "%d+"))
@@ -2400,7 +2404,7 @@ end
 function ItemsTabClass:getAnoint(item)
 	local result = { }
 	if item then
-		for _, modList in ipairs{item.enchantModLines, item.implicitModLines, item.explicitModLines} do
+		for _, modList in ipairs{item.enchantModLines} do
 			for _, mod in ipairs(modList) do
 				local line = mod.line
 				local anoint = line:find("Allocates ([a-zA-Z ]+)")
@@ -2531,15 +2535,20 @@ end
 function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outcomes this code is for poe 1
 	local controls = { }
 	local enchantList = { }
-	local enchantNum = 1
+	local enchantNum = 2
 	local shownExplicits = {}
 	local explicitOffset = 0
 	local corruptedRanges = {}
 	local currentModType = "Corrupted"
 	local sourceList = { "Corrupted" }
 	local sortList, sortTransforms = buildModSortList()
+
 	if self.displayItem.base.type == "Helmet" then
 		t_insert(sourceList, "Glimpse of Chaos")
+		if self.displayItem.title == "Glimpse of Chaos" then
+			currentModType = "SpecialCorrupted"
+			enchantNum = 8
+		end
 	end
 	local function buildEnchantList(modType)
 		if enchantList[modType] then
@@ -2547,7 +2556,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		end
 		enchantList[modType] = {}
 		for modId, mod in pairs(data.itemMods.Corruption) do
-			if mod.type == modType and self.displayItem:GetModSpawnWeight(mod) > 0 then
+			if mod.type == modType and (modType == "SpecialCorrupted" or self.displayItem:GetModSpawnWeight(mod) > 0) then
 				t_insert(enchantList[modType], { mod = mod })
 			end
 		end
@@ -2594,11 +2603,21 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 				end
 			end
 		end
+
+		local temp = {}
+		-- currently enchants are always either corruptions or anoints, so we
+		-- can just save the anoints
+		for _, mod in ipairs(item.enchantModLines) do
+			if mod.line:match("Allocates .*") then
+				table.insert(temp, mod)
+			end
+		end
+		item.enchantModLines = temp
+
 		if #newEnchant > 0 then
 			table.sort(newEnchant, function(a, b)
 				return a.order < b.order
 			end)
-			wipeTable(item.enchantModLines)
 			for i, enchant in ipairs(newEnchant) do
 				enchant.order = nil
 				t_insert( item.enchantModLines, i, enchant)
@@ -2638,7 +2657,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 			end
 		end
 	end
-	local function corruptItem()
+	local function corruptItem(enchanting)
 		local item = new("Item", self.displayItem:BuildRaw())
 		item.id = self.displayItem.id
 		item.corrupted = true
@@ -2649,14 +2668,20 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 				t_insert(mods, control.list[control.selIndex].mod)
 			end
 		end
-		applyCorruptionMods(item, mods)
-		for i, modLine in ipairs(item.explicitModLines) do
-			if corruptedRanges[i] ~= 1 then modLine.corruptedRange = corruptedRanges[i] end
+		-- avoid removing corruption mods or rolls so that the user can make a
+		-- vaal rolled item with enchants
+		if enchanting then
+			applyCorruptionMods(item, mods)
+
+		else
+			for i, modLine in ipairs(item.explicitModLines) do
+				if corruptedRanges[i] ~= 1 then modLine.corruptedRange = corruptedRanges[i] end
+			end
 		end
 		item:BuildAndParseRaw()
 		return item
 	end
-	if self.displayItem.rarity == "UNIQUE" then
+	if self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC" then
 		local item = new("Item", self.displayItem:BuildRaw())
 		local offset = 20
 		for i, mod in ipairs(item.explicitModLines) do
@@ -2727,7 +2752,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		controls.save.y = 73 + 20 * enchantNum
 	end)
 	controls.enchants.shown = function ()
-		return self.displayItem.rarity == "UNIQUE"
+		return self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC"
 	end
 	controls.rolls = new("ButtonControl", {"LEFT", controls.enchants, "RIGHT"}, {5, 0, 80, 20}, "Roll Ranges", function()
 		for i = 1, 8 do
@@ -2748,13 +2773,13 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		controls.save.y = 25 + explicitOffset
 	end)
 	controls.rolls.shown = function ()
-		return self.displayItem.rarity == "UNIQUE"
+		return self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC"
 	end
 	controls.sourceLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 30, 0, 16}, "^7Source:")
 	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 30, 150, 18}, sourceList, function(index, value)
 		if value == "Corrupted" then
 			currentModType = "Corrupted"
-			enchantNum = 1
+			enchantNum = 2
 		elseif value == "Glimpse of Chaos" and self.displayItem.base.type == "Helmet" then -- special corruption enchants
 			currentModType = "SpecialCorrupted"
 			if self.displayItem.title == "Glimpse of Chaos" then -- glimpse of chaos can have all 8 special enchants
@@ -2763,7 +2788,6 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 				enchantNum = 2
 			end
 		end
-
 		if controls.sort then
 			sortEnchantList(controls.sort.list[controls.sort.selIndex].stat)
 		end
@@ -2772,6 +2796,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		controls.close.y = 73 + 20 * enchantNum
 		controls.save.y = 73 + 20 * enchantNum
 	end)
+	controls.source:SelByValue(currentModType == "SpecialCorrupted" and "Glimpse of Chaos" or "Corrupted")
 	controls.sortLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {350, 30, 0, 16}, "^7Sort by:")
 	controls.sort = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {355, 30, 240, 18}, sortList, function(index, value)
 		sortEnchantList(value.stat)
@@ -2804,12 +2829,12 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	end
 	rebuildEnchantControls()
 	controls.save = new("ButtonControl", nil, {-45, 69 + enchantNum * 20, 80, 20}, "Corrupted", function()
-		self:SetDisplayItem(corruptItem())
+		self:SetDisplayItem(corruptItem(controls.enchant1.shown))
 		main:ClosePopup()
 	end)
 	controls.save.tooltipFunc = function(tooltip)
 		tooltip:Clear()
-		self:AddItemTooltip(tooltip, corruptItem(), nil, true)
+		self:AddItemTooltip(tooltip, corruptItem(controls.enchant1.shown), nil, true)
 	end	
 	controls.close = new("ButtonControl", nil, {45, 69 + enchantNum * 20, 80, 20}, "Cancel", function()
 		main:ClosePopup()
