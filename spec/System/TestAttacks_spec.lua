@@ -114,7 +114,7 @@ describe("TestAttacks", function()
 		runCallback("OnFrame")
 		build.calcsTab:BuildOutput()
 		runCallback("OnFrame")
-		
+
 		-- 1: Get base damage with no crits
 		local critChance = 0
 		local critMult = 2
@@ -180,7 +180,7 @@ describe("TestAttacks", function()
 		runCallback("OnFrame")
 		build.calcsTab:BuildOutput()
 		runCallback("OnFrame")
-		
+
 		-- 1: Get base damage with no crits
 		local critChance = 0.0
 		local critMult = 2
@@ -202,10 +202,10 @@ describe("TestAttacks", function()
 		critChance = 0.1
 		local nonCritChance = 1 - critChance
 
-		local critBonusMultiplier = 
-			1 * critChance 
-			+ .7 * nonCritChance * critChance 
-			+ .4 * nonCritChance * nonCritChance * critChance 
+		local critBonusMultiplier =
+			1 * critChance
+			+ .7 * nonCritChance * critChance
+			+ .4 * nonCritChance * nonCritChance * critChance
 			+ .1 * nonCritChance * nonCritChance * nonCritChance * critChance
 
 		-- When adding them as MORE mods, they get auto rounded after *100, so we need to do the same
@@ -217,5 +217,69 @@ describe("TestAttacks", function()
 
 		local forcedExpectedAvgHit = averageHit * critMult
 		assert.are.equals(forcedExpectedAvgHit, build.calcsTab.mainOutput.MainHand.AverageHit)
+	end)
+
+	it("does not force critical hits when critical hit chance is zero", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Heavy Bow
+			Quality: 0
+			-100% increased critical hit chance
+			-100% increased physical damage
+			adds 1 to 1 physical damage to attacks
+			nearby enemies have 100% less armour
+			nearby enemies have 100% less evasion
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.configTab.input.customMods = "inevitable critical hits"
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		assert.are.equals(0, build.calcsTab.mainOutput.MainHand.CritChance)
+		assert.are.equals(1, build.calcsTab.mainOutput.MainHand.AverageHit)
+	end)
+
+	it("correctly calculates forced outcome with bifurcated critical hits", function()
+		build.itemsTab:CreateDisplayItemFromRaw([[
+			New Item
+			Heavy Bow
+			Quality: 0
+			-100% increased critical hit chance
+			-100% increased physical damage
+			adds 1 to 1 physical damage to attacks
+			nearby enemies have 100% less armour
+			nearby enemies have 100% less evasion
+		]])
+		build.itemsTab:AddDisplayItem()
+		runCallback("OnFrame")
+
+		build.configTab.input.customMods = [[
+			+10% to critical hit chance
+			inevitable critical hits
+			bifurcates critical hits
+		]]
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+		build.calcsTab:BuildOutput()
+		runCallback("OnFrame")
+
+		local critChance = 0.1
+		local failedStageChance = (1 - critChance) ^ 2
+		local critBonusMultiplier = 2 * critChance * (
+			1
+			+ .7 * failedStageChance
+			+ .4 * failedStageChance ^ 2
+			+ .1 * failedStageChance ^ 3
+		)
+		critBonusMultiplier = math.floor(critBonusMultiplier * 100 + 0.5) / 100
+
+		assert.are.equals(100, build.calcsTab.mainOutput.MainHand.CritChance)
+		local bifurcateChance = (critChance * 100) ^ 2 / ((1 - failedStageChance) * 100)
+		assert.is_true(math.abs(bifurcateChance - build.calcsTab.mainOutput.MainHand.CritBifurcates) < 0.000001)
+		assert.are.equals(1 + critBonusMultiplier, build.calcsTab.mainOutput.MainHand.AverageHit)
 	end)
 end)
