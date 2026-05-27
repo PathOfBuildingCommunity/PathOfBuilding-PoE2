@@ -119,6 +119,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 	self.orbitAnglesByOrbit = self.constants.orbitAnglesByOrbit
 
 	ConPrintf("Loading passive tree assets...")
+	self.assets = self.assets or {}
 	for name, data in pairs(self.assets) do
 		self:LoadImage(data[1], data, "MIPMAP")
 	end
@@ -135,6 +136,25 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				width = data.width,
 				height = data.height,
 				[1] = position
+			}
+		end
+	end
+
+	self.spriteMap = { }
+	self.spriteCoords = self.spriteCoords or {}
+	for file, fileInfo in pairs(self.spriteCoords) do
+		local data = { }
+		self:LoadImage(file, data, "CLAMP")
+		for name, coords in pairs(fileInfo) do
+			self.spriteMap[name] = {
+				found = data.width > 0,
+				handle = data.handle,
+				width = coords.w,
+				height = coords.h,
+				[1] = coords.x / data.width,
+				[2] = coords.y / data.height,
+				[3] = (coords.x + coords.w) / data.width,
+				[4] = (coords.y + coords.h) / data.height
 			}
 		end
 	end
@@ -741,8 +761,14 @@ function PassiveTreeClass:CalcOrbitAngles(nodesInOrbit)
 	return orbitAngles
 end
 
+local alreadyAlertMissingAssetName = {}
 function PassiveTreeClass:GetAssetByName(name, type)
-	return self.ddsMap[name] or self.assets[name]
+	local assetData = self.ddsMap[name] or self.assets[name] or self.spriteMap[name]
+	if not assetData and not alreadyAlertMissingAssetName[name] then
+		alreadyAlertMissingAssetName[name] = true
+		ConPrintf("missing asset with name " .. name)
+	end
+	return assetData
 end
 
 function PassiveTreeClass:GetNodeTargetSize(node)

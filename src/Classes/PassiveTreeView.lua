@@ -608,7 +608,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		local angleRad = (math.pi / 2) + math.atan2(startNode.y - yActive, startNode.x - xActive)
 		treeCenterActive.width = class.background['active'].width
 		treeCenterActive.height = class.background['active'].height
-		self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, angleRad, treeToScreen)
+		-- self:DrawQuadAndRotate(treeCenterActive, class.background.x * tree.scaleImage, class.background.y * tree.scaleImage, angleRad, treeToScreen)
 
 		treeCenter.width = class.background['bg'].width
 		treeCenter.height = class.background['bg'].height
@@ -1391,7 +1391,9 @@ function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, tr
 		vertActive[3], vertActive[4] = xActive + widthActive, yActive - heightActive
 		vertActive[5], vertActive[6] = xActive + widthActive, yActive + heightActive
 		vertActive[7], vertActive[8] = xActive - widthActive, yActive + heightActive
-		vertActive[9] = data[1] -- s1
+		for iData, vData in ipairs(data) do
+			vertActive[9 + (iData - 1)] = vData -- s1
+		end
 
 		-- rotate the quad
 		vertActive[1], vertActive[2] = treeToScreen(rotate(vertActive[1], vertActive[2], xActive, yActive, angleRad))
