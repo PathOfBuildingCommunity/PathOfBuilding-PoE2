@@ -2264,7 +2264,7 @@ function buildMode:RefreshStatList()
 		for i, pinned in ipairs(self.calcsTab.sidebarPinnedStats) do
 			local label = pinned.pinnedLabel or ("Pinned " .. tostring(i))
 			local value = formatCalcStr(pinned.format, actor, pinned)
-			t_insert(statBoxList, { height = 16, "^7" .. label, "^7" .. tostring(value) })
+			t_insert(statBoxList, { height = 16, "^7" .. label .. ":", "^7" .. tostring(value) })
 		end
 	end
 	self:InsertItemWarnings()
