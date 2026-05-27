@@ -127,16 +127,22 @@ function DropDownClass:DrawSearchHighlights(label, searchInfo, x, y, width, heig
 end
 
 
-function DropDownClass:SelByValue(value, key)
+function DropDownClass:SelByValue(value, key, callSelFunc)
 	for index, listVal in ipairs(self.list) do
 		if type(listVal) == "table" then
 			if listVal[key] == value then
 				self.selIndex = index
+				if callSelFunc and self.selFunc then
+					self.selFunc(index, self.list[index])
+				end
 				return
 			end
 		else
 			if listVal == value then
 				self.selIndex = index
+				if callSelFunc and self.selFunc then
+					self.selFunc(index, self.list[index])
+				end
 				return
 			end
 		end

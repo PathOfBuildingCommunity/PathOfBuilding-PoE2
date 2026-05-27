@@ -882,6 +882,22 @@ function calcs.initEnv(build, mode, override, specEnv)
 			addGrantedPassiveNode(env, node)
 		end
 
+		-- save augment counts so we can track going over count limits
+		local augmentCounts = {}
+		if modDB:Flag(nil, "SocketRunesOnCharacter") or nodesModsList:Flag(nil, "SocketRunesOnCharacter") then
+			for runeSlotName, slot in pairs(build.itemsTab.runeSlots) do
+				local rune = slot:GetSelValue()
+				if runeSlotName == override.repSlotName then
+					rune = override.repItem
+				end
+				if rune.name then
+					augmentCounts[rune.name] = (augmentCounts[rune.name] or 0) + 1
+				end
+				for _, mod in ipairs(rune.mods) do
+					env.itemModDB:AddMod(mod)
+				end
+			end
+		end
 		local items = {}
 		local jewelLimits = {}
 		local giantsBlood = weaponFlagState.giantsBlood
@@ -1176,6 +1192,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 				for i = 1, item.itemSocketCount do
 					local runeName = item.runes[i]
 					if runeName and runeName ~= "None" then
+						augmentCounts[item.runes[i]] = (augmentCounts[item.runes[i]] or 0) + 1
 						socketed = socketed + 1
 						-- Track Idols vs non-Idol augments (Runes + Soul Cores) across all equipment
 						local runeData = data.itemMods.Runes[runeName]
@@ -1397,6 +1414,20 @@ function calcs.initEnv(build, mode, override, specEnv)
 				env.charms[override.toggleCharm] = true
 			end
 		end
+
+		for augmentName, count in pairs(augmentCounts) do
+			local dbAugment = data.itemMods.Runes[augmentName] or {}
+			local _, dbMod = next(dbAugment)
+			if dbMod and dbMod.limit and count > dbMod.limit then
+				-- warn for going over augment limits
+				if env.build.calcsTab.mainEnv then
+					env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning = env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning or { }
+					t_insert(env.build.calcsTab.mainEnv.itemWarnings.augmentLimitWarning, augmentName)
+				end
+			end
+		end
+
+		
 	end
 
 	-- Merge env.itemModDB with env.ModDB

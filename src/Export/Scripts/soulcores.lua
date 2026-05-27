@@ -55,6 +55,10 @@ directiveTable.base = function(state, args, out)
 		for _, modLine in ipairs(modLines) do
 			out:write('\t\t["'..modLine.slotType..'"] = {\n')
 			out:write('\t\t\t\ttype = "' .. modLine.type .. '",\n')
+			if modLine.limit then
+				out:write('\t\t\t\tlimit = ' .. modLine.limit .. ',\n')
+			end
+			out:write('\t\t\t\tlocalMod = ' .. tostring(modLine.localMod) .. ',\n')
 			-- only write labels/statOrder if present
 			if modLine.label and #modLine.label > 0 then
 				out:write('\t\t\t\t"'..table.concat(modLine.label, '",\n\t\t\t\t"')..'",\n')
@@ -67,8 +71,8 @@ directiveTable.base = function(state, args, out)
 				end
 				out:write(' },\n')
 			end
-				out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
-			out:write('\t\t\t\trank = { '..(modLine.rank or 0)..' },\n')
+			out:write(string.format('\t\t\t\tisSocketBound = %s,\n', modLine.isSocketBound))
+			out:write('\t\t\t\trank = ' .. (modLine.rank or 0) .. ',\n')
 			out:write('\t\t},\n')
 		end
 	end
@@ -82,14 +86,14 @@ directiveTable.base = function(state, args, out)
 	for _, soulCoreStat in ipairs(soulCoreStats) do
 		rank = soulCores.LevelReq or 0
 
-		local stats = { }
+		local stats = {}
 		local statHashes = {}
 		for i, statKey in ipairs(soulCoreStat.Stats) do
 			local statValue = soulCoreStat["StatValue"][i]
 			table.insert(statHashes, intToBytes(statKey.Hash))
 			stats[statKey.Id] = { min = statValue, max = statValue }
 		end
-		local bondedStats = { }
+		local bondedStats = {}
 		for i, statKey in ipairs(soulCoreStat.BondedStats) do
 			local statValue = soulCoreStat["BondedValues"][i]
 			bondedStats[statKey.Id] = { min = statValue, max = statValue, bonded = true }
@@ -114,9 +118,13 @@ directiveTable.base = function(state, args, out)
 				if #orders > 0 then
 					local modIdx = 1
 					local tradeHashes = {}
+					local localMod = true
 					while soulCoreStat.Stats[modIdx] do
 						local currentStats = {}
 						local stat = soulCoreStat.Stats[modIdx]
+						if not (stat.Local or stat.WeaponLocal) then
+							localMod = false
+						end
 						currentStats[stat.Id] = {
 							min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
 						}
@@ -138,6 +146,11 @@ directiveTable.base = function(state, args, out)
 					end
 					local out = {
 						type = soulCores.Type.Id,
+						-- note that there are limit types. for example ancient
+						-- augments have their own entry which limits you to one
+						-- ancient augment
+						limit = soulCores.Limit and soulCores.Limit.Limit,
+						localMod = localMod,
 						slotType = class,
 						label = descStats,
 						statOrder = orders,
