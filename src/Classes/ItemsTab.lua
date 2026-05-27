@@ -2479,7 +2479,10 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 
 	if self.displayItem.base.type == "Helmet" then
 		t_insert(sourceList, "Glimpse of Chaos")
-		enchantNum = 8
+		if self.displayItem.title == "Glimpse of Chaos" then
+			currentModType = "SpecialCorrupted"
+			enchantNum = 8
+		end
 	end
 	local function buildEnchantList(modType)
 		if enchantList[modType] then
@@ -2487,7 +2490,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		end
 		enchantList[modType] = {}
 		for modId, mod in pairs(data.itemMods.Corruption) do
-			if mod.type == modType and self.displayItem:GetModSpawnWeight(mod) > 0 then
+			if mod.type == modType and (modType == "SpecialCorrupted" or self.displayItem:GetModSpawnWeight(mod) > 0) then
 				t_insert(enchantList[modType], { mod = mod })
 			end
 		end
@@ -2570,7 +2573,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		end
 	end
 	local function rebuildEnchantControls(resetSelection)
-		for i = 1, enchantNum do
+		for i = 1, 8 do
 			local shown = i <= enchantNum
 			controls["enchant"..i].shown = shown
 			controls["enchant"..i.."Label"].shown = shown
@@ -2686,7 +2689,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		return self.displayItem.rarity == "UNIQUE" or self.displayItem.rarity == "RELIC"
 	end
 	controls.rolls = new("ButtonControl", {"LEFT", controls.enchants, "RIGHT"}, {5, 0, 80, 20}, "Roll Ranges", function()
-		for i = 1, enchantNum do
+		for i = 1, 8 do
 			controls["enchant"..i].shown = false
 			controls["enchant"..i.."Label"].shown = false
 		end
@@ -2710,7 +2713,7 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 	controls.source = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {100, 30, 150, 18}, sourceList, function(index, value)
 		if value == "Corrupted" then
 			currentModType = "Corrupted"
-			enchantNum = 1
+			enchantNum = 2
 		elseif value == "Glimpse of Chaos" and self.displayItem.base.type == "Helmet" then -- special corruption enchants
 			currentModType = "SpecialCorrupted"
 			if self.displayItem.title == "Glimpse of Chaos" then -- glimpse of chaos can have all 8 special enchants
@@ -2727,12 +2730,13 @@ function ItemsTabClass:CorruptDisplayItem() -- todo implement vaal orb new outco
 		controls.close.y = 73 + 20 * enchantNum
 		controls.save.y = 73 + 20 * enchantNum
 	end)
+	controls.source:SelByValue(currentModType == "SpecialCorrupted" and "Glimpse of Chaos" or "Corrupted")
 	controls.sortLabel = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {350, 30, 0, 16}, "^7Sort by:")
 	controls.sort = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {355, 30, 240, 18}, sortList, function(index, value)
 		sortEnchantList(value.stat)
 		rebuildEnchantControls()
 	end)
-	for i = 1, enchantNum do
+	for i = 1, 8 do
 		if i == 1 then
 			controls.enchant1Label = new("LabelControl", {"TOPRIGHT",nil,"TOPLEFT"}, {95, 55, 0, 16}, function()
 				if enchantNum == 1 then -- update label so 1 doesn't appear in case of 1 enchant.
