@@ -1240,6 +1240,7 @@ local preFlagList = {
 	["^raised zombies' slam attack has "] = { addToMinion = true, tag = { type = "SkillId", skillId = "ZombieSlam" } },
 	["^raised spectres, raised zombies, and summoned skeletons have "] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillNameList = { "Raise Spectre", "Raise Zombie", "Summon Skeletons" }, includeTransfigured = true } },
 	["^companions [hd][ae][va][el] "] = { addToMinion = true, addToMinionTag = { type = "SkillType", skillType = SkillType.CreatesCompanion } },
+	["^companions "] = { addToMinion = true, addToMinionTag = { type = "SkillType", skillType = SkillType.CreatesCompanion } },
 	-- Totem/trap/mine
 	["^attacks used by totems have "] = { flags = ModFlag.Attack, keywordFlags = KeywordFlag.Totem },
 	["^spells cast by totems [hd][ae][va][el] "] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Totem },
@@ -2380,6 +2381,7 @@ local specialModList = {
 	["doubles mana costs"] = { mod("ManaCost", "MORE", 100) },
 	["removes all energy shield"] = { mod("EnergyShield", "OVERRIDE", 0 ) },
 	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
+	["convert (%d+)%% of maximum energy shield to maximum mana"] = function(num) return { mod("EnergyShieldConvertToMana", "BASE", num) } end,
 	["skills cost life instead of mana"] = { flag("CostLifeInsteadOfMana") },
 	["skills reserve life instead of mana"] = { flag("BloodMagicReserved") },
 	["non%-aura skills cost no mana or life while focus?sed"] = {
@@ -2551,10 +2553,15 @@ local specialModList = {
 	["you can wield two%-handed axes, maces and swords in one hand"] = { flag("GiantsBlood") },
 	["you can equip a focus while wielding a staff"] = { flag("InstrumentsOfPower") },
 	["you can equip a non%-unique sceptre while wielding a talisman"] = { flag("LordOfTheWilds") },
+	["gain armour equal to (%d+)%% of total strength requirements of equipped boots, gloves and helmet"] = function(num) return {
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnBoots", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnGloves", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnHelmet", percent = num }),
+	} end,
 	["(%d+)%% of strength requirements from boots, gloves and helmets also added to armour"] = function(num) return {
-		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnBoots", percent = num }),
-		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnGloves", percent = num }),
-		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnHelmet", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnBoots", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnGloves", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnHelmet", percent = num }),
 	} end,
 	["iron grip"] = function() return {
 		mod("Damage", "INC", 1, nil, ModFlag.Spell, { type = "PerStat", stat = "Str", div = 2 } ),
@@ -4576,6 +4583,7 @@ local specialModList = {
 		flag("AncestralBond"),
 		mod("ExtraSpirit", "BASE", num, { type = "SkillType", skillType = SkillType.SummonsTotem })
 	} end,
+	["no cost or charge requirement for placing totems"] = { mod("Cost", "MORE", -100, nil, 0, KeywordFlag.Totem) },
 	-- Minions
 	["minions revive (%d+)%% faster"] = function(num) return { mod("MinionRevivalSpeed", "INC", num) } end,
 	["your strength is added to your minions"] = { flag("StrengthAddedToMinions") },
@@ -5612,6 +5620,7 @@ local specialModList = {
 	["placed banners also grant (%d+)%% increased attack damage to you and allies"] = function(num) return { mod("ExtraAuraEffect", "LIST", { mod = mod("Damage", "INC", num, nil, ModFlag.Attack) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillType", skillType = SkillType.Banner }) } end,
 	["banners also cause enemies to take (%d+)%% increased damage"] = function(num) return { mod("ExtraAuraDebuffEffect", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "GlobalEffect", effectType = "AuraDebuff", unscalable = true }) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillType", skillType = SkillType.Banner }) } end,
 	["dread banner grants an additional %+(%d+) to maximum fortification when placing the banner"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("MaximumFortification", "BASE", num, { type = "GlobalEffect", effectType = "Buff" }) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillName", skillName = "Dread Banner" }) } end,
+	["all attacks count as empowered attacks"] = { flag("Condition:Empowered", nil, ModFlag.Attack) },
 	["cannot use warcries"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Warcry }) },
 	["cannot use shield skills"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.RequiresShield }) },
 	["cannot use projectile attacks"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Attack }, { type = "SkillType", skillType = SkillType.Projectile }) },
