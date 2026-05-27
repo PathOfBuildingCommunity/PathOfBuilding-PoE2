@@ -193,16 +193,29 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		self.slotOrder[slot.slotName] = #self.orderedSlots
 		t_insert(self.controls, slot)
 	end
+	local function addJewelSockets(parentSlot, shownFunc)
+		for i = 1, 6 do
+			local jewel = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, parentSlot.slotName.." Jewel Socket "..i, "Jewel #"..i)
+			addSlot(jewel)
+			jewel.parentSlot = parentSlot
+			jewel.weaponSet = parentSlot.weaponSet
+			jewel.shown = function()
+				return not jewel.inactive and shownFunc()
+			end
+			parentSlot.jewelSocketList[i] = jewel
+		end
+	end
 	for index, slotName in ipairs(baseSlots) do
 		local slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
 		addSlot(slot)
+		local swapSlot
 		if slotName:match("Weapon") then
 			-- Add alternate weapon slot
 			slot.weaponSet = 1
 			slot.shown = function()
 				return not self.activeItemSet.useSecondWeaponSet
 			end
-			local swapSlot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap", slotName)
+			swapSlot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap", slotName)
 			addSlot(swapSlot)
 			swapSlot.weaponSet = 2
 			swapSlot.shown = function()
@@ -211,6 +224,21 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		elseif slotName == "Ring 3" then
 			slot.shown = function()
 				return self.build.calcsTab.mainEnv.modDB:Flag(nil, "AdditionalRingSlot")
+			end
+		end
+		if slotName == "Weapon 1" or slotName == "Weapon 2" or slotName == "Helmet" or slotName == "Gloves" or slotName == "Body Armour" or slotName == "Boots" or slotName == "Belt" or slotName == "Ring 1" or slotName == "Ring 2" or slotName == "Ring 3" then
+			-- Add Jewel Socket slots
+			if slotName:match("Weapon") then
+				addJewelSockets(slot, function()
+					return not self.activeItemSet.useSecondWeaponSet
+				end)
+				addJewelSockets(swapSlot, function()
+					return self.activeItemSet.useSecondWeaponSet
+				end)
+			else
+				addJewelSockets(slot, function()
+					return slot.shown()
+				end)
 			end
 		end
 	end
@@ -461,17 +489,31 @@ holding Shift will put it in the second.]])
 		return self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre
 	end
 	self.controls.displayItemSocketRuneEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketRune,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
-		if tonumber(buf) > 6 then
+		local count = tonumber(buf) or 0
+		if count > 6 then
 			self.controls.displayItemSocketRuneEdit:SetText(6)
 			return
 		end
-		self.displayItem.itemSocketCount = tonumber(buf)
+		self.displayItem.itemSocketCount = count
 		self.displayItem:UpdateRunes()
 		self.displayItem:BuildAndParseRaw()
 		self:UpdateRuneControls()
 		self:UpdateDisplayItemTooltip()
 	end)
 	self.controls.displayItemSocketRuneEdit.shown = self.controls.displayItemSocketRune
+
+	-- Jewel Sockets // shown where Runes are shown
+	self.controls.displayItemSocketJewel = new("LabelControl", {"TOPLEFT",self.controls.displayItemSocketRune,"TOPLEFT"}, {70, 0, 36, 20}, "^x7F7F7FJ")
+	self.controls.displayItemSocketJewelEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketJewel,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
+		local count = tonumber(buf) or 0
+		if count > 6 then
+			self.controls.displayItemSocketJewelEdit:SetText(6)
+			return
+		end
+		self.displayItem.jewelSocketCount = count
+		self.displayItem:BuildAndParseRaw()
+		self:UpdateDisplayItemTooltip()
+	end)
 	
 	-- Section: Enchant / Anoint / Corrupt
 	self.controls.displayItemSectionEnchant = new("Control", {"TOPLEFT",self.controls.displayItemSectionSockets,"BOTTOMLEFT"}, {0, 0, 0, function()
@@ -1048,11 +1090,20 @@ function ItemsTabClass:Load(xml, dbFileName)
 					end
 				end
 			end
+			-- backwards compat or fallback if the item doesn't have "Sockets: J ..." on Load
+			-- maybe at some point we won't need this at all
+			local fallBackJewelSocketCount = {
+				["Tabula Rasa"] = 6,
+				["Sekhema's Resolve"] = 1,
+			}
 			if item.base then
+				if fallBackJewelSocketCount[item.title] and item.jewelSocketCount == 0 then
+					item.jewelSocketCount = fallBackJewelSocketCount[item.title]
+				end
 				item:BuildModList()
 				self.items[item.id] = item
 				t_insert(self.itemOrderList, item.id)
-			end
+				end
 		-- Below is OBE and left for legacy compatibility (all Slots are part of ItemSets now)
 		elseif node.elem == "Slot" then
 			local slot = self.slots[node.attrib.name or ""]
@@ -1157,11 +1208,13 @@ function ItemsTabClass:Save(xml)
 		local itemSet = self.itemSets[itemSetId]
 		local child = { elem = "ItemSet", attrib = { id = tostring(itemSetId), title = itemSet.title, useSecondWeaponSet = tostring(itemSet.useSecondWeaponSet) } }
 		for slotName, slot in pairs(self.slots) do
-			if not slot.nodeId then
-				t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true" }})
-			else
-				if self.build.spec.allocNodes[slot.nodeId] then
-					t_insert(child, { elem = "SocketIdURL", attrib = { name = slotName, nodeId = tostring(slot.nodeId), itemPbURL = itemSet[slot.nodeId] and itemSet[slot.nodeId].pbURL or ""}})
+			if not slot.parentSlot or itemSet[slotName].selItemId ~= 0 then
+				if not slot.nodeId then
+					t_insert(child, { elem = "Slot", attrib = { name = slotName, itemId = tostring(itemSet[slotName].selItemId), itemPbURL = itemSet[slotName].pbURL or "", active = itemSet[slotName].active and "true" }})
+				else
+					if self.build.spec.allocNodes[slot.nodeId] then
+						t_insert(child, { elem = "SocketIdURL", attrib = { name = slotName, nodeId = tostring(slot.nodeId), itemPbURL = itemSet[slot.nodeId] and itemSet[slot.nodeId].pbURL or ""}})
+					end
 				end
 			end
 		end
@@ -1700,6 +1753,7 @@ function ItemsTabClass:SetDisplayItem(item)
 			self:UpdateAffixControls()
 		end
 		self.controls.displayItemSocketRuneEdit:SetText(item.itemSocketCount)
+		self.controls.displayItemSocketJewelEdit:SetText(item.jewelSocketCount)
 		self.controls.displayItemQualityEdit:SetText(item.quality)
 		self.controls.displayItemCatalyst:SetSel((item.catalyst or 0) + 1)
 		if item.catalystQuality then
@@ -2099,6 +2153,13 @@ function ItemsTabClass:IsItemValidForSlot(item, slotName, itemSet, flagState)
 		return true
 	elseif item.type == slotType then
 		return true
+	elseif item.type == "Jewel" and slotName:match("Jewel Socket") and not (item.rarity == "UNIQUE") then
+		local parentSlotName = slotName:gsub(" Jewel Socket %d", "") -- Ring 1 Jewel Socket 1 -> Ring 1
+		local slotItem = itemSet[parentSlotName] and self.items[itemSet[parentSlotName].selItemId]
+		-- Sekhema's Resolve restricts which base jewel can be socketed, other items (Tabula only for now) have no restriction
+		if slotItem and (not slotItem.canSocketJewelBase or (slotItem.canSocketJewelBase and slotItem.canSocketJewelBase[item.baseName])) then
+			return true
+		end
 	elseif slotName == "Weapon 1" or slotName == "Weapon 1 Swap" or slotName == "Weapon" then
 		return item.base.tags.onehand or item.base.tags.twohand
 	elseif slotName == "Weapon 2" or slotName == "Weapon 2 Swap" then
@@ -3231,6 +3292,14 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		local socketString = ""
 		for _ = 1, item.itemSocketCount do
 			socketString = socketString .. "S "
+		end
+		socketString = socketString:gsub(" $", "")
+		tooltip:AddLine(fontSizeBig, "^x7F7F7FSockets: " .. socketString, "FONTIN SC")
+	end
+	if item.jewelSocketCount > 0 then
+		local socketString = ""
+		for _ = 1, item.jewelSocketCount do
+			socketString = socketString .. "J "
 		end
 		socketString = socketString:gsub(" $", "")
 		tooltip:AddLine(fontSizeBig, "^x7F7F7FSockets: " .. socketString, "FONTIN SC")

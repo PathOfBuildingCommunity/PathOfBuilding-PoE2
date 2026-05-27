@@ -5349,7 +5349,6 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 4 Augment Sockets"]={nil,"Has 4 Augment Sockets "}
-c["Has 6 Rune Sockets"]={nil,"Has 6 Rune Sockets "}
 c["Has no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeRequirements",type="FLAG",value=true}},nil}
 c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
 c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}
@@ -6243,11 +6242,9 @@ c["You can have two Companions of different types"]={nil,"You can have two Compa
 c["You can have two Companions of different types 60% reduced Duration of Bleeding on You"]={nil,"You can have two Companions of different types 60% reduced Duration of Bleeding on You "}
 c["You can have two Companions of different types You have 30% less Defences"]={nil,"You can have two Companions of different types You have 30% less Defences "}
 c["You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have "}
-c["You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item "}
-c["You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item "}
-c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item "}
-c["You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item "}
-c["You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Sapphire Jewels in this item "}
+c["You can only Socket Emerald Jewels in this item"]={{[1]={flags=0,keywordFlags=0,name="JewelSocketRestriction",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CanSocketJewelBaseEmerald",type="FLAG",value=true}},nil}
+c["You can only Socket Ruby Jewels in this item"]={{[1]={flags=0,keywordFlags=0,name="JewelSocketRestriction",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CanSocketJewelBaseRuby",type="FLAG",value=true}},nil}
+c["You can only Socket Sapphire Jewels in this item"]={{[1]={flags=0,keywordFlags=0,name="JewelSocketRestriction",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CanSocketJewelBaseSapphire",type="FLAG",value=true}},nil}
 c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
 c["You cannot Recover Energy Shield from Regeneration"]={nil,"You cannot Recover Energy Shield from Regeneration "}
 c["You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour"]={nil,"You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour "}
