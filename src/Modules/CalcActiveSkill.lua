@@ -701,6 +701,9 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 
 	-- Apply gem/quality modifiers from support gems
 	skillModList:NewMod("GemLevel", "BASE", activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.level or activeSkill.activeEffect.level, "Max Level")
+	if activeSkill.activeEffect.srcInstance and activeSkill.activeEffect.srcInstance.corrupted and not (activeSkill.activeEffect.srcInstance.fromItem or activeSkill.activeEffect.srcInstance.fromTree or activeSkill.activeEffect.grantedEffect.fromItem or activeSkill.activeEffect.grantedEffect.fromTree) then
+		skillModList:NewMod("GemCorruptionLevel", "BASE", activeSkill.activeEffect.srcInstance.corruptLevel, "Corruption")
+	end
 	for _, supportProperty in ipairs(skillModList:Tabulate("LIST", activeSkill.skillCfg, "SupportedGemProperty")) do
 		local value = supportProperty.value
 		if value.keyword == "grants_active_skill" and activeSkill.activeEffect.gemData and not activeSkill.activeEffect.gemData.tags.support  then
