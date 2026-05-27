@@ -2260,7 +2260,7 @@ function buildMode:RefreshStatList()
 	if self.calcsTab.sidebarPinnedStats and #self.calcsTab.sidebarPinnedStats > 0 then
 		local actor = self.calcsTab.mainEnv.player
 		t_insert(statBoxList, { height = 10 })
-		t_insert(statBoxList, { height = 18, "^7Pinned:" })
+		t_insert(statBoxList, { height = 18, "^7Pinned Calcs:" })
 		for i, pinned in ipairs(self.calcsTab.sidebarPinnedStats) do
 			local label = pinned.pinnedLabel or ("Pinned " .. tostring(i))
 			local value = formatCalcStr(pinned.format, actor, pinned)

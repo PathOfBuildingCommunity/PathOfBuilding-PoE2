@@ -333,7 +333,7 @@ function CalcSectionClass:OnKeyDown(key, doubleClick)
 		if mOverComp then
 			--Add the stat to siderbar under "Pinned:"
 			if key == "RIGHTBUTTON" then
-				self.calcsTab:AddSidebarPinnedStat(mOverComp)
+				self.calcsTab:ToggleSidebarPinnedStat(mOverComp)
 				return
 			end
 			-- Pin the stat breakdown
