@@ -61,7 +61,7 @@ jobs:
       - name: Run AI agent
         run: |
           source scripts/agent-lib.sh
-          run_agent_with_fallback /tmp/fix-prompt.txt fix 40
+          run_agent_with_fallback /tmp/fix-prompt.txt fix 80
 
       - name: Commit and push branch
         id: push
