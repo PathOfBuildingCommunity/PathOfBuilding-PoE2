@@ -3,8 +3,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-# Cancel any in-progress review for this PR when a new push arrives.
-# Prevents duplicate comments and wasted runner time.
 concurrency:
   group: ai-review-${{ github.event.pull_request.number }}
   cancel-in-progress: true
@@ -13,39 +11,29 @@ jobs:
   review:
     name: ai-review
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 30
     permissions:
       pull-requests: write
       contents: read
     env:
       CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
       OPENCODE_API_KEY: ${{ secrets.OPENCODE_API_KEY }}
+      EMERGENCY_ANTHROPIC_API_KEY: ${{ secrets.EMERGENCY_ANTHROPIC_API_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
-          # Only need enough history to compute the base..HEAD diff
           fetch-depth: 0
-          filter: blob:none  # blobless clone — history without file contents
+          filter: blob:none
 
       - name: Verify ANTHROPIC_API_KEY is NOT set
         run: |
           if [[ -n "${ANTHROPIC_API_KEY:-}" ]]; then
-            echo "::error::ANTHROPIC_API_KEY is set; would override Pro subscription auth and incur PAYG charges"
+            echo "::error::ANTHROPIC_API_KEY is set; would override Pro subscription auth"
             exit 1
           fi
 
-      - name: Cache agent tooling
-        uses: actions/cache@v4
-        with:
-          path: |
-            ~/.npm-global
-            ~/.local/bin/opencode
-          key: agent-tools-${{ runner.os }}-v1
-
       - name: Install agent tooling if missing
         run: |
-          export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:$PATH"
-          npm config set prefix "$HOME/.npm-global"
           command -v claude || npm install -g @anthropic-ai/claude-code
           command -v opencode || curl -fsSL https://opencode.ai/install | bash
 
@@ -54,61 +42,48 @@ jobs:
           git diff "origin/${{ github.base_ref }}...HEAD" > /tmp/pr.diff
           git diff --stat "origin/${{ github.base_ref }}...HEAD" > /tmp/pr.summary
 
-      # Bail early on massive diffs rather than silently producing a degraded review.
       - name: Guard against oversized diff
         run: |
           LINES=$(wc -l < /tmp/pr.diff)
           echo "Diff size: ${LINES} lines"
           if [[ "$LINES" -gt 3000 ]]; then
-            echo "::warning::Diff exceeds 3000 lines (${LINES}). Skipping AI review — please request a manual review."
+            echo "::warning::Diff exceeds 3000 lines — skipping AI review"
             exit 0
           fi
 
-      - name: Run AI review
+      - name: Build review prompt
         run: |
-          export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:$PATH"
-
-          # Write the prompt to a file to avoid shell injection from diff content
-          cat > /tmp/prompt.txt << 'PROMPT_EOF'
+          cat > /tmp/review-prompt.txt << 'PROMPT_EOF'
           You are a senior Lua developer performing a thorough code review on a
           Path of Building 2 PR. Follow CLAUDE.md.
-          PROMPT_EOF
-
-          cat >> /tmp/prompt.txt << PROMPT_EOF
-
-          Diff summary:
-          $(cat /tmp/pr.summary)
-          PROMPT_EOF
-
-          # Append the diff content safely, outside of the heredoc expansion
-          echo "" >> /tmp/prompt.txt
-          echo "Full diff:" >> /tmp/prompt.txt
-          cat /tmp/pr.diff >> /tmp/prompt.txt
-
-          cat >> /tmp/prompt.txt << 'PROMPT_EOF'
 
           Review checklist — address each item explicitly:
           1. Calculation correctness: does the math match PoE2 mechanics?
-             Cite the relevant calc module and line numbers.
-          2. Modifier parsing: any changes to ModParser.lua need new test cases.
-             Are they present?
-          3. Nil safety: list any unguarded table accesses introduced.
-          4. Data integrity: any data file changes — do they parse cleanly?
-          5. Performance: any new allocations in hot loops?
-          6. Test coverage: which new code paths lack test coverage?
-          7. Style: matches surrounding code conventions?
+          2. Modifier parsing: ModParser.lua changes need new test cases — present?
+          3. Nil safety: any unguarded table accesses introduced?
+          4. Data integrity: data file changes parse cleanly?
+          5. Performance: new allocations in hot loops?
+          6. Test coverage: which new code paths lack coverage?
+          7. Style: matches surrounding conventions?
 
-          Be specific. Cite line numbers. Flag anything wrong. Format output as
-          a Markdown review with sections matching the checklist above.
-          On the very last line, output exactly one of these tokens and nothing else:
+          Be specific. Cite line numbers. Format as Markdown matching the checklist.
+          On the very last line output exactly one of:
           VERDICT:APPROVE
           VERDICT:REQUEST_CHANGES
           VERDICT:COMMENT
+
+          Diff summary:
           PROMPT_EOF
+          cat /tmp/pr.summary >> /tmp/review-prompt.txt
+          echo "" >> /tmp/review-prompt.txt
+          echo "Full diff:" >> /tmp/review-prompt.txt
+          cat /tmp/pr.diff >> /tmp/review-prompt.txt
 
-          ./scripts/ai-agent.sh --prompt-file /tmp/prompt.txt --mode review --max-turns 20 > /tmp/review.md
+      - name: Run AI review
+        run: |
+          source scripts/agent-lib.sh
+          run_agent_with_fallback /tmp/review-prompt.txt review 20 > /tmp/review.md
 
-      # Upload the raw review as an artifact so it's recoverable if the post step fails
       - name: Save review artifact
         if: always()
         uses: actions/upload-artifact@v4
@@ -121,45 +96,61 @@ jobs:
         id: verdict
         run: |
           VERDICT=$(grep '^VERDICT:' /tmp/review.md | tail -1 | cut -d: -f2 || echo "COMMENT")
-          # Strip the verdict line from the comment body
           sed -i '/^VERDICT:/d' /tmp/review.md
           echo "result=${VERDICT}" >> "$GITHUB_OUTPUT"
 
-      # Edit the existing bot comment if one exists, otherwise create a new one.
-      # Prevents a wall of review comments on active branches.
       - name: Post or update review comment
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUM: ${{ github.event.pull_request.number }}
         run: |
+          source scripts/agent-lib.sh
+
           EXISTING_ID=$(gh pr view "$PR_NUM" --json comments \
             --jq '.comments[] | select(.author.login == "github-actions[bot]") | select(.body | startswith("<!-- ai-review -->")) | .id' \
             | head -1)
 
-          REVIEW_BODY=$(cat /tmp/review.md)
           FULL_BODY="<!-- ai-review -->
-          ${REVIEW_BODY}"
+          $(cat /tmp/review.md)"
 
           if [[ -n "$EXISTING_ID" ]]; then
-            gh api \
+            retry_op 5 15 gh api \
               --method PATCH \
               "/repos/${{ github.repository }}/issues/comments/${EXISTING_ID}" \
               -f body="$FULL_BODY"
           else
-            gh pr comment "$PR_NUM" --body "$FULL_BODY"
+            retry_op 5 15 gh pr comment "$PR_NUM" --body "$FULL_BODY"
           fi
 
-      # Actually apply the verdict as a formal GitHub review, not just a comment.
       - name: Submit formal review
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VERDICT="${{ steps.verdict.outputs.result }}"
-          case "$VERDICT" in
+          source scripts/agent-lib.sh
+
+          case "${{ steps.verdict.outputs.result }}" in
             APPROVE)         EVENT="APPROVE" ;;
             REQUEST_CHANGES) EVENT="REQUEST_CHANGES" ;;
             *)               EVENT="COMMENT" ;;
           esac
-          gh pr review ${{ github.event.pull_request.number }} \
+
+          retry_op 5 15 gh pr review ${{ github.event.pull_request.number }} \
             --event "$EVENT" \
-            --body "Verdict from AI review: **${VERDICT}**. See the review comment above for details."
+            --body "Verdict: **${{ steps.verdict.outputs.result }}**. See review comment above."
+
+      - name: Post failure comment on total failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          retry_op 3 10 gh pr comment ${{ github.event.pull_request.number }} \
+            --body "⚠️ **AI Review Failed**
+
+          All agent tiers and retry cycles were exhausted. This likely indicates an API outage or expired credentials.
+
+          **What to check:**
+          - \`CLAUDE_CODE_OAUTH_TOKEN\` — Pro subscription active?
+          - \`OPENCODE_API_KEY\` — key valid?
+          - \`EMERGENCY_ANTHROPIC_API_KEY\` — set for last-resort fallback.
+
+          Push a new commit to re-trigger once credentials are restored." || true
