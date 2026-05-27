@@ -672,8 +672,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("AncestralBoostMoreDamage", "BASE", 60, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoostedDouble" })
 		modDB:NewMod("AncestralBoostAreaOfEffect", "INC", 25, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoosted" }, { type = "Condition", var = "AncestrallyBoostedDouble", neg = true })
 		modDB:NewMod("AncestralBoostAreaOfEffect", "INC", 50, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoostedDouble" })
-
 		modDB:NewMod("AdditionalStrikeTarget", "BASE", 2, "Base", 0, 0, { type = "SkillType", skillType = SkillType.Slam, neg = true }, { type = "Condition", var = "AncestrallyBoosted" })
+		modDB:NewMod("Condition:Empowered", "FLAG", 1, "Base", { type = "Condition", var = "AncestrallyBoosted" })
 
 
 		-- Initialise enemy modifier database

@@ -790,6 +790,7 @@ statMap = {
 		-- Accounted for in base mod
 	},
 },
+#baseMod flag("Condition:AncestrallyBoosted")
 #baseMod flag("Condition:AncestrallyBoostedDouble")
 #mods
 #skillEnd

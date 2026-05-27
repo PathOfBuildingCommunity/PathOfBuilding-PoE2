@@ -3513,6 +3513,7 @@ skills["FistOfWarSupportPlayerThree"] = {
 			baseFlags = {
 			},
 			baseMods = {
+				flag("Condition:AncestrallyBoosted"),
 				flag("Condition:AncestrallyBoostedDouble"),
 			},
 			constantStats = {

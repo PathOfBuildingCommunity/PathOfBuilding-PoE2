@@ -3388,7 +3388,7 @@ function calcs.offence(env, actor, activeSkill)
 			local ancestrallyBoostedMoreDamageMulti = skillModList:Sum("BASE", cfg, "AncestralBoostMoreDamage") / 100
 
 			-- Final Strike calcs could be done in many other places, but clumping the Ancestral Boost things together made sense
-			-- for generic Ancestrally Boosted skills that have 100% uptime
+			-- for special case/skillPart-specific Ancestrally Boosted skills that have 100% uptime
 			if skillModList:Flag(cfg, "FinalStrikeAncestrallyBoosted") then
 				local modSource = skillModList:Tabulate("FLAG", cfg, "FinalStrikeAncestrallyBoosted")[1].mod.source -- e.g. Skill:SupportCrescendoPlayerThree
 				local sourceName = "Ancestral Boost - "..data.gemNameForModSource[modSource]
