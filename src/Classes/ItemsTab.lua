@@ -32,7 +32,7 @@ local baseSlots = { "Weapon 1", "Weapon 2", "Helmet", "Body Armour", "Gloves", "
 local catalystQualityFormat = {
 	"^x7F7F7FQuality (Life Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Mana Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
-	"^x7F7F7FQuality (Defense Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
+	"^x7F7F7FQuality (Defence Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Physical): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Fire Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
 	"^x7F7F7FQuality (Cold Modifiers): "..colorCodes.MAGIC.."+%d%% (augmented)",
@@ -1233,11 +1233,6 @@ function ItemsTabClass:Draw(viewPort, inputEvents)
 			if event.key == "v" and IsKeyDown("CTRL") then
 				local newItem = Paste()
 				if newItem then
-					if newItem:find("{ ", 0, true) then
-						main:OpenConfirmPopup("Warning", "\"Advanced Item Descriptions\" (Ctrl+Alt+c) are unsupported.\n\nAbort paste?", "OK", function()
-							self:SetDisplayItem()
-						end)
-					end
 					self:CreateDisplayItemFromRaw(newItem, true)
 				end
 				if self.displayItem and IsKeyDown("SHIFT") then
