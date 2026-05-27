@@ -193,16 +193,29 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		self.slotOrder[slot.slotName] = #self.orderedSlots
 		t_insert(self.controls, slot)
 	end
+	local function addJewelSockets(parentSlot, shownFunc)
+		for i = 1, 6 do
+			local jewel = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, parentSlot.slotName.." Jewel Socket "..i, "Jewel #"..i)
+			addSlot(jewel)
+			jewel.parentSlot = parentSlot
+			jewel.weaponSet = parentSlot.weaponSet
+			jewel.shown = function()
+				return not jewel.inactive and shownFunc()
+			end
+			parentSlot.jewelSocketList[i] = jewel
+		end
+	end
 	for index, slotName in ipairs(baseSlots) do
 		local slot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName)
 		addSlot(slot)
+		local swapSlot
 		if slotName:match("Weapon") then
 			-- Add alternate weapon slot
 			slot.weaponSet = 1
 			slot.shown = function()
 				return not self.activeItemSet.useSecondWeaponSet
 			end
-			local swapSlot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap", slotName)
+			swapSlot = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Swap", slotName)
 			addSlot(swapSlot)
 			swapSlot.weaponSet = 2
 			swapSlot.shown = function()
@@ -215,21 +228,17 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 		end
 		if slotName == "Weapon 1" or slotName == "Weapon 2" or slotName == "Helmet" or slotName == "Gloves" or slotName == "Body Armour" or slotName == "Boots" or slotName == "Belt" or slotName == "Ring 1" or slotName == "Ring 2" or slotName == "Ring 3" then
 			-- Add Jewel Socket slots
-			for i = 1, 6 do
-				local jewel = new("ItemSlotControl", {"TOPLEFT",prevSlot,"BOTTOMLEFT"}, 0, 2, self, slotName.." Jewel Socket "..i, "Jewel #"..i)
-				addSlot(jewel)
-				jewel.parentSlot = slot
-				if slotName:match("Weapon") then
-					jewel.weaponSet = 1
-					jewel.shown = function()
-						return not jewel.inactive and not self.activeItemSet.useSecondWeaponSet
-					end
-				else
-					jewel.shown = function()
-						return not jewel.inactive and slot.shown()
-					end
-				end
-				slot.jewelSocketList[i] = jewel
+			if slotName:match("Weapon") then
+				addJewelSockets(slot, function()
+					return not self.activeItemSet.useSecondWeaponSet
+				end)
+				addJewelSockets(swapSlot, function()
+					return self.activeItemSet.useSecondWeaponSet
+				end)
+			else
+				addJewelSockets(slot, function()
+					return slot.shown()
+				end)
 			end
 		end
 	end

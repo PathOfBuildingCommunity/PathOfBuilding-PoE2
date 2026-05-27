@@ -458,7 +458,7 @@ Highest Weight - Displays the order retrieved from trade]]
 	end
 
 	local activeJewelSockets = {
-		["Weapon 1"] = { }, ["Weapon 2"] = { }, ["Helmet"] = { },
+		["Weapon 1"] = { }, ["Weapon 2"] = { }, ["Weapon 1 Swap"] = { }, ["Weapon 2 Swap"] = { }, ["Helmet"] = { },
 		["Body Armour"] = { }, ["Gloves"] = { }, ["Boots"] = { },
 		["Belt"] = { }, ["Ring 1"] = { }, ["Ring 2"] = { }, ["Ring 3"] = { },
 	}
