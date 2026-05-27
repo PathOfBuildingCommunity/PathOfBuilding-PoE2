@@ -3382,10 +3382,9 @@ function calcs.offence(env, actor, activeSkill)
 			skillModList:NewMod("EnemyHeavyStunBuildup", "MORE", ruthlessBlowStunEffect * 100, "Ruthless Blows")
 
 			local ancestrallyBoostedIncDamageMulti = modDB:Sum("INC", cfg, "AncestralBoostDamage") / 100
-			-- because the tree nodes and the generic slam AOE are INC, it's a little tricky to know what to scale here unless we want to use different mod names
-			local ancestrallyBoostedIncArea = skillModList:Sum("INC", cfg, "AncestralBoostAreaOfEffect") + 25 * (skillModList:More(cfg, "AncestralBoostEffect") - 1)
+			local ancestrallyBoostedIncArea = skillModList:Sum("INC", cfg, "AncestralBoostAreaOfEffect")
 			-- Condition:AncestrallyBoosted * AncestralBoostEffect (e.g. Fist of War III)
-			local ancestrallyBoostedMoreDamageMulti = (skillModList:Sum("BASE", cfg, "AncestralBoostMoreDamage") * skillModList:More(cfg, "AncestralBoostEffect")) / 100
+			local ancestrallyBoostedMoreDamageMulti = skillModList:Sum("BASE", cfg, "AncestralBoostMoreDamage") / 100
 
 			-- Final Strike calcs could be done in many other places, but clumping the Ancestral Boost things together made sense
 			-- for special case/skillPart-specific Ancestrally Boosted skills that have 100% uptime

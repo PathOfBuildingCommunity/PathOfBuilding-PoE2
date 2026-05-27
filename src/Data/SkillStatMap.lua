@@ -2600,8 +2600,8 @@ return {
 	flag("Condition:FinalStrike"),
 },
 ["double_ancestral_boost_effect"] = {
-	mod("AncestralBoostEffect", "MORE", nil),
-	value = 100,
+	mod("Multiplier:AncestralBoostEffect", "BASE", nil),
+	value = 1,
 },
 -- Curse
 ["curse_effect_+%"] = {
