@@ -808,6 +808,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 		local lordOfTheWilds = weaponFlagState.lordOfTheWilds
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
+			-- ignore item in Ring 3 if The Unseen Hand is not allocated
+			if slotName == "Ring 3" and not nodesModsList:Flag(nil, "AdditionalRingSlot") then
+				goto continue
+			end
 			local item
 			if slotName == override.repSlotName then
 				item = override.repItem
@@ -1019,7 +1023,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if item and item.type == "Jewel" and slot.parentSlot then
 				-- Check if the item in the parent slot has enough Jewel Sockets
 				local parentItem = env.player.itemList[slot.parentSlot.slotName]
-				if not parentItem or parentItem.jewelSocketCount < slot.slotNum then
+				local parentSlotHidden = slot.parentSlot.slotName == "Ring 3" and not (modDB:Flag(nil, "AdditionalRingSlot") or nodesModsList:Flag(nil, "AdditionalRingSlot"))
+				if parentSlotHidden or not parentItem or parentItem.jewelSocketCount < slot.slotNum then
 					item = nil
 				else
 					scale = parentItem.socketedJewelEffectModifier
