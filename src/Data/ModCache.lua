@@ -1021,13 +1021,8 @@ c["0% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",type=
 c["0% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=0}},"% to  "}
 c["0.1 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=0.1}},nil}
 c["0.5% of maximum Life Regenerated per second per Fragile Regrowth"]={{[1]={[1]={type="Multiplier",var="FragileRegrowthCount"},flags=0,keywordFlags=0,name="LifeRegenPercent",type="BASE",value=0.5}},nil}
-c["1 Boots socket"]={{}," Boots socket "}
-c["1 Gloves socket"]={{}," Gloves socket "}
-c["1 Gloves socket 1 Boots socket"]={{}," Gloves socket 1 Boots socket "}
-c["1 Helmet socket"]={{}," Helmet socket "}
-c["1 Helmet socket 2 Body Armour sockets"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}}," Helmet socket 2 Body  sockets "}
-c["1 Helmet socket 2 Body Armour sockets 1 Gloves socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}}," Helmet socket 2 Body  sockets 1 Gloves socket "}
-c["1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}}," Helmet socket 2 Body  sockets 1 Gloves socket 1 Boots socket "}
+c["1 Boots socket"]={{},nil}
+c["1 Helmet socket"]={{},nil}
 c["1 Rage Regenerated for every 25 Mana Regeneration per Second"]={{[1]={[1]={div=25,stat="ManaRegen",type="PerStat"},flags=0,keywordFlags=0,name="RageRegen",type="BASE",value=1},[2]={flags=0,keywordFlags=0,name="Condition:CanGainRage",type="FLAG",value=true}},nil}
 c["1% chance when you gain a Charge to gain an additional Charge per 10 Tribute"]={{}," when you gain a Charge to gain an additional Charge  "}
 c["1% increased Area of Effect for Attacks per 10 Intelligence"]={{[1]={[1]={div=10,stat="Int",type="PerStat"},flags=1,keywordFlags=0,name="AreaOfEffect",type="INC",value=1}},nil}
@@ -1872,8 +1867,7 @@ c["180% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="Armou
 c["19% increased Cast Speed"]={{[1]={flags=16,keywordFlags=0,name="Speed",type="INC",value=19}},nil}
 c["195% increased Physical Damage"]={{[1]={flags=0,keywordFlags=0,name="PhysicalDamage",type="INC",value=195}},nil}
 c["2 Body Armour sockets"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=2}}," Body  sockets "}
-c["2 Body Armour sockets 1 Gloves socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=2}}," Body  sockets 1 Gloves socket "}
-c["2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="BASE",value=2}}," Body  sockets 1 Gloves socket 1 Boots socket "}
+c["2 Body Armour sockets 1 Gloves socket"]={{},nil}
 c["2% chance that if you would gain Endurance Charges, you instead gain up to maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=2}}," that if you would gain Endurance , you instead gain up to maximum Endurance Charges "}
 c["2% chance that if you would gain Endurance Charges, you instead gain up to maximum Endurance Charges +1 to Maximum Endurance Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=2}}," that if you would gain Endurance , you instead gain up to maximum Endurance Charges +1 to Maximum Endurance Charges "}
 c["2% chance that if you would gain Frenzy Charges, you instead gain up to your maximum number of Frenzy Charges"]={{[1]={flags=0,keywordFlags=0,name="FlaskCharges",type="BASE",value=2}}," that if you would gain Frenzy , you instead gain up to your maximum number of Frenzy Charges "}
@@ -4938,12 +4932,7 @@ c["Can have up to one Unique Tamed Beast summoned Unique Tamed Beasts have 30% i
 c["Can instead consume 25% of maximum Mana to trigger Charms with insufficient charges"]={nil,"Can instead consume 25% of maximum Mana to trigger Charms with insufficient charges "}
 c["Can only use a Normal Body Armour"]={nil,"Can only use a Normal Body Armour "}
 c["Can only use a Normal Body Armour +200 to Armour for each Connected Notable Passive Skill Allocated"]={nil,"Can only use a Normal Body Armour +200 to Armour for each Connected Notable Passive Skill Allocated "}
-c["Can tattoo Runes onto your body, gaining"]={nil,"Can tattoo Runes onto your body, gaining "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets:"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket "}
-c["Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={nil,"Can tattoo Runes onto your body, gaining additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket "}
+c["Can tattoo Runes onto your body, gaining"]={{[1]={flags=0,keywordFlags=0,name="SocketRunesOnCharacter",type="FLAG",value=true}},nil}
 c["Can't use Body Armour"]={{[1]={[1]={slotName="Body Armour",type="DisablesItem"},flags=0,keywordFlags=0,name="CanNotUseBody",type="Flag",value=1}},nil}
 c["Can't use Helmets"]={nil,"Can't use Helmets "}
 c["Can't use Helmets Your Critical Hit Chance is Lucky"]={nil,"Can't use Helmets Your Critical Hit Chance is Lucky "}
@@ -7051,11 +7040,7 @@ c["Your speed is Unaffected by Slows while Sprinting 10% less Movement and Skill
 c["Your speed is unaffected by Slows"]={{[1]={flags=0,keywordFlags=0,name="UnaffectedBySlows",type="FLAG",value=true}},nil}
 c["Zealot's Oath"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Zealot's Oath"}},nil}
 c["additional Elemental Infusion of the same type"]={nil,"additional Elemental Infusion of the same type "}
-c["additional Rune-only sockets:"]={nil,"additional Rune-only sockets: "}
-c["additional Rune-only sockets: 1 Helmet socket"]={nil,"additional Rune-only sockets: 1 Helmet socket "}
-c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets "}
-c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket "}
-c["additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket"]={nil,"additional Rune-only sockets: 1 Helmet socket 2 Body Armour sockets 1 Gloves socket 1 Boots socket "}
+c["additional Rune-only sockets:"]={{},nil}
 c["as being boosted by Chilled Ground"]={nil,"as being boosted by Chilled Ground "}
 c["as being boosted by Ignited Ground"]={nil,"as being boosted by Ignited Ground "}
 c["as being boosted by Ignited, Shocked, and Chilled Ground"]={nil,"as being boosted by Ignited, Shocked, and Chilled Ground "}

@@ -619,6 +619,92 @@ describe("TestItemsTab", function()
 			build.itemsTab:CopyAnointsAndAugments(newItem, true, false)
 
 			assert.are.equals(1, #newItem.enchantModLines)
+
+	describe("TestMartialArtistRunes", function()
+		before_each(function()
+			newBuild()
+		end)
+
+		local function enableSlots()
+			build.configTab.input.customMods = "Can tattoo runes onto your body, gaining"
+			build.configTab:BuildModList()
+			build.buildFlag = true
+			runCallback("OnFrame")
+		end
+
+		local function selectRune(slotName, runeName)
+			local slot = build.itemsTab.runeSlots[slotName]
+			slot:SelByValue(runeName, "name")
+			enableSlots()
+			return slot
+		end
+
+
+		it("creates the expected character rune slots", function()
+			local expected = {
+				"Helmet Rune #1",
+				"Body Armour Rune #1",
+				"Body Armour Rune #2",
+				"Gloves Rune #1",
+				"Boots Rune #1",
+			}
+			for _, slotName in ipairs(expected) do
+				assert.is_not_nil(build.itemsTab.runeSlots[slotName])
+			end
+		end)
+
+		it("only lists global (non-local) runes and defaults to None", function()
+			local slot = build.itemsTab.runeSlots["Helmet Rune #1"]
+			assert.are.equals("None", slot.list[1].label)
+			for _, rune in ipairs(slot.list) do
+				assert.is_not_nil(rune.mods)
+			end
+		end)
+
+		it("applies a global armour rune's mods to the character", function()
+			local baseFireRes = build.calcsTab.mainOutput.FireResistTotal
+			selectRune("Helmet Rune #1", "Desert Rune")
+			assert.are.equals(baseFireRes + 14, build.calcsTab.mainOutput.FireResistTotal)
+		end)
+
+		it("selecting None applies no rune mods", function()
+			local baseFireRes = build.calcsTab.mainOutput.FireResistTotal
+			selectRune("Helmet Rune #1", "Desert Rune")
+			assert.are.equals(baseFireRes + 14, build.calcsTab.mainOutput.FireResistTotal)
+			selectRune("Helmet Rune #1", "None")
+			assert.are.equals(baseFireRes, build.calcsTab.mainOutput.FireResistTotal)
+		end)
+
+		it("stacks runes from independent character slots", function()
+			local baseFireRes = build.calcsTab.mainOutput.FireResistTotal
+			build.itemsTab.runeSlots["Helmet Rune #1"]:SelByValue("Desert Rune", "name")
+			build.itemsTab.runeSlots["Boots Rune #1"]:SelByValue("Desert Rune", "name")
+			enableSlots()
+			assert.are.equals(baseFireRes + 28, build.calcsTab.mainOutput.FireResistTotal)
+		end)
+
+		it("sets the SocketRunesOnCharacter flag when granted by a mod", function()
+			assert.is_nil(build.calcsTab.mainEnv.modDB:Flag(nil, "SocketRunesOnCharacter"))
+
+			build.configTab.input.customMods = "Can tattoo runes onto your body, gaining"
+			build.configTab:BuildModList()
+			build.buildFlag = true
+			runCallback("OnFrame")
+
+			assert.truthy(build.calcsTab.mainEnv.modDB:Flag(nil, "SocketRunesOnCharacter"))
+		end)
+
+		it("warns when a limited rune exceeds its augment limit", function()
+			build.itemsTab.runeSlots["Body Armour Rune #1"]:SelByValue("Craiceann's Rune of Warding", "name")
+			build.itemsTab.runeSlots["Body Armour Rune #2"]:SelByValue("Craiceann's Rune of Warding", "name")
+			build.configTab.input.customMods = "Can tattoo runes onto your body, gaining"
+			build.configTab:BuildModList()
+			build.buildFlag = true
+			runCallback("OnFrame")
+
+			local warnings = build.controls.warnings.lines
+			assert.is_not_nil(warnings)
+			assert.equal("You are exceeding augment limit with: Craiceann's Rune of Warding", warnings[1])
 		end)
 	end)
 end)

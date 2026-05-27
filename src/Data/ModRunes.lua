@@ -5,3754 +5,6583 @@ return {
 	["Hayoxi's Soul Core of Heatproofing"] = {
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"+40% of Armour also applies to Cold Damage",
 				statOrder = { 4646 },
 				tradeHashes = { [1947060170] = { "+40% of Armour also applies to Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Zalatl's Soul Core of Insulation"] = {
 		["boots"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"+40% of Armour also applies to Lightning Damage",
 				statOrder = { 4648 },
 				tradeHashes = { [2200571612] = { "+40% of Armour also applies to Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Topotante's Soul Core of Dampening"] = {
 		["gloves"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"+40% of Armour also applies to Fire Damage",
 				statOrder = { 4647 },
 				tradeHashes = { [3897831687] = { "+40% of Armour also applies to Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Atmohua's Soul Core of Retreat"] = {
 		["body armour"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Gain additional Ailment Threshold equal to 15% of maximum Energy Shield",
 				"Gain additional Stun Threshold equal to 15% of maximum Energy Shield",
 				statOrder = { 4265, 10138 },
 				tradeHashes = { [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" }, [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["focus"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Gain additional Ailment Threshold equal to 15% of maximum Energy Shield",
 				"Gain additional Stun Threshold equal to 15% of maximum Energy Shield",
 				statOrder = { 4265, 10138 },
 				tradeHashes = { [3398301358] = { "Gain additional Ailment Threshold equal to 15% of maximum Energy Shield" }, [416040624] = { "Gain additional Stun Threshold equal to 15% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Quipolatl's Soul Core of Flow"] = {
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"8% increased Skill Effect Duration",
 				"8% increased Cooldown Recovery Rate",
 				statOrder = { 1645, 4677 },
 				tradeHashes = { [1004011302] = { "8% increased Cooldown Recovery Rate" }, [3377888098] = { "8% increased Skill Effect Duration" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Tzamoto's Soul Core of Ferocity"] = {
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"+4 to Maximum Rage",
 				statOrder = { 9609 },
 				tradeHashes = { [1181501418] = { "+4 to Maximum Rage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Uromoti's Soul Core of Attenuation"] = {
 		["boots"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"15% increased Curse Duration",
 				"15% increased Poison Duration",
 				statOrder = { 1540, 2896 },
 				tradeHashes = { [2011656677] = { "15% increased Poison Duration" }, [3824372849] = { "15% increased Curse Duration" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Opiloti's Soul Core of Assault"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5520 },
 				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5520 },
 				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				statOrder = { 5520 },
 				tradeHashes = { [2916861134] = { "50% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Guatelitzi's Soul Core of Endurance"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5519 },
 				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5519 },
 				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				statOrder = { 5519 },
 				tradeHashes = { [1228682002] = { "50% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Xopec's Soul Core of Power"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5521 },
 				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5521 },
 				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"50% chance when you gain a Power Charge to gain an additional Power Charge",
 				statOrder = { 5521 },
 				tradeHashes = { [3537994888] = { "50% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Estazunti's Soul Core of Convalescence"] = {
 		["boots"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"12% increased speed of Recoup Effects",
 				statOrder = { 9663 },
 				tradeHashes = { [2363593824] = { "12% increased speed of Recoup Effects" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"8% of Damage taken Recouped as Life",
 				statOrder = { 1037 },
 				tradeHashes = { [1444556985] = { "8% of Damage taken Recouped as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Tacati's Soul Core of Affliction"] = {
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Enemies you Curse have -5% to Chaos Resistance",
 				statOrder = { 3716 },
 				tradeHashes = { [1772929282] = { "Enemies you Curse have -5% to Chaos Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Cholotl's Soul Core of War"] = {
 		["bow"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"20% increased Projectile Speed",
 				statOrder = { 897 },
 				tradeHashes = { [3759663284] = { "20% increased Projectile Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Citaqualotl's Soul Core of Foulness"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = true,
 				"Adds 19 to 29 Chaos damage",
 				statOrder = { 1291 },
 				tradeHashes = { [2223678961] = { "Adds 19 to 29 Chaos damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Xipocado's Soul Core of Dominion"] = {
 		["wand"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 9027 },
 				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 9027 },
 				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Minions deal 40% increased Damage with Command Skills",
 				statOrder = { 9027 },
 				tradeHashes = { [3742865955] = { "Minions deal 40% increased Damage with Command Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Tacati"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"15% chance to Poison on Hit with this weapon",
 				statOrder = { 7813 },
 				tradeHashes = { [3885634897] = { "15% chance to Poison on Hit with this weapon" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "SoulCore",
+				localMod = false,
 				"+11% to Chaos Resistance",
 				statOrder = { 1024 },
 				tradeHashes = { [2923486259] = { "+11% to Chaos Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Opiloti"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"15% chance to cause Bleeding on Hit",
 				statOrder = { 2264 },
 				tradeHashes = { [1519615863] = { "15% chance to cause Bleeding on Hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["helmet"] = {
 				type = "SoulCore",
+				localMod = false,
 				"20% increased Charm Charges gained",
 				statOrder = { 5605 },
 				tradeHashes = { [3585532255] = { "20% increased Charm Charges gained" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Jiquani"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = false,
 				"Recover 2% of maximum Life on Kill",
 				statOrder = { 1511 },
 				tradeHashes = { [2023107756] = { "Recover 2% of maximum Life on Kill" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "SoulCore",
+				localMod = false,
 				"3% increased maximum Life",
 				statOrder = { 889 },
 				tradeHashes = { [983749596] = { "3% increased maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Zalatl"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = false,
 				"Recover 2% of maximum Mana on Kill",
 				statOrder = { 1513 },
 				tradeHashes = { [1030153674] = { "Recover 2% of maximum Mana on Kill" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["helmet"] = {
 				type = "SoulCore",
+				localMod = false,
 				"3% increased maximum Mana",
 				statOrder = { 894 },
 				tradeHashes = { [2748665614] = { "3% increased maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Citaqualotl"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = false,
 				"30% increased Elemental Damage with Attacks",
 				statOrder = { 877 },
 				tradeHashes = { [387439868] = { "30% increased Elemental Damage with Attacks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "SoulCore",
+				localMod = false,
 				"+5% to all Elemental Resistances",
 				statOrder = { 1013 },
 				tradeHashes = { [2901986750] = { "+5% to all Elemental Resistances" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Puhuarte"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = false,
 				"30% increased Flammability Magnitude",
 				statOrder = { 1055 },
 				tradeHashes = { [2968503605] = { "30% increased Flammability Magnitude" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "SoulCore",
+				localMod = false,
 				"+1% to Maximum Fire Resistance",
 				statOrder = { 1009 },
 				tradeHashes = { [4095671657] = { "+1% to Maximum Fire Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Tzamoto"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = false,
 				"30% increased Freeze Buildup",
 				statOrder = { 1057 },
 				tradeHashes = { [473429811] = { "30% increased Freeze Buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["helmet"] = {
 				type = "SoulCore",
+				localMod = false,
 				"+1% to Maximum Cold Resistance",
 				statOrder = { 1010 },
 				tradeHashes = { [3676141501] = { "+1% to Maximum Cold Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Xopec"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = false,
 				"30% increased chance to Shock",
 				statOrder = { 1059 },
 				tradeHashes = { [293638271] = { "30% increased chance to Shock" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "SoulCore",
+				localMod = false,
 				"+1% to Maximum Lightning Resistance",
 				statOrder = { 1011 },
 				tradeHashes = { [1011760251] = { "+1% to Maximum Lightning Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Azcapa"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = false,
 				"+15 to Spirit",
 				statOrder = { 896 },
 				tradeHashes = { [3981240776] = { "+15 to Spirit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "SoulCore",
+				localMod = false,
 				"10% increased Quantity of Gold Dropped by Slain Enemies",
 				statOrder = { 6917 },
 				tradeHashes = { [3175163625] = { "10% increased Quantity of Gold Dropped by Slain Enemies" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Topotante"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"Attacks with this Weapon Penetrate 15% Elemental Resistances",
 				statOrder = { 3436 },
 				tradeHashes = { [4064396395] = { "Attacks with this Weapon Penetrate 15% Elemental Resistances" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "SoulCore",
+				localMod = false,
 				"25% increased Elemental Ailment Threshold",
 				statOrder = { 4266 },
 				tradeHashes = { [3544800472] = { "25% increased Elemental Ailment Threshold" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Quipolatl"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"5% increased Attack Speed",
 				statOrder = { 946 },
 				tradeHashes = { [210067635] = { "5% increased Attack Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "SoulCore",
+				localMod = false,
 				"15% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 4747 },
 				tradeHashes = { [924253255] = { "15% reduced Slowing Potency of Debuffs on You" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Ticaba"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"+5% to Critical Damage Bonus",
 				statOrder = { 945 },
 				tradeHashes = { [2694482655] = { "+5% to Critical Damage Bonus" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "SoulCore",
+				localMod = false,
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 1005 },
 				tradeHashes = { [3855016469] = { "Hits against you have 20% reduced Critical Damage Bonus" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["shield"] = {
 				type = "SoulCore",
+				localMod = false,
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 1005 },
 				tradeHashes = { [3855016469] = { "Hits against you have 20% reduced Critical Damage Bonus" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["buckler"] = {
 				type = "SoulCore",
+				localMod = false,
 				"Hits against you have 20% reduced Critical Damage Bonus",
 				statOrder = { 1005 },
 				tradeHashes = { [3855016469] = { "Hits against you have 20% reduced Critical Damage Bonus" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Atmohua"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"Convert 20% of Requirements to Strength",
 				statOrder = { 7818 },
 				tradeHashes = { [1556124492] = { "Convert 20% of Requirements to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "SoulCore",
+				localMod = true,
 				"Convert 20% of Requirements to Strength",
 				statOrder = { 7818 },
 				tradeHashes = { [1556124492] = { "Convert 20% of Requirements to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Cholotl"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"Convert 20% of Requirements to Dexterity",
 				statOrder = { 7816 },
 				tradeHashes = { [1496740334] = { "Convert 20% of Requirements to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "SoulCore",
+				localMod = true,
 				"Convert 20% of Requirements to Dexterity",
 				statOrder = { 7816 },
 				tradeHashes = { [1496740334] = { "Convert 20% of Requirements to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Soul Core of Zantipi"] = {
 		["weapon"] = {
 				type = "SoulCore",
+				localMod = true,
 				"Convert 20% of Requirements to Intelligence",
 				statOrder = { 7817 },
 				tradeHashes = { [2913012734] = { "Convert 20% of Requirements to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "SoulCore",
+				localMod = true,
 				"Convert 20% of Requirements to Intelligence",
 				statOrder = { 7817 },
 				tradeHashes = { [2913012734] = { "Convert 20% of Requirements to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Guatelitzi's Thesis"] = {
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds",
 				statOrder = { 6765 },
 				tradeHashes = { [3903510399] = { "Gain Armour equal to 35% of Life Lost from Hits in the past 8 seconds" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"10% of Physical Damage prevented Recouped as Life",
 				statOrder = { 9451 },
 				tradeHashes = { [1374654984] = { "10% of Physical Damage prevented Recouped as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Lose 5% of maximum Life per second while Sprinting",
 				"25% increased Movement Speed while Sprinting",
 				statOrder = { 7464, 10069 },
 				tradeHashes = { [3473409233] = { "Lose 5% of maximum Life per second while Sprinting" }, [3107707789] = { "25% increased Movement Speed while Sprinting" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Citaqualotl's Thesis"] = {
 		["body armour"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"You Recoup 50% of Damage taken by your Offerings as Life",
 				statOrder = { 9687 },
 				tradeHashes = { [1937310173] = { "You Recoup 50% of Damage taken by your Offerings as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"One of your Persistent Minions revives when an Offering expires",
 				statOrder = { 9781 },
 				tradeHashes = { [1480688478] = { "One of your Persistent Minions revives when an Offering expires" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll",
 				statOrder = { 9788 },
 				tradeHashes = { [1585886916] = { "Sacrifice 10% of maximum Life to gain that much Guard when you Dodge Roll" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Jiquani's Thesis"] = {
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"+1 to maximum Mana per 2 Item Energy Shield on Equipped Helmet",
 				statOrder = { 6723 },
 				tradeHashes = { [280497929] = { "+1 to maximum Mana per 2 Item Energy Shield on Equipped Helmet" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Energy Shield Recharge starts after spending a total of",
 				" 2000 Mana, no more than once every 2 seconds",
 				statOrder = { 6448, 6448.1 },
 				tradeHashes = { [2241849004] = { "Energy Shield Recharge starts after spending a total of", " 2000 Mana, no more than once every 2 seconds" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Increases and Reductions to Movement Speed also",
 				" apply to Energy Shield Recharge Rate",
 				statOrder = { 7327, 7327.1 },
 				tradeHashes = { [4282982513] = { "Increases and Reductions to Movement Speed also", " apply to Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Quipolatl's Thesis"] = {
 		["helmet"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate",
 				statOrder = { 8821 },
 				tradeHashes = { [2231410646] = { "A random Skill that requires Glory generates 50% of its maximum Glory when your Marks Activate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"Your Energy Shield Recharge starts when your Minions are Reformed",
 				statOrder = { 6446 },
 				tradeHashes = { [1919509054] = { "Your Energy Shield Recharge starts when your Minions are Reformed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "SoulCore",
+				limit = 1,
+				localMod = false,
 				"+75% of Armour also applies to Chaos Damage while on full Energy Shield",
 				statOrder = { 4384 },
 				tradeHashes = { [2191621386] = { "+75% of Armour also applies to Chaos Damage while on full Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Amanamu's Gaze"] = {
 		["helmet"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"Remove a Damaging Ailment when you use a Command Skill",
 				statOrder = { 9748 },
 				tradeHashes = { [594547430] = { "Remove a Damaging Ailment when you use a Command Skill" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"+2 to Armour per 1 Spirit",
 				statOrder = { 4398 },
 				tradeHashes = { [1197632982] = { "+2 to Armour per 1 Spirit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"1% increased Movement Speed per 15 Spirit, up to a maximum of 40%",
 				"Other Modifiers to Movement Speed except for Sprinting do not apply",
 				statOrder = { 9153, 9153.1 },
 				tradeHashes = { [2703838669] = { "1% increased Movement Speed per 15 Spirit, up to a maximum of 40%", "Other Modifiers to Movement Speed except for Sprinting do not apply" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Kurgal's Gaze"] = {
 		["helmet"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate",
 				statOrder = { 4233 },
 				tradeHashes = { [3570773271] = { "Increases and Reductions to Life Regeneration Rate also apply to Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"40% increased effect of Arcane Surge on you",
 				statOrder = { 2996 },
 				tradeHashes = { [2103650854] = { "40% increased effect of Arcane Surge on you" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently",
 				statOrder = { 7970 },
 				tradeHashes = { [2876843277] = { "15% increased Mana Cost Efficiency if you haven't Dodge Rolled Recently" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Tecrod's Gaze"] = {
 		["body armour"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"Regenerate 1.5% of maximum Life per second",
 				statOrder = { 1691 },
 				tradeHashes = { [836936635] = { "Regenerate 1.5% of maximum Life per second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"25% increased Life Cost Efficiency",
 				statOrder = { 4708 },
 				tradeHashes = { [310945763] = { "25% increased Life Cost Efficiency" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"10% increased Movement Speed when on Low Life",
 				statOrder = { 1554 },
 				tradeHashes = { [649025131] = { "10% increased Movement Speed when on Low Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ulaman's Gaze"] = {
 		["helmet"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"+1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet",
 				statOrder = { 4139 },
 				tradeHashes = { [687156079] = { "+1 to Accuracy Rating per 1 Item Evasion Rating on Equipped Helmet" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"Critical Hit chance is Lucky against Parried enemies",
 				statOrder = { 5809 },
 				tradeHashes = { [935518591] = { "Critical Hit chance is Lucky against Parried enemies" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "AbyssalEye",
+				limit = 1,
+				localMod = false,
 				"Prevent +3% of Damage from Deflected Hits",
 				statOrder = { 4679 },
 				tradeHashes = { [3552135623] = { "Prevent +3% of Damage from Deflected Hits" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Desert Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 7 to 11 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
 				tradeHashes = { [709508406] = { "Adds 7 to 11 Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 8% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 8% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 8% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 8% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+14% to Fire Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
 				tradeHashes = { [3372524247] = { "+14% to Fire Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Glacial Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 6 to 10 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
 				tradeHashes = { [1037193709] = { "Adds 6 to 10 Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 8% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 8% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 8% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 8% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+14% to Cold Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
 				tradeHashes = { [4220027924] = { "+14% to Cold Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Storm Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 1 to 20 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
 				tradeHashes = { [3336890334] = { "Adds 1 to 20 Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 8% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 8% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 8% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 8% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+14% to Lightning Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
 				tradeHashes = { [1671376347] = { "+14% to Lightning Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Iron Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"16% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
 				tradeHashes = { [1805374733] = { "16% increased Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"25% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "25% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"25% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "25% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"16% increased Armour, Evasion and Energy Shield",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
 				tradeHashes = { [3523867985] = { "16% increased Armour, Evasion and Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Body Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 4% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
 				tradeHashes = { [55876295] = { "Leeches 4% of Physical Damage as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+40 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+40 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+40 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+40 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+45 to maximum Life",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
 				tradeHashes = { [3299347043] = { "+45 to maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Mind Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 3% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
 				tradeHashes = { [669069897] = { "Leeches 3% of Physical Damage as Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+60 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+60 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+60 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+60 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+30 to maximum Mana",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
 				tradeHashes = { [1050105434] = { "+30 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rebirth Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 25 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
 				tradeHashes = { [3695891184] = { "Gain 25 Life per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"8% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "8% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"8% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "8% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"Regenerate 0.4% of maximum Life per second",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
 				tradeHashes = { [836936635] = { "Regenerate 0.4% of maximum Life per second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Inspiration Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 20 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
 				tradeHashes = { [1368271171] = { "Gain 20 Mana per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"25% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "25% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"25% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "25% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"15% increased Mana Regeneration Rate",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
 				tradeHashes = { [789117908] = { "15% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Stone Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Causes 30% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
 				tradeHashes = { [791928121] = { "Causes 30% increased Stun Buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 12% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 12% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 12% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+75 to Stun Threshold",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
 				tradeHashes = { [915769802] = { "+75 to Stun Threshold" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Vision Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"+90 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
 				tradeHashes = { [691932474] = { "+90 to Accuracy Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "20% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "20% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"12% increased Life and Mana Recovery from Flasks",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
 				tradeHashes = { [2310741722] = { "12% increased Life and Mana Recovery from Flasks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Desert Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 4 to 6 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
 				tradeHashes = { [709508406] = { "Adds 4 to 6 Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 6% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 6% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 6% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 6% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+10% to Fire Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
 				tradeHashes = { [3372524247] = { "+10% to Fire Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Glacial Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 3 to 5 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
 				tradeHashes = { [1037193709] = { "Adds 3 to 5 Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 6% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 6% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 6% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 6% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+10% to Cold Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
 				tradeHashes = { [4220027924] = { "+10% to Cold Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Storm Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 1 to 10 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
 				tradeHashes = { [3336890334] = { "Adds 1 to 10 Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 6% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 6% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 6% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 6% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+10% to Lightning Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
 				tradeHashes = { [1671376347] = { "+10% to Lightning Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Iron Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"14% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
 				tradeHashes = { [1805374733] = { "14% increased Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "20% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "20% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"14% increased Armour, Evasion and Energy Shield",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
 				tradeHashes = { [3523867985] = { "14% increased Armour, Evasion and Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Body Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 3% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
 				tradeHashes = { [55876295] = { "Leeches 3% of Physical Damage as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+30 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+30 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+30 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+30 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+30 to maximum Life",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
 				tradeHashes = { [3299347043] = { "+30 to maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Mind Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 2% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
 				tradeHashes = { [669069897] = { "Leeches 2% of Physical Damage as Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+45 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+45 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+45 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+45 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+20 to maximum Mana",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
 				tradeHashes = { [1050105434] = { "+20 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Rebirth Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 15 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
 				tradeHashes = { [3695891184] = { "Gain 15 Life per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"6% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "6% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"6% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "6% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"Regenerate 0.35% of maximum Life per second",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
 				tradeHashes = { [836936635] = { "Regenerate 0.35% of maximum Life per second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Inspiration Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 10 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
 				tradeHashes = { [1368271171] = { "Gain 10 Mana per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "20% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "20% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"12% increased Mana Regeneration Rate",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
 				tradeHashes = { [789117908] = { "12% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Stone Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Causes 20% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
 				tradeHashes = { [791928121] = { "Causes 20% increased Stun Buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 10% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 10% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 10% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+50 to Stun Threshold",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
 				tradeHashes = { [915769802] = { "+50 to Stun Threshold" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Vision Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"+60 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
 				tradeHashes = { [691932474] = { "+60 to Accuracy Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"16% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "16% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"16% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "16% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"8% increased Life and Mana Recovery from Flasks",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
 				tradeHashes = { [2310741722] = { "8% increased Life and Mana Recovery from Flasks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Desert Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 13 to 16 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
 				tradeHashes = { [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 10% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 10% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 10% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 10% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+18% to Fire Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
 				tradeHashes = { [3372524247] = { "+18% to Fire Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Glacial Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 9 to 15 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
 				tradeHashes = { [1037193709] = { "Adds 9 to 15 Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 10% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 10% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 10% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 10% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+18% to Cold Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
 				tradeHashes = { [4220027924] = { "+18% to Cold Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Storm Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 1 to 30 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
 				tradeHashes = { [3336890334] = { "Adds 1 to 30 Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 10% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 10% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 10% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 10% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+18% to Lightning Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
 				tradeHashes = { [1671376347] = { "+18% to Lightning Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Iron Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"18% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
 				tradeHashes = { [1805374733] = { "18% increased Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"30% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "30% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"30% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "30% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"18% increased Armour, Evasion and Energy Shield",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
 				tradeHashes = { [3523867985] = { "18% increased Armour, Evasion and Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Body Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 5% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
 				tradeHashes = { [55876295] = { "Leeches 5% of Physical Damage as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+50 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+50 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+50 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+50 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+60 to maximum Life",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
 				tradeHashes = { [3299347043] = { "+60 to maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Mind Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 4% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
 				tradeHashes = { [669069897] = { "Leeches 4% of Physical Damage as Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+75 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+75 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+75 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+75 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+40 to maximum Mana",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
 				tradeHashes = { [1050105434] = { "+40 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Rebirth Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 35 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
 				tradeHashes = { [3695891184] = { "Gain 35 Life per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"10% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "10% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"10% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "10% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"Regenerate 0.45% of maximum Life per second",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
 				tradeHashes = { [836936635] = { "Regenerate 0.45% of maximum Life per second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Inspiration Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 30 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
 				tradeHashes = { [1368271171] = { "Gain 30 Mana per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"30% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "30% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"30% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "30% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"18% increased Mana Regeneration Rate",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
 				tradeHashes = { [789117908] = { "18% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Stone Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Causes 40% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
 				tradeHashes = { [791928121] = { "Causes 40% increased Stun Buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 14% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 14% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 14% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+100 to Stun Threshold",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
 				tradeHashes = { [915769802] = { "+100 to Stun Threshold" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Vision Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"+120 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
 				tradeHashes = { [691932474] = { "+120 to Accuracy Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"24% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "24% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"24% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "24% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"16% increased Life and Mana Recovery from Flasks",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
 				tradeHashes = { [2310741722] = { "16% increased Life and Mana Recovery from Flasks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Desert Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 17 to 20 Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 1077 },
 				tradeHashes = { [709508406] = { "Adds 17 to 20 Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 12% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 12% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 12% of Damage as Extra Fire Damage",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 863, 1077 },
 				tradeHashes = { [3015669065] = { "Gain 12% of Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+22% to Fire Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1014, 887, 892 },
 				tradeHashes = { [3372524247] = { "+22% to Fire Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Glacial Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 16 to 20 Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 833, 1057 },
 				tradeHashes = { [1037193709] = { "Adds 16 to 20 Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 12% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 12% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 12% of Damage as Extra Cold Damage",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 866, 1057 },
 				tradeHashes = { [2505884597] = { "Gain 12% of Damage as Extra Cold Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+22% to Cold Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1020, 887, 892 },
 				tradeHashes = { [4220027924] = { "+22% to Cold Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Storm Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 1 to 40 Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 834, 9845 },
 				tradeHashes = { [3336890334] = { "Adds 1 to 40 Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 12% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 12% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 12% of Damage as Extra Lightning Damage",
 				"Bonded: 30% increased Magnitude of Shock you inflict",
 				statOrder = { 869, 9845 },
 				tradeHashes = { [3278136794] = { "Gain 12% of Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+22% to Lightning Resistance",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1023, 887, 892 },
 				tradeHashes = { [1671376347] = { "+22% to Lightning Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Iron Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"20% increased Physical Damage",
 				"Bonded: 20% increased effect of Fully Broken Armour",
 				statOrder = { 830, 5236 },
 				tradeHashes = { [1805374733] = { "20% increased Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"35% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "35% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"35% increased Spell Damage",
 				"Bonded: Break Armour on Critical Hit with Spells equal to 12% of Physical Damage dealt",
 				statOrder = { 871, 4411 },
 				tradeHashes = { [2974417149] = { "35% increased Spell Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"20% increased Armour, Evasion and Energy Shield",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 854, 887, 892 },
 				tradeHashes = { [3523867985] = { "20% increased Armour, Evasion and Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Body Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 6% of Physical Damage as Life",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1039, 889 },
 				tradeHashes = { [55876295] = { "Leeches 6% of Physical Damage as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+60 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+60 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+60 to maximum Energy Shield",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 885, 889 },
 				tradeHashes = { [3489782002] = { "+60 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+75 to maximum Life",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 887, 887, 892 },
 				tradeHashes = { [3299347043] = { "+75 to maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Mind Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Leeches 5% of Physical Damage as Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 1045, 894 },
 				tradeHashes = { [669069897] = { "Leeches 5% of Physical Damage as Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"+90 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+90 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"+90 to maximum Mana",
 				"Bonded: 5% increased maximum Mana",
 				statOrder = { 892, 894 },
 				tradeHashes = { [1050105434] = { "+90 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+50 to maximum Mana",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 892, 887, 892 },
 				tradeHashes = { [1050105434] = { "+50 to maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Rebirth Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 45 Life per enemy killed",
 				"Bonded: Regenerate 0.4% of maximum Life per second",
 				statOrder = { 1042, 1691 },
 				tradeHashes = { [3695891184] = { "Gain 45 Life per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"12% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "12% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"12% increased Energy Shield Recharge Rate",
 				"Bonded: 8% of Damage taken Recouped as Life",
 				statOrder = { 1032, 1037 },
 				tradeHashes = { [2339757871] = { "12% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"Regenerate 0.5% of maximum Life per second",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1691, 887, 892 },
 				tradeHashes = { [836936635] = { "Regenerate 0.5% of maximum Life per second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Inspiration Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain 40 Mana per enemy killed",
 				"Bonded: 12% of Skill Mana Costs Converted to Life Costs",
 				statOrder = { 1047, 4744 },
 				tradeHashes = { [1368271171] = { "Gain 40 Mana per enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"35% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "35% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"35% increased Mana Regeneration Rate",
 				"Bonded: 16% increased Mana Cost Efficiency",
 				statOrder = { 1043, 4718 },
 				tradeHashes = { [789117908] = { "35% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"21% increased Mana Regeneration Rate",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1043, 887, 892 },
 				tradeHashes = { [789117908] = { "21% increased Mana Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Stone Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Causes 50% increased Stun Buildup",
 				"Bonded: 40% increased Damage against Immobilised Enemies",
 				statOrder = { 1052, 5959 },
 				tradeHashes = { [791928121] = { "Causes 50% increased Stun Buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 16% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Gain additional Stun Threshold equal to 16% of maximum Energy Shield",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 10138, 7193 },
 				tradeHashes = { [416040624] = { "Gain additional Stun Threshold equal to 16% of maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+125 to Stun Threshold",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 1061, 887, 892 },
 				tradeHashes = { [915769802] = { "+125 to Stun Threshold" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Vision Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"+150 to Accuracy Rating",
 				"Bonded: Attacks have +1% to Critical Hit Chance",
 				statOrder = { 835, 4465 },
 				tradeHashes = { [691932474] = { "+150 to Accuracy Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"28% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "28% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"28% increased Critical Hit Chance for Spells",
 				"Bonded: 25% increased Critical Damage Bonus",
 				statOrder = { 978, 980 },
 				tradeHashes = { [737908626] = { "28% increased Critical Hit Chance for Spells" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Life and Mana Recovery from Flasks",
 				"Bonded: +20 to maximum Life",
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 6644, 887, 892 },
 				tradeHashes = { [2310741722] = { "20% increased Life and Mana Recovery from Flasks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Robust Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+6 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+6 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+6 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Robust Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+9 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+9 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+9 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Robust Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+12 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+12 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+12 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Robust Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+15 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+15 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Strength",
 				statOrder = { 992 },
 				tradeHashes = { [4080418644] = { "+15 to Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Adept Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+6 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+6 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+6 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Adept Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+9 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+9 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+9 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Adept Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+12 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+12 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+12 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Adept Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+15 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+15 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Dexterity",
 				statOrder = { 993 },
 				tradeHashes = { [3261801346] = { "+15 to Dexterity" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Resolve Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+6 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+6 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+6 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+6 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Resolve Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+9 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+9 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+9 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+9 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Resolve Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+12 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+12 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+12 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+12 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Resolve Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+15 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+15 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"+15 to Intelligence",
 				statOrder = { 994 },
 				tradeHashes = { [328541901] = { "+15 to Intelligence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Tempered Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 3 to 4 Physical Damage",
 				statOrder = { 831 },
 				tradeHashes = { [1940865751] = { "Adds 3 to 4 Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"6 to 9 Physical Thorns damage",
 				statOrder = { 10261 },
 				tradeHashes = { [2881298780] = { "6 to 9 Physical Thorns damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Tempered Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 6 to 9 Physical Damage",
 				statOrder = { 831 },
 				tradeHashes = { [1940865751] = { "Adds 6 to 9 Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"14 to 21 Physical Thorns damage",
 				statOrder = { 10261 },
 				tradeHashes = { [2881298780] = { "14 to 21 Physical Thorns damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Tempered Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Adds 9 to 12 Physical Damage",
 				statOrder = { 831 },
 				tradeHashes = { [1940865751] = { "Adds 9 to 12 Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"31 to 52 Physical Thorns damage",
 				statOrder = { 10261 },
 				tradeHashes = { [2881298780] = { "31 to 52 Physical Thorns damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Rune of Leadership"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Minions gain 10% of their Physical Damage as Extra Lightning Damage",
 				"Bonded: Minions deal 20% increased Damage",
 				statOrder = { 9074, 1720 },
 				tradeHashes = { [1433756169] = { "Minions gain 10% of their Physical Damage as Extra Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"Minions take 10% of Physical Damage as Lightning Damage",
 				"Bonded: Minions have +10% to all Elemental Resistances",
 				statOrder = { 9075, 2667 },
 				tradeHashes = { [889552744] = { "Minions take 10% of Physical Damage as Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Rune of Tithing"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Meta Skills gain 10% increased Energy",
 				"Bonded: Invocated Spells have 25% chance to consume half as much Energy",
 				statOrder = { 6410, 7386 },
 				tradeHashes = { [4236566306] = { "Meta Skills gain 10% increased Energy" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"1 to 100 Lightning Thorns damage",
 				"Bonded: 15% increased Thorns damage",
 				statOrder = { 10260, 10254 },
 				tradeHashes = { [757050353] = { "1 to 100 Lightning Thorns damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Rune of Alacrity"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"8% increased Skill Speed",
 				"Bonded: 15% increased Reservation Efficiency of Herald Skills",
 				statOrder = { 837, 9765 },
 				tradeHashes = { [970213192] = { "8% increased Skill Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"Debuffs on you expire 8% faster",
 				"Bonded: 15% increased Elemental Ailment Threshold",
 				statOrder = { 6099, 4266 },
 				tradeHashes = { [1238227257] = { "Debuffs on you expire 8% faster" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Rune of Nobility"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = true,
 				"Attacks with this Weapon have 10% chance to inflict Exposure",
 				"Bonded: 20% increased Exposure Effect",
 				statOrder = { 7736, 6533 },
 				tradeHashes = { [3678845069] = { "Attacks with this Weapon have 10% chance to inflict Exposure" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"10% reduced effect of Shock on you",
 				"Bonded: 10% reduced Shock duration on you",
 				statOrder = { 9859, 1066 },
 				tradeHashes = { [3801067695] = { "10% reduced effect of Shock on you" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Hedgewitch Assandra's Rune of Wisdom"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+1 to Level of all Spell Skills",
 				"Bonded: Archon recovery period expires 30% faster",
 				statOrder = { 950, 4343 },
 				tradeHashes = { [124131830] = { "+1 to Level of all Spell Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+1 to Level of all Spell Skills",
 				"Bonded: Archon recovery period expires 30% faster",
 				statOrder = { 950, 4343 },
 				tradeHashes = { [124131830] = { "+1 to Level of all Spell Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Saqawal's Rune of the Sky"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 5% of Damage as Extra Damage of all Elements",
 				"Bonded: 8% chance to gain an additional random Charge when you gain a Charge",
 				statOrder = { 9264, 5522 },
 				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 5% of Damage as Extra Damage of all Elements",
 				"Bonded: 12% chance when collecting an Elemental Infusion to gain an",
 				"Bonded: additional Elemental Infusion of the same type",
 				statOrder = { 9264, 4193, 4193.1 },
 				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 5% of Damage as Extra Damage of all Elements",
 				"Bonded: 12% chance when collecting an Elemental Infusion to gain an",
 				"Bonded: additional Elemental Infusion of the same type",
 				statOrder = { 9264, 4193, 4193.1 },
 				tradeHashes = { [731403740] = { "Gain 5% of Damage as Extra Damage of all Elements" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Fenumus' Rune of Agony"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 13% of Damage as Extra Chaos Damage",
 				"Bonded: Gain 8% of Damage as Extra Physical Damage",
 				statOrder = { 1672, 1671 },
 				tradeHashes = { [3398787959] = { "Gain 13% of Damage as Extra Chaos Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 13% of Damage as Extra Chaos Damage",
 				"Bonded: Gain 8% of Damage as Extra Physical Damage",
 				statOrder = { 1672, 1671 },
 				tradeHashes = { [3398787959] = { "Gain 13% of Damage as Extra Chaos Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 13% of Damage as Extra Chaos Damage",
 				"Bonded: Gain 8% of Damage as Extra Physical Damage",
 				statOrder = { 1672, 1671 },
 				tradeHashes = { [3398787959] = { "Gain 13% of Damage as Extra Chaos Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Farrul's Rune of Grace"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"8% increased Deflection Rating while moving",
 				"Bonded: Prevent +3% of Damage from Deflected Hits",
 				statOrder = { 6120, 4679 },
 				tradeHashes = { [1382805233] = { "8% increased Deflection Rating while moving" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Farrul's Rune of the Chase"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"5% increased Movement Speed",
 				"Bonded: 10% increased Cooldown Recovery Rate",
 				statOrder = { 836, 4677 },
 				tradeHashes = { [2250533757] = { "5% increased Movement Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Craiceann's Rune of Warding"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% reduced effect of Curses on you",
 				"Bonded: 8% increased Curse Magnitudes",
 				statOrder = { 1911, 2376 },
 				tradeHashes = { [3407849389] = { "50% reduced effect of Curses on you" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Saqawal's Rune of Memory"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"2% increased Experience gain",
 				"Bonded: +10% to all Elemental Resistances",
 				statOrder = { 1471, 1013 },
 				tradeHashes = { [3666934677] = { "2% increased Experience gain" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Saqawal's Rune of Erosion"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"25% increased Exposure Effect",
 				"Bonded: 15% increased Magnitude of Non-Damaging Ailments you inflict",
 				statOrder = { 6533, 9224 },
 				tradeHashes = { [2074866941] = { "25% increased Exposure Effect" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Farrul's Rune of the Hunt"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Attack Damage against Rare or Unique Enemies",
 				"Bonded: +1 to Level of all Attack Skills",
 				statOrder = { 4514, 967 },
 				tradeHashes = { [2077615515] = { "50% increased Attack Damage against Rare or Unique Enemies" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Craiceann's Rune of Recovery"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"30% increased Energy Shield Recharge Rate",
 				"Bonded: Gain additional Ailment Threshold equal to 50% of maximum Energy Shield",
 				"Bonded: Gain additional Stun Threshold equal to 50% of maximum Energy Shield",
 				statOrder = { 1032, 4265, 10138 },
 				tradeHashes = { [2339757871] = { "30% increased Energy Shield Recharge Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Courtesan Mannan's Rune of Cruelty"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"20% increased Magnitude of Damaging Ailments you inflict",
 				"Bonded: 15% increased Duration of Damaging Ailments on Enemies",
 				statOrder = { 6067, 6065 },
 				tradeHashes = { [1381474422] = { "20% increased Magnitude of Damaging Ailments you inflict" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Thane Grannell's Rune of Mastery"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"30% increased Magnitude of Non-Damaging Ailments you inflict",
 				"Bonded: 15% increased Duration of Elemental Ailments on Enemies",
 				statOrder = { 9224, 1617 },
 				tradeHashes = { [782230869] = { "30% increased Magnitude of Non-Damaging Ailments you inflict" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Fenumus' Rune of Spinning"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"8% increased Cast Speed",
 				"Bonded: 20% increased Mana Cost Efficiency while on Low Mana",
 				statOrder = { 987, 4723 },
 				tradeHashes = { [2891184298] = { "8% increased Cast Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Countess Seske's Rune of Archery"] = {
 		["bow"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Bow Attacks fire an additional Arrow",
 				"Bonded: 20% increased Projectile Speed",
 				statOrder = { 990, 897 },
 				tradeHashes = { [3885405204] = { "Bow Attacks fire an additional Arrow" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Thane Girt's Rune of Wildness"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
 				"Bonded: Every Rage also grants 1% increased Spell Damage",
 				statOrder = { 10034, 10008 },
 				tradeHashes = { [2910761524] = { "25% chance for Spell Skills to fire 2 additional Projectiles" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"25% chance for Spell Skills to fire 2 additional Projectiles",
 				"Bonded: Every Rage also grants 1% increased Spell Damage",
 				statOrder = { 10034, 10008 },
 				tradeHashes = { [2910761524] = { "25% chance for Spell Skills to fire 2 additional Projectiles" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Fenumus' Rune of Draining"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"20% increased Withered Magnitude",
 				"Bonded: +7% to Chaos Resistance",
 				statOrder = { 10556, 1024 },
 				tradeHashes = { [3973629633] = { "20% increased Withered Magnitude" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Thane Myrk's Rune of Summer"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 23 to 34 Fire Damage to Attacks against Ignited Enemies",
 				"Bonded: +2% to Maximum Fire Resistance",
 				statOrder = { 1212, 1009 },
 				tradeHashes = { [627339348] = { "Adds 23 to 34 Fire Damage to Attacks against Ignited Enemies" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lady Hestra's Rune of Winter"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 19 to 28 Cold Damage against Chilled Enemies",
 				"Bonded: +2% to Maximum Cold Resistance",
 				statOrder = { 8962, 1010 },
 				tradeHashes = { [3734640451] = { "Adds 19 to 28 Cold Damage against Chilled Enemies" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Thane Leld's Rune of Spring"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 1 to 60 Lightning Damage against Shocked Enemies",
 				"Bonded: +2% to Maximum Lightning Resistance",
 				statOrder = { 6910, 1011 },
 				tradeHashes = { [90012347] = { "Adds 1 to 60 Lightning Damage against Shocked Enemies" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["The Greatwolf's Rune of Claws"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 5 to 12 Physical Damage to Attacks",
 				"Bonded: Fissure Skills have +2 to Limit",
 				statOrder = { 858, 6616 },
 				tradeHashes = { [3032590688] = { "Adds 5 to 12 Physical Damage to Attacks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["The Greatwolf's Rune of Willpower"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"15% of Damage is taken from Mana before Life",
 				"Bonded: 8% of Maximum Life Converted to Energy Shield",
 				statOrder = { 2472, 8884 },
 				tradeHashes = { [458438597] = { "15% of Damage is taken from Mana before Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Masterwork Rune"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Upgrades a socketed Rune",
 				statOrder = { 6246 },
 				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"Upgrades a socketed Rune",
 				statOrder = { 6246 },
 				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"Upgrades a socketed Rune",
 				statOrder = { 6246 },
 				tradeHashes = { [4044077288] = { "Upgrades a socketed Rune" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Ward Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"+15 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
 				tradeHashes = { [774059442] = { "+15 to maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ward Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"+20 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
 				tradeHashes = { [774059442] = { "+20 to maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Ward Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"+25 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
 				tradeHashes = { [774059442] = { "+25 to maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Ward Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"+30 to maximum Runic Ward",
 				"Bonded: 15% increased Global Armour, Evasion and Energy Shield",
 				statOrder = { 845, 2588 },
 				tradeHashes = { [774059442] = { "+30 to maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Lesser Charging Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"8% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 10 Runic Ward per second",
 				statOrder = { 10520, 4764 },
 				tradeHashes = { [2392260628] = { "8% increased Runic Ward Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Charging Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"12% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 15 Runic Ward per second",
 				statOrder = { 10520, 4764 },
 				tradeHashes = { [2392260628] = { "12% increased Runic Ward Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Greater Charging Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"16% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 20 Runic Ward per second",
 				statOrder = { 10520, 4764 },
 				tradeHashes = { [2392260628] = { "16% increased Runic Ward Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Perfect Charging Rune"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"20% increased Runic Ward Regeneration Rate",
 				"Bonded: Regenerate 25 Runic Ward per second",
 				statOrder = { 10520, 4764 },
 				tradeHashes = { [2392260628] = { "20% increased Runic Ward Regeneration Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Reinforcement"] = {
 		["armour"] = {
 				type = "Rune",
+				localMod = true,
 				"20% increased Runic Ward",
 				"Bonded: Gain 2% of maximum Life as Extra maximum Runic Ward",
 				statOrder = { 855, 1430 },
 				tradeHashes = { [830161081] = { "20% increased Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Protection"] = {
 		["armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds",
 				"Bonded: 8% increased Guard gained",
 				statOrder = { 6802, 6951 },
 				tradeHashes = { [1963589548] = { "Every 4 seconds, gain Guard equal to 20% of maximum Runic Ward for 2 seconds" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Disintegration"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Attacks Break Armour equal to 15% of maximum Runic Ward",
 				"Bonded: Break 10% increased Armour",
 				statOrder = { 5015, 4407 },
 				tradeHashes = { [2608793552] = { "Attacks Break Armour equal to 15% of maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Desperation"] = {
 		["wand"] = {
 				type = "Rune",
+				localMod = false,
 				"Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward",
 				"Bonded: 12% increased Elemental Damage",
 				statOrder = { 10042, 1726 },
 				tradeHashes = { [267552601] = { "Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				localMod = false,
 				"Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward",
 				"Bonded: 12% increased Elemental Damage",
 				statOrder = { 10042, 1726 },
 				tradeHashes = { [267552601] = { "Spell damage Penetrates 25% of enemy Elemental Resistances while on Low Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Symbiosis"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward",
 				"Bonded: Regenerate 1% of maximum Energy Shield per second",
 				statOrder = { 6442, 2420 },
 				tradeHashes = { [162036024] = { "1% increased Energy Shield Recharge Rate per 30 maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Courage"] = {
 		["helmet"] = {
 				type = "Rune",
+				localMod = false,
 				"25% increased Armour and Evasion Rating while on Low Runic Ward",
 				"Bonded: 20% increased Armour and Evasion Rating when on Low Life",
 				statOrder = { 4402, 2930 },
 				tradeHashes = { [1392112423] = { "25% increased Armour and Evasion Rating while on Low Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Stability"] = {
 		["shield"] = {
 				type = "Rune",
+				localMod = false,
 				"+4 to Stun Threshold per 10 maximum Runic Ward",
 				"Bonded: 15% increased Stun buildup while Shapeshifted",
 				statOrder = { 10134, 7205 },
 				tradeHashes = { [2838678452] = { "+4 to Stun Threshold per 10 maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["buckler"] = {
 				type = "Rune",
+				localMod = false,
 				"+4 to Stun Threshold per 10 maximum Runic Ward",
 				"Bonded: 15% increased Stun buildup while Shapeshifted",
 				statOrder = { 10134, 7205 },
 				tradeHashes = { [2838678452] = { "+4 to Stun Threshold per 10 maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Glancing"] = {
 		["body armour"] = {
 				type = "Rune",
+				localMod = false,
 				"+3 to Deflection Rating per 10 maximum Runic Ward",
 				"Bonded: Prevent +1% of Damage from Deflected Hits",
 				statOrder = { 9, 4679 },
 				tradeHashes = { [282990844] = { "+3 to Deflection Rating per 10 maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Heart"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 5% of maximum Life as Extra maximum Runic Ward",
 				"Bonded: 1% more Runic Ward Regeneration rate per 2% of maximum Runic Ward lost from Hits Recently, up to 100% more",
 				statOrder = { 1430, 10523 },
 				tradeHashes = { [386720106] = { "Gain 5% of maximum Life as Extra maximum Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Nourishment"] = {
 		["armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"15% Life Recovery from Flasks also applies to Runic Ward",
 				"Bonded: 15% increased Life Recovery from Flasks",
 				statOrder = { 7474, 1794 },
 				tradeHashes = { [2650263616] = { "15% Life Recovery from Flasks also applies to Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Annihilation"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Attacks spend 5% of your maximum Runic Ward if possible to gain that much added Physical damage",
 				"Bonded: 10% reduced Runic Ward Cost Efficiency",
 				statOrder = { 4580, 4763 },
 				tradeHashes = { [3035971497] = { "Attacks spend 5% of your maximum Runic Ward if possible to gain that much added Physical damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Armature"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage",
 				"Bonded: 5% increased Attack Speed while missing Runic Ward",
 				statOrder = { 7829, 4558 },
 				tradeHashes = { [1995345015] = { "Gain maximum Runic Ward equal to 15% of this Weapon's maximum damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 45 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 45 },
+=======
+				rank = 45,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Obsession"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"All damage taken bypasses Runic Ward",
 				"Runic Ward Regeneration Rate is doubled",
 				"Bonded: 12% increased maximum Runic Ward",
 				statOrder = { 5965, 10525, 891 },
 				tradeHashes = { [2579974553] = { "Runic Ward Regeneration Rate is doubled" }, [3814102597] = { "All damage taken bypasses Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 45 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 45 },
+=======
+				rank = 45,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Equinox"] = {
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"40% less Mana Regeneration Rate",
 				"Mana Recovery from Regeneration is also applied to Runic Ward",
 				"Bonded: 20% increased Runic Ward Regeneration Rate if you've dealt a Critical Hit Recently",
 				statOrder = { 7999, 9705, 10521 },
 				tradeHashes = { [762761075] = { "40% less Mana Regeneration Rate" }, [3145796865] = { "Mana Recovery from Regeneration is also applied to Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 45 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 45 },
+=======
+				rank = 45,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Salvaging"] = {
 		["sceptre"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Recover 3% of maximum Runic Ward when one of your Reviving Minions is Killed",
 				"Bonded: Recover 3% of maximum Life when one of your Minions is Revived",
 				statOrder = { 9707, 10596 },
 				tradeHashes = { [3515226849] = { "Recover 3% of maximum Runic Ward when one of your Reviving Minions is Killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Bodyguards"] = {
 		["sceptre"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Minions in your Presence have Onslaught while you are on Low Runic Ward",
 				"Bonded: Damage of Enemies Hitting you is Unlucky if",
 				"Bonded: your Runic Ward has been damaged Recently",
 				statOrder = { 9109, 6042, 6042.1 },
 				tradeHashes = { [540694930] = { "Minions in your Presence have Onslaught while you are on Low Runic Ward" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 45 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 45 },
+=======
+				rank = 45,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Warding Rune of Hollowing"] = {
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 15% of maximum Life as Extra maximum Runic Ward",
 				"15% less maximum Life",
 				"Bonded: +1% to all Maximum Elemental Resistances while on full Runic Ward",
 				statOrder = { 1430, 8878, 4200 },
 				tradeHashes = { [386720106] = { "Gain 15% of maximum Life as Extra maximum Runic Ward" }, [1020945697] = { "15% less maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 45 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 45 },
+=======
+				rank = 45,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Passion of Aldur"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers",
 				"Bonded: 25% increased Fire Damage",
 				statOrder = { 6242, 873 },
 				tradeHashes = { [602344904] = { "Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers",
 				"Bonded: 25% increased Fire Damage",
 				statOrder = { 6242, 873 },
 				tradeHashes = { [602344904] = { "Transforms all Cold and Lightning modifiers on the item into equivalent Fire modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Breath of Aldur"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
 				"Bonded: 25% increased Cold Damage",
 				statOrder = { 6239, 874 },
 				tradeHashes = { [2390027291] = { "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers",
 				"Bonded: 25% increased Cold Damage",
 				statOrder = { 6239, 874 },
 				tradeHashes = { [2390027291] = { "When socketed, transforms all Fire and Lightning modifiers to equivalent Cold modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ire of Aldur"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers",
 				"Bonded: 25% increased Lightning Damage",
 				statOrder = { 6243, 875 },
 				tradeHashes = { [1433896639] = { "Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers",
 				"Bonded: 25% increased Lightning Damage",
 				statOrder = { 6243, 875 },
 				tradeHashes = { [1433896639] = { "Transforms all Fire and Cold modifiers on the item into equivalent Lightning modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Betrayal of Aldur"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers",
 				"Bonded: 25% increased Chaos Damage",
 				statOrder = { 6238, 876 },
 				tradeHashes = { [1624833382] = { "Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers",
 				"Bonded: 25% increased Chaos Damage",
 				statOrder = { 6238, 876 },
 				tradeHashes = { [1624833382] = { "Transforms all Fire, Cold and Lightning modifiers on the item into equivalent Chaos modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Splinters"] = {
 		["bow"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+50% Surpassing chance to fire an additional Arrow",
 				"Bonded: 30% increased Projectile Speed",
 				statOrder = { 5513, 897 },
 				tradeHashes = { [2463230181] = { "+50% Surpassing chance to fire an additional Arrow" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Dueling"] = {
 		["buckler"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"30% increased Parried Debuff Magnitude",
 				"Bonded: 15% increased Block chance",
 				statOrder = { 9379, 1133 },
 				tradeHashes = { [818877178] = { "30% increased Parried Debuff Magnitude" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of the Titan"] = {
 		["two hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"10% chance for Slam Skills you use yourself to cause an additional Aftershock",
 				"Bonded: 15% increased Area of Effect for Attacks",
 				statOrder = { 10626, 4493 },
 				tradeHashes = { [2045949233] = { "10% chance for Slam Skills you use yourself to cause an additional Aftershock" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Shattering"] = {
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"40% increased effect of Fully Broken Armour",
 				"Bonded: Break 50% increased Armour",
 				statOrder = { 5236, 4407 },
 				tradeHashes = { [1879206848] = { "40% increased effect of Fully Broken Armour" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Prowess"] = {
 		["spear"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"30% chance when you gain a Charge to gain an additional Charge",
 				"Bonded: 30% increased Endurance, Frenzy and Power Charge Duration",
 				statOrder = { 5518, 2761 },
 				tradeHashes = { [1555237944] = { "30% chance when you gain a Charge to gain an additional Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Control"] = {
 		["quarterstaff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Immobilisation buildup",
 				"Bonded: 30% increased Damage against Immobilised Enemies",
 				statOrder = { 7193, 5959 },
 				tradeHashes = { [330530785] = { "50% increased Immobilisation buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Discovery"] = {
 		["staff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"30% chance to create an additional Remnant",
 				"Bonded: +1 to maximum number of Elemental Infusions",
 				statOrder = { 5409, 8875 },
 				tradeHashes = { [2328443419] = { "30% chance to create an additional Remnant" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Decay"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"25% increased Withered Magnitude",
 				"Bonded: 15% chance that when Volatility on you explodes, you regain an equivalent amount of Volatility",
 				statOrder = { 10556, 10485 },
 				tradeHashes = { [3973629633] = { "25% increased Withered Magnitude" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Witchcraft"] = {
 		["focus"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"40% increased Area of Effect of Curses",
 				"Bonded: 15% faster Curse Activation",
 				statOrder = { 1950, 5924 },
 				tradeHashes = { [153777645] = { "40% increased Area of Effect of Curses" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of the Horde"] = {
 		["sceptre"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Minions have 8% increased Attack and Cast Speed",
 				"Bonded: Minions have 10% increased Movement Speed",
 				statOrder = { 9003, 1528 },
 				tradeHashes = { [3091578504] = { "Minions have 8% increased Attack and Cast Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Animosity"] = {
 		["talisman"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy",
 				"Bonded: 40% increased Stun Buildup",
 				statOrder = { 6713, 1051 },
 				tradeHashes = { [3444646646] = { "Gain 2 Druidic Prowess when you Heavy Stun a Rare or Unique Enemy" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Detonation"] = {
 		["crossbow"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Grenades have 10% chance to activate a second time",
 				"Bonded: 40% increased Crossbow Reload Speed",
 				statOrder = { 6939, 9734 },
 				tradeHashes = { [538981065] = { "Grenades have 10% chance to activate a second time" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ancient Rune of Retaliation"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"8% increased Attack Speed if you have Blocked Recently",
 				"Bonded: +3% to maximum Block chance",
 				statOrder = { 4565, 1734 },
 				tradeHashes = { [3203854378] = { "8% increased Attack Speed if you have Blocked Recently" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 30 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 30 },
+=======
+				rank = 30,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Vitality"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+80 to maximum Life",
 				"Bonded: 15% increased amount of Life Leeched",
 				statOrder = { 887, 1895 },
 				tradeHashes = { [3299347043] = { "+80 to maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+80 to maximum Life",
 				"Bonded: 15% increased amount of Life Leeched",
 				statOrder = { 887, 1895 },
 				tradeHashes = { [3299347043] = { "+80 to maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Recover 15 Life when you Block",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1522, 889 },
 				tradeHashes = { [1678831767] = { "Recover 15 Life when you Block" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["buckler"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Recover 15 Life when you Block",
 				"Bonded: 5% increased maximum Life",
 				statOrder = { 1522, 889 },
 				tradeHashes = { [1678831767] = { "Recover 15 Life when you Block" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of the Hunt"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"8% increased Movement Speed while Sprinting",
 				"Bonded: 50% increased Stun Recovery",
 				statOrder = { 10069, 1060 },
 				tradeHashes = { [3107707789] = { "8% increased Movement Speed while Sprinting" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Companions deal 30% increased Damage",
 				"Bonded: 8% increased Mana Recovery rate while your Companion is in your Presence",
 				statOrder = { 5722, 7996 },
 				tradeHashes = { [234296660] = { "Companions deal 30% increased Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Acrobatics"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Flasks gain 0.2 charges per Second",
 				"Bonded: Charms gain 0.25 charges per Second",
 				statOrder = { 6888, 6889 },
 				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Flasks gain 0.2 charges per Second",
 				"Bonded: Charms gain 0.25 charges per Second",
 				statOrder = { 6888, 6889 },
 				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+0.3 metres to Dodge Roll distance",
 				"Bonded: 30% increased Armour if you haven't Dodge Rolled Recently",
 				statOrder = { 6200, 4390 },
 				tradeHashes = { [258119672] = { "+0.3 metres to Dodge Roll distance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Culmination"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% chance to build an additional Combo on Hit",
 				"Bonded: 5% increased Attack Speed",
 				statOrder = { 4185, 985 },
 				tradeHashes = { [4258524206] = { "50% chance to build an additional Combo on Hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
 				"Bonded: 20% increased Bleeding Duration",
 				statOrder = { 7811, 4660 },
 				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["quarterstaff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
 				"Bonded: 20% increased Bleeding Duration",
 				statOrder = { 7811, 4660 },
 				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Renown"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Glory generation",
 				"Bonded: Banner Skills have 20% increased Aura Magnitudes",
 				statOrder = { 6914, 3066 },
 				tradeHashes = { [3143918757] = { "50% increased Glory generation" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Archon recovery period expires 30% faster",
 				"Bonded: 30% increased Archon Buff duration",
 				statOrder = { 4343, 4344 },
 				tradeHashes = { [2586152168] = { "Archon recovery period expires 30% faster" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Accumulation"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 3 Life per Enemy Hit with Attacks",
 				"Gain 1 Mana per Enemy Hit with Attacks",
 				"Bonded: +30 to maximum Life",
 				"Bonded: +30 to maximum Mana",
 				statOrder = { 1040, 1507, 887, 892 },
 				tradeHashes = { [2797971005] = { "Gain 3 Life per Enemy Hit with Attacks" }, [820939409] = { "Gain 1 Mana per Enemy Hit with Attacks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["crossbow"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 7799, 1057 },
 				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["bow"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 7799, 1057 },
 				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["spear"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32",
 				"Bonded: 30% increased Freeze Buildup",
 				statOrder = { 7799, 1057 },
 				tradeHashes = { [2616640048] = { "On Hitting an enemy, gains maximum added Cold damage equal to the enemy's Power for 20 seconds, up to a total of 32" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Foundations"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"+30 to Armour",
 				"+30 to Evasion Rating",
 				"+10 to maximum Energy Shield",
@@ -3760,501 +6589,874 @@ return {
 				"Bonded: +20 to maximum Mana",
 				statOrder = { 840, 841, 843, 887, 892 },
 				tradeHashes = { [3484657501] = { "+30 to Armour" }, [53045048] = { "+30 to Evasion Rating" }, [4052037485] = { "+10 to maximum Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of the Prism"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"-10% to all Maximum Elemental Resistances",
 				"+20% to all Elemental Resistances",
 				"Bonded: 20% of Damage is taken from Mana before Life",
 				statOrder = { 1007, 1013, 2472 },
 				tradeHashes = { [2901986750] = { "+20% to all Elemental Resistances" }, [1978899297] = { "-10% to all Maximum Elemental Resistances" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of the Blossom"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+50 to Spirit",
 				"-1 to Spirit per 2 Levels",
 				"Bonded: 5% increased Spirit Reservation Efficiency",
 				statOrder = { 895, 10058, 4755 },
 				tradeHashes = { [2704225257] = { "+50 to Spirit" }, [610569665] = { "-1 to Spirit per 2 Levels" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Consistency"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"200% increased Critical Hit Chance",
 				"You have no Critical Damage Bonus",
 				"Bonded: Hits against you have 25% reduced Critical Damage Bonus",
 				statOrder = { 976, 1405, 1005 },
 				tradeHashes = { [587431675] = { "200% increased Critical Hit Chance" }, [4058681894] = { "You have no Critical Damage Bonus" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Spell Damage while your Companion is in your Presence",
 				"Bonded: 8% increased Mana Recovery rate while your Companion is in your Presence",
 				statOrder = { 10009, 7996 },
 				tradeHashes = { [4063732952] = { "50% increased Spell Damage while your Companion is in your Presence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Reach"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Remnants you create have 15% increased effect",
 				"Bonded: Recover 3% of Maximum Mana when you collect a Remnant",
 				statOrder = { 9736, 9740 },
 				tradeHashes = { [1999910726] = { "Remnants you create have 15% increased effect" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Remnants you create have 25% reduced effect",
 				"Remnants can be collected from 50% further away",
 				"Bonded: 20% increased Exposure Effect",
 				statOrder = { 9736, 9738, 6533 },
 				tradeHashes = { [1999910726] = { "Remnants you create have 25% reduced effect" }, [3482326075] = { "Remnants can be collected from 50% further away" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["staff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Remnants you create have 25% reduced effect",
 				"Remnants can be collected from 50% further away",
 				"Bonded: 20% increased Exposure Effect",
 				statOrder = { 9736, 9738, 6533 },
 				tradeHashes = { [1999910726] = { "Remnants you create have 25% reduced effect" }, [3482326075] = { "Remnants can be collected from 50% further away" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Vital Flame"] = {
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 13 to 16 Fire Damage",
 				"15% of Skill Mana Costs Converted to Life Costs",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 4744, 1077 },
 				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["two hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 13 to 16 Fire Damage",
 				"15% of Skill Mana Costs Converted to Life Costs",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 4744, 1077 },
 				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["talisman"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 13 to 16 Fire Damage",
 				"15% of Skill Mana Costs Converted to Life Costs",
 				"Bonded: 30% increased Ignite Magnitude",
 				statOrder = { 832, 4744, 1077 },
 				tradeHashes = { [2480498143] = { "15% of Skill Mana Costs Converted to Life Costs" }, [709508406] = { "Adds 13 to 16 Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rune of Confrontation"] = {
 		["quarterstaff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",
 				statOrder = { 6873, 9609 },
 				tradeHashes = { [1181501418] = { "-10 to Maximum Rage" }, [2709367754] = { "Gain 4 Rage on Melee Hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["spear"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",
 				statOrder = { 6873, 9609 },
 				tradeHashes = { [1181501418] = { "-10 to Maximum Rage" }, [2709367754] = { "Gain 4 Rage on Melee Hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 15 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 15 },
+=======
+				rank = 15,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Serle's Triumph"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"+1 Suffix Modifier allowed",
 				statOrder = { 19 },
 				tradeHashes = { [718638445] = { "+1 Suffix Modifier allowed" }, [1950607759] = { "" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"+1 Suffix Modifier allowed",
 				statOrder = { 19 },
 				tradeHashes = { [718638445] = { "+1 Suffix Modifier allowed" }, [1950607759] = { "" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"+1 Suffix Modifier allowed",
 				statOrder = { 19 },
 				tradeHashes = { [718638445] = { "+1 Suffix Modifier allowed" }, [1950607759] = { "" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Cadigan's Epiphany"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Destroys all Augment Sockets on the item to create a Jewel Socket",
 				statOrder = { 6240 },
 				tradeHashes = { [1933674044] = { "Destroys all Augment Sockets on the item to create a Jewel Socket" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Astrid's Creativity"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can have 1 additional Crafted Modifier",
 				statOrder = { 30 },
 				tradeHashes = { [1963398329] = { "Can have 1 additional Crafted Modifier" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can have 1 additional Crafted Modifier",
 				statOrder = { 30 },
 				tradeHashes = { [1963398329] = { "Can have 1 additional Crafted Modifier" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can have 1 additional Crafted Modifier",
 				statOrder = { 30 },
 				tradeHashes = { [1963398329] = { "Can have 1 additional Crafted Modifier" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Uhtred's Sidereus"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can roll Chronomancy modifiers",
 				"Bonded: 10% increased Cooldown Recovery Rate",
 				statOrder = { 10526, 4677 },
 				tradeHashes = { [3132681620] = { "Can roll Chronomancy modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Kolr's Hunt"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can roll Marksman modifiers",
 				"Bonded: 20% increased Projectile Damage",
 				statOrder = { 10529, 1738 },
 				tradeHashes = { [201332984] = { "Can roll Marksman modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Vorana's Carnage"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can roll Berserking modifiers",
 				"Bonded: Gain 2 Rage on Melee Hit",
 				statOrder = { 10528, 6873 },
 				tradeHashes = { [1770091046] = { "Can roll Berserking modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Thrud's Might"] = {
 		["weapon"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can roll Destruction modifiers",
 				"Bonded: +5% to all Elemental Resistances",
 				statOrder = { 10531, 1013 },
 				tradeHashes = { [1676950499] = { "Can roll Destruction modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can roll Destruction modifiers",
 				"Bonded: +5% to all Elemental Resistances",
 				statOrder = { 10531, 1013 },
 				tradeHashes = { [1676950499] = { "Can roll Destruction modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Medved's Tending"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can roll Soul modifiers",
 				"Bonded: 3% increased maximum Life",
 				"Bonded: 3% increased maximum Mana",
 				statOrder = { 10527, 889, 894 },
 				tradeHashes = { [1927467683] = { "Can roll Soul modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Katla's Gloom"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Can roll Decay modifiers",
 				"Bonded: 25% reduced Effect of Non-Damaging Ailments on you",
 				statOrder = { 10530, 9225 },
 				tradeHashes = { [2547063279] = { "Can roll Decay modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Aldur's Legacy"] = {
 		["weapon"] = {
 				type = "Rune",
+				localMod = false,
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
 				statOrder = { 6244 },
 				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["armour"] = {
 				type = "Rune",
+				localMod = false,
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
 				statOrder = { 6244 },
 				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["caster"] = {
 				type = "Rune",
+				localMod = false,
 				"When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power",
 				statOrder = { 6244 },
 				tradeHashes = { [1797890657] = { "When socketed into a Unique Kalguuran or Ezomyte item, destroys the item to create a Rune imbued with that item's power" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Bramblejack"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"250% of Melee Physical Damage taken reflected to Attacker",
 				"Bonded: Regenerate 3% of maximum Life per second while Surrounded",
 				statOrder = { 2241, 7510 },
 				tradeHashes = { [1092987622] = { "250% of Melee Physical Damage taken reflected to Attacker" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Blackbraid"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+50% of Armour also applies to Elemental Damage",
 				"Bonded: +15% to all Elemental Resistances",
 				statOrder = { 1027, 1013 },
 				tradeHashes = { [3362812763] = { "+50% of Armour also applies to Elemental Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Edyrns Tusks"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% chance to inflict Bleeding on Hit",
 				"50% reduced Slowing Potency of Debuffs on You",
 				"Bonded: 35% increased Thorns damage",
 				statOrder = { 4671, 4747, 10254 },
 				tradeHashes = { [2174054121] = { "50% chance to inflict Bleeding on Hit" }, [924253255] = { "50% reduced Slowing Potency of Debuffs on You" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Kingsguard"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Recover 5% of maximum Life for each Endurance Charge consumed",
 				"Bonded: +30 to maximum Life",
 				statOrder = { 9666, 887 },
 				tradeHashes = { [939832726] = { "Recover 5% of maximum Life for each Endurance Charge consumed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Bristleboar"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 5 Rage when Hit by an Enemy",
 				"Gain 10 Rage when Critically Hit by an Enemy",
 				"Bonded: +3 to Maximum Rage",
 				statOrder = { 6875, 6876, 9609 },
 				tradeHashes = { [3292710273] = { "Gain 5 Rage when Hit by an Enemy" }, [1466716929] = { "Gain 10 Rage when Critically Hit by an Enemy" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Foxshade"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"10% increased Movement Speed when on Full Life",
 				"100% increased Evasion Rating when on Full Life",
 				"Bonded: 20% increased Evasion Rating",
 				statOrder = { 1555, 6509, 884 },
 				tradeHashes = { [88817332] = { "100% increased Evasion Rating when on Full Life" }, [3393547195] = { "10% increased Movement Speed when on Full Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Ashrend"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Cannot be Ignited",
 				"-10 Physical Damage taken from Attack Hits",
 				"Bonded: +35% to Fire Resistance",
 				statOrder = { 1595, 1959, 1014 },
 				tradeHashes = { [331731406] = { "Cannot be Ignited" }, [3441651621] = { "-10 Physical Damage taken from Attack Hits" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Briskwrap"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain Deflection Rating equal to 30% of Evasion Rating",
 				"Bonded: 35% increased Flask Mana Recovery rate",
 				statOrder = { 1028, 899 },
 				tradeHashes = { [3033371881] = { "Gain Deflection Rating equal to 30% of Evasion Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of The Unleashed"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half",
 				"Bonded: 20% increased Armour while Shapeshifted",
 				statOrder = { 1459, 4393 },
 				tradeHashes = { [1311130924] = { "25% of Damage taken from Hits bypasses Energy Shield if Energy Shield is below half" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Horns of Bynden"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 1 Rage on Melee Hit",
 				"Every Rage also grants 1% increased Armour",
 				"Bonded: +3 to Maximum Rage",
 				statOrder = { 6873, 10644, 9609 },
 				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" }, [2995914769] = { "Every Rage also grants 1% increased Armour" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Wings of Caelyn"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 1 Rage on Melee Hit",
 				"Every Rage also grants 1% increased Stun Threshold",
 				"Bonded: Every five Rage also grants you 1% increased Movement Speed",
 				statOrder = { 6873, 10656, 9146 },
 				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" }, [352044736] = { "Every Rage also grants 1% increased Stun Threshold" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Ezomyte Peak"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"15% increased Area of Effect",
 				"Unwavering Stance",
 				"Bonded: 50% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 1630, 10724, 4747 },
 				tradeHashes = { [1683578560] = { "Unwavering Stance" }, [280731498] = { "15% increased Area of Effect" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Deidbell"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Warcries Explode Corpses dealing 10% of their Life as Physical Damage",
 				"Bonded: Warcry Skills have 20% increased Area of Effect",
 				statOrder = { 5780, 10514 },
 				tradeHashes = { [11014011] = { "Warcries Explode Corpses dealing 10% of their Life as Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Elevore"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Charms gain 1 charge per Second",
 				"+1 Charm Slot",
 				"Bonded: Charms gain 0.5 charges per Second",
 				statOrder = { 6889, 9316, 6889 },
 				tradeHashes = { [185580205] = { "Charms gain 1 charge per Second" }, [554899692] = { "+1 Charm Slot" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Starkonja's Head"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"100% increased Global Evasion Rating when on Low Life",
 				"5% of Damage from Hits is taken from your Damageable Companion's Life before you",
 				"Bonded: 5% of Damage from Hits is taken from your Damageable Companion's Life before you",
 				statOrder = { 2315, 5730, 5730 },
 				tradeHashes = { [1150343007] = { "5% of Damage from Hits is taken from your Damageable Companion's Life before you" }, [2695354435] = { "100% increased Global Evasion Rating when on Low Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Crown of Thorns"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Pain Attunement",
 				"Bonded: 17 to 26 Physical Thorns damage",
 				statOrder = { 10717, 10261 },
 				tradeHashes = { [98977150] = { "Pain Attunement" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Greymake"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+50 to all Attributes",
 				"Bonded: +1 Maximum Life per Level",
 				statOrder = { 1145, 7470 },
 				tradeHashes = { [2897413282] = { "+50 to all Attributes" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Erian's Cobble"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+30 to Accuracy Rating",
 				"+10 to maximum Life",
 				"+10 to maximum Mana",
@@ -4268,1418 +7470,2487 @@ return {
 				"Bonded: +20 to maximum Energy Shield",
 				statOrder = { 880, 887, 892, 941, 976, 991, 1013, 1034, 881, 883, 885 },
 				tradeHashes = { [3325883026] = { "3 Life Regeneration per second" }, [3299347043] = { "+10 to maximum Life" }, [1050105434] = { "+10 to maximum Mana" }, [2901986750] = { "+5% to all Elemental Resistances" }, [1379411836] = { "+5 to all Attributes" }, [587431675] = { "10% increased Critical Hit Chance" }, [3917489142] = { "10% increased Rarity of Items found" }, [803737631] = { "+30 to Accuracy Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of The Smiling Knight"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Aggravate Bleeding on targets you Critically Hit with Attacks",
 				"Bonded: 20% increased Critical Hit Chance",
 				statOrder = { 4239, 976 },
 				tradeHashes = { [2438634449] = { "Aggravate Bleeding on targets you Critically Hit with Attacks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of The Vile Knight"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%",
 				"Bonded: 20% increased Presence Area of Effect",
 				statOrder = { 10396, 1069 },
 				tradeHashes = { [4258409981] = { "Deal 4% increased Damage with Hits to Rare or Unique Enemies for each second they've ever been in your Presence, up to a maximum of 200%" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Northpaw"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Base Critical Hit Chance for Attacks with Weapons is 7%",
 				"Bonded: 15% increased Critical Damage Bonus",
 				statOrder = { 9376, 980 },
 				tradeHashes = { [2635559734] = { "Base Critical Hit Chance for Attacks with Weapons is 7%" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Candlemaker"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"40% increased Fire Damage",
 				"Flammability Magnitude is doubled",
 				"Bonded: 20% increased Ignite Duration on Enemies",
 				statOrder = { 873, 5546, 1615 },
 				tradeHashes = { [1540254896] = { "Flammability Magnitude is doubled" }, [3962278098] = { "40% increased Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Deathblow"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Culling Strike",
 				"Bonded: Gain 30 Life per enemy killed",
 				statOrder = { 1775, 1042 },
 				tradeHashes = { [2524254339] = { "Culling Strike" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Legionstride"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+10% to Block chance",
 				"Bonded: 10% reduced Damage taken from Projectile Hits",
 				statOrder = { 1123, 2511 },
 				tradeHashes = { [1702195217] = { "+10% to Block chance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Trampletoe"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed",
 				"Bonded: 15% increased Global Physical Damage",
 				statOrder = { 9374, 1185 },
 				tradeHashes = { [2301852600] = { "Deal 10% of Overkill damage to enemies within 2 metres of the enemy killed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Briarpatch"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+15% to Thorns Critical Hit Chance",
 				"Bonded: 15% increased Thorns Critical Damage Bonus",
 				statOrder = { 4758, 4759 },
 				tradeHashes = { [2715190555] = { "+15% to Thorns Critical Hit Chance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Bushwhack"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Physical Damage is Pinning",
 				"Bonded: +20 to Dexterity",
 				statOrder = { 4735, 993 },
 				tradeHashes = { [2041668411] = { "Physical Damage is Pinning" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Wanderlust"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Your speed is unaffected by Slows",
 				"Bonded: 5% increased Movement Speed",
 				statOrder = { 9937, 836 },
 				tradeHashes = { [50721145] = { "Your speed is unaffected by Slows" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of The Knight-errant"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Iron Reflexes",
 				"Bonded: 25% increased Elemental Ailment Threshold",
 				statOrder = { 10711, 4266 },
 				tradeHashes = { [326965591] = { "Iron Reflexes" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Obern's Bastion"] = {
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"200% increased Stun Recovery",
 				"Bonded: 40% reduced Chill Duration on you",
 				"Bonded: 40% reduced Freeze Duration on you",
 				statOrder = { 1060, 1064, 1065 },
 				tradeHashes = { [2511217560] = { "200% increased Stun Recovery" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Dionadair"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Double Stun Threshold while Shield is Raised",
 				"Bonded: 15% increased Stun Threshold",
 				statOrder = { 7828, 2983 },
 				tradeHashes = { [3686997387] = { "Double Stun Threshold while Shield is Raised" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Wulfsbane"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Intimidate Enemies on Block for 8 seconds",
 				"Bonded: +25 to Strength",
 				statOrder = { 7379, 992 },
 				tradeHashes = { [3703496511] = { "Intimidate Enemies on Block for 8 seconds" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Chernobog's Pillar"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 1% of damage as Fire damage per 2% Chance to Block",
 				"Bonded: +30% to Chaos Resistance",
 				statOrder = { 9234, 1024 },
 				tradeHashes = { [3170380905] = { "Gain 1% of damage as Fire damage per 2% Chance to Block" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Alkem Eira"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"30% of damage Blocked is Recouped as Mana",
 				"Bonded: 20% of damage Blocked is Recouped as Mana",
 				statOrder = { 5964, 5964 },
 				tradeHashes = { [2875218423] = { "30% of damage Blocked is Recouped as Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Oaksworn"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Life Regeneration rate",
 				"Bonded: 50 Life Regeneration per second",
 				statOrder = { 1036, 1034 },
 				tradeHashes = { [44972811] = { "50% increased Life Regeneration rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Dunkelhalt"] = {
 		["buckler"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Parried Debuff Magnitude",
 				"Bonded: 50% increased Parry Damage",
 				statOrder = { 9379, 9384 },
 				tradeHashes = { [818877178] = { "50% increased Parried Debuff Magnitude" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Rondel de Ezo"] = {
 		["buckler"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Curse Enemies with Enfeeble on Block",
 				"Bonded: 100% increased Block chance against Projectiles",
 				statOrder = { 5933, 4936 },
 				tradeHashes = { [3830953767] = { "Curse Enemies with Enfeeble on Block" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Brynhand's Mark"] = {
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Causes Double Stun Buildup",
 				"Bonded: Adds 14 to 20 Physical Damage",
 				statOrder = { 7695, 1207 },
 				tradeHashes = { [769129523] = { "Causes Double Stun Buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Trenchtimbre"] = {
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Increases and Reductions to Minion Attack Speed also affect you",
 				"Bonded: +1 to Level of all Minion Skills",
 				statOrder = { 3428, 972 },
 				tradeHashes = { [2293111154] = { "Increases and Reductions to Minion Attack Speed also affect you" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Mjolner"] = {
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+200 Intelligence Requirement",
 				"+3 to Level of all Lightning Skills",
 				"Bonded: +1 to Level of all Lightning Skills",
 				statOrder = { 820, 962, 962 },
 				tradeHashes = { [2153364323] = { "+200 Intelligence Requirement" }, [1147690586] = { "+3 to Level of all Lightning Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Twisted Empyrean"] = {
 		["two hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Attacks with this Weapon have Added Cold Damage equal to 6% to 10% of maximum Mana",
 				"Bonded: 15% of Damage is taken from Mana before Life",
 				statOrder = { 7626, 2472 },
 				tradeHashes = { [1699409732] = { "Attacks with this Weapon have Added Cold Damage equal to 0% to 10% of maximum Mana" }, [3867147347] = { "Attacks with this Weapon have Added Cold Damage equal to 6% to 0% of maximum Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Hoghunt"] = {
 		["two hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"+5% to Critical Hit Chance",
 				"Maim on Critical Hit",
 				"Bonded: 25% increased Attack Damage against Maimed Enemies",
 				statOrder = { 944, 7614, 4528 },
 				tradeHashes = { [518292764] = { "+5% to Critical Hit Chance" }, [2895144208] = { "Maim on Critical Hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Hrimnor's Hymn"] = {
 		["two hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"25% chance for Slam Skills you use yourself to cause an additional Aftershock",
 				"Bonded: 15% chance for Slam Skills you use yourself to cause an additional Aftershock",
 				statOrder = { 10626, 10626 },
 				tradeHashes = { [2045949233] = { "25% chance for Slam Skills you use yourself to cause an additional Aftershock" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Brain Rattler"] = {
 		["two hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"All damage with this Weapon causes Electrocution buildup",
 				"Bonded: Damage Penetrates 10% Lightning Resistance",
 				statOrder = { 7609, 2726 },
 				tradeHashes = { [1910743684] = { "All damage with this Weapon causes Electrocution buildup" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Lifesprig"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+2 to Level of all Spell Skills",
 				"Bonded: Leeches 1% of maximum Life when you Cast a Spell",
 				statOrder = { 950, 7459 },
 				tradeHashes = { [124131830] = { "+2 to Level of all Spell Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Duality"] = {
 		["quarterstaff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 250 Guard for 0.5 seconds per Combo expended when using Skills",
 				"Bonded: Gain Finality for 0.2 seconds per Combo expended when using Skills",
 				statOrder = { 10400, 6785 },
 				tradeHashes = { [2443032293] = { "Gain 250 Guard for 0.5 seconds per Combo expended when using Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Tyranny's Grip"] = {
 		["spear"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Strikes deal Splash Damage",
 				"Bonded: Knocks Enemies Back on Hit",
 				statOrder = { 1137, 1409 },
 				tradeHashes = { [3675300253] = { "Strikes deal Splash Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of The Sentry"] = {
 		["quarterstaff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Adds 23 to 34 Fire damage to Attacks",
 				"100% increased Flammability Magnitude",
 				"Bonded: +2% to Maximum Fire Resistance",
 				statOrder = { 859, 1055, 1009 },
 				tradeHashes = { [2968503605] = { "100% increased Flammability Magnitude" }, [1573130764] = { "Adds 23 to 34 Fire damage to Attacks" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Adonia's Ego"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+1 to Maximum Power Charges",
 				"Bonded: +65 to maximum Mana",
 				statOrder = { 1569, 892 },
 				tradeHashes = { [227523295] = { "+1 to Maximum Power Charges" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Cursecarver"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+3 to Level of all Curse Skills",
 				"Bonded: 35% increased Mana Regeneration Rate",
 				statOrder = { 971, 1043 },
 				tradeHashes = { [805298720] = { "+3 to Level of all Curse Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Dusk Vigil"] = {
 		["staff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 30% of Physical Damage as Extra Fire Damage",
 				"Bonded: Triggered Spells deal 20% increased Spell Damage",
 				statOrder = { 1674, 10323 },
 				tradeHashes = { [1936645603] = { "Gain 30% of Physical Damage as Extra Fire Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of The Blood Thorn"] = {
 		["quarterstaff"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Adds 4 to 8 Physical Damage",
 				"Causes Bleeding on Hit",
 				"Bonded: 10% increased Magnitude of Bleeding you inflict",
 				statOrder = { 831, 2261, 4809 },
 				tradeHashes = { [2091621414] = { "Causes Bleeding on Hit" }, [1940865751] = { "Adds 4 to 8 Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Quill Rain"] = {
 		["bow"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Attack Speed",
 				"20% less Attack Damage",
 				"Bonded: 70% increased Arrow Speed",
 				statOrder = { 946, 2240, 1552 },
 				tradeHashes = { [210067635] = { "50% increased Attack Speed" }, [412462523] = { "20% less Attack Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Ironbound"] = {
 		["bow"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Hits with this weapon have 1 to 3 Added Physical Damage per 1% Block Chance",
 				"Bonded: 3% increased Block chance per 100 total Item Armour on Equipped Armour Items",
 				statOrder = { 2676, 1134 },
 				tradeHashes = { [2036307261] = { "Hits with this weapon have 1 to 3 Added Physical Damage per 1% Block Chance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Amor Mandragora"] = {
 		["talisman"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 1 Druidic Prowess for every 20 total Rage spent",
 				"Bonded: Enemies in your Presence are Hindered",
 				statOrder = { 6774, 4695 },
 				tradeHashes = { [1273508088] = { "Gain 1 Druidic Prowess for every 20 total Rage spent" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Spiteful Floret"] = {
 		["talisman"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Every 5 Rage also grants 5% of Damage taken Recouped as Life",
 				"Bonded: Attacks have 20% chance to cause Bleeding",
 				statOrder = { 10562, 2270 },
 				tradeHashes = { [1895552497] = { "Every 5 Rage also grants 5% of Damage taken Recouped as Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Svalinn"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Chance to Block Damage is Lucky",
 				"You take 20% of damage from Blocked Hits",
 				"Bonded: +50 to maximum Runic Ward",
 				statOrder = { 4662, 4663, 890 },
 				tradeHashes = { [2905515354] = { "You take 20% of damage from Blocked Hits" }, [2957287092] = { "Chance to Block Damage is Lucky" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Keeper of the Arc"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Alternating every 5 seconds:",
 				"Take 20% less Damage from Hits",
 				"Take 20% less Damage over time",
 				"Bonded: 25% increased Mana Regeneration Rate",
 				statOrder = { 6965, 6965.1, 6965.2, 1043 },
 				tradeHashes = { [258955603] = { "Alternating every 5 seconds:", "Take 20% less Damage from Hits", "Take 20% less Damage over time" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Olrovasara"] = {
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"On Hitting an enemy, gains maximum added Lightning damage equal to",
 				"the enemy's Power for 20 seconds, up to a total of 120",
 				"Bonded: 15% increased Attack Speed",
 				statOrder = { 7800, 7800.1, 985 },
 				tradeHashes = { [3538915253] = { "On Hitting an enemy, gains maximum added Lightning damage equal to", "the enemy's Power for 20 seconds, up to a total of 120" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of A Worthy Foe"] = {
 		["shield"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Off-hand Hits inflict Runefather's Challenge",
 				"Bonded: +45% to Cold Resistance",
 				statOrder = { 10566, 1020 },
 				tradeHashes = { [3430033313] = { "Off-hand Hits inflict Runefather's Challenge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Serle's Grit"] = {
 		["one hand mace"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"Maximum Quality is 40%",
 				"Bonded: Skills which Empower an Attack have 20% chance to not count that Attack",
 				statOrder = { 614, 5404 },
 				tradeHashes = { [275498888] = { "Maximum Quality is 40%" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Runeseeker's Call"] = {
 		["wand"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = true,
 				"75% increased effect of Socketed Runes",
 				"Bonded: +100 to maximum Mana",
 				statOrder = { 176, 892 },
 				tradeHashes = { [704409219] = { "75% increased effect of Socketed Runes" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Legacy of Facebreaker"] = {
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+1 to Armour per Strength",
 				"Bonded: 1% increased Damage per 15 Strength",
 				statOrder = { 6764, 6000 },
 				tradeHashes = { [1291132817] = { "+1 to Armour per Strength" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 65 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 65 },
+=======
+				rank = 65,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Emergent Vigour"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"+1 to maximum Life per 8 Armour on Equipped Helmet",
 				"Bonded: +20 to Spirit",
 				statOrder = { 6722, 895 },
 				tradeHashes = { [2785209416] = { "+1 to maximum Life per 8 Armour on Equipped Helmet" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain Maximum Energy Shield equal to 50% of total",
 				"Strength Requirements of Equipped Armour Items",
 				"Bonded: +20 to Strength",
 				statOrder = { 6812, 6812.1, 992 },
 				tradeHashes = { [2444976134] = { "Gain Maximum Energy Shield equal to 50% of total", "Strength Requirements of Equipped Armour Items" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Hits against you have no Critical Damage Bonus while on Consecrated Ground",
 				"Bonded: 20% increased Effect of Consecrated Ground you create",
 				statOrder = { 9818, 5748 },
 				tradeHashes = { [1800433827] = { "Hits against you have no Critical Damage Bonus while on Consecrated Ground" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Emergent Possibility"] = {
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"15% of Chaos Damage from Hits taken as a Damage of a random Element",
 				"Bonded: +13% to Chaos Resistance",
 				statOrder = { 2236, 1024 },
 				tradeHashes = { [4217453078] = { "15% of Chaos Damage from Hits taken as a Damage of a random Element" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 1% of Damage as Extra Damage of a random Element per",
 				"Rune Socketed in Equipped Items",
 				"Bonded: 20% increased Elemental Damage",
 				statOrder = { 9261, 9261.1, 1726 },
 				tradeHashes = { [3557924960] = { "Gain 1% of Damage as Extra Damage of a random Element per", "Rune Socketed in Equipped Items" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"50% increased Runic Ward Regeneration Rate while Sprinting",
 				"Bonded: 15% increased Runic Ward Cost Efficiency",
 				statOrder = { 10522, 4763 },
 				tradeHashes = { [2441825294] = { "50% increased Runic Ward Regeneration Rate while Sprinting" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Emergent Protection"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds",
 				"Bonded: 40% increased Endurance Charge Duration",
 				statOrder = { 6779, 1864 },
 				tradeHashes = { [901336307] = { "Gain 1 Endurance Charge on reaching Low Life, only once every 2 seconds" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Banners also grant 2% of Life Regenerated per second to affected targets",
 				"Bonded: Regenerate 0.5% of maximum Life per second",
 				statOrder = { 4657, 1691 },
 				tradeHashes = { [119336587] = { "Banners also grant 2% of Life Regenerated per second to affected targets" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds",
 				"Bonded: 20% increased Guard gained",
 				statOrder = { 6804, 6951 },
 				tradeHashes = { [293832783] = { "When you stop Sprinting, gain Guard equal to 4% of maximum Life per second spent Sprinting, up to a maximum of 20%, for 4 seconds" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Emergent Instinct"] = {
 		["helmet"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits",
 				"Bonded: 30% increased Immobilisation buildup",
 				statOrder = { 7212, 7193 },
 				tradeHashes = { [2889034188] = { "Targets that are Blinded, Maimed, and Bleeding cannot Evade your Hits" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently",
 				"Bonded: 20% increased Life Regeneration rate",
 				statOrder = { 7487, 1036 },
 				tradeHashes = { [445996047] = { "Regenerate 5% of maximum Life per Second if you have used a Command Skill Recently" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "Rune",
+				limit = 1,
+				localMod = false,
 				"Thorns Damage is Lucky against targets with Fully Broken Armour",
 				"Bonded: 30% increased Thorns damage",
 				statOrder = { 10253, 10254 },
 				tradeHashes = { [1871622140] = { "Thorns Damage is Lucky against targets with Fully Broken Armour" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Sirrius"] = {
 		["gloves"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"8% increased Attack Speed",
 				"Bonded: 20% reduced Slowing Potency of Debuffs on You",
 				statOrder = { 985, 4747 },
 				tradeHashes = { [681332047] = { "8% increased Attack Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Allies in your Presence have 8% increased Movement Speed",
 				"Bonded: 4% increased Movement Speed",
 				statOrder = { 4287, 836 },
 				tradeHashes = { [632743438] = { "Allies in your Presence have 8% increased Movement Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Thruldana"] = {
 		["weapon"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"25% reduced Poison Duration",
 				"Targets can be affected by +1 of your Poisons at the same time",
 				"Bonded: Gain 13% of Physical Damage as extra Chaos Damage",
 				statOrder = { 2896, 9327, 1677 },
 				tradeHashes = { [1755296234] = { "Targets can be affected by +1 of your Poisons at the same time" }, [2011656677] = { "25% reduced Poison Duration" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Allies in your Presence deal 13 to 27 added Attack Chaos Damage",
 				"Bonded: 15% increased Withered Magnitude",
 				statOrder = { 911, 10556 },
 				tradeHashes = { [262946222] = { "Allies in your Presence deal 13 to 27 added Attack Chaos Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Grold"] = {
 		["boots"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"50% increased total Power counted by Warcries",
 				"Bonded: 30% increased Glory generation",
 				statOrder = { 10512, 6914 },
 				tradeHashes = { [2663359259] = { "50% increased total Power counted by Warcries" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"15% increased Damage per each different Companion in your Presence",
 				"Bonded: 15% increased Reservation Efficiency of Companion Skills",
 				statOrder = { 5953, 9764 },
 				tradeHashes = { [3151560620] = { "15% increased Damage per each different Companion in your Presence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Eeshta"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"15% increased Cost Efficiency",
 				"Bonded: Meta Skills have 15% increased Reservation Efficiency",
 				statOrder = { 4743, 9766 },
 				tradeHashes = { [263495202] = { "15% increased Cost Efficiency" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"15% increased Mana Recovery rate while your Companion is in your Presence",
 				"Bonded: 8% increased Life Recovery Rate while your Companion is in your Presence",
 				statOrder = { 7996, 7485 },
 				tradeHashes = { [1779262102] = { "15% increased Mana Recovery rate while your Companion is in your Presence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Egrin"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Enemies you Curse take 6% increased Damage",
 				"Bonded: 20% increased Area of Effect of Curses",
 				statOrder = { 3433, 1950 },
 				tradeHashes = { [1984310483] = { "Enemies you Curse take 6% increased Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"20% increased Curse Duration",
 				"Bonded: Curse zones erupt after 20% reduced delay",
 				statOrder = { 1540, 4678 },
 				tradeHashes = { [3824372849] = { "20% increased Curse Duration" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Maxarius"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"+1 Charm Slot",
 				"Bonded: Storm Skills have +1 to Limit",
 				statOrder = { 9316, 10110 },
 				tradeHashes = { [554899692] = { "+1 Charm Slot" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Flasks gain 0.2 charges per Second",
 				"Bonded: 20% increased Life and Mana Recovery from Flasks",
 				statOrder = { 6888, 6644 },
 				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Ralakesh"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"8% increased Reservation Efficiency of Minion Skills",
 				"Bonded: Minions Revive 8% faster",
 				statOrder = { 9767, 9085 },
 				tradeHashes = { [1805633363] = { "8% increased Reservation Efficiency of Minion Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence",
 				"Bonded: Companions have 25% increased maximum Life",
 				statOrder = { 6904, 5726 },
 				tradeHashes = { [2829985691] = { "40% increased Armour, Evasion and Energy Shield while your Companion is in your Presence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Snake Idol"] = {
 		["gloves"] = {
 				type = "Idol",
+				localMod = false,
 				"8% increased Curse Magnitudes",
 				"Bonded: Remnants you create have 15% increased effect",
 				statOrder = { 2376, 9736 },
 				tradeHashes = { [2353576063] = { "8% increased Curse Magnitudes" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence have 10% increased Attack Speed",
 				"Bonded: 10% increased Skill Speed while Shapeshifted",
 				statOrder = { 918, 9916 },
 				tradeHashes = { [1998951374] = { "Allies in your Presence have 10% increased Attack Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Primate Idol"] = {
 		["helmet"] = {
 				type = "Idol",
+				localMod = false,
 				"Minions have 15% increased maximum Life",
 				"Bonded: Remnants can be collected from 30% further away",
 				statOrder = { 1026, 9738 },
 				tradeHashes = { [770672621] = { "Minions have 15% increased maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence deal 40% increased Damage",
 				"Bonded: 40% increased Damage while Shapeshifted",
 				statOrder = { 906, 5962 },
 				tradeHashes = { [1798257884] = { "Allies in your Presence deal 40% increased Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Owl Idol"] = {
 		["focus"] = {
 				type = "Idol",
+				localMod = false,
 				"12% increased Cooldown Recovery Rate",
 				"Bonded: 20% increased effect of Archon Buffs on you",
 				statOrder = { 4677, 4345 },
 				tradeHashes = { [1004011302] = { "12% increased Cooldown Recovery Rate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence have 10% increased Cast Speed",
 				"Bonded: 10% increased Skill Speed while Shapeshifted",
 				statOrder = { 919, 9916 },
 				tradeHashes = { [289128254] = { "Allies in your Presence have 10% increased Cast Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Cat Idol"] = {
 		["gloves"] = {
 				type = "Idol",
+				localMod = false,
 				"25% increased Accuracy Rating",
 				"Bonded: 30% increased Charm Charges gained",
 				statOrder = { 1332, 5605 },
 				tradeHashes = { [624954515] = { "25% increased Accuracy Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence have 14% increased Critical Hit Chance",
 				"Bonded: 25% increased Critical Hit Chance while Shapeshifted",
 				statOrder = { 916, 5835 },
 				tradeHashes = { [1250712710] = { "Allies in your Presence have 14% increased Critical Hit Chance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Wolf Idol"] = {
 		["gloves"] = {
 				type = "Idol",
+				localMod = false,
 				"15% increased Magnitude of Bleeding you inflict",
 				"Bonded: 25% reduced Magnitude of Bleeding on You",
 				statOrder = { 4809, 4661 },
 				tradeHashes = { [3166958180] = { "15% increased Magnitude of Bleeding you inflict" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence have 20% increased Critical Damage Bonus",
 				"Bonded: 25% increased Critical Hit Chance while Shapeshifted",
 				statOrder = { 917, 5835 },
 				tradeHashes = { [3057012405] = { "Allies in your Presence have 20% increased Critical Damage Bonus" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Stag Idol"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Projectiles have 15% chance to Fork",
 				"Bonded: Projectiles have 25% chance for an additional Projectile when Forking",
 				statOrder = { 9544, 5515 },
 				tradeHashes = { [1549287843] = { "Projectiles have 15% chance to Fork" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Allies in your Presence deal 1 to 40 added Attack Lightning Damage",
 				"Bonded: 40% increased Attack Damage while Shapeshifted",
 				statOrder = { 910, 4519 },
 				tradeHashes = { [2854751904] = { "Allies in your Presence deal 1 to 40 added Attack Lightning Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Boar Idol"] = {
 		["gloves"] = {
 				type = "Idol",
+				localMod = false,
 				"Gain 1 Rage on Melee Hit",
 				"Bonded: 25% increased Warcry Cooldown Recovery Rate",
 				statOrder = { 6873, 3035 },
 				tradeHashes = { [2709367754] = { "Gain 1 Rage on Melee Hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence Regenerate 0.5% of your Maximum Life per second",
 				"Bonded: 25% increased Life Regeneration rate while Shapeshifted",
 				statOrder = { 923, 7504 },
 				tradeHashes = { [1911097163] = { "Allies in your Presence Regenerate 0.5% of your Maximum Life per second" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Bear Idol"] = {
 		["helmet"] = {
 				type = "Idol",
+				localMod = false,
 				"10% increased Area of Effect",
 				"Bonded: 12% increased Reservation Efficiency of Companion Skills",
 				statOrder = { 1630, 9764 },
 				tradeHashes = { [280731498] = { "10% increased Area of Effect" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence deal 12 to 18 added Attack Physical Damage",
 				"Bonded: 40% increased Attack Damage while Shapeshifted",
 				statOrder = { 907, 4519 },
 				tradeHashes = { [1574590649] = { "Allies in your Presence deal 12 to 18 added Attack Physical Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Ox Idol"] = {
 		["shield"] = {
 				type = "Idol",
+				localMod = true,
 				"15% increased Block chance",
 				"Bonded: 15% chance for Damage of Enemies Hitting you to be Unlucky",
 				statOrder = { 839, 6403 },
 				tradeHashes = { [2481353198] = { "15% increased Block chance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["buckler"] = {
 				type = "Idol",
+				localMod = true,
 				"15% increased Block chance",
 				"Bonded: 15% chance for Damage of Enemies Hitting you to be Unlucky",
 				statOrder = { 839, 6403 },
 				tradeHashes = { [2481353198] = { "15% increased Block chance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				localMod = false,
 				"Allies in your Presence have +12% to all Elemental Resistances",
 				"Bonded: +20% of Armour also applies to Elemental Damage while Shapeshifted",
 				statOrder = { 920, 10564 },
 				tradeHashes = { [3850614073] = { "Allies in your Presence have +12% to all Elemental Resistances" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Rabbit Idol"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"12% increased Rarity of Items found",
 				"Bonded: 10% increased Quantity of Gold Dropped by Slain Enemies",
 				statOrder = { 941, 6917 },
 				tradeHashes = { [3917489142] = { "12% increased Rarity of Items found" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = true,
 				"15% increased Spirit",
 				"Bonded: Minions have 30% increased Cooldown Recovery Rate for Command Skills",
 				statOrder = { 857, 9024 },
 				tradeHashes = { [3984865854] = { "15% increased Spirit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Fox Idol"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Idols socketed in this item gain the benefits of their Bonded modifiers",
 				"Bonded: +5% to Quality of all Skills",
 				statOrder = { 7733, 975 },
 				tradeHashes = { [3843204282] = { "" }, [726496846] = { "Idols socketed in this item gain the benefits of their Bonded modifiers" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"50% increased Presence Area of Effect",
 				"Bonded: Minions have 30% increased Area of Effect",
 				statOrder = { 1069, 2759 },
 				tradeHashes = { [101878827] = { "50% increased Presence Area of Effect" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 0 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 0 },
+=======
+				rank = 0,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Greust"] = {
 		["shield"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"+25% of Armour also applies to Elemental Damage",
 				"Bonded: 12% increased Damage for each type of Elemental Ailment on Enemy",
 				statOrder = { 1027, 5954 },
 				tradeHashes = { [3362812763] = { "+25% of Armour also applies to Elemental Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["buckler"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Gain Deflection Rating equal to 20% of Evasion Rating",
 				"Bonded: 12% increased Damage for each type of Elemental Ailment on Enemy",
 				statOrder = { 1028, 5954 },
 				tradeHashes = { [3033371881] = { "Gain Deflection Rating equal to 20% of Evasion Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Companions deal 10% more Damage for each different type of dead Companion you have",
 				"Bonded: Recover 3% of maximum Life when one of your Minions is Revived",
 				statOrder = { 5719, 10596 },
 				tradeHashes = { [2882351629] = { "Companions deal 10% more Damage for each different type of dead Companion you have" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Yeena"] = {
 		["boots"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"30% increased Skill Effect Duration with Plant Skills",
 				"Bonded: Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time",
 				statOrder = { 9487, 5365 },
 				tradeHashes = { [4065951768] = { "30% increased Skill Effect Duration with Plant Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time",
 				"Bonded: 30% increased Skill Effect Duration with Plant Skills",
 				statOrder = { 5365, 9487 },
 				tradeHashes = { [2681952497] = { "Plants have a 25% chance to immediately Overgrow when they enter your Presence for the first time" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Eramir"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Skills have 10% chance to not remove Charges but still count as consuming them",
 				"Bonded: 15% chance for Charms you use to not consume Charges",
 				statOrder = { 5603, 5634 },
 				tradeHashes = { [2942439603] = { "Skills have 10% chance to not remove Charges but still count as consuming them" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Allies in your Presence share Charges with you",
 				"Bonded: 25% increased Endurance, Frenzy and Power Charge Duration",
 				statOrder = { 4290, 2761 },
 				tradeHashes = { [3329501096] = { "Allies in your Presence share Charges with you" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Oak"] = {
 		["boots"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"15% chance when you gain an Endurance Charge to gain an additional Endurance Charge",
 				"Bonded: +1 to Maximum Endurance Charges",
 				statOrder = { 5519, 1559 },
 				tradeHashes = { [1228682002] = { "15% chance when you gain an Endurance Charge to gain an additional Endurance Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead",
 				"Bonded: 40% increased Armour if you've consumed an Endurance Charge Recently",
 				statOrder = { 2010, 4387 },
 				tradeHashes = { [1881314095] = { "If you would gain an Endurance Charge, Allies in your Presence gain that Charge instead" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Alira"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"15% chance when you gain a Power Charge to gain an additional Power Charge",
 				"Bonded: +1 to Maximum Power Charges",
 				statOrder = { 5521, 1569 },
 				tradeHashes = { [3537994888] = { "15% chance when you gain a Power Charge to gain an additional Power Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"If you would gain a Power Charge, Allies in your Presence gain that Charge instead",
 				"Bonded: 40% increased maximum Energy Shield if you've consumed a Power Charge Recently",
 				statOrder = { 2012, 6417 },
 				tradeHashes = { [4226127445] = { "If you would gain a Power Charge, Allies in your Presence gain that Charge instead" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Kraityn"] = {
 		["gloves"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge",
 				"Bonded: +1 to Maximum Frenzy Charges",
 				statOrder = { 5520, 1564 },
 				tradeHashes = { [2916861134] = { "15% chance when you gain a Frenzy Charge to gain an additional Frenzy Charge" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead",
 				"Bonded: 40% increased Evasion Rating if you've consumed a Frenzy Charge Recently",
 				statOrder = { 2011, 6488 },
 				tradeHashes = { [2211478554] = { "If you would gain a Frenzy Charge, Allies in your Presence gain that Charge instead" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of Silk"] = {
 		["shield"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"15% increased Block chance while your Companion is in your Presence",
 				"Bonded: +3% to maximum Block chance",
 				statOrder = { 4939, 1734 },
 				tradeHashes = { [3087034595] = { "15% increased Block chance while your Companion is in your Presence" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["buckler"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Bonded: 30% increased Parry Range",
 				statOrder = { 4152 },
 				tradeHashes = { [2057883179] = { "" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Companions in your Presence gain 1 Rage on hit",
 				"Bonded: Companions have 30% increased Area of Effect",
 				statOrder = { 5739, 5715 },
 				tradeHashes = { [2652394701] = { "Companions in your Presence gain 1 Rage on hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of the Sycophant"] = {
 		["martial weapon wand or staff"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"-20% to all Elemental Resistances",
 				"Gain 20% of Damage as Extra Damage of a random Element",
 				"Bonded: -20% to Chaos Resistance",
 				"Bonded: Gain 20% of Damage as Extra Chaos Damage",
 				statOrder = { 1013, 9260, 1024, 1672 },
 				tradeHashes = { [3617669804] = { "Gain 20% of Damage as Extra Damage of a random Element" }, [2901986750] = { "-20% to all Elemental Resistances" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Companions in your Presence have -20% to all Elemental Resistances",
 				"Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element",
 				"Bonded: Allies in your Presence Gain 20% of Damage as Extra Chaos Damage",
 				"Bonded: Companions in your Presence have -20% to Chaos Resistance",
 				statOrder = { 5737, 5742, 4288, 5736 },
 				tradeHashes = { [1539508682] = { "Companions in your Presence have -20% to all Elemental Resistances" }, [4200448078] = { "Companions in your Presence Gain 20% of Damage as Extra Damage of a random Element" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of the Martyr"] = {
 		["martial weapon wand or staff"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"25% reduced Spirit",
 				"Meta Skills gain 40% increased Energy",
 				"Bonded: Invocated skills have 25% increased Maximum Energy",
 				"Bonded: Meta Skills have 25% reduced Reservation Efficiency",
 				statOrder = { 1417, 6410, 7385, 9766 },
 				tradeHashes = { [4236566306] = { "Meta Skills gain 40% increased Energy" }, [1416406066] = { "25% reduced Spirit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"40% reduced Presence Area of Effect",
 				"Aura Skills have 25% increased Magnitudes",
 				"Bonded: Allies in your Presence Regenerate 3% of your Maximum Life per second",
 				"Bonded: 25% reduced Life Regeneration rate",
 				statOrder = { 1069, 2574, 923, 1036 },
 				tradeHashes = { [101878827] = { "40% reduced Presence Area of Effect" }, [315791320] = { "Aura Skills have 25% increased Magnitudes" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Idol of the Pharisee"] = {
 		["martial weapon wand or staff"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"30% reduced maximum Mana",
 				"Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana",
 				"Bonded: 30% reduced Mana Cost Efficiency",
 				"Bonded: 12% increased Skill Speed while on Low Mana",
 				statOrder = { 894, 9259, 4718, 9915 },
 				tradeHashes = { [2748665614] = { "30% reduced maximum Mana" }, [1693515857] = { "Gain 2% of Damage as Extra Physical Damage per ten percent missing Mana" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"30% reduced Mana Cost Efficiency of Command Skills",
 				"Minions deal 60% increased Damage with Command Skills",
 				"Bonded: 25% reduced Reservation Efficiency of Minion Skills",
 				"Bonded: Temporary Minion Skills have +2 to Limit of Minions summoned",
 				statOrder = { 4719, 9027, 9767, 10247 },
 				tradeHashes = { [3742865955] = { "Minions deal 60% increased Damage with Command Skills" }, [553018427] = { "30% reduced Mana Cost Efficiency of Command Skills" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Panther Idol"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"+10% of Armour also applies to Chaos Damage",
 				"Bonded: +8% to Chaos Resistance",
 				statOrder = { 4645, 1024 },
 				tradeHashes = { [3972229254] = { "+10% of Armour also applies to Chaos Damage" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Minions have +20% to Chaos Resistance",
 				"Bonded: Minions have 20% additional Physical Damage Reduction",
 				statOrder = { 2668, 2022 },
 				tradeHashes = { [3837707023] = { "Minions have +20% to Chaos Resistance" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Hawk Idol"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"10% increased Deflection Rating",
 				"Bonded: +12% to Cold Resistance",
 				statOrder = { 6119, 1020 },
 				tradeHashes = { [3040571529] = { "10% increased Deflection Rating" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Companions have 12% increased Attack Speed",
 				"Bonded: 8% increased Attack Speed while your Companion is in your Presence",
 				statOrder = { 5716, 4556 },
 				tradeHashes = { [666077204] = { "Companions have 12% increased Attack Speed" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Stoat Idol"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"5% of Damage taken bypasses Energy Shield",
 				"Bonded: +12% to Lightning Resistance",
 				statOrder = { 1456, 1023 },
 				tradeHashes = { [2448633171] = { "5% of Damage taken bypasses Energy Shield" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["sceptre"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Companions have 25% increased maximum Life",
 				"Bonded: 25% increased Damage while your Companion is in your Presence",
 				statOrder = { 5726, 5961 },
 				tradeHashes = { [1805182458] = { "Companions have 25% increased maximum Life" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 50 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 50 },
+=======
+				rank = 50,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Carved Cunning"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Enemies which are on Full Life cannot Evade your Hits",
 				"Bonded: 30% increased Accuracy Rating",
 				statOrder = { 5305, 1332 },
 				tradeHashes = { [4111745607] = { "Enemies which are on Full Life cannot Evade your Hits" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Prevent +5% of Damage from Deflected Hits if you've",
 				"Deflected no Hits Recently",
 				"Bonded: 8% increased Deflection Rating",
 				statOrder = { 4680, 4680.1, 6119 },
 				tradeHashes = { [967155385] = { "Prevent +5% of Damage from Deflected Hits if you've", "Deflected no Hits Recently" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Gain Onslaught for 4 seconds when your Marks Activate",
 				"Bonded: Buffs on you expire 10% slower",
 				statOrder = { 6825, 5240 },
 				tradeHashes = { [1811977226] = { "Gain Onslaught for 4 seconds when your Marks Activate" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Carved Majesty"] = {
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"+3 to Spirit per Idol socketed in your Equipment",
 				"Bonded: 5% increased Spirit",
 				statOrder = { 4754, 1417 },
 				tradeHashes = { [1073847159] = { "+3 to Spirit per Idol socketed in your Equipment" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Companions gain Onslaught for 4 seconds on Hitting your Marked targets",
 				"Bonded: Companions deal 30% increased Damage",
 				statOrder = { 5733, 5722 },
 				tradeHashes = { [226999623] = { "Companions gain Onslaught for 4 seconds on Hitting your Marked targets" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"1% increased Movement Speed while Sprinting per Persistent Minion",
 				"Bonded: Minions have 12% increased maximum Life",
 				statOrder = { 10070, 1026 },
 				tradeHashes = { [3639405795] = { "1% increased Movement Speed while Sprinting per Persistent Minion" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Carved Mischief"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit",
 				"Bonded: Buffs on you expire 10% slower",
 				statOrder = { 6803, 5240 },
 				tradeHashes = { [3863682550] = { "Gain Guard equal to 10% of maximum Life for 4 seconds on taking Savage Hit" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"+5% to maximum Block chance if you've Blocked with a raised Shield Recently",
 				"Bonded: 20% increased Block chance",
 				statOrder = { 4207, 1133 },
 				tradeHashes = { [3617372509] = { "+5% to maximum Block chance if you've Blocked with a raised Shield Recently" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["body armour"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"200% increased Stun Threshold if you've been Stunned Recently",
 				"Bonded: 25% increased Stun Threshold",
 				statOrder = { 10132, 2983 },
 				tradeHashes = { [751944209] = { "200% increased Stun Threshold if you've been Stunned Recently" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Carved Tenacity"] = {
 		["helmet"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Enemies have no Critical Damage Bonus for 4 seconds after you Blind them",
 				"Bonded: 20% increased Blind Effect",
 				statOrder = { 6388, 4928 },
 				tradeHashes = { [25786091] = { "Enemies have no Critical Damage Bonus for 4 seconds after you Blind them" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["gloves"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds",
 				"Bonded: 15% increased Critical Hit Chance",
 				statOrder = { 5822, 976 },
 				tradeHashes = { [3370077792] = { "Enemies you Critically Hit get 100% reduced Life Regeneration Rate for 4 seconds" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 		["boots"] = {
 				type = "Idol",
+				limit = 1,
+				localMod = false,
 				"Your speed is Unaffected by Slows while Sprinting",
 				"Bonded: 8% increased Movement Speed while Sprinting",
 				statOrder = { 9939, 10069 },
 				tradeHashes = { [3128773415] = { "Your speed is Unaffected by Slows while Sprinting" },  },
+<<<<<<< HEAD
 				isSocketBound = false,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 	["Raven-Touched Shard"] = {
 		["helmet"] = {
 				type = "CongealedMist",
+				limit = 1,
+				localMod = true,
 				"Raven-Touched",
 				statOrder = { 10757 },
 				tradeHashes = { [3198163869] = { "Raven-Touched" },  },
+<<<<<<< HEAD
 				isSocketBound = true,
 				rank = { 60 },
+||||||| parent of ceeb282b7 (Add martial artist rune slots)
+				rank = { 60 },
+=======
+				rank = 60,
+>>>>>>> ceeb282b7 (Add martial artist rune slots)
 		},
 	},
 }
