@@ -180,7 +180,7 @@ for i,class in ipairs(data.classes) do
 
 	for indexAscendancy, ascendancy in ipairs(class.ascendancies) do
 		if ascendancy.id == "Witch3b" then
-			print("Ignoring Abysal Lich no way to handle from data.json")
+			print("Ignoring Abyssal Lich no way to handle from data.json")
 			goto nextAscendancy
 		end
 		if not ascendancy.name then
@@ -525,8 +525,8 @@ for i, classId in ipairs(classesNodeIds) do
 
 			local innerRadius= dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
 
-			local newInnerX = cX + math.cos(angleToCenter) * innerRadious
-			local newInnerY = cY + math.sin(angleToCenter) * innerRadious
+			local newInnerX = cX + math.cos(angleToCenter) * innerRadius
+			local newInnerY = cY + math.sin(angleToCenter) * innerRadius
 
 			local nodeAngle = tree.constants.orbitAnglesByOrbit[ascendancyNode.orbit + 1][ascendancyNode.orbitIndex + 1]
 			local orbitRadius = tree.constants.orbitRadii[ascendancyNode.orbit + 1]
@@ -608,6 +608,7 @@ for _, strFile in ipairs(fileAssets) do
 	end
 end
 -- build orbits info
+-- spell-checker: disable
 tree.assets={
 	CharacterAscendancyLineConnectorActive={
 		[1]="CharacterAscendancy_orbit_intermediateactive0.png"
@@ -880,6 +881,7 @@ tree.assets={
 		[1]="CharacterPlanned_orbit_normal1.png"
 	}
 }
+-- spell-checker: enable
 
 printf("Generating lua tree file")
 local out, err = io.open(fileTree, "w")
