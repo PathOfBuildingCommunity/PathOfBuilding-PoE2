@@ -43,9 +43,39 @@ jobs:
           command -v claude || npm install -g @anthropic-ai/claude-code
           command -v opencode || curl -fsSL https://opencode.ai/install | bash
 
+      - name: Checkout or create fix branch
+        id: branch_setup
+        run: |
+          BRANCH="ai-fix/issue-${{ steps.meta.outputs.issue_num }}"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
+          if git ls-remote --exit-code --heads origin "$BRANCH" > /dev/null 2>&1; then
+            echo "is_retry=true" >> "$GITHUB_OUTPUT"
+            echo "Branch $BRANCH exists — checking out for retry"
+            git checkout -b "$BRANCH" "origin/$BRANCH"
+          else
+            echo "is_retry=false" >> "$GITHUB_OUTPUT"
+            echo "Branch $BRANCH does not exist — creating fresh from dev"
+            git checkout -b "$BRANCH"
+          fi
+
       - name: Build agent prompt
         run: |
           ISSUE_BODY=$(jq -r '.issue.body' "$GITHUB_EVENT_PATH")
+
+          # If resuming an existing branch, include prior commit context so the
+          # agent knows what was already attempted and can build on or correct it
+          RETRY_CONTEXT=""
+          if [[ "${{ steps.branch_setup.outputs.is_retry }}" == "true" ]]; then
+            PREV_COMMITS=$(git log "origin/dev..HEAD" --oneline 2>/dev/null || echo "none")
+            RETRY_CONTEXT="
+          NOTE: A previous fix attempt exists on this branch. Prior commits:
+          ${PREV_COMMITS}
+
+          Review the existing changes and either build on them or correct them.
+          Do not revert work that is already correct."
+          fi
+
           cat > /tmp/fix-prompt.txt << PROMPT_EOF
           You are resolving GitHub issue #${{ steps.meta.outputs.issue_num }} in jay9297/PathOfBuilding-PoE2.
 
@@ -53,6 +83,7 @@ jobs:
 
           Body:
           ${ISSUE_BODY}
+          ${RETRY_CONTEXT}
 
           Follow the rules in CLAUDE.md. Make the minimal correct change.
           Add or update tests to cover your fix. Do NOT run tests yourself.
@@ -66,10 +97,9 @@ jobs:
       - name: Commit and push branch
         id: push
         run: |
-          BRANCH="ai-fix/issue-${{ steps.meta.outputs.issue_num }}"
+          BRANCH="${{ steps.branch_setup.outputs.branch }}"
           git config user.name "ai-agent[bot]"
           git config user.email "ai-agent@users.noreply.github.com"
-          git checkout -b "$BRANCH"
           git add -A
           if git diff --cached --quiet; then
             echo "::error::No changes produced by agent"
@@ -88,6 +118,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          source scripts/agent-lib.sh
           retry_op 3 10 gh issue comment ${{ steps.meta.outputs.issue_num }} \
             --body "⚠️ **AI Fix Failed**
 
@@ -145,6 +176,18 @@ jobs:
               -o /tmp/pob-test-image.tar
           fi
 
+      # Separated into its own step — no ${{ }} expressions here so the heredoc
+      # delimiter is never mangled by GitHub Actions' format() evaluator
+      - name: Build verify-fix prompt template
+        run: |
+          cat > /tmp/verify-fix-prompt-template.txt << 'PROMPT_EOF'
+          The AI agent previously made changes to fix a GitHub issue, but the test
+          suite is now failing. Fix the failing tests without reverting the original
+          fix. Make the minimal change needed. Follow CLAUDE.md.
+
+          Failing test output:
+          PROMPT_EOF
+
       - name: Verify and auto-fix loop
         run: |
           source scripts/agent-lib.sh
@@ -188,18 +231,12 @@ jobs:
               exit 1
             fi
 
-            # Build fix prompt from test failures
-            cat > /tmp/verify-fix-prompt.txt << 'PROMPT_EOF'
-            The AI agent previously made changes to fix a GitHub issue, but the test
-            suite is now failing. Fix the failing tests without reverting the original
-            fix. Make the minimal change needed. Follow CLAUDE.md.
-
-            Failing test output:
-            PROMPT_EOF
-            cat "$OUTPUT_FILE" >> /tmp/verify-fix-prompt.txt
+            # Rebuild prompt fresh each iteration with the latest failure output
+            cp /tmp/verify-fix-prompt-template.txt /tmp/verify-fix-prompt-current.txt
+            cat "$OUTPUT_FILE" >> /tmp/verify-fix-prompt-current.txt
 
             echo "🤖 Running agent to fix test failures (attempt $ATTEMPT)..."
-            run_agent_with_fallback /tmp/verify-fix-prompt.txt fix 20
+            run_agent_with_fallback /tmp/verify-fix-prompt-current.txt fix 20
 
             if git diff --quiet && git diff --cached --quiet; then
               echo "::error::Agent produced no changes — cannot recover from test failures"
@@ -207,10 +244,9 @@ jobs:
             fi
 
             git add -A
-            retry_op 5 10 \
-              git commit -m "fix(tests): address failures — attempt $ATTEMPT [ai-agent]
+            retry_op 5 10 git commit -m "fix(tests): address failures — attempt $ATTEMPT [ai-agent]
 
-              Issue: #${{ needs.apply-fix.outputs.issue_num }}"
+            Issue: #${{ needs.apply-fix.outputs.issue_num }}"
             retry_op 5 10 git push
           done
 
@@ -238,6 +274,17 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           source scripts/agent-lib.sh
+
+          # If a PR already exists for this branch (from a previous run), skip creation
+          EXISTING_PR=$(gh pr list \
+            --head "${{ needs.apply-fix.outputs.branch }}" \
+            --json number --jq '.[0].number' 2>/dev/null || echo "")
+
+          if [[ -n "$EXISTING_PR" ]]; then
+            echo "PR #${EXISTING_PR} already exists for this branch — skipping creation"
+            exit 0
+          fi
+
           retry_op 5 15 gh pr create \
             --base dev \
             --head "${{ needs.apply-fix.outputs.branch }}" \
