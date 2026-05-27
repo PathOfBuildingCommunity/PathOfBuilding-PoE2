@@ -542,7 +542,7 @@ skills["SupportBarbsPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
-					flag("ThornsDamageAppliesToHits"),
+					-- handled by TriggeredBarbsPlayer as an additionalGrantedEffect hard-coded in Modules/Data.lua
 				},
 			},
 			baseFlags = {
@@ -558,6 +558,35 @@ skills["SupportBarbsPlayer"] = {
 		},
 	}
 }
+			skills["TriggeredBarbsPlayer"] = {
+				name = "Barbs I",
+				hidden = true,
+				description = "Deal your thorns damage.",
+				skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+				cannotBeSupported = true,
+				qualityStats = {},
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Barbs I",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							thorns = true,
+						},
+						baseMods = {
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
+
 skills["SupportBarbsPlayerTwo"] = {
 	name = "Barbs II",
 	description = "Supports Melee Strike Skills. Supported Skills deal your Thorns Damage on Hit after you've Retaliated with Thorns Damage.",
@@ -578,7 +607,7 @@ skills["SupportBarbsPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
-					flag("ThornsDamageAppliesToHits"),
+					-- handled by TriggeredBarbsPlayerTwo as an additionalGrantedEffect hard-coded in Modules/Data.lua
 				},
 			},
 			baseFlags = {
@@ -594,6 +623,35 @@ skills["SupportBarbsPlayerTwo"] = {
 		},
 	}
 }
+			skills["TriggeredBarbsPlayerTwo"] = {
+				name = "Barbs II",
+				hidden = true,
+				description = "Deal your thorns damage.",
+				skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+				cannotBeSupported = true,
+				qualityStats = {},
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Barbs II",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							thorns = true,
+						},
+						baseMods = {
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
+
 skills["SupportBarbsPlayerThree"] = {
 	name = "Barbs III",
 	description = "Supports Melee Strike Skills. Supported Skills deal your Thorns Damage on Hit twice after you've Retaliated with Thorns Damage.",
@@ -614,8 +672,7 @@ skills["SupportBarbsPlayerThree"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["deal_thorns_damage_twice_on_hit_for_X_hits_after_thorns_trigger"] = {
-					flag("ThornsDamageAppliesToHits"),
-					flag("BarbsThornsTwiceOnHit"),
+					-- handled by TriggeredBarbsPlayerThree as an additionalGrantedEffect hard-coded in Modules/Data.lua
 				},
 			},
 			baseFlags = {
@@ -631,6 +688,36 @@ skills["SupportBarbsPlayerThree"] = {
 		},
 	}
 }
+			skills["TriggeredBarbsPlayerThree"] = {
+				name = "Barbs III",
+				hidden = true,
+				description = "Deal twice your thorns damage.",
+				skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+				cannotBeSupported = true,
+				qualityStats = {},
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Barbs III",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							thorns = true,
+						},
+						baseMods = {
+							mod("DoubleDamageChance", "BASE", 100, 0, 0),
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
+
 skills["SupportBattershoutPlayer"] = {
 	name = "Battershout",
 	description = "Supports Warcry Skills. Supported Skills Consume Fully Broken Armour to trigger Physical Damage explosions on Enemies within their range but cannot themselves Break Armour. ",
@@ -5250,6 +5337,11 @@ skills["TriggeredQuillburstPlayer"] = {
 			label = "Quill Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_spiked_gauntlets",
+			statMap = {
+				["display_skill_deals_thorns_damage"] = {
+					-- display only
+				},
+			},
 			baseFlags = {
 				thorns = true,
 			},

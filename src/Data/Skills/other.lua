@@ -9305,6 +9305,7 @@ skills["VoidIllusionSpawnPlayer"] = {
 				hidden = true,
 				fromItem = true,
 				skillTypes = { [SkillType.Damage] = true },
+				cannotBeSupported = true,
 				qualityStats = {},
 				levels = {
 					[1] = { levelRequirement = 0 },

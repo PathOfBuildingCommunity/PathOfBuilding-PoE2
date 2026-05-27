@@ -109,32 +109,122 @@ statMap = {
 #set SupportBarbsPlayer
 statMap = {
 	["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
-		flag("ThornsDamageAppliesToHits"),
+		-- handled by TriggeredBarbsPlayer as an additionalGrantedEffect hard-coded in Modules/Data.lua
 	},
 },
 #mods
 #skillEnd
+
+skills["TriggeredBarbsPlayer"] = {
+	name = "Barbs I",
+	hidden = true,
+	description = "Deal your thorns damage.",
+	skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+	cannotBeSupported = true,
+	qualityStats = {},
+	levels = {
+		[1] = { levelRequirement = 0 },
+	},
+	statSets = {
+		[1] = {
+			label = "Barbs I",
+			incrementalEffectiveness = 0,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				thorns = true,
+				triggeredOnHitBySupportedSkill = true,
+			},
+			baseMods = {
+			},
+			constantStats = {},
+			stats = {},
+			levels = {
+				[1] = {},
+			},
+		},
+	},
+}
 
 #skill SupportBarbsPlayerTwo
 #set SupportBarbsPlayerTwo
 statMap = {
 	["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
-		flag("ThornsDamageAppliesToHits"),
+		-- handled by TriggeredBarbsPlayerTwo as an additionalGrantedEffect hard-coded in Modules/Data.lua
 	},
 },
 #mods
 #skillEnd
 
+skills["TriggeredBarbsPlayerTwo"] = {
+	name = "Barbs II",
+	hidden = true,
+	description = "Deal your thorns damage.",
+	skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+	cannotBeSupported = true,
+	qualityStats = {},
+	levels = {
+		[1] = { levelRequirement = 0 },
+	},
+	statSets = {
+		[1] = {
+			label = "Barbs II",
+			incrementalEffectiveness = 0,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				thorns = true,
+				triggeredOnHitBySupportedSkill = true,
+			},
+			baseMods = {
+			},
+			constantStats = {},
+			stats = {},
+			levels = {
+				[1] = {},
+			},
+		},
+	},
+}
+
 #skill SupportBarbsPlayerThree
 #set SupportBarbsPlayerThree
 statMap = {
 	["deal_thorns_damage_twice_on_hit_for_X_hits_after_thorns_trigger"] = {
-		flag("ThornsDamageAppliesToHits"),
-		flag("BarbsThornsTwiceOnHit"),
+		-- handled by TriggeredBarbsPlayerThree as an additionalGrantedEffect hard-coded in Modules/Data.lua
 	},
 },
 #mods
 #skillEnd
+
+skills["TriggeredBarbsPlayerThree"] = {
+	name = "Barbs III",
+	hidden = true,
+	description = "Deal twice your thorns damage.",
+	skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+	cannotBeSupported = true,
+	qualityStats = {},
+	levels = {
+		[1] = { levelRequirement = 0 },
+	},
+	statSets = {
+		[1] = {
+			label = "Barbs III",
+			incrementalEffectiveness = 0,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+				thorns = true,
+				triggeredOnHitBySupportedSkill = true,
+			},
+			baseMods = {
+				mod("DoubleDamageChance", "BASE", 100, 0, 0),
+			},
+			constantStats = {},
+			stats = {},
+			levels = {
+				[1] = {},
+			},
+		},
+	},
+}
 
 #skill SupportBattershoutPlayer
 #set SupportBattershoutPlayer
@@ -1229,7 +1319,7 @@ statMap = {
 #set SupportQuillburstPlayer
 statMap = {
 	["trigger_spiked_gauntlets_for_X_hits_after_thorns_trigger"] = {
-		flag("EnableTriggeredQuillburst"),
+		-- display only
 	},
 },
 #mods
@@ -1238,6 +1328,11 @@ statMap = {
 #skill TriggeredQuillburstPlayer
 #set TriggeredQuillburstPlayer
 #flags thorns
+statMap = {
+	["display_skill_deals_thorns_damage"] = {
+		-- display only
+	},
+},
 #mods thorns area
 #skillEnd
 
