@@ -192,7 +192,7 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 		node.o = node.orbit
 		node.oidx = node.orbitIndex
 		node.dn = node.name
-		node.sd = node.stats
+		node.sd = node.stats or {}
 
 		node.__index = node
 		node.linkedId = { }
@@ -259,6 +259,14 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 				end
 				t_insert(self.classNotables[self.ascendNameMap[node.ascendancyName].class.name], node.dn)
 			end
+		end
+
+		if node.aliasNotableMap then
+			local aliasNotableMap = node.aliasNotableMap:lower()
+			if self.notableMap[aliasNotableMap] then
+				ConPrintf("Warning: aliasNotableMap '"..node.aliasNotableMap.."' for node '"..node.dn.."' is already used by notable '"..self.notableMap[aliasNotableMap].dn.."'.")
+			end
+			self.notableMap[node.aliasNotableMap:lower()] = node
 		end
 
 		-- Find the node group

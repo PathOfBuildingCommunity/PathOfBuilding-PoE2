@@ -299,8 +299,10 @@ for id, node in pairs(data.nodes) do
 		ascendancyGroups[ascendancyName].startId = node.isAscendancyStart and nodeId or ascendancyGroups[ascendancyName].startId
 		ascendancyGroups[ascendancyName][node.group] = true
 	else
-		nodeData["isJewelSocket"] = node.isJewelSocket and not node.isBlighted and true or nil
-		nodeData["containJewelSocket"] = node.isJewelSocket and node.isBlighted and true or nil
+		nodeData["isJewelSocket"] = node.isJewelSocket
+
+		-- enable support for voices_jewel_slot[n] in GrantedPassiveSkills
+		nodeData["aliasNotableMap"] = node.isJewelSocket and node.isBlighted and node.id or nil
 
 		if node.isBlighted then
 			nodeData["nodeOverlay"] = {
