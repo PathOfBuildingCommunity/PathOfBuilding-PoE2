@@ -63,7 +63,9 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 			enableGlobal2 = true,
 			gemId = gemData.id,
 			nameSpec = gemData.name,
-			skillId = gemData.grantedEffectId
+			skillId = gemData.grantedEffectId,
+			corrupted = self.skillsTab.defaultCorruptionState,
+			corruptLevel = self.skillsTab.defaultCorruptionLevel,
 		}
 	end
 
@@ -82,16 +84,16 @@ function GemSelectClass:CalcOutputWithThisGem(calcFunc, gemData, useFullDPS)
 	else
 		gemList[self.index] = nil
 	end
-	
+
 	self.skillsTab.displayGroup.displayGemList = displayGemList
-	
+
 	return output, gemInstance
 end
 
 function GemSelectClass:PopulateGemList()
 	wipeTable(self.gems)
 	local showAll = self.skillsTab.showSupportGemTypes == "ALL"
-	local showAwakened = self.skillsTab.showSupportGemTypes == "AWAKENED"
+	local showLineage = self.skillsTab.showSupportGemTypes == "LINEAGE"
 	local showNormal = self.skillsTab.showSupportGemTypes == "NORMAL"
 	local matchLevel = self.skillsTab.defaultGemLevel == "characterLevel"
 	local characterLevel = self.skillsTab.build and self.skillsTab.build.characterLevel or 1
@@ -110,8 +112,8 @@ function GemSelectClass:FilterSupport(gemId, gemData)
 	local showSupportTypes = self.skillsTab.showSupportGemTypes
 	return (not gemData.grantedEffect.support
 		or showSupportTypes == "ALL"
-		or (showSupportTypes == "NORMAL" and not gemData.grantedEffect.plusVersionOf)
-		or (showSupportTypes == "AWAKENED" and gemData.grantedEffect.plusVersionOf))
+		or (showSupportTypes == "NORMAL" and not gemData.grantedEffect.isLineage)
+		or (showSupportTypes == "LINEAGE" and gemData.grantedEffect.isLineage))
 end
 
 function GemSelectClass:BuildList(buf)
@@ -465,7 +467,9 @@ function GemSelectClass:Draw(viewPort, noTooltip)
 						nameSpec = gemData.name,
 						skillId = gemData.grantedEffectId,
 						displayEffect = nil,
-						gemData = gemData
+						gemData = gemData,
+						corruptLevel = self.skillsTab.defaultCorruptionLevel,
+						corrupted = self.skillsTab.defaultCorruptionState == true,
 					}
 				self:AddGemTooltip(gemInstance)
 				self.tooltip:AddSeparator(10)
@@ -569,7 +573,7 @@ function GemSelectClass:OnFocusLost()
 		if self.noMatches then
 			self:SetText("")
 		end
-		self:UpdateGem(true,true, true)
+		self:UpdateGem(true, true, true)
 	end
 end
 

@@ -3373,9 +3373,10 @@ function calcs.perform(env, skipEHP)
 			local baseLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemLevel")
 			local totalItemLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemItemLevel")
 			local totalSupportLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemSupportLevel")
+			local totalCorruptionLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemCorruptionLevel")
 
 			output.GemHasLevel = true
-			output.GemLevel = baseLevel + totalSupportLevel + totalItemLevel
+			output.GemLevel = m_max(baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel, 1)
 			
 			if env.player.breakdown then
 				env.player.breakdown.GemLevel = {}
@@ -3385,6 +3386,11 @@ function calcs.perform(env, skipEHP)
 				end
 				if totalItemLevel > 0 then
 					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
+				end
+				if totalCorruptionLevel > 0 then
+					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
+				elseif totalCorruptionLevel < 0 then
+					t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
 				end
 				t_insert(env.player.breakdown.GemLevel, s_format("= %d", output.GemLevel))
 			end
