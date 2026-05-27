@@ -1164,6 +1164,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			if self.tooltip:CheckForUpdate(node, self.showStatDifferences, self.tracePath, launch.devModeAlt, build.outputRevision, build.spec.allocMode) then
 				self:AddNodeTooltip(self.tooltip, node, build, incSmallPassiveSkillEffect)
 			end
+			self.tooltip.center = true
 			local ttWidth, ttHeight = self.tooltip:GetDynamicSize(viewPort)
 			local skillWidth, skillHeight = self.skillTooltip:GetDynamicSize(viewPort)
 
