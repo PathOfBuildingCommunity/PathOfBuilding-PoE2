@@ -457,7 +457,7 @@ describe("TestItemParse", function()
 			Sockets: J J J J J J
 		]])
 		item:BuildAndParseRaw()
-		
+
 		assert.are.equals(6, item.jewelSocketCount)
 	end)
 end)
