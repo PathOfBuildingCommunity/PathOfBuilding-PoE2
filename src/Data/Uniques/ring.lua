@@ -233,6 +233,7 @@ Implicits: 1
 ]],[[
 Sekhema's Resolve
 Ring
+Sockets: J
 Source: Drops from unique{Zarokh, the Temporal}
 Variant: Ruby
 Variant: Emerald
