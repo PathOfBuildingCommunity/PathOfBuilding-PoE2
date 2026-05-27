@@ -10,6 +10,7 @@ local skills, mod, flag, skill = ...
 skills["AlchemistsBoonPlayer"] = {
 	name = "Alchemist's Boon",
 	baseTypeName = "Alchemist's Boon",
+	icon = "Art/2DArt/SkillIcons/AlchemistsBoonSkill.dds",
 	color = 2,
 	description = "While active, grants you Flask charges passively and causes Life and Mana recovery from your Flasks to also apply to Allies in your Presence.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Aura] = true, [SkillType.AttackInPlace] = true, },
@@ -134,6 +135,7 @@ skills["AlchemistsBoonPlayer"] = {
 skills["BarragePlayer"] = {
 	name = "Barrage",
 	baseTypeName = "Barrage",
+	icon = "Art/2DArt/SkillIcons/RangerBarrageSkill.dds",
 	color = 2,
 	description = "Ready a volley of arrows or spears, Empowering your next Barrageable Bow or Projectile Spear Attack to Repeat multiple times. Consumes your Frenzy Charges on use to add additional repeats.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Cooldown] = true, [SkillType.ConsumesCharges] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.UsableWhileMounted] = true, },
@@ -287,6 +289,7 @@ skills["BarragePlayer"] = {
 skills["BloodHuntPlayer"] = {
 	name = "Blood Hunt",
 	baseTypeName = "Blood Hunt",
+	icon = "Art/2DArt/SkillIcons/HuntressBloodHuntSkillIcon.dds",
 	color = 2,
 	description = "Lunge at a target and skewers them. Hitting an enemy that has suffered Blood Loss will cause a blood explosion and also Consume Bleeding. This skill cannot be Ancestrally Boosted.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Movement] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.Spear] = true, [SkillType.CannotSpiritStrike] = true, [SkillType.SkillConsumesBleeding] = true, [SkillType.AttackInPlace] = true, },
@@ -477,6 +480,7 @@ skills["BloodHuntPlayer"] = {
 skills["BloodhoundsMarkPlayer"] = {
 	name = "Bloodhound's Mark",
 	baseTypeName = "Bloodhound's Mark",
+	icon = "Art/2DArt/SkillIcons/MarkoftheBloodhoundSkillIcon.dds",
 	color = 2,
 	description = "Mark a target, making them suffer Heavy Stun build up from Blood Loss. If they suffer enough Blood Loss while Marked, the Mark will Activate, Consuming itself and releasing an explosion of blood when they are killed or Heavy Stunned. The Mark's duration does not expire while the Marked target is suffering Blood Loss.",
 	skillTypes = { [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Mark] = true, [SkillType.Limit] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Cooldown] = true, },
@@ -594,6 +598,7 @@ skills["BloodhoundsMarkPlayer"] = {
 skills["BloodhoundsMarkExplosionPlayer"] = {
 	name = "Bloodhound's Mark Explosion",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/MarkoftheBloodhoundSkillIcon.dds",
 	description = "A violent explosion of blood that deals Attack damage but does not use your weapon's damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Physical] = true, [SkillType.UseGlobalStats] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -719,6 +724,7 @@ skills["BloodhoundsMarkExplosionPlayer"] = {
 skills["CombatFrenzyPlayer"] = {
 	name = "Combat Frenzy",
 	baseTypeName = "Combat Frenzy",
+	icon = "Art/2DArt/SkillIcons/RangerCombatFrenzySkill.dds",
 	color = 2,
 	description = "While active, grants you a Frenzy Charge when you Freeze, Electrocute or Pin an enemy. This can only occur once every few seconds.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.GeneratesCharges] = true, [SkillType.AttackInPlace] = true, },
@@ -834,6 +840,7 @@ skills["CombatFrenzyPlayer"] = {
 skills["SummonBeastPlayer"] = {
 	name = "Companion: {0}",
 	baseTypeName = "Companion: {0}",
+	icon = "Art/2DArt/SkillIcons/HuntressSummonCompanion.dds",
 	minionList = {
 	},
 	color = 2,
@@ -957,6 +964,7 @@ skills["SummonBeastPlayer"] = {
 skills["CullTheWeakPlayer"] = {
 	name = "Cull the Weak",
 	baseTypeName = "Cull the Weak",
+	icon = "Art/2DArt/SkillIcons/FrenziedLungeSkillIcon.dds",
 	color = 2,
 	description = "Dash to an enemy and run them through, Culling enemies if their life is low enough. If this Attack kills at least one enemy, it grants you a Frenzy Charge, with higher Rarity monsters granting additional Charges. Enemies around you that can be Culled will be highlighted.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.GeneratesCharges] = true, },
@@ -1081,6 +1089,7 @@ skills["CullTheWeakPlayer"] = {
 skills["DetonatingArrowPlayer"] = {
 	name = "Detonating Arrow",
 	baseTypeName = "Detonating Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerDetonatingArrowSkill.dds",
 	color = 2,
 	description = "Channel to charge up before firing off a burning arrow. At maximum stages, the arrow will create a Detonating explosion at the end of its flight.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Fire] = true, [SkillType.Channel] = true, [SkillType.Barrageable] = true, [SkillType.Area] = true, [SkillType.Bow] = true, [SkillType.GainsStages] = true, [SkillType.Detonator] = true, },
@@ -1256,6 +1265,7 @@ skills["DetonatingArrowPlayer"] = {
 skills["DisengagePlayer"] = {
 	name = "Disengage",
 	baseTypeName = "Disengage",
+	icon = "Art/2DArt/SkillIcons/ImpaleSkillIcon.dds",
 	color = 2,
 	description = "Jump back as you rupture the earth in front of you with spearpoints, damaging enemies. Consumes the Parried Debuff on Hitting enemies to release a shockwave and grant you a Frenzy Charge. This skill can be used while using other skills, and causes Strikes and Projectiles to miss you while jumping. This skill cannot be Ancestrally Boosted.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Movement] = true, [SkillType.Travel] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Jumping] = true, [SkillType.Spear] = true, [SkillType.CanCancelActions] = true, [SkillType.Cooldown] = true, [SkillType.CannotSpiritStrike] = true, [SkillType.GeneratesCharges] = true, [SkillType.SkillConsumesParried] = true, },
@@ -1451,6 +1461,7 @@ skills["DisengagePlayer"] = {
 skills["ElectrocutingArrowPlayer"] = {
 	name = "Electrocuting Arrow",
 	baseTypeName = "Electrocuting Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerElectrocutingRodSkill.dds",
 	color = 2,
 	description = "Fire an electrifying arrow that explodes in an Area on Hit. Hitting an enemy will attach an Electrocuting Rod to them, causing all incoming Lightning damage to build up Electrocution. This rod is removed when the enemy is next Electrocuted.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Lightning] = true, [SkillType.Duration] = true, [SkillType.CannotChain] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Barrageable] = true, [SkillType.CanBecomeArrowRain] = true, },
@@ -1588,6 +1599,7 @@ skills["ElectrocutingArrowPlayer"] = {
 skills["ElementalSunderingPlayer"] = {
 	name = "Elemental Sundering",
 	baseTypeName = "Elemental Sundering",
+	icon = "Art/2DArt/SkillIcons/HuntressExtraElements.dds",
 	color = 2,
 	description = "Plunge your Spear into the ground to emit a pulse that Consumes Freeze, Shock and Ignite on a number of nearby enemies, Allies and Corpses. The pulse itself deals no damage, but each Ailment Consumed causes an explosion of the corresponding elemental damage type.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Spear] = true, [SkillType.Melee] = true, [SkillType.Fire] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Nova] = true, [SkillType.SkillConsumesFreeze] = true, [SkillType.SkillConsumesIgnite] = true, [SkillType.SkillConsumesShock] = true, },
@@ -1896,6 +1908,7 @@ skills["ElementalSunderingPlayer"] = {
 skills["EscapeShotPlayer"] = {
 	name = "Escape Shot",
 	baseTypeName = "Escape Shot",
+	icon = "Art/2DArt/SkillIcons/RangerFrostEscapeShot.dds",
 	color = 2,
 	description = "Leap backwards, firing an icy arrow which can Chill or Freeze enemies around the location from which you escaped. This arrow will create Ice Fragments on impact.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Cold] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.Jumping] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CanCancelActions] = true, },
@@ -2026,6 +2039,7 @@ skills["EscapeShotPlayer"] = {
 skills["EscapeShotIceFragmentPlayer"] = {
 	name = "Ice Fragments",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Attack] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -2150,6 +2164,7 @@ skills["EscapeShotIceFragmentPlayer"] = {
 skills["ExplosiveSpearPlayer"] = {
 	name = "Explosive Spear",
 	baseTypeName = "Explosive Spear",
+	icon = "Art/2DArt/SkillIcons/HuntressRemoteMineSpear.dds",
 	color = 2,
 	description = "Hurl a single payload Spear that pierces through enemies and lodges in terrain where it lands. The Spear will explode at the end of its Detonation Time or if Detonated. Consumes a Frenzy Charge if you have one to explode immediately, dealing more damage in a cross-shaped area and creating Ignited Ground.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Spear] = true, [SkillType.Barrageable] = true, [SkillType.RangedAttack] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMounted] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Duration] = true, [SkillType.Limit] = true, [SkillType.CannotChain] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.Detonator] = true, },
@@ -2437,6 +2452,7 @@ skills["ExplosiveSpearPlayer"] = {
 skills["FangsOfFrostPlayer"] = {
 	name = "Fangs of Frost",
 	baseTypeName = "Fangs of Frost",
+	icon = "Art/2DArt/SkillIcons/FangsofFrostSkillIcon.dds",
 	color = 2,
 	description = "Perform an icy stab that exploits enemies who are already off balance. Hitting a Parried target Consumes the Debuff to cause an explosion of frost and leave Chilled Ground.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Spear] = true, [SkillType.Cold] = true, [SkillType.SkillConsumesParried] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.AttackInPlace] = true, },
@@ -2635,6 +2651,7 @@ skills["FangsOfFrostPlayer"] = {
 skills["FreezingSalvoPlayer"] = {
 	name = "Freezing Salvo",
 	baseTypeName = "Freezing Salvo",
+	icon = "Art/2DArt/SkillIcons/RangerFreezingSalvoSkill.dds",
 	color = 2,
 	description = "Passively coalesces icy missiles from the air over time. Using the skill fires a missile, firing an additional missile for each that has been accumulated. Fires an additional missile, up to its current missile count, targeting each Ice Fragment in its Area of effect, causing the Fragments to Detonate immediately.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.CannotChain] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.HasSeals] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.UsableWhileMoving] = true, },
@@ -2766,6 +2783,7 @@ skills["FreezingSalvoPlayer"] = {
 skills["GasArrowPlayer"] = {
 	name = "Gas Arrow",
 	baseTypeName = "Gas Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerGasCloudSkill.dds",
 	color = 2,
 	description = "Fire a noxious arrow at the ground, creating a cloud of flammable poisonous gas at the end of its flight. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Barrageable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Limit] = true, },
@@ -3048,6 +3066,7 @@ skills["GasArrowPlayer"] = {
 skills["GlacialLancePlayer"] = {
 	name = "Glacial Lance",
 	baseTypeName = "Glacial Lance",
+	icon = "Art/2DArt/SkillIcons/HuntressGlacialLance.dds",
 	color = 2,
 	description = "Throw a single Piercing lance that leaves icy fragments in its wake. The fragments Chill nearby enemies. Consumes a Frenzy Charge if possible to cause the glacial fragments created by the first Projectile to explode outwards after a short duration, peppering enemies with shrapnel.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Projectile] = true, [SkillType.Spear] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Barrageable] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Duration] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, },
@@ -3272,6 +3291,7 @@ skills["GlacialLancePlayer"] = {
 skills["HeraldOfPlaguePlayer"] = {
 	name = "Herald of Plague",
 	baseTypeName = "Herald of Plague",
+	icon = "Art/2DArt/SkillIcons/HeraldOfAgonySkill.dds",
 	color = 2,
 	description = "While active, killing a Poisoned enemy spreads its Poison to other nearby enemies, and has a chance to also Hinder them.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Herald] = true, [SkillType.Chaos] = true, [SkillType.AttackInPlace] = true, },
@@ -3402,6 +3422,7 @@ skills["HeraldOfPlaguePlayer"] = {
 skills["HeraldOfThunderPlayer"] = {
 	name = "Herald of Thunder",
 	baseTypeName = "Herald of Thunder",
+	icon = "Art/2DArt/SkillIcons/HeraldOfThunderSkill.dds",
 	color = 2,
 	description = "While active, killing Shocked enemies with a non-Herald Attack Hit will cause subsequent Attack Hits to release lightning bolts which deals Attack damage to all surrounding enemies.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Herald] = true, [SkillType.Attack] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
@@ -3592,6 +3613,7 @@ skills["HeraldOfThunderPlayer"] = {
 skills["IceShotPlayer"] = {
 	name = "Ice Shot",
 	baseTypeName = "Ice Shot",
+	icon = "Art/2DArt/SkillIcons/RangerIceShot.dds",
 	color = 2,
 	description = "Fire an icy arrow that sprays a cone of ice shards when it hits a target.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Barrageable] = true, [SkillType.Bow] = true, },
@@ -3792,6 +3814,7 @@ skills["IceShotPlayer"] = {
 skills["IceTippedArrowsPlayer"] = {
 	name = "Ice-Tipped Arrows",
 	baseTypeName = "Ice-Tipped Arrows",
+	icon = "Art/2DArt/SkillIcons/RangerShearingBolts.dds",
 	color = 2,
 	description = "Ready your active Bow or Spear, Empowering your next Barrageable Bow or Projectile Spear Attacks to Convert Physical Damage to Cold Damage and create Ice Fragments on Hit. This Skill's cooldown can be bypassed by expending a Frenzy Charge. Cannot Empower Sustained Skills.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Cooldown] = true, [SkillType.ConsumesCharges] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Cooldown] = true, [SkillType.CannotChain] = true, [SkillType.CannotTerrainChain] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.ProjectileNoCollision] = true, },
@@ -3912,6 +3935,7 @@ skills["IceTippedArrowsPlayer"] = {
 skills["IceTippedArrowsIceFragmentPlayer"] = {
 	name = "Ice Fragments",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Attack] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -4033,6 +4057,7 @@ skills["IceTippedArrowsIceFragmentPlayer"] = {
 skills["LightningArrowPlayer"] = {
 	name = "Lightning Arrow",
 	baseTypeName = "Lightning Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerLightningArrow.dds",
 	color = 2,
 	description = "Fire a charged arrow at the target. On hitting an enemy or wall, the arrow will fire Chaining Lightning beams at nearby enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, [SkillType.Barrageable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Chains] = true, [SkillType.Bow] = true, },
@@ -4240,6 +4265,7 @@ skills["LightningArrowPlayer"] = {
 skills["LightningRodPlayer"] = {
 	name = "Lightning Rod",
 	baseTypeName = "Lightning Rod",
+	icon = "Art/2DArt/SkillIcons/RangerLightningRodRainSkill.dds",
 	color = 2,
 	description = "Fire an arrow that drops from above, creating a Lightning burst. The arrow remains in the ground, and any Chaining Lightning beams can Chain to it. When Chained to, the arrows charge up for a brief period before releasing another Lightning burst. The Lightning Arrow Skill reduces this delay, causing bursts to happen more quickly.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Barrageable] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Lightning] = true, [SkillType.Sustained] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.ObjectDurability] = true, },
@@ -4369,6 +4395,7 @@ skills["LightningRodPlayer"] = {
 skills["LightningSpearPlayer"] = {
 	name = "Lightning Spear",
 	baseTypeName = "Lightning Spear",
+	icon = "Art/2DArt/SkillIcons/HuntressStormSpear.dds",
 	color = 2,
 	description = "Throw a single copy of your spear. When it hits an enemy it bursts, firing secondary lightning bolt Projectiles at multiple other enemies within a large area around it. Consumes a Frenzy Charge if possible to cause the main spear to split into multiple copies on impact, each of which then bursts.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Barrageable] = true, [SkillType.Spear] = true, [SkillType.UsableWhileMounted] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, },
@@ -4589,6 +4616,7 @@ skills["LightningSpearPlayer"] = {
 skills["MagneticSalvoPlayer"] = {
 	name = "Magnetic Salvo",
 	baseTypeName = "Magnetic Salvo",
+	icon = "Art/2DArt/SkillIcons/RangerMagneticSalvo.dds",
 	color = 2,
 	description = "Aim skyward and fires energy missiles at lingering bolts or arrows created by other Lightning Attacks in front of you. The missiles explode if they land close to a lingering bolt or arrow, dealing more damage in a larger area but destroying that bolt or arrow in the process.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Lightning] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, },
@@ -4773,6 +4801,7 @@ skills["MagneticSalvoPlayer"] = {
 skills["MetaMirageArcherPlayer"] = {
 	name = "Mirage Archer",
 	baseTypeName = "Mirage Archer",
+	icon = "Art/2DArt/SkillIcons/LingeringMirageSkill.dds",
 	color = 2,
 	description = "While active, dodge rolling will create a Mirage that uses socketed ranged Attacks for a short duration, then vanish.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Meta] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, },
@@ -4998,6 +5027,7 @@ skills["SupportMirageArcherPlayer"] = {
 skills["MirageArcherSpawnPlayer"] = {
 	name = "",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Proxy] = true, },
 	weaponTypes = {
 		["Bow"] = true,
@@ -5115,6 +5145,7 @@ skills["MirageArcherSpawnPlayer"] = {
 skills["PhantasmalArrowPlayer"] = {
 	name = "Phantasmal Arrow",
 	baseTypeName = "Phantasmal Arrow",
+	icon = "Art/2DArt/SkillIcons/GhostfuseArrow.dds",
 	fromItem = true,
 	color = 2,
 	description = "Fires an arrow that embeds where it lands for a short duration. At the end of the duration, the arrow explodes in spectral flame, turning it to ashes and damaging enemies, with a high chance to Ignite. Igniting any enemy with the Explosion also applies Ignite to enemies within range.",
@@ -5321,6 +5352,7 @@ skills["PhantasmalArrowPlayer"] = {
 skills["PlagueBearerPlayer"] = {
 	name = "Plague Bearer",
 	baseTypeName = "Plague Bearer",
+	icon = "Art/2DArt/SkillIcons/RangerPlagueBearerSkill.dds",
 	color = 2,
 	description = "While active, stores a portion of the Poison Damage you deal. Using this Skill unleashes the stored Poison to damage and Poison enemies around you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, },
@@ -5437,6 +5469,7 @@ skills["PlagueBearerPlayer"] = {
 skills["PlagueBearerNovaPlayer"] = {
 	name = "Plague Bearer",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RangerPlagueBearerSkill.dds",
 	skillTypes = { [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.Damage] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -5557,6 +5590,7 @@ skills["PlagueBearerNovaPlayer"] = {
 skills["PoisonBurstArrowPlayer"] = {
 	name = "Poisonburst Arrow",
 	baseTypeName = "Poisonburst Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerPoisonBurstArrow.dds",
 	color = 2,
 	description = "Fire a virulent arrow that creates a burst of Poison on hit, affecting all enemies in an area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Barrageable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Duration] = true, [SkillType.Bow] = true, },
@@ -5764,6 +5798,7 @@ skills["PoisonBurstArrowPlayer"] = {
 skills["PrimalStrikesPlayer"] = {
 	name = "Primal Strikes",
 	baseTypeName = "Primal Strikes",
+	icon = "Art/2DArt/SkillIcons/PrimalStrikesSkillIcon.dds",
 	color = 2,
 	description = "Perform a Lightning-charged stab that can be chained into a combination of up to three attacks. The first two attacks conjure a charging Wildwood spirit if they Hit a Shocked enemy and refresh Shock duration. The third attack is a large swipe that inflicts Elemental Exposure, and can Consume Shock to conjure a stampede of spirits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Lightning] = true, [SkillType.Area] = true, [SkillType.PerformsFinalStrike] = true, [SkillType.SkillConsumesShock] = true, [SkillType.AttackInPlace] = true, },
@@ -6043,6 +6078,7 @@ skills["PrimalStrikesPlayer"] = {
 skills["RainOfArrowsPlayer"] = {
 	name = "Rain of Arrows",
 	baseTypeName = "Rain of Arrows",
+	icon = "Art/2DArt/SkillIcons/RangerRainOfArrowsSkill.dds",
 	color = 2,
 	description = "Fire a hail of arrows into the air, causing them to rain from above. Consumes a Frenzy Charge to fire more arrows.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.ConsumesCharges] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Sustained] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, },
@@ -6188,6 +6224,7 @@ skills["RainOfArrowsPlayer"] = {
 skills["RakePlayer"] = {
 	name = "Rake",
 	baseTypeName = "Rake",
+	icon = "Art/2DArt/SkillIcons/HuntressBloodHunt.dds",
 	color = 2,
 	description = "Dash towards an enemy and perform a lacerating slash, inflicting Bleeding on all enemies struck.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Spear] = true, [SkillType.Physical] = true, [SkillType.Movement] = true, },
@@ -6323,6 +6360,7 @@ skills["RakePlayer"] = {
 skills["RapidAssaultPlayer"] = {
 	name = "Rapid Assault",
 	baseTypeName = "Rapid Assault",
+	icon = "Art/2DArt/SkillIcons/HuntressRapidAssault.dds",
 	color = 2,
 	description = "Perform a series of six rapid stabs. The final stab inflicts Bleeding and leaves a spearhead stuck in the target, Maiming them for a duration. Detonator Skills will cause the stuck spearheads to explode, dealing further damage to the target and other nearby enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Area] = true, [SkillType.Spear] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
@@ -6574,6 +6612,7 @@ skills["RapidAssaultPlayer"] = {
 skills["RhoaMountPlayer"] = {
 	name = "Rhoa Mount",
 	baseTypeName = "Rhoa Mount",
+	icon = "Art/2DArt/SkillIcons/RhoaMountSkillIcon.dds",
 	minionList = {
 		"SummonedRhoa",
 	},
@@ -6692,6 +6731,7 @@ skills["RhoaMountPlayer"] = {
 skills["ShatteringSpitePlayer"] = {
 	name = "Shattering Spite",
 	baseTypeName = "Shattering Spite",
+	icon = "Art/2DArt/SkillIcons/AtzirisContempt.dds",
 	fromItem = true,
 	color = 2,
 	description = "Stamp your spear, destroying all Bloodstone Lances on each enemy in your Presence to cause a damaging explosion around that enemy. Each explosion gains new benefits when reaching higher thresholds of Bloodstone Lances removed from an enemy, causing them to deal more damage, have increased area of effect, and Leech Life from enemies caught in the blast.",
@@ -6817,6 +6857,7 @@ skills["ShatteringSpitePlayer"] = {
 skills["ShockchainArrowPlayer"] = {
 	name = "Shockchain Arrow",
 	baseTypeName = "Shockchain Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerShockchainSkill.dds",
 	color = 2,
 	description = "Fire a Lightning-charged arrow that homes in on enemies afflicted by Lightning Ailments. Hitting such an enemy will cause your arrow to release a damaging shockwave and Chain towards nearby targets, with those Chaining Hits also releasing a shockwave. After the final Chain, the arrow lodges into the ground as a Lightning Rod. Consumes Shock from enemies it Hits, but not Electrocution.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Triggerable] = true, [SkillType.Barrageable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Chains] = true, [SkillType.SkillConsumesShock] = true, [SkillType.Bow] = true, [SkillType.ObjectDurability] = true, },
@@ -7023,6 +7064,7 @@ skills["ShockchainArrowPlayer"] = {
 skills["SnipePlayer"] = {
 	name = "Snipe",
 	baseTypeName = "Snipe",
+	icon = "Art/2DArt/SkillIcons/RangerSnipeShotArrow.dds",
 	color = 2,
 	description = "Channel to charge up your bow before releasing a powerful shot. Releasing with Perfect Timing causes the arrow to explode on impact and Consume Freeze on directly Hitting. Consuming Freeze enhances the explosion.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Channel] = true, [SkillType.Barrageable] = true, [SkillType.Area] = true, [SkillType.PerfectTiming] = true, [SkillType.Bow] = true, [SkillType.Cold] = true, [SkillType.SkillConsumesFreeze] = true, },
@@ -7321,6 +7363,7 @@ skills["SnipePlayer"] = {
 skills["SnipersMarkPlayer"] = {
 	name = "Sniper's Mark",
 	baseTypeName = "Sniper's Mark",
+	icon = "Art/2DArt/SkillIcons/projectileweakness.dds",
 	color = 2,
 	description = "Mark a target. The next Critical Hit the target receives Activates the Mark, Consuming it to deal extra damage and grant you a Frenzy Charge.",
 	skillTypes = { [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.GeneratesCharges] = true, [SkillType.Mark] = true, [SkillType.Cooldown] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMounted] = true, },
@@ -7447,6 +7490,7 @@ skills["SnipersMarkPlayer"] = {
 skills["SpearOfSolarisPlayer"] = {
 	name = "Spear of Solaris",
 	baseTypeName = "Spear of Solaris",
+	icon = "Art/2DArt/SkillIcons/SolarisSpearSkillIcon.dds",
 	color = 2,
 	description = "Build Glory by inflicting Freeze, Shock or Ignite on enemies. When you have maximum Glory you may call forth the Azmeri goddess Solaris, jumping backwards and throwing your Spear in the air. On landing the spear deals heavy damage in an area, then calls a divine skybeam that pulses periodically and creates expanding Ignited Ground. Modifiers to number of Projectiles fired do not apply to this skill.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Fire] = true, [SkillType.RangedAttack] = true, [SkillType.Spear] = true, [SkillType.Sustained] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CannotChain] = true, [SkillType.Rain] = true, [SkillType.HasUsageCondition] = true, },
@@ -7726,6 +7770,7 @@ skills["SpearOfSolarisPlayer"] = {
 skills["SpearfieldPlayer"] = {
 	name = "Spearfield",
 	baseTypeName = "Spearfield",
+	icon = "Art/2DArt/SkillIcons/HuntressSpearField.dds",
 	color = 2,
 	description = "Stab the ground causing multiple spears to burst out of the ground in front of you in a large area. The spears remain for a duration, or explode when enemies touch them, damaging and Maiming them.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Sustained] = true, [SkillType.Spear] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
@@ -7925,6 +7970,7 @@ skills["SpearfieldPlayer"] = {
 skills["SpiralVolleyPlayer"] = {
 	name = "Spiral Volley",
 	baseTypeName = "Spiral Volley",
+	icon = "Art/2DArt/SkillIcons/RangerSpiralVolleySkill.dds",
 	color = 2,
 	description = "Load your Bow with a volley of enchanted arrows and fire them in a circle as you spin forward, firing directly at targets if possible. Consumes Frenzy Charges to cause the arrows to deal more damage and Chain to other targets. Each target can only be Hit once.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.Sustained] = true, [SkillType.ConsumesCharges] = true, [SkillType.Bow] = true, },
@@ -8062,6 +8108,7 @@ skills["SpiralVolleyPlayer"] = {
 skills["StormLancePlayer"] = {
 	name = "Storm Lance",
 	baseTypeName = "Storm Lance",
+	icon = "Art/2DArt/SkillIcons/HuntressOverchargedSpear.dds",
 	color = 2,
 	description = "Throw an electrified Spear that lodges in the ground and periodically zaps nearby enemies with Lightning bolts. If the Spear is Detonated by another Skill, it immediately unleashes a volley of bolts and expires. Consumes a Frenzy Charge if possible to fire bolts more frequently for a shorter duration, automatically Detonate at the end of its duration, and create Shocked Ground on Detonation.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Lightning] = true, [SkillType.Damage] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Spear] = true, [SkillType.Barrageable] = true, [SkillType.RangedAttack] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Sustained] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.CreatesGroundEffect] = true, },
@@ -8438,6 +8485,7 @@ skills["StormLancePlayer"] = {
 skills["StormcallerArrowPlayer"] = {
 	name = "Stormcaller Arrow",
 	baseTypeName = "Stormcaller Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerShockingArrow.dds",
 	color = 2,
 	description = "Fire an arrow that embeds where it lands for a short duration. At the end of the duration, a Lightning Bolt strikes the arrow, disintegrating it and damaging enemies, with a high chance to Shock. Shocking any enemy with the Bolt also applies Shock to all enemies near the impact.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Barrageable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CanBecomeArrowRain] = true, [SkillType.Area] = true, [SkillType.Lightning] = true, [SkillType.Bow] = true, },
@@ -8642,6 +8690,7 @@ skills["StormcallerArrowPlayer"] = {
 skills["TameBeastPlayer"] = {
 	name = "Tame Beast",
 	baseTypeName = "Tame Beast",
+	icon = "Art/2DArt/SkillIcons/HuntressTameBeast.dds",
 	color = 2,
 	description = "Conjure Azmeri wisps to engulf a Rare Beast for a duration, Hindering them. If you defeat the Beast while it is engulfed in wisps, it will be captured by this gem, transforming the gem to instead allow you to summon the Beast as a Reviving Companion.",
 	skillTypes = { [SkillType.Minion] = true, [SkillType.Companion] = true, [SkillType.Duration] = true, },
@@ -8765,6 +8814,7 @@ skills["TameBeastPlayer"] = {
 skills["ThunderousLeapPlayer"] = {
 	name = "Thunderous Leap",
 	baseTypeName = "Thunderous Leap",
+	icon = "Art/2DArt/SkillIcons/ThunderousLeapSkillIcon.dds",
 	color = 2,
 	description = "Leap into the air and plunge your Spear into the ground at the target location, emitting a Lightning-charged shockwave.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Travel] = true, [SkillType.Spear] = true, [SkillType.Jumping] = true, [SkillType.Slam] = true, [SkillType.Lightning] = true, [SkillType.Melee] = true, [SkillType.Detonator] = true, },
@@ -8888,6 +8938,7 @@ skills["ThunderousLeapPlayer"] = {
 skills["TornadoShotPlayer"] = {
 	name = "Tornado Shot",
 	baseTypeName = "Tornado Shot",
+	icon = "Art/2DArt/SkillIcons/RangerTornadoShotSkill.dds",
 	color = 2,
 	description = "Fire a skyward shot that whips up a Tornado where it lands, dealing Physical damage over time and Hindering enemies standing in it. Arrows, thrown Spears and Crossbow bolts fired at the Tornado are sucked into it, causing the Tornado to spit out a ring of copied Projectiles. Copied Projectiles cannot be copied again, even by further Tornados.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.MirageArcherCanUse] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Triggerable] = true, [SkillType.Rain] = true, [SkillType.Barrageable] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, [SkillType.Duration] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.CannotChain] = true, [SkillType.Bow] = true, [SkillType.ObjectDurability] = true, [SkillType.Wind] = true, },
@@ -9104,6 +9155,7 @@ skills["TornadoShotPlayer"] = {
 skills["ToxicDomainPlayer"] = {
 	name = "Toxic Domain",
 	baseTypeName = "Toxic Domain",
+	icon = "Art/2DArt/SkillIcons/RangerToxicDomain.dds",
 	color = 2,
 	description = "Create an area of Toxic Bloom on the ground around you. While in the Bloom, you have increased Skill costs, Regenerate Life, and your Projectile Attacks attach a Toxic Pustule, which can be Poisoned. Pustules will Detonate after a duration or when enough Poison has been applied, dealing more damage based on the stored Poison damage and applying Poison in an area around it.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Chaos] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Physical] = true, [SkillType.Plant] = true, },
@@ -9310,6 +9362,7 @@ skills["ToxicDomainPlayer"] = {
 skills["ToxicGrowthPlayer"] = {
 	name = "Toxic Growth",
 	baseTypeName = "Toxic Growth",
+	icon = "Art/2DArt/SkillIcons/RangerPoisonBloomSkill.dds",
 	color = 2,
 	description = "Fire a rain of Toxic Pustules into the air. The Pustules deal damage on impact, then Detonate after a delay. They can also be Poisoned, causing them to Detonate faster and more violently.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Bow] = true, [SkillType.Limit] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Rain] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.Barrageable] = true, [SkillType.AttackInPlace] = true, [SkillType.Plant] = true, },
@@ -9535,6 +9588,7 @@ skills["ToxicGrowthPlayer"] = {
 skills["TrailOfCaltropsPlayer"] = {
 	name = "Trail of Caltrops",
 	baseTypeName = "Trail of Caltrops",
+	icon = "Art/2DArt/SkillIcons/CaltropsOnDodgeSkillIcon.dds",
 	color = 2,
 	description = "While active, scatters caltrops in your wake when you dodge.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.GeneratesEnergy] = true, [SkillType.Triggers] = true, [SkillType.AttackInPlace] = true, },
@@ -9647,6 +9701,7 @@ skills["TrailOfCaltropsPlayer"] = {
 skills["TriggeredTrailOfCaltropsPlayer"] = {
 	name = "Caltrops",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Maims and deals Attack area damage when triggered by an Enemy. Caltrops are destroyed when triggered, and a maximum of 20 Caltrops can be active at once.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.CannotChain] = true, [SkillType.Attack] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
@@ -9777,6 +9832,7 @@ skills["TriggeredTrailOfCaltropsPlayer"] = {
 skills["TwisterPlayer"] = {
 	name = "Twister",
 	baseTypeName = "Twister",
+	icon = "Art/2DArt/SkillIcons/TwisterSkillIcon.dds",
 	color = 2,
 	description = "Whip up a twister with a flick of your Spear. The twister moves forward erratically, Blinding and repeatedly Hitting enemies within. If a twister touches a Whirlwind from your other skills, it Consumes the Whirlwind to create additional twisters that deal more damage. Passing over Elemental Ground Surfaces or Consuming an elemental Whirlwind will grant twisters extra damage of that element.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Spear] = true, [SkillType.Projectile] = true, [SkillType.Barrageable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.RangedAttack] = true, [SkillType.CannotTerrainChain] = true, [SkillType.Wind] = true, [SkillType.InteractsWithElementalGround] = true, },
@@ -9923,6 +9979,7 @@ skills["TwisterPlayer"] = {
 skills["VineArrowPlayer"] = {
 	name = "Vine Arrow",
 	baseTypeName = "Vine Arrow",
+	icon = "Art/2DArt/SkillIcons/RangerPoisonVineArrowSkill.dds",
 	color = 2,
 	description = "Fire an arrow into the air that lands after a short delay, damaging enemies and causing a plant to spring up at the impact location. The plant sprouts vines that latch onto nearby enemies, Slowing their movement speed and dealing Chaos damage over time. The plant can be Poisoned, causing it to deal more damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Barrageable] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Chaos] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Bow] = true, [SkillType.DamageOverTime] = true, [SkillType.Limit] = true, [SkillType.ToggleSpawnedObjectTargetable_DefaultOff] = true, [SkillType.Plant] = true, },
@@ -10133,6 +10190,7 @@ skills["VineArrowPlayer"] = {
 skills["VoltaicMarkPlayer"] = {
 	name = "Voltaic Mark",
 	baseTypeName = "Voltaic Mark",
+	icon = "Art/2DArt/SkillIcons/ShockingMarkSkill.dds",
 	color = 2,
 	description = "Mark a target, making them more susceptible to being Electrocuted. When the Marked target is Electrocuted, the Mark Activates, granting a Buff which gives extra Lightning damage and Consuming the Mark. Marking another target while you have the Buff will remove the Buff.",
 	skillTypes = { [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Multicastable] = true, [SkillType.Triggerable] = true, [SkillType.Unleashable] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Mark] = true, [SkillType.Lightning] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Cooldown] = true, [SkillType.Buff] = true, },
@@ -10261,6 +10319,7 @@ skills["VoltaicMarkPlayer"] = {
 skills["WhirlingSlashPlayer"] = {
 	name = "Whirling Slash",
 	baseTypeName = "Whirling Slash",
+	icon = "Art/2DArt/SkillIcons/HuntressWhirlingSlash.dds",
 	color = 2,
 	description = "Perform a circular slash that kicks up a Whirlwind around you, Slowing enemies and Blinding them in its area of effect. Leaving the area collapses the storm, dealing damage and causing Knockback.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.GainsStages] = true, [SkillType.Spear] = true, [SkillType.AttackInPlace] = true, [SkillType.Wind] = true, [SkillType.InteractsWithElementalGround] = true, },
@@ -10473,6 +10532,7 @@ skills["WhirlingSlashPlayer"] = {
 skills["WhirlwindLancePlayer"] = {
 	name = "Whirlwind Lance",
 	baseTypeName = "Whirlwind Lance",
+	icon = "Art/2DArt/SkillIcons/WindstormLanceSkillIcon.dds",
 	color = 2,
 	description = "Throw a Spear with enough force to kick up a Whirlwind where it lands, Slowing enemies and Blinding them in its area of effect. Entering the Whirlwind collapses it, dealing damage and causing Knockback. Consumes a Frenzy Charge if possible to create the Whirlwind with one more than its normal maximum number of stages.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Limit] = true, [SkillType.Barrageable] = true, [SkillType.Spear] = true, [SkillType.UsableWhileMounted] = true, [SkillType.Duration] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.Wind] = true, [SkillType.InteractsWithElementalGround] = true, },
@@ -10691,6 +10751,7 @@ skills["WhirlwindLancePlayer"] = {
 skills["WindDancerPlayer"] = {
 	name = "Wind Dancer",
 	baseTypeName = "Wind Dancer",
+	icon = "Art/2DArt/SkillIcons/RangerWindDancerSkill.dds",
 	color = 2,
 	description = "While active, periodically grants stages of a buff that gives you more Evasion per stage. Being Hit by an Enemy while you have this buff consumes all stages to damage and Knock Back enemies around you.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.GainsStages] = true, [SkillType.AttackInPlace] = true, },
@@ -10826,6 +10887,7 @@ skills["WindDancerPlayer"] = {
 skills["TriggeredWindDancerPlayer"] = {
 	name = "Gale Force",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/InspiringCry.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Cooldown] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
 		["Bow"] = true,
@@ -10972,6 +11034,7 @@ skills["TriggeredWindDancerPlayer"] = {
 skills["WindSerpentsFuryPlayer"] = {
 	name = "Wind Serpent's Fury",
 	baseTypeName = "Wind Serpent's Fury",
+	icon = "Art/2DArt/SkillIcons/WindSerpentsFurySkillIcon.dds",
 	color = 2,
 	description = "Consume all Frenzy Charges to perform a gigantic spear thrust that Knocks Back enemies. For each Frenzy Charge consumed, a Wind Serpent follows in the spear's wake. Each Serpent also damages and Knocks Back enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.HasUsageCondition] = true, [SkillType.Spear] = true, [SkillType.Sustained] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesFrenzyChargesOnUse] = true, [SkillType.RequiresCharges] = true, [SkillType.Wind] = true, },

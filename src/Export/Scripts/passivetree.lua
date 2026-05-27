@@ -611,8 +611,7 @@ local skills = dat("ActiveSkills")
 for skill in skills:Rows() do
 	if skill.Icon ~= "" and isValidSkillDisplayName(skill.DisplayName) then
 		local asset = string.lower(skill.Icon)
-		local name = skill.DisplayName
-		addToSheet(getSheet("player-skills"), asset, "active-skills", commonMetadata(nil))
+		addToSheet(getSheet("player-skills"), asset, "active-skills", commonMetadata(skill.Icon))
 	end
 end
 
@@ -622,7 +621,7 @@ for skill in skills:Rows() do
 		local asset = string.lower(skill.DDS)
 		local name = skill.SkillGem.BaseItemType.Name
 		if not isValidSkillDisplayName(name) then
-			addToSheet(getSheet("player-skills"), asset, "support-gems", commonMetadata(nil))
+			addToSheet(getSheet("player-skills"), asset, "support-gems", commonMetadata(skill.DDS))
 		end
 	end
 end

@@ -692,6 +692,7 @@ skills["SupportBurstingPlaguePlayer"] = {
 skills["PlagueBurstPlayer"] = {
 	name = "Plague Burst",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RangerPlagueBearerSkill.dds",
 	description = "Triggered when an enemy Poisoned by a supported skill dies, dealing Physical damage around them based on the built-up Plague.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -788,6 +789,7 @@ skills["SupportCaltropsPlayer"] = {
 skills["TriggeredCaltropsPlayer"] = {
 	name = "Caltrops",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Maims and deals Attack area damage when triggered by an Enemy. Caltrops are destroyed when triggered, and a maximum of 20 Caltrops can be active at once.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, [SkillType.Duration] = true, [SkillType.CannotChain] = true, [SkillType.Attack] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -1030,6 +1032,7 @@ skills["SupportChargedMarkPlayer"] = {
 skills["TriggeredChargedMarkPlayer"] = {
 	name = "",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Duration] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 0,
 	qualityStats = {
@@ -2309,6 +2312,7 @@ skills["SupportFrozenSpitePlayer"] = {
 skills["TriggeredSupportFrozenSpiteIceFragmentPlayer"] = {
 	name = "Ice Fragments",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Explodes to deal Cold Damage in an area after a short delay, based on the life of the slain frozen Enemy.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Projectile] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.FrozenSpite] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -4021,6 +4025,7 @@ skills["SupportPoisonSpores"] = {
 skills["TriggeredPoisonSporesPustule"] = {
 	name = "Poison Spores",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RangerToxicDomain.dds",
 	description = "Attach a Toxic Pustule to the enemy, which Detonates after a delay, dealing Attack damage. They can also be Poisoned, causing them to Detonate faster and more violently.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Chaos] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Buff] = true, [SkillType.Cooldown] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Physical] = true, [SkillType.Plant] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
@@ -5861,6 +5866,7 @@ skills["SupportKnockbackWavePlayer"] = {
 skills["KnockbackWavePlayer"] = {
 	name = "Wind Wave",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Interact.dds",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {

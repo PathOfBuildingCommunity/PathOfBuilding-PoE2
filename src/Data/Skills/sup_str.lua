@@ -388,6 +388,7 @@ skills["SupportArmourExplosionPlayer"] = {
 skills["ArmourExplosionPlayer"] = {
 	name = "Armour Explosion",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -648,6 +649,7 @@ skills["SupportBattershoutPlayer"] = {
 skills["TriggeredBattershoutExplosionPlayer"] = {
 	name = "Battershout",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal Physical Area Damage based off of the Broken Armour of the target which this explosion was Triggered from.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -938,6 +940,7 @@ skills["SupportBrambleslamPlayer"] = {
 skills["TriggeredBrambleslamPlayer"] = {
 	name = "Brambles",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Hazardous thorns damage and Maim enemies with which they come in contact.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Plant] = true, },
 	castTime = 1,
@@ -1767,6 +1770,7 @@ skills["SupportCraterPlayer"] = {
 skills["TriggeredCraterPlayer"] = {
 	name = "Crater",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ElementalPowerSkillWand.dds",
 	description = "Creates multiple Fissures when landing with Supported Skill.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.CreatesFissure] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.Limit] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -2968,6 +2972,7 @@ skills["SupportFanTheFlamesPlayer"] = {
 skills["TriggeredFanTheFlamesPlayer"] = {
 	name = "Fan the Flames",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/FanTheFlames.dds",
 	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -3114,6 +3119,7 @@ skills["SupportFanTheFlamesPlayerTwo"] = {
 skills["TriggeredFanTheFlamesPlayerTwo"] = {
 	name = "Fan the Flames",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/FanTheFlames.dds",
 	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -3550,6 +3556,7 @@ skills["SupportFlamePillarPlayer"] = {
 skills["TriggeredFlamePillarPlayer"] = {
 	name = "Flame Pillar",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BeserkSkill.dds",
 	description = "Deal Fire Damage in an Area based on a percentage of the expected Damage of the Consumed Ignite.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -3757,6 +3764,7 @@ skills["SupportHaemocrystalsPlayer"] = {
 skills["TriggeredHaemocrystalsPlayer"] = {
 	name = "Haemocrystals",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal Physical Damage in an Area based on a percentage of the expected Damage of the Consumed Bleed.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -5211,6 +5219,7 @@ skills["SupportQuillburstPlayer"] = {
 skills["TriggeredQuillburstPlayer"] = {
 	name = "Quill Burst",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal your Thorns Damage in an Area. Cannot Hit the target this was Triggered from.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -6281,6 +6290,7 @@ skills["SupportSkitteringStonePlayer"] = {
 skills["TriggeredSkitteringStonePlayer"] = {
 	name = "Skittering Stone",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/SkitteringStone.dds",
 	description = "Creates Skittering Stone Minions from shattered objects created by Supported Skill.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.CreatesMinion] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.MeleeSingleTarget] = true, },
@@ -6354,6 +6364,7 @@ skills["SupportSkitteringStonePlayerTwo"] = {
 skills["TriggeredSkitteringStonePlayerTwo"] = {
 	name = "Skittering Stone",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/SkitteringStone.dds",
 	description = "Creates Skittering Stone Minions from shattered objects created by Supported Skill.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.CreatesMinion] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.MeleeSingleTarget] = true, },
@@ -6653,6 +6664,7 @@ skills["SupportStompingGroundPlayer"] = {
 skills["StompingGroundShockwavePlayer"] = {
 	name = "Stomping Ground Shockwave",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -6875,6 +6887,7 @@ skills["SupportHardyTotemsPlayerThree"] = {
 skills["TriggeredSplinterExplosionHardyTotems"] = {
 	name = "Tawhoa's Vengeance",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WindstormLanceSkillIcon.dds",
 	description = "Deals Physical Damage in an area, based on Totem Life.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -7790,6 +7803,7 @@ skills["SupportVolcanicEruptionPlayer"] = {
 skills["TriggeredVolcanicEruptionPlayer"] = {
 	name = "Volcanic Eruption",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/VolcanicEruptionSkillIcon.dds",
 	description = "Fire molten Projectiles from the struck target, which will land nearby dealing Attack damage in an area.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,

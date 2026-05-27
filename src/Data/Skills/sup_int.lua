@@ -68,6 +68,7 @@ skills["SupportExplosiveGrowthPlayerTwo"] = {
 skills["TriggeredExplosiveGrowthPlayerTwo"] = {
 	name = "Accelerated Growth",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/ExplosiveGrowth.dds",
 	description = "Spawn a verdant flower that grows and explodes.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
 	castTime = 0,
@@ -216,6 +217,7 @@ skills["SupportExplosiveGrowthPlayer"] = {
 skills["TriggeredExplosiveGrowthPlayer"] = {
 	name = "Accelerated Growth",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/ExplosiveGrowth.dds",
 	description = "Spawn a verdant flower that grows and explodes.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
 	castTime = 0,
@@ -968,6 +970,7 @@ skills["SupportBoneShrapnelPlayer"] = {
 skills["TriggeredBoneShrapnelPlayer"] = {
 	name = "Bone Shrapnel Explosion",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal Physical Area Damage based off of the maximum Life of the Pinned target slain.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -1199,6 +1202,7 @@ skills["SupportBurningRunesPlayer"] = {
 skills["TriggeredBurningRunesPlayer"] = {
 	name = "Burning Inscription",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Create Ignited Ground Igniting Enemies based on a percentage of your Maximum Mana.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -1349,6 +1353,7 @@ skills["SupportCatalysingElementsPlayer"] = {
 skills["TriggeredCatalysingDischargePlayer"] = {
 	name = "Catalysing Discharge",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressArcticArmour.dds",
 	description = "Triggered when supported skill is boosted by an Elemental Ground Surface to deal damage of the matching Element.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
@@ -2224,6 +2229,7 @@ skills["SupportDeadlyCurrentPlayer"] = {
 skills["TriggeredDeadlyCurrentPlayer"] = {
 	name = "Coursing Current",
 	hidden = true,
+	icon = "Art/2DItems/Gems/New/NewSupport/DeadlyCurrentSupportGem.dds",
 	description = "Sends a Chaining Lightning Projectile from the Shocked enemy towards a nearby Drenched enemy, dealing Spell damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Lightning] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Chains] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, },
 	castTime = 0,
@@ -2434,6 +2440,7 @@ skills["SupportCreepingChillPlayer"] = {
 skills["TriggeredCreepingChillPlayer"] = {
 	name = "Creeping Chill",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Creates spreading Chilled Ground around Ice Crystals created by Supported Skills.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 1,
@@ -2942,6 +2949,7 @@ skills["SupportDoedresUndoingPlayer"] = {
 skills["TriggeredCurseZoneHazardExplosionPlayer"] = {
 	name = "Doedre's Dark Design",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Explodes and deals Chaos Damage when an Enemy enters the area, applying the supported Curse on Hit.",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Spell] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -3126,6 +3134,7 @@ skills["SupportShockingRiftPlayer"] = {
 skills["TriggeredShockingRiftPlayer"] = {
 	name = "Electromagnetism",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Pull enemies in and pulse Lightning damage, Hindering enemies Hit. Each pulse increases in damage, with the final pulse dealing additional damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.Lightning] = true, [SkillType.AttackInPlace] = true, [SkillType.Damage] = true, [SkillType.Spell] = true, },
 	castTime = 0,
@@ -3378,6 +3387,7 @@ skills["SupportElementalDischargePlayer"] = {
 skills["TriggeredElementalDischargePlayer"] = {
 	name = "Elemental Discharge",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressArcticArmour.dds",
 	description = "Triggered when supported skill Consumes Ignite, Shock, or Freeze, to deal damage of Types matching the Consumed Ailments.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -4021,6 +4031,7 @@ skills["SupportFieryDeathPlayer"] = {
 skills["TriggeredFieryDeathPlayer"] = {
 	name = "Fiery Death",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/burntground.dds",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Fire] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -4600,6 +4611,7 @@ skills["SupportHayoxisBindingPlayer"] = {
 skills["SupportTriggeredAnnihilationPlayer"] = {
 	name = "Annihilation",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Instant] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.Lightning] = true, [SkillType.Cold] = true, },
 	castTime = 0,
 	qualityStats = {
@@ -5017,6 +5029,7 @@ skills["ViciousHexSupportPlayer"] = {
 skills["DoomBlastPlayer"] = {
 	name = "Doom Blast",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ViciousHex.dds",
 	description = "Deal Chaos damage in an area around the previously Cursed enemy.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Cooldown] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
@@ -5522,6 +5535,7 @@ skills["SupportLivingLightningPlayer"] = {
 skills["TriggeredLivingLightningPlayer"] = {
 	name = "Living Lightning",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/LivingLightningSkill.dds",
 	minionList = {
 		"LivingLightning",
 	},
@@ -5678,6 +5692,7 @@ skills["SupportLivingLightningPlayerTwo"] = {
 skills["TriggeredLivingLightningPlayerTwo"] = {
 	name = "Living Lightning",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/LivingLightningSkill.dds",
 	minionList = {
 		"LivingLightning",
 	},
@@ -5901,6 +5916,7 @@ skills["SupportManaFlarePlayer"] = {
 skills["TriggeredManaFlarePlayer"] = {
 	name = "Mana Flare",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -7235,6 +7251,7 @@ skills["SupportStaticShocksPlayer"] = {
 skills["TriggeredStaticShocksPlayer"] = {
 	name = "Static Shocks",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/GroundingShocksSupport.dds",
 	description = "Attaches a Static Shock to a target that pulses Lightning damage to the attached target and nearby enemies. Targets can have a maximum of one Static Shock attached to them.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Lightning] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Sustained] = true, [SkillType.Spell] = true, [SkillType.Duration] = true, },
 	castTime = 0,
@@ -8003,6 +8020,7 @@ skills["SupportXibaquasRendingPlayer"] = {
 skills["TriggeredXibaquasRendingPlayer"] = {
 	name = "Fiery Reclamation",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Rolldodge.dds",
 	description = "Deals Fire damage in an area around the exploding Corpse based on its maximum Life.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.TargetsDestructibleCorpses] = true, },
 	castTime = 1,
