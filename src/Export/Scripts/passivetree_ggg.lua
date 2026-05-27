@@ -269,8 +269,6 @@ for id, node in pairs(data.nodes) do
 		["isKeystone"] = node.isKeystone,
 		["isOnlyImage"] = node.isMastery,
 		["activeEffectImage"] =  node.activeEffectImage,
-		["isJewelSocket"] = node.isJewelSocket and not node.ascendancyId and true or nil,
-		["containJewelSocket"] = node.isJewelSocket and node.ascendancyId and true or nil,
 		["isAscendancyStart"] = node.isAscendancyStart,
 		["isMultipleChoice"] = node.isMultipleChoice,
 		["isMultipleChoiceOption"] = node.isMultipleChoiceOption,
@@ -288,6 +286,7 @@ for id, node in pairs(data.nodes) do
 				unalloc= node.isNotable and "AscendancyFrameNotableUnallocated" or "AscendancyFrameNormalUnallocated"
 			}
 		else
+			nodeData["containJewelSocket"] =  true
 			nodeData["nodeOverlay"] = {
 				alloc= "JewelSocketAltActive",
 				path=  "JewelSocketAltCanAllocate",
@@ -300,6 +299,8 @@ for id, node in pairs(data.nodes) do
 		ascendancyGroups[ascendancyName].startId = node.isAscendancyStart and nodeId or ascendancyGroups[ascendancyName].startId
 		ascendancyGroups[ascendancyName][node.group] = true
 	else
+		nodeData["isJewelSocket"] = node.isJewelSocket and not node.isBlighted and true or nil
+		nodeData["containJewelSocket"] = node.isJewelSocket and node.isBlighted and true or nil
 		-- recalculate max and min
 		local group = tree.groups[node.group]
 		tree.min_x = math.min(tree.min_x, group.x)
@@ -337,7 +338,7 @@ for id, node in pairs(data.nodes) do
 				["stats"] = {}
 			}
 			for _, statDesc in ipairs(overrideNode.stats) do
-				table.insert(optionData.stats, escapeGGGString(statDesc))
+				table.insert(optionData.stats, sanitiseText(escapeGGGString(statDesc)))
 			end
 
 			table.insert(nodeData["options"], optionData)
@@ -370,6 +371,12 @@ for id, node in pairs(data.nodes) do
 			printf("Incorrect edge for " .. nodeId .. " " .. nodeIdOut )
 			printf(fromId.. " => " .. orbitDataSearch.to .. " = " .. edgeIndex .. " " .. index .. " " .. nodeInCount)
 			return
+		end
+
+		-- skip nodes that are not active
+		if data.nodes[nodeIdOut] and data.nodes[nodeIdOut].id == null then
+			printf("Ignoring Out NodeId " .. nodeIdOut)
+			goto nextOrbit
 		end
 
 		-- TODO: minimal check

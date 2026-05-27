@@ -1033,7 +1033,10 @@ function ImportBuild(importLink, callback)
 end
 
 function escapeGGGString(text)
-	local line = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1")
+	local line = text
+		:gsub("<[^>]+>{([^}]+)}", "%1")
+		:gsub("%[([^|%]]+)%]", "%1")
+		:gsub("%[[^|]+|([^|]+)%]", "%1")
 	return line
 end
 
