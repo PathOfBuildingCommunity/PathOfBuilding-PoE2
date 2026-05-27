@@ -218,7 +218,7 @@ for i,class in ipairs(data.classes) do
 
 	table.insert(tree.classes, classData)
 
-	-- Load background-[class] dinamically
+	-- Load background-[class] dynamically
 	table.insert(fileAssets, "background-" .. string.lower(class.name) .. ".json")
 	:: classcontinue ::
 end
@@ -249,7 +249,7 @@ end
 print("Building nodes")
 local attributesNodesId = {26297, 14927, 57022}
 local ascendancyGroups = {}
-local classessNodeIds = {}
+local classesNodeIds = {}
 
 for id, node in pairs(data.nodes) do
 	if node.id == nil then
@@ -321,7 +321,7 @@ for id, node in pairs(data.nodes) do
 	if node.flavourText and #node.flavourText > 0 then
 		nodeData.flavourText = table.concat(node.flavourText, '\\n')
 	end
-	-- buidl node stats
+	-- build node stats
 	if node.stats and #node.stats > 0 then
 		nodeData.stats={}
 		for _, stat in ipairs(node.stats) do
@@ -359,7 +359,7 @@ for id, node in pairs(data.nodes) do
 		for _, classStartIndex in ipairs(node.classStartIndex) do
 			local className = data.classes[classStartIndex + 1].name
 			table.insert(nodeData.classesStart, className)
-			table.insert(classessNodeIds, nodeId)
+			table.insert(classesNodeIds, nodeId)
 		end
 	end
 
@@ -420,7 +420,7 @@ for id, node in pairs(data.nodes) do
 	:: nextNode ::
 end
 
--- Build isSwitchavle / overridePairs
+-- Build isSwitchable / overridePairs
 for _, classData in ipairs(data.classes) do
 	if classData.overridePairs then
 		for nodeId, replaceNodeId in pairs(classData.overridePairs) do
@@ -477,7 +477,7 @@ end
 local widthTree, heightTree = tree.max_x - tree.min_x, tree.max_y - tree.min_y
 local radiusTree = (math.max(widthTree, heightTree) + 700) / 2
 local arcAngle = { [0] = 0, [1] = 0, [2] = 12, [3] = 24, [4] = 36, [5] = 48, [6] = 60, [7] = 72, [8] = 84, [9] = 96 }
-for i, classId in ipairs(classessNodeIds) do
+for i, classId in ipairs(classesNodeIds) do
 	local nodeStart = tree.nodes[classId]
 	local group = tree.groups[nodeStart.group]
 	local angleToCenter = math.atan2(group.y, group.x)
@@ -510,12 +510,12 @@ for i, classId in ipairs(classessNodeIds) do
 			local info = ascendancyGroups[ascendancy.id]
 			if info == nil then
 				printf("Ascendancy group " .. ascendancy.id .. " not found")
-				goto continuepositioning
+				goto continuePositioning
 			end
 			local ascendancyNode = tree.nodes[info.startId]
 			if ascendancyNode == nil then
 				printf("Ascendancy node " .. ascendancy.id .. " not found")
-				goto continuepositioning
+				goto continuePositioning
 			end
 
 			ascendancy.background.x = cX
@@ -523,7 +523,7 @@ for i, classId in ipairs(classessNodeIds) do
 
 			local groupAscendancy = tree.groups[ascendancyNode.group]
 
-			local innerRadious = dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
+			local innerRadius= dat("ascendancy"):GetRow("Id", ascendancy.internalId).distanceTree
 
 			local newInnerX = cX + math.cos(angleToCenter) * innerRadious
 			local newInnerY = cY + math.sin(angleToCenter) * innerRadious
@@ -552,7 +552,7 @@ for i, classId in ipairs(classessNodeIds) do
 			end
 
 			j = j + 1
-			:: continuepositioning ::
+			:: continuePositioning ::
 		end
 	end
 end
@@ -607,7 +607,7 @@ for _, strFile in ipairs(fileAssets) do
 		}
 	end
 end
--- buidl orbits info
+-- build orbits info
 tree.assets={
 	CharacterAscendancyLineConnectorActive={
 		[1]="CharacterAscendancy_orbit_intermediateactive0.png"
