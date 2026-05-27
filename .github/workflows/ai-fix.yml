@@ -63,7 +63,7 @@ jobs:
           EOF
           )
 
-          ./scripts/ai-agent.sh "$PROMPT" --mode fix --max-turns 40
+          ./scripts/ai-agent.sh "$PROMPT" --mode fix --max-turns 80
 
       # Push the branch immediately — this is the key resilience change.
       # Even if verify or open-pr fail later, the changes are not lost.
