@@ -1019,6 +1019,10 @@ function SkillsTabClass:CreateGemSlot(index)
 	slot.corruptLevel.shown = function()
 		local gemInstance = self.displayGroup and self.displayGroup.gemList[index]
 		if gemInstance then
+			local activeGrantedEffect = gemInstance.grantedEffect or gemInstance.gemData and gemInstance.gemData.grantedEffect
+			if gemInstance.fromItem or gemInstance.fromTree or activeGrantedEffect and (activeGrantedEffect.fromItem or activeGrantedEffect.fromTree) then
+				return false
+			end
 			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
 			for index, grantedEffect in ipairs(grantedEffectList) do
 				if not grantedEffect.support and not grantedEffect.unsupported and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then

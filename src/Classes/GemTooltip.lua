@@ -76,28 +76,29 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 			end
 		end
 		local totalLevel
-		totalLevel = m_max(displayInstance.level, (gemInstance.level + gemInstance.corruptLevel)) -- Needed for tooltip comparison for dropdown gems. Otherwise they only show level 20 when corrupted.
-		if displayInstance.corruptLevel ~= 0 or
+		local corruptLevel = displayInstance.corruptLevel or 0
+		totalLevel = m_max(displayInstance.level, (gemInstance.level + corruptLevel)) -- Needed for tooltip comparison for dropdown gems. Otherwise they only show level 20 when corrupted.
+		if corruptLevel ~= 0 or
 		(displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 ) or
-		(displayInstance.level - gemInstance.level - displayInstance.corruptLevel > 0)
+		(displayInstance.level - gemInstance.level - corruptLevel > 0)
 		then
 			tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. colorCodes.MAGIC .. totalLevel), "FONTIN SC")
 			tooltip:AddLine(fontSizeBig, "^7" .. gemInstance.level .. " Levels from Gem" .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""), "FONTIN SC")
 		else
 			tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. totalLevel .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or "")), "FONTIN SC")
 		end
-		if displayInstance.corruptLevel > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
-		elseif displayInstance.corruptLevel < 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. displayInstance.corruptLevel .. " Level from Corruption", "FONTIN SC")
+		if corruptLevel > 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. corruptLevel .. " Level from Corruption", "FONTIN SC")
+		elseif corruptLevel < 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. corruptLevel .. " Level from Corruption", "FONTIN SC")
 		end
 		if totalGlobalLevels > 0 then
 			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalGlobalLevels .. " Levels from Global Modifiers", "FONTIN SC")
-			if totalLevel - gemInstance.level - displayInstance.corruptLevel - totalGlobalLevels > 0 then
-				tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - displayInstance.corruptLevel - totalGlobalLevels .. " Levels from Supports", "FONTIN SC")
+			if totalLevel - gemInstance.level - corruptLevel - totalGlobalLevels > 0 then
+				tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - corruptLevel - totalGlobalLevels .. " Levels from Supports", "FONTIN SC")
 			end
-		elseif totalLevel - gemInstance.level - displayInstance.corruptLevel > 0 then
-			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - displayInstance.corruptLevel .. " Levels from Supports", "FONTIN SC")
+		elseif totalLevel - gemInstance.level - corruptLevel > 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - corruptLevel .. " Levels from Supports", "FONTIN SC")
 		end
 	end
 

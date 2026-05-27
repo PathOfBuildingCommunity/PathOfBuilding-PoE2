@@ -3376,7 +3376,7 @@ function calcs.perform(env, skipEHP)
 			local totalCorruptionLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemCorruptionLevel")
 
 			output.GemHasLevel = true
-			output.GemLevel = baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel
+			output.GemLevel = m_max(baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel, 1)
 			
 			if env.player.breakdown then
 				env.player.breakdown.GemLevel = {}
