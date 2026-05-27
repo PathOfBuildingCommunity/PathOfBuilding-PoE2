@@ -224,6 +224,10 @@ local ItemsTabClass = newClass("ItemsTab", "UndoHandler", "ControlHost", "Contro
 					jewel.shown = function()
 						return not jewel.inactive and not self.activeItemSet.useSecondWeaponSet
 					end
+				else
+					jewel.shown = function()
+						return not jewel.inactive and slot.shown()
+					end
 				end
 				slot.jewelSocketList[i] = jewel
 			end
@@ -476,11 +480,12 @@ holding Shift will put it in the second.]])
 		return self.displayItem.base.weapon or self.displayItem.base.armour or self.displayItem.base.tags.wand or self.displayItem.base.tags.staff or self.displayItem.base.tags.sceptre
 	end
 	self.controls.displayItemSocketRuneEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketRune,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
-		if tonumber(buf) > 6 then
+		local count = tonumber(buf) or 0
+		if count > 6 then
 			self.controls.displayItemSocketRuneEdit:SetText(6)
 			return
 		end
-		self.displayItem.itemSocketCount = tonumber(buf)
+		self.displayItem.itemSocketCount = count
 		self.displayItem:UpdateRunes()
 		self.displayItem:BuildAndParseRaw()
 		self:UpdateRuneControls()
@@ -491,11 +496,12 @@ holding Shift will put it in the second.]])
 	-- Jewel Sockets // shown where Runes are shown
 	self.controls.displayItemSocketJewel = new("LabelControl", {"TOPLEFT",self.controls.displayItemSocketRune,"TOPLEFT"}, {70, 0, 36, 20}, "^x7F7F7FJ")
 	self.controls.displayItemSocketJewelEdit = new("EditControl", {"LEFT",self.controls.displayItemSocketJewel,"RIGHT"}, {2, 0, 50, 20}, nil, nil, "%D", 1, function(buf)
-		if tonumber(buf) > 6 then
+		local count = tonumber(buf) or 0
+		if count > 6 then
 			self.controls.displayItemSocketJewelEdit:SetText(6)
 			return
 		end
-		self.displayItem.jewelSocketCount = tonumber(buf)
+		self.displayItem.jewelSocketCount = count
 		self.displayItem:BuildAndParseRaw()
 		self:UpdateDisplayItemTooltip()
 	end)
