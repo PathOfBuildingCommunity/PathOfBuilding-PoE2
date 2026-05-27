@@ -410,12 +410,12 @@ local function applyGemMods(effect, modList)
 		local value = mod.value
 		if value.keywordList then
 			for _, keyword in ipairs(value.keywordList) do
-				if not calcLib.gemIsType(effect.gemData, keyword, true) then
+				if not calcLib.gemIsType(effect, keyword, true) then
 					match = false
 					break
 				end
 			end
-		elseif not calcLib.gemIsType(effect.gemData, value.keyword, true) then
+		elseif not calcLib.gemIsType(effect, value.keyword, true) then
 			match = false
 		end
 		if value.gemRequirements then
@@ -1667,7 +1667,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 									gemData = gemInstance.gemData,
 								}
 								if activeEffect.corruptLevel then
-									activeEffect.level = activeEffect.level + activeEffect.corruptLevel
+									activeEffect.level = m_max(activeEffect.level + activeEffect.corruptLevel, 1)
 								end
 								if env.mode == "CALCS" then
 									activeEffect.statSetCalcs = { index = gemInstance.statSetCalcs and gemInstance.statSetCalcs[grantedEffect.id] or 1}

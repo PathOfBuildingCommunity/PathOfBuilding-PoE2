@@ -1153,6 +1153,8 @@ function SkillsTabClass:ProcessGemLevel(gemData)
 			self.defaultCorruptionState = false
 		return naturalMaxLevel
 	else -- self.defaultGemLevel == "characterLevel"
+		self.defaultCorruptionLevel = 0
+		self.defaultCorruptionState = false
 		local maxGemLevel = naturalMaxLevel
 		if not grantedEffect.levels[maxGemLevel] then
 			maxGemLevel = #grantedEffect.levels
