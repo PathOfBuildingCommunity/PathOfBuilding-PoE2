@@ -70,7 +70,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		local totalGlobalLevels = 0
 		if displayInstance.gemPropertyInfo then
 			for i, prop in ipairs(displayInstance.gemPropertyInfo) do
-				if prop.value and prop.value.value then
+				if prop.value and prop.value.key == "level" and prop.value.value then
 					totalGlobalLevels = totalGlobalLevels + prop.value.value
 				end
 			end
@@ -79,7 +79,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		local corruptLevel = displayInstance.corruptLevel or 0
 		totalLevel = m_max(displayInstance.level, (gemInstance.level + corruptLevel)) -- Needed for tooltip comparison for dropdown gems. Otherwise they only show level 20 when corrupted.
 		if corruptLevel ~= 0 or
-		(displayInstance.gemPropertyInfo and displayInstance.gemPropertyInfo[1].value.value > 0 ) or
+		totalGlobalLevels > 0 or
 		(displayInstance.level - gemInstance.level - corruptLevel > 0)
 		then
 			tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. colorCodes.MAGIC .. totalLevel), "FONTIN SC")

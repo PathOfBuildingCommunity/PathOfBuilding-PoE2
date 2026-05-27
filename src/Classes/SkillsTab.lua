@@ -607,15 +607,16 @@ function SkillsTabClass:CopySocketGroup(socketGroup)
 		skillText = skillText .. "Slot: " .. socketGroup.slot .. "\r\n"
 	end
 	for _, gemInstance in ipairs(socketGroup.gemList) do
-	skillText = skillText .. string.format(
-		"%s %d/%d %s %d%s\r\n",
-		gemInstance.nameSpec,
-		gemInstance.level,
-		gemInstance.quality,
-		gemInstance.enabled and "" or "DISABLED",
-		gemInstance.count or 1,
-		gemInstance.corrupted and (" C" .. ((gemInstance.corruptLevel or 0) ~= 0 and ((gemInstance.corruptLevel > 0 and "+" or "") .. gemInstance.corruptLevel) or "")) or ""
-	)	end
+		skillText = skillText .. string.format(
+			"%s %d/%d %s %s%s\r\n",
+			gemInstance.nameSpec,
+			gemInstance.level,
+			gemInstance.quality,
+			gemInstance.enabled and "" or "DISABLED",
+			string.format("%g", gemInstance.count or 1),
+			gemInstance.corrupted and (" C" .. ((gemInstance.corruptLevel or 0) ~= 0 and ((gemInstance.corruptLevel > 0 and "+" or "") .. gemInstance.corruptLevel) or "")) or ""
+		)
+	end
 	Copy(skillText)
 end
 
