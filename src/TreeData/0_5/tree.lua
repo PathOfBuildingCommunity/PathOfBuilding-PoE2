@@ -26018,6 +26018,11 @@ return {
 			group=667,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			name="Sinister Jewel Socket",
+			nodeOverlay={
+				alloc="BlightedNotableFrameAllocated",
+				path="BlightedNotableFrameCanAllocate",
+				unalloc="BlightedNotableFrameUnallocated"
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=3367
@@ -57478,6 +57483,11 @@ return {
 			group=670,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			name="Sinister Jewel Socket",
+			nodeOverlay={
+				alloc="BlightedNotableFrameAllocated",
+				path="BlightedNotableFrameCanAllocate",
+				unalloc="BlightedNotableFrameUnallocated"
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=23960
@@ -60879,6 +60889,11 @@ return {
 			group=671,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			name="Sinister Jewel Socket",
+			nodeOverlay={
+				alloc="BlightedNotableFrameAllocated",
+				path="BlightedNotableFrameCanAllocate",
+				unalloc="BlightedNotableFrameUnallocated"
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=26178
@@ -81517,6 +81532,11 @@ return {
 			group=669,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			name="Sinister Jewel Socket",
+			nodeOverlay={
+				alloc="BlightedNotableFrameAllocated",
+				path="BlightedNotableFrameCanAllocate",
+				unalloc="BlightedNotableFrameUnallocated"
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=39087
@@ -117895,6 +117915,11 @@ return {
 			group=672,
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			name="Sinister Jewel Socket",
+			nodeOverlay={
+				alloc="BlightedNotableFrameAllocated",
+				path="BlightedNotableFrameCanAllocate",
+				unalloc="BlightedNotableFrameUnallocated"
+			},
 			orbit=0,
 			orbitIndex=0,
 			skill=62152

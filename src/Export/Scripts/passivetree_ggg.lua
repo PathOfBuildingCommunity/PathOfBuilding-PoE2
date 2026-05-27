@@ -301,6 +301,14 @@ for id, node in pairs(data.nodes) do
 	else
 		nodeData["isJewelSocket"] = node.isJewelSocket and not node.isBlighted and true or nil
 		nodeData["containJewelSocket"] = node.isJewelSocket and node.isBlighted and true or nil
+
+		if node.isBlighted then
+			nodeData["nodeOverlay"] = {
+				alloc= "BlightedNotableFrameAllocated",
+				path=  "BlightedNotableFrameCanAllocate",
+				unalloc= "BlightedNotableFrameUnallocated"
+			}
+		end
 		-- recalculate max and min
 		local group = tree.groups[node.group]
 		tree.min_x = math.min(tree.min_x, group.x)
