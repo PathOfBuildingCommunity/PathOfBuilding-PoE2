@@ -3548,7 +3548,7 @@ c["Aggravate Bleeding on Enemies when they Enter your Presence 100% increased Th
 c["Aggravate Bleeding on targets you Critically Hit with Attacks"]={nil,"Aggravate Bleeding on targets you Critically Hit with Attacks "}
 c["Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target"]={nil,"Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target "}
 c["Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target 40% chance to Aggravate Bleeding on Hit"]={nil,"Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target 40% chance to Aggravate Bleeding on Hit "}
-c["All Attacks count as Empowered Attacks"]={{[1]={flags=1,keywordFlags=0,name="Condition:Empowered",type="FLAG",value=true}},nil}
+c["All Attacks count as Empowered Attacks"]={{[1]={flags=1,keywordFlags=0,name="Condition:Empowered",type="FLAG",value=true},[2]={flags=1,keywordFlags=0,name="MaxEmpoweredUptimeRatio",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Chill Magnitude"]={{[1]={flags=0,keywordFlags=0,name="CanChill",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Poison Magnitude"]={{[1]={flags=0,keywordFlags=0,name="CanPoison",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Shock Chance"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanShock",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireCanShock",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="ColdCanShock",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ChaosCanShock",type="FLAG",value=true}},nil}
