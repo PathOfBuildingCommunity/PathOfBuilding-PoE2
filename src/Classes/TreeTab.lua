@@ -286,7 +286,7 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 
 	-- Timeline drawer; mutually exclusive with the power report drawer
 	self.showTimeline = true
-	self.controls.timelineToggle = new("ButtonControl", { "LEFT", self.controls.nodePowerMaxDepthSelect, "RIGHT", 20, 0 }, { 0, 0, 200, 20 },
+	self.controls.timelineToggle = new("ButtonControl", { "LEFT", self.controls.nodePowerMaxDepthSelect, "RIGHT" }, { 8, 0, 200, 20 },
 		function() return self.showTimeline and "Hide Passive Progression" or "Show Passive Progression" end, function()
 		self.showTimeline = not self.showTimeline
 		if self.showTimeline then
@@ -458,8 +458,9 @@ function TreeTabClass:Draw(viewPort, inputEvents)
 									+ self.controls.treeHeatMap.width + 130
 									+ self.controls.nodePowerMaxDepthSelect.width + self.controls.nodePowerMaxDepthSelect.x
 									+ (self.isCustomMaxDepth and (self.controls.nodePowerMaxDepthCustom.width + self.controls.nodePowerMaxDepthCustom.x) or 0)
-									+ (self.viewer.showHeatMap and (self.controls.treeHeatMapStatSelect.width + self.controls.treeHeatMapStatSelect.x 
+									+ (self.viewer.showHeatMap and (self.controls.treeHeatMapStatSelect.width + self.controls.treeHeatMapStatSelect.x
 																	+ self.controls.powerReport.width + self.controls.powerReport.x) or 0)
+									+ (self.controls.timelineToggle:IsShown() and (self.controls.timelineToggle.width + 8) or 0)
 	
 	-- Check first line
 	if viewPort.width >= widthFirstLineControls + widthSecondLineControls + rightMargin then
