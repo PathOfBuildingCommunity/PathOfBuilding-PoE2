@@ -440,6 +440,11 @@ statMap = {
 
 #skill SupportCrescendoPlayerTwo
 #set SupportCrescendoPlayerTwo
+statMap = {
+	["support_crescendo_non_final_strike_attack_speed_+%_final"] = {
+		mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FinalStrike", neg = true})
+	},
+},
 #mods
 #skillEnd
 

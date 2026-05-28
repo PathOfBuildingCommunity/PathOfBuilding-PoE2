@@ -891,6 +891,7 @@ data.gems = LoadModule("Data/Gems")
 data.gemForSkill = { }
 data.gemForBaseName = { }
 data.gemsByGameId = { }
+data.gemNameForModSource = { }
 -- Lookup table - [Gem.grantedEffectId] = VaalGemId
 data.gemGrantedEffectIdForVaalGemId = { }
 data.gemVaalGemIdForBaseGemId = { }
@@ -900,6 +901,7 @@ local function setupGem(gem, gemId)
 	data.gemForSkill[gem.grantedEffect] = gemId
 	data.gemsByGameId[gem.gameId] = data.gemsByGameId[gem.gameId] or {}
 	data.gemsByGameId[gem.gameId][gem.variantId] = gem
+	data.gemNameForModSource[gem.grantedEffect.modSource] = gem.name
 	local baseName = gem.name
 	if gem.grantedEffect.support and gem.grantedEffectId ~= "SupportBarrage" then
 		baseName = baseName .. " Support"

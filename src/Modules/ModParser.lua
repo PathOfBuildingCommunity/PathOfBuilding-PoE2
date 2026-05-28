@@ -1401,7 +1401,6 @@ local preFlagList = {
 	["^for each nearby corpse, "] = { tag = { type = "Multiplier", var = "NearbyCorpse" } },
 	["^enemies in your link beams have "] = { tag = { type = "Condition", var = "BetweenYouAndLinkedTarget" }, applyToEnemy = true },
 	["^consecrated ground you create also grants "] = { tag = { type = "Condition", var = "OnConsecratedGround" } },
-	["^empowered attacks [hgd][ae][via][enl] "] = { flags = ModFlag.Attack, tag = { type = "Condition", var = "Empowered" } },
 	-- While in the presence of...
 	["^while a unique enemy is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" } },
 	["^while a pinnacle atlas boss is in your presence, "] = { tag = { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" } },
@@ -1423,8 +1422,6 @@ local modTagList = {
 	["with critical hits"] = { tag = { type = "Condition", var = "CriticalStrike" } },
 	["while affected by auras you cast"] = { tag = { type = "Condition", var = "AffectedByAura" } },
 	["for you and nearby allies"] = { newAura = true },
-	["with empowered attacks"] = { tag = { type = "Condition", var = "Empowered" } },
-	["during empowered attacks"] = { tag = { type = "Condition", var = "Empowered" } },
 	-- Multipliers
 	["per power charge"] = { tag = { type = "Multiplier", var = "PowerCharge" } },
 	["if you've consumed an? (%D+) charge recently"] = function(charge) return { tag = { type = "Multiplier", var = "Removable" .. firstToUpper(charge) .. "Charge", limit = 1 }} end,
@@ -2627,6 +2624,15 @@ local specialModList = {
 	-- Exerted Attacks
 	["exerted attacks deal (%d+)%% increased damage"] = function(num) return { mod("ExertIncrease", "INC", num, nil, ModFlag.Attack, 0) } end,
 	["exerted attacks have (%d+)%% chance to deal double damage"] = function(num) return { mod("ExertDoubleDamageChance", "BASE", num, nil, ModFlag.Attack, 0) } end,
+	-- Empowered Attacks
+	["empowered attacks deal (%d+)%% increased damage"] = function(num) return { mod("EmpoweredIncrease", "INC", num, nil, ModFlag.Attack, 0, { type = "Condition", var = "Empowered"}) } end,
+	-- Ancestrally Boosted
+	["ancestrally boosted attacks deal (%d+)%% increased damage"] = function(num) return { mod("AncestralBoostDamage", "INC", num, nil, ModFlag.Attack, 0) } end,
+	["(%d+)%% increased area of effect of ancestrally boosted attacks"] = function(num) return { mod("AncestralBoostAreaOfEffect", "INC", num, nil, ModFlag.Attack, 0) } end,
+	["every second slam skill you use yourself is ancestrally boosted"] = {
+		flag("AncestralEmpowerment", { type = "SkillType", skillType = SkillType.Slam }),
+		flag("Condition:AncestrallyBoosted", { type = "SkillType", skillType = SkillType.Slam }),
+	},
 	-- Leech Related
 	["life leech is instant"] = { mod("InstantLifeLeech", "BASE", 100), },
 	["mana leech is instant"] = { mod("InstantManaLeech", "BASE", 100), },
@@ -2688,7 +2694,7 @@ local specialModList = {
 		}
 	end,
 	-- Amazon
-	["chance to hit with attacks can exceed 100%%"] = {flag("Condition:HitChanceCanExceed100", { type = "Skilltype", skillType = SkillType.Attack})},
+	["chance to hit with attacks can exceed 100%%"] = {flag("Condition:HitChanceCanExceed100", { type = "SkillType", skillType = SkillType.Attack})},
 	["gain additional critical hit chance equal to (%d+)%% of excess chance to hit with attacks"] = function(num) return { mod("CritChance", "BASE", 0.01 * num, { type = "Multiplier", var = "ExcessHitChance" }, { type = "SkillType", skillType = SkillType.Attack})} end,
 	["attacks using your weapons have added (%a+) damage equal to (%d+)%% of the accuracy rating on the weapon"] = function(_, dmgType, num) return {
 		mod(firstToUpper(dmgType) .. "Min", "BASE", 1, nil, ModFlag.Attack, { type = "PercentStat", stat = "AccuracyOnWeapon 1", percent = num }, { type = "SkillType", skillType = SkillType.NonWeaponAttack, neg = true } , { type = "Condition", var = "MainHandAttack" }),
