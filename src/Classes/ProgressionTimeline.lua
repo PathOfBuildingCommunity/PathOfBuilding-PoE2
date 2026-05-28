@@ -15,7 +15,7 @@ local function newProgressionStage(kind)
 end
 
 local function newProgression(enabled)
-	return { enabled = enabled or false, version = 1, scrubStage = nil, respecOpen = false, stages = { } }
+	return { enabled = enabled or false, version = 1, scrubStage = nil, respecOpen = false, editHistory = false, stages = { } }
 end
 
 local function insertUnique(arr, id)
@@ -82,6 +82,7 @@ function ProgressionTimelineClass:AdoptUndoData(progData)
 	self:_resetData(progData and copyTable(progData) or newProgression(false))
 	self.data.scrubStage = nil
 	self.data.respecOpen = false
+	self.data.editHistory = false
 end
 
 function ProgressionTimelineClass:StateAt(i)
@@ -181,6 +182,59 @@ function ProgressionTimelineClass:CaptureScrubbed(orderedIds, fn, truncate)
 	end
 	if target > n then target = n end
 	self:ScrubToStage(target < n and target or nil)
+	return r
+end
+
+-- Smallest stage index whose replay equals (viewBefore \ removedSet); 0 => empty tree, nil => final.
+-- Matched by replay set, not index arithmetic: splicing/pruning (esp. respec) shifts indices.
+function ProgressionTimelineClass:_cursorForView(viewBefore, removedSet)
+	local want, wantCount = { }, 0
+	for id in pairs(viewBefore) do
+		if not removedSet[id] then want[id] = true wantCount = wantCount + 1 end
+	end
+	if wantCount == 0 then return 0 end
+	local stages = self.data.stages
+	local cur, curCount = { }, 0
+	for i = 1, #stages do
+		local st = stages[i]
+		for _, id in ipairs(st.alloc) do if not cur[id] then cur[id] = true curCount = curCount + 1 end end
+		for _, id in ipairs(st.dealloc) do if cur[id] then cur[id] = nil curCount = curCount - 1 end end
+		if curCount == wantCount then
+			local equal = true
+			for id in pairs(want) do if not cur[id] then equal = false break end end
+			if equal then return i end
+		end
+	end
+	return nil
+end
+
+-- Connection-aware mid-scrub dealloc. Runs fn on the FULL tree so node.depends captures every node
+-- only connected through the removed node (incl. future stages beyond the cursor), splices exactly
+-- those ids out of the whole timeline, then stays scrubbed at the equivalent position.
+function ProgressionTimelineClass:CaptureScrubbedDealloc(fn)
+	local prog = self.data
+	if not (prog and prog.enabled) or self.spec:IsApplyingTimelineState() or prog.scrubStage == nil then
+		-- Not scrubbed: fall back to final-tree recording
+		return self:Capture(nil, fn)
+	end
+	local viewBefore = self:StateAt(prog.scrubStage)
+	self:ScrubToFinal()
+	local before = self.spec:SnapshotAllocIds()
+	local r = fn()
+	local after = self.spec:SnapshotAllocIds()
+
+	local _, removed = diffSnapshots(before, after, nil)
+	local removedSet = { }
+	for _, id in ipairs(removed) do
+		removedSet[id] = true
+		scrubIdFromHistory(prog.stages, id)
+	end
+
+	self:Normalize()
+
+	local target = self:_cursorForView(viewBefore, removedSet)
+	local n = #prog.stages
+	self:ScrubToStage((target and target < n) and target or nil)
 	return r
 end
 
@@ -385,6 +439,7 @@ function ProgressionTimelineClass:ReconcileFromTree()
 	local prog = self.data
 	if not (prog and prog.enabled) or self.spec:IsApplyingTimelineState() then return end
 	prog.respecOpen = false
+	prog.editHistory = false
 	prog.scrubStage = nil
 
 	if #prog.stages == 0 then
@@ -415,6 +470,7 @@ function ProgressionTimelineClass:Reset()
 	prog.stages = { }
 	prog.scrubStage = nil
 	prog.respecOpen = false
+	prog.editHistory = false
 	self._finalState = nil
 end
 
@@ -481,6 +537,7 @@ function ProgressionTimelineClass:Enable()
 	prog.version = 1
 	prog.scrubStage = nil
 	prog.respecOpen = false
+	prog.editHistory = false
 	prog.stages = { }
 	self._finalState = nil
 	self:ReconcileFromTree()
@@ -501,6 +558,20 @@ end
 function ProgressionTimelineClass:IsScrubbed()
 	local prog = self.data
 	return prog and prog.enabled and prog.scrubStage ~= nil or false
+end
+
+function ProgressionTimelineClass:IsEditHistory()
+	local prog = self.data
+	return prog and prog.editHistory or false
+end
+
+-- Toggle the mid-scrub edit mode: while on, scrubbed allocations insert (keep later progression)
+-- instead of replacing from the cursor. Transient UI state; never serialized.
+function ProgressionTimelineClass:ToggleEditHistory()
+	local prog = self.data
+	if prog and prog.enabled then
+		prog.editHistory = not prog.editHistory
+	end
 end
 
 function ProgressionTimelineClass:GetStage(i)

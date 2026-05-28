@@ -342,6 +342,22 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	end)
 	self.controls.timelineRespec.tooltipText = "Start or end a respec. Refunds and re-allocations\z
 		\nmade while active are grouped into a single entry."
+	self.controls.timelineEditHistory = new("ButtonControl", { "LEFT", self.controls.timelineRespec, "RIGHT" }, { 8, 0, 100, 20 }, "Edit History", function()
+		local _, _, tl = self.controls.timeline:GetProg()
+		if tl then
+			tl:ToggleEditHistory()
+		end
+	end)
+	self.controls.timelineEditHistory.enabled = function()
+		local _, prog = self.controls.timeline:GetProg()
+		return prog and prog.scrubStage ~= nil or false
+	end
+	self.controls.timelineEditHistory.locked = function()
+		local _, prog = self.controls.timeline:GetProg()
+		return prog and prog.editHistory or false
+	end
+	self.controls.timelineEditHistory.tooltipText = "While scrubbed: insert new allocations at this point\z
+		\ninstead of replacing the later progression."
 
 	-- Progress callback from the CalcsTab power builder coroutine
 	self.powerBuilderToastActive = false

@@ -114,6 +114,76 @@ describe("PassiveProgression", function()
 		end
 	end
 
+	-- While scrubbed: allocate a node adjacent to the (partial) tree not already in the timeline,
+	-- recorded through the real UI entry point (AllocNodeRecorded). Returns its id.
+	local function allocScrubbedRecorded(spec)
+		spec = spec or build.spec
+		local inStages = { }
+		for _, st in ipairs(spec.progression.stages) do
+			for _, id in ipairs(st.alloc) do inStages[id] = true end
+		end
+		for _, node in pairs(spec.allocNodes) do
+			for _, linked in ipairs(node.linked) do
+				if not linked.alloc and not inStages[linked.id] and linked.path
+					and linked.type ~= "Mastery" and linked.type ~= "ClassStart"
+					and linked.type ~= "AscendClassStart" then
+					spec:AllocNodeRecorded(linked)
+					return linked.id
+				end
+			end
+		end
+	end
+
+	-- Allocate an unallocated neighbour of the class start (an independent branch). Returns its id.
+	local function allocStartNeighbor(spec, excludeId)
+		spec = spec or build.spec
+		local prog = spec:Progression()
+		local startNode = spec.nodes[spec.curClass.startNodeId]
+		for _, linked in ipairs(startNode.linked) do
+			if linked.id ~= excludeId and not linked.alloc and linked.path
+				and linked.type ~= "Mastery" and linked.type ~= "ClassStart"
+				and linked.type ~= "AscendClassStart" then
+				prog:Capture(prog:NodeAllocationOrder(linked), function() spec:AllocNode(linked) end)
+				return linked.id
+			end
+		end
+	end
+
+	-- Allocate an unallocated neighbour of a given node (extends its branch). Returns its id.
+	local function allocNeighborOf(spec, nodeId, excludeId)
+		spec = spec or build.spec
+		local prog = spec:Progression()
+		local base = spec.nodes[nodeId]
+		for _, linked in ipairs(base.linked) do
+			if linked.id ~= excludeId and not linked.alloc and linked.path
+				and linked.type ~= "Mastery" and linked.type ~= "ClassStart"
+				and linked.type ~= "AscendClassStart" then
+				prog:Capture(prog:NodeAllocationOrder(linked), function() spec:AllocNode(linked) end)
+				return linked.id
+			end
+		end
+	end
+
+	-- A recorded node that some later-recorded node is attached through (depends includes a
+	-- strictly-later-recorded id). Returns the node and that later id, or nil. Run at the final tree.
+	local function findConnectorWithLaterDependent(spec)
+		spec = spec or build.spec
+		local idxOf = { }
+		for i, st in ipairs(spec.progression.stages) do
+			for _, id in ipairs(st.alloc) do idxOf[id] = i end
+		end
+		for id, node in pairs(spec.allocNodes) do
+			if spec:IsTimelineRelevant(node) and idxOf[id] and node.depends then
+				for _, dep in ipairs(node.depends) do
+					if dep.id ~= id and spec:IsTimelineRelevant(dep) and idxOf[dep.id]
+						and idxOf[dep.id] > idxOf[id] then
+						return node, dep.id
+					end
+				end
+			end
+		end
+	end
+
 	it("is enabled with an empty timeline for a new build", function()
 		local prog = build.spec.progression
 		assert.is_true(prog.enabled)
@@ -439,20 +509,191 @@ describe("PassiveProgression", function()
 		assert.are.equal(stagesBefore, #spec.progression.stages)
 	end)
 
-	it("a confirmed destructive mid-scrub edit truncates after the cursor", function()
+	it("default mid-scrub allocation replaces the later progression and jumps to live", function()
 		local spec = build.spec
+		local prog = spec:Progression()
 		local a = allocOneReachable()
 		local b = allocOneReachable()
 		local c = allocOneReachable()
 		assert.is_not_nil(c)
-		spec:Progression():ScrubToStage(2)
+		prog:ScrubToStage(1)
 		runCallback("OnFrame")
-		local bn = spec.nodes[b]
-		spec:Progression():CaptureScrubbed(nil, function() spec:DeallocNode(bn) end, true)
-		runCallback("OnFrame")
-		assert.is_nil(stageOf(spec, b)) -- removed node scrubbed out of history
-		assert.is_nil(stageOf(spec, c)) -- everything after the cursor discarded
+		assert.is_false(prog:IsEditHistory())
+		local newId = allocScrubbedRecorded(spec)
+		assert.is_not_nil(newId)
+		-- later progression discarded, the new node becomes the tip, view snaps to live
+		assert.is_nil(stageOf(spec, b))
+		assert.is_nil(stageOf(spec, c))
+		assert.is_not_nil(stageOf(spec, newId))
+		assert.is_nil(spec.progression.scrubStage)
+		assert.is_nil(spec.allocNodes[b])
 		assert.is_nil(spec.allocNodes[c])
+		assert.is_not_nil(spec.allocNodes[newId])
+		assert.is_true(invariantHolds())
+	end)
+
+	it("Edit history mode inserts mid-scrub allocations again, and returning to live resets it", function()
+		local spec = build.spec
+		local prog = spec:Progression()
+		local a = allocOneReachable()
+		local b = allocOneReachable()
+		local c = allocOneReachable()
+		assert.is_not_nil(c)
+		prog:ScrubToStage(1)
+		runCallback("OnFrame")
+		prog:ToggleEditHistory()
+		assert.is_true(prog:IsEditHistory())
+		local newId = allocScrubbedRecorded(spec)
+		assert.is_not_nil(newId)
+		-- inserted at the cursor; later stages preserved and shifted after it; stays scrubbed
+		assert.are.equal(2, stageIndexOf(spec, newId))
+		assert.is_not_nil(spec.progression.scrubStage)
+		assert.is_not_nil(stageOf(spec, b))
+		assert.is_not_nil(stageOf(spec, c))
+		assert.is_true(stageIndexOf(spec, b) > 2)
+		-- returning to live through the control ends edit-history mode
+		build.treeTab.controls.timeline:ScrubTo(1 / 0)
+		runCallback("OnFrame")
+		assert.is_false(prog:IsEditHistory())
+		assert.is_nil(spec.progression.scrubStage)
+		assert.is_true(invariantHolds())
+	end)
+
+	it("mid-scrub dealloc is connection-aware: drops the node, keeps independent earlier progression", function()
+		local spec = build.spec
+		local prog = spec:Progression()
+		allocOneReachable()
+		allocOneReachable()
+		local far = allocFarNode()
+		assert.is_not_nil(far)
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		local n = #spec.progression.stages
+		assert.is_true(n >= 3)
+		-- stage 1 (closest to the root) cannot depend on a later node, so it must survive
+		local rootMostId = spec.progression.stages[1].alloc[1]
+		local targetId = spec.progression.stages[2].alloc[1]
+		local target = spec.nodes[targetId]
+		prog:ScrubToStage(2)
+		runCallback("OnFrame")
+		assert.is_not_nil(spec.allocNodes[targetId])
+		prog:CaptureScrubbedDealloc(function() spec:DeallocNode(target) end)
+		runCallback("OnFrame")
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		assert.is_nil(stageOf(spec, targetId))
+		assert.is_nil(spec.allocNodes[targetId])
+		assert.is_not_nil(stageOf(spec, rootMostId))
+		assert.is_not_nil(spec.allocNodes[rootMostId])
+		assert.is_true(invariantHolds())
+	end)
+
+	it("mid-scrub dealloc splices later stages attached through the node (no resurrection)", function()
+		local spec = build.spec
+		local prog = spec:Progression()
+		allocOneReachable()
+		local far = allocFarNode()
+		assert.is_not_nil(far)
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		local target, laterDepId = findConnectorWithLaterDependent(spec)
+		assert.is_not_nil(target, "no connector with a later-recorded dependent in the timeline")
+		prog:ScrubToStage(stageIndexOf(spec, target.id))
+		runCallback("OnFrame")
+		assert.is_not_nil(spec.allocNodes[target.id])
+		prog:CaptureScrubbedDealloc(function() spec:DeallocNode(target) end)
+		runCallback("OnFrame")
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		-- the node and its downstream later node are both gone, and the node is not re-added
+		assert.is_nil(stageOf(spec, target.id))
+		assert.is_nil(spec.allocNodes[target.id])
+		assert.is_nil(stageOf(spec, laterDepId))
+		assert.is_nil(spec.allocNodes[laterDepId])
+		assert.is_true(invariantHolds())
+	end)
+
+	it("connection-aware dealloc is unaffected by the Edit history flag", function()
+		local spec = build.spec
+		local prog = spec:Progression()
+		allocOneReachable()
+		allocOneReachable()
+		local far = allocFarNode()
+		assert.is_not_nil(far)
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		local rootMostId = spec.progression.stages[1].alloc[1]
+		local targetId = spec.progression.stages[2].alloc[1]
+		local target = spec.nodes[targetId]
+		prog:ScrubToStage(2)
+		runCallback("OnFrame")
+		prog:ToggleEditHistory()
+		assert.is_true(prog:IsEditHistory())
+		prog:CaptureScrubbedDealloc(function() spec:DeallocNode(target) end)
+		runCallback("OnFrame")
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		assert.is_nil(stageOf(spec, targetId))
+		assert.is_nil(spec.allocNodes[targetId])
+		assert.is_not_nil(spec.allocNodes[rootMostId])
+		assert.is_true(invariantHolds())
+	end)
+
+	it("mid-scrub dealloc of the chain root collapses the whole timeline", function()
+		local spec = build.spec
+		local prog = spec:Progression()
+		local far = allocFarNode()
+		assert.is_not_nil(far)
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		local n = #spec.progression.stages
+		assert.is_true(n >= 3)
+		-- stage 1 is adjacent to the class start; the rest of the linear chain hangs off it
+		local firstId = spec.progression.stages[1].alloc[1]
+		local first = spec.nodes[firstId]
+		prog:ScrubToStage(1)
+		runCallback("OnFrame")
+		prog:CaptureScrubbedDealloc(function() spec:DeallocNode(first) end)
+		runCallback("OnFrame")
+		assert.are.equal(0, #spec.progression.stages)
+		assert.is_nil(spec.progression.scrubStage)
+		assert.is_true(invariantHolds())
+	end)
+
+	it("connection-aware dealloc keeps an unrelated respec block intact", function()
+		local spec = build.spec
+		local prog = spec:Progression()
+		-- branch A off the start, extended by one child
+		local s1 = allocStartNeighbor(spec)
+		assert.is_not_nil(s1, "need a start-neighbour branch A")
+		local a2 = allocNeighborOf(spec, s1)
+		assert.is_not_nil(a2, "branch A needs a child to refund")
+		-- branch B off the start: an independent leaf we will deallocate later
+		local s2 = allocStartNeighbor(spec, s1)
+		assert.is_not_nil(s2, "need an independent start-neighbour branch B")
+		-- a respec entirely on branch A: refund a2, re-allocate a different branch-A node
+		prog:ToggleRespec()
+		prog:Capture(nil, function() spec:DeallocNode(spec.nodes[a2]) end)
+		local a3 = allocNeighborOf(spec, s1, a2)
+		assert.is_not_nil(a3, "branch A needs a second neighbour for the respec re-alloc")
+		prog:ToggleRespec()
+		local hasRespec = false
+		for _, st in ipairs(spec.progression.stages) do if st.kind == "respec" then hasRespec = true end end
+		assert.is_true(hasRespec, "setup failed to create a respec block")
+		-- s2 (branch B) is an independent leaf; deallocating it must not disturb branch A's respec
+		prog:ScrubToStage(stageIndexOf(spec, s2))
+		runCallback("OnFrame")
+		assert.is_not_nil(spec.allocNodes[s2])
+		prog:CaptureScrubbedDealloc(function() spec:DeallocNode(spec.nodes[s2]) end)
+		runCallback("OnFrame")
+		prog:ScrubToStage(nil)
+		runCallback("OnFrame")
+		assert.is_nil(stageOf(spec, s2))
+		assert.is_nil(spec.allocNodes[s2])
+		assert.is_not_nil(spec.allocNodes[a3]) -- respec re-alloc survived
+		local stillRespec = false
+		for _, st in ipairs(spec.progression.stages) do if st.kind == "respec" then stillRespec = true end end
+		assert.is_true(stillRespec, "unrelated respec block was dropped (flat rebuild?)")
 		assert.is_true(invariantHolds())
 	end)
 

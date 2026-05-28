@@ -192,11 +192,13 @@ function PassiveSpecClass:Progression()
 	return self.progressionTimeline
 end
 
--- Allocate a node and record it on the progression timeline (scrub-aware), as a tree click does
+-- Allocate a node and record it on the progression timeline (scrub-aware), as a tree click does.
+-- Mid-scrub this replaces the later progression from the cursor; Edit-history mode inserts instead.
 function PassiveSpecClass:AllocNodeRecorded(node, altPath)
 	local prog = self:Progression()
+	local truncate = not prog:IsEditHistory()
 	prog:CaptureScrubbed(prog:NodeAllocationOrder(node, altPath),
-		function() self:AllocNode(node, altPath) end)
+		function() self:AllocNode(node, altPath) end, truncate)
 end
 
 function PassiveSpecClass:Load(xml, dbFileName)

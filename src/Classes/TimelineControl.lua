@@ -119,6 +119,9 @@ function TimelineControlClass:ScrubTo(i)
 	-- ScrubToStage closes any open respec block itself.
 	local n = #prog.stages
 	i = m_max(0, m_min(i, n))
+	-- Returning to live ends edit-history mode (user-facing seam; the capture dance re-scrubs
+	-- via tl:ScrubToStage directly and is unaffected)
+	if i >= n then prog.editHistory = false end
 	tl:ScrubToStage(i >= n and nil or i)
 end
 
@@ -252,7 +255,9 @@ function TimelineControlClass:Draw(viewPort)
 	if prog.respecOpen then
 		readout = readout .. "    ^xDD4444recording respec"
 	elseif prog.scrubStage ~= nil then
-		readout = readout .. "    ^x33AAFF(scrubbed back - edits insert here)"
+		readout = readout .. (prog.editHistory
+			and "    ^x33AAFF(editing history - new points insert here)"
+			or  "    ^x33AAFF(scrubbed - new points replace from here)")
 	end
 	SetDrawColor(1, 1, 1)
 	DrawString(x + 12, y + 5, "LEFT", 16, "VAR", readout)

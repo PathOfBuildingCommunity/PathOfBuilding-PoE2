@@ -441,17 +441,13 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 					end
 				end
 				if prog:IsScrubbed() then
-					-- Destructive: later progression was pathed through this node
-					main:OpenConfirmPopup("Edit Progression", "^7Editing the progression before later allocations.\nThe progression recorded after this point will be disconnected and discarded.", "Continue", function()
-						prog:CaptureScrubbed(nil, deallocFn, true)
-						spec:AddUndoState()
-						build.buildFlag = true
-					end)
+					-- Connection-aware: drop this node and only what is attached through it, keep the rest
+					prog:CaptureScrubbedDealloc(deallocFn)
 				else
 					prog:Capture(nil, deallocFn)
-					spec:AddUndoState()
-					build.buildFlag = true
 				end
+				spec:AddUndoState()
+				build.buildFlag = true
 			else
 				-- Check if the node belongs to a different ascendancy
 				if hoverNode.ascendancyName then
