@@ -166,6 +166,7 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 			calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqDex, grantedEffect.support),
 			calcLib.getGemStatRequirement(reqLevel, gemInstance.gemData.reqInt, grantedEffect.support))
 	end
+	tooltip.center = true
 	if grantedEffect.description then
 		local wrap = main:WrapString(grantedEffect.description, 16, m_max(DrawStringWidth(fontSizeBig, "VAR", gemInstance.gemData.tagString), 400))
 		for _, line in ipairs(wrap) do
@@ -256,9 +257,11 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	options = options or { }
 	local fontSizeBig, fontSizeTitle = getFontSizes()
 	local levelRange = options.levelRange
-	tooltip.center = true
+	tooltip.center = false
 	tooltip.color = colorCodes.GEM
 	tooltip.tooltipHeader = "GEM"
+	tooltip.gemIcon = gemInstance.gemData.grantedEffect.icon
+	tooltip.gemBackground = gemInstance.gemData.grantedEffect.id
 
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
@@ -266,17 +269,16 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	if grantedEffect.name:match("^Spectre:") or grantedEffect.name:match("^Companion:") then
 		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name), "FONTIN SC")
 	else
-		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. gemInstance.gemData.name, "FONTIN SC")
+		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. "            " .. gemInstance.gemData.name, "FONTIN SC")
 	end
-	tooltip:AddSeparator(10)
-	tooltip:AddLine(fontSizeBig, colorCodes.NORMAL .. gemInstance.gemData.gemType, "FONTIN SC")
+	tooltip:AddLine(fontSizeBig, colorCodes.NORMAL .. "                   " .. gemInstance.gemData.gemType, "FONTIN SC")
+	tooltip:AddSeparator(8)
 	if gemInstance.gemData.tagString ~= "" then
-		tooltip:AddLine(fontSizeBig, "^x7F7F7F" .. gemInstance.gemData.tagString, "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, "^x7F7F7F" .. gemInstance.gemData.tagString, "FONTIN")
 	end
 	if gemInstance.gemData.gemFamily then
 		tooltip:AddLine(fontSizeBig, "^x7F7F7FCategory: ^7" .. gemInstance.gemData.gemFamily, "FONTIN SC")
 	end
-
 	-- Default mode preserves the old GemSelectControl tooltip. levelRange is only for passive-tree granted skills.
 	addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, true, levelRange)
 	addEffectStats(tooltip, build, gemInstance, grantedEffect, nil, levelRange)

@@ -415,7 +415,8 @@ local sheets = {
 	newSheet("jewel-sockets", defaultMaxWidth, 100),
 	newSheet("legion", defaultMaxWidth, 100),
 	newSheet("monster-categories", defaultMaxWidth, 100),
-	newSheet("player-skills", defaultMaxWidth, 100),
+	newSheet("gem-icons", defaultMaxWidth, 100),
+	newSheet("gem-backgrounds", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -429,7 +430,8 @@ local sheetLocations = {
 	["jewel-sockets"] = 9,
 	["legion"] = 10,
 	["monster-categories"] = 11,
-	["player-skills"] = 12,
+	["gem-icons"] = 12,
+	["gem-backgrounds"] = 13,
 }
 local connectionArtToDecompose = {
 	Character = true,
@@ -611,18 +613,18 @@ local skills = dat("ActiveSkills")
 for skill in skills:Rows() do
 	if skill.Icon ~= "" and isValidSkillDisplayName(skill.DisplayName) then
 		local asset = string.lower(skill.Icon)
-		addToSheet(getSheet("player-skills"), asset, "active-skills", commonMetadata(skill.Icon))
+		addToSheet(getSheet("gem-icons"), asset, "gem-icons", commonMetadata(skill.Icon))
 	end
 end
 
-local skills = dat("SupportGems")
-for skill in skills:Rows() do
-	if skill.DDS ~= "" then
-		local asset = string.lower(skill.DDS)
-		local name = skill.SkillGem.BaseItemType.Name
-		if not isValidSkillDisplayName(name) then
-			addToSheet(getSheet("player-skills"), asset, "support-gems", commonMetadata(skill.DDS))
+-- adding skill backgrounds
+for skillGem in dat("SkillGems"):Rows() do
+	local name
+	if skillGem.HoverImage ~= "" then
+		for _, effect in pairs(skillGem.GemEffects) do
+			name = effect.GrantedEffect.Id
 		end
+		addToSheet(getSheet("gem-backgrounds"), skillGem.HoverImage, "gem-backgrounds", commonMetadata(name))
 	end
 end
 
