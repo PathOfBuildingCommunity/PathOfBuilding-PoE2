@@ -146,7 +146,6 @@ function TooltipClass:AddSeparator(size)
 	})
 end
 
-
 function TooltipClass:GetSize()
 	local ttW, ttH = 0, 0
 	for i, data in ipairs(self.lines) do
@@ -174,6 +173,10 @@ function TooltipClass:GetSize()
 			imageX = imageX + DrawStringWidth(recipeTextSize, font, recipeNameShort) + title.size * 1.25
 		end
 		ttW = m_max(ttW, imageX)
+	end
+
+	if self.minWidth then
+		ttW = m_max(ttW, self.minWidth)
 	end
 
 	return ttW + H_PAD, ttH + V_PAD
@@ -522,9 +525,12 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 			local gemBGImage = tree:GetAssetByName(self.gemBackground)
 			local gemHeaderImage = NewImageHandle()
 			gemHeaderImage:Load("Assets/gemhovertitle.png")
+			local gemIconBorder = NewImageHandle()
+			gemIconBorder:Load("Assets/skillpanelskilliconframe.png")
 			DrawImage(gemHeaderImage, headerX, headerY, 375, 59)
 			if gemIconImage then
-				DrawImage(gemIconImage.handle, headerX + 25, headerY + 8, 44, 44, unpack(gemIconImage))
+				DrawImage(gemIconImage.handle, headerX + 21, headerY + 6, 46, 46, unpack(gemIconImage))
+				DrawImage(gemIconBorder, headerX + 21, headerY + 6, 48, 48)
 			end
 			if gemBGImage then
 				DrawImage(gemBGImage.handle, headerX + headerTotalWidth -350, headerY, gemBGImage.width/2, gemBGImage.height/2, unpack(gemBGImage))
