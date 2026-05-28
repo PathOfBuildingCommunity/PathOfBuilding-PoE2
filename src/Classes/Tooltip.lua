@@ -533,11 +533,11 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				DrawImage(gemIconBorder, headerX + 21, headerY + 6, 48, 48)
 			end
 			if gemBGImage then
-				DrawImage(gemBGImage.handle, headerX + headerTotalWidth -350, headerY, gemBGImage.width/2, gemBGImage.height/2, unpack(gemBGImage))
+				DrawImage(gemBGImage.handle, headerX + headerTotalWidth -500, headerY, 500, 266, unpack(gemBGImage))
 			else
 				gemBGImage = NewImageHandle()
 				gemBGImage:Load("Assets/gemhoverimageempty.png")
-				DrawImage(gemBGImage, headerX + headerTotalWidth -350, headerY + (headerHeight - (headerHeight / 2)) / 2, 350, 186)
+				DrawImage(gemBGImage, headerX + headerTotalWidth -500, headerY, 500, 266)
 			end
 		end
 	end
