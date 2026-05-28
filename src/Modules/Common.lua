@@ -801,11 +801,11 @@ function getFormatSec(dec)
 end
 
 function copyFile(srcName, dstName)
-	local inFile, msg = io.open(srcName, "r")
+	local inFile, msg = io.open(srcName, "rb")
 	if not inFile then
 		return nil, "Couldn't open '"..srcName.."': "..msg
 	end
-	local outFile, msg = io.open(dstName, "w")
+	local outFile, msg = io.open(dstName, "wb")
 	if not outFile then
 		return nil, "Couldn't create '"..dstName.."': "..msg
 	end

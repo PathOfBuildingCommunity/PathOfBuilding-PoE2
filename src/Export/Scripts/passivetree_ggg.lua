@@ -646,11 +646,10 @@ for _, strFile in ipairs(fileAssets) do
 
 	-- this file contains frame & meta
 	local fileNameMeta =  dataFrame.meta.image
-	-- copy the file to tree data destination
-	-- this assume you are on windows
-	local copyResult = os.execute(string.format('copy /Y "%s\\%s" "%s"', assetsFolder, fileNameMeta, path))
-	if copyResult ~= 0 then
+	local copied, copyErr = copyFile(assetsFolder .. "\\" .. fileNameMeta, path .. fileNameMeta)
+	if not copied then
 		printf("Error copying asset " .. fileNameMeta)
+		printf(copyErr)
 		return
 	end
 
