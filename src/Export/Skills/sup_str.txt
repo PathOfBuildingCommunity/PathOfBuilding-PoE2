@@ -743,43 +743,16 @@ statMap = {
 
 #skill FistOfWarSupportPlayer
 #set FistOfWarSupportPlayer
-statMap = {
-	["ancestral_slam_interval_duration"] = {
-		mod("FistOfWarCooldown", "BASE", nil),
-		div = 1000,
-	},
-},
-#baseMod mod("FistOfWarDamageMultiplier", "BASE", 30)
-#baseMod mod("FistOfWarMOREAoE", "BASE", 25)
 #mods
 #skillEnd
 
 #skill FistOfWarSupportPlayerTwo
 #set FistOfWarSupportPlayerTwo
-statMap = {
-	["ancestral_slam_interval_duration"] = {
-		mod("FistOfWarCooldown", "BASE", nil),
-		div = 1000,
-	},
-},
-#baseMod mod("FistOfWarDamageMultiplier", "BASE", 30)
-#baseMod mod("FistOfWarMOREAoE", "BASE", 25)
 #mods
 #skillEnd
 
 #skill FistOfWarSupportPlayerThree
 #set FistOfWarSupportPlayerThree
-statMap = {
-	["ancestral_slam_interval_duration"] = {
-		mod("FistOfWarCooldown", "BASE", nil),
-		div = 1000,
-	},
-	["double_ancestral_boost_effect"] = {
-		-- Accounted for in base mod
-	},
-},
-#baseMod mod("FistOfWarDamageMultiplier", "BASE", 60)
-#baseMod mod("FistOfWarMOREAoE", "BASE", 50)
 #mods
 #skillEnd
 

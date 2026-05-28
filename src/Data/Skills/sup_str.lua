@@ -3398,17 +3398,7 @@ skills["FistOfWarSupportPlayer"] = {
 			label = "Fist of War I",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3439,17 +3429,7 @@ skills["FistOfWarSupportPlayerTwo"] = {
 			label = "Fist of War II",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3480,20 +3460,7 @@ skills["FistOfWarSupportPlayerThree"] = {
 			label = "Fist of War III",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-				["double_ancestral_boost_effect"] = {
-					-- Accounted for in base mod
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 60),
-				mod("FistOfWarMOREAoE", "BASE", 50),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },

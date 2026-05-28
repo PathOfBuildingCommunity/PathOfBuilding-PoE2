@@ -586,6 +586,12 @@ return {
 ["warcry_speed_+%"] = {
 	mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry),
 },
+["warcry_empowers_per_X_monster_power_mp_cap"] = {
+	mod("WarcryPowerCap", "BASE", nil),
+},
+["warcry_empowers_per_X_monster_power"] = {
+	mod("WarcryPowerPer", "BASE", nil),
+},
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
 },
@@ -2585,6 +2591,32 @@ return {
 },
 ["slam_aftershock_chance_%"] = {
 	mod("AftershockChance", "BASE", nil)
+},
+-- Final Strike
+["final_strike_is_ancestrally_boosted"] = {
+	flag("Condition:AncestrallyBoosted", { type = "Condition", var = "FinalStrike" }),
+	flag("MaxBoostedUptimeRatio", { type = "Condition", var = "FinalStrike"}),
+},
+["is_final_strike"] = {
+	flag("Condition:FinalStrike"),
+},
+["ancestral_slam_interval_duration"] = {
+	{
+		mod("FistOfWarCooldown", "BASE", nil),
+		div = 1000,
+	},
+	flag("Condition:AncestrallyBoosted"),
+},
+["ancestral_call_spirit_strike_interval_ms"] = {
+	{
+		mod("AncestralCallCooldown", "BASE", nil),
+		div = 1000,
+	},
+	flag("Condition:AncestrallyBoosted"),
+},
+["double_ancestral_boost_effect"] = {
+	mod("Multiplier:AncestralBoostEffect", "BASE", nil),
+	value = 1,
 },
 -- Curse
 ["curse_effect_+%"] = {
