@@ -15,23 +15,23 @@ local fileAssets = {
 local json = require("dkjson")
 
 local function round_to(num, decimal_places)
-    local multiplier = 10 ^ decimal_places
-    return math.floor(num * multiplier + 0.5) / multiplier
+	local multiplier = 10 ^ decimal_places
+	return math.floor(num * multiplier + 0.5) / multiplier
 end
 
 local function arcDirection(fromNode, toNode, edge)
-    -- vectors from arc center to each node
-    local v1x = fromNode.x - edge.orbitX
-    local v1y = fromNode.y - edge.orbitY
-    local v2x = toNode.x   - edge.orbitX
-    local v2y = toNode.y   - edge.orbitY
+	-- vectors from arc center to each node
+	local v1x = fromNode.x - edge.orbitX
+	local v1y = fromNode.y - edge.orbitY
+	local v2x = toNode.x   - edge.orbitX
+	local v2y = toNode.y   - edge.orbitY
 
-    -- signed angle from v1 to v2, in (-pi, pi]
-    local dot   = v1x * v2x + v1y * v2y
-    local cross = v1x * v2y - v1y * v2x
-    local angle = math.atan2(cross, dot)
+	-- signed angle from v1 to v2, in (-pi, pi]
+	local dot   = v1x * v2x + v1y * v2y
+	local cross = v1x * v2y - v1y * v2x
+	local angle = math.atan2(cross, dot)
 
-    return cross > 0 and -1 or 1
+	return cross > 0 and -1 or 1
 end
 
 local function CalcOrbitAngles(nodesInOrbit)
@@ -147,6 +147,9 @@ end
 
 -- build classes
 local ascendancySeachNameById  = {}
+local ascedancyReplacements = {
+	["Lich"] = "Abyssal Lich"
+}
 for i,class in ipairs(data.classes) do
 	if #class.ascendancies == 0 then
 		print("Skipping class " .. class.name .. " because it has no ascendancy classes")
@@ -179,23 +182,12 @@ for i,class in ipairs(data.classes) do
 	}
 
 	for indexAscendancy, ascendancy in ipairs(class.ascendancies) do
-		if ascendancy.id == "Witch3b" then
-			print("Ignoring Abyssal Lich no way to handle from data.json")
-			goto nextAscendancy
-		end
 		if not ascendancy.name then
 			print("Skipping ascendancy with id " .. ascendancy.id .. " because it has no name")
 			goto nextAscendancy
 		end
 		local imageName = "class" .. class.name .. ":Class" .. indexAscendancy
-		local replaceBy, replace
-		if ascendancy.id == "Witch3b" then
-			imageName =	"class" .. class.name .. ":Class" .. indexAscendancy - 1 
-			replace = "Lich"
-		elseif ascendancy.id == "Witch3" then
-			replaceBy = "Abyssal Lich"
-		end
-
+		
 		local ascendancyData = {
 			["internalId"] = ascendancy.id,
 			["name"] = ascendancy.name,
@@ -208,8 +200,6 @@ for i,class in ipairs(data.classes) do
 				x= ascendancy.offsetX,
 				y= ascendancy.offsetY,
 			},
-			replace = replace,
-			replaceBy = replaceBy
 		}
 		ascendancySeachNameById[ascendancy.id] = ascendancy.name
 		table.insert(classData.ascendancies, ascendancyData)
@@ -460,6 +450,44 @@ for _, classData in ipairs(data.classes) do
 			:: nextReplacement ::
 		end
 	end
+	for _, ascendancyData in ipairs(classData.ascendancies) do
+		if ascendancyData.overridePairs then
+			for nodeId, replaceNodeId in pairs(ascendancyData.overridePairs) do
+				local sourceNode = tree.nodes[tonumber(nodeId)]
+				if sourceNode == nil then
+					printf("Not Node for override found for " .. nodeId)
+					goto nextReplacement
+				end
+				local replaceNode = data.skillOverrides[tostring(replaceNodeId)]
+				if replaceNode == nil then
+					printf("Not skillOverrides for override found for " .. replaceNodeId)
+					goto nextReplacement
+				end
+
+				if #replaceNode > 0 then
+					replaceNode = replaceNode[1]
+				end
+
+				sourceNode["isSwitchable"] = true
+				sourceNode.options = sourceNode.options or {}
+
+				local replaceNodeData = {
+					["icon"] = replaceNode.icon,
+					["id"] = replaceNodeId,
+					["name"] =  escapeGGGString(replaceNode.name),
+					["ascendancyName"] = ascendancyData.name,
+					["stats"] = {},					
+				}
+
+				for _, statDesc in ipairs(replaceNode.stats) do
+					table.insert(replaceNodeData.stats, sanitiseText(escapeGGGString(statDesc)))
+				end
+
+				sourceNode.options[ascendancyData.name] = replaceNodeData
+				:: nextReplacement ::
+			end
+		end
+	end
 end
 
 -- updating skillsPerOrbit
@@ -558,6 +586,39 @@ for i, classId in ipairs(classesNodeIds) do
 			:: continuePositioning ::
 		end
 	end
+end
+
+printf("Fixing replace ascendancies position...")
+for from, to in pairs(ascedancyReplacements) do
+	local fromAscendancy
+	local toAscendancy
+	for _, class in ipairs(tree.classes) do
+		for _, ascendancy in ipairs(class.ascendancies) do
+			if ascendancy.name == from then
+				fromAscendancy = ascendancy
+			end
+			if ascendancy.name == to then
+				toAscendancy = ascendancy
+			end
+		end
+	end
+
+	if fromAscendancy == nil then
+		printf("From ascendancy " .. from .. " not found")
+		goto continuereplace
+	end
+	if toAscendancy == nil then
+		printf("To ascendancy " .. to .. " not found")
+		goto continuereplace
+	end
+
+	fromAscendancy.replaceBy = to
+	toAscendancy.replace = from
+
+	toAscendancy.background.x = fromAscendancy.background.x
+	toAscendancy.background.y = fromAscendancy.background.y
+
+	:: continuereplace ::
 end
 
 -- build spriteCoords
