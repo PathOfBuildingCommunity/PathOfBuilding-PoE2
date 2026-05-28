@@ -2164,14 +2164,15 @@ do
 				t_insert(req, s_format("%s%d ^x7F7F7FOmni", main:StatColor(omni, 0, self.calcsTab.mainOutput.Omni), omni))
 			end
 		else
+			local attrTextColor = (tooltip.tooltipHeader == "GEM") and "^7" or "^x7F7F7F"
 			if str and (str > 7 or str > self.calcsTab.mainOutput.Str) then
-				t_insert(req, s_format("%s%d ^x7F7F7F%s", main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), str, level and "Str" or "Strength"))
+				t_insert(req, s_format("%s%d %s%s", main:StatColor(str, strBase, self.calcsTab.mainOutput.Str), str, attrTextColor, level and "Str" or "Strength"))
 			end
 			if dex and (dex > 7 or dex > self.calcsTab.mainOutput.Dex) then
-				t_insert(req, s_format("%s%d ^x7F7F7F%s", main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), dex, level and "Dex" or "Dexterity"))
+				t_insert(req, s_format("%s%d %s%s", main:StatColor(dex, dexBase, self.calcsTab.mainOutput.Dex), dex, attrTextColor, level and "Dex" or "Dexterity"))
 			end
 			if int and (int > 7 or int > self.calcsTab.mainOutput.Int) then
-				t_insert(req, s_format("%s%d ^x7F7F7F%s", main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), int, level and "Int" or "Intelligence"))
+				t_insert(req, s_format("%s%d %s%s", main:StatColor(int, intBase, self.calcsTab.mainOutput.Int), int, attrTextColor, level and "Int" or "Intelligence"))
 			end
 		end
 		if req[1] then
