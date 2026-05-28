@@ -262,12 +262,12 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			end
 		end
 
-		if node.aliasNotableMap then
-			local aliasNotableMap = node.aliasNotableMap:lower()
-			if self.notableMap[aliasNotableMap] then
-				ConPrintf("Warning: aliasNotableMap '"..node.aliasNotableMap.."' for node '"..node.dn.."' is already used by notable '"..self.notableMap[aliasNotableMap].dn.."'.")
+		if node.aliasPassiveSocket then
+			local aliasPassiveSocket = node.aliasPassiveSocket:lower()
+			if self.notableMap[aliasPassiveSocket] then
+				ConPrintf("Warning: aliasPassiveSocket '"..node.aliasPassiveSocket.."' for node '"..node.dn.."' is already used by notable '"..self.notableMap[aliasPassiveSocket].dn.."'.")
 			end
-			self.notableMap[node.aliasNotableMap:lower()] = node
+			self.notableMap[aliasPassiveSocket] = node
 		end
 
 		-- Find the node group
