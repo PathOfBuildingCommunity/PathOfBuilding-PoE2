@@ -298,6 +298,10 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	local grantedEffect = gemInstance.gemData.grantedEffect
 	local additionalEffects = gemInstance.gemData.additionalGrantedEffects
 
+	if grantedEffect.isLineage then
+		tooltip.isUniqueGem = true
+	end
+
 	local iconNameIndent = "            "
 	local iconTagIndent = "                  "
 	if grantedEffect.support then
