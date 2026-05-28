@@ -262,14 +262,6 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 			end
 		end
 
-		if node.aliasPassiveSocket then
-			local aliasPassiveSocket = node.aliasPassiveSocket:lower()
-			if self.notableMap[aliasPassiveSocket] then
-				ConPrintf("Warning: aliasPassiveSocket '"..node.aliasPassiveSocket.."' for node '"..node.dn.."' is already used by notable '"..self.notableMap[aliasPassiveSocket].dn.."'.")
-			end
-			self.notableMap[aliasPassiveSocket] = node
-		end
-
 		-- Find the node group
 		local group = self.groups[node.g]
 		if group then
