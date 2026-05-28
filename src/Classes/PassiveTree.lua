@@ -78,10 +78,11 @@ local PassiveTreeClass = newClass("PassiveTree", function(self, treeVersion)
 
 	self.size = m_min(self.max_x - self.min_x, self.max_y - self.min_y) * self.scaleImage * 1.1
 	
-	for i = 0, 6 do
-		self.classes[i] = self.classes[i + 1]
-		self.classes[i + 1] = nil
+	local classes = { }
+	for _, class in pairs(self.classes) do
+		classes[class.integerId] = class
 	end
+	self.classes = classes
 
 	-- Build maps of class name -> class table
 	self.classNameMap = { }

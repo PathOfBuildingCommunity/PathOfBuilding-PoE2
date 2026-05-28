@@ -24,7 +24,7 @@ local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, b
 	-- Initialise and build all tables
 	self:Init(treeVersion, convert)
 
-	self:SelectClass(0)
+	self:SelectClass(self.tree.constants.classes.DexClass)
 end)
 
 function PassiveSpecClass:Init(treeVersion, convert)
