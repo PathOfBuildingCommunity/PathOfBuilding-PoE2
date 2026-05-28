@@ -863,6 +863,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.support = skillData.support
+			gemInstance.corrupted = skillData.corrupted
 
 			local spectreList = data.spectres
 			if typeLine:sub(1, 8) == "Spectre:" then
@@ -918,8 +919,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 					else
 						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
 					end
-					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption") then
-						gemInstance.level = gemInstance.level + tonumber(skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption"))
+					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(-?%d+) Level[s]? from Corruption") then
+						gemInstance.corruptLevel = tonumber(skillData.properties[_ + 2].values[1][1]:match("(-?%d+) Level[s]? from Corruption"))
+					else
+						gemInstance.corruptLevel = 0
 					end
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))

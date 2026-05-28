@@ -67,11 +67,39 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FTier: ^7%d", gemInstance.gemData.Tier), "FONTIN SC")
 	end
 	if not levelRange and addReq and not grantedEffect.support then
-		tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7%d%s%s",
-			gemInstance.level,
-			((displayInstance.level > gemInstance.level) and " (" .. colorCodes.MAGIC .. "+" .. (displayInstance.level - gemInstance.level) .. "^7)") or ((displayInstance.level < gemInstance.level) and " (" .. colorCodes.WARNING .. "-" .. (gemInstance.level - displayInstance.level) .. "^7)") or "",
-			(gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""
-		), "FONTIN SC")
+		local totalGlobalLevels = 0
+		if displayInstance.gemPropertyInfo then
+			for i, prop in ipairs(displayInstance.gemPropertyInfo) do
+				if prop.value and prop.value.key == "level" and prop.value.value then
+					totalGlobalLevels = totalGlobalLevels + prop.value.value
+				end
+			end
+		end
+		local totalLevel
+		local corruptLevel = displayInstance.corruptLevel or 0
+		totalLevel = m_max(displayInstance.level, (gemInstance.level + corruptLevel)) -- Needed for tooltip comparison for dropdown gems. Otherwise they only show level 20 when corrupted.
+		if corruptLevel ~= 0 or
+		totalGlobalLevels > 0 or
+		(displayInstance.level - gemInstance.level - corruptLevel > 0)
+		then
+			tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. colorCodes.MAGIC .. totalLevel), "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, "^7" .. gemInstance.level .. " Levels from Gem" .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or ""), "FONTIN SC")
+		else
+			tooltip:AddLine(fontSizeBig, string.format("^x7F7F7FLevel: ^7" .. totalLevel .. ((gemInstance.level >= gemInstance.gemData.naturalMaxLevel) and " (Max)" or "")), "FONTIN SC")
+		end
+		if corruptLevel > 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. corruptLevel .. " Level from Corruption", "FONTIN SC")
+		elseif corruptLevel < 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. corruptLevel .. " Level from Corruption", "FONTIN SC")
+		end
+		if totalGlobalLevels > 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalGlobalLevels .. " Levels from Global Modifiers", "FONTIN SC")
+			if totalLevel - gemInstance.level - corruptLevel - totalGlobalLevels > 0 then
+				tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - corruptLevel - totalGlobalLevels .. " Levels from Supports", "FONTIN SC")
+			end
+		elseif totalLevel - gemInstance.level - corruptLevel > 0 then
+			tooltip:AddLine(fontSizeBig, colorCodes.MAGIC .. "+" .. totalLevel - gemInstance.level - corruptLevel .. " Levels from Supports", "FONTIN SC")
+		end
 	end
 
 	if not levelRange and grantedEffect.support then
@@ -172,6 +200,10 @@ local function addGrantedEffectInfo(tooltip, build, gemInstance, grantedEffect, 
 		for _, line in ipairs(wrap) do
 			tooltip:AddLine(fontSizeBig, colorCodes.GEMDESCRIPTION .. line, "FONTIN ITALIC")
 		end
+	end
+	if displayInstance.corrupted == true then
+		tooltip:AddSeparator(10)
+		tooltip:AddLine(fontSizeBig, colorCodes.NEGATIVE .. "Corrupted", "FONTIN SC")
 	end
 end
 
