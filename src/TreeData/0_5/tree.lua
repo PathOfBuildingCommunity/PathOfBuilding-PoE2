@@ -26012,7 +26012,7 @@ return {
 			}
 		},
 		[3367]={
-			aliasNotableMap="voices_jewel_slot5",
+			aliasPassiveSocket="voices_jewel_slot5",
 			connections={
 			},
 			group=667,
@@ -57502,7 +57502,7 @@ return {
 			}
 		},
 		[23960]={
-			aliasNotableMap="voices_jewel_slot3__",
+			aliasPassiveSocket="voices_jewel_slot3__",
 			connections={
 			},
 			group=670,
@@ -60909,7 +60909,7 @@ return {
 			}
 		},
 		[26178]={
-			aliasNotableMap="voices_jewel_slot2",
+			aliasPassiveSocket="voices_jewel_slot2",
 			connections={
 			},
 			group=671,
@@ -81564,7 +81564,7 @@ return {
 			}
 		},
 		[39087]={
-			aliasNotableMap="voices_jewel_slot4",
+			aliasPassiveSocket="voices_jewel_slot4",
 			connections={
 			},
 			group=669,
@@ -117970,7 +117970,7 @@ return {
 			}
 		},
 		[62152]={
-			aliasNotableMap="voices_jewel_slot1",
+			aliasPassiveSocket="voices_jewel_slot1",
 			connections={
 			},
 			group=672,

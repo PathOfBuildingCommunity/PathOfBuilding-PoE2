@@ -302,7 +302,7 @@ for id, node in pairs(data.nodes) do
 		nodeData["isJewelSocket"] = node.isJewelSocket
 
 		-- enable support for voices_jewel_slot[n] in GrantedPassiveSkills
-		nodeData["aliasNotableMap"] = node.isJewelSocket and node.isBlighted and node.id or nil
+		nodeData["aliasPassiveSocket"] = node.isJewelSocket and node.isBlighted and node.id or nil
 
 		if node.isBlighted then
 			nodeData["nodeOverlay"] = {
