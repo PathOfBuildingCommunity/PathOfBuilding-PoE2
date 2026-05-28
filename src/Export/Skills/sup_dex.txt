@@ -146,12 +146,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportDazedBreakPlayer
-legacy = true
-#set SupportDazedBreakPlayer
-#mods
-#skillEnd
-
 #skill SupportBurstingPlaguePlayer
 #set SupportBurstingPlaguePlayer
 #mods
@@ -370,12 +364,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportDazzlePlayer
-legacy = true
-#set SupportDazzlePlayer
-#mods
-#skillEnd
-
 #skill SupportDeadlyHeraldsPlayer
 #set SupportDeadlyHeraldsPlayer
 statMap = {
@@ -469,21 +457,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportExcoriatePlayer
-legacy = true
-#set SupportExcoriatePlayer
-statMap = {
-	["support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target"] = {
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked" }),
-		mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportFerocityPlayer
 #set SupportFerocityPlayer
 statMap = {
@@ -493,12 +466,6 @@ statMap = {
 		mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportFlowPlayer
-legacy = true
-#set SupportFlowPlayer
 #mods
 #skillEnd
 
@@ -568,12 +535,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportHobblePlayer
-legacy = true
-#set SupportHobblePlayer
-#mods
-#skillEnd
-
 #skill SupportImpalePlayer
 #set SupportImpalePlayer
 #mods
@@ -612,12 +573,6 @@ statMap = {
 		mod("EnemyShockChance", "MORE", nil),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportLeveragePlayer
-legacy = true
-#set SupportLeveragePlayer
 #mods
 #skillEnd
 
@@ -770,12 +725,6 @@ statMap = {
 		mod("Damage", "MORE", nil),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportOutmaneuverPlayer
-legacy = true
-#set SupportOutmaneuverPlayer
 #mods
 #skillEnd
 
@@ -1257,12 +1206,6 @@ statMap = {
 
 #skill SupportTulsStillnessPlayer
 #set SupportTulsStillnessPlayer
-#mods
-#skillEnd
-
-#skill SupportTumultPlayer
-legacy = true
-#set SupportTumultPlayer
 #mods
 #skillEnd
 
