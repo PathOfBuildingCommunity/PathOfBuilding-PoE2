@@ -727,7 +727,7 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Apply thorns-derived modifiers to hits
-	if skillModList:Flag(nil, "thorns") or skillModList:Flag(nil, "ThornsModifiersApplyToHits") or skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
+	if skillModList:Flag(nil, "thorns") then
 		-- % increased Thorns damage
 		for _, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Thorns }, "Damage")) do
 			local mod = value.mod
@@ -755,30 +755,6 @@ function calcs.offence(env, actor, activeSkill)
 			local mod = value.mod
 			skillModList:NewMod("ChanceToIgnoreEnemyArmour", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
 		end
-	end
-
-	-- Apply full thorns damage payload to hits
-	if skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
-		local multiplier = skillModList:Flag(nil, "BarbsThornsTwiceOnHit") and 2 or 1
-
-		local function remapThornsBase(fromStat, toStat)
-			for _, value in ipairs(skillModList:Tabulate("BASE", {}, fromStat)) do
-				local mod = value.mod
-				skillModList:NewMod(toStat, "BASE", mod.value * multiplier, mod.source, ModFlag.Hit, mod.keywordFlags)
-			end
-		end
-
-		-- Base thorns damage to hits
-		remapThornsBase("PhysicalThornsMin", "PhysicalMin")
-		remapThornsBase("PhysicalThornsMax", "PhysicalMax")
-		remapThornsBase("FireThornsMin", "FireMin")
-		remapThornsBase("FireThornsMax", "FireMax")
-		remapThornsBase("ColdThornsMin", "ColdMin")
-		remapThornsBase("ColdThornsMax", "ColdMax")
-		remapThornsBase("LightningThornsMin", "LightningMin")
-		remapThornsBase("LightningThornsMax", "LightningMax")
-		remapThornsBase("ChaosThornsMin", "ChaosMin")
-		remapThornsBase("ChaosThornsMax", "ChaosMax")
 	end
 
 	if skillModList:Flag(nil, "CastSpeedAppliesToAttacks") then
