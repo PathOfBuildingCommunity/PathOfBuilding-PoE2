@@ -305,7 +305,6 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	local iconNameIndent = "            "
 	local iconTagIndent = "                  "
 	if grantedEffect.support then
-		ConPrintf("YES")
 		iconNameIndent = "    "
 	 	iconTagIndent = "      "
 	end
