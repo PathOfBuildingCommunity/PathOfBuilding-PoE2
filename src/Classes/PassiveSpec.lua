@@ -16,6 +16,12 @@ local b_rshift = bit.rshift
 local band = AND64 -- bit.band
 local bor = OR64 -- bit.bor
 
+local legacyClassIdMap = {
+	["0_1"] = { [0] = 2, [1] = 6, [2] = 9, [3] = 1, [4] = 7, [5] = 10 },
+	["0_2"] = { [0] = 2, [1] = 8, [2] = 6, [3] = 9, [4] = 1, [5] = 7, [6] = 10 },
+	["0_3"] = { [0] = 2, [1] = 8, [2] = 6, [3] = 9, [4] = 1, [5] = 7, [6] = 10 },
+}
+
 local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, build, treeVersion, convert)
 	self.UndoHandler()
 
@@ -157,6 +163,8 @@ function PassiveSpecClass:Load(xml, dbFileName)
 			if self.tree.classIntegerIdMap[classInternalId] then
 				classId = self.tree.classIntegerIdMap[classInternalId]
 			end
+		elseif classId ~= -1 and legacyClassIdMap[self.treeVersion] then
+			classId = legacyClassIdMap[self.treeVersion][classId] or classId
 		end
 		if xml.attrib.ascendancyInternalId then
 			local ascendancyInternalId = tostring(xml.attrib.ascendancyInternalId)
