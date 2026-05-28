@@ -5766,6 +5766,14 @@ local specialModList = {
 		mod("CritChanceCap", "OVERRIDE", num),
 	} end,
 	["allocates (.+) if you have the matching modifiers? on forbidden (.+)"] = function(_, ascendancy, side) return { mod("GrantedAscendancyNode", "LIST", { side = side, name = ascendancy }) } end,
+	["allocates (%d+) sinister jewel sockets"] = function(num) 
+		local mods = {}
+		local clamped = math.max(2, math.min(num,5))
+		for n =1 , clamped do
+			table.insert(mods, mod("GrantedPassiveSocket", "LIST", "voices_jewel_slot" .. (n ~= 3 and n or "3__")))
+		end
+		return mods
+	end,
 	["allocates (.+)"] = function(_, passive) return { mod("GrantedPassive", "LIST", passive) } end,
 	["battlemage"] = { flag("Battlemage"), mod("MainHandWeaponDamageAppliesToSpells", "MAX", 100) },
 	["transfiguration of body"] = { flag("TransfigurationOfBody") },

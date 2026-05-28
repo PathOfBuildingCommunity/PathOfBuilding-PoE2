@@ -829,6 +829,8 @@ function calcs.initEnv(build, mode, override, specEnv)
 				or (override.repItem.base.type == "Bow" and item and item.base.type ~= "Quiver")
 			) then
 				goto continue
+			elseif slot.nodeId and override.removeSlotsByNodeID and override.removeSlotsByNodeID[slot.nodeId] then
+				item = nil
 			elseif slot.nodeId and override.spec then
 				item = build.itemsTab.items[env.spec.jewels[slot.nodeId]]
 			else

@@ -1995,6 +1995,13 @@ function ItemClass:BuildModList()
 			})
 		end
 	end
+
+	self.grantedPassiveSockets = nil
+	for _, socketNodeAlias in ipairs(baseList:List(nil, "GrantedPassiveSocket")) do
+		self.grantedPassiveSockets = self.grantedPassiveSockets or {}
+		self.grantedPassiveSockets[socketNodeAlias] = true
+	end
+
 	--Sekhema's Resolve
 	if baseList:Flag(nil, "JewelSocketRestriction") then
 		self.canSocketJewelBase = { }

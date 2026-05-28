@@ -3808,7 +3808,20 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 
 		local function getReplacedItemAndOutput(compareSlot)
 			local selItem = self.items[compareSlot.selItemId]
-			local output = calcFunc({ repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil })
+			local replaceInfo = { repSlotName = compareSlot.slotName, repItem = item ~= selItem and item or nil }
+			if selItem and not replaceInfo.repItem and selItem.grantedPassiveSockets then
+				replaceInfo.removeSlotsByNodeID = {}
+				for slotName, slot in pairs(self.slots) do
+					if not slot.inactive 
+						and slot.nodeId 
+						and self.build.spec.nodes[slot.nodeId]
+						and self.build.spec.nodes[slot.nodeId].aliasPassiveSocket
+						and selItem.grantedPassiveSockets[self.build.spec.nodes[slot.nodeId].aliasPassiveSocket] then
+						replaceInfo.removeSlotsByNodeID[slot.nodeId] = true
+					end
+				end
+			end
+			local output = calcFunc(replaceInfo)
 			return selItem, output
 		end
 		local function addCompareForSlot(compareSlot, selItem, output)

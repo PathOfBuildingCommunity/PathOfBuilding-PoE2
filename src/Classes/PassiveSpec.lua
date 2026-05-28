@@ -1331,6 +1331,15 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 			end
 		end
 
+		-- Sinister Jowel Socket support
+		-- the main idea is to validate if grantedPassive was enable for the node Id with socket type and alloc
+		-- the dealloc will be the process later
+		if self:IsPassiveJewelSocketEnabled(node) then
+			node.alloc = true
+			self.allocNodes[node.id] = node
+		end
+
+
 		-- set attribute nodes
 		if self.hashOverrides[node.id] then
 			self:ReplaceNode(node, self.hashOverrides[node.id])
@@ -1728,6 +1737,12 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 						end
 					end
 				end
+
+				-- sinister jewel, we need to keep only if the grantedSkill is enable
+				if self:IsPassiveJewelSocketEnabled(depNode) then
+					prune = false
+				end
+
 				if prune then
 					self:DeallocSingleNode(depNode)
 				end
@@ -2475,4 +2490,18 @@ function PassiveSpecClass:SwitchAttributeNode(nodeId, attributeIndex)
 		
 		self.hashOverrides[nodeId] = newNode
 	end
+end
+
+function PassiveSpecClass:IsPassiveJewelSocketEnabled(node)
+	if node.type == "Socket" and node.aliasPassiveSocket then
+		for nodeId, itemId in pairs(self.jewels) do
+			local jewel = self:GetJewel(itemId)
+
+			if jewel and jewel.grantedPassiveSockets and jewel.grantedPassiveSockets[node.aliasPassiveSocket] then
+				return true
+			end
+		end
+	end
+
+	return false
 end
