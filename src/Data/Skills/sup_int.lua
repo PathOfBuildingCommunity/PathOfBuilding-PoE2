@@ -1791,7 +1791,6 @@ skills["SupportClarityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 10, },
 	},
@@ -1827,7 +1826,6 @@ skills["SupportClarityPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -6268,7 +6266,6 @@ skills["SupportMysticismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -6304,7 +6301,6 @@ skills["SupportMysticismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -6363,7 +6359,7 @@ skills["SupportNadirPlayer"] = {
 	}
 }
 skills["SupportOisinsOathPlayer"] = {
-	name = "Oisín's Oath",
+	name = "Oisin's Oath",
 	description = "Supports Skills which Hit enemies, causing their Mana Leech to recover based on Elemental damage instead of Physical damage.",
 	color = 3,
 	support = true,
@@ -6378,7 +6374,7 @@ skills["SupportOisinsOathPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Oisín's Oath",
+			label = "Oisin's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
@@ -7400,7 +7396,6 @@ skills["SupportStrongHeartedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "StrongHearted",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -7637,7 +7632,6 @@ skills["SupportUpwellingPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -7668,7 +7662,6 @@ skills["SupportUpwellingPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},

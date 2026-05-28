@@ -1100,6 +1100,7 @@ function calcs.perform(env, skipEHP)
 	
 	local minionTypeCount, ammoTypeCount, grenadeTypeCount = 0, 0, 0
 	local minionCount, minionType, ammoType, grenadeType = { }, { }, { }, { }
+	local maxPurpleFlameChaosGain = 0
 	for _, activeSkill in ipairs(env.player.activeSkillList) do
 		local skillFlags
 		if env.mode == "CALCS" then
@@ -1247,11 +1248,25 @@ function calcs.perform(env, skipEHP)
 			-- Set trigger time to 1 min in ms ( == 6000 ). Technically any large value would do.
 			activeSkill.skillData.triggerTime = 60 * 1000
 		end
+		-- Into the Breach: only purple flames get calculated
+		if activeSkill.activeEffect.grantedEffect.name == "Into the Breach" and not modDB:Flag(nil, "BreachFlameOnlyRed") and not modDB:Flag(nil, "BreachFlameOnlyBlue") then
+			local baseChaosGain = activeSkill.skillModList:Sum("BASE", nil, "BreachFlameChaosGain")
+			if baseChaosGain > 0 then
+				local remnantEffectMod = calcLib.mod(activeSkill.skillModList, nil, "RemnantEffect")
+				local doubled = modDB:Flag(nil, "BreachFlameEffectDoubled") and 2 or 1
+				local chaosGainPerFlame = m_floor(baseChaosGain * remnantEffectMod * doubled)
+				maxPurpleFlameChaosGain = m_max(maxPurpleFlameChaosGain, chaosGainPerFlame)
+			end
+		end
 		-- The Saviour
 		if activeSkill.activeEffect.grantedEffect.name == "Reflection" or activeSkill.skillData.triggeredBySaviour then
 			activeSkill.infoMessage = "Triggered by a Crit from The Saviour"
 			activeSkill.infoTrigger = "Saviour"
 		end
+	end
+	local purpleFlameCount = modDB:Sum("BASE", nil, "Multiplier:PurpleFlamesCount")
+	if purpleFlameCount > 0 and maxPurpleFlameChaosGain > 0 then
+		modDB:NewMod("DamageGainAsChaos", "BASE", maxPurpleFlameChaosGain * purpleFlameCount, "Into the Breach", { type = "GlobalEffect", effectType = "Buff", effectName = "Into the Breach" })
 	end
 
 	-- Stat sorting category calcs
@@ -3358,9 +3373,10 @@ function calcs.perform(env, skipEHP)
 			local baseLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemLevel")
 			local totalItemLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemItemLevel")
 			local totalSupportLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemSupportLevel")
+			local totalCorruptionLevel = mainSkill.skillModList:Sum("BASE", mainSkill.skillCfg, "GemCorruptionLevel")
 
 			output.GemHasLevel = true
-			output.GemLevel = baseLevel + totalSupportLevel + totalItemLevel
+			output.GemLevel = m_max(baseLevel + totalSupportLevel + totalItemLevel + totalCorruptionLevel, 1)
 			
 			if env.player.breakdown then
 				env.player.breakdown.GemLevel = {}
@@ -3370,6 +3386,11 @@ function calcs.perform(env, skipEHP)
 				end
 				if totalItemLevel > 0 then
 					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from items)", totalItemLevel))
+				end
+				if totalCorruptionLevel > 0 then
+					t_insert(env.player.breakdown.GemLevel, s_format("+ %d ^8(level from corruption)", totalCorruptionLevel))
+				elseif totalCorruptionLevel < 0 then
+					t_insert(env.player.breakdown.GemLevel, s_format("%d ^8(level from corruption)", totalCorruptionLevel))
 				end
 				t_insert(env.player.breakdown.GemLevel, s_format("= %d", output.GemLevel))
 			end

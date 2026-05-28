@@ -863,6 +863,7 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 		if gemId then
 			local gemInstance = { level = 20, quality = 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1,  gemId = gemId }
 			gemInstance.support = skillData.support
+			gemInstance.corrupted = skillData.corrupted
 
 			local spectreList = data.spectres
 			if typeLine:sub(1, 8) == "Spectre:" then
@@ -918,8 +919,10 @@ function ImportTabClass:ImportItemsAndSkills(charData)
 					else
 						gemInstance.level = tonumber(property.values[1][1]:match("%d+"))
 					end
-					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption") then
-						gemInstance.level = gemInstance.level + tonumber(skillData.properties[_ + 2].values[1][1]:match("(%d+) Level[s]? from Corruption"))
+					if skillData.properties[_ + 2] and skillData.properties[_ + 2].values[1][1]:match("(-?%d+) Level[s]? from Corruption") then
+						gemInstance.corruptLevel = tonumber(skillData.properties[_ + 2].values[1][1]:match("(-?%d+) Level[s]? from Corruption"))
+					else
+						gemInstance.corruptLevel = 0
 					end
 				elseif escapeGGGString(property.name) == "Quality" then
 					gemInstance.quality = tonumber(property.values[1][1]:match("%d+"))
@@ -1129,9 +1132,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
 		item.itemSocketCount = 0
+		item.jewelSocketCount = 0
 		for i, socket in pairs(itemData.sockets) do
-			item.sockets[i] = { }
-			item.itemSocketCount = item.itemSocketCount + 1
+			if socket.type == "jewel" then
+				item.jewelSocketCount = item.jewelSocketCount + 1
+			else
+				item.sockets[i] = { }
+				item.itemSocketCount = item.itemSocketCount + 1
+			end
 		end
 	end
 
@@ -1283,7 +1291,11 @@ end
 function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)
 	-- Build socket group list
 	for _, socketedItem in ipairs(socketedItems) do
-		t_insert(item.runes, socketedItem.baseType)
+		if isValueInTable({ "Diamond", "Emerald", "Ruby", "Sapphire" }, socketedItem.baseType) then
+			self:ImportItem(socketedItem, slotName .. " Jewel Socket "..socketedItem.socket + 1)
+		else
+			t_insert(item.runes, socketedItem.baseType)
+		end
 	end
 end
 

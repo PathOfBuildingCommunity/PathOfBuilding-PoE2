@@ -210,12 +210,6 @@ local configSettings = {
 	{ var = "arcaneCloakUsedRecentlyCheck", type = "check", label = "Include in ^x7070FFMana ^7spent Recently?", ifSkill = "Arcane Cloak", tooltip = "When enabled, the mana spent by Arcane Cloak used at full mana \nwill be added to the value provided in # of ^x7070FFMana ^7spent Recently.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ArcaneCloakUsedRecently", "FLAG", true, "Config")
 	end },
-	{ label = "Flame of Chayula Breaches:", ifSkill = "Into the Breach" },
-	{ var = "flameStacks", type = "count", label = "Chayula Breach Flames:", tooltip = "Amount of Red, Blue & Purple Flames consumed during duration (max 10)", ifSkill = { "Into the Breach" }, apply = function(val, modList, enemyModList)
-		modList:NewMod("Multiplier:BreachFlamesCount", "BASE", m_min(val, 10), "Config")
-		modList:NewMod("Multiplier:FlameEffect", "BASE", 1, "Config")
-		modList:NewMod("DamageGainAsChaos", "BASE", 7, "Config", { type = "Multiplier", var = "BreachFlamesCount" }, { type = "Multiplier", var = "FlameEffect" }, { type = "GlobalEffect", effectType = "Buff" })
-	end },
 	{ label = "Eldritch Empowerment:", ifFlag = "EldritchEmpowerment" },
 	{ var = "eldritchEmpowermentSacrifice", type = "check", label = "Are you Sacrificing?", tooltip = "Sacrifice 5% ^x88FFFFEnergy Shield^7 when you cast a Spell to give that Spell 30% more Damage.", ifFlag = "EldritchEmpowerment", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:EldritchEmpowermentSacrifice", "FLAG", true, "Config")
@@ -373,8 +367,11 @@ local configSettings = {
 		modList:NewMod("EnergyShieldRecoveryRate", "INC", -val * 9, val.." Wasting Touch Stacks", { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "AffectedByGloriousMadness" })
 	end },
 	{ label = "Flame Wall:", ifSkill = "Flame Wall" },
-	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through Flame Wall?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
+	{ var = "flameWallAddedDamage", type = "check", label = "Projectile Travelled through?", ifSkill = "Flame Wall", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:FlameWallAddedDamage", "FLAG", true, "Config")
+	end },
+	{ var = "flameWallInfused", type = "check", label = "Lightning Infused?", ifOption = "flameWallAddedDamage", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FlameWallInfused", "FLAG", true, "Config", { type = "Condition", var = "FlameWallAddedDamage" })
 	end },
 	{ label = "Flicker Strike:", ifSkill = "Flicker Strike", includeTransfigured = true },
 	{ var = "FlickerStrikeBypassCD", type = "check", label = "Bypass CD?", ifSkill = "Flicker Strike", includeTransfigured = true, defaultState = true, apply = function(val, modList, enemyModList)
@@ -451,6 +448,10 @@ local configSettings = {
 	{ label = "Intensify:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" } },
 	{ var = "intensifyIntensity", type = "count", label = "# of Intensity:", ifSkill = { "Intensify", "Crackling Lance", "Pinpoint" }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Intensity", "BASE", val, "Config")
+	end },
+	{ label = "Into the Breach:", ifSkill = "Into the Breach" },
+	{ var = "purpleFlameStacks", type = "count", label = "Purple Flames collected:", tooltip = "Number of Purple Flames of Chayula collected (max 10).", ifSkill = "Into the Breach", defaultState = 10, apply = function(val, modList, enemyModList)
+		modList:NewMod("Multiplier:PurpleFlamesCount", "BASE", m_min(val, 10), "Config")
 	end },
 	{ label = "Link Skills:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" } },
 	{ var = "multiplierLinkedTargets", type = "count", label = "# of linked Targets:", ifSkill = { "Destructive Link", "Flame Link", "Intuitive Link", "Protective Link", "Soul Link", "Vampiric Link" }, apply = function(val, modList, enemyModList)

@@ -180,6 +180,7 @@ data.misc = { -- magic numbers
 	ResistFloor = -200,
 	MaxResistCap = 90,
 	EvadeChanceCap = data.gameConstants["DefaultMaxEvadeChancePercent"],
+	DeflectionChanceCap = 95, -- maybe a gameConstant?
 	DodgeChanceCap = 75,
 	BlockChanceCap = 90,
 	SuppressionChanceCap = 100,

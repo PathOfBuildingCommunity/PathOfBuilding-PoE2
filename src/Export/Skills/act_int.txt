@@ -445,7 +445,6 @@ statMap = {
 #skill EssenceDrainPlayer
 #set EssenceDrainPlayer
 #flags spell projectile
-#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" })
 #mods
 #set EssenceDrainDotPlayer
 #flags spell projectile duration
@@ -564,6 +563,9 @@ statMap = {
 #skill FlameWallPlayer
 #set FlameWallPlayer
 #flags
+#mods
+#set FlameWallProjectileBuffPlayer
+#flags
 statMap = {
 	["flame_wall_minimum_added_fire_damage"] = {
 		mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
@@ -571,10 +573,13 @@ statMap = {
 	["flame_wall_maximum_added_fire_damage"] = {
 		mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
 	},
+	["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
+		mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+	},
+	["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
+		mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+	},
 },
-#mods
-#set FlameWallProjectileBuffPlayer
-#flags
 #mods
 #skillEnd
 
@@ -827,6 +832,11 @@ statMap = {
 #skill HisFoulEmergencePlayer
 #set HisFoulEmergencePlayer
 #flags spell area duration
+statMap = {
+	["active_skill_withered_base_duration_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd
 
@@ -1323,7 +1333,6 @@ statMap = {
 #skill SoulrendPlayer
 #set SoulrendPlayer
 #flags spell projectile
-#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" })
 #mods
 #set SoulrendDotPlayer
 #flags spell duration
@@ -1512,11 +1521,17 @@ statMap = {
 #skill WitherPlayer
 #set WitherPlayer
 #flags spell area duration
+#baseMod flag("Condition:CanWither")
 #mods
 #skillEnd
 
 #skill WitheringPresencePlayer
 #set WitheringPresencePlayer
 #flags duration
+statMap = {
+	["skill_withering_presence_frequency_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd

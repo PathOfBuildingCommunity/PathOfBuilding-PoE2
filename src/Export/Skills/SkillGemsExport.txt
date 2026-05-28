@@ -2169,6 +2169,25 @@
 #skillEnd
 
 
+						--------- Potentially Disabled Strength ---------
+#skill MetaCastWhenDamageTakenPlayer
+#set MetaCastWhenDamageTakenPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastWhenDamageTakenPlayer
+#set SupportMetaCastWhenDamageTakenPlayer
+#mods
+#skillEnd
+
+#skill SpinningInfernoPlayer
+#set SpinningInfernoPlayer
+#flags
+#mods
+#skillEnd
+
+
 						--------- Active Dexterity ---------
 #skill AlchemistsBoonPlayer
 #set AlchemistsBoonPlayer
@@ -2987,17 +3006,6 @@
 #mods
 #skillEnd
 
-#skill SupportDreamersKnellPlayer
-#set SupportDreamersKnellPlayer
-#mods
-#skillEnd
-
-#skill TriggeredDreamersKnellPlayer
-#set TriggeredDreamersKnellPlayer
-#flags
-#mods
-#skillEnd
-
 #skill SupportDurabilityPlayer
 #set SupportDurabilityPlayer
 #mods
@@ -3051,11 +3059,6 @@
 #skill TriggeredSupportFrozenSpiteIceFragmentPlayer
 #set TriggeredSupportFrozenSpiteIceFragmentPlayer
 #flags
-#mods
-#skillEnd
-
-#skill SupportFusilladePlayer
-#set SupportFusilladePlayer
 #mods
 #skillEnd
 
@@ -3581,6 +3584,14 @@
 
 #skill SupportWindowOfOpportunityPlayerTwo
 #set SupportWindowOfOpportunityPlayerTwo
+#mods
+#skillEnd
+
+
+						--------- Potentially Disabled Dexterity ---------
+#skill DestructiveLinkSkeletonBombadierMinion
+#set DestructiveLinkSkeletonBombadierMinion
+#flags
 #mods
 #skillEnd
 
@@ -5864,6 +5875,115 @@
 #skillEnd
 
 
+						--------- Potentially Disabled Intelligence ---------
+#skill BindSpectrePlayer
+#set BindSpectrePlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaCastOnFreezePlayer
+#set MetaCastOnFreezePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastOnFreezePlayer
+#set SupportMetaCastOnFreezePlayer
+#mods
+#skillEnd
+
+#skill MetaCastOnIgnitePlayer
+#set MetaCastOnIgnitePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastOnIgnitePlayer
+#set SupportMetaCastOnIgnitePlayer
+#mods
+#skillEnd
+
+#skill MetaCastOnShockPlayer
+#set MetaCastOnShockPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastOnShockPlayer
+#set SupportMetaCastOnShockPlayer
+#mods
+#skillEnd
+
+#skill MetaCastWhenStunnedPlayer
+#set MetaCastWhenStunnedPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastWhenStunnedPlayer
+#set SupportMetaCastWhenStunnedPlayer
+#mods
+#skillEnd
+
+#skill MetaCastWhileChannellingPlayer
+#set MetaCastWhileChannellingPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMetaCastWhileChannellingPlayer
+#set SupportMetaCastWhileChannellingPlayer
+#mods
+#skillEnd
+
+#skill DarkPactPlayer
+#set DarkPactPlayer
+#flags
+#mods
+#skillEnd
+
+#skill EnervatingNovaPlayer
+#set EnervatingNovaPlayer
+#flags
+#mods
+#skillEnd
+
+#skill GraveCommandPlayer
+#set GraveCommandPlayer
+#flags
+#mods
+#skillEnd
+
+#skill HydraPlayer
+#set HydraPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportHydraPlayer
+#set SupportHydraPlayer
+#mods
+#skillEnd
+
+#skill DemonMagusPlayer
+#set DemonMagusPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportDemonMagusPlayer
+#set SupportDemonMagusPlayer
+#mods
+#skillEnd
+
+#skill WitherPlayer
+#set WitherPlayer
+#flags
+#mods
+#skillEnd
+
+
 						--------- Active Other ---------
 #skill AcidicConcoctionPlayer
 #set AcidicConcoctionPlayer
@@ -6356,5 +6476,149 @@
 
 
 						--------- Support Other ---------
+
+
+						--------- Potentially Disabled Other ---------
+#skill TriggeredAbyssalApparitionPlayer
+#set TriggeredAbyssalApparitionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill Melee1HAxePlayer
+#set Melee1HAxePlayer
+#flags
+#mods
+#skillEnd
+
+#skill Melee2HAxePlayer
+#set Melee2HAxePlayer
+#flags
+#mods
+#skillEnd
+
+#skill MeleeAxeAxePlayer
+#set MeleeAxeAxePlayer
+#flags
+#mods
+#skillEnd
+
+#skill BlinkSandPlayer
+#set BlinkSandPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MeleeClawClawPlayer
+#set MeleeClawClawPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MeleeClawPlayer
+#set MeleeClawPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CommandFireDjinnFireRunesPlayer
+#skillEnd
+
+#skill CommandFireDjinnMassFusillade
+#skillEnd
+
+#skill CommandFireDjinnMeteorPlayer
+#skillEnd
+
+#skill CommandSandDjinnExplosiveTeleportPlayer
+#skillEnd
+
+#skill CommandSandDjinnHandSlamPlayer
+#skillEnd
+
+#skill CommandWaterDjinnESRechargePlayer
+#skillEnd
+
+#skill CommandWaterDjinnGroundBurstPlayer
+#skillEnd
+
+#skill CommandWaterDjinnOasisPlayer
+#skillEnd
+
+#skill MeleeDaggerDaggerPlayer
+#set MeleeDaggerDaggerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MeleeDaggerPlayer
+#set MeleeDaggerPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MeleeFlailPlayer
+#set MeleeFlailPlayer
+#flags
+#mods
+#skillEnd
+
+#skill IceFragmentsPlayer
+#set IceFragmentsPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaMirageDeadeyePlayer
+#set MetaMirageDeadeyePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportMirageDeadeyePlayer
+#set SupportMirageDeadeyePlayer
+#mods
+#skillEnd
+
+#skill MirageDeadeyeSpawnPlayer
+#set MirageDeadeyeSpawnPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SummonMercenaryCompanionPlayer
+#set SummonMercenaryCompanionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SummonMercenaryCompanionSupportPlayer
+#set SummonMercenaryCompanionSupportPlayer
+#mods
+#skillEnd
+
+#skill UnloadAmmoPlayer
+#set UnloadAmmoPlayer
+#flags
+#mods
+#skillEnd
+
+#skill Melee1HSwordPlayer
+#set Melee1HSwordPlayer
+#flags
+#mods
+#skillEnd
+
+#skill Melee2HSwordPlayer
+#set Melee2HSwordPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MeleeSwordSwordPlayer
+#set MeleeSwordSwordPlayer
+#flags
+#mods
+#skillEnd
 
 

@@ -6,7 +6,7 @@ describe("TestSkills", function()
 	teardown(function()
 		-- newBuild() takes care of resetting everything in setup()
 	end)
-	
+
 
 	it("uses granted effect minion list when active skill minion list is missing", function()
 		local srcInstance = { statSet = { }, skillPart = { }, nameSpec = "Spectre: Test" }
@@ -113,7 +113,7 @@ describe("TestSkills", function()
 	it("Test cost efficiency with cost modifiers", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Ball Lightning 1/0  1\n")
-		
+
 		-- Add cost multiplier and efficiency
 		build.configTab.input.customMods = "50% increased Mana Cost\n50% increased Mana Cost Efficiency"
 		build.configTab:BuildModList()
@@ -121,6 +121,28 @@ describe("TestSkills", function()
 
 		local finalCost = build.calcsTab.mainOutput.ManaCost
 		assert.True(math.abs(finalCost - 8.67) < 0.1) -- floor(9 * 1.5) / 1.5
+	end)
+
+	it("Test socket group pasting with corruption levels and count", function()
+		build.skillsTab:PasteSocketGroup("Wave of Frost 20/0  3 C+1\n Culmination I 1/0  1")
+		assert.are.equals(3, build.skillsTab.socketGroupList[1].gemList[1].count)
+
+		runCallback("OnFrame")
+
+		assert.are.equals(3, build.skillsTab.socketGroupList[1].gemList[1].count)
+		assert.are.equals(true, build.skillsTab.socketGroupList[1].gemList[1].corrupted)
+		assert.are.equals(1, build.skillsTab.socketGroupList[1].gemList[1].corruptLevel)
+
+		newBuild()
+		-- Support gem first this time, with negative corruption value.
+		build.skillsTab:PasteSocketGroup("Culmination I 1/0  1\nWave of Frost 20/20  2 C-1")
+		assert.are.equals(2, build.skillsTab.socketGroupList[1].gemList[2].count)
+
+		runCallback("OnFrame")
+
+		assert.are.equals(2, build.skillsTab.socketGroupList[1].gemList[2].count)
+		assert.are.equals(true, build.skillsTab.socketGroupList[1].gemList[2].corrupted)
+		assert.are.equals(-1, build.skillsTab.socketGroupList[1].gemList[2].corruptLevel)
 	end)
 
 	it("Fractional skill count scales Full DPS", function()
@@ -145,7 +167,7 @@ describe("TestSkills", function()
 	it("Test mana cost efficiency with support gems", function()
 		-- Test interaction between cost efficiency and cost multipliers
 		build.skillsTab:PasteSocketGroup("Contagion 6/0  1\nMagnified Area I 1/0  1")
-		
+
 		-- Add efficiency
 		build.configTab.input.customMods = "36% increased Mana Cost Efficiency"
 		build.configTab:BuildModList()
@@ -575,7 +597,7 @@ describe("TestSkills", function()
 		-- if one works they all do, surely
 		assert.True(build.calcsTab.mainOutput.TotalDPS > baseFireball)
 	end)
-	
+
 	it("Test Minion Pact damage requires a minion in your presence", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
@@ -843,6 +865,17 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 		-- Heightened Charges should increased the buff effect, therefore Fireball should have more damage than base Pinnacle of Power
 		assert.True(build.calcsTab.calcsOutput.TotalDPS > basePinnacleDamage)
+	end)
+
+	it("Flame Wall Projectile Buff", function()
+		build.skillsTab:PasteSocketGroup("Flame Wall 20/0  1")
+
+		build.configTab.input.flameWallAddedDamage = true
+		build.configTab:BuildModList()
+		runCallback("OnFrame")
+
+		-- validate Flame Wall buff appears even when the Wall/default skillPart is active
+		assert.are.equals("Flame Wall", build.calcsTab.calcsOutput.BuffList)
 	end)
 
 	it("Test Ancestral Call - Ancestral Boost calcs", function()

@@ -1490,6 +1490,69 @@ function calcs.offence(env, actor, activeSkill)
 			breakdown.LinkEffectMod = breakdown.mod(skillModList, skillCfg, "LinkEffect", "BuffEffect")
 		end
 	end
+	if activeSkill.skillTypes[SkillType.GeneratesRemnants] then
+		local remnantEffectMod = calcLib.mod(skillModList, skillCfg, "RemnantEffect")
+		output.RemnantEffectMod = remnantEffectMod
+		if breakdown then
+			breakdown.RemnantEffectMod = breakdown.mod(skillModList, skillCfg, "RemnantEffect")
+		end
+		local baseLifeGain = skillModList:Sum("BASE", skillCfg, "LifeGainPerRemnant")
+		if baseLifeGain > 0 then
+			output.LifeGainPerRemnant = m_floor(baseLifeGain * remnantEffectMod)
+			if breakdown then
+				breakdown.LifeGainPerRemnant = {
+					s_format("%d ^8(base life per remnant)", baseLifeGain),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d ^8(life per remnant)", output.LifeGainPerRemnant),
+				}
+			end
+		end
+		local baseManaGain = skillModList:Sum("BASE", skillCfg, "ManaGainPerRemnant")
+		if baseManaGain > 0 then
+			output.ManaGainPerRemnant = m_floor(baseManaGain * remnantEffectMod)
+			if breakdown then
+				breakdown.ManaGainPerRemnant = {
+					s_format("%d ^8(base mana per remnant)", baseManaGain),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d ^8(mana per remnant)", output.ManaGainPerRemnant),
+				}
+			end
+		end
+		local baseChaosGainPerFlame = skillModList:Sum("BASE", skillCfg, "BreachFlameChaosGain")
+		local doubled = modDB:Flag(nil, "BreachFlameEffectDoubled") and 2 or 1
+		if baseChaosGainPerFlame > 0 then
+			output.ChaosGainPerFlame = m_floor(baseChaosGainPerFlame * remnantEffectMod * doubled)
+			if breakdown then
+				breakdown.ChaosGainPerFlame = {
+					s_format("%d%% ^8(base chaos gain per flame)", baseChaosGainPerFlame),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d%% ^8(damage gained as chaos per flame)", output.ChaosGainPerFlame),
+				}
+			end
+		end
+		local baseLifeLeech = skillModList:Sum("BASE", skillCfg, "BreachFlameLifeLeech")
+		if baseLifeLeech > 0 then
+			output.BreachFlameLifeLeech = m_floor(baseLifeLeech * remnantEffectMod)
+			if breakdown then
+				breakdown.BreachFlameLifeLeech = {
+					s_format("%d%% ^8(base life leech per flame)", baseLifeLeech),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d%% ^8(life leech per flame)", output.BreachFlameLifeLeech),
+				}
+			end
+		end
+		local baseManaLeech = skillModList:Sum("BASE", skillCfg, "BreachFlameManaLeech")
+		if baseManaLeech > 0 then
+			output.BreachFlameManaLeech = m_floor(baseManaLeech * remnantEffectMod)
+			if breakdown then
+				breakdown.BreachFlameManaLeech = {
+					s_format("%d%% ^8(base mana leech per flame)", baseManaLeech),
+					s_format("x %.2f ^8(remnant effect modifier)", remnantEffectMod),
+					s_format("= %d%% ^8(mana leech per flame)", output.BreachFlameManaLeech),
+				}
+			end
+		end
+	end
 	if activeSkill.skillTypes[SkillType.IceCrystal] then
 		local IceCrystalLifeMod = calcLib.mod(skillModList, skillCfg, "IceCrystalLife")
 		local baseIceCrystal = skillModList:Sum("BASE", skillCfg, "IceCrystalLifeBase")
@@ -3552,6 +3615,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		-- Calculate crit chance, crit multiplier, and their combined effect
+		local forcedOutcomeApplies = false
 		if skillModList:Flag(cfg, "NeverCrit") then
 			output.PreEffectiveCritChance = 0
 			output.CritChance = 0
@@ -3628,6 +3692,8 @@ function calcs.offence(env, actor, activeSkill)
 				output.PreEffectiveCritChance = output.CritChance
 				local preHitCheckCritChance = output.CritChance
 				if env.mode_effective then
+					-- Hits that make an accuracy check make a second accuracy check if they roll a crit. If that fails, the crit is nullified and it just stays a normal hit
+					-- https://www.pathofexile.com/forum/view-thread/11707/filter-account-type/staff/page/10#p748465
 					output.CritChance = output.CritChance * output.AccuracyHitChance / 100
 				end
 				local preLuckyCritChance = output.CritChance
@@ -3638,6 +3704,34 @@ function calcs.offence(env, actor, activeSkill)
 				local preBifurcateCritChance = output.CritChance
 				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
+				end
+				local preForcedOutcomeCritChance = output.CritChance
+				if env.mode_effective and skillModList:Flag(cfg, "ForcedOutcome") and output.CritChance > 0 then
+					forcedOutcomeApplies = true
+					-- Lucky crits use their effective crit chance without an extra roll-down penalty.
+					-- Bifurcated crits roll twice per roll-down; only both rolls failing advances the penalty.
+					local critChance = output.CritChance / 100
+					local nonCritChance = 1 - critChance
+
+					local critBonusMultiplier =
+						1 * critChance + 								  -- 100% crit damage, crit% of the time
+						0.7 * nonCritChance * critChance +				  -- 70% if we roll non-crit then a crit
+						0.4 * m_pow(nonCritChance, 2) * critChance + -- 40% if we roll two non-crit then a crit
+						0.1 * m_pow(nonCritChance, 3) * critChance   -- 10% if we roll three non-crits then a crit
+					if skillModList:Flag(cfg, "BifurcateCrit") then
+						-- The terminating stage can crit twice, so scale its one-or-more-crit bonus
+						-- by the expected number of crits on that stage.
+						critBonusMultiplier = critBonusMultiplier * 2 * output.PreBifurcateCritChance / output.CritChance
+						output.CritBifurcates = output.PreBifurcateCritChance ^ 2 / output.CritChance
+					end
+
+					-- This gets rounded when used in damage logic, so round it ahead of time to make the breakdown accurate (and less ugly)
+					local lessCritBonus = round((1 - critBonusMultiplier) * -100.0, 0)
+					skillModList:NewMod("CritMultiplier", "MORE", lessCritBonus, "Tree:55135")
+
+					-- For the sake of any logic that depends on it, every hit is considered a crit
+					output.CritChance = 100
+					skillModList:NewMod("CritChance", "OVERRIDE", 100, "Tree:55135")
 				end
 				if breakdown and output.CritChance ~= baseCrit then
 					breakdown.CritChance = { }
@@ -3673,7 +3767,11 @@ function calcs.offence(env, actor, activeSkill)
 					if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 						t_insert(breakdown.CritChance, "Critical Strike Bifurcates:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preBifurcateCritChance / 100, preBifurcateCritChance / 100))
-						t_insert(breakdown.CritChance, s_format("= %.2f%%", output.CritChance))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preForcedOutcomeCritChance))
+					end
+					if forcedOutcomeApplies then
+						t_insert(breakdown.CritChance, "Inevitable Critical Hits (Forced Outcome):")
+						t_insert(breakdown.CritChance, "= 100% ^8(override)")
 					end
 				end
 			end
@@ -3693,7 +3791,7 @@ function calcs.offence(env, actor, activeSkill)
 
 				output.PreEffectiveCritMultiplier = 1 + extraDamage
 				-- if crit bifurcates are enabled, roll for crit twice and add multiplier for each
-				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
+				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") and not forcedOutcomeApplies then
 					-- get crit chance and calculate odds of critting twice
 					local critChancePercentage = output.PreBifurcateCritChance
 					local bifurcateMultiChance = (critChancePercentage ^ 2) / 100

@@ -1087,6 +1087,7 @@ local modFlagList = {
 	["minion skills"] = { tag = { type = "SkillType", skillType = SkillType.Minion } },
 	["of minion skills"] = { tag = { type = "SkillType", skillType = SkillType.Minion } },
 	["of companion skills"] = { tag = { type = "SkillType", skillType = SkillType.CreatesCompanion } },
+	["of non-companion skills"] = { tag = { type = "SkillType", skillType = SkillType.CreatesCompanion, neg = true } },
 	["link skills"] = { tag = { type = "SkillType", skillType = SkillType.Link } },
 	["of link skills"] = { tag = { type = "SkillType", skillType = SkillType.Link } },
 	["for curses"] = { keywordFlags = KeywordFlag.Curse },
@@ -3153,6 +3154,7 @@ local specialModList = {
 	} end,
 	["cannot be stunned while you have energy shield"] = { flag("StunImmune", { type = "Condition", var = "HaveEnergyShield" }) },
 	["every second, inflict withered on nearby enemies for (%d+) seconds"] = { flag("Condition:CanWither") },
+	["unwithered enemies are withered for 8 seconds when they enter your presence"] = { flag("Condition:CanWither") },
 	["nearby hindered enemies deal (%d+)%% reduced damage over time"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("DamageOverTime", "INC", -num) }, { type = "ActorCondition", actor = "enemy", var = "Hindered" }) } end,
 	["nearby chilled enemies deal (%d+)%% reduced damage with hits"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("Damage", "INC", -num) }, { type = "ActorCondition", actor = "enemy", var = "Chilled" }) } end,
 	-- Pathfinder
@@ -3331,8 +3333,11 @@ local specialModList = {
 	["(%d+)%% chance to gain (%d+)%% of damage with hits as extra (%a+) damage"] = function(num, _, num2, strType) return {
 		mod("DamageGainAs"..firstToUpper(strType), "BASE", tonumber(num2) * (num / 100), nil, ModFlag.Hit, 0),
 	} end,
-	["effect and duration of flames of chayula on you is doubled"] = { mod("Multiplier:FlameEffect", "BASE", 1) } ,
-	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording
+	["effect and duration of flames of chayula on you is doubled"] = { flag("BreachFlameEffectDoubled") },
+	["all flames of chayula that you manifest are red"] = { flag("BreachFlameOnlyRed") },
+	["all flames of chayula that you manifest are blue"] = { flag("BreachFlameOnlyBlue") },
+	["all flames of chayula that you manifest are purple"] = { flag("BreachFlameOnlyPurple") },
+	["mana leech recovers based on other damage types damage as well as physical damage"] = { -- legacy wording 
 		flag("ManaLeechBasedOnElementalDamage"),
 		flag("ManaLeechBasedOnChaosDamage"),
 	},
@@ -3361,6 +3366,7 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
 	},
 	-- Druid -- Oracle
+	["inevitable critical hits"] = { flag("ForcedOutcome") },
 	["walk the paths not taken"] = { },
 	["gain the benefits of bonded modifiers on runes and idols"] = {
 		flag("Condition:CanUseBondedModifiers"),
@@ -4341,7 +4347,7 @@ local specialModList = {
 	["(%d+)%% chance to inflict withered for (%d+) seconds on hit with this weapon"] = { flag("Condition:CanWither") },
 	["(%d+)%% chance to inflict withered for two seconds on hit if there are (%d+) or fewer withered debuffs on enemy"] = { flag("Condition:CanWither") },
 	["inflict withered for (%d+) seconds on hit with this weapon"] = { flag("Condition:CanWither") },
-	["minions have (%d+)%% chance to inflict withered on hit"] = { mod("MinionModifier", "LIST", { mod = flag("Condition:CanWither") }) },
+	["minions have (%d+)%% chance to inflict withered on hit"] = { flag("Condition:CanWither") },
 	["enemies take (%d+)%% increased elemental damage from your hits for each withered you have inflicted on them"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("ElementalDamageTaken", "INC", num, { type = "Multiplier", var = "WitheredStack", limit = 15 }) }) } end,
 	["enemies you apply incision to take (%d+)%% increased physical damage per incision"] = function(num) return { mod("EnemyModifier", "LIST", { mod = mod("PhysicalDamageTaken", "INC", num, { type = "Multiplier", var = "IncisionStack" }) }) } end,
 	["your hits cannot penetrate or ignore elemental resistances"] = { flag("CannotElePenIgnore") },
@@ -5447,12 +5453,17 @@ local specialModList = {
 	["while a pinnacle atlas boss is in your presence, flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("FlaskEffect", "INC", num, { type = "ActorCondition", actor = "enemy", var = "PinnacleBoss" }, { type = "ActorCondition", actor = "player"}) } end,
 	["magic utility flasks applied to you have (%d+)%% increased effect"] = function(num) return { mod("MagicUtilityFlaskEffect", "INC", num, { type = "ActorCondition", actor = "player"}) } end,
 	["flasks applied to you have (%d+)%% reduced effect"] = function(num) return { mod("FlaskEffect", "INC", -num, { type = "ActorCondition", actor = "player"}) } end,
+	["remnants have (%d+)%% increased effect"] = function(num) return { mod("RemnantEffect", "INC", num) } end,
 	["(%d+)%% increased charm cooldown recovery rate"] = function(num) return { mod("CharmCooldownRecovery", "INC", num) } end,
 	["adds (%d+) passive skills"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelNodeCount", value = num }) } end,
 	["1 added passive skill is a jewel socket"] = { mod("JewelData", "LIST", { key = "clusterJewelSocketCount", value = 1 }) },
 	["(%d+) added passive skills are jewel sockets"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelSocketCount", value = num }) } end,
 	["adds (%d+) jewel socket passive skills"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelSocketCountOverride", value = num }) } end,
 	["adds (%d+) small passive skills? which grants? nothing"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelNothingnessCount", value = num }) } end,
+	["you can only socket (%a+) jewels in this item"] = function(_, jewelType) return {
+		flag("JewelSocketRestriction"),
+		flag("CanSocketJewelBase"..firstToUpper(jewelType))
+	} end,
 	["added small passive skills grant nothing"] = { mod("JewelData", "LIST", { key = "clusterJewelSmallsAreNothingness", value = true }) },
 	["added small passive skills have (%d+)%% increased effect"] = function(num) return { mod("JewelData", "LIST", { key = "clusterJewelIncEffect", value = num }) } end,
 	["this jewel's socket has (%d+)%% increased effect per allocated passive skill between it and your class' starting location"] = function(num) return { mod("JewelData", "LIST", { key = "jewelIncEffectFromClassStart", value = num }) } end,
@@ -6092,6 +6103,7 @@ local specialModList = {
 	} end,
 	["you can socket an additional copy of each lineage support gem, in different skills"] = { mod("MaxLineageCount", "BASE", 1) },
 	["you can socket (%d+) additional copies of each lineage support gem, in different skills"] = function(num) return { mod("MaxLineageCount", "BASE", num) } end,
+	["can be modified while corrupted"] = {}
 }
 for _, name in pairs(data.keystones) do
 	specialModList[name:lower()] = { mod("Keystone", "LIST", name) }

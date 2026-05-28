@@ -141,6 +141,7 @@ c["+10 to Devotion"]={{[1]={flags=0,keywordFlags=0,name="Devotion",type="BASE",v
 c["+10 to Dexterity"]={{[1]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=10}},nil}
 c["+10 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=10}},nil}
 c["+10 to Maximum Darkness per Level"]={{[1]={[1]={type="Multiplier",var="Level"},flags=0,keywordFlags=0,name="Darkness",type="BASE",value=10}},nil}
+c["+10 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=10}},nil}
 c["+10 to Maximum Rage while wielding an Axe"]={{[1]={[1]={type="Condition",var="UsingAxe"},flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=10}},nil}
 c["+10 to Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="BASE",value=10}},nil}
 c["+10 to Spirit per Socket filled"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=10}},nil}
@@ -188,6 +189,7 @@ c["+111 to Accuracy Rating"]={{[1]={flags=0,keywordFlags=0,name="Accuracy",type=
 c["+113 to Stun Threshold"]={{[1]={flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=113}},nil}
 c["+113 to maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="EnergyShield",type="BASE",value=113}},nil}
 c["+12 to Intelligence"]={{[1]={flags=0,keywordFlags=0,name="Int",type="BASE",value=12}},nil}
+c["+12 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=12}},nil}
 c["+12 to Spirit per Socket filled"]={{[1]={[1]={type="Multiplier",var="RunesSocketedIn{SlotName}"},flags=0,keywordFlags=0,name="Spirit",type="BASE",value=12}},nil}
 c["+12 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=12}},nil}
 c["+12 to maximum Rage while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=12}},nil}
@@ -515,6 +517,7 @@ c["+3 to Level of all Mantra of Destruction Skills"]={{[1]={flags=0,keywordFlags
 c["+3 to Level of all Melee Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="melee",value=3}}},nil}
 c["+3 to Level of all Minion Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="minion",value=3}}},nil}
 c["+3 to Level of all Mirage Archer Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="mirage archer",value=3}}},nil}
+c["+3 to Level of all Mirage Deadeye Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="mirage deadeye",value=3}}},nil}
 c["+3 to Level of all Molten Blast Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="molten blast",value=3}}},nil}
 c["+3 to Level of all Mortar Cannon Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="mortar cannon",value=3}}},nil}
 c["+3 to Level of all Oil Barrage Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="oil barrage",value=3}}},nil}
@@ -3500,9 +3503,9 @@ c["All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill o
 c["All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you All Damage from Hits against Bleeding targets Contributes to Chill Magnitude"]={nil,"All Damage taken from Hits while Bleeding Contributes to Magnitude of Chill on you All Damage from Hits against Bleeding targets Contributes to Chill Magnitude "}
 c["All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you"]={nil,"All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you "}
 c["All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you All Damage from Hits against Poisoned targets Contributes to Chill Magnitude"]={nil,"All Damage taken from Hits while Poisoned Contributes to Magnitude of Chill on you All Damage from Hits against Poisoned targets Contributes to Chill Magnitude "}
-c["All Flames of Chayula that you manifest are Blue"]={nil,"All Flames of Chayula that you manifest are Blue "}
-c["All Flames of Chayula that you manifest are Purple"]={nil,"All Flames of Chayula that you manifest are Purple "}
-c["All Flames of Chayula that you manifest are Red"]={nil,"All Flames of Chayula that you manifest are Red "}
+c["All Flames of Chayula that you manifest are Blue"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyBlue",type="FLAG",value=true}},nil}
+c["All Flames of Chayula that you manifest are Purple"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyPurple",type="FLAG",value=true}},nil}
+c["All Flames of Chayula that you manifest are Red"]={{[1]={flags=0,keywordFlags=0,name="BreachFlameOnlyRed",type="FLAG",value=true}},nil}
 c["All bonuses from Equipped Amulet apply to your Minions instead of you"]={{},nil}
 c["All damage with this Weapon causes Electrocution buildup"]={{[1]={[1]={type="Condition",var="{Hand}Attack"},flags=0,keywordFlags=0,name="CanElectrocution",type="FLAG",value=true}},nil}
 c["Allies in your Presence Gain 20% of Damage as Extra Chaos Damage"]={{[1]={flags=0,keywordFlags=0,name="ExtraAura",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=20},onlyAllies=true}}},nil}
@@ -4545,8 +4548,7 @@ c["Can Attack as though using a Quarterstaff while both of your hand slots are e
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use your Quarterstaff's damage gain: Physical damage based on their Skill Level 1% more Attack Speed per 75 Item Evasion Rating on Equipped Armour Items"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use your Quarterstaff's damage gain: Physical damage based on their Skill Level 1% more Attack Speed per 75 Item Evasion Rating on Equipped Armour Items "}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use your Quarterstaff's damage gain: Physical damage based on their Skill Level 1% more Attack Speed per 75 Item Evasion Rating on Equipped Armour Items +0.1% to Critical Hit Chance per 10 Item Energy Shield on Equipped Armour Items"]={{[1]={[1]={type="Condition",var="HollowPalm"},[2]={div=75,stat="EvasionOnAllArmourItems",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="MORE",value=1},[2]={[1]={type="Condition",var="HollowPalm"},[2]={div="10",stat="EnergyShieldOnAllArmourItems",type="PerStat"},flags=1,keywordFlags=0,name="CritChance",type="BASE",value=0.1}},nil}
 c["Can Socket a non-Unique Basic Jewel into the Phylactery"]={{},nil}
-c["Can be modified while Corrupted"]={nil,"Can be modified while Corrupted "}
-c["Can be modified while Corrupted +150 to maximum Life"]={nil,"Can be modified while Corrupted +150 to maximum Life "}
+c["Can be modified while Corrupted"]={{},nil}
 c["Can have 2 additional Instilled Modifiers"]={{},nil}
 c["Can have 3 additional Instilled Modifiers"]={{},nil}
 c["Can instead consume 25% of maximum Mana to trigger Charms with insufficient charges"]={nil,"Can instead consume 25% of maximum Mana to trigger Charms with insufficient charges "}
@@ -5306,7 +5308,7 @@ c["Grants Skill: Level 20 Withering Presence"]={{[1]={flags=0,keywordFlags=0,nam
 c["Grants Skill: Life Remnants"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="LifeRemnantsPlayer"}}},nil}
 c["Grants Skill: Manifest Weapon"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="ManifestWeaponPlayer"}}},nil}
 c["Grants Skill: Meditate"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MeditatePlayer"}}},nil}
-c["Grants Skill: Mirage Deadeye"]={nil,nil}
+c["Grants Skill: Mirage Deadeye"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MetaMirageDeadeyePlayer"}}},nil}
 c["Grants Skill: Moment of Vulnerability"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,skillId="MomentOfVulnerabilityPlayer"}}},nil}
 c["Grants Skill: Navira's Fracturing"]={nil,nil}
 c["Grants Skill: Navira's Oasis"]={nil,nil}
@@ -5348,7 +5350,6 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 4 Augment Sockets"]={nil,"Has 4 Augment Sockets "}
-c["Has 6 Rune Sockets"]={nil,"Has 6 Rune Sockets "}
 c["Has no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeRequirements",type="FLAG",value=true}},nil}
 c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
 c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}
@@ -5426,7 +5427,7 @@ c["Increases and Reductions to Minion Attack Speed also affect you"]={{[1]={flag
 c["Increases and Reductions to Minion Damage also affect you"]={{[1]={flags=0,keywordFlags=0,name="MinionDamageAppliesToPlayer",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedMinionDamageAppliesToPlayer",type="MAX",value=100}},nil}
 c["Increases and Reductions to Projectile Speed also apply to Damage with Bows"]={{[1]={flags=0,keywordFlags=0,name="ProjectileSpeedAppliesToBowDamage",type="FLAG",value=true}},nil}
 c["Increases and Reductions to Spell damage also apply to Attacks"]={{[1]={flags=0,keywordFlags=0,name="SpellDamageAppliesToAttacks",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="ImprovedSpellDamageAppliesToAttacks",type="MAX",value=100}},nil}
-c["Inevitable Critical Hits"]={nil,"Inevitable Critical Hits "}
+c["Inevitable Critical Hits"]={{[1]={flags=0,keywordFlags=0,name="ForcedOutcome",type="FLAG",value=true}},nil}
 c["Infinite Parry Range"]={nil,"Infinite Parry Range "}
 c["Infinite Parry Range 50% increased Parried Debuff Duration"]={nil,"Infinite Parry Range 50% increased Parried Debuff Duration "}
 c["Inflict Abyssal Wasting on Hit"]={nil,"Inflict Abyssal Wasting on Hit "}
@@ -5652,7 +5653,7 @@ c["Minions have +4% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0
 c["Minions have +5% to all Maximum Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResistMax",type="BASE",value=5}}}},nil}
 c["Minions have +7% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=7}}}},nil}
 c["Minions have +8% to all Elemental Resistances"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=8}}}},nil}
-c["Minions have 10% chance to inflict Withered on Hit"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}}}},nil}
+c["Minions have 10% chance to inflict Withered on Hit"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["Minions have 10% increased Movement Speed"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=10}}}},nil}
 c["Minions have 10% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Life",type="INC",value=10}}}},nil}
 c["Minions have 10% reduced Life Recovery rate"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="LifeRecoveryRate",type="INC",value=-10}}}},nil}
@@ -5967,13 +5968,9 @@ c["Remnants can be collected from 50% further away All Flames of Chayula that yo
 c["Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple"]={nil,"Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple "}
 c["Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red"]={nil,"Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red "}
 c["Remnants can be collected from 50% further away Remnants you create reappear once, 3 seconds after being collected"]={nil,"Remnants can be collected from 50% further away Remnants you create reappear once, 3 seconds after being collected "}
-c["Remnants have 10% increased effect"]={nil,"Remnants have 10% increased effect "}
+c["Remnants have 10% increased effect"]={{[1]={flags=0,keywordFlags=0,name="RemnantEffect",type="INC",value=10}},nil}
 c["Remnants have 2% increased effect per 10 Tribute"]={nil,"Remnants have 2% increased effect per 10 Tribute "}
-c["Remnants have 50% increased effect"]={nil,"Remnants have 50% increased effect "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Blue"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Blue "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Purple "}
-c["Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red"]={nil,"Remnants have 50% increased effect Remnants can be collected from 50% further away All Flames of Chayula that you manifest are Red "}
+c["Remnants have 50% increased effect"]={{[1]={flags=0,keywordFlags=0,name="RemnantEffect",type="INC",value=50}},nil}
 c["Remnants you create reappear once, 3 seconds after being collected"]={nil,"Remnants you create reappear once, 3 seconds after being collected "}
 c["Remove Ignite when you Warcry"]={nil,"Remove Ignite when you Warcry "}
 c["Remove a Curse after Channelling for 2 seconds"]={nil,"Remove a Curse after Channelling for 2 seconds "}
@@ -6166,8 +6163,7 @@ c["Undead Minions have 25% less maximum Life"]={{[1]={[1]={skillType=127,type="S
 c["Unlimited number of Summoned Totems"]={nil,"Unlimited number of Summoned Totems "}
 c["Unlimited number of Summoned Totems Totems reserve 75 Spirit each"]={nil,"Unlimited number of Summoned Totems Totems reserve 75 Spirit each "}
 c["Unwavering Stance"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Unwavering Stance"}},nil}
-c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence "}
-c["Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Withered Magnitude"]={nil,"Unwithered enemies are Withered for 8 seconds when they enter your Presence 20% increased Withered Magnitude "}
+c["Unwithered enemies are Withered for 8 seconds when they enter your Presence"]={{[1]={flags=0,keywordFlags=0,name="Condition:CanWither",type="FLAG",value=true}},nil}
 c["Used when you are affected by a Slow"]={nil,"Used when you are affected by a Slow "}
 c["Used when you are affected by a Slow Grants Onslaught during effect"]={nil,"Used when you are affected by a Slow Grants Onslaught during effect "}
 c["Used when you become Frozen"]={nil,"Used when you become Frozen "}
@@ -6247,11 +6243,9 @@ c["You can have two Companions of different types"]={nil,"You can have two Compa
 c["You can have two Companions of different types 60% reduced Duration of Bleeding on You"]={nil,"You can have two Companions of different types 60% reduced Duration of Bleeding on You "}
 c["You can have two Companions of different types You have 30% less Defences"]={nil,"You can have two Companions of different types You have 30% less Defences "}
 c["You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have"]={nil,"You can have two Companions of different types You have 30% less Defences Companions have +1 to each Defence for every 2 of that Defence you have "}
-c["You can only Socket Emerald Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item "}
-c["You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Emerald Jewels in this item You can only Socket Ruby Jewels in this item "}
-c["You can only Socket Ruby Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item "}
-c["You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Ruby Jewels in this item You can only Socket Sapphire Jewels in this item "}
-c["You can only Socket Sapphire Jewels in this item"]={nil,"You can only Socket Sapphire Jewels in this item "}
+c["You can only Socket Emerald Jewels in this item"]={{[1]={flags=0,keywordFlags=0,name="JewelSocketRestriction",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CanSocketJewelBaseEmerald",type="FLAG",value=true}},nil}
+c["You can only Socket Ruby Jewels in this item"]={{[1]={flags=0,keywordFlags=0,name="JewelSocketRestriction",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CanSocketJewelBaseRuby",type="FLAG",value=true}},nil}
+c["You can only Socket Sapphire Jewels in this item"]={{[1]={flags=0,keywordFlags=0,name="JewelSocketRestriction",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="CanSocketJewelBaseSapphire",type="FLAG",value=true}},nil}
 c["You can wield Two-Handed Axes, Maces and Swords in one hand"]={{[1]={flags=0,keywordFlags=0,name="GiantsBlood",type="FLAG",value=true}},nil}
 c["You cannot Recover Energy Shield from Regeneration"]={nil,"You cannot Recover Energy Shield from Regeneration "}
 c["You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour"]={nil,"You cannot Recover Energy Shield from Regeneration You cannot Recover Energy Shield to above Armour "}
