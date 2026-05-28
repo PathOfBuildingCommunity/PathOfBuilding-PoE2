@@ -2181,7 +2181,7 @@ do
 				tooltip:AddLine(fontSizeBig, "^x7F7F7FRequires "..table.concat(req, "^x7F7F7F, "), "FONTIN SC")
 				tooltip:AddSeparator(10)
 			else
-				tooltip:AddLine(fontSizeBig, "^x7F7F7FRequires: "..table.concat(req, "^7, "), "FONTIN SC")
+				tooltip:AddLine(fontSizeBig, "   ^x7F7F7FRequires: "..table.concat(req, "^7, "), "FONTIN SC")
 			end
 		end
 		wipeTable(req)

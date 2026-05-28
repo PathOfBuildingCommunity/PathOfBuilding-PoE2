@@ -45,6 +45,7 @@ function TooltipClass:Clear(clearUpdateParams)
 		wipeTable(self.updateParams)
 	end
 	self.tooltipHeader = false
+	self.isUniqueGem = nil
 	self.titleYOffset = 0
 	self.recipe = nil
 	self.gemIcon = nil

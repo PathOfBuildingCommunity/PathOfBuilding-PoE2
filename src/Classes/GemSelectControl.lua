@@ -187,6 +187,8 @@ function GemSelectClass:BuildList(buf)
 						searchTerm = "strength"
 					elseif searchTerm == "dex" then
 						searchTerm = "dexterity"
+					elseif searchTerm == "aoe" then
+						searchTerm = "area"
 					end
 					if self:FilterSupport(gemId, gemData) and not added[gemId] and gemData.tags[searchTerm:lower()] == true then
 						t_insert(matchList, gemId)
