@@ -3,20 +3,24 @@ local version = "0_5"
 local path = basePath .. version .. "/"
 local fileTree = path .. "tree.lua"
 
--- you should clone the passive tree data from 
+-- Copy data.json and the assets folder from
 -- https://github.com/grindinggear/poe2-skilltree-export/tree/main
--- and set the path to the clone folder here
-local fileGGGCloneFolder = "D:\\dev_poe\\poe2-skilltree-export"
-local assetsFolder = fileGGGCloneFolder .. "\\assets"
+-- into TreeData before running this script.
+local fileGGGCloneFolder = basePath
+local assetsFolder = basePath .. "assets"
 local fileAssets = {
 	"frame.json", "background.json", "skills.json", "mastery-effect-active.json", "group-background.json"
 }
 
 local json = require("dkjson")
 
-local function round_to(num, decimal_places)
-	local multiplier = 10 ^ decimal_places
-	return math.floor(num * multiplier + 0.5) / multiplier
+local function sortKeyNumeric(a, b)
+	local aNum = tonumber(a)
+	local bNum = tonumber(b)
+	if aNum and bNum and aNum ~= bNum then
+		return aNum < bNum
+	end
+	return tostring(a) < tostring(b)
 end
 
 local function arcDirection(fromNode, toNode, edge)
@@ -215,14 +219,14 @@ local orbitsConstants = { }
 
 -- build groups
 print("Building groups")
-for groupId, group in pairs(data.groups) do
+for groupId, group in pairsSortByKey(data.groups) do
 	local groupData = {
 		["x"] = round(group.x, 2),
 		["y"] = round(group.y, 2),
 		["orbits"] = group.orbits,
 		["nodes"] = { },
 	}
-	for _, node in pairs(group.nodes) do
+	for _, node in ipairs(group.nodes) do
 		if not data.nodes[node] or data.nodes[node].id == nil then
 			printf("Skipping node " .. node .. " not id found")
 			goto nextGroupNode
@@ -239,7 +243,7 @@ local attributesNodesId = {26297, 14927, 57022}
 local ascendancyGroups = { }
 local classesNodeIds = { }
 
-for id, node in pairs(data.nodes) do
+for id, node in pairsSortByKey(data.nodes) do
 	if node.id == nil then
 		printf("Node with id " .. id .. " has no id, skipping")
 		goto nextNode
@@ -414,7 +418,7 @@ end
 -- Build isSwitchable / overridePairs
 for _, classData in ipairs(data.classes) do
 	if classData.overridePairs then
-		for nodeId, replaceNodeId in pairs(classData.overridePairs) do
+		for nodeId, replaceNodeId in pairsSortByKey(classData.overridePairs) do
 			local sourceNode = tree.nodes[tonumber(nodeId)]
 			if sourceNode == nil then
 				printf("Not Node for override found for " .. nodeId)
@@ -450,7 +454,7 @@ for _, classData in ipairs(data.classes) do
 	end
 	for _, ascendancyData in ipairs(classData.ascendancies) do
 		if ascendancyData.overridePairs then
-			for nodeId, replaceNodeId in pairs(ascendancyData.overridePairs) do
+			for nodeId, replaceNodeId in pairsSortByKey(ascendancyData.overridePairs) do
 				local sourceNode = tree.nodes[tonumber(nodeId)]
 				if sourceNode == nil then
 					printf("Not Node for override found for " .. nodeId)
@@ -566,7 +570,7 @@ for i, classId in ipairs(classesNodeIds) do
 			local offsetY = newY - groupAscendancy.y
 
 			-- now update the whole groups with the offset
-			for groupId, value in pairs(info) do
+			for groupId, value in pairsSortByKey(info, sortKeyNumeric) do
 				if type(value) == "boolean" then
 					local group = tree.groups[groupId]
 					group.x = group.x + offsetX
@@ -587,7 +591,7 @@ for i, classId in ipairs(classesNodeIds) do
 end
 
 printf("Fixing replace ascendancies position...")
-for from, to in pairs(ascendancyReplacements) do
+for from, to in pairsSortByKey(ascendancyReplacements) do
 	local fromAscendancy
 	local toAscendancy
 	for _, class in ipairs(tree.classes) do
@@ -644,10 +648,14 @@ for _, strFile in ipairs(fileAssets) do
 	local fileNameMeta =  dataFrame.meta.image
 	-- copy the file to tree data destination
 	-- this assume you are on windows
-	os.execute(string.format('copy "%s\\%s" "%s"', assetsFolder, fileNameMeta, path))
+	local copyResult = os.execute(string.format('copy /Y "%s\\%s" "%s"', assetsFolder, fileNameMeta, path))
+	if copyResult ~= 0 then
+		printf("Error copying asset " .. fileNameMeta)
+		return
+	end
 
 	tree.spriteCoords[fileNameMeta] = { }
-	for name, frameData in pairs(dataFrame.frames) do
+	for name, frameData in pairsSortByKey(dataFrame.frames) do
 		local a, b = name:match("([^:]+):([^:]+)")
 		if a == "startNode" and b == "MainCircle" then
 			b = "BGTree"
