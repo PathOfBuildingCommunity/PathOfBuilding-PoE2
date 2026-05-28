@@ -5114,6 +5114,8 @@ local specialModList = {
 	["cannot be inflicted with bleeding"] = { flag("BleedImmune") },
 	["bleeding cannot be inflicted on you"] = { flag("BleedImmune") },
 	["you are immune to bleeding"] = { flag("BleedImmune") },
+	["immune to hinder"] = {flag("Condition:HinderImmune") },
+	["immune to maim"] = {flag("Condition:MaimImmune") },
 	["immune to bleeding if equipped helmet has higher armour than evasion rating"] = { flag("BleedImmune", { type = "Condition", var = "HelmetArmourHigherThanEvasion" }) },
 	["immune to poison if equipped helmet has higher evasion rating than armour"] = { flag("PoisonImmune", { type = "Condition", var = "HelmetEvasionHigherThanArmour" }) },
 	["immun[ei]t?y? to bleeding and corrupted blood during f?l?a?s?k? ?effect"] = { flag("BleedImmune", { type = "Condition", var = "UsingFlask" }) },

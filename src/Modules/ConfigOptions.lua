@@ -917,6 +917,12 @@ Huge sets the radius to 11.
 	{ var = "overrideFortification", type = "count", label = "# of Fortification Stacks (if not maximum):", ifFlag = "Condition:Fortified", tooltip = "You have 1% less damage taken from hits per stack of fortification:\nHas a default cap of 20 stacks.", apply = function(val, modList, enemyModList)
 		modList:NewMod("FortificationStacks", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
+	{ var = "debuffMaim", type = "check", label = "Are you Maimed?", tooltip = "You have 30% slower Movement Speed and 15% reduced Evasion.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Maim", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
+	{ var = "debuffHinder", type = "check", label = "Are you Hindered?", tooltip = "You have 30% slower Movement Speed.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Hinder", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
+	end },
 	{ var = "multiplierTailwind", type = "count", label = "# of Tailwind Stacks:", ifFlag = "Condition:CanHaveTailwind", tooltip = "Tailwind grants the following, up to a base of 10 stacks:\n\t1% increased movement speed\n\t3% increased Skill Speed\n\t15% increased Evasion Rating", apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:Tailwind", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
