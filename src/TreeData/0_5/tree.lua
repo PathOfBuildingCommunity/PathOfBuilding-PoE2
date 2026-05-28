@@ -26019,6 +26019,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			isJewelSocket=true,
 			name="Sinister Jewel Socket",
+			noRadius=true,
 			nodeOverlay={
 				alloc="BlightedNotableFrameAllocated",
 				path="BlightedNotableFrameCanAllocate",
@@ -57509,6 +57510,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			isJewelSocket=true,
 			name="Sinister Jewel Socket",
+			noRadius=true,
 			nodeOverlay={
 				alloc="BlightedNotableFrameAllocated",
 				path="BlightedNotableFrameCanAllocate",
@@ -60916,6 +60918,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			isJewelSocket=true,
 			name="Sinister Jewel Socket",
+			noRadius=true,
 			nodeOverlay={
 				alloc="BlightedNotableFrameAllocated",
 				path="BlightedNotableFrameCanAllocate",
@@ -81571,6 +81574,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			isJewelSocket=true,
 			name="Sinister Jewel Socket",
+			noRadius=true,
 			nodeOverlay={
 				alloc="BlightedNotableFrameAllocated",
 				path="BlightedNotableFrameCanAllocate",
@@ -117977,6 +117981,7 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryBlank.png",
 			isJewelSocket=true,
 			name="Sinister Jewel Socket",
+			noRadius=true,
 			nodeOverlay={
 				alloc="BlightedNotableFrameAllocated",
 				path="BlightedNotableFrameCanAllocate",
