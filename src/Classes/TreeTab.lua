@@ -847,9 +847,14 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 	local controls = { }
 	local spec = self.build.spec
 	local attributes = { "Strength", "Dexterity", "Intelligence" }
-	
-	controls.attrSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {225, 30, 100, 18}, attributes, nil)
-	controls.save = new("ButtonControl", nil, {-50, 65, 80, 20}, "Allocate", function()
+
+	local dynamicOptions = spec:GetDynamicAttributeOptions()
+	for _, optionText in ipairs(dynamicOptions) do
+		t_insert(attributes, spec:GetOptionDisplayName(optionText))
+	end
+
+	controls.attrSelect = new("DropDownControl", {"TOPLEFT",nil,"TOPLEFT"}, {225, 22, 100, 18}, attributes, nil)
+	controls.save = new("ButtonControl", nil, {-50, 46, 80, 20}, "Allocate", function()
 		spec:SwitchAttributeNode(hoverNode.id, controls.attrSelect.selIndex)
 		spec.attributeIndex = controls.attrSelect.selIndex
 		spec:AllocNode(hoverNode, spec.tracePath and hoverNode == spec.tracePath[#spec.tracePath] and spec.tracePath)
@@ -857,17 +862,18 @@ function TreeTabClass:ModifyAttributePopup(hoverNode)
 		self.build.buildFlag = true
 		main:ClosePopup()
 	end)
-	controls.close = new("ButtonControl", nil, {50, 65, 80, 20}, "Cancel", function()
+	controls.close = new("ButtonControl", nil, {50, 46, 80, 20}, "Cancel", function()
 		spec:DeallocNode(hoverNode)
 		main:ClosePopup()
 	end)
-	controls.hotkeyTooltip = new("LabelControl", nil, {0, 100, 0, 16}, 
-		"^8You can switch attributes quicker by holding hotkeys while allocating:\n"..colorCodes.INTELLIGENCE.."\"1\" or \"I\" for Intelligence, "
-		..colorCodes.STRENGTH.."\"2\" or \"S\" for Strength, "..colorCodes.DEXTERITY.."\"3\" or \"D\" for Dexterity\n\n"
-		..colorCodes.RARE.."Right-click ^8an allocated node to toggle attribute types or to set an\n" .. 
-		"unallocated node to your last used attribute\n\n"
+	controls.hotkeyTooltip = new("LabelControl", nil, {0, 70, 0, 16},
+		"^8You can switch attribute node options quicker by holding hotkeys while allocating:\n"..colorCodes.INTELLIGENCE.."\"1\" or \"I\" for Intelligence, "
+		..colorCodes.STRENGTH.."\"2\" or \"S\" for Strength, "..colorCodes.DEXTERITY.."\"3\" or \"D\" for Dexterity\n"
+		.."^8\"4\"-\"9\" for additional attribute options (when available)\n"
+		..colorCodes.RARE.."Right-click ^8an allocated node to cycle attribute node options,\n"
+		.."or an unallocated node to apply your last used attribute node option"
 	)
-	main:OpenPopup(550, 185, "Choose Attribute", controls, "save")
+	main:OpenPopup(550, 175, "Choose Attribute Passive Node Option", controls, "save")
 end
 
 function TreeTabClass:SaveMasteryPopup(node, listControl)

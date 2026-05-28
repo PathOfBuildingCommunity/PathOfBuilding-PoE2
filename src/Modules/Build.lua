@@ -1320,9 +1320,17 @@ function buildMode:OnFrame(inputEvents)
 		-- Wipe Global Cache
 		wipeGlobalCache()
 
-		-- Rebuild calculation output tables
+		-- Increment revision first so GetDynamicAttributeOptions cache is valid for this
+		-- entire frame (both the revert pass below and the rendering pass after BuildOutput)
 		self.outputRevision = self.outputRevision + 1
 		self.buildFlag = false
+
+		-- Revert attribute node overrides whose source (item or custom mod) no longer exists
+		if self.spec:RevertInvalidAttributeOverrides() then
+			self.spec:BuildAllDependsAndPaths()
+		end
+
+		-- Rebuild calculation output tables
 		self.calcsTab:BuildOutput()
 		self:RefreshStatList()
 	end
