@@ -1989,9 +1989,9 @@ function calcs.perform(env, skipEHP)
 					local warcryName = buff.name:gsub(" Cry", ""):gsub("'s",""):gsub(" ","")
 					local baseEmpowers = modStore:Sum("BASE", env.player.mainSkill.skillCfg, warcryName.."EmpoweredAttacks") + baseEmpowers
 					if baseEmpowers > 0 then
-						local extraEmpowerions = modStore:Sum("BASE", nil, "ExtraEmpoweredAttacks") or 0
+						local extraEmpowers = modStore:Sum("BASE", nil, "ExtraEmpoweredAttacks") or 0
 						local EmpowerMultiplier = modStore:More(nil, "ExtraEmpoweredAttacks")
-						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", m_floor((baseEmpowers + extraEmpowerions) * EmpowerMultiplier))
+						env.player.modDB:NewMod("Num"..warcryName.."Empowers", "BASE", m_floor((baseEmpowers + extraEmpowers) * EmpowerMultiplier))
 						if not warcryList[buff.name] then
 							env.player.modDB:NewMod("Multiplier:EmpoweringWarcryCount", "BASE", 1, buff.name)
 							warcryList[buff.name] = true

@@ -3409,7 +3409,7 @@ function calcs.offence(env, actor, activeSkill)
 			-- Condition:AncestrallyBoosted * AncestralBoostEffect (e.g. Fist of War III)
 			local ancestrallyBoostedMoreDamageMulti = skillModList:Sum("BASE", cfg, "AncestralBoostMoreDamage") / 100
 
-			-- dynamic way of calcing the Ancestral Boost from a single source without duplicating the code
+			-- dynamic way of calculating the Ancestral Boost from a single source without duplicating the code
 			-- uptimeOverride: Ancestral Empowerment
 			-- combinedCalcs: ignore INC AoE as we will run that in calcCombinedAncestralBoost
 			local function calcAncestralBoost(skillName, moreDmg, uptimeOverride, combinedCalcs)

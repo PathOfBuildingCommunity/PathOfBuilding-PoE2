@@ -4604,7 +4604,7 @@ c["Chance is doubled against Undead and Demons"]={{},"Chance  against Undead and
 c["Chance to Block Damage is Lucky"]={{[1]={flags=0,keywordFlags=0,name="BlockChanceIsLucky",type="FLAG",value=true}},nil}
 c["Chance to Deflect is Lucky"]={{[1]={flags=0,keywordFlags=0,name="DeflectIsLucky",type="FLAG",value=true}},nil}
 c["Chance to Evade is Unlucky"]={{[1]={flags=0,keywordFlags=0,name="UnluckyEvade",type="FLAG",value=true}},nil}
-c["Chance to Hit with Attacks can exceed 100%"]={{[1]={[1]={skillType=1,type="Skilltype"},flags=0,keywordFlags=0,name="Condition:HitChanceCanExceed100",type="FLAG",value=true}},nil}
+c["Chance to Hit with Attacks can exceed 100%"]={{[1]={[1]={skillType=1,type="SkillType"},flags=0,keywordFlags=0,name="Condition:HitChanceCanExceed100",type="FLAG",value=true}},nil}
 c["Channelling Skills deal 12% increased Damage"]={{[1]={[1]={skillType=48,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=12}},nil}
 c["Channelling Skills deal 20% increased Damage"]={{[1]={[1]={skillType=48,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=20}},nil}
 c["Channelling Skills deal 25% increased Damage"]={{[1]={[1]={skillType=48,type="SkillType"},flags=0,keywordFlags=0,name="Damage",type="INC",value=25}},nil}
