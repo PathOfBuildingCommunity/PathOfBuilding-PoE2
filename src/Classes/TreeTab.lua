@@ -284,8 +284,8 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	end)
 	self.controls.powerReportList.shown = false
 
-	-- Timeline drawer; mutually exclusive with the power report drawer
-	self.showTimeline = true
+	-- Timeline drawer; mutually exclusive with the power report drawer. Hidden by default.
+	self.showTimeline = false
 	self.controls.timelineToggle = new("ButtonControl", { "LEFT", self.controls.nodePowerMaxDepthSelect, "RIGHT" }, { 8, 0, 200, 20 },
 		function() return self.showTimeline and "Hide Passive Progression" or "Show Passive Progression" end, function()
 		self.showTimeline = not self.showTimeline
