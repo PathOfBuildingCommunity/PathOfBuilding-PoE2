@@ -1087,6 +1087,7 @@ local modFlagList = {
 	["minion skills"] = { tag = { type = "SkillType", skillType = SkillType.Minion } },
 	["of minion skills"] = { tag = { type = "SkillType", skillType = SkillType.Minion } },
 	["of companion skills"] = { tag = { type = "SkillType", skillType = SkillType.CreatesCompanion } },
+	["of non-companion skills"] = { tag = { type = "SkillType", skillType = SkillType.CreatesCompanion, neg = true } },
 	["link skills"] = { tag = { type = "SkillType", skillType = SkillType.Link } },
 	["of link skills"] = { tag = { type = "SkillType", skillType = SkillType.Link } },
 	["for curses"] = { keywordFlags = KeywordFlag.Curse },
