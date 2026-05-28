@@ -819,13 +819,13 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 
 	-- Create minion
-	local minionList, isSpectre, isBeastCompanion
+	local minionList, monsterDamage
 	if activeGrantedEffect.minionList and activeGrantedEffect.name:match("^Spectre") then
 			minionList = copyTable(env.build.spectreList)
-			isSpectre = true
+			monsterDamage = true
 	elseif activeGrantedEffect.minionList and activeGrantedEffect.name:match("^Companion") then
 			minionList = copyTable(env.build.beastList)
-			isBeastCompanion = true
+			monsterDamage = true
 	elseif activeGrantedEffect.minionList and activeGrantedEffect.minionList[1] then
 			minionList = copyTable(activeGrantedEffect.minionList)
 	else
@@ -879,7 +879,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 				minion.lifeTable = env.data.monsterAllyLifeTable
 			end
 			local attackTime = minion.minionData.attackTime
-			local damageTable = (isSpectre or minion.minionData.hostile) and env.data.monsterDamageTable or env.data.monsterAllyDamageTable
+			local damageTable = (monsterDamage or minion.minionData.hostile) and env.data.monsterDamageTable or env.data.monsterAllyDamageTable
+			minion.minionData.DamageFixup = monsterDamage and (round(env.data.monsterAllyDamageTable[minion.level] / damageTable[minion.level] * data.misc.SpectreBeastDamageFixup, 2) - 1) or 0
 			local damage = damageTable[minion.level] * minion.minionData.damage
 			if not minion.minionData.baseDamageIgnoresAttackSpeed then -- minions with this flag do not factor attack time into their base damage
 				 damage = damage * attackTime
