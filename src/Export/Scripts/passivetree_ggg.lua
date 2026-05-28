@@ -27,15 +27,13 @@ local function arcDirection(fromNode, toNode, edge)
 	local v2y = toNode.y   - edge.orbitY
 
 	-- signed angle from v1 to v2, in (-pi, pi]
-	local dot   = v1x * v2x + v1y * v2y
 	local cross = v1x * v2y - v1y * v2x
-	local angle = math.atan2(cross, dot)
 
 	return cross > 0 and -1 or 1
 end
 
 local function CalcOrbitAngles(nodesInOrbit)
-	local orbitAngles = {}
+	local orbitAngles = { }
 
 	if nodesInOrbit == 16 then
 		-- Every 30 and 45 degrees, per https://github.com/grindinggear/skilltree-export/blob/3.17.0/README.md
@@ -64,12 +62,12 @@ local function baseTree(idPassiveTree)
 		["min_y"]= 0,
 		["max_x"]= 0,
 		["max_y"]= 0,
-		["classes"] = {},
+		["classes"] = { },
 		["groups"] = { },
 		["nodes"]= { },
-		["assets"]={},
-		["ddsCoords"] = {},
-		["jewelSlots"] = {},
+		["assets"]={ },
+		["ddsCoords"] = { },
+		["jewelSlots"] = { },
 		["constants"]= { -- calculate this
 			["classes"]= {
 				["StrDexIntClass"]= 0,
@@ -86,8 +84,8 @@ local function baseTree(idPassiveTree)
 				["Intelligence"]= 2
 			},
 			["PSSCentreInnerRadius"]= 130,
-			["skillsPerOrbit"]= {},
-			["orbitAnglesByOrbit"] = {},
+			["skillsPerOrbit"]= { },
+			["orbitAnglesByOrbit"] = { },
 			["orbitRadii"]= {
 				0, 82, 162, 335, 493, 662, 846, 251, 1080, 1322
 			},
@@ -146,14 +144,14 @@ for _, jewelSlot in ipairs(data.jewelSlots) do
 end
 
 -- build classes
-local ascendancySeachNameById  = {}
-local ascedancyReplacements = {
+local ascendancySearchNameById  = { }
+local ascendancyReplacements = {
 	["Lich"] = "Abyssal Lich"
 }
 for i,class in ipairs(data.classes) do
 	if #class.ascendancies == 0 then
 		print("Skipping class " .. class.name .. " because it has no ascendancy classes")
-		goto classcontinue
+		goto classContinue
 	end
 
 	local classData = {
@@ -162,7 +160,7 @@ for i,class in ipairs(data.classes) do
 		["base_str"] = class.base_str,
 		["name"] = class.name,
 		["integerId"] = i - 1,
-		["ascendancies"] = {},
+		["ascendancies"] = { },
 		["background"] = {
 			active={
 				height=2000,
@@ -201,7 +199,7 @@ for i,class in ipairs(data.classes) do
 				y= ascendancy.offsetY,
 			},
 		}
-		ascendancySeachNameById[ascendancy.id] = ascendancy.name
+		ascendancySearchNameById[ascendancy.id] = ascendancy.name
 		table.insert(classData.ascendancies, ascendancyData)
 		:: nextAscendancy ::
 	end
@@ -210,27 +208,27 @@ for i,class in ipairs(data.classes) do
 
 	-- Load background-[class] dynamically
 	table.insert(fileAssets, "background-" .. string.lower(class.name) .. ".json")
-	:: classcontinue ::
+	:: classContinue ::
 end
 
-local orbitsConstants = {}
+local orbitsConstants = { }
 
 -- build groups
 print("Building groups")
 for groupId, group in pairs(data.groups) do
 	local groupData = {
-		["x"] = round_to(group.x, 2),
-		["y"] = round_to(group.y, 2),
+		["x"] = round(group.x, 2),
+		["y"] = round(group.y, 2),
 		["orbits"] = group.orbits,
-		["nodes"] = {},
+		["nodes"] = { },
 	}
 	for _, node in pairs(group.nodes) do
 		if not data.nodes[node] or data.nodes[node].id == nil then
 			printf("Skipping node " .. node .. " not id found")
-			goto nextgroupnode
+			goto nextGroupNode
 		end
 		table.insert(groupData.nodes, tonumber(node))
-		:: nextgroupnode ::
+		:: nextGroupNode ::
 	end
 	tree.groups[tonumber(groupId)] = groupData
 end
@@ -238,8 +236,8 @@ end
 -- build nodes
 print("Building nodes")
 local attributesNodesId = {26297, 14927, 57022}
-local ascendancyGroups = {}
-local classesNodeIds = {}
+local ascendancyGroups = { }
+local classesNodeIds = { }
 
 for id, node in pairs(data.nodes) do
 	if node.id == nil then
@@ -263,28 +261,28 @@ for id, node in pairs(data.nodes) do
 		["isMultipleChoice"] = node.isMultipleChoice,
 		["isMultipleChoiceOption"] = node.isMultipleChoiceOption,
 		["isFreeAllocate"] = node.isFree,
-		["ascendancyName"] = node.ascendancyId and ascendancySeachNameById[node.ascendancyId] or nil,
-		["connections"] = {}
+		["ascendancyName"] = node.ascendancyId and ascendancySearchNameById[node.ascendancyId] or nil,
+		["connections"] = { }
 	}
 
 	-- Fix background for ascendancyStart
 	if node.ascendancyId then
 		if not node.isJewelSocket then
 			nodeData["nodeOverlay"] = {
-				alloc= node.isNotable and "AscendancyFrameNotableAllocated" or "AscendancyFrameNormalAllocated",
-				path=  node.isNotable and "AscendancyFrameNotableCanAllocate" or "AscendancyFrameNormalCanAllocate",
-				unalloc= node.isNotable and "AscendancyFrameNotableUnallocated" or "AscendancyFrameNormalUnallocated"
+				alloc = node.isNotable and "AscendancyFrameNotableAllocated" or "AscendancyFrameNormalAllocated",
+				path =  node.isNotable and "AscendancyFrameNotableCanAllocate" or "AscendancyFrameNormalCanAllocate",
+				unalloc = node.isNotable and "AscendancyFrameNotableUnallocated" or "AscendancyFrameNormalUnallocated"
 			}
 		else
 			nodeData["containJewelSocket"] =  true
 			nodeData["nodeOverlay"] = {
-				alloc= "JewelSocketAltActive",
-				path=  "JewelSocketAltCanAllocate",
-				unalloc= "JewelSocketAltNormal"
+				alloc = "JewelSocketAltActive",
+				path =  "JewelSocketAltCanAllocate",
+				unalloc = "JewelSocketAltNormal"
 			}
 		end
-		local ascendancyName = ascendancySeachNameById[node.ascendancyId]
-		ascendancyGroups = ascendancyGroups or {}
+		local ascendancyName = ascendancySearchNameById[node.ascendancyId]
+		ascendancyGroups = ascendancyGroups or { }
 		ascendancyGroups[ascendancyName] = ascendancyGroups[ascendancyName] or { }
 		ascendancyGroups[ascendancyName].startId = node.isAscendancyStart and nodeId or ascendancyGroups[ascendancyName].startId
 		ascendancyGroups[ascendancyName][node.group] = true
@@ -297,9 +295,9 @@ for id, node in pairs(data.nodes) do
 
 		if node.isBlighted then
 			nodeData["nodeOverlay"] = {
-				alloc= "BlightedNotableFrameAllocated",
-				path=  "BlightedNotableFrameCanAllocate",
-				unalloc= "BlightedNotableFrameUnallocated"
+				alloc = "BlightedNotableFrameAllocated",
+				path =  "BlightedNotableFrameCanAllocate",
+				unalloc = "BlightedNotableFrameUnallocated"
 			}
 		end
 		-- recalculate max and min
@@ -316,7 +314,7 @@ for id, node in pairs(data.nodes) do
 	end
 	-- build node stats
 	if node.stats and #node.stats > 0 then
-		nodeData.stats={}
+		nodeData.stats = { }
 		for _, stat in ipairs(node.stats) do
 			table.insert(nodeData.stats, sanitiseText(escapeGGGString(stat)))
 		end
@@ -325,7 +323,7 @@ for id, node in pairs(data.nodes) do
 	-- build attribute nodes
 	if node.isGenericAttribute == true then
 		nodeData["isAttribute"] = true
-		nodeData["options"] = {}
+		nodeData["options"] = { }
 		for i, overrideId in ipairs(attributesNodesId) do
 			local overrideNode =  data.skillOverrides[tostring(overrideId)]
 			if overrideNode == nil then
@@ -336,7 +334,7 @@ for id, node in pairs(data.nodes) do
 				["id"] = overrideId,
 				["name"] = overrideNode.name,
 				["icon"] = overrideNode.icon,
-				["stats"] = {}
+				["stats"] = { }
 			}
 			for _, statDesc in ipairs(overrideNode.stats) do
 				table.insert(optionData.stats, sanitiseText(escapeGGGString(statDesc)))
@@ -348,7 +346,7 @@ for id, node in pairs(data.nodes) do
 
 	-- build classes start
 	if node.classStartIndex  and #node.classStartIndex > 0 then
-		nodeData.classesStart = {}
+		nodeData.classesStart = { }
 		for _, classStartIndex in ipairs(node.classStartIndex) do
 			local className = data.classes[classStartIndex + 1].name
 			table.insert(nodeData.classesStart, className)
@@ -398,7 +396,7 @@ for id, node in pairs(data.nodes) do
 	if node.unlockConstraint ~= nil then
 		nodeData["connectionArt"] = "CharacterPlanned"
 		nodeData["unlockConstraint"] = {
-			["ascendancy"] = ascendancySeachNameById[node.unlockConstraint.ascendancy],
+			["ascendancy"] = ascendancySearchNameById[node.unlockConstraint.ascendancy],
 			["nodes"] = node.unlockConstraint.nodes,
 		}
 		nodeData["nodeOverlay"] = {
@@ -433,13 +431,13 @@ for _, classData in ipairs(data.classes) do
 			end
 
 			sourceNode["isSwitchable"] = true
-			sourceNode.options = sourceNode.options or {}
+			sourceNode.options = sourceNode.options or { }
 
 			local replaceNodeData = {
 				["icon"] = replaceNode.icon,
 				["id"] = replaceNodeId,
 				["name"] =  escapeGGGString(replaceNode.name),
-				["stats"] = {}
+				["stats"] = { }
 			}
 
 			for _, statDesc in ipairs(replaceNode.stats) do
@@ -469,14 +467,14 @@ for _, classData in ipairs(data.classes) do
 				end
 
 				sourceNode["isSwitchable"] = true
-				sourceNode.options = sourceNode.options or {}
+				sourceNode.options = sourceNode.options or { }
 
 				local replaceNodeData = {
 					["icon"] = replaceNode.icon,
 					["id"] = replaceNodeId,
 					["name"] =  escapeGGGString(replaceNode.name),
 					["ascendancyName"] = ascendancyData.name,
-					["stats"] = {},					
+					["stats"] = { },					
 				}
 
 				for _, statDesc in ipairs(replaceNode.stats) do
@@ -516,7 +514,7 @@ for i, classId in ipairs(classesNodeIds) do
 
 	-- calculate how many ascendancies in that place?
 	local total = 0
-	local classes = {}
+	local classes = { }
 
 	for _, class in ipairs(tree.classes) do
 		for _, nodeClasses in ipairs(nodeStart.classesStart) do
@@ -589,7 +587,7 @@ for i, classId in ipairs(classesNodeIds) do
 end
 
 printf("Fixing replace ascendancies position...")
-for from, to in pairs(ascedancyReplacements) do
+for from, to in pairs(ascendancyReplacements) do
 	local fromAscendancy
 	local toAscendancy
 	for _, class in ipairs(tree.classes) do
@@ -605,11 +603,11 @@ for from, to in pairs(ascedancyReplacements) do
 
 	if fromAscendancy == nil then
 		printf("From ascendancy " .. from .. " not found")
-		goto continuereplace
+		goto continueReplace
 	end
 	if toAscendancy == nil then
 		printf("To ascendancy " .. to .. " not found")
-		goto continuereplace
+		goto continueReplace
 	end
 
 	fromAscendancy.replaceBy = to
@@ -618,11 +616,11 @@ for from, to in pairs(ascedancyReplacements) do
 	toAscendancy.background.x = fromAscendancy.background.x
 	toAscendancy.background.y = fromAscendancy.background.y
 
-	:: continuereplace ::
+	:: continueReplace ::
 end
 
 -- build spriteCoords
-tree.spriteCoords = {}
+tree.spriteCoords = { }
 
 -- Build frame coords info
 for _, strFile in ipairs(fileAssets) do
@@ -648,7 +646,7 @@ for _, strFile in ipairs(fileAssets) do
 	-- this assume you are on windows
 	os.execute(string.format('copy "%s\\%s" "%s"', assetsFolder, fileNameMeta, path))
 
-	tree.spriteCoords[fileNameMeta] = {}
+	tree.spriteCoords[fileNameMeta] = { }
 	for name, frameData in pairs(dataFrame.frames) do
 		local a, b = name:match("([^:]+):([^:]+)")
 		if a == "startNode" and b == "MainCircle" then
@@ -672,7 +670,6 @@ for _, strFile in ipairs(fileAssets) do
 	end
 end
 -- build orbits info
--- spell-checker: disable
 tree.assets={
 	CharacterAscendancyLineConnectorActive={
 		[1]="CharacterAscendancy_orbit_intermediateactive0.png"
@@ -945,7 +942,6 @@ tree.assets={
 		[1]="CharacterPlanned_orbit_normal1.png"
 	}
 }
--- spell-checker: enable
 
 printf("Generating lua tree file")
 local out, err = io.open(fileTree, "w")
