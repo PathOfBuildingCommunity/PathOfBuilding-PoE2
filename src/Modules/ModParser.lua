@@ -4583,7 +4583,6 @@ local specialModList = {
 		flag("AncestralBond"),
 		mod("ExtraSpirit", "BASE", num, { type = "SkillType", skillType = SkillType.SummonsTotem })
 	} end,
-	["no cost or charge requirement for placing totems"] = { mod("Cost", "MORE", -100, nil, 0, KeywordFlag.Totem) },
 	-- Minions
 	["minions revive (%d+)%% faster"] = function(num) return { mod("MinionRevivalSpeed", "INC", num) } end,
 	["your strength is added to your minions"] = { flag("StrengthAddedToMinions") },
