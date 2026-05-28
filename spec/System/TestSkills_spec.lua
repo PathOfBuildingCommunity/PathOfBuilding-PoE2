@@ -898,5 +898,7 @@ describe("TestSkills", function()
 
 		-- test doubled effects of Fist of War III with Ancestral Empowerment
 		assert.True(fistOfWarOneMaxDmgEffect < build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect)
+		local expectedAverageEffect = 1 + (build.calcsTab.calcsOutput.MaxAncestralEmpowermentCombinedDamageEffect - 1) * build.calcsTab.calcsOutput.AncestralEmpowermentCombinedUptimeRatio / 100
+		assert.are.equals(round(expectedAverageEffect, 4), round(build.calcsTab.calcsOutput.AvgAncestralEmpowermentCombinedDamageEffect, 4))
 	end)
 end)

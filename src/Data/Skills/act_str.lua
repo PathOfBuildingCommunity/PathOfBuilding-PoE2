@@ -7511,7 +7511,7 @@ skills["InfernalCryPlayer"] = {
 			statDescriptionScope = "infernal_cry",
 			statMap = {
 				["infernal_cry_exerted_attack_all_damage_%_to_gain_as_fire_%"] = {
-					mod("DamageGainAsFire", "BASE", nil, ModFlag.Melee, 0, { type = "GlobalEffect", effectType = "Warcry" }, { type = "Condition", var = "Empowered" }),
+					mod("InfernalExtraFireDamageMultiplier", "BASE", nil),
 				},
 			},
 			baseFlags = {
