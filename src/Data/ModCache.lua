@@ -3547,8 +3547,7 @@ c["Aggravate Bleeding on Enemies when they Enter your Presence 100% increased Th
 c["Aggravate Bleeding on targets you Critically Hit with Attacks"]={nil,"Aggravate Bleeding on targets you Critically Hit with Attacks "}
 c["Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target"]={nil,"Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target "}
 c["Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target 40% chance to Aggravate Bleeding on Hit"]={nil,"Aggravating any Bleeding with this Weapon also Aggravates all Ignites on the target 40% chance to Aggravate Bleeding on Hit "}
-c["All Attacks count as Empowered Attacks"]={nil,"All Attacks count as Empowered Attacks "}
-c["All Attacks count as Empowered Attacks Cannot use Warcries"]={nil,"All Attacks count as Empowered Attacks Cannot use Warcries "}
+c["All Attacks count as Empowered Attacks"]={{[1]={flags=1,keywordFlags=0,name="Condition:Empowered",type="FLAG",value=true},[2]={flags=1,keywordFlags=0,name="MaxEmpoweredUptimeRatio",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Chill Magnitude"]={{[1]={flags=0,keywordFlags=0,name="CanChill",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Poison Magnitude"]={{[1]={flags=0,keywordFlags=0,name="CanPoison",type="FLAG",value=true}},nil}
 c["All Damage from Hits Contributes to Shock Chance"]={{[1]={flags=0,keywordFlags=0,name="PhysicalCanShock",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="FireCanShock",type="FLAG",value=true},[3]={flags=0,keywordFlags=0,name="ColdCanShock",type="FLAG",value=true},[4]={flags=0,keywordFlags=0,name="ChaosCanShock",type="FLAG",value=true}},nil}
@@ -3901,11 +3900,11 @@ c["Companions deal 10% increased damage per Idol in your Equipment 2% increased 
 c["Companions deal 12% increased Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=12}}}},nil}
 c["Companions deal 15% increased Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Damage",type="INC",value=15}}}},nil}
 c["Companions deal 60% increased damage against Immobilised enemies"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={actor="enemy",type="ActorCondition",var="Immobilised"},flags=0,keywordFlags=0,name="Damage",type="INC",value=60}}}},nil}
-c["Companions gain 12% Damage as extra Chaos Damage"]={nil,"Companions gain 12% Damage as extra Chaos Damage "}
-c["Companions gain 12% Damage as extra Cold Damage"]={nil,"Companions gain 12% Damage as extra Cold Damage "}
-c["Companions gain 4% Damage as extra Chaos Damage"]={nil,"Companions gain 4% Damage as extra Chaos Damage "}
-c["Companions gain 4% Damage as extra Cold Damage"]={nil,"Companions gain 4% Damage as extra Cold Damage "}
-c["Companions gain added Attack damage equal to 60% of your main hand Weapon's damage"]={nil,"Companions gain added Attack damage equal to 60% of your main hand Weapon's damage "}
+c["Companions gain 12% Damage as extra Chaos Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=12}}}},nil}
+c["Companions gain 12% Damage as extra Cold Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=12}}}},nil}
+c["Companions gain 4% Damage as extra Chaos Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsChaos",type="BASE",value=4}}}},nil}
+c["Companions gain 4% Damage as extra Cold Damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="DamageGainAsCold",type="BASE",value=4}}}},nil}
+c["Companions gain added Attack damage equal to 60% of your main hand Weapon's damage"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="GainMainHandDmgFromParent",type="FLAG",value=true}}},[2]={flags=0,keywordFlags=0,name="Multiplier:MainHandDamageToAllies",type="BASE",value=60}},nil}
 c["Companions gain your Strength"]={{[1]={flags=0,keywordFlags=0,name="StrengthAddedToCompanions",type="FLAG",value=true}},nil}
 c["Companions have +12% to all Elemental Resistances"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ElementalResist",type="BASE",value=12}}}},nil}
 c["Companions have +30% to Chaos Resistance"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=30}}}},nil}
@@ -3920,13 +3919,12 @@ c["Companions have 30% increased Area of Effect"]={{[1]={[1]={skillType=219,type
 c["Companions have 50% chance to gain Onslaught on Kill"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={[1]={type="Condition",var="KilledRecently"},flags=0,keywordFlags=0,name="Condition:Onslaught",type="FLAG",value=true}}}},nil}
 c["Companions have 6% increased Attack Speed"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=1,keywordFlags=0,name="Speed",type="INC",value=6}}}},nil}
 c["Companions have 8% increased Movement Speed"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="MovementSpeed",type="INC",value=8}}}},nil}
-c["Companions have a 40% chance to Poison on Hit"]={nil,"a 40% chance to Poison on Hit "}
-c["Companions in your Presence have Onslaught while you are Shapeshifted"]={nil,"Companions in your Presence have Onslaught while you are Shapeshifted "}
+c["Companions have a 40% chance to Poison on Hit"]={{[1]={[1]={skillType=219,type="SkillType"},flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="PoisonChance",type="BASE",value=40}}}},nil}
+c["Companions in your Presence have Onslaught while you are Shapeshifted"]={nil,"in your Presence have Onslaught while you are Shapeshifted "}
 c["Conduit"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Conduit"}},nil}
 c["Consume all Rage when Shapeshifting to Human form to recover 1% of maximum life per Rage Consumed"]={nil,"Consume all Rage when Shapeshifting to Human form to recover 1% of maximum life per Rage Consumed "}
 c["Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60%"]={nil,"Consuming Glory grants you 3% increased Attack damage per Glory consumed for 6 seconds, up to 60% "}
-c["Convert 100% of maximum Energy Shield to maximum Mana"]={nil,"Convert 100% of maximum Energy Shield to maximum Mana "}
-c["Convert 100% of maximum Energy Shield to maximum Mana Mana Costs are Doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="EnergyShieldDoubledLimit",type="Multiplier",var="EnergyShieldDoubled"},flags=0,keywordFlags=0,name="EnergyShield",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:EnergyShieldDoubled",type="OVERRIDE",value=1}},"Convert 100% of  to maximum Mana Mana Costs are d "}
+c["Convert 100% of maximum Energy Shield to maximum Mana"]={{[1]={flags=0,keywordFlags=0,name="EnergyShieldConvertToMana",type="BASE",value=100}},nil}
 c["Converts all Evasion Rating to Armour"]={{[1]={flags=0,keywordFlags=0,name="IronReflexes",type="FLAG",value=true},[2]={flags=0,keywordFlags=0,name="EvasionConvertToArmour",type="BASE",value=100}},nil}
 c["Copy a random Modifier from each enemy in your Presence when"]={nil,"Copy a random Modifier from each enemy in your Presence when "}
 c["Copy a random Modifier from each enemy in your Presence when you Shapeshift to an Animal form"]={nil,"Copy a random Modifier from each enemy in your Presence when you Shapeshift to an Animal form "}
@@ -4396,7 +4394,7 @@ c["Gain Arcane Surge when a Minion Dies"]={{[1]={flags=0,keywordFlags=0,name="Mi
 c["Gain Arcane Surge when a Minion Dies 40% increased maximum Energy Shield"]={{[1]={flags=0,keywordFlags=0,name="MinionModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}}}," when a  Dies 40% increased  "}
 c["Gain Arcane Surge when you Shapeshift to Human form after"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}," when you Shapeshift to Human form after "}
 c["Gain Arcane Surge when you Shapeshift to Human form after being Shapeshifted for at least 8 seconds"]={{[1]={flags=0,keywordFlags=0,name="Condition:ArcaneSurge",type="FLAG",value=true}}," when you Shapeshift to Human form after being Shapeshifted for at least 8 seconds "}
-c["Gain Armour equal to 150% of total Strength Requirements of Equipped Boots, Gloves and Helmet"]={nil,"Armour equal to 150% of total Strength Requirements of Equipped Boots, Gloves and Helmet "}
+c["Gain Armour equal to 150% of total Strength Requirements of Equipped Boots, Gloves and Helmet"]={{[1]={[1]={percent=150,stat="StrRequirementsOnBoots",type="PercentStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[2]={[1]={percent=150,stat="StrRequirementsOnGloves",type="PercentStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1},[3]={[1]={percent=150,stat="StrRequirementsOnHelmet",type="PercentStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["Gain Cold Thorns Damage equal to 18% of your maximum Mana"]={nil,"Cold Thorns Damage equal to 18% of your maximum Mana "}
 c["Gain Combo from all Attack Hits"]={nil,"Combo from all Attack Hits "}
 c["Gain Deflection Rating equal to 10% of Evasion Rating"]={{[1]={flags=0,keywordFlags=0,name="EvasionGainAsDeflection",type="BASE",value=10}},nil}
@@ -4885,7 +4883,7 @@ c["Lose all Power Charges on reaching maximum Power Charges Shocks you when you 
 c["Lose all Rage on reaching Maximum Rage"]={nil,"Lose all Rage on reaching Maximum Rage "}
 c["Lose all Tailwind when Hit"]={nil,"Lose all Tailwind when Hit "}
 c["Maim on Critical Hit"]={nil,"Maim on Critical Hit "}
-c["Mana Costs are Doubled"]={{[1]={[1]={globalLimit=100,globalLimitKey="ManaCostDoubledLimit",type="Multiplier",var="ManaCostDoubled"},flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=100},[2]={flags=0,keywordFlags=0,name="Multiplier:ManaCostDoubled",type="OVERRIDE",value=1}},"s are d "}
+c["Mana Costs are Doubled"]={{[1]={flags=0,keywordFlags=0,name="ManaCost",type="MORE",value=100}},nil}
 c["Mana Flasks also recover Life"]={nil,"Mana Flasks also recover Life "}
 c["Mana Flasks gain 0.1 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesGenerated",type="BASE",value=0.1}},nil}
 c["Mana Flasks gain 0.22 charges per Second"]={{[1]={flags=0,keywordFlags=0,name="ManaFlaskChargesGenerated",type="BASE",value=0.22}},nil}
@@ -5364,7 +5362,7 @@ c["Skills have 20% increased Critical Hit Chance per Connected Blue Support Gem"
 c["Skills have 5% chance to not remove Elemental Infusions but still count as consuming them"]={{}," to not remove Elemental Infusions but still count as consuming them "}
 c["Skills have 6% increased Skill Speed per Connected Green Support Gem"]={{[1]={flags=0,keywordFlags=0,name="SkillSpeedIncreasedPerGreenSupport",type="FLAG",value=6}},nil}
 c["Skills have a 125% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=125}},nil}
-c["Skills have a 15% chance to not consume Glory"]={nil,"a 15% chance to not consume Glory "}
+c["Skills have a 15% chance to not consume Glory"]={{}," to not consume Glory "}
 c["Skills have a 150% longer Perfect Timing window"]={{[1]={flags=0,keywordFlags=0,name="PerfectTiming",type="INC",value=150}},nil}
 c["Skills lose Combo 20% slower"]={nil,"Skills lose Combo 20% slower "}
 c["Skills reserve 50% less Spirit"]={{[1]={flags=0,keywordFlags=0,name="SpiritReserved",type="MORE",value=-50}},nil}
