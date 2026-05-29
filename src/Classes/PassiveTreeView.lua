@@ -831,7 +831,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 		self.searchParams = prepSearch(self.searchStr)
 
 		for nodeId, node in pairs(spec.nodes) do
-			self.searchStrResults[nodeId] = #self.searchParams > 0 and self:DoesNodeMatchSearchParams(node)
+			self.searchStrResults[nodeId] = #self.searchParams > 0 and self:DoesNodeMatchSearchParams(build, node)
 		end
 	end
 
@@ -1442,8 +1442,12 @@ function PassiveTreeViewClass:Focus(x, y, viewPort, build)
 	self.zoomY = -y * scale
 end
 
-function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
+function PassiveTreeViewClass:DoesNodeMatchSearchParams(build, node)
 	if node.type == "ClassStart" or node.type == "OnlyImage" then
+		return
+	end
+
+	if node.unlockConstraint and not checkUnlockConstraint(build, node) then
 		return
 	end
 
