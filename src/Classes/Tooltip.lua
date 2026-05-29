@@ -32,6 +32,37 @@ local headerConfigs = {
 }
 -- spell-checker: enable
 
+local skillAssetMap
+local missingSkillAssets = { }
+local function getSkillAssetByName(name)
+	if not name or not data.skillAssets then
+		return nil
+	end
+	if not skillAssetMap then
+		skillAssetMap = { }
+		for file, fileInfo in pairs(data.skillAssets.ddsCoords or { }) do
+			local assetData = { }
+			assetData.handle = NewImageHandle()
+			assetData.handle:Load("Data/Skills/" .. file, "CLAMP")
+			assetData.width, assetData.height = assetData.handle:ImageSize()
+			for assetName, position in pairs(fileInfo) do
+				skillAssetMap[assetName] = {
+					found = assetData.width > 0,
+					handle = assetData.handle,
+					width = assetData.width,
+					height = assetData.height,
+					[1] = position,
+				}
+			end
+		end
+	end
+	if not skillAssetMap[name] and not missingSkillAssets[name] then
+		missingSkillAssets[name] = true
+		ConPrintf("missing skill asset with name " .. name)
+	end
+	return skillAssetMap[name]
+end
+
 local TooltipClass = newClass("Tooltip", function(self)
 	self.lines = { }
 	self.blocks = { }
@@ -52,6 +83,7 @@ function TooltipClass:Clear(clearUpdateParams)
 	self.gemBackground = nil
 	self.center = false
 	self.maxWidth = nil
+	self.minWidth = nil
 	self.color = { 0.5, 0.3, 0 }
 	t_insert(self.blocks, { height = 0 })
 end
@@ -521,25 +553,31 @@ function TooltipClass:Draw(x, y, w, h, viewPort)
 				DrawImage(self.influenceIcon2, headerX + headerTotalWidth - (headerHeight/2) - 2, headerY + (headerHeight - (headerHeight/2))/2, headerHeight/2, headerHeight/2)
 			end
 		elseif self.tooltipHeader == "GEM" then
-			local tree = main:LoadTree(latestTreeVersion)
-			local gemIconImage = tree:GetAssetByName(self.gemIcon)
-			local gemBGImage = tree:GetAssetByName(self.gemBackground)
-			local gemHeaderImage = NewImageHandle()
+			local gemIconImage = getSkillAssetByName(self.gemIcon)
+			local gemBGImage = getSkillAssetByName(self.gemBackground)
 			local headerPath = self.isUniqueGem and "Assets/gemhovertitleunique.png" or "Assets/gemhovertitle.png"
-			gemHeaderImage:Load(headerPath)
-			local gemIconBorder = NewImageHandle()
-			gemIconBorder:Load("Assets/skillpanelskilliconframe.png")
-			DrawImage(gemHeaderImage, headerX, headerY, 375, 59)
+			if not self.gemHeaderImage or self.gemHeaderImagePath ~= headerPath then
+				self.gemHeaderImage = NewImageHandle()
+				self.gemHeaderImage:Load(headerPath)
+				self.gemHeaderImagePath = headerPath
+			end
+			if not self.gemIconBorder then
+				self.gemIconBorder = NewImageHandle()
+				self.gemIconBorder:Load("Assets/skillpanelskilliconframe.png")
+			end
+			DrawImage(self.gemHeaderImage, headerX, headerY, 375, 59)
 			if gemIconImage then
 				DrawImage(gemIconImage.handle, headerX + 21, headerY + 6, 46, 46, unpack(gemIconImage))
-				DrawImage(gemIconBorder, headerX + 21, headerY + 6, 48, 48)
+				DrawImage(self.gemIconBorder, headerX + 21, headerY + 6, 48, 48)
 			end
 			if gemBGImage then
 				DrawImage(gemBGImage.handle, headerX + headerTotalWidth -500, headerY, 500, 266, unpack(gemBGImage))
 			else
-				gemBGImage = NewImageHandle()
-				gemBGImage:Load("Assets/gemhoverimageempty.png")
-				DrawImage(gemBGImage, headerX + headerTotalWidth -500, headerY, 500, 266)
+				if not self.gemEmptyImage then
+					self.gemEmptyImage = NewImageHandle()
+					self.gemEmptyImage:Load("Assets/gemhoverimageempty.png")
+				end
+				DrawImage(self.gemEmptyImage, headerX + headerTotalWidth -500, headerY, 500, 266)
 			end
 		end
 	end

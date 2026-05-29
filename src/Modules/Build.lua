@@ -1685,10 +1685,21 @@ function buildMode:OpenSpectreLibrary(library)
 		end
 	end
 	local function getMonsterTypeImages()
-		local tree = main:LoadTree(latestTreeVersion)
 		local images = {}
-		for name, value in pairs(monsterTypeSort) do
-			images[name] = tree:GetAssetByName(name)
+		for file, fileInfo in pairs((self.data.assets and self.data.assets.ddsCoords) or { }) do
+			local assetData = { }
+			assetData.handle = NewImageHandle()
+			assetData.handle:Load("Assets/" .. file, "CLAMP")
+			assetData.width, assetData.height = assetData.handle:ImageSize()
+			for name, position in pairs(fileInfo) do
+				images[name] = {
+					found = assetData.width > 0,
+					handle = assetData.handle,
+					width = assetData.width,
+					height = assetData.height,
+					[1] = position,
+				}
+			end
 		end
 		return images
 	end
