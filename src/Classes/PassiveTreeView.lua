@@ -705,12 +705,12 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 		end
 
-		-- Compare added node color
+		-- Compare added nodes pathing color
 		if baseState == "Active" and state ~= "Active" then
 			state = "Active"
 			setConnectorColor(0.00, 0.95, 1.00)
 		end
-		-- Compare removed node color
+		-- Compare removed node pathing color
 		if baseState ~= "Active" and state == "Active" then
 			setConnectorColor(1.00, 0.00, 0.85)
 		end
