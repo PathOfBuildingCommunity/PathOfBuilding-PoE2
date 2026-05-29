@@ -27,7 +27,7 @@ jobs:
       # CONFIG_URL: https://raw.githubusercontent.com/Nightblade/pob-dict/<commit-sha>
     steps:
       - name: Checkout
-        uses: actions/checkout@v4   # v5 does not exist — was causing hard failure
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.event_name == 'workflow_dispatch' && inputs.ref || '' }}
 
@@ -53,7 +53,7 @@ jobs:
             "${{ env.CONFIG_URL }}/contribs-dict.txt"
 
       - name: Run cspell
-        uses: streetsidesoftware/cspell-action@v7
+        uses: streetsidesoftware/cspell-action@v8
         with:
           files: '**'
           config: ".cspell-config/cspell.json"
