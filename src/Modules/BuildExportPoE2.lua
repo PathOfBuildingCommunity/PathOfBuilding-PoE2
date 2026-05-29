@@ -22,9 +22,9 @@ local dkjson = require "dkjson"
 local M = {}
 
 -- PoB internal slot name -> { inventory_id, weapon_set? }
--- inventory_id values for slots other than Weapon1 are educated guesses; only
--- "Weapon1" is documented by GGG. Verify against a sample .build exported from
--- the live game before relying on these in shipped builds.
+-- inventory_id values derived from GGG's .build format documentation example
+-- (https://www.pathofexile.com/developer/docs/game#buildplanner).
+-- Only "Weapon1" is explicitly documented; others match the example output.
 M.SlotMap = {
 	["Weapon 1"]      = { inventory_id = "Weapon1" },
 	["Weapon 2"]      = { inventory_id = "Weapon2" },
