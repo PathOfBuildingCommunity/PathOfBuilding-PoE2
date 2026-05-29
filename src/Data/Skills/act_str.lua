@@ -16047,7 +16047,6 @@ skills["RollingSlamPlayer"] = {
 skills["ScavengedPlatingPlayer"] = {
 	name = "Scavenged Plating",
 	baseTypeName = "Scavenged Plating",
-	grantsThornsDamage = true,
 	icon = "Art/2DArt/SkillIcons/BruteScavengedPlating.dds",
 	color = 1,
 	description = "While active, uses fragments of armour scavenged from enemies to bolster your own. Fully Breaking an enemy's Armour grants you stacks of Scavenged Plating for a duration based on the enemy's rarity, and you gain Armour and Thorns per stack. Normal enemies grant 1 stack, Magic enemies grant 2 stacks, Rare enemies grant 5 stacks and Unique enemies grant 10 stacks.",
@@ -16098,6 +16097,7 @@ skills["ScavengedPlatingPlayer"] = {
 		[39] = { levelRequirement = 90, spiritReservationFlat = 30, },
 		[40] = { levelRequirement = 90, spiritReservationFlat = 30, },
 	},
+			grantsThornsDamage = true,
 	statSets = {
 		[1] = {
 			label = "Scavenged Plating",

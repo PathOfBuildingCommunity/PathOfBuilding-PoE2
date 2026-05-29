@@ -8,7 +8,7 @@ VERSION[0.16.0][2026/05/30]
 * Update Deflection formula (Edvinas-Smita)
 
 --- New to Path of Building ---
-* Add initial support for Thorns calculations (DS-Koala)
+* Add initial support for Thorns calculations (DS-Koala, DragoonWraith)
 * Add build comparison tab (oboking, vaisest)
 * Add support for advanced copy/paste (Wires77)
 * Add Loadout management UI (FenikSRT4)
