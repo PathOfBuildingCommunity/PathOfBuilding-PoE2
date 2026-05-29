@@ -2334,10 +2334,8 @@ function calcs.buildDefenceEstimations(env, actor)
 		if not modDB:Flag(nil, "ArmourDoesNotApplyTo" .. damageType .. "DamageTaken") then
 			percentOfArmourApplies = (modDB:Sum("BASE", nil, "ArmourAppliesTo" .. damageType .. "DamageTaken") or 0)
 		end
-		if not modDB:Flag(nil, "ArmourDoesNotApplyToElementalDamageTaken")
-			and (damageType == "Fire" or damageType == "Cold" or damageType == "Lightning") then
-			percentOfArmourApplies = percentOfArmourApplies
-				+ (modDB:Sum("BASE", nil, "ArmourAppliesToElementalDamageTaken") or 0)
+		if not modDB:Flag(nil, "ArmourDoesNotApplyToElementalDamageTaken") and (damageType == "Fire" or damageType == "Cold" or damageType == "Lightning") then
+			percentOfArmourApplies = percentOfArmourApplies + (modDB:Sum("BASE", nil, "ArmourAppliesToElementalDamageTaken") or 0)
 		end
 		local effectiveAppliedArmour = (output.Armour * percentOfArmourApplies / 100) * (1 + output.ArmourDefense)
 		local effectiveArmourFromArmour = effectiveAppliedArmour;
