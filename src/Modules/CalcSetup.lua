@@ -1491,6 +1491,24 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 
 			do
+				local hasThornsDamage = env.modDB:HasMod("BASE", { flags = ModFlag.Thorns }, "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax")
+				if not hasThornsDamage then
+					for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
+						if socketGroup.source ~= "Thorns" and socketGroup.enabled ~= false then
+							for _, gem in ipairs(socketGroup.gemList) do
+								local grantedEffect = gem.enabled ~= false and env.data.skills[gem.skillId]
+								if grantedEffect and grantedEffect.grantsThornsDamage then
+									hasThornsDamage = true
+									break
+								end
+							end
+						end
+						if hasThornsDamage then
+							break
+						end
+					end
+				end
+
 				local group
 				for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
 					if socketGroup.source == "Thorns" then
@@ -1498,24 +1516,30 @@ function calcs.initEnv(build, mode, override, specEnv)
 						break
 					end
 				end
-				if not group then
-					group = { label = "Thorns", enabled = true, gemList = { }, source = "Thorns", noSupports = true }
-					t_insert(build.skillsTab.socketGroupList, group)
+				if not hasThornsDamage then
+					if group then
+						wipeTable(group.gemList)
+					end
+				else
+					if not group then
+						group = { label = "Thorns", enabled = true, gemList = { }, source = "Thorns", noSupports = true }
+						t_insert(build.skillsTab.socketGroupList, group)
+					end
+
+					group.thornsSources = env.thornsSources
+					wipeTable(group.gemList)
+
+					local activeGemInstance = {
+						skillId = "ThornsPlayer",
+						quality = 0,
+						enabled = true,
+						level = 1,
+						triggered = true,
+					}
+					t_insert(group.gemList, activeGemInstance)
+					markList[group] = true
+					build.skillsTab:ProcessSocketGroup(group)
 				end
-
-				group.thornsSources = env.thornsSources
-				wipeTable(group.gemList)
-
-				local activeGemInstance = {
-					skillId = "ThornsPlayer",
-					quality = 0,
-					enabled = true,
-					level = 1,
-					triggered = true,
-				}
-				t_insert(group.gemList, activeGemInstance)
-				markList[group] = true
-				build.skillsTab:ProcessSocketGroup(group)
 			end
 
 

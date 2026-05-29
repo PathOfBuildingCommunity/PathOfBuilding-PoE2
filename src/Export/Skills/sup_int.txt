@@ -413,6 +413,7 @@ statMap = {
 #skillEnd
 
 #skill SupportCracklingBarrierPlayer
+grantsThornsDamage = true,
 #set SupportCracklingBarrierPlayer
 statMap = {
 	["return_%_of_maximum_mana_as_lightning_damage_to_attacker_while_channelling"] = {

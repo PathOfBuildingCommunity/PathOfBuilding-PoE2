@@ -761,33 +761,10 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Apply thorns-derived modifiers to hits
-	if skillModList:Flag(nil, "thorns") then
-		-- % increased Thorns damage
+	if skillModList:Flag(nil, "ThornsDamageApplyToAttackDamage") then
 		for _, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Thorns }, "Damage")) do
 			local mod = value.mod
-			skillModList:NewMod("Damage", "INC", mod.value, mod.source, ModFlag.Hit, mod.keywordFlags, unpack(mod))
-		end
-
-		-- Thorns crit chance
-		for _, value in ipairs(skillModList:Tabulate("BASE", { flags = ModFlag.Thorns }, "CritChance")) do
-			local mod = value.mod
-			skillModList:NewMod("CritChance", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
-		end
-		for _, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Thorns }, "CritChance")) do
-			local mod = value.mod
-			skillModList:NewMod("CritChance", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
-		end
-
-		-- Thorns crit multiplier
-		for _, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Thorns }, "CritMultiplier")) do
-			local mod = value.mod
-			skillModList:NewMod("CritMultiplier", "INC", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
-		end
-
-		-- Thorns chance to ignore enemy armour
-		for _, value in ipairs(skillModList:Tabulate("BASE", { flags = ModFlag.Thorns }, "ChanceToIgnoreEnemyArmour")) do
-			local mod = value.mod
-			skillModList:NewMod("ChanceToIgnoreEnemyArmour", "BASE", mod.value, mod.source, mod.flags, mod.keywordFlags, unpack(mod))
+			skillModList:NewMod("Damage", "INC", mod.value, mod.source, bor(band(mod.flags, bnot(ModFlag.Thorns)), ModFlag.Attack), mod.keywordFlags, unpack(mod))
 		end
 	end
 
