@@ -11,6 +11,7 @@ local t_insert = table.insert
 local t_remove = table.remove
 local m_min = math.min
 local m_max = math.max
+local band = AND64
 
 local tempTable1 = { }
 
@@ -1491,7 +1492,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 			end
 
 			do
-				local hasThornsDamage = env.modDB:HasMod("BASE", { flags = ModFlag.Thorns }, "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax")
+				local function modDBHasThornsDamage(modDB)
+					for _, stat in ipairs({ "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }) do
+						for _, mod in ipairs(modDB.mods[stat] or { }) do
+							if mod.type == "BASE" and band(mod.flags or 0, ModFlag.Thorns) ~= 0 then
+								return true
+							end
+						end
+					end
+					return modDB.parent and modDBHasThornsDamage(modDB.parent)
+				end
+				local hasThornsDamage = modDBHasThornsDamage(env.modDB)
 				if not hasThornsDamage then
 					for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
 						if socketGroup.source ~= "Thorns" and socketGroup.enabled ~= false then
