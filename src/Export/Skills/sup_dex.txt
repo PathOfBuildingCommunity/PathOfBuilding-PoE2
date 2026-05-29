@@ -559,6 +559,11 @@ statMap = {
 
 #skill SupportHitAndRunPlayer
 #set SupportHitAndRunPlayer
+statMap = {
+	["support_mobile_assault_skill_speed_+%_final"] = {
+		mod("Speed", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 

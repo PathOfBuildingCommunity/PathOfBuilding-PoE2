@@ -2511,6 +2511,11 @@ skills["SupportHitAndRunPlayer"] = {
 			label = "Hit and Run",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_mobile_assault_skill_speed_+%_final"] = {
+					mod("Speed", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -4229,7 +4234,6 @@ skills["SupportPrecisionPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Precision",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 10, },
 	},
@@ -4265,7 +4269,6 @@ skills["SupportPrecisionPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Precision",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -5795,7 +5798,6 @@ skills["SupportWarmbloodedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "WarmBlooded",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},

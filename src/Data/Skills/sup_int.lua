@@ -916,7 +916,10 @@ skills["SupportBlazingCriticalPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-					mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+				},
+				["support_blazing_crits_base_duration_ms"] = {
+					-- Display only
 				},
 			},
 			baseFlags = {
@@ -1788,7 +1791,6 @@ skills["SupportClarityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 10, },
 	},
@@ -1824,7 +1826,6 @@ skills["SupportClarityPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -1906,11 +1907,6 @@ skills["SupportColdExposurePlayer"] = {
 			label = "Cold Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
-					mod("ColdExposureChance", "BASE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2590,6 +2586,11 @@ skills["SupportCrescendoPlayerTwo"] = {
 			label = "Crescendo II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_crescendo_non_final_strike_attack_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FinalStrike", neg = true})
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2790,6 +2791,9 @@ skills["SupportDecayingHexPlayer"] = {
 				},
 			},
 			baseFlags = {
+			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" }),
 			},
 			constantStats = {
 				{ "support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds", 6000 },
@@ -3812,7 +3816,22 @@ skills["SupportExpandPlayer"] = {
 			label = "Expand",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_expand_max_seals"] = {
+					mod("SealCount", "BASE", nil),
+				},
+				["skill_area_of_effect_+%_per_expand_seal"] = {
+					mod("SealRepeatPenalty", "MORE", nil),
+				},
+				["expand_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+					mod("SealGainFrequency", "BASE", nil),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				flag("HasSeals"),
+				flag("AreaSeal"),
 			},
 			constantStats = {
 				{ "support_expand_max_seals", 3 },
@@ -6103,7 +6122,7 @@ skills["SupportMinionPactPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6140,7 +6159,7 @@ skills["SupportMinionPactPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6247,7 +6266,6 @@ skills["SupportMysticismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -6283,7 +6301,6 @@ skills["SupportMysticismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -6342,7 +6359,7 @@ skills["SupportNadirPlayer"] = {
 	}
 }
 skills["SupportOisinsOathPlayer"] = {
-	name = "Oisín's Oath",
+	name = "Oisin's Oath",
 	description = "Supports Skills which Hit enemies, causing their Mana Leech to recover based on Elemental damage instead of Physical damage.",
 	color = 3,
 	support = true,
@@ -6357,7 +6374,7 @@ skills["SupportOisinsOathPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Oisín's Oath",
+			label = "Oisin's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
@@ -7379,7 +7396,6 @@ skills["SupportStrongHeartedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "StrongHearted",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -7592,6 +7608,7 @@ skills["SupportUnleashPlayer"] = {
 			},
 			baseMods = {
 				flag("HasSeals"),
+				flag("DamageSeal"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -50 },
@@ -7615,7 +7632,6 @@ skills["SupportUpwellingPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -7646,7 +7662,6 @@ skills["SupportUpwellingPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -8075,6 +8090,7 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			},
 			baseMods = {
 				flag("HasSeals"),
+				flag("DamageSeal"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },

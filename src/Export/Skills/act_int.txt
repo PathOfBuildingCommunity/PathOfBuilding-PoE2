@@ -234,13 +234,13 @@ statMap = {
 #set ChargedStaffPlayer
 statMap = {
 	["charged_staff_attack_minimum_added_lightning_damage_per_stack"] = {
-		mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+		mod("LightningMin", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 	},
 	["charged_staff_attack_maximum_added_lightning_damage_per_stack"] = {
-		mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+		mod("LightningMax", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 	},
 	["charged_staff_buff_duration_per_stack_ms"] = {
-		mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
+		mod("ChargedStaffBuffDuration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Charged Staff", effectCond = "UsePowerCharges" }),
 	},
 },
 #flags attack area duration
@@ -277,6 +277,7 @@ statMap = {
 #set ContagionPlayer
 #flags area duration spell
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Contagion" })
 #mods
 #skillEnd
 
@@ -318,12 +319,15 @@ statMap = {
 #skill DarkEffigyPlayer
 #set DarkEffigyPlayer
 #flags area spell totem duration
+#baseMod mod("Damage", "INC", 40, ModFlag.Dot, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"})
 #mods
 #skillEnd
 
 #skill DarkEffigyProjectilePlayer
 #set DarkEffigyProjectilePlayer
 #flags spell area projectile totem
+#baseMod mod("DPS", "MORE", 100, 0, 0, { type = "Multiplier", var = "ChaosDebuff", actor = "enemy" })
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Poison" }, { type = "Condition", var = "Poisoned" })
 #mods
 #skillEnd
 
@@ -379,6 +383,13 @@ statMap = {
 #skill ElementalConfluxPlayer
 #set ElementalConfluxPlayer
 #flags duration
+statMap = {
+	["skill_elemental_conflux_active_element_damage_+%_final"] = {
+		mod("LightningDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxLightningEffect", invert = true }),
+		mod("ColdDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxColdEffect", invert = true }),
+		mod("FireDamage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Elemental Conflux" }, { type = "Multiplier", var = "ElementalConfluxFireEffect", invert = true }),
+	},
+},
 #mods
 #skillEnd
 
@@ -438,6 +449,7 @@ statMap = {
 #set EssenceDrainDotPlayer
 #flags spell projectile duration
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Essence Drain" })
 #mods
 #skillEnd
 
@@ -465,7 +477,7 @@ statMap = {
 #flags attack projectile
 statMap = {
 	["lightning_strike_damage_+%_final_per_power_charge"] = {
-		mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge" }),
+		mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
 	},
 	["lightning_strike_damage_+%_final_when_charged"] = {
 		mod("Damage", "MORE", nil, ModFlag.Projectile, 0, { type = "MultiplierThreshold", var = "RemovablePowerCharge", threshold = 1 }),
@@ -551,6 +563,9 @@ statMap = {
 #skill FlameWallPlayer
 #set FlameWallPlayer
 #flags
+#mods
+#set FlameWallProjectileBuffPlayer
+#flags
 statMap = {
 	["flame_wall_minimum_added_fire_damage"] = {
 		mod("FireMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
@@ -558,10 +573,13 @@ statMap = {
 	["flame_wall_maximum_added_fire_damage"] = {
 		mod("FireMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Flame Wall", effectCond = "FlameWallAddedDamage" }),
 	},
+	["flame_wall_minimum_added_lightning_damage_to_add_to_projectile"] = {
+		mod("LightningMin", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+	},
+	["flame_wall_maximum_added_lightning_damage_to_add_to_projectile"] = {
+		mod("LightningMax", "BASE", nil, ModFlag.Projectile, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Infused Flame Wall", effectCond = "FlameWallInfused" }),
+	},
 },
-#mods
-#set FlameWallProjectileBuffPlayer
-#flags
 #mods
 #skillEnd
 
@@ -597,8 +615,24 @@ statMap = {
 #skillEnd
 
 #skill FlickerStrikePlayer
+preDamageFunc = function(activeSkill, output, breakdown)
+	local strikesPerCharge = activeSkill.skillModList:Sum("BASE", activeSkill.skillCfg, "AdditionalFlickersPerPowerCharge")
+	activeSkill.skillData.averageBurstHits = 1 + strikesPerCharge
+end,
 #set FlickerStrikePlayer
 #flags attack melee area
+statMap = {
+	["flicker_strike_additional_flickers_from_power_charges"] = {
+		mod("AdditionalFlickersPerPowerCharge", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
+	},
+	["cannot_gain_power_charges_during_skill"] = {
+		-- Display Only
+	},
+	["base_skill_show_average_damage_instead_of_dps"] = {
+		-- Override
+	},
+},
+#baseMod mod("Speed", "MORE", 285, ModFlag.Attack)
 #mods
 #skillEnd
 
@@ -629,12 +663,6 @@ statMap = {
 #skill FrostBombPlayer
 #set FrostBombPlayer
 #flags spell area duration
-statMap = {
-	['skill_cold_exposure_magnitude'] = {
-		mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-		mult = -1
-	},
-},
 #mods
 #skillEnd
 
@@ -804,6 +832,11 @@ statMap = {
 #skill HisFoulEmergencePlayer
 #set HisFoulEmergencePlayer
 #flags spell area duration
+statMap = {
+	["active_skill_withered_base_duration_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd
 
@@ -1063,6 +1096,7 @@ statMap = {
 #skill ProfaneRitualPlayer
 #set ProfaneRitualPlayer
 #flags spell area
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Profane Ritual" })
 #mods
 #skillEnd
 
@@ -1303,6 +1337,7 @@ statMap = {
 #set SoulrendDotPlayer
 #flags spell duration
 #baseMod skill("debuff", true)
+#baseMod mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Soulrend" })
 #mods
 #skillEnd
 
@@ -1319,7 +1354,6 @@ statMap = {
 #skill SummonSpectrePlayer
 #set SummonSpectrePlayer
 #flags spell minion spectre duration
-#baseMod mod("MinionModifier", "LIST", { mod = mod("Damage", "MORE", 25) }), --Server side damage mod added in 0.3
 #mods
 #skillEnd
 
@@ -1486,11 +1520,17 @@ statMap = {
 #skill WitherPlayer
 #set WitherPlayer
 #flags spell area duration
+#baseMod flag("Condition:CanWither")
 #mods
 #skillEnd
 
 #skill WitheringPresencePlayer
 #set WitheringPresencePlayer
 #flags duration
+statMap = {
+	["skill_withering_presence_frequency_ms"] = {
+		flag("Condition:CanWither"),
+	},
+},
 #mods
 #skillEnd

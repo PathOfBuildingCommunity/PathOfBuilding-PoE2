@@ -323,6 +323,10 @@ Volcanic Eruption             		----		SupportVolcanicEruptionPlayer	TriggeredVol
 Xoph's Pyre                   		----		SupportXophsPyrePlayer
 Zerphi's Infamy               		----		SupportZerphisLegacyPlayer
 
+						--------- Potentially Disabled Strength ---------
+Cast when Damage Taken        		----		MetaCastWhenDamageTakenPlayer	SupportMetaCastWhenDamageTakenPlayer
+Spinning Inferno              		----		SpinningInfernoPlayer
+
 						--------- Active Dexterity ---------
 Alchemist's Boon              		----		AlchemistsBoonPlayer
 Barrage                       		----		BarragePlayer
@@ -438,7 +442,6 @@ Delayed Gratification         		----		SupportDelayedGratificationPlayer
 Delayed Reaction              		----		SupportDelayedReactionPlayer
 Deliberation                  		----		SupportDeliberationPlayer
 Dominus' Grasp                		----		SupportPietysMercyPlayer
-Dreamer's Knell               		----		SupportDreamersKnellPlayer	TriggeredDreamersKnellPlayer
 Durability                    		----		SupportDurabilityPlayer
 Electrocute                   		----		SupportElectrocutePlayer
 Eonyr's Thunder               		----		SupportElectrocuteLineagePlayer
@@ -449,7 +452,6 @@ Flow                          		----		SupportFlowPlayer
 Fork                          		----		SupportForkPlayer
 Frenzied Riposte              		----		SupportFrenziedRipostePlayer
 Frozen Spite                  		----		SupportFrozenSpitePlayer	TriggeredSupportFrozenSpiteIceFragmentPlayer
-Fusillade                     		----		SupportFusilladePlayer
 Garukhan's Resolve            		----		SupportGarukhansResolvePlayer
 Heightened Accuracy I         		----		SupportHeightenedAccuracyPlayer
 Heightened Accuracy II        		----		SupportHeightenedAccuracyPlayerTwo
@@ -552,6 +554,9 @@ Warm Blooded                  		----		SupportWarmbloodedPlayer
 Wind Wave                     		----		SupportKnockbackWavePlayer	KnockbackWavePlayer
 Window of Opportunity I       		----		SupportWindowOfOpportunityPlayer
 Window of Opportunity II      		----		SupportWindowOfOpportunityPlayerTwo
+
+						--------- Potentially Disabled Dexterity ---------
+Explosive Demise              		----		DestructiveLinkSkeletonBombadierMinion
 
 						--------- Active Intelligence ---------
 Arc                           		----		ArcPlayer
@@ -890,6 +895,20 @@ Zarokh's Revolt               		----		SupportZarokhsRevoltPlayer
 Zenith I                      		----		SupportZenithPlayer
 Zenith II                     		----		SupportZenithPlayerTwo
 
+						--------- Potentially Disabled Intelligence ---------
+Bind Spectre                  		----		BindSpectrePlayer
+Cast on Freeze                		----		MetaCastOnFreezePlayer	SupportMetaCastOnFreezePlayer
+Cast on Ignite                		----		MetaCastOnIgnitePlayer	SupportMetaCastOnIgnitePlayer
+Cast on Shock                 		----		MetaCastOnShockPlayer	SupportMetaCastOnShockPlayer
+Cast when Stunned             		----		MetaCastWhenStunnedPlayer	SupportMetaCastWhenStunnedPlayer
+Cast while Channelling        		----		MetaCastWhileChannellingPlayer	SupportMetaCastWhileChannellingPlayer
+Dark Pact                     		----		DarkPactPlayer
+Enervating Nova               		----		EnervatingNovaPlayer
+His Grave Command             		----		GraveCommandPlayer
+Hydra Familiar                		----		HydraPlayer	SupportHydraPlayer
+Summon Demon Magus            		----		DemonMagusPlayer	SupportDemonMagusPlayer
+Wither                        		----		WitherPlayer
+
 						--------- Active Other ---------
 Acidic Concoction             		----		AcidicConcoctionPlayer
 Align Fate                    		----		AlignFatePlayer
@@ -953,4 +972,30 @@ Void Illusion                 		----		VoidIllusionPlayer	VoidIllusionSpawnPlayer
 
 						--------- Support Other ---------
 
+
+						--------- Potentially Disabled Other ---------
+Abyssal Apparition            		----		TriggeredAbyssalApparitionPlayer
+Axe Slash                     		----		Melee1HAxePlayer
+Axe Slash                     		----		Melee2HAxePlayer
+Axe Slash                     		----		MeleeAxeAxePlayer
+Blink                         		----		BlinkSandPlayer
+Claw Stab                     		----		MeleeClawClawPlayer
+Claw Stab                     		----		MeleeClawPlayer
+Command: {0}                  		----		CommandFireDjinnFireRunesPlayer
+Command: {0}                  		----		CommandFireDjinnMassFusillade
+Command: {0}                  		----		CommandFireDjinnMeteorPlayer
+Command: {0}                  		----		CommandSandDjinnExplosiveTeleportPlayer
+Command: {0}                  		----		CommandSandDjinnHandSlamPlayer
+Command: {0}                  		----		CommandWaterDjinnESRechargePlayer
+Command: {0}                  		----		CommandWaterDjinnGroundBurstPlayer
+Command: {0}                  		----		CommandWaterDjinnOasisPlayer
+Dagger Stab                   		----		MeleeDaggerDaggerPlayer
+Dagger Stab                   		----		MeleeDaggerPlayer
+Flail Strike                  		----		MeleeFlailPlayer
+Ice Fragments                 		----		IceFragmentsPlayer
+Mirage Deadeye                		----		MetaMirageDeadeyePlayer	SupportMirageDeadeyePlayer	MirageDeadeyeSpawnPlayer
+Summon Companion              		----		SummonMercenaryCompanionPlayer	SummonMercenaryCompanionSupportPlayer	UnloadAmmoPlayer
+Sword Slash                   		----		Melee1HSwordPlayer
+Sword Slash                   		----		Melee2HSwordPlayer
+Sword Slash                   		----		MeleeSwordSwordPlayer
 

@@ -49,8 +49,8 @@ function calcs.deflectChance(deflection, accuracy)
 	if deflection < 1 then
 		return 0
 	end
-	local rawChance = ( accuracy * 0.9 ) / ( accuracy + deflection * 0.2 ) * 100
-	return 100 - m_max(m_min(round(rawChance), 100), 0)
+	local chanceToNotDeflect = accuracy / ( accuracy + deflection * 0.12 ) * 150 - 50
+	return 100 - m_max(m_min(round(chanceToNotDeflect), data.misc.DeflectionChanceCap), 0)
 end
 -- Calculate damage reduction from armour, float
 function calcs.armourReductionF(armour, raw)
@@ -190,7 +190,8 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 		breakdown.SpiritReserved = { reservations = { } }
 	end
 	for _, activeSkill in ipairs(actor.activeSkillList) do
-		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] then
+		local isTotemAndAncestralBond = activeSkill.skillTypes[SkillType.SummonsTotem] and modDB:Flag(nil, "AncestralBond")
+		if (activeSkill.skillTypes[SkillType.HasReservation] or activeSkill.skillData.SupportedByAutoexertion) and not activeSkill.skillTypes[SkillType.ReservationBecomesCost] or isTotemAndAncestralBond then
 			local skillModList = activeSkill.skillModList
 			local skillCfg = activeSkill.skillCfg
 			local mult = floor(skillModList:More(skillCfg, "ReservationMultiplier"), 4)
@@ -259,7 +260,7 @@ function calcs.doActorLifeManaSpiritReservation(actor)
 					values.reservedFlat = values.reservedFlat * activeSkill.activeMineCount
 					values.reservedPercent = values.reservedPercent * activeSkill.activeMineCount
 				end
-				if activeSkill.skillTypes[SkillType.MultipleReservation] then
+				if activeSkill.skillTypes[SkillType.MultipleReservation] or isTotemAndAncestralBond then
 					local activeSkillCount, enabled = calcs.getActiveSkillCount(activeSkill)
 					values.count = activeSkillCount
 					local minionFreeSpiritCount = skillModList:Sum("BASE", skillCfg, "MinionFreeSpiritCount")

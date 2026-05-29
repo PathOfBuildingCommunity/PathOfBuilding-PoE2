@@ -22,6 +22,7 @@ itemBases["Sapphire"] = {
 }
 itemBases["Diamond"] = {
 	type = "Jewel",
+	hidden = true,
 	tags = { default = true, jewel = true, not_for_sale = true, },
 	implicitModTypes = { },
 	req = { },
@@ -51,6 +52,7 @@ itemBases["Time-Lost Sapphire"] = {
 itemBases["Time-Lost Diamond"] = {
 	type = "Jewel",
 	subType = "Radius",
+	hidden = true,
 	tags = { default = true, jewel = true, not_for_sale = true, radius_jewel = true, },
 	implicitModTypes = { },
 	req = { },
@@ -59,6 +61,7 @@ itemBases["Time-Lost Diamond"] = {
 itemBases["Timeless Jewel"] = {
 	type = "Jewel",
 	subType = "Timeless",
+	hidden = true,
 	tags = { default = true, dexjewel = true, intjewel = true, jewel = true, not_for_sale = true, strjewel = true, },
 	implicitModTypes = { },
 	req = { },
