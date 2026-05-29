@@ -614,11 +614,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportEnergyBarrierPlayer
-#set SupportEnergyBarrierPlayer
-#mods
-#skillEnd
-
 #skill SupportEnergyCapacitorPlayer
 #set SupportEnergyCapacitorPlayer
 #mods
@@ -870,11 +865,6 @@ statMap = {
 
 #skill SupportHexBloomPlayer
 #set SupportHexBloomPlayer
-#mods
-#skillEnd
-
-#skill SupportHinderPlayer
-#set SupportHinderPlayer
 #mods
 #skillEnd
 
@@ -1257,16 +1247,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportPotentialPlayer
-#set SupportPotentialPlayer
-statMap = {
-	["skill_consume_power_charge_to_gain_critical_strike_chance_+%_final"] = {
-		mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", limit = 1 }),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportPracticalMagicPlayer
 #set SupportPracticalMagicPlayer
 #mods
@@ -1299,19 +1279,6 @@ statMap = {
 
 #skill SupportRapidCastingPlayerThree
 #set SupportRapidCastingPlayerThree
-#mods
-#skillEnd
-
-#skill SupportRimePlayer
-#set SupportRimePlayer
-statMap = {
-	["chilled_ground_applies_%_freeze_multiplier_taken"] = {
-		mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Rime" }, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }),
-	},
-	["support_winterblast_chill_effect_+%_final"] = {
-		mod("EnemyChillMagnitude", "MORE", nil),
-	},
-},
 #mods
 #skillEnd
 
@@ -1361,6 +1328,7 @@ statMap = {
 #skillEnd
 
 #skill SupportShockConductionPlayerTwo
+legacy = true
 #set SupportShockConductionPlayerTwo
 #mods
 #skillEnd
@@ -1454,11 +1422,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportUnbendingPlayer
-#set SupportUnbendingPlayer
-#mods
-#skillEnd
-
 #skill SupportUnleashPlayer
 #set SupportUnleashPlayer
 #baseMod flag("HasSeals")
@@ -1488,11 +1451,6 @@ statMap = {
 
 #skill SupportVilentasPropulsionPlayer
 #set SupportVilentasPropulsionPlayer
-#mods
-#skillEnd
-
-#skill SupportVolatilePowerPlayer
-#set SupportVolatilePowerPlayer
 #mods
 #skillEnd
 

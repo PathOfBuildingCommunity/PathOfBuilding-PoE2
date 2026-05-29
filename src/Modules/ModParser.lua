@@ -77,7 +77,7 @@ local formList = {
 	["^throw up to (%d+)"] = "BASE",
 	["^you gain ([%d%.]+)"] = "GAIN",
 	["^gains? ([%d%.]+)%% of their"] = "GAIN",
-	["^gains? ([%d%.]+)%% of"] = "GAIN",
+	["^gains? ([%d%.]+)%% ?o?f?"] = "GAIN",
 	["^gains? ([%d%.]+)"] = "GAIN",
 	["^gain %+(%d+)%% to"] = "GAIN",
 	["^you lose ([%d%.]+)"] = "LOSE",
@@ -88,7 +88,7 @@ local formList = {
 	["^grants ([%d%.]+) additional"] = "GRANTS_GLOBAL",
 	["^removes? ([%d%.]+) ?o?f? ?y?o?u?r?"] = "REMOVES", -- local
 	["^(%d+)"] = "BASE",
-	["^([%+%-]?%d+)%% chance"] = "CHANCE",
+	["^a? ?([%+%-]?%d+)%% chance"] = "CHANCE",
 	["^([%+%-]?%d+)%% chance to gain "] = "FLAG",
 	["^([%+%-]?%d+)%% additional chance"] = "CHANCE",
 	["costs? ([%+%-]?%d+)"] = "TOTALCOST",
@@ -777,6 +777,7 @@ local modNameList = {
 	["magnitude of bleeding you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Bleed },
 	["magnitude of ignite you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
 	["ignite magnitude"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Ignite },
+	["bleed magnitude"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Bleed },
 	["magnitude of poison you inflict"] = { "AilmentMagnitude", keywordFlags = KeywordFlag.Poison },
 	["effect of poison you inflict"] = { "AilmentEffect", keywordFlags = KeywordFlag.Poison },
 	["magnitude of ailments"] = "AilmentMagnitude",
@@ -892,6 +893,7 @@ local modNameList = {
 	["when you reload a crossbow to be immediate"] = "InstantReloadChance",
 	["to not expend ammunition"] = "ChanceToNotConsumeAmmo",
 	["second to base energy shield recharge delay"] = "EnergyShieldRechargeFaster",
+	["culling strike threshold"] = "CullPercent",
 	-- Flask and Charm modifiers
 	["effect"] = "LocalEffect",
 	["effect of flasks"] = "FlaskEffect",
@@ -1240,6 +1242,7 @@ local preFlagList = {
 	["^raised zombies' slam attack has "] = { addToMinion = true, tag = { type = "SkillId", skillId = "ZombieSlam" } },
 	["^raised spectres, raised zombies, and summoned skeletons have "] = { addToMinion = true, addToMinionTag = { type = "SkillName", skillNameList = { "Raise Spectre", "Raise Zombie", "Summon Skeletons" }, includeTransfigured = true } },
 	["^companions [hd][ae][va][el] "] = { addToMinion = true, addToMinionTag = { type = "SkillType", skillType = SkillType.CreatesCompanion } },
+	["^companions "] = { addToMinion = true, addToMinionTag = { type = "SkillType", skillType = SkillType.CreatesCompanion } },
 	-- Totem/trap/mine
 	["^attacks used by totems have "] = { flags = ModFlag.Attack, keywordFlags = KeywordFlag.Totem },
 	["^spells cast by totems [hd][ae][va][el] "] = { flags = ModFlag.Spell, keywordFlags = KeywordFlag.Totem },
@@ -2377,9 +2380,10 @@ local specialModList = {
 	["removes all mana%. spend life instead of mana for skills"] = { mod("Mana", "OVERRIDE", 0 ), flag("CostLifeInsteadOfMana") },
 	["removes all mana"] = { mod("Mana", "OVERRIDE", 0 ) },
 	["you have no mana"] = { mod("Mana", "OVERRIDE", 0 ) },
-	["doubles mana costs"] = { mod("ManaCost", "MORE", 100) },
+	["d?o?u?b?l?e?s? ?mana costs ?a?r?e? ?d?o?u?b?l?e?d?"] = { mod("ManaCost", "MORE", 100) },
 	["removes all energy shield"] = { mod("EnergyShield", "OVERRIDE", 0 ) },
 	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
+	["convert (%d+)%% of maximum energy shield to maximum mana"] = function(num) return { mod("EnergyShieldConvertToMana", "BASE", num) } end,
 	["skills cost life instead of mana"] = { flag("CostLifeInsteadOfMana") },
 	["skills reserve life instead of mana"] = { flag("BloodMagicReserved") },
 	["non%-aura skills cost no mana or life while focus?sed"] = {
@@ -2551,10 +2555,15 @@ local specialModList = {
 	["you can wield two%-handed axes, maces and swords in one hand"] = { flag("GiantsBlood") },
 	["you can equip a focus while wielding a staff"] = { flag("InstrumentsOfPower") },
 	["you can equip a non%-unique sceptre while wielding a talisman"] = { flag("LordOfTheWilds") },
+	["gain armour equal to (%d+)%% of total strength requirements of equipped boots, gloves and helmet"] = function(num) return {
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnBoots", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnGloves", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnHelmet", percent = num }),
+	} end,
 	["(%d+)%% of strength requirements from boots, gloves and helmets also added to armour"] = function(num) return {
-		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnBoots", percent = num }),
-		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnGloves", percent = num }),
-		mod("Armour", "BASE", 1, { type = "PerStat", stat = "StrRequirementsOnHelmet", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnBoots", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnGloves", percent = num }),
+		mod("Armour", "BASE", 1, { type = "PercentStat", stat = "StrRequirementsOnHelmet", percent = num }),
 	} end,
 	["iron grip"] = function() return {
 		mod("Damage", "INC", 1, nil, ModFlag.Spell, { type = "PerStat", stat = "Str", div = 2 } ),
@@ -2866,6 +2875,11 @@ local specialModList = {
 	} end,
 	["benefits from consuming (%a+) charges for your skills have (%d+)%% chance to be doubled"] = function(_, type, num) return {
 		mod("Multiplier:Consumed"..firstToUpper(type).."ChargeEffect", "BASE", num)
+	} end,
+	-- Spirit Walker
+	["companions gain added attack damage equal to (%d+)%% of your main hand weapon's damage"] = function(num) return {
+		mod("MinionModifier", "LIST", { mod = flag("GainMainHandDmgFromParent") }, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
+		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	-- Disciple of Varashta
 	["(%d+)%% of your current energy shield is added to your armour for determining your physical damage reduction from armour"] = function(num) return {
@@ -3220,7 +3234,7 @@ local specialModList = {
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
-  ["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
+	["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
 	-- Witchhunter
 	["grants skill: sorcery ward"] = {
 		flag("Condition:SorceryWard"),
@@ -3366,7 +3380,7 @@ local specialModList = {
 		mod("EnemyModifier", "LIST", { mod = mod("LightningExposure", "BASE", 20) }, { type = "ActorCondition", actor = "enemy", var = "EnemyInPresence" }),
 	},
 	-- Druid -- Oracle
-	["inevitable critical hits"] = { flag("ForcedOutcome") },
+	["inevitable critical hits"] = { flag("InevitableCriticalHits") },
 	["walk the paths not taken"] = { },
 	["gain the benefits of bonded modifiers on runes and idols"] = {
 		flag("Condition:CanUseBondedModifiers"),
@@ -4015,6 +4029,10 @@ local specialModList = {
 	["attacks always inflict bleeding while you have cat's stealth"] = { mod("BleedChance", "BASE", 100, nil, ModFlag.Attack, { type = "Condition", var = "AffectedByCat'sStealth" }) },
 	["you have crimson dance while you have cat's stealth"] = { mod("Keystone", "LIST", "Crimson Dance", { type = "Condition", var = "AffectedByCat'sStealth" }) },
 	["you have crimson dance if you have dealt a critical hit recently"] = { mod("Keystone", "LIST", "Crimson Dance", { type = "Condition", var = "CritRecently" }) },
+	["bleeding you inflict deals fire damage instead of physical damage"] = {
+		flag("BleedToFire"),
+		mod("SkillData", "LIST", { key = "BleedToFire", value = true }),
+	},
 	["bleeding you inflict deals damage (%d+)%% faster"] = function(num) return { mod("BleedFaster", "INC", num) } end,
 	["bleeding you inflict on non%-bleeding enemies deals (%d+)%% more damage"] = function(num) return {
 		mod("Damage", "MORE", num, nil, 0, KeywordFlag.Bleed, { type = "Condition", var = "SingleBleed" }),
@@ -4034,6 +4052,9 @@ local specialModList = {
 		flag("ColdCanBleed"),
 		flag("LightningCanBleed"),
 	},
+	["(%a+) damage also contributes to bleeding magnitude"] = function(_, type) return {
+		flag(firstToUpper(type).."CanBleed")
+	} end,
 	-- Impale and Bleed
 	["(%d+)%% increased effect of impales inflicted by hits that also inflict bleeding"] = function(num) return {
 		mod("ImpaleEffectOnBleed", "INC", num, nil, 0, KeywordFlag.Hit)
@@ -5280,23 +5301,22 @@ local specialModList = {
 	["adds knockback to melee attacks during f?l?a?s?k? ?effect"] = { mod("EnemyKnockbackChance", "BASE", 100, nil, ModFlag.Melee, { type = "Condition", var = "UsingFlask" }) },
 	["knockback direction is reversed"] = { mod("EnemyKnockbackDistance", "MORE", -200) },
 	-- Culling
-	["culling strike"] = { mod("CullPercent", "MAX", 10, { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
-	["culling strike with melee weapons"] = { mod("CullPercent", "MAX", 10, nil, ModFlag.WeaponMelee, { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
-	["melee weapon attacks have culling strike"] = { mod("CullPercent", "MAX", 10, nil, bor(ModFlag.Attack, ModFlag.WeaponMelee), { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
-	["culling strike during f?l?a?s?k? ?effect"] = { mod("CullPercent", "MAX", 10, { type = "Condition", var = "UsingFlask" }, { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
-	["hits with this weapon have culling strike against bleeding enemies"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }) },
-	["you have culling strike against cursed enemies"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Cursed" }) },
-	["critical hits have culling strike"] = { mod("CriticalCullPercent", "MAX", 10) },
-	["your critical hits have culling strike"] = { mod("CriticalCullPercent", "MAX", 10) },
-	["your spells have culling strike"] = { mod("CullPercent", "MAX", 10, nil, ModFlag.Spell) },
-	["bow attacks have culling strike"] = { mod("CullPercent", "MAX", 10, nil, bor(ModFlag.Attack, ModFlag.Bow)) },
-	["culling strike against burning enemies"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Burning" }) },
-	["culling strike against frozen enemies"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
-	["culling strike against enemies you mark"] = { mod("CullPercent", "MAX", 10, { type = "ActorCondition", actor = "enemy", var = "Marked" }) },
-	["nearby allies have culling strike"] = { mod("ExtraAura", "LIST", {onlyAllies = true, mod = mod("CullPercent", "MAX", 10) }) },
-	["hits that stun enemies have culling strike"] = { mod("CullPercent", "MAX", 10, { type = "Condition", var = "AlwaysStunning" }) },
-	["hits that heavy stun enemies have culling strike"] = { mod("CullPercent", "MAX", 10, { type = "Condition", var = "AlwaysHeavyStunning" }) },
-	["(%d+)%% increased culling strike threshold"] = function(num) return { mod("CullPercent", "INC", num)} end,
+	["culling strike"] = { mod("CanCull", "FLAG", 1, { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
+	["culling strike with melee weapons"] = { mod("CanCull", "FLAG", 1, nil, ModFlag.WeaponMelee, { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
+	["melee weapon attacks have culling strike"] = { mod("CanCull", "FLAG", 1, nil, bor(ModFlag.Attack, ModFlag.WeaponMelee), { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
+	["culling strike during f?l?a?s?k? ?effect"] = { mod("CanCull", "FLAG", 1, { type = "Condition", var = "UsingFlask" }, { type = "GlobalEffect", effectType = "Global", unscalable = true }) },
+	["hits with this weapon have culling strike against bleeding enemies"] = { mod("CanCull", "FLAG", 1, { type = "ActorCondition", actor = "enemy", var = "Bleeding" }) },
+	["you have culling strike against cursed enemies"] = { flag("CanCull", { type = "ActorCondition", actor = "enemy", var = "Cursed" }) },
+	["critical hits have culling strike"] = { flag("CritCanCull") },
+	["your critical hits have culling strike"] = { flag("CritCanCull") },
+	["your spells have culling strike"] = { mod("CanCull", "FLAG", 1, nil, ModFlag.Spell) },
+	["bow attacks have culling strike"] = { mod("CanCull", "FLAG", 1, nil, bor(ModFlag.Attack, ModFlag.Bow)) },
+	["culling strike against burning enemies"] = { mod("CanCull", "FLAG", 1, { type = "ActorCondition", actor = "enemy", var = "Burning" }) },
+	["culling strike against frozen enemies"] = { mod("CanCull", "FLAG", 1, { type = "ActorCondition", actor = "enemy", var = "Frozen" }) },
+	["culling strike against enemies you mark"] = { mod("CanCull", "FLAG", 1, { type = "ActorCondition", actor = "enemy", var = "Marked" }) },
+	["nearby allies have culling strike"] = { mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("CanCull") }) },
+	["hits that stun enemies have culling strike"] = { mod("CanCull", "FLAG", 1, { type = "Condition", var = "AlwaysStunning" }) },
+	["hits that heavy stun enemies have culling strike"] = { mod("CanCull", "FLAG", 1, { type = "Condition", var = "AlwaysHeavyStunning" }) },
 	-- Intimidate
 	["permanently intimidate enemies on block"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Intimidated") }, { type = "Condition", var = "BlockedRecently" }) },
 	["with a murderous eye jewel socketed, intimidate enemies for (%d) seconds on hit with attacks"] = { mod("EnemyModifier", "LIST", { mod = flag("Condition:Intimidated") }, { type = "Condition", var = "HaveMurderousEyeJewelIn{SlotName}" }) },
@@ -5612,6 +5632,10 @@ local specialModList = {
 	["placed banners also grant (%d+)%% increased attack damage to you and allies"] = function(num) return { mod("ExtraAuraEffect", "LIST", { mod = mod("Damage", "INC", num, nil, ModFlag.Attack) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillType", skillType = SkillType.Banner }) } end,
 	["banners also cause enemies to take (%d+)%% increased damage"] = function(num) return { mod("ExtraAuraDebuffEffect", "LIST", { mod = mod("DamageTaken", "INC", num, { type = "GlobalEffect", effectType = "AuraDebuff", unscalable = true }) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillType", skillType = SkillType.Banner }) } end,
 	["dread banner grants an additional %+(%d+) to maximum fortification when placing the banner"] = function(num) return { mod("ExtraSkillMod", "LIST", { mod = mod("MaximumFortification", "BASE", num, { type = "GlobalEffect", effectType = "Buff" }) }, { type = "Condition", var = "BannerPlanted" }, { type = "SkillName", skillName = "Dread Banner" }) } end,
+	["all attacks count as empowered attacks"] = {
+		flag("Condition:Empowered", nil, ModFlag.Attack),
+		flag("MaxEmpoweredUptimeRatio", nil, ModFlag.Attack),
+	},
 	["cannot use warcries"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Warcry }) },
 	["cannot use shield skills"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.RequiresShield }) },
 	["cannot use projectile attacks"] = { flag("DisableSkill", { type = "SkillType", skillType = SkillType.Attack }, { type = "SkillType", skillType = SkillType.Projectile }) },

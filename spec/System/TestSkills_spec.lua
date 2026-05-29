@@ -67,7 +67,7 @@ describe("TestSkills", function()
 
 		newBuild()
 
-		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nFlammability 20/0  1\n")
+		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nTemporal Chains 20/0  1\n")
 		runCallback("OnFrame")
 
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
@@ -225,7 +225,7 @@ describe("TestSkills", function()
 		assert.are.equals(70, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
 	end)
 
-	it("Test 'every rage also grants you' for minion mods and minion apply to you mods #run", function()
+	it("Test 'every rage also grants you' for minion mods and minion apply to you mods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
 			Fanatic Greathammer
@@ -283,6 +283,17 @@ describe("TestSkills", function()
 		runCallback("OnFrame")
 
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
+	end)
+
+	it("applies minion offensive multiplier to all attack damage", function()
+		build.skillsTab:PasteSocketGroup("Wolf Pack 20/0  1")
+		runCallback("OnFrame")
+
+		local minion = build.calcsTab.mainEnv.minion
+		local expectedPhysicalMax = round(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level] * (1 + minion.minionData.damageSpread))
+
+		assert.are.equals(expectedPhysicalMax, minion.weaponData1.PhysicalMax)
+		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"), 0.0001)
 	end)
 
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
@@ -373,11 +384,11 @@ describe("TestSkills", function()
 
 	it("Test Atziri's Allure - ignore curse limit", function()
 		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1\nAtziri's Allure 1/0 1")
-		build.skillsTab:PasteSocketGroup("Flammability 20/0  1\n")
+		build.skillsTab:PasteSocketGroup("Despair 20/0  1\n")
 		runCallback("OnFrame")
 
 		local curseList = build.calcsTab.calcsOutput.CurseList
-		assert.True(curseList:match("Flammability") ~= nil and curseList:match("Elemental Weakness") ~= nil)
+		assert.True(curseList:match("Despair") ~= nil and curseList:match("Elemental Weakness") ~= nil)
 	end)
 
 	-- skills that don't have a base CD and have more than one use need to use the added cooldown by whatever support allows the +1 limit to be supportable

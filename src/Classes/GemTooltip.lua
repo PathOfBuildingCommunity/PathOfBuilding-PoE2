@@ -316,6 +316,10 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 	end
 	tooltip:AddLine(fontSizeBig, colorCodes.GEMINFO .. iconTagIndent .. gemInstance.gemData.gemType, "FONTIN SC")
 	tooltip:AddSeparator(8)
+	if grantedEffect.legacy then
+		tooltip:AddLine(fontSizeBig, colorCodes.WARNING .. "   Legacy Gem", "FONTIN SC")
+		tooltip:AddLine(fontSizeBig, colorCodes.WARNING .. "   Gem only exists in Standard League", "FONTIN SC")
+	end
 	if gemInstance.gemData.tagString ~= "" then
 		tooltip:AddLine(fontSizeBig, "   ^x7F7F7F" .. gemInstance.gemData.tagString, "FONTIN")
 	end
