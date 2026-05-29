@@ -5859,6 +5859,34 @@ local specialModList = {
 		mod("Speed", "MORE", tonumber(asNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EvasionOnAllArmourItems", div = tonumber(evNum) }),
 		mod("CritChance", "BASE", tonumber(critNum), nil, ModFlag.Attack, { type = "Condition", var = "HollowPalm" }, { type = "PerStat", stat = "EnergyShieldOnAllArmourItems", div = (esNum) }),
 	} end,
+
+
+
+
+
+
+
+
+	["can attack as though using a one handed mace while both of your hand slots are empty unarmed attacks that would use your one hand mace's damage use this item's damage"] = function() return
+	{	-- Facebreaker
+		flag("Condition:UseFacebreaker"),
+	} end,
+	["has (%d+) to (%d+) physical damage, +(%d+) to +(%d+) per boss's face broken"] = function(bfNum, btNum, afNum, atNum) return
+	{	-- Facebreaker
+		mod("PhysicalMin", "BASE", tonumber(bfNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }),
+		mod("PhysicalMax", "BASE", tonumber(btNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }),
+		mod("PhysicalMin", "BASE", tonumber(afNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "PerStat", stat = "BrokenBossFaces", div = tonumber(evNum) }),
+		mod("PhysicalMax", "BASE", tonumber(atNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "PerStat", stat = "BrokenBossFaces", div = tonumber(evNum) }),
+	} end,
+
+
+
+
+
+
+
+
+
 	["storm and plant spells: deal (%d+)%% more damage cost (%d+)%% less have (%d+)%% less duration"] = function(damageNum, _, costNum, durationNum) return { -- Wildsurge Incantation
 		mod("Damage", "MORE", damageNum, nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),
 		mod("Cost", "MORE", -tonumber(costNum), nil, 0, KeywordFlag.Spell, { type = "SkillType", skillTypeList = { SkillType.Storm, SkillType.Plant } } ),

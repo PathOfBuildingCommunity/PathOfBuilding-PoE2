@@ -814,6 +814,15 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillModList:NewMod("PhysicalMax", "BASE", physMax, "Hollow Palm Technique", ModFlag.Attack, nil, { type = "Condition", var = "HollowPalm" })
 	end
 
+	-- Facebreaker added phys for skills that would use Mace (this is a "hidden skill", keep logic similar to Hollow Palm Technique)
+	if activeSkill.actor.modDB.conditions.UseFacebreaker and ((activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.OneHandMace)) then
+		local brokenFaces = activeSkill.actor.modDB.conditions.brokenBossFaces -- For testing, set 5 faces broken, brokenFaces part of configuration (player could set how many faces have been broken)
+		local physMin = 3 * brokenFaces -- TODO: 3 is GGG set damage number, find proper place to place this value and retrieve from it
+		local physMax = 4 * brokenFaces -- TODO: 4 is GGG set damage number, find proper place to place this value and retrieve from it
+		skillModList:NewMod("PhysicalMin", "BASE", physMin, "Facebreaker", ModFlag.Attack, nil, { type = "Condition", var = "Facebreaker" })
+		skillModList:NewMod("PhysicalMax", "BASE", physMax, "Facebreaker", ModFlag.Attack, nil, { type = "Condition", var = "Facebreaker" })
+	end
+
 	-- Extract skill data
 	for _, value in ipairs(env.modDB:List(activeSkill.skillCfg, "SkillData")) do
 		activeSkill.skillData[value.key] = value.value

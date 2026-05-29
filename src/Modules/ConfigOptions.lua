@@ -778,6 +778,14 @@ Huge sets the radius to 11.
 	{ var = "TotalVaalRejuvenationTotemLife", type = "countAllowZero", label = "Total Vaal Rejuvenation Totem Life:", ifSkill = { "Vaal Rejuvenation Totem" }, ifMod = "takenFromVaalRejuvenationTotemsBeforeYou", tooltip = "The total life of your Vaal Rejuvenation Totems that can be taken before yours", apply = function(val, modList, enemyModList)
 		modList:NewMod("TotalVaalRejuvenationTotemLife", "BASE", val, "Config")
 	end },
+
+	-- Section: Item-specific options
+	{ section = "Item Options", col = 2 },
+	{ label = "Facebreaker:", ifFlag = "Condition:UseFacebreaker" },
+	{ var = "brokenBossFaces", type = "count", label = "Broken Boss Faces", ifFlag = "Condition:UseFacebreaker", tooltip = "Each ^xB97123Boss Encounter^7 icon on the World Screen is a face which can be broken by beating the encounter.\n^xADAA47Rare Monster Encounter^7 icons do not provide any bonus when broken.", apply = function(val, modList, enemyModList)
+		modList:NewMod("BrokenBossFaces", "BASE", val, "Config")
+	end },
+
 	-- Section: Combat options
 	{ section = "When In Combat", col = 1 },
 	{ var = "usePowerCharges", type = "check", label = "Do you use Power Charges?", apply = function(val, modList, enemyModList)

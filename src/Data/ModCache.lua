@@ -2838,6 +2838,7 @@ c["45% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["450% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="Armour",type="INC",value=450}},nil}
 c["450% increased Armour and Evasion"]={{[1]={flags=0,keywordFlags=0,name="ArmourAndEvasion",type="INC",value=450}},nil}
 c["48% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=48}},nil}
+c["49% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=49}},nil}
 c["5 Life Regeneration per second"]={{[1]={flags=0,keywordFlags=0,name="LifeRegen",type="BASE",value=5}},nil}
 c["5 Mana gained when you Block"]={{[1]={flags=0,keywordFlags=0,name="ManaOnBlock",type="BASE",value=5}},nil}
 c["5 to 10 Physical Thorns damage"]={{[1]={flags=0,keywordFlags=0,name="ThornsDamage",type="BASE",value=5}}," to 10 Physical  "}
@@ -3013,6 +3014,7 @@ c["50% increased Spell Damage"]={{[1]={flags=2,keywordFlags=0,name="Damage",type
 c["50% increased Spell damage for each 200 total Mana you have Spent Recently"]={{[1]={[1]={div=200,type="Multiplier",var="ManaSpentRecently"},flags=2,keywordFlags=0,name="Damage",type="INC",value=50}},nil}
 c["50% increased Spirit"]={{[1]={flags=0,keywordFlags=0,name="Spirit",type="INC",value=50}},nil}
 c["50% increased Strength Requirement"]={{[1]={flags=0,keywordFlags=0,name="StrRequirement",type="INC",value=50}},nil}
+c["50% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="INC",value=50}},nil}
 c["50% increased Stun Threshold while Channelling"]={{[1]={[1]={type="Condition",var="Channelling"},flags=0,keywordFlags=0,name="StunThreshold",type="INC",value=50}},nil}
 c["50% increased Surrounded Area of Effect"]={{[1]={flags=0,keywordFlags=0,name="SurroundedArea",type="INC",value=50}},nil}
 c["50% increased Thorns damage if you've consumed an Endurance Charge Recently"]={{[1]={[1]={limit=1,type="Multiplier",var="RemovableEnduranceCharge"},flags=0,keywordFlags=0,name="ThornsDamage",type="INC",value=50}},nil}
@@ -4669,6 +4671,8 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 4 Augment Sockets"]={nil,"Has 4 Augment Sockets "}
+c["Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken"]={nil,"Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken "}
+c["Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken 50% increased Stun Buildup"]={nil,"Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken 50% increased Stun Buildup "}
 c["Has no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeRequirements",type="FLAG",value=true}},nil}
 c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
 c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}
