@@ -16047,6 +16047,7 @@ skills["RollingSlamPlayer"] = {
 skills["ScavengedPlatingPlayer"] = {
 	name = "Scavenged Plating",
 	baseTypeName = "Scavenged Plating",
+	grantsThornsDamage = true,
 	icon = "Art/2DArt/SkillIcons/BruteScavengedPlating.dds",
 	color = 1,
 	description = "While active, uses fragments of armour scavenged from enemies to bolster your own. Fully Breaking an enemy's Armour grants you stacks of Scavenged Plating for a duration based on the enemy's rarity, and you gain Armour and Thorns per stack. Normal enemies grant 1 stack, Magic enemies grant 2 stacks, Rare enemies grant 5 stacks and Unique enemies grant 10 stacks.",
@@ -16106,6 +16107,12 @@ skills["ScavengedPlatingPlayer"] = {
 			statMap = {
 				["scavenged_plating_armour_+%_final_per_stack"] = {
 					mod("Armour", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+				},
+				["scavenged_plating_thorns_minimum_physical_damage"] = {
+					mod("PhysicalMin", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
+				},
+				["scavenged_plating_thorns_maximum_physical_damage"] = {
+					mod("PhysicalMax", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating" }, { type = "Multiplier", var = "ScavengedPlatingStacks", limitVar = "ScavengedPlatingStacksLimit" }),
 				},
 				["scavenged_plating_maximum_stacks_display"] = {
 					mod("Multiplier:ScavengedPlatingStacksLimit", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Scavenged Plating"}),

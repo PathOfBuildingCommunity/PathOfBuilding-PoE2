@@ -133,6 +133,8 @@ local formList = {
 	["adds (%d+) to (%d+) (%a+) spell damage"] = "DMGSPELLS",
 	["adds (%d+)%-(%d+) (%a+) spell damage"] = "DMGSPELLS",
 	["(%d+) to (%d+) added spell (%a+) damage"] = "DMGSPELLS",
+	["(%d+) to (%d+) (%a+) thorns damage"] = "DMGTHORNS",
+	["gain (%a+) thorns damage"] = "DMGTHORNSBASE",
 	["adds (%d+) to (%d+) (%a+) damage to attacks and spells"] = "DMGBOTH",
 	["adds (%d+)%-(%d+) (%a+) damage to attacks and spells"] = "DMGBOTH",
 	["adds (%d+) to (%d+) (%a+) damage to spells and attacks"] = "DMGBOTH", -- o_O
@@ -698,7 +700,6 @@ local modNameList = {
 	["chaos damage"] = "ChaosDamage",
 	["non-chaos damage"] = "NonChaosDamage",
 	["elemental damage"] = "ElementalDamage",
-	["thorns damage"] = "ThornsDamage",
 	-- Other damage forms
 	["attack damage"] = { "Damage", flags = ModFlag.Attack },
 	["attack physical damage"] = { "PhysicalDamage", flags = ModFlag.Attack },
@@ -736,6 +737,7 @@ local modNameList = {
 	["damage with bleed"] = { "Damage", keywordFlags = KeywordFlag.Bleed },
 	["damage with bleeding"] = { "Damage", keywordFlags = KeywordFlag.Bleed },
 	["damage with poison"] = { "Damage", keywordFlags = KeywordFlag.Poison },
+	["thorns damage"] = { "Damage", flags = ModFlag.Thorns },
 	["incinerate damage for each stage"] = { "Damage", tagList = { { type = "Multiplier", var = "IncinerateStage" }, { type = "SkillName", skillName = "Incinerate" } } },
 	["physical damage over time multiplier"] = "PhysicalDotMultiplier",
 	["fire damage over time multiplier"] = "FireDotMultiplier",
@@ -745,9 +747,11 @@ local modNameList = {
 	-- Crit/accuracy/speed modifiers
 	["critical hit chance"] = "CritChance",
 	["attack critical hit chance"] = { "CritChance", flags = ModFlag.Attack },
+	["thorns critical hit chance"] = { "CritChance", flags = ModFlag.Thorns },
 	["critical damage bonus"] = "CritMultiplier",
 	["attack critical damage bonus"] = { "CritMultiplier", flags = ModFlag.Attack },
 	["critical spell damage bonus"] = { "CritMultiplier", flags = ModFlag.Spell },
+	["thorns critical damage bonus"] = { "CritMultiplier", flags = ModFlag.Thorns },
 	["accuracy"] = "Accuracy",
 	["accuracy rating"] = "Accuracy",
 	["minion accuracy rating"] = { "Accuracy", addToMinion = true },
@@ -884,6 +888,7 @@ local modNameList = {
 	["to inflict lightning exposure"] = "LightningExposureChance",
 	["to apply lightning exposure on hit"] = "LightningExposureChance",
 	["to ignore enemy physical damage reduction"] = "ChanceToIgnoreEnemyPhysicalDamageReduction",
+	["to ignore enemy armour"] = "ChanceToIgnoreEnemyArmour",
 	["weapon swap speed"] = "WeaponSwapSpeed",
 	["to chain an additional time from terrain"] = "TerrainChainChance",
 	["to apply lightning exposure on hit"] = "LightningExposureChance",
@@ -1187,6 +1192,7 @@ local preFlagList = {
 	["^attacks with ranged weapons [hd][ae][va][el] "] = { flags = ModFlag.WeaponRanged },
 	-- Damage types
 	["^attack damage "] = { flags = ModFlag.Attack },
+	["^thorns damage has "] = { flags = ModFlag.Thorns },
 	["^hits deal "] = { keywordFlags = KeywordFlag.Hit },
 	["^melee weapon damage"] = { flags = ModFlag.WeaponMelee },
 	["^deal "] = { },
@@ -1572,6 +1578,9 @@ local modTagList = {
 	["per (%d+) maximum mana"] = function(num) return { tag = { type = "PerStat", stat = "Mana", div = num } } end,
 	["per (%d+) maximum mana, up to (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Mana", div = num, limit = tonumber(limit), limitTotal = true } } end,
 	["per (%d+) maximum mana, up to a maximum of (%d+)%%"] = function(num, _, limit) return { tag = { type = "PerStat", stat = "Mana", div = num, limit = tonumber(limit), limitTotal = true } } end,
+	["equal to (%d+)%% of maximum life"] = function(num) return { tag = { type = "PercentStat", stat = "Life", percent = num } } end,
+	["equal to (%d+)%% of (y?o?u?r? ?) maximum mana"] = function(num) return { tag = { type = "PercentStat", stat = "Mana", percent = num } } end,
+	["equal to (%d+)%% of (i?t?e?m? ?)armour on equipped body armour"] = function(num) return { tag = { type = "PercentStat", stat = "ArmourOnBody Armour", percent = num } } end,
 	["per (%d+) spirit"] = function(num) return { tag = { type = "PerStat", stat = "Spirit", div = num } } end,
 	["per (%d+) unreserved darkness"] = function(num) return { tag = { type = "PerStat", stat = "UnreservedDarkness", div = num } } end,
 	["per (%d+) accuracy rating"] = function(num) return { tag = { type = "PerStat", stat = "Accuracy", div = num } } end,
@@ -3508,10 +3517,10 @@ local specialModList = {
 	}end,
 	["take (%d+) (.+) damage when herald of thunder hits an enemy"] = function(dmg, _, dmgType) return {
 		mod("StormSecretSelfDamage", "LIST", {baseDamage = dmg, damageType = dmgType})
-	}end,
+	} end,
 	["your skills deal you (%d+)%% of mana cost as (.+) damage"] = function(dmgMult, _, dmgType) return {
 		mod("ScoldsBridleSelfDamage", "LIST", {dmgMult = dmgMult, damageType = dmgType})
-	}end,
+	} end,
 	-- Extra skill/support
 	["grants skill: (%D+)"] = function(_, skill) return grantedExtraSkill(skill, 1) end,
 	["grants skill: level (%d+) (.+)"] = function(num, _, skill) return grantedExtraSkill(skill, num) end,
@@ -6564,6 +6573,22 @@ local function parseMod(line, order)
 		modValue = { tonumber(formCap[1]), tonumber(formCap[2]) }
 		modName = { damageType.."Min", damageType.."Max" }
 		modFlag = modFlag or { keywordFlags = KeywordFlag.Spell }
+	elseif modForm == "DMGTHORNS" then
+		local damageType = dmgTypes[formCap[3]]
+		if not damageType then
+			return { }, line
+		end
+		modValue = { tonumber(formCap[1]), tonumber(formCap[2]) }
+		modName = { damageType.."Min", damageType.."Max" }
+		modFlag = modFlag or { flags = ModFlag.Thorns }
+	elseif modForm == "DMGTHORNSBASE" then
+		local damageType = dmgTypes[formCap[1]]
+		if not damageType then
+			return { }, line
+		end
+		modValue = { 1, 1 }
+		modName = { damageType.."Min", damageType.."Max", flags = ModFlag.Thorns }
+		modFlag = modFlag or { flags = ModFlag.Thorns }
 	elseif modForm == "DMGBOTH" then
 		local damageType = dmgTypes[formCap[3]]
 		if not damageType then

@@ -9377,6 +9377,34 @@ skills["VoidIllusionSpawnPlayer"] = {
 					},
 				}
 			}
+			skills["ThornsPlayer"] = {
+				name = "Thorns",
+				hidden = true,
+				fromItem = true,
+				skillTypes = { [SkillType.Damage] = true },
+				cannotBeSupported = true,
+				qualityStats = {},
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Thorns",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							thorns = true,
+						},
+						baseMods = {
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				}
+			}
 
 skills["MetaMirageDeadeyePlayer"] = {
 	name = "Mirage Deadeye",

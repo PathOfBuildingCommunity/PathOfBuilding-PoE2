@@ -651,7 +651,7 @@ return {
 } }
 } },
 { 1, "SkillTypeStats", 1, colorCodes.OFFENCE, {{ defaultCollapsed = false, label = "Skill type-specific Stats", data = {
-	{ label = "Gem Level", haveOutput = "GemHasLevel", { format = "{0:output:GemLevel}", { breakdown = "GemLevel" }, { modName = { "GemLevel" }, cfg = "skill" },{ modName = { "GemSupportLevel" }, cfg = "skill" }, { modName = { "GemItemLevel" }, cfg = "skill" }, { modName = { "GemCorruptionLevel" }, cfg = "skill" } }, },
+	{ label = "Gem Level", notFlag = "thorns", haveOutput = "GemHasLevel", { format = "{0:output:GemLevel}", { breakdown = "GemLevel" }, { modName = { "GemLevel" }, cfg = "skill" },{ modName = { "GemSupportLevel" }, cfg = "skill" }, { modName = { "GemItemLevel" }, cfg = "skill" }, { modName = { "GemCorruptionLevel" }, cfg = "skill" } }, },
 	{ label = "Spirit Cost", color = colorCodes.SPIRIT, haveOutput = "SpiritHasCost", { format = "{0:output:SpiritCost}", { breakdown = "SpiritCost" }, { modName = { "SpiritCost", "Cost", "SpiritCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Spirit % Cost", color = colorCodes.SPIRIT, haveOutput = "SpiritPercentHasCost", { format = "{0:output:SpiritPercentCost}", { breakdown = "SpiritPercentCost" }, { modName = { "SpiritCost", "Cost", "SpiritCostNoMult" }, cfg = "skill" }, }, },
 	{ label = "Mana Cost", color = colorCodes.MANA, haveOutput = "ManaHasCost", { format = "{0:output:ManaCost}", { breakdown = "ManaCost" }, { modName = { "ManaCost", "Cost", "ManaCostNoMult" }, cfg = "skill" }, }, },
@@ -752,7 +752,7 @@ return {
 		{ modName = { "CurseDelay" }, cfg = "skill" },
 		{ modName = { "CurseActivation" }, cfg = "skill" },
 	} },
-	{ label = "Curse Limit", haveOutput = "EnemyCurseLimit", { format = "{0:output:EnemyCurseLimit}",
+	{ label = "Curse Limit", notFlag = "thorns", haveOutput = "EnemyCurseLimit", { format = "{0:output:EnemyCurseLimit}",
 		{ breakdown = "EnemyCurseLimit" },
 		{ modName = { "CurseLimitIsMaximumPowerCharges", "EnemyCurseLimit" } },
 	}, },

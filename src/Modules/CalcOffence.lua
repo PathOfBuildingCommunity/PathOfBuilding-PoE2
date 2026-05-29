@@ -759,13 +759,15 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
-	if skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
-		-- Caltrops mod
-		for i, value in ipairs(skillModList:Tabulate("INC",  { }, "ThornsDamage")) do
+
+	-- Apply thorns-derived modifiers to hits
+	if skillModList:Flag(nil, "ThornsDamageApplyToAttackDamage") then
+		for _, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Thorns }, "Damage")) do
 			local mod = value.mod
-			skillModList:NewMod("Damage", "INC", mod.value, mod.source, ModFlag.Hit, mod.keywordFlags, unpack(mod))
+			skillModList:NewMod("Damage", "INC", mod.value, mod.source, bor(band(mod.flags, bnot(ModFlag.Thorns)), ModFlag.Attack), mod.keywordFlags, unpack(mod))
 		end
 	end
+
 	if skillModList:Flag(nil, "CastSpeedAppliesToAttacks") then
 		-- Get all increases for this; assumption is that multiple sources would not stack, so find the max
 		local multiplier = (skillModList:Max(skillCfg, "ImprovedCastSpeedAppliesToAttacks") or 100) / 100
@@ -4074,6 +4076,7 @@ function calcs.offence(env, actor, activeSkill)
 								enemyDB:ReplaceMod("Armour", "OVERRIDE", -enemyDB:Sum("BASE", { source = "Config" }, "Armour"), "ArmourBreak", { type = "Condition", var = "ArmourBrokenBelowZeroMax" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" }) -- if Config is set to Max, add mod with max value (use replace to avoid doubling)
 							end
 							local enemyArmour = enemyDB:Override(nil, "Armour") or m_max(calcLib.val(enemyDB, "Armour"), enemyArmourMin)
+							local chanceIgnoreEnemyArmour = m_min(skillModList:Sum("BASE", cfg, "ChanceToIgnoreEnemyArmour") / 100, 1)
 							local ignoreEnemyArmour = skillModList:Flag(cfg, "IgnoreEnemyArmour") and enemyArmour or calcLib.val(enemyDB, "IgnoreArmour") -- check for mods that ignore Armour
 							if ignoreEnemyArmour and (enemyArmour > 0) then enemyArmour = m_max(enemyArmour - ignoreEnemyArmour, 0) end -- subtract ignored value up to zero, if Armour is still positive (to allow future support of negative Armour)
 							local armourReduction = calcs.armourReductionF(enemyArmour, damageTypeHitAvg * skillModList:More(cfg, "CalcArmourAsThoughDealing"))
@@ -4088,7 +4091,7 @@ function calcs.offence(env, actor, activeSkill)
 							if skillModList:Flag(cfg, "IgnoreEnemyPhysicalDamageReduction") or ChanceToIgnoreEnemyPhysicalDamageReduction >= 100 then
 								resist = 0
 							else
-								resist = m_min(m_max(-data.misc.NegArmourDmgBonusCap, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction), data.misc.EnemyPhysicalDamageReductionCap)
+								resist = m_min(m_max(-data.misc.NegArmourDmgBonusCap, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction * (1 - chanceIgnoreEnemyArmour)), data.misc.EnemyPhysicalDamageReductionCap)
 								resist = resist > 0 and resist * (1 - (skillModList:Sum("BASE", nil, "PartialIgnoreEnemyPhysicalDamageReduction") / 100 + ChanceToIgnoreEnemyPhysicalDamageReduction / 100)) or resist
 							end
 						else

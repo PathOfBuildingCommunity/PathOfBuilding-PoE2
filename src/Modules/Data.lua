@@ -933,6 +933,21 @@ local function setupGem(gem, gemId)
 		table.insert(gem.additionalGrantedEffects, skill)
 		i = i + 1
 	end
+	--handle Barbs
+	if gem.name:sub(1, 7) == "Barbs I" then -- also covers Barbs II and Barbs III
+		local additionalGrantedEffectId = "TriggeredBarbsPlayer"
+		if gem.name == "Barbs II" then
+			additionalGrantedEffectId = additionalGrantedEffectId .. "Two"
+		else
+			if gem.name == "Barbs III" then
+				additionalGrantedEffectId = additionalGrantedEffectId .. "Three"
+			end
+		end
+		gem["additionalGrantedEffectId"..i] = additionalGrantedEffectId
+		table.insert(gem.grantedEffectList, data.skills[gem["additionalGrantedEffectId"..i]])
+		table.insert(gem.additionalGrantedEffects, data.skills[gem["additionalGrantedEffectId"..i]])
+		i = i + 1
+	end
 	if gem.grantedEffectDisplayOrder then
 		local tempTable = {}
 		local moved = false

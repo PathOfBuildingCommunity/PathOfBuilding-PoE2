@@ -684,7 +684,6 @@ describe("TetsItemMods", function()
 			{variant:2}{range:0.5}Adds (8-12) to (16-18) Physical Damage
 			{range:0.5}+(10-15) to Strength
 			Causes Bleeding on Hit
-			{range:0.5}(4-5) to (8-10) Physical Thorns damage
 		]])
 		build.itemsTab:AddDisplayItem()
 		runCallback("OnFrame")

@@ -2347,6 +2347,7 @@ skills["TriggeredDeadlyCurrentPlayer"] = {
 skills["SupportCracklingBarrierPlayer"] = {
 	name = "Crackling Barrier",
 	description = "Supports Channelling Skills. While Channelling Supported Skills, you gain Lightning Thorns based off of your maximum Mana.",
+	grantsThornsDamage = true,
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Channel, },
@@ -2362,6 +2363,12 @@ skills["SupportCracklingBarrierPlayer"] = {
 			label = "Crackling Barrier",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["return_%_of_maximum_mana_as_lightning_damage_to_attacker_while_channelling"] = {
+					mod("LightningMin", "BASE", nil, ModFlag.Thorns, 0, { type = "PercentStat", stat = "Mana", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Crackling Barrier" }, { type = "Condition", var = "Channelling" }),
+					mod("LightningMax", "BASE", nil, ModFlag.Thorns, 0, { type = "PercentStat", stat = "Mana", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Crackling Barrier" }, { type = "Condition", var = "Channelling" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {

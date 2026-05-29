@@ -510,6 +510,8 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 	end
 	if skillFlags.attack or skillFlags.nonWeaponAttack then
 		skillModFlags = bor(skillModFlags, ModFlag.Attack)
+	elseif skillFlags.thorns then
+		skillModFlags = bor(skillModFlags, ModFlag.Thorns)
 	else
 		skillModFlags = bor(skillModFlags, ModFlag.Cast)
 		if skillFlags.spell then
