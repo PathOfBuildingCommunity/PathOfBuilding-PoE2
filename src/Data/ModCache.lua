@@ -93,6 +93,7 @@ c["+1 Ring Slot"]={{[1]={flags=0,keywordFlags=0,name="AdditionalRingSlot",type="
 c["+1 maximum stacks of Puppet Master"]={{}," maximum stacks of Puppet Master "}
 c["+1 metre to Dodge Roll distance"]={{}," metre to Dodge Roll distance "}
 c["+1 metre to Dodge Roll distance 50% increased Evasion Rating if you've Dodge Rolled Recently"]={{[1]={[1]={type="Condition",var="DodgeRolledRecently"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1}}," metre to Dodge Roll distance 50% increased   "}
+c["+1 to Armour per Strength"]={{[1]={[1]={stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="Armour",type="BASE",value=1}},nil}
 c["+1 to Evasion Rating per 1 Item Armour on Equipped Gloves"]={{[1]={[1]={div=1,stat="ArmourOnGloves",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1}},nil}
 c["+1 to Evasion Rating per 1 Item Energy Shield on Equipped Helmet"]={{[1]={[1]={div=1,stat="EnergyShieldOnHelmet",type="PerStat"},flags=0,keywordFlags=0,name="Evasion",type="BASE",value=1}},nil}
 c["+1 to Level of all Chaos Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="chaos",value=1}}},nil}
@@ -633,6 +634,7 @@ c["+3 to Level of all Wing Blast Skills"]={{[1]={flags=0,keywordFlags=0,name="Ge
 c["+3 to Level of all Withering Presence Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="withering presence",value=3}}},nil}
 c["+3 to Level of all Wolf Pack Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="wolf pack",value=3}}},nil}
 c["+3 to Maximum Rage"]={{[1]={flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=3}},nil}
+c["+3 to Melee Strike Range while Unarmed"]={{[1]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=0,name="MeleeWeaponRange",type="BASE",value=3},[2]={[1]={type="Condition",var="Unarmed"},flags=0,keywordFlags=0,name="UnarmedRange",type="BASE",value=3}},nil}
 c["+3 to Stun Threshold per Strength"]={{[1]={[1]={stat="Str",type="PerStat"},flags=0,keywordFlags=0,name="StunThreshold",type="BASE",value=3}},nil}
 c["+3 to all Attributes"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=3},[2]={flags=0,keywordFlags=0,name="Dex",type="BASE",value=3},[3]={flags=0,keywordFlags=0,name="Int",type="BASE",value=3},[4]={flags=0,keywordFlags=0,name="All",type="BASE",value=3}},nil}
 c["+3 to maximum Rage while Shapeshifted"]={{[1]={[1]={type="Condition",var="Shapeshifted"},flags=0,keywordFlags=0,name="MaximumRage",type="BASE",value=3}},nil}
@@ -964,6 +966,7 @@ c["1% increased maximum Darkness per 1% Chaos Resistance"]={{[1]={[1]={div=1,sta
 c["1% increased maximum Life"]={{[1]={flags=0,keywordFlags=0,name="Life",type="INC",value=1}},nil}
 c["1% more Attack Speed per 75 Item Evasion on Equipped Armour Items"]={{[1]={flags=1,keywordFlags=0,name="Speed",type="MORE",value=1}},"  per 75 Item Evasion on Equipped Armour Items "}
 c["1% more Attack Speed per 75 Item Evasion on Equipped Armour Items +0.1% to Critical Hit Chance per 10 Item Energy Shield on Equipped Armour Items"]={{[1]={[1]={div=10,stat="EnergyShieldOnAllArmourItems",type="PerStat"},flags=1,keywordFlags=0,name="Speed",type="MORE",value=1}},"  per 75 Item Evasion on Equipped Armour Items +0.1% to Critical Hit Chance  "}
+c["1% more Unarmed Damage per 5 Strength"]={{[1]={[1]={div=5,stat="Str",type="PerStat"},flags=16777220,keywordFlags=0,name="Damage",type="MORE",value=1}},nil}
 c["1% of Maximum Life Converted to Energy Shield per 20 Tribute"]={{[1]={[1]={actor="parent",div=20,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="LifeConvertToEnergyShield",type="BASE",value=1}},nil}
 c["1% of damage taken Recouped as Life per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="LifeRecoup",type="BASE",value=1}},nil}
 c["1% of damage taken Recouped as Mana per 10 Tribute"]={{[1]={[1]={actor="parent",div=10,stat="Tribute",type="PerStat"},flags=0,keywordFlags=0,name="ManaRecoup",type="BASE",value=1}},nil}
@@ -3799,6 +3802,8 @@ c["Can Allocate Passive Skills from the Sorceress's starting point"]={nil,"Can A
 c["Can Allocate Passive Skills from the Sorceress's starting point Grants 4 Passive Skill Points"]={nil,"Can Allocate Passive Skills from the Sorceress's starting point Grants 4 Passive Skill Points "}
 c["Can Allocate Passive Skills from the Warrior's starting point"]={nil,"Can Allocate Passive Skills from the Warrior's starting point "}
 c["Can Allocate Passive Skills from the Warrior's starting point Grants 4 Passive Skill Points"]={nil,"Can Allocate Passive Skills from the Warrior's starting point Grants 4 Passive Skill Points "}
+c["Can Attack as though using a One Handed Mace while both of your hand slots are empty"]={nil,"Can Attack as though using a One Handed Mace while both of your hand slots are empty "}
+c["Can Attack as though using a One Handed Mace while both of your hand slots are empty Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={nil,"Can Attack as though using a One Handed Mace while both of your hand slots are empty Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage "}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty "}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have:"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have: "}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level "}
@@ -5506,6 +5511,7 @@ c["Trusted Kinship"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",v
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
 c["Unaffected by Elemental Weakness"]={nil,"Unaffected by Elemental Weakness "}
+c["Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={nil,"Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage "}
 c["Unarmed Attacks that would use an Equipped Quarterstaff's damage have:"]={nil,"Unarmed Attacks that would use an Equipped Quarterstaff's damage have: "}
 c["Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level"]={nil,"Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level "}
 c["Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level 1% more Attack Speed per 75 Item Evasion on Equipped Armour Items"]={nil,"Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level 1% more Attack Speed per 75 Item Evasion on Equipped Armour Items "}

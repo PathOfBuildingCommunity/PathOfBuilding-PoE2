@@ -5867,10 +5867,10 @@ local specialModList = {
 
 
 
-	["can attack as though using a one handed mace while both of your hand slots are empty unarmed attacks that would use your one hand mace's damage use this item's damage"] = function() return
-	{	-- Facebreaker
-		flag("Condition:UseFacebreaker"),
-	} end,
+	-- ["can attack as though using a one handed mace while both of your hand slots are empty unarmed attacks that would use your one hand mace's damage use this item's damage"] = function() return
+	-- {	-- Facebreaker
+	-- 	flag("Condition:UseFacebreaker"),
+	-- } end,
 	["has (%d+) to (%d+) physical damage, +(%d+) to +(%d+) per boss's face broken"] = function(bfNum, btNum, afNum, atNum) return
 	{	-- Facebreaker
 		mod("PhysicalMin", "BASE", tonumber(bfNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }),

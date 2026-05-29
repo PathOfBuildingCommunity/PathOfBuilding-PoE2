@@ -258,6 +258,7 @@ local extraSaveStats = {
 	"EnduranceChargesMax",
 	"ActiveTotemLimit",
 	"ActiveMinionLimit",
+	"BrokenBossFaces",
 }
 
 return displayStats, minionDisplayStats, extraSaveStats

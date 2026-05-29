@@ -1532,6 +1532,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 						env.player["weaponData" .. tostring(i)].asThoughUsing["One Hand Mace"] = true
 					end
 					modDB:NewMod("Condition:UseFacebreaker", "FLAG", true, "Base") -- Added it here, otherwise item config not showing up in ConfigOptions
+					env.player.modDB.conditions["UseFacebreaker"] = true -- Had to add condition here because it was otherwise not recognized correctly when "DisableSkill" is processed
 				end
 			end
 			env.player.weaponData2 = env.player.weaponData2 or { }
