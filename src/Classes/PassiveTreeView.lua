@@ -1447,7 +1447,7 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(build, node)
 		return
 	end
 
-	if node.unlockConstraint and not checkUnlockConstraint(build, node) then
+	if node.unlockConstraint and not checkUnlockConstraints(build, node) then
 		return
 	end
 
