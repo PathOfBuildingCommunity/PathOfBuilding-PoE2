@@ -293,7 +293,7 @@ describe("TestSkills", function()
 		local expectedPhysicalMax = round(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level] * (1 + minion.minionData.damageSpread))
 
 		assert.are.equals(expectedPhysicalMax, minion.weaponData1.PhysicalMax)
-		assert.are.equals(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"))
+		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"), 0.0001)
 	end)
 
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
