@@ -285,6 +285,17 @@ describe("TestSkills", function()
 		assert.True(baseLeapSlamHit < build.calcsTab.mainOutput.AverageDamage)
 	end)
 
+	it("applies minion offensive multiplier to all attack damage", function()
+		build.skillsTab:PasteSocketGroup("Wolf Pack 20/0  1")
+		runCallback("OnFrame")
+
+		local minion = build.calcsTab.mainEnv.minion
+		local expectedPhysicalMax = round(build.calcsTab.mainEnv.data.monsterAllyDamageTable[minion.level] * (1 + minion.minionData.damageSpread))
+
+		assert.are.equals(expectedPhysicalMax, minion.weaponData1.PhysicalMax)
+		assert.are.near(-30, minion.mainSkill.skillModList:Sum("MORE", minion.mainSkill.skillCfg, "Damage"), 0.0001)
+	end)
+
 	it("Inspiring Ally only mirrors companion damage, not generic minion damage", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
