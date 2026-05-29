@@ -1,6 +1,6 @@
 # Changelog
 
-## [v0.16.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.16.0) (2026/05/29)
+## [v0.16.0](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/tree/v0.16.0) (2026/05/30)
 
 [Full Changelog](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/compare/v0.15.0...v0.16.0)
 
@@ -28,7 +28,7 @@
 - Add support for double Corrupting + fix corruptions removing anoints [\#1981](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1981) ([vaisest](https://github.com/vaisest))
 - Add support for corrupting gems for +/- 1 level [\#1743](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1743) ([Blitz54](https://github.com/Blitz54))
 - Add node description tooltip to Power Report [\#1834](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1834) ([Peechey](https://github.com/Peechey))
-* Add support for fractional Full DPS counts in [\#1916](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1916)
+- Add support for fractional Full DPS counts in [\#1916](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1916)
 - Remember league for imported characters [\#1795](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1795) ([Wires77](https://github.com/Wires77))
 - Add progress bar to power report [\#1769](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1769) ([ALameLlama](https://github.com/ALameLlama))
 - Auto set Minion count in your presence based on skill gems in build [\#1835](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1835) ([LocalIdentity](https://github.com/LocalIdentity))
@@ -82,7 +82,7 @@
 - Add support for damage per combo mods [\#1946](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1946) ([Eucelia](https://github.com/Eucelia))
 - Add support for Legacy Grand Spectrum mods [\#1994](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1994) ([LocalIdentity](https://github.com/LocalIdentity))
 ### Fixed Crashes
-* Fix crash when importing some builds to party tab in [\#1872](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1872)
+- Fix crash when importing some builds to party tab in [\#1872](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1872)
 - Fix crash on import from private league [\#1874](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1874) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash on loading build due to some minion skills [\#1880](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1880) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix crash when opening some old builds [\#1925](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1925) ([LocalIdentity](https://github.com/LocalIdentity))
@@ -103,11 +103,11 @@
 - Fix support gems importing as level other than 1 [\#1749](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1749) ([Blitz54](https://github.com/Blitz54))
 - Fix Blasphemy rounding [\#1737](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1737) ([Blitz54](https://github.com/Blitz54))
 - Fix scaling for Inexorable Critical II [\#1852](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1852) ([Peechey](https://github.com/Peechey))
-* Fix Projectile Spell Block eHP in [\#1875](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1875)
+- Fix Projectile Spell Block eHP in [\#1875](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1875)
 - Fix calculation of some stats when using Ingenuity [\#1882](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1882) ([LocalIdentity](https://github.com/LocalIdentity))
-* Fix generic Minion damage mods applying to Inspiring Ally in [\#1884](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1884)
-* Fix Undying Hate attribute passive bonuses not working in [\#1902](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1902)
-* Fix Palm skills not using Quarterstaff Damage and Crit in [\#1903](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1903)
+- Fix generic Minion damage mods applying to Inspiring Ally in [\#1884](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1884)
+- Fix Undying Hate attribute passive bonuses not working in [\#1902](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1902)
+- Fix Palm skills not using Quarterstaff Damage and Crit in [\#1903](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1903)
 - Fix Flame Breath attack rate calculation [\#1912](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1912) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix damage taken sorting on tree and unique list [\#1889](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1889) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix Charm quality applying to effect instead of duration [\#1940](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1940) ([LocalIdentity](https://github.com/LocalIdentity))
@@ -127,8 +127,8 @@
 - Fix missing Eternal Mark support [\#1858](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1858) ([Peechey](https://github.com/Peechey))
 - Fix Corrupted Blood config not showing for Corrupting Cry Supports [\#1831](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1831) ([Peechey](https://github.com/Peechey))
 - Fix item-granted skills counting toward socket group limit [\#1883](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1883) ([LocalIdentity](https://github.com/LocalIdentity))
-* Fix Uhtred supports counting Meta gems as supports in [\#1896](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1896)
-* Fix Barrage incorrectly granting damage to some skills in [\#1897](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1897)
+- Fix Uhtred supports counting Meta gems as supports in [\#1896](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1896)
+- Fix Barrage incorrectly granting damage to some skills in [\#1897](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1897)
 - Fix Stomping Ground and Ferocious Roar not working when using a Talisman [\#1901](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1901) ([LocalIdentity](https://github.com/LocalIdentity))
 - Fix "against Enemies within 2m" mods not applying unless distance was exactly 2m [\#1949](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1949) ([avtobus32](https://github.com/avtobus32))
 - Fix many skills not enabling the Wither config option [\#1809](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1809) ([krryan](https://github.com/krryan))
@@ -138,7 +138,7 @@
 - Remove weapon bases that did not exist yet [\#1729](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1729) ([Blitz54](https://github.com/Blitz54))
 - Fix parsing of Molten One's Gift fire damage Armour Break mod [\#1803](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1803) ([Eucelia](https://github.com/Eucelia))
 - Fix Keeper of the Arc legacy mod value [\#1784](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1784) ([Blitz54](https://github.com/Blitz54))
-* Fix Show All Configurations hiding some options in [\#1892](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1892)
+- Fix Show All Configurations hiding some options in [\#1892](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1892)
 - Fix Effigy of Cruelty missing Critical Weakness mod [\#1958](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1958) ([Blitz54](https://github.com/Blitz54))
 - Fix variant text ordering for The Adorned and Yoke of Suffering [\#1783](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1783) ([poikende](https://github.com/poikende))
 
@@ -547,7 +547,7 @@
 - Add support for "Zealous Inquisition" explode mod (Witchhunter Ascendancy Notable) [\#1057](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1057) ([majochem](https://github.com/majochem))
 - Add support for Lich Jewel Socket [\#1037](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1037) ([trompetin17](https://github.com/justjuangui))
 - Add support for Sturdy Ally and Tandem Assault [\#1099](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1099) ([Blitz54](https://github.com/Blitz54))
-* Add support for "Presence" and related mods in [\#1094](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1094), [\#1106](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1106) ([majochem](https://github.com/majochem), [Blitz54](https://github.com/Blitz54))
+- Add support for "Presence" and related mods in [\#1094](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1094), [\#1106](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1106) ([majochem](https://github.com/majochem), [Blitz54](https://github.com/Blitz54))
 - Add support for "Hazard" related mods [\#1121](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1121) ([majochem](https://github.com/majochem))
 - Add support for Bleed and Poison chance on critical hit calculation [\#1058](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1058) ([majochem](https://github.com/majochem))
 ### Skills
@@ -967,7 +967,7 @@
 - Add support for Grinning Immolation and Pain Attunement [\#463](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/463) ([etojuice](https://github.com/etojuice))
 - Add support for 'You have no Elemental Resistances' modifier [\#453](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/453) ([etojuice](https://github.com/etojuice))
 - Add support for Mask of The Stitched Demon [\#459](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/459) ([etojuice](https://github.com/etojuice))
-* Add support for Kaom's Heart by (@etojuice, @ltogniolli) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/468, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/475
+- Add support for Kaom's Heart by (@etojuice, @ltogniolli) in https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/468, https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/475
 ### Fixed Crashes
 - Fix crash when hovering over breakdown for Minion skills [\#480](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/480) ([TPlant](https://github.com/PJacek))
 ### Fixed Calculations

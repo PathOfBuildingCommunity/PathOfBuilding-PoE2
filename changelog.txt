@@ -1,4 +1,4 @@
-VERSION[0.16.0][2026/05/29]
+VERSION[0.16.0][2026/05/30]
 
 --- 0.5 Return of the Ancients ---
 * Add support for 0.5 skill tree (trompetin17)
@@ -23,7 +23,7 @@ VERSION[0.16.0][2026/05/29]
 * Add support for double Corrupting + fix corruptions removing anoints (vaisest)
 * Add support for corrupting gems for +/- 1 level (Blitz54)
 * Add node description tooltip to Power Report (Peechey)
-* Add support for fractional Full DPS counts in 
+* Add support for fractional Full DPS counts
 * Remember league for imported characters (Wires77)
 * Add progress bar to power report (ALameLlama)
 * Auto set Minion count in your presence based on skill gems in build (LocalIdentity)
@@ -82,7 +82,7 @@ VERSION[0.16.0][2026/05/29]
 * Add support for Legacy Grand Spectrum mods (LocalIdentity)
 
 --- Fixed Crashes ---
-* Fix crash when importing some builds to party tab in 
+* Fix crash when importing some builds to party tab
 * Fix crash on import from private league (LocalIdentity)
 * Fix crash on loading build due to some minion skills (LocalIdentity)
 * Fix crash when opening some old builds (LocalIdentity)
@@ -105,11 +105,11 @@ VERSION[0.16.0][2026/05/29]
 * Fix support gems importing as level other than 1 (Blitz54)
 * Fix Blasphemy rounding (Blitz54)
 * Fix scaling for Inexorable Critical II (Peechey)
-* Fix Projectile Spell Block eHP in 
+* Fix Projectile Spell Block eHP
 * Fix calculation of some stats when using Ingenuity (LocalIdentity)
-* Fix generic Minion damage mods applying to Inspiring Ally in 
-* Fix Undying Hate attribute passive bonuses not working in 
-* Fix Palm skills not using Quarterstaff Damage and Crit in 
+* Fix generic Minion damage mods applying to Inspiring Ally
+* Fix Undying Hate attribute passive bonuses not working
+* Fix Palm skills not using Quarterstaff Damage and Crit
 * Fix Flame Breath attack rate calculation (LocalIdentity)
 * Fix damage taken sorting on tree and unique list (LocalIdentity)
 * Fix Charm quality applying to effect instead of duration (LocalIdentity)
@@ -130,8 +130,8 @@ VERSION[0.16.0][2026/05/29]
 * Fix missing Eternal Mark support (Peechey)
 * Fix Corrupted Blood config not showing for Corrupting Cry Supports (Peechey)
 * Fix item-granted skills counting toward socket group limit (LocalIdentity)
-* Fix Uhtred supports counting Meta gems as supports in 
-* Fix Barrage incorrectly granting damage to some skills in 
+* Fix Uhtred supports counting Meta gems as supports
+* Fix Barrage incorrectly granting damage to some skills
 * Fix Stomping Ground and Ferocious Roar not working when using a Talisman (LocalIdentity)
 * Fix "against Enemies within 2m" mods not applying unless distance was exactly 2m (avtobus32)
 * Fix many skills not enabling the Wither config option (krryan)
@@ -142,7 +142,7 @@ VERSION[0.16.0][2026/05/29]
 * Remove weapon bases that did not exist yet (Blitz54)
 * Fix parsing of Molten One's Gift fire damage Armour Break mod (Eucelia)
 * Fix Keeper of the Arc legacy mod value (Blitz54)
-* Fix Show All Configurations hiding some options in 
+* Fix Show All Configurations hiding some options
 * Fix Effigy of Cruelty missing Critical Weakness mod (Blitz54)
 * Fix variant text ordering for The Adorned and Yoke of Suffering (poikende)
 
