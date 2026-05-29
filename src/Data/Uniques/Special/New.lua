@@ -9,7 +9,8 @@ data.uniques.new = {
 Facebreaker
 Stocky Mitts
 Variant: Current
-Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken
+Has 8 to 12 Physical Damage
++3 to +4 Per Boss's Face Broken
 (47-50)% increased Stun Buildup
 1% more Unarmed Damage per 5 Strength
 +3 to Melee Strike Range while Unarmed

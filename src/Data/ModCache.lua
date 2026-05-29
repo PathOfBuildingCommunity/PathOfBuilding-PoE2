@@ -386,6 +386,8 @@ c["+28% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",typ
 c["+28% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=28}},nil}
 c["+29 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=29}},nil}
 c["+29% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=29}},nil}
+c["+3 to +4 Per Boss's Face Broken"]={{}," +4 Per Boss's Face Broken "}
+c["+3 to +4 Per Boss's Face Broken 50% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="BASE",value=3}}," +4 Per Boss's Face Broken 50% increased  "}
 c["+3 to Level of all Alchemist's Boon Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="alchemist's boon",value=3}}},nil}
 c["+3 to Level of all Ancestral Cry Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral cry",value=3}}},nil}
 c["+3 to Level of all Ancestral Warrior Totem Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral warrior totem",value=3}}},nil}
@@ -3802,8 +3804,7 @@ c["Can Allocate Passive Skills from the Sorceress's starting point"]={nil,"Can A
 c["Can Allocate Passive Skills from the Sorceress's starting point Grants 4 Passive Skill Points"]={nil,"Can Allocate Passive Skills from the Sorceress's starting point Grants 4 Passive Skill Points "}
 c["Can Allocate Passive Skills from the Warrior's starting point"]={nil,"Can Allocate Passive Skills from the Warrior's starting point "}
 c["Can Allocate Passive Skills from the Warrior's starting point Grants 4 Passive Skill Points"]={nil,"Can Allocate Passive Skills from the Warrior's starting point Grants 4 Passive Skill Points "}
-c["Can Attack as though using a One Handed Mace while both of your hand slots are empty"]={nil,"Can Attack as though using a One Handed Mace while both of your hand slots are empty "}
-c["Can Attack as though using a One Handed Mace while both of your hand slots are empty Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={nil,"Can Attack as though using a One Handed Mace while both of your hand slots are empty Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage "}
+c["Can Attack as though using a One Handed Mace while both of your hand slots are empty"]={{[1]={flags=0,keywordFlags=0,name="WeaponData",type="LIST",value={key="countsAsMace1H",value=true}}},nil}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty "}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have:"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have: "}
 c["Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level"]={nil,"Can Attack as though using a Quarterstaff while both of your hand slots are empty Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level "}
@@ -4676,8 +4677,8 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 4 Augment Sockets"]={nil,"Has 4 Augment Sockets "}
-c["Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken"]={nil,"Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken "}
-c["Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken 50% increased Stun Buildup"]={nil,"Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken 50% increased Stun Buildup "}
+c["Has 8 to 12 Physical Damage"]={nil,"Has 8 to 12 Physical Damage "}
+c["Has 8 to 12 Physical Damage +3 to +4 Per Boss's Face Broken"]={nil,"Has 8 to 12 Physical Damage +3 to +4 Per Boss's Face Broken "}
 c["Has no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeRequirements",type="FLAG",value=true}},nil}
 c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
 c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}
@@ -5511,7 +5512,7 @@ c["Trusted Kinship"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",v
 c["Unaffected by Chill during Dodge Roll"]={nil,"Unaffected by Chill during Dodge Roll "}
 c["Unaffected by Chill while Leeching Mana"]={{[1]={[1]={type="Condition",var="LeechingMana"},flags=0,keywordFlags=0,name="SelfChillEffect",type="MORE",value=-100}},nil}
 c["Unaffected by Elemental Weakness"]={nil,"Unaffected by Elemental Weakness "}
-c["Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={nil,"Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage "}
+c["Unarmed Attacks that would use an Equipped One Hand Mace's damage use this Item's damage"]={{[1]={flags=0,keywordFlags=0,name="Condition:UseFacebreaker",type="FLAG",value=true}},nil}
 c["Unarmed Attacks that would use an Equipped Quarterstaff's damage have:"]={nil,"Unarmed Attacks that would use an Equipped Quarterstaff's damage have: "}
 c["Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level"]={nil,"Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level "}
 c["Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level 1% more Attack Speed per 75 Item Evasion on Equipped Armour Items"]={nil,"Unarmed Attacks that would use an Equipped Quarterstaff's damage have: Base Unarmed Physical damage replaced with damage based on their Skill Level 1% more Attack Speed per 75 Item Evasion on Equipped Armour Items "}

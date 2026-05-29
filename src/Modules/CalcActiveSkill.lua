@@ -287,6 +287,10 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	if weaponData.countsAsAll1H then
 		flags = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Sword, ModFlag.Spear)
 	end
+	if weaponData.countsAsMace1H then -- Facebreaker
+		ConPrintf("countsAsMace1H ----- WORKS")
+		flags = bor(ModFlag.Mace, ModFlag.Weapon1H)
+	end
 	if weaponData.type ~= "None" then
 		flags = bor(flags, ModFlag.Weapon)
 		if info.oneHand then
@@ -814,8 +818,6 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 		skillModList:NewMod("PhysicalMax", "BASE", physMax, "Hollow Palm Technique", ModFlag.Attack, nil, { type = "Condition", var = "HollowPalm" })
 	end
 
-	ConPrintf("---prettyPrintTable---")
-	prettyPrintTable(activeSkill.actor.modDB.conditions)
 	-- Facebreaker added phys for skills that would use Mace (this is a "hidden skill", keep logic similar to Hollow Palm Technique)
 	if activeSkill.actor.modDB.conditions.UseFacebreaker then --  and ((activeEffect.grantedEffect.weaponTypes and activeEffect.grantedEffect.weaponTypes.OneHandMace)) then
 		ConPrintf("TEST>>>")

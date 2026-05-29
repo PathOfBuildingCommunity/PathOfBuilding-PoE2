@@ -1525,14 +1525,16 @@ function calcs.initEnv(build, mode, override, specEnv)
 					end
 				end
 
-				if env.player.itemList["Gloves"] and env.player.itemList["Gloves"].title == "Facebreaker" then
+				ConPrintf(">>>> prettyPrintTable >>>>>")
+				ConPrintf("BrokenFaces: %s", env.modDB.BrokenBossFaces)
+				ConPrintf("PowerCharges: %s", env.modDB.PowerCharges)
+				-- prettyPrintTable(env.modDB)
+				if env.modDB.conditions.UseFacebreaker then
 					env.player.weaponData2 = copyTable(env.data.unarmedWeaponData[env.classId])
 					for i = 1, 2 do
 						env.player["weaponData" .. tostring(i)].asThoughUsing = env.player["weaponData" .. tostring(i)].asThoughUsing or { }
 						env.player["weaponData" .. tostring(i)].asThoughUsing["One Hand Mace"] = true
 					end
-					modDB:NewMod("Condition:UseFacebreaker", "FLAG", true, "Base") -- Added it here, otherwise item config not showing up in ConfigOptions
-					env.player.modDB.conditions["UseFacebreaker"] = true -- Had to add condition here because it was otherwise not recognized correctly when "DisableSkill" is processed
 				end
 			end
 			env.player.weaponData2 = env.player.weaponData2 or { }
