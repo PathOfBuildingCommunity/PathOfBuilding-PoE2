@@ -384,8 +384,12 @@ for id, node in pairsSortByKey(data.nodes) do
 
 		-- TODO: minimal check
 		local nodeOrbit = 0
-		if orbitDataSearch.orbit ~= nil and orbitDataSearch.orbit ~= 0  then
-			nodeOrbit = (orbitDataSearch.orbit + 1) * arcDirection(node, data.nodes[nodeIdOut], orbitDataSearch)
+		if orbitDataSearch.orbit ~= nil then
+			if orbitDataSearch.orbit == 0 and not orbitDataSearch.orbitX and not orbitDataSearch.orbitY then
+				nodeOrbit = 0x7FFFFFFF
+			else
+				nodeOrbit = (orbitDataSearch.orbit + 1) * arcDirection(node, data.nodes[nodeIdOut], orbitDataSearch)
+			end
 		end
 
 		local connectionData = {
@@ -403,11 +407,14 @@ for id, node in pairsSortByKey(data.nodes) do
 			["ascendancy"] = ascendancySearchNameById[node.unlockConstraint.ascendancy],
 			["nodes"] = node.unlockConstraint.nodes,
 		}
-		nodeData["nodeOverlay"] = {
-			["alloc"] = "OracleFrameAllocated",
-			["path"] = "OracleFrameCanAllocate",
-			["unalloc"] = "OracleFrameUnallocated",
-		}
+
+		if not node.isMastery then
+			nodeData["nodeOverlay"] = {
+				["alloc"] = "OracleFrameAllocated",
+				["path"] = "OracleFrameCanAllocate",
+				["unalloc"] = "OracleFrameUnallocated",
+			}
+		end
 	end
 
 	orbitsConstants[node.orbit + 1] = math.max(orbitsConstants[node.orbit + 1] or 1, node.orbitIndex)
