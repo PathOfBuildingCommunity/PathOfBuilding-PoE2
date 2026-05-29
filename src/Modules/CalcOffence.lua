@@ -3040,11 +3040,26 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		elseif skillFlags.bothWeaponAttack then
 			if breakdown then
-				breakdown.Speed = {
-					"Both weapons:",
-					s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
-					s_format("= %.2f", output.Speed),
-				}
+				if skillData.combinesHitsWhenDualWielding then
+					breakdown.Speed = {
+						"Combined hit from both weapons:",
+						s_format("1 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
+						s_format("= %.2f", output.Speed),
+					}
+				elseif skillData.doubleHitsWhenDualWielding then
+					breakdown.Speed = {
+						"Simultaneous hits from each weapon:",
+						s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
+						s_format("%.2f * 2 ^8(hits twice per attack)", output.Speed / 2),
+						s_format("= %.2f", output.Speed),
+					}
+				else
+					breakdown.Speed = {
+						"Alternating both weapons:",
+						s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
+						s_format("= %.2f", output.Speed),
+					}
+				end
 			end
 		end
 		if skillData.channelTimeMultiplier then
