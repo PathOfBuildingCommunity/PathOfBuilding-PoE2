@@ -2876,8 +2876,8 @@ local specialModList = {
 	} end,
 	-- Spirit Walker
 	["companions gain added attack damage equal to (%d+)%% of your main hand weapon's damage"] = function(num) return {
-		mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
-		mod("Multiplier:MainHandDamageToAllies", "BASE", num, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
+		mod("MinionModifier", "LIST", { mod = flag("GainMainHandDmgFromParent") }, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
+		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	-- Disciple of Varashta
 	["(%d+)%% of your current energy shield is added to your armour for determining your physical damage reduction from armour"] = function(num) return {
@@ -3232,7 +3232,7 @@ local specialModList = {
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
-  	["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
+	["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
 	-- Witchhunter
 	["grants skill: sorcery ward"] = {
 		flag("Condition:SorceryWard"),
