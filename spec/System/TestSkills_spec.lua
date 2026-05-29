@@ -225,7 +225,7 @@ describe("TestSkills", function()
 		assert.are.equals(70, build.calcsTab.calcsEnv.player.activeSkillList[1].skillModList:GetMultiplier("ConsumedFrenzyChargeEffect", build.calcsTab.calcsEnv.player.activeSkillList[1].skillCfg))
 	end)
 
-	it("Test 'every rage also grants you' for minion mods and minion apply to you mods #run", function()
+	it("Test 'every rage also grants you' for minion mods and minion apply to you mods", function()
 		build.itemsTab:CreateDisplayItemFromRaw([[
 			New Item
 			Fanatic Greathammer
