@@ -576,6 +576,7 @@ skills["SupportBarbsPlayer"] = {
 						statDescriptionScope = "skill_stat_descriptions",
 						baseFlags = {
 							thorns = true,
+							triggeredOnHitBySupportedSkill = true,
 						},
 						baseMods = {
 						},
@@ -641,6 +642,7 @@ skills["SupportBarbsPlayerTwo"] = {
 						statDescriptionScope = "skill_stat_descriptions",
 						baseFlags = {
 							thorns = true,
+							triggeredOnHitBySupportedSkill = true,
 						},
 						baseMods = {
 						},
@@ -706,6 +708,7 @@ skills["SupportBarbsPlayerThree"] = {
 						statDescriptionScope = "skill_stat_descriptions",
 						baseFlags = {
 							thorns = true,
+							triggeredOnHitBySupportedSkill = true,
 						},
 						baseMods = {
 							mod("DoubleDamageChance", "BASE", 100, 0, 0),
@@ -5081,7 +5084,7 @@ skills["SupportQuillburstPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["trigger_spiked_gauntlets_for_X_hits_after_thorns_trigger"] = {
-					flag("EnableTriggeredQuillburst"),
+					-- display only
 				},
 			},
 			baseFlags = {

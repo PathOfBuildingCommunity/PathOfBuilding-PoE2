@@ -13,7 +13,7 @@
 - Update Culling Strike Implementation [\#1952](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1952) ([Peechey](https://github.com/Peechey))
 - Update Deflection formula [\#1937](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1937) ([Edvinas-Smita](https://github.com/Edvinas-Smita))
 ### New to Path of Building
-- Add initial support for Thorns calculations [\#1778](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1778) ([DS-Koala](https://github.com/DS-Koala))
+- Add initial support for Thorns calculations [\#1778](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1778) ([DS-Koala](https://github.com/DS-Koala), [DragoonWraith](https://github.com/krryan))
 - Add build comparison tab [\#1830](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1830), [\#1942](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1942) ([oboking](https://github.com/oboking), [vaisest](https://github.com/vaisest))
 - Add support for advanced copy/paste [\#1986](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1986) ([Wires77](https://github.com/Wires77))
 - Add Loadout management UI [\#1865](https://github.com/PathOfBuildingCommunity/PathOfBuilding-PoE2/pull/1865) ([FenikSRT4](https://github.com/FenikSRT4))

@@ -2347,7 +2347,6 @@ skills["TriggeredDeadlyCurrentPlayer"] = {
 skills["SupportCracklingBarrierPlayer"] = {
 	name = "Crackling Barrier",
 	description = "Supports Channelling Skills. While Channelling Supported Skills, you gain Lightning Thorns based off of your maximum Mana.",
-	grantsThornsDamage = true,
 	color = 3,
 	support = true,
 	requireSkillTypes = { SkillType.Channel, },
@@ -2358,6 +2357,7 @@ skills["SupportCracklingBarrierPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+			grantsThornsDamage = true,
 	statSets = {
 		[1] = {
 			label = "Crackling Barrier",
