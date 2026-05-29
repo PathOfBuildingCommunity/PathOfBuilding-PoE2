@@ -386,8 +386,6 @@ c["+28% to Fire Resistance"]={{[1]={flags=0,keywordFlags=0,name="FireResist",typ
 c["+28% to Lightning Resistance"]={{[1]={flags=0,keywordFlags=0,name="LightningResist",type="BASE",value=28}},nil}
 c["+29 to Strength"]={{[1]={flags=0,keywordFlags=0,name="Str",type="BASE",value=29}},nil}
 c["+29% to Chaos Resistance"]={{[1]={flags=0,keywordFlags=0,name="ChaosResist",type="BASE",value=29}},nil}
-c["+3 to +4 Per Boss's Face Broken"]={{}," +4 Per Boss's Face Broken "}
-c["+3 to +4 Per Boss's Face Broken 50% increased Stun Buildup"]={{[1]={flags=0,keywordFlags=0,name="EnemyHeavyStunBuildup",type="BASE",value=3}}," +4 Per Boss's Face Broken 50% increased  "}
 c["+3 to Level of all Alchemist's Boon Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="alchemist's boon",value=3}}},nil}
 c["+3 to Level of all Ancestral Cry Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral cry",value=3}}},nil}
 c["+3 to Level of all Ancestral Warrior Totem Skills"]={{[1]={flags=0,keywordFlags=0,name="GemProperty",type="LIST",value={key="level",keyOfScaledMod="value",keyword="ancestral warrior totem",value=3}}},nil}
@@ -4677,8 +4675,7 @@ c["Has 2 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BAS
 c["Has 3 Charm Slot"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 3 Charm Slots"]={{[1]={flags=0,keywordFlags=0,name="CharmLimit",type="BASE",value=3}},nil}
 c["Has 4 Augment Sockets"]={nil,"Has 4 Augment Sockets "}
-c["Has 8 to 12 Physical Damage"]={nil,"Has 8 to 12 Physical Damage "}
-c["Has 8 to 12 Physical Damage +3 to +4 Per Boss's Face Broken"]={nil,"Has 8 to 12 Physical Damage +3 to +4 Per Boss's Face Broken "}
+c["Has 8 to 12 Physical Damage, +3 to +4 Per Boss's Face Broken"]={{[1]={[1]={type="Condition",var="UseFacebreaker"},[2]={type="SkillType"},flags=1,keywordFlags=0,name="PhysicalMin",type="BASE",value=20},[2]={[1]={type="Condition",var="UseFacebreaker"},[2]={type="SkillType"},flags=1,keywordFlags=0,name="PhysicalMax",type="BASE",value=11}},nil}
 c["Has no Attribute Requirements"]={{[1]={flags=0,keywordFlags=0,name="NoAttributeRequirements",type="FLAG",value=true}},nil}
 c["Hazards have 15% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=15}},nil}
 c["Hazards have 5% chance to rearm after they are triggered"]={{[1]={[1]={skillType=203,type="SkillType"},flags=0,keywordFlags=0,name="HazardRearmChance",type="BASE",value=5}},nil}

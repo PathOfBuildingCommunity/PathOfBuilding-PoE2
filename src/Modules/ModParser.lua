@@ -5863,16 +5863,10 @@ local specialModList = {
 
 
 
-
-
-
-	["has (%d+) to (%d+) physical damage, +(%d+) to +(%d+) per boss's face broken"] = function(bfNum, btNum, afNum, atNum) return
+	["has (%d+) to (%d+) physical damage, %+(%d) to %+(%d) per boss's face broken"] = function(bfNum, btNum, afNum, atNum) return
 	{	-- Facebreaker
-		flag("Condition:UseFacebreaker"),
-		mod("PhysicalMin", "BASE", tonumber(bfNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }),
-		mod("PhysicalMax", "BASE", tonumber(btNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }),
-		mod("PhysicalMin", "BASE", tonumber(afNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "PerStat", stat = "BrokenBossFaces", div = tonumber(evNum) }),
-		mod("PhysicalMax", "BASE", tonumber(atNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "PerStat", stat = "BrokenBossFaces", div = tonumber(evNum) }),
+		mod("PhysicalMin", "BASE", tonumber(bfNum + afNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "SkillType", skillType = SkillType.MaceSkill } ),
+		mod("PhysicalMax", "BASE", tonumber(btNum + atNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "SkillType", skillType = SkillType.MaceSkill } ),
 	} end,
 	["can attack as though using a one handed mace while both of your hand slots are empty"] = function() return
 	{	-- Facebreaker
@@ -5882,7 +5876,6 @@ local specialModList = {
 	{	-- Facebreaker
 		flag("Condition:UseFacebreaker"),
 	} end,
-
 
 
 
