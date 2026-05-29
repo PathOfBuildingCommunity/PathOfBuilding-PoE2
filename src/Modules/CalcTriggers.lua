@@ -429,7 +429,7 @@ local function defaultTriggerHandler(env, config)
 			end
 
 			-- Dual wield triggers
-			if trigRate and source and env.player.weaponData1.type and env.player.weaponData2.type and not source.skillData.doubleHitsWhenDualWielding and (source.skillTypes[SkillType.Melee] or source.skillTypes[SkillType.Attack]) and actor.mainSkill.triggeredBy and actor.mainSkill.triggeredBy.grantedEffect.support and actor.mainSkill.triggeredBy.grantedEffect.fromItem then
+			if trigRate and source and env.player.weaponData1.type and env.player.weaponData2.type and not source.skillData.combinesHitsWhenDualWielding and (source.skillTypes[SkillType.Melee] or source.skillTypes[SkillType.Attack]) and actor.mainSkill.triggeredBy and actor.mainSkill.triggeredBy.grantedEffect.support and actor.mainSkill.triggeredBy.grantedEffect.fromItem then
 				trigRate = trigRate / 2
 				if breakdown then
 					t_insert(breakdown.EffectiveSourceRate, 2, s_format("/ 2 ^8(due to dual wielding)"))
@@ -722,7 +722,7 @@ local function defaultTriggerHandler(env, config)
 					local sourceHitChance = GlobalCache.cachedData[env.mode][uuid].HitChance or 0
 					if sourceHitChance ~= 100 then
 						-- Some skills hit with both weapons at the same time. Each weapon rolls accuracy and crit independently
-						if source and env.player.weaponData1.type and env.player.weaponData2.type and source.skillData.doubleHitsWhenDualWielding then
+						if source and env.player.weaponData1.type and env.player.weaponData2.type and source.skillData.combinesHitsWhenDualWielding then
 							local mainHandHit = GlobalCache.cachedData[env.mode][uuid].Env.player.output.MainHand.HitChance
 							local offHandHit = GlobalCache.cachedData[env.mode][uuid].Env.player.output.OffHand.HitChance
 							local bothHit = mainHandHit * offHandHit / 100
@@ -747,7 +747,7 @@ local function defaultTriggerHandler(env, config)
 						local sourceCritChance = GlobalCache.cachedData[env.mode][uuid].CritChance or 0
 						if sourceCritChance ~= 100 then
 							-- Some skills hit with both weapons at the same time. Each weapon rolls accuracy and crit independently
-							if source and env.player.weaponData1.type and env.player.weaponData2.type and source.skillData.doubleHitsWhenDualWielding then
+							if source and env.player.weaponData1.type and env.player.weaponData2.type and source.skillData.combinesHitsWhenDualWielding then
 								local mainHandCrit = GlobalCache.cachedData[env.mode][uuid].Env.player.output.MainHand.CritChance
 								local offHandCrit = GlobalCache.cachedData[env.mode][uuid].Env.player.output.OffHand.CritChance
 								local bothHit = mainHandCrit * offHandCrit / 100

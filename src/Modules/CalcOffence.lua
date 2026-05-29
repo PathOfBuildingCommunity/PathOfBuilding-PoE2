@@ -2448,7 +2448,7 @@ function calcs.offence(env, actor, activeSkill)
 		elseif mode == "AVERAGE" then
 			output[stat] = ((output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)) / 2
 		elseif mode == "CRIT" then
-			if skillFlags.bothWeaponAttack and skillData.doubleHitsWhenDualWielding then
+			if skillFlags.bothWeaponAttack and skillData.combinesHitsWhenDualWielding then
 				output[stat] = (output.MainHand[stat] or 0) + (output.OffHand[stat] or 0) - ((output.MainHand[stat] or 0) * (output.OffHand[stat] or 0) / 100)
 			else
 				output[stat] = ((output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)) / 2
@@ -2522,7 +2522,7 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		elseif mode == "DPS" then
 			output[stat] = (output.MainHand[stat] or 0) + (output.OffHand[stat] or 0)
-			if not skillData.doubleHitsWhenDualWielding then
+			if not skillData.combinesHitsWhenDualWielding then
 				output[stat] = output[stat] / 2
 			end
 		end
@@ -4463,7 +4463,7 @@ function calcs.offence(env, actor, activeSkill)
 			if breakdown then
 				breakdown.AverageDamage = { }
 				t_insert(breakdown.AverageDamage, "Both weapons:")
-				if skillData.doubleHitsWhenDualWielding then
+				if skillData.combinesHitsWhenDualWielding then
 					t_insert(breakdown.AverageDamage, s_format("%.1f + %.1f ^8(skill hits with both weapons at once)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
 				else
 					t_insert(breakdown.AverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill alternates weapons)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
@@ -4472,7 +4472,7 @@ function calcs.offence(env, actor, activeSkill)
 				if skillFlags.isPvP then
 					breakdown.PvpAverageDamage = { }
 					t_insert(breakdown.PvpAverageDamage, "Both weapons:")
-					if skillData.doubleHitsWhenDualWielding then
+					if skillData.combinesHitsWhenDualWielding then
 						t_insert(breakdown.PvpAverageDamage, s_format("%.1f + %.1f ^8(skill hits with both weapons at once)", output.MainHand.PvpAverageDamage, output.OffHand.PvpAverageDamage))
 					else
 						t_insert(breakdown.PvpAverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill alternates weapons)", output.MainHand.PvpAverageDamage, output.OffHand.PvpAverageDamage))
@@ -5938,7 +5938,7 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillFlags.impale then
 		local mainHandImpaleDPS, offHandImpaleDPS
-		if skillFlags.attack and skillData.doubleHitsWhenDualWielding and skillFlags.bothWeaponAttack then
+		if skillFlags.attack and skillData.combinesHitsWhenDualWielding and skillFlags.bothWeaponAttack then
 			-- separately combine
 			mainHandImpaleDPS = output.MainHand.impaleStoredHitAvg * ((output.MainHand.ImpaleModifier or 1) - 1) * output.MainHand.HitChance / 100 * skillData.dpsMultiplier
 			offHandImpaleDPS = output.OffHand.impaleStoredHitAvg * ((output.OffHand.ImpaleModifier or 1) - 1) * output.OffHand.HitChance / 100 * skillData.dpsMultiplier
@@ -5960,7 +5960,7 @@ function calcs.offence(env, actor, activeSkill)
 		output.CombinedDPS = output.CombinedDPS + output.ImpaleDPS
 		if breakdown then
 			breakdown.ImpaleDPS = {}
-			if skillFlags.attack and skillData.doubleHitsWhenDualWielding and skillFlags.bothWeaponAttack then
+			if skillFlags.attack and skillData.combinesHitsWhenDualWielding and skillFlags.bothWeaponAttack then
 				t_insert(breakdown.ImpaleDPS, s_format("Main Hand:"))
 				t_insert(breakdown.ImpaleDPS, s_format("%.2f ^8(MH average physical hit before mitigation)", output.MainHand.impaleStoredHitAvg))
 				t_insert(breakdown.ImpaleDPS, s_format("x %.2f ^8(MH chance to hit)", output.MainHand.HitChance / 100))
