@@ -1544,8 +1544,7 @@ skills["SupportCullingStrikePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_culling_strike_vs_rare_or_unique_enemy"] = {
-					mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-					value = 10
+					mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 				},
 			},
 			baseFlags = {
@@ -1578,8 +1577,7 @@ skills["SupportCullingStrikePlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_culling_strike_vs_rare_or_unique_enemy"] = {
-					mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-					value = 10
+					mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 				},
 			},
 			baseFlags = {
@@ -2060,9 +2058,9 @@ skills["SupportFerocityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
-					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
-					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
-					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
+					mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+					mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+					mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 				},
 			},
 			baseFlags = {
@@ -2383,6 +2381,11 @@ skills["SupportHitAndRunPlayer"] = {
 			label = "Hit and Run",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_mobile_assault_skill_speed_+%_final"] = {
+					mod("Speed", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3067,8 +3070,7 @@ skills["SupportEmpoweredCullPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_empowered_culling_strike"] = {
-					mod("ExtraEmpowerMod", "LIST", { mod = mod("CullPercent", "MAX", nil), unscalable = true }),
-					value = 10,
+					mod("ExtraEmpowerMod", "LIST", { mod = mod("CanCull", "FLAG", nil), unscalable = true }),
 				}
 			},
 			baseFlags = {
@@ -4015,7 +4017,6 @@ skills["SupportPrecisionPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Precision",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 10, },
 	},
@@ -4051,7 +4052,6 @@ skills["SupportPrecisionPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Precision",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -5550,7 +5550,6 @@ skills["SupportWarmbloodedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "WarmBlooded",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},

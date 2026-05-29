@@ -858,6 +858,28 @@ Prefix: ColdDamagePrefixOnWeapon6
 Prefix: LightningDamagePrefixOnWeapon6
 Suffix: GlobalSpellGemsLevelWeapon4
 ]],
+-- Talisman
+[[
+Physical Talisman
+Maji Talisman
+Crafted: true
+Prefix: LocalIncreasedPhysicalDamagePercent5
+Prefix: LocalIncreasedPhysicalDamagePercentAndAccuracyRating5
+Prefix: LocalAddedPhysicalDamageTwoHand6
+Suffix: LocalIncreasedAttackSpeed3
+Suffix: LocalCriticalStrikeChance3
+Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
+]],[[
+Elemental Talisman
+Maji Talisman
+Crafted: true
+Prefix: LocalAddedFireDamageTwoHand8_
+Prefix: LocalAddedColdDamageTwoHand8
+Prefix: LocalAddedLightningDamageTwoHand8
+Suffix: LocalIncreasedAttackSpeed3
+Suffix: LocalCriticalStrikeChance3
+Suffix: GlobalMeleeSkillGemLevelTwoHandWeapon4
+]],
 -- Not in game yet.
 ---- One Hand Swords
 ---setBase Dark Blade, Physical %s, [ ]
@@ -934,14 +956,17 @@ Crafted: true
 Radius Jewel
 Time-Lost Ruby
 Crafted: true
+Radius: Small 
 ]],[[
 Radius Jewel
 Time-Lost Emerald
 Crafted: true
+Radius: Small 
 ]],[[
 Radius Jewel
 Time-Lost Sapphire
 Crafted: true
+Radius: Small 
 ]],
 -- Flasks
 			[[

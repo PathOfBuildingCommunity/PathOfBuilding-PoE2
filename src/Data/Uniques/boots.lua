@@ -3,6 +3,17 @@
 return {
 -- Boots: Armour
 [[
+Atziri's Step
+Cinched Boots
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+30% increased Movement Speed
+(80-120)% increased Evasion Rating
++(70-100) to maximum Life
+Gain Deflection Rating equal to (40-60)% of Evasion Rating
+-(12-6)% to amount of Damage Prevented by Deflection
+Cannot be Light Stunned by Deflected Hits
+]],[[
 Birth of Fury
 Stone Greaves
 Variant: Pre 0.1.1

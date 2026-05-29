@@ -148,6 +148,10 @@ return {
 #setBase Attuned Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon6, Prefix: ColdDamagePrefixOnWeapon6, Prefix: LightningDamagePrefixOnWeapon6, Suffix: GlobalSpellGemsLevelWeapon4]
 #setBase Siphoning Wand, Elemental %s, [ Prefix: FireDamagePrefixOnWeapon6, Prefix: ColdDamagePrefixOnWeapon6, Prefix: LightningDamagePrefixOnWeapon6, Suffix: GlobalSpellGemsLevelWeapon4]
 
+-- Talisman
+#setBase Maji Talisman, Physical %s, [ ]
+#setBase Maji Talisman, Elemental %s, [ ]
+
 -- Not in game yet.
 ---- One Hand Swords
 ---setBase Dark Blade, Physical %s, [ ]
@@ -185,9 +189,9 @@ return {
 #setBase Sapphire, [ ]
 
 -- Jewels
-#setBase Time-Lost Ruby, [ ]
-#setBase Time-Lost Emerald, [ ]
-#setBase Time-Lost Sapphire, [ ]
+#setBase Time-Lost Ruby, [ Radius: Small ]
+#setBase Time-Lost Emerald, [ Radius: Small ]
+#setBase Time-Lost Sapphire, [ Radius: Small ]
 
 -- Flasks
 [[

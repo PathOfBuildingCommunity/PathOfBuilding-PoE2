@@ -331,8 +331,7 @@ statMap = {
 #set SupportCullingStrikePlayer
 statMap = {
 	["support_culling_strike_vs_rare_or_unique_enemy"] = {
-		mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-		value = 10
+		mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 	},
 },
 #mods
@@ -342,8 +341,7 @@ statMap = {
 #set SupportCullingStrikePlayerTwo
 statMap = {
 	["support_culling_strike_vs_rare_or_unique_enemy"] = {
-		mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-		value = 10
+		mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 	},
 },
 #mods
@@ -461,9 +459,9 @@ statMap = {
 #set SupportFerocityPlayer
 statMap = {
 	["skill_consume_frenzy_charge_to_gain_skill_speed_+%_final"] = {
-		mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
-		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
-		mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }),
+		mod("Speed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+		mod("WarcrySpeed", "MORE", nil, 0, KeywordFlag.Warcry, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
+		mod("TotemPlacementSpeed", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "RemovableFrenzyCharge", threshold = 1, scalar = "ConsumedFrenzyChargeEffect" }, { type = "Condition", var = "CannotConsumeCharges", neg = true }),
 	},
 },
 #mods
@@ -532,6 +530,11 @@ statMap = {
 
 #skill SupportHitAndRunPlayer
 #set SupportHitAndRunPlayer
+statMap = {
+	["support_mobile_assault_skill_speed_+%_final"] = {
+		mod("Speed", "MORE", nil),
+	},
+},
 #mods
 #skillEnd
 
@@ -696,8 +699,7 @@ statMap = {
 #set SupportEmpoweredCullPlayer
 statMap = {
 	["support_empowered_culling_strike"] = {
-		mod("ExtraEmpowerMod", "LIST", { mod = mod("CullPercent", "MAX", nil), unscalable = true }),
-		value = 10,
+		mod("ExtraEmpowerMod", "LIST", { mod = mod("CanCull", "FLAG", nil), unscalable = true }),
 	}
 },
 #mods

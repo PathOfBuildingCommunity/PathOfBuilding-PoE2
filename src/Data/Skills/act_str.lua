@@ -447,6 +447,9 @@ skills["AncestralWarriorTotemPlayer"] = {
 				totem = true,
 				attack = true,
 			},
+			baseMods = {
+				mod("GloryGeneration", "INC", 40, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+			},
 			constantStats = {
 				{ "base_totem_duration", 8000 },
 				{ "base_totem_range", 60 },
@@ -955,6 +958,12 @@ skills["ArtilleryBallistaPlayer"] = {
 				totem = true,
 				duration = true,
 			},
+			baseMods = {
+				mod("Speed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+				mod("WarcrySpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+				mod("TotemPlacementSpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+				mod("ReloadingSpeed", "INC", 20, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+			},
 			constantStats = {
 				{ "base_totem_range", 80 },
 				{ "base_totem_duration", 12000 },
@@ -1210,11 +1219,10 @@ skills["AttritionPlayer"] = {
 				},
 				["skill_attrition_culling_strike_at_x_or_more_stacks"] = {
 					mod("Multiplier:AttritionCullSeconds", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}),
+					mod("CanCull", "FLAG", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds", thresholdActor = "player"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 				},
 				["skill_attrition_hit_damage_+%_final_vs_rare_or_unique_enemy_per_second_ever_in_presence_up_to_max"] = {
-					{mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" })},
-					{mod("CullPercent", "MAX", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff"}, { type = "MultiplierThreshold", var = "EnemyPresenceSeconds", actor = "enemy", thresholdVar = "AttritionCullSeconds"}, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-					value = 10,}
+					mod("Damage", "MORE", nil, 0, KeywordFlag.Hit, { type = "GlobalEffect", effectType = "Buff"}, { type = "Multiplier", var = "EnemyPresenceSeconds", actor = "enemy", limitVar = "AttritionMaxDamage", div = 2, limitTotal = true }, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 				},
 			},
 			baseFlags = {
@@ -7500,6 +7508,11 @@ skills["InfernalCryPlayer"] = {
 			label = "Infernal Cry",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "infernal_cry",
+			statMap = {
+				["infernal_cry_exerted_attack_all_damage_%_to_gain_as_fire_%"] = {
+					mod("InfernalExtraFireDamageMultiplier", "BASE", nil),
+				},
+			},
 			baseFlags = {
 				warcry = true,
 				area = true,
@@ -13779,6 +13792,9 @@ skills["MetaMortarCannonPlayer"] = {
 				totem = true,
 				attack = true,
 			},
+			baseMods = {
+				mod("DamageGainAsFire", "BASE", 25, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+			},
 			constantStats = {
 				{ "base_totem_duration", 8000 },
 				{ "base_totem_range", 120 },
@@ -14407,14 +14423,6 @@ skills["OilGrenadePlayer"] = {
 			baseEffectiveness = 16,
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "oil_grenade_statset_1",
-			statMap = {
-				["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
-					mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-					mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-					mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-				mult = -1,
-			},
-			},
 			baseFlags = {
 				attack = true,
 				area = true,
@@ -16766,6 +16774,9 @@ skills["ShockwaveTotemPlayer"] = {
 			baseFlags = {
 				totem = true,
 			},
+			baseMods = {
+				mod("AreaOfEffect", "INC", 30, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
+			},
 			constantStats = {
 				{ "base_totem_duration", 12000 },
 				{ "base_totem_range", 80 },
@@ -17083,6 +17094,9 @@ skills["SiegeBallistaPlayer"] = {
 			statDescriptionScope = "skill_stat_descriptions",
 			baseFlags = {
 				totem = true,
+			},
+			baseMods = {
+				mod("Damage", "MORE", 25, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}, { type = "ActorCondition", actor = "enemy", var = "Immobilised" }),
 			},
 			constantStats = {
 				{ "base_totem_range", 80 },
@@ -17408,6 +17422,9 @@ skills["SummonMetaTotemSpellTotemPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "summon_meta_totem_spell",
 			baseFlags = {
+			},
+			baseMods = {
+				mod("CritChance", "INC", 50, nil, nil, { type = "GlobalEffect", effectType = "Aura" }, { type = "Condition", var = "StrategicEmbankments"}),
 			},
 			constantStats = {
 				{ "base_totem_duration", 8000 },

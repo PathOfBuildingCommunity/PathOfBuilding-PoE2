@@ -1252,7 +1252,6 @@ skills["SupportCannibalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Cannibalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -1288,7 +1287,6 @@ skills["SupportCannibalismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Cannibalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -1562,7 +1560,6 @@ skills["SupportCoolheadedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "CoolHeaded",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -1994,7 +1991,6 @@ skills["SupportDirestrikePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Direstrike",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -2030,7 +2026,6 @@ skills["SupportDirestrikePlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Direstrike",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 40, },
 	},
@@ -3162,11 +3157,6 @@ skills["SupportFireExposurePlayer"] = {
 			label = "Fire Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_fire_exposure_for_x_ms_on_ignite"] = {
-					mod("FireExposureChance", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -3255,17 +3245,7 @@ skills["FistOfWarSupportPlayer"] = {
 			label = "Fist of War I",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3296,17 +3276,7 @@ skills["FistOfWarSupportPlayerTwo"] = {
 			label = "Fist of War II",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3337,20 +3307,7 @@ skills["FistOfWarSupportPlayerThree"] = {
 			label = "Fist of War III",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-				["double_ancestral_boost_effect"] = {
-					-- Accounted for in base mod
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 60),
-				mod("FistOfWarMOREAoE", "BASE", 50),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3794,7 +3751,6 @@ skills["SupportHerbalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Herbalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -3830,7 +3786,6 @@ skills["SupportHerbalismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Herbalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -5359,6 +5314,13 @@ skills["SupportRefractionPlayerThree"] = {
 			label = "Refraction III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_tempered_valour_banner_applies_%_elemental_exposure_per_1000_armour"] = {
+					mod("FireExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+					mod("ColdExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+					mod("LightningExposure", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "player", var = "BannerPlanted" }, { type = "GlobalEffect", effectType = "AuraDebuff" }, { type = "PerStat", actor = "player", stat = "Armour", div = 1000, limit = 80, limitTotal = true }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6729,7 +6691,6 @@ skills["SupportThornskinPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Thornskin",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -6765,7 +6726,6 @@ skills["SupportThornskinPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Thornskin",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 40, },
 	},
@@ -7276,7 +7236,6 @@ skills["SupportVitalityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Vitality",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -7313,7 +7272,6 @@ skills["SupportVitalityPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Vitality",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 40, },
 	},
