@@ -5863,10 +5863,33 @@ local specialModList = {
 
 
 
-	["has (%d+) to (%d+) physical damage, %+(%d) to %+(%d) per boss's face broken"] = function(bfNum, btNum, afNum, atNum) return
+	["has (%d+) to (%d+) physical damage, %+(%d) to %+(%d) per boss's face broken"] = function(_, baseFromNum, baseToNum, addFromNum, addToNum) return
 	{	-- Facebreaker
-		mod("PhysicalMin", "BASE", tonumber(bfNum + afNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "SkillType", skillType = SkillType.MaceSkill } ),
-		mod("PhysicalMax", "BASE", tonumber(btNum + atNum), nil, ModFlag.Attack, { type = "Condition", var = "UseFacebreaker" }, { type = "SkillType", skillType = SkillType.MaceSkill } ),
+		flag("Condition:UseFacebreaker"),
+		-- mod("WeaponData", "LIST", { key = "asThoughUsing", value = { key = "One Hand Mace", value = true } } ),
+		
+		mod("ArmourData", "LIST", { key = "PhysicalDPS", value = true }),
+		mod("ArmourData", "LIST", { key = "PhysicalMin", value = baseFromNum } ),
+		mod("ArmourData", "LIST", { key = "PhysicalMax", value = baseToNum } ),
+
+		-- mod("WeaponData", "LIST", { key = "PhysicalMin", value = baseFromNum } ),
+		-- mod("WeaponData", "LIST", { key = "PhysicalMax", value = baseToNum } ),
+		-- mod("WeaponData", "LIST", { key = "PhysicalMin", value = addFromNum }, { type = "Multiplier", var = "BrokenBossFaces", limit=60 } ),
+		-- mod("WeaponData", "LIST", { key = "PhysicalMax", value = addToNum }, { type = "Multiplier", var = "BrokenBossFaces", limit=60 } ),
+
+		mod("PhysicalMin", "BASE", tonumber(baseFromNum), nil, ModFlag.Unarmed, 0, { type = "Condition", var = "{Hand}Attack" } ),
+		mod("PhysicalMax", "BASE", tonumber(baseToNum), nil, ModFlag.Unarmed, 0, { type = "Condition", var = "{Hand}Attack" } ),
+		mod("PhysicalMin", "BASE", tonumber(addFromNum), nil, ModFlag.Unarmed, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "Multiplier", var = "BrokenBossFaces", limit=60 } ),
+		mod("PhysicalMax", "BASE", tonumber(addToNum), nil, ModFlag.Unarmed, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "Multiplier", var = "BrokenBossFaces", limit=60 } ),
+
+		-- ["for every different grenade fired in the past (%d+) seconds"] = { tag = { type = "Multiplier", var = "DifferentGrenadeFired", limitVar = "GrenadeTypes" } },
+		-- mod("PhysicalMin", "BASE", tonumber(baseFromNum), nil, ModFlag.Attack, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "WeaponType", weaponType = SkillType.Attack } ),
+		-- mod("PhysicalMax", "BASE", tonumber(baseToNum), nil, ModFlag.Attack, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "WeaponType", weaponType = SkillType.Attack } ),
+		-- mod("PhysicalMin", "BASE", tonumber(addFromNum), nil, ModFlag.Attack, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "WeaponType", weaponType = SkillType.Attack }, { type = "Multiplier", var = "BrokenBossFaces", limit=60 } ),
+		-- mod("PhysicalMax", "BASE", tonumber(addToNum), nil, ModFlag.Attack, 0, { type = "Condition", var = "{Hand}Attack" }, { type = "WeaponType", weaponType = SkillType.Attack }, { type = "Multiplier", var = "BrokenBossFaces", limit=60 } ),
+		-- env.player["weaponData" .. tostring(i)].asThoughUsing["One Hand Mace"] = true
+		-- mod("PhysicalMin", "BASE", tonumber(bfNum + afNum), nil, ModFlag.Attack ),
+		-- mod("PhysicalMax", "BASE", tonumber(btNum + atNum), nil, ModFlag.Attack ),
 	} end,
 	["can attack as though using a one handed mace while both of your hand slots are empty"] = function() return
 	{	-- Facebreaker
@@ -5874,7 +5897,8 @@ local specialModList = {
 	} end,
 	["unarmed attacks that would use an equipped one hand mace's damage use this item's damage"] = function() return
 	{	-- Facebreaker
-		flag("Condition:UseFacebreaker"),
+		mod("UnarmedAttacksAsItemDamage", nil, "One Hand Mace"),
+		flag("Condition:UnarmedAttacksAsItemDamage"),
 	} end,
 
 

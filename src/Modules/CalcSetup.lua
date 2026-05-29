@@ -1524,16 +1524,18 @@ function calcs.initEnv(build, mode, override, specEnv)
 						end
 					end
 				end
-
-				ConPrintf(">>>> prettyPrintTable >>>>>")
-				ConPrintf("BrokenFaces: %s", env.modDB.BrokenBossFaces)
-				ConPrintf("PowerCharges: %s", env.modDB.PowerCharges)
-				-- prettyPrintTable(env.modDB)
-				if env.modDB.conditions.UseFacebreaker then
+				-- Facebreaker
+				if env.player.itemList["Gloves"] and env.player.itemList["Gloves"].title == "Facebreaker" then
 					env.player.weaponData2 = copyTable(env.data.unarmedWeaponData[env.classId])
 					for i = 1, 2 do
 						env.player["weaponData" .. tostring(i)].asThoughUsing = env.player["weaponData" .. tostring(i)].asThoughUsing or { }
 						env.player["weaponData" .. tostring(i)].asThoughUsing["One Hand Mace"] = true
+						ConPrintf("TESTzzzz")
+						prettyPrintTable(env.player)
+						-- env.player["weaponData" .. tostring(i)]["PhysicalMin"] = env.player["armourData"]["PhysicalMin"]
+						-- env.player["weaponData" .. tostring(i)]["PhysicalMax"] = env.player["armourData"]["PhysicalMax"]
+						env.player["weaponData" .. tostring(i)]["PhysicalMin"] = 999 -- Debugging
+						env.player["weaponData" .. tostring(i)]["PhysicalMax"] = 9999 -- Debugging
 					end
 				end
 			end

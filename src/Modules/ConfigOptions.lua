@@ -783,7 +783,7 @@ Huge sets the radius to 11.
 	{ section = "Item Options", col = 2 },
 	{ label = "Facebreaker:", ifFlag = "Condition:UseFacebreaker" },
 	{ var = "brokenBossFaces", type = "count", label = "Broken Boss Faces", ifFlag = "Condition:UseFacebreaker", tooltip = "Each ^xB97123Boss Encounter^7 icon on the World Screen is a face which can be broken by beating the encounter.\n^xADAA47Rare Monster Encounter^7 icons do not provide any bonus when broken.", apply = function(val, modList, enemyModList)
-		modList:NewMod("BrokenBossFaces", "OVERRIDE", val, "Config", { type = "Condition", var = "Combat" })
+		modList:NewMod("Multiplier:BrokenBossFaces", "BASE", val, "Config", { type = "Condition", var = "Combat" })
 	end },
 
 	-- Section: Combat options

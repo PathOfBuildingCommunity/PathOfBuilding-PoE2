@@ -3272,6 +3272,10 @@ function ItemsTabClass:AddItemTooltip(tooltip, item, slot, dbMode, maxWidth)
 		if armourData.Ward > 0 then
 			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FWard: %s%d", main:StatColor(armourData.Ward, base.armour.WardBase), armourData.Ward), "FONTIN SC")
 		end
+		-- Facebreaker
+		if armourData.PhysicalDPS then
+			tooltip:AddLine(fontSizeBig, s_format("^x7F7F7FPhysical Damage: "..colorCodes.MAGIC.."%d-%d", armourData.PhysicalMin, armourData.PhysicalMax), "FONTIN SC")
+		end
 	elseif base.flask then
 		-- Flask-specific info
 		local flaskData = item.flaskData

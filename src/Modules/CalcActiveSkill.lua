@@ -274,6 +274,13 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	if not info then
 		return
 	end
+
+	-- ConPrintf("############# FACEBREAKER TEST BLOCK ###################")
+	-- ConPrintf(">>>> prettyPrintTable >>>>>")
+	-- prettyPrintTable(weaponData)
+	-- ConPrintf("########################################################")
+
+
 	if weaponTypes then
 		for _, types in ipairs(weaponTypes) do
 			if not types[weaponData.type] and
@@ -287,10 +294,10 @@ local function getWeaponFlags(env, weaponData, weaponTypes)
 	if weaponData.countsAsAll1H then
 		flags = bor(ModFlag.Axe, ModFlag.Claw, ModFlag.Dagger, ModFlag.Mace, ModFlag.Sword, ModFlag.Spear)
 	end
-	if weaponData.countsAsMace1H then -- Facebreaker
-		ConPrintf("countsAsMace1H ----- WORKS")
-		flags = bor(ModFlag.Mace, ModFlag.Weapon1H)
-	end
+	-- if weaponData.countsAsMace1H then -- Facebreaker
+	-- 	ConPrintf("countsAsMace1H ----- WORKS")
+	-- 	flags = bor(ModFlag.Mace, ModFlag.Weapon1H)
+	-- end
 	if weaponData.type ~= "None" then
 		flags = bor(flags, ModFlag.Weapon)
 		if info.oneHand then
