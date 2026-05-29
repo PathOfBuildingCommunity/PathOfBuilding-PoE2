@@ -1,0 +1,22 @@
+name: Auto-Merge on Approval
+on:
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  automerge:
+    if: |
+      github.event.review.state == 'approved' &&
+      github.event.review.user.login == 'jay9297'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Enable auto-merge
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr merge ${{ github.event.pull_request.number }} \
+            --squash --auto \
+            --repo ${{ github.repository }}

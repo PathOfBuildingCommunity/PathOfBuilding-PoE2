@@ -11,6 +11,7 @@ local t_insert = table.insert
 local t_remove = table.remove
 local m_min = math.min
 local m_max = math.max
+local band = AND64
 
 local tempTable1 = { }
 
@@ -848,6 +849,7 @@ function calcs.initEnv(build, mode, override, specEnv)
 			if item and item.baseModList and item.baseModList:Flag(nil, "CanExplode") then
 				t_insert(env.explodeSources, item)
 			end
+
 			if slot.weaponSet and slot.weaponSet ~= (build.itemsTab.activeItemSet.useSecondWeaponSet and 2 or 1) then
 				goto continue
 			end
@@ -1488,6 +1490,69 @@ function calcs.initEnv(build, mode, override, specEnv)
 				markList[group] = true
 				build.skillsTab:ProcessSocketGroup(group)
 			end
+
+			do
+				local function modDBHasThornsDamage(modDB)
+					for _, stat in ipairs({ "PhysicalMin", "PhysicalMax", "FireMin", "FireMax", "ColdMin", "ColdMax", "LightningMin", "LightningMax", "ChaosMin", "ChaosMax" }) do
+						for _, mod in ipairs(modDB.mods[stat] or { }) do
+							if mod.type == "BASE" and band(mod.flags or 0, ModFlag.Thorns) ~= 0 then
+								return true
+							end
+						end
+					end
+					return modDB.parent and modDBHasThornsDamage(modDB.parent)
+				end
+				local hasThornsDamage = modDBHasThornsDamage(env.modDB)
+				if not hasThornsDamage then
+					for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
+						if socketGroup.source ~= "Thorns" and socketGroup.enabled ~= false then
+							for _, gem in ipairs(socketGroup.gemList) do
+								local grantedEffect = gem.enabled ~= false and env.data.skills[gem.skillId]
+								if grantedEffect and grantedEffect.grantsThornsDamage then
+									hasThornsDamage = true
+									break
+								end
+							end
+						end
+						if hasThornsDamage then
+							break
+						end
+					end
+				end
+
+				local group
+				for _, socketGroup in pairs(build.skillsTab.socketGroupList) do
+					if socketGroup.source == "Thorns" then
+						group = socketGroup
+						break
+					end
+				end
+				if not hasThornsDamage then
+					if group then
+						wipeTable(group.gemList)
+					end
+				else
+					if not group then
+						group = { label = "Thorns", enabled = true, gemList = { }, source = "Thorns", noSupports = true }
+						t_insert(build.skillsTab.socketGroupList, group)
+					end
+
+					group.thornsSources = env.thornsSources
+					wipeTable(group.gemList)
+
+					local activeGemInstance = {
+						skillId = "ThornsPlayer",
+						quality = 0,
+						enabled = true,
+						level = 1,
+						triggered = true,
+					}
+					t_insert(group.gemList, activeGemInstance)
+					markList[group] = true
+					build.skillsTab:ProcessSocketGroup(group)
+				end
+			end
+
 
 			-- Remove any socket groups that no longer have a matching item
 			local i = 1

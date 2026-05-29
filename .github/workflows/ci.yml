@@ -1,0 +1,141 @@
+name: CI
+on:
+  pull_request:
+    branches: [dev]
+  push:
+    branches: [dev]
+
+jobs:
+  test:
+    name: test (${{ matrix.suite.name }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        suite:
+          - name: unit
+            args: "--exclude-tags builds,data"
+          - name: builds
+            args: "--tags builds"
+          - name: data
+            args: "--tags data"
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache test image
+        id: image-cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/pob-test-image.tar
+          # Key on the compose file — if the image tag/ref changes, cache invalidates
+          key: pob-test-image-${{ hashFiles('docker-compose.yml') }}
+          restore-keys: pob-test-image-
+
+      - name: Pull or restore image
+        run: |
+          if [[ "${{ steps.image-cache.outputs.cache-hit }}" == "true" ]]; then
+            echo "Restoring image from cache"
+            docker load < /tmp/pob-test-image.tar
+          else
+            echo "Cache miss — pulling from GHCR"
+            docker pull ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest
+            docker save ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+              -o /tmp/pob-test-image.tar
+          fi
+
+      - name: Run ${{ matrix.suite.name }} tests
+        run: docker compose run --rm busted-tests ${{ matrix.suite.args }}
+
+  coverage:
+    name: coverage
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: test
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache test image
+        id: image-cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/pob-test-image.tar
+          key: pob-test-image-${{ hashFiles('docker-compose.yml') }}
+          restore-keys: pob-test-image-
+
+      - name: Pull or restore image
+        run: |
+          if [[ "${{ steps.image-cache.outputs.cache-hit }}" == "true" ]]; then
+            docker load < /tmp/pob-test-image.tar
+          else
+            docker pull ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest
+            docker save ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+              -o /tmp/pob-test-image.tar
+          fi
+
+      - name: Generate coverage report
+        run: |
+          # The compose volume is :ro so luacov can't write back to the workspace.
+          # Run the container with a writable bind mount for the output file only,
+          # keeping the source tree read-only.
+          docker run --rm \
+            -e HOME=/tmp \
+            --security-opt no-new-privileges:true \
+            -w /workdir \
+            -v "${{ github.workspace }}:/workdir:ro" \
+            -v "${{ github.workspace }}/luacov.report.out:/workdir/luacov.report.out" \
+            ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+            busted --lua=luajit --coverage
+
+      - name: Verify coverage file exists
+        run: |
+          if [ ! -f luacov.report.out ]; then
+            echo "::warning::luacov.report.out not found — check luacov config inside the container"
+          fi
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: luacov.report.out
+          retention-days: 30
+
+      - name: Coverage threshold check
+        run: |
+          THRESHOLD=${COVERAGE_THRESHOLD:-0}
+          if [ "$THRESHOLD" -eq 0 ]; then
+            echo "Coverage threshold not yet set — skipping enforcement"
+            exit 0
+          fi
+          if [ ! -f luacov.report.out ]; then
+            echo "::error::luacov.report.out not found — cannot enforce coverage threshold"
+            exit 1
+          fi
+          ACTUAL=$(grep -E "^Total" luacov.report.out | awk '{print int($NF)}')
+          if [ -z "$ACTUAL" ]; then
+            echo "::error::Could not parse coverage percentage from luacov.report.out"
+            exit 1
+          fi
+          echo "Coverage: $ACTUAL% (threshold: $THRESHOLD%)"
+          if [ "$ACTUAL" -lt "$THRESHOLD" ]; then
+            echo "::error::Coverage $ACTUAL% is below threshold $THRESHOLD%"
+            exit 1
+          fi
+
+  secrets:
+    name: secret-scan
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Scan for secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

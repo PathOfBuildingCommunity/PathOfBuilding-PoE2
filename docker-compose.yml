@@ -5,7 +5,7 @@ services:
     environment:
       HOME: /tmp
     container_name: pathofbuilding-tests
-    command: busted --lua=luajit
+    entrypoint: ["busted", "--lua=luajit"]
     security_opt:
       - no-new-privileges:true
     ports:

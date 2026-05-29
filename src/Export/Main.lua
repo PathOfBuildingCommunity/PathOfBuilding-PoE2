@@ -124,6 +124,8 @@ function main:Init()
 			else
 				if line:match("^%-%-") or line:match("^local") or line == "" then
 					out:write(line, "\n")
+				elseif line:match("^legacy") then
+					out:write("\t"..line, ",\n")
 				else
 					out:write("\t\t\t"..line, "\n")
 				end

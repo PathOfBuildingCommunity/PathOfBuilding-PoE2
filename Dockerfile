@@ -32,7 +32,8 @@ RUN --mount=type=cache,from=luarocks,source=/opt,target=/opt make -C /opt/luaroc
 RUN luarocks install busted 2.2.0-1;\
 	luarocks install cluacov 0.1.2-1;\
 	luarocks install luacov-coveralls 0.2.3-1;\
-	luarocks install luautf8 0.1.6-1
+	luarocks install luautf8 0.1.6-1;\
+	luarocks install luacheck
 
 RUN --mount=type=cache,from=emmyluadebugger,source=/opt,target=/opt make -C /opt/EmmyLuaDebugger/build/ install
 RUN --mount=type=cache,from=luajit,source=/opt,target=/opt make -C /opt/LuaJIT/ install
