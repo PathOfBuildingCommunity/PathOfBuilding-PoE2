@@ -77,7 +77,7 @@ local formList = {
 	["^throw up to (%d+)"] = "BASE",
 	["^you gain ([%d%.]+)"] = "GAIN",
 	["^gains? ([%d%.]+)%% of their"] = "GAIN",
-	["^gains? ([%d%.]+)%% of"] = "GAIN",
+	["^gains? ([%d%.]+)%% ?o?f?"] = "GAIN",
 	["^gains? ([%d%.]+)"] = "GAIN",
 	["^gain %+(%d+)%% to"] = "GAIN",
 	["^you lose ([%d%.]+)"] = "LOSE",
@@ -88,7 +88,7 @@ local formList = {
 	["^grants ([%d%.]+) additional"] = "GRANTS_GLOBAL",
 	["^removes? ([%d%.]+) ?o?f? ?y?o?u?r?"] = "REMOVES", -- local
 	["^(%d+)"] = "BASE",
-	["^([%+%-]?%d+)%% chance"] = "CHANCE",
+	["^a? ?([%+%-]?%d+)%% chance"] = "CHANCE",
 	["^([%+%-]?%d+)%% chance to gain "] = "FLAG",
 	["^([%+%-]?%d+)%% additional chance"] = "CHANCE",
 	["costs? ([%+%-]?%d+)"] = "TOTALCOST",
@@ -2378,7 +2378,7 @@ local specialModList = {
 	["removes all mana%. spend life instead of mana for skills"] = { mod("Mana", "OVERRIDE", 0 ), flag("CostLifeInsteadOfMana") },
 	["removes all mana"] = { mod("Mana", "OVERRIDE", 0 ) },
 	["you have no mana"] = { mod("Mana", "OVERRIDE", 0 ) },
-	["doubles mana costs"] = { mod("ManaCost", "MORE", 100) },
+	["d?o?u?b?l?e?s? ?mana costs ?a?r?e? ?d?o?u?b?l?e?d?"] = { mod("ManaCost", "MORE", 100) },
 	["removes all energy shield"] = { mod("EnergyShield", "OVERRIDE", 0 ) },
 	["converts all energy shield to mana"] = { mod("EnergyShieldConvertToMana", "BASE", 100) },
 	["convert (%d+)%% of maximum energy shield to maximum mana"] = function(num) return { mod("EnergyShieldConvertToMana", "BASE", num) } end,
@@ -2874,6 +2874,11 @@ local specialModList = {
 	["benefits from consuming (%a+) charges for your skills have (%d+)%% chance to be doubled"] = function(_, type, num) return {
 		mod("Multiplier:Consumed"..firstToUpper(type).."ChargeEffect", "BASE", num)
 	} end,
+	-- Spirit Walker
+	["companions gain added attack damage equal to (%d+)%% of your main hand weapon's damage"] = function(num) return {
+		mod("ExtraAura", "LIST", { onlyAllies = true, mod = flag("GainMainHandDmgFromParent") }, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
+		mod("Multiplier:MainHandDamageToAllies", "BASE", num, { type = "SkillType", skillType = SkillType.CreatesCompanion }),
+	} end,
 	-- Disciple of Varashta
 	["(%d+)%% of your current energy shield is added to your armour for determining your physical damage reduction from armour"] = function(num) return {
 		mod("EnergyShieldAppliesToPhysicalDamageTaken", "BASE", num),
@@ -3227,7 +3232,7 @@ local specialModList = {
 		mod("Multiplier:MainHandDamageToAllies", "BASE", num),
 	} end,
 	["projectile damage builds pin"] = { flag("CanPin", nil, ModFlag.Projectile) },
-  ["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
+  	["totems you place grant embankment auras"] = { flag("Condition:StrategicEmbankments") },
 	-- Witchhunter
 	["grants skill: sorcery ward"] = {
 		flag("Condition:SorceryWard"),
