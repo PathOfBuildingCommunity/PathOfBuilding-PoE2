@@ -10,7 +10,8 @@ colorCodes = {
 	RARE = "^xFFFF77",
 	UNIQUE = "^xAF6025",
 	RELIC = "^x60C060",
-	GEM = "^x1AA29B",
+	GEM = "^x74CABF",
+	GEMINFO = "^x6F9A98",
 	PROPHECY = "^xB54BFF",
 	CURRENCY = "^xAA9E82",
 	ENCHANTED = "^xB8DAF1",
@@ -64,6 +65,7 @@ colorCodes = {
 	SCOURGE = "^xFF6E25",
 	CRUCIBLE = "^xFFA500",
 	GEMDESCRIPTION = "^xBAAD85",
+	SPLITPERSONALITY = "^xFFD62A"
 }
 colorCodes.STRENGTH = colorCodes.MARAUDER
 colorCodes.DEXTERITY = colorCodes.RANGER
@@ -110,10 +112,10 @@ function OR64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- OR with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -121,15 +123,15 @@ function OR64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform OR operation on both parts
         local high = bit.bor(ah, bh)
         local low = bit.bor(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -138,10 +140,10 @@ function AND64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- AND with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -149,15 +151,15 @@ function AND64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform AND operation on both parts
         local high = bit.band(ah, bh)
         local low = bit.band(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -166,10 +168,10 @@ function XOR64(...)
     if #args < 2 then
         return args[1] or 0
     end
-    
+
     -- Start with first value
     local result = args[1]
-    
+
     -- XOR with each subsequent value
     for i = 2, #args do
         -- Split into high and low 32-bit parts
@@ -177,15 +179,15 @@ function XOR64(...)
         local al = result % 0x100000000
         local bh = math.floor(args[i] / 0x100000000)
         local bl = args[i] % 0x100000000
-        
+
         -- Perform XOR operation on both parts
         local high = bit.bxor(ah, bh)
         local low = bit.bxor(al, bl)
-        
+
         -- Combine the results
         result = bit.band(high, HIGH_MASK_53) * 0x100000000 + low
     end
-    
+
     return result
 end
 
@@ -193,15 +195,15 @@ function NOT64(a)
     -- Split into high and low 32-bit parts
     local ah = math.floor(a / 0x100000000)
     local al = a % 0x100000000
-    
+
     -- Perform NOT operation on both parts
     local high = bit.bnot(ah)
     local low = bit.bnot(al)
-    
+
     -- Convert negative numbers to their unsigned equivalents
     if high < 0 then high = high + 0x100000000 end
     if low < 0 then low = low + 0x100000000 end
-    
+
     -- Use bit operations to combine the results
     -- This avoids potential floating-point precision issues
     return bit.band(high, HIGH_MASK_53) * 0x100000000 + low
@@ -211,7 +213,7 @@ function strHex64(value)
     -- Split into high and low 32-bit parts
     local high = math.floor(value / 0x100000000)
     local low = value % 0x100000000
-    
+
     -- Stringify as two 8-digit hex values
     return string.format("0x%08X%08X", high, low)
 end
@@ -607,7 +609,7 @@ for k, v in pairs(SkillType) do
   SkillTypeName[v] = k
 end
 
-GlobalCache = { 
+GlobalCache = {
 	cachedData = { MAIN = {}, CALCS = {}, CALCULATOR = {}, CACHE = {}, },
 }
 

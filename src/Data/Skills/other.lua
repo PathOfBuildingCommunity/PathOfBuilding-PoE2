@@ -9,6 +9,7 @@ local skills, mod, flag, skill = ...
 skills["AcidicConcoctionPlayer"] = {
 	name = "Acidic Concoction",
 	baseTypeName = "Acidic Concoction",
+	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionPoisonSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Physical Attack damage in an area. The thrown flask Consumes Poison on Hit to cause an acidic burst.",
@@ -231,6 +232,7 @@ skills["AcidicConcoctionPlayer"] = {
 skills["AlignFatePlayer"] = {
 	name = "Align Fate",
 	baseTypeName = "Align Fate",
+	icon = "Art/2DArt/SkillIcons/DruidOracleSpellfluxSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "While active, visages of yourself from alternate timelines will occasionally appear and cast one of your Spells from your first valid Weapon Set. Until the next visage appears, your next cast of the same Spell aligns your fate, Empowering that Spell. Visages can only cast non-Channelling, non-Buff Spells you could cast that have no cooldown.",
@@ -347,6 +349,7 @@ skills["AlignFatePlayer"] = {
 skills["AncestralSpiritsPlayer"] = {
 	name = "Ancestral Spirits",
 	baseTypeName = "Ancestral Spirits",
+	icon = "Art/2DArt/SkillIcons/BruteWarbringerDefenders.dds",
 	fromTree = true,
 	minionList = {
 		"AncestralSpiritTurtle",
@@ -479,6 +482,7 @@ skills["AncestralSpiritsPlayer"] = {
 skills["BleedingConcoctionPlayer"] = {
 	name = "Bleeding Concoction",
 	baseTypeName = "Bleeding Concoction",
+	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionBleedSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Physical Attack damage in an area and Aggravating Bleeding on Enemies hit.",
@@ -617,6 +621,7 @@ skills["BleedingConcoctionPlayer"] = {
 skills["ApocalypsePlayer"] = {
 	name = "Apocalypse",
 	baseTypeName = "Apocalypse",
+	icon = "Art/2DArt/SkillIcons/DruidShamanUnleashtheElementsSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Build Glory by Hitting enemies with Elemental damage. When you have maximum Glory, you may become the walking Apocalypse for a duration, Triggering one of multiple powerful Elemental Skills at an interval while this Buff lasts.",
@@ -736,6 +741,7 @@ skills["ApocalypsePlayer"] = {
 skills["ApocalypseColdPlayer"] = {
 	name = "Hailstorm",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ShamanUnleashHailstorm.dds",
 	fromTree = true,
 	description = "Targets an area or an enemy, causing a series of icy hailstones to rain down in an area over a duration.",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Duration] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Cold] = true, [SkillType.Storm] = true, },
@@ -863,6 +869,7 @@ skills["ApocalypseColdPlayer"] = {
 skills["ApocalypseFirePlayer"] = {
 	name = "Meteor",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ShamanUnleashMeteor.dds",
 	fromTree = true,
 	description = "Targets an area or an enemy, calling down a massive meteor to strike an area, dealing Fire damage and contributing to your enemies' extinction.",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Fire] = true, },
@@ -987,6 +994,7 @@ skills["ApocalypseFirePlayer"] = {
 skills["ApocalypseLightningPlayer"] = {
 	name = "Crash Lightning",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ShamanUnleashLightningStrike.dds",
 	fromTree = true,
 	description = "Targets an area or an enemy, causing a rapid buildup of pulsing Lightning damage in an area that culminates in a powerful final Lightning strike.",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Lightning] = true, },
@@ -1181,6 +1189,7 @@ skills["ApocalypseLightningPlayer"] = {
 skills["BloodBoilPlayer"] = {
 	name = "Blood Boil",
 	baseTypeName = "Blood Boil",
+	icon = "Art/2DArt/SkillIcons/PrimalistBloodBoilsSkillIcon.dds",
 	fromTree = true,
 	color = 4,
 	description = "Enemies in your Presence accumulate blood boils periodically. When they die, the boils pop applying Corrupted Blood to enemies near them.",
@@ -1297,6 +1306,7 @@ skills["BloodBoilPlayer"] = {
 skills["MeleeBowPlayer"] = {
 	name = "Bow Shot",
 	baseTypeName = "Bow Shot",
+	icon = "Art/2DArt/SkillIcons/BowDefaultSkill.dds",
 	fromItem = true,
 	color = 4,
 	description = "Fire an arrow with your Bow.",
@@ -1422,6 +1432,7 @@ skills["MeleeBowPlayer"] = {
 skills["ExplodingPoisonToadPlayer"] = {
 	name = "Bursting Fen Toad",
 	baseTypeName = "Bursting Fen Toad",
+	icon = "Art/2DArt/SkillIcons/MurkshaftToads.dds",
 	fromItem = true,
 	color = 4,
 	description = "A Poisonous Toad leaps towards enemies and explodes, dealing damage in an area and inflicting Poison.",
@@ -1540,6 +1551,7 @@ skills["ExplodingPoisonToadPlayer"] = {
 skills["MetaDeadeyeMarksPlayer"] = {
 	name = "Called Shots",
 	baseTypeName = "Called Shots",
+	icon = "Art/2DArt/SkillIcons/DeadeyeMarkMetagemSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Applies a socketed Mark Skill to a nearby unmarked Enemy every few seconds. Consuming socketed Marks will cause them to be reapplied to an unmarked Enemy. This reapplication can happen at most once every few seconds.",
@@ -1764,6 +1776,7 @@ skills["SupportMetaDeadeyeMarksPlayer"] = {
 skills["MetaCastOnCharmUsePlayer"] = {
 	name = "Cast on Charm Use",
 	baseTypeName = "Cast on Charm Use",
+	icon = "Art/2DArt/SkillIcons/CastOnCharm.dds",
 	fromItem = true,
 	color = 4,
 	description = "While active, gains Energy when one of your Charms is used and triggers socketed Spells on reaching maximum Energy.",
@@ -1991,6 +2004,7 @@ skills["SupportMetaCastOnCharmUsePlayer"] = {
 skills["MeleeCrossbowPlayer"] = {
 	name = "Crossbow Shot",
 	baseTypeName = "Crossbow Shot",
+	icon = "Art/2DArt/SkillIcons/PowerShot.dds",
 	fromItem = true,
 	color = 4,
 	description = "Fire a bolt from your crossbow.",
@@ -2125,6 +2139,7 @@ skills["MeleeCrossbowPlayer"] = {
 skills["UnloadAmmoPlayer"] = {
 	name = "Basic Bolt",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/StandardBolts.dds",
 	fromItem = true,
 	description = "Clear your active Bolt and reload any ammunition.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -2243,6 +2258,7 @@ skills["UnloadAmmoPlayer"] = {
 skills["DemonFormPlayer"] = {
 	name = "Demon Form",
 	baseTypeName = "Demon Form",
+	icon = "Art/2DArt/SkillIcons/WitchTransformDemon.dds",
 	fromTree = true,
 	color = 4,
 	description = "Shapeshift into a demon, vastly boosting the power of your Spells. You gain Demonflame every second you remain in demon form, causing your Life to be lost at an ever-increasing rate. Maximum 10 Demonflame. Revert to human form if you reach 1 Life, use a Skill that isn't a Spell, or reactivate this Skill.",
@@ -2369,6 +2385,7 @@ skills["DemonFormPlayer"] = {
 skills["ElementalExpressionTriggeredPlayer"] = {
 	name = "Elemental Expression",
 	baseTypeName = "Elemental Expression",
+	icon = "Art/2DArt/SkillIcons/MonkInvokerWildStrike.dds",
 	fromTree = true,
 	color = 4,
 	description = "Create a fiery explosion, an arcing bolt of lightning, or an icy wave of projectiles. The chance for an explosion is proportional to your Strength, for a bolt proportional to your Dexterity, and for a wave proportional to your Intelligence.",
@@ -2679,6 +2696,7 @@ skills["ElementalExpressionTriggeredPlayer"] = {
 skills["ElementalStormPlayer"] = {
 	name = "Elemental Storm",
 	baseTypeName = "Elemental Storm",
+	icon = "Art/2DArt/SkillIcons/SorceressElementalStorm.dds",
 	fromTree = true,
 	color = 4,
 	description = "Create a stationary Fire, Cold or Lightning storm at a target location for a duration, based on the highest Elemental Damage type for the Hit that Triggered the storm. Hits which do not deal Elemental Damage will not Trigger the storm.",
@@ -3052,6 +3070,7 @@ skills["ElementalStormPlayer"] = {
 skills["AmazonTriggerElementalSurgePlayer"] = {
 	name = "Elemental Surge",
 	baseTypeName = "Elemental Surge",
+	icon = "Art/2DArt/SkillIcons/AmazonElementalInfusionSkillIcon.dds",
 	fromTree = true,
 	color = 4,
 	description = "Grants your weapon Surges. Non-Melee Projectile Attacks with that weapon Consume Surges to cause the Projectiles fired to explode at the end of their flight.",
@@ -3297,6 +3316,7 @@ skills["AmazonTriggerElementalSurgePlayer"] = {
 skills["EncaseInJadePlayer"] = {
 	name = "Encase in Jade",
 	baseTypeName = "Encase in Jade",
+	icon = "Art/2DArt/SkillIcons/BruteWarbringerEncasedJade.dds",
 	fromTree = true,
 	color = 4,
 	description = "Consume all stacks of Jade to grant Guard based off your maximum Life for each Jade consumed. You cannot gain Jade stacks while you have Guard.",
@@ -3413,6 +3433,7 @@ skills["EncaseInJadePlayer"] = {
 skills["ExplosiveConcoctionPlayer"] = {
 	name = "Explosive Concoction",
 	baseTypeName = "Explosive Concoction",
+	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionFireSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Fire Attack damage in an area. Additional smaller flasks are thrown at nearby Ignited Enemies.",
@@ -3472,12 +3493,6 @@ skills["ExplosiveConcoctionPlayer"] = {
 			baseEffectiveness = 4.5,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "explosive_concoction",
-			statMap = {
-				["flask_throw_fire_exposure_ms"] = {
-					mod("FireExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -3552,6 +3567,7 @@ skills["ExplosiveConcoctionPlayer"] = {
 skills["MetaCastFireSpellOnHitPlayer"] = {
 	name = "Fire Spell on Melee Hit",
 	baseTypeName = "Fire Spell on Melee Hit",
+	icon = "Art/2DArt/SkillIcons/SmithOfKitavaTriggerFireballsSkillIcon.dds",
 	fromTree = true,
 	color = 4,
 	description = "While active, gains Energy when you Hit enemies with Melee Attacks and triggers socketed Fire spells on reaching maximum Energy.",
@@ -3781,6 +3797,7 @@ skills["SupportMetaCastFireSpellOnHitPlayer"] = {
 skills["FulminatingConcoctionPlayer"] = {
 	name = "Fulminating Concoction",
 	baseTypeName = "Fulminating Concoction",
+	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionLightningSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Lightning Attack damage in an area with high chance to Shock.",
@@ -3840,12 +3857,6 @@ skills["FulminatingConcoctionPlayer"] = {
 			baseEffectiveness = 4.1999998092651,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "fulminating_concoction",
-			statMap = {
-				["flask_throw_lightning_exposure_ms"] = {
-					mod("LightningExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -3922,6 +3933,7 @@ skills["FulminatingConcoctionPlayer"] = {
 skills["FuturePastPlayer"] = {
 	name = "Future-Past",
 	baseTypeName = "Future-Past",
+	icon = "Art/2DArt/SkillIcons/HinekorasSightUnique.dds",
 	fromItem = true,
 	color = 4,
 	description = "Hinekora observes your Future-Past granting you the opportunity to subvert a lesser fate. After a period of Hindsight, she will grant you her Foresight, which prevents you from avoiding Hits while Dodge Rolling. When you are Hit while Dodge Rolling, Hinekora restores you to full Life immediately before taking damage from the Hit, and grants you Sight Beyond Sight, which prevents you from dying.",
@@ -4039,6 +4051,7 @@ skills["FuturePastPlayer"] = {
 skills["InevitableAgonyPlayer"] = {
 	name = "Inevitable Agony",
 	baseTypeName = "Inevitable Agony",
+	icon = "Art/2DArt/SkillIcons/TemporalistSynchronisationofPainSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Curse all targets in an area after a short delay, causing a portion of Damage they take from Hits to be tracked by the Curse debuff. When the debuff's duration expires, they take that tracked damage again, all at once.",
@@ -4095,6 +4108,12 @@ skills["InevitableAgonyPlayer"] = {
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "inevitable_agony",
 			baseFlags = {
+				area = true,
+				duration = true,
+				curse = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "curse_delay_duration_ms", 1500 },
@@ -4160,6 +4179,7 @@ skills["InevitableAgonyPlayer"] = {
 skills["IntoTheBreachPlayer"] = {
 	name = "Into the Breach",
 	baseTypeName = "Into the Breach",
+	icon = "Art/2DArt/SkillIcons/MonkBreachWalk.dds",
 	fromTree = true,
 	color = 4,
 	description = "Create a Breach around you, allowing you to see nearby Flames of Chayula. You are considered to be in a Breach while this skill is active.",
@@ -4277,6 +4297,7 @@ skills["IntoTheBreachPlayer"] = {
 skills["CorpseBeetlesPlayer"] = {
 	name = "Kelari's Malediction",
 	baseTypeName = "Kelari's Malediction",
+	icon = "Art/2DArt/SkillIcons/SorceressSandDjinnCorpseBeetles.dds",
 	fromTree = true,
 	minionList = {
 		"BeetleMinion",
@@ -4398,6 +4419,7 @@ skills["CorpseBeetlesPlayer"] = {
 skills["CommandCorpseBeetleExplodePlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Rolldodge.dds",
 	fromTree = true,
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
@@ -4515,6 +4537,7 @@ skills["CommandCorpseBeetleExplodePlayer"] = {
 skills["SummonSandDjinnPlayer"] = {
 	name = "Kelari, the Tainted Sands",
 	baseTypeName = "Kelari, the Tainted Sands",
+	icon = "Art/2DArt/SkillIcons/SorceressSummonSandDjinn.dds",
 	fromTree = true,
 	minionList = {
 		"SandDjinn",
@@ -4634,6 +4657,7 @@ skills["SummonSandDjinnPlayer"] = {
 skills["CommandSandDjinnKnifeThrowPlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Rolldodge.dds",
 	fromTree = true,
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
@@ -4748,6 +4772,7 @@ skills["CommandSandDjinnKnifeThrowPlayer"] = {
 skills["LifeRemnantsPlayer"] = {
 	name = "Life Remnants",
 	baseTypeName = "Life Remnants",
+	icon = "Art/2DArt/SkillIcons/BloodChannel.dds",
 	fromTree = true,
 	color = 4,
 	description = "Drink the blood of your enemies to restore your Life. While active, enemies you kill have a chance to spawn a Life Remnant, and Hitting a target spawns a Life Remnant every few seconds. Picking up a Life Remnant grants you Life which can Overflow maximum Life.",
@@ -4864,6 +4889,7 @@ skills["LifeRemnantsPlayer"] = {
 skills["Melee1HMacePlayer"] = {
 	name = "Mace Strike",
 	baseTypeName = "Mace Strike",
+	icon = "Art/2DArt/SkillIcons/OneHandMaceDefaultSkill.dds",
 	fromItem = true,
 	color = 4,
 	description = "Strike with your Mace.",
@@ -4981,6 +5007,7 @@ skills["Melee1HMacePlayer"] = {
 skills["Melee2HMacePlayer"] = {
 	name = "Mace Strike",
 	baseTypeName = "Mace Strike",
+	icon = "Art/2DArt/SkillIcons/TwoHandMaceDefaultSkill.dds",
 	fromItem = true,
 	color = 4,
 	description = "Strike with your Mace.",
@@ -5098,6 +5125,7 @@ skills["Melee2HMacePlayer"] = {
 skills["MeleeMaceMacePlayer"] = {
 	name = "Mace Strike",
 	baseTypeName = "Mace Strike",
+	icon = "Art/2DArt/SkillIcons/DualWieldMaceDefaultSkill.dds",
 	fromItem = true,
 	color = 4,
 	description = "Strike with your Maces.",
@@ -5218,6 +5246,7 @@ skills["MeleeMaceMacePlayer"] = {
 skills["ManifestWeaponPlayer"] = {
 	name = "Manifest Weapon",
 	baseTypeName = "Manifest Weapon",
+	icon = "Art/2DArt/SkillIcons/SmithOfKitavaCreateWeaponSkillIcon.dds",
 	fromTree = true,
 	minionList = {
 		"ManifestWeapon",
@@ -5307,7 +5336,6 @@ skills["ManifestWeaponPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				duration = true,
 			},
 			constantStats = {
 				{ "minion_1%_damage_+%_per_X_player_strength", 1 },
@@ -5365,6 +5393,7 @@ skills["ManifestWeaponPlayer"] = {
 skills["BearMaulPlayer"] = {
 	name = "Maul",
 	baseTypeName = "Maul",
+	icon = "Art/2DArt/SkillIcons/DruidBearMaul.dds",
 	fromItem = true,
 	color = 4,
 	description = "Shapeshift into a Bear and rake enemies with your claws, generating Rage on Hit.",
@@ -5486,6 +5515,7 @@ skills["BearMaulPlayer"] = {
 skills["MeditatePlayer"] = {
 	name = "Meditate",
 	baseTypeName = "Meditate",
+	icon = "Art/2DArt/SkillIcons/MonkInvokerMeditate.dds",
 	fromTree = true,
 	color = 4,
 	description = "Channel to Recharge Energy Shield and allow that Recharge to Overflow. Channelling ends when you take damage or your Energy Shield is fully Overflowed.",
@@ -5601,6 +5631,7 @@ skills["MeditatePlayer"] = {
 skills["MomentOfVulnerabilityPlayer"] = {
 	name = "Moment of Vulnerability",
 	baseTypeName = "Moment of Vulnerability",
+	icon = "Art/2DArt/SkillIcons/passives/DruidOracleRipFromTimeSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Send out a temporal Nova to take advantage of enemies' moment of vulnerability. Hitting enemies that are Primed for Stun, Electrocution, or Freeze causes a visage of them to appear, lasting as long as the original target would have been affected by the form of Immobilisation used to create the visage. A portion of the damage dealt to visages is also dealt to the original.",
@@ -5729,6 +5760,7 @@ skills["MomentOfVulnerabilityPlayer"] = {
 skills["SummonWaterDjinnPlayer"] = {
 	name = "Navira, the Last Mirage",
 	baseTypeName = "Navira, the Last Mirage",
+	icon = "Art/2DArt/SkillIcons/SorceressSummonWaterDjinn.dds",
 	fromTree = true,
 	minionList = {
 		"WaterDjinn",
@@ -5848,6 +5880,7 @@ skills["SummonWaterDjinnPlayer"] = {
 skills["CommandWaterDjinnBubblePlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Rolldodge.dds",
 	fromTree = true,
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
@@ -5962,6 +5995,7 @@ skills["CommandWaterDjinnBubblePlayer"] = {
 skills["ParryPlayer"] = {
 	name = "Parry",
 	baseTypeName = "Parry",
+	icon = "Art/2DArt/SkillIcons/HuntressBucklerParry.dds",
 	fromTree = true,
 	color = 4,
 	description = "Ready your Buckler to parry the next Strike or Projectile that would Hit you, Blocking the Hit and retaliating with a quick sweep that leaves enemies off balance, causing them to take massively increased Attack damage for a short duration. Parrying causes you to accumulate Heavy Stun buildup. You cannot Evade a Hit you could parry, but Evasion instead grants an equal chance to avoid this Heavy Stun buildup.",
@@ -5987,6 +6021,9 @@ skills["ParryPlayer"] = {
 				melee = true,
 				duration = true,
 				shieldAttack = true,
+			},
+			baseMods = {
+				skill("debuff", true),
 			},
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -50 },
@@ -6024,6 +6061,7 @@ skills["ParryPlayer"] = {
 skills["PinnacleOfPowerPlayer"] = {
 	name = "Pinnacle of Power",
 	baseTypeName = "Pinnacle of Power",
+	icon = "Art/2DArt/SkillIcons/ElementalPowerSkillWand.dds",
 	fromItem = true,
 	color = 4,
 	description = "Consume all Power Charges to master the elements, gaining Elemental Damage and the ability to apply Elemental Ailments with other damage types. Can only be used while you have maximum Power Charges.",
@@ -6040,6 +6078,21 @@ skills["PinnacleOfPowerPlayer"] = {
 			label = "Pinnacle of Power",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "pinnacle_of_power",
+			statMap = {
+				["elemental_power_elemental_damage_+%_final_per_power_charge"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillTypeList = { SkillType.Cold, SkillType.Fire, SkillType.Lightning } }, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }, { type = "GlobalEffect", effectType = "Buff" }),
+					flag("ColdCanIgnite", { type = "GlobalEffect", effectType = "Buff" }), flag("ColdCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+					flag("FireCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("FireCanShock", { type = "GlobalEffect", effectType = "Buff" }),
+					flag("LightningCanFreeze", { type = "GlobalEffect", effectType = "Buff" }), flag("LightningCanIgnite", { type = "GlobalEffect", effectType = "Buff" }),
+				},
+				["elemental_power_buff_duration_per_power_charge_ms"] = {
+					mod("Duration", "BASE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", scalar = "ConsumedPowerChargeEffect" }),
+					div = 1000,
+				},
+				["quality_stat_elemental_power_elemental_damage_+%_final_per_power_charge_is_gem"] = {
+					-- display only
+				},
+			},
 			baseFlags = {
 				buff = true,
 				duration = true,
@@ -6062,6 +6115,7 @@ skills["PinnacleOfPowerPlayer"] = {
 skills["MeleeUnarmedPlayer"] = {
 	name = "Punch",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/UnarmedDefaultSkill.dds",
 	color = 4,
 	description = "Perform an Unarmed Strike.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
@@ -6175,6 +6229,7 @@ skills["MeleeUnarmedPlayer"] = {
 skills["MeleeQuarterstaffPlayer"] = {
 	name = "Quarterstaff Strike",
 	baseTypeName = "Quarterstaff Strike",
+	icon = "Art/2DArt/SkillIcons/QuarterstaffDefaultSkill.dds",
 	fromItem = true,
 	color = 4,
 	description = "Strike with your Quarterstaff.",
@@ -6292,6 +6347,7 @@ skills["MeleeQuarterstaffPlayer"] = {
 skills["ShieldBlockPlayer"] = {
 	name = "Raise Shield",
 	baseTypeName = "Raise Shield",
+	icon = "Art/2DArt/SkillIcons/BruteShieldBlock.dds",
 	fromItem = true,
 	color = 4,
 	description = "Raise your Shield to Block all incoming Blockable hits. Release immediately after Blocking when an enemy is close to perform a Shield Bash, damaging and Stunning enemies. While your Shield is raised you cannot be Light Stunned by hits you Block, but Blocking too much damage may Heavy Stun you. You cannot Evade while your Shield is raised, but Evasion instead grants an equal chance to avoid this Heavy Stun buildup.",
@@ -6349,6 +6405,7 @@ skills["ShieldBlockPlayer"] = {
 skills["WyvernRendPlayer"] = {
 	name = "Rend",
 	baseTypeName = "Rend",
+	icon = "Art/2DArt/SkillIcons/DruidWyvernSwipe.dds",
 	color = 4,
 	description = "Shapeshift into a Wyvern and perform a wide slash with your wingtip claws. Consumes a Power Charge if possible to grant you a Buff that gives you extra Lightning damage. While you have the Buff, Rend covers a much larger area but is slower.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Shapeshift] = true, [SkillType.Wyvern] = true, [SkillType.ConsumesCharges] = true, [SkillType.Duration] = true, },
@@ -6531,6 +6588,7 @@ skills["WyvernRendPlayer"] = {
 skills["RitualSacrificePlayer"] = {
 	name = "Ritual Sacrifice",
 	baseTypeName = "Ritual Sacrifice",
+	icon = "Art/2DArt/SkillIcons/PrimalistStabCorpseSkillIcon.dds",
 	fromTree = true,
 	color = 4,
 	description = "Sacrifice the Corpse of a Rare Monster to grant you its Modifiers for a duration.",
@@ -6652,6 +6710,7 @@ skills["RitualSacrificePlayer"] = {
 skills["SummonFireDjinnPlayer"] = {
 	name = "Ruzhan, the Blazing Sword",
 	baseTypeName = "Ruzhan, the Blazing Sword",
+	icon = "Art/2DArt/SkillIcons/SorceressSummonFireDjinn.dds",
 	fromTree = true,
 	minionList = {
 		"FireDjinn",
@@ -6772,6 +6831,7 @@ skills["SummonFireDjinnPlayer"] = {
 skills["CommandFireDjinnLivingBombPlayer"] = {
 	name = "Command: {0} ",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Rolldodge.dds",
 	fromTree = true,
 	skillTypes = { [SkillType.CommandsMinions] = true, [SkillType.UsableWhileMoving] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.4,
@@ -6886,6 +6946,7 @@ skills["CommandFireDjinnLivingBombPlayer"] = {
 skills["ShatteringConcoctionPlayer"] = {
 	name = "Shattering Concoction",
 	baseTypeName = "Shattering Concoction",
+	icon = "Art/2DArt/SkillIcons/RangerBrewConcoctionColdSkill.dds",
 	fromTree = true,
 	color = 4,
 	description = "Consume charges from your Mana Flask to throw a flask that explodes, dealing Cold Attack damage in an area and inflicting Exposure.",
@@ -6945,12 +7006,6 @@ skills["ShatteringConcoctionPlayer"] = {
 			baseEffectiveness = 3.9000000953674,
 			incrementalEffectiveness = 0.27349999547005,
 			statDescriptionScope = "shattering_concoction",
-			statMap = {
-				["flask_throw_cold_exposure_ms"] = {
-					mod("ColdExposureChance", "BASE", nil),
-					value = 100,
-				},
-			},
 			baseFlags = {
 				attack = true,
 				projectile = true,
@@ -7028,6 +7083,7 @@ skills["ShatteringConcoctionPlayer"] = {
 skills["WolfShredPlayer"] = {
 	name = "Shred",
 	baseTypeName = "Shred",
+	icon = "Art/2DArt/SkillIcons/DruidFrozenClaws.dds",
 	fromItem = true,
 	color = 4,
 	description = "Shapeshift into a Werewolf and lash out with a flurry of claw swipes. The first Attack can dash to faraway enemies and the final Attack Strikes twice. Attacking a Frozen enemy will create Ice Fragments, which are Projectiles that land and explode after a short delay.",
@@ -7293,6 +7349,7 @@ skills["WolfShredPlayer"] = {
 skills["IceFragmentsPlayer"] = {
 	name = "Ice Fragments",
 	baseTypeName = "Ice Fragments",
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	fromItem = true,
 	color = 4,
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Attack] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.AttackInPlace] = true, },
@@ -7418,6 +7475,7 @@ skills["IceFragmentsPlayer"] = {
 skills["SorceryWardPlayer"] = {
 	name = "Sorcery Ward",
 	baseTypeName = "Sorcery Ward",
+	icon = "Art/2DArt/SkillIcons/WitchunterSpellAegis.dds",
 	fromTree = true,
 	color = 4,
 	description = "Passively manifests a protective barrier which takes Elemental Damage from Hits for you until depleted. The barrier instantly recharges to its full value a short time after it stops taking damage or is fully depleted.",
@@ -7473,6 +7531,12 @@ skills["SorceryWardPlayer"] = {
 			label = "Sorcery Ward",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "sorcery_ward",
+			statMap = {
+				["aegis_unique_shield_max_value_from_%_armour_evasion"] = {
+					mod("ElementalAegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution", neg = true }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+					mod("AegisValue", "MAX", nil, 0, 0, { type = "Condition", var = "SorceryWard" }, { type = "Condition", var = "CeremonialAblution" }, { type = "PercentStat", statList = { "Armour", "Evasion" }, percent = 1 }, { type = "GlobalEffect", effectType = "Buff" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -7533,6 +7597,7 @@ skills["SorceryWardPlayer"] = {
 skills["MeleeSpearOffHandPlayer"] = {
 	name = "Spear Stab",
 	baseTypeName = "Spear Stab",
+	icon = "Art/2DArt/SkillIcons/SpearDefaultSkill.dds",
 	fromItem = true,
 	color = 4,
 	description = "Strike with your Spear.",
@@ -7650,6 +7715,7 @@ skills["MeleeSpearOffHandPlayer"] = {
 skills["MeleeSpearPlayer"] = {
 	name = "Spear Stab",
 	baseTypeName = "Spear Stab",
+	icon = "Art/2DArt/SkillIcons/TwoHandSpearDefaultSkill.dds",
 	fromItem = true,
 	color = 4,
 	description = "Strike with your Spear.",
@@ -7768,6 +7834,7 @@ skills["MeleeSpearPlayer"] = {
 skills["SpearThrowPlayer"] = {
 	name = "Spear Throw",
 	baseTypeName = "Spear Throw",
+	icon = "Art/2DArt/SkillIcons/HuntressIceSpear.dds",
 	fromItem = true,
 	color = 4,
 	description = "Hurl your Spear with force. Consumes a Frenzy Charge if you have one to cause the Spear to explode at the end of its flight.",
@@ -7960,6 +8027,7 @@ skills["SpearThrowPlayer"] = {
 skills["SummonInfernalHoundPlayer"] = {
 	name = "Summon Infernal Hound",
 	baseTypeName = "Summon Infernal Hound",
+	icon = "Art/2DArt/SkillIcons/WitchSummonInfernalFamiliar.dds",
 	fromTree = true,
 	minionList = {
 		"SummonedHellhound",
@@ -8022,7 +8090,7 @@ skills["SummonInfernalHoundPlayer"] = {
 			baseFlags = {
 				spell = true,
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "display_minion_monster_type", 8 },
@@ -8081,6 +8149,7 @@ skills["SummonInfernalHoundPlayer"] = {
 skills["SupportingFirePlayer"] = {
 	name = "Supporting Fire",
 	baseTypeName = "Supporting Fire",
+	icon = "Art/2DArt/SkillIcons/TacticianDeathFromAboveSkillIcon.dds",
 	fromTree = true,
 	minionList = {
 		"TacticianMinion",
@@ -8151,7 +8220,7 @@ skills["SupportingFirePlayer"] = {
 			},
 			baseFlags = {
 				minion = true,
-				permanentMinion = true,
+				duration = true,
 			},
 			constantStats = {
 				{ "minion_1%_damage_+%_per_X_player_strength", 1 },
@@ -8209,6 +8278,7 @@ skills["SupportingFirePlayer"] = {
 skills["TemperWeaponPlayer"] = {
 	name = "Temper Weapon",
 	baseTypeName = "Temper Weapon",
+	icon = "Art/2DArt/SkillIcons/SmithOfKitavaImbueWeaponSkillIcon.dds",
 	fromTree = true,
 	color = 4,
 	description = "Channel to temper your main hand Melee Martial Weapon. Each hit of the hammer against the anvil Empowers subsequent Attacks to Combust when Hitting enemies.",
@@ -8346,6 +8416,7 @@ skills["TemperWeaponPlayer"] = {
 skills["TemperWeaponCombustionPlayer"] = {
 	name = "Combust",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SmithOfKitavaImbueWeaponSkillIcon.dds",
 	fromTree = true,
 	description = "Explode, dealing Fire damage in an area.",
 	skillTypes = { [SkillType.Fire] = true, [SkillType.Triggered] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
@@ -8474,6 +8545,7 @@ skills["TemperWeaponCombustionPlayer"] = {
 skills["TemporalRiftPlayer"] = {
 	name = "Temporal Rift",
 	baseTypeName = "Temporal Rift",
+	icon = "Art/2DArt/SkillIcons/SorceressTemporalistTemporalRift.dds",
 	fromTree = true,
 	color = 4,
 	description = "While active, passively leaves afterimages of your recent past. Cast the Spell to return to the oldest afterimage, teleporting to that location and resetting your Life, Mana and Energy Shield to the values they had at the time.",
@@ -8587,6 +8659,7 @@ skills["TemporalRiftPlayer"] = {
 skills["TimeFreezePlayer"] = {
 	name = "Time Freeze",
 	baseTypeName = "Time Freeze",
+	icon = "Art/2DArt/SkillIcons/SorceressTemporalistTimeStop.dds",
 	fromTree = true,
 	color = 4,
 	description = "Release a large wave that stops time for all affected enemies for a duration. Duration is lower the more times the enemy has had time stopped for them.",
@@ -8702,6 +8775,7 @@ skills["TimeFreezePlayer"] = {
 skills["TimeSnapPlayer"] = {
 	name = "Time Snap",
 	baseTypeName = "Time Snap",
+	icon = "Art/2DArt/SkillIcons/SorceressTemporalistReloadCooldown.dds",
 	fromTree = true,
 	color = 4,
 	description = "Manipulate time, resetting the cooldowns of your other Skills.",
@@ -8809,6 +8883,7 @@ skills["TimeSnapPlayer"] = {
 skills["UnboundAvatarPlayer"] = {
 	name = "Unbound Avatar",
 	baseTypeName = "Unbound Avatar",
+	icon = "Art/2DArt/SkillIcons/MonkInvokerUnboundAvatar.dds",
 	fromTree = true,
 	color = 4,
 	description = "Gain Unbound Fury by inflicting Elemental Ailments with Hits on enemies. Once you reach maximum Unbound Fury, consume it to become Unbound for a duration, vastly augmenting your Elemental prowess.",
@@ -8929,6 +9004,7 @@ skills["UnboundAvatarPlayer"] = {
 skills["VoidIllusionPlayer"] = {
 	name = "Void Illusion",
 	baseTypeName = "Void Illusion",
+	icon = "Art/2DArt/SkillIcons/MonkVoidIllusion.dds",
 	fromTree = true,
 	color = 4,
 	description = "While active, creates a short-lived illusory copy of yourself whenever you dodge roll. The copy can be damaged by enemies, and copies that are destroyed by an enemy will cause damaging explosions. Copies created this way have 1 Life.",
@@ -9057,6 +9133,7 @@ skills["VoidIllusionPlayer"] = {
 skills["VoidIllusionSpawnPlayer"] = {
 	name = "Void Illusion",
 	hidden = true,
+	icon = "",
 	fromTree = true,
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -9328,3 +9405,351 @@ skills["VoidIllusionSpawnPlayer"] = {
 					},
 				}
 			}
+
+skills["MetaMirageDeadeyePlayer"] = {
+	name = "Mirage Deadeye",
+	baseTypeName = "Mirage Deadeye",
+	icon = "Art/2DArt/SkillIcons/RangerDeadeyeMirageSkill.dds",
+	color = 4,
+	description = "While active, firing a ranged Projectile Attack will create a Mirage that uses socketed ranged Attacks for a short duration, then vanish.",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.Meta] = true, [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, },
+	weaponTypes = {
+		["Bow"] = true,
+		["Crossbow"] = true,
+		["Spear"] = true,
+	},
+	castTime = 0,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 3, },
+		[3] = { levelRequirement = 6, },
+		[4] = { levelRequirement = 10, },
+		[5] = { levelRequirement = 14, },
+		[6] = { levelRequirement = 18, },
+		[7] = { levelRequirement = 22, },
+		[8] = { levelRequirement = 26, },
+		[9] = { levelRequirement = 31, },
+		[10] = { levelRequirement = 36, },
+		[11] = { levelRequirement = 41, },
+		[12] = { levelRequirement = 46, },
+		[13] = { levelRequirement = 52, },
+		[14] = { levelRequirement = 58, },
+		[15] = { levelRequirement = 64, },
+		[16] = { levelRequirement = 66, },
+		[17] = { levelRequirement = 72, },
+		[18] = { levelRequirement = 78, },
+		[19] = { levelRequirement = 84, },
+		[20] = { levelRequirement = 90, },
+		[21] = { levelRequirement = 90, },
+		[22] = { levelRequirement = 90, },
+		[23] = { levelRequirement = 90, },
+		[24] = { levelRequirement = 90, },
+		[25] = { levelRequirement = 90, },
+		[26] = { levelRequirement = 90, },
+		[27] = { levelRequirement = 90, },
+		[28] = { levelRequirement = 90, },
+		[29] = { levelRequirement = 90, },
+		[30] = { levelRequirement = 90, },
+		[31] = { levelRequirement = 90, },
+		[32] = { levelRequirement = 90, },
+		[33] = { levelRequirement = 90, },
+		[34] = { levelRequirement = 90, },
+		[35] = { levelRequirement = 90, },
+		[36] = { levelRequirement = 90, },
+		[37] = { levelRequirement = 90, },
+		[38] = { levelRequirement = 90, },
+		[39] = { levelRequirement = 90, },
+		[40] = { levelRequirement = 90, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mirage Deadeye",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "mirage_deadeye",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "skill_desired_amount_override", 1 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 3.4519999027252, },
+				[3] = { actorLevel = 6.7670001983643, },
+				[4] = { actorLevel = 10.307999610901, },
+				[5] = { actorLevel = 14.074999809265, },
+				[6] = { actorLevel = 18.068000793457, },
+				[7] = { actorLevel = 22.287000656128, },
+				[8] = { actorLevel = 26.732000350952, },
+				[9] = { actorLevel = 31.40299987793, },
+				[10] = { actorLevel = 36.299999237061, },
+				[11] = { actorLevel = 41.423000335693, },
+				[12] = { actorLevel = 46.771999359131, },
+				[13] = { actorLevel = 52.34700012207, },
+				[14] = { actorLevel = 58.147998809814, },
+				[15] = { actorLevel = 64.175003051758, },
+				[16] = { actorLevel = 70.428001403809, },
+				[17] = { actorLevel = 76.906997680664, },
+				[18] = { actorLevel = 83.611999511719, },
+				[19] = { actorLevel = 90.542999267578, },
+				[20] = { actorLevel = 97.699996948242, },
+				[21] = { actorLevel = 105.08300018311, },
+				[22] = { actorLevel = 112.69200134277, },
+				[23] = { actorLevel = 120.52700042725, },
+				[24] = { actorLevel = 128.58799743652, },
+				[25] = { actorLevel = 136.875, },
+				[26] = { actorLevel = 145.38800048828, },
+				[27] = { actorLevel = 154.12699890137, },
+				[28] = { actorLevel = 163.09199523926, },
+				[29] = { actorLevel = 172.28300476074, },
+				[30] = { actorLevel = 181.69999694824, },
+				[31] = { actorLevel = 191.34300231934, },
+				[32] = { actorLevel = 201.21200561523, },
+				[33] = { actorLevel = 211.30700683594, },
+				[34] = { actorLevel = 221.62800598145, },
+				[35] = { actorLevel = 232.17500305176, },
+				[36] = { actorLevel = 242.94799804688, },
+				[37] = { actorLevel = 253.94700622559, },
+				[38] = { actorLevel = 265.17199707031, },
+				[39] = { actorLevel = 276.62298583984, },
+				[40] = { actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["SupportMirageDeadeyePlayer"] = {
+	name = "SupportMirageDeadeyePlayer",
+	hidden = true,
+	support = true,
+	requireSkillTypes = { SkillType.RangedAttack, SkillType.CrossbowAmmoSkill, SkillType.OR, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.HasUsageCondition, },
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "SupportMirageDeadeyePlayer",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "meta_gem_stat_descriptions",
+			statMap = {
+				["support_lingering_mirage_damage_+%_final"] = {
+					mod("Damage", "MORE", nil),
+				},
+			},
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_lingering_mirage_damage_+%_final", -50 },
+				{ "skill_disabled_unless_cloned", 1 },
+			},
+			stats = {
+				"cannot_consume_power_frenzy_endurance_charges",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 3.4519999027252, },
+				[3] = { actorLevel = 6.7670001983643, },
+				[4] = { actorLevel = 10.307999610901, },
+				[5] = { actorLevel = 14.074999809265, },
+				[6] = { actorLevel = 18.068000793457, },
+				[7] = { actorLevel = 22.287000656128, },
+				[8] = { actorLevel = 26.732000350952, },
+				[9] = { actorLevel = 31.40299987793, },
+				[10] = { actorLevel = 36.299999237061, },
+				[11] = { actorLevel = 41.423000335693, },
+				[12] = { actorLevel = 46.771999359131, },
+				[13] = { actorLevel = 52.34700012207, },
+				[14] = { actorLevel = 58.147998809814, },
+				[15] = { actorLevel = 64.175003051758, },
+				[16] = { actorLevel = 70.428001403809, },
+				[17] = { actorLevel = 76.906997680664, },
+				[18] = { actorLevel = 83.611999511719, },
+				[19] = { actorLevel = 90.542999267578, },
+				[20] = { actorLevel = 97.699996948242, },
+				[21] = { actorLevel = 105.08300018311, },
+				[22] = { actorLevel = 112.69200134277, },
+				[23] = { actorLevel = 120.52700042725, },
+				[24] = { actorLevel = 128.58799743652, },
+				[25] = { actorLevel = 136.875, },
+				[26] = { actorLevel = 145.38800048828, },
+				[27] = { actorLevel = 154.12699890137, },
+				[28] = { actorLevel = 163.09199523926, },
+				[29] = { actorLevel = 172.28300476074, },
+				[30] = { actorLevel = 181.69999694824, },
+				[31] = { actorLevel = 191.34300231934, },
+				[32] = { actorLevel = 201.21200561523, },
+				[33] = { actorLevel = 211.30700683594, },
+				[34] = { actorLevel = 221.62800598145, },
+				[35] = { actorLevel = 232.17500305176, },
+				[36] = { actorLevel = 242.94799804688, },
+				[37] = { actorLevel = 253.94700622559, },
+				[38] = { actorLevel = 265.17199707031, },
+				[39] = { actorLevel = 276.62298583984, },
+				[40] = { actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["MirageDeadeyeSpawnPlayer"] = {
+	name = "",
+	hidden = true,
+	icon = "",
+	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Proxy] = true, },
+	weaponTypes = {
+		["Bow"] = true,
+		["Crossbow"] = true,
+		["Spear"] = true,
+	},
+	castTime = 0,
+	qualityStats = {
+		{ "base_skill_effect_duration", 50 },
+	},
+	levels = {
+		[1] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[2] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[3] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[4] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[5] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[6] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[7] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[8] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[9] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[10] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[11] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[12] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[13] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[14] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[15] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[16] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[17] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[18] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[19] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[20] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[21] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[22] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[23] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[24] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[25] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[26] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[27] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[28] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[29] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[30] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[31] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[32] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[33] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[34] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[35] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[36] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[37] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[38] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[39] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+		[40] = { cooldown = 10, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mirage",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "create_mirage_deadeye",
+			baseFlags = {
+			},
+			stats = {
+				"base_skill_effect_duration",
+				"triggered_by_lingering_mirage",
+				"hide_minion_frame",
+				"quality_display_lingering_mirage_is_gem",
+				"base_deal_no_damage_over_time",
+			},
+			notMinionStat = {
+				"base_skill_effect_duration",
+			},
+			levels = {
+				[1] = { 4050, statInterpolation = { 1, }, actorLevel = 1, },
+				[2] = { 4100, statInterpolation = { 1, }, actorLevel = 3.4519999027252, },
+				[3] = { 4150, statInterpolation = { 1, }, actorLevel = 6.7670001983643, },
+				[4] = { 4200, statInterpolation = { 1, }, actorLevel = 10.307999610901, },
+				[5] = { 4250, statInterpolation = { 1, }, actorLevel = 14.074999809265, },
+				[6] = { 4300, statInterpolation = { 1, }, actorLevel = 18.068000793457, },
+				[7] = { 4350, statInterpolation = { 1, }, actorLevel = 22.287000656128, },
+				[8] = { 4400, statInterpolation = { 1, }, actorLevel = 26.732000350952, },
+				[9] = { 4450, statInterpolation = { 1, }, actorLevel = 31.40299987793, },
+				[10] = { 4500, statInterpolation = { 1, }, actorLevel = 36.299999237061, },
+				[11] = { 4550, statInterpolation = { 1, }, actorLevel = 41.423000335693, },
+				[12] = { 4600, statInterpolation = { 1, }, actorLevel = 46.771999359131, },
+				[13] = { 4650, statInterpolation = { 1, }, actorLevel = 52.34700012207, },
+				[14] = { 4700, statInterpolation = { 1, }, actorLevel = 58.147998809814, },
+				[15] = { 4750, statInterpolation = { 1, }, actorLevel = 64.175003051758, },
+				[16] = { 4800, statInterpolation = { 1, }, actorLevel = 70.428001403809, },
+				[17] = { 4850, statInterpolation = { 1, }, actorLevel = 76.906997680664, },
+				[18] = { 4900, statInterpolation = { 1, }, actorLevel = 83.611999511719, },
+				[19] = { 4950, statInterpolation = { 1, }, actorLevel = 90.542999267578, },
+				[20] = { 5000, statInterpolation = { 1, }, actorLevel = 97.699996948242, },
+				[21] = { 5050, statInterpolation = { 1, }, actorLevel = 105.08300018311, },
+				[22] = { 5100, statInterpolation = { 1, }, actorLevel = 112.69200134277, },
+				[23] = { 5150, statInterpolation = { 1, }, actorLevel = 120.52700042725, },
+				[24] = { 5200, statInterpolation = { 1, }, actorLevel = 128.58799743652, },
+				[25] = { 5250, statInterpolation = { 1, }, actorLevel = 136.875, },
+				[26] = { 5300, statInterpolation = { 1, }, actorLevel = 145.38800048828, },
+				[27] = { 5350, statInterpolation = { 1, }, actorLevel = 154.12699890137, },
+				[28] = { 5400, statInterpolation = { 1, }, actorLevel = 163.09199523926, },
+				[29] = { 5450, statInterpolation = { 1, }, actorLevel = 172.28300476074, },
+				[30] = { 5500, statInterpolation = { 1, }, actorLevel = 181.69999694824, },
+				[31] = { 5550, statInterpolation = { 1, }, actorLevel = 191.34300231934, },
+				[32] = { 5600, statInterpolation = { 1, }, actorLevel = 201.21200561523, },
+				[33] = { 5650, statInterpolation = { 1, }, actorLevel = 211.30700683594, },
+				[34] = { 5700, statInterpolation = { 1, }, actorLevel = 221.62800598145, },
+				[35] = { 5750, statInterpolation = { 1, }, actorLevel = 232.17500305176, },
+				[36] = { 5800, statInterpolation = { 1, }, actorLevel = 242.94799804688, },
+				[37] = { 5850, statInterpolation = { 1, }, actorLevel = 253.94700622559, },
+				[38] = { 5900, statInterpolation = { 1, }, actorLevel = 265.17199707031, },
+				[39] = { 5950, statInterpolation = { 1, }, actorLevel = 276.62298583984, },
+				[40] = { 6000, statInterpolation = { 1, }, actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}

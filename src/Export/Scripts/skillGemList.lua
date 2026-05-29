@@ -11,26 +11,26 @@ export:write('-- Gem data (c) Grinding Gear Games\n\n')
 local types = { "Strength", "Dexterity", "Intelligence", "Other" }
 
 local function grantedEffectString(grantedEffect, support)
-	local s =  "#skill "..grantedEffect.Id.."\n"
+	local s = "#skill " .. grantedEffect.Id .. "\n"
 	if not (grantedEffect.GrantedEffectStatSets.LabelType and grantedEffect.GrantedEffectStatSets.LabelType.Id == "Hidden") then
-		s = s.."#set "..grantedEffect.GrantedEffectStatSets.Id
+		s = s .. "#set " .. grantedEffect.GrantedEffectStatSets.Id
 		if grantedEffect.IsSupport then
-			s = s.."\n#mods\n"
+			s = s .. "\n#mods\n"
 		else
-			s = s.."\n#flags\n#mods\n"
+			s = s .. "\n#flags\n#mods\n"
 		end
 	end
 	for _, statSet in ipairs(grantedEffect.AdditionalStatSets) do
 		if not (statSet.LabelType and statSet.LabelType.Id == "Hidden") then
-			s = s.."#set "..statSet.Id
+			s = s .. "#set " .. statSet.Id
 			if grantedEffect.IsSupport then
-				s = s.."\n#mods\n"
+				s = s .. "\n#mods\n"
 			else
-				s = s.."\n#flags\n#mods\n"
+				s = s .. "\n#flags\n#mods\n"
 			end
 		end
 	end
-	s = s.."#skillEnd\n"
+	s = s .. "#skillEnd\n"
 	return s
 end
 for i, _ in ipairs(types) do
@@ -38,6 +38,8 @@ for i, _ in ipairs(types) do
 	local support = {}
 	local activeExport = {}
 	local supportExport = {}
+	local disabled = {}
+	local disabledExport = {}
 	local colour
 	for skillGem in dat("SkillGems"):Rows() do
 		for _, gemEffect in ipairs(skillGem.GemEffects) do
@@ -50,39 +52,91 @@ for i, _ in ipairs(types) do
 			else
 				colour = "Other"
 			end
-			if skillGem.IsSupport and skillGem.GemColour == i and not gemEffect.Id:match("Unknown") and not gemEffect.Id:match("Playtest") and not skillGem.BaseItemType.Name:match("DNT")
-			and dat("SupportGems"):GetRow("SkillGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id))) then
-				local temp = skillGem.BaseItemType.Name..string.rep(" ", 30 - string.len(skillGem.BaseItemType.Name)).."\t\t----\t\t"..gemEffect.GrantedEffect.Id
-				local temp1 = skillGem.BaseItemType.Name..grantedEffectString(gemEffect.GrantedEffect, true)
-				if gemEffect.AdditionalGrantedEffects then
-					for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
-						temp = temp.."\t"..additionalGrantedEffect.Id
-						temp1 = temp1.."\n"..grantedEffectString(additionalGrantedEffect, true)
+
+			local isUnused = gemEffect.Id:match("Unknown") or gemEffect.Id:match("Unusable") or
+				gemEffect.Id:match("Playtest") or
+				skillGem.BaseItemType.Name:match("DNT") or
+				(gemEffect.GrantedEffect.ActiveSkill and gemEffect.GrantedEffect.ActiveSkill.DisplayName:match("DNT"))
+			-- check description for DNT-UNUSED to filter out more
+			if not isUnused then
+				for _, v in ipairs(skillGem.GemEffects) do
+					if v.Description and v.Description:lower():match("dnt%-unused") then
+						isUnused = true
 					end
 				end
-				table.insert(support, temp)
-				table.insert(supportExport, temp1)
-			elseif not skillGem.IsSupport and types[i] == colour and not gemEffect.Id:match("Unknown") and not gemEffect.Id:match("Playtest") and not gemEffect.GrantedEffect.ActiveSkill.DisplayName:match("DNT") and not skillGem.BaseItemType.Name:match("DNT") 
-			and (gemEffect.Id:match("UniqueBreach") or dat("SkillGemSupports"):GetRow("ActiveGem", dat("SkillGems"):GetRow("BaseItemType", dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)))
-			or gemEffect.GrantedEffect.ActiveSkill.DisplayName:match("Tame Beast")) then
-				local temp = gemEffect.GrantedEffect.ActiveSkill.DisplayName..string.rep(" ", 30 - string.len(gemEffect.GrantedEffect.ActiveSkill.DisplayName)).."\t\t----\t\t"..gemEffect.GrantedEffect.Id
-				local temp1 = gemEffect.GrantedEffect.ActiveSkill.DisplayName..grantedEffectString(gemEffect.GrantedEffect)
-				if gemEffect.AdditionalGrantedEffects then
-					for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
-						temp = temp.."\t"..additionalGrantedEffect.Id
-						temp1 = temp1.."\n"..grantedEffectString(additionalGrantedEffect)
+				if gemEffect.GrantedEffect.ActiveSkill and gemEffect.GrantedEffect.ActiveSkill.Description and gemEffect.GrantedEffect.ActiveSkill.Description:lower():match("dnt%-unused") then
+					isUnused = true
+				end
+			end
+			if isUnused then
+				goto continue
+			end
+
+			local supportMatch = (skillGem.IsSupport and skillGem.GemColour == i)
+			local activeMatch = (not skillGem.IsSupport and types[i] == colour)
+
+			if supportMatch then
+				local baseItemType = dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)
+				local skillGem = dat("SkillGems"):GetRow("BaseItemType", baseItemType)
+				local supportGemEntry = dat("SupportGems"):GetRow("SkillGem", skillGem)
+				if supportGemEntry then
+					local temp = skillGem.BaseItemType.Name ..
+						string.rep(" ", 30 - string.len(skillGem.BaseItemType.Name)) ..
+						"\t\t----\t\t" .. gemEffect.GrantedEffect.Id
+					local temp1 = skillGem.BaseItemType.Name .. grantedEffectString(gemEffect.GrantedEffect, true)
+					if gemEffect.AdditionalGrantedEffects then
+						for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
+							temp = temp .. "\t" .. additionalGrantedEffect.Id
+							temp1 = temp1 .. "\n" .. grantedEffectString(additionalGrantedEffect, true)
+						end
+					end
+					table.insert(support, temp)
+					table.insert(supportExport, temp1)
+				end
+			elseif activeMatch
+			then
+				local baseItemType = dat("BaseItemTypes"):GetRow("Id", skillGem.BaseItemType.Id)
+				local skillGem = dat("SkillGems"):GetRow("BaseItemType", baseItemType)
+				-- we use the table for recommended supports to ensure we only
+				-- export gems that can drop. this is not always correct, as
+				-- some gems might be missing recommended supports
+				local recommendedSupports = dat("SkillGemSupports"):GetRow("ActiveGem", skillGem)
+
+				local isTameBeast = gemEffect.GrantedEffect.ActiveSkill.DisplayName:match("Tame Beast")
+				local shouldExport = (gemEffect.Id:match("UniqueBreach") or skillGem
+					or isTameBeast)
+
+				if shouldExport then
+					local temp = gemEffect.GrantedEffect.ActiveSkill.DisplayName ..
+						string.rep(" ", 30 - string.len(gemEffect.GrantedEffect.ActiveSkill.DisplayName)) ..
+						"\t\t----\t\t" .. gemEffect.GrantedEffect.Id
+					local temp1 = gemEffect.GrantedEffect.ActiveSkill.DisplayName ..
+						grantedEffectString(gemEffect.GrantedEffect)
+					if gemEffect.AdditionalGrantedEffects then
+						for _, additionalGrantedEffect in ipairs(gemEffect.AdditionalGrantedEffects) do
+							temp = temp .. "\t" .. additionalGrantedEffect.Id
+							temp1 = temp1 .. "\n" .. grantedEffectString(additionalGrantedEffect)
+						end
+					end
+					if (not recommendedSupports) and not isTameBeast then
+						table.insert(disabled, temp)
+						table.insert(disabledExport, temp1)
+					else
+						table.insert(active, temp)
+						table.insert(activeExport, temp1)
 					end
 				end
-				table.insert(active, temp)
-				table.insert(activeExport, temp1)
 			end
 		end
+		::continue::
 	end
 	table.sort(active)
 	table.sort(support)
+	table.sort(disabled)
 	table.sort(supportExport)
 	table.sort(activeExport)
-	
+	table.sort(disabledExport)
+
 	for i, row in ipairs(supportExport) do
 		-- Remove text before "#skill" only if it is at the start of the string
 		supportExport[i] = string.gsub(row, "^(.-)#skill", "#skill")
@@ -91,19 +145,30 @@ for i, _ in ipairs(types) do
 		-- Remove text before "#skill" only if it is at the start of the string
 		activeExport[i] = string.gsub(row, "^(.-)#skill", "#skill")
 	end
-	
-	out:write("\t\t\t\t\t\t--------- Active "..types[i].." ---------\n")
+	for i, row in ipairs(disabledExport) do
+		-- Remove text before "#skill" only if it is at the start of the string
+		disabledExport[i] = string.gsub(row, "^(.-)#skill", "#skill")
+	end
+
+	out:write("\t\t\t\t\t\t--------- Active " .. types[i] .. " ---------\n")
 	out:write(table.concat(active, "\n"))
 	out:write('\n\n')
-	out:write("\t\t\t\t\t\t--------- Support "..types[i].." ---------\n")
+	out:write("\t\t\t\t\t\t--------- Support " .. types[i] .. " ---------\n")
 	out:write(table.concat(support, "\n"))
 	out:write('\n\n')
-	
-	export:write("\t\t\t\t\t\t--------- Active "..types[i].." ---------\n")
+	out:write("\t\t\t\t\t\t--------- Potentially Disabled " .. types[i] .. " ---------\n")
+	out:write(table.concat(disabled, "\n"))
+	out:write('\n\n')
+
+
+	export:write("\t\t\t\t\t\t--------- Active " .. types[i] .. " ---------\n")
 	export:write(table.concat(activeExport, "\n"))
 	export:write('\n\n')
-	export:write("\t\t\t\t\t\t--------- Support "..types[i].." ---------\n")
+	export:write("\t\t\t\t\t\t--------- Support " .. types[i] .. " ---------\n")
 	export:write(table.concat(supportExport, "\n"))
+	export:write('\n\n')
+	export:write("\t\t\t\t\t\t--------- Potentially Disabled " .. types[i] .. " ---------\n")
+	export:write(table.concat(disabledExport, "\n"))
 	export:write('\n\n')
 end
 

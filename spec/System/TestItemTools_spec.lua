@@ -45,4 +45,61 @@ describe("TestItemTools", function()
 			assert.are.equals(expected, result)
 		end)
 	end
+
+	it("keeps range sliders for lines that resolve to zero", function()
+		local item = new("Item", "Rarity: Rare\nName\nArcane Raiment\n{range:0.5}+(-1-1) to Maximum Power Charges")
+
+		assert.are.equals(1, #item.rangeLineList)
+		assert.are.equals(0.5, item.rangeLineList[1].range)
+		assert.are.equals(0, item.baseModList:Sum("BASE", nil, "PowerChargesMax"))
+	end)
+
+	it("uses the displayed item slot for anoint comparison tooltips", function()
+		if not common.classes.ItemsTab then
+			LoadModule("Classes/ItemsTab")
+		end
+
+		local function assertAnointUsesSlot(rawItem, expectedSlot)
+			local item = new("Item", rawItem)
+			local overrides = { }
+			local fakeItemsTab = setmetatable({
+				displayItem = item,
+				build = {
+					spec = { allocNodes = { } },
+					calcsTab = {
+						GetMiscCalculator = function()
+							return function(override)
+								table.insert(overrides, override)
+								return { }
+							end
+						end,
+					},
+					AddStatComparesToTooltip = function()
+						return 1
+					end,
+				},
+			}, common.classes.ItemsTab)
+			local tooltip = {
+				AddLine = function() end,
+			}
+
+			fakeItemsTab:AppendAnointTooltip(tooltip, { id = 1, dn = "Abasement" })
+
+			assert.are.equals(expectedSlot, overrides[1].repSlotName)
+			assert.are.equals(expectedSlot, overrides[2].repSlotName)
+		end
+
+		assertAnointUsesSlot([[
+			Rarity: Rare
+			Dire Thread
+			Plate Belt
+			Can be Anointed
+			]], "Belt")
+		assertAnointUsesSlot([[
+			Rarity: Rare
+			Spark Loop
+			Ruby Ring
+			Can be Anointed
+			]], "Ring 1")
+	end)
 end)
