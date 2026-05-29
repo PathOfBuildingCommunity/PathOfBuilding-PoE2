@@ -21887,11 +21887,11 @@ return {
 			connections={
 				[1]={
 					id=12601,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=35745,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=633,
@@ -22402,7 +22402,7 @@ return {
 			connections={
 				[1]={
 					id=36025,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=88,
@@ -23489,7 +23489,7 @@ return {
 			connections={
 				[1]={
 					id=49769,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=9554,
@@ -23791,7 +23791,7 @@ return {
 			connections={
 				[1]={
 					id=16204,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=65,
@@ -24067,7 +24067,7 @@ return {
 			connections={
 				[1]={
 					id=25857,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1414,
@@ -24912,11 +24912,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLightning.png",
 			isOnlyImage=true,
 			name="Lightning Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=2733,
@@ -25526,7 +25521,7 @@ return {
 			connections={
 				[1]={
 					id=30996,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=500,
@@ -26377,7 +26372,7 @@ return {
 			connections={
 				[1]={
 					id=31825,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1458,
@@ -26395,7 +26390,7 @@ return {
 			connections={
 				[1]={
 					id=19953,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=89,
@@ -26547,11 +26542,11 @@ return {
 			connections={
 				[1]={
 					id=37780,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=17724,
-					orbit=0
+					orbit=2147483647
 				},
 				[3]={
 					id=14267,
@@ -27401,7 +27396,7 @@ return {
 			connections={
 				[1]={
 					id=44316,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=271,
@@ -28347,11 +28342,6 @@ return {
 			icon="",
 			isOnlyImage=true,
 			name="Minion Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=4663,
@@ -28424,7 +28414,7 @@ return {
 			connections={
 				[1]={
 					id=48828,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=26228,
@@ -29025,7 +29015,7 @@ return {
 				},
 				[2]={
 					id=41651,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=667,
@@ -29274,7 +29264,7 @@ return {
 			connections={
 				[1]={
 					id=54437,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=2397,
@@ -29365,7 +29355,7 @@ return {
 			connections={
 				[1]={
 					id=16142,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1458,
@@ -30573,7 +30563,7 @@ return {
 			connections={
 				[1]={
 					id=364,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=758,
@@ -31533,7 +31523,7 @@ return {
 			connections={
 				[1]={
 					id=15672,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=107,
@@ -33554,7 +33544,7 @@ return {
 			connections={
 				[1]={
 					id=38329,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1350,
@@ -35101,11 +35091,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupMinions.png",
 			isOnlyImage=true,
 			name="Minion Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=1,
 			orbitIndex=3,
 			skill=9212,
@@ -35940,7 +35925,7 @@ return {
 			connections={
 				[1]={
 					id=58513,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1292,
@@ -36320,7 +36305,7 @@ return {
 				},
 				[5]={
 					id=25434,
-					orbit=0
+					orbit=2147483647
 				},
 				[6]={
 					id=17268,
@@ -36866,7 +36851,7 @@ return {
 			connections={
 				[1]={
 					id=8456,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1350,
@@ -37333,7 +37318,7 @@ return {
 			connections={
 				[1]={
 					id=42583,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=51788,
@@ -37888,7 +37873,7 @@ return {
 				},
 				[2]={
 					id=53367,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=505,
@@ -39105,7 +39090,7 @@ return {
 			connections={
 				[1]={
 					id=60708,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=86,
@@ -39435,7 +39420,7 @@ return {
 			connections={
 				[1]={
 					id=7716,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=328,
@@ -39773,7 +39758,7 @@ return {
 			connections={
 				[1]={
 					id=42762,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=89,
@@ -40402,7 +40387,7 @@ return {
 			connections={
 				[1]={
 					id=56063,
-					orbit=0
+					orbit=-1
 				}
 			},
 			group=950,
@@ -40608,7 +40593,7 @@ return {
 				},
 				[2]={
 					id=35745,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=633,
@@ -41384,7 +41369,7 @@ return {
 			connections={
 				[1]={
 					id=43486,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=230,
@@ -41638,7 +41623,7 @@ return {
 			connections={
 				[1]={
 					id=59180,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=38010,
@@ -42102,7 +42087,7 @@ return {
 			connections={
 				[1]={
 					id=27492,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=835,
@@ -42251,11 +42236,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryTotem.png",
 			isOnlyImage=true,
 			name="Totem Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=13691,
@@ -42738,7 +42718,7 @@ return {
 			connections={
 				[1]={
 					id=11666,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=86,
@@ -43470,7 +43450,7 @@ return {
 			connections={
 				[1]={
 					id=16602,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1292,
@@ -44383,11 +44363,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryElementalDamage.png",
 			isOnlyImage=true,
 			name="Elemental Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=14980,
@@ -45138,7 +45113,7 @@ return {
 			connections={
 				[1]={
 					id=45400,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=107,
@@ -45429,11 +45404,6 @@ return {
 			icon="",
 			isOnlyImage=true,
 			name="Minion Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=3,
 			orbitIndex=10,
 			skill=15842,
@@ -46139,7 +46109,7 @@ return {
 			connections={
 				[1]={
 					id=53320,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=667,
@@ -48163,11 +48133,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupCrit.png",
 			isOnlyImage=true,
 			name="Critical Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=1,
 			orbitIndex=9,
 			skill=17587,
@@ -48446,7 +48411,7 @@ return {
 				},
 				[3]={
 					id=20467,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1137,
@@ -48736,7 +48701,7 @@ return {
 			connections={
 				[1]={
 					id=12412,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=608,
@@ -49231,7 +49196,7 @@ return {
 			connections={
 				[1]={
 					id=57819,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=485,
@@ -50058,11 +50023,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryArmourandEnergyShield.png",
 			isOnlyImage=true,
 			name="Armour and Energy Shield Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=18713,
@@ -50179,7 +50139,7 @@ return {
 			connections={
 				[1]={
 					id=11752,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=63360,
@@ -50947,7 +50907,7 @@ return {
 				},
 				[3]={
 					id=15141,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=181,
@@ -51837,7 +51797,7 @@ return {
 			connections={
 				[1]={
 					id=50142,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=89,
@@ -51880,7 +51840,7 @@ return {
 			connections={
 				[1]={
 					id=829,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=88,
@@ -52456,7 +52416,7 @@ return {
 			connections={
 				[1]={
 					id=11984,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=89,
@@ -52603,11 +52563,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupExtra.png",
 			isOnlyImage=true,
 			name="Damage Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=20637,
@@ -52851,7 +52806,7 @@ return {
 			connections={
 				[1]={
 					id=5390,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1458,
@@ -52975,7 +52930,7 @@ return {
 				},
 				[2]={
 					id=4661,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=505,
@@ -52992,7 +52947,7 @@ return {
 			connections={
 				[1]={
 					id=16721,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=314,
@@ -53057,7 +53012,7 @@ return {
 			connections={
 				[1]={
 					id=44891,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1422,
@@ -53670,7 +53625,7 @@ return {
 			connections={
 				[1]={
 					id=30904,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=8,
@@ -53819,11 +53774,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.png",
 			isOnlyImage=true,
 			name="Life Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=7,
 			orbitIndex=21,
 			skill=21374,
@@ -54073,7 +54023,7 @@ return {
 			connections={
 				[1]={
 					id=12940,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=536,
@@ -54310,7 +54260,7 @@ return {
 				},
 				[3]={
 					id=62194,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=750,
@@ -55843,7 +55793,7 @@ return {
 			connections={
 				[1]={
 					id=50268,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1171,
@@ -57176,7 +57126,7 @@ return {
 			connections={
 				[1]={
 					id=3896,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=413,
@@ -57328,7 +57278,7 @@ return {
 			connections={
 				[1]={
 					id=31370,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=232,
@@ -57488,7 +57438,7 @@ return {
 			connections={
 				[1]={
 					id=41529,
-					orbit=0
+					orbit=-1
 				}
 			},
 			group=1218,
@@ -58152,7 +58102,7 @@ return {
 			connections={
 				[1]={
 					id=37336,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1502,
@@ -59032,7 +58982,7 @@ return {
 			connections={
 				[1]={
 					id=44573,
-					orbit=0
+					orbit=1
 				}
 			},
 			group=1318,
@@ -59119,11 +59069,6 @@ return {
 			icon="",
 			isOnlyImage=true,
 			name="Minion Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=2,
 			orbitIndex=19,
 			skill=24929,
@@ -59339,11 +59284,11 @@ return {
 			connections={
 				[1]={
 					id=48828,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=4681,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=481,
@@ -60289,7 +60234,7 @@ return {
 			connections={
 				[1]={
 					id=49258,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=233,
@@ -60797,7 +60742,7 @@ return {
 			connections={
 				[1]={
 					id=28745,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=73,
@@ -62468,7 +62413,7 @@ return {
 			connections={
 				[1]={
 					id=33423,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=13691,
@@ -63037,7 +62982,7 @@ return {
 			connections={
 				[1]={
 					id=12940,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=536,
@@ -63189,7 +63134,7 @@ return {
 			connections={
 				[1]={
 					id=32681,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1146,
@@ -65822,7 +65767,7 @@ return {
 			connections={
 				[1]={
 					id=9745,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=38463,
@@ -65861,7 +65806,7 @@ return {
 			connections={
 				[1]={
 					id=17668,
-					orbit=0
+					orbit=1
 				}
 			},
 			group=1229,
@@ -66151,7 +66096,7 @@ return {
 			connections={
 				[1]={
 					id=11786,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=328,
@@ -66440,11 +66385,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupEvasion.png",
 			isOnlyImage=true,
 			name="Movement Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=2,
 			orbitIndex=6,
 			skill=29663,
@@ -66943,7 +66883,7 @@ return {
 			connections={
 				[1]={
 					id=43944,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=53177,
@@ -67032,11 +66972,11 @@ return {
 			connections={
 				[1]={
 					id=58416,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=49130,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1312,
@@ -67963,7 +67903,7 @@ return {
 			connections={
 				[1]={
 					id=63772,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=298,
@@ -68812,7 +68752,7 @@ return {
 			connections={
 				[1]={
 					id=32448,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=232,
@@ -69262,11 +69202,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryPhysicalDamage.png",
 			isOnlyImage=true,
 			name="Physical Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=6,
 			orbitIndex=9,
 			skill=31757,
@@ -69418,7 +69353,7 @@ return {
 			connections={
 				[1]={
 					id=16142,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1458,
@@ -70453,7 +70388,7 @@ return {
 			connections={
 				[1]={
 					id=5332,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=834,
@@ -70716,7 +70651,7 @@ return {
 			connections={
 				[1]={
 					id=9535,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=964,
@@ -70974,7 +70909,7 @@ return {
 				},
 				[2]={
 					id=38668,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1146,
@@ -72339,7 +72274,7 @@ return {
 			connections={
 				[1]={
 					id=65192,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=107,
@@ -74823,7 +74758,7 @@ return {
 			connections={
 				[1]={
 					id=11641,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=428,
@@ -76536,7 +76471,7 @@ return {
 			connections={
 				[1]={
 					id=35762,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=67,
@@ -76575,7 +76510,7 @@ return {
 			connections={
 				[1]={
 					id=44316,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=271,
@@ -76628,11 +76563,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLightning.png",
 			isOnlyImage=true,
 			name="Lightning Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=35980,
@@ -76689,7 +76619,7 @@ return {
 			connections={
 				[1]={
 					id=44309,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=88,
@@ -76919,7 +76849,7 @@ return {
 			connections={
 				[1]={
 					id=27096,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=107,
@@ -77413,11 +77343,11 @@ return {
 			connections={
 				[1]={
 					id=43014,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=48714,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=458,
@@ -77453,7 +77383,7 @@ return {
 			connections={
 				[1]={
 					id=65,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=93,
@@ -78300,7 +78230,7 @@ return {
 			connections={
 				[1]={
 					id=419,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1171,
@@ -78665,7 +78595,7 @@ return {
 			connections={
 				[1]={
 					id=40043,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=727,
@@ -80532,11 +80462,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/BloodMastery.png",
 			isOnlyImage=true,
 			name="Bleed Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=7,
 			orbitIndex=13,
 			skill=38474,
@@ -81716,7 +81641,7 @@ return {
 			connections={
 				[1]={
 					id=13228,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=230,
@@ -82276,7 +82201,7 @@ return {
 			connections={
 				[1]={
 					id=46386,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=27048,
@@ -85186,7 +85111,7 @@ return {
 			connections={
 				[1]={
 					id=41033,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1095,
@@ -86713,7 +86638,7 @@ return {
 			connections={
 				[1]={
 					id=6714,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=654,
@@ -88159,7 +88084,7 @@ return {
 				},
 				[2]={
 					id=39102,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=230,
@@ -89361,7 +89286,7 @@ return {
 			connections={
 				[1]={
 					id=44485,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=88,
@@ -90526,7 +90451,7 @@ return {
 			connections={
 				[1]={
 					id=59438,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=32128,
@@ -90634,7 +90559,7 @@ return {
 			connections={
 				[1]={
 					id=52537,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=15775,
@@ -91181,7 +91106,7 @@ return {
 			connections={
 				[1]={
 					id=14429,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=407,
@@ -91533,7 +91458,7 @@ return {
 			connections={
 				[1]={
 					id=59908,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=13691,
@@ -93576,7 +93501,7 @@ return {
 			connections={
 				[1]={
 					id=61983,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=71,
@@ -94108,7 +94033,7 @@ return {
 			connections={
 				[1]={
 					id=36217,
-					orbit=0
+					orbit=1
 				}
 			},
 			group=1438,
@@ -94872,7 +94797,7 @@ return {
 			connections={
 				[1]={
 					id=51774,
-					orbit=0
+					orbit=1
 				}
 			},
 			group=1438,
@@ -95204,7 +95129,7 @@ return {
 			connections={
 				[1]={
 					id=62677,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			flavourText="Your grandchildren will awaken screaming in memory of what I utter today.",
@@ -95764,7 +95689,7 @@ return {
 			connections={
 				[1]={
 					id=37778,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=192,
@@ -96894,11 +96819,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupExtra.png",
 			isOnlyImage=true,
 			name="Thorns Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=48761,
@@ -96973,7 +96893,7 @@ return {
 			connections={
 				[1]={
 					id=27492,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=814,
@@ -97166,7 +97086,7 @@ return {
 			connections={
 				[1]={
 					id=61367,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=293,
@@ -100929,11 +100849,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupLife.png",
 			isOnlyImage=true,
 			name="Life Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=51454,
@@ -102891,7 +102806,7 @@ return {
 			connections={
 				[1]={
 					id=60700,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1219,
@@ -103684,7 +103599,7 @@ return {
 			connections={
 				[1]={
 					id=43944,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1281,
@@ -104644,7 +104559,7 @@ return {
 			connections={
 				[1]={
 					id=36728,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=521,
@@ -105442,7 +105357,7 @@ return {
 				},
 				[2]={
 					id=11066,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=797,
@@ -105650,11 +105565,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryPoison.png",
 			isOnlyImage=true,
 			name="Poison Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=54380,
@@ -106451,7 +106361,7 @@ return {
 			connections={
 				[1]={
 					id=27638,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=508,
@@ -107641,7 +107551,7 @@ return {
 			connections={
 				[1]={
 					id=34882,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=1442,
@@ -107649,7 +107559,7 @@ return {
 				},
 				[3]={
 					id=3084,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=457,
@@ -107749,7 +107659,7 @@ return {
 			connections={
 				[1]={
 					id=60287,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=384,
@@ -108001,7 +107911,7 @@ return {
 			connections={
 				[1]={
 					id=44983,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=679,
@@ -108203,7 +108113,7 @@ return {
 			connections={
 				[1]={
 					id=1420,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1144,
@@ -108220,7 +108130,7 @@ return {
 			connections={
 				[1]={
 					id=52537,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=20909,
@@ -108544,7 +108454,7 @@ return {
 				},
 				[2]={
 					id=35594,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=990,
@@ -108926,11 +108836,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/BloodMastery.png",
 			isOnlyImage=true,
 			name="Armour Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=56320,
@@ -108963,7 +108868,7 @@ return {
 			connections={
 				[1]={
 					id=39570,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1128,
@@ -110524,7 +110429,7 @@ return {
 			connections={
 				[1]={
 					id=1628,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=233,
@@ -111156,7 +111061,7 @@ return {
 				},
 				[4]={
 					id=58090,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=777,
@@ -111714,11 +111619,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupBow.png",
 			isOnlyImage=true,
 			name="Bow Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=0,
 			orbitIndex=0,
 			skill=58058,
@@ -112415,7 +112315,7 @@ return {
 			connections={
 				[1]={
 					id=14418,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=11774,
@@ -112564,7 +112464,7 @@ return {
 			connections={
 				[1]={
 					id=46654,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=65,
@@ -112920,7 +112820,7 @@ return {
 			connections={
 				[1]={
 					id=22962,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=10576,
@@ -113308,7 +113208,7 @@ return {
 			connections={
 				[1]={
 					id=50023,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=508,
@@ -114128,7 +114028,7 @@ return {
 			connections={
 				[1]={
 					id=41654,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=47821,
@@ -114664,7 +114564,7 @@ return {
 			connections={
 				[1]={
 					id=36197,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=107,
@@ -115741,7 +115641,7 @@ return {
 			connections={
 				[1]={
 					id=44974,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1219,
@@ -115866,7 +115766,7 @@ return {
 			connections={
 				[1]={
 					id=36630,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1042,
@@ -116697,7 +116597,7 @@ return {
 			connections={
 				[1]={
 					id=64239,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=293,
@@ -117036,7 +116936,7 @@ return {
 			connections={
 				[1]={
 					id=42416,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1502,
@@ -117599,7 +117499,7 @@ return {
 			connections={
 				[1]={
 					id=53354,
-					orbit=0
+					orbit=-1
 				},
 				[2]={
 					id=8850,
@@ -117833,11 +117733,6 @@ return {
 			icon="Art/2DArt/SkillIcons/passives/MasteryGroupExtra.png",
 			isOnlyImage=true,
 			name="Invocation Mastery",
-			nodeOverlay={
-				alloc="OracleFrameAllocated",
-				path="OracleFrameCanAllocate",
-				unalloc="OracleFrameUnallocated"
-			},
 			orbit=7,
 			orbitIndex=2,
 			skill=61974,
@@ -118223,7 +118118,7 @@ return {
 			connections={
 				[1]={
 					id=19129,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=750,
@@ -118789,7 +118684,7 @@ return {
 			connections={
 				[1]={
 					id=26063,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=74,
@@ -119677,7 +119572,7 @@ return {
 			connections={
 				[1]={
 					id=6999,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=107,
@@ -119799,7 +119694,7 @@ return {
 			connections={
 				[1]={
 					id=48160,
-					orbit=0
+					orbit=2147483647
 				},
 				[2]={
 					id=49543,
@@ -119935,7 +119830,7 @@ return {
 			connections={
 				[1]={
 					id=62258,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=685,
@@ -120437,7 +120332,7 @@ return {
 			connections={
 				[1]={
 					id=31129,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=1488,
@@ -121276,7 +121171,7 @@ return {
 			connections={
 				[1]={
 					id=17655,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=567,
@@ -122602,7 +122497,7 @@ return {
 			connections={
 				[1]={
 					id=63170,
-					orbit=0
+					orbit=2147483647
 				}
 			},
 			group=107,
