@@ -1,0 +1,6 @@
+return {
+  ["include"] = { "src/" },
+  ["exclude"] = { "spec/", "runtime/", "tests/" },
+  reporter = "default",
+  reportfile = "luacov.report.out",
+}

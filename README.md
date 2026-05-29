@@ -61,3 +61,37 @@ You can find instructions on how to contribute code and bug reports [here](CONTR
 
 For 3rd-party licences, see [LICENSE](LICENSE.md).
 The licencing information is considered to be part of the documentation.
+
+## AI Workflow Escape Hatches
+
+The automated PR workflow (AI fix → AI review → auto-merge) can be controlled as follows:
+
+**Disable AI workflows temporarily**
+- Go to Actions → select the workflow → "..." menu → Disable workflow
+
+**Manually trigger an AI review on an existing PR**
+```bash
+gh workflow run ai-review.yml --repo jay9297/PathOfBuilding-PoE2
+```
+
+**Override an AI review with a manual one**
+- Simply post your own review comment on the PR — your approval is always required before merge regardless of the AI review verdict.
+
+**Rotate the `CLAUDE_CODE_OAUTH_TOKEN`**
+```bash
+# On your local machine (claude must be logged in via Pro):
+claude setup-token
+# Then update the secret:
+gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo jay9297/SinsGuide
+gh secret set CLAUDE_CODE_OAUTH_TOKEN --repo jay9297/PathOfBuilding-PoE2
+```
+
+**Rotate the `OPENCODE_API_KEY`**
+```bash
+# Get new key from https://opencode.ai console, then:
+gh secret set OPENCODE_API_KEY --repo jay9297/SinsGuide
+gh secret set OPENCODE_API_KEY --repo jay9297/PathOfBuilding-PoE2
+```
+
+**Skip AI fix on an issue**
+- Do not add the `ai-fix` label. The workflow only triggers on that label.

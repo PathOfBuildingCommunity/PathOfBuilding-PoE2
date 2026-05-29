@@ -1,0 +1,59 @@
+name: AI fix request
+description: Report a well-scoped bug or task for the AI agent to fix automatically.
+labels: [ai-fix]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Issues with this template are automatically picked up by the AI agent when labelled **ai-fix**.
+        Keep the description concrete and focused — the agent works best with a single, well-defined task.
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Confirm scope
+      options:
+        - label: This is a single, well-scoped task (not a broad refactor or multi-feature request)
+          required: true
+        - label: I've checked there are no open PRs already addressing this
+          required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: What needs to be fixed or done?
+      description: Be specific. Include file names, function names, or error messages where possible.
+      placeholder: |
+        e.g. The Boneshatter damage calculation in `src/Modules/CalcOffence.lua` does not account for
+        the stun threshold modifier added in 0.2.0. Expected value: X, actual value: Y.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: How will you know the fix is correct? What should the tests verify?
+      placeholder: |
+        - Calculation matches expected value from PoE2 tooltip
+        - Existing busted tests still pass
+        - New test added covering the stun threshold case
+    validations:
+      required: true
+
+  - type: textarea
+    id: build_code
+    attributes:
+      label: PoB build code (if relevant)
+      description: A build code that reproduces the issue helps the agent verify the fix.
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: Screenshots, error messages, or links to PoE2 patch notes.
+    validations:
+      required: false

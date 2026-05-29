@@ -1,6 +1,6 @@
 return {
     _all = {
-        coverage = false,
+        coverage = true,
         verbose = true,
     },
     default = {
@@ -8,6 +8,5 @@ return {
         lpath = "../runtime/lua/?.lua;../runtime/lua/?/init.lua",
         helper = "HeadlessWrapper.lua",
         ROOT = { "../spec" },
-       	["exclude-tags"] = "builds",
     }
 }
