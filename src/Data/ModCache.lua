@@ -2716,8 +2716,8 @@ c["40% increased Critical Hit Chance for Spells"]={{[1]={flags=2,keywordFlags=0,
 c["40% increased Critical Hit Chance if you haven't dealt a Critical Hit Recently"]={{[1]={[1]={neg=true,type="Condition",var="CritRecently"},flags=0,keywordFlags=0,name="CritChance",type="INC",value=40}},nil}
 c["40% increased Critical Spell Damage Bonus"]={{[1]={flags=2,keywordFlags=0,name="CritMultiplier",type="INC",value=40}},nil}
 c["40% increased Crossbow Reload Speed"]={{[1]={flags=67108865,keywordFlags=0,name="ReloadSpeed",type="INC",value=40}},nil}
-c["40% increased Culling Strike Threshold against Immobilised Enemies"]={{}," Culling Strike Threshold  "}
-c["40% increased Culling Strike Threshold against Rare or Unique Enemies"]={{}," Culling Strike Threshold  "}
+c["40% increased Culling Strike Threshold against Immobilised Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Immobilised"},flags=0,keywordFlags=0,name="CullPercent",type="INC",value=40}},nil}
+c["40% increased Culling Strike Threshold against Rare or Unique Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="RareOrUnique"},flags=0,keywordFlags=0,name="CullPercent",type="INC",value=40}},nil}
 c["40% increased Curse Duration"]={{[1]={flags=0,keywordFlags=2,name="Duration",type="INC",value=40}},nil}
 c["40% increased Damage"]={{[1]={flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
 c["40% increased Damage if you've Triggered a Skill Recently"]={{[1]={[1]={type="Condition",var="TriggeredSkillRecently"},flags=0,keywordFlags=0,name="Damage",type="INC",value=40}},nil}
@@ -3773,7 +3773,7 @@ c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to dea
 c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 5% of Flask's Life Recovery amount"]={{[1]={[1]={percent="5",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="5",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
 c["Bow Attacks consume 10% of your maximum Life Flask Charges if possible to deal added Physical damage equal to 8% of Flask's Life Recovery amount"]={{[1]={[1]={percent="8",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMin",type="BASE",value=1},[2]={[1]={percent="8",stat="LifeFlaskRecovery",type="PercentStat"},flags=131073,keywordFlags=0,name="PhysicalMax",type="BASE",value=1}},nil}
 c["Bow Attacks fire 3 additional Arrows"]={{[1]={flags=0,keywordFlags=2048,name="ProjectileCount",type="BASE",value=3}},nil}
-c["Bow Attacks have Culling Strike"]={{[1]={flags=131073,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
+c["Bow Attacks have Culling Strike"]={{[1]={flags=131073,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
 c["Break 10% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=10}},nil}
 c["Break 15% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=15}},nil}
 c["Break 20% increased Armour"]={{[1]={flags=0,keywordFlags=0,name="ArmourBreakPerHit",type="INC",value=20}},nil}
@@ -3952,10 +3952,10 @@ c["Critical Hits with Spells apply 3 Stack of Critical Weakness"]={nil,"Critical
 c["Critical Hits with Spells apply 5 Stacks of Critical Weakness"]={nil,"Critical Hits with Spells apply 5 Stacks of Critical Weakness "}
 c["Critical Hits with Spells apply 5 Stacks of Critical Weakness Critical Hits with Spells apply 3 Stack of Critical Weakness"]={nil,"Critical Hits with Spells apply 5 Stacks of Critical Weakness Critical Hits with Spells apply 3 Stack of Critical Weakness "}
 c["Crushes Enemies on Hit"]={{[1]={flags=0,keywordFlags=0,name="EnemyModifier",type="LIST",value={mod={flags=0,keywordFlags=0,name="Condition:Crushed",type="FLAG",value=true}}}},nil}
-c["Culling Strike"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
+c["Culling Strike"]={{[1]={[1]={effectType="Global",type="GlobalEffect",unscalable=true},flags=0,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
 c["Culling Strike against Beasts while your Companion is in your Presence"]={nil,"Culling Strike against Beasts while your Companion is in your Presence "}
-c["Culling Strike against Enemies you Mark"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
-c["Culling Strike against Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
+c["Culling Strike against Enemies you Mark"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Marked"},flags=0,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
+c["Culling Strike against Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
 c["Current Energy Shield also grants Elemental Damage reduction"]={{[1]={[1]={limit=150,type="Multiplier",var="CurrentEnergyShield"},[2]={type="Condition",var="UseCurrentEnergyShield"},flags=0,keywordFlags=0,name="EnergyShieldAppliesToColdDamageTaken",type="BASE",value=1},[2]={[1]={limit=150,type="Multiplier",var="CurrentEnergyShield"},[2]={type="Condition",var="UseCurrentEnergyShield"},flags=0,keywordFlags=0,name="EnergyShieldAppliesToFireDamageTaken",type="BASE",value=1},[3]={[1]={limit=150,type="Multiplier",var="CurrentEnergyShield"},[2]={type="Condition",var="UseCurrentEnergyShield"},flags=0,keywordFlags=0,name="EnergyShieldAppliesToLightningDamageTaken",type="BASE",value=1}},nil}
 c["Curse Enemies with Enfeeble on Block"]={{[1]={flags=0,keywordFlags=0,name="ExtraSkill",type="LIST",value={level=1,noSupports=true,skillId="EnfeeblePlayer",triggered=true}}},nil}
 c["Curse Skills have 15% increased Cast Speed"]={{[1]={flags=16,keywordFlags=2,name="Speed",type="INC",value=15}},nil}
@@ -4697,7 +4697,7 @@ c["Hits against you have 5% reduced Critical Damage Bonus"]={{[1]={flags=0,keywo
 c["Hits have 15% chance to treat Enemy Monster Elemental Resistance values as inverted"]={{[1]={flags=0,keywordFlags=0,name="HitsInvertEleResChance",type="CHANCE",value=0.15}},nil}
 c["Hits have 25% reduced Critical Hit Chance against you"]={{[1]={flags=0,keywordFlags=0,name="EnemyCritChance",type="INC",value=-25}},nil}
 c["Hits ignore non-negative Elemental Resistances of Frozen Enemies"]={{[1]={[1]={actor="enemy",type="ActorCondition",var="Frozen"},flags=0,keywordFlags=0,name="IgnoreNonNegativeEleRes",type="FLAG",value=true}},nil}
-c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CullPercent",type="MAX",value=10}},nil}
+c["Hits that Heavy Stun Enemies have Culling Strike"]={{[1]={[1]={type="Condition",var="AlwaysHeavyStunning"},flags=0,keywordFlags=0,name="CanCull",type="FLAG",value=1}},nil}
 c["Hollow Palm Technique"]={{[1]={flags=0,keywordFlags=0,name="Keystone",type="LIST",value="Hollow Palm Technique"}},nil}
 c["If you would gain a Charge, Allies in your Presence gain that Charge instead"]={nil,"If you would gain a Charge, that Charge instead "}
 c["Ignite inflicted with Fire Spells deals Chaos Damage instead of Fire Damage"]={{[1]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="IgniteToChaos",type="FLAG",value=true},[2]={[1]={skillType=2,type="SkillType"},[2]={skillType=28,type="SkillType"},flags=0,keywordFlags=0,name="SkillData",type="LIST",value={key="IgniteToChaos",value=true}}},nil}

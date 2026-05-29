@@ -1575,8 +1575,7 @@ skills["SupportCullingStrikePlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_culling_strike_vs_rare_or_unique_enemy"] = {
-					mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-					value = 10
+					mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 				},
 			},
 			baseFlags = {
@@ -1609,8 +1608,7 @@ skills["SupportCullingStrikePlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_culling_strike_vs_rare_or_unique_enemy"] = {
-					mod("CullPercent", "MAX", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
-					value = 10
+					mod("CanCull", "FLAG", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "RareOrUnique" }),
 				},
 			},
 			baseFlags = {
@@ -3259,8 +3257,7 @@ skills["SupportEmpoweredCullPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_empowered_culling_strike"] = {
-					mod("ExtraEmpowerMod", "LIST", { mod = mod("CullPercent", "MAX", nil), unscalable = true }),
-					value = 10,
+					mod("ExtraEmpowerMod", "LIST", { mod = mod("CanCull", "FLAG", nil), unscalable = true }),
 				}
 			},
 			baseFlags = {
