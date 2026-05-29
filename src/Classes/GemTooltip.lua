@@ -299,6 +299,12 @@ function GemTooltip.AddGemTooltip(tooltip, build, gemInstance, options)
 		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. (gemInstance.displayEffect and gemInstance.displayEffect.nameSpec or gemInstance.gemData.name), "FONTIN SC")
 	else
 		tooltip:AddLine(fontSizeTitle, colorCodes.GEM .. gemInstance.gemData.name, "FONTIN SC")
+		tooltip:AddSeparator(10)
+		if grantedEffect.legacy then
+			tooltip:AddLine(fontSizeTitle, colorCodes.WARNING .. "Legacy Gem", "FONTIN SC")
+			tooltip:AddLine(fontSizeBig, colorCodes.WARNING .. "Gem only exists in Standard League", "FONTIN SC")
+			tooltip:AddSeparator(10)
+		end
 	end
 	tooltip:AddSeparator(10)
 	tooltip:AddLine(fontSizeBig, colorCodes.NORMAL .. gemInstance.gemData.gemType, "FONTIN SC")

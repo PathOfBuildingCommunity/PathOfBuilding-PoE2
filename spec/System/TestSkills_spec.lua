@@ -67,7 +67,7 @@ describe("TestSkills", function()
 
 		newBuild()
 
-		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nFlammability 20/0  1\n")
+		build.skillsTab:PasteSocketGroup("Blasphemy 20/0  1\nDespair 20/0  1\nTemporal Chains 20/0  1\n")
 		runCallback("OnFrame")
 
 		assert.True(build.calcsTab.mainOutput.SpiritReservedPercent > oneCurseReservation)
@@ -384,11 +384,11 @@ describe("TestSkills", function()
 
 	it("Test Atziri's Allure - ignore curse limit", function()
 		build.skillsTab:PasteSocketGroup("Elemental Weakness 20/0  1\nAtziri's Allure 1/0 1")
-		build.skillsTab:PasteSocketGroup("Flammability 20/0  1\n")
+		build.skillsTab:PasteSocketGroup("Despair 20/0  1\n")
 		runCallback("OnFrame")
 
 		local curseList = build.calcsTab.calcsOutput.CurseList
-		assert.True(curseList:match("Flammability") ~= nil and curseList:match("Elemental Weakness") ~= nil)
+		assert.True(curseList:match("Despair") ~= nil and curseList:match("Elemental Weakness") ~= nil)
 	end)
 
 	-- skills that don't have a base CD and have more than one use need to use the added cooldown by whatever support allows the +1 limit to be supportable

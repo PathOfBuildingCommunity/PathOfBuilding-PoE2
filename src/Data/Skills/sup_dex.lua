@@ -626,37 +626,6 @@ skills["SupportBountyPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportDazedBreakPlayer"] = {
-	name = "Break Posture",
-	description = "Supports Attacks, causing them to Daze Enemies when they fully Break Armour.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "BreakPosture",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Break Posture",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_daze_break_duration_ms", 8000 },
-			},
-			stats = {
-				"support_apply_daze_on_armour_break",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportBurstingPlaguePlayer"] = {
 	name = "Bursting Plague",
 	description = "Supports skills that can Poison enemies, causing Poisoned enemies to gain Plague over time and explode in a Plague Burst on death. Cannot support the skills of Minions.",
@@ -1717,35 +1686,6 @@ skills["SupportDazePlayer"] = {
 		},
 	}
 }
-skills["SupportDazzlePlayer"] = {
-	name = "Dazzle",
-	description = "Supports Attack Skills. Supported Skills always hit Dazed Enemies, but Consume Daze on Hit, and cannot themselves inflict Daze.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Dazzle",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Dazzle",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-				"consume_enemy_daze_to_always_hit",
-				"cannot_daze",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportDeadlyHeraldsPlayer"] = {
 	name = "Deadly Herald",
 	description = "Supports Herald Skills, making their triggered effects deal more damage at the expense of higher Spirit cost.",
@@ -2099,46 +2039,6 @@ skills["SupportEscalatingPoisonPlayer"] = {
 		},
 	}
 }
-skills["SupportExcoriatePlayer"] = {
-	name = "Excoriate",
-	description = "Supports Melee Attack Skills. Supported Skills deal more Melee Damage for each Elemental Ailment on Enemies they hit, but cannot themselves inflict Elemental Ailments.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Excoriate",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 15, },
-	},
-	statSets = {
-		[1] = {
-			label = "Excoriate",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target"] = {
-					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited" }),
-					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Chilled" }),
-					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
-					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked" }),
-					mod("Damage", "MORE", nil, ModFlag.Melee, 0, { type = "ActorCondition", actor = "enemy", var = "Electrocuted" }),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_elemental_assault_melee_damage_+%_final_per_elemental_ailment_on_target", 10 },
-			},
-			stats = {
-				"cannot_inflict_elemental_ailments",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportFerocityPlayer"] = {
 	name = "Ferocity",
 	description = "Supports Skills that you use yourself. Supported Skills will consume a Frenzy Charge on use if possible, and will gain significant Skill Speed if they do. Supported Skills cannot generate Frenzy Charges.",
@@ -2170,36 +2070,6 @@ skills["SupportFerocityPlayer"] = {
 			},
 			stats = {
 				"skill_cannot_generate_frenzy_charges",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportFlowPlayer"] = {
-	name = "Flow",
-	description = "Supports Skills which require Combo to use. Supported Skills lose their Combo stacks after a longer delay spent not gaining any Combo.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.ComboStacking, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Flow",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Flow",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "combo_falloff_speed_+%", -60 },
-			},
-			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2530,33 +2400,6 @@ skills["SupportHitAndRunPlayer"] = {
 		},
 	}
 }
-skills["SupportHobblePlayer"] = {
-	name = "Hobble",
-	description = "Supports Skills that Hit Enemies, causing those Hits to Hobble Bleeding Enemies based on a portion of Physical Damage dealt.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Hobble",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Hobble",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportImpalePlayer"] = {
 	name = "Impale",
 	description = "Supports Attacks, causing them to Impale on Hit but making them unable to Extract Impale themselves.",
@@ -2695,36 +2538,6 @@ skills["SupportLastingShockPlayer"] = {
 			constantStats = {
 				{ "shock_duration_+%", 100 },
 				{ "support_lasting_shock_chance_to_shock_+%_final", -30 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportLeveragePlayer"] = {
-	name = "Leverage",
-	description = "Supports Skills which Hit Enemies. Supported Skills gain increased chance to Critically Hit against Immobilised Enemies.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Leverage",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Leverage",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "critical_strike_chance_+%_vs_immobilised_enemies", 50 },
 			},
 			stats = {
 			},
@@ -3395,37 +3208,6 @@ skills["SupportNovaProjectilesTwoPlayer"] = {
 		},
 	}
 }
-skills["SupportOutmaneuverPlayer"] = {
-	name = "Outmaneuver",
-	description = "Supports Skills you use yourself which can cause Damaging Hits. Supported Skills Break Armour against Parried Enemies.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Minion, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, },
-	gemFamily = { "Outmaneuver",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 15, },
-	},
-	statSets = {
-		[1] = {
-			label = "Outmaneuver",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "armour_break_physical_damage_%_dealt_as_armour_break_vs_parried_enemies", 25 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportIncreaseLimitPlayer"] = {
 	name = "Overabundance I",
 	description = "Supports skills which can have a Limited number of effects active at once, increasing that Limit at the cost of their duration. Only applies to restrictions that use the word \"Limit\".",
@@ -3541,6 +3323,7 @@ skills["SupportOverextendPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 15, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Overextend",
@@ -5648,37 +5431,6 @@ skills["SupportTulsStillnessPlayer"] = {
 			},
 			stats = {
 				"chaos_damage_can_freeze",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportTumultPlayer"] = {
-	name = "Tumult",
-	description = "Supports Skills you use yourself which can cause Damaging Hits. Supported Skills consume a Frenzy Charge on use to powerfully Break Armour.",
-	color = 2,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowSkill, },
-	addSkillTypes = { SkillType.SupportedByTumult, },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Triggered, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Minion, SkillType.Trapped, SkillType.RemoteMined, SkillType.SkillConsumesFrenzyChargesOnUse, SkillType.SupportedByTumult, SkillType.NOT, SkillType.AND, },
-	gemFamily = { "Tumult",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Tumult",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "skill_consume_frenzy_charge_to_armour_break_for_%_of_physical_damage", 50 },
-			},
-			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

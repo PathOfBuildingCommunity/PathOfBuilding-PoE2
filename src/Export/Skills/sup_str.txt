@@ -196,11 +196,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportEnduranceChargeOnArmourBreak
-#set SupportEnduranceChargeOnArmourBreak
-#mods
-#skillEnd
-
 #skill SupportBrinkPlayer
 #set SupportBrinkPlayer
 #mods
@@ -427,11 +422,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportDazingCryPlayer
-#set SupportDazingCryPlayer
-#mods
-#skillEnd
-
 #skill SupportDeepCutsPlayer
 #set SupportDeepCutsPlayer
 statMap = {
@@ -465,21 +455,6 @@ statMap = {
 
 #skill SupportDefyPlayerTwo
 #set SupportDefyPlayerTwo
-#mods
-#skillEnd
-
-#skill SupportDesperationPlayer
-#set SupportDesperationPlayer
-#mods
-#skillEnd
-
-#skill SupportDevastatePlayer
-#set SupportDevastatePlayer
-statMap = {
-	["fully_break_enemies_armour_on_heavy_stun"] = {
-		flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
-	},
-},
 #mods
 #skillEnd
 
@@ -736,11 +711,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportFirstBloodPlayer
-#set SupportFirstBloodPlayer
-#mods
-#skillEnd
-
 #skill FistOfWarSupportPlayer
 #set FistOfWarSupportPlayer
 #mods
@@ -975,6 +945,7 @@ statMap = {
 #skillEnd
 
 #skill SupportInfernalLegionPlayerThree
+legacy = true
 #set SupportInfernalLegionPlayerThree
 statMap = {
 	["minion_fire_damage_%_of_maximum_life_taken_per_minute"] = {
@@ -1147,16 +1118,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportEmpoweredDamagePlayer
-#set SupportEmpoweredDamagePlayer
-statMap = {
-	["support_empowered_damage_+%_final"] = {
-		mod("ExtraEmpowerMod", "LIST", { mod = mod("Damage", "MORE", nil) }),
-	}
-},
-#mods
-#skillEnd
-
 #skill ProlongedDurationSupportPlayer
 #set ProlongedDurationSupportPlayer
 statMap = {
@@ -1229,11 +1190,6 @@ statMap = {
 
 #skill SupportRagingCryPlayer
 #set SupportRagingCryPlayer
-#mods
-#skillEnd
-
-#skill SupportRallyPlayer
-#set SupportRallyPlayer
 #mods
 #skillEnd
 
@@ -1374,11 +1330,6 @@ statMap = {
 		mod("AilmentMagnitude", "MORE", nil, 0, KeywordFlag.Ignite),
 	},
 },
-#mods
-#skillEnd
-
-#skill SupportSeeRedPlayer
-#set SupportSeeRedPlayer
 #mods
 #skillEnd
 
@@ -1586,16 +1537,6 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportTremorsPlayer
-#set SupportTremorsPlayer
-statMap = {
-	["support_unstable_earth_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportUhtredAuguryPlayer
 #set SupportUhtredAuguryPlayer
 statMap = {
@@ -1626,33 +1567,8 @@ statMap = {
 #mods
 #skillEnd
 
-#skill SupportUnabatingPlayer
-#set SupportUnabatingPlayer
-#mods
-#skillEnd
-
-#skill UnbreakableSupportPlayer
-#set UnbreakableSupportPlayer
-statMap = {
-	["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
-		mod("StunThreshold", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
-	},
-},
-#mods
-#skillEnd
-
 #skill SupportUnderminePlayer
 #set SupportUnderminePlayer
-#mods
-#skillEnd
-
-#skill SupportUnsteadyTempoPlayer
-#set SupportUnsteadyTempoPlayer
-#mods
-#skillEnd
-
-#skill SupportUnyieldingPlayer
-#set SupportUnyieldingPlayer
 #mods
 #skillEnd
 

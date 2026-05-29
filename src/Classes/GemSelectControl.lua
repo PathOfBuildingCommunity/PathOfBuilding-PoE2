@@ -102,7 +102,9 @@ function GemSelectClass:PopulateGemList()
 		if (self.sortGemsBy and gemData.tags[self.sortGemsBy] == true or not self.sortGemsBy) then
 			local levelRequirement = (gemData.grantedEffect.levels and gemData.grantedEffect.levels[1] and gemData.grantedEffect.levels[1].levelRequirement) or 1
 			if characterLevel >= levelRequirement or not matchLevel then
-				self.gems["Default:" .. gemId] = gemData
+				if self.skillsTab.showLegacyGems or not (self.skillsTab.showLegacyGems and gemData.grantedEffect.legacy) then
+					self.gems["Default:" .. gemId] = gemData
+				end
 			end
 		end
 	end
@@ -110,6 +112,9 @@ end
 
 function GemSelectClass:FilterSupport(gemId, gemData)
 	local showSupportTypes = self.skillsTab.showSupportGemTypes
+	if gemData.grantedEffect.legacy and not self.skillsTab.showLegacyGems then
+		return false
+	end
 	return (not gemData.grantedEffect.support
 		or showSupportTypes == "ALL"
 		or (showSupportTypes == "NORMAL" and not gemData.grantedEffect.isLineage)
@@ -225,11 +230,12 @@ function GemSelectClass:UpdateSortCache()
 		and sortCache.outputRevision == self.skillsTab.build.outputRevision and sortCache.defaultLevel == self.skillsTab.defaultGemLevel
 		and (sortCache.characterLevel == self.skillsTab.build.characterLevel or self.skillsTab.defaultGemLevel ~= "characterLevel")
 		and sortCache.defaultQuality == self.skillsTab.defaultGemQuality and sortCache.sortType == self.skillsTab.sortGemsByDPSField
-		and sortCache.considerGemType == self.skillsTab.showSupportGemTypes then
+		and sortCache.considerGemType == self.skillsTab.showSupportGemTypes and sortCache.showLegacyGems == self.skillsTab.showLegacyGems then
 		return
 	end
 
 	if not sameSortBy or not sortCache or (sortCache.considerGemType ~= self.skillsTab.showSupportGemTypes
+		or sortCache.showLegacyGems ~= self.skillsTab.showLegacyGems
 		or sortCache.defaultQuality ~= self.skillsTab.defaultGemQuality
 		or sortCache.defaultLevel ~= self.skillsTab.defaultGemLevel
 		or (sortCache.characterLevel ~= self.skillsTab.build.characterLevel and self.skillsTab.defaultGemLevel == "characterLevel")) then
@@ -240,6 +246,7 @@ function GemSelectClass:UpdateSortCache()
 	-- Initialize a new sort cache
 	sortCache = {
 		considerGemType = self.skillsTab.showSupportGemTypes,
+		showLegacyGems = self.skillsTab.showLegacyGems,
 		socketGroup = self.skillsTab.displayGroup,
 		gemInstance = self.skillsTab.displayGroup.gemList[self.index],
 		outputRevision = self.skillsTab.build.outputRevision,
