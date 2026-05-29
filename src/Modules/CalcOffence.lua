@@ -2458,6 +2458,9 @@ function calcs.offence(env, actor, activeSkill)
 				output[stat] = 0
 			else
 				output[stat] = 2 / ((1 / output.MainHand[stat]) + (1 / output.OffHand[stat]))
+				if skillData.doubleHitsWhenDualWielding then
+					output[stat] = output[stat] * 2
+				end
 			end
 		elseif mode == "CHANCE" then
 			if output.MainHand[stat] and output.OffHand[stat] then
