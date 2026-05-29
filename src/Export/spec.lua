@@ -296,7 +296,7 @@ return {
 			name="Icon",
 			refTo="",
 			type="String",
-			width=100
+			width=290
 		},
 		[6]={
 			list=true,
@@ -17360,7 +17360,7 @@ return {
 			name="MinionGlobalSkillLevelStat",
 			refTo="Stats",
 			type="Key",
-			width=150
+			width=160
 		},
 		[8]={
 			list=false,
@@ -17458,7 +17458,7 @@ return {
 			name="GemEffects",
 			refTo="GemEffects",
 			type="Key",
-			width=150
+			width=350
 		},
 		[22]={
 			list=false,

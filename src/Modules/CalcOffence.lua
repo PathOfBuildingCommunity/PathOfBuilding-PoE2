@@ -759,13 +759,15 @@ function calcs.offence(env, actor, activeSkill)
 			end
 		end
 	end
-	if skillModList:Flag(nil, "ThornsDamageAppliesToHits") then
-		-- Caltrops mod
-		for i, value in ipairs(skillModList:Tabulate("INC",  { }, "ThornsDamage")) do
+
+	-- Apply thorns-derived modifiers to hits
+	if skillModList:Flag(nil, "ThornsDamageApplyToAttackDamage") then
+		for _, value in ipairs(skillModList:Tabulate("INC", { flags = ModFlag.Thorns }, "Damage")) do
 			local mod = value.mod
-			skillModList:NewMod("Damage", "INC", mod.value, mod.source, ModFlag.Hit, mod.keywordFlags, unpack(mod))
+			skillModList:NewMod("Damage", "INC", mod.value, mod.source, bor(band(mod.flags, bnot(ModFlag.Thorns)), ModFlag.Attack), mod.keywordFlags, unpack(mod))
 		end
 	end
+
 	if skillModList:Flag(nil, "CastSpeedAppliesToAttacks") then
 		-- Get all increases for this; assumption is that multiple sources would not stack, so find the max
 		local multiplier = (skillModList:Max(skillCfg, "ImprovedCastSpeedAppliesToAttacks") or 100) / 100
@@ -3615,7 +3617,7 @@ function calcs.offence(env, actor, activeSkill)
 		end
 
 		-- Calculate crit chance, crit multiplier, and their combined effect
-		local forcedOutcomeApplies = false
+		local inevitableCrits = false
 		if skillModList:Flag(cfg, "NeverCrit") then
 			output.PreEffectiveCritChance = 0
 			output.CritChance = 0
@@ -3705,9 +3707,9 @@ function calcs.offence(env, actor, activeSkill)
 				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 					output.CritChance = (1 - (1 - output.CritChance / 100) ^ 2) * 100
 				end
-				local preForcedOutcomeCritChance = output.CritChance
-				if env.mode_effective and skillModList:Flag(cfg, "ForcedOutcome") and output.CritChance > 0 then
-					forcedOutcomeApplies = true
+				local preInevitableCritChance = output.CritChance
+				if env.mode_effective and skillModList:Flag(cfg, "InevitableCriticalHits") and output.CritChance > 0 then
+					inevitableCrits = true
 					-- Lucky crits use their effective crit chance without an extra roll-down penalty.
 					-- Bifurcated crits roll twice per roll-down; only both rolls failing advances the penalty.
 					local critChance = output.CritChance / 100
@@ -3731,7 +3733,6 @@ function calcs.offence(env, actor, activeSkill)
 
 					-- For the sake of any logic that depends on it, every hit is considered a crit
 					output.CritChance = 100
-					skillModList:NewMod("CritChance", "OVERRIDE", 100, "Tree:55135")
 				end
 				if breakdown and output.CritChance ~= baseCrit then
 					breakdown.CritChance = { }
@@ -3767,10 +3768,10 @@ function calcs.offence(env, actor, activeSkill)
 					if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") then
 						t_insert(breakdown.CritChance, "Critical Strike Bifurcates:")
 						t_insert(breakdown.CritChance, s_format("1 - (1 - %.4f) x (1 - %.4f)", preBifurcateCritChance / 100, preBifurcateCritChance / 100))
-						t_insert(breakdown.CritChance, s_format("= %.2f%%", preForcedOutcomeCritChance))
+						t_insert(breakdown.CritChance, s_format("= %.2f%%", preInevitableCritChance))
 					end
-					if forcedOutcomeApplies then
-						t_insert(breakdown.CritChance, "Inevitable Critical Hits (Forced Outcome):")
+					if inevitableCrits then
+						t_insert(breakdown.CritChance, "Inevitable Critical Hits:")
 						t_insert(breakdown.CritChance, "= 100% ^8(override)")
 					end
 				end
@@ -3791,7 +3792,7 @@ function calcs.offence(env, actor, activeSkill)
 
 				output.PreEffectiveCritMultiplier = 1 + extraDamage
 				-- if crit bifurcates are enabled, roll for crit twice and add multiplier for each
-				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") and not forcedOutcomeApplies then
+				if env.mode_effective and skillModList:Flag(cfg, "BifurcateCrit") and not inevitableCrits then
 					-- get crit chance and calculate odds of critting twice
 					local critChancePercentage = output.PreBifurcateCritChance
 					local bifurcateMultiChance = (critChancePercentage ^ 2) / 100
@@ -3862,16 +3863,35 @@ function calcs.offence(env, actor, activeSkill)
 
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier
 
+		local enemyRarity = (enemyDB:Flag(nil, "Condition:Unique") and "Unique" or (enemyDB:Flag(nil, "Condition:RareOrUnique") and "Rare" or "Normal"))
 		-- Calculate culling DPS
-		local criticalCull = skillModList:Max(cfg, "CriticalCullPercent") or 0
+		local criticalCull = skillModList:Override(cfg, "CriticalCullPercent") or (skillModList:Flag(cfg, "CritCanCull") and data.gameConstants["CullingStrike"..enemyRarity.."Threshold"] or 0)
 		if criticalCull > 0 then
 			criticalCull = m_min(criticalCull, criticalCull * (1 - (1 - output.CritChance / 100) ^ hitRate))
 		end
-		local regularCull = skillModList:Max(cfg, "CullPercent") or 0
-		local incCullPercent = 1 + modDB:Sum("INC", cfg, "CullPercent") / 100
+		local regularCull = skillModList:Override(cfg, "CullPercent") or (skillModList:Flag(cfg, "CanCull") and data.gameConstants["CullingStrike"..enemyRarity.."Threshold"] or 0)
+		local incCullPercent = 1 + skillModList:Sum("INC", cfg, "CullPercent") / 100
 		local maxCullPercent = m_max(criticalCull, regularCull) * incCullPercent
 		globalOutput.CullPercent = maxCullPercent
 		globalOutput.CullMultiplier = 100 / (100 - globalOutput.CullPercent)
+
+		if globalBreakdown and maxCullPercent > 0 then
+			globalBreakdown.CullingStrike = { }
+			if (skillModList:Override(cfg, "CullPercent") or 0) > 0 then
+				t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(cull override)", regularCull))
+			else
+				t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(cull against %s enemy)", regularCull, enemyRarity:lower()))
+			end
+			if criticalCull > 0 then
+				if (skillModList:Override(cfg, "CriticalCullPercent") or 0) > 0 then
+					t_insert(globalBreakdown.CullingStrike, s_format("%d%% ^8(critical cull override)", criticalCull))
+				else
+					t_insert(globalBreakdown.CullingStrike, s_format("%d ^8(critical cull against %s enemy)", criticalCull, enemyRarity))
+				end
+			end
+			t_insert(globalBreakdown.CullingStrike, s_format("x %.2f ^8(increased cull threshold)", incCullPercent))
+			t_insert(globalBreakdown.CullingStrike, s_format("= %.2f%%", maxCullPercent))
+		end
 
 		--Calculate reservation DPS
 		globalOutput.ReservationDpsMultiplier = 100 / (100 - enemyDB:Sum("BASE", nil, "LifeReservationPercent"))
@@ -4056,6 +4076,7 @@ function calcs.offence(env, actor, activeSkill)
 								enemyDB:ReplaceMod("Armour", "OVERRIDE", -enemyDB:Sum("BASE", { source = "Config" }, "Armour"), "ArmourBreak", { type = "Condition", var = "ArmourBrokenBelowZeroMax" }, { type = "GlobalEffect", effectType= "Debuff", effectName = "ArmourBreak" }) -- if Config is set to Max, add mod with max value (use replace to avoid doubling)
 							end
 							local enemyArmour = enemyDB:Override(nil, "Armour") or m_max(calcLib.val(enemyDB, "Armour"), enemyArmourMin)
+							local chanceIgnoreEnemyArmour = m_min(skillModList:Sum("BASE", cfg, "ChanceToIgnoreEnemyArmour") / 100, 1)
 							local ignoreEnemyArmour = skillModList:Flag(cfg, "IgnoreEnemyArmour") and enemyArmour or calcLib.val(enemyDB, "IgnoreArmour") -- check for mods that ignore Armour
 							if ignoreEnemyArmour and (enemyArmour > 0) then enemyArmour = m_max(enemyArmour - ignoreEnemyArmour, 0) end -- subtract ignored value up to zero, if Armour is still positive (to allow future support of negative Armour)
 							local armourReduction = calcs.armourReductionF(enemyArmour, damageTypeHitAvg * skillModList:More(cfg, "CalcArmourAsThoughDealing"))
@@ -4070,7 +4091,7 @@ function calcs.offence(env, actor, activeSkill)
 							if skillModList:Flag(cfg, "IgnoreEnemyPhysicalDamageReduction") or ChanceToIgnoreEnemyPhysicalDamageReduction >= 100 then
 								resist = 0
 							else
-								resist = m_min(m_max(-data.misc.NegArmourDmgBonusCap, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction), data.misc.EnemyPhysicalDamageReductionCap)
+								resist = m_min(m_max(-data.misc.NegArmourDmgBonusCap, enemyDB:Sum("BASE", nil, "PhysicalDamageReduction") + skillModList:Sum("BASE", cfg, "EnemyPhysicalDamageReduction") + armourReduction * (1 - chanceIgnoreEnemyArmour)), data.misc.EnemyPhysicalDamageReductionCap)
 								resist = resist > 0 and resist * (1 - (skillModList:Sum("BASE", nil, "PartialIgnoreEnemyPhysicalDamageReduction") / 100 + ChanceToIgnoreEnemyPhysicalDamageReduction / 100)) or resist
 							end
 						else
@@ -5140,6 +5161,16 @@ function calcs.offence(env, actor, activeSkill)
 							local sourceRes = env.modDB:Flag(nil, "EnemyChaosResistEqualToYours") and "Your Chaos Resistance" or (env.partyMembers.modDB:Flag(nil, "EnemyChaosResistEqualToYours") and "Party Member Chaos Resistance" or "Chaos")
 							globalBreakdown[ailment .. "EffMult"] = breakdown.effMult("Chaos", resist, 0, takenInc, effMult, takenMore, sourceRes, true)
 						end
+					elseif skillModList:Flag(cfg, ailment .. "ToFire") then
+						local resist = calcResistForType("Fire", dotCfg)
+						local takenInc = enemyDB:Sum("INC", dotCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime")
+						local takenMore = enemyDB:More(dotCfg, "DamageTaken", "DamageTakenOverTime", "FireDamageTaken", "FireDamageTakenOverTime")
+						effMult = (1 - resist / 100) * (1 + takenInc / 100) * takenMore
+						globalOutput[ailment .. "EffMult"] = effMult
+						if breakdown and effMult ~= 1 then
+							local sourceRes = env.modDB:Flag(nil, "EnemyFireResistEqualToYours") and "Your Fire Resistance" or (env.partyMembers.modDB:Flag(nil, "EnemyFireResistEqualToYours") and "Party Member Fire Resistance" or "Fire")
+							globalBreakdown[ailment .. "EffMult"] = breakdown.effMult("Fire", resist, 0, takenInc, effMult, takenMore, sourceRes, true)
+						end
 					else
 						local resist = calcResistForType(ailmentDamageType, dotCfg)
 						local elementalDamageTaken = isElemental[ailmentDamageType] and "ElementalDamageTaken" or nil
@@ -5415,7 +5446,16 @@ function calcs.offence(env, actor, activeSkill)
 
 		-- Calculate damaging ailment values
 		for _, damagingAilment in ipairs({"Bleed", "Poison", "Ignite"}) do
-			calcDamagingAilmentOutputs(damagingAilment, data.defaultAilmentDamageTypes[damagingAilment]["DamageType"], data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
+			local damageType = data.defaultAilmentDamageTypes[damagingAilment]["DamageType"]
+			if not canDeal[damageType] then
+				for _, type in ipairs(dmgTypeList) do
+					if skillModList:Flag(skillCfg, type.."Can"..damagingAilment) then -- e.g. Avatar of Fire + Blistering Bond -> DealNoPhysical + FireCanBleed
+						calcDamagingAilmentOutputs(damagingAilment, type, data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
+					end
+				end
+			else
+				calcDamagingAilmentOutputs(damagingAilment, damageType, data.defaultAilmentDamageTypes[damagingAilment]["ScalesFrom"])
+			end
 		end
 
 		-- Calculate non-damaging ailments effect and duration modifiers
