@@ -388,6 +388,7 @@ skills["SupportArmourExplosionPlayer"] = {
 skills["ArmourExplosionPlayer"] = {
 	name = "Armour Explosion",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -540,6 +541,11 @@ skills["SupportBarbsPlayer"] = {
 			label = "Barbs I",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
+					-- handled by TriggeredBarbsPlayer as an additionalGrantedEffect hard-coded in Modules/Data.lua
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -553,6 +559,36 @@ skills["SupportBarbsPlayer"] = {
 		},
 	}
 }
+			skills["TriggeredBarbsPlayer"] = {
+				name = "Barbs I",
+				hidden = true,
+				description = "Deal your thorns damage.",
+				skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+				cannotBeSupported = true,
+				qualityStats = {},
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Barbs I",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							thorns = true,
+							triggeredOnHitBySupportedSkill = true,
+						},
+						baseMods = {
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
+
 skills["SupportBarbsPlayerTwo"] = {
 	name = "Barbs II",
 	description = "Supports Melee Strike Skills. Supported Skills deal your Thorns Damage on Hit after you've Retaliated with Thorns Damage.",
@@ -571,6 +607,11 @@ skills["SupportBarbsPlayerTwo"] = {
 			label = "Barbs II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["deal_thorns_damage_on_hit_for_X_hits_after_thorns_trigger"] = {
+					-- handled by TriggeredBarbsPlayerTwo as an additionalGrantedEffect hard-coded in Modules/Data.lua
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -584,6 +625,36 @@ skills["SupportBarbsPlayerTwo"] = {
 		},
 	}
 }
+			skills["TriggeredBarbsPlayerTwo"] = {
+				name = "Barbs II",
+				hidden = true,
+				description = "Deal your thorns damage.",
+				skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+				cannotBeSupported = true,
+				qualityStats = {},
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Barbs II",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							thorns = true,
+							triggeredOnHitBySupportedSkill = true,
+						},
+						baseMods = {
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
+
 skills["SupportBarbsPlayerThree"] = {
 	name = "Barbs III",
 	description = "Supports Melee Strike Skills. Supported Skills deal your Thorns Damage on Hit twice after you've Retaliated with Thorns Damage.",
@@ -602,6 +673,11 @@ skills["SupportBarbsPlayerThree"] = {
 			label = "Barbs III",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["deal_thorns_damage_twice_on_hit_for_X_hits_after_thorns_trigger"] = {
+					-- handled by TriggeredBarbsPlayerThree as an additionalGrantedEffect hard-coded in Modules/Data.lua
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -615,6 +691,37 @@ skills["SupportBarbsPlayerThree"] = {
 		},
 	}
 }
+			skills["TriggeredBarbsPlayerThree"] = {
+				name = "Barbs III",
+				hidden = true,
+				description = "Deal twice your thorns damage.",
+				skillTypes = { [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true },
+				cannotBeSupported = true,
+				qualityStats = {},
+				levels = {
+					[1] = { levelRequirement = 0 },
+				},
+				statSets = {
+					[1] = {
+						label = "Barbs III",
+						incrementalEffectiveness = 0,
+						statDescriptionScope = "skill_stat_descriptions",
+						baseFlags = {
+							thorns = true,
+							triggeredOnHitBySupportedSkill = true,
+						},
+						baseMods = {
+							mod("DoubleDamageChance", "BASE", 100, 0, 0),
+						},
+						constantStats = {},
+						stats = {},
+						levels = {
+							[1] = {},
+						},
+					},
+				},
+			}
+
 skills["SupportBattershoutPlayer"] = {
 	name = "Battershout",
 	description = "Supports Warcry Skills. Supported Skills Consume Fully Broken Armour to trigger Physical Damage explosions on Enemies within their range but cannot themselves Break Armour. ",
@@ -648,6 +755,7 @@ skills["SupportBattershoutPlayer"] = {
 skills["TriggeredBattershoutExplosionPlayer"] = {
 	name = "Battershout",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal Physical Area Damage based off of the Broken Armour of the target which this explosion was Triggered from.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -938,6 +1046,7 @@ skills["SupportBrambleslamPlayer"] = {
 skills["TriggeredBrambleslamPlayer"] = {
 	name = "Brambles",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Hazardous thorns damage and Maim enemies with which they come in contact.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Hazard] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Plant] = true, },
 	castTime = 1,
@@ -1029,36 +1138,6 @@ skills["SupportBranchingFissuresPlayerTwo"] = {
 				{ "number_of_branching_fissures", 2 },
 				{ "branching_fissure_area_of_effect_+%_final", -35 },
 				{ "branching_fissure_damage_+%_final", -30 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportEnduranceChargeOnArmourBreak"] = {
-	name = "Break Endurance",
-	description = "Supports any skill that Hits enemies, giving it a chance to gain an Endurance Charge when it Fully Breaks an enemy's Armour.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "BreakEndurance",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Break Endurance",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "chance_to_gain_endurance_charge_on_armour_break_%", 40 },
 			},
 			stats = {
 			},
@@ -1282,7 +1361,6 @@ skills["SupportCannibalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Cannibalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -1318,7 +1396,6 @@ skills["SupportCannibalismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Cannibalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -1592,7 +1669,6 @@ skills["SupportCoolheadedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "CoolHeaded",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -1767,6 +1843,7 @@ skills["SupportCraterPlayer"] = {
 skills["TriggeredCraterPlayer"] = {
 	name = "Crater",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ElementalPowerSkillWand.dds",
 	description = "Creates multiple Fissures when landing with Supported Skill.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.CreatesFissure] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Attack] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.Limit] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -1873,37 +1950,6 @@ skills["SupportDauntlessPlayer"] = {
 				{ "support_unmoving_damage_multiplier_cap", 45 },
 			},
 			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportDazingCryPlayer"] = {
-	name = "Dazing Cry",
-	description = "Supports Warcries, causing them to Daze Enemies on use.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Warcry, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "DazingCry",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 10, },
-	},
-	statSets = {
-		[1] = {
-			label = "Dazing Cry",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_dazed_cry_duration_ms", 4000 },
-			},
-			stats = {
-				"support_apply_daze_on_warcry",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2046,68 +2092,6 @@ skills["SupportDefyPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportDesperationPlayer"] = {
-	name = "Desperation",
-	description = "Supports Melee Attack Skills you use yourself. Insufficient Mana doesn't prevent Supported Skills from being used while Surrounded.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Minion, SkillType.Triggered, },
-	gemFamily = { "Desperation",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Desperation",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-				"skills_are_usable_without_mana_cost_while_surrounded",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportDevastatePlayer"] = {
-	name = "Devastate",
-	description = "Supports any skill that Hits enemies, causing them to apply Broken Armour to enemies when causing a Heavy Stun to enemies.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Devastate",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-	},
-	statSets = {
-		[1] = {
-			label = "Devastate",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["fully_break_enemies_armour_on_heavy_stun"] = {
-					flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" } ),
-				},
-			},
-			baseFlags = {
-			},
-			stats = {
-				"fully_break_enemies_armour_on_heavy_stun",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportDirestrikePlayer"] = {
 	name = "Direstrike I",
 	description = "Supports Persistent Buff Skills, causing you to deal increased Attack Damage while on Low Life while the Supported Skill is active.",
@@ -2117,7 +2101,6 @@ skills["SupportDirestrikePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Direstrike",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -2153,7 +2136,6 @@ skills["SupportDirestrikePlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Direstrike",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 40, },
 	},
@@ -2968,6 +2950,7 @@ skills["SupportFanTheFlamesPlayer"] = {
 skills["TriggeredFanTheFlamesPlayer"] = {
 	name = "Fan the Flames",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/FanTheFlames.dds",
 	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -3114,6 +3097,7 @@ skills["SupportFanTheFlamesPlayerTwo"] = {
 skills["TriggeredFanTheFlamesPlayerTwo"] = {
 	name = "Fan the Flames",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/FanTheFlames.dds",
 	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -3356,36 +3340,6 @@ skills["SupportFirePenetrationPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportFirstBloodPlayer"] = {
-	name = "First Blood",
-	description = "Supports Attacks. Supported Skills are far more likely to inflict Bleeding on Hitting full Life Enemies.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "FirstBlood",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 10, },
-	},
-	statSets = {
-		[1] = {
-			label = "First Blood",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "bleed_chance_+%_vs_full_life_enemy", 100 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["FistOfWarSupportPlayer"] = {
 	name = "Fist of War I",
 	description = "Supports Slams you use yourself, providing a powerful Ancestral Boost every few seconds.",
@@ -3403,17 +3357,7 @@ skills["FistOfWarSupportPlayer"] = {
 			label = "Fist of War I",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3444,17 +3388,7 @@ skills["FistOfWarSupportPlayerTwo"] = {
 			label = "Fist of War II",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 30),
-				mod("FistOfWarMOREAoE", "BASE", 25),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3485,20 +3419,7 @@ skills["FistOfWarSupportPlayerThree"] = {
 			label = "Fist of War III",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["ancestral_slam_interval_duration"] = {
-					mod("FistOfWarCooldown", "BASE", nil),
-					div = 1000,
-				},
-				["double_ancestral_boost_effect"] = {
-					-- Accounted for in base mod
-				},
-			},
 			baseFlags = {
-			},
-			baseMods = {
-				mod("FistOfWarDamageMultiplier", "BASE", 60),
-				mod("FistOfWarMOREAoE", "BASE", 50),
 			},
 			constantStats = {
 				{ "support_ancestral_slam_big_hit_max_count", 1 },
@@ -3550,6 +3471,7 @@ skills["SupportFlamePillarPlayer"] = {
 skills["TriggeredFlamePillarPlayer"] = {
 	name = "Flame Pillar",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BeserkSkill.dds",
 	description = "Deal Fire Damage in an Area based on a percentage of the expected Damage of the Consumed Ignite.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -3757,6 +3679,7 @@ skills["SupportHaemocrystalsPlayer"] = {
 skills["TriggeredHaemocrystalsPlayer"] = {
 	name = "Haemocrystals",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal Physical Damage in an Area based on a percentage of the expected Damage of the Consumed Bleed.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -3942,7 +3865,6 @@ skills["SupportHerbalismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Herbalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -3978,7 +3900,6 @@ skills["SupportHerbalismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Herbalism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -4351,6 +4272,7 @@ skills["SupportInfernalLegionPlayerThree"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Infernal Legion III",
@@ -5072,41 +4994,6 @@ skills["SupportPersistentGroundPlayerThree"] = {
 		},
 	}
 }
-skills["SupportEmpoweredDamagePlayer"] = {
-	name = "Premeditation",
-	description = "Supports skills that can Empower skills other than themselves, causing skills they Empower to deal more damage.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.EmpowersOtherSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Premeditation",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 30, },
-	},
-	statSets = {
-		[1] = {
-			label = "Premeditation",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_empowered_damage_+%_final"] = {
-					mod("ExtraEmpowerMod", "LIST", { mod = mod("Damage", "MORE", nil) }),
-				}
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_empowered_damage_+%_final", 15 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["ProlongedDurationSupportPlayer"] = {
 	name = "Prolonged Duration I",
 	description = "Supports any skill that has a duration, making that duration longer.",
@@ -5195,6 +5082,11 @@ skills["SupportQuillburstPlayer"] = {
 			label = "Quill Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["trigger_spiked_gauntlets_for_X_hits_after_thorns_trigger"] = {
+					-- display only
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -5211,6 +5103,7 @@ skills["SupportQuillburstPlayer"] = {
 skills["TriggeredQuillburstPlayer"] = {
 	name = "Quill Burst",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal your Thorns Damage in an Area. Cannot Hit the target this was Triggered from.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,
@@ -5224,7 +5117,13 @@ skills["TriggeredQuillburstPlayer"] = {
 			label = "Quill Burst",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "triggered_spiked_gauntlets",
+			statMap = {
+				["display_skill_deals_thorns_damage"] = {
+					-- display only
+				},
+			},
 			baseFlags = {
+				thorns = true,
 			},
 			constantStats = {
 				{ "triggered_by_spiked_gauntlets_support_%", 100 },
@@ -5443,37 +5342,6 @@ skills["SupportRagingCryPlayer"] = {
 				{ "warcry_grant_X_rage_per_5_power", 4 },
 			},
 			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportRallyPlayer"] = {
-	name = "Rally",
-	description = "Supports Melee Attacks you use yourself. Supported Skills Consume all Endurance Charge on use, causing you to restore a percentage of your maximum Life for each Charge Consumed.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Melee, },
-	addSkillTypes = { SkillType.ConsumesCharges, SkillType.SupportedByRally, },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesEnduranceChargesOnUse, SkillType.SupportedByRally, SkillType.NOT, SkillType.AND, },
-	gemFamily = { "Rally",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Rally",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "consume_endurance_charges_on_use_to_recover_%_maximum_life_per_charge", 10 },
-			},
-			stats = {
-				"skill_cannot_generate_endurance_charges",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6111,38 +5979,6 @@ skills["SupportDeadlyIgnitesPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportSeeRedPlayer"] = {
-	name = "See Red",
-	description = "Supports Attack Skills. Bleeding inflicted with Supported Skills lasts significantly longer, but enemies you inflict Bleeding onto with Supported Skills will move and Attack faster.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "SeeRed",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "See Red",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "bleeding_monsters_movement_velocity_+%", 15 },
-				{ "base_bleed_duration_+%", 50 },
-				{ "bleeding_monsters_attack_speed_+%", 15 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportSelflessRemnantsPlayer"] = {
 	name = "Selfless Remnants",
 	description = "Supports Skills that generate Remnants, causing those Remnants to affect Allies in your Presence when collected instead of you.",
@@ -6281,6 +6117,7 @@ skills["SupportSkitteringStonePlayer"] = {
 skills["TriggeredSkitteringStonePlayer"] = {
 	name = "Skittering Stone",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/SkitteringStone.dds",
 	description = "Creates Skittering Stone Minions from shattered objects created by Supported Skill.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.CreatesMinion] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.MeleeSingleTarget] = true, },
@@ -6354,6 +6191,7 @@ skills["SupportSkitteringStonePlayerTwo"] = {
 skills["TriggeredSkitteringStonePlayerTwo"] = {
 	name = "Skittering Stone",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/SkitteringStone.dds",
 	description = "Creates Skittering Stone Minions from shattered objects created by Supported Skill.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.CreatesMinion] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
 	minionSkillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.MeleeSingleTarget] = true, },
@@ -6653,6 +6491,7 @@ skills["SupportStompingGroundPlayer"] = {
 skills["StompingGroundShockwavePlayer"] = {
 	name = "Stomping Ground Shockwave",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -6875,6 +6714,7 @@ skills["SupportHardyTotemsPlayerThree"] = {
 skills["TriggeredSplinterExplosionHardyTotems"] = {
 	name = "Tawhoa's Vengeance",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WindstormLanceSkillIcon.dds",
 	description = "Deals Physical Damage in an area, based on Totem Life.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -6981,7 +6821,6 @@ skills["SupportThornskinPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Thornskin",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -6992,7 +6831,7 @@ skills["SupportThornskinPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin I" }),
+					mod("Damage", "INC", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin I" }),
 				},
 			},
 			baseFlags = {
@@ -7017,7 +6856,6 @@ skills["SupportThornskinPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Thornskin",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 40, },
 	},
@@ -7028,7 +6866,7 @@ skills["SupportThornskinPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_thorns_spirit_cost_thorns_damage_+%"] = {
-					mod("ThornsDamage", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin II" }),
+					mod("Damage", "INC", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Thornskin II" }),
 				},
 			},
 			baseFlags = {
@@ -7066,44 +6904,6 @@ skills["SupportTirelessPlayer"] = {
 			},
 			constantStats = {
 				{ "chance_for_exerted_attacks_to_not_reduce_count_%", 25 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportTremorsPlayer"] = {
-	name = "Tremors",
-	description = "Supports Slam Skills you use yourself. Supported Skills gain multiple independent chances to cause Aftershocks, but deal less Damage.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Slam, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.Triggered, },
-	gemFamily = { "Tremors",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Tremors",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_unstable_earth_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_slam_chance_for_one_additional_aftershock_%", 30 },
-				{ "support_slam_chance_for_two_additional_aftershocks_%", 15 },
-				{ "support_slam_chance_for_three_additional_aftershocks_%", 10 },
-				{ "support_unstable_earth_damage_+%_final", -35 },
 			},
 			stats = {
 			},
@@ -7224,73 +7024,6 @@ skills["SupportUhtredOmenPlayer"] = {
 		},
 	}
 }
-skills["SupportUnabatingPlayer"] = {
-	name = "Unabating",
-	description = "Supports Attack Skills you use yourself. While using Supported Skills, you gain increased Armour, with the increase scaling higher the longer the Attack time of the supported Skill. Cannot Support Channelling Skills.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, SkillType.Triggered, },
-	gemFamily = { "Unabating",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-	},
-	statSets = {
-		[1] = {
-			label = "Unabating",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "armour_+%_while_performing_action_per_250_ms_attack_time", 25 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["UnbreakableSupportPlayer"] = {
-	name = "Unbreakable",
-	description = "Supports any skill that you can use, making you harder to Stun while using it.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
-	gemFamily = { "Unbreakable",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 10, },
-	},
-	statSets = {
-		[1] = {
-			label = "Unbreakable",
-			incrementalEffectiveness = 0.092720001935959,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_unbreakable_stun_threshold_+%_final_while_performing_action"] = {
-					mod("StunThreshold", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", unscalable = true }),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_unbreakable_light_stun_threshold_+%_final_while_performing_action", 200 },
-				{ "support_stability_heavy_stun_threshold_+%_final_while_performing_action", 30 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportUnderminePlayer"] = {
 	name = "Undermine",
 	description = "Supports Attack Skills. Supported Skills Consume Maim on hit, Breaking a percentage of the Maimed target's Armour in doing so. Supported Skills cannot themselves inflict Maim.",
@@ -7315,64 +7048,6 @@ skills["SupportUnderminePlayer"] = {
 			},
 			stats = {
 				"cannot_inflict_maim",
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportUnsteadyTempoPlayer"] = {
-	name = "Unsteady Tempo",
-	description = "Supports Melee Attack Skills you use yourself. Attacking with Supported Skills will cycle through various effects, with the first Attack in sequence inflicting Hobble on you. The second and third Attacks in sequence will powerfully scale chance to Critically Hit and overall damage, respectively, at which point the cycle will reset. Cannot Support Channelling Skills.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Melee, SkillType.Attack, SkillType.AND, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Channel, },
-	gemFamily = { "UnsteadyTempo",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 10, },
-	},
-	statSets = {
-		[1] = {
-			label = "Unsteady Tempo",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportUnyieldingPlayer"] = {
-	name = "Unyielding",
-	description = "Supports Melee Attack Skills you use yourself. While using Supported Skills, a percentage of Damage taken is Recouped as Life, with the percentage scaling higher the longer the Attack time of the Supported Skill. Cannot Support Channelling Skills.",
-	color = 1,
-	support = true,
-	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, SkillType.Triggered, },
-	gemFamily = { "Unyielding",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-	},
-	statSets = {
-		[1] = {
-			label = "Unyielding",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "damage_taken_%_recouped_as_life_while_performing_attack_per_250_ms_attack_time", 8 },
-			},
-			stats = {
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -7691,7 +7366,6 @@ skills["SupportVitalityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Vitality",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -7728,7 +7402,6 @@ skills["SupportVitalityPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Vitality",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 40, },
 	},
@@ -7790,6 +7463,7 @@ skills["SupportVolcanicEruptionPlayer"] = {
 skills["TriggeredVolcanicEruptionPlayer"] = {
 	name = "Volcanic Eruption",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/VolcanicEruptionSkillIcon.dds",
 	description = "Fire molten Projectiles from the struck target, which will land nearby dealing Attack damage in an area.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
 	castTime = 1,

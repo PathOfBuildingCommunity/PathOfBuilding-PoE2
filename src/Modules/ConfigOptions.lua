@@ -193,7 +193,7 @@ local configSettings = {
 			modList:NewMod("Condition:ArmourAvg", "FLAG", true, "Config")
 		end
 	end },
-	{ var = "warcryMode", type = "list", label = "Exerted/Boosted calc mode:", ifSkill = { "Fist of War", "Infernal Cry", "Ancestral Cry", "Enduring Cry", "General's Cry", "Intimidating Cry", "Rallying Cry", "Seismic Cry", "Battlemage's Cry", "Vengeful Cry" }, tooltip = "Controls how exerted attacks from Warcries are calculated:\nAverage: Averages out Warcry usage with cast time, attack speed and warcry cooldown.\nMax Hit: Shows maximum hit for lining up all warcries.", list = {{val="AVERAGE",label="Average"},{val="MAX",label="Max Hit"}}, apply = function(val, modList, enemyModList)
+	{ var = "warcryMode", type = "list", label = "Boosted calc mode:", tooltip = "Controls how ancestrally boosted attacks are calculated:\nAverage: Averages out Boost usage with cast time, attack speed and cooldown.\nMax Hit: Shows maximum hit for lining up all sources of ancestral boost.", list = {{val="AVERAGE",label="Average"},{val="MAX",label="Max Hit"}}, apply = function(val, modList, enemyModList)
 		if val == "MAX" then
 			modList:NewMod("Condition:WarcryMaxHit", "FLAG", true, "Config")
 		end
@@ -1247,6 +1247,11 @@ Huge sets the radius to 11.
 	{ var = "multiplierStunnedRecently", type = "count", label = "# of times Stunned Recently:", ifOption = "conditionStunnedRecently", defaultPlaceholderState = 1, apply = function(val, modList, enemyModList)
 		modList:NewMod("Multiplier:StunnedRecently", "BASE", m_min(val, 100), "Config", { type = "Condition", var = "Combat" }, { type = "Condition", var = "StunnedRecently" } )
 	end },
+	{ var = "conditionShapeshifted", type = "check", label = "Currently Shapeshifted?", apply = function(val, modList, enemyModList)
+		if val then
+			modList:NewMod("Condition:Shapeshifted", "FLAG", true, "Config")
+		end
+	end },
 	{ var = "conditionShapeshiftToAnimal", type = "check", label = "Shapeshifted to animal recently?", ifSkillType = { SkillType.Bear, SkillType.Wolf, SkillType.Wyvern }, apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:ShapeshiftToAnimal", "FLAG", true, "Config", { type = "Condition", var = "Combat" })
 	end },
@@ -1932,7 +1937,7 @@ Huge sets the radius to 11.
 	-- Section: Enemy Stats
 	{ section = "Enemy Stats", col = 2 },
 	{ var = "enemyLevel", type = "count", label = "Enemy Level:", tooltip = "This overrides the default enemy level used to estimate your hit, ^x33FF77evade ^7chance, and damage reduction.\n\nThe maximum level for normal enemies and all bosses is 85.\n\nThe default level of normal enemies and bosses scales with player level unless manually set.\n\nThe default and minimum level for pinnacle bosses and uber pinnacle bosses is 82." },
-	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare or Unique?", ifEnemyCond = "EnemyRareOrUnique", tooltip = "The enemy will automatically be considered to be Unique if they are a Boss,\nbut you can use this option to force it if necessary.", apply = function(val, modList, enemyModList)
+	{ var = "conditionEnemyRareOrUnique", type = "check", label = "Is the enemy Rare?", ifFlag = {"CanCull","CritCanCull"}, tooltip = "The enemy will automatically be considered to be Unique if they are a Boss.\nUsed to set base Culling Strike Threshold.", apply = function(val, modList, enemyModList)
 		enemyModList:NewMod("Condition:RareOrUnique", "FLAG", true, "Config", { type = "Condition", var = "Effective" })
 	end },
 	{ var = "enemyIsBoss", type = "list", label = "Is the enemy a Boss?", defaultIndex = 3, tooltip = data.enemyIsBossTooltip, list = {{val="None",label="No"},{val="Boss",label="Standard Boss"},{val="Pinnacle",label="Guardian/Pinnacle Boss"},{val="Uber",label="Uber Pinnacle Boss"}}, apply = function(val, modList, enemyModList, build)

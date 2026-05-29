@@ -19,7 +19,7 @@ local groupSlotDropList = {
 	{ label = "Helmet", slotName = "Helmet" },
 	{ label = "Body Armour", slotName = "Body Armour" },
 	{ label = "Gloves", slotName = "Gloves" },
-	{ label = "Boots", slotName = "Boots" }, 
+	{ label = "Boots", slotName = "Boots" },
 	{ label = "Amulet", slotName = "Amulet" },
 	{ label = "Ring 1", slotName = "Ring 1" },
 	{ label = "Ring 2", slotName = "Ring 2" },
@@ -39,11 +39,11 @@ local defaultGemLevelList = {
 Awakened gems default to their highest valid non-corrupted gem level.]],
 		gemLevel = "corruptedMaximum",
 	},
-	{
-		label = "Awakened Maximum",
-		description = "All gems default to their highest valid corrupted gem level.",
-		gemLevel = "awakenedMaximum",
-	},
+	--{
+	--	label = "Awakened Maximum",
+	--	description = "All gems default to their highest valid corrupted gem level.",
+	--	gemLevel = "awakenedMaximum",
+	--},
 	{
 		label = "Match Character Level",
 		description = [[All gems default to their highest valid non-corrupted gem level that your character meets the level requirement for.
@@ -54,8 +54,15 @@ This hides gems with a minimum level requirement above your character level, pre
 
 local showSupportGemTypeList = {
 	{ label = "All", show = "ALL" },
-	{ label = "Non-Awakened", show = "NORMAL" },
-	{ label = "Awakened", show = "AWAKENED" },
+	{ label = "Lineage", show = "LINEAGE" },
+	{ label = "Non-Lineage", show = "NORMAL" },
+}
+
+local corruptOption = {
+	{ label = "Not Corrupted", level = 0 },
+	{ label = "+1 to Gem Level", level = 1 },
+	{ label = "Corrupted", level = 0 },
+	{ label = "-1 to Gem Level", level = -1 },
 }
 
 local sortGemTypeList = {
@@ -82,8 +89,11 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	self.sortGemsByDPS = true
 	self.sortGemsByDPSField = "CombinedDPS"
 	self.showSupportGemTypes = "ALL"
+	self.showLegacyGems = false
 	self.defaultGemLevel = "normalMaximum"
 	self.defaultGemQuality = main.defaultGemQuality
+	self.defaultCorruptionLevel = 0
+	self.defaultCorruptionState = false
 
 	-- Set selector
 	self.controls.setSelect = new("DropDownControl", { "TOPLEFT", self, "TOPLEFT" }, { 76, 8, 210, 20 }, nil, function(index, value)
@@ -101,7 +111,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 
 	-- Socket group list
 	self.controls.groupList = new("SkillListControl", { "TOPLEFT", self, "TOPLEFT" }, { 20, 54, 360, 300 }, self)
-	self.controls.groupTip = new("LabelControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { 0, 8, 0, 14 }, 
+	self.controls.groupTip = new("LabelControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { 0, 8, 0, 14 },
 [[
 ^7Usage Tips:
 - You can copy/paste socket groups using Ctrl+C and Ctrl+V.
@@ -114,7 +124,7 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 	-- Gem options
 	local optionInputsX = 170
 	local optionInputsY = 45
-	self.controls.optionSection = new("SectionControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { 0, optionInputsY + 50, 360, 130 }, "Gem Options")
+	self.controls.optionSection = new("SectionControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { 0, optionInputsY + 50, 360, 150 }, "Gem Options")
 	self.controls.sortGemsByDPS = new("CheckBoxControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { optionInputsX, optionInputsY + 70, 20 }, "Sort gems by DPS:", function(state)
 		self.sortGemsByDPS = state
 	end, nil, true)
@@ -139,6 +149,9 @@ local SkillsTabClass = newClass("SkillsTab", "UndoHandler", "ControlHost", "Cont
 		self.showSupportGemTypes = value.show
 	end)
 	self.controls.showSupportGemTypesLabel = new("LabelControl", { "RIGHT", self.controls.showSupportGemTypes, "LEFT" }, { -4, 0, 0, 16 }, "^7Show support gems:")
+	self.controls.showLegacyGems = new("CheckBoxControl", { "TOPLEFT", self.controls.groupList, "BOTTOMLEFT" }, { optionInputsX, optionInputsY + 166, 20 }, "^7Show legacy gems:", function(state)
+		self.showLegacyGems = state
+	end)
 
 	-- Socket group details
 	if main.portraitMode then
@@ -256,7 +269,7 @@ will automatically apply to the skill.]]
 	-- Initialise skill sets
 	self.skillSets = { }
 	self.skillSetOrderList = { 1 }
-	self:NewSkillSet(1)
+	self:CreateSkillSet(1)
 	self:SetActiveSkillSet(1)
 
 	-- Skill gem slots
@@ -273,9 +286,22 @@ will automatically apply to the skill.]]
 	self.controls.gemNameHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].nameSpec, "TOPLEFT"}, {0, -2, 0, 16}, "^7Gem name:")
 	self.controls.gemLevelHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].level, "TOPLEFT"}, {0, -2, 0, 16}, "^7Level:")
 	self.controls.gemQualityHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].quality, "TOPLEFT"}, {0, -2, 0, 16}, "^7Quality:")
+	self.controls.gemCorruptHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].corruptLevel, "TOPLEFT"}, {0, -2, 0, 16}, "^7Corrupt:")
 	self.controls.gemEnableHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].enabled, "TOPLEFT"}, {-16, -2, 0, 16}, "^7Enabled:")
 	self.controls.gemCountHeader = new("LabelControl", {"BOTTOMLEFT", self.gemSlots[1].count, "TOPLEFT"}, {18, -2, 0, 16}, "^7Count:")
 end)
+
+function SkillsTabClass:GetCorruptIndex(gemInstance)
+	if gemInstance.corruptLevel == 1 then
+		return 2  -- +1 to Gem Level
+	elseif gemInstance.corruptLevel == -1 then
+		return 4  -- -1 to Gem Level
+	elseif gemInstance.corrupted == true then
+		return 3  -- Corrupted
+	else
+		return 1  -- Not Corrupted
+	end
+end
 
 function SkillsTabClass:LoadSkill(node, skillSetId)
 	if node.elem ~= "Skill" then
@@ -346,12 +372,14 @@ function SkillsTabClass:LoadSkill(node, skillSetId)
 		gemInstance.skillMinionItemSetCalcs = tonumber(child.attrib.skillMinionItemSetCalcs)
 		gemInstance.skillMinionSkill = tonumber(child.attrib.skillMinionSkill)
 		gemInstance.skillMinionSkillCalcs = tonumber(child.attrib.skillMinionSkillCalcs)
+		gemInstance.corrupted = child.attrib.corrupted == "true"
+		gemInstance.corruptLevel = tonumber(child.attrib.corruptLevel) or 0
 		gemInstance.statSet = { }
 		gemInstance.statSetCalcs = { }
 		gemInstance.skillMinionSkillStatSetIndexLookup = { }
 		gemInstance.skillMinionSkillStatSetIndexLookupCalcs = { }
 		for _, child in ipairs(child) do
-			if child.elem == "StatSetIndex" and child.attrib.grantedEffect then 
+			if child.elem == "StatSetIndex" and child.attrib.grantedEffect then
 				gemInstance.statSet[child.attrib.grantedEffect] = tonumber(child.attrib.index)
 			elseif child.elem == "StatSetCalcsIndex" and child.attrib.grantedEffect then
 				gemInstance.statSetCalcs[child.attrib.grantedEffect] = tonumber(child.attrib.index)
@@ -396,8 +424,12 @@ function SkillsTabClass:Load(xml, fileName)
 		self.sortGemsByDPS = xml.attrib.sortGemsByDPS == "true"
 	end
 	self.controls.sortGemsByDPS.state = self.sortGemsByDPS
+	if xml.attrib.showLegacyGems then
+		self.showLegacyGems = xml.attrib.showLegacyGems == "true"
+	end
+	self.controls.showLegacyGems.state = self.showLegacyGems
 	self.controls.showSupportGemTypes:SelByValue(xml.attrib.showSupportGemTypes or "ALL", "show")
-	self.controls.sortGemsByDPSFieldControl:SelByValue(xml.attrib.sortGemsByDPSField or "CombinedDPS", "type") 
+	self.controls.sortGemsByDPSFieldControl:SelByValue(xml.attrib.sortGemsByDPSField or "CombinedDPS", "type")
 	self.showSupportGemTypes = self.controls.showSupportGemTypes:GetSelValueByKey("show")
 	self.sortGemsByDPSField = self.controls.sortGemsByDPSFieldControl:GetSelValueByKey("type")
 	for _, node in ipairs(xml) do
@@ -405,13 +437,13 @@ function SkillsTabClass:Load(xml, fileName)
 			-- Old format, initialize skill sets if needed
 			if not self.skillSetOrderList[1] then
 				self.skillSetOrderList[1] = 1
-				self:NewSkillSet(1)
+				self:CreateSkillSet(1)
 			end
 			self:LoadSkill(node, 1)
 		end
 
 		if node.elem == "SkillSet" then
-			local skillSet = self:NewSkillSet(tonumber(node.attrib.id))
+			local skillSet = self:CreateSkillSet(tonumber(node.attrib.id))
 			skillSet.title = node.attrib.title
 			t_insert(self.skillSetOrderList, skillSet.id)
 			for _, subNode in ipairs(node) do
@@ -431,6 +463,7 @@ function SkillsTabClass:Save(xml)
 		sortGemsByDPS = tostring(self.sortGemsByDPS),
 		showSupportGemTypes = self.showSupportGemTypes,
 		sortGemsByDPSField = self.sortGemsByDPSField,
+		showLegacyGems = tostring(self.showLegacyGems),
 	}
 	for _, skillSetId in ipairs(self.skillSetOrderList) do
 		local skillSet = self.skillSets[skillSetId]
@@ -474,6 +507,8 @@ function SkillsTabClass:Save(xml)
 					skillMinionItemSetCalcs = gemInstance.skillMinionItemSetCalcs and tostring(gemInstance.skillMinionItemSetCalcs),
 					skillMinionSkill = gemInstance.skillMinionSkill and tostring(gemInstance.skillMinionSkill),
 					skillMinionSkillCalcs = gemInstance.skillMinionSkillCalcs and tostring(gemInstance.skillMinionSkillCalcs),
+					corrupted = tostring(gemInstance.corrupted),
+					corruptLevel = tostring(gemInstance.corruptLevel),
 				} }
 				if gemInstance.statSet then
 					for grantedEffect, index in pairs(gemInstance.statSet) do
@@ -485,8 +520,8 @@ function SkillsTabClass:Save(xml)
 						t_insert(gemInfo, { elem = "StatSetCalcsIndex", attrib = { grantedEffect = grantedEffect, index = tostring(index)}})
 					end
 				end
-				if gemInstance.skillMinionSkillStatSetIndexLookup then 
-					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookup) do 
+				if gemInstance.skillMinionSkillStatSetIndexLookup then
+					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookup) do
 						local minionSkillStatSetIndexLookup = { elem = "MinionSkillIndexLookup", attrib = { grantedEffect = grantedEffect }}
 						for k,v in pairs(map) do
 							t_insert(minionSkillStatSetIndexLookup, { elem = "MinionSkillIndexMap",  attrib = {
@@ -497,8 +532,8 @@ function SkillsTabClass:Save(xml)
 						t_insert(gemInfo, minionSkillStatSetIndexLookup)
 					end
 				end
-				if gemInstance.skillMinionSkillStatSetIndexLookupCalcs then 
-					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookupCalcs) do 
+				if gemInstance.skillMinionSkillStatSetIndexLookupCalcs then
+					for grantedEffect, map in pairs(gemInstance.skillMinionSkillStatSetIndexLookupCalcs) do
 						local minionSkillStatSetIndexLookupCalcs = { elem = "MinionSkillIndexLookupCalcs", attrib = { grantedEffect = grantedEffect } }
 						for k,v in pairs(map) do
 							t_insert(minionSkillStatSetIndexLookupCalcs, { elem = "MinionSkillIndexMap",  attrib = {
@@ -642,7 +677,15 @@ function SkillsTabClass:CopySocketGroup(socketGroup)
 		skillText = skillText .. "Slot: " .. socketGroup.slot .. "\r\n"
 	end
 	for _, gemInstance in ipairs(socketGroup.gemList) do
-		skillText = skillText .. string.format("%s %d/%d %s %s\r\n", gemInstance.nameSpec, gemInstance.level, gemInstance.quality, gemInstance.enabled and "" or "DISABLED", string.format("%g", gemInstance.count or 1))
+		skillText = skillText .. string.format(
+			"%s %d/%d %s %s%s\r\n",
+			gemInstance.nameSpec,
+			gemInstance.level,
+			gemInstance.quality,
+			gemInstance.enabled and "" or "DISABLED",
+			string.format("%g", gemInstance.count or 1),
+			gemInstance.corrupted and (" C" .. ((gemInstance.corruptLevel or 0) ~= 0 and ((gemInstance.corruptLevel > 0 and "+" or "") .. gemInstance.corruptLevel) or "")) or ""
+		)
 	end
 	Copy(skillText)
 end
@@ -659,16 +702,53 @@ function SkillsTabClass:PasteSocketGroup(testInput)
 		if slot then
 			newGroup.slot = slot
 		end
-		for nameSpec, level, quality, state, count in skillText:gmatch("([ %a']+) (%d+)/(%d+) ?(%a*) ([%d%.]+)") do
-			t_insert(newGroup.gemList, {
-				nameSpec = nameSpec,
-				level = tonumber(level) or 20,
-				quality = tonumber(quality) or 0,
-				enabled = state ~= "DISABLED",
-				count = tonumber(count) or 1,
-				enableGlobal1 = true,
-				enableGlobal2 = true
-			})
+		for line in skillText:gmatch("([^\r\n]+)") do
+			local nameSpec, level, quality, state, count, cFlag, cLevel =
+				line:match("^([ %a':]+) (%d+)/(%d+)%s*(%u*)%s+([%d%.]+)%s*(C?)([+%-]?%d*)%s*$")
+			if nameSpec then
+				local skillMinion = nil
+				local skillMinionCalcs = nil
+				local minionName = nil
+				local minionList = nil
+
+				if nameSpec:find("Spectre") then
+					minionName = nameSpec:match(": (.+)")
+					nameSpec = "Summon Spectre"
+					minionList = self.build.spectreList
+				elseif nameSpec:find("Companion") then
+					minionName = nameSpec:match(": (.+)")
+					nameSpec = "Tamed Companion"
+					minionList = self.build.beastList
+				end
+
+				-- Search for the minion if we found a spectre or companion
+				if minionName then
+					for id, spectre in pairs(data.spectres) do
+						if spectre.name == minionName then
+							if not isValueInArray(minionList, id) then
+								t_insert(minionList, id)
+							end
+							skillMinion = id
+							skillMinionCalcs = id
+							break
+						end
+					end
+				end
+
+				t_insert(newGroup.gemList, {
+					nameSpec = nameSpec,
+					level = tonumber(level) or 20,
+					quality = tonumber(quality) or 0,
+					enabled = state ~= "DISABLED",
+					count = tonumber(count) or 1,
+					corrupted = cFlag == "C",
+					corruptLevel = tonumber(cLevel) or 0,
+					enableGlobal1 = true,
+					enableGlobal2 = true,
+					skillMinion = skillMinion,
+					skillMinionCalcs = skillMinionCalcs
+				})
+			end
 		end
 		if #newGroup.gemList > 0 then
 			t_insert(self.socketGroupList, newGroup)
@@ -698,6 +778,7 @@ function SkillsTabClass:CreateGemSlot(index)
 			self.gemSlots[index2].enableGlobal1.state = gemInstance.enableGlobal1
 			self.gemSlots[index2].enableGlobal2.state = gemInstance.enableGlobal2
 			self.gemSlots[index2].count:SetText(gemInstance.count or 1)
+			self.gemSlots[index2].corruptLevel.selIndex = self:GetCorruptIndex(gemInstance)
 		end
 		self:AddUndoState()
 		self.build.buildFlag = true
@@ -762,11 +843,14 @@ function SkillsTabClass:CreateGemSlot(index)
 				enableGlobal1 = true,
 				enableGlobal2 = true,
 				count = 1,
-				new = true
+				new = true,
+				corrupted = false,
+				corruptLevel = 0,
 			}
 			self.displayGroup.gemList[index] = gemInstance
 			slot.level:SetText(gemInstance.level)
 			slot.quality:SetText(gemInstance.quality)
+			slot.corruptLevel.selIndex = self:GetCorruptIndex(gemInstance)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
 			slot.enableGlobal2.state = true
@@ -794,6 +878,11 @@ function SkillsTabClass:CreateGemSlot(index)
 		gemInstance.naturalMaxLevel = gemInstance.level
 		-- Gem changed, update the list and default the quality id
 		slot.level:SetText(gemInstance.level)
+		if self.defaultCorruptionLevel == 1 then
+			slot.corruptLevel.selIndex = 2
+			gemInstance.corrupted = true
+			gemInstance.corruptLevel = 1
+		end
 		slot.count:SetText(gemInstance.count or 1)
 		if addUndo then
 			self:AddUndoState()
@@ -810,12 +899,13 @@ function SkillsTabClass:CreateGemSlot(index)
 	slot.level = new("EditControl", { "LEFT", slot.nameSpec, "RIGHT" }, { 2, 0, 60, 20 }, nil, nil, "%D", 2, function(buf)
 		local gemInstance = self.displayGroup.gemList[index]
 		if not gemInstance then
-			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1, new = true }
+			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1, new = true, corruptLevel = 0, corrupted = false }
 			self.displayGroup.gemList[index] = gemInstance
 			slot.quality:SetText(gemInstance.quality)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
 			slot.count:SetText(gemInstance.count)
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		gemInstance.level = tonumber(buf) or self.displayGroup.gemList[index].naturalMaxLevel or self:ProcessGemLevel(gemInstance.gemData) or 20
 		self:ProcessSocketGroup(self.displayGroup)
@@ -839,12 +929,13 @@ function SkillsTabClass:CreateGemSlot(index)
 	slot.quality = new("EditControl", {"LEFT",slot.level,"RIGHT"}, {2, 0, 60, 20}, nil, nil, "%D", 2, function(buf)
 		local gemInstance = self.displayGroup.gemList[index]
 		if not gemInstance then
-			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1, new = true }
+			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1, new = true, corruptLevel = 0, corrupted = false }
 			self.displayGroup.gemList[index] = gemInstance
 			slot.level:SetText(gemInstance.level)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
 			slot.count:SetText(gemInstance.count)
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		gemInstance.quality = tonumber(buf) or self.defaultGemQuality or 0
 		self:ProcessSocketGroup(self.displayGroup)
@@ -1004,11 +1095,12 @@ function SkillsTabClass:CreateGemSlot(index)
 	slot.enabled = new("CheckBoxControl", {"LEFT",slot.quality,"RIGHT"}, {33, 0, 20}, nil, function(state)
 		local gemInstance = self.displayGroup.gemList[index]
 		if not gemInstance then
-			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1, new = true }
+			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, enableGlobal2 = true, count = 1, new = true, corruptLevel = 0, corrupted = false }
 			self.displayGroup.gemList[index] = gemInstance
 			slot.level:SetText(gemInstance.level)
 			slot.quality:SetText(gemInstance.quality)
 			slot.count:SetText(gemInstance.count)
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		if not gemInstance.gemData.vaalGem then
 			slot.enableGlobal1.state = true
@@ -1043,12 +1135,13 @@ function SkillsTabClass:CreateGemSlot(index)
 	slot.count = new("EditControl", {"LEFT",slot.enabled,"RIGHT"}, {18, 0, 80, 20}, nil, nil, "^%d.", 5, function(buf)
 		local gemInstance = self.displayGroup.gemList[index]
 		if not gemInstance then
-			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, count = 1, new = true }
+			gemInstance = { nameSpec = "", level = self.defaultGemLevel or 20, quality = self.defaultGemQuality or 0, enabled = true, enableGlobal1 = true, count = 1, new = true, corruptLevel = 0, corrupted = false }
 			self.displayGroup.gemList[index] = gemInstance
 			slot.level:SetText(gemInstance.level)
 			slot.quality:SetText(gemInstance.quality)
 			slot.enabled.state = true
 			slot.enableGlobal1.state = true
+			slot.corruptLevel = self:GetCorruptIndex(gemInstance)
 		end
 		gemInstance.count = tonumber(buf) or 1
 		self:ProcessSocketGroup(self.displayGroup)
@@ -1078,6 +1171,47 @@ function SkillsTabClass:CreateGemSlot(index)
 		return index <= #self.displayGroup.gemList
 	end
 	self.controls["gemSlot"..index.."Count"] = slot.count
+
+	slot.corruptLevel = new("DropDownControl", {"LEFT",slot.count,"RIGHT"}, {18, 0, 140, 20}, corruptOption, function(indexSel, value)
+		local gemInstance = self.displayGroup.gemList[index]
+		if not gemInstance then
+			gemInstance = { nameSpec = "", level = 20, quality = 0, enabled = true, enableGlobal1 = true, count = 1, new = true, corruptLevel = 0, corrupted = false }
+			self.displayGroup.gemList[index] = gemInstance
+			slot.level:SetText(gemInstance.level)
+			slot.quality:SetText(gemInstance.quality)
+			slot.enabled.state = true
+			slot.enableGlobal1.state = true
+		end
+		gemInstance.corruptLevel = value.level
+		gemInstance.corrupted = (value.label ~= "Not Corrupted")
+		slot.corruptLevel.selIndex = indexSel
+		self:ProcessSocketGroup(self.displayGroup)
+		self:AddUndoState()
+		self.build.buildFlag = true
+	end)
+
+	slot.corruptLevel.shown = function()
+		local gemInstance = self.displayGroup and self.displayGroup.gemList[index]
+		if gemInstance then
+			local activeGrantedEffect = gemInstance.grantedEffect or gemInstance.gemData and gemInstance.gemData.grantedEffect
+			if gemInstance.fromItem or gemInstance.fromTree or activeGrantedEffect and (activeGrantedEffect.fromItem or activeGrantedEffect.fromTree) then
+				return false
+			end
+			local grantedEffectList = gemInstance.gemData and gemInstance.gemData.grantedEffectList or { gemInstance.grantedEffect }
+			for index, grantedEffect in ipairs(grantedEffectList) do
+				if not grantedEffect.support and not grantedEffect.unsupported and (not grantedEffect.hasGlobalEffect or gemInstance["enableGlobal"..index]) then
+					return true
+				end
+			end
+		end
+		return false
+	end
+
+	slot.corruptLevel.enabled = function()
+		return index <= #self.displayGroup.gemList
+	end
+
+	self.controls["gemSlot"..index.."CorruptLevel"] = slot.corruptLevel
 
 	-- Parser/calculator error message
 	slot.errMsg = new("LabelControl", {"LEFT",slot.count,"RIGHT"}, {2, 2, 0, 16}, function()
@@ -1141,6 +1275,7 @@ function SkillsTabClass:UpdateGemSlots()
 			slot.quality:SetText("")
 			slot.enabled.state = false
 			slot.count:SetText(1)
+			slot.corruptLevel.selIndex = 1
 		else
 			slot.nameSpec.inactiveCol = self.displayGroup.gemList[slotIndex].color
 		end
@@ -1187,11 +1322,17 @@ function SkillsTabClass:ProcessGemLevel(gemData)
 		if grantedEffect.plusVersionOf then
 			return naturalMaxLevel
 		else
-			return naturalMaxLevel + 1
+			self.defaultCorruptionLevel = 1
+			self.defaultCorruptionState = true
+			return naturalMaxLevel
 		end
 	elseif self.defaultGemLevel == "normalMaximum" then
+			self.defaultCorruptionLevel = 0
+			self.defaultCorruptionState = false
 		return naturalMaxLevel
 	else -- self.defaultGemLevel == "characterLevel"
+		self.defaultCorruptionLevel = 0
+		self.defaultCorruptionState = false
 		local maxGemLevel = naturalMaxLevel
 		if not grantedEffect.levels[maxGemLevel] then
 			maxGemLevel = #grantedEffect.levels
@@ -1312,6 +1453,7 @@ function SkillsTabClass:SetDisplayGroup(socketGroup)
 			self.gemSlots[index].enableGlobal1.state = gemInstance.enableGlobal1
 			self.gemSlots[index].enableGlobal2.state = gemInstance.enableGlobal2
 			self.gemSlots[index].count:SetText(gemInstance.count or 1)
+			self.gemSlots[index].corruptLevel.selIndex = self:GetCorruptIndex(gemInstance)
 		end
 	end
 end
@@ -1338,13 +1480,14 @@ function SkillsTabClass:AddSocketGroupTooltip(tooltip, socketGroup)
 		end
 		tooltip:AddLine(16, "^7Active Skill #"..index..":")
 		for _, skillEffect in ipairs(activeSkill.effectList) do
-			tooltip:AddLine(20, string.format("%s%s ^7%d%s/%d%s",
+			tooltip:AddLine(20, string.format("%s%s ^7%d%s/%d%s%s",
 				data.skillColorMap[skillEffect.grantedEffect.color or skillEffect.gemData and skillEffect.gemData.grantedEffect.color],
 				skillEffect.srcInstance.nameSpec or skillEffect.grantedEffect.name,
 				skillEffect.srcInstance and skillEffect.srcInstance.level or skillEffect.level,
 				(skillEffect.srcInstance and skillEffect.level > skillEffect.srcInstance.level) and colorCodes.MAGIC.."+"..(skillEffect.level - skillEffect.srcInstance.level).."^7" or "",
 				skillEffect.srcInstance and skillEffect.srcInstance.quality or skillEffect.quality,
-				(skillEffect.srcInstance and skillEffect.quality > skillEffect.srcInstance.quality) and colorCodes.MAGIC.."+"..(skillEffect.quality - skillEffect.srcInstance.quality).."^7" or ""
+				(skillEffect.srcInstance and skillEffect.quality > skillEffect.srcInstance.quality) and colorCodes.MAGIC.."+"..(skillEffect.quality - skillEffect.srcInstance.quality).."^7" or "",
+				(skillEffect.srcInstance and skillEffect.srcInstance.corrupted == true) and (colorCodes.NEGATIVE.." C"..((skillEffect.srcInstance.corruptLevel or 0) ~= 0 and ((skillEffect.srcInstance.corruptLevel > 0 and "+" or "")..skillEffect.srcInstance.corruptLevel) or "")) or ""
 			))
 			if skillEffect.srcInstance then
 				gemShown[skillEffect.srcInstance] = true
@@ -1455,25 +1598,67 @@ function SkillsTabClass:OpenSkillSetManagePopup()
 	})
 end
 
--- Creates a new skill set
-function SkillsTabClass:NewSkillSet(skillSetId)
-	local skillSet = { id = skillSetId, socketGroupList = {} }
+-- Creates a new skill set without adding to order list
+function SkillsTabClass:CreateSkillSet(skillSetId, title)
+	local skillSet = { id = skillSetId, title = title, socketGroupList = {} }
 	if not skillSetId then
-		skillSet.id = 1
-		while self.skillSets[skillSet.id] do
-			skillSet.id = skillSet.id + 1
-		end
+		skillSet.id = #self.skillSets + 1
 	end
 	self.skillSets[skillSet.id] = skillSet
 	return skillSet
 end
 
+-- Creates a new skill set with title, adds to order list and sets modFlag
+function SkillsTabClass:NewSkillSet(skillSetId, title)
+	local skillSet = self:CreateSkillSet(skillSetId, title)
+	t_insert(self.skillSetOrderList, skillSet.id)
+	self.modFlag = true
+	return skillSet
+end
+
+function SkillsTabClass:CopySkillSet(sourceSkillSetId, newSkillSetName)
+	local skillSet = self.skillSets[sourceSkillSetId]
+	local newSkillSet = copyTable(skillSet, true)
+	newSkillSet.title = newSkillSetName or skillSet.title .. " (Copy)"
+	newSkillSet.socketGroupList = {}
+	for socketGroupIndex, socketGroup in pairs(skillSet.socketGroupList) do
+		local newGroup = copyTable(socketGroup, true)
+		newGroup.gemList = {}
+		for gemIndex, gem in pairs(socketGroup.gemList) do
+			newGroup.gemList[gemIndex] = copyTable(gem, true)
+		end
+		t_insert(newSkillSet.socketGroupList, newGroup)
+	end
+	newSkillSet.id = #self.skillSets + 1
+	self.skillSets[newSkillSet.id] = newSkillSet
+	t_insert(self.skillSetOrderList, newSkillSet.id)
+	self.modFlag = true
+	return newSkillSet
+end
+
+function SkillsTabClass:RenameSkillSet(skillSetId, newTitle)
+	local skillSet = self.skillSets[skillSetId]
+	
+	if not skillSet then
+		return
+	end
+
+	skillSet.title = newTitle
+	self.modFlag = true
+end
+
+function SkillsTabClass:DeleteSkillSet(skillSetId, orderListIndex)
+	t_remove(self.skillSetOrderList, orderListIndex)
+	self.skillSets[skillSetId] = nil
+	self.modFlag = true
+end
+
 -- Changes the active skill set
-function SkillsTabClass:SetActiveSkillSet(skillSetId)
+function SkillsTabClass:SetActiveSkillSet(skillSetId, deferSync)
 	-- Initialize skill sets if needed
 	if not self.skillSetOrderList[1] then
 		self.skillSetOrderList[1] = 1
-		self:NewSkillSet(1)
+		self:CreateSkillSet(1)
 	end
 
 	if not skillSetId then
@@ -1491,7 +1676,9 @@ function SkillsTabClass:SetActiveSkillSet(skillSetId)
 
 	-- set the loadout option to the dummy option since it is now dirty
 	self:SetDisplayGroup(self.socketGroupList[1])
-	self.build:SyncLoadouts()
+	if not deferSync then
+		self.build:SyncLoadouts()
+	end
 end
 
 -- Loop over all socket groups and gem instances
@@ -1515,11 +1702,11 @@ function SkillsTabClass:UpdateGlobalGemCountAssignments()
 							t_insert(GlobalGemAssignments[gemInstance.gemData.name].groups, socketGroup.displayLabel)
 						end
 					else
-						GlobalGemAssignments[gemInstance.gemData.name] = { 
+						GlobalGemAssignments[gemInstance.gemData.name] = {
 							count = 1,
 							support = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.support or false,
 							lineage = gemInstance.gemData.grantedEffect and gemInstance.gemData.grantedEffect.isLineage or false,
-							groups = { } 
+							groups = { }
 						}
 						if socketGroup.displayLabel then
 							t_insert(GlobalGemAssignments[gemInstance.gemData.name].groups, socketGroup.displayLabel)

@@ -180,6 +180,7 @@ data.misc = { -- magic numbers
 	ResistFloor = -200,
 	MaxResistCap = 90,
 	EvadeChanceCap = data.gameConstants["DefaultMaxEvadeChancePercent"],
+	DeflectionChanceCap = 95, -- maybe a gameConstant?
 	DodgeChanceCap = 75,
 	BlockChanceCap = 90,
 	SuppressionChanceCap = 100,
@@ -245,6 +246,7 @@ data.misc = { -- magic numbers
 	PvpElemental2 = 150,
 	PvpNonElemental1 = 0.57,
 	PvpNonElemental2 = 90,
+	SpectreBeastDamageFixup = 1.25 -- 25% more damage server side mod added in 0.3
 }
 
 data.skillColorMap = { colorCodes.STRENGTH, colorCodes.DEXTERITY, colorCodes.INTELLIGENCE, colorCodes.NORMAL }
@@ -550,14 +552,14 @@ data.weaponTypeInfo = {
 }
 data.unarmedWeaponData = {
 	[0] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Scion
-	[1] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
-	[2] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Huntress
-	[3] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Warrior
-	[4] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Mercenary
-	[5] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Druid
-	[6] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[1] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Witch
+	[2] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Ranger
+	[6] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 8 }, -- Warrior
 	[7] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Sorceress
-	[8] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Monk
+	[8] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Huntress
+	[9] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Mercenary
+	[10] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 5 }, -- Monk
+	[11] = { type = "None", AttackRate = 1.65, CritChance = data.characterConstants["unarmed_base_critical_strike_chance"] / 100, PhysicalMin = 2, PhysicalMax = 6 }, -- Druid
 }
 
 data.setJewelRadiiGlobally = function(treeVersion)
@@ -887,9 +889,12 @@ end
 
 -- Load gems
 data.gems = LoadModule("Data/Gems")
+data.assets = LoadModule("Data/Assets")
+data.skillAssets = LoadModule("Data/Skills/SkillAssets")
 data.gemForSkill = { }
 data.gemForBaseName = { }
 data.gemsByGameId = { }
+data.gemNameForModSource = { }
 -- Lookup table - [Gem.grantedEffectId] = VaalGemId
 data.gemGrantedEffectIdForVaalGemId = { }
 data.gemVaalGemIdForBaseGemId = { }
@@ -899,6 +904,7 @@ local function setupGem(gem, gemId)
 	data.gemForSkill[gem.grantedEffect] = gemId
 	data.gemsByGameId[gem.gameId] = data.gemsByGameId[gem.gameId] or {}
 	data.gemsByGameId[gem.gameId][gem.variantId] = gem
+	data.gemNameForModSource[gem.grantedEffect.modSource] = gem.name
 	local baseName = gem.name
 	if gem.grantedEffect.support and gem.grantedEffectId ~= "SupportBarrage" then
 		baseName = baseName .. " Support"
@@ -925,6 +931,21 @@ local function setupGem(gem, gemId)
 
 		table.insert(gem.grantedEffectList, skill)
 		table.insert(gem.additionalGrantedEffects, skill)
+		i = i + 1
+	end
+	--handle Barbs
+	if gem.name:sub(1, 7) == "Barbs I" then -- also covers Barbs II and Barbs III
+		local additionalGrantedEffectId = "TriggeredBarbsPlayer"
+		if gem.name == "Barbs II" then
+			additionalGrantedEffectId = additionalGrantedEffectId .. "Two"
+		else
+			if gem.name == "Barbs III" then
+				additionalGrantedEffectId = additionalGrantedEffectId .. "Three"
+			end
+		end
+		gem["additionalGrantedEffectId"..i] = additionalGrantedEffectId
+		table.insert(gem.grantedEffectList, data.skills[gem["additionalGrantedEffectId"..i]])
+		table.insert(gem.additionalGrantedEffects, data.skills[gem["additionalGrantedEffectId"..i]])
 		i = i + 1
 	end
 	if gem.grantedEffectDisplayOrder then
