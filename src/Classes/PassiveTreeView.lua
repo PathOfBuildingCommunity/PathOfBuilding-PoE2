@@ -4,7 +4,6 @@
 -- Passive skill tree viewer.
 -- Draws the passive skill tree, and also maintains the current view settings (zoom level, position, etc)
 --
-local number = 0
 local pairs = pairs
 local ipairs = ipairs
 local t_insert = table.insert
@@ -1448,8 +1447,6 @@ function PassiveTreeViewClass:Focus(x, y, viewPort, build)
 end
 
 function PassiveTreeViewClass:DoesNodeMatchSearchParams(build, node)
-	print("CALLED:", number)
-	number = number + 1
 	if node.type == "ClassStart" or node.type == "OnlyImage" then
 		return
 	end
@@ -2101,11 +2098,9 @@ function PassiveTreeViewClass:LessLuminance()
 	local newA = a * alphaFactor;
 	SetDrawColor(newR, newG, newB, newA)
 end
-local test = 0
+
 -- Checks if a node has unlockConstraint and if that node is allocated
 function checkUnlockConstraints(build, node)
-	print("CHECKED: ", test)
-	test = test+1
 	if unseenPathHover and node.unlockConstraint and node.unlockConstraint.nodes[1] == 5571 then
 		return true
 	end
