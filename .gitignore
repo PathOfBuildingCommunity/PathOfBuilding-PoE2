@@ -4,6 +4,9 @@
 .vscode/
 *.code-workspace
 inspect.lua
+.mcp.json
+.opencode.json
+scripts/
 
 # Development files
 *.lnk
@@ -24,10 +27,14 @@ manifest-updated.xml
 
 # GGPK Export
 src/Export/ggpk/metadata/
+src/Export/ggpk/Metadata/
 src/Export/ggpk/data/
+src/Export/ggpk/Data/
 src/Export/ggpk/art/
 src/Export/ggpk/*.exe
 src/Export/ggpk/*.dll
+src/Export/ggpk/bun_extract_file
+src/Export/ggpk/*.so
 
 #tree data
 src/TreeData/**/*.scm
@@ -45,3 +52,8 @@ runtime/imgui.ini
 
 
 src/poe_api_response.json
+.omc/
+.claude/
+.remember/
+.sisyphus/
+.code-review-graph/
