@@ -705,12 +705,14 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 			end
 		end
 
+		-- Compare added node color
 		if baseState == "Active" and state ~= "Active" then
 			state = "Active"
-			setConnectorColor(0, 1, 0)
+			setConnectorColor(0.00, 0.95, 1.00)
 		end
+		-- Compare removed node color
 		if baseState ~= "Active" and state == "Active" then
-			setConnectorColor(1, 0, 0)
+			setConnectorColor(1.00, 0.00, 0.85)
 		end
 
 		if baseState == "Intermediate" and spec.allocMode > 0 and not connector.ascendancyName then
@@ -1057,12 +1059,12 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 				self:DrawAsset(base, scrX, scrY, scale)
 			else
 
-				if not self.showHeatMap and not launch.devModeAlt and not node.alloc then
+				if not self.showHeatMap and not launch.devModeAlt and not node.alloc and not (compareNode and compareNode.alloc) then
 					self:LessLuminance()
 				end
 
 				self:DrawAsset(base, scrX, scrY, scale)
-				if not self.showHeatMap and not launch.devModeAlt and not node.alloc then
+				if not self.showHeatMap and not launch.devModeAlt and not node.alloc and not (compareNode and compareNode.alloc) then
 					SetDrawColor(1, 1, 1, 1);
 				end
 			end
