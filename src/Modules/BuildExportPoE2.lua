@@ -419,7 +419,7 @@ local function itemAdditionalText(item)
 	appendItalic(item.implicitModLines)
 	appendPlain(item.explicitModLines)
 	local text = t_concat(parts, "\n")
-	if #text > 600 then text = text:sub(1, 597) .. "..." end
+	if #text > 1000 then text = text:sub(1, 997) .. "..." end
 	return text
 end
 
