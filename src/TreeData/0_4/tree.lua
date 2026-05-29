@@ -1711,14 +1711,6 @@ return {
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryTwoHandsPattern"]=59,
 			["Art/2DArt/UIImages/InGame/PassiveMastery/MasteryBackgroundGraphic/MasteryWarcryPattern"]=60
 		},
-		["monster-categories_36_36_BC7.dds.zst"]={
-			Beast=1,
-			Construct=2,
-			Demon=3,
-			Eldritch=4,
-			Humanoid=5,
-			Undead=6
-		},
 		["oils_108_108_RGBA.dds.zst"]={
 			Despair=7,
 			Disgust=8,

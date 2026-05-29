@@ -889,6 +889,8 @@ end
 
 -- Load gems
 data.gems = LoadModule("Data/Gems")
+data.assets = LoadModule("Data/Assets")
+data.skillAssets = LoadModule("Data/Skills/SkillAssets")
 data.gemForSkill = { }
 data.gemForBaseName = { }
 data.gemsByGameId = { }

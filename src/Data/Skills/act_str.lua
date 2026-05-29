@@ -9,6 +9,7 @@ local skills, mod, flag, skill = ...
 skills["AncestralCryPlayer"] = {
 	name = "Ancestral Cry",
 	baseTypeName = "Ancestral Cry",
+	icon = "Art/2DArt/SkillIcons/WarriorAncestralCry.dds",
 	color = 1,
 	description = "Perform a Warcry using Glory gained by Igniting enemies to turn you into an embodiment of Kaom. While embodying Kaom, you Trigger Volcanic Steps while travelling, Melee Strikes and Slams are Ancestrally Boosted, and your Melee Strikes Trigger Volcanic Eruption.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Warcry] = true, [SkillType.ConsumesCharges] = true, [SkillType.HasUsageCondition] = true, [SkillType.Nova] = true, [SkillType.Fire] = true, [SkillType.Triggers] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.UsableWhileMoving] = true, },
@@ -153,6 +154,7 @@ skills["AncestralCryPlayer"] = {
 skills["AncestralCryShockwavePlayer"] = {
 	name = "Volcanic Steps",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WarriorAncestralCry.dds",
 	description = "Slam the ground around you, dealing damage to nearby enemies.",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Fire] = true, [SkillType.Slam] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Melee] = true, [SkillType.AttackInPlace] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 1,
@@ -267,6 +269,7 @@ skills["AncestralCryShockwavePlayer"] = {
 skills["AncestralCryProjectilePlayer"] = {
 	name = "Volcanic Eruption",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/VolcanicEruptionSkillIcon.dds",
 	description = "Fire molten Projectiles from the struck enemy, which will land nearby dealing Attack damage in an area.",
 	skillTypes = { [SkillType.Projectile] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CannotChain] = true, [SkillType.Fire] = true, [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Cooldown] = true, [SkillType.AttackInPlace] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 1,
@@ -384,6 +387,7 @@ skills["AncestralCryProjectilePlayer"] = {
 skills["AncestralWarriorTotemPlayer"] = {
 	name = "Ancestral Warrior Totem",
 	baseTypeName = "Ancestral Warrior Totem",
+	icon = "Art/2DArt/SkillIcons/BruteAncestralWarriorTotem.dds",
 	color = 1,
 	description = "Consume 3 Endurance Charges to Raise a Totem that uses socketed Mace Skills. Cannot use Channelling Skills or Skills with Cooldowns.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Duration] = true, [SkillType.Melee] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Meta] = true, [SkillType.Area] = true, [SkillType.HasUsageCondition] = true, [SkillType.RequiresCharges] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, },
@@ -631,6 +635,7 @@ skills["SupportAncestralWarriorTotemPlayer"] = {
 skills["WolfArcticHowlPlayer"] = {
 	name = "Arctic Howl",
 	baseTypeName = "Arctic Howl",
+	icon = "Art/2DArt/SkillIcons/DruidTundraHunter.dds",
 	color = 1,
 	description = "Shapeshift into a Werewolf and let out an icy howl that damages enemies and Freezes Primed enemies. If an enemy is Frozen or a Frozen enemy is Hit, this Skill Empowers your attacks with added Cold damage, causes Empowered Slams to create Chilled Ground, and grants your Allies added Cold damage. This Skill's cooldown can be bypassed by expending an Endurance Charge.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Cold] = true, [SkillType.Damage] = true, [SkillType.Cooldown] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, [SkillType.ConsumesCharges] = true, [SkillType.Buff] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, },
@@ -775,6 +780,7 @@ skills["WolfArcticHowlPlayer"] = {
 skills["ArmourBreakerPlayer"] = {
 	name = "Armour Breaker",
 	baseTypeName = "Armour Breaker",
+	icon = "Art/2DArt/SkillIcons/BruteHeavyStrike.dds",
 	color = 1,
 	description = "Strike with a forceful blow, knocking enemies back and weakening their Armour.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
@@ -898,6 +904,7 @@ skills["ArmourBreakerPlayer"] = {
 skills["ArtilleryBallistaPlayer"] = {
 	name = "Artillery Ballista",
 	baseTypeName = "Artillery Ballista",
+	icon = "Art/2DArt/SkillIcons/MercRipwireBallista.dds",
 	color = 1,
 	description = "Deploy a Ballista Totem that rains down a salvo of Pinning, Maiming bolts.",
 	skillTypes = { [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.TotemsAreBallistae] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, },
@@ -1031,6 +1038,7 @@ skills["ArtilleryBallistaPlayer"] = {
 skills["ArtilleryBallistaProjectilePlayer"] = {
 	name = "Ballista Bolt",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/MercRipwireBallista.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.ProjectileSpeed] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Sustained] = true, [SkillType.Bow] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.UsedByTotem] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
@@ -1159,6 +1167,7 @@ skills["ArtilleryBallistaProjectilePlayer"] = {
 skills["AttritionPlayer"] = {
 	name = "Attrition",
 	baseTypeName = "Attrition",
+	icon = "Art/2DArt/SkillIcons/AttritionSkill.dds",
 	color = 1,
 	description = "While active, causes you to deal more Hit damage to Rare and Unique enemies the longer you've been fighting them, and gain Culling Strike against them once you've been fighting them for long enough.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, },
@@ -1283,6 +1292,7 @@ skills["AttritionPlayer"] = {
 skills["BarkskinPlayer"] = {
 	name = "Barkskin",
 	baseTypeName = "Barkskin",
+	icon = "Art/2DArt/SkillIcons/DruidBarkSkin.dds",
 	color = 1,
 	description = "While active, taking Hit damage from enemies to your Energy Shield causes you to gain Armour for a short duration. Armour gained from multiple Hits can stack. The total Armour gained from this Skill cannot exceed the Item Armour on your Equipped Armour Items.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
@@ -1394,6 +1404,7 @@ skills["BarkskinPlayer"] = {
 skills["BerserkPlayer"] = {
 	name = "Berserk",
 	baseTypeName = "Berserk",
+	icon = "Art/2DArt/SkillIcons/BeserkSkill.dds",
 	color = 1,
 	description = "While active, strengthens your Rage, but causes you to lose Life while not losing Rage.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, },
@@ -1517,6 +1528,7 @@ skills["BerserkPlayer"] = {
 skills["BlackPowderBlitzReservationPlayer"] = {
 	name = "Black Powder Blitz",
 	baseTypeName = "Black Powder Blitz",
+	icon = "Art/2DArt/SkillIcons/ShankgonneSkill.dds",
 	fromItem = true,
 	color = 1,
 	description = "Replaces your dodge roll with an explosive-assisted leap, firing off a round from your prosthetic cannon leg that Blinds and Ignites enemies in the area you escape from. The explosion will cause any Grenades in its area of effect to also explode.",
@@ -1627,6 +1639,7 @@ skills["BlackPowderBlitzReservationPlayer"] = {
 skills["BlackPowderBlitzPlayer"] = {
 	name = "Black Powder Blitz",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ShankgonneSkill.dds",
 	fromItem = true,
 	skillTypes = { [SkillType.UsableWhileMoving] = true, [SkillType.Cooldown] = true, [SkillType.Travel] = true, [SkillType.CanCancelActions] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Fire] = true, [SkillType.Jumping] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0.7,
@@ -1758,6 +1771,7 @@ skills["BlackPowderBlitzPlayer"] = {
 skills["BoneshatterPlayer"] = {
 	name = "Boneshatter",
 	baseTypeName = "Boneshatter",
+	icon = "Art/2DArt/SkillIcons/BruteBoneshatter.dds",
 	color = 1,
 	description = "Attack enemies with a melee Strike. The Strike will cause a Heavy Stun on enemies that are Primed for Stun. Upon causing a Heavy Stun it will also create a Shockwave, dealing a large amount of damage in an area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Melee] = true, [SkillType.Area] = true, },
@@ -1950,6 +1964,7 @@ skills["BoneshatterPlayer"] = {
 skills["BriarpatchPlayer"] = {
 	name = "Briarpatch",
 	baseTypeName = "Briarpatch",
+	icon = "Art/2DArt/SkillIcons/DruidBriarpatch.dds",
 	color = 1,
 	description = "While active, a portion of the Physical Attack damage you deal is stored. Casting a Spell uses the stored damage to create a patch of Thorny Ground that deals Spell damage to moving enemies.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.Physical] = true, [SkillType.Limit] = true, [SkillType.Plant] = true, [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.Duration] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Sustained] = true, },
@@ -2072,6 +2087,7 @@ skills["BriarpatchPlayer"] = {
 skills["HyenaCacklePlayer"] = {
 	name = "Cackling Companions",
 	baseTypeName = "Cackling Companions",
+	icon = "Art/2DArt/SkillIcons/HandoftheClanSkill.dds",
 	minionList = {
 		"HyenaMinion",
 	},
@@ -2189,6 +2205,7 @@ skills["HyenaCacklePlayer"] = {
 skills["MetaCastOnBlockPlayer"] = {
 	name = "Cast on Block",
 	baseTypeName = "Cast on Block",
+	icon = "Art/2DArt/SkillIcons/CastOnMeleeBlockSkill.dds",
 	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you Block and triggers socketed Spells on reaching maximum Energy.",
@@ -2416,6 +2433,7 @@ skills["SupportMetaCastOnBlockPlayer"] = {
 skills["MetaCastOnMeleeKillPlayer"] = {
 	name = "Cast on Melee Kill",
 	baseTypeName = "Cast on Melee Kill",
+	icon = "Art/2DArt/SkillIcons/CastOnMeleeKillSkill.dds",
 	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you kill enemies with Melee Attacks and triggers socketed spells on reaching maximum Energy.",
@@ -2485,6 +2503,7 @@ skills["SupportMetaCastOnMeleeKillPlayer"] = {
 skills["MetaCastOnMeleeStunPlayer"] = {
 	name = "Cast on Melee Stun",
 	baseTypeName = "Cast on Melee Stun",
+	icon = "Art/2DArt/SkillIcons/CastOnMeleeStunSkill.dds",
 	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you Stun enemies with Melee Attacks and triggers socketed spells on reaching maximum Energy.",
@@ -2554,6 +2573,7 @@ skills["SupportMetaCastOnMeleeStunPlayer"] = {
 skills["ClusterGrenadePlayer"] = {
 	name = "Cluster Grenade",
 	baseTypeName = "Cluster Grenade",
+	icon = "Art/2DArt/SkillIcons/MercClusterGrenade.dds",
 	color = 1,
 	description = "Fire a bouncing Grenade that explodes when its fuse expires, throwing out a ring of mini Grenades that explode when they come to a stop.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
@@ -2782,6 +2802,7 @@ skills["ClusterGrenadePlayer"] = {
 skills["CrossbowRequiemAmmoPlayer"] = {
 	name = "Compose Requiem",
 	baseTypeName = "Compose Requiem",
+	icon = "Art/2DArt/SkillIcons/RequiemChargeSkillCrossbow.dds",
 	fromItem = true,
 	color = 1,
 	description = "Your weapon passively accumulates anguish from the tormented souls within. When fully charged, use this skill to compose the Requiem, transforming your Crossbow shot into a torrent of anguish for a short, fixed amount of time. Does not use Ammunition.",
@@ -2904,6 +2925,7 @@ skills["CrossbowRequiemAmmoPlayer"] = {
 skills["CrossbowRequiemPlayer"] = {
 	name = "Requiem",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RequiemShotSkillCrossbow.dds",
 	fromItem = true,
 	description = "Unleashes a torrent of anguish that bombard the target area, dealing damage in an area on impact. Does not use Ammunition and can be fired freely until the Requiem ends.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.Cold] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.CannotChain] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CrossbowSkill] = true, [SkillType.AttackInPlace] = true, },
@@ -3034,6 +3056,7 @@ skills["CrossbowRequiemPlayer"] = {
 skills["StaffConsecratePlayer"] = {
 	name = "Consecrate",
 	baseTypeName = "Consecrate",
+	icon = "Art/2DArt/BuffIcons/consecrated.dds",
 	fromItem = true,
 	color = 1,
 	description = "Create an area of Consecrated Ground around you.",
@@ -3152,6 +3175,7 @@ skills["StaffConsecratePlayer"] = {
 skills["WolfCrossSlashPlayer"] = {
 	name = "Cross Slash",
 	baseTypeName = "Cross Slash",
+	icon = "Art/2DArt/SkillIcons/DruidCrossSlash.dds",
 	color = 1,
 	description = "Shapeshift into a Werewolf and leap backwards as you gouge the ground with both claws. Enemies can be Hit separately by both gouges. Hitting a Marked enemy with both gouges will Activate the Mark and cause an additional shockwave. Ice Fragments will be pulled into the location where the gouges cross and explode immediately. This skill can be used while using other skills to interrupt them.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.Cooldown] = true, [SkillType.CanCancelActions] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, },
@@ -3340,6 +3364,7 @@ skills["WolfCrossSlashPlayer"] = {
 skills["DefianceBannerReservationPlayer"] = {
 	name = "Defiance Banner",
 	baseTypeName = "Defiance Banner",
+	icon = "Art/2DArt/SkillIcons/DefianceBannerSkill.dds",
 	color = 1,
 	description = "While active, Attacking enemies builds Glory. When you have maximum Glory, you can place an inspiring Banner for a duration with an Aura that grants you and nearby Allies Armour, Evasion and movement speed.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Banner] = true, },
@@ -3447,6 +3472,7 @@ skills["DefianceBannerReservationPlayer"] = {
 skills["DefianceBannerPlayer"] = {
 	name = "Defiance Banner",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DefianceBannerSkill.dds",
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.Aura] = true, [SkillType.HasUsageCondition] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.5,
 	qualityStats = {
@@ -3577,6 +3603,7 @@ skills["DefianceBannerPlayer"] = {
 skills["WyvernDevourPlayer"] = {
 	name = "Devour",
 	baseTypeName = "Devour",
+	icon = "Art/2DArt/SkillIcons/DruidDevourShock.dds",
 	color = 1,
 	description = "Shapeshift into a Wyvern and devour a Corpse or Cullable enemy, and additional nearby Corpses. For each enemy or corpse devoured, you regenerate life and gain a Power Charge. If the target is far enough away, you will leap to them and damage nearby enemies where you land. Targeting nearby enemies or corpses will not perform a leap or a Slam.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Movement] = true, [SkillType.Shapeshift] = true, [SkillType.Wyvern] = true, [SkillType.GeneratesCharges] = true, [SkillType.Jumping] = true, [SkillType.Slam] = true, [SkillType.GamepadDoNotForceSkillAtLocation] = true, [SkillType.Triggerable] = true, },
@@ -3706,6 +3733,7 @@ skills["WyvernDevourPlayer"] = {
 skills["DreadBannerReservationPlayer"] = {
 	name = "Dread Banner",
 	baseTypeName = "Dread Banner",
+	icon = "Art/2DArt/SkillIcons/DreadBannerSkill.dds",
 	color = 1,
 	description = "While active, Attacking enemies builds Glory. When you have maximum Glory, you can place an inspiring Banner for a duration with an Aura that grants you and nearby Allies Elemental Ailment Threshold, Maximum Elemental Resistances and Flask charges.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Banner] = true, },
@@ -3813,6 +3841,7 @@ skills["DreadBannerReservationPlayer"] = {
 skills["DreadBannerPlayer"] = {
 	name = "Dread Banner",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DreadBannerSkill.dds",
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.Aura] = true, [SkillType.HasUsageCondition] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.5,
 	qualityStats = {
@@ -3945,6 +3974,7 @@ skills["DreadBannerPlayer"] = {
 skills["EarthquakePlayer"] = {
 	name = "Earthquake",
 	baseTypeName = "Earthquake",
+	icon = "Art/2DArt/SkillIcons/BruteEarthquake.dds",
 	color = 1,
 	description = "Smash the ground, dealing damage in an area and leaving behind Jagged Ground that slows enemies. The Jagged Ground erupts in a powerful Aftershock after a duration. Cannot create Jagged Ground on top of an existing patch, or if you already have the maximum number of active patches.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Duration] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.AttackInPlace] = true, [SkillType.Limit] = true, },
@@ -4162,6 +4192,7 @@ skills["EarthquakePlayer"] = {
 skills["EarthshatterPlayer"] = {
 	name = "Earthshatter",
 	baseTypeName = "Earthshatter",
+	icon = "Art/2DArt/SkillIcons/BruteEarthshatter.dds",
 	color = 1,
 	description = "Slam the ground, sending out a fissure that deals area damage to enemies it passes under and thrusts a spike from the ground when it ends. Warcries performed near the spike will cause it to shatter, damaging surrounding enemies.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.CreatesFissure] = true, [SkillType.CanCreateStoneElementals] = true, [SkillType.Limit] = true, },
@@ -4347,6 +4378,7 @@ skills["EarthshatterPlayer"] = {
 skills["EmergencyReloadPlayer"] = {
 	name = "Emergency Reload",
 	baseTypeName = "Emergency Reload",
+	icon = "Art/2DArt/SkillIcons/MercEmergencyReload.dds",
 	color = 1,
 	description = "Instantly reload all your Crossbow Ammunition clips and Empower each clip's Ammunition to deal more damage for a duration.",
 	skillTypes = { [SkillType.Instant] = true, [SkillType.InstantNoRepeatWhenHeld] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.ModifiesNextSkill] = true, [SkillType.Buff] = true, [SkillType.EmpowersOtherSkill] = true, },
@@ -4466,6 +4498,7 @@ skills["EmergencyReloadPlayer"] = {
 skills["EntanglePlayer"] = {
 	name = "Entangle",
 	baseTypeName = "Entangle",
+	icon = "Art/2DArt/SkillIcons/DruidEntangle.dds",
 	color = 1,
 	description = "Conjures a rootbound fissure that crawls forward, damaging enemies in its path. While the fissure persists, vines lash out from it and attach to nearby enemies, damaging and Slowing them.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Physical] = true, [SkillType.Unleashable] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Sustained] = true, [SkillType.CreatesFissure] = true, [SkillType.Damage] = true, [SkillType.Plant] = true, [SkillType.Triggerable] = true, [SkillType.Totemable] = true, [SkillType.Trappable] = true, [SkillType.Nature] = true, },
@@ -4677,6 +4710,7 @@ skills["EntanglePlayer"] = {
 skills["EternalRagePlayer"] = {
 	name = "Eternal Rage",
 	baseTypeName = "Eternal Rage",
+	icon = "Art/2DArt/SkillIcons/CeaselessRageSkill.dds",
 	color = 1,
 	description = "While active, you constantly regenerate Rage.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, },
@@ -4792,6 +4826,7 @@ skills["EternalRagePlayer"] = {
 skills["ExplosiveGrenadePlayer"] = {
 	name = "Explosive Grenade",
 	baseTypeName = "Explosive Grenade",
+	icon = "Art/2DArt/SkillIcons/ExplosiveGrenade.dds",
 	color = 1,
 	description = "Fire a bouncing Grenade that unleashes a devastating fiery blast when its fuse expires.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.Detonator] = true, },
@@ -4932,6 +4967,7 @@ skills["ExplosiveGrenadePlayer"] = {
 skills["MetaFeralInvocationPlayer"] = {
 	name = "Feral Invocation",
 	baseTypeName = "Feral Invocation",
+	icon = "Art/2DArt/SkillIcons/DruidFeralInvocation.dds",
 	color = 1,
 	description = "While active, gains Energy when you spend Mana. Using the Invocation once sufficient Energy is gathered will consume the Energy to create visages which attack once with a socketed Shapeshifting Attack, creating multiple visages if it has enough Energy.",
 	skillTypes = { [SkillType.HasReservation] = true, [SkillType.OngoingSkill] = true, [SkillType.Meta] = true, [SkillType.Persistent] = true, [SkillType.Buff] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Invocation] = true, [SkillType.GeneratesEnergy] = true, [SkillType.Triggers] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
@@ -5166,6 +5202,7 @@ skills["SupportFeralInvocationPlayer"] = {
 skills["FerociousRoarMetaPlayer"] = {
 	name = "Ferocious Roar",
 	baseTypeName = "Ferocious Roar",
+	icon = "Art/2DArt/SkillIcons/DruidBearWarcry.dds",
 	color = 1,
 	description = "Shapeshift into a Bear and roar in defiance, immediately gaining Rage if there are enemies nearby and Empowering subsequent Attacks to Break Armour. Alternatively, socketing a human-form Warcry into this Skill triggers that Warcry instead, and augments its damage and area. This Skill's cooldown can be bypassed by expending an Endurance Charge.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Meta] = true, [SkillType.Shapeshift] = true, [SkillType.Bear] = true, [SkillType.Nova] = true, [SkillType.Cooldown] = true, },
@@ -5401,6 +5438,7 @@ skills["SupportFerociousRoarPlayer"] = {
 skills["WyvernFlameBreathPlayer"] = {
 	name = "Flame Breath",
 	baseTypeName = "Flame Breath",
+	icon = "Art/2DArt/SkillIcons/DruidFlameBreath.dds",
 	color = 1,
 	description = "Shapeshift into a Wyvern and take to the skies, immolating enemies with a jet of fire. Channelling ends after a short amount of time but can be prolonged by spending Rage. Consumes a Power Charge if possible to Empower the Skill, Gaining extra Lightning damage and spending Rage more slowly.",
 	skillTypes = { [SkillType.Damage] = true, [SkillType.Shapeshift] = true, [SkillType.Attack] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Sustained] = true, [SkillType.ConsumesRage] = true, [SkillType.Shapeshift] = true, [SkillType.Wyvern] = true, [SkillType.Channel] = true, [SkillType.Cooldown] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, [SkillType.ConsumesCharges] = true, [SkillType.Detonator] = true, },
@@ -5533,6 +5571,7 @@ skills["WyvernFlameBreathPlayer"] = {
 skills["FlashGrenadePlayer"] = {
 	name = "Flash Grenade",
 	baseTypeName = "Flash Grenade",
+	icon = "Art/2DArt/SkillIcons/FlashbangGrenade.dds",
 	color = 1,
 	description = "Fire a bouncing Grenade that unleashes a Blinding, Stunning explosion when its fuse expires.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Grenade] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
@@ -5669,6 +5708,7 @@ skills["FlashGrenadePlayer"] = {
 skills["ForgeHammerPlayer"] = {
 	name = "Forge Hammer",
 	baseTypeName = "Forge Hammer",
+	icon = "Art/2DArt/SkillIcons/WarriorForgeHammer.dds",
 	color = 1,
 	description = "Hurl a fiery hammer that Slams into the ground and lodges there. While the hammer is lodged in the ground, reusing this Skill recalls the hammer and resets the Skill's cooldown. Alternatively, using a Warcry near the lodged hammer causes it to shatter, releasing a number of Molten Fissures in a spiral.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Sustained] = true, [SkillType.CreatesFissure] = true, [SkillType.Limit] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ManualCooldownConsumption] = true, [SkillType.Cooldown] = true, [SkillType.CanCreateStoneElementals] = true, },
@@ -5874,6 +5914,7 @@ skills["ForgeHammerPlayer"] = {
 skills["FortifyingCryPlayer"] = {
 	name = "Fortifying Cry",
 	baseTypeName = "Fortifying Cry",
+	icon = "Art/2DArt/SkillIcons/WarriorShieldingCry.dds",
 	color = 1,
 	description = "Perform a Warcry that grants Guard and Triggers Shield Wave when subsequent Shield Attacks deal damage. This Skill's cooldown can be bypassed by expending an Endurance Charge.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Damage] = true, [SkillType.ConsumesCharges] = true, [SkillType.Cooldown] = true, [SkillType.Physical] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, [SkillType.Nova] = true, },
@@ -6000,6 +6041,7 @@ skills["FortifyingCryPlayer"] = {
 skills["FortifyingCryShockwavePlayer"] = {
 	name = "Shield Wave",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WarriorShieldingCry.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.NonWeaponAttack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
 	qualityStats = {
@@ -6127,6 +6169,7 @@ skills["FortifyingCryShockwavePlayer"] = {
 skills["FuriousSlamPlayer"] = {
 	name = "Furious Slam",
 	baseTypeName = "Furious Slam",
+	icon = "Art/2DArt/SkillIcons/DruidBearSlam.dds",
 	color = 1,
 	description = "Shapeshift into a Bear and Slam the ground with great force, causing a pair of shockwaves. Can spend Rage to create larger shockwaves that leave behind Jagged Ground.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Shapeshift] = true, [SkillType.Bear] = true, [SkillType.ConsumesRage] = true, [SkillType.Triggerable] = true, },
@@ -6320,6 +6363,7 @@ skills["FuriousSlamPlayer"] = {
 skills["BearFuryOfTheMountainPlayer"] = {
 	name = "Fury of the Mountain",
 	baseTypeName = "Fury of the Mountain",
+	icon = "Art/2DArt/SkillIcons/DruidFuryoftheMountain.dds",
 	color = 1,
 	description = "Shapeshift into a Bear and repeatedly pound the ground, creating Molten Fissures that travel randomly in a wide arc in front of you.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Slam] = true, [SkillType.Channel] = true, [SkillType.Duration] = true, [SkillType.Shapeshift] = true, [SkillType.Bear] = true, [SkillType.ConsumesRage] = true, [SkillType.CreatesFissure] = true, [SkillType.Sustained] = true, },
@@ -6449,6 +6493,7 @@ skills["BearFuryOfTheMountainPlayer"] = {
 skills["ToxicGrenadePlayer"] = {
 	name = "Gas Grenade",
 	baseTypeName = "Gas Grenade",
+	icon = "Art/2DArt/SkillIcons/ToxicGrenade.dds",
 	color = 1,
 	description = "Fire a bouncing Grenade that causes a burst of Poison gas when its fuse expires, damaging enemies and leaving behind a growing Poison cloud. Burning effects or Detonator skills will cause the cloud to explode in a fiery blast.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Limit] = true, [SkillType.Projectile] = true, [SkillType.DetonatesAfterTime] = true, },
@@ -6749,6 +6794,7 @@ skills["ToxicGrenadePlayer"] = {
 skills["GeminiSurgePlayer"] = {
 	name = "Gemini Surge",
 	baseTypeName = "Gemini Surge",
+	icon = "Art/2DArt/SkillIcons/AmazonElementalInfusionSkillIcon.dds",
 	fromItem = true,
 	color = 1,
 	description = "Grants your weapon Surges. Non-Melee Projectile Attacks with that weapon Consume Surges to cause the Projectiles fired to explode at the end of their flight.",
@@ -6933,6 +6979,7 @@ skills["GeminiSurgePlayer"] = {
 skills["HammerOfTheGodsPlayer"] = {
 	name = "Hammer of the Gods",
 	baseTypeName = "Hammer of the Gods",
+	icon = "Art/2DArt/SkillIcons/BruteHammerOfTheGods.dds",
 	color = 1,
 	description = "Build Glory by Heavy Stunning enemies. When you have maximum Glory you may entreat the Ancestors to crush your enemies, manifesting a massive hammer that falls from the sky onto your target, Slamming into the ground after a short duration and dealing immense damage based on your weapon.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Duration] = true, [SkillType.Totemable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.HasUsageCondition] = true, },
@@ -7061,6 +7108,7 @@ skills["HammerOfTheGodsPlayer"] = {
 skills["HeraldOfAshPlayer"] = {
 	name = "Herald of Ash",
 	baseTypeName = "Herald of Ash",
+	icon = "Art/2DArt/SkillIcons/HeraldOfAshSkill.dds",
 	color = 1,
 	description = "While active, enemies you sufficiently Overkill with non-Herald Attacks will cause an explosion that Ignites nearby enemies based on the Overkill damage dealt.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.CausesBurning] = true, [SkillType.Area] = true, [SkillType.DamageOverTime] = true, [SkillType.Fire] = true, [SkillType.Herald] = true, [SkillType.Duration] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, },
@@ -7251,6 +7299,7 @@ skills["HeraldOfAshPlayer"] = {
 skills["HeraldOfBloodPlayer"] = {
 	name = "Herald of Blood",
 	baseTypeName = "Herald of Blood",
+	icon = "Art/2DArt/SkillIcons/HeraldOfBloodSkill.dds",
 	color = 1,
 	description = "While active, killing an enemy with Blood Loss will cause a bloody explosion that deals Physical Attack damage to surrounding enemies based off the life of the exploded enemy, destroying their Corpse if the enemy was Normal or Magic. The explosion also has a chance to Aggravate Bleeding.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Herald] = true, [SkillType.UseGlobalStats] = true, [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Physical] = true, [SkillType.SkillConsumesBleeding] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
@@ -7454,6 +7503,7 @@ skills["HeraldOfBloodPlayer"] = {
 skills["InfernalCryPlayer"] = {
 	name = "Infernal Cry",
 	baseTypeName = "Infernal Cry",
+	icon = "Art/2DArt/SkillIcons/BruteInfernalCry.dds",
 	color = 1,
 	description = "Perform a Warcry, Empowering subsequent Melee Attacks if there are enemies nearby. Enemies in the warcry's area are destabilised and will Combust on death. This Skill's cooldown can be bypassed by expending an Endurance Charge.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Fire] = true, [SkillType.Cooldown] = true, [SkillType.ConsumesCharges] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, [SkillType.Nova] = true, },
@@ -7584,6 +7634,7 @@ skills["InfernalCryPlayer"] = {
 skills["InfernalCryCorpseExplosionPlayer"] = {
 	name = "Combust",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/FireBurst.dds",
 	description = "The enemy's Corpse violently explodes, dealing Fire damage in an area around it.",
 	skillTypes = { [SkillType.Fire] = true, [SkillType.Triggered] = true, [SkillType.Area] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.Damage] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -7709,6 +7760,7 @@ skills["InfernalCryCorpseExplosionPlayer"] = {
 skills["IronWardPlayer"] = {
 	name = "Iron Ward",
 	baseTypeName = "Iron Ward",
+	icon = "Art/2DArt/SkillIcons/WardingSteel.dds",
 	color = 1,
 	description = "While active, stores a percentage of the Physical damage that is prevented by your Armour or other sources of damage reduction. Using this Skill releases the stored damage as a nova of spikes.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, },
@@ -7818,6 +7870,7 @@ skills["IronWardPlayer"] = {
 skills["IronWardNovaPlayer"] = {
 	name = "Iron Ward",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WardingSteel.dds",
 	skillTypes = { [SkillType.Area] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, [SkillType.Physical] = true, [SkillType.Damage] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -7935,6 +7988,7 @@ skills["IronWardNovaPlayer"] = {
 skills["LeapSlamPlayer"] = {
 	name = "Leap Slam",
 	baseTypeName = "Leap Slam",
+	icon = "Art/2DArt/SkillIcons/BruteLeapSlam.dds",
 	color = 1,
 	description = "Jump into the air, damaging and Knocking Back enemies with your mace where you land. Enemies you would land on are\npushed out of the way.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.Travel] = true, [SkillType.Jumping] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
@@ -8070,6 +8124,7 @@ skills["LeapSlamPlayer"] = {
 skills["ArmourPiercingBoltsAmmoPlayer"] = {
 	name = "Load Armour Piercing Rounds",
 	baseTypeName = "Load Armour Piercing Rounds",
+	icon = "Art/2DArt/SkillIcons/RapidShotPhysical.dds",
 	color = 1,
 	description = "Load your Crossbow with a clip of bolts that can be fired rapidly and Break enemy Armour. Using this Skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -8187,6 +8242,7 @@ skills["ArmourPiercingBoltsAmmoPlayer"] = {
 skills["ArmourPiercingBoltsPlayer"] = {
 	name = "Armour Piercing Rounds",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RapidShotPhysical.dds",
 	description = "Rapidly fire bolts that Break enemy Armour. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Physical] = true, },
 	weaponTypes = {
@@ -8322,6 +8378,7 @@ skills["ArmourPiercingBoltsPlayer"] = {
 skills["ExplosiveShotAmmoPlayer"] = {
 	name = "Load Explosive Shot",
 	baseTypeName = "Load Explosive Shot",
+	icon = "Art/2DArt/SkillIcons/PowerShotIncendiary.dds",
 	color = 1,
 	description = "Load your Crossbow with flaming bolts that explode on impact. The explosion will cause any Grenades in its area of effect to also explode.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -8440,6 +8497,7 @@ skills["ExplosiveShotAmmoPlayer"] = {
 skills["ExplosiveShotPlayer"] = {
 	name = "Explosive Shot",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/PowerShotIncendiary.dds",
 	description = "Fire a flaming bolt that explodes on impact. The explosion will cause any Grenades in its area of effect to also explode.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Detonator] = true, },
 	weaponTypes = {
@@ -8658,6 +8716,7 @@ skills["ExplosiveShotPlayer"] = {
 skills["FragmentationRoundsAmmoPlayer"] = {
 	name = "Load Fragmentation Rounds",
 	baseTypeName = "Load Fragmentation Rounds",
+	icon = "Art/2DArt/SkillIcons/BurstShotPhysical.dds",
 	color = 1,
 	description = "Load your Crossbow with Piercing bolts that fragment in flight. Bolts that hit a Frozen enemy Consume the Freeze and cause an explosion of shrapnel. Bolts that hit an Ice Crystal cause it to explode. These fragments can Merge.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -8775,6 +8834,7 @@ skills["FragmentationRoundsAmmoPlayer"] = {
 skills["FragmentationRoundsPlayer"] = {
 	name = "Fragmentation Rounds",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BurstShotPhysical.dds",
 	description = "Fire Piercing bolts that fragment in flight. Bolts that hit a Frozen enemy Consume the Freeze and cause an explosion of ice shards. These fragments can Merge.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.SkillConsumesFreeze] = true, [SkillType.Area] = true, },
 	weaponTypes = {
@@ -9010,6 +9070,7 @@ skills["FragmentationRoundsPlayer"] = {
 skills["GalvanicShardsAmmoPlayer"] = {
 	name = "Load Galvanic Shards",
 	baseTypeName = "Load Galvanic Shards",
+	icon = "Art/2DArt/SkillIcons/BurstShotStormblast.dds",
 	color = 1,
 	description = "Load your Crossbow with charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies. These fragments can Merge.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -9128,6 +9189,7 @@ skills["GalvanicShardsAmmoPlayer"] = {
 skills["GalvanicShardsPlayer"] = {
 	name = "Galvanic Shards",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BurstShotStormblast.dds",
 	description = "Rapidly fire charged bolts that fragment in flight, releasing Chaining Lightning beams when they Hit enemies. Can fire a limited number of bursts before needing to reload. These fragments can Merge.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.Chains] = true, [SkillType.UsableWhileMoving] = true, },
 	weaponTypes = {
@@ -9345,6 +9407,7 @@ skills["GalvanicShardsPlayer"] = {
 skills["GlacialBoltAmmoPlayer"] = {
 	name = "Load Glacial Bolt",
 	baseTypeName = "Load Glacial Bolt",
+	icon = "Art/2DArt/SkillIcons/PowerShotPermafrost.dds",
 	color = 1,
 	description = "Load your Crossbow with icy bolts that create two walls of Ice Crystals at the end of their flight.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ToggleSpawnedObjectTargetable_DefaultOn] = true, },
@@ -9463,6 +9526,7 @@ skills["GlacialBoltAmmoPlayer"] = {
 skills["GlacialBoltPlayer"] = {
 	name = "Glacial Bolt",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/PowerShotPermafrost.dds",
 	description = "Fire an icy bolt that creates two walls of Ice Crystals at the end of its flight.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Wall] = true, [SkillType.UsableWhileMoving] = true, [SkillType.IceCrystal] = true, [SkillType.Duration] = true, },
 	weaponTypes = {
@@ -9688,6 +9752,7 @@ skills["GlacialBoltPlayer"] = {
 skills["HailstormRoundsAmmoPlayer"] = {
 	name = "Load Hailstorm Rounds",
 	baseTypeName = "Load Hailstorm Rounds",
+	icon = "Art/2DArt/SkillIcons/SiegeCascadePermafrost.dds",
 	color = 1,
 	description = "Passively generate bolts of ice at a frequency equal to reload time, up to a cap. Activate to Load the accumulated bolts into your Crossbow. All loaded bolts are fired at once, causing them to rain down over the target area.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -9811,6 +9876,7 @@ skills["HailstormRoundsAmmoPlayer"] = {
 skills["HailstormRoundsPlayer"] = {
 	name = "Hailstorm Rounds",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SiegeCascadePermafrost.dds",
 	description = "Fire all loaded bolts into the sky, causing them to rain down over the target area, starting at the centre and spreading outward.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.Sustained] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.Rain] = true, },
 	weaponTypes = {
@@ -9941,6 +10007,7 @@ skills["HailstormRoundsPlayer"] = {
 skills["HighVelocityRoundsAmmoPlayer"] = {
 	name = "Load High Velocity Rounds",
 	baseTypeName = "Load High Velocity Rounds",
+	icon = "Art/2DArt/SkillIcons/PowerShotPhysical.dds",
 	color = 1,
 	description = "Load your Crossbow with Piercing bolts that apply Riven Armour to enemies with Fully Broken Armour, causing any Hits against those enemies to deal extra damage.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ConsumesFullyBrokenArmour] = true, },
@@ -10058,6 +10125,7 @@ skills["HighVelocityRoundsAmmoPlayer"] = {
 skills["HighVelocityRoundsPlayer"] = {
 	name = "High Velocity Rounds",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/PowerShotPhysical.dds",
 	description = "Fire a powerful Piercing bolt that applies Riven Armour to enemies with Fully Broken Armour, causing any Hits against those enemies to deal extra damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Physical] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ConsumesFullyBrokenArmour] = true, [SkillType.Duration] = true, },
 	weaponTypes = {
@@ -10283,6 +10351,7 @@ skills["HighVelocityRoundsPlayer"] = {
 skills["IceShardsAmmoPlayer"] = {
 	name = "Load Ice Shards",
 	baseTypeName = "Load Ice Shards",
+	icon = "Art/2DArt/SkillIcons/RapidShotPermafrost.dds",
 	color = 1,
 	description = "Load your Crossbow with a clip of icy bolts that rapidly fire at the ground, leaving a shard of ice at the impact location that arms after a duration. After arming, the ice shards explode when enemies step on them, dealing more damage the longer they have been armed, up to a maximum. Using this Skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -10400,6 +10469,7 @@ skills["IceShardsAmmoPlayer"] = {
 skills["IceShardsPlayer"] = {
 	name = "Ice Shards",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RapidShotPermafrost.dds",
 	description = "Rapidly fire icy bolts at the ground, leaving a shard of ice at the impact location that arms after a duration. After arming, the ice shards explode when enemies step on them, dealing more damage the longer they have been armed, up to a maximum. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Cold] = true, [SkillType.Sustained] = true, [SkillType.Hazard] = true, [SkillType.CannotChain] = true, },
 	weaponTypes = {
@@ -10629,6 +10699,7 @@ skills["IceShardsPlayer"] = {
 skills["IncendiaryShotAmmoPlayer"] = {
 	name = "Load Incendiary Shot",
 	baseTypeName = "Load Incendiary Shot",
+	icon = "Art/2DArt/SkillIcons/BurstShotIncendiary.dds",
 	color = 1,
 	description = "Load your Crossbow with flaming bolts that fragment in flight, damaging and Igniting enemies on hit and in a small cone behind their final target. These fragments can Merge.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -10746,6 +10817,7 @@ skills["IncendiaryShotAmmoPlayer"] = {
 skills["IncendiaryShotPlayer"] = {
 	name = "Incendiary Shot",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BurstShotIncendiary.dds",
 	description = "Fire flaming bolts that fragment in flight, damaging and Igniting enemies on hit, and in a small cone behind their final target. These fragments can Merge.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, },
 	weaponTypes = {
@@ -10893,6 +10965,7 @@ skills["IncendiaryShotPlayer"] = {
 skills["PermafrostBoltsAmmoPlayer"] = {
 	name = "Load Permafrost Bolts",
 	baseTypeName = "Load Permafrost Bolts",
+	icon = "Art/2DArt/SkillIcons/BurstShotPermafrost.dds",
 	color = 1,
 	description = "Load your Crossbow with icy bolts that fragment in flight, damaging enemies on hit and in a small cone behind their final target. The icy coating on the bolts makes them extremely potent at Freezing enemies. These fragments can Merge.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -11010,6 +11083,7 @@ skills["PermafrostBoltsAmmoPlayer"] = {
 skills["PermafrostBoltsPlayer"] = {
 	name = "Permafrost Bolts",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BurstShotPermafrost.dds",
 	description = "Fire icy bolts that  fragment in flight, damaging enemies on hit and in a small cone behind their final target. The icy coating on the bolts makes them extremely potent at Freezing enemies. These fragments can Merge.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Cold] = true, [SkillType.UsableWhileMoving] = true, },
 	weaponTypes = {
@@ -11152,6 +11226,7 @@ skills["PermafrostBoltsPlayer"] = {
 skills["PlasmaBlastAmmoPlayer"] = {
 	name = "Load Plasma Blast",
 	baseTypeName = "Load Plasma Blast",
+	icon = "Art/2DArt/SkillIcons/PowerShotStormblast.dds",
 	color = 1,
 	description = "Load your Crossbow with unstable bolts that require a lengthy charging period to fire but deal devastating damage, Pierce through enemies, and explode upon hitting terrain. Additional Projectiles are fired in a spread, unlike other Crossbow Skills.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -11270,6 +11345,7 @@ skills["PlasmaBlastAmmoPlayer"] = {
 skills["PlasmaBlastPlayer"] = {
 	name = "Plasma Blast",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/PowerShotStormblast.dds",
 	description = "Channel to charge an unstable bolt. The bolt deals devastating damage and explodes on hitting terrain, but cannot be fired at all unless fully charged. Additional Projectiles are fired in a spread, unlike other Crossbow Skills.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Totemable] = true, [SkillType.Channel] = true, [SkillType.Lightning] = true, [SkillType.UsableWhileMoving] = true, },
 	weaponTypes = {
@@ -11489,6 +11565,7 @@ skills["PlasmaBlastPlayer"] = {
 skills["RapidShotAmmoPlayer"] = {
 	name = "Load Rapid Shot",
 	baseTypeName = "Load Rapid Shot",
+	icon = "Art/2DArt/SkillIcons/RapidShotIncendiary.dds",
 	color = 1,
 	description = "Load your Crossbow with a large clip of heated bolts. Heat builds up on your Crossbow as you fire them, and reaching maximum Heat will prevent you from firing or reloading these bolts for a short time. However, other Skills can Consume Heat for extra benefits. Using this Skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -11607,6 +11684,7 @@ skills["RapidShotAmmoPlayer"] = {
 skills["RapidShotPlayer"] = {
 	name = "Rapid Shot",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RapidShotIncendiary.dds",
 	description = "Fire a stream of heated bolts. Heat builds up on your Crossbow as you fire, and reaching maximum heat will prevent you from firing these bolts for a short time. However, other Skills can Consume Heat for extra benefits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Fire] = true, },
 	weaponTypes = {
@@ -11744,6 +11822,7 @@ skills["RapidShotPlayer"] = {
 skills["ShockburstRoundsAmmoPlayer"] = {
 	name = "Load Shockburst Rounds",
 	baseTypeName = "Load Shockburst Rounds",
+	icon = "Art/2DArt/SkillIcons/RapidShotStormblast.dds",
 	color = 1,
 	description = "Load your Crossbow with a clip of charged bolts which release damaging pulses upon Hitting an enemy affected by a Lightning Ailment. Using this Skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -11864,6 +11943,7 @@ skills["ShockburstRoundsAmmoPlayer"] = {
 skills["ShockburstRoundsPlayer"] = {
 	name = "Shockburst Rounds",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RapidShotStormblast.dds",
 	description = "Rapidly fire charged bolts which release damaging pulses upon Hitting an enemy affected by a Lightning Ailment. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Area] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Lightning] = true, },
 	weaponTypes = {
@@ -12080,6 +12160,7 @@ skills["ShockburstRoundsPlayer"] = {
 skills["SiegeCascadeAmmoPlayer"] = {
 	name = "Load Siege Cascade",
 	baseTypeName = "Load Siege Cascade",
+	icon = "Art/2DArt/SkillIcons/SiegeCascadePhysical.dds",
 	color = 1,
 	description = "Load your Crossbow with enemy-seeking payloads which are fired into the air, dropping a bolt near every enemy in the target area. These bolts lodge in the ground and explode after a short delay.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -12199,6 +12280,7 @@ skills["SiegeCascadeAmmoPlayer"] = {
 skills["SiegeCascadePlayer"] = {
 	name = "Siege Cascade",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SiegeCascadePhysical.dds",
 	description = "Aim skyward and fires an enemy-seeking payload which drops a bolt near every enemy in the target area. These bolts lodge in the ground and explode after a short delay.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Sustained] = true, [SkillType.UsableWhileMoving] = true, [SkillType.ProjectileNoCollision] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, },
 	weaponTypes = {
@@ -12413,6 +12495,7 @@ skills["SiegeCascadePlayer"] = {
 skills["StormblastBoltsAmmoPlayer"] = {
 	name = "Load Stormblast Bolts",
 	baseTypeName = "Load Stormblast Bolts",
+	icon = "Art/2DArt/SkillIcons/SiegeCascadeStormblast.dds",
 	color = 1,
 	description = "Load your Crossbow with charged bolts that land around the target location and explode if hit by a Detonator Skill. Using this Skill again reloads the clip.",
 	skillTypes = { [SkillType.CrossbowAmmoSkill] = true, [SkillType.ReservesManually] = true, [SkillType.Attack] = true, [SkillType.UsableWhileMoving] = true, },
@@ -12532,6 +12615,7 @@ skills["StormblastBoltsAmmoPlayer"] = {
 skills["StormblastBoltsPlayer"] = {
 	name = "Stormblast Bolts",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SiegeCascadeStormblast.dds",
 	description = "Aims skyward and fires charged bolts that land around the target location, dealing damage and lodging in the ground for a duration. Detonator Skills will cause these bolts to explode. Can fire a limited number of bolts before needing to reload.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.CrossbowSkill] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Lightning] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Duration] = true, [SkillType.Rain] = true, },
 	weaponTypes = {
@@ -12734,6 +12818,7 @@ skills["StormblastBoltsPlayer"] = {
 skills["LunarAssaultPlayer"] = {
 	name = "Lunar Assault",
 	baseTypeName = "Lunar Assault",
+	icon = "Art/2DArt/SkillIcons/DruidLunarAssault.dds",
 	color = 1,
 	description = "Shapeshift into a Werewolf and swipe with your claws, projecting an arc of moonlight and ice forward in a crescent.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.AttackInPlace] = true, [SkillType.Cold] = true, [SkillType.Triggerable] = true, },
@@ -12853,6 +12938,7 @@ skills["LunarAssaultPlayer"] = {
 skills["WolfLunarBlessingPlayer"] = {
 	name = "Lunar Blessing",
 	baseTypeName = "Lunar Blessing",
+	icon = "Art/2DArt/SkillIcons/DruidLunarBlessing.dds",
 	color = 1,
 	description = "Shapeshift into a Werewolf and offer your Rage to the moon to receive a blessing, gaining bonus Cold damage for yourself and any Wolf Minions you have from Wolf Pack or Predator's Mark. Spends all Rage to extend the Buff's duration. While the Buff is active, your Werewolf Melee Attacks call down Moonbeams on Hit.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Shapeshift] = true, [SkillType.Buff] = true, [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.Cold] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, },
@@ -12973,6 +13059,7 @@ skills["WolfLunarBlessingPlayer"] = {
 skills["WolfLunarBlessingBeamAttackPlayer"] = {
 	name = "Moonbeam",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DruidLunarBlessing.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.Melee] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.Cooldown] = true, },
 	weaponTypes = {
 		["Talisman"] = true,
@@ -13092,6 +13179,7 @@ skills["WolfLunarBlessingBeamAttackPlayer"] = {
 skills["MagmaBarrierPlayer"] = {
 	name = "Magma Barrier",
 	baseTypeName = "Magma Barrier",
+	icon = "Art/2DArt/SkillIcons/BruteMagmaBarrier.dds",
 	color = 1,
 	description = "While active, increases your Block Chance passively and imbues your Shield with lava over time. When fully imbued, your next Block with your Shield raised will expend the lava to create an explosion, granting you an Endurance Charge.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Fire] = true, [SkillType.Persistent] = true, [SkillType.GeneratesCharges] = true, },
@@ -13210,6 +13298,7 @@ skills["MagmaBarrierPlayer"] = {
 skills["MagmaSprayPlayer"] = {
 	name = "Magma Spray",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BruteMagmaBarrier.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.NonWeaponAttack] = true, [SkillType.NoAttackOrCastTime] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -13331,6 +13420,7 @@ skills["MagmaSprayPlayer"] = {
 skills["MoltenBlastPlayer"] = {
 	name = "Molten Blast",
 	baseTypeName = "Molten Blast",
+	icon = "Art/2DArt/SkillIcons/BruteMoltenBlast.dds",
 	color = 1,
 	description = "Gouge molten rock from the ground and fling it at the target. The Projectile explodes on collision, damaging enemies and scattering shrapnel in a cone behind it.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Fire] = true, [SkillType.AttackInPlace] = true, },
@@ -13533,6 +13623,7 @@ skills["MoltenBlastPlayer"] = {
 skills["MoltenCrashPlayer"] = {
 	name = "Molten Crash",
 	baseTypeName = "Molten Crash",
+	icon = "Art/2DArt/SkillIcons/VesselofWrath.dds",
 	fromItem = true,
 	color = 1,
 	description = "Shapeshift into a burning monstrosity and leap through the air to crash down upon the earth, Slamming twice and creating Molten Fissures. Consumes Rage to create additional Molten Fissures.",
@@ -13731,6 +13822,7 @@ skills["MoltenCrashPlayer"] = {
 skills["MetaMortarCannonPlayer"] = {
 	name = "Mortar Cannon",
 	baseTypeName = "Mortar Cannon",
+	icon = "Art/2DArt/SkillIcons/GrenadeBallistaSkillIcon.dds",
 	color = 1,
 	description = "Raise a cannon Ballista Totem which uses socketed Grenade Skills, with significantly improved Cooldown Recovery Rate.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Meta] = true, [SkillType.Limit] = true, [SkillType.Grenade] = true, [SkillType.TotemsAreBallistae] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.UsableWhileMoving] = true, },
@@ -13992,6 +14084,7 @@ skills["SupportMortarCannonPlayer"] = {
 skills["OilBarragePlayer"] = {
 	name = "Oil Barrage",
 	baseTypeName = "Oil Barrage",
+	icon = "Art/2DArt/SkillIcons/DruidElectricSpittle.dds",
 	color = 1,
 	description = "Shapeshift into a Wyvern and spit Oil at enemies, creating Oil Ground where the Projectiles land. Consumes Power Charges if possible to instead Channel a sustained barrage of electrified Oil that does not create Oil Ground. Projectiles are fired in sequence, allowing multiple Projectiles to Hit the same target.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.RangedAttack] = true, [SkillType.Channel] = true, [SkillType.Shapeshift] = true, [SkillType.Wyvern] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Sustained] = true, },
@@ -14284,6 +14377,7 @@ skills["OilBarragePlayer"] = {
 skills["OilGrenadePlayer"] = {
 	name = "Oil Grenade",
 	baseTypeName = "Oil Grenade",
+	icon = "Art/2DArt/SkillIcons/OilGrenade.dds",
 	color = 1,
 	description = "Fire a bouncing Grenade that bursts in a spray of Oil when the fuse expires or when it impacts an Enemy, dealing minimal damage but covering the ground and nearby enemies in Oil. Oil created this way can be Ignited by Detonator Skills or Ignited Ground.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.Grenade] = true, [SkillType.Fire] = true, [SkillType.UsableWhileMoving] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, },
@@ -14507,6 +14601,7 @@ skills["OilGrenadePlayer"] = {
 skills["OverwhelmingPresencePlayer"] = {
 	name = "Overwhelming Presence",
 	baseTypeName = "Overwhelming Presence",
+	icon = "Art/2DArt/SkillIcons/OverwhelmingPressureSkill.dds",
 	color = 1,
 	description = "While active, emits an Aura that makes enemies in your Presence easier to Stun and inflict Elemental Ailments upon.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AffectsPresence] = true, [SkillType.AttackInPlace] = true, },
@@ -14616,6 +14711,7 @@ skills["OverwhelmingPresencePlayer"] = {
 skills["PerfectStrikePlayer"] = {
 	name = "Perfect Strike",
 	baseTypeName = "Perfect Strike",
+	icon = "Art/2DArt/SkillIcons/BrutePerfectStrike.dds",
 	color = 1,
 	description = "Channel to charge up your weapon with Fire. Releasing with Perfect Timing will create a damaging wave of intense Fire.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Channel] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.MeleeSingleTarget] = true, [SkillType.PerfectTiming] = true, },
@@ -14815,6 +14911,7 @@ skills["PerfectStrikePlayer"] = {
 skills["WolfPouncePlayer"] = {
 	name = "Pounce",
 	baseTypeName = "Pounce",
+	icon = "Art/2DArt/SkillIcons/DruidWolfLeapAttack.dds",
 	color = 1,
 	description = "Shapeshift into a Werewolf and leap to a target location, damaging enemies in an area around where you land. Predator's Mark will be Triggered targeting the highest Rarity enemy Hit, or if a Mark gem is socketed into this Skill, that Mark will be Triggered instead. Using this Skill allows any Wolf Minions you have to leap immediately.",
 	skillTypes = { [SkillType.Shapeshift] = true, [SkillType.Wolf] = true, [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Travel] = true, [SkillType.Jumping] = true, [SkillType.Cooldown] = true, [SkillType.Meta] = true, },
@@ -15042,6 +15139,7 @@ skills["SupportCrossSlashPlayer"] = {
 skills["WolfPounceMarkPlayer"] = {
 	name = "Predator's Mark",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DruidCrossSlash.dds",
 	description = "Mark a target, causing it to take increased damage based on how many of the target's enemies are near to it. If the target dies, the Mark will Activate to Trigger the Summon Wolf skill and Consume the Mark.",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.Mark] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, [SkillType.Wolf] = true, },
 	castTime = 0,
@@ -15162,6 +15260,7 @@ skills["WolfPounceMarkPlayer"] = {
 skills["WolfCrossSlashWolfPlayer"] = {
 	name = "Summon Wolf",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DruidWolfHowl.dds",
 	minionList = {
 		"WolfMinion",
 	},
@@ -15282,6 +15381,7 @@ skills["WolfCrossSlashWolfPlayer"] = {
 skills["BearRampagePlayer"] = {
 	name = "Rampage",
 	baseTypeName = "Rampage",
+	icon = "Art/2DArt/SkillIcons/DruidBearRampage.dds",
 	color = 1,
 	description = "Shapeshift into a Bear and charge forward, Slamming the ground as you run. Channelling ends after a short amount of time but can be prolonged by spending Rage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Channel] = true, [SkillType.Shapeshift] = true, [SkillType.Bear] = true, [SkillType.Slam] = true, [SkillType.Travel] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.ConsumesRage] = true, [SkillType.Sustained] = true, },
@@ -15410,6 +15510,7 @@ skills["BearRampagePlayer"] = {
 skills["ResonatingShieldPlayer"] = {
 	name = "Resonating Shield",
 	baseTypeName = "Resonating Shield",
+	icon = "Art/2DArt/SkillIcons/BruteResonatingShield.dds",
 	color = 1,
 	description = "Repeatedly hammer your Shield with your weapon causing damaging shockwaves in an area around you. Enemies hit by the shockwave lose Armour for a duration. While Channelling Resonating Shield, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Physical] = true, [SkillType.Channel] = true, [SkillType.RequiresShield] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.NonWeaponAttack] = true, },
@@ -15544,6 +15645,7 @@ skills["ResonatingShieldPlayer"] = {
 skills["RollingMagmaPlayer"] = {
 	name = "Rolling Magma",
 	baseTypeName = "Rolling Magma",
+	icon = "Art/2DArt/SkillIcons/DruidRollingMagma.dds",
 	color = 1,
 	description = "Shapeshift into a Wyvern and lob a ball of magma that deals area damage as it hits the ground. The skill Chains, bouncing forward to deal damage multiple times. Impacts on Molten Fissures or Volcanos will activate them as though they were Slammed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesFromUser] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Shapeshift] = true, [SkillType.Wyvern] = true, [SkillType.Detonator] = true, [SkillType.Triggerable] = true, },
@@ -15680,6 +15782,7 @@ skills["RollingMagmaPlayer"] = {
 skills["RollingSlamPlayer"] = {
 	name = "Rolling Slam",
 	baseTypeName = "Rolling Slam",
+	icon = "Art/2DArt/SkillIcons/BruteDoubleSlam.dds",
 	color = 1,
 	description = "Slam the ground to Stun enemies and knock them away, then continue forward and perform a devastating second Slam.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Area] = true, },
@@ -15944,6 +16047,7 @@ skills["RollingSlamPlayer"] = {
 skills["ScavengedPlatingPlayer"] = {
 	name = "Scavenged Plating",
 	baseTypeName = "Scavenged Plating",
+	icon = "Art/2DArt/SkillIcons/BruteScavengedPlating.dds",
 	color = 1,
 	description = "While active, uses fragments of armour scavenged from enemies to bolster your own. Fully Breaking an enemy's Armour grants you stacks of Scavenged Plating for a duration based on the enemy's rarity, and you gain Armour and Thorns per stack. Normal enemies grant 1 stack, Magic enemies grant 2 stacks, Rare enemies grant 5 stacks and Unique enemies grant 10 stacks.",
 	skillTypes = { [SkillType.Buff] = true, [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Duration] = true, [SkillType.Persistent] = true, [SkillType.Physical] = true, [SkillType.AttackInPlace] = true, },
@@ -16068,6 +16172,7 @@ skills["ScavengedPlatingPlayer"] = {
 skills["SeismicCryPlayer"] = {
 	name = "Seismic Cry",
 	baseTypeName = "Seismic Cry",
+	icon = "Art/2DArt/SkillIcons/BruteSeismicCry.dds",
 	color = 1,
 	description = "Perform a damaging Warcry, Knocking Back nearby enemies and Heavy Stunning enemies that are Primed for Stun. If an enemy is Heavy Stunned or a currently Heavy Stunned enemy is Hit, this Skill Empowers subsequent Slams to perform an additional Aftershock. This Skill's cooldown can be bypassed by expending an Endurance Charge.",
 	skillTypes = { [SkillType.Warcry] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, [SkillType.Cooldown] = true, [SkillType.Physical] = true, [SkillType.EmpowersOtherSkill] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Nova] = true, },
@@ -16202,6 +16307,7 @@ skills["SeismicCryPlayer"] = {
 skills["ShardScavengerPlayer"] = {
 	name = "Shard Scavenger",
 	baseTypeName = "Shard Scavenger",
+	icon = "Art/2DArt/SkillIcons/MercShardDespoiler.dds",
 	color = 1,
 	description = "While active, Consuming Freeze, Shock, Ignite, or Fully Broken Armour on an enemy reloads your Crossbow, restores one cooldown use for your Grenades and grants a Buff causing Crossbow Attacks to not consume bolts for a duration. This can only occur once every few seconds.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Cold] = true, [SkillType.Lightning] = true, [SkillType.Physical] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
@@ -16318,6 +16424,7 @@ skills["ShardScavengerPlayer"] = {
 skills["ShieldChargePlayer"] = {
 	name = "Shield Charge",
 	baseTypeName = "Shield Charge",
+	icon = "Art/2DArt/SkillIcons/BruteShieldCharge.dds",
 	color = 1,
 	description = "Channel to charge in the target direction. You will crash into enemies on your path, stopping your charge and dealing damage to enemies in an area, and extra damage to the enemies you collided with. While charging, your Shield is raised and you will Block all incoming Blockable hits.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RequiresShield] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.Channel] = true, [SkillType.Travel] = true, [SkillType.NonWeaponAttack] = true, },
@@ -16564,6 +16671,7 @@ skills["ShieldChargePlayer"] = {
 skills["ShieldWallPlayer"] = {
 	name = "Shield Wall",
 	baseTypeName = "Shield Wall",
+	icon = "Art/2DArt/SkillIcons/BruteShieldWall.dds",
 	color = 1,
 	description = "Ram your Shield into the ground, throwing up a wall of earth. Enemies can attack your wall segments, and your Slams, Warcries, and Shield Charge will instantly shatter them all. The segments explode when shattered, damaging enemies in front of and around them.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Wall] = true, [SkillType.Duration] = true, [SkillType.RequiresShield] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.NonWeaponAttack] = true, [SkillType.Melee] = true, [SkillType.CanCreateStoneElementals] = true, [SkillType.Limit] = true, },
@@ -16700,6 +16808,7 @@ skills["ShieldWallPlayer"] = {
 skills["ShockwaveTotemPlayer"] = {
 	name = "Shockwave Totem",
 	baseTypeName = "Shockwave Totem",
+	icon = "Art/2DArt/SkillIcons/BruteShockwaveTotem.dds",
 	color = 1,
 	description = "Raise a Totem that Slams the ground around it, repeatedly damaging nearby enemies. Jagged Ground erupts when hit by this Slam, damaging enemies standing on it. The Totem cannot create Jagged Ground. This Skill can be used while Shapeshifted.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, [SkillType.CannotCreateJaggedGround] = true, [SkillType.UsableWhileShapeshifted] = true, },
@@ -16843,6 +16952,7 @@ skills["ShockwaveTotemPlayer"] = {
 skills["ShockwaveTotemQuakePlayer"] = {
 	name = "Shockwave Slam",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/BruteShockwaveTotem.dds",
 	skillTypes = { [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Nova] = true, [SkillType.Slam] = true, [SkillType.UsedByTotem] = true, [SkillType.CannotCreateJaggedGround] = true, [SkillType.AttackInPlace] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	weaponTypes = {
 		["Bow"] = true,
@@ -17036,6 +17146,7 @@ skills["ShockwaveTotemQuakePlayer"] = {
 skills["SiegeBallistaPlayer"] = {
 	name = "Siege Ballista",
 	baseTypeName = "Siege Ballista",
+	icon = "Art/2DArt/SkillIcons/MercArtilleryBallista.dds",
 	color = 1,
 	description = "Deploy a Ballista Totem that fires bolts skyward, to explode a short time after landing.",
 	skillTypes = { [SkillType.ProjectilesFromUser] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.SummonsTotem] = true, [SkillType.SummonsAttackTotem] = true, [SkillType.TotemsAreBallistae] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Limit] = true, [SkillType.Duration] = true, },
@@ -17165,6 +17276,7 @@ skills["SiegeBallistaPlayer"] = {
 skills["SiegeBallistaProjectilePlayer"] = {
 	name = "Artillery",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/MercArtilleryBallista.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Projectile] = true, [SkillType.Barrageable] = true, [SkillType.AttackInPlaceIsDefault] = true, [SkillType.Fire] = true, [SkillType.Area] = true, [SkillType.CannotChain] = true, [SkillType.UsedByTotem] = true, [SkillType.AttackInPlace] = true, },
 	weaponTypes = {
 		["Crossbow"] = true,
@@ -17367,6 +17479,7 @@ skills["SiegeBallistaProjectilePlayer"] = {
 skills["SummonMetaTotemSpellTotemPlayer"] = {
 	name = "Spell Totem",
 	baseTypeName = "Spell Totem",
+	icon = "Art/2DArt/SkillIcons/DruidSpellTotem.dds",
 	color = 1,
 	description = "Consume any combination of 3 Power and/or Endurance Charges to raise a Totem that uses socketed Spells. Cannot use Skills with Cooldowns.",
 	skillTypes = { [SkillType.SummonsTotem] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Mineable] = true, [SkillType.Meta] = true, [SkillType.Limit] = true, [SkillType.HasUsageCondition] = true, [SkillType.RequiresCharges] = true, [SkillType.ConsumesCharges] = true, [SkillType.SkillConsumesEnduranceChargesOnUse] = true, [SkillType.SkillConsumesPowerChargesOnUse] = true, },
@@ -17610,6 +17723,7 @@ skills["SupportMetaTotemSpellTotemPlayer"] = {
 skills["StampedePlayer"] = {
 	name = "Stampede",
 	baseTypeName = "Stampede",
+	icon = "Art/2DArt/SkillIcons/BruteStampede.dds",
 	color = 1,
 	description = "Charges forward, cracking the earth and leaving a patch of Jagged Ground with every footstep. At the end of your charge, a massive leaping Slam damages enemies and causes all nearby patches of Jagged Ground to explode, damaging enemies standing on them. Once you begin your charge, the use speed of this Skill is affected by movement speed instead of Attack speed.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Slam] = true, [SkillType.Travel] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.Duration] = true, [SkillType.Jumping] = true, },
@@ -17879,6 +17993,7 @@ skills["StampedePlayer"] = {
 skills["SunderPlayer"] = {
 	name = "Sunder",
 	baseTypeName = "Sunder",
+	icon = "Art/2DArt/SkillIcons/BruteSunder.dds",
 	color = 1,
 	description = "Slam the ground, creating a roiling fissure that damages enemies in a sequence of areas in front of you. A number of enemies hit by the wave will release a shockwave, damaging other enemies. Hitting an enemy with Fully Broken Armour applies Sundered Armour, making it take additional increased Physical damage.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Totemable] = true, [SkillType.ConsumesFullyBrokenArmour] = true, [SkillType.CreatesFissure] = true, [SkillType.Duration] = true, },
@@ -18080,6 +18195,7 @@ skills["SunderPlayer"] = {
 skills["SuperchargedSlamPlayer"] = {
 	name = "Supercharged Slam",
 	baseTypeName = "Supercharged Slam",
+	icon = "Art/2DArt/SkillIcons/BruteSuperchargedSlam.dds",
 	color = 1,
 	description = "Channel to charge up a heavy swing, drawing earth from the ground to enlarge your mace. Release to Slam the ground, dealing damage in an area around the impact, followed by Aftershocks dealing damage in a larger area.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Channel] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.NoDualWield] = true, [SkillType.GainsStages] = true, },
@@ -18309,6 +18425,7 @@ skills["SuperchargedSlamPlayer"] = {
 skills["ThrashingVinesPlayer"] = {
 	name = "Thrashing Vines",
 	baseTypeName = "Thrashing Vines",
+	icon = "Art/2DArt/SkillIcons/DruidAwakenedForest.dds",
 	color = 1,
 	description = "Spur the growth of huge vines, which emerge randomly within the target area. The vines crash to the ground then retreat, targeting nearby enemies if possible.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Totemable] = true, [SkillType.AreaSpell] = true, [SkillType.Sustained] = true, [SkillType.GamepadDeflectable] = true, [SkillType.Cascadable] = true, [SkillType.Plant] = true, [SkillType.Physical] = true, [SkillType.Duration] = true, [SkillType.Limit] = true, [SkillType.Triggerable] = true, [SkillType.Trappable] = true, [SkillType.Nature] = true, },
@@ -18444,6 +18561,7 @@ skills["ThrashingVinesPlayer"] = {
 skills["MetaCastLightningSpellOnHitPlayer"] = {
 	name = "Thundergod's Wrath",
 	baseTypeName = "Thundergod's Wrath",
+	icon = "Art/2DArt/SkillIcons/CastLightningSpellOnHitSkill.dds",
 	fromItem = true,
 	color = 1,
 	description = "While active, gains Energy when you Hit enemies with Melee Attacks and triggers socketed Lightning spells on reaching maximum Energy.",
@@ -18673,6 +18791,7 @@ skills["SupportMetaCastLightningSpellOnHitPlayer"] = {
 skills["ThunderstormPlayer"] = {
 	name = "Thunderstorm",
 	baseTypeName = "Thunderstorm",
+	icon = "Art/2DArt/SkillIcons/LightningStormSkill.dds",
 	color = 1,
 	description = "Conjure a thunderstorm which causes lightning strikes and torrential rain in an area. Enemies in the area are Drenched, causing them to become Shocked or Frozen more easily. Plants in the area become Overgrown.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Cascadable] = true, [SkillType.AreaSpell] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.Lightning] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, [SkillType.Storm] = true, },
@@ -18827,6 +18946,7 @@ skills["ThunderstormPlayer"] = {
 skills["TimeOfNeedPlayer"] = {
 	name = "Time of Need",
 	baseTypeName = "Time of Need",
+	icon = "Art/2DArt/SkillIcons/TimeOfNeedSkill.dds",
 	color = 1,
 	description = "While active, periodically invokes divine blessings to heal you and remove Curses and Elemental Ailments from you.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.Duration] = true, [SkillType.AttackInPlace] = true, },
@@ -18940,6 +19060,7 @@ skills["TimeOfNeedPlayer"] = {
 skills["TornadoPlayer"] = {
 	name = "Tornado",
 	baseTypeName = "Tornado",
+	icon = "Art/2DArt/SkillIcons/DruidTornado.dds",
 	color = 1,
 	description = "Create a storm that sucks in enemies and deals Physical damage over time. A Tornado that overlaps an Elemental Ground Surface absorbs that surface's Debuff, applying it to enemies inside the Tornado and causing the Tornado to deal extra damage of that element.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Duration] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Triggerable] = true, [SkillType.DegenOnlySpellDamage] = true, [SkillType.Physical] = true, [SkillType.Area] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DamageOverTime] = true, [SkillType.Storm] = true, [SkillType.Wind] = true, [SkillType.Limit] = true, [SkillType.InteractsWithElementalGround] = true, },
@@ -19071,6 +19192,7 @@ skills["TornadoPlayer"] = {
 skills["ValakosChargePlayer"] = {
 	name = "Valako's Charge",
 	baseTypeName = "Valako's Charge",
+	icon = "Art/2DArt/SkillIcons/ValakosLuckLightningCoilSkill.dds",
 	fromItem = true,
 	color = 1,
 	description = "While active, taking Lightning damage builds up charge on you. Reaching full charge expends all charge to Trigger this skill, creating a Chaining lightning bolt that arcs to nearby enemies.",
@@ -19262,6 +19384,7 @@ skills["ValakosChargePlayer"] = {
 skills["VolcanicFissurePlayer"] = {
 	name = "Volcanic Fissure",
 	baseTypeName = "Volcanic Fissure",
+	icon = "Art/2DArt/SkillIcons/BruteVolcanicFissure.dds",
 	color = 1,
 	description = "Slam the ground, creating a branching Molten Fissure that deals damage as it travels and remains for a duration. Using a different Slam on a Molten Fissure creates a spreading Aftershock.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Sustained] = true, [SkillType.CreatesFissure] = true, [SkillType.Limit] = true, [SkillType.AttackInPlace] = true, },
@@ -19386,6 +19509,7 @@ skills["VolcanicFissurePlayer"] = {
 skills["VolcanoPlayer"] = {
 	name = "Volcano",
 	baseTypeName = "Volcano",
+	icon = "Art/2DArt/SkillIcons/DruidVolcano.dds",
 	color = 1,
 	description = "Uplift a volcano from the earth, damaging enemies standing on it and releasing a spray of molten Projectiles. While the volcano persists, Slamming it will cause another Projectile spray. Channelling this Skill for longer makes the initial eruption more violent, but does not affect subsequent Projectile sprays.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Duration] = true, [SkillType.Projectile] = true, [SkillType.Trappable] = true, [SkillType.Totemable] = true, [SkillType.Mineable] = true, [SkillType.Damage] = true, [SkillType.Channel] = true, [SkillType.Projectile] = true, [SkillType.AreaSpell] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Limit] = true, [SkillType.Sustained] = true, [SkillType.GamepadDeflectable] = true, },
@@ -19625,6 +19749,7 @@ skills["VolcanoPlayer"] = {
 skills["ShockGrenadePlayer"] = {
 	name = "Voltaic Grenade",
 	baseTypeName = "Voltaic Grenade",
+	icon = "Art/2DArt/SkillIcons/ShockGrenade.dds",
 	color = 1,
 	description = "Fire a bouncing Grenade that discharges an Electrocuting Lightning blast when its fuse expires, causing all Lightning Hits against enemies to contribute to Electrocution buildup for a duration.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Cooldown] = true, [SkillType.Triggerable] = true, [SkillType.Grenade] = true, [SkillType.Lightning] = true, [SkillType.UsableWhileMoving] = true, [SkillType.DetonatesAfterTime] = true, [SkillType.Projectile] = true, [SkillType.Duration] = true, },
@@ -19762,6 +19887,7 @@ skills["ShockGrenadePlayer"] = {
 skills["WarBannerReservationPlayer"] = {
 	name = "War Banner",
 	baseTypeName = "War Banner",
+	icon = "Art/2DArt/SkillIcons/WarBannerSkill.dds",
 	color = 1,
 	description = "While active, Attacking enemies builds Glory. When you have maximum Glory, you can place an inspiring Banner for a duration with an Aura that grants you and nearby Allies Attack damage, Attack speed and Accuracy.",
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.CanHaveMultipleOngoingSkillInstances] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.Banner] = true, },
@@ -19869,6 +19995,7 @@ skills["WarBannerReservationPlayer"] = {
 skills["WalkingCalamityPlayer"] = {
 	name = "Walking Calamity",
 	baseTypeName = "Walking Calamity",
+	icon = "Art/2DArt/SkillIcons/DruidWalkingCalamity.dds",
 	color = 1,
 	description = "Build Glory by gaining Rage while already at maximum Rage. When you have maximum Glory, roar to the heavens to bring them down upon your enemies. For the duration of the Skill, meteors rain down around you and you Gain Fire damage and Rage regeneration. This Skill's effects are suppressed if you leave Bear form, but will resume if you return to Bear form before the duration expires.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.HasUsageCondition] = true, [SkillType.Shapeshift] = true, [SkillType.Bear] = true, [SkillType.Area] = true, [SkillType.Fire] = true, },
@@ -19996,6 +20123,7 @@ skills["WalkingCalamityPlayer"] = {
 skills["WalkingCalamityMeteorPlayer"] = {
 	name = "Meteors",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/DruidWalkingCalamity.dds",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Triggered] = true, [SkillType.Triggerable] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.Fire] = true, },
 	weaponTypes = {
 		["Talisman"] = true,
@@ -20177,6 +20305,7 @@ skills["WalkingCalamityMeteorPlayer"] = {
 skills["WarBannerPlayer"] = {
 	name = "War Banner",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/WarBannerSkill.dds",
 	skillTypes = { [SkillType.Banner] = true, [SkillType.Area] = true, [SkillType.Duration] = true, [SkillType.UsableWhileMoving] = true, [SkillType.Buff] = true, [SkillType.Aura] = true, [SkillType.HasUsageCondition] = true, [SkillType.UsableWhileShapeshifted] = true, },
 	castTime = 0.5,
 	qualityStats = {
@@ -20307,6 +20436,7 @@ skills["WarBannerPlayer"] = {
 skills["WingBlastPlayer"] = {
 	name = "Wing Blast",
 	baseTypeName = "Wing Blast",
+	icon = "Art/2DArt/SkillIcons/DruidWingBlast.dds",
 	color = 1,
 	description = "Shapeshift into a Wyvern and launch yourself backwards with a powerful wingbeat that Knocks Back enemies. Enemies Primed for Heavy Stun will be stunned, release a shockwave, and have a chance to grant you a Power Charge. This skill can be used while using other skills to interrupt them.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.Melee] = true, [SkillType.Area] = true, [SkillType.Shapeshift] = true, [SkillType.Wyvern] = true, [SkillType.CanCancelActions] = true, [SkillType.GeneratesCharges] = true, [SkillType.Wind] = true, [SkillType.Triggerable] = true, },
@@ -20509,6 +20639,7 @@ skills["WingBlastPlayer"] = {
 skills["WolfPackPlayer"] = {
 	name = "Wolf Pack",
 	baseTypeName = "Wolf Pack",
+	icon = "Art/2DArt/SkillIcons/DruidSummonWolf.dds",
 	minionList = {
 		"WolfMinion",
 	},
