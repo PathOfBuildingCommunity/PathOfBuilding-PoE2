@@ -884,7 +884,7 @@ function calcs.buildActiveSkillModList(env, activeSkill)
 			end
 			local attackTime = minion.minionData.attackTime
 			local damageTable = (monsterDamage or minion.minionData.hostile) and env.data.monsterDamageTable or env.data.monsterAllyDamageTable
-			minion.minionData.DamageFixup = monsterDamage and (round(env.data.monsterAllyDamageTable[minion.level] / damageTable[minion.level] * data.misc.SpectreBeastDamageFixup, 2) - 1) or 0
+			minion.hiddenDamageFixup = monsterDamage and (round(env.data.monsterAllyDamageTable[minion.level] / damageTable[minion.level] * data.misc.SpectreBeastDamageFixup, 2) - 1) or 0
 			local damage = damageTable[minion.level]
 			if not minion.minionData.baseDamageIgnoresAttackSpeed then -- minions with this flag do not factor attack time into their base damage
 				 damage = damage * attackTime
