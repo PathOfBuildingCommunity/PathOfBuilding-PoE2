@@ -419,7 +419,7 @@ directiveTable.setBase = function(state, args, out)
 	local groupName = baseClass
 	if itemName then
 		out:write(s_format(itemName, baseClass):gsub("One Hand", "1H"):gsub("Two Hand", "2H"),'\n')
-		groupName = s_format(itemName, (baseClass:match("One Hand") or baseClass:match("Claw") or baseClass:match("Dagger") or baseClass:match("Sceptre") or baseClass:match("Wand")) and "One Hand" or (baseClass:match("Two Hand") or baseClass:match("Staff")) and "Two Hand" or "")
+		groupName = s_format(itemName, (baseClass:match("One Hand") or baseClass:match("Claw") or baseClass:match("Dagger") or baseClass:match("Sceptre") or baseClass:match("Wand")) and "One Hand" or (baseClass:match("Two Hand") or baseClass:match("Staff") or baseClass:match("Talisman")) and "Two Hand" or "")
 	else
 		if baseSubType then
 			groupName = baseSubType..' '..baseClass

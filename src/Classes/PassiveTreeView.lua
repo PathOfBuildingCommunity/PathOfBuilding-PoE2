@@ -1262,7 +1262,7 @@ function PassiveTreeViewClass:Draw(build, viewPort, inputEvents)
 	SetDrawLayer(nil, 25)
 	for nodeId in pairs(tree.sockets) do
 		local node = spec.nodes[nodeId]
-		if node and node.name ~= "Charm Socket" and node.containJewelSocket ~= true and (not node.expansionJewel or node.expansionJewel.size == 2) then
+		if node and node.name ~= "Charm Socket" and node.containJewelSocket ~= true and (not node.expansionJewel or node.expansionJewel.size == 2) and (not node.noRadius) then
 			local scrX, scrY = treeToScreen(node.x, node.y)
 			local socket, jewel = build.itemsTab:GetSocketAndJewelForNodeID(nodeId)
 			local compareNode = self.compareSpec and self.compareSpec.nodes[nodeId] or nil
@@ -1391,7 +1391,20 @@ function PassiveTreeViewClass:DrawQuadAndRotate(data, xTree, yTree, angleRad, tr
 		vertActive[3], vertActive[4] = xActive + widthActive, yActive - heightActive
 		vertActive[5], vertActive[6] = xActive + widthActive, yActive + heightActive
 		vertActive[7], vertActive[8] = xActive - widthActive, yActive + heightActive
-		vertActive[9] = data[1] -- s1
+
+		local lengthData = #data
+		if lengthData == 1 then
+			vertActive[9] = data[1] -- s1 (stack)
+		elseif lengthData == 4 then
+			vertActive[9], vertActive[10] = data[1], data[2] -- top-left
+			vertActive[11], vertActive[12] = data[3], data[2] -- top-right
+			vertActive[13], vertActive[14] = data[3], data[4] -- bottom-right
+			vertActive[15], vertActive[16] = data[1], data[4] -- bottom-left
+		else
+			for iData, vData in ipairs(data) do
+				vertActive[9 + (iData - 1)] = vData
+			end
+		end
 
 		-- rotate the quad
 		vertActive[1], vertActive[2] = treeToScreen(rotate(vertActive[1], vertActive[2], xActive, yActive, angleRad))
@@ -1499,7 +1512,7 @@ function PassiveTreeViewClass:DoesNodeMatchSearchParams(node)
 	end
 
 	-- Check unlock ascendancy
-	if node.unlockConstraint then
+	if node.unlockConstraint and node.unlockConstraint.ascendancy then
 		err, needMatches = PCall(search, node.unlockConstraint.ascendancy:lower(), needMatches)
 		if err then return false end
 		if #needMatches == 0 then

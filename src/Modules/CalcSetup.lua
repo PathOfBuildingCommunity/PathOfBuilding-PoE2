@@ -668,6 +668,12 @@ function calcs.initEnv(build, mode, override, specEnv)
 		modDB:NewMod("Evasion", "INC", 10, "Base", { type = "Multiplier", var = "Tailwind", limit = 10 })
 		modDB:NewMod("SkillSlots", "BASE", 9, "Base")
 		modDB:NewMod("MaxLineageCount", "BASE", 1, "Base")
+		modDB:NewMod("Multiplier:AncestralBoostEffect", "BASE", 1, "Base", { type = "Condition", var = "AncestrallyBoosted" })
+		modDB:NewMod("AncestralBoostMoreDamage", "BASE", 30, "Base", 0, 0, { type = "Multiplier", var = "AncestralBoostEffect" }, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoosted" })
+		modDB:NewMod("AncestralBoostAreaOfEffect", "INC", 25, "Base", 0, 0, { type = "Multiplier", var = "AncestralBoostEffect" }, { type = "SkillType", skillType = SkillType.Slam }, { type = "Condition", var = "AncestrallyBoosted" })
+		modDB:NewMod("AdditionalStrikeTarget", "BASE", 2, "Base", 0, 0, { type = "Multiplier", var = "AncestralBoostEffect" }, { type = "SkillType", skillType = SkillType.Slam, neg = true }, { type = "Condition", var = "AncestrallyBoosted" })
+		modDB:NewMod("Condition:Empowered", "FLAG", 1, "Base", { type = "Condition", var = "AncestrallyBoosted" })
+
 
 		-- Initialise enemy modifier database
 		calcs.initModDB(env, enemyDB)
@@ -808,6 +814,10 @@ function calcs.initEnv(build, mode, override, specEnv)
 		local lordOfTheWilds = weaponFlagState.lordOfTheWilds
 		for _, slot in pairs(build.itemsTab.orderedSlots) do
 			local slotName = slot.slotName
+			-- ignore item in Ring 3 if The Unseen Hand is not allocated
+			if slotName == "Ring 3" and not nodesModsList:Flag(nil, "AdditionalRingSlot") then
+				goto continue
+			end
 			local item
 			if slotName == override.repSlotName then
 				item = override.repItem
@@ -1015,6 +1025,17 @@ function calcs.initEnv(build, mode, override, specEnv)
 				item = nil
 			end
 			local scale = 1
+			-- unequips Jewel if parentSlot providing the socket is removed
+			if item and item.type == "Jewel" and slot.parentSlot then
+				-- Check if the item in the parent slot has enough Jewel Sockets
+				local parentItem = env.player.itemList[slot.parentSlot.slotName]
+				local parentSlotHidden = slot.parentSlot.slotName == "Ring 3" and not (modDB:Flag(nil, "AdditionalRingSlot") or nodesModsList:Flag(nil, "AdditionalRingSlot"))
+				if parentSlotHidden or not parentItem or parentItem.jewelSocketCount < slot.slotNum then
+					item = nil
+				else
+					scale = parentItem.socketedJewelEffectModifier
+				end
+			end
 			if slot.nodeId and item and item.type == "Jewel" and item.jewelData and item.jewelData.jewelIncEffectFromClassStart then
 				local node = env.spec.nodes[slot.nodeId]
 				if node and node.distanceToClassStart then

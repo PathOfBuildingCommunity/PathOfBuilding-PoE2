@@ -1132,9 +1132,14 @@ function ImportTabClass:ImportItem(itemData, slotName)
 	if itemData.sockets and itemData.sockets[1] then
 		item.sockets = { }
 		item.itemSocketCount = 0
+		item.jewelSocketCount = 0
 		for i, socket in pairs(itemData.sockets) do
-			item.sockets[i] = { }
-			item.itemSocketCount = item.itemSocketCount + 1
+			if socket.type == "jewel" then
+				item.jewelSocketCount = item.jewelSocketCount + 1
+			else
+				item.sockets[i] = { }
+				item.itemSocketCount = item.itemSocketCount + 1
+			end
 		end
 	end
 
@@ -1286,7 +1291,11 @@ end
 function ImportTabClass:ImportSocketedItems(item, socketedItems, slotName)
 	-- Build socket group list
 	for _, socketedItem in ipairs(socketedItems) do
-		t_insert(item.runes, socketedItem.baseType)
+		if isValueInTable({ "Diamond", "Emerald", "Ruby", "Sapphire" }, socketedItem.baseType) then
+			self:ImportItem(socketedItem, slotName .. " Jewel Socket "..socketedItem.socket + 1)
+		else
+			t_insert(item.runes, socketedItem.baseType)
+		end
 	end
 end
 

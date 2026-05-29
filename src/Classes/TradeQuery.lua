@@ -457,11 +457,34 @@ Highest Weight - Displays the order retrieved from trade]]
 		self:UpdateRealms()
 	end
 
+	local activeJewelSockets = {
+		["Weapon 1"] = { }, ["Weapon 2"] = { }, ["Weapon 1 Swap"] = { }, ["Weapon 2 Swap"] = { }, ["Helmet"] = { },
+		["Body Armour"] = { }, ["Gloves"] = { }, ["Boots"] = { },
+		["Belt"] = { }, ["Ring 1"] = { }, ["Ring 2"] = { }, ["Ring 3"] = { },
+	}
+	-- loop all slots, set any active jewel sockets
+	for index, slot in pairs(self.itemsTab.slots) do
+		if index:find("Jewel Socket") and slot.shown() then
+			t_insert(activeJewelSockets[slot.parentSlot.slotName], slot)
+		end
+	end
+	for _, jewel in pairs(activeJewelSockets) do -- sort Jewel #1 > Jewel #2
+		t_sort(jewel, function(a, b)
+			return a.label < b.label
+		end)
+	end
+
 	-- Individual slot rows
 	local slotTables = {}
 	for _, slotName in ipairs(baseSlots) do
 		if self.itemsTab.slots[slotName].shown() then
 			t_insert(slotTables, { slotName = slotName })
+		end
+		-- add jewel sockets to slotTables if exist for this slot
+		if activeJewelSockets[slotName] then
+			for _, jewelSocket in pairs(activeJewelSockets[slotName]) do
+				t_insert(slotTables, { slotName = jewelSocket.label, fullName = jewelSocket.slotName }) -- actual slotName doesn't fit/excessive in slotName on popup but is needed for exact matching later
+			end
 		end
 	end
 	local activeSocketList = { }
