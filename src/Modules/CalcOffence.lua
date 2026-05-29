@@ -2458,9 +2458,6 @@ function calcs.offence(env, actor, activeSkill)
 				output[stat] = 0
 			else
 				output[stat] = 2 / ((1 / output.MainHand[stat]) + (1 / output.OffHand[stat]))
-				if skillData.doubleHitsWhenDualWielding then
-					output[stat] = output[stat] * 2
-				end
 			end
 		elseif mode == "CHANCE" then
 			if output.MainHand[stat] and output.OffHand[stat] then
@@ -3050,7 +3047,7 @@ function calcs.offence(env, actor, activeSkill)
 					breakdown.Speed = {
 						"Simultaneous hits from each weapon:",
 						s_format("2 / (1 / %.2f + 1 / %.2f)", output.MainHand.Speed, output.OffHand.Speed),
-						s_format("%.2f * 2 ^8(hits twice per attack)", output.Speed / 2),
+						s_format("%.2f * 2 ^8(hits twice per attack)", output.Speed),
 						s_format("= %.2f", output.Speed),
 					}
 				else
@@ -3745,6 +3742,12 @@ function calcs.offence(env, actor, activeSkill)
 		output.DoubleDamageEffect = output.DoubleDamageChance / 100
 		output.ScaledDamageEffect = output.ScaledDamageEffect * (1 + output.DoubleDamageEffect + output.TripleDamageEffect)
 		
+		-- Dual wield DPS multiplier
+		-- NOTE: This solution is a bit "hacky", but ensures that the hit rate multiplier for dual wielding isn't applied multiple times
+		if skillFlags.bothWeaponAttack and skillData.doubleHitsWhenDualWielding and pass.label == "Off Hand" then
+			skillModList:NewMod("DPS", "MORE", 100, "Hits with both weapons")
+		end
+
 		skillData.dpsMultiplier = ( skillData.dpsMultiplier or 1 ) * calcLib.mod(skillModList, skillCfg, "DPS")
 
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier
@@ -4483,6 +4486,8 @@ function calcs.offence(env, actor, activeSkill)
 				t_insert(breakdown.AverageDamage, "Both weapons:")
 				if skillData.combinesHitsWhenDualWielding then
 					t_insert(breakdown.AverageDamage, s_format("%.1f + %.1f ^8(skill hits with both weapons at once)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
+				elseif skillData.doubleHitsWhenDualWielding then
+					t_insert(breakdown.AverageDamage, s_format("%.1f + %.1f ^8(skill hits once with each weapon)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
 				else
 					t_insert(breakdown.AverageDamage, s_format("(%.1f + %.1f) / 2 ^8(skill alternates weapons)", output.MainHand.AverageDamage, output.OffHand.AverageDamage))
 				end
