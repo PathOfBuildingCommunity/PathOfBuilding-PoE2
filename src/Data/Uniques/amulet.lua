@@ -271,8 +271,8 @@ Implicits: 1
 {tags:fire,cold,lightning}+(10-15)% to all Elemental Resistances
 (15-30)% increased Elemental Damage
 {variant:1}Enemies take (5-10)% increased Damage for each Elemental Ailment type among
-{variant:2}Enemies take (15-20)% increased Damage for each Elemental Ailment type among
 {variant:1}your Ailments on them
+{variant:2}Enemies take (15-20)% increased Damage for each Elemental Ailment type among
 {variant:2}your Ailments on them
 {variant:1}(20-30)% reduced Duration of Ignite, Shock and Chill on Enemies
 {variant:2}(30-40)% reduced Duration of Ignite, Shock and Chill on Enemies

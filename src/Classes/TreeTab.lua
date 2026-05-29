@@ -10,6 +10,7 @@ local t_insert = table.insert
 local t_remove = table.remove
 local t_sort = table.sort
 local t_concat = table.concat
+local t_maxn = table.maxn
 local m_max = math.max
 local m_min = math.min
 local m_floor = math.floor
@@ -18,6 +19,17 @@ local s_format = string.format
 local s_gsub = string.gsub
 local s_byte = string.byte
 local dkjson = require "dkjson"
+
+-- Helper function to find toast index by content pattern
+-- TODO: remove this when when we can control toast notifications better
+local function findToastIndex(pattern)
+	for i, msg in ipairs(main.toastMessages) do
+		if msg:match(pattern) then
+			return i
+		end
+	end
+	return nil
+end
 
 local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 	self.ControlHost()
@@ -266,10 +278,45 @@ local TreeTabClass = newClass("TreeTab", "ControlHost", function(self, build)
 		end
 	end)
 	self.controls.powerReportList.shown = false
+	-- Progress callback from the CalcsTab power builder coroutine
+	self.powerBuilderToastActive = false
+	self.lastProgressToastUpdate = 0
+	self.build.powerBuilderProgressCallback = function(percent)
+		local now = GetTime()
+		if now - self.lastProgressToastUpdate < 100 then
+			return
+		end
+
+		local message = percent and string.format("Building Power Report... (%d%%)", percent) or "Building Power Report..."
+
+		self.controls.powerReportList.label = message
+		self.lastProgressToastUpdate = now
+		local toastIndex = findToastIndex("^Building Power Report")
+		if toastIndex then
+			main.toastMessages[toastIndex] = message
+		else
+			t_insert(main.toastMessages, message)
+			self.powerBuilderToastActive = true
+		end
+	end
+	-- Completion callback from the CalcsTab power builder coroutine
 	self.build.powerBuilderCallback = function()
 		local powerStat = self.build.calcsTab.powerStat or data.powerStatList[1]
 		local report = self:BuildPowerReportList(powerStat)
 		self.controls.powerReportList:SetReport(powerStat, report)
+		local toastIndex = findToastIndex("^Building Power Report")
+		if self.powerBuilderToastActive and toastIndex then
+			-- Remove the toast from the queue instead of triggering hide animation
+			-- This prevents issues when the toast is not currently displayed (queued behind another toast)
+			-- TODO: look into allowing toast notifications to stack and have UUID's we can control them better
+			if toastIndex == 1 then
+				main.toastMode = "HIDING"
+				main.toastStart = GetTime()
+			else
+				t_remove(main.toastMessages, toastIndex)
+			end
+		end
+		self.powerBuilderToastActive = false
 	end
 
 	self.controls.specConvertText = new("LabelControl", { "BOTTOMLEFT", self.controls.specSelect, "TOPLEFT" }, { 0, -14, 0, 16 }, "^7This is an older tree version, which may not be fully compatible with the current game version.")
@@ -486,7 +533,7 @@ function TreeTabClass:Save(xml)
 	end
 end
 
-function TreeTabClass:SetActiveSpec(specId)
+function TreeTabClass:SetActiveSpec(specId, deferSync)
 	local prevSpec = self.build.spec
 	self.activeSpec = m_min(specId, #self.specList)
 	local curSpec = self.specList[self.activeSpec]
@@ -521,7 +568,9 @@ function TreeTabClass:SetActiveSpec(specId)
 	if self.controls.versionSelect then
 		self.controls.versionSelect:SelByValue(curSpec.treeVersion, 'value')
 	end
-	self.build:SyncLoadouts()
+	if not deferSync then
+		self.build:SyncLoadouts()
+	end
 end
 
 function TreeTabClass:SetCompareSpec(specId)
@@ -591,6 +640,18 @@ function TreeTabClass:OpenSpecManagePopup()
 			main:ClosePopup()
 		end),
 	})
+end
+
+function TreeTabClass:CopyTree(sourceSpecId, newSpecName)
+	local newSpec = new("PassiveSpec", self.build, self.specList[sourceSpecId].treeVersion)
+	local defaultTitle = (self.specList[sourceSpecId].title or "Default") .. " (Copy)"
+	newSpec.title = newSpecName or defaultTitle
+	newSpec.jewels = copyTable(self.specList[sourceSpecId].jewels)
+	newSpec:RestoreUndoState(self.specList[sourceSpecId]:CreateUndoState())
+	newSpec:BuildClusterJewelGraphs()
+	newSpec.id = #self.specList + 1
+	t_insert(self.specList, newSpec)
+	return newSpec
 end
 
 function TreeTabClass:OpenVersionConvertPopup(version, ignoreRuthlessCheck)
@@ -932,6 +993,7 @@ function TreeTabClass:BuildPowerReportList(currentStat)
 				x = node.x,
 				y = node.y,
 				type = node.type,
+				sd = node.sd,
 				pathDist = pathDist
 			})
 		end
@@ -960,6 +1022,7 @@ function TreeTabClass:BuildPowerReportList(currentStat)
 				pathPowerStr = "--",
 				id = node.id,
 				type = node.type,
+				sd = node.sd,
 				pathDist = "Cluster"
 			})
 		end

@@ -3,6 +3,27 @@
 return {
 -- Body: Armour
 [[
+Atziri's Splendour
+Sacrificial Regalia
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Variant: Helmet
+Variant: Gloves
+Variant: Boots
+Variant: Shield
+Sockets: S S S S S S
+Implicits: 1
+BodyArmourImplicitLevelOfAllCorruptedSkillGems1
+UniqueOnlySocketSoulCores1
+UniqueLocalNoAttributeRequirements2
+UniqueAtziriSplendourArmourEvasionAndEnergyShield1
+UniqueAllResistances27
+UniqueCorruptedSkillGemManaCostConvertedToLife1
+{variant:1}UniqueLocalSoulCoreAlsoGainBenefitsFromHelmet1
+{variant:2}UniqueLocalSoulCoreAlsoGainBenefitsFromGloves1
+{variant:3}UniqueLocalSoulCoreAlsoGainBenefitsFromBoots1
+{variant:4}UniqueLocalSoulCoreAlsoGainBenefitsFromShield1
+]],[[
 Blackbraid
 Fur Plate
 Variant: Pre 0.1.1
@@ -756,7 +777,6 @@ UniqueEvasionOvercappedLightningResistance1
 Tabula Rasa
 Garment
 League: Dawn of the Hunt
-Sockets: S S S S S S
-Has 6 Rune Sockets
+Sockets: J J J J J J
 ]],
 }

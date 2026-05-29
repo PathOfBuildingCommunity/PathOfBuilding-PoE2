@@ -264,6 +264,7 @@ function sanitiseText(text)
 		:gsub("\226\128\162 ?", "") -- U+2022 BULLET
 		:gsub("\195\164", "a") -- U+00E4 LATIN SMALL LETTER A WITH DIAERESIS
 		:gsub("\195\182", "o") -- U+00F6 LATIN SMALL LETTER O WITH DIAERESIS
+		:gsub("\195\173", "i") -- U+00ED LATIN SMALL LETTER I WITH ACUTE
 		-- single-byte: Windows-1252 and similar
 		:gsub("\150", "-") -- U+2013 EN DASH
 		:gsub("\151", "-") -- U+2014 EM DASH
@@ -800,11 +801,11 @@ function getFormatSec(dec)
 end
 
 function copyFile(srcName, dstName)
-	local inFile, msg = io.open(srcName, "r")
+	local inFile, msg = io.open(srcName, "rb")
 	if not inFile then
 		return nil, "Couldn't open '"..srcName.."': "..msg
 	end
-	local outFile, msg = io.open(dstName, "w")
+	local outFile, msg = io.open(dstName, "wb")
 	if not outFile then
 		return nil, "Couldn't create '"..dstName.."': "..msg
 	end
@@ -1032,10 +1033,24 @@ function ImportBuild(importLink, callback)
 end
 
 function escapeGGGString(text)
-	local line = text:gsub("%[([^|%]]+)%]", "%1"):gsub("%[[^|]+|([^|]+)%]", "%1")
+	local line = text
+		:gsub("<[^>]+>{([^}]+)}", "%1")
+		:gsub("%[([^|%]]+)%]", "%1")
+		:gsub("%[[^|]+|([^|]+)%]", "%1")
 	return line
 end
 
 function getHashFromString(string)
 	return common.sha1(string)
+end
+
+-- Returns virtual screen size
+function GetVirtualScreenSize()
+	local width, height = GetScreenSize()
+	local scale = GetScreenScale and GetScreenScale() or 1.0
+	if scale ~= 1.0 then
+		width = math.floor(width / scale)
+		height = math.floor(height / scale)
+	end
+	return width, height
 end

@@ -3,6 +3,27 @@
 return {
 -- Body: Armour
 [[
+Atziri's Splendour
+Sacrificial Regalia
+Source: Drops from unique{Atziri's Vault} in normal{Vaal Temple}
+League: Fate of the Vaal
+Variant: Helmet
+Variant: Gloves
+Variant: Boots
+Variant: Shield
+Sockets: S S S S S S
+Implicits: 1
++1 to Level of all Corrupted Skill Gems
+Only Soul Cores can be Socketed in this item
+{variant:3}This item gains bonuses from Socketed Soul Cores as though it was also Boots
+{variant:2}This item gains bonuses from Socketed Soul Cores as though it was also Gloves
+{variant:1}This item gains bonuses from Socketed Soul Cores as though it was also a Helmet
+{variant:4}This item gains bonuses from Socketed Soul Cores as though it was also a Shield
+Has no Attribute Requirements
+(80-120)% increased Armour, Evasion and Energy Shield
++(10-20)% to all Elemental Resistances
+Skills from Corrupted Gems have 50% of Mana Costs Converted to Life Costs
+]],[[
 Blackbraid
 Fur Plate
 Variant: Pre 0.1.1
@@ -204,10 +225,10 @@ Variant: Current
 +(25-30)% to Cold Resistance
 +(10-15)% to Lightning Resistance
 {variant:1}Increases Movement Speed by 25%, plus 1% per 500 Evasion Rating, up to a maximum of 75%
-{variant:2}Increases Movement Speed by 25%, plus 1% per 800 Evasion Rating, up to a maximum of 75%
-{variant:3}Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%
 {variant:1}Other Modifiers to Movement Speed except for Sprinting do not apply
+{variant:2}Increases Movement Speed by 25%, plus 1% per 800 Evasion Rating, up to a maximum of 75%
 {variant:2}Other Modifiers to Movement Speed except for Sprinting do not apply
+{variant:3}Increases Movement Speed by 25%, plus 1% per 600 Evasion Rating, up to a maximum of 75%
 {variant:3}Other Modifiers to Movement Speed except for Sprinting do not apply
 ]],[[
 The Rat Cage
@@ -510,8 +531,8 @@ Variant: Current
 +(17-23)% to Chaos Resistance
 +(200-300) to Ailment Threshold
 {variant:1}Life that would be lost by taking Damage is instead Reserved
-{variant:2}Life that would be lost by taking Damage is instead Reserved
 {variant:1}until you take no Damage to Life for 5 seconds
+{variant:2}Life that would be lost by taking Damage is instead Reserved
 {variant:2}until you take no Damage to Life for 3 seconds
 ]],
 -- Body: Armour/Energy Shield
@@ -767,7 +788,6 @@ Evasion Rating is increased by Uncapped Lightning Resistance
 Tabula Rasa
 Garment
 League: Dawn of the Hunt
-Sockets: S S S S S S
-Has 6 Rune Sockets
+Sockets: J J J J J J
 ]],
 }

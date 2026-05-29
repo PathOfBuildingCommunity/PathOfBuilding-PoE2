@@ -439,7 +439,7 @@ local function defaultTriggerHandler(env, config)
 			actor.mainSkill.skillData.ignoresTickRate = actor.mainSkill.skillData.ignoresTickRate or (actor.mainSkill.skillData.storedUses and actor.mainSkill.skillData.storedUses > 1)
 
 			--Account for source unleash
-			if source and GlobalCache.cachedData[env.mode][uuid] and source.skillModList:Flag(nil, "HasSeals") and source.skillTypes[SkillType.Unleashable] then
+			if source and GlobalCache.cachedData[env.mode][uuid] and source.skillModList:Flag(nil, "HasSeals") and source.skillModList:Flag(nil, "DamageSeal") then
 				local unleashDpsMult = GlobalCache.cachedData[env.mode][uuid].ActiveSkill.skillData.dpsMultiplier or 1
 				trigRate = trigRate * unleashDpsMult
 				actor.mainSkill.skillFlags.HasSeals = true
@@ -489,7 +489,7 @@ local function defaultTriggerHandler(env, config)
 
 			-- Infernal Cry uptime
 			if actor.mainSkill.activeEffect.grantedEffect.name == "Combust" and GlobalCache.cachedData[env.mode][uuid] and source and source.skillTypes[SkillType.Melee] then
-				local infernalCryExertsCount = GlobalCache.cachedData[env.mode][uuid].Env.player.output.InfernalExertsCount
+				local infernalCryExertsCount = GlobalCache.cachedData[env.mode][uuid].Env.player.output.InfernalEmpoweredCount
 				local infernalCryDuration = ceil_b(GlobalCache.cachedData[env.mode][uuid].Env.player.output.InfernalCryDuration, data.misc.ServerTickTime)
 				local infernalCryCastTime = GlobalCache.cachedData[env.mode][uuid].Env.player.output.InfernalCryCastTime
 				local infernalCryCooldown = ceil_b(GlobalCache.cachedData[env.mode][uuid].Env.player.output.InfernalCryCooldown, data.misc.ServerTickTime)
