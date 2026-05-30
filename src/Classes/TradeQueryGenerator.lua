@@ -81,13 +81,26 @@ for type, bases in pairs(data.itemBaseLists) do
 	end
 end
 
-local tradeStatCategoryIndices = {
-	["Explicit"] = 2,
-	["Implicit"] = 3,
-	["Corrupted"] = 5,
-	["AllocatesXEnchant"] = 5,
-	["Rune"] = 6,
-}
+local tradeStats = tradeHelpers.getTradeStats()
+
+---@return table[]? category list of entries for the mod type
+local function getStatEntries(modType)
+	local tradeStatCategoryIndices = {
+		["Explicit"] = "explicit",
+		["Implicit"] = "implicit",
+		["Corrupted"] = "enchant",
+		["AllocatesXEnchant"] = "enchant",
+		-- note that in the json the label is augment while the id is rune
+		["Rune"] = "rune"
+	}
+	if tradeStatCategoryIndices[modType] then
+		for i, cat in ipairs(tradeStats) do
+			if cat.id == tradeStatCategoryIndices[modType] then
+				return cat.entries
+			end
+		end
+	end
+end
 
 local MAX_FILTERS = 35
 
@@ -104,20 +117,6 @@ local TradeQueryGeneratorClass = newClass("TradeQueryGenerator", function(self, 
 	self.lastMaxPriceTypeIndex = nil
 	self.lastMaxLevel = nil
 end)
-
-local function fetchStats()
-	local tradeStats = ""
-	local easy = common.curl.easy()
-	easy:setopt_url("https://www.pathofexile.com/api/trade2/data/stats")
-	easy:setopt_useragent("Path of Building/" .. launch.versionNumber)
-	easy:setopt_writefunction(function(data)
-		tradeStats = tradeStats..data
-		return true
-	end)
-	easy:perform()
-	easy:close()
-	return tradeStats
-end
 
 local function canModSpawnForItemCategory(mod, names)
 	for _, name in pairs(tradeCategoryNames[names]) do
@@ -184,7 +183,7 @@ function TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, newOutput, st
 end
 
 
-function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
+function TradeQueryGeneratorClass:ProcessMod(mod, itemCategoriesMask, itemCategoriesOverride)
 -- processes mods from the data exports to a format that is more useful for
 -- generating weights.
 
@@ -221,17 +220,11 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 			modLine = modLine:gsub("Slots", "Slot")
 		end
 
-		-- If this is the first tier for this mod, find matching trade mod and init the entry
-		if not self.modData[modType] then
-			logToFile("Unhandled Mod Type: %s", modType)
-			goto continue
-		end
-
 		-- iterate trade mod category to find mod with matching text.
 		local function getTradeMod()
 			local entry
 			local tradeHashStr = tostring(tradeHash)
-			for _, v in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices[modType]].entries) do
+			for _, v in ipairs(getStatEntries(modType) or {}) do
 				-- prefix removed
 				local ids = v.id:gsub(".+..stat_", "").."|"
 				-- split by non-integer
@@ -307,7 +300,7 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 			max = #max > 0 and tonumber(max) or tonumber(min)
 
 			tokenizeOffset = tokenizeOffset + (endPos - startPos)
-			
+
 			-- the values are negative record its ranges as such.
 			if (invert or sign == "-") and not (invert and sign == "-") then
 				local temp = max
@@ -316,7 +309,7 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 			end
 
 			if sign == "+" then self.modData[modType][uniqueIndex].usePositiveSign = true end
-			
+
 			t_insert(tokens, min)
 			t_insert(tokens, max)
 		end
@@ -351,9 +344,9 @@ function TradeQueryGeneratorClass:ProcessMod(mod, tradeQueryStatsParsed, itemCat
 	::continue::
 end
 
-function TradeQueryGeneratorClass:GenerateModData(mods, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
+function TradeQueryGeneratorClass:GenerateModData(mods, itemCategoriesMask, itemCategoriesOverride)
 	for _, mod in pairsSortByKey(mods) do
-		self:ProcessMod( mod, tradeQueryStatsParsed, itemCategoriesMask, itemCategoriesOverride)
+		self:ProcessMod( mod, itemCategoriesMask, itemCategoriesOverride)
 	end
 end
 
@@ -370,22 +363,11 @@ function TradeQueryGeneratorClass:InitMods()
 	self.modData = {
 		["Explicit"] = { },
 		["Implicit"] = { },
+		["Corrupted"] = { },
 		["Enchant"] = { },
 		["AllocatesXEnchant"] = { },
-		["Corrupted"] = { },
 		["Rune"] = { },
 	}
-
-	-- originates from: https://www.pathofexile.com/api/trade2/data/stats
-	local tradeStats = fetchStats()
-	-- stop modifier texts from breaking the lua formatting
-	tradeStats = tradeStats:gsub("\\n", "")
-	local tradeQueryStatsParsed = dkjson.decode(tradeStats)
-	for _, modDomain in ipairs(tradeQueryStatsParsed.result) do
-		for _, mod in ipairs(modDomain.entries) do
-			mod.text = escapeGGGString(mod.text)
-		end
-	end
 
 	-- create mask for regular mods
 	local regularItemMask = { }
@@ -393,11 +375,11 @@ function TradeQueryGeneratorClass:InitMods()
 		regularItemMask[category] = true
 	end
 
-	self:GenerateModData(data.itemMods.Item, tradeQueryStatsParsed, regularItemMask)
-	self:GenerateModData(data.itemMods.Corruption, tradeQueryStatsParsed, regularItemMask)
-	self:GenerateModData(data.itemMods.Jewel, tradeQueryStatsParsed, { ["BaseJewel"] = true, ["AnyJewel"] = true, ["RadiusJewel"] = true })
-	self:GenerateModData(data.itemMods.Flask, tradeQueryStatsParsed, { ["LifeFlask"] = true, ["ManaFlask"] = true })
-	self:GenerateModData(data.itemMods.Charm, tradeQueryStatsParsed, { ["Charm"] = true })
+	self:GenerateModData(data.itemMods.Item, regularItemMask)
+	self:GenerateModData(data.itemMods.Corruption, regularItemMask)
+	self:GenerateModData(data.itemMods.Jewel, { ["BaseJewel"] = true, ["AnyJewel"] = true, ["RadiusJewel"] = true })
+	self:GenerateModData(data.itemMods.Flask, { ["LifeFlask"] = true, ["ManaFlask"] = true })
+	self:GenerateModData(data.itemMods.Charm, { ["Charm"] = true })
 
 	-- essences, because in item mod data they don't have equipment tags
 	for name, essence in pairs(data.essences) do
@@ -407,16 +389,16 @@ function TradeQueryGeneratorClass:InitMods()
 				local mask = {}
 				local itemType = itemType == "Warstaff" and "Quarterstaff" or itemType
 				mask[itemType] = true
-				self:ProcessMod(data.itemMods.Item[modName], tradeQueryStatsParsed, regularItemMask, mask)
+				self:ProcessMod(data.itemMods.Item[modName], regularItemMask, mask)
 			end
 		end
 	end
 	-- fix the weird exception
 	for _, v in ipairs({"EssencePercentStrength1", "EssencePercentDexterity1", "EssencePercentIntelligence1"}) do
-		self:ProcessMod(data.itemMods.Item[v], tradeQueryStatsParsed, regularItemMask, { Amulet = true })
+		self:ProcessMod(data.itemMods.Item[v], regularItemMask, { Amulet = true }, "explicit")
 	end
 
-	for _, entry in ipairs(tradeQueryStatsParsed.result[tradeStatCategoryIndices.AllocatesXEnchant].entries) do
+	for _, entry in ipairs(getStatEntries("AllocatesXEnchant") or {}) do
 		if entry.text:sub(1, 10) == "Allocates " then
 			-- The trade id for allocatesX enchants end with "|[nodeID]" for the allocated node.
 			local nodeId = entry.id:sub(entry.id:find("|") + 1)
@@ -467,7 +449,7 @@ function TradeQueryGeneratorClass:InitMods()
 
 			-- mask found process implicit mod this avoids processing unimplemented bases i.e. two handed axes.
 			if next(maskOverride) ~= nil then
-				self:ProcessMod(mod, tradeQueryStatsParsed, regularItemMask, maskOverride)
+				self:ProcessMod(mod, regularItemMask, maskOverride)
 			end
 		end
 		::continue::
@@ -479,11 +461,11 @@ function TradeQueryGeneratorClass:InitMods()
 			for i, modLine in ipairs(mods) do
 				local mod = {modLine, tradeHashes = mods.tradeHashes, type = "Rune"}
 				if slotType == "weapon" then
-					self:ProcessMod(mod, tradeQueryStatsParsed, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true, ["Talisman"] = true  })
+					self:ProcessMod(mod, regularItemMask, { ["1HWeapon"] = true, ["2HWeapon"] = true, ["1HMace"] = true, ["Claw"] = true, ["Quarterstaff"] = true, ["Bow"] = true, ["2HMace"] = true, ["Crossbow"] = true, ["Spear"] = true, ["Flail"] = true, ["Talisman"] = true  })
 				elseif slotType == "armour" then
-					self:ProcessMod(mod, tradeQueryStatsParsed, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
+					self:ProcessMod(mod, regularItemMask, { ["Shield"] = true, ["Chest"] = true, ["Helmet"] = true, ["Gloves"] = true, ["Boots"] = true, ["Focus"] = true })
 				elseif slotType == "caster" then
-					self:ProcessMod(mod, tradeQueryStatsParsed, regularItemMask, { ["Wand"] = true, ["Staff"] = true })
+					self:ProcessMod(mod, regularItemMask, { ["Wand"] = true, ["Staff"] = true })
 				else
 					-- Mod is slot specific, try to match against a value in tradeCategoryNames
 					local matchedCategory = nil
@@ -499,7 +481,7 @@ function TradeQueryGeneratorClass:InitMods()
 						end
 					end
 					if matchedCategory then
-						self:ProcessMod(mod, tradeQueryStatsParsed, regularItemMask, { [matchedCategory] = true })
+						self:ProcessMod(mod, regularItemMask, { [matchedCategory] = true })
 					else
 						ConPrintf("TradeQuery: Unmatched category for modifier. Slot type: %s Modifier: %s", mods.slotType, mods.name)
 					end
@@ -607,7 +589,7 @@ function TradeQueryGeneratorClass:GeneratePassiveNodeWeights(nodesToTest)
 				goto continue
 			end
 		end
-		
+
 		local baseOutput = self.calcContext.baseOutput
 		local output = self.calcContext.calcFunc({ addNodes = { [node] = true } })
 		local meanStatDiff = TradeQueryGeneratorClass.WeightedRatioOutputs(baseOutput, output, self.calcContext.options.statWeights) * 1000 - (self.calcContext.baseStatValue or 0)
@@ -615,7 +597,7 @@ function TradeQueryGeneratorClass:GeneratePassiveNodeWeights(nodesToTest)
 			t_insert(self.modWeights, { tradeModId = entry.tradeMod.id, weight = meanStatDiff, meanStatDiff = meanStatDiff, invert = false })
 		end
 		self.alreadyWeightedMods[entry.tradeMod.id] = true
-		
+
 		local now = GetTime()
 		if now - start > 50 then
 			-- Would be nice to update x/y progress on the popup here, but getting y ahead of time has a cost, and the visual seems to update on a significant delay anyways so it's not very useful
@@ -785,21 +767,21 @@ function TradeQueryGeneratorClass:FinishQuery()
 
 	local originalOutput = originalItem and self.calcContext.calcFunc({ repSlotName = self.calcContext.slot.slotName, repItem = self.calcContext.testItem }) or self.calcContext.baseOutput
 	local currentStatDiff = TradeQueryGeneratorClass.WeightedRatioOutputs(self.calcContext.baseOutput, originalOutput, self.calcContext.options.statWeights) * 1000 - (self.calcContext.baseStatValue or 0)
-	
+
 	-- Sort by mean Stat diff rather than weight to more accurately prioritize stats that can contribute more
-	table.sort(self.modWeights, function(a, b)
+	table.sort(self.modWeights, function (a, b)
 		if a.meanStatDiff == b.meanStatDiff then
 			return math.abs(a.weight) > math.abs(b.weight)
 		end
 		return a.meanStatDiff > b.meanStatDiff
 	end)
-	
+
 	-- A megalomaniac is not being compared to anything and the currentStatDiff will be 0, so just go for an arbitrary min weight - in this case triple the weight of the worst evaluated node.
 	local megalomaniacSpecialMinWeight = self.calcContext.special.itemName == "Megalomaniac" and self.modWeights[#self.modWeights] * 3
 	-- This Stat diff value will generally be higher than the weighted sum of the same item, because the stats are all applied at once and can thus multiply off each other.
 	-- So apply a modifier to get a reasonable min and hopefully approximate that the query will start out with small upgrades.
 	local minWeight = megalomaniacSpecialMinWeight or currentStatDiff * 0.5
-	
+
 	-- what the trade site API uses for instant buyout etc.
 	self.tradeTypes = {
 		"securable",
@@ -955,7 +937,7 @@ function TradeQueryGeneratorClass:RequestQuery(slot, context, statWeights, callb
 	updateLastAnchor(controls.includeCorrupted)
 
 
-	
+
 
 	controls.includeMirrored = new("CheckBoxControl", {"TOPRIGHT",lastItemAnchor,"BOTTOMRIGHT"}, {0, 5, 18}, "Mirrored Items:", function(state) end)
 	controls.includeMirrored.state = (self.lastIncludeMirrored == nil or self.lastIncludeMirrored == true)

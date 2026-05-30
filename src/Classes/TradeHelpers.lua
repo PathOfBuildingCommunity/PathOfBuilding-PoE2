@@ -32,30 +32,20 @@ function M.modLineValue(line)
 	return tonumber(line:match("%-?[%d]+%.?[%d]*"))
 end
 
--- Helper: fetch and cache the trade API stats
-local _tradeStats = nil
-local _tradeStatsFetched = false
--- contains data for stats which have options, like allocates #
-local optionTradeStatMap = {}
---- @return table
-local function getTradeStatsLookup()
-	if _tradeStats then return _tradeStats end
-	local tradeStats = ""
-	local easy = common.curl.easy()
-	if not easy then return nil end
-	easy:setopt_url("https://www.pathofexile.com/api/trade2/data/stats")
-	easy:setopt_useragent("Path of Building/" .. (launch.versionNumber or ""))
-	easy:setopt_writefunction(function(d)
-		tradeStats = tradeStats .. d
-		return true
-	end)
-	local ok = easy:perform()
-	easy:close()
-	if not ok or tradeStats == "" then return {} end
-	local parsed = dkjson.decode(tradeStats)
-	_tradeStats = parsed.result
+---@return table? tradeStats
+function M.getTradeStats()
+	local file = io.open("./Data/trade_site_stats.json")
+	if not file then return nil end
+	local fileContents = file:read("*a")
+	local parsed = dkjson.decode(fileContents)
+	return parsed and parsed.result
+end
 
-	for _, cat in ipairs(_tradeStats) do
+---@param tradeStats table table of data from https://www.pathofexile.com/api/trade2/data/stats
+---@return table optionTradeStatMap table containing helper data for matching trade option filters
+local function getOptionTradeStatMap(tradeStats)
+	local optionTradeStatMap = {}
+	for _, cat in ipairs(tradeStats) do
 		if cat.id == "enchant" or cat.id == "explicit" or cat.id == "implicit" then
 			optionTradeStatMap[cat.id] = {}
 			for _, entry in ipairs(cat.entries) do
@@ -72,7 +62,7 @@ local function getTradeStatsLookup()
 			end
 		end
 	end
-	return _tradeStats
+	return optionTradeStatMap
 end
 
 -- Map source types used in OpenBuySimilarPopup to trade API category labels
@@ -120,7 +110,7 @@ function M.shouldBeInverted(tradeId, modLine, modType)
 	if not inverseKey then
 		return false
 	end
-	for _, category in ipairs(getTradeStatsLookup()) do
+	for _, category in ipairs(M.getTradeStats() or {}) do
 		if category.id == modType then
 			for _, stat in ipairs(category.entries) do
 				if tradeId == stat.id then
@@ -132,7 +122,9 @@ function M.shouldBeInverted(tradeId, modLine, modType)
 					end
 
 					-- test for inverted mod
-					if inverseKey and ((invertedLine == formattedTradeSiteText) or (invertedLine:gsub("^%+", "") == formattedTradeSiteText)) then
+					if inverseKey
+						and ((invertedLine == formattedTradeSiteText)
+							or (invertedLine:gsub("^%+", "") == formattedTradeSiteText)) then
 						return true
 					end
 
@@ -160,15 +152,17 @@ function M.formatDatabaseText(text)
 	return text
 end
 
+local tradeStats = M.getTradeStats()
+local optionTradeStatMap = getOptionTradeStatMap(tradeStats)
+
 -- Helper: find the trade stat ID for a mod line
---- @param item table
---- @param modLine string
---- @param modType string
---- @param isDesecrated boolean
---- the
---- @return number? hash returned for most mods
---- @return string? optionTradeId returned if the mod is an option. e.g. Allocates X
---- @return number value returned if the mod is an option and uses values. e.g. timeless jewel
+---@param item         table
+---@param modLine      string
+---@param modType      string
+---@param isDesecrated boolean
+---@return number? hash          returned for most mods
+---@return string? optionTradeId returned if the mod is an option. e.g. Allocates X
+---@return number? value         returned if the mod is an option and uses values. e.g. timeless jewel
 function M.findTradeHash(item, modLine, modType, isDesecrated)
 	local formattedLine = M.formatDatabaseText(modLine)
 	-- the data export splits some mods into different parts, even though they
@@ -176,7 +170,8 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 	local isUnique = item.rarity == "UNIQUE" or item.rarity == "RELIC"
 	local function findStat(dbMod, ignoreWeights)
 		local excludeTags = (not isUnique) and { default = true } or nil
-		if not ignoreWeights and #(dbMod.weightKey or {}) > 0 and not (item:GetModSpawnWeight(dbMod, nil, excludeTags) > 0) then
+		if not ignoreWeights and #(dbMod.weightKey or {}) > 0
+			and not (item:GetModSpawnWeight(dbMod, nil, excludeTags) > 0) then
 			return nil
 		end
 		for tradeHash, description in pairs(dbMod.tradeHashes) do
@@ -196,10 +191,7 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 		end
 	end
 
-	-- initialise optionTradeStatMap
-	if not _tradeStats then
-		getTradeStatsLookup()
-	end
+	if not tradeStats then return end
 
 	for _, v in ipairs(optionTradeStatMap[modType] or {}) do
 		if v.pattern then
@@ -211,7 +203,6 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 			return nil, v.tradeId
 		end
 	end
-	
 
 	-- desecrate-only mods
 	if isDesecrated then
@@ -230,7 +221,7 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 				return tradeHashMaybe
 			end
 		end
-	-- most implicit and explicit applicable to the type
+		-- most implicit and explicit applicable to the type
 	elseif modType ~= "implicit" or modType ~= "explicit" then
 		for _, dbMod in pairs(item.affixes) do
 			local tradeHashMaybe = findStat(dbMod)
