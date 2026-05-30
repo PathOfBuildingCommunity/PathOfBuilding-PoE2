@@ -10,10 +10,10 @@ classMap = {
 	["Armour"] = { "armour" },
 	["Wand or Staff"] = { "wand", "staff" },
 	["Maces or Talisman"] = { "one hand mace", "two hand mace", "talisman" },
-	["One Hand Mace or Quarterstaff"] = { "one hand mace", "quarterstaff" },
+	["One Hand Mace or Quarterstaff"] = { "one hand mace", "warstaff" },
 	["Shield or Buckler"] = { "shield", "buckler" },
 	["All"] = { "weapon", "armour", "caster" },
-	["Quarterstaff or Spear"] = { "quarterstaff", "spear" },
+	["Quarterstaff or Spear"] = { "warstaff", "spear" },
 	["Crossbow Bow or Spear"] = { "crossbow", "bow", "spear" },
 }
 

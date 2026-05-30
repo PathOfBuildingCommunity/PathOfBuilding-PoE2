@@ -3299,7 +3299,7 @@ return {
 				tradeHashes = { [103706408] = { "Rolls only the minimum or maximum Damage value for Physical Damage" },  },
 				rank = { 15 },
 		},
-		["quarterstaff"] = {
+		["warstaff"] = {
 				type = "Rune",
 				"Rolls only the minimum or maximum Damage value for Physical Damage",
 				statOrder = { 7785 },
@@ -3472,7 +3472,7 @@ return {
 		},
 	},
 	["Rune of Confrontation"] = {
-		["quarterstaff"] = {
+		["warstaff"] = {
 				type = "Rune",
 				"Gain 4 Rage on Melee Hit",
 				"-10 to Maximum Rage",
