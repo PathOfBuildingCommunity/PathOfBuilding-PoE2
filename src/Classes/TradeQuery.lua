@@ -777,7 +777,7 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index, calcFunc, ba
 		self.onlyWeightedBaseOutput[row_idx][result_index] = onlyWeightedBaseOutput
 		self.lastComparedWeightList[row_idx][result_index] = self.statSortSelectionList
 	end
-	
+
 	local slotName = self.slotTables[row_idx].nodeId and "Jewel " .. tostring(self.slotTables[row_idx].nodeId) or self.slotTables[row_idx].slotName
 	if slotName == "Megalomaniac" then
 		local addedNodes = {}
@@ -787,7 +787,7 @@ function TradeQueryClass:GetResultEvaluation(row_idx, result_index, calcFunc, ba
 				addedNodes[node] = true
 			end
 		end
-		
+
 		local output = self:ReduceOutput(calcFunc({ addNodes = addedNodes }))
 		local weight = self.tradeQueryGenerator.WeightedRatioOutputs(baseOutput, output, self.statSortSelectionList)
 		result.evaluation = {{ output = output, weight = weight }}
@@ -971,7 +971,9 @@ function TradeQueryClass:PriceItemRowDisplay(row_idx, top_pane_alignment_ref, ro
 					if self.tradeQueryGenerator.lastAugmentBehaviour == "Copy Current" or self.tradeQueryGenerator.lastAnointBehaviour == "Copy Current" then
 						for i, _ in ipairs(items) do
 							local item = new("Item", items[i].item_string)
-							self.itemsTab:CopyAnointsAndAugments(item, true, true, context.slotTbl.slotName)
+							if item.base then
+								self.itemsTab:CopyAnointsAndAugments(item, true, true, context.slotTbl.slotName)
+							end
 							items[i].item_string = item:BuildRaw()
 						end
 					elseif self.tradeQueryGenerator.lastAugmentBehaviour == "Remove" then

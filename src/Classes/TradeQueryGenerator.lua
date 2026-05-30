@@ -81,10 +81,10 @@ for type, bases in pairs(data.itemBaseLists) do
 	end
 end
 
-local tradeStats = tradeHelpers.getTradeStats()
 
 ---@return table[]? category list of entries for the mod type
 local function getStatEntries(modType)
+	local tradeStats = tradeHelpers.getTradeStats()
 	local tradeStatCategoryIndices = {
 		["Explicit"] = "explicit",
 		["Implicit"] = "implicit",

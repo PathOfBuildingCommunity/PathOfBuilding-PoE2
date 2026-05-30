@@ -35808,10 +35808,17 @@ return {
 			}, 
 		}, 
 		["3759663284"] = {
+<<<<<<< HEAD
 			["Bow"] = {
 				["max"] = 20, 
 				["min"] = 20, 
 			}, 
+=======
+			["2HWeapon"] = {
+				["max"] = 20,
+				["min"] = 20,
+			},
+>>>>>>> 44955925b (Defer loading of trade stat data and fix tests)
 			["specialCaseData"] = {
 			}, 
 			["tradeMod"] = {
@@ -35951,10 +35958,17 @@ return {
 			}, 
 		}, 
 		["3885405204"] = {
+<<<<<<< HEAD
 			["Bow"] = {
 				["max"] = 1, 
 				["min"] = 1, 
 			}, 
+=======
+			["2HWeapon"] = {
+				["max"] = 1,
+				["min"] = 1,
+			},
+>>>>>>> 44955925b (Defer loading of trade stat data and fix tests)
 			["specialCaseData"] = {
 				["overrideModLineSingular"] = "Bow Attacks fire an additional Arrow",
 			},

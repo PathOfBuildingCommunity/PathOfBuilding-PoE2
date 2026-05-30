@@ -32,18 +32,25 @@ function M.modLineValue(line)
 	return tonumber(line:match("%-?[%d]+%.?[%d]*"))
 end
 
+local _tradeStats
+
 ---@return table? tradeStats
 function M.getTradeStats()
+	if _tradeStats then return _tradeStats end
 	local file = io.open("./Data/trade_site_stats.json")
 	if not file then return nil end
 	local fileContents = file:read("*a")
 	local parsed = dkjson.decode(fileContents)
-	return parsed and parsed.result
+	_tradeStats = parsed and parsed.result
+	return _tradeStats
 end
+
+local _optionTradeStatMap
 
 ---@param tradeStats table table of data from https://www.pathofexile.com/api/trade2/data/stats
 ---@return table optionTradeStatMap table containing helper data for matching trade option filters
 local function getOptionTradeStatMap(tradeStats)
+	if _optionTradeStatMap then return _optionTradeStatMap end
 	local optionTradeStatMap = {}
 	for _, cat in ipairs(tradeStats) do
 		if cat.id == "enchant" or cat.id == "explicit" or cat.id == "implicit" then
@@ -62,7 +69,8 @@ local function getOptionTradeStatMap(tradeStats)
 			end
 		end
 	end
-	return optionTradeStatMap
+	_optionTradeStatMap = optionTradeStatMap
+	return _optionTradeStatMap
 end
 
 -- Map source types used in OpenBuySimilarPopup to trade API category labels
@@ -152,8 +160,6 @@ function M.formatDatabaseText(text)
 	return text
 end
 
-local tradeStats = M.getTradeStats()
-local optionTradeStatMap = getOptionTradeStatMap(tradeStats)
 
 -- Helper: find the trade stat ID for a mod line
 ---@param item         table
@@ -191,7 +197,9 @@ function M.findTradeHash(item, modLine, modType, isDesecrated)
 		end
 	end
 
-	if not tradeStats then return end
+	local tradeStats = M.getTradeStats()
+	local optionTradeStatMap = getOptionTradeStatMap(tradeStats)
+	if not tradeStats or not optionTradeStatMap then return end
 
 	for _, v in ipairs(optionTradeStatMap[modType] or {}) do
 		if v.pattern then
