@@ -2147,7 +2147,7 @@ return {
 			name="FlavourTextKey",
 			refTo="FlavourText",
 			type="Key",
-			width=100
+			width=120
 		},
 		[9]={
 			list=true,
@@ -17746,6 +17746,20 @@ return {
 			list=false,
 			name="Type",
 			refTo="SoulCoreTypes",
+			type="Key",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
 			type="Key",
 			width=150
 		}

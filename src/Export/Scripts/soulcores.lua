@@ -4,10 +4,17 @@ end
 loadStatFile("stat_descriptions.csd")
 
 classMap = {
-	["Martial Weapons"] = { "weapon" },
+	["Martial Weapon"] = { "weapon" },
+	["Caster Weapon"] = { "caster" },
+	["Martial Or Caster Weapon"] = { "weapon", "caster" },
 	["Armour"] = { "armour" },
-	["Caster Weapons"] = { "caster" },
+	["Wand or Staff"] = { "wand", "staff" },
+	["Maces or Talisman"] = { "one hand mace", "two hand mace", "talisman" },
+	["One Hand Mace or Quarterstaff"] = { "one hand mace", "quarterstaff" },
+	["Shield or Buckler"] = { "shield", "buckler" },
 	["All"] = { "weapon", "armour", "caster" },
+	["Quarterstaff or Spear"] = { "quarterstaff", "spear" },
+	["Crossbow Bow or Spear"] = { "crossbow", "bow", "spear" },
 }
 
 function table.containsId(table, element)
@@ -37,6 +44,9 @@ directiveTable.base = function(state, args, out)
 	end
 	if not displayName then
 		displayName = baseItemType.Name
+	end
+	if displayName:find("DNT") then
+		return
 	end
 	displayName = displayName:gsub("\195\182","o")
 	displayName = displayName:gsub("^%s*(.-)%s*$", "%1") -- trim spaces GGG might leave in by accident
@@ -85,6 +95,7 @@ directiveTable.base = function(state, args, out)
 		end
 		if next(stats) then
 			for _, class in ipairs(classMap[soulCoreStat.Category.Id] or { string.lower(soulCoreStat.Category.Id) }) do
+				printf("Category ID: " .. tostring(soulCoreStat.Category.Id))
 				local stats, orders = describeStats(stats)
 				local bondedStats, bondedOrders = describeStats(bondedStats)
 				for i, stat in ipairs(bondedStats) do
