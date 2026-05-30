@@ -12,7 +12,7 @@ skills["SupportAftershockChancePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Aftershock",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -43,7 +43,7 @@ skills["SupportAftershockChancePlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Aftershock",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -106,7 +106,7 @@ skills["SupportAncestralAidPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.MeleeSingleTarget, },
 	addSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByAncestralAid, },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.HasUsageCondition, SkillType.SupportedByAncestralAid, SkillType.NOT, SkillType.AND, SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByAncestralAid, SkillType.NOT, SkillType.AND, SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "AncestralCall",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -136,9 +136,9 @@ skills["SupportAncestralCallPlayer"] = {
 	description = "Supports Strikes you use yourself, providing a powerful Ancestral Boost every few seconds. Cannot Support Channelled Skills and does not modify Skills used by Minions.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.MeleeSingleTarget, },
+	requireSkillTypes = { SkillType.MeleeSingleTarget, SkillType.SpecialAncestralBoost, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "AncestralCall",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -168,9 +168,9 @@ skills["SupportAncestralCallPlayerTwo"] = {
 	description = "Supports Strikes you use yourself, providing a powerful Ancestral Boost every few seconds. Cannot Support Channelled Skills and does not modify Skills used by Minions.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.MeleeSingleTarget, },
+	requireSkillTypes = { SkillType.MeleeSingleTarget, SkillType.SpecialAncestralBoost, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.CannotSpiritStrike, SkillType.Channel, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "AncestralCall",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -389,12 +389,12 @@ skills["ArmourExplosionPlayer"] = {
 	name = "Armour Explosion",
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.AttackInPlace] = true, [SkillType.Fire] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -525,7 +525,7 @@ skills["SupportAutoReloadPlayer"] = {
 }
 skills["SupportBarbsPlayer"] = {
 	name = "Barbs I",
-	description = "Supports Melee Strike Skills. Supported Skills deal your Thorns Damage on Hit after you've Retaliated with Thorns Damage.",
+	description = "Supports Melee Strike Skills. After you Retaliate with Thorns Damage, you also deal your Thorns damage to enemies you Hit with Supported Skills.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.MeleeSingleTarget, },
@@ -591,7 +591,7 @@ skills["SupportBarbsPlayer"] = {
 
 skills["SupportBarbsPlayerTwo"] = {
 	name = "Barbs II",
-	description = "Supports Melee Strike Skills. Supported Skills deal your Thorns Damage on Hit after you've Retaliated with Thorns Damage.",
+	description = "Supports Melee Strike Skills. After you Retaliate with Thorns Damage, you also deal your Thorns damage to enemies you Hit with Supported Skills.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.MeleeSingleTarget, },
@@ -657,7 +657,7 @@ skills["SupportBarbsPlayerTwo"] = {
 
 skills["SupportBarbsPlayerThree"] = {
 	name = "Barbs III",
-	description = "Supports Melee Strike Skills. Supported Skills deal your Thorns Damage on Hit twice after you've Retaliated with Thorns Damage.",
+	description = "Supports Melee Strike Skills. After you Retaliate with Thorns Damage, you also deal your Thorns damage twice to enemies you Hit with Supported Skills.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.MeleeSingleTarget, },
@@ -762,7 +762,7 @@ skills["TriggeredBattershoutExplosionPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -1053,7 +1053,7 @@ skills["TriggeredBrambleslamPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { cooldown = 0.15, levelRequirement = 0, storedUses = 6, },
+		[1] = { cooldown = 0.15, levelRequirement = 0, storedUses = 6, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -1069,7 +1069,7 @@ skills["TriggeredBrambleslamPlayer"] = {
 				{ "base_skill_effect_duration", 8000 },
 				{ "briarpatches_arming_time_ms", 400 },
 				{ "active_skill_has_%_standard_scaling_attack_damage", 35 },
-				{ "ice_crystals_hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self", -80 },
+				{ "hazard_damage_+%_final_for_first_500_ms_when_not_killed_by_self", -80 },
 				{ "plant_skill_damage_+%_final_when_wet", 50 },
 			},
 			stats = {
@@ -1579,7 +1579,7 @@ skills["SupportConcoctPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Meta, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Concoct",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -1623,7 +1623,7 @@ skills["SupportConcoctPlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Meta, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Concoct",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -1697,7 +1697,7 @@ skills["SupportCoolheadedPlayer"] = {
 }
 skills["SupportCorruptingCryPlayer"] = {
 	name = "Corrupting Cry I",
-	description = "Supports Warcries, causing them to inflict Corrupted Blood on enemies in their area of effect.",
+	description = "Supports Warcries, Triggering Corrupted Cry to inflict Corrupted Blood on enemies in their area of effect.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
@@ -1741,12 +1741,10 @@ skills["SupportCorruptingCryPlayer"] = {
 				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
-				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
-				{ "support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength", 1500 },
 				{ "support_corrupting_cry_area_of_effect_+%_final", -30 },
-				{ "support_corrupting_cry_corrupted_blood_duration_ms", 5000 },
 			},
 			stats = {
+				"warcry_triggers_corrupting_cry",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1756,7 +1754,7 @@ skills["SupportCorruptingCryPlayer"] = {
 }
 skills["SupportCorruptingCryPlayerTwo"] = {
 	name = "Corrupting Cry II",
-	description = "Supports Warcries, causing them to inflict Corrupted Blood on enemies in their area of effect.",
+	description = "Supports Warcries, Triggering Corrupted Cry to inflict Corrupted Blood on enemies in their area of effect.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
@@ -1796,12 +1794,8 @@ skills["SupportCorruptingCryPlayerTwo"] = {
 				mod("Multiplier:CorruptingCryMaxStages", "BASE", 10),
 				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
-			constantStats = {
-				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 1 },
-				{ "support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength", 1500 },
-				{ "support_corrupting_cry_corrupted_blood_duration_ms", 5000 },
-			},
 			stats = {
+				"warcry_triggers_corrupting_cry",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1850,7 +1844,7 @@ skills["TriggeredCraterPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -1918,12 +1912,12 @@ skills["SupportDaressosPassionPlayer"] = {
 }
 skills["SupportDauntlessPlayer"] = {
 	name = "Dauntless",
-	description = "Supports Skills you use yourself which can cause Damaging Hits. Supported Skills cannot be used unless you have been stationary for a certain duration, but deal increasingly more damage the longer you are stationary. Cannot support Skills which have a reservation, are Triggered, have a cooldown or have another usage Condition.",
+	description = "Supports Skills you use yourself which can cause Damaging Hits. Supported Skills cannot be used unless you have been stationary for a certain duration, but deal increasingly more damage the longer you are stationary. Cannot support Skills which have a cooldown or another usage Condition.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByUnmoving, },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.HasUsageCondition, SkillType.SupportedByUnmoving, SkillType.NOT, SkillType.AND, SkillType.DegenOnlySpellDamage, SkillType.HasReservation, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Cooldown, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByUnmoving, SkillType.NOT, SkillType.AND, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Dauntless",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -2042,8 +2036,9 @@ skills["SupportDefyPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Defy",},
+	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -2070,8 +2065,9 @@ skills["SupportDefyPlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Defy",},
+	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -2285,12 +2281,12 @@ skills["SupportDoubleBarrelPlayerThree"] = {
 }
 skills["SupportEchoingCryPlayer"] = {
 	name = "Echoing Cry",
-	description = "Supports Warcries. Supported Skills echo, causing their effects to happen again after a short delay, growing larger each time, but are less effective and require you to have travelled a certain distance before use.",
+	description = "Supports Warcries. Supported Skills Echo twice, and their area grows larger each time, but are less effective and require you to have travelled a certain distance before use.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
+	addSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByEchoingCry, },
+	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByEchoingCry, SkillType.NOT, SkillType.AND, },
 	gemFamily = { "EchoingCry",},
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 50, },
@@ -2951,52 +2947,52 @@ skills["TriggeredFanTheFlamesPlayer"] = {
 	name = "Fan the Flames",
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/Support/FanTheFlames.dds",
-	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
+	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage which is not based on your Weapon",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.45, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[2] = { baseMultiplier = 0.49, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[3] = { baseMultiplier = 0.54, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[4] = { baseMultiplier = 0.6, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[5] = { baseMultiplier = 0.64, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[6] = { baseMultiplier = 0.7, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[7] = { baseMultiplier = 0.75, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[8] = { baseMultiplier = 0.8, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[9] = { baseMultiplier = 0.84, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[10] = { baseMultiplier = 0.89, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[11] = { baseMultiplier = 0.94, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[12] = { cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[13] = { baseMultiplier = 1.06, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[14] = { baseMultiplier = 1.12, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[15] = { baseMultiplier = 1.19, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[16] = { baseMultiplier = 1.27, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[17] = { baseMultiplier = 1.35, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[18] = { baseMultiplier = 1.43, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[19] = { baseMultiplier = 1.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[20] = { baseMultiplier = 1.63, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[21] = { baseMultiplier = 1.74, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[22] = { baseMultiplier = 1.85, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[23] = { baseMultiplier = 1.98, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[24] = { baseMultiplier = 2.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[25] = { baseMultiplier = 2.25, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[26] = { baseMultiplier = 2.4, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[27] = { baseMultiplier = 2.56, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[28] = { baseMultiplier = 2.73, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[29] = { baseMultiplier = 2.91, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[30] = { baseMultiplier = 3.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[31] = { baseMultiplier = 3.31, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[32] = { baseMultiplier = 3.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[33] = { baseMultiplier = 3.77, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[34] = { baseMultiplier = 4.02, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[35] = { baseMultiplier = 4.29, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[36] = { baseMultiplier = 4.57, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[37] = { baseMultiplier = 4.88, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[38] = { baseMultiplier = 5.2, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[39] = { baseMultiplier = 5.55, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[40] = { baseMultiplier = 5.92, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[1] = { baseMultiplier = 0.45, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[2] = { baseMultiplier = 0.49, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[3] = { baseMultiplier = 0.54, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[4] = { baseMultiplier = 0.6, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[5] = { baseMultiplier = 0.64, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[6] = { baseMultiplier = 0.7, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[7] = { baseMultiplier = 0.75, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[8] = { baseMultiplier = 0.8, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[9] = { baseMultiplier = 0.84, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[10] = { baseMultiplier = 0.89, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[11] = { baseMultiplier = 0.94, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[12] = { cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[13] = { baseMultiplier = 1.06, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[14] = { baseMultiplier = 1.12, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[15] = { baseMultiplier = 1.19, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[16] = { baseMultiplier = 1.27, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[17] = { baseMultiplier = 1.35, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[18] = { baseMultiplier = 1.43, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[19] = { baseMultiplier = 1.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[20] = { baseMultiplier = 1.63, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[21] = { baseMultiplier = 1.74, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[22] = { baseMultiplier = 1.85, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[23] = { baseMultiplier = 1.98, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[24] = { baseMultiplier = 2.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[25] = { baseMultiplier = 2.25, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[26] = { baseMultiplier = 2.4, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[27] = { baseMultiplier = 2.56, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[28] = { baseMultiplier = 2.73, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[29] = { baseMultiplier = 2.91, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[30] = { baseMultiplier = 3.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[31] = { baseMultiplier = 3.31, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[32] = { baseMultiplier = 3.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[33] = { baseMultiplier = 3.77, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[34] = { baseMultiplier = 4.02, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[35] = { baseMultiplier = 4.29, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[36] = { baseMultiplier = 4.57, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[37] = { baseMultiplier = 4.88, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[38] = { baseMultiplier = 5.2, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[39] = { baseMultiplier = 5.55, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[40] = { baseMultiplier = 5.92, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -3098,52 +3094,52 @@ skills["TriggeredFanTheFlamesPlayerTwo"] = {
 	name = "Fan the Flames",
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/Support/FanTheFlames.dds",
-	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage.",
-	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, },
+	description = "Causes a fiery explosion in a cone behind the target, dealing Attack damage which is not based on your Weapon",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Attack] = true, [SkillType.UseGlobalStats] = true, [SkillType.Cooldown] = true, [SkillType.NonWeaponAttack] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { baseMultiplier = 0.45, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[2] = { baseMultiplier = 0.49, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[3] = { baseMultiplier = 0.54, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[4] = { baseMultiplier = 0.6, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[5] = { baseMultiplier = 0.64, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[6] = { baseMultiplier = 0.7, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[7] = { baseMultiplier = 0.75, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[8] = { baseMultiplier = 0.8, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[9] = { baseMultiplier = 0.84, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[10] = { baseMultiplier = 0.89, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[11] = { baseMultiplier = 0.94, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[12] = { cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[13] = { baseMultiplier = 1.06, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[14] = { baseMultiplier = 1.12, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[15] = { baseMultiplier = 1.19, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[16] = { baseMultiplier = 1.27, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[17] = { baseMultiplier = 1.35, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[18] = { baseMultiplier = 1.43, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[19] = { baseMultiplier = 1.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[20] = { baseMultiplier = 1.63, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[21] = { baseMultiplier = 1.74, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[22] = { baseMultiplier = 1.85, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[23] = { baseMultiplier = 1.98, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[24] = { baseMultiplier = 2.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[25] = { baseMultiplier = 2.25, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[26] = { baseMultiplier = 2.4, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[27] = { baseMultiplier = 2.56, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[28] = { baseMultiplier = 2.73, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[29] = { baseMultiplier = 2.91, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[30] = { baseMultiplier = 3.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[31] = { baseMultiplier = 3.31, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[32] = { baseMultiplier = 3.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[33] = { baseMultiplier = 3.77, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[34] = { baseMultiplier = 4.02, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[35] = { baseMultiplier = 4.29, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[36] = { baseMultiplier = 4.57, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[37] = { baseMultiplier = 4.88, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[38] = { baseMultiplier = 5.2, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[39] = { baseMultiplier = 5.55, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
-		[40] = { baseMultiplier = 5.92, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, },
+		[1] = { baseMultiplier = 0.45, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[2] = { baseMultiplier = 0.49, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[3] = { baseMultiplier = 0.54, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[4] = { baseMultiplier = 0.6, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[5] = { baseMultiplier = 0.64, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[6] = { baseMultiplier = 0.7, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[7] = { baseMultiplier = 0.75, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[8] = { baseMultiplier = 0.8, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[9] = { baseMultiplier = 0.84, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[10] = { baseMultiplier = 0.89, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[11] = { baseMultiplier = 0.94, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[12] = { cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[13] = { baseMultiplier = 1.06, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[14] = { baseMultiplier = 1.12, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[15] = { baseMultiplier = 1.19, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[16] = { baseMultiplier = 1.27, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[17] = { baseMultiplier = 1.35, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[18] = { baseMultiplier = 1.43, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[19] = { baseMultiplier = 1.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[20] = { baseMultiplier = 1.63, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[21] = { baseMultiplier = 1.74, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[22] = { baseMultiplier = 1.85, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[23] = { baseMultiplier = 1.98, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[24] = { baseMultiplier = 2.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[25] = { baseMultiplier = 2.25, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[26] = { baseMultiplier = 2.4, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[27] = { baseMultiplier = 2.56, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[28] = { baseMultiplier = 2.73, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[29] = { baseMultiplier = 2.91, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[30] = { baseMultiplier = 3.11, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[31] = { baseMultiplier = 3.31, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[32] = { baseMultiplier = 3.53, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[33] = { baseMultiplier = 3.77, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[34] = { baseMultiplier = 4.02, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[35] = { baseMultiplier = 4.29, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[36] = { baseMultiplier = 4.57, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[37] = { baseMultiplier = 4.88, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[38] = { baseMultiplier = 5.2, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[39] = { baseMultiplier = 5.55, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
+		[40] = { baseMultiplier = 5.92, cooldown = 0.5, critChance = 7, levelRequirement = 0, storedUses = 5, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -3347,8 +3343,9 @@ skills["FistOfWarSupportPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "FistOfWar",},
+	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 50, },
 	},
@@ -3378,8 +3375,9 @@ skills["FistOfWarSupportPlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "FistOfWar",},
+	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 50, },
 	},
@@ -3409,8 +3407,9 @@ skills["FistOfWarSupportPlayerThree"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "FistOfWar",},
+	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 100, },
 	},
@@ -3441,7 +3440,7 @@ skills["SupportFlamePillarPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowSkill, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { SkillType.SkillConsumesIgnite, SkillType.SupportedByFlamePillar, },
-	excludeSkillTypes = { SkillType.SkillConsumesIgnite, SkillType.SupportedByFlamePillar, SkillType.NOT, SkillType.AND, SkillType.Persistent, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Trapped, SkillType.RemoteMined, },
+	excludeSkillTypes = { SkillType.SkillConsumesIgnite, SkillType.SupportedByFlamePillar, SkillType.NOT, SkillType.AND, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "FlamePillar",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -3478,7 +3477,7 @@ skills["TriggeredFlamePillarPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -3649,7 +3648,7 @@ skills["SupportHaemocrystalsPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Attack, },
 	addSkillTypes = { SkillType.SkillConsumesBleeding, SkillType.SupportedByHaemoCrystals, },
-	excludeSkillTypes = { SkillType.SkillConsumesBleeding, SkillType.SupportedByHaemoCrystals, SkillType.NOT, SkillType.AND, SkillType.Persistent, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, SkillType.Trapped, SkillType.RemoteMined, },
+	excludeSkillTypes = { SkillType.SkillConsumesBleeding, SkillType.SupportedByHaemoCrystals, SkillType.NOT, SkillType.AND, SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Haemocrystals",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -3680,13 +3679,13 @@ skills["TriggeredHaemocrystalsPlayer"] = {
 	name = "Haemocrystals",
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
-	description = "Deal Physical Damage in an Area based on a percentage of the expected Damage of the Consumed Bleed.",
+	description = "Deal Physical Damage in an Area based on a percentage of the expected Damage of the Consumed Bleeding.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -4175,7 +4174,7 @@ skills["SupportIncisionPlayer"] = {
 }
 skills["SupportInfernalLegionPlayer"] = {
 	name = "Infernal Legion I",
-	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Burn. Damage dealt by the Burning is based off the Life of the supported Minion.",
+	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Ignite. The damage of the Ignite is based on the Life of the supported Minion.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
@@ -4205,8 +4204,8 @@ skills["SupportInfernalLegionPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 1200 },
-				{ "support_minions_ignite_for_%_max_life", 20 },
+				{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 600 },
+				{ "support_minions_ignite_for_%_max_life", 10 },
 				{ "infernal_legion_minion_burning_effect_radius", 15 },
 			},
 			stats = {
@@ -4219,7 +4218,7 @@ skills["SupportInfernalLegionPlayer"] = {
 }
 skills["SupportInfernalLegionPlayerTwo"] = {
 	name = "Infernal Legion II",
-	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Burn. Damage dealt by the Burning is based off the Life of the supported Minion.",
+	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Ignite. The damage of the Ignite is based on the Life of the supported Minion.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
@@ -4248,9 +4247,10 @@ skills["SupportInfernalLegionPlayerTwo"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 1200 },
-				{ "support_minions_ignite_for_%_max_life", 20 },
+				{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 600 },
+				{ "support_minions_ignite_for_%_max_life", 10 },
 				{ "infernal_legion_minion_burning_effect_radius", 20 },
+				{ "minion_fire_damage_resistance_%", 20 },
 			},
 			stats = {
 			},
@@ -4262,7 +4262,7 @@ skills["SupportInfernalLegionPlayerTwo"] = {
 }
 skills["SupportInfernalLegionPlayerThree"] = {
 	name = "Infernal Legion III",
-	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Burn. Damage dealt by the Burning is based off the Life of the supported Minion.",
+	description = "Supports skills which create Minions which can be damaged, causing them and enemies near them to Ignite. The damage of the Ignite is based on the Life of the supported Minion.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.CreatesMinion, },
@@ -4292,9 +4292,10 @@ skills["SupportInfernalLegionPlayerThree"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 1800 },
-				{ "support_minions_ignite_for_%_max_life", 25 },
+				{ "minion_fire_damage_%_of_maximum_life_taken_per_minute", 600 },
+				{ "support_minions_ignite_for_%_max_life", 10 },
 				{ "infernal_legion_minion_burning_effect_radius", 20 },
+				{ "minion_fire_damage_resistance_%", 20 },
 			},
 			stats = {
 			},
@@ -4845,7 +4846,7 @@ skills["SupportOpeningMovePlayer"] = {
 }
 skills["SupportCorruptingCryPlayerThree"] = {
 	name = "Paquate's Pact",
-	description = "Supports Warcries, causing them to inflict massive amounts of Corrupted Blood on enemies in their area of effect, at the cost of your Life.",
+	description = "Supports Warcries, Triggering Twisted Pact  to inflict Corrupted Blood on enemies in their area of effect., at the cost of your Life.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Warcry, },
@@ -4888,12 +4889,10 @@ skills["SupportCorruptingCryPlayerThree"] = {
 				mod("Damage", "MORE", 100, 0, KeywordFlag.PhysicalDot, { type = "Multiplier", var = "CorruptingCryStageAfterFirst", limit = 9}),
 			},
 			constantStats = {
-				{ "support_corrupting_cry_warcry_applies_x_stacks_of_corrupted_blood", 5 },
-				{ "support_corrupting_cry_corrupted_blood_base_physical_damage_per_minute_as_%_of_strength", 1500 },
-				{ "support_corrupting_cry_corrupted_blood_duration_ms", 5000 },
-				{ "support_corrupting_cry_%_life_lost_per_corrupting_blood_applied", 2 },
+				{ "support_corrupting_cry_%_life_cost_per_supported_skill_trigger_or_use_recently_up_to_30%", 10 },
 			},
 			stats = {
+				"warcry_triggers_paquates_pact",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -5110,7 +5109,7 @@ skills["TriggeredQuillburstPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { cooldown = 0.15, levelRequirement = 0, storedUses = 1, },
+		[1] = { cooldown = 0.15, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -5148,7 +5147,6 @@ skills["SupportRagePlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Rage",},
-	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5181,7 +5179,6 @@ skills["SupportRagePlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Rage",},
-	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5207,14 +5204,13 @@ skills["SupportRagePlayerTwo"] = {
 }
 skills["SupportRagePlayerThree"] = {
 	name = "Rage III",
-	description = "Supports Melee Attacks, causing them to grant Rage on Hit. Supported Skills have signficantly higher Attack speed while you are not at maximum Rage.",
+	description = "Supports Melee Attacks, causing them to grant Rage on Hit. Supported Skills have signficantly higher Attack speed while you or supported minion are not at maximum Rage.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Rage",},
-	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -5246,12 +5242,12 @@ skills["SupportRagePlayerThree"] = {
 }
 skills["SupportRageforgedPlayer"] = {
 	name = "Rageforged I",
-	description = "Supports any damaging skill that you use or trigger yourself, causing it to spend Rage to deal more damage. If you don't have enough Rage to spend, the damage bonus will not apply.",
+	description = "Supports any damaging skill that you use or Trigger yourself, causing it to spend Rage to deal more damage. If you don't have enough Rage to spend, the damage bonus will not apply.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, },
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, SkillType.DamageOverTime, },
 	addSkillTypes = { SkillType.ConsumesRage, },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.UsedByTotem, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, },
 	gemFamily = { "RageForged",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -5283,12 +5279,12 @@ skills["SupportRageforgedPlayer"] = {
 }
 skills["SupportRageforgedPlayerTwo"] = {
 	name = "Rageforged II",
-	description = "Supports any damaging skill that you use or trigger yourself, causing it to spend Rage to deal more damage, with a chance to skip spending Rage while still benefitting as though it had. If you don't have enough Rage to spend, the damage bonus will not apply.",
+	description = "Supports any damaging skill that you use or Trigger yourself, causing it to spend Rage to deal more damage, with a chance to skip spending Rage while still benefitting as though it had. If you don't have enough Rage to spend, the damage bonus will not apply.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, },
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, SkillType.DamageOverTime, },
 	addSkillTypes = { SkillType.ConsumesRage, },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.UsedByTotem, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, },
 	gemFamily = { "RageForged",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -5351,7 +5347,7 @@ skills["SupportRagingCryPlayer"] = {
 }
 skills["SupportRefractionPlayer"] = {
 	name = "Refraction I",
-	description = "Supports Banner Skills, causing those affected by Auras they create to gain Refractive Plating, a Buff which causes Armour to partially apply to Elemental Hit Damage.",
+	description = "Supports Banner Skills, causing those affected by Auras they create to gain Refractive Plating, a Buff which grants Deflection Rating and causes Armour to partially apply to Elemental Hit Damage.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Banner, SkillType.Persistent, SkillType.Buff, SkillType.AND, SkillType.AND, },
@@ -5377,6 +5373,7 @@ skills["SupportRefractionPlayer"] = {
 			},
 			constantStats = {
 				{ "support_tempered_valour_%_armour_to_apply_to_elemental_damage", 20 },
+				{ "support_tempered_valour_deflection_rating_%_of_evasion_rating", 15 },
 			},
 			stats = {
 			},
@@ -5388,7 +5385,7 @@ skills["SupportRefractionPlayer"] = {
 }
 skills["SupportRefractionPlayerTwo"] = {
 	name = "Refraction II",
-	description = "Supports Banner Skills, causing those affected by Auras they create to gain Refractive Plating, a Buff which causes Armour to partially apply to Elemental Hit Damage.",
+	description = "Supports Banner Skills, causing those affected by Auras they create to gain Refractive Plating, a Buff which grants Deflection Rating and causes Armour to partially apply to Elemental Hit Damage.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Banner, SkillType.Persistent, SkillType.Buff, SkillType.AND, SkillType.AND, },
@@ -5414,6 +5411,7 @@ skills["SupportRefractionPlayerTwo"] = {
 			},
 			constantStats = {
 				{ "support_tempered_valour_%_armour_to_apply_to_elemental_damage", 30 },
+				{ "support_tempered_valour_deflection_rating_%_of_evasion_rating", 20 },
 			},
 			stats = {
 			},
@@ -5529,7 +5527,7 @@ skills["SupportRelentlessRagePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Triggered, SkillType.Trapped, SkillType.RemoteMined, SkillType.SummonsTotem, SkillType.Triggered, SkillType.UsedByTotem, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "RelentlessRage",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -5683,7 +5681,7 @@ skills["SupportRetaliatePlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Meta, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Retaliate",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -5714,7 +5712,7 @@ skills["SupportRetaliatePlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Meta, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Retaliate",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -5771,12 +5769,12 @@ skills["SupportReveberatePlayer"] = {
 }
 skills["SupportRipPlayer"] = {
 	name = "Rip",
-	description = "Supports Melee Attack Skills you use yourself or that you Trigger. Killing Blows with Supported Skills on Bleeding enemies create a Blood Remnant. Blood Remnants increase your Life regeneration rate for a short while after being collected.",
+	description = "Supports Melee Attack Skills you use or Trigger yourself. Killing Blows with Supported Skills on Bleeding enemies create a Blood Remnant. Blood Remnants increase your Life regeneration rate for a short while after being collected.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { SkillType.GeneratesRemnants, SkillType.Duration, },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, },
 	gemFamily = { "Rip",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -6125,7 +6123,7 @@ skills["TriggeredSkitteringStonePlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -6199,7 +6197,7 @@ skills["TriggeredSkitteringStonePlayerTwo"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { levelRequirement = 0, },
+		[1] = { levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -6340,7 +6338,7 @@ skills["SupportSteadfastPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Channel, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Steadfast",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -6371,7 +6369,7 @@ skills["SupportSteadfastPlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Channel, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Steadfast",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -6403,7 +6401,7 @@ skills["SupportStoicismPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.Spell, },
 	gemFamily = { "Stoicism",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -6435,7 +6433,7 @@ skills["SupportStoicismPlayerTwo"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowSkill, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.Spell, },
 	gemFamily = { "Stoicism",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -6650,8 +6648,9 @@ skills["SupportSyzygyPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Syzygy",},
+	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
@@ -6721,7 +6720,7 @@ skills["TriggeredSplinterExplosionHardyTotems"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { critChance = 5, levelRequirement = 0, },
+		[1] = { critChance = 5, levelRequirement = 0, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -6749,12 +6748,12 @@ skills["TriggeredSplinterExplosionHardyTotems"] = {
 }
 skills["SupportTearPlayer"] = {
 	name = "Tear",
-	description = "Supports Melee Attacks you use yourself or that you Trigger. On-Kill effects caused by Killing Blows with Supported Skills on Bleeding enemies have a chance to occur twice.",
+	description = "Supports Melee Attacks you use or Trigger yourself. On-Kill effects caused by Killing Blows with Supported Skills on Bleeding enemies have a chance to occur twice.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { SkillType.Melee, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, },
 	gemFamily = { "Tear",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -6785,7 +6784,7 @@ skills["SupportSlamAftershocksPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.Slam, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Trapped, SkillType.RemoteMined, SkillType.Vaal, SkillType.Triggered, SkillType.CreatesFissure, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.CreatesFissure, },
 	gemFamily = { "Aftershock",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -6915,7 +6914,7 @@ skills["SupportTirelessPlayer"] = {
 }
 skills["SupportUhtredAuguryPlayer"] = {
 	name = "Uhtred's Augury",
-	description = "Supports Skills which can gain levels, granting them many additional levels provided exactly two other supports are used with the supported Skill. Does not support skills which do not have levels.",
+	description = "Supports Skills which can gain levels, granting them additional levels provided exactly two other supports are used with the supported Skill. Does not support skills which do not have levels.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { },
@@ -6940,7 +6939,7 @@ skills["SupportUhtredAuguryPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "supported_active_skill_gem_level_+_if_two_other_supports", 3 },
+				{ "supported_active_skill_gem_level_+_if_two_other_supports", 2 },
 			},
 			stats = {
 			},
@@ -6989,7 +6988,7 @@ skills["SupportUhtredExodusPlayer"] = {
 }
 skills["SupportUhtredOmenPlayer"] = {
 	name = "Uhtred's Omen",
-	description = "Supports Skills which can gain levels, granting them many additional levels provided exactly one other support is used with the supported Skill. Does not support skills which do not have levels.",
+	description = "Supports Skills which can gain levels, granting them additional levels provided exactly one other support is used with the supported Skill. Does not support skills which do not have levels.",
 	color = 1,
 	support = true,
 	requireSkillTypes = { },
@@ -7014,7 +7013,7 @@ skills["SupportUhtredOmenPlayer"] = {
 			baseFlags = {
 			},
 			constantStats = {
-				{ "supported_active_skill_gem_level_+_if_one_other_support", 3 },
+				{ "supported_active_skill_gem_level_+_if_one_other_support", 2 },
 			},
 			stats = {
 			},
@@ -7436,7 +7435,7 @@ skills["SupportVolcanicEruptionPlayer"] = {
 	support = true,
 	requireSkillTypes = { SkillType.MeleeSingleTarget, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Triggered, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "VolcanicEruption",},
 	ignoreMinionTypes = true,
 	levels = {
@@ -7470,7 +7469,7 @@ skills["TriggeredVolcanicEruptionPlayer"] = {
 	qualityStats = {
 	},
 	levels = {
-		[1] = { cooldown = 0.4, levelRequirement = 0, storedUses = 1, },
+		[1] = { cooldown = 0.4, levelRequirement = 0, storedUses = 1, cost = { Mana = 0, }, },
 	},
 	statSets = {
 		[1] = {
@@ -7538,12 +7537,13 @@ skills["SupportZerphisLegacyPlayer"] = {
 	description = "Supports Attacks and Warcries you use yourself. Supported Skills gain a Glory requirement, and build Glory when you spend Life on Skills. Supported Skills deal more damage and have significantly\n increased area of effect.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Area, SkillType.Attack, SkillType.RangedAttack, SkillType.Warcry, },
+	requireSkillTypes = { SkillType.Attack, SkillType.Warcry, },
 	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.Buff, SkillType.Persistent, SkillType.Triggered, SkillType.Spell, SkillType.Minion, },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
 	gemFamily = { "Zerphi",},
 	isLineage = true,
 	flavourText = {"\"It was the quality of his heinous acts that set him apart, not", "the quantity... all of the physical trauma inflicted occurred", "while the victim was still alive. Perhaps this was the key.\"", },
+	ignoreMinionTypes = true,
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},

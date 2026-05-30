@@ -149,9 +149,10 @@ skills["GasShotSkeletonSniperMinion"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/WitchArcherSkeleton.dds",
 	description = "Rain an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.MirageArcherCanUse] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "dummy_stat_display_nothing", 0.001 },
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -277,6 +278,7 @@ skills["BoneshatterBruteMinion"] = {
 			},
 			stats = {
 				"crushing_blow",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1332,7 +1334,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 	name = "Death From Above",
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/TacticianDeathFromAboveSkillIcon.dds",
-	description = "Fires a flare at a target location, attaching to an enemy if it lands on one. Then fires a series of arrow volleys centred around the flare.",
+	description = "Fires a flare at a target location, attaching to an enemy if it lands on one, then launches a series of arrow volleys centred around the flare.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1370,7 +1372,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
-				"modifiers_to_projectile_count_do_not_apply",
+				"base_modifiers_to_projectile_count_do_not_apply",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1741,6 +1743,7 @@ skills["PassiveTriggeredManaWaveWaterDjinn"] = {
 			stats = {
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"monster_skill_triggered_by_geal",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },

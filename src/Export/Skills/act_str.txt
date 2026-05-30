@@ -876,21 +876,29 @@ end,
 #mods
 #skillEnd
 
-#skill SupportCrossSlashPlayer
-#set SupportCrossSlashPlayer
-#mods
-#skillEnd
-
 #skill WolfPounceMarkPlayer
 #set WolfPounceMarkPlayer
 #flags duration
 #mods
 #skillEnd
 
-#minionList WolfMinion
-#skill WolfCrossSlashWolfPlayer
-#set WolfCrossSlashWolfPlayer
-#flags minion
+#skill WolfPounceSummonWolfPlayer
+#set WolfPounceSummonWolfPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportWolfPouncePlayer
+#set SupportWolfPouncePlayer
+#mods
+#skillEnd
+
+#skill WolfCrossSlashPlayer
+#set WolfCrossSlashPlayer
+#flags
+#mods
+#set WolfCrossSlashMarkConsumedPlayer
+#flags
 #mods
 #skillEnd
 
