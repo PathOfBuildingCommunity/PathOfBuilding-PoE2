@@ -1047,3 +1047,114 @@ skills["ThornsPlayer"] = {
 #flags
 #mods
 #skillEnd
+
+#skill SupportMedvedsFelling
+#set SupportMedvedsFelling
+#flags
+#mods
+#skillEnd
+
+#skill SupportVoranasSiege
+#set SupportVoranasSiege
+#flags
+#mods
+#skillEnd
+
+#skill SupportStyrnsMountain
+#set SupportStyrnsMountain
+#flags
+#mods
+#skillEnd
+
+#skill SupportStyrnsFerocity
+#set SupportStyrnsFerocity
+#flags
+#mods
+#skillEnd
+
+#skill SupportConcussiveRunesPlayer
+#set SupportConcussiveRunesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill ConcussiveRunesPlayer
+#set ConcussiveRunesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportFistOfKalguurPlayer
+#set SupportFistOfKalguurPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredFistOfKalguurPlayer
+#set TriggeredFistOfKalguurPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportHealingRunesPlayer
+#set SupportHealingRunesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportOlrothsConvictionPlayer
+#set SupportOlrothsConvictionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportOlrothsHubrisPlayer
+#set SupportOlrothsHubrisPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportRuneforgedBladesPlayer
+#set SupportRuneforgedBladesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredRuneforgedBladesPlayer
+#set TriggeredRuneforgedBladesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportRunicExtractionPlayer
+#set SupportRunicExtractionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportRunicInfusionPlayer
+#set SupportRunicInfusionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportScouringFlamePlayer
+#set SupportScouringFlamePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportRunicExtractionPlayer
+#set SupportRunicExtractionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportRunicExtractionPlayer
+#set SupportRunicExtractionPlayer
+#flags
+#mods
+#skillEnd
+
+
+

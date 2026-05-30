@@ -12983,86 +12983,92 @@ skills["SupportHerDeclarationPlayer"] = {
 	description = "Supports Persistent Buff Skills, causing enemies that enter your Presence to become Intimidated while the Skill is active.",
 	color = 4,
 	support = true,
-	requireSkillTypes = { SkillType= 4,
-	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.Channel, },
-	gemFamily = { "Prototype",},
-	isLineage = true,
-	flavourText = {"\"The murals tell a story of creation, of design... the Precursors", "delved into the secrets of life itself. In their war with the Abyssals,", "they sought to breed warriors, grown in legions, to fight back...\"", },
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Prototype Seventeen",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "critical_strike_chance_+%_per_5_rage", 20 },
-				{ "lose_%_of_maximum_rage_on_dealing_critical_strike", 100 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportPrototypeSeventeenPlayer"] = {
-	name = "Prototype Seventeen",
-	description = "Supports non-Channelling skill you use yourself that Hits enemies, causing it to gain Critical Hit chance based on Rage, but also remove all Rage upon Critically Hitting.",
-	color = 4,
-	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.Channel, },
-	gemFamily = { "Prototype",},
-	isLineage = true,
-	flavourText = {"\"The murals tell a story of creation, of design... the Precursors", "delved into the secrets of life itself. In their war with the Abyssals,", "they sought to breed warriors, grown in legions, to fight back...\"", },
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Prototype Seventeen",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "critical_strike_chance_+%_per_5_rage", 20 },
-				{ "lose_%_of_maximum_rage_on_dealing_critical_strike", 100 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["ArbitersReachWardPlayer"] = {
-	name = "Arbiter's Reach",
-	description = "Supports Persistent Buff Skills, causing you periodically grant Guard to allies in your Presence while the Skill is active.",
-	color = 4,
-	support = true,
 	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
-	addSkillTypes = { SkillType.Duration, },
+	addSkillTypes = { },
 	excludeSkillTypes = { },
-	gemFamily = { "ArbitersReach",},
+	gemFamily = { "HerDeclaration",},
 	isLineage = true,
-	flavourText = {"\"They designed our salvation. No longer shall", "our people's grief be in vain. From their hands,", "perfection is wrought. Within His reach, we are safe.\"", },
+	flavourText = {"\"The laws are binding. They are absolute. If they believe", "it is their choice to enforce them, all the better.", "Upholding our solemn duty is imperative.\"", },
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
-ricksters_shard_trigger_fractured_self_on_cast",
+	statSets = {
+		[1] = {
+			label = "Her Declaration",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_mothers_declaration_intimidate_enemies_when_they_enter_your_presence_base_duration_ms", 4000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportSeraphsHeartPlayer"] = {
+	name = "Seraph's Heart",
+	description = "Supports Persistent Buff Skills, providing a chance for enemies to calculate their Hits as though your Resistances were 90% while the skill is active.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "SeraphsHeart",},
+	isLineage = true,
+	flavourText = {"Intricate machinery imperceptibly woven into a", "biological foundation. It felt delicate in her hands.", "In him, it would be her greatest achievement.", },
+	levels = {
+		[1] = { levelRequirement = 0, spiritReservationFlat = 45, },
+	},
+	statSets = {
+		[1] = {
+			label = "Seraph's Heart",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_seraphs_heart_enemy_hits_%_chance_to_treat_all_resistances_as_90%", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportTrickstersShardPlayer"] = {
+	name = "Trickster's Shard",
+	description = "Supports non-instant Spells you cast yourself. Supported Spells will Trigger Fragment Self, creating a Fractured Mimic which will cast that Spell if you get enough of them.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Spell, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.Instant, },
+	gemFamily = { "SpellEcho",},
+	isLineage = true,
+	flavourText = {"They'd cast him out, declared him a dark omen. Their judgement", "rattled in his head. He'd no control over crops, or herds, but", "that mattered little. Upon his return, their fear was his weapon.", },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Trickster's Shard",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "skill_used_by_fractured_mimic_spell_damage_+%_final", -50 },
+			},
+			stats = {
+				"support_tricksters_shard_trigger_fractured_self_on_cast",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -13316,3 +13322,856 @@ skills["SupportVruunsAftermath"] = {
 		},
 	}
 }
+skills["SupportMedvedsFelling"] = {
+	name = "Medved's Felling",
+	description = "Supports Melee Attacks you use yourself, causing them to attack faster the more Rage you have and grant Rage on Hit, but also making you lose Life based on your Rage when using them. ",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Melee, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, },
+	gemFamily = { "Rage",},
+	isLineage = true,
+	flavourText = {"\"There is no zealotry like that of a mystic roused", "to battle. He broke his own code, wielding weapons", "long forbidden, to defend that which he loved.\"", },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Medved's Felling",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "gain_x%_of_maximum_rage_on_melee_hit", 10 },
+				{ "lose_x%_of_life_per_5_rage_on_supported_skill_use", 1 },
+				{ "supported_skill_attack_speed_+%_per_5_rage", 5 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 65, },
+			},
+		},
+	}
+}
+skills["SupportVoranasSiege"] = {
+	name = "Vorana's Siege",
+	description = "Supports skills which Hit targets and have an area of effect, increasing the affected area and causing it to Hit Isolated targets harder.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Area, SkillType.MinionsCanExplode, SkillType.OR, SkillType.Damage, SkillType.Attack, SkillType.OR, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "IncreasedAreaOfEffect","ConcentratedEffect",},
+	isLineage = true,
+	flavourText = {"\"Your laws of war are asinine. I shall prevail!", "I'll crush every pawn you put before me.", "Face me, coward! Play by my rules.\"", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Vorana's Siege",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "base_skill_area_of_effect_+%", 35 },
+				{ "support_voranas_siege_hit_damage_+%_final_vs_isolated_enemies", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 65, },
+			},
+		},
+	}
+}
+skills["SupportStyrnsMountain"] = {
+	name = "Styrn's Mountain",
+	description = "Supports Skills that Raise your Shield causing your other melee skills to deal more damage if you block.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.ActiveBlock, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "StyrnsMountain",},
+	isLineage = true,
+	flavourText = {"Bound by his oath to the Runefathers, Styrn the", "Indomitable refused to bow to Cadigan the First.", "His resistance laid the seeds for future defiance.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Styrn's Mountain",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "knights_legacy_non_active_blocking_melee_skill_damage_+%_final_to_grant_if_active_blocked_with_supported_skills_recently", 20 },
+				{ "support_knights_legacy_heavy_stun_threshold_+%_final_while_performing_action", 50 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 65, },
+			},
+		},
+	}
+}
+skills["SupportStyrnsFerocity"] = {
+	name = "Styrn's Ferocity",
+	description = "Supports Shield Skills that Hit enemies, causing those Hits to Crush their targets, additionally causing any Physical Damage Hits against those targets while Crushed to Break their Armour.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.OR, SkillType.RequiresShield, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ArmourBreak",},
+	isLineage = true,
+	flavourText = {"Each knight who encountered Styrn challenged", "him to the traditional duel. One by one, he fought", "his way across all of Middengard... and beyond.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Styrn's Ferocity",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_knights_ferocity_crush_on_hit_ms", 8000 },
+				{ "crushed_target_%_physical_damage_taken_as_armour_break", 10 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 65, },
+			},
+		},
+	}
+}
+skills["SupportConcussiveRunesPlayer"] = {
+	name = "Concussive Runes",
+	description = "Supports Attacks, causing a Runic Shockwave to erupt under enemies they Heavy Stun. The Shockwave costs Runic Ward, and will not Trigger if you do not have enough Runic Ward.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "ConcussiveRunes",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Support",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"support_trigger_pummel_on_heavy_stun",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ConcussiveRunesPlayer"] = {
+	name = "Concussive Runes",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Slam] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Melee] = true, },
+	weaponTypes = {
+		["Bow"] = true,
+		["Claw"] = true,
+		["Crossbow"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["None"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
+		["Spear"] = true,
+		["Staff"] = true,
+		["Talisman"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
+	},
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.3, levelRequirement = 0, cost = { Ward = 7, }, },
+		[2] = { baseMultiplier = 1.43, levelRequirement = 0, cost = { Ward = 8, }, },
+		[3] = { baseMultiplier = 1.58, levelRequirement = 0, cost = { Ward = 9, }, },
+		[4] = { baseMultiplier = 1.73, levelRequirement = 0, cost = { Ward = 10, }, },
+		[5] = { baseMultiplier = 1.89, levelRequirement = 0, cost = { Ward = 11, }, },
+		[6] = { baseMultiplier = 2.04, levelRequirement = 0, cost = { Ward = 12, }, },
+		[7] = { baseMultiplier = 2.21, levelRequirement = 0, cost = { Ward = 13, }, },
+		[8] = { baseMultiplier = 2.36, levelRequirement = 0, cost = { Ward = 15, }, },
+		[9] = { baseMultiplier = 2.51, levelRequirement = 0, cost = { Ward = 16, }, },
+		[10] = { baseMultiplier = 2.67, levelRequirement = 0, cost = { Ward = 18, }, },
+		[11] = { baseMultiplier = 2.84, levelRequirement = 0, cost = { Ward = 19, }, },
+		[12] = { baseMultiplier = 3.03, levelRequirement = 0, cost = { Ward = 21, }, },
+		[13] = { baseMultiplier = 3.24, levelRequirement = 0, cost = { Ward = 23, }, },
+		[14] = { baseMultiplier = 3.46, levelRequirement = 0, cost = { Ward = 24, }, },
+		[15] = { baseMultiplier = 3.7, levelRequirement = 0, cost = { Ward = 26, }, },
+		[16] = { baseMultiplier = 3.97, levelRequirement = 0, cost = { Ward = 28, }, },
+		[17] = { baseMultiplier = 4.26, levelRequirement = 0, cost = { Ward = 31, }, },
+		[18] = { baseMultiplier = 4.58, levelRequirement = 0, cost = { Ward = 33, }, },
+		[19] = { baseMultiplier = 4.93, levelRequirement = 0, cost = { Ward = 35, }, },
+		[20] = { baseMultiplier = 5.31, levelRequirement = 0, cost = { Ward = 37, }, },
+		[21] = { baseMultiplier = 5.72, levelRequirement = 0, cost = { Ward = 40, }, },
+		[22] = { baseMultiplier = 6.16, levelRequirement = 0, cost = { Ward = 43, }, },
+		[23] = { baseMultiplier = 6.64, levelRequirement = 0, cost = { Ward = 45, }, },
+		[24] = { baseMultiplier = 7.15, levelRequirement = 0, cost = { Ward = 48, }, },
+		[25] = { baseMultiplier = 7.7, levelRequirement = 0, cost = { Ward = 51, }, },
+		[26] = { baseMultiplier = 8.3, levelRequirement = 0, cost = { Ward = 54, }, },
+		[27] = { baseMultiplier = 8.94, levelRequirement = 0, cost = { Ward = 58, }, },
+		[28] = { baseMultiplier = 9.63, levelRequirement = 0, cost = { Ward = 61, }, },
+		[29] = { baseMultiplier = 10.37, levelRequirement = 0, cost = { Ward = 65, }, },
+		[30] = { baseMultiplier = 11.17, levelRequirement = 0, cost = { Ward = 69, }, },
+		[31] = { baseMultiplier = 12.04, levelRequirement = 0, cost = { Ward = 73, }, },
+		[32] = { baseMultiplier = 12.97, levelRequirement = 0, cost = { Ward = 77, }, },
+		[33] = { baseMultiplier = 13.97, levelRequirement = 0, cost = { Ward = 81, }, },
+		[34] = { baseMultiplier = 15.05, levelRequirement = 0, cost = { Ward = 85, }, },
+		[35] = { baseMultiplier = 16.21, levelRequirement = 0, cost = { Ward = 90, }, },
+		[36] = { baseMultiplier = 17.47, levelRequirement = 0, cost = { Ward = 95, }, },
+		[37] = { baseMultiplier = 18.82, levelRequirement = 0, cost = { Ward = 100, }, },
+		[38] = { baseMultiplier = 20.27, levelRequirement = 0, cost = { Ward = 105, }, },
+		[39] = { baseMultiplier = 21.84, levelRequirement = 0, cost = { Ward = 111, }, },
+		[40] = { baseMultiplier = 23.53, levelRequirement = 0, cost = { Ward = 117, }, },
+	},
+	statSets = {
+		[1] = {
+			label = "Runic Shockwave",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "concussive_runes",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 20 },
+				{ "triggered_by_pummel_support_%", 100 },
+				{ "active_skill_hit_damage_stun_multiplier_+%_final", -100 },
+			},
+			stats = {
+				"is_area_damage",
+				"base_skill_show_average_damage_instead_of_dps",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 3.4519999027252, },
+				[3] = { actorLevel = 6.7670001983643, },
+				[4] = { actorLevel = 10.307999610901, },
+				[5] = { actorLevel = 14.074999809265, },
+				[6] = { actorLevel = 18.068000793457, },
+				[7] = { actorLevel = 22.287000656128, },
+				[8] = { actorLevel = 26.732000350952, },
+				[9] = { actorLevel = 31.40299987793, },
+				[10] = { actorLevel = 36.299999237061, },
+				[11] = { actorLevel = 41.423000335693, },
+				[12] = { actorLevel = 46.771999359131, },
+				[13] = { actorLevel = 52.34700012207, },
+				[14] = { actorLevel = 58.147998809814, },
+				[15] = { actorLevel = 64.175003051758, },
+				[16] = { actorLevel = 70.428001403809, },
+				[17] = { actorLevel = 76.906997680664, },
+				[18] = { actorLevel = 83.611999511719, },
+				[19] = { actorLevel = 90.542999267578, },
+				[20] = { actorLevel = 97.699996948242, },
+				[21] = { actorLevel = 105.08300018311, },
+				[22] = { actorLevel = 112.69200134277, },
+				[23] = { actorLevel = 120.52700042725, },
+				[24] = { actorLevel = 128.58799743652, },
+				[25] = { actorLevel = 136.875, },
+				[26] = { actorLevel = 145.38800048828, },
+				[27] = { actorLevel = 154.12699890137, },
+				[28] = { actorLevel = 163.09199523926, },
+				[29] = { actorLevel = 172.28300476074, },
+				[30] = { actorLevel = 181.69999694824, },
+				[31] = { actorLevel = 191.34300231934, },
+				[32] = { actorLevel = 201.21200561523, },
+				[33] = { actorLevel = 211.30700683594, },
+				[34] = { actorLevel = 221.62800598145, },
+				[35] = { actorLevel = 232.17500305176, },
+				[36] = { actorLevel = 242.94799804688, },
+				[37] = { actorLevel = 253.94700622559, },
+				[38] = { actorLevel = 265.17199707031, },
+				[39] = { actorLevel = 276.62298583984, },
+				[40] = { actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["SupportFistOfKalguurPlayer"] = {
+	name = "Fist Of Kalguur",
+	description = "Supports Slams you use yourself, allowing them to spend large amounts of Runic Ward to become Runically Boosted. Runically Boosted Slams are Empowered with extra Physical damage and create a rune the first time they hit an enemy. The rune erupts in an Aftershock after a duration. Cannot support Channelling Skills.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Slam, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Triggered, SkillType.UsedByProxy, SkillType.Channel, },
+	gemFamily = { "FistOfWar",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Support",
+			baseEffectiveness = 7,
+			incrementalEffectiveness = 0.050000000745058,
+			damageIncrementalEffectiveness = 0.011500000022352,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "base_number_of_runic_aftershocks_allowed", 1 },
+				{ "runic_boosted_attack_damage_%_gained_as_physical", 20 },
+				{ "support_slam_spend_%_supported_skill_cost_as_ward_for_runic_boost", 150 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredFistOfKalguurPlayer"] = {
+	name = "Fist of Kalguur",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.Attack] = true, [SkillType.NoAttackOrCastTime] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Melee] = true, [SkillType.Slam] = true, [SkillType.Duration] = true, [SkillType.Limit] = true, },
+	weaponTypes = {
+		["Claw"] = true,
+		["Dagger"] = true,
+		["Flail"] = true,
+		["One Hand Axe"] = true,
+		["One Hand Mace"] = true,
+		["One Hand Sword"] = true,
+		["Spear"] = true,
+		["Staff"] = true,
+		["Talisman"] = true,
+		["Two Hand Axe"] = true,
+		["Two Hand Mace"] = true,
+		["Two Hand Sword"] = true,
+	},
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.2, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[2] = { baseMultiplier = 1.32, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[3] = { baseMultiplier = 1.46, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[4] = { baseMultiplier = 1.6, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[5] = { baseMultiplier = 1.74, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[6] = { baseMultiplier = 1.89, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[7] = { baseMultiplier = 2.04, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[8] = { baseMultiplier = 2.18, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[9] = { baseMultiplier = 2.32, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[10] = { baseMultiplier = 2.46, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[11] = { baseMultiplier = 2.62, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[12] = { baseMultiplier = 2.8, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[13] = { baseMultiplier = 2.99, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[14] = { baseMultiplier = 3.19, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[15] = { baseMultiplier = 3.42, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[16] = { baseMultiplier = 3.67, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[17] = { baseMultiplier = 3.93, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[18] = { baseMultiplier = 4.23, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[19] = { baseMultiplier = 4.55, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[20] = { baseMultiplier = 4.9, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[21] = { baseMultiplier = 5.28, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[22] = { baseMultiplier = 5.69, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[23] = { baseMultiplier = 6.13, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[24] = { baseMultiplier = 6.6, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[25] = { baseMultiplier = 7.11, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[26] = { baseMultiplier = 7.66, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[27] = { baseMultiplier = 8.25, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[28] = { baseMultiplier = 8.89, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[29] = { baseMultiplier = 9.58, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[30] = { baseMultiplier = 10.32, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[31] = { baseMultiplier = 11.11, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[32] = { baseMultiplier = 11.97, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[33] = { baseMultiplier = 12.9, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[34] = { baseMultiplier = 13.89, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[35] = { baseMultiplier = 14.97, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[36] = { baseMultiplier = 16.12, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[37] = { baseMultiplier = 17.37, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[38] = { baseMultiplier = 18.71, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[39] = { baseMultiplier = 20.16, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+		[40] = { baseMultiplier = 21.72, cooldown = 0.5, levelRequirement = 0, storedUses = 1, cost = { Ward = 0, }, },
+	},
+	statSets = {
+		[1] = {
+			label = "Rune",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "triggered_fist_of_kalguur",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 24 },
+				{ "triggered_by_fist_of_kalguur_support_%", 100 },
+				{ "base_skill_effect_duration", 4000 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 3.4519999027252, },
+				[3] = { actorLevel = 6.7670001983643, },
+				[4] = { actorLevel = 10.307999610901, },
+				[5] = { actorLevel = 14.074999809265, },
+				[6] = { actorLevel = 18.068000793457, },
+				[7] = { actorLevel = 22.287000656128, },
+				[8] = { actorLevel = 26.732000350952, },
+				[9] = { actorLevel = 31.40299987793, },
+				[10] = { actorLevel = 36.299999237061, },
+				[11] = { actorLevel = 41.423000335693, },
+				[12] = { actorLevel = 46.771999359131, },
+				[13] = { actorLevel = 52.34700012207, },
+				[14] = { actorLevel = 58.147998809814, },
+				[15] = { actorLevel = 64.175003051758, },
+				[16] = { actorLevel = 70.428001403809, },
+				[17] = { actorLevel = 76.906997680664, },
+				[18] = { actorLevel = 83.611999511719, },
+				[19] = { actorLevel = 90.542999267578, },
+				[20] = { actorLevel = 97.699996948242, },
+				[21] = { actorLevel = 105.08300018311, },
+				[22] = { actorLevel = 112.69200134277, },
+				[23] = { actorLevel = 120.52700042725, },
+				[24] = { actorLevel = 128.58799743652, },
+				[25] = { actorLevel = 136.875, },
+				[26] = { actorLevel = 145.38800048828, },
+				[27] = { actorLevel = 154.12699890137, },
+				[28] = { actorLevel = 163.09199523926, },
+				[29] = { actorLevel = 172.28300476074, },
+				[30] = { actorLevel = 181.69999694824, },
+				[31] = { actorLevel = 191.34300231934, },
+				[32] = { actorLevel = 201.21200561523, },
+				[33] = { actorLevel = 211.30700683594, },
+				[34] = { actorLevel = 221.62800598145, },
+				[35] = { actorLevel = 232.17500305176, },
+				[36] = { actorLevel = 242.94799804688, },
+				[37] = { actorLevel = 253.94700622559, },
+				[38] = { actorLevel = 265.17199707031, },
+				[39] = { actorLevel = 276.62298583984, },
+				[40] = { actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["SupportHealingRunesPlayer"] = {
+	name = "Healing Runes",
+	description = "Supports Persistent Buff Skills, causing you to lose Runic Ward and heal nearby allies based on the Ward lost. Healing done is split between allies who are not on full Life.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Persistent, SkillType.Buff, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "HealingRunes",},
+	levels = {
+		[1] = { levelRequirement = 0, spiritReservationFlat = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Healing Runes",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_healing_runes_maximum_ward_spent_per_pulse_%", 10 },
+				{ "support_healing_runes_healing_pulse_interval_ms", 5000 },
+				{ "support_healing_runes_healing_per_ward_spent_%", 200 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportOlrothsConvictionPlayer"] = {
+	name = "Olroth's Conviction",
+	description = "Supports skills that can Empower a specific number of other skills, causing them to apply to more skill uses.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.EmpowersOtherSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.IndeterminateEmpowermentAmount, },
+	gemFamily = { "OlrothsConviction",},
+	isLineage = true,
+	flavourText = {"The Empty-Eyed Fiend emerged from darkness.", "Olroth raised his sword, gem in its pommel.", "The Fiend smiled. Olroth swung.", "Its head rolled, sockets ablaze with delight.", },
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Olroth's Conviction",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "base_skill_ward_cost_as_%_of_life_and_mana_cost", 100 },
+				{ "support_empowers_x_additional_other_skills", 2 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportOlrothsHubrisPlayer"] = {
+	name = "Olroth's Hubris",
+	description = "Supports Attacks you use or Trigger yourself, causing them to cost Runic Ward to use but deal additional Physical and Cold damage based on their Runic Ward cost, in addition to causing Physical damage to Contribute to Freeze buildup. Cannot Support Channelling Skills, Sustained Skills, or Skills without a cost.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, SkillType.Sustained, SkillType.HasNoCost, },
+	gemFamily = { "RunicInfusion",},
+	isLineage = true,
+	flavourText = {"The gem warmed his palm. \"Our fear of this", "power cost many lives. No longer!\" With his own", "hands, Olroth sealed that expedition's demise.", },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Olroth's Hubris",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "base_ward_cost_+_%_of_maximum_ward", 20 },
+				{ "added_physical_damage_%_ward_cost", 15 },
+				{ "added_cold_damage_%_ward_cost", 15 },
+			},
+			stats = {
+				"physical_damage_can_freeze",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRuneforgedBladesPlayer"] = {
+	name = "Runeforged Blades",
+	description = "Supports Attacks you use yourself, causing them to Consume Fully Broken Armour on enemies to fire a nova of runic Projectiles at the cost of Runic Ward. The Projectiles cannot Hit the enemy from which they originated. Cannot support skills that Consume Broken Armour.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Triggered, SkillType.Persistent, SkillType.Channel, SkillType.Sustained, SkillType.ConsumesFullyBrokenArmour, },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Runeforged Blades",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"cannot_break_armour",
+				"consume_armour_break_to_trigger_rune_forged_blades",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TriggeredRuneforgedBladesPlayer"] = {
+	name = "Runeforged Blades",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Projectile] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 1.5, levelRequirement = 0, cost = { Ward = 7, }, },
+		[2] = { baseMultiplier = 1.65, levelRequirement = 0, cost = { Ward = 8, }, },
+		[3] = { baseMultiplier = 1.82, levelRequirement = 0, cost = { Ward = 9, }, },
+		[4] = { baseMultiplier = 1.98, levelRequirement = 0, cost = { Ward = 10, }, },
+		[5] = { baseMultiplier = 2.14, levelRequirement = 0, cost = { Ward = 11, }, },
+		[6] = { baseMultiplier = 2.3, levelRequirement = 0, cost = { Ward = 12, }, },
+		[7] = { baseMultiplier = 2.46, levelRequirement = 0, cost = { Ward = 13, }, },
+		[8] = { baseMultiplier = 2.61, levelRequirement = 0, cost = { Ward = 15, }, },
+		[9] = { baseMultiplier = 2.74, levelRequirement = 0, cost = { Ward = 16, }, },
+		[10] = { baseMultiplier = 2.87, levelRequirement = 0, cost = { Ward = 18, }, },
+		[11] = { baseMultiplier = 3.02, levelRequirement = 0, cost = { Ward = 19, }, },
+		[12] = { baseMultiplier = 3.17, levelRequirement = 0, cost = { Ward = 21, }, },
+		[13] = { baseMultiplier = 3.32, levelRequirement = 0, cost = { Ward = 23, }, },
+		[14] = { baseMultiplier = 3.49, levelRequirement = 0, cost = { Ward = 24, }, },
+		[15] = { baseMultiplier = 3.67, levelRequirement = 0, cost = { Ward = 26, }, },
+		[16] = { baseMultiplier = 3.85, levelRequirement = 0, cost = { Ward = 28, }, },
+		[17] = { baseMultiplier = 4.04, levelRequirement = 0, cost = { Ward = 31, }, },
+		[18] = { baseMultiplier = 4.24, levelRequirement = 0, cost = { Ward = 33, }, },
+		[19] = { baseMultiplier = 4.46, levelRequirement = 0, cost = { Ward = 35, }, },
+		[20] = { baseMultiplier = 4.68, levelRequirement = 0, cost = { Ward = 37, }, },
+		[21] = { baseMultiplier = 4.91, levelRequirement = 0, cost = { Ward = 40, }, },
+		[22] = { baseMultiplier = 5.16, levelRequirement = 0, cost = { Ward = 43, }, },
+		[23] = { baseMultiplier = 5.42, levelRequirement = 0, cost = { Ward = 45, }, },
+		[24] = { baseMultiplier = 5.69, levelRequirement = 0, cost = { Ward = 48, }, },
+		[25] = { baseMultiplier = 5.97, levelRequirement = 0, cost = { Ward = 51, }, },
+		[26] = { baseMultiplier = 6.27, levelRequirement = 0, cost = { Ward = 54, }, },
+		[27] = { baseMultiplier = 6.58, levelRequirement = 0, cost = { Ward = 58, }, },
+		[28] = { baseMultiplier = 6.91, levelRequirement = 0, cost = { Ward = 61, }, },
+		[29] = { baseMultiplier = 7.26, levelRequirement = 0, cost = { Ward = 65, }, },
+		[30] = { baseMultiplier = 7.62, levelRequirement = 0, cost = { Ward = 69, }, },
+		[31] = { baseMultiplier = 8, levelRequirement = 0, cost = { Ward = 73, }, },
+		[32] = { baseMultiplier = 8.4, levelRequirement = 0, cost = { Ward = 77, }, },
+		[33] = { baseMultiplier = 8.82, levelRequirement = 0, cost = { Ward = 81, }, },
+		[34] = { baseMultiplier = 9.26, levelRequirement = 0, cost = { Ward = 85, }, },
+		[35] = { baseMultiplier = 9.73, levelRequirement = 0, cost = { Ward = 90, }, },
+		[36] = { baseMultiplier = 10.21, levelRequirement = 0, cost = { Ward = 95, }, },
+		[37] = { baseMultiplier = 10.72, levelRequirement = 0, cost = { Ward = 100, }, },
+		[38] = { baseMultiplier = 11.26, levelRequirement = 0, cost = { Ward = 105, }, },
+		[39] = { baseMultiplier = 11.82, levelRequirement = 0, cost = { Ward = 111, }, },
+		[40] = { baseMultiplier = 12.41, levelRequirement = 0, cost = { Ward = 117, }, },
+	},
+	statSets = {
+		[1] = {
+			label = "Runeforged Blades",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "skill_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "base_number_of_projectiles", 7 },
+				{ "triggered_by_support_rune_forged_blades_%", 100 },
+			},
+			stats = {
+				"base_is_projectile",
+				"projectiles_nova",
+				"projectile_uses_contact_position",
+				"projectiles_not_offset",
+				"cannot_break_armour",
+				"display_statset_hide_usage_stats",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+				[2] = { actorLevel = 3.4519999027252, },
+				[3] = { actorLevel = 6.7670001983643, },
+				[4] = { actorLevel = 10.307999610901, },
+				[5] = { actorLevel = 14.074999809265, },
+				[6] = { actorLevel = 18.068000793457, },
+				[7] = { actorLevel = 22.287000656128, },
+				[8] = { actorLevel = 26.732000350952, },
+				[9] = { actorLevel = 31.40299987793, },
+				[10] = { actorLevel = 36.299999237061, },
+				[11] = { actorLevel = 41.423000335693, },
+				[12] = { actorLevel = 46.771999359131, },
+				[13] = { actorLevel = 52.34700012207, },
+				[14] = { actorLevel = 58.147998809814, },
+				[15] = { actorLevel = 64.175003051758, },
+				[16] = { actorLevel = 70.428001403809, },
+				[17] = { actorLevel = 76.906997680664, },
+				[18] = { actorLevel = 83.611999511719, },
+				[19] = { actorLevel = 90.542999267578, },
+				[20] = { actorLevel = 97.699996948242, },
+				[21] = { actorLevel = 105.08300018311, },
+				[22] = { actorLevel = 112.69200134277, },
+				[23] = { actorLevel = 120.52700042725, },
+				[24] = { actorLevel = 128.58799743652, },
+				[25] = { actorLevel = 136.875, },
+				[26] = { actorLevel = 145.38800048828, },
+				[27] = { actorLevel = 154.12699890137, },
+				[28] = { actorLevel = 163.09199523926, },
+				[29] = { actorLevel = 172.28300476074, },
+				[30] = { actorLevel = 181.69999694824, },
+				[31] = { actorLevel = 191.34300231934, },
+				[32] = { actorLevel = 201.21200561523, },
+				[33] = { actorLevel = 211.30700683594, },
+				[34] = { actorLevel = 221.62800598145, },
+				[35] = { actorLevel = 232.17500305176, },
+				[36] = { actorLevel = 242.94799804688, },
+				[37] = { actorLevel = 253.94700622559, },
+				[38] = { actorLevel = 265.17199707031, },
+				[39] = { actorLevel = 276.62298583984, },
+				[40] = { actorLevel = 288.29998779297, },
+			},
+		},
+	}
+}
+skills["SupportRunicExtractionPlayer"] = {
+	name = "Runic Extraction",
+	description = "Supports any Skill that deals damage. Enemies you kill with supported Skills have a chance to drop a Verisium Infusion Remnant.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "RunicExtraction",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Runic Extraction",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "create_verisium_remmant_on_kill_enemy_%", 35 },
+				{ "base_remnant_duration_ms", 8000 },
+				{ "base_skill_ward_cost_as_%_of_life_and_mana_cost", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRunicInfusionPlayer"] = {
+	name = "Runic Infusion",
+	description = "Supports Attacks you use or Trigger yourself, causing them to cost Runic Ward to use but deal additional Physical damage based on their Runic Ward cost. Cannot Support Channelling Skills, Sustained Skills, or Skills without a cost.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, SkillType.Channel, SkillType.Sustained, SkillType.HasNoCost, },
+	gemFamily = { "RunicInfusion",},
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Runic Infusion",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "base_ward_cost_+_%_of_maximum_ward", 20 },
+				{ "added_physical_damage_%_ward_cost", 25 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportScouringFlamePlayer"] = {
+	name = "Scouring Flame",
+	description = "Supports any skill that Hits enemies, causing inflicted Ignites to deal more damage but the skill to gain a Runic Ward cost.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Damage, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "SearingFlame",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Scouring Flame",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_scouring_flame_ignite_effect_+%_final", 50 },
+				{ "base_skill_ward_cost_as_%_of_life_and_mana_cost", 25 },
+			},
+			stats = {
+				"support_scouring_flame_ignite_art_variation",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRunicExtractionPlayer"] = {
+	name = "Runic Extraction",
+	description = "Supports any Skill that deals damage. Enemies you kill with supported Skills have a chance to drop a Verisium Infusion Remnant.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "RunicExtraction",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Runic Extraction",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "create_verisium_remmant_on_kill_enemy_%", 35 },
+				{ "base_remnant_duration_ms", 8000 },
+				{ "base_skill_ward_cost_as_%_of_life_and_mana_cost", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportRunicExtractionPlayer"] = {
+	name = "Runic Extraction",
+	description = "Supports any Skill that deals damage. Enemies you kill with supported Skills have a chance to drop a Verisium Infusion Remnant.",
+	color = 4,
+	support = true,
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.DamageOverTime, SkillType.CrossbowAmmoSkill, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "RunicExtraction",},
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Runic Extraction",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "create_verisium_remmant_on_kill_enemy_%", 35 },
+				{ "base_remnant_duration_ms", 8000 },
+				{ "base_skill_ward_cost_as_%_of_life_and_mana_cost", 20 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+
+
