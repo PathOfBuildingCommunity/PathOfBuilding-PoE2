@@ -830,3 +830,165 @@ skills["ThornsPlayer"] = {
 		},
 	}
 }
+
+#skill AnimusExchangePlayer
+#set AnimusExchangePlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaAnimusSplintersPlayer
+#set MetaAnimusSplintersPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportAnimusSplintersPlayer
+#set SupportAnimusSplintersPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BitterDeadPlayer
+#set BitterDeadPlayer
+#flags
+#mods
+#skillEnd
+
+#skill ConductiveRunesPlayer
+#set ConductiveRunesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill DetonateLivingPlayer
+#set DetonateLivingPlayer
+#flags
+#mods
+#skillEnd
+
+#skill EternalMarchPlayer
+#set EternalMarchPlayer
+#flags
+#mods
+#skillEnd
+
+#skill FragmentsOfThePastFragmentPlayer
+#set FragmentsOfThePastFragmentPlayer
+#flags
+#mods
+#skillEnd
+
+#skill FrostflameNovaPlayer
+#set FrostflameNovaPlayer
+#flags
+#mods
+#skillEnd
+
+#skill GrimPillarsPlayer
+#set GrimPillarsPlayer
+#flags
+#mods
+#skillEnd
+
+#skill HollowShellPlayer
+#set HollowShellPlayer
+#flags
+#mods
+#skillEnd
+
+#skill LeylinesPlayer
+#set LeylinesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill PoweredByVerisiumPlayer
+#set PoweredByVerisiumPlayer
+#flags
+#mods
+#skillEnd
+
+#skill RainOfBladesPlayer
+#set RainOfBladesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill RainOfBladesTriggeredPlayer
+#set RainOfBladesTriggeredPlayer
+#flags
+#mods
+#skillEnd
+
+#skill RefutationPlayer
+#set RefutationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaRemnantsOfKalguurPlayer
+#set MetaRemnantsOfKalguurPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CurseOfRepulsionPlayer
+#set CurseOfRepulsionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CurseOfRepulsionShockwavePlayer
+#set CurseOfRepulsionShockwavePlayer
+#flags
+#mods
+#skillEnd
+
+#skill RunicReprievePlayer
+#set RunicReprievePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SkyfallPlayer
+#set SkyfallPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriskelionCascadePlayer
+#set TriskelionCascadePlayer
+#flags
+#mods
+#skillEnd
+
+#skill VerisiumManifestationPlayer
+#set VerisiumManifestationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredManifestRunePlayer
+#set TriggeredManifestRunePlayer
+#flags
+#mods
+#skillEnd
+
+#skill VoltaicBarrierPlayer
+#set VoltaicBarrierPlayer
+#flags
+#mods
+#skillEnd
+
+#skill VoltaicBarrierTriggeredChainLightningPlayer
+#set VoltaicBarrierTriggeredChainLightningPlayer
+#flags
+#mods
+#skillEnd
+
+#skill WardboundMinionsPlayer
+#set WardboundMinionsPlayer
+#flags
+#mods
+#skillEnd

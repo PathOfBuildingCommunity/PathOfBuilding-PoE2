@@ -15038,7 +15038,6 @@ skills["WolfPouncePlayer"] = {
 		},
 	}
 }
-
 skills["WolfPounceMarkPlayer"] = {
 	name = "Predator's Mark",
 	hidden = true,
