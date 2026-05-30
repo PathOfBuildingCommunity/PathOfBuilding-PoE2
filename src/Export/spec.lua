@@ -3558,6 +3558,15 @@ return {
 	},
 	buffvisualshapeshiftoverride={
 	},
+	buildplannerinventories={
+		[1]={
+			list=false,
+			name="Inventory",
+			refTo="Inventories",
+			type="Key",
+			width=150
+		}
+	},
 	caravanstops={
 	},
 	chanceableitemclasses={
@@ -8409,6 +8418,76 @@ return {
 	invasionmonstersperarea={
 	},
 	inventories={
+		[1]={
+			list=false,
+			name="Id",
+			refTo="",
+			type="String",
+			width=150
+		},
+		[2]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[3]={
+			list=false,
+			name="InventoryType",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[5]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[6]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[7]={
+			list=false,
+			name="",
+			refTo="",
+			type="Bool",
+			width=150
+		},
+		[8]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=150
+		},
+		[9]={
+			list=false,
+			name="",
+			refTo="",
+			type="Key",
+			width=150
+		},
+		[10]={
+			list=true,
+			name="",
+			refTo="",
+			type="ShortKey",
+			width=150
+		}
 	},
 	inventoryid={
 	},

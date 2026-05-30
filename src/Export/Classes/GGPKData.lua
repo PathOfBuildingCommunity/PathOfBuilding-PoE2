@@ -366,6 +366,8 @@ function GGPKClass:GetNeededFiles()
 		"Data/Balance/SupportGemFamily.dat",
 		"Data/Balance/TormentSpirits.dat",
 		"Data/Balance/CharacterShapeshiftBasicSkills.dat",
+		"Data/Balance/BuildPlannerInventories.dat",
+		"Data/Balance/Inventories.dat",
 	}
 	local csdFiles = {
 		"^Data/StatDescriptions/specific_skill_stat_descriptions/\\w+.csd$",
