@@ -893,7 +893,8 @@ end
 ---@return string
 function stringify(thing)
 	if type(thing) == 'string' then
-		return thing
+		local s = thing:gsub("\n", "")
+		return s
 	elseif type(thing) == 'number' then
 		return ""..thing;
 	elseif type(thing) == 'table' then

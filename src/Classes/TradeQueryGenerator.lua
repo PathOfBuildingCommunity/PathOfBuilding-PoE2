@@ -424,6 +424,12 @@ function TradeQueryGeneratorClass:InitMods()
 						found = true
 						mod = v
 						mod.type = "Implicit"
+						-- it is possible for there to be multiple matches. For example "+(20-30) to
+						-- maximum Energy Shield" tends to match both the amulet implicit and some
+						-- other unique mod which is local energy shield instead. in that case it
+						-- incorrectly gets mapped to the local stat. this is however super rare as
+						-- it needs the ranges to match exactly.
+						break
 					end
 				end
 			end
