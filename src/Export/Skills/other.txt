@@ -1192,3 +1192,14 @@ skills["ThornsPlayer"] = {
 #mods
 #skillEnd
 
+#skill SupportMorrigansInsight
+#set SupportMorrigansRefuge
+#mods
+#skillEnd
+
+#skill TriggeredMorrigansInsightPlayer
+#set TriggeredMorrigansInsightPlayer
+#flags
+#mods
+#skillEnd
+
