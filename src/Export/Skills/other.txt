@@ -987,8 +987,63 @@ skills["ThornsPlayer"] = {
 #mods
 #skillEnd
 
-#skill WardboundMinionsPlayer
-#set WardboundMinionsPlayer
+
+#skill SupportTangMazusThuriblePlayer
+#set SupportTangMazusThuriblePlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportCathasBrilliance
+#set SupportCathasBrilliance
+#flags
+#mods
+#skillEnd
+
+#skill SupportHerDeclarationPlayer
+#set SupportHerDeclarationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportSeraphsHeartPlayer
+#set SupportSeraphsHeartPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportTrickstersShardPlayer
+#set SupportTrickstersShardPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredFracturedSelfPlayer
+#set TriggeredFracturedSelfPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportEshsProwess
+#set SupportEshsProwess
+#flags
+#mods
+#skillEnd
+
+#skill SupportTulsAvalanche
+#set SupportTulsAvalanche
+#flags
+#mods
+#skillEnd
+
+#skill SupportBreachlordsAmalgam
+#set SupportBreachlordsAmalgam
+#flags
+#mods
+#skillEnd
+
+#skill SupportVruunsAftermath
+#set SupportVruunsAftermath
 #flags
 #mods
 #skillEnd
