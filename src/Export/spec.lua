@@ -296,7 +296,7 @@ return {
 			name="Icon",
 			refTo="",
 			type="String",
-			width=290
+			width=100
 		},
 		[6]={
 			list=true,
@@ -6449,52 +6449,52 @@ return {
 	endgamemaps={
 		[1]={
 			list=false,
-			name="Id",
-			refTo="",
-			type="Int",
-			width=60
-		},
-		[2]={
-			list=false,
-			name="BossVersion",
+			name="WorldAreasKey",
 			refTo="WorldAreas",
 			type="Key",
-			width=190
+			width=230
+		},
+		[2]={
+			list=true,
+			name="NativePacks",
+			refTo="MonsterPackEntries",
+			type="Key",
+			width=290
 		},
 		[3]={
+			list=false,
+			name="FlavourText",
+			refTo="",
+			type="String",
+			width=160
+		},
+		[4]={
+			list=false,
+			name="",
+			refTo="",
+			type="Int",
+			width=120
+		},
+		[5]={
 			list=true,
 			name="",
 			refTo="",
 			type="Int",
 			width=160
 		},
-		[4]={
-			list=true,
-			name="NativePacks",
-			refTo="MonsterPacks",
-			type="Key",
-			width=230
-		},
-		[5]={
-			list=false,
-			name="FlavourText",
-			refTo="",
-			type="String",
-			width=450
-		},
 		[6]={
 			list=false,
-			name="MinWatchstoneTier",
+			name="",
 			refTo="",
-			type="Int",
+			type="Key",
 			width=120
 		},
 		[7]={
-			list=true,
+			list=false,
 			name="",
-			refTo="",
-			type="Int",
-			width=80
+			refTo="EndgameMaps",
+			type="Key",
+			width=230
 		},
 		[8]={
 			list=false,
@@ -11928,7 +11928,7 @@ return {
 			name="AdditionalMonsters",
 			refTo="MonsterVarieties",
 			type="Key",
-			width=480
+			width=610
 		},
 		[25]={
 			list=true,
@@ -17360,7 +17360,7 @@ return {
 			name="MinionGlobalSkillLevelStat",
 			refTo="Stats",
 			type="Key",
-			width=160
+			width=150
 		},
 		[8]={
 			list=false,
@@ -17458,7 +17458,7 @@ return {
 			name="GemEffects",
 			refTo="GemEffects",
 			type="Key",
-			width=350
+			width=150
 		},
 		[22]={
 			list=false,

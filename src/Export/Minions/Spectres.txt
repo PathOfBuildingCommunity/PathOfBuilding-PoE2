@@ -1481,3 +1481,85 @@ local minions, mod, flag = ...
 
 #spectre Metadata/Monsters/LeagueIncursionNew/Thaumaturge/SpittingSnakeExperiment
 #emit
+
+#spectre Metadata/Monsters/PrecursorDrillSphere/DrillSphere
+#emit
+
+#spectre Metadata/Monsters/PrecursorCannisterMover/PrecursorCannisterMover
+#emit
+
+#spectre Metadata/Monsters/PrecursorCorruptionProcessor/PrecursorCorruptionProcessor
+#emit
+
+#spectre Metadata/Monsters/PrecursorRaptorDefender/RaptorDefender_
+#emit
+
+#spectre Metadata/Monsters/PrecursorCentipedeTrain/PrecursorCentipedeTrainHead
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/AntCarrierExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/BaneSaplingExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/HoneyAntExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/AntFaction/NettleAntExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ArachnidFaction/ShakariExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ArachnidFaction/TumourSpiderExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/CrustaceanFaction/AnglerFishParasiteExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/CrustaceanFaction/ShellMonsterExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/IceCasterExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/HumanoidFaction/MassGoldSkeletonExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ParasiteFaction/MantaRayParasiteExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ParasiteFaction/OctopusParasiteExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/ParasiteFaction/ParasiteHostMonsterExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/Cocoon3Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueBringerExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph1Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph2Expedition_
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph3Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueMorph4Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/PlagueNymphExpedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/TumourStatue2Expedition
+#emit
+
+#spectre Metadata/Monsters/LeagueExpeditionNew/Expedition2/Fodder/TumourStatueSnakeExpedition
+#emit
+

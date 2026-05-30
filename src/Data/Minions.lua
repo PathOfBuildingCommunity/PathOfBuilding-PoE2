@@ -638,7 +638,7 @@ minions["ManifestWeapon"] = {
 		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
 		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
 		-- hide_buff_visuals [hide_buff_visuals = 1]
-		-- hide_mini_life_bar [hide_mini_life_bar = 1]
+		-- base_hide_mini_life_bar [base_hide_mini_life_bar = 1]
 		-- set_use_melee_pattern_range [set_use_melee_pattern_range = 0]
 	},
 }
@@ -670,7 +670,7 @@ minions["RavenousSwarm"] = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 		mod("CurseImmune", "FLAG", 1, 0, 0), -- immune_to_curses [immune_to_curses = 1]
-		-- immune_to_auras_from_other_entities [immune_to_auras_from_other_entities = 1]
+		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- mana_regeneration_rate_per_minute_% [mana_regeneration_rate_per_minute_% = 100]
 		-- base_maximum_mana [base_maximum_mana = 100000]
@@ -679,7 +679,6 @@ minions["RavenousSwarm"] = {
 		mod("FrenzyChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_frenzy_charges [set_max_frenzy_charges = 0]
 		mod("EnduranceChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_endurance_charges [set_max_endurance_charges = 0]
 		mod("PowerChargesMax", "OVERRIDE", 0, 0, 0), -- set_max_power_charges [set_max_power_charges = 0]
-		mod("HiddenMonster", "FLAG", 1, 0, 0), -- is_hidden_monster [is_hidden_monster = 1]
 		mod("Condition:CannotBeDamaged", "FLAG", 1, 0, 0), -- base_cannot_be_damaged [base_cannot_be_damaged = 1]
 		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
 		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
@@ -734,7 +733,7 @@ minions["LivingLightning"] = {
 		mod("Life", "OVERRIDE", 1, 0, 0), -- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
 		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
 		-- hide_buff_visuals [hide_buff_visuals = 1]
-		-- hide_mini_life_bar [hide_mini_life_bar = 1]
+		-- base_hide_mini_life_bar [base_hide_mini_life_bar = 1]
 	},
 }
 
@@ -920,22 +919,17 @@ minions["WaterDjinn"] = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 		-- no_blood_on_death [no_blood_on_death = 1]
-		mod("DamageTaken", "MORE", -100, 0, 0), -- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
 		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
-		mod("Life", "OVERRIDE", 1, 0, 0), -- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
 		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
 		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
 		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
 		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
 		-- hide_buff_visuals [hide_buff_visuals = 1]
-		-- hide_mini_life_bar [hide_mini_life_bar = 1]
 		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
 		-- set_cannot_die [set_cannot_die = 1]
 		mod("StunDuration", "OVERRIDE", 5.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5600]
 		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
 		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
-		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
-		-- set_dont_replace_minion_if_level_changed_until_end_of_action [set_dont_replace_minion_if_level_changed_until_end_of_action = 1]
 	},
 }
 
@@ -970,22 +964,17 @@ minions["FireDjinn"] = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 		-- no_blood_on_death [no_blood_on_death = 1]
-		mod("DamageTaken", "MORE", -100, 0, 0), -- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
 		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
-		mod("Life", "OVERRIDE", 1, 0, 0), -- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
 		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
 		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
 		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
 		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
 		-- hide_buff_visuals [hide_buff_visuals = 1]
-		-- hide_mini_life_bar [hide_mini_life_bar = 1]
 		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
 		-- set_cannot_die [set_cannot_die = 1]
 		mod("StunDuration", "OVERRIDE", 5.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5600]
 		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
 		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
-		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
-		-- set_dont_replace_minion_if_level_changed_until_end_of_action [set_dont_replace_minion_if_level_changed_until_end_of_action = 1]
 	},
 }
 
@@ -1018,21 +1007,16 @@ minions["SandDjinn"] = {
 		-- set_item_drop_slots [set_item_drop_slots = 0]
 		-- set_action_attack_or_cast_time_uses_animation_length [set_action_attack_or_cast_time_uses_animation_length = 0]
 		-- no_blood_on_death [no_blood_on_death = 1]
-		mod("DamageTaken", "MORE", -100, 0, 0), -- set_base_cannot_be_damaged [set_base_cannot_be_damaged = 1]
 		-- set_cannot_be_chained_from [set_cannot_be_chained_from = 1]
-		mod("Life", "OVERRIDE", 1, 0, 0), -- set_base_maximum_life_is_one [set_base_maximum_life_is_one = 1]
 		mod("StunImmune", "FLAG", 1, 0, 0), -- base_cannot_be_stunned [base_cannot_be_stunned = 1]
 		mod("KnockbackImmune", "FLAG", 1, 0, 0), -- cannot_be_knocked_back [cannot_be_knocked_back = 1]
 		-- set_cannot_be_splashed_from [set_cannot_be_splashed_from = 1]
 		-- immune_to_auras_from_other_teams [immune_to_auras_from_other_teams = 1]
 		-- hide_buff_visuals [hide_buff_visuals = 1]
-		-- hide_mini_life_bar [hide_mini_life_bar = 1]
 		-- untargetable_by_monster_ai [untargetable_by_monster_ai = 1]
 		-- set_cannot_die [set_cannot_die = 1]
 		mod("StunDuration", "OVERRIDE", 5.6, 0, 0), -- set_base_heavy_stun_duration_ms [set_base_heavy_stun_duration_ms = 5600]
 		-- set_minion_cannot_be_directed [set_minion_cannot_be_directed = 1]
 		-- set_projectiles_do_not_collide_with_you [set_projectiles_do_not_collide_with_you = 1]
-		-- set_display_hide_minion_base_stats [set_display_hide_minion_base_stats = 1]
-		-- set_dont_replace_minion_if_level_changed_until_end_of_action [set_dont_replace_minion_if_level_changed_until_end_of_action = 1]
 	},
 }
