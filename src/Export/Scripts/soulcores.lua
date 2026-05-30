@@ -96,47 +96,50 @@ directiveTable.base = function(state, args, out)
 		if next(stats) then
 			for _, class in ipairs(classMap[soulCoreStat.Category.Id] or { string.lower(soulCoreStat.Category.Id) }) do
 				printf("Category ID: " .. tostring(soulCoreStat.Category.Id))
-				local stats, orders = describeStats(stats)
-				local bondedStats, bondedOrders = describeStats(bondedStats)
-				for i, stat in ipairs(bondedStats) do
-					bondedStats[i] = "Bonded: " .. stat
+				local statsCopy = {}
+				for k, v in pairs(stats) do statsCopy[k] = { min = v.min, max = v.max } end
+				local bondedStatsCopy = {}
+				for k, v in pairs(bondedStats) do bondedStatsCopy[k] = { min = v.min, max = v.max, bonded = v.bonded } end
+				local descStats, orders = describeStats(statsCopy)
+				local descBondedStats, bondedOrders = describeStats(bondedStatsCopy)
+				for i, stat in ipairs(descBondedStats) do
+					descBondedStats[i] = "Bonded: " .. stat
 				end
-				for _, stat in ipairs(bondedStats) do
-					table.insert(stats, stat)
+				for _, stat in ipairs(descBondedStats) do
+					table.insert(descStats, stat)
 				end
 				for _, order in ipairs(bondedOrders) do
 					table.insert(orders, order)
 				end
 				if #orders > 0 then
-				local modIdx = 1
-				local tradeHashes = {}
-				while soulCoreStat.Stats[modIdx] do
-					local currentStats = {}
-					local stat = soulCoreStat.Stats[modIdx]
-					currentStats[stat.Id] = {
-						min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
-					}
-					local bytes = intToBytes(stat.Hash)
-					-- # to # stats consist of two different stats as the min and max have different ranges
-					if stat.Id:match("minimum") then
-						local nextStat = soulCoreStat.Stats[modIdx + 1]
-						if nextStat and nextStat.Id:match("maximum") then
-							modIdx = modIdx + 1
-							bytes = bytes .. intToBytes(nextStat.Hash)
-							currentStats[nextStat.Id] = {
-								min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
-							}
+					local modIdx = 1
+					local tradeHashes = {}
+					while soulCoreStat.Stats[modIdx] do
+						local currentStats = {}
+						local stat = soulCoreStat.Stats[modIdx]
+						currentStats[stat.Id] = {
+							min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+						}
+						local bytes = intToBytes(stat.Hash)
+						-- # to # stats consist of two different stats as the min and max have different ranges
+						if stat.Id:match("minimum") then
+							local nextStat = soulCoreStat.Stats[modIdx + 1]
+							if nextStat and nextStat.Id:match("maximum") then
+								modIdx = modIdx + 1
+								bytes = bytes .. intToBytes(nextStat.Hash)
+								currentStats[nextStat.Id] = {
+									min = soulCoreStat.StatValue[modIdx], max = soulCoreStat.StatValue[modIdx]
+								}
+							end
 						end
+						local description, _, _ = describeStats(currentStats)
+						tradeHashes[murmurHash2(bytes, 0x02312233)] = description
+						modIdx = modIdx + 1
 					end
-
-					local description, _, _ = describeStats(currentStats)
-					tradeHashes[murmurHash2(bytes, 0x02312233)] = description
-					modIdx = modIdx + 1
-				end
 					local out = {
 						type = soulCores.Type.Id,
 						slotType = class,
-						label = stats,
+						label = descStats,
 						statOrder = orders,
 						rank = rank,
 						tradeHashes = tradeHashes

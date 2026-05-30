@@ -3268,8 +3268,8 @@ return {
 		},
 		["caster"] = {
 				type = "Rune",
-				"Flasks gain 0 charges per Second",
-				"Bonded: Charms gain 0 charges per Second",
+				"Flasks gain 0.2 charges per Second",
+				"Bonded: Charms gain 0.25 charges per Second",
 				statOrder = { 6865, 6866 },
 				tradeHashes = { [731781020] = { "Flasks gain 0.2 charges per Second" },  },
 				rank = { 15 },
@@ -3434,7 +3434,7 @@ return {
 		},
 		["staff"] = {
 				type = "Rune",
-				"Remnants you create have 25% increased effect",
+				"Remnants you create have 25% reduced effect",
 				"Remnants can be collected from 50% further away",
 				"Bonded: 20% increased Exposure Effect",
 				statOrder = { 9695, 9697, 6510 },
