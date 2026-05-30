@@ -853,6 +853,15 @@ skills["ThornsPlayer"] = {
 #set BitterDeadPlayer
 #flags
 #mods
+#set BitterDeadExplosionPlayer
+#flags
+#mods
+#set BitterDeadChillAuraPlayer
+#flags
+#mods
+#set BitterDeadRuneAuraPlayer
+#flags
+#mods
 #skillEnd
 
 #skill ConductiveRunesPlayer
@@ -863,6 +872,9 @@ skills["ThornsPlayer"] = {
 
 #skill DetonateLivingPlayer
 #set DetonateLivingPlayer
+#flags
+#mods
+#set DetonateLivingExplodePlayer
 #flags
 #mods
 #skillEnd
@@ -883,10 +895,16 @@ skills["ThornsPlayer"] = {
 #set FrostflameNovaPlayer
 #flags
 #mods
+#set FrostflameNovaColdHitPlayer
+#flags
+#mods
 #skillEnd
 
 #skill GrimPillarsPlayer
 #set GrimPillarsPlayer
+#flags
+#mods
+#set GrimPillarsExplodePlayer
 #flags
 #mods
 #skillEnd
@@ -981,7 +999,7 @@ skills["ThornsPlayer"] = {
 #mods
 #skillEnd
 
-#skill VoltaicBarrierTriggeredChainLightningPlayer
+#skill VoltaicBarrierTriggeredChainLightningPlayer Chain
 #set VoltaicBarrierTriggeredChainLightningPlayer
 #flags
 #mods
