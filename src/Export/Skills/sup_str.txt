@@ -1800,3 +1800,23 @@ statMap = {
 },
 #mods
 #skillEnd
+
+#skill SupportVruunsInevitability
+#set SupportVruunsInevitability
+#mods
+#skillEnd
+
+#skill SupportHelbrymsHidePlayer
+#set SupportHelbrymsHidePlayer
+#mods
+#skillEnd
+
+#skill SupportMinionMeleeSplashPlayer
+#set SupportMinionMeleeSplashPlayer
+#mods
+#skillEnd
+
+#skill SupportMinionMeleeSplashPlayerTwo
+#set SupportMinionMeleeSplashPlayerTwo
+#mods
+#skillEnd

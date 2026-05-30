@@ -1276,3 +1276,14 @@ statMap = {
 },
 #mods
 #skillEnd
+
+#skill SupportEonyrsThunderPlayer
+#set SupportEonyrsThunderPlayer
+#mods
+#skillEnd
+
+#skill TriggeredLightningDetonateDeadPlayer
+#set TriggeredLightningDetonateDeadPlayer
+#mods
+#skillEnd
+

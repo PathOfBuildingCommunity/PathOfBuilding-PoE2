@@ -7576,3 +7576,132 @@ skills["SupportZerphisLegacyPlayer"] = {
 		},
 	}
 }
+skills["SupportVruunsInevitability"] = {
+	name = "Vruun's Inevitability",
+	description = "Supports Melee Attack Skills. Supported Skills gain Combo when you successfully Strike Enemies with other Melee Attacks. Supported Skills expend their Combo when used, gaining more area of effect the higher Combo they had. Cannot support skills which already gain Combo. Cannot modify the Skills of Minions.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Attack, SkillType.Melee, SkillType.AND, },
+	addSkillTypes = { SkillType.ComboStacking, SkillType.SupportedByVruunsInevitablity, SkillType.HasUsageCondition, },
+	excludeSkillTypes = { SkillType.HasUsageCondition, SkillType.SupportedByVruunsInevitablity, SkillType.NOT, SkillType.AND, },
+	gemFamily = { "IncreasedAreaOfEffect",},
+	isLineage = true,
+	flavourText = {"\"If you think you've won, it's only because you don't", "understand their strategy. Each Vruun you kill only", "teaches the next one how to endure against you.\"", },
+	ignoreMinionTypes = true,
+	levels = {
+		[1] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Vruun's Inevitability",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "area_of_effect_+%_per_combo_stack", 6 },
+				{ "base_combo_stacks_decay_delay_ms", 6000 },
+				{ "skill_maximum_number_of_combo_stacks", 10 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 65, },
+			},
+		},
+	}
+}
+skills["SupportHelbrymsHidePlayer"] = {
+	name = "Helbrym's Hide",
+	description = "Supports Shapeshifting Skills, causing them to grant Helbrym's Composure for a brief duration when they cause you to Shapeshift. Shapeshifting into a different form before the Buff expires causes it to be removed without effect.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Shapeshift, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "Helbrym",},
+	isLineage = true,
+	flavourText = {"Surrounded by abominations, Lysanda of Myr expected her", "time had come to an end. Helbrym of Tarth charged from", "the trees, breaking his oath, to save the Ezomyte Queen.", },
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 30, },
+	},
+	statSets = {
+		[1] = {
+			label = "Helbrym's Hide",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "support_hide_of_helbrym_soak_duration_ms", 2000 },
+				{ "support_hide_of_helbrym_guard_duration_ms", 4000 },
+				{ "support_hide_of_helbrym_gain_guard_from_%_of_damage_taken", 50 },
+				{ "support_hide_of_helbrym_gain_rage_from_%_of_damage_taken", 3 },
+			},
+			stats = {
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportMinionMeleeSplashPlayer"] = {
+	name = "Minion Splash I",
+	description = "Supports Skills which create Minions which Strike, causing those Minions' Strikes to have Melee Splash.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Minion, SkillType.MeleeSingleTarget, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "MinionMeleeSplash",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Minion Splash I",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"minion_melee_splash",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["SupportMinionMeleeSplashPlayerTwo"] = {
+	name = "Minion Splash II",
+	description = "Supports Skills which create Minions which Strike, increasing their Area of Effect and causing those Minions' Strikes to have Melee Splash.",
+	color = 1,
+	support = true,
+	requireSkillTypes = { SkillType.Minion, SkillType.MeleeSingleTarget, SkillType.AND, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "MinionMeleeSplash",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Minion Splash II",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			constantStats = {
+				{ "minion_skill_area_of_effect_+%", 20 },
+			},
+			stats = {
+				"minion_melee_splash",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
