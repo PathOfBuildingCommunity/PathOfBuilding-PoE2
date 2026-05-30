@@ -4,7 +4,7 @@
 return {
 	[1]={
 		stats={
-			[1]="total_number_of_arrows_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	[2]={
@@ -136,5 +136,5 @@ return {
 	parent="specific_skill_stat_descriptions/gas_arrow_statset_0",
 	["quality_display_active_skill_base_area_of_effect_radius_is_gem"]=3,
 	["skill_effect_duration"]=5,
-	["total_number_of_arrows_to_fire"]=1
+	["total_number_of_projectiles_to_fire_from_stats"]=1
 }

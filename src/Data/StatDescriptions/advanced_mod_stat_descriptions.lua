@@ -1051,7 +1051,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0}% increased Defences from Equipped Shield per 10 Devotion"
+				text="{0}% increased Armour, Evasion and Energy Shield from Equipped Shield per 10 Devotion"
 			},
 			[2]={
 				[1]={
@@ -1064,11 +1064,11 @@ return {
 						[2]=-1
 					}
 				},
-				text="{0}% reduced Defences from Equipped Shield per 10 Devotion"
+				text="{0}% reduced Armour, Evasion and Energy Shield from Equipped Shield per 10 Devotion"
 			}
 		},
 		stats={
-			[1]="shield_defences_+%_per_10_devotion"
+			[1]="shield_armour_evasion_energy_shield_+%_per_10_devotion"
 		}
 	},
 	[17]={
@@ -1149,7 +1149,7 @@ return {
 	parent="stat_descriptions",
 	["self_curse_duration_+%_per_10_devotion"]=14,
 	["self_elemental_status_duration_-%_per_10_devotion"]=15,
-	["shield_defences_+%_per_10_devotion"]=16,
+	["shield_armour_evasion_energy_shield_+%_per_10_devotion"]=16,
 	["sigil_damage_+%_per_10_devotion"]=17,
 	["totem_damage_+%_per_10_devotion"]=18
 }

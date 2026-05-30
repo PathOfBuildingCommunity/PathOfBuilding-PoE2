@@ -4,29 +4,67 @@
 return {
 	[1]={
 		[1]={
+			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Consumes {0:+d} Corpse"
+			},
+			[2]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Consumes {0:+d} Corpses"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]=1
+					}
+				},
+				text="Consumes up to {0} Corpse"
+			},
+			[4]={
+				limit={
+					[1]={
+						[1]=2,
+						[2]="#"
+					}
+				},
+				text="Consumes up to {0} Corpses"
+			}
 		},
 		stats={
-			[1]="active_skill_area_of_effect_radius"
+			[1]="volatile_dead_base_number_of_corpses_to_consume"
 		}
 	},
 	[2]={
 		[1]={
 			[1]={
 				[1]={
-					k="divide_by_ten_1dp_if_required",
+					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
 				limit={
 					[1]={
-						[1]=10,
-						[2]=10
+						[1]=1000,
+						[2]=1000
 					}
 				},
-				text="Explosion radius is {0} metre"
+				text="Core duration is {0} second"
 			},
 			[2]={
 				[1]={
-					k="divide_by_ten_1dp_if_required",
+					k="milliseconds_to_seconds_2dp_if_required",
 					v=1
 				},
 				limit={
@@ -35,14 +73,22 @@ return {
 						[2]="#"
 					}
 				},
-				text="Explosion radius is {0} metres"
+				text="Core duration is {0} seconds"
 			}
 		},
 		stats={
-			[1]="active_skill_base_area_of_effect_radius"
+			[1]="base_skill_effect_duration"
 		}
 	},
-	["active_skill_area_of_effect_radius"]=1,
-	["active_skill_base_area_of_effect_radius"]=2,
-	parent="skill_stat_descriptions"
+	[3]={
+		[1]={
+		},
+		stats={
+			[1]="skill_effect_duration"
+		}
+	},
+	["base_skill_effect_duration"]=2,
+	parent="skill_stat_descriptions",
+	["skill_effect_duration"]=3,
+	["volatile_dead_base_number_of_corpses_to_consume"]=1
 }

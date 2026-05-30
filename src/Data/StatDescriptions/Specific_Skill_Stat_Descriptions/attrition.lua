@@ -21,6 +21,20 @@ return {
 	[2]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					},
+					[2]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="You deal {0}% more Hit damage to Rare and Unique enemies for every 2 seconds they have ever been in your Presence, up to {1}%"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
