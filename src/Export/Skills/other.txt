@@ -1156,5 +1156,39 @@ skills["ThornsPlayer"] = {
 #mods
 #skillEnd
 
+#skill FragmentsOfThePastPlayer
+#set FragmentsOfThePastPlayer
+#flags
+#mods
+#skillEnd
 
+#skill FragmentsOfThePastFragmentPlayer
+#set FragmentsOfThePastFragmentPlayer
+#flags
+#mods
+#skillEnd
+
+#skill ExplosiveTransmutationPlayer
+#set ExplosiveTransmutationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveTransmutationExplosionPlayer
+#set ExplosiveTransmutationPhysicalPlayer
+#flags
+#mods
+#set ExplosiveTransmutationColdPlayer
+#flags
+#mods
+#set ExplosiveTransmutationFirePlayer
+#flags
+#mods
+#set ExplosiveTransmutationLightningPlayer
+#flags
+#mods
+#set ExplosiveTransmutationChaosPlayer
+#flags
+#mods
+#skillEnd
 
