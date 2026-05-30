@@ -600,7 +600,13 @@ SkillType = {
 	DisableUpdateActionLocationAfterRelease = 256,
 	InteractsWithElementalGround = 257,
 	SupportedByNovaProjectiles = 258,
-	Proxy = 259,
+	UsedByProxy = 259,
+	IndeterminateEmpowermentAmount = 260,
+	ActiveBlock = 261,
+	AffectedByCooldownRate = 262,
+	SpecialAncestralBoost = 263,
+	UsedByClone = 264,
+	
 }
 
 -- build reverse lookup
