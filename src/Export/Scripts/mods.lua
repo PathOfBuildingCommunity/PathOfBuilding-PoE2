@@ -1,15 +1,50 @@
 if not loadStatFile then
 	dofile("statdesc.lua")
 end
+local statDescriptions = getStatDescriptors("stat_descriptions.csd")
 loadStatFile("stat_descriptions.csd")
 
+-- not comprehensive. see moddomains table in export tool and enums.lua
+local Domains = {
+	GenericMod = 1,
+	FlaskCharm = 2,
+	Jewel = 11,
+	UniqueJewel = 22,
+	Veiled = 28,
+	-- not actually present on the table, but still referenced by mods
+	IncursionLimb = 37,
+}
+
+local GenTypes = {
+	Prefix = 1,
+	Suffix = 2,
+	-- includes both implicit mods and unique explicit mods
+	Intrinsic = 3,
+	Corruption = 5,
+}
+
 function table.containsId(table, element)
-  for _, value in pairs(table) do
-    if value.Id == element then
-      return true
-    end
-  end
-  return false
+	for _, value in pairs(table) do
+		if value.Id == element then
+			return true
+		end
+	end
+	return false
+end
+
+-- used for calculating the hash field of a stat
+local GGG_STAT_HASH32_SEED = 0xC58F1A7B
+-- used for calculating the trade hash from stat hash fields
+local GGG_TRADE_SEED = 0x02312233
+---@param stats string[]
+---@return integer
+local function hashStats(stats)
+	local statHashes = ""
+	for _, statName in ipairs(stats) do
+		local newHash = intToBytes(murmurHash2(statName, GGG_STAT_HASH32_SEED))
+		statHashes = statHashes..newHash
+	end
+	return murmurHash2(statHashes, GGG_TRADE_SEED)
 end
 
 local whiteListStat = {
@@ -28,12 +63,12 @@ local function writeMods(outName, condFunc)
 			local stats, orders, missing = describeMod(mod)
 			if missing[1] then
 				local printHeader = true
-				for	k, _ in pairs(missing) do
+				for k, _ in pairs(missing) do
 					if k ~= 1 and not whiteListStat[k] then
 						if printHeader then
 							printHeader = false
 							ConPrintf("====================================")
-							ConPrintf("Mod '"..mod.Id.."' is missing stats:")
+							ConPrintf("Mod '" .. mod.Id .. "' is missing stats:")
 						end
 						ConPrintf('%s', k)
 					end
@@ -41,19 +76,15 @@ local function writeMods(outName, condFunc)
 			end
 			if #orders > 0 then
 				out:write('\t["', mod.Id, '"] = { ')
-				if mod.GenerationType == 1 then
+				if mod.GenerationType == GenTypes.Prefix then
 					out:write('type = "Prefix", ')
-				elseif mod.GenerationType == 2 then
+				elseif mod.GenerationType == GenTypes.Suffix then
 					out:write('type = "Suffix", ')
-				elseif mod.GenerationType == 3 then
-					if mod.Domain == 1 and mod.Id:match("^Synthesis") then
-						out:write('type = "Synthesis", ')
-					elseif mod.Domain == 16 then
-						out:write('type = "DelveImplicit", ')
-					elseif mod.Id:match("SpecialCorruption") then
+				elseif mod.GenerationType == GenTypes.Intrinsic then
+					if mod.Id:match("SpecialCorruption") then
 						out:write('type = "SpecialCorrupted", ')
 					end
-				elseif mod.GenerationType == 5 then
+				elseif mod.GenerationType == GenTypes.Corruption then
 					out:write('type = "Corrupted", ')
 				end
 				out:write('affix = "', mod.Name, '", ')
@@ -63,7 +94,7 @@ local function writeMods(outName, condFunc)
 						table.remove(orders, index)
 						break
 					end
- 				end
+				end
 				out:write('"', table.concat(stats, '", "'), '", ')
 				out:write('statOrder = { ', table.concat(orders, ', '), ' }, ')
 				out:write('level = ', mod.Level, ', group = "', mod.Type.Id, '", ')
@@ -75,7 +106,7 @@ local function writeMods(outName, condFunc)
 				out:write('weightVal = { ', table.concat(mod.SpawnWeight, ', '), ' }, ')
 				if mod.GenerationWeightTags[1] then
 					-- make large clusters only have 1 notable suffix
-					if mod.GenerationType == 2 and mod.Tags[1] and outName == "../Data/ModJewelCluster.lua" and mod.Tags[1].Id == "has_affliction_notable" then
+					if mod.GenerationType == GenTypes.Suffix and mod.Tags[1] and outName == "../Data/ModJewelCluster.lua" and mod.Tags[1].Id == "has_affliction_notable" then
 						out:write('weightMultiplierKey = { "has_affliction_notable2", ')
 						for _, tag in ipairs(mod.GenerationWeightTags) do
 							out:write('"', tag.Id, '", ')
@@ -110,55 +141,81 @@ local function writeMods(outName, condFunc)
 					out:write('nodeType = ', mod.NodeType, ', ')
 				end
 
-				local modIdx = 1
 				local tradeHashes = {}
-				while mod["Stat" .. modIdx] do
+				local statsHashed = {}
+				local isTinctureMod = (mod.Domain == Domains.Tincture) and
+					(mod.GenerationType == GenTypes.Prefix
+						or mod.GenerationType == GenTypes.Suffix)
+				for statIdx = 1, 6 do
 					local currentStats = {}
-					currentStats[mod["Stat" .. modIdx].Id] = {
-						min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
-					}
-					if modIdx == 6 then
+					local stat = mod["Stat" .. statIdx]
+					if not stat then
 						break
 					end
-					local bytes = intToBytes(mod["Stat" .. modIdx].Hash)
-					-- # to # stats consist of two different stats as the min and max have different ranges
-					if mod["Stat" .. modIdx].Id:match("minimum") then
-						local nextStat = mod["Stat" .. (modIdx + 1)]
-						if nextStat and nextStat.Id:match("maximum") then
-							modIdx = modIdx + 1
-							bytes = bytes .. intToBytes(mod["Stat" .. modIdx].Hash)
-							currentStats[mod["Stat" .. modIdx].Id] = {
-								min = mod["Stat" .. modIdx .. "Value"][1], max = mod["Stat" .. modIdx .. "Value"][2]
-							}
+					-- some stats are related to other stats, and should be
+					-- hashed with them. we don't want to hash e.g. the lower
+					-- and upper range of # to # damage modifiers separately.
+					if statsHashed[stat.Id] then
+						goto innercontinue
+					end
+
+					-- tincture stat descriptions are in a separate file
+					local statEntry
+					if isTinctureMod then
+						statEntry = tinctureStatDescriptions[stat.Id] and tinctureStatDescriptions[stat.Id]
+					else
+						statEntry = statDescriptions[stat.Id] and statDescriptions[stat.Id]
+					end
+
+					-- skip stats that are missing fields. these are most likely
+					-- hidden stats or e.g. map stats
+					if not statEntry or not statEntry.stats or not statEntry[1] then
+						goto innercontinue
+					end
+
+					-- match stats to the stat values on the mod and save them
+					-- as they're used to describe the stat
+					local currentStats = {}
+					for _, statId in ipairs(statEntry.stats) do
+						for statIdx = 1, 6 do
+							if mod["Stat" .. statIdx] and mod["Stat" .. statIdx].Id == statId then
+								currentStats[statId] = {
+									min = mod["Stat" .. statIdx .. "Value"][1],
+									max = mod["Stat" .. statIdx .. "Value"][2]
+								}
+							end
 						end
 					end
 
-					local description, _, _ = describeStats(currentStats)
-
+					-- radius jewel stats are slightly unique in that they use
+					-- the same stat as regular jewel mods. this means the
+					-- description will not include the also grant: prefix
+					local stats = copyTable(statEntry.stats)
 					-- radius jewel mods:
 					-- notable
 					if mod.NodeType == 2 then
-						-- append stat hash for
-						-- "local_jewel_mod_stats_added_to_notable_passives"
-						bytes = bytes .. intToBytes(1950420994)
-						-- small
+						table.insert(stats, "local_jewel_mod_stats_added_to_notable_passives")
+					-- small
 					elseif mod.NodeType and mod.NodeType == 1 then
-						-- append stat hash for
-						-- "local_jewel_mod_stats_added_to_small_passives"
-						bytes = bytes .. intToBytes(1498395485)
+						table.insert(stats, "local_jewel_mod_stats_added_to_small_passives")
 					end
-					tradeHashes[murmurHash2(bytes, 0x02312233)] = description
-					modIdx = modIdx + 1
+
+
+					local description, _, _ = describeStats(currentStats)
+
+					local tradeHash = hashStats(stats)
+					tradeHashes[tradeHash] = description
+					::innercontinue::
 				end
 				out:write("tradeHashes = { ")
 				for hash, desc in pairs(tradeHashes) do
-					local descriptionLines = '"'..table.concat(desc, '", "')..'"'
+					local descriptionLines = '"' .. table.concat(desc, '", "') .. '"'
 					out:write(string.format('[%d] = { %s }, ', hash, descriptionLines))
 				end
 				out:write('} ')
 				out:write('},\n')
 			else
-				print("Mod '"..mod.Id.."' has no stats")
+				print("Mod '" .. mod.Id .. "' has no stats")
 			end
 		end
 		::continue::
@@ -168,32 +225,41 @@ local function writeMods(outName, condFunc)
 end
 
 writeMods("../Data/ModItem.lua", function(mod)
-	return mod.Domain == 1 and (mod.GenerationType == 1 or mod.GenerationType == 2)
-	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards")) and not mod.Id:match("Master")
+	return mod.Domain == Domains.GenericMod and
+		(mod.GenerationType == GenTypes.Prefix or mod.GenerationType == GenTypes.Suffix)
+		and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1]) and (not mod.Id:match("Cowards")) and
+		not mod.Id:match("Master")
 end)
 writeMods("../Data/ModCorrupted.lua", function(mod)
-	return (mod.Domain == 11 or mod.Domain == 1) and (mod.GenerationType == 3 and mod.Id:match("SpecialCorruption") or mod.GenerationType == 5)
+	return (mod.Domain == Domains.Jewel or mod.Domain == Domains.GenericMod) and
+	(mod.GenerationType == GenTypes.Intrinsic and mod.Id:match("SpecialCorruption") or mod.GenerationType == GenTypes.Corruption)
 end)
 writeMods("../Data/ModFlask.lua", function(mod)
-	return mod.Domain == 2 and (mod.GenerationType == 1 or mod.GenerationType == 2) and mod.Id:match("^Flask")
+	return mod.Domain == Domains.FlaskCharm and
+	(mod.GenerationType == GenTypes.Prefix or mod.GenerationType == GenTypes.Suffix) and mod.Id:match("^Flask")
 end)
 writeMods("../Data/ModCharm.lua", function(mod)
-	return mod.Domain == 2 and ((mod.GenerationType == 1 and mod.Id:match("^Charm"))
-	or (mod.GenerationType == 2 and not mod.Id:match("Immunity"))) 
+	return mod.Domain == Domains.FlaskCharm and ((mod.GenerationType == GenTypes.Prefix and mod.Id:match("^Charm"))
+		or (mod.GenerationType == GenTypes.Suffix and not mod.Id:match("Immunity")))
 end)
 writeMods("../Data/ModJewel.lua", function(mod)
-	return (mod.Domain == 11 and (mod.GenerationType == 1 or mod.GenerationType == 2)) or (mod.Domain == 21 and mod.GenerationType == 3)
+	return (mod.Domain == Domains.Jewel and (mod.GenerationType == GenTypes.Prefix or mod.GenerationType == GenTypes.Suffix)) or
+	(mod.Domain == Domains.FlaskCharm1 and mod.GenerationType == GenTypes.Intrinsic)
 end)
 writeMods("../Data/ModIncursionLimb.lua", function(mod)
-	return (mod.Domain == 37 and mod.GenerationType == 3)
+	return (mod.Domain == Domains.IncursionLimb and mod.GenerationType == GenTypes.Intrinsic)
 end)
-writeMods("../Data/ModItemExclusive.lua", function(mod) -- contains primarily uniques and items implicits but also other mods only available on a single base or unique.
-	return (mod.Domain == 1 or mod.Domain == 2 or mod.Domain == 11 or mod.Domain == 22) and mod.GenerationType == 3
-	and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1])
-	and not mod.Id:match("^Synthesis") and not mod.Id:match("Royale") and not mod.Id:match("Cowards") and not mod.Id:match("Map") and not mod.Id:match("Ultimatum") and not mod.Id:match("SpecialCorruption")
-end)
+writeMods("../Data/ModItemExclusive.lua",
+	-- contains primarily uniques and items implicits but also other mods only available on a single base or unique.
+	function(mod)
+		return (mod.Domain == Domains.GenericMod or mod.Domain == Domains.FlaskCharm or mod.Domain == Domains.Jewel or mod.Domain == Domains.UniqueJewel) and
+			mod.GenerationType == GenTypes.Intrinsic
+			and (mod.Family[1] and mod.Family[1].Id ~= "AuraBonus" or not mod.Family[1])
+			and not mod.Id:match("^Synthesis") and not mod.Id:match("Royale") and not mod.Id:match("Cowards") and
+			not mod.Id:match("Map") and not mod.Id:match("Ultimatum") and not mod.Id:match("SpecialCorruption")
+	end)
 writeMods("../Data/ModVeiled.lua", function(mod)
-	return mod.Domain == 28 and not mod.Id:match("Map")
+	return mod.Domain == Domains.Veiled and not mod.Id:match("Map")
 end)
 
 print("Mods exported.")
