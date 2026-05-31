@@ -905,7 +905,13 @@ Wither                        		----		WitherPlayer
 Acidic Concoction             		----		AcidicConcoctionPlayer
 Align Fate                    		----		AlignFatePlayer
 Ancestral Spirits             		----		AncestralSpiritsPlayer
+Animus Exchange               		----		AnimusExchangePlayer
+Animus Splinters              		----		MetaAnimusSplintersPlayer	SupportAnimusSplintersPlayer
 Apocalypse                    		----		ApocalypsePlayer	ApocalypseColdPlayer	ApocalypseFirePlayer	ApocalypseLightningPlayer
+Archon of Chayula             		----		ArchonOfChayulaPlayer	ArchonOfChayulaTornadoPlayer
+Azmerian Swarms               		----		AzmerianSwarmPlayer
+Azmerian Wolf                 		----		SummonAzmerianWolfPlayer	CommandPackleaderPlayer
+Bitter Dead                   		----		BitterDeadPlayer
 Black Powder Blitz            		----		BlackPowderBlitzReservationPlayer	BlackPowderBlitzPlayer
 Bleeding Concoction           		----		BleedingConcoctionPlayer
 Blood Boil                    		----		BloodBoilPlayer
@@ -917,23 +923,37 @@ Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlo
 Cast on Charm Use             		----		MetaCastOnCharmUsePlayer	SupportMetaCastOnCharmUsePlayer
 Chaotic Surge                 		----		ChaosSpearTriggerChaosSurgePlayer
 Compose Requiem               		----		CrossbowRequiemAmmoPlayer	CrossbowRequiemPlayer
+Conductive Runes              		----		ConductiveRunesPlayer
 Crackling Palm                		----		CracklingPalmPlayer
 Crossbow Shot                 		----		MeleeCrossbowPlayer	UnloadAmmoPlayer
+Crushing Fear                 		----		CrushingFearPlayer
 Decompose                     		----		CorpsewadeCorpseCloudPlayer
 Demon Form                    		----		DemonFormPlayer
+Detonate Living               		----		DetonateLivingPlayer
 Elemental Expression          		----		ElementalExpressionTriggeredPlayer
 Elemental Storm               		----		ElementalStormPlayer
 Elemental Surge               		----		AmazonTriggerElementalSurgePlayer
 Encase in Jade                		----		EncaseInJadePlayer
+Eternal March                 		----		EternalMarchPlayer
 Explosive Concoction          		----		ExplosiveConcoctionPlayer
+Explosive Transmutation       		----		ExplosiveTransmutationPlayer	TriggeredExplosiveTransmutationExplosionPlayer
 Fire Spell on Melee Hit       		----		MetaCastFireSpellOnHitPlayer	SupportMetaCastFireSpellOnHitPlayer
+Fragments of the Past         		----		FragmentsOfThePastPlayer	FragmentsOfThePastFragmentPlayer
+Frostflame Nova               		----		FrostflameNovaPlayer
 Fulminating Concoction        		----		FulminatingConcoctionPlayer
 Future-Past                   		----		FuturePastPlayer
 Gemini Surge                  		----		GeminiSurgePlayer
+Grenade                       		----		MeleeGrenadeLauncherPlayer
+Grim Pillars                  		----		GrimPillarsPlayer
+Hollow Focus                  		----		HollowFocusPlayer
+Hollow Form                   		----		MetaHollowFormPlayer	SupportHollowFormPlayer
+Hollow Resonance              		----		HollowResonancePlayer
+Hollow Shell                  		----		HollowShellPlayer
 Inevitable Agony              		----		InevitableAgonyPlayer
 Into the Breach               		----		IntoTheBreachPlayer
 Kelari's Malediction          		----		CorpseBeetlesPlayer	CommandCorpseBeetleExplodePlayer
 Kelari, the Tainted Sands     		----		SummonSandDjinnPlayer	CommandSandDjinnKnifeThrowPlayer
+Leylines                      		----		LeylinesPlayer
 Life Remnants                 		----		LifeRemnantsPlayer
 Mace Strike                   		----		Melee1HMacePlayer
 Mace Strike                   		----		Melee2HMacePlayer
@@ -941,51 +961,84 @@ Mace Strike                   		----		MeleeMaceMacePlayer
 Manifest Weapon               		----		ManifestWeaponPlayer
 Maul                          		----		BearMaulPlayer
 Meditate                      		----		MeditatePlayer
+Midnight Zenith               		----		MidnightStarPlayer
+Mist Raven                    		----		SummonMistRavenPlayer	CommandMistRavenPlayer
 Molten Crash                  		----		MoltenCrashPlayer
+Molten Shower                 		----		TriggeredMoltenShowerPlayer
 Moment of Vulnerability       		----		MomentOfVulnerabilityPlayer
 Navira, the Last Mirage       		----		SummonWaterDjinnPlayer	CommandWaterDjinnBubblePlayer
 Parry                         		----		ParryPlayer
 Phantasmal Arrow              		----		PhantasmalArrowPlayer
 Pinnacle of Power             		----		PinnacleOfPowerPlayer
+Powered by Verisium           		----		PoweredByVerisiumPlayer
+Primal Bounty                 		----		PrimalBountyPlayer
 Punch                         		----		MeleeUnarmedPlayer
 Quarterstaff Strike           		----		MeleeQuarterstaffPlayer
+Rain of Blades                		----		RainOfBladesPlayer	RainOfBladesTriggeredPlayer
 Raise Shield                  		----		ShieldBlockPlayer
+Refutation                    		----		RefutationPlayer
+Remnants of Kalguur           		----		MetaRemnantsOfKalguurPlayer
 Rend                          		----		WyvernRendPlayer
+Repulsion                     		----		CurseOfRepulsionPlayer	CurseOfRepulsionShockwavePlayer
+Righteous Descent             		----		RighteousDescentPlayer
+Rite of Restoration           		----		SacredGroundPlayer
 Ritual Sacrifice              		----		RitualSacrificePlayer
+Runic Reprieve                		----		RunicReprievePlayer
 Runic Tempering               		----		RunicTemperingPlayer
 Ruzhan, the Blazing Sword     		----		SummonFireDjinnPlayer	CommandFireDjinnLivingBombPlayer
 Shattering Concoction         		----		ShatteringConcoctionPlayer
 Shattering Spite              		----		ShatteringSpitePlayer
 Shred                         		----		WolfShredPlayer	IceFragmentsPlayer
+Skyfall                       		----		SkyfallPlayer
+Soaring Midnight              		----		NightfallSoaringMidnightPlayer	NightfallEmbraceTheFallPlayer
 Sorcery Ward                  		----		SorceryWardPlayer
 Spear Stab                    		----		MeleeSpearOffHandPlayer
 Spear Stab                    		----		MeleeSpearPlayer
 Spear Throw                   		----		SpearThrowPlayer
+Spirit Vessel                 		----		SpiritVesselPlayer	SpiritVesselSupport
+Starborn Onslaught            		----		StarbornOnslaughtPlayer
 Summon Infernal Hound         		----		SummonInfernalHoundPlayer
 Supporting Fire               		----		SupportingFirePlayer	CommandDeathFromAbovePlayer
 Temper Weapon                 		----		TemperWeaponPlayer	TemperWeaponCombustionPlayer
 Temporal Rift                 		----		TemporalRiftPlayer
+The Stars Answer              		----		TheStarsAnswerPlayer	TheStarsAnswerCometPlayer
 Thundergod's Wrath            		----		MetaCastLightningSpellOnHitPlayer	SupportMetaCastLightningSpellOnHitPlayer
 Time Freeze                   		----		TimeFreezePlayer
 Time Snap                     		----		TimeSnapPlayer
+Triskelion Cascade            		----		TriskelionCascadePlayer
 Unbound Avatar                		----		UnboundAvatarPlayer
 Unleash                       		----		UnleashPlayer
 Valako's Charge               		----		ValakosChargePlayer
+Verisium Manifestations       		----		VerisiumManifestationPlayer	TriggeredManifestRunePlayer
+Vivid Stampede                		----		VividStampedePlayer
 Void Illusion                 		----		VoidIllusionPlayer	VoidIllusionSpawnPlayer
+Voltaic Barrier               		----		VoltaicBarrierPlayer	VoltaicBarrierTriggeredChainLightningPlayer
+Wardbound Minions             		----		WardboundMinionsPlayer
+Wild Protector                		----		WildProtectorPlayer
+Wildwood's Gifts              		----		AncientGiftsPlayer
+Withering Presence            		----		UniqueWitheringPresencePlayer
 
 						--------- Support Other ---------
 Arbiter's Reach               		----		ArbitersReachWardPlayer
 Breachlord's Amalgam          		----		SupportBreachlordsAmalgam
 Breachlord's Rift             		----		SupportBreachlordsRift
 Catha's Brilliance            		----		SupportCathasBrilliance
+Concussive Runes              		----		SupportConcussiveRunesPlayer	ConcussiveRunesPlayer
 Esh's Prowess                 		----		SupportEshsProwess
+Fist Of Kalguur               		----		SupportFistOfKalguurPlayer	TriggeredFistOfKalguurPlayer
+Healing Runes                 		----		SupportHealingRunesPlayer
 Her Declaration               		----		SupportHerDeclarationPlayer
 Medved's Felling              		----		SupportMedvedsFelling
 Mórrigan's Insight           		----		SupportMorrigansInsight	TriggeredMorrigansInsightPlayer
 Olroth's Conviction           		----		SupportOlrothsConvictionPlayer
 Olroth's Hubris               		----		SupportOlrothsHubrisPlayer
 Prototype Seventeen           		----		SupportPrototypeSeventeenPlayer
+Runeforged Blades             		----		SupportRuneforgedBladesPlayer	TriggeredRuneforgedBladesPlayer
+Runic Extraction              		----		SupportRunicExtractionPlayer
+Runic Infusion                		----		SupportRunicInfusionPlayer
+Scouring Flame                		----		SupportScouringFlamePlayer
 Seraph's Heart                		----		SupportSeraphsHeartPlayer
+Styrn's Anthem                		----		SupportKnightsAnthem
 Styrn's Ferocity              		----		SupportStyrnsFerocity
 Styrn's Mountain              		----		SupportStyrnsMountain
 Tangmazu's Thurible           		----		SupportTangMazusThuriblePlayer
@@ -1015,10 +1068,17 @@ Command: {0}                  		----		CommandWaterDjinnOasisPlayer
 Dagger Stab                   		----		MeleeDaggerDaggerPlayer
 Dagger Stab                   		----		MeleeDaggerPlayer
 Flail Strike                  		----		MeleeFlailPlayer
+Gelid Palm                    		----		GelidPalmPlayer
+Harbinger of Madness          		----		HarbingerOfMadnessPlayer
+Herald of the Royal Queen     		----		UniqueAtziriHeraldPlayer
 Ice Fragments                 		----		IceFragmentsPlayer
+Kinetic Bash                  		----		HazardousHoldoutPlayer
 Mirage Deadeye                		----		MetaMirageDeadeyePlayer	SupportMirageDeadeyePlayer	MirageDeadeyeSpawnPlayer
+Sanguine Revelry              		----		SanguineRevelryPlayer
+Smash to Smithereens          		----		SmashToSmithereensPlayer
 Summon Companion              		----		SummonMercenaryCompanionPlayer	SummonMercenaryCompanionSupportPlayer	UnloadAmmoPlayer
 Sword Slash                   		----		Melee1HSwordPlayer
 Sword Slash                   		----		Melee2HSwordPlayer
 Sword Slash                   		----		MeleeSwordSwordPlayer
+Virtuous Barrier              		----		VirtuousBarrierPlayer
 

@@ -47,6 +47,21 @@ statMap = {
 #mods
 #skillEnd
 
+#skill AnimusExchangePlayer
+#set AnimusExchangePlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaAnimusSplintersPlayer
+#set MetaAnimusSplintersPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportAnimusSplintersPlayer
+#skillEnd
+
 #from tree
 #skill ApocalypsePlayer
 #set ApocalypsePlayer
@@ -80,6 +95,56 @@ statMap = {
 
 #skill ArbitersReachWardPlayer
 #set ArbitersReachPlayer
+#mods
+#skillEnd
+
+#from tree
+#skill ArchonOfChayulaPlayer
+#set ArchonOfChayulaPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill ArchonOfChayulaTornadoPlayer
+#set ArchonOfChayulaTornadoPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill AzmerianSwarmPlayer
+#set AzmerianSwarmPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SummonAzmerianWolfPlayer
+#set SummonAzmerianWolfPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill CommandPackleaderPlayer
+#set CommandPackleaderPlayer
+#flags
+#mods
+#skillEnd
+
+#skill BitterDeadPlayer
+#set BitterDeadPlayer
+#flags
+#mods
+#set BitterDeadExplosionPlayer
+#flags
+#mods
+#set BitterDeadChillAuraPlayer
+#flags
+#mods
+#set BitterDeadRuneAuraPlayer
+#flags
 #mods
 #skillEnd
 
@@ -147,6 +212,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ConductiveRunesPlayer
+#set ConductiveRunesPlayer
+#flags
+#mods
+#set ConductiveRunesExplosionPlayer
+#flags
+#mods
+#skillEnd
+
 #from item
 #skill MeleeCrossbowPlayer
 #set MeleeCrossbowPlayer
@@ -158,6 +232,21 @@ statMap = {
 #skill UnloadAmmoPlayer
 #set UnloadAmmoPlayer
 #flags
+#mods
+#skillEnd
+
+#from item
+#skill CrushingFearPlayer
+#set CrushingFearPlayer
+#flags
+#mods
+#set CrushingFearNovaPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportConcussiveRunesPlayer
+#set SupportConcussiveRunesPlayer
 #mods
 #skillEnd
 
@@ -177,6 +266,15 @@ statMap = {
 		div = 60,
 	},
 },
+#mods
+#skillEnd
+
+#skill DetonateLivingPlayer
+#set DetonateLivingPlayer
+#flags
+#mods
+#set DetonateLivingExplodePlayer
+#flags
 #mods
 #skillEnd
 
@@ -261,10 +359,40 @@ statMap = {
 #mods
 #skillEnd
 
+#skill EternalMarchPlayer
+#set EternalMarchPlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
 #skill ExplosiveConcoctionPlayer
 #set ExplosiveConcoctionPlayer
 #flags attack projectile duration area
+#mods
+#skillEnd
+
+#skill ExplosiveTransmutationPlayer
+#set ExplosiveTransmutationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredExplosiveTransmutationExplosionPlayer
+#set ExplosiveTransmutationPhysicalPlayer
+#flags
+#mods
+#set ExplosiveTransmutationColdPlayer
+#flags
+#mods
+#set ExplosiveTransmutationFirePlayer
+#flags
+#mods
+#set ExplosiveTransmutationLightningPlayer
+#flags
+#mods
+#set ExplosiveTransmutationChaosPlayer
+#flags
 #mods
 #skillEnd
 
@@ -278,6 +406,38 @@ statMap = {
 #from tree
 #skill SupportMetaCastFireSpellOnHitPlayer
 #set SupportMetaCastFireSpellOnHitPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportFistOfKalguurPlayer
+#set SupportFistOfKalguurPlayer
+#mods
+#skillEnd
+
+#skill TriggeredFistOfKalguurPlayer
+#set TriggeredFistOfKalguurPlayer
+#flags
+#mods
+#skillEnd
+
+#skill FragmentsOfThePastPlayer
+#set FragmentsOfThePastPlayer
+#flags
+#mods
+#skillEnd
+
+#skill FragmentsOfThePastFragmentPlayer
+#set FragmentsOfThePastFragmentPlayer
+#flags
+#mods
+#skillEnd
+
+#skill FrostflameNovaPlayer
+#set FrostflameNovaPlayer
+#flags
+#mods
+#set FrostflameNovaColdHitPlayer
 #flags
 #mods
 #skillEnd
@@ -296,8 +456,65 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill MeleeGrenadeLauncherPlayer
+#set MeleeGrenadeLauncherPlayer
+#flags
+#mods
+#skillEnd
+
+#skill GrimPillarsPlayer
+#set GrimPillarsPlayer
+#flags
+#mods
+#set GrimPillarsExplodePlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportHerDeclarationPlayer
 #set SupportHerDeclarationPlayer
+#mods
+#skillEnd
+
+#skill SupportHealingRunesPlayer
+#set SupportHealingRunesPlayer
+#mods
+#skillEnd
+
+#from tree
+#skill HollowFocusPlayer
+#set HollowFocusPlayer
+#flags
+#mods
+#set HollowFocusNovaPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill MetaHollowFormPlayer
+#set MetaHollowFormPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill SupportHollowFormPlayer
+#set SupportHollowFormPlayer
+#mods
+#skillEnd
+
+#from tree
+#skill HollowResonancePlayer
+#set HollowResonancePlayer
+#flags
+#mods
+#skillEnd
+
+#skill HollowShellPlayer
+#set HollowShellPlayer
+#flags
 #mods
 #skillEnd
 
@@ -342,6 +559,12 @@ statMap = {
 #from tree
 #skill CommandSandDjinnKnifeThrowPlayer
 #set CommandSandDjinnKnifeThrowPlayer
+#flags
+#mods
+#skillEnd
+
+#skill LeylinesPlayer
+#set LeylinesPlayer
 #flags
 #mods
 #skillEnd
@@ -411,6 +634,62 @@ statMap = {
 
 #skill SupportMedvedsFelling
 #set SupportMedvedsFelling
+#mods
+#skillEnd
+
+#from item
+#skill MidnightStarPlayer
+#set MidnightStarPlayer
+#flags
+#mods
+#set MidnightStarIceCrystalDetonate
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill MetaMirageDeadeyePlayer
+#set MetaMirageDeadeyePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill SupportMirageDeadeyePlayer
+#set SupportMirageDeadeyePlayer
+statMap = {
+	["support_lingering_mirage_damage_+%_final"] = {
+		mod("Damage", "MORE", nil),
+	},
+},
+#mods
+#skillEnd
+
+#from tree
+#skill MirageDeadeyeSpawnPlayer
+#set MirageDeadeyeSpawnPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SummonMistRavenPlayer
+#set SummonMistRavenPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill CommandMistRavenPlayer
+#set CommandMistRavenPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill TriggeredMoltenShowerPlayer
+#set TriggeredMoltenShowerPlayer
+#flags
 #mods
 #skillEnd
 
@@ -506,6 +785,19 @@ statMap = {
 #mods
 #skillEnd
 
+#skill PoweredByVerisiumPlayer
+#set PoweredByVerisiumPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill PrimalBountyPlayer
+#set PrimalBountyPlayer
+#flags
+#mods
+#skillEnd
+
 #skill SupportPrototypeSeventeenPlayer
 #set SupportPrototypeSeventeenPlayer
 #mods
@@ -525,10 +817,34 @@ statMap = {
 #mods
 #skillEnd
 
+#skill RainOfBladesPlayer
+#set RainOfBladesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill RainOfBladesTriggeredPlayer
+#set RainOfBladesTriggeredPlayer
+#flags
+#mods
+#skillEnd
+
 #from item
 #skill ShieldBlockPlayer
 #set ShieldBlockPlayer
 #flags attack area shieldAttack melee
+#mods
+#skillEnd
+
+#skill RefutationPlayer
+#set RefutationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill MetaRemnantsOfKalguurPlayer
+#set MetaRemnantsOfKalguurPlayer
+#flags
 #mods
 #skillEnd
 
@@ -541,10 +857,66 @@ statMap = {
 #mods
 #skillEnd
 
+#skill CurseOfRepulsionPlayer
+#set CurseOfRepulsionPlayer
+#flags
+#mods
+#skillEnd
+
+#skill CurseOfRepulsionShockwavePlayer
+#set CurseOfRepulsionShockwavePlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill RighteousDescentPlayer
+#set RighteousDescentPlayer
+#flags
+#mods
+#set RighteousDescentPlayerBoosted
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SacredGroundPlayer
+#set SacredGroundPlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
 #skill RitualSacrificePlayer
 #set RitualSacrificePlayer
 #flags attack area
+#mods
+#skillEnd
+
+#skill SupportRuneforgedBladesPlayer
+#set SupportRuneforgedBladesPlayer
+#mods
+#skillEnd
+
+#skill TriggeredRuneforgedBladesPlayer
+#set TriggeredRuneforgedBladesPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportRunicExtractionPlayer
+#set SupportRunicExtractionPlayer
+#mods
+#skillEnd
+
+#skill SupportRunicInfusionPlayer
+#set SupportRunicInfusionPlayer
+#mods
+#skillEnd
+
+#skill RunicReprievePlayer
+#set RunicReprievePlayer
+#flags
 #mods
 #skillEnd
 
@@ -560,6 +932,11 @@ statMap = {
 #skill CommandFireDjinnLivingBombPlayer
 #set CommandFireDjinnLivingBombPlayer
 #flags
+#mods
+#skillEnd
+
+#skill SupportScouringFlamePlayer
+#set SupportScouringFlamePlayer
 #mods
 #skillEnd
 
@@ -592,6 +969,29 @@ statMap = {
 #skill IceFragmentsPlayer
 #set IceFragmentsPlayer
 #flags attack projectile area
+#mods
+#skillEnd
+
+#skill SkyfallPlayer
+#set SkyfallPlayer
+#flags
+#mods
+#set SkyfallInfusedPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill NightfallSoaringMidnightPlayer
+#set NightfallSoaringMidnightPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill NightfallEmbraceTheFallPlayer
+#set NightfallEmbraceTheFallPlayer
+#flags
 #mods
 #skillEnd
 
@@ -629,6 +1029,29 @@ statMap = {
 #mods
 #set SpearThrowFrenzyChargePlayer
 #flags attack projectile area
+#mods
+#skillEnd
+
+#from item
+#skill SpiritVesselPlayer
+#set SpiritVesselPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill SpiritVesselSupport
+#set SpiritVesselSupport
+#mods
+#skillEnd
+
+#from item
+#skill StarbornOnslaughtPlayer
+#set StarbornOnslaughtPlayer
+#flags
+#mods
+#set StarbornOnslaughtExplosions
+#flags
 #mods
 #skillEnd
 
@@ -721,6 +1144,23 @@ statMap = {
 #mods
 #skillEnd
 
+#from item
+#skill TheStarsAnswerPlayer
+#set TheStarsAnswerPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill TheStarsAnswerCometPlayer
+#set TheStarsAnswerCometPlayer
+#flags
+#mods
+#set TheStarsAnswerEmpoweredCometPlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
 #skill TimeFreezePlayer
 #set TimeFreezePlayer
@@ -742,6 +1182,12 @@ statMap = {
 
 #skill TriggeredFracturedSelfPlayer
 #set TriggeredFracturedSelfPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriskelionCascadePlayer
+#set TriskelionCascadePlayer
 #flags
 #mods
 #skillEnd
@@ -776,6 +1222,25 @@ statMap = {
 #mods
 #skillEnd
 
+#skill VerisiumManifestationPlayer
+#set VerisiumManifestationPlayer
+#flags
+#mods
+#skillEnd
+
+#skill TriggeredManifestRunePlayer
+#set TriggeredManifestRunePlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill VividStampedePlayer
+#set VividStampedePlayer
+#flags
+#mods
+#skillEnd
+
 #from tree
 #skill VoidIllusionPlayer
 #set VoidIllusionPlayer
@@ -787,6 +1252,18 @@ statMap = {
 #skill VoidIllusionSpawnPlayer Void Illusion
 #set VoidIllusionSpawnPlayer
 #flags attack
+#mods
+#skillEnd
+
+#skill VoltaicBarrierPlayer
+#set VoltaicBarrierPlayer
+#flags
+#mods
+#skillEnd
+
+#skill VoltaicBarrierTriggeredChainLightningPlayer
+#set VoltaicBarrierTriggeredChainLightningPlayer
+#flags
 #mods
 #skillEnd
 
@@ -802,6 +1279,26 @@ statMap = {
 
 #skill SupportVruunsAftermath
 #set SupportVruunsAftermath
+#mods
+#skillEnd
+
+#skill WardboundMinionsPlayer
+#set WardboundMinionsPlayer
+#flags
+#mods
+#skillEnd
+
+#from tree
+#skill WildProtectorPlayer
+#set WildProtectorPlayer
+#flags
+#mods
+#skillEnd
+
+#from item
+#skill AncientGiftsPlayer
+#set AncientGiftsPlayer
+#flags
 #mods
 #skillEnd
 
@@ -937,28 +1434,6 @@ skills["EnemyExplode"] = {
 		},
 	}
 }
-
-#skill MetaMirageDeadeyePlayer
-#set MetaMirageDeadeyePlayer
-#flags
-#mods
-#skillEnd
-
-#skill SupportMirageDeadeyePlayer
-#set SupportMirageDeadeyePlayer
-statMap = {
-	["support_lingering_mirage_damage_+%_final"] = {
-		mod("Damage", "MORE", nil),
-	},
-},
-#mods
-#skillEnd
-
-#skill MirageDeadeyeSpawnPlayer
-#set MirageDeadeyeSpawnPlayer
-#flags
-#mods
-#skillEnd
 
 skills["ThornsPlayer"] = {
 	name = "Thorns",
