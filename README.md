@@ -50,6 +50,77 @@ Head over to the [Releases](https://github.com/PathOfBuildingCommunity/PathOfBui
   * Share builds with other users by generating a share code
   * Automatic updating; most updates will only take a couple of seconds to apply
 
+## Running Tests
+
+The test suite uses [Busted](https://lunarmodules.github.io/busted/) with LuaJIT and runs inside a pre-built Docker/Podman image.
+
+### Prerequisites
+
+You need either **Docker** or **Podman** installed and available in your PATH. No other local dependencies are required — the test image bundles LuaJIT, Busted, and LuaCov.
+
+### Run all tests
+
+**With Docker:**
+```bash
+docker run --rm \
+  -e HOME=/tmp \
+  -v "$(pwd)":/workdir:ro \
+  -w /workdir \
+  ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+  busted --lua=luajit
+```
+
+**With Podman:**
+```bash
+podman run --rm \
+  -e HOME=/tmp \
+  -v "$(pwd)":/workdir:ro \
+  -w /workdir \
+  ghcr.io/pathofbuildingcommunity/pathofbuilding-tests:latest \
+  busted --lua=luajit
+```
+
+**With Docker Compose** (if `docker compose` v2 is available):
+```bash
+docker compose run --rm busted-tests
+```
+
+### Run a subset of tests
+
+Pass a `--tags` filter to scope which tests run:
+
+```bash
+# Build snapshot tests (slow)
+... busted --lua=luajit --tags builds
+
+# Data file validation only
+... busted --lua=luajit --tags data
+```
+
+### Run with coverage
+
+```bash
+... busted --lua=luajit --coverage
+```
+
+Coverage output is written to `luacov.report.out`. Compare against `main` to ensure coverage does not drop.
+
+### Test layout
+
+| Path | Purpose |
+|------|---------|
+| `spec/System/` | Busted test suite (all `*_spec.lua` files) |
+| `src/HeadlessWrapper.lua` | Test bootstrap / headless PoB initialiser |
+| `.busted` | Busted configuration (working dir, helper, Lua path) |
+| `docker-compose.yml` | Convenience wrapper for the test container |
+| `Dockerfile` | Definition of the test image |
+
+### Notes
+
+- Tests must pass before opening a PR: `370 successes` is the baseline on `dev`.
+- The two known failures in `TestWard_spec.lua` are in-progress work (Ward regen/bypass not yet implemented).
+- Numeric calculation tests assert specific stat values within ±0.01 tolerance.
+
 ## Changelog
 You can find the full version history [here](CHANGELOG.md).
 
