@@ -1,6 +1,13 @@
 local gimpBatch = require("Tree/GimpBatch/gimp_batch")
 local nvtt = LoadModule("Tree/nvtt")
 local json = require("dkjson")
+local assetSheets = LoadModule("Scripts/ScriptResources/AssetSheets")
+
+local newSheet = assetSheets.newSheet
+local addToSheet = assetSheets.addToSheet
+local extractSheetFiles = assetSheets.extractSheetFiles
+local calculateDDSPack = assetSheets.calculateDDSPack
+local parseUIImages = assetSheets.parseUIImages
 
 -- by session we would like to don't extract the same file multiple times
 main.treeCacheExtract = main.treeCacheExtract or { }
@@ -77,37 +84,6 @@ local function round_to(num, decimal_places)
     return math.floor(num * multiplier + 0.5) / multiplier
 end
 
-local function extractSheetFiles(allSheets, is4kEnabled, extraFiles)
-	local filesToExtract = {}
-	local seen = {}
-	for _, sheet in ipairs(allSheets) do
-		for icon in pairs(sheet.files) do
-			if not seen[icon] then
-				seen[icon] = true
-				table.insert(filesToExtract, icon)
-			end
-			if is4kEnabled then
-				local icon4k = icon:gsub("(.*/)([^/]+)$", "%14k/%2")
-				if not seen[icon4k] then
-					seen[icon4k] = true
-					table.insert(filesToExtract, icon4k)
-				end
-			end
-		end
-	end
-	if extraFiles then
-		for _, file in ipairs(extraFiles) do
-			if not seen[file] then
-				seen[file] = true
-				table.insert(filesToExtract, file)
-			end
-		end
-	end
-	if #filesToExtract > 0 then
-		main.ggpk:ExtractList(filesToExtract, cacheExtract)
-	end
-end
-
 local function print_table(t, indent)
     indent = indent or 0
     local prefix = string.rep("  ", indent)
@@ -128,123 +104,6 @@ local function print_table(t, indent)
     end
 end
 
-local function newSheet(name, startWidth, saturation)
-	return {
-		name = name,
-		startWidth = startWidth,
-		saturation = saturation,
-		sprite = { },
-		files = {}
-	}
-end
-local function addToSheet(sheet, icon, section, metadata)
-	sheet.files[icon] = sheet.files[icon] or {}
-	if sheet.files[icon][section] then
-		-- check if metadata alias already exists
-		if metadata.alias then
-			for _, meta in pairs(sheet.files[icon][section]) do
-				if meta.alias == metadata.alias then
-					return
-				end
-			end
-		else
-			for _, meta in pairs(sheet.files[icon][section]) do
-				if meta.alias == nil then
-					return
-				end
-			end
-		end
-	end
-	sheet.files[icon][section] = sheet.files[icon][section] or {}
-	table.insert(sheet.files[icon][section], metadata)
-end
-
-local function calculateDDSPack(sheet, from_base, to_base, is4kEnabled)
-	local stackTextures = {}
-	local ddsCoords = {}
-
-	for icon, sections in pairsSortByKey(sheet.files) do
-		local tex = Texture.new()
-		local rc
-		if is4kEnabled then
-			local icon4k = icon:gsub("(.*/)([^/]+)$", "%14k/%2")
-			rc = tex:Load(from_base .. string.lower(icon4k))
-		end
-		if not rc then
-			rc = tex:Load(from_base .. string.lower(icon))
-		end
-
-		local info = tex:Info()
-		local ident = string.format("%d_%d_%s", info.width, info.height, info.formatStr)
-
-		if not stackTextures[ident] then
-			stackTextures[ident] = {}
-		end
-
-		table.insert(stackTextures[ident], {
-			tex = tex,
-			icon = icon,
-			sections = sections
-		})
-	end
-
-
-	for iden, stackInfo in pairsSortByKey(stackTextures) do
-		local stacks = {}
-		local file = sheet.name .. "_" .. iden .. ".dds.zst"
-		ddsCoords[file] = {}
-		for position, stack in ipairs(stackInfo) do
-			for _, metadata in pairs(stack.sections) do
-				for _, meta in ipairs(metadata) do
-					local icon = meta.alias or stack.icon
-					ddsCoords[file][icon] = position
-				end
-			end
-			table.insert(stacks, stack.tex)
-		end
-		local stackTex = Texture.new()
-		local rc = stackTex:StackTextures(stacks)
-		rc = stackTex:Save(to_base .. file)
-	end
-	sheet.ddsCoords = ddsCoords
-end
-
-local function parseUIImages(file)
-	local text
-	if main.ggpk.txt[file] then
-		text = main.ggpk.txt[file]
-	else
-		text = convertUTF16to8(getFile(file))
-		main.ggpk.txt[file] = text
-	end
-	
-	local images = {}
-	
-	for line in text:gmatch("[^\r\n]+") do
-		local index = 0
-		local name = ""
-		for field in line:gmatch('"?([^%s"]+)"?') do
-			if index == 0 then
-				name = string.lower(field)
-				images[name] = {}
-			elseif index ==1 then
-				images[name]["path"] = string.lower(field)
-			elseif index == 2 then
-				images[name]["x"] = tonumber(field)
-			elseif index == 3 then
-				images[name]["y"] = tonumber(field)
-			elseif index == 4 then
-				images[name]["width"] = tonumber(field)
-			elseif index == 5 then
-				images[name]["height"] = tonumber(field)
-			end
-			index = index + 1
-		end
-	end
-	printf("UI Images parsed")
-	return images
-end
-
 --[[
 	===== Extraction =====
 	Extraction of passives tree from psg file
@@ -262,7 +121,7 @@ local use4kIfPossible = false
 local idPassiveTree = 'Default'
 -- Find a way to get version
 local basePath = GetWorkDir() .. "/../TreeData/"
-local version = "0_4"
+local version = "0_5"
 local path = basePath .. version .. "/"
 local fileTree = path .. "tree.lua"
 
@@ -300,7 +159,7 @@ end
 
 f:read(11)
 
-local psg = { 
+local psg = {
 	passives = { },
 	groups = { },
 }
@@ -318,7 +177,7 @@ local groupCount = getInt(f)
 
 --printf("Group count: " .. groupCount)
 for i = 1 , groupCount do
-	local group = { 
+	local group = {
 		x = getFloat(f),
 		y = getFloat(f),
 		flags = getInt(f),
@@ -390,7 +249,6 @@ local sheets = {
 	newSheet("lines", defaultMaxWidth, 100),
 	newSheet("jewel-sockets", defaultMaxWidth, 100),
 	newSheet("legion", defaultMaxWidth, 100),
-	newSheet("monster-categories", defaultMaxWidth, 100),
 }
 local sheetLocations = {
 	["skills"] = 1,
@@ -403,7 +261,6 @@ local sheetLocations = {
 	["lines"] = 8,
 	["jewel-sockets"] = 9,
 	["legion"] = 10,
-	["monster-categories"] = 11,
 }
 local connectionArtToDecompose = {
 	Character = true,
@@ -566,20 +423,6 @@ for jewel in uniqueJewelArt:Rows() do
 	:: nexttogo ::
 end
 
--- adding monster types
-local monsterCategories = dat("MonsterCategories")
-for category in monsterCategories:Rows() do
-	if category.Type:find(ignoreFilter) ~= nil then
-		printf("Ignoring category" .. category.Type)
-		goto nexttogo
-	end
-	local asset = uiImages[string.lower(category.HudImage)]
-	--printf("Adding category " .. category.Type .. " " .. asset.path .. " to sprite")
-	local name = category.Type
-	addToSheet(getSheet("monster-categories"), asset.path, "monster-categories", commonMetadata(name))
-	:: nexttogo	::
-end
-
 -- adding legion assets
 for legion in dat("AlternatePassiveSkills"):Rows() do
 	addToSheet(getSheet("legion"), legion.DDSIcon, "legion", commonMetadata(legion.DDSIcon))
@@ -684,7 +527,7 @@ for i, classId in ipairs(psg.passives) do
 	end
 
 	local listCharacters = passiveRow.ClassStart
-	
+
 	if listCharacters == nil then
 		printf("Characters not found")
 		goto continue
@@ -783,7 +626,7 @@ end
 local base_attributes = {
 	[26297] = {}, -- str
 	[14927] = {}, -- dex
-	[57022] = {}--int
+	[57022] = {}  --int
 }
 
 for id, _ in pairs(base_attributes) do
@@ -842,7 +685,7 @@ for i, group in ipairs(psg.groups) do
 			["group"] = i,
 			["orbit"] = passive.radius,
 			["orbitIndex"] = passive.position,
-			["connections"] = {},	
+			["connections"] = {},
 		}
 
 		-- Get Information from passive Skill
@@ -886,6 +729,12 @@ for i, group in ipairs(psg.groups) do
 				addToSheet(getSheet("skills-disabled"), passiveRow.Icon, "normalInactive", commonMetadata(nil))
 			end
 
+			-- Sinister jewel support
+			if passiveRow.JewelSocket and passiveRow.AnointOnly then
+				node["aliasPassiveSocket"] = passiveRow.Id
+				node["noRadius"] = true
+			end
+
 			-- Ascendancy
 			if passiveRow.Ascendancy ~= nil then
 				groupIsAscendancy = true
@@ -919,7 +768,7 @@ for i, group in ipairs(psg.groups) do
 							path = uiSocketCanAllocate.path,
 							unalloc = uiSocketNormal.path,
 						}
-						
+
 					else
 						--printf("Jewel socket not found for ascendancy " .. passiveRow.Ascendancy.Name)
 					end
@@ -960,9 +809,9 @@ for i, group in ipairs(psg.groups) do
 			end
 
 			-- Enable Ascendancy Unlock
-			if passiveRow.AscendancyUnlock ~= nil then
+			if passiveRow.ConstraintNode ~= nil and #passiveRow.ConstraintNode > 0 then
 				node.unlockConstraint = {
-					ascendancy = passiveRow.AscendancyUnlock.Name,
+					ascendancy = passiveRow.AscendancyUnlock and passiveRow.AscendancyUnlock.Name or nil,
 					nodes = {}
 				}
 
@@ -982,6 +831,13 @@ for i, group in ipairs(psg.groups) do
 				local totalStats = 0
 				local namesStats = ""
 				for k, stat in ipairs(passiveRow.Stats) do
+					if k > 5 then
+						printf("HERE ===========================================================================================>>>")
+						printf(" - more than 5 stats, skipping the rest for passive " .. passiveRow.Name .. " " .. passive.id)
+						print(namesStats .. stat.Id .. " | ")
+						printf("HERE ===========================================================================================>>>")
+						break
+					end
 					parseStats[stat.Id] = { min = passiveRow["Stat" .. k], max = passiveRow["Stat" .. k] }
 					totalStats = totalStats + 1
 					namesStats = namesStats .. stat.Id .. " | "
@@ -1040,7 +896,7 @@ for i, group in ipairs(psg.groups) do
 					table.insert(node["stats"], "Grants Skill: " .. skillName)
 
 					-- -- include the stat description
-					local statDescription =string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -5)
+					local statDescription = string.sub(string.lower(gemEffect.GrantedEffect.ActiveSkill.StatDescription), 1, -5)
 					local handle = NewFileSearch("ggpk/" .. statDescription ..".csd")
 					local almostOnce = false
 					while handle do
@@ -1152,7 +1008,7 @@ for i, group in ipairs(psg.groups) do
 				if passiveRow.JewelSocket and ascendancyRow.UIArt.JewelFrame then
 					-- override the jewel socket assets if any
 					local uioverride = ascendancyRow.UIArt.JewelFrame
-					
+
 					local uiSocketNormal = uiImages[string.lower(uioverride.Normal)]
 					addToSheet(getSheet("group-background"), uiSocketNormal.path, "frame", commonMetadata(nil))
 
@@ -1210,7 +1066,7 @@ for i, group in ipairs(psg.groups) do
 				node["applyToArmour"] = true
 			end
 		end
-		
+
 		for k, connection in ipairs(passive.connections) do
 			table.insert(node.connections, {
 				id = connection.id,
@@ -1273,7 +1129,7 @@ for orbit, skillsInOrbit in ipairs(tree.constants.skillsPerOrbit) do
 	tree.constants.orbitAnglesByOrbit[orbit] = CalcOrbitAngles(skillsInOrbit)
 end
 
--- Update position of ascendancy base on min / max 
+-- Update position of ascendancy base on min / max
 -- get the orbit radius + hard-coded value, calculate the angle of the class start
 -- translate the ascendancy to the new position in arc position
 local widthTree, heightTree = tree.max_x - tree.min_x, tree.max_y - tree.min_y
@@ -1304,7 +1160,7 @@ for i, classId in ipairs(psg.passives) do
 	for _, class in ipairs(classes) do
 		for _, ascendancy in ipairs(class.ascendancies) do
 			--printf("Positioning ascendancy " .. ascendancy.name .. " for class " .. class.name)
-			
+
 			local angle = startAngle + (j - 1) * angleStep
 			local cX = hardCoded * math.cos(angle)
 			local cY = hardCoded * math.sin(angle)
@@ -1393,7 +1249,7 @@ end
 
 
 --printf("Generating sprite info...")
-extractSheetFiles(sheets, use4kIfPossible, linesDds)
+extractSheetFiles(sheets, use4kIfPossible, linesDds, cacheExtract)
 for i, sheet in ipairs(sheets) do
 	--printf("Calculating sprite dimensions for " .. sheet.name)
 	calculateDDSPack(sheet, main.ggpk.oozPath, basePath .. version .. "/", use4kIfPossible)

@@ -68,6 +68,7 @@ skills["SupportExplosiveGrowthPlayerTwo"] = {
 skills["TriggeredExplosiveGrowthPlayerTwo"] = {
 	name = "Accelerated Growth",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/ExplosiveGrowth.dds",
 	description = "Spawn a verdant flower that grows and explodes.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
 	castTime = 0,
@@ -216,6 +217,7 @@ skills["SupportExplosiveGrowthPlayer"] = {
 skills["TriggeredExplosiveGrowthPlayer"] = {
 	name = "Accelerated Growth",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/ExplosiveGrowth.dds",
 	description = "Spawn a verdant flower that grows and explodes.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Spell] = true, },
 	castTime = 0,
@@ -836,6 +838,9 @@ skills["SupportBitingFrostPlayer"] = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
 				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
+				},
 			},
 			baseFlags = {
 			},
@@ -872,6 +877,9 @@ skills["SupportBitingFrostPlayerTwo"] = {
 			statMap = {
 				["support_active_skill_consume_enemy_freeze_to_gain_damage_+%_final"] = {
 					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+				},
+				["support_biting_frost_damage_+%_final_vs_frozen_unique_enemies"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }, { type = "ActorCondition", actor = "enemy", var = "Unique" }),
 				},
 			},
 			baseFlags = {
@@ -910,7 +918,10 @@ skills["SupportBlazingCriticalPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_blazing_crits_gain_%_fire_damage_with_attacks_on_critical_hit"] = {
-					mod("DamageAsFire", "BASE", ModFlag.Attack, 0, 0, { type = "Condition", var = "CriticalStrike" }),
+					mod("DamageGainAsFire", "BASE", nil, ModFlag.Attack, 0, { type = "Condition", var = "CritRecently" }),
+				},
+				["support_blazing_crits_base_duration_ms"] = {
+					-- Display only
 				},
 			},
 			baseFlags = {
@@ -959,6 +970,7 @@ skills["SupportBoneShrapnelPlayer"] = {
 skills["TriggeredBoneShrapnelPlayer"] = {
 	name = "Bone Shrapnel Explosion",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Deal Physical Area Damage based off of the maximum Life of the Pinned target slain.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Physical] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -1190,6 +1202,7 @@ skills["SupportBurningRunesPlayer"] = {
 skills["TriggeredBurningRunesPlayer"] = {
 	name = "Burning Inscription",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Create Ignited Ground Igniting Enemies based on a percentage of your Maximum Mana.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -1340,6 +1353,7 @@ skills["SupportCatalysingElementsPlayer"] = {
 skills["TriggeredCatalysingDischargePlayer"] = {
 	name = "Catalysing Discharge",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressArcticArmour.dds",
 	description = "Triggered when supported skill is boosted by an Elemental Ground Surface to deal damage of the matching Element.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 0,
@@ -1782,7 +1796,6 @@ skills["SupportClarityPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 10, },
 	},
@@ -1793,7 +1806,7 @@ skills["SupportClarityPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity I" }),
 				},
 			},
 			baseFlags = {
@@ -1818,7 +1831,6 @@ skills["SupportClarityPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Clarity",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 20, },
 	},
@@ -1829,7 +1841,7 @@ skills["SupportClarityPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_clarity_mana_regeneration_rate_+%"] = {
-					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity" }),
+					mod("ManaRegen", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Clarity II" }),
 				},
 			},
 			baseFlags = {
@@ -1900,11 +1912,6 @@ skills["SupportColdExposurePlayer"] = {
 			label = "Cold Exposure",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["inflict_cold_exposure_for_x_ms_on_cold_crit"] = {
-					mod("ColdExposureChance", "BASE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2220,6 +2227,7 @@ skills["SupportDeadlyCurrentPlayer"] = {
 skills["TriggeredDeadlyCurrentPlayer"] = {
 	name = "Coursing Current",
 	hidden = true,
+	icon = "Art/2DItems/Gems/New/NewSupport/DeadlyCurrentSupportGem.dds",
 	description = "Sends a Chaining Lightning Projectile from the Shocked enemy towards a nearby Drenched enemy, dealing Spell damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Lightning] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNotFromUser] = true, [SkillType.Chains] = true, [SkillType.Spell] = true, [SkillType.Cooldown] = true, },
 	castTime = 0,
@@ -2349,11 +2357,18 @@ skills["SupportCracklingBarrierPlayer"] = {
 	levels = {
 		[1] = { levelRequirement = 0, },
 	},
+			grantsThornsDamage = true,
 	statSets = {
 		[1] = {
 			label = "Crackling Barrier",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["return_%_of_maximum_mana_as_lightning_damage_to_attacker_while_channelling"] = {
+					mod("LightningMin", "BASE", nil, ModFlag.Thorns, 0, { type = "PercentStat", stat = "Mana", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Crackling Barrier" }, { type = "Condition", var = "Channelling" }),
+					mod("LightningMax", "BASE", nil, ModFlag.Thorns, 0, { type = "PercentStat", stat = "Mana", percent = 1 }, { type = "GlobalEffect", effectType = "Buff", effectName = "Crackling Barrier" }, { type = "Condition", var = "Channelling" }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2430,6 +2445,7 @@ skills["SupportCreepingChillPlayer"] = {
 skills["TriggeredCreepingChillPlayer"] = {
 	name = "Creeping Chill",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Creates spreading Chilled Ground around Ice Crystals created by Supported Skills.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Cold] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.AttackInPlace] = true, [SkillType.CreatesGroundEffect] = true, },
 	castTime = 1,
@@ -2584,6 +2600,11 @@ skills["SupportCrescendoPlayerTwo"] = {
 			label = "Crescendo II",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_crescendo_non_final_strike_attack_speed_+%_final"] = {
+					mod("Speed", "MORE", nil, ModFlag.Attack, 0, { type = "Condition", var = "FinalStrike", neg = true})
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -2785,6 +2806,9 @@ skills["SupportDecayingHexPlayer"] = {
 			},
 			baseFlags = {
 			},
+			baseMods = {
+				mod("Multiplier:ChaosDebuff", "BASE", 1, 0, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Decaying Hex" }),
+			},
 			constantStats = {
 				{ "support_decaying_hex_base_chaos_damage_per_minute_as_%_of_intelligence_for_8_seconds", 6000 },
 			},
@@ -2935,6 +2959,7 @@ skills["SupportDoedresUndoingPlayer"] = {
 skills["TriggeredCurseZoneHazardExplosionPlayer"] = {
 	name = "Doedre's Dark Design",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Explodes and deals Chaos Damage when an Enemy enters the area, applying the supported Curse on Hit.",
 	skillTypes = { [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Triggerable] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.Chaos] = true, [SkillType.Spell] = true, [SkillType.AreaSpell] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -3119,6 +3144,7 @@ skills["SupportShockingRiftPlayer"] = {
 skills["TriggeredShockingRiftPlayer"] = {
 	name = "Electromagnetism",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	description = "Pull enemies in and pulse Lightning damage, Hindering enemies Hit. Each pulse increases in damage, with the final pulse dealing additional damage.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Sustained] = true, [SkillType.Lightning] = true, [SkillType.AttackInPlace] = true, [SkillType.Damage] = true, [SkillType.Spell] = true, },
 	castTime = 0,
@@ -3371,6 +3397,7 @@ skills["SupportElementalDischargePlayer"] = {
 skills["TriggeredElementalDischargePlayer"] = {
 	name = "Elemental Discharge",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/SorceressArcticArmour.dds",
 	description = "Triggered when supported skill Consumes Ignite, Shock, or Freeze, to deal damage of Types matching the Consumed Ailments.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
@@ -3532,36 +3559,6 @@ skills["SupportEncroachingGroundPlayer"] = {
 		},
 	}
 }
-skills["SupportEnergyBarrierPlayer"] = {
-	name = "Energy Barrier",
-	description = "Supports any skill that you can use, causing Energy Shield recharge to begin immediately if you are Stunned while using it.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Instant, SkillType.Persistent, },
-	gemFamily = { "EnergyBarrier",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Energy Barrier",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "support_no_energy_shield_recharge_delay_for_duration_ms_on_stunned", 2000 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportEnergyCapacitorPlayer"] = {
 	name = "Energy Capacitor",
 	description = "Supports Invocation Skills which Trigger other Skills. Supported Skills have significantly higher Maximum Energy.",
@@ -3686,6 +3683,34 @@ skills["SupportEssenceHarvestPlayer"] = {
 		},
 	}
 }
+skills["SupportEternalMarkPlayer"] = {
+	name = "Eternal Mark",
+	description = "Supports Mark Skills, causing them to not be Consumed the first time they are Activated.",
+	color = 3,
+	support = true,
+	requireSkillTypes = { SkillType.Mark, },
+	addSkillTypes = { },
+	excludeSkillTypes = { },
+	gemFamily = { "EternalMark",},
+	levels = {
+		[1] = { levelRequirement = 0, manaMultiplier = 10, },
+	},
+	statSets = {
+		[1] = {
+			label = "Eternal Mark",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "gem_stat_descriptions",
+			baseFlags = {
+			},
+			stats = {
+				"marks_avoid_consumption_when_first_activated",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
+			},
+		},
+	}
+}
 skills["SupportExcisePlayer"] = {
 	name = "Excise",
 	description = "Supports any damaging Skill that you use yourself, granting it significantly higher chance to Critically Hit, but causing it to gain a long cooldown. Cannot support Skills which already have a cooldown.",
@@ -3778,7 +3803,22 @@ skills["SupportExpandPlayer"] = {
 			label = "Expand",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_expand_max_seals"] = {
+					mod("SealCount", "BASE", nil),
+				},
+				["skill_area_of_effect_+%_per_expand_seal"] = {
+					mod("SealRepeatPenalty", "MORE", nil),
+				},
+				["expand_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+					mod("SealGainFrequency", "BASE", nil),
+				},
+			},
 			baseFlags = {
+			},
+			baseMods = {
+				flag("HasSeals"),
+				flag("AreaSeal"),
 			},
 			constantStats = {
 				{ "support_expand_max_seals", 3 },
@@ -3971,6 +4011,7 @@ skills["SupportFieryDeathPlayer"] = {
 skills["TriggeredFieryDeathPlayer"] = {
 	name = "Fiery Death",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/burntground.dds",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Fire] = true, [SkillType.TargetsDestructibleCorpses] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -4550,6 +4591,7 @@ skills["SupportHayoxisBindingPlayer"] = {
 skills["SupportTriggeredAnnihilationPlayer"] = {
 	name = "Annihilation",
 	hidden = true,
+	icon = "",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Instant] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Physical] = true, [SkillType.Chaos] = true, [SkillType.Fire] = true, [SkillType.Lightning] = true, [SkillType.Cold] = true, },
 	castTime = 0,
 	qualityStats = {
@@ -4719,35 +4761,6 @@ skills["SupportHexBloomPlayer"] = {
 				{ "transfer_hexes_to_X_nearby_enemies_on_kill", 1 },
 			},
 			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportHinderPlayer"] = {
-	name = "Hinder",
-	description = "Supports Spells that deal non-Ailment Chaos damage over time, causing damage over time they inflict to also Hinder enemies. Does not Support Skills used by Minions.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, SkillType.DamageOverTime, SkillType.Chaos, SkillType.AND, SkillType.AND, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Hinder",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Hinder",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			stats = {
-				"support_hinder_dots_also_apply_hinder",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -4967,6 +4980,7 @@ skills["ViciousHexSupportPlayer"] = {
 skills["DoomBlastPlayer"] = {
 	name = "Doom Blast",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/ViciousHex.dds",
 	description = "Deal Chaos damage in an area around the previously Cursed enemy.",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Area] = true, [SkillType.Damage] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.AreaSpell] = true, [SkillType.Chaos] = true, [SkillType.Cooldown] = true, [SkillType.InbuiltTrigger] = true, [SkillType.SkillGrantedBySupport] = true, },
 	castTime = 1,
@@ -5150,7 +5164,7 @@ skills["SupportInevitableCriticalsPlayerTwo"] = {
 					mod("Multiplier:InevitableCritCap", "BASE", nil),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_per_second"] = {
-					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitTotal = true }),
+					mod("CritMultiplier", "MORE", nil, 0, 0, { type = "Multiplier", var = "SecondsSinceInevitableCrit", limitVar = "InevitableCritMultCap", limitNegTotal = true }),
 				},
 				["support_inevitable_criticals_critical_strike_multiplier_+%_final_cap"] = {
 					mod("Multiplier:InevitableCritMultCap", "BASE", nil),
@@ -5472,6 +5486,7 @@ skills["SupportLivingLightningPlayer"] = {
 skills["TriggeredLivingLightningPlayer"] = {
 	name = "Living Lightning",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/LivingLightningSkill.dds",
 	minionList = {
 		"LivingLightning",
 	},
@@ -5628,6 +5643,7 @@ skills["SupportLivingLightningPlayerTwo"] = {
 skills["TriggeredLivingLightningPlayerTwo"] = {
 	name = "Living Lightning",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/LivingLightningSkill.dds",
 	minionList = {
 		"LivingLightning",
 	},
@@ -5851,6 +5867,7 @@ skills["SupportManaFlarePlayer"] = {
 skills["TriggeredManaFlarePlayer"] = {
 	name = "Mana Flare",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
 	skillTypes = { [SkillType.Spell] = true, [SkillType.Damage] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Triggerable] = true, [SkillType.Cooldown] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -6069,7 +6086,7 @@ skills["SupportMinionPactPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6106,7 +6123,7 @@ skills["SupportMinionPactPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_minion_pact_damage_+%_final"] = {
-					mod("Damage", "MORE", nil),
+					mod("Damage", "MORE", nil, 0, 0, { type = "MultiplierThreshold", var = "MinionPresenceCount", threshold = 1 }),
 				},
 			},
 			baseFlags = {
@@ -6142,6 +6159,14 @@ skills["SupportMorganasTempestPlayer"] = {
 			label = "Morgana's Tempest",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_approaching_storms_area_of_effect_+%_final"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+				["support_approaching_storms_damage_+%_final"] = {
+					mod("Damage", "MORE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6205,7 +6230,6 @@ skills["SupportMysticismPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -6216,7 +6240,7 @@ skills["SupportMysticismPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism I" }),
 				},
 			},
 			baseFlags = {
@@ -6241,7 +6265,6 @@ skills["SupportMysticismPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Mysticism",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -6252,7 +6275,7 @@ skills["SupportMysticismPlayerTwo"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
 				["support_spell_damage_spirit_cost_spell_damage_+%_on_full_energy_shield"] = {
-					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism" }),
+					mod("Damage", "INC", nil, ModFlag.Spell, 0, { type = "Condition", var = "FullEnergyShield" }, { type = "GlobalEffect", effectType = "Buff", effectName = "Mysticism II" }),
 				},
 			},
 			baseFlags = {
@@ -6300,7 +6323,7 @@ skills["SupportNadirPlayer"] = {
 	}
 }
 skills["SupportOisinsOathPlayer"] = {
-	name = "Oisín's Oath",
+	name = "Oisin's Oath",
 	description = "Supports Skills which Hit enemies, causing their Mana Leech to recover based on Elemental damage instead of Physical damage.",
 	color = 3,
 	support = true,
@@ -6315,7 +6338,7 @@ skills["SupportOisinsOathPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Oisín's Oath",
+			label = "Oisin's Oath",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
 			statMap = {
@@ -6457,42 +6480,6 @@ skills["SupportPotentExposurePlayer"] = {
 				{ "exposure_effect_+%", 20 },
 			},
 			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportPotentialPlayer"] = {
-	name = "Potential",
-	description = "Supports Skills that you use yourself. Supported Skills will consume a Power Charge on use if possible, and will be much more likely to Critically Hit if they do. Supported Skills cannot generate Power Charges.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.CrossbowAmmoSkill, SkillType.Attack, },
-	addSkillTypes = { SkillType.SupportedByPotential, },
-	excludeSkillTypes = { SkillType.Triggered, SkillType.Minion, SkillType.SummonsTotem, SkillType.UsedByTotem, SkillType.Persistent, SkillType.SkillConsumesPowerChargesOnUse, SkillType.SupportedByPotential, SkillType.NOT, SkillType.AND, },
-	gemFamily = { "Potential",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Potential",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["skill_consume_power_charge_to_gain_critical_strike_chance_+%_final"] = {
-					mod("CritChance", "MORE", nil, 0, 0, { type = "Multiplier", var = "RemovablePowerCharge", limit = 1 }),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "skill_consume_power_charge_to_gain_critical_strike_chance_+%_final", 40 },
-			},
-			stats = {
-				"skill_cannot_generate_power_charges",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -6721,45 +6708,6 @@ skills["SupportRapidCastingPlayerThree"] = {
 		},
 	}
 }
-skills["SupportRimePlayer"] = {
-	name = "Rime",
-	description = "Supports Skills which create Ground Surfaces, causing Enemies Chilled by those Surfaces to be more easily Frozen, but at the cost of some Chill magnitude.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.CreatesGroundEffect, },
-	addSkillTypes = { },
-	excludeSkillTypes = { },
-	gemFamily = { "Rime",},
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Rime",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["chilled_ground_applies_%_freeze_multiplier_taken"] = {
-					mod("EnemyFreezeBuildup", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Rime" }, { type = "ActorCondition", actor = "enemy", var = "OnChilledGround" }),
-				},
-				["support_winterblast_chill_effect_+%_final"] = {
-					mod("EnemyChillMagnitude", "MORE", nil),
-				},
-			},
-			baseFlags = {
-			},
-			constantStats = {
-				{ "chilled_ground_applies_%_freeze_multiplier_taken", -20 },
-				{ "support_winterblast_chill_effect_+%_final", -30 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportTempestuousTempoPlayer"] = {
 	name = "Rising Tempest",
 	description = "Supports Skills which deal Damage, raising Elemental Damage dealt for each Skill used Recently of a different Elemental type. Cannot support Minion Skills.",
@@ -6812,6 +6760,11 @@ skills["SupportRitualisticCursePlayer"] = {
 			label = "Ritualistic Curse",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "gem_stat_descriptions",
+			statMap = {
+				["support_ritual_curse_curse_delay_+%_final"] = {
+					mod("CurseDelay", "MORE", nil),
+				},
+			},
 			baseFlags = {
 			},
 			constantStats = {
@@ -6969,6 +6922,7 @@ skills["SupportShockConductionPlayerTwo"] = {
 	levels = {
 		[1] = { levelRequirement = 0, manaMultiplier = 20, },
 	},
+	legacy = true,
 	statSets = {
 		[1] = {
 			label = "Shock Conduction II",
@@ -7172,6 +7126,7 @@ skills["SupportStaticShocksPlayer"] = {
 skills["TriggeredStaticShocksPlayer"] = {
 	name = "Static Shocks",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Support/GroundingShocksSupport.dds",
 	description = "Attaches a Static Shock to a target that pulses Lightning damage to the attached target and nearby enemies. Targets can have a maximum of one Static Shock attached to them.",
 	skillTypes = { [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.Damage] = true, [SkillType.Area] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.Lightning] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, [SkillType.Sustained] = true, [SkillType.Spell] = true, [SkillType.Duration] = true, },
 	castTime = 0,
@@ -7332,7 +7287,6 @@ skills["SupportStrongHeartedPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "StrongHearted",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -7494,36 +7448,6 @@ skills["SupportThrillOfTheKillPlayerTwo"] = {
 		},
 	}
 }
-skills["SupportUnbendingPlayer"] = {
-	name = "Unbending",
-	description = "Supports Spell Skills you use yourself. While using Supported Skills, a percentage of Damage taken is Recouped as Mana, with the percentage scaling higher the longer the Cast time of the Supported Skill. Cannot Support Channelling Skills.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { SkillType.Spell, },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.Persistent, SkillType.Minion, SkillType.UsedByTotem, SkillType.SummonsTotem, SkillType.Channel, SkillType.Triggered, },
-	gemFamily = { "Unbending",},
-	levels = {
-		[1] = { levelRequirement = 0, manaMultiplier = 20, },
-	},
-	statSets = {
-		[1] = {
-			label = "Unbending",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "damage_taken_%_recouped_as_mana_while_performing_spell_per_250_ms_cast_time", 8 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
 skills["SupportUnleashPlayer"] = {
 	name = "Unleash",
 	description = "Supports Spells you cast yourself, making their effect reoccur when cast. Cannot support Channelling Skills or Skills with a Cooldown.",
@@ -7541,21 +7465,11 @@ skills["SupportUnleashPlayer"] = {
 			label = "Unleash",
 			incrementalEffectiveness = 0.092720001935959,
 			statDescriptionScope = "gem_stat_descriptions",
-			statMap = {
-				["support_anticipation_rapid_fire_count"] = {
-					mod("SealCount", "BASE", nil),
-				},
-				["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
-					mod("SealGainFrequency", "BASE", nil),
-				},
-				["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
-					mod("SealRepeatPenalty", "MORE", nil),
-				},
-			},
 			baseFlags = {
 			},
 			baseMods = {
 				flag("HasSeals"),
+				flag("DamageSeal"),
 			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -50 },
@@ -7579,7 +7493,6 @@ skills["SupportUpwellingPlayer"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 15, },
 	},
@@ -7610,7 +7523,6 @@ skills["SupportUpwellingPlayerTwo"] = {
 	addSkillTypes = { },
 	excludeSkillTypes = { },
 	gemFamily = { "Upwellling",},
-	isLineage = true,
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },
 	},
@@ -7718,37 +7630,6 @@ skills["SupportVilentasPropulsionPlayer"] = {
 			},
 			constantStats = {
 				{ "cast_speed_additive_modifiers_also_apply_to_projectile_speed_at_%_value", 75 },
-			},
-			stats = {
-			},
-			levels = {
-				[1] = { actorLevel = 1, },
-			},
-		},
-	}
-}
-skills["SupportVolatilePowerPlayer"] = {
-	name = "Volatile Power",
-	description = "Supports Skills which you use yourself. On using Supported Skills while they are Empowered, you gain Volatility.",
-	color = 3,
-	support = true,
-	requireSkillTypes = { },
-	addSkillTypes = { },
-	excludeSkillTypes = { SkillType.UsedByTotem, SkillType.Triggered, SkillType.Meta, SkillType.Persistent, SkillType.Triggered, },
-	gemFamily = { "VolatilePower",},
-	ignoreMinionTypes = true,
-	levels = {
-		[1] = { levelRequirement = 0, },
-	},
-	statSets = {
-		[1] = {
-			label = "Volatile Power",
-			incrementalEffectiveness = 0.054999999701977,
-			statDescriptionScope = "gem_stat_descriptions",
-			baseFlags = {
-			},
-			constantStats = {
-				{ "gain_X_volatility_on_empowered_skill_use", 5 },
 			},
 			stats = {
 			},
@@ -7950,6 +7831,7 @@ skills["SupportXibaquasRendingPlayer"] = {
 skills["TriggeredXibaquasRendingPlayer"] = {
 	name = "Fiery Reclamation",
 	hidden = true,
+	icon = "Art/2DArt/SkillIcons/Rolldodge.dds",
 	description = "Deals Fire damage in an area around the exploding Corpse based on its maximum Life.",
 	skillTypes = { [SkillType.SkillGrantedBySupport] = true, [SkillType.Area] = true, [SkillType.Fire] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.TargetsDestructibleCorpses] = true, },
 	castTime = 1,
@@ -8037,6 +7919,10 @@ skills["SupportZarokhsRevoltPlayer"] = {
 			statDescriptionScope = "gem_stat_descriptions",
 			baseFlags = {
 			},
+			baseMods = {
+				flag("HasSeals"),
+				flag("DamageSeal"),
+			},
 			constantStats = {
 				{ "support_spell_rapid_fire_repeat_use_damage_+%_final", -20 },
 				{ "unleash_support_seal_gain_frequency_as_%_of_total_cast_time", 50 },
@@ -8050,7 +7936,6 @@ skills["SupportZarokhsRevoltPlayer"] = {
 		},
 	}
 }
-
 skills["SupportZenithPlayer"] = {
 	name = "Zenith I",
 	description = "Supports Spell Skills. Supported Skills deal more damage while you are above 90% of your Maximum Mana. Does not modify Skills used by Minions.",

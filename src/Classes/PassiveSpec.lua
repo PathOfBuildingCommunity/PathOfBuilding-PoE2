@@ -16,6 +16,12 @@ local b_rshift = bit.rshift
 local band = AND64 -- bit.band
 local bor = OR64 -- bit.bor
 
+local legacyClassIdMap = {
+	["0_1"] = { [0] = 2, [1] = 6, [2] = 9, [3] = 1, [4] = 7, [5] = 10 },
+	["0_2"] = { [0] = 2, [1] = 8, [2] = 6, [3] = 9, [4] = 1, [5] = 7, [6] = 10 },
+	["0_3"] = { [0] = 2, [1] = 8, [2] = 6, [3] = 9, [4] = 1, [5] = 7, [6] = 10 },
+}
+
 local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, build, treeVersion, convert)
 	self.UndoHandler()
 
@@ -24,7 +30,7 @@ local PassiveSpecClass = newClass("PassiveSpec", "UndoHandler", function(self, b
 	-- Initialise and build all tables
 	self:Init(treeVersion, convert)
 
-	self:SelectClass(0)
+	self:SelectClass(self.tree.constants.classes.DexClass)
 end)
 
 function PassiveSpecClass:Init(treeVersion, convert)
@@ -72,7 +78,7 @@ function PassiveSpecClass:Init(treeVersion, convert)
 	-- Keys are node IDs, values are nodes
 	self.allocNodes = { }
 
-	-- List of nodes allocated in subgraphs; used to maintain allocation when loading, and when rebuilding subgraphs
+	-- List of nodes allocated in subgraphs, used to maintain allocation when loading, and when rebuilding subgraphs
 	self.allocSubgraphNodes = { }
 
 	-- List of cluster nodes to allocate
@@ -124,11 +130,14 @@ function PassiveSpecClass:Load(xml, dbFileName)
 							launch:ShowErrMsg("^1Error parsing '%s': 'Socket' element missing 'itemId' attribute", dbFileName)
 							return true
 						end
-						-- there are files which have been saved poorly and have empty jewel sockets saved as sockets with itemId zero.
-						-- this check filters them out to prevent dozens of invalid jewels
-						jewelIdNum = tonumber(child.attrib.itemId)
-						if jewelIdNum > 0 then
-							self.jewels[tonumber(child.attrib.nodeId)] = jewelIdNum
+						-- Some saved builds contain stale jewel socket item IDs after the
+						-- referenced item has been removed from the item list. Keep those
+						-- broken references out of the active tree state so later radius and
+						-- loadout code doesn't try to index a missing item.
+						local jewelIdNum = tonumber(child.attrib.itemId)
+						local nodeIdNum = tonumber(child.attrib.nodeId)
+						if nodeIdNum and jewelIdNum and jewelIdNum > 0 and self.build.itemsTab.items[jewelIdNum] then
+							self.jewels[nodeIdNum] = jewelIdNum
 						end
 					end
 				end
@@ -172,6 +181,8 @@ function PassiveSpecClass:Load(xml, dbFileName)
 			if self.tree.classIntegerIdMap[classInternalId] then
 				classId = self.tree.classIntegerIdMap[classInternalId]
 			end
+		elseif classId ~= -1 and legacyClassIdMap[self.treeVersion] then
+			classId = legacyClassIdMap[self.treeVersion][classId] or classId
 		end
 		if xml.attrib.ascendancyInternalId then
 			local ascendancyInternalId = tostring(xml.attrib.ascendancyInternalId)
@@ -841,9 +852,104 @@ end
 -- Allocate the given node, if possible, and all nodes along the path to the node
 -- An alternate path to the node may be provided, otherwise the default path will be used
 -- The path must always contain the given node, as will be the case for the default path
+function PassiveSpecClass:CanPathThroughAllocMode(allocMode, node)
+	-- Normal allocation can only use normal nodes, weapon set allocation can also use its own set.
+	local nodeMode = node.allocMode or 0
+	return nodeMode == 0 or allocMode > 0 and nodeMode == allocMode
+end
+
+function PassiveSpecClass:GetAllocationPath(target, allocMode, allocatedOnly, skipRoot)
+	-- Build a shortest path using only roots and allocated nodes that are valid for the requested alloc mode.
+	local visited = { }
+	local prev = { }
+	local queue = { }
+	local o = 1
+	for _, node in pairs(self.allocNodes) do
+		-- Start from every compatible allocated node so the first hit is the shortest valid route.
+		if node ~= skipRoot and self:CanPathThroughAllocMode(allocatedOnly and 0 or allocMode, node) then
+			visited[node] = true
+			queue[#queue + 1] = node
+		end
+	end
+	while queue[o] do
+		local node = queue[o]
+		o = o + 1
+		if node == target then
+			local path = { }
+			local current = target
+			-- Rebuild the path backwards from the target to the allocated root.
+			while current and prev[current] do
+				t_insert(path, current)
+				current = prev[current]
+			end
+			-- Keep the root outside the path list so hover rendering can preview the first connector.
+			path.root = current
+			return path
+		end
+		if node.unlockConstraint then
+			for _, nodeId in ipairs(node.unlockConstraint.nodes) do
+				if not self.nodes[nodeId].alloc then
+					goto continue
+				end
+			end
+		end
+		for _, other in ipairs(node.linked) do
+			local canPath = true
+			if other.unlockConstraint then
+				for _, nodeId in ipairs(other.unlockConstraint.nodes) do
+					if not self.nodes[nodeId].alloc then
+						canPath = false
+						break
+					end
+				end
+			end
+			local otherMode = other.allocMode or 0
+			local canVisit = allocatedOnly and other.alloc and self:CanPathThroughAllocMode(allocMode, other) and (otherMode > 0 or other.type ~= "ClassStart" and other.type ~= "AscendClassStart") or not allocatedOnly and (not other.alloc or self:CanPathThroughAllocMode(allocMode, other))
+			-- Keep the normal tree, weapon set 1, and weapon set 2 as separate pathing graphs.
+			if canPath and canVisit and not visited[other] and node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and (node.ascendancyName == other.ascendancyName or (not prev[node] and not other.ascendancyName)) then
+				visited[other] = true
+				prev[other] = node
+				queue[#queue + 1] = other
+			end
+		end
+		::continue::
+	end
+end
+
+function PassiveSpecClass:GetEffectiveAllocationPath(node, altPath)
+	local path = altPath or node.path
+	if altPath or #node.intuitiveLeapLikesAffecting > 0 then
+		return path
+	end
+	local pathRoot = node.pathRoot
+	local pathRootMode = pathRoot and pathRoot.allocMode or 0
+	if pathRootMode == 0 then
+		return path
+	end
+	if self.allocMode == 0 and pathRoot.alloc then
+		-- Normal allocation through a weapon-set branch promotes that branch back to normal pathing.
+		path = { unpack(path) }
+		local rootPath = self:GetAllocationPath(pathRoot, pathRootMode, true, pathRoot)
+		path.root = rootPath and rootPath.root
+		for _, pathNode in ipairs(rootPath or { pathRoot }) do
+			if not isValueInArray(path, pathNode) then
+				t_insert(path, pathNode)
+			end
+		end
+	elseif self.allocMode > 0 and pathRootMode ~= self.allocMode then
+		-- Weapon-set paths cannot start from the other weapon set, so recalculate from compatible roots.
+		path = self:GetAllocationPath(node, self.allocMode)
+	end
+	return path
+end
+
 function PassiveSpecClass:AllocNode(node, altPath)
 	if not node.path then
 		-- Node cannot be connected to the tree as there is no possible path
+		return
+	end
+	local path = self:GetEffectiveAllocationPath(node, altPath)
+	if not path then
 		return
 	end
 
@@ -853,7 +959,7 @@ function PassiveSpecClass:AllocNode(node, altPath)
 		node.allocMode = (node.ascendancyName or node.type == "Keystone" or node.type == "Socket" or node.containJewelSocket) and 0 or self.allocMode
 		self.allocNodes[node.id] = node
 	else
-		for _, pathNode in ipairs(altPath or node.path) do
+		for _, pathNode in ipairs(path) do
 			pathNode.alloc = true
 			pathNode.allocMode = (node.ascendancyName or pathNode.type == "Keystone" or pathNode.type == "Socket" or pathNode.containJewelSocket) and 0 or self.allocMode
 			-- set path attribute nodes to latest chosen attribute or default to Strength if allocating before choosing an attribute
@@ -941,7 +1047,8 @@ end
 
 -- Attempt to find a class start node starting from the given node
 -- Unless noAscent == true it will also look for an ascendancy class start node
-function PassiveSpecClass:FindStartFromNode(node, visited, noAscend)
+function PassiveSpecClass:FindStartFromNode(node, visited, noAscend, allocMode)
+	allocMode = allocMode or node.allocMode or 0
 	-- Mark the current node as visited so we don't go around in circles
 	node.visited = true
 	t_insert(visited, node)
@@ -951,9 +1058,9 @@ function PassiveSpecClass:FindStartFromNode(node, visited, noAscend)
 		--  - the other node is a start node, or
 		--  - there is a path to a start node through the other node which didn't pass through any nodes which have already been visited
 		local startIndex = #visited + 1
-		if other.alloc and
+		if other.alloc and self:CanPathThroughAllocMode(allocMode, other) and
 		  (other.type == "ClassStart" or other.type == "AscendClassStart" or
-		    (not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend))
+		    (not other.visited and node.type ~= "Mastery" and self:FindStartFromNode(other, visited, noAscend, allocMode))
 		  ) then
 			if node.ascendancyName and not other.ascendancyName then
 				-- Pathing out of Ascendant, un-visit the outside nodes
@@ -983,6 +1090,7 @@ end
 function PassiveSpecClass:BuildPathFromNode(root)
 	root.pathDist = 0
 	root.path = { }
+	root.pathRoot = root
 	local queue = { root }
 	local o, i = 1, 2 -- Out, in
 	while o < i do
@@ -1023,13 +1131,14 @@ function PassiveSpecClass:BuildPathFromNode(root)
 			if not other.pathDist then
 				ConPrintTable(other, true)
 			end
-			if node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) and canPath then
+			if node.type ~= "Mastery" and other.type ~= "ClassStart" and other.type ~= "AscendClassStart" and (not other.alloc or self:CanPathThroughAllocMode(root.allocMode or 0, other)) and other.pathDist > curDist and (node.ascendancyName == other.ascendancyName or (curDist == 0 and not other.ascendancyName)) and canPath then
 				-- The shortest path to the other node is through the current node
 				other.pathDist = curDist
 				if not other.alloc then
 					other.pathDist = other.pathDist + 1
 				end
 				other.path = wipeTable(other.path)
+				other.pathRoot = root
 				other.path[1] = other
 				for i, n in ipairs(node.path) do
 					other.path[i+1] = n
@@ -1106,9 +1215,12 @@ end
 function PassiveSpecClass:NodesInIntuitiveLeapLikeRadius(node)
 	local result = { }
 	if self.jewels[node.id] and self.jewels[node.id] > 0 then
-		local item = self.build.itemsTab.items[self.jewels[node.id]]
+		local item = self:GetJewel(self.jewels[node.id])
+		if not item then
+			return result
+		end
 		local radiusIndex = item.jewelRadiusIndex
-		if item and item.jewelData and item.jewelData.intuitiveLeapLike then
+		if item.jewelData.intuitiveLeapLike then
 			local inRadius = self.nodes[node.id].nodesInRadius and self.nodes[node.id].nodesInRadius[radiusIndex]
 			for affectedNodeId, affectedNode in pairs(inRadius or {}) do
 				if self.nodes[affectedNodeId].alloc then
@@ -1494,13 +1606,13 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 		node.connectedToStart = false
 		local anyStartFound = (node.type == "ClassStart" or node.type == "AscendClassStart")
 		for _, other in ipairs(node.linked) do
-			if other.alloc and not isValueInArray(node.depends, other) then
+			if other.alloc and self:CanPathThroughAllocMode(node.allocMode or 0, other) and not isValueInArray(node.depends, other) then
 				-- The other node is allocated and isn't already dependent on this node, so try and find a path to a start node through it
 				if other.type == "ClassStart" or other.type == "AscendClassStart" then
 					-- Well that was easy!
 					anyStartFound = true
 					node.connectedToStart = true
-				elseif self:FindStartFromNode(other, visited) then
+				elseif self:FindStartFromNode(other, visited, nil, node.allocMode or 0) then
 					-- We found a path through the other node, therefore the other node cannot be dependent on this node
 					anyStartFound = true
 					node.connectedToStart = true
@@ -1522,13 +1634,13 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 							local otherPath = false
 							local allocatedLinkCount = 0
 							for _, linkedNode in ipairs(n.linked) do
-								if linkedNode.alloc then
+								if linkedNode.alloc and self:CanPathThroughAllocMode(n.allocMode or 0, linkedNode) then
 									allocatedLinkCount = allocatedLinkCount + 1
 								end
 							end
 							if allocatedLinkCount > 1 then
 								for _, linkedNode in ipairs(n.linked) do
-									if linkedNode.alloc and not depIds[linkedNode.id] then
+									if linkedNode.alloc and self:CanPathThroughAllocMode(n.allocMode or 0, linkedNode) and not depIds[linkedNode.id] then
 										otherPath = true
 									end
 								end
@@ -1699,6 +1811,7 @@ function PassiveSpecClass:BuildAllDependsAndPaths()
 	for id, node in pairs(self.nodes) do
 		node.pathDist = (node.alloc and #node.intuitiveLeapLikesAffecting == 0) and 0 or 1000
 		node.path = nil
+		node.pathRoot = nil
 		if node.isJewelSocket or node.expansionJewel then
 			node.distanceToClassStart = 0
 		end

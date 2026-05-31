@@ -414,7 +414,7 @@ return {
 	mod("Cost", "MORE", nil),
 	value = -100,
 },
-["base_mana_cost_efficiency_"] = {
+["base_mana_cost_efficiency_+%"] = {
 	mod("ManaCostEfficiency", "INC", nil),
 },
 ["base_life_cost_+%"] = {
@@ -576,6 +576,9 @@ return {
 ["base_cooldown_speed_+%_final"] = {
 	mod("CooldownRecovery", "MORE", nil),
 },
+["support_cooldown_reduction_cooldown_recovery_+%"] = {
+	mod("CooldownRecovery", "MORE", nil),
+},
 ["additional_weapon_base_attack_time_ms"] = {
 	mod("Speed", "BASE", nil, ModFlag.Attack),
 	div = 1000,
@@ -583,8 +586,17 @@ return {
 ["warcry_speed_+%"] = {
 	mod("WarcrySpeed", "INC", nil, 0, KeywordFlag.Warcry),
 },
+["warcry_empowers_per_X_monster_power_mp_cap"] = {
+	mod("WarcryPowerCap", "BASE", nil),
+},
+["warcry_empowers_per_X_monster_power"] = {
+	mod("WarcryPowerPer", "BASE", nil),
+},
 ["display_this_skill_cooldown_does_not_recover_during_buff"] = {
 	flag("NoCooldownRecoveryInDuration"),
+},
+["channelled_skill_do_not_go_on_cooldown_on_finishing_channel"] = {
+	flag("CooldownDoesNotLimitSkillSpeed"),
 },
 ["totem_skill_cast_speed_+%"] = {
 	mod("Speed", "INC", nil, ModFlag.Cast, KeywordFlag.Totem),
@@ -648,6 +660,9 @@ return {
 },
 ["critical_strike_chance_+%"] = {
 	mod("CritChance", "INC", nil),
+},
+["active_skill_critical_strike_chance_+%_final"] = {
+	mod("CritChance", "MORE", nil)
 },
 ["spell_critical_strike_chance_+%"] = {
 	mod("CritChance", "INC", nil, ModFlag.Spell),
@@ -817,6 +832,12 @@ return {
 },
 ["active_skill_damage_+%_final"] = {
 	mod("Damage", "MORE", nil),
+},
+["support_damage_+%_final_per_combo_stack"] = {
+	mod("Damage", "MORE", nil, 0, 0, { type = "Multiplier", var = "ComboStacks", limitVar = "ComboStacksMax" }),
+},
+["skill_maximum_number_of_combo_stacks"] = {
+	mod("Multiplier:ComboStacksMax", "BASE", nil),
 },
 ["support_no_fear_damage_+%_final_per_second_up_to_30%"] = {
 	mod("Damage", "MORE", nil, 0, 0,
@@ -1002,7 +1023,7 @@ return {
 	mod("ImprovedSpellDamageAppliesToAttacks", "MAX", nil),
 },
 ["additive_thorns_damage_modifiers_apply_to_attack_damage"] = {
-	flag("ThornsDamageAppliesToHits"),
+	flag("ThornsDamageApplyToAttackDamage"),
 },
 ["active_skill_main_hand_weapon_damage_+%_final"] = {
 	mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "MainHandAttack" }),
@@ -1622,6 +1643,9 @@ return {
 ["number_of_additional_curses_allowed"] = {
 	mod("EnemyCurseLimit", "BASE", nil),
 },
+["curse_ignores_curse_limit"] = {
+	flag("CursesIgnoreCurseLimit")
+},
 ["consecrated_ground_enemy_damage_taken_+%"] = {
 	mod("DamageTakenConsecratedGround", "INC", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }, { type = "Condition", var = "OnConsecratedGround" }),
 },
@@ -1640,11 +1664,49 @@ return {
 ["base_inflict_fire_exposure_on_hit_%_chance"] = {
 	mod("FireExposureChance", "BASE", nil),
 },
+["inflict_exposure_for_x_ms_on_shock"] = {
+	mod("ExposureDuration", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Shocked"}),
+	flag("InflictExposure", { type = "ActorCondition", actor = "enemy", var = "Shocked"}),
+},
+["inflict_exposure_for_x_ms_on_cold_crit"] = {
+	mod("ExposureDuration", "BASE", nil, 0, 0, { type = "Condition", var = "CritInPast8Sec"}, { type = "Condition", var = "ColdHasDamage"}),
+	flag("InflictExposure", { type = "Condition", var = "CritInPast8Sec"}, { type = "Condition", var = "ColdHasDamage"}),
+},
+["inflict_exposure_for_x_ms_on_ignite"] = {
+	mod("ExposureDuration", "BASE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
+	flag("InflictExposure", { type = "ActorCondition", actor = "enemy", var = "Ignited"}),
+},
+["inflict_exposure_on_hit_%_chance"] = {
+	mod("LightningExposureChance", "BASE", nil),
+	mod("ColdExposureChance", "BASE", nil),
+	mod("FireExposureChance", "BASE", nil),
+},
+["all_exposure_on_hit_for_duration_ms"] = {
+	mod("ExposureDuration", "BASE", nil),
+	flag("InflictExposure"),
+},
+["inflict_all_exposure_on_hit"] = {
+	flag("InflictExposure"),
+},
 ["all_exposure_on_hit_magnitude"] = {
 	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
 	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
 	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
-	mult = -1,
+},
+['active_skill_all_elemental_exposure_magnitude'] = {
+	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+},
+["skill_base_oil_exposure_-_to_total_elemental_resistance"] = {
+	mod("FireExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("ColdExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+	mod("LightningExposure", "BASE", nil, 0, 0, { type = "GlobalEffect", effectType = "Debuff" }),
+},
+["exposure_effect_+%"] = {
+	mod("FireExposureEffect", "INC", nil),
+	mod("ColdExposureEffect", "INC", nil),
+	mod("LightningExposureEffect", "INC", nil),
 },
 ["offering_spells_effect_+%"] = {
 	mod("BuffEffect", "INC", nil),
@@ -2174,6 +2236,18 @@ return {
 ["spell_maximum_added_chaos_damage"] = {
 	mod("ChaosMax", "BASE", nil, 0, KeywordFlag.Spell),
 },
+["support_spell_damage_+%_final_while_above_90%_maximum_mana"] = {
+	mod("Damage", "MORE", nil, 0, KeywordFlag.Spell, { type = "Condition", var = "FullMana"}),
+},
+["support_anticipation_rapid_fire_count"] = {
+	mod("SealCount", "BASE", nil),
+},
+["unleash_support_seal_gain_frequency_as_%_of_total_cast_time"] = {
+	mod("SealGainFrequency", "BASE", nil),
+},
+["support_spell_rapid_fire_repeat_use_damage_+%_final"] = {
+	mod("SealRepeatPenalty", "MORE", nil),
+},
 
 --
 -- Skill type modifier
@@ -2395,6 +2469,12 @@ return {
 ["base_number_of_skeletons_allowed"] = {
 	mod("ActiveSkeletonLimit", "BASE", nil),
 },
+["base_number_of_animated_weapons_allowed"] = {
+	mod("ActiveAnimatedWeaponLimit", "BASE", nil),
+},
+["base_number_of_support_ghosts_allowed"] = {
+	mod("ActivePhantasmLimit", "BASE", nil),
+},
 ["base_number_of_raging_spirits_allowed"] = {
 	mod("ActiveRagingSpiritLimit", "BASE", nil),
 },
@@ -2512,6 +2592,32 @@ return {
 ["slam_aftershock_chance_%"] = {
 	mod("AftershockChance", "BASE", nil)
 },
+-- Final Strike
+["final_strike_is_ancestrally_boosted"] = {
+	flag("Condition:AncestrallyBoosted", { type = "Condition", var = "FinalStrike" }),
+	flag("MaxBoostedUptimeRatio", { type = "Condition", var = "FinalStrike"}),
+},
+["is_final_strike"] = {
+	flag("Condition:FinalStrike"),
+},
+["ancestral_slam_interval_duration"] = {
+	{
+		mod("FistOfWarCooldown", "BASE", nil),
+		div = 1000,
+	},
+	flag("Condition:AncestrallyBoosted"),
+},
+["ancestral_call_spirit_strike_interval_ms"] = {
+	{
+		mod("AncestralCallCooldown", "BASE", nil),
+		div = 1000,
+	},
+	flag("Condition:AncestrallyBoosted"),
+},
+["double_ancestral_boost_effect"] = {
+	mod("Multiplier:AncestralBoostEffect", "BASE", nil),
+	value = 1,
+},
 -- Curse
 ["curse_effect_+%"] = {
 	mod("CurseEffect", "INC", nil),
@@ -2520,6 +2626,9 @@ return {
 	mod("CurseEffectAgainstPlayer", "INC", nil),
 },
 ["mark_skills_curse_effect_+%"] = {
+	mod("CurseEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Mark }),
+},
+["mark_effect_+%"] = {
 	mod("CurseEffect", "INC", nil, 0, 0, { type = "SkillType", skillType = SkillType.Mark }),
 },
 ["curse_area_of_effect_+%"] = {
@@ -2656,6 +2765,9 @@ return {
 ["withered_on_hit_chance_%"] = {
 	flag("Condition:CanWither"),
 },
+["apply_x_wither_on_hit"] = {
+	flag("Condition:CanWither"),
+},
 ["minions_have_%_chance_to_inflict_wither_on_hit"] = {
 	mod("MinionModifier", "LIST", { mod = flag("Condition:CanWither") }),
 },
@@ -2666,6 +2778,9 @@ return {
 	flag("Condition:CanWither"),
 },
 ["withered_on_hit_chance_%_for_every_100%_target_ailment_threshold_dealt_as_chaos_damage"] = {
+	flag("Condition:CanWither"),
+},
+["wither_on_hit_chance_rollovercapped"] = {
 	flag("Condition:CanWither"),
 },
 ["discharge_damage_+%_if_3_charge_types_removed"] = {
@@ -2680,9 +2795,11 @@ return {
 ["base_limit_+"] = {
 	mod("AdditionalCooldownUses", "BASE", nil),
 },
+["support_storm_skill_limit_+"] = {
+	mod("AdditionalCooldownUses", "BASE", nil, 0, 0, { type = "SkillType", skillType = SkillType.Storm }),
+},
 ["kill_enemy_on_hit_if_under_10%_life"] = {
-	mod("CullPercent", "MAX", nil),
-	value = 10
+	flag("CanCull"), -- none of the skills with this stat say anything about a 10% threshold
 },
 ["spell_cast_time_added_to_cooldown_if_triggered"] = {
 	flag("SpellCastTimeAddedToCooldownIfTriggered"),
@@ -2712,9 +2829,15 @@ return {
 ["armour_break_physical_damage_%_dealt_as_armour_break"] = {
 	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
 },
+["chaos_damage_%_dealt_as_armour_break"] = {
+	flag("Condition:CanArmourBreak", { type = "GlobalEffect", effectType = "Buff", effectName = "ArmourBreak" }),
+},
 --
 -- Spectre or Minion-specific stats
 --
+["skeletal_graft_buff_effect_magnitude"] = {
+	mod("UmbralWellBuffValue", "BASE", nil),
+},
 ["physical_damage_reduction_rating_+%"] = {
 	mod("Armour", "INC", nil),
 },
@@ -2764,6 +2887,17 @@ return {
 },
 ["set_max_power_charges"] = {
 	mod("PowerChargesMax", "OVERRIDE", nil),
+},
+["chance_%_to_double_effect_of_removing_charges"] = {
+	mod("Multiplier:ConsumedEnduranceChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedFrenzyChargeEffect", "BASE", nil),
+	mod("Multiplier:ConsumedPowerChargeEffect", "BASE", nil),
+},
+["cannot_consume_power_frenzy_endurance_charges"] = {
+	flag("Condition:CannotConsumeCharges"),
+},
+["cannot_consume_infusions"] = {
+	flag("Condition:CannotConsumeInfusion"),
 },
 ["set_base_heavy_stun_duration_ms"] = {
 	mod("StunDuration", "OVERRIDE", nil),
@@ -2825,6 +2959,25 @@ return {
 --Minion
 ["supported_minion_skill_gem_level_+"] = {
 	mod("SupportedGemProperty", "LIST", { keyword = "grants_active_skill", key = "level", value = nil }, 0, 0, { type = "SkillType", skillType = SkillType.Minion }),
+},
+-- Remnant stats
+["remnant_effect_+%"] = {
+	mod("RemnantEffect", "INC", nil),
+},
+["life_remnants_gain_per_globe"] = {
+	mod("LifeGainPerRemnant", "BASE", nil),
+},
+["mana_remnants_mana_gain_per_globe"] = {
+	mod("ManaGainPerRemnant", "BASE", nil),
+},
+["breach_flame_life_leech_%"] = {
+	mod("BreachFlameLifeLeech", "BASE", nil),
+},
+["breach_flame_mana_leech_%"] = {
+	mod("BreachFlameManaLeech", "BASE", nil),
+},
+["breach_flame_chaos_addition_%"] = {
+	mod("BreachFlameChaosGain", "BASE", nil),
 },
 -- Display only
 ["quality_display_base_additional_arrows_is_gem"] = {
