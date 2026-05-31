@@ -95,7 +95,6 @@ directiveTable.base = function(state, args, out)
 		end
 		if next(stats) then
 			for _, class in ipairs(classMap[soulCoreStat.Category.Id] or { string.lower(soulCoreStat.Category.Id) }) do
-				printf("Category ID: " .. tostring(soulCoreStat.Category.Id))
 				local statsCopy = {}
 				for k, v in pairs(stats) do statsCopy[k] = { min = v.min, max = v.max } end
 				local bondedStatsCopy = {}
