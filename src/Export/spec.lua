@@ -40697,7 +40697,7 @@ return {
 		[11]={
 			list=false,
 			name="GenerationType",
-			refTo="ModGenerationType",
+			refTo="ModGenerationTypes",
 			type="Enum",
 			width=120
 		},
@@ -40745,7 +40745,7 @@ return {
 		},
 		[18]={
 			list=true,
-			name="SpawnWeights",
+			name="",
 			refTo="",
 			type="Int",
 			width=150
