@@ -1690,6 +1690,25 @@ return {
 	}, },
 } }
 } },
+{ 1, "Ward", 2, colorCodes.WARD, {{ defaultCollapsed = false, label = "Runic Ward", data = {
+	extra = "{0:output:Ward}",
+	{ label = "Base from Armours", { format = "{0:output:Gear:Ward}", { breakdown = "Ward", gearOnly = true }, }, },
+	{ label = "Global Base", { format = "{0:mod:1}", { modName = { "Ward", "WardTotal" }, modType = "BASE" }, }, },
+	{ label = "Inc. from Tree", { format = "{0:mod:1}%", { modName = "Ward", modType = "INC", modSource = "Tree" }, }, },
+	{ label = "Total Increased", { format = "{0:mod:1}%", { modName = { "Ward", "Defences" }, modType = "INC" }, }, },
+	{ label = "Total More", { format = "{0:mod:1}%", { modName = { "Ward", "Defences" }, modType = "MORE" }, }, },
+	{ label = "Total", { format = "{0:output:Ward}", { breakdown = "Ward" }, }, },
+	{ label = "Recharge Delay", { format = "{2:output:WardRechargeDelay}s",
+		{ breakdown = "WardRechargeDelay" },
+		{ modName = "WardRechargeFaster" },
+	}, },
+	{ label = "Regen", haveOutput = "WardRegen", { format = "{1:output:WardRegen}",
+		{ breakdown = "WardRegen" },
+		{ label = "Sources", modName = "WardRegen", modType = "BASE" },
+		{ label = "Increased Ward Regen", modName = "WardRegen", modType = "INC" },
+	}, },
+} }
+} },
 -- secondary defenses
 { 1, "Resist", 3, colorCodes.DEFENCE, {{ defaultCollapsed = false, label = "Resists", data = {
 	extra = colorCodes.FIRE.."{0:output:FireResist}+{0:output:FireResistOverCap}^7/"..colorCodes.COLD.."{0:output:ColdResist}+{0:output:ColdResistOverCap}^7/"..colorCodes.LIGHTNING.."{0:output:LightningResist}+{0:output:LightningResistOverCap}",

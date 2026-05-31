@@ -154,6 +154,18 @@ local configSettings = {
 	{ var = "conditionHaveEnergyShield", type = "check", label = "Do you always have ^x88FFFFEnergy Shield?", ifCond = "HaveEnergyShield", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:HaveEnergyShield", "FLAG", true, "Config")
 	end },
+	{ var = "conditionFullWard", type = "check", label = "Are you always on Full ^xB0E0E0Runic Ward?", ifCond = "FullWard", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:FullWard", "FLAG", true, "Config")
+	end },
+	{ var = "conditionLowWard", type = "check", label = "Are you always on Low ^xB0E0E0Runic Ward?", ifCond = "LowWard", tooltip = "Use this to force the Low Runic Ward condition for builds that are intentionally maintained below "..data.gameConstants["LowWardThreshold"].."% Ward.", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:LowWard", "FLAG", true, "Config")
+	end },
+	{ var = "conditionMissingWard", type = "check", label = "Are you always missing ^xB0E0E0Runic Ward?", ifCond = "MissingWard", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:MissingWard", "FLAG", true, "Config")
+	end },
+	{ var = "conditionNoWard", type = "check", label = "Do you always have no ^xB0E0E0Runic Ward?", ifCond = "NoWard", apply = function(val, modList, enemyModList)
+		modList:NewMod("Condition:NoWard", "FLAG", true, "Config")
+	end },
 	{ var = "multiplierCurrentEnergyShield", type = "count", label = "Current ^x88FFFFEnergy Shield^7 percentage:", ifCond = "UseCurrentEnergyShield", defaultPlaceholderState = 100, tooltip = "Used in calculations for ^xAF6025Silks of Veneration^7 and ^xAF6025The Mutable Star^7.\nOverflowed ^x88FFFFEnergy Shield^7 is allowed, up to 150%.", apply = function(val, modList, enemyModList)
 		modList:NewMod("Condition:UseCurrentEnergyShield", "FLAG", true, "Config")
 		modList:NewMod("Multiplier:CurrentEnergyShield", "BASE", val, "Config")

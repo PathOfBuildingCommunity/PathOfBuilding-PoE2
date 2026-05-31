@@ -1855,6 +1855,85 @@ function calcs.defence(env, actor)
 		end
 	end
 
+	-- Ward regeneration
+	local wardRegenBase = data.gameConstants["WardRegenRatePercentPerMinute"] / 100 / 60 * output.Ward
+	local wardRegenInc = modDB:Sum("INC", nil, "WardRegen")
+	local wardRegenMore = modDB:More(nil, "WardRegen")
+	output.WardRegen = m_max(m_floor(wardRegenBase * (1 + wardRegenInc / 100) * wardRegenMore), 0)
+	if breakdown and output.WardRegen > 0 then
+		breakdown.WardRegen = {
+			s_format("%.2f ^8(base per second)", wardRegenBase),
+			s_format("x %.2f ^8(increased)", 1 + wardRegenInc / 100),
+			wardRegenMore ~= 1 and s_format("x %.2f ^8(more)", wardRegenMore) or nil,
+			s_format("= %.2f ^8(per second)", output.WardRegen)
+		}
+	end
+
+	-- Ward condition flags
+	if output.Ward == 0 or modDB:Flag(nil, "Condition:NoWard") then
+		output.NoWard = true
+		condList["NoWard"] = true
+	end
+	if modDB:Flag(nil, "Condition:LowWard") then
+		output.LowWard = true
+	end
+	if modDB:Flag(nil, "Condition:MissingWard") then
+		output.MissingWard = true
+	end
+	-- FullWard: auto-set when ward is present and no negative ward condition is forced
+	if output.Ward > 0 and not env.configInput["conditionLowWard"] and not env.configInput["conditionMissingWard"] and not env.configInput["conditionNoWard"] then
+		condList["FullWard"] = true
+		output.FullWard = true
+	elseif modDB:Flag(nil, "Condition:FullWard") then
+		output.FullWard = true
+	end
+
+	-- Ward bypass
+	local wardBypass = modDB:Sum("BASE", nil, "WardBypass") or 0
+	if wardBypass > 0 then
+		output.WardBypass = wardBypass
+	end
+
+	-- Ward recovery stats
+	local wardRecoverOnBlock = modDB:Sum("BASE", nil, "WardRecoverOnBlock")
+	if wardRecoverOnBlock > 0 then
+		output.WardRecoverOnBlock = wardRecoverOnBlock
+	end
+	local wardRecoverOnCharmUse = modDB:Sum("BASE", nil, "WardRecoverOnCharmUse")
+	if wardRecoverOnCharmUse > 0 then
+		output.WardRecoverOnCharmUse = wardRecoverOnCharmUse
+	end
+
+	-- Ward behavioural flags (mechanics not yet fully simulated)
+	output.ExcessWardToMana = modDB:Flag(nil, "ExcessWardToMana") or nil
+	output.WardRegenInsteadOfLife = modDB:Flag(nil, "WardRegenInsteadOfLife") or nil
+	output.WardOverflow = modDB:Flag(nil, "WardOverflow") or nil
+	output.WardBeforeLife = modDB:Flag(nil, "WardBeforeLife") or nil
+
+	-- Rune Ward damage stats (displayed; full rune ward damage pipeline not yet simulated)
+	local runeWardBlockDamage = modDB:Sum("BASE", nil, "RuneWardBlockDamage")
+	if runeWardBlockDamage > 0 then
+		output.RuneWardBlockDamage = runeWardBlockDamage
+	end
+	local runeWardDamageTaken = modDB:Sum("INC", nil, "RuneWardDamageTaken")
+	if runeWardDamageTaken ~= 0 then
+		output.RuneWardDamageTaken = runeWardDamageTaken
+	end
+
+	-- Ward cost stats (displayed; skill cost mechanic not yet implemented)
+	local wardCostEfficiency = modDB:Sum("BASE", nil, "WardCostEfficiency")
+	if wardCostEfficiency ~= 0 then
+		output.WardCostEfficiency = wardCostEfficiency
+	end
+	local wardAttackHitPercent = modDB:Sum("BASE", nil, "WardAttackHitPercent")
+	if wardAttackHitPercent > 0 then
+		output.WardAttackHitPercent = wardAttackHitPercent
+	end
+	local wardCoverOnMinionDeath = modDB:Sum("BASE", nil, "WardCoverOnMinionDeath")
+	if wardCoverOnMinionDeath > 0 then
+		output.WardCoverOnMinionDeath = wardCoverOnMinionDeath
+	end
+
 	-- Damage Reduction
 	output.DamageReductionMax = modDB:Max(nil, "DamageReductionMax") or data.misc.DamageReductionCap
 	modDB:NewMod("ArmourAppliesToPhysicalDamageTaken", "BASE", 100)

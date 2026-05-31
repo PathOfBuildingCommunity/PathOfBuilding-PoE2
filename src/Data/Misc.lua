@@ -118,6 +118,8 @@ data.gameConstants = {
 	["BriarpatchDurationSpeedWhenWet"] = -50,
 	["BriarpatchDamageTickSpeedWhenWet"] = 50,
 	["KeystoneAlternateESRecoveryPhysicalDamagePercentageRecoupedAsES"] = 5,
+	["WardRegenRatePercentPerMinute"] = 300,  -- 5% per second = 300% per minute
+	["LowWardThreshold"] = 35,  -- Low ward threshold at 35% of max
 }
 -- From Metadata/Characters/Character.ot
 data.characterConstants = {
