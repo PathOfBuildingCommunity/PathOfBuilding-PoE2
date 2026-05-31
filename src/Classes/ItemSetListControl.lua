@@ -28,12 +28,7 @@ local ItemSetListClass = newClass("ItemSetListControl", "ListControl", function(
 		return self.selValue ~= nil
 	end
 	self.controls.new = new("ButtonControl", {"RIGHT",self.controls.rename,"LEFT"}, {-4, 0, 60, 18}, "New", function()
-		local existing = { }
-		for _, id in ipairs(itemsTab.itemSetOrderList) do
-			t_insert(existing, itemsTab.itemSets[id])
-		end
 		local newSet = itemsTab:NewItemSet()
-		require("Modules/BuildExportPoE2").PresetNextLevels(existing, newSet)
 		self:RenameSet(newSet, true)
 	end)
 end)
@@ -135,6 +130,9 @@ end
 function ItemSetListClass:OnSelClick(index, itemSetId, doubleClick)
 	if doubleClick and itemSetId ~= self.itemsTab.activeItemSetId then
 		self.itemsTab:SetActiveItemSet(itemSetId)
+		if self.levelRange then
+			self.levelRange:LoadSet(self.itemsTab.activeItemSet)
+		end
 		self.itemsTab:AddUndoState()
 	end
 end
