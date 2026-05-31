@@ -149,9 +149,10 @@ skills["GasShotSkeletonSniperMinion"] = {
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/WitchArcherSkeleton.dds",
 	description = "Rain an arrow down from above, creating a cloud of flammable poisonous gas where it lands. The cloud will detonate if hit by a Detonator skill or if an Ignited enemy touches it, creating a fiery explosion.",
-	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, },
+	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Area] = true, [SkillType.ProjectileNumber] = true, [SkillType.ProjectileSpeed] = true, [SkillType.Rain] = true, [SkillType.DamageOverTime] = true, [SkillType.Cooldown] = true, [SkillType.Duration] = true, [SkillType.GroundTargetedProjectile] = true, [SkillType.CreatesGroundEffect] = true, [SkillType.MirageArcherCanUse] = true, },
 	castTime = 1,
 	qualityStats = {
+		{ "dummy_stat_display_nothing", 0.001 },
 	},
 	levels = {
 		[1] = { attackSpeedMultiplier = 20, baseMultiplier = 0.8, cooldown = 6, levelRequirement = 0, storedUses = 1, },
@@ -270,6 +271,7 @@ skills["BoneshatterBruteMinion"] = {
 			baseFlags = {
 				attack = true,
 				melee = true,
+				area = true,
 			},
 			constantStats = {
 				{ "melee_range_+", 2 },
@@ -277,6 +279,7 @@ skills["BoneshatterBruteMinion"] = {
 			},
 			stats = {
 				"crushing_blow",
+				"is_area_damage",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1332,7 +1335,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 	name = "Death From Above",
 	hidden = true,
 	icon = "Art/2DArt/SkillIcons/TacticianDeathFromAboveSkillIcon.dds",
-	description = "Fires a flare at a target location, attaching to an enemy if it lands on one. Then fires a series of arrow volleys centred around the flare.",
+	description = "Fires a flare at a target location, attaching to an enemy if it lands on one, then launches a series of arrow volleys centred around the flare.",
 	skillTypes = { [SkillType.Attack] = true, [SkillType.RangedAttack] = true, [SkillType.Rain] = true, [SkillType.Area] = true, [SkillType.Projectile] = true, [SkillType.ProjectilesNumberModifiersNotApplied] = true, [SkillType.AttackInPlace] = true, },
 	castTime = 1,
 	qualityStats = {
@@ -1370,7 +1373,7 @@ skills["DeathFromAboveDaemonMinion"] = {
 				"skill_cannot_be_electrocuted",
 				"skill_cannot_be_knocked_back",
 				"skill_cannot_be_stunned",
-				"modifiers_to_projectile_count_do_not_apply",
+				"base_modifiers_to_projectile_count_do_not_apply",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -1741,6 +1744,7 @@ skills["PassiveTriggeredManaWaveWaterDjinn"] = {
 			stats = {
 				"base_deal_no_damage",
 				"display_statset_hide_usage_stats",
+				"monster_skill_triggered_by_geal",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -2346,6 +2350,135 @@ skills["HandSlamSandDjinn"] = {
 			},
 			levels = {
 				[1] = { 0.80000001192093, 1.2000000476837, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["ApplyTangmazuSwarmAuraPlayer"] = {
+	name = "Winged Entropy",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/iconbasicattack.dds",
+	description = "The Flock damages enemies around you.",
+	skillTypes = { [SkillType.Buff] = true, [SkillType.HasReservation] = true, [SkillType.Aura] = true, [SkillType.OngoingSkill] = true, [SkillType.Persistent] = true, [SkillType.AffectsPresence] = true, [SkillType.AttackInPlace] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { levelRequirement = 0, },
+		[2] = { levelRequirement = 0, },
+		[3] = { levelRequirement = 0, },
+		[4] = { levelRequirement = 0, },
+		[5] = { levelRequirement = 0, },
+		[6] = { levelRequirement = 0, },
+		[7] = { levelRequirement = 0, },
+		[8] = { levelRequirement = 0, },
+		[9] = { levelRequirement = 0, },
+		[10] = { levelRequirement = 0, },
+		[11] = { levelRequirement = 0, },
+		[12] = { levelRequirement = 0, },
+		[13] = { levelRequirement = 0, },
+		[14] = { levelRequirement = 0, },
+		[15] = { levelRequirement = 0, },
+		[16] = { levelRequirement = 0, },
+		[17] = { levelRequirement = 0, },
+		[18] = { levelRequirement = 0, },
+		[19] = { levelRequirement = 0, },
+		[20] = { levelRequirement = 0, },
+		[21] = { levelRequirement = 0, },
+		[22] = { levelRequirement = 0, },
+		[23] = { levelRequirement = 0, },
+		[24] = { levelRequirement = 0, },
+		[25] = { levelRequirement = 0, },
+		[26] = { levelRequirement = 0, },
+		[27] = { levelRequirement = 0, },
+		[28] = { levelRequirement = 0, },
+		[29] = { levelRequirement = 0, },
+		[30] = { levelRequirement = 0, },
+		[31] = { levelRequirement = 0, },
+		[32] = { levelRequirement = 0, },
+		[33] = { levelRequirement = 0, },
+		[34] = { levelRequirement = 0, },
+		[35] = { levelRequirement = 0, },
+		[36] = { levelRequirement = 0, },
+		[37] = { levelRequirement = 0, },
+		[38] = { levelRequirement = 0, },
+		[39] = { levelRequirement = 0, },
+		[40] = { levelRequirement = 0, },
+	},
+	statSets = {
+		[1] = {
+			label = "Winged Entropy",
+			baseEffectiveness = 7.1999998092651,
+			incrementalEffectiveness = 0.25,
+			damageIncrementalEffectiveness = 0.041499998420477,
+			statDescriptionScope = "apply_tangmazu_swarm_aura",
+			statMap = {
+				["flock_damage_over_time_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+					mod("Damage", "MORE", nil, ModFlag.Dot, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+				},
+				["flock_area_of_effect_+%_final_per_tangmazu_raven_in_owners_flock"] = {
+					mod("AreaOfEffect", "MORE", nil, 0, 0, { type = "Multiplier", var = "MistRavenCount", actor = "parent" }),
+				},
+			},
+			baseFlags = {
+				spell = true,
+				area = true,
+			},
+			constantStats = {
+				{ "skill_desired_amount_override", 1 },
+				{ "flock_damage_over_time_+%_final_per_tangmazu_raven_in_owners_flock", 5 },
+				{ "flock_area_of_effect_+%_final_per_tangmazu_raven_in_owners_flock", 5 },
+				{ "active_skill_base_area_of_effect_radius", 20 },
+			},
+			stats = {
+				"base_chaos_damage_to_deal_per_minute",
+				"base_physical_damage_to_deal_per_minute",
+				"display_statset_no_hit_damage",
+				"display_statset_hide_usage_stats",
+			},
+			levels = {
+				[1] = { 26.666667660077, 6.6666669150194, statInterpolation = { 3, 3, }, actorLevel = 1, },
+			},
+		},
+	}
+}
+skills["TangmazuMadFlightMinion"] = {
+	name = "Mad Flight",
+	hidden = true,
+	icon = "Art/2DArt/SkillIcons/RoostOfTheRavenKingCommand.dds",
+	description = "Command part of your flock to leave and crash through a set of illusory mirrors, Attacking enemies in the area between the mirrors with frequent Hits.",
+	skillTypes = { [SkillType.Attack] = true, [SkillType.Area] = true, [SkillType.AttackInPlace] = true, [SkillType.Cooldown] = true, },
+	castTime = 1,
+	qualityStats = {
+	},
+	levels = {
+		[1] = { baseMultiplier = 5.5, cooldown = 10, levelRequirement = 0, storedUses = 1, },
+	},
+	statSets = {
+		[1] = {
+			label = "Mad Flight",
+			incrementalEffectiveness = 0.054999999701977,
+			statDescriptionScope = "tangmazu_mad_flight",
+			baseFlags = {
+				attack = true,
+				area = true,
+				duration = true,
+			},
+			constantStats = {
+				{ "active_skill_base_area_of_effect_radius", 22 },
+				{ "active_skill_base_secondary_area_of_effect_radius", 70 },
+				{ "base_skill_effect_duration", 5000 },
+				{ "tangmazu_mad_flight_damage_tick_delay_ms", 120 },
+				{ "display_commanded_skill_ravens_expended", 10 },
+				{ "active_skill_base_physical_damage_%_to_convert_to_chaos", 70 },
+			},
+			stats = {
+				"is_commandable_skill",
+				"is_area_damage",
+				"skill_does_not_pathfind",
+			},
+			levels = {
+				[1] = { actorLevel = 1, },
 			},
 		},
 	}

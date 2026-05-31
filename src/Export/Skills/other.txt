@@ -8,7 +8,7 @@ local skills, mod, flag, skill = ...
 #from tree
 #skill AcidicConcoctionPlayer
 #set AcidicConcoctionPlayer
-#flags attack projectile unarmed area
+#flags attack projectile area
 #mods
 #set AcidicConcoctionPoisonBurstPlayer
 #flags attack area
@@ -39,18 +39,11 @@ statMap = {
 	["minion_1%_damage_+%_per_X_player_strength"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
 	},
-	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
 		div = 3,
 	},
 },
-#mods
-#skillEnd
-
-#from tree
-#skill BleedingConcoctionPlayer
-#set BleedingConcoctionPlayer
-#flags attack projectile unarmed area
 #mods
 #skillEnd
 
@@ -85,6 +78,18 @@ statMap = {
 #mods
 #skillEnd
 
+#skill ArbitersReachWardPlayer
+#set ArbitersReachPlayer
+#mods
+#skillEnd
+
+#from tree
+#skill BleedingConcoctionPlayer
+#set BleedingConcoctionPlayer
+#flags attack projectile area
+#mods
+#skillEnd
+
 #from tree
 #skill BloodBoilPlayer
 #set BloodBoilPlayer
@@ -99,10 +104,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportBreachlordsAmalgam
+#set SupportBreachlordsAmalgam
+#mods
+#skillEnd
+
 #from item
 #skill ExplodingPoisonToadPlayer
 #set ExplodingPoisonToadPlayer
-#flags area attack
+#flags area nonWeaponAttack
 #mods
 #skillEnd
 
@@ -129,6 +139,11 @@ statMap = {
 #from item
 #skill SupportMetaCastOnCharmUsePlayer
 #set SupportMetaCastOnCharmUsePlayer
+#mods
+#skillEnd
+
+#skill SupportCathasBrilliance
+#set SupportCathasBrilliance
 #mods
 #skillEnd
 
@@ -241,10 +256,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportEshsProwess
+#set SupportEshsProwess
+#mods
+#skillEnd
+
 #from tree
 #skill ExplosiveConcoctionPlayer
 #set ExplosiveConcoctionPlayer
-#flags attack projectile duration unarmed area
+#flags attack projectile duration area
 #mods
 #skillEnd
 
@@ -265,7 +285,7 @@ statMap = {
 #from tree
 #skill FulminatingConcoctionPlayer
 #set FulminatingConcoctionPlayer
-#flags attack projectile duration unarmed area
+#flags attack projectile duration area
 #mods
 #skillEnd
 
@@ -273,6 +293,11 @@ statMap = {
 #skill FuturePastPlayer
 #set FuturePastPlayer
 #flags
+#mods
+#skillEnd
+
+#skill SupportHerDeclarationPlayer
+#set SupportHerDeclarationPlayer
 #mods
 #skillEnd
 
@@ -362,7 +387,7 @@ statMap = {
 	["minion_1%_damage_+%_per_X_player_strength"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
 	},
-	["minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
+	["active_skill_minion_1%_attack_speed_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("Speed", "INC", nil, ModFlag.Attack, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
 		div = 3,
 	},
@@ -384,10 +409,40 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportMedvedsFelling
+#set SupportMedvedsFelling
+#mods
+#skillEnd
+
 #from tree
 #skill MomentOfVulnerabilityPlayer
 #set MomentOfVulnerabilityPlayer
 #flags spell
+#mods
+#skillEnd
+
+#skill SupportMorrigansInsight
+grantsThornsDamage = true,
+#set SupportMorrigansRefuge
+statMap = {
+	["support_morrigans_refuge_damage_+%_final_vs_frozen_enemies"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "ActorCondition", actor = "enemy", var = "Frozen" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill TriggeredMorrigansInsightPlayer
+#set TriggeredMorrigansInsightPlayer
+#flags duration
+statMap = {
+	["morrigan_ward_thorns_minimum_base_cold_damage"] = {
+		mod("ColdMin", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Nature's Exchange"}),
+	},
+	["morrigan_ward_thorns_maximum_base_cold_damage"] = {
+		mod("ColdMax", "BASE", nil, ModFlag.Thorns, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Nature's Exchange"}),
+	},
+},
 #mods
 #skillEnd
 
@@ -406,10 +461,20 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportOlrothsConvictionPlayer
+#set SupportOlrothsConvictionPlayer
+#mods
+#skillEnd
+
+#skill SupportOlrothsHubrisPlayer
+#set SupportOlrothsHubrisPlayer
+#mods
+#skillEnd
+
 #from tree
 #skill ParryPlayer
 #set ParryPlayer
-#flags attack melee duration shieldAttack
+#flags attack melee duration shieldAttack area
 statMap = {
 	["base_parry_buff_damage_taken_+%_final_to_apply"] = {
 		mod("DamageTaken", "MORE", nil, ModFlag.Attack, 0, { type = "GlobalEffect", effectType = "Debuff", effectName = "Parry" }, { type = "Condition", var = "ParryActive" }),
@@ -438,6 +503,11 @@ statMap = {
 		-- display only
 	},
 },
+#mods
+#skillEnd
+
+#skill SupportPrototypeSeventeenPlayer
+#set SupportPrototypeSeventeenPlayer
 #mods
 #skillEnd
 
@@ -493,10 +563,15 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportSeraphsHeartPlayer
+#set SupportSeraphsHeartPlayer
+#mods
+#skillEnd
+
 #from tree
 #skill ShatteringConcoctionPlayer
 #set ShatteringConcoctionPlayer
-#flags attack projectile duration unarmed area
+#flags attack projectile duration area
 #mods
 #skillEnd
 
@@ -557,6 +632,27 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportStyrnsFerocity
+#set SupportStyrnsFerocity
+statMap = {
+	["support_knights_ferocity_crush_on_hit_ms"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Damage", "INC", nil, 0, 0, { type = "PerStat", stat = "Str", actor = "parent" }) }),
+		flag("Condition:Crushed", { type = "GlobalEffect", effectType = "Debuff" })
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportStyrnsMountain
+#set SupportStyrnsMountain
+statMap = {
+	["knights_legacy_non_active_blocking_melee_skill_damage_+%_final_to_grant_if_active_blocked_with_supported_skills_recently"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "GlobalEffect", effectType = "Buff", effectName = "Styrn's Mountain" }, { type = "SkillType", skillType = SkillType.ActiveBlock, neg = true }, { type = "Condition", var = "BlockedRecently" }),
+	},
+},
+#mods
+#skillEnd
+
 #from tree
 #minionList SummonedHellhound
 #skill SummonInfernalHoundPlayer
@@ -577,6 +673,19 @@ statMap = {
 	["minion_1%_area_of_effect_+%_per_X_player_dexterity"] = {
 		mod("MinionModifier", "LIST", { mod = mod("AreaOfEffect", "INC", nil, 0, 0, { type = "PerStat", stat = "Dex", actor = "parent", div = 3 }) }),
 		div = 3,
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportTangMazusThuriblePlayer
+#set SupportTangMazusThuriblePlayer
+statMap = {
+	["companion_evasion_rating_+_per_10_summoner_evasion_rating"] = {
+		mod("MinionModifier", "LIST", { mod = mod("Evasion", "BASE", nil, 0, 0, { type = "PerStat", stat = "Evasion", actor = "parent" }) }),
+	},
+	["companion_deflection_rating_+_per_10_summoner_deflection_rating"] = {
+		mod("MinionModifier", "LIST", { mod = mod("DeflectionRating", "BASE", nil, 0, 0, { type = "PerStat", stat = "DeflectionRating", actor = "parent" }) }),
 	},
 },
 #mods
@@ -626,10 +735,44 @@ statMap = {
 #mods
 #skillEnd
 
+#skill SupportTrickstersShardPlayer
+#set SupportTrickstersShardPlayer
+#mods
+#skillEnd
+
+#skill TriggeredFracturedSelfPlayer
+#set TriggeredFracturedSelfPlayer
+#flags
+#mods
+#skillEnd
+
+#skill SupportTulsAvalanche
+#set SupportTulsAvalanche
+#mods
+#skillEnd
+
 #from tree
 #skill UnboundAvatarPlayer
 #set UnboundAvatarPlayer
 #flags
+#mods
+#skillEnd
+
+#skill SupportUhtredsConstellation
+#set SupportUhtredsConstellation
+#mods
+#skillEnd
+
+#skill SupportUhtredsRitePlayer
+#set SupportUhtredsRitePlayer
+statMap = {
+	["support_uhtreds_chalice_damage_+%_final_during_life_flask"] = {
+		mod("Damage", "MORE", nil, 0, 0, { type = "Condition", var = "UsingLifeFlask" }),
+	},
+	["base_mana_cost_efficiency_+%_during_mana_flask"] = {
+		mod("ManaCostEfficiency", "INC", nil, 0, 0, { type = "Condition", var = "UsingManaFlask" }),
+	},
+},
 #mods
 #skillEnd
 
@@ -644,6 +787,21 @@ statMap = {
 #skill VoidIllusionSpawnPlayer Void Illusion
 #set VoidIllusionSpawnPlayer
 #flags attack
+#mods
+#skillEnd
+
+#skill SupportVoranasSiege
+#set SupportVoranasSiege
+statMap = {
+	["support_voranas_siege_hit_damage_+%_final_vs_isolated_enemies"] = {
+		mod("Damage", "MORE", nil, ModFlag.Hit, 0, { type = "ActorCondition", actor = "enemy", var = "Isolated" }),
+	},
+},
+#mods
+#skillEnd
+
+#skill SupportVruunsAftermath
+#set SupportVruunsAftermath
 #mods
 #skillEnd
 

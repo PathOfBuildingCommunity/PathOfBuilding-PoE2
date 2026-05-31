@@ -180,7 +180,7 @@ directiveTable.skill = function(state, args, out)
 			gemLevels = 1
 		else
 			skill.displayName = secondaryEffect and granted.ActiveSkill.DisplayName or trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
-			out:write('\tname = "', skill.displayName, '",\n')
+			out:write('\tname = "', sanitiseText(skill.displayName), '",\n')
 			-- Hybrid gems (e.g. Vaal gems) use the display name of the active skill e.g. Vaal Summon Skeletons of Sorcery
 			out:write('\tbaseTypeName = "', granted.ActiveSkill.DisplayName, '",\n')
 		end
@@ -188,7 +188,7 @@ directiveTable.skill = function(state, args, out)
 		if displayName == args and not granted.IsSupport then
 			displayName = gemEffect and trueGemNames[gemEffect.Id] or granted.ActiveSkill.DisplayName
 		end
-		skill.displayName = displayName
+		skill.displayName = sanitiseText(displayName)
 		out:write('\tname = "', displayName, '",\n')
 		out:write('\thidden = true,\n')
 	end

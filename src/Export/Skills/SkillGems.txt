@@ -10,15 +10,11 @@ Artillery Ballista            		----		ArtilleryBallistaPlayer	ArtilleryBallistaP
 Attrition                     		----		AttritionPlayer
 Barkskin                      		----		BarkskinPlayer
 Berserk                       		----		BerserkPlayer
-Black Powder Blitz            		----		BlackPowderBlitzReservationPlayer	BlackPowderBlitzPlayer
 Boneshatter                   		----		BoneshatterPlayer
 Briarpatch                    		----		BriarpatchPlayer
-Cackling Companions           		----		HyenaCacklePlayer
-Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlockPlayer
 Cast on Melee Kill            		----		MetaCastOnMeleeKillPlayer	SupportMetaCastOnMeleeKillPlayer
 Cast on Melee Stun            		----		MetaCastOnMeleeStunPlayer	SupportMetaCastOnMeleeStunPlayer
 Cluster Grenade               		----		ClusterGrenadePlayer
-Compose Requiem               		----		CrossbowRequiemAmmoPlayer	CrossbowRequiemPlayer
 Consecrate                    		----		StaffConsecratePlayer
 Cross Slash                   		----		WolfCrossSlashPlayer
 Defiance Banner               		----		DefianceBannerReservationPlayer	DefianceBannerPlayer
@@ -39,7 +35,6 @@ Fortifying Cry                		----		FortifyingCryPlayer	FortifyingCryShockwave
 Furious Slam                  		----		FuriousSlamPlayer
 Fury of the Mountain          		----		BearFuryOfTheMountainPlayer
 Gas Grenade                   		----		ToxicGrenadePlayer
-Gemini Surge                  		----		GeminiSurgePlayer
 Hammer of the Gods            		----		HammerOfTheGodsPlayer
 Herald of Ash                 		----		HeraldOfAshPlayer
 Herald of Ash                 		----		UniqueHeraldOfAshPlayer
@@ -66,13 +61,12 @@ Lunar Assault                 		----		LunarAssaultPlayer
 Lunar Blessing                		----		WolfLunarBlessingPlayer	WolfLunarBlessingBeamAttackPlayer
 Magma Barrier                 		----		MagmaBarrierPlayer	MagmaSprayPlayer
 Molten Blast                  		----		MoltenBlastPlayer
-Molten Crash                  		----		MoltenCrashPlayer
 Mortar Cannon                 		----		MetaMortarCannonPlayer	SupportMortarCannonPlayer
 Oil Barrage                   		----		OilBarragePlayer
 Oil Grenade                   		----		OilGrenadePlayer
 Overwhelming Presence         		----		OverwhelmingPresencePlayer
 Perfect Strike                		----		PerfectStrikePlayer
-Pounce                        		----		WolfPouncePlayer	SupportCrossSlashPlayer	WolfPounceMarkPlayer	WolfCrossSlashWolfPlayer
+Pounce                        		----		WolfPouncePlayer	SupportWolfPouncePlayer	WolfPounceMarkPlayer	WolfPounceSummonWolfPlayer
 Primal Avatar                 		----		PrimalAvatarPlayer
 Rampage                       		----		BearRampagePlayer
 Resonating Shield             		----		ResonatingShieldPlayer
@@ -91,11 +85,9 @@ Stampede                      		----		StampedePlayer
 Sunder                        		----		SunderPlayer
 Supercharged Slam             		----		SuperchargedSlamPlayer
 Thrashing Vines               		----		ThrashingVinesPlayer
-Thundergod's Wrath            		----		MetaCastLightningSpellOnHitPlayer	SupportMetaCastLightningSpellOnHitPlayer
 Thunderstorm                  		----		ThunderstormPlayer
 Time of Need                  		----		TimeOfNeedPlayer
 Tornado                       		----		TornadoPlayer
-Valako's Charge               		----		ValakosChargePlayer
 Volcanic Fissure              		----		VolcanicFissurePlayer
 Volcano                       		----		VolcanoPlayer
 Voltaic Grenade               		----		ShockGrenadePlayer
@@ -152,8 +144,8 @@ Compressed Duration II        		----		CompressedDurationSupportPlayerTwo
 Concoct I                     		----		SupportConcoctPlayer
 Concoct II                    		----		SupportConcoctPlayerTwo
 Cool Headed                   		----		SupportCoolheadedPlayer
-Corrupting Cry I              		----		SupportCorruptingCryPlayer
-Corrupting Cry II             		----		SupportCorruptingCryPlayerTwo
+Corrupting Cry I              		----		SupportCorruptingCryPlayer	TriggeredCorruptingCryPlayer
+Corrupting Cry II             		----		SupportCorruptingCryPlayerTwo	TriggeredCorruptingCryTwoPlayer
 Crater                        		----		SupportCraterPlayer	TriggeredCraterPlayer
 Daresso's Passion             		----		SupportDaressosPassionPlayer
 Dauntless                     		----		SupportDauntlessPlayer
@@ -211,7 +203,7 @@ Hardy Totems I                		----		SupportHardyTotemsPlayer
 Hardy Totems II               		----		SupportHardyTotemsPlayerTwo
 Heavy Swing                   		----		SupportMeleePhysicalDamagePlayer
 Heft                          		----		SupportHeftPlayer
-Helbrym's Hide                		----		SupportHideOfHelbrymPlayer
+Helbrym's Hide                		----		SupportHelbrymsHidePlayer
 Herbalism I                   		----		SupportHerbalismPlayer
 Herbalism II                  		----		SupportHerbalismPlayerTwo
 Holy Descent                  		----		SupportHolyDescentPlayer
@@ -239,8 +231,10 @@ Mark for Death                		----		SupportMarkForDeathPlayer
 Mark for Death II             		----		SupportMarkForDeathPlayerTwo
 Meat Shield I                 		----		SupportMeatShieldPlayer
 Meat Shield II                		----		SupportMeatShieldPlayerTwo
+Minion Splash I               		----		SupportMinionMeleeSplashPlayer
+Minion Splash II              		----		SupportMinionMeleeSplashPlayerTwo
 Opening Move                  		----		SupportOpeningMovePlayer
-Paquate's Pact                		----		SupportCorruptingCryPlayerThree
+Paquate's Pact                		----		SupportCorruptingCryPlayerThree	TriggeredCorruptingCryThreePlayer
 Persistent Ground I           		----		SupportPersistentGroundPlayer
 Persistent Ground II          		----		SupportPersistentGroundPlayerTwo
 Persistent Ground III         		----		SupportPersistentGroundPlayerThree
@@ -320,6 +314,7 @@ Vanguard II                   		----		SupportVanguardPlayerTwo
 Vitality I                    		----		SupportVitalityPlayer
 Vitality II                   		----		SupportVitalityPlayerTwo
 Volcanic Eruption             		----		SupportVolcanicEruptionPlayer	TriggeredVolcanicEruptionPlayer
+Vruun's Inevitability         		----		SupportVruunsInevitability
 Xoph's Pyre                   		----		SupportXophsPyrePlayer
 Zerphi's Infamy               		----		SupportZerphisLegacyPlayer
 
@@ -356,7 +351,6 @@ Lightning Rod                 		----		LightningRodPlayer
 Lightning Spear               		----		LightningSpearPlayer
 Magnetic Salvo                		----		MagneticSalvoPlayer
 Mirage Archer                 		----		MetaMirageArcherPlayer	SupportMirageArcherPlayer	MirageArcherSpawnPlayer
-Phantasmal Arrow              		----		PhantasmalArrowPlayer
 Plague Bearer                 		----		PlagueBearerPlayer	PlagueBearerNovaPlayer
 Poisonburst Arrow             		----		PoisonBurstArrowPlayer
 Primal Strikes                		----		PrimalStrikesPlayer
@@ -364,7 +358,6 @@ Rain of Arrows                		----		RainOfArrowsPlayer
 Rake                          		----		RakePlayer
 Rapid Assault                 		----		RapidAssaultPlayer
 Rhoa Mount                    		----		RhoaMountPlayer
-Shattering Spite              		----		ShatteringSpitePlayer
 Shockchain Arrow              		----		ShockchainArrowPlayer
 Snipe                         		----		SnipePlayer
 Sniper's Mark                 		----		SnipersMarkPlayer
@@ -444,7 +437,7 @@ Deliberation                  		----		SupportDeliberationPlayer
 Dominus' Grasp                		----		SupportPietysMercyPlayer
 Durability                    		----		SupportDurabilityPlayer
 Electrocute                   		----		SupportElectrocutePlayer
-Eonyr's Thunder               		----		SupportElectrocuteLineagePlayer
+Eonyr's Thunder               		----		SupportEonyrsThunderPlayer	TriggeredLightningDetonateDeadPlayer
 Escalating Poison             		----		SupportEscalatingPoisonPlayer
 Excoriate                     		----		SupportExcoriatePlayer
 Ferocity                      		----		SupportFerocityPlayer
@@ -578,11 +571,11 @@ Cast on Minion Death          		----		MetaCastOnMinionDeathPlayer	SupportMetaCas
 Chaos Bolt                    		----		WeaponGrantedChaosboltPlayer
 Charge Infusion               		----		ChargeRegulationPlayer
 Charged Staff                 		----		ChargedStaffPlayer	ChargedStaffShockwavePlayer
+Coiling Bolts                 		----		CoilingBoltsPlayer
 Comet                         		----		CometPlayer
 Conductivity                  		----		ConductivityPlayer
 Contagion                     		----		ContagionPlayer
 Convalescence                 		----		ConvalescencePlayer	ConvalescenceActivePlayer
-Crackling Palm                		----		CracklingPalmPlayer
 Curse on Block                		----		MetaCastCurseOnBlockPlayer	SupportMetaCastCurseOnBlockPlayer
 Dark Effigy                   		----		DarkEffigyPlayer	DarkEffigyProjectilePlayer
 Decompose                     		----		CorpseCloudPlayer
@@ -682,6 +675,7 @@ Spark                         		----		SparkPlayer
 Spark                         		----		UniqueEarthboundTriggeredSparkPlayer
 Spectre: {0}                  		----		SummonSpectrePlayer
 Spellslinger                  		----		MetaSpellslingerPlayer	SupportSpellslingerPlayer
+Spiraling Conspiracy          		----		SummonSpiralingConspiracyPlayer	CommandMadFlightPlayer
 Staggering Palm               		----		StaggeringPalmPlayer	StaggeringPalmProjectilePlayer
 Storm Wave                    		----		StormWavePlayer
 Tempest Bell                  		----		TempestBellPlayer
@@ -696,7 +690,6 @@ Vulnerability                 		----		VulnerabilityPlayer
 Wave of Frost                 		----		WaveOfFrostPlayer
 Whirling Assault              		----		WhirlingAssaultPlayer
 Wind Blast                    		----		GaleStrikePlayer
-Withering Presence            		----		UniqueWitheringPresencePlayer
 Withering Presence            		----		WitheringPresencePlayer
 
 						--------- Support Intelligence ---------
@@ -757,11 +750,11 @@ Crystalline Shards            		----		SupportCrystallineShardsPlayer
 Cursed Ground                 		----		SupportCursedGroundPlayer
 Danse Macabre                 		----		SupportDanseMacabrePlayer
 Deathmarch                    		----		SupportDeathmarchPlayer
-Decaying Hex                  		----		SupportDecayingHexPlayer
+Decaying Hex                  		----		SupportDecayingHexPlayer	TriggeredDecayingHexPlayer
 Deep Freeze                   		----		SupportLastingFrostPlayer
 Derange                       		----		SupportDerangePlayer
 Dialla's Desire               		----		SupportDiallasDesirePlayer
-Doedre's Undoing              		----		SupportDoedresUndoingPlayer	TriggeredCurseZoneHazardExplosionPlayer
+Doedre's Undoing              		----		SupportDoedresUndoingPlayer	ChaosFrogExplosionPlayer
 Drain Ailments                		----		SupportDrainedAilmentPlayer
 Electromagnetism              		----		SupportShockingRiftPlayer	TriggeredShockingRiftPlayer
 Elemental Army                		----		SupportElementalArmyPlayer
@@ -841,7 +834,6 @@ Morgana's Tempest             		----		SupportMorganasTempestPlayer
 Muster                        		----		SupportMusterPlayer
 Mysticism I                   		----		SupportMysticismPlayer
 Mysticism II                  		----		SupportMysticismPlayerTwo
-Nadir                         		----		SupportNadirPlayer
 Oisín's Oath                 		----		SupportOisinsOathPlayer
 Perpetual Charge              		----		SupportPerpetualChargePlayer
 Physical Mastery              		----		SupportPhysicalMasteryPlayer
@@ -862,7 +854,7 @@ Romira's Requital             		----		SupportRomirasRequitalPlayer
 Sacrificial Lamb I            		----		SupportSacrificialLambPlayer
 Sacrificial Lamb II           		----		SupportSacrificialLambPlayerTwo
 Sacrificial Offering          		----		SupportSacrificalOfferingPlayer
-Shock Conduction I            		----		SupportShockConductionPlayer
+Shock Conduction              		----		SupportShockConductionPlayer
 Shock Conduction II           		----		SupportShockConductionPlayerTwo
 Shock Siphon                  		----		SupportEnergyShieldOnShockKillPlayer
 Sione's Temper                		----		SupportWildshardsPlayerThree
@@ -914,13 +906,18 @@ Acidic Concoction             		----		AcidicConcoctionPlayer
 Align Fate                    		----		AlignFatePlayer
 Ancestral Spirits             		----		AncestralSpiritsPlayer
 Apocalypse                    		----		ApocalypsePlayer	ApocalypseColdPlayer	ApocalypseFirePlayer	ApocalypseLightningPlayer
+Black Powder Blitz            		----		BlackPowderBlitzReservationPlayer	BlackPowderBlitzPlayer
 Bleeding Concoction           		----		BleedingConcoctionPlayer
 Blood Boil                    		----		BloodBoilPlayer
 Bow Shot                      		----		MeleeBowPlayer
 Bursting Fen Toad             		----		ExplodingPoisonToadPlayer
+Cackling Companions           		----		HyenaCacklePlayer
 Called Shots                  		----		MetaDeadeyeMarksPlayer	SupportMetaDeadeyeMarksPlayer
+Cast on Block                 		----		MetaCastOnBlockPlayer	SupportMetaCastOnBlockPlayer
 Cast on Charm Use             		----		MetaCastOnCharmUsePlayer	SupportMetaCastOnCharmUsePlayer
 Chaotic Surge                 		----		ChaosSpearTriggerChaosSurgePlayer
+Compose Requiem               		----		CrossbowRequiemAmmoPlayer	CrossbowRequiemPlayer
+Crackling Palm                		----		CracklingPalmPlayer
 Crossbow Shot                 		----		MeleeCrossbowPlayer	UnloadAmmoPlayer
 Decompose                     		----		CorpsewadeCorpseCloudPlayer
 Demon Form                    		----		DemonFormPlayer
@@ -932,6 +929,7 @@ Explosive Concoction          		----		ExplosiveConcoctionPlayer
 Fire Spell on Melee Hit       		----		MetaCastFireSpellOnHitPlayer	SupportMetaCastFireSpellOnHitPlayer
 Fulminating Concoction        		----		FulminatingConcoctionPlayer
 Future-Past                   		----		FuturePastPlayer
+Gemini Surge                  		----		GeminiSurgePlayer
 Inevitable Agony              		----		InevitableAgonyPlayer
 Into the Breach               		----		IntoTheBreachPlayer
 Kelari's Malediction          		----		CorpseBeetlesPlayer	CommandCorpseBeetleExplodePlayer
@@ -943,9 +941,11 @@ Mace Strike                   		----		MeleeMaceMacePlayer
 Manifest Weapon               		----		ManifestWeaponPlayer
 Maul                          		----		BearMaulPlayer
 Meditate                      		----		MeditatePlayer
+Molten Crash                  		----		MoltenCrashPlayer
 Moment of Vulnerability       		----		MomentOfVulnerabilityPlayer
 Navira, the Last Mirage       		----		SummonWaterDjinnPlayer	CommandWaterDjinnBubblePlayer
 Parry                         		----		ParryPlayer
+Phantasmal Arrow              		----		PhantasmalArrowPlayer
 Pinnacle of Power             		----		PinnacleOfPowerPlayer
 Punch                         		----		MeleeUnarmedPlayer
 Quarterstaff Strike           		----		MeleeQuarterstaffPlayer
@@ -955,6 +955,7 @@ Ritual Sacrifice              		----		RitualSacrificePlayer
 Runic Tempering               		----		RunicTemperingPlayer
 Ruzhan, the Blazing Sword     		----		SummonFireDjinnPlayer	CommandFireDjinnLivingBombPlayer
 Shattering Concoction         		----		ShatteringConcoctionPlayer
+Shattering Spite              		----		ShatteringSpitePlayer
 Shred                         		----		WolfShredPlayer	IceFragmentsPlayer
 Sorcery Ward                  		----		SorceryWardPlayer
 Spear Stab                    		----		MeleeSpearOffHandPlayer
@@ -964,14 +965,36 @@ Summon Infernal Hound         		----		SummonInfernalHoundPlayer
 Supporting Fire               		----		SupportingFirePlayer	CommandDeathFromAbovePlayer
 Temper Weapon                 		----		TemperWeaponPlayer	TemperWeaponCombustionPlayer
 Temporal Rift                 		----		TemporalRiftPlayer
+Thundergod's Wrath            		----		MetaCastLightningSpellOnHitPlayer	SupportMetaCastLightningSpellOnHitPlayer
 Time Freeze                   		----		TimeFreezePlayer
 Time Snap                     		----		TimeSnapPlayer
 Unbound Avatar                		----		UnboundAvatarPlayer
 Unleash                       		----		UnleashPlayer
+Valako's Charge               		----		ValakosChargePlayer
 Void Illusion                 		----		VoidIllusionPlayer	VoidIllusionSpawnPlayer
 
 						--------- Support Other ---------
-
+Arbiter's Reach               		----		ArbitersReachWardPlayer
+Breachlord's Amalgam          		----		SupportBreachlordsAmalgam
+Breachlord's Rift             		----		SupportBreachlordsRift
+Catha's Brilliance            		----		SupportCathasBrilliance
+Esh's Prowess                 		----		SupportEshsProwess
+Her Declaration               		----		SupportHerDeclarationPlayer
+Medved's Felling              		----		SupportMedvedsFelling
+Mórrigan's Insight           		----		SupportMorrigansInsight	TriggeredMorrigansInsightPlayer
+Olroth's Conviction           		----		SupportOlrothsConvictionPlayer
+Olroth's Hubris               		----		SupportOlrothsHubrisPlayer
+Prototype Seventeen           		----		SupportPrototypeSeventeenPlayer
+Seraph's Heart                		----		SupportSeraphsHeartPlayer
+Styrn's Ferocity              		----		SupportStyrnsFerocity
+Styrn's Mountain              		----		SupportStyrnsMountain
+Tangmazu's Thurible           		----		SupportTangMazusThuriblePlayer
+Trickster's Shard             		----		SupportTrickstersShardPlayer	TriggeredFracturedSelfPlayer
+Tul's Avalanche               		----		SupportTulsAvalanche
+Uhtred's Constellation        		----		SupportUhtredsConstellation
+Uhtred's Rite                 		----		SupportUhtredsRitePlayer
+Vorana's Siege                		----		SupportVoranasSiege
+Vruun's Aftermath             		----		SupportVruunsAftermath
 
 						--------- Potentially Disabled Other ---------
 Abyssal Apparition            		----		TriggeredAbyssalApparitionPlayer

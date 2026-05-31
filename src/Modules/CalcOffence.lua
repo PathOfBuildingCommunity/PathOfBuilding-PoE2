@@ -1448,7 +1448,7 @@ function calcs.offence(env, actor, activeSkill)
 	end
 	if skillModList:Flag(skillCfg, "RevivingMinion") then
 		local MinionRevivalSpeedMod = calcLib.mod(skillModList, skillCfg, "MinionRevivalSpeed")
-		local baseMinionRevivalTime = data.misc.MinionRevivalTimeBase
+		local baseMinionRevivalTime = skillModList:Override(skillCfg, "BaseReviveTime") or data.misc.MinionRevivalTimeBase
 		output.MinionRevivalSpeed = baseMinionRevivalTime * (1 / MinionRevivalSpeedMod)
 		if breakdown then
 			breakdown.MinionRevivalSpeed = {
