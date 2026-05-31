@@ -4247,13 +4247,13 @@ function calcs.offence(env, actor, activeSkill)
 					end
 
 					if lifeLeech > 0 and not noLifeLeech then
-						lifeLeechTotal = lifeLeechTotal + damageTypeHitAvg * lifeLeech / 100
+						lifeLeechTotal = lifeLeechTotal + m_min(damageTypeHitAvg * lifeLeech / 100, data.misc.LeechMaxInstance)
 					end
 					if manaLeech > 0 and not noManaLeech then
-						manaLeechTotal = manaLeechTotal + damageTypeHitAvg * manaLeech / 100
+						manaLeechTotal = manaLeechTotal + m_min(damageTypeHitAvg * manaLeech / 100, data.misc.LeechMaxInstance)
 					end
 					if energyShieldLeech > 0 and not noEnergyShieldLeech  then
-						energyShieldLeechTotal = energyShieldLeechTotal + damageTypeHitAvg * energyShieldLeech / 100
+						energyShieldLeechTotal = energyShieldLeechTotal + m_min(damageTypeHitAvg * energyShieldLeech / 100, data.misc.LeechMaxInstance)
 					end
 				else
 					if breakdown then
@@ -4702,15 +4702,18 @@ function calcs.offence(env, actor, activeSkill)
 	end
 
 	-- Calculate leech rates
+	local enemyLeechResistance = data.monsterLeechResistanceTable[env.enemyLevel] / 100
+	local enemyLeechResMod = ((100 - enemyLeechResistance) / 100)
+
 	output.LifeLeechInstanceRate = output.Life * data.misc.LeechRateBase * calcLib.mod(skillModList, skillCfg, "LifeLeechRate")
 	output.LifeLeechRate = output.LifeLeechInstances * output.LifeLeechInstanceRate
-	output.LifeLeechPerHit = output.LifeLeechInstanceRate
+	output.LifeLeechPerHit = output.LifeLeechInstanceRate * enemyLeechResMod
 	output.EnergyShieldLeechInstanceRate = output.EnergyShield * data.misc.LeechRateBase * calcLib.mod(skillModList, skillCfg, "EnergyShieldLeechRate")
 	output.EnergyShieldLeechRate = output.EnergyShieldLeechInstances * output.EnergyShieldLeechInstanceRate
-	output.EnergyShieldLeechPerHit = output.EnergyShieldLeechInstanceRate
+	output.EnergyShieldLeechPerHit = output.EnergyShieldLeechInstanceRate * enemyLeechResMod
 	output.ManaLeechInstanceRate = output.Mana * data.misc.LeechRateBase * calcLib.mod(skillModList, skillCfg, "ManaLeechRate")
 	output.ManaLeechRate = output.ManaLeechInstances * output.ManaLeechInstanceRate
-	output.ManaLeechPerHit = output.ManaLeechInstanceRate
+	output.ManaLeechPerHit = output.ManaLeechInstanceRate * enemyLeechResMod
 	-- On full life, Immortal Ambition treats life leech as energy shield leech
 	if skillModList:Flag(nil, "ImmortalAmbition") then
 		output.EnergyShieldLeechRate = output.EnergyShieldLeechRate + output.LifeLeechRate
@@ -4746,13 +4749,13 @@ function calcs.offence(env, actor, activeSkill)
 	if breakdown then
 		local hitRate = output.HitChance / 100 * (globalOutput.HitSpeed or globalOutput.Speed) * skillData.dpsMultiplier
 		if skillFlags.leechLife then
-			breakdown.LifeLeech = breakdown.leech(output.LifeLeechInstant, output.LifeLeechInstantRate, output.LifeLeechInstances, output.Life, "LifeLeechRate", output.MaxLifeLeechRate, output.LifeLeechDuration, output.LifeLeechInstantProportion, hitRate)
+			breakdown.LifeLeech = breakdown.leech(output.LifeLeechInstant, output.LifeLeechInstantRate, output.LifeLeechInstances, output.Life, "LifeLeechRate", output.MaxLifeLeechRate, output.LifeLeechDuration, output.LifeLeechInstantProportion, hitRate, enemyLeechResistance)
 		end
 		if skillFlags.leechES then
-			breakdown.EnergyShieldLeech = breakdown.leech(output.EnergyShieldLeechInstant, output.EnergyShieldLeechInstantRate, output.EnergyShieldLeechInstances, output.EnergyShield, "EnergyShieldLeechRate", output.MaxEnergyShieldLeechRate, output.EnergyShieldLeechDuration, output.EnergyShieldLeechInstantProportion, hitRate)
+			breakdown.EnergyShieldLeech = breakdown.leech(output.EnergyShieldLeechInstant, output.EnergyShieldLeechInstantRate, output.EnergyShieldLeechInstances, output.EnergyShield, "EnergyShieldLeechRate", output.MaxEnergyShieldLeechRate, output.EnergyShieldLeechDuration, output.EnergyShieldLeechInstantProportion, hitRate, enemyLeechResistance)
 		end
 		if skillFlags.leechMana then
-			breakdown.ManaLeech = breakdown.leech(output.ManaLeechInstant, output.ManaLeechInstantRate, output.ManaLeechInstances, output.Mana, "ManaLeechRate", output.MaxManaLeechRate, output.ManaLeechDuration, output.ManaLeechInstantProportion, hitRate)
+			breakdown.ManaLeech = breakdown.leech(output.ManaLeechInstant, output.ManaLeechInstantRate, output.ManaLeechInstances, output.Mana, "ManaLeechRate", output.MaxManaLeechRate, output.ManaLeechDuration, output.ManaLeechInstantProportion, hitRate, enemyLeechResistance)
 		end
 	end
 
