@@ -56,6 +56,39 @@ return {
 						[2]=1000
 					}
 				},
+				text="Spawn a new Swarm once every second"
+			},
+			[2]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="Spawn a new Swarm once every {0} seconds"
+			}
+		},
+		stats={
+			[1]="base_cooldown_modifiable_repeat_interval_ms"
+		}
+	},
+	[4]={
+		[1]={
+			[1]={
+				[1]={
+					k="milliseconds_to_seconds_2dp_if_required",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]=1000,
+						[2]=1000
+					}
+				},
 				text="Swarm duration is {0} second"
 			},
 			[2]={
@@ -76,47 +109,37 @@ return {
 			[1]="base_skill_effect_duration"
 		}
 	},
-	[4]={
-		[1]={
-		},
-		stats={
-			[1]="minion_duration"
-		}
-	},
 	[5]={
 		[1]={
 			[1]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
-				limit={
-					[1]={
-						[1]=1000,
-						[2]=1000
-					}
-				},
-				text="Spawn a new Swarm once every second"
-			},
-			[2]={
-				[1]={
-					k="milliseconds_to_seconds_2dp_if_required",
-					v=1
-				},
 				limit={
 					[1]={
 						[1]="#",
 						[2]="#"
 					}
 				},
-				text="Spawn a new Swarm once every {0} seconds"
+				text="Modifiers to Cooldown Recovery Rate also apply to\nSwarm spawning frequency"
 			}
 		},
 		stats={
-			[1]="ravenous_swarm_create_new_swarm_every_X_ms"
+			[1]="cooldown_recovery_modifiers_also_apply_to_repeat_interval"
 		}
 	},
 	[6]={
+		[1]={
+		},
+		stats={
+			[1]="minion_duration"
+		}
+	},
+	[7]={
+		[1]={
+		},
+		stats={
+			[1]="virtual_cooldown_modifiable_repeat_interval_ms"
+		}
+	},
+	[8]={
 		[1]={
 			[1]={
 				limit={
@@ -143,9 +166,11 @@ return {
 	},
 	["active_skill_area_of_effect_radius"]=1,
 	["active_skill_base_area_of_effect_radius"]=2,
-	["base_skill_effect_duration"]=3,
-	["minion_duration"]=4,
+	["base_cooldown_modifiable_repeat_interval_ms"]=3,
+	["base_skill_effect_duration"]=4,
+	["cooldown_recovery_modifiers_also_apply_to_repeat_interval"]=5,
+	["minion_duration"]=6,
 	parent="skill_stat_descriptions",
-	["ravenous_swarm_create_new_swarm_every_X_ms"]=5,
-	["virtual_ravenous_swarm_maximum_swarm_count"]=6
+	["virtual_cooldown_modifiable_repeat_interval_ms"]=7,
+	["virtual_ravenous_swarm_maximum_swarm_count"]=8
 }

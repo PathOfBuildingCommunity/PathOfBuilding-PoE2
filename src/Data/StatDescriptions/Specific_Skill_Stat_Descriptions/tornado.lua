@@ -186,6 +186,16 @@ return {
 	[8]={
 		[1]={
 			[1]={
+				["gem_quality"]=true,
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="+{0} to Limit of Tornadoes"
+			},
+			[2]={
 				limit={
 					[1]={
 						[1]=1,
@@ -194,7 +204,7 @@ return {
 				},
 				text="Limit {0} Tornado"
 			},
-			[2]={
+			[3]={
 				limit={
 					[1]={
 						[1]="#",

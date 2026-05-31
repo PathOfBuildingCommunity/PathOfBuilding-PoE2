@@ -47,44 +47,8 @@ return {
 			[1]="active_skill_base_area_of_effect_radius"
 		}
 	},
-	[4]={
-		[1]={
-			[1]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]=0,
-						[2]=0
-					}
-				},
-				text="Maximum {0:+d} shockwaves per use"
-			},
-			[2]={
-				limit={
-					[1]={
-						[1]="#",
-						[2]="#"
-					},
-					[2]={
-						[1]="#",
-						[2]="#"
-					}
-				},
-				text="Maximum {0} shockwaves per use"
-			}
-		},
-		stats={
-			[1]="gathering_storm_perfect_aoe_limit",
-			[2]="quality_display_gathering_storm_is_gem"
-		}
-	},
 	["active_skill_area_of_effect_radius"]=2,
 	["active_skill_base_area_of_effect_radius"]=3,
-	["gathering_storm_perfect_aoe_limit"]=4,
 	parent="skill_stat_descriptions",
-	["quality_display_gathering_storm_is_gem"]=4,
 	["total_attack_time_+_ms"]=1
 }

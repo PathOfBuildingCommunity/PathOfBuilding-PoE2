@@ -16,11 +16,11 @@ return {
 		[1]={
 		},
 		stats={
-			[1]="total_number_of_projectiles_to_fire"
+			[1]="total_number_of_projectiles_to_fire_from_stats"
 		}
 	},
 	["active_skill_requires_X_glory"]=2,
 	["base_skill_effect_duration"]=1,
 	parent="skill_stat_descriptions",
-	["total_number_of_projectiles_to_fire"]=3
+	["total_number_of_projectiles_to_fire_from_stats"]=3
 }
