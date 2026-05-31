@@ -1841,7 +1841,6 @@ skills["BonestormPlayer"] = {
 				{ "base_number_of_projectiles", 1 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
 				{ "base_minimum_channel_time_ms", 300 },
 				{ "bone_spear_target_rectangle_length", 40 },
 				{ "base_number_of_allowed_bone_storm_projectiles", 20 },
@@ -1934,7 +1933,6 @@ skills["BonestormPlayer"] = {
 			constantStats = {
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
 				{ "base_minimum_channel_time_ms", 300 },
 				{ "bone_spear_target_rectangle_length", 40 },
 				{ "base_number_of_allowed_bone_storm_projectiles", 20 },
@@ -3047,8 +3045,8 @@ skills["WeaponGrantedChaosboltPlayer"] = {
 	}
 }
 skills["ChargeRegulationPlayer"] = {
-	name = "Charge Infusion",
-	baseTypeName = "Charge Infusion",
+	name = "Charge Regulation",
+	baseTypeName = "Charge Regulation",
 	icon = "Art/2DArt/SkillIcons/ChargeMasteryDeath.dds",
 	color = 3,
 	description = "While active, you gain powerful Buffs based on your active Charges. However, maintaining the Buff Consumes Charges every few seconds.",
@@ -3101,7 +3099,7 @@ skills["ChargeRegulationPlayer"] = {
 	},
 	statSets = {
 		[1] = {
-			label = "Charge Infusion",
+			label = "Charge Regulation",
 			incrementalEffectiveness = 0.054999999701977,
 			statDescriptionScope = "charge_regulation",
 			statMap = {
@@ -8371,7 +8369,6 @@ skills["FlameblastPlayer"] = {
 				{ "base_minimum_channel_time_ms", 490 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
 			},
 			stats = {
 				"spell_minimum_base_fire_damage",
@@ -13398,7 +13395,6 @@ skills["IncineratePlayer"] = {
 				{ "base_minimum_channel_time_ms", 600 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
 				{ "active_skill_override_turn_duration_ms", 360 },
 				{ "incinerate_damage_+%_final_per_stage", 0 },
 				{ "active_skill_energy_generated_+%_final", -98 },
@@ -13486,7 +13482,6 @@ skills["IncineratePlayer"] = {
 				{ "base_minimum_channel_time_ms", 600 },
 				{ "movement_speed_+%_final_while_performing_action", -70 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
 				{ "active_skill_override_turn_duration_ms", 360 },
 				{ "incinerate_damage_+%_final_per_stage", 0 },
 				{ "active_skill_energy_generated_+%_final", -98 },

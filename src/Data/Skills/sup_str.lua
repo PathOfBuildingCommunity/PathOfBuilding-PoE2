@@ -1740,7 +1740,7 @@ skills["TriggeredCorruptingCryPlayer"] = {
 	hidden = true,
 	icon = "",
 	description = "Covers the target in Corrupted Blood which damages them.",
-	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, },
+	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1813,6 +1813,7 @@ skills["TriggeredCorruptingCryPlayer"] = {
 			stats = {
 				"base_physical_damage_to_deal_per_minute",
 				"skill_triggered_by_support_which_grants_it",
+				"modifiers_to_warcry_damage_also_apply_to_this",
 			},
 			levels = {
 				[1] = { 356, statInterpolation = { 1, }, actorLevel = 1, },
@@ -1898,7 +1899,7 @@ skills["TriggeredCorruptingCryTwoPlayer"] = {
 	hidden = true,
 	icon = "",
 	description = "Covers the target in Corrupted Blood which damages them.",
-	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, },
+	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -1971,6 +1972,7 @@ skills["TriggeredCorruptingCryTwoPlayer"] = {
 			stats = {
 				"base_physical_damage_to_deal_per_minute",
 				"skill_triggered_by_support_which_grants_it",
+				"modifiers_to_warcry_damage_also_apply_to_this",
 			},
 			levels = {
 				[1] = { 356, statInterpolation = { 1, }, actorLevel = 1, },
@@ -5196,7 +5198,7 @@ skills["TriggeredCorruptingCryThreePlayer"] = {
 	hidden = true,
 	icon = "",
 	description = "Covers the target in large quantities of Corrupted Blood which severly damages them.",
-	skillTypes = { [SkillType.Buff] = true, [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, },
+	skillTypes = { [SkillType.Duration] = true, [SkillType.Triggerable] = true, [SkillType.Triggered] = true, [SkillType.InbuiltTrigger] = true, [SkillType.AttackInPlace] = true, [SkillType.SkillGrantedBySupport] = true, [SkillType.UsableWhileShapeshifted] = true, [SkillType.Physical] = true, [SkillType.DamageOverTime] = true, },
 	castTime = 1,
 	qualityStats = {
 	},
@@ -5269,6 +5271,7 @@ skills["TriggeredCorruptingCryThreePlayer"] = {
 			stats = {
 				"base_physical_damage_to_deal_per_minute",
 				"skill_triggered_by_support_which_grants_it",
+				"modifiers_to_warcry_damage_also_apply_to_this",
 			},
 			levels = {
 				[1] = { 421, statInterpolation = { 1, }, actorLevel = 1, },
@@ -5660,7 +5663,7 @@ skills["SupportRageforgedPlayer"] = {
 	description = "Supports any damaging skill that you use or Trigger yourself, causing it to spend Rage to deal more damage. If you don't have enough Rage to spend, the damage bonus will not apply.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, },
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, SkillType.DamageOverTime, },
 	addSkillTypes = { SkillType.ConsumesRage, },
 	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, },
 	gemFamily = { "RageForged",},
@@ -5697,7 +5700,7 @@ skills["SupportRageforgedPlayerTwo"] = {
 	description = "Supports any damaging skill that you use or Trigger yourself, causing it to spend Rage to deal more damage, with a chance to skip spending Rage while still benefitting as though it had. If you don't have enough Rage to spend, the damage bonus will not apply.",
 	color = 1,
 	support = true,
-	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, },
+	requireSkillTypes = { SkillType.Damage, SkillType.Attack, SkillType.CrossbowAmmoSkill, SkillType.DegenOnlySpellDamage, SkillType.DamageOverTime, },
 	addSkillTypes = { SkillType.ConsumesRage, },
 	excludeSkillTypes = { SkillType.UsedByProxy, SkillType.Persistent, },
 	gemFamily = { "RageForged",},

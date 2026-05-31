@@ -3421,6 +3421,7 @@ skills["ConductiveRunesPlayer"] = {
 				"can_perform_skill_while_moving",
 				"cast_time_overrides_attack_duration",
 				"base_deal_no_damage",
+				"usable_while_shapeshifted",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -3490,6 +3491,7 @@ skills["ConductiveRunesPlayer"] = {
 				"active_skill_electrocutes_as_though_dealt_damage_+%_final",
 				"can_perform_skill_while_moving",
 				"cast_time_overrides_attack_duration",
+				"usable_while_shapeshifted",
 				"is_area_damage",
 				"replace_main_hand_unarmed_attack_stats_with_nothing_type",
 				"base_lightning_damage_can_electrocute",
@@ -6651,6 +6653,7 @@ skills["FragmentsOfThePastPlayer"] = {
 			},
 			stats = {
 				"can_perform_skill_while_moving",
+				"usable_while_shapeshifted",
 			},
 			levels = {
 				[1] = { actorLevel = 1, },
@@ -7943,7 +7946,6 @@ skills["MetaHollowFormPlayer"] = {
 				{ "channel_end_duration_as_%_of_attack_time", 30 },
 				{ "movement_speed_+%_final_while_performing_action", -80 },
 				{ "movement_speed_acceleration_+%_per_second_while_performing_action", 160 },
-				{ "movement_speed_while_performing_action_locked_duration_%", 50 },
 				{ "channel_start_lock_cancelling_of_attack_time_%", 70 },
 			},
 			stats = {
@@ -9084,7 +9086,7 @@ skills["LeylinesPlayer"] = {
 	skillTypes = { [SkillType.OngoingSkill] = true, [SkillType.HasReservation] = true, [SkillType.Buff] = true, [SkillType.Persistent] = true, [SkillType.AttackInPlace] = true, [SkillType.Area] = true, [SkillType.Duration] = true, },
 	castTime = 1,
 	qualityStats = {
-		{ "base_skill_effect_duration", 100 },
+		{ "skill_leylines_spell_damage_+%_final", 0.5 },
 	},
 	levels = {
 		[1] = { levelRequirement = 0, spiritReservationFlat = 30, },

@@ -569,7 +569,7 @@ Cast on Dodge                 		----		MetaCastOnDodgePlayer	SupportMetaCastOnDod
 Cast on Elemental Ailment     		----		MetaCastOnElementalAilmentPlayer	SupportMetaCastOnElementalAilmentPlayer
 Cast on Minion Death          		----		MetaCastOnMinionDeathPlayer	SupportMetaCastOnMinionDeathPlayer
 Chaos Bolt                    		----		WeaponGrantedChaosboltPlayer
-Charge Infusion               		----		ChargeRegulationPlayer
+Charge Regulation             		----		ChargeRegulationPlayer
 Charged Staff                 		----		ChargedStaffPlayer	ChargedStaffShockwavePlayer
 Coiling Bolts                 		----		CoilingBoltsPlayer
 Comet                         		----		CometPlayer

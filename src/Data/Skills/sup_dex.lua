@@ -429,7 +429,7 @@ skills["SupportAmmoConservationPlayerFour"] = {
 }
 skills["SupportAtzirisImpatiencePlayer"] = {
 	name = "Atziri's Impatience",
-	description = "Supports Skills with Cooldowns, dramatically increasing the rate at which those Cooldowns Recover, but causing you to lose Life, Mana, and Energy Shield when they are used. Cannot Support Meta Skills or Persistent Skills, or modify the Skills of Minions.",
+	description = "Supports Skills you use yourself that have Cooldowns, dramatically increasing the rate at which those Cooldowns Recover, but causing you to lose Life, Mana, and Energy Shield when they are used. Cannot Support Meta Skills or Persistent Skills, or modify the Skills of Minions.",
 	color = 2,
 	support = true,
 	requireSkillTypes = { SkillType.Cooldown, SkillType.AffectedByCooldownRate, },

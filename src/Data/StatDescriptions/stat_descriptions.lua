@@ -111294,7 +111294,7 @@ return {
 						[2]="#"
 					}
 				},
-				text="Break Armour equal to {0}% of maximum Runic Ward"
+				text="Attacks Break Armour equal to {0}% of maximum Runic Ward"
 			}
 		},
 		stats={
