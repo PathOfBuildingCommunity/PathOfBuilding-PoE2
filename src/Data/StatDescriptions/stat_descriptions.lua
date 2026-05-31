@@ -29057,13 +29057,22 @@ return {
 						[2]="#"
 					}
 				},
-				text="{0:+d} to Ward"
+					text="{0:+d} to Ward"
+				},
+				[2]={
+					limit={
+						[1]={
+							[1]="#",
+							[2]="#"
+						}
+					},
+					text="{0:+d} to Runic Ward"
+				}
+			},
+			stats={
+				[1]="base_ward"
 			}
 		},
-		stats={
-			[1]="base_ward"
-		}
-	},
 	[1376]={
 		[1]={
 			[1]={
@@ -29074,6 +29083,15 @@ return {
 					}
 				},
 				text="{0:+d} to Ward"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0:+d} to Runic Ward"
 			}
 		},
 		stats={
@@ -29103,6 +29121,28 @@ return {
 					}
 				},
 				text="{0}% reduced Ward"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased Runic Ward"
+			},
+			[4]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced Runic Ward"
 			}
 		},
 		stats={
@@ -29132,6 +29172,28 @@ return {
 					}
 				},
 				text="{0}% reduced Ward"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% increased Runic Ward"
+			},
+			[4]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% reduced Runic Ward"
 			}
 		},
 		stats={
@@ -29161,6 +29223,28 @@ return {
 					}
 				},
 				text="{0}% slower Restoration of Ward"
+			},
+			[3]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="{0}% faster Restoration of Runic Ward"
+			},
+			[4]={
+				[1]={
+					k="negate",
+					v=1
+				},
+				limit={
+					[1]={
+						[1]="#",
+						[2]=-1
+					}
+				},
+				text="{0}% slower Restoration of Runic Ward"
 			}
 		},
 		stats={
@@ -37569,6 +37653,15 @@ return {
 					}
 				},
 				text="Gain Added Chaos Damage equal to {0}% of Ward"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]=1,
+						[2]="#"
+					}
+				},
+				text="Gain Added Chaos Damage equal to {0}% of Runic Ward"
 			}
 		},
 		stats={
@@ -100934,6 +101027,15 @@ return {
 					}
 				},
 				text="{0}% of Damage taken bypasses Ward"
+			},
+			[2]={
+				limit={
+					[1]={
+						[1]="#",
+						[2]="#"
+					}
+				},
+				text="{0}% of Damage taken bypasses Runic Ward"
 			}
 		},
 		stats={

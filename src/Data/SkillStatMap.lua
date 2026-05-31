@@ -3070,4 +3070,29 @@ return {
 ["quality_display_freezing_mark_is_gem"] = {
 	-- Display Only
 },
+-- Runic Ward stat mappings
+["base_maximum_ward"] = {
+	mod("Ward", "BASE"),
+},
+["maximum_ward_+%"] = {
+	mod("Ward", "INC"),
+},
+["base_ward_regeneration_per_minute"] = {
+	mod("WardRegen", "BASE"),
+},
+["base_ward_regeneration_per_minute_+%"] = {
+	mod("WardRegen", "INC"),
+},
+["base_ward_cost_efficiency"] = {
+	mod("WardCostEfficiency", "BASE"),
+},
+["base_ward_cost_efficiency_+%"] = {
+	mod("WardCostEfficiency", "INC"),
+},
+["recover_x_ward_on_block"] = {
+	mod("WardRecoverOnBlock", "BASE"),
+},
+["recover_x_ward_on_charm_use"] = {
+	mod("WardRecoverOnCharmUse", "BASE"),
+},
 }
