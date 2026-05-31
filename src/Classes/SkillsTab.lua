@@ -1268,51 +1268,13 @@ end
 function SkillsTabClass:OpenSkillSetManagePopup()
 	local controls = { }
 	controls.setList = new("SkillSetListControl", nil, {0, 50, 350, 200}, self)
+	controls.levelRange = new("LevelRangeControl", nil, {-155, 260, 0, 16}, self.skillSets[self.activeSkillSetId])
+	controls.setList.levelRange = controls.levelRange
 
-	-- Level bracket inputs for the .build (PoE2 BuildPlanner) export.
-	local function clampLvl(buf)
-		local n = tonumber(buf)
-		if not n then return nil end
-		n = math.floor(n)
-		if n < 0 then n = 0 end
-		if n > 100 then n = 100 end
-		return n
-	end
-	local function selectedSet()
-		return self.skillSets[controls.setList.selValue]
-	end
-	controls.lvlLabel = new("LabelControl", nil, {-95, 260, 0, 16}, "^7Lvl range:")
-	controls.lvlMin = new("EditControl", nil, {-30, 260, 60, 20}, nil, nil, "%D", 3, function(buf)
-		local set = selectedSet()
-		if set then
-			set.levelMin = clampLvl(buf)
-			self.build.modFlag = true
-		end
-	end)
-	controls.lvlMin.tooltipText = "Lowest character level this skill set applies to in the exported .build (1-100). Leave blank to auto-split across skill sets."
-	controls.lvlDash = new("LabelControl", nil, {30, 260, 0, 16}, "^7-")
-	controls.lvlMax = new("EditControl", nil, {80, 260, 60, 20}, nil, nil, "%D", 3, function(buf)
-		local set = selectedSet()
-		if set then
-			set.levelMax = clampLvl(buf)
-			self.build.modFlag = true
-		end
-	end)
-	controls.lvlMax.tooltipText = "Highest character level this skill set applies to in the exported .build (1-100). Leave blank to auto-split across skill sets."
-	local function refreshLvl()
-		local set = selectedSet()
-		controls.lvlMin:SetText(set and set.levelMin and tostring(set.levelMin) or "")
-		controls.lvlMax:SetText(set and set.levelMax and tostring(set.levelMax) or "")
-	end
-	controls.setList.OnSelClick = function(listSelf, index, value, doubleClick)
-		refreshLvl()
-	end
-	refreshLvl()
-
-	controls.close = new("ButtonControl", nil, {155, 260, 50, 20}, "Done", function()
+	controls.close = new("ButtonControl", nil, {0, 290, 90, 20}, "Done", function()
 		main:ClosePopup()
 	end)
-	main:OpenPopup(370, 290, "Manage Skill Sets", controls)
+	main:OpenPopup(370, 320, "Manage Skill Sets", controls)
 end
 
 -- Creates a new skill set

@@ -620,46 +620,8 @@ end
 function TreeTabClass:OpenSpecManagePopup()
 	local controls = { }
 	controls.specList = new("PassiveSpecListControl", nil, {0, 50, 350, 200}, self)
-
-	-- Level bracket inputs for the .build (PoE2 BuildPlanner) export.
-	local function clampLvl(buf)
-		local n = tonumber(buf)
-		if not n then return nil end
-		n = m_floor(n)
-		if n < 0 then n = 0 end
-		if n > 100 then n = 100 end
-		return n
-	end
-	local function selectedSpec()
-		return controls.specList.selValue
-	end
-	controls.lvlLabel = new("LabelControl", nil, {-95, 260, 0, 16}, "^7Lvl range:")
-	controls.lvlMin = new("EditControl", nil, {-30, 260, 60, 20}, nil, nil, "%D", 3, function(buf)
-		local spec = selectedSpec()
-		if spec then
-			spec.levelMin = clampLvl(buf)
-			self.modFlag = true
-		end
-	end)
-	controls.lvlMin.tooltipText = "Lowest character level this passive tree applies to in the exported .build (1-100). Leave blank to auto-split across trees."
-	controls.lvlDash = new("LabelControl", nil, {30, 260, 0, 16}, "^7-")
-	controls.lvlMax = new("EditControl", nil, {80, 260, 60, 20}, nil, nil, "%D", 3, function(buf)
-		local spec = selectedSpec()
-		if spec then
-			spec.levelMax = clampLvl(buf)
-			self.modFlag = true
-		end
-	end)
-	controls.lvlMax.tooltipText = "Highest character level this passive tree applies to in the exported .build (1-100). Leave blank to auto-split across trees."
-	local function refreshLvl()
-		local spec = selectedSpec()
-		controls.lvlMin:SetText(spec and spec.levelMin and tostring(spec.levelMin) or "")
-		controls.lvlMax:SetText(spec and spec.levelMax and tostring(spec.levelMax) or "")
-	end
-	controls.specList.OnSelClick = function(listSelf, index, value, doubleClick)
-		refreshLvl()
-	end
-	refreshLvl()
+	controls.levelRange = new("LevelRangeControl", nil, {-155, 260, 0, 16}, self.specList[self.activeSpec])
+	controls.specList.levelRange = controls.levelRange
 
 	controls.importTree = new("ButtonControl", nil, {-99, 290, 90, 20}, "Import Tree", function()
 		self:OpenImportPopup()

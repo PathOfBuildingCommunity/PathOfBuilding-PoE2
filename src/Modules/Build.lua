@@ -282,53 +282,36 @@ function buildMode:Init(dbFileName, buildName, buildXML, convertBuild, importLin
 			return
 		end
 		if value == "^7^7New Loadout" then
-			local BuildExportPoE2 = require("Modules/BuildExportPoE2")
-			local presetLo, presetHi = BuildExportPoE2.NextLoadoutBracket(self)
-			local function parseLvl(buf)
-				local n = tonumber(buf)
-				if not n then return nil end
-				n = math.floor(n)
-				if n < 0 then n = 0 end
-				if n > 100 then n = 100 end
-				return n
-			end
-
 			local controls = { }
 			controls.label = new("LabelControl", nil, {0, 20, 0, 16}, "^7Enter name for this loadout:")
 			controls.edit = new("EditControl", nil, {0, 40, 350, 20}, "New Loadout", nil, nil, 100, function(buf)
 				controls.save.enabled = buf:match("%S")
 			end)
-			controls.lvlLabel = new("LabelControl", nil, {-75, 70, 0, 16}, "^7Level range:")
-			controls.lvlMin = new("EditControl", {"LEFT", controls.lvlLabel, "RIGHT"}, {6, 0, 60, 20}, tostring(presetLo), nil, "%D", 3)
-			controls.lvlMin.tooltipText = "Lowest character level this loadout applies to in the exported PoE2 .build (1-100). Leave blank to omit."
-			controls.lvlDash = new("LabelControl", {"LEFT", controls.lvlMin, "RIGHT"}, {4, 0, 0, 16}, "^7-")
-			controls.lvlMax = new("EditControl", {"LEFT", controls.lvlDash, "RIGHT"}, {4, 0, 60, 20}, tostring(presetHi), nil, "%D", 3)
-			controls.lvlMax.tooltipText = "Highest character level this loadout applies to in the exported PoE2 .build (1-100). Leave blank to omit."
+			-- Fake set to apply to all of the real sets
+			local newSet = {}
+			controls.levelRange = new("LevelRangeControl", nil, {-155, 70, 0, 16}, newSet)
 			controls.save = new("ButtonControl", nil, {-45, 100, 80, 20}, "Save", function()
 				local loadout = controls.edit.buf
-				local lvlMin = parseLvl(controls.lvlMin.buf)
-				local lvlMax = parseLvl(controls.lvlMax.buf)
-				if lvlMin and lvlMax and lvlMin > lvlMax then
-					lvlMin, lvlMax = lvlMax, lvlMin
-				end
+				local levelMin = newSet.levelMin
+				local levelMax = newSet.levelMax
 
 				local newSpec = new("PassiveSpec", self, latestTreeVersion)
 				newSpec.title = loadout
-				newSpec.levelMin = lvlMin
-				newSpec.levelMax = lvlMax
+				newSpec.levelMin = levelMin
+				newSpec.levelMax = levelMax
 				t_insert(self.treeTab.specList, newSpec)
 
 				local itemSet = self.itemsTab:NewItemSet(#self.itemsTab.itemSets + 1)
 				t_insert(self.itemsTab.itemSetOrderList, itemSet.id)
 				itemSet.title = loadout
-				itemSet.levelMin = lvlMin
-				itemSet.levelMax = lvlMax
+				itemSet.levelMin = levelMin
+				itemSet.levelMax = levelMax
 
 				local skillSet = self.skillsTab:NewSkillSet(#self.skillsTab.skillSets + 1)
 				t_insert(self.skillsTab.skillSetOrderList, skillSet.id)
 				skillSet.title = loadout
-				skillSet.levelMin = lvlMin
-				skillSet.levelMax = lvlMax
+				skillSet.levelMin = levelMin
+				skillSet.levelMax = levelMax
 
 				local configSet = self.configTab:NewConfigSet(#self.configTab.configSets + 1)
 				t_insert(self.configTab.configSetOrderList, configSet.id)
